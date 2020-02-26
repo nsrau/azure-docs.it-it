@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 64df1188692ae9f1b6200ad880a2bf1eafd98844
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b53405d199072211304e21b681de646c4e41243c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483228"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585629"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gestire gli account utente Azure AD B2C con Microsoft Graph
 
@@ -180,7 +180,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Eseguire chiamate API usando gli SDK di Microsoft Graph](https://docs.microsoft.comgraph/sdks/create-requests) include informazioni su come leggere e scrivere informazioni da Microsoft Graph, utilizzare `$select` per controllare le proprietà restituite, specificare parametri di query personalizzati e utilizzare i parametri di query `$filter` e `$orderBy`.
+[Eseguire chiamate API usando gli SDK di Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) include informazioni su come leggere e scrivere informazioni da Microsoft Graph, utilizzare `$select` per controllare le proprietà restituite, specificare parametri di query personalizzati e utilizzare i parametri di query `$filter` e `$orderBy`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

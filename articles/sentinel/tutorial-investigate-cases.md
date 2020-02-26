@@ -3,7 +3,7 @@ title: Esaminare gli eventi imprevisti con Sentinel di Azure | Microsoft Docs
 description: Usare questa esercitazione per informazioni su come analizzare gli eventi imprevisti con Sentinel di Azure.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.author: yelevin
+ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024618"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587193"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: esaminare gli eventi imprevisti con Sentinel di Azure
 
@@ -39,7 +39,7 @@ Questo articolo riguarda:
 
 Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di tutte le evidenze rilevanti per un'indagine specifica. Viene creato un evento imprevisto in base alle regole analitiche create nella pagina di **analisi** . Le proprietà correlate agli avvisi, ad esempio la gravità e lo stato, vengono impostate a livello di evento imprevisto. Quando si lascia che Azure Sentinel conosca quali tipi di minacce si sta cercando e come trovarli, è possibile monitorare le minacce rilevate esaminando gli eventi imprevisti.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 È possibile esaminare l'evento imprevisto solo se sono stati usati i campi di mapping delle entità quando si configura la regola di analisi. Il grafico di indagine richiede che l'evento imprevisto originale includa entità.
 
 ## <a name="how-to-investigate-incidents"></a>Come analizzare gli eventi imprevisti
@@ -54,7 +54,7 @@ Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di
 
 1. Per visualizzare ulteriori dettagli sugli avvisi e le entità nell'evento imprevisto, selezionare **Visualizza dettagli completi** nella pagina evento imprevisto ed esaminare le schede pertinenti che riepilogano le informazioni sull'evento imprevisto. Nella scheda **avvisi** esaminare l'avviso stesso. È possibile visualizzare tutte le informazioni rilevanti relative all'avviso, ovvero la query che ha attivato l'avviso, il numero di risultati restituiti per ogni query e la possibilità di eseguire PlayBook negli avvisi. Per eseguire il drill-down anche ulteriormente nell'evento imprevisto, selezionare il numero di **eventi**. Verrà visualizzata la query che ha generato i risultati e gli eventi che hanno attivato l'avviso in Log Analytics. Nella scheda **entità** è possibile visualizzare tutte le entità di cui è stato eseguito il mapping come parte della definizione della regola di avviso.
 
-    ![Visualizza dettagli avviso](media/tutorial-investigate-cases/alert-details.png)
+    ![Visualizzare i dettagli relativi all'avviso](media/tutorial-investigate-cases/alert-details.png)
 
 1. Se si sta esaminando attivamente un evento imprevisto, è consigliabile impostare lo stato dell'evento imprevisto su **in corso** fino a quando non lo si chiude.
 

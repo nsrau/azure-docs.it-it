@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: jgao
-ms.openlocfilehash: d8212fb55b20f051c6479071010ef4f828792baa
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 19ef5a08b66b8d1a09ddf9a6b73a3856f745485d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561154"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586707"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -42,7 +42,12 @@ I vantaggi dello script di distribuzione:
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene usata per eseguire gli script di distribuzione. Per crearne uno, vedere [creare un'identità gestita assegnata dall'utente usando il portale di Azure o l'interfaccia della](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)riga di comando di [Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)oppure [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
+- **Identità gestita assegnata dall'utente con il ruolo di collaboratore al gruppo di risorse di destinazione**. Questa identità viene usata per eseguire gli script di distribuzione. Per eseguire operazioni all'esterno del gruppo di risorse, è necessario concedere autorizzazioni aggiuntive. Ad esempio, assegnare l'identità al livello della sottoscrizione se si vuole creare un nuovo gruppo di risorse.
+
+  > [!NOTE]
+  > Il motore di script di distribuzione deve creare in background un account di archiviazione e un'istanza di contenitore.  Un'identità gestita assegnata dall'utente con il ruolo Collaboratore a livello di sottoscrizione è obbligatoria se la sottoscrizione non ha registrato la risorsa account di archiviazione di Azure (Microsoft. Storage) e istanza di contenitore di Azure (Microsoft. ContainerInstance) provider.
+
+  Per creare un'identità, vedere [creare un'identità gestita assegnata dall'utente usando il portale di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)o l' [interfaccia](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)della riga di comando di Azure oppure [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -99,8 +104,7 @@ Il codice JSON seguente è un esempio.  Lo schema del modello più recente è di
       Write-Output $output
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
-    ",
-    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
+    ", // or "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
     "cleanupPreference": "OnSuccess",
@@ -208,6 +212,12 @@ Gli output dello script di distribuzione devono essere salvati nel percorso AZ_S
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
 
 [JQ](https://stedolan.github.io/jq/) viene usato nell'esempio precedente. Viene fornita con le immagini del contenitore. Vedere [configurare l'ambiente di sviluppo](#configure-development-environment).
+
+## <a name="handle-non-terminating-errors"></a>Gestione degli errori non fatali
+
+È possibile controllare il modo in cui PowerShell risponde agli errori non fatali usando la variabile [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
+) nello script di distribuzione. Il motore di script di distribuzione non imposta o modifica il valore.  Nonostante il valore impostato per $ErrorActionPreference, lo script di distribuzione imposta lo stato di provisioning delle risorse su *non riuscito* quando si verifica un errore nello script.
+
 
 ## <a name="debug-deployment-scripts"></a>Debug degli script di distribuzione
 

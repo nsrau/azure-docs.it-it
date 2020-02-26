@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: HT
+ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472435"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586751"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure
 
@@ -25,7 +25,7 @@ L'arricchimento tramite intelligenza artificiale è una funzionalità dell'indic
 
 ![Diagramma della pipeline di arricchimento](./media/cognitive-search-intro/cogsearch-architecture.png "panoramica della pipeline di arricchimento")
 
-Le competenze cognitive in Ricerca cognitiva di Azure si basano sui modelli di Machine Learning di cui è stato eseguito il training disponibili nelle API Servizi cognitivi [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+Le competenze cognitive in Azure ricerca cognitiva si basano su modelli di apprendimento automatico pre-addestrati in API Servizi cognitivi: [visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante la fase di inserimento dei dati e i risultati diventano parte della composizione di un documento in un indice ricercabile in Ricerca cognitiva di Azure. I dati vengono originati come set di dati di Azure e quindi attraverso una pipeline di indicizzazione che usa le [competenze predefinite](cognitive-search-predefined-skills.md) necessarie. L'architettura è estendibile per permettere di creare e associare [competenze personalizzate](cognitive-search-create-custom-skill-example.md) per integrare l'elaborazione personalizzata nel caso in cui le competenze predefinite non siano sufficienti. Esempi possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
 
@@ -65,15 +65,15 @@ Le competenze personalizzate possono supportare scenari più complessi, ad esemp
 
 Una pipeline di arricchimento si basa su [*indicizzatori*](search-indexer-overview.md) che effettuano ricerche per indicizzazione nelle origini dati e garantiscono l'elaborazione degli indici end-to-end. Le competenze sono ora associate agli indicizzatori, intercettando e arricchendo i documenti in base al set di competenze definito. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca usando tutti i [tipi di query supportati da Ricerca cognitiva di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
 
-### <a name="step-1-connection-and-document-cracking-phase"></a>Passaggio 1: Fase di connessione e individuazione dei documenti
+### <a name="step-1-connection-and-document-cracking-phase"></a>Passaggio 1: fase di connessione e di cracking del documento
 
 All'inizio della pipeline è presente un testo non strutturato o un contenuto non testuale, come ad esempio immagini e file JPEG digitalizzati. I dati devono esistere in un servizio di archiviazione dati di Azure a cui è possibile accedere tramite un indicizzatore. Gli indicizzatori possono "individuare" i documenti di origine per estrarre il testo dai dati di origine.
 
 ![Fase di cracking dei documenti](./media/cognitive-search-intro/document-cracking-phase-blowup.png "cracking di documenti")
 
- Le origini supportate includono archiviazione BLOB di Azure, archiviazione tabelle di Azure, database SQL di Azure e Azure Cosmos DB. I contenuti testuali possono essere estratti dai seguenti tipi di file: PDF, Word, PowerPoint e CSV. Per un elenco completo, vedere [Formati supportati](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
+ Le origini supportate includono archiviazione BLOB di Azure, archiviazione tabelle di Azure, database SQL di Azure e Azure Cosmos DB. I contenuti testuali possono essere estratti dai seguenti tipi di file: PDF, Word, PowerPoint e file CSV. Per un elenco completo, vedere [Formati supportati](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passaggio 2: Competenze cognitive e fase di arricchimento
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passaggio 2: competenze cognitive e fase di arricchimento
 
 L'arricchimento avviene tramite *competenze cognitive* che eseguono operazioni atomiche. Ad esempio, dopo aver creato un contenuto testuale da un file PDF, è possibile applicare il rilevamento del linguaggio di riconoscimento di entità o l'estrazione frasi chiave per produrre nuovi campi nell'indice che non sono disponibili in modo nativo nell'origine. Nel complesso, la raccolta di competenze usata nella pipeline viene chiamata *set di competenze*.  
 
@@ -89,7 +89,7 @@ L'[API REST di ricerca versione 2019-05-06-Preview](search-api-preview.md) esten
 
 L'aggiunta di un knowledge store a un set di competenze consente di proiettare una rappresentazione degli arricchimenti per scenari diversi da quelli della ricerca full-text. Per altre informazioni, vedere [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
 
-### <a name="step-3-search-index-and-query-based-access"></a>Passaggio 3: Indice di ricerca e accesso basato su query
+### <a name="step-3-search-index-and-query-based-access"></a>Passaggio 3: eseguire ricerche nell'indice e nell'accesso basato su query
 
 Al termine dell'elaborazione, si avrà un indice di ricerca costituito da documenti arricchiti in cui è possibile eseguire ricerche di testo in Ricerca cognitiva di Azure. [L'esecuzione di query dell'indice](search-query-overview.md) consente a utenti e sviluppatori di accedere al contenuto arricchito generato dalla pipeline. 
 
@@ -123,17 +123,17 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 
 ## <a name="where-do-i-start"></a>Dove iniziare?
 
-**Passaggio 1: [Creare una risorsa di Ricerca cognitiva di Azure](search-create-service-portal.md)** 
+**Passaggio 1: [creare una risorsa di Azure ricerca cognitiva](search-create-service-portal.md)** 
 
-**Passaggio 2: Provare alcune guide di avvio rapido e alcuni esempi per acquisire esperienza pratica**
+**Passaggio 2: provare alcune guide introduttive ed esempi per un'esperienza pratica**
 
 + [Guida introduttiva (portale)](cognitive-search-quickstart-blob.md)
 + [Esercitazione (richieste HTTP)](cognitive-search-tutorial-blob.md)
-+ [Esempio: Creazione di una competenza personalizzata per l'arricchimento tramite intelligenza artificiale (C#)](cognitive-search-create-custom-skill-example.md)
++ [Esempio: creazione di un'abilità personalizzata per l'arricchimento AIC#()](cognitive-search-create-custom-skill-example.md)
 
-Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che il numero di transazioni gratuite è limitato a 20 documenti al giorno. Per eseguire più volte le lezioni, eliminare e ricreare l'indicizzatore per azzerare il contatore.
+Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che il numero di transazioni gratuite è limitato a 20 documenti al giorno. Per eseguire le lezioni più volte, eliminare e ricreare l'indicizzatore per reimpostare il contatore su zero.
 
-**Passaggio 3: Esaminare l'API**
+**Passaggio 3: esaminare l'API**
 
 È possibile usare REST `api-version=2019-05-06` sulle richieste o su .NET SDK. Se si sta esplorando l'archivio conoscenze, usare invece l'API REST di anteprima (`api-version=2019-05-06-Preview`).
 
@@ -171,7 +171,7 @@ Per altre informazioni su domande o problemi specifici, vedere [Suggerimenti per
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Collegamenti alla documentazione per l'arricchimento tramite intelligenza artificiale](cognitive-search-resources-documentation.md)
-+ [Avvio rapido: Creare una pipeline di arricchimento con intelligenza artificiale usando competenze cognitive in Ricerca di Azure](cognitive-search-quickstart-blob.md)
-+ [Esercitazione: Definire la struttura di "contenuto non strutturato" con la ricerca cognitiva](cognitive-search-tutorial-blob.md)
++ [Guida introduttiva: provare a arricchire l'intelligenza artificiale in una procedura dettagliata sul portale](cognitive-search-quickstart-blob.md)
++ [Esercitazione: informazioni sulle API di arricchimento intelligenza artificiale](cognitive-search-tutorial-blob.md)
 + [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
 + [Creare un archivio conoscenze in REST](knowledge-store-create-rest.md)

@@ -2,7 +2,7 @@
 title: Connettere i dati di intelligence per le minacce ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere i dati di intelligence per le minacce ad Azure Sentinel.
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: security-center
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
-ms.author: cabailey
-ms.openlocfilehash: 33edeb04e88a01efafaf69b850ed87120671ed11
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.author: yelevin
+ms.openlocfilehash: 5c79642d287224cd15531701d7cc87ebfd72eb69
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384127"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588043"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Connettere i dati dai provider di intelligence per le minacce
 
@@ -54,7 +54,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Connettere Azure Sentinel alla piattaforma di intelligence per le minacce
 
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisites  
 
 - Azure AD ruolo di amministratore globale o amministratore della sicurezza per concedere le autorizzazioni al prodotto TIP o all'applicazione personalizzata che usa l'integrazione diretta con l'API di sicurezza di Microsoft Graph tiIndicators.
 
@@ -74,7 +74,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
     
     b. Per il prodotto di destinazione, specificare Azure Sentinel.
     
-    C. Per l'azione, specificare Alert.
+    c. Per l'azione, specificare Alert.
 
 5. Nel portale di Azure passare ad **Azure Sentinel** > **connettori dati** , quindi selezionare il connettore per le piattaforme di intelligence per le **minacce (anteprima)** .
 
@@ -84,7 +84,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Connettere Azure Sentinel ai server TAXI
 
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisites  
 
 - Autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel per archiviare gli indicatori di minaccia.
 

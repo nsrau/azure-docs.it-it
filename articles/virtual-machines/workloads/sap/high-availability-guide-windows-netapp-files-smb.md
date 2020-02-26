@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Windows con Azure NetApp Files (SMB) | Microsoft Docs
+title: Macchine virtuali di Azure a disponibilità elevata per SAP NW in Windows con Azure NetApp Files (SMB) | Microsoft Docs
 description: Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in Windows con Azure NetApp Files (SMB) per le applicazioni SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
-ms.openlocfilehash: d7c2bfbe3f277bbaf652191977434ea5fe4dbffd
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555305"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591354"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in Windows con Azure NetApp Files (SMB) per le applicazioni SAP
 
@@ -164,7 +164,7 @@ Per SAP è necessario il seguente software:
 
 1. Installare un'istanza di SAP ASC/SCS nel secondo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a **prodotto** > **DBMS** > installazione > Server applicazioni ABAP (o Java) > sistema a disponibilità elevata > istanza di ASC/SCS > nodo cluster aggiuntivo.  
 
-### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installare un'istanza DBMS e i server applicazioni SAP
+### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installare un'istanza di DBMS e i server applicazioni SAP
 
 Per completare l'installazione di SAP, installare:
 

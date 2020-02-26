@@ -3,22 +3,22 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: bdc3dd1da9d3ddc966b664f8bec479f5a8ff10f2
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: c92957cab3e1ed745e7031e3c6f32e7ecda550a5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501082"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584507"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
-La soluzione per la creazione di report fornita da backup di Azure sfrutta Log Analytics (LA). Per i dati di un determinato insieme di credenziali da inviare a LA, è necessario creare un' [impostazione di diagnostica](https://aka.ms/AzureBackupDiagnosticsDocs) per l'insieme di credenziali.
+La soluzione per la creazione di report fornita da backup di Azure sfrutta Log Analytics (LA). Per i dati di un determinato insieme di credenziali da inviare a LA, è necessario creare un' [impostazione di diagnostica](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) per l'insieme di credenziali.
 
 Spesso, l'aggiunta manuale di un'impostazione di diagnostica per ogni insieme di credenziali può essere un'attività complessa. Inoltre, per poter visualizzare i report per questo insieme di credenziali, è necessario che per tutti i nuovi insiemi di credenziali creati siano abilitate anche le impostazioni di diagnostica. 
 
 Per semplificare la creazione di impostazioni di diagnostica su larga scala (con LA come destinazione), backup di Azure fornisce criteri predefiniti di [Azure](https://docs.microsoft.com/azure/governance/policy/). Questo criterio aggiunge un'impostazione di diagnostica a tutti gli insiemi di credenziali in una sottoscrizione o in un gruppo di risorse specifico. Nelle sezioni seguenti vengono fornite istruzioni su come utilizzare questo criterio.
 
-## <a name="supported-scenarios"></a>Scenari Supportati 
+## <a name="supported-scenarios"></a>Scenari Supportati
 
 * I criteri possono essere applicati contemporaneamente a tutti gli insiemi di credenziali di servizi di ripristino in una sottoscrizione specifica o a un gruppo di risorse all'interno della sottoscrizione. L'utente che assegna i criteri deve avere l'accesso "Owner" alla sottoscrizione a cui è assegnato il criterio.
 
@@ -49,6 +49,7 @@ Per assegnare i criteri per gli insiemi di credenziali nell'ambito necessario, a
 ![Nozioni fondamentali sull'assegnazione di criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
 7. In **parametri**immettere le informazioni seguenti:
+
 * **Nome profilo** : il nome che verrà assegnato alle impostazioni di diagnostica create dal criterio.
 * **Log Analytics area di lavoro** : l'area di lavoro log Analytics a cui deve essere associata l'impostazione di diagnostica. I dati di diagnostica di tutti gli insiemi di credenziali nell'ambito dell'assegnazione di criteri verranno inseriti nell'area di lavoro di LA specificata.
 
@@ -69,7 +70,7 @@ L'attività di monitoraggio e aggiornamento viene applicata agli insiemi di cred
 * Non è presente alcuna impostazione di diagnostica per l'insieme di credenziali.
 * Sono presenti impostazioni di diagnostica per l'insieme di credenziali, ma nessuna delle impostazioni include **tutti** gli eventi specifici della risorsa abilitati con la come destinazione e la **risorsa specifica** selezionata nell'interruttore. 
 
-Quindi, anche se un utente dispone di un insieme di credenziali con l'evento AzureBackupReport abilitato in modalità AzureDiagnostics (supportato dai report di backup), l'attività di correzione sarà ancora applicabile a questo insieme di credenziali, poiché la modalità specifica della risorsa è il modo consigliato per creare le impostazioni di diagnostica, [in futuro](https://aka.ms/AzureBackupDiagnosticsDocs#legacy-event). 
+Quindi, anche se un utente dispone di un insieme di credenziali con l'evento AzureBackupReport abilitato in modalità AzureDiagnostics (supportato dai report di backup), l'attività di correzione sarà ancora applicabile a questo insieme di credenziali, poiché la modalità specifica della risorsa è il modo consigliato per creare le impostazioni di diagnostica, [in futuro](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event).
 
 Inoltre, se un utente dispone di un insieme di credenziali con solo un subset dei sei eventi specifici della risorsa abilitata, l'attività di monitoraggio e aggiornamento verrà applicata a questo insieme di credenziali, poiché i report di backup funzioneranno come previsto solo se tutti e sei gli eventi specifici delle risorse sono abilitati.
 
@@ -82,6 +83,7 @@ Inoltre, se un utente dispone di un insieme di credenziali con solo un subset de
 > Si noti che l'attività di correzione **non** avrà esito negativo se l'impostazione di diagnostica esistente è abilitata solo per AzureBackupReport con l'area di lavoro X come destinazione, poiché in questo caso non vi sarà sovrapposizione tra gli eventi abilitati dall'impostazione esistente e gli eventi abilitati dall'impostazione creata dall'attività di correzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Informazioni su come usare i report di backup](https://aka.ms/AzureBackupReportDocs)
-- [Altre informazioni su criteri di Azure](https://docs.microsoft.com/azure/governance/policy/)
-- [Usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali in un ambito](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+
+* [Informazioni su come usare i report di backup](https://docs.microsoft.com/azure/backup/configure-reports)
+* [Altre informazioni su criteri di Azure](https://docs.microsoft.com/azure/governance/policy/)
+* [Usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali in un ambito](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)

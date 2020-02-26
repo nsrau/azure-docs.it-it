@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali MARS (Backup di Microsoft Azure Recovery Services).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 23e0d2874229616037c44800639411f66bc4d1b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 172c632ae27c789f96e2e5cc1bdef492ef09f667
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173184"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586462"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -28,7 +28,7 @@ Non è possibile eliminare un insieme di credenziali di servizi di ripristino co
 
   ![Eliminare l'errore del server protetto.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- Se vengono visualizzati gli elementi di backup in stato di eliminazione temporanea al di sotto del messaggio di avviso, sarà necessario attendere che vengano eliminati definitivamente. Per altre informazioni, vedere questo [articolo](https://aka.ms/SoftDeleteCloudWorkloads).
+- Se vengono visualizzati gli elementi di backup in stato di eliminazione temporanea al di sotto del messaggio di avviso, sarà necessario attendere che vengano eliminati definitivamente. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
    ![Eliminare l'errore dell'insieme di credenziali.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   

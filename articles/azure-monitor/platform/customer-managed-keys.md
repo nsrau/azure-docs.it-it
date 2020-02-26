@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 02/05/2020
-ms.openlocfilehash: eff751465c7b64429968b0305e6ad483943c374b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/24/2020
+ms.openlocfilehash: 0cb33f55acacfd3635d19719265a46b566765a64
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048194"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592103"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configurazione della chiave gestita dal cliente di monitoraggio di Azure 
 
@@ -86,8 +86,8 @@ Per Application Insights configurazione CMK, seguire il contenuto dell'appendice
 1. Elenco elementi consentiti per la sottoscrizione: questa funzionalità è necessaria per questa funzionalità di accesso anticipato
 2. Creazione di Azure Key Vault e archiviazione della chiave
 3. Creare una risorsa *cluster*
-4. Concedere le autorizzazioni all'Key Vault
-5. Provisioning di archivio dati di monitoraggio di Azure (cluster ADX)
+4. Provisioning di archivio dati di monitoraggio di Azure (cluster ADX)
+5. Concedere le autorizzazioni all'Key Vault
 6. Associazione di aree di lavoro Log Analytics
 
 La procedura non è attualmente supportata nell'interfaccia utente e il processo di provisioning viene eseguito tramite l'API REST.
@@ -135,7 +135,7 @@ Queste impostazioni sono disponibili tramite l'interfaccia della riga di comando
 
 ### <a name="create-cluster-resource"></a>Crea risorsa *cluster*
 
-Questa risorsa viene usata come connessione di identità intermedia tra il Key Vault e le aree di lavoro. Dopo aver ricevuto la conferma che le sottoscrizioni sono state inserite nell'elenco elementi consentiti, creare una risorsa *Cluster* log Analytics nell'area in cui si trovano le aree di lavoro. Application Insights e Log Analytics richiedono risorse cluster separate. Il tipo della risorsa cluster viene definito al momento della creazione impostando la proprietà "clusterType" su "LogAnalytics" o "ApplicationInsights". Il tipo di risorsa cluster non può essere modificato.
+Questa risorsa viene usata come connessione di identità intermedia tra il Key Vault e le aree di lavoro. Dopo aver ricevuto la conferma che le sottoscrizioni sono state inserite nell'elenco elementi consentiti, creare una risorsa *Cluster* log Analytics nell'area in cui si trovano le aree di lavoro. Application Insights e Log Analytics richiedono risorse cluster separate. Il tipo della risorsa *cluster* viene definito al momento della creazione impostando la proprietà "clusterType" su "LogAnalytics" o "ApplicationInsights". Il tipo di risorsa cluster non può essere modificato.
 
 Per Application Insights configurazione CMK, seguire il contenuto dell'appendice per questo passaggio.
 
@@ -156,61 +156,73 @@ Content-type: application/json
    }
 }
 ```
+L'identità viene assegnata alla risorsa *cluster* al momento della creazione.
 il valore "clusterType" è "ApplicationInsights" per Application Insights CMK.
 
 **Risposta**
 
-L'identità viene assegnata alla risorsa *cluster* al momento della creazione.
+202 accettato. Si tratta di una risposta Gestione risorse standard per le operazioni asincrone.
 
-```json
-{
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "tenant-id",
-    "principalId": "principle-id"
-  },
-  "properties": {
-    "provisioningState": "Succeeded",
-    "clusterType": "LogAnalytics", 
-    "clusterId": "cluster-id"
-  },
-  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",    //The cluster resource Id
-  "name": "cluster-name",
-  "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
-}
-
-```
-"principalId" è un GUID generato dal servizio di gestione delle identità gestito per la risorsa *cluster* .
-
-> [!IMPORTANT]
-> Copiare e salvare il valore "cluster-ID" poiché sarà necessario nei passaggi successivi.
-
-Se per qualsiasi motivo si elimina la risorsa *cluster* , ad esempio è possibile crearla con un nome diverso o clusterType, usare questa chiamata API:
+Se per qualsiasi motivo si elimina la risorsa *cluster* , ad esempio è possibile crearla con un nome diverso o clusterType, usare questa API REST:
 
 ```rst
 DELETE
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
 ```
 
+### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Provisioning di archivio dati di monitoraggio di Azure (cluster ADX)
+
+Durante il periodo di accesso iniziale della funzionalità, il provisioning del cluster ADX viene eseguito manualmente dal team del prodotto una volta completati i passaggi precedenti. Usare il canale con Microsoft per specificare i dettagli della risorsa *cluster* . La risposta JSON può essere recuperata usando l'API REST GET:
+
+```rst
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+Authorization: Bearer <token>
+```
+
+**Risposta**
+```json
+{
+  "identity": {
+    "type": "SystemAssigned",
+    "tenantId": "tenant-id",
+    "principalId": "principal-Id"
+    },
+  "properties": {
+    "provisioningState": "Succeeded",
+    "clusterType": "LogAnalytics", 
+    "clusterId": "cluster-id"
+    },
+  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+  "name": "cluster-name",
+  "type": "Microsoft.OperationalInsights/clusters",
+  "location": "region-name"
+  }
+```
+
+"principalId" è un GUID generato dal servizio di gestione delle identità gestito per la risorsa *cluster* .
+
+> [!IMPORTANT]
+> Copiare e salvare il valore "cluster-ID" poiché sarà necessario nei passaggi successivi.
+
+
 ### <a name="grant-key-vault-permissions"></a>concedere autorizzazioni Key Vault
 
-Aggiornare il Key Vault e aggiungere i criteri di accesso per la risorsa cluster. Le autorizzazioni per il Key Vault vengono quindi propagate alla risorsa di archiviazione di monitoraggio di Azure da usare per la crittografia dei dati.
+> [!IMPORTANT]
+> Questo passaggio deve essere eseguito dopo aver ricevuto la conferma dal gruppo di prodotti tramite il canale Microsoft che è stato completato il provisioning dell'archivio dati di monitoraggio di Azure (cluster ADX). L'aggiornamento del criterio di accesso Key Vault prima del provisioning potrebbe non riuscire.
+
+Aggiornare la Key Vault con i nuovi criteri di accesso che concedono le autorizzazioni alla risorsa *cluster* . Queste autorizzazioni vengono usate dall'archiviazione di monitoraggio di Azure per la crittografia dei dati.
 Aprire il Key Vault in portale di Azure e fare clic su "criteri di accesso" e quindi su "+ Aggiungi criteri di accesso" per creare un nuovo criterio con le impostazioni seguenti:
 
 - Autorizzazioni per le chiavi: selezionare le autorizzazioni "Get", "wrap Key" e "Unwrap Key".
-
-- Selezionare Principal: immettere il valore di cluster-ID, che corrisponde al valore "clusterId" nella risposta del passaggio precedente.
+- Seleziona entità: immettere il valore di ID cluster restituito nella risposta nel passaggio precedente.
 
 ![concedere autorizzazioni Key Vault](media/customer-managed-keys/grant-key-vault-permissions.png)
 
 L'autorizzazione *Get* è necessaria per verificare che il Key Vault sia configurato come reversibile per proteggere la chiave e l'accesso ai dati di monitoraggio di Azure.
 
-Sono necessari alcuni minuti prima che la risorsa *cluster* venga propagata in Azure Resource Manager. Quando si configurano i criteri di accesso immediatamente dopo la creazione della risorsa *cluster* , potrebbe verificarsi un errore temporaneo. In questo caso, riprovare tra qualche minuto.
-
 ### <a name="update-cluster-resource-with-key-identifier-details"></a>Aggiornare la risorsa cluster con i dettagli dell'identificatore di chiave
 
-Questo passaggio si applica dopo gli aggiornamenti delle versioni chiave future nel Key Vault. Aggiornare la risorsa *cluster* con i dettagli dell' *identificatore di chiave* Key Vault per consentire all'archiviazione di monitoraggio di Azure di usare la nuova versione della chiave. Selezionare la versione corrente della chiave in Azure Key Vault per ottenere i dettagli dell'identificatore di chiave.
+Questo passaggio si applica ai futuri aggiornamenti delle versioni chiave nella Key Vault. Aggiornare la risorsa *cluster* con i dettagli dell' *identificatore di chiave* Key Vault per consentire all'archiviazione di monitoraggio di Azure di usare la nuova versione della chiave. Selezionare la versione corrente della chiave in Azure Key Vault per ottenere i dettagli dell'identificatore di chiave.
 
 ![concedere autorizzazioni Key Vault](media/customer-managed-keys/key-identifier-8bit.png)
 
@@ -225,16 +237,16 @@ Content-type: application/json
 
 {
    "properties": {
-       "KeyVaultProperties": {
-            KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
-            KeyName: "<key-name>",
-            KeyVersion: "<current-version>"
-            },
+     "KeyVaultProperties": {
+       KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
+       KeyName: "<key-name>",
+       KeyVersion: "<current-version>"
+       },
    },
    "location":"<region-name>",
    "identity": { 
-        "type": "systemAssigned" 
-        }
+     "type": "systemAssigned" 
+     }
 }
 ```
 "KeyVaultProperties" contiene i dettagli dell'identificatore di chiave Key Vault.
@@ -264,44 +276,6 @@ Content-type: application/json
   "location": "region-name"
 }
 ```
-
-### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Provisioning di archivio dati di monitoraggio di Azure (cluster ADX)
-
-Durante il periodo di accesso iniziale della funzionalità, il provisioning del cluster ADX viene eseguito manualmente dal team del prodotto una volta completati i passaggi precedenti. Usare il canale con Microsoft per fornire i dettagli seguenti:
-
-- Conferma che i passaggi precedenti sono stati completati correttamente.
-
-- Risposta JSON del passaggio precedente. Può essere recuperato in qualsiasi momento tramite una chiamata all'API Get:
-
-   ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
-   Authorization: Bearer <token>
-   ```
-
-   **Risposta**
-   ```json
-   {
-     "identity": {
-       "type": "SystemAssigned",
-       "tenantId": "tenant-id",
-       "principalId": "principal-Id"
-     },
-     "properties": {
-          "KeyVaultProperties": {
-               KeyVaultUri: "https://key-vault-name.vault.azure.net",
-               KeyName: "key-name",
-               KeyVersion: "current-version"
-               },
-       "provisioningState": "Succeeded",
-       "clusterType": "LogAnalytics", 
-       "clusterId": "cluster-id"
-     },
-     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-     "name": "cluster-name",
-     "type": "Microsoft.OperationalInsights/clusters",
-     "location": "region-name"
-   }
-   ```
 
 ### <a name="workspace-association-to-cluster-resource"></a>Associazione dell'area di lavoro alla risorsa *cluster*
 
@@ -560,7 +534,7 @@ L'identità viene assegnata alla risorsa *cluster* al momento della creazione.
 > [!IMPORTANT]
 > Copiare e salvare il valore "cluster-ID" poiché sarà necessario nei passaggi successivi.
 
-### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-updatehttpsdocsmicrosoftcomrestapiapplication-insightscomponentscreateorupdate-api"></a>Associare un componente a una risorsa *cluster* usando i [componenti-crea o aggiorna](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
+### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associare un componente a una risorsa *cluster* usando i [componenti-crea o aggiorna](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01

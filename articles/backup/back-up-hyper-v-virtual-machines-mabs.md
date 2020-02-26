@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali Hyper-V con MAB
 description: Questo articolo contiene le procedure per il backup e il ripristino di macchine virtuali con Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 69e415b5aef179c2b64bb04e933593010c8b47d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444061"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586513"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali Hyper-V con server di Backup di Azure
 
@@ -145,7 +145,7 @@ Per configurare la protezione per la migrazione in tempo reale:
 
 3. Assegnare l'account MABSMachineName $ come account amministrativo di sola lettura nel server di gestione VMM.
 
-4. Connettere tutti i server host Hyper-V a tutti i server MAB con il cmdlet `Set-DPMGlobalProperty` PowerShell. Il cmdlet accetta più nomi di server MAB. Usare il formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Per ulteriori informazioni, vedere [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
+4. Connettere tutti i server host Hyper-V a tutti i server MAB con il cmdlet `Set-DPMGlobalProperty` PowerShell. Il cmdlet accetta più nomi di server MAB. Usare il formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Per ulteriori informazioni, vedere [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
 
 5. Dopo che tutte le macchine virtuali in esecuzione negli host Hyper-V nei cloud VMM vengono individuate in VMM, configurare un gruppo protezione dati e aggiungere le macchine virtuali che si desidera proteggere. Le verifiche di coerenza automatiche devono essere abilitate a livello di gruppo protezione dati per la protezione in scenari di mobilità delle macchine virtuali.
 

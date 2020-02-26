@@ -3,12 +3,12 @@ title: Installare il server di Backup di Azure in Azure Stack
 description: Questo articolo illustra come usare server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 396621b43db2500ca9107979fca9d4d2c0646e6d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172401"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583436"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -91,7 +91,7 @@ La macchina virtuale del server di Backup di Azure deve appartenere a un dominio
 
 Quando si sceglie un server per il server di Backup di Azure, usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) offre un'esercitazione che consente di acquisire familiarità con la macchina virtuale consigliata. I requisiti minimi consigliati per la macchina virtuale (VM) server sono A2 Standard con due core e 3,5 GB di RAM.
 
-La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. L'articolo [Installare DPM come una macchina virtuale di Azure](https://technet.microsoft.com/library/jj852163.aspx)ne illustra i diversi aspetti. Prima di distribuire la macchina leggere interamente questo articolo.
+La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. L'articolo [Installare DPM come una macchina virtuale di Azure](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))ne illustra i diversi aspetti. Prima di distribuire la macchina leggere interamente questo articolo.
 
 > [!NOTE]
 > Il server di Backup di Azure è progettato per essere eseguito su una macchina virtuale dedicata, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
@@ -129,7 +129,7 @@ Esistono due modi per scaricare il programma di installazione del server di Back
 
     ![Digitare Servizi di ripristino nella finestra di dialogo Tutti i servizi](./media/backup-mabs-install-azure-stack/all-services.png)
 
-    Verrà visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino nella sottoscrizione.
+    Viene visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
 
 4. Nell'elenco degli insiemi di credenziali di Servizi di ripristino selezionare l'insieme di credenziali per aprire il relativo dashboard.
 
@@ -217,7 +217,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 
     ![Server di backup di Azure - Pagina iniziale e controllo dei prerequisiti](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Se l'ambiente soddisfa tutti i prerequisiti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic su **Next** (Avanti).  
+    Se l'ambiente soddisfa tutti i prerequisiti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic su **Avanti**.  
 
     ![Server di Backup di Azure - Controllo dei prerequisiti superato](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -243,7 +243,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 
     ![PreReq2 di Backup di Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    La disponibilità di uno spazio di lavoro è obbligatoria per il backup in Azure. Verificare che la dimensione dello spazio di lavoro sia equivalente ad almeno il 5% dei dati pianificati per il backup in Azure. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [Configurare i pool di archiviazione e l'archiviazione su disco](https://technet.microsoft.com/library/hh758075.aspx).
+    La disponibilità di uno spazio di lavoro è obbligatoria per il backup in Azure. Verificare che la dimensione dello spazio di lavoro sia equivalente ad almeno il 5% dei dati pianificati per il backup in Azure. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [Configurare i pool di archiviazione e l'archiviazione su disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
 
 6. Nella schermata **Impostazioni di sicurezza** specificare una password complessa per gli account utente locali con restrizioni e fare clic su **Avanti**.
 
@@ -320,18 +320,18 @@ La prima copia di backup viene salvata in una risorsa di archiviazione collegata
 
 Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. C'è connettività solo se l'output del cmdlet è TRUE.
 
-Allo stesso tempo è necessario che la sottoscrizione di Azure sia in uno stato integro. Per conoscere lo stato della sottoscrizione e gestirla, accedere al [portale di sottoscrizione](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per conoscere lo stato della sottoscrizione e gestirla, accedere al [portale di sottoscrizione](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
 | Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
 | Connesso |Attivo |Consentito |Consentito |Consentito |Consentito |
-| Connesso |Scaduto |Stopped |Stopped |Consentito |Consentito |
-| Connesso |Deprovisioning eseguito |Stopped |Stopped |Arrestato e punti di ripristino di Azure eliminati |Stopped |
-| Connettività persa > 15 giorni |Attivo |Stopped |Stopped |Consentito |Consentito |
-| Connettività persa > 15 giorni |Scaduto |Stopped |Stopped |Consentito |Consentito |
-| Connettività persa > 15 giorni |Deprovisioning eseguito |Stopped |Stopped |Arrestato e punti di ripristino di Azure eliminati |Stopped |
+| Connesso |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
+| Connesso |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
+| Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Consentito |Consentito |
+| Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
+| Connettività persa > 15 giorni |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 
@@ -352,7 +352,7 @@ Dopo il ripristino della connettività ad Azure nel server di Backup di Azure, l
 - Mentre è *sottoposta a deprovisioning*, la sottoscrizione perde le funzionalità. Il ripristino dello stato *Attiva* della sottoscrizione consente di riattivare le funzionalità di backup e ripristino. Se i dati di backup sono stati mantenuti nel disco locale per un periodo di conservazione sufficientemente elevato, possono essere ripristinati. I dati di backup in Azure, invece, vengono persi definitivamente al passaggio della sottoscrizione allo stato *Deprovisioning eseguito*.
 - Una sottoscrizione *scaduta* perde le funzionalità. I backup pianificati non vengono eseguiti quando una sottoscrizione è *scaduta*.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 In caso di errori del server di Backup di Microsoft Azure durante la fase di installazione, di backup o ripristino, vedere il [documento relativo ai codici di errore](https://support.microsoft.com/kb/3041338).
 È anche possibile vedere [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)

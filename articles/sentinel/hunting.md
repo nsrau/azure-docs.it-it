@@ -3,7 +3,7 @@ title: Funzionalità di ricerca in Sentinel di Azure | Microsoft Docs
 description: Questo articolo descrive come usare le funzionalità di ricerca di Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 6aa9dd27-6506-49c5-8e97-cc1aebecee87
@@ -15,13 +15,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
-ms.author: rkarlin
-ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: yelevin
+ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489194"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587899"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Cercare le minacce con Azure Sentinel
 
@@ -124,7 +124,7 @@ Creare una nuova query di ricerca:
 1. Fare clic su **nuova query** e selezionare **Salva**.
 2. Compilare tutti i campi vuoti e selezionare **Salva**.
 
-   ![Nuova Query](./media/tutorial-hunting/new-query.png)
+   ![Nuova query](./media/tutorial-hunting/new-query.png)
 
 Clonare e modificare una query di ricerca esistente:
 

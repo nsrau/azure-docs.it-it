@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 226611bde6024f98ce6d3660fe18e66dba9a420c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b10433190ccc7703938bed2a75a5d816f073295e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493696"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587261"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -23,7 +23,7 @@ La serie Lsv2 offre velocità effettiva elevata, bassa latenza, risorse di archi
 >
 > La velocità effettiva elevata e gli IOPs del disco locale rendono le VM serie Lsv2 ideali per gli archivi NoSQL, ad esempio Apache Cassandra e MongoDB, che replicano i dati tra più macchine virtuali per ottenere la persistenza in caso di errore di una singola macchina virtuale.
 >
-> Per altre informazioni, vedere [ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2](/linux/storage-performance.md).  
+> Per altre informazioni, vedere ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2 per [Windows](../virtual-machines/windows/storage-performance.md) o [Linux](../virtual-machines/linux/storage-performance.md).  
 
 ACU: 150-175
 

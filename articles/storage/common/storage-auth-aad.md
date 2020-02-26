@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 2/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 820e7187332b02993d3d8bcba9c01958cfbdd61d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8a42723a9b56665160e660c0ea1451253c3d185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965826"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588978"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code usando Azure Active Directory
 
@@ -27,7 +27,7 @@ L'autorizzazione con Azure AD è disponibile per tutti gli account di archiviazi
 
 L'archiviazione BLOB supporta inoltre la creazione di firme di accesso condiviso (SAS) firmate con Azure AD credenziali. Per altre informazioni, vedere [concedere l'accesso limitato ai dati con firme di accesso condiviso](storage-sas-overview.md).
 
-File di Azure supporta l'autorizzazione con Azure AD su SMB solo per le macchine virtuali appartenenti a un dominio. Per informazioni sull'uso di Azure AD su SMB per File di Azure, vedere [Panoramica dell'autorizzazione di Azure Active Directory su SMB per file di Azure](../files/storage-files-active-directory-overview.md).
+File di Azure supporta l'autorizzazione con AD (anteprima) o Azure AD DS (GA) su SMB solo per le macchine virtuali appartenenti a un dominio. Per informazioni sull'uso di AD (anteprima) o di Azure AD DS (GA) su SMB per File di Azure, vedere [Panoramica del supporto dell'autenticazione basata sull'identità file di Azure per l'accesso SMB](../files/storage-files-active-directory-overview.md).
 
 L'autorizzazione con Azure AD non è supportata per l'archiviazione tabelle di Azure. Usare la chiave condivisa per autorizzare le richieste all'archiviazione tabelle.
 

@@ -1,10 +1,10 @@
 ---
-title: Preparazione dell'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS | Microsoft Docs
+title: Infrastruttura di Azure per la disponibilità elevata di SAP ASC/SCS con WSFC & condivisione file | Microsoft Docs
 description: Preparazione dell'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647544"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591541"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
 
@@ -222,8 +222,8 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 | --- | --- | --- | --- |
 | Cluster ASCS/SCS del primo nodo del cluster | ascs-1 | 10.0.6.4 | ascs-as |
 | Cluster ASCS/SCS del secondo nodo del cluster | ascs-2 | 10.0.6.5 | ascs-as |
-| Nome rete di cluster |ascs-cl | 10.0.6.6 | N/D |
-| Nome di rete del cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | N/D |
+| Nome rete di cluster |ascs-cl | 10.0.6.6 | n/d |
+| Nome di rete del cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/d |
 
 
 **Tabella 1**: cluster ASCS/SCS
@@ -240,8 +240,8 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 | Primo nodo del cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Secondo nodo del cluster | sofs-2 | 10.0.6.11 | sofs-as |
 | Terzo nodo del cluster | sofs-3 | 10.0.6.12 | sofs-as |
-| Nome rete di cluster | sofs-cl | 10.0.6.13 | N/D |
-| Nome host di SAP GLOBAL | sapglobal | Usare gli indirizzi IP di tutti i nodi del cluster | N/D |
+| Nome rete di cluster | sofs-cl | 10.0.6.13 | n/d |
+| Nome host di SAP GLOBAL | sapglobal | Usare gli indirizzi IP di tutti i nodi del cluster | n/d |
 
 **Tabella 3**: cluster di file server di scalabilità orizzontale
 

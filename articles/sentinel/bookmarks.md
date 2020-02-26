@@ -1,8 +1,8 @@
 ---
 title: Usare i segnalibri di caccia per le indagini sui dati in Sentinel di Azure
 description: Questo articolo descrive come usare i segnalibri di ricerca di Azure Sentinel per tenere traccia dei dati.
-author: cabailey
-ms.author: cabailey
+author: yelevin
+ms.author: yelevin
 manager: rkarlin
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: 457898e257aa7a347ff99d0987c5ad594637b5f4
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563735"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588689"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Tenere traccia dei dati durante la ricerca con Azure Sentinel
 
@@ -34,7 +34,7 @@ Attualmente in anteprima, se si trova un elemento che deve essere risolto in mod
 
 Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo clic **su analizza** nei dettagli del segnalibro. In questo modo viene avviata l'esperienza di analisi in cui è possibile visualizzare, analizzare e comunicare visivamente le conclusioni usando un diagramma e una sequenza temporale interattive.
 
-## <a name="add-a-bookmark"></a>Aggiungere un segnalibro
+## <a name="add-a-bookmark"></a>Aggiungi un segnalibro
 
 1. Nella portale di Azure passare a **Sentinel** > **Threat Management** > **Hunting** per eseguire query per un comportamento sospetto e anomalo.
 

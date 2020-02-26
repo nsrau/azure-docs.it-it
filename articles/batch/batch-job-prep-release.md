@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 7103daa4a943edfd8d05333f413245cebaf8f4af
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524257"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586785"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch
 
@@ -54,20 +54,23 @@ In un ambiente con "pool condivisi", in cui i nodi di calcolo di un pool non son
 
 > [!TIP]
 > Per rendere persistenti i log e gli altri dati di output del processo e delle attività, è anche possibile usare la libreria [Azure Batch File Conventions](batch-task-output.md) .
-> 
-> 
+>
+>
 
 ## <a name="job-preparation-task"></a>attività di preparazione del processo
-Prima dell'esecuzione delle attività di un processo, Batch esegue l'attività di preparazione del processo su ogni nodo di calcolo pianificato per l'esecuzione di un'attività. Per impostazione predefinita, il servizio Batch attende il completamento dell'attività di preparazione del processo prima di eseguire le attività pianificate per l'esecuzione nel nodo, ma è possibile configurare il servizio affinché venga annullata la fase di attesa. Se il nodo viene riavviato, l'attività di preparazione del processo viene eseguita nuovamente, ma è anche possibile disabilitare questo comportamento. Se si dispone di un processo con un'attività di preparazione del processo e un'attività del gestore di processi configurata, l'attività di preparazione del processo viene eseguita prima dell'attività del gestore di processi, così come per tutte le altre attività. L'attività di preparazione del processo viene sempre eseguita per prima.
+
+
+Prima dell'esecuzione delle attività di un processo, batch esegue l'attività di preparazione del processo in ogni nodo di calcolo pianificato per l'esecuzione di un'attività. Per impostazione predefinita, batch attende il completamento dell'attività di preparazione del processo prima di eseguire le attività pianificate per l'esecuzione nel nodo. ma è possibile configurare il servizio affinché venga annullata la fase di attesa. Se il nodo viene riavviato, l'attività di preparazione del processo viene eseguita nuovamente. È anche possibile disabilitare questo comportamento. Se si dispone di un processo con un'attività di preparazione del processo e un'attività del gestore di processi configurata, l'attività di preparazione del processo viene eseguita prima dell'attività del gestore di processi, così come per tutte le altre attività. L'attività di preparazione del processo viene sempre eseguita per prima.
 
 L'attività di preparazione del processo viene eseguita solo su nodi pianificati per l'esecuzione di un'attività. Ciò impedisce l'esecuzione di un'attività di preparazione non necessaria nel caso in cui a un nodo non venga assegnata un'attività. Questa situazione può verificarsi quando il numero di attività per un processo è inferiore al numero di nodi in un pool o quando è abilitata l'[esecuzione di attività simultanee](batch-parallel-node-tasks.md). In quest'ultimo caso, alcuni nodi rimangono inattivi se il numero delle attività è inferiore a quello totale delle attività simultanee possibili. Se non si esegue l'attività di preparazione dei processi sui inattivi nodi, è possibile risparmiare sui costi di trasferimento dati.
 
 > [!NOTE]
 > [JobPreparationTask][net_job_prep_cloudjob] differisce da [CloudPool. StartTask][pool_starttask] in quanto JobPreparationTask viene eseguito all'inizio di ogni processo, mentre StartTask viene eseguito solo quando un nodo di calcolo viene unito per la prima volta a un pool o viene riavviato.
-> 
-> 
+>
 
-## <a name="job-release-task"></a>attività di rilascio del processo
+
+>## <a name="job-release-task"></a>attività di rilascio del processo
+
 Dopo aver contrassegnato un processo come completato , viene eseguita l'attività di rilascio del processo in ogni nodo del pool che ha eseguito almeno un'attività. Un processo viene contrassegnato come completato generando una richiesta di interruzione. Il servizio Batch imposta quindi lo stato del processo su *Arresto in corso*, termina le attività attive o in esecuzione associate al processo ed esegue l'attività di rilascio del processo. Il processo passa quindi allo stato *completato* .
 
 > [!NOTE]

@@ -12,12 +12,12 @@ ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 0d3e1e10120dce404f0fdfe781661c4c169ae00a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697218"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591575"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -40,9 +40,9 @@ Si passerà direttamente alla creazione dell'identità. Se si verifica un proble
 
 Sono state create un'applicazione e un'entità servizio di Azure AD.
 
-## <a name="assign-the-application-to-a-role"></a>Assegnare l'applicazione a un ruolo
+## <a name="assign-a-role-to-the-application"></a>Assegnare un ruolo all'applicazione
 
-Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo offre le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
+Per accedere alle risorse nella sottoscrizione, è necessario assegnare un ruolo all'applicazione. Decidere quale ruolo offre le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
 
 È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione può leggere il gruppo di risorse e le risorse in esso contenute.
 
@@ -62,7 +62,7 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
 
    ![Selezionare il ruolo da assegnare all'applicazione](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Selezionare **Salva** per completare l'assegnazione del ruolo. L'applicazione ora compare nell'elenco degli utenti assegnati a un ruolo per quell'ambito.
+1. Selezionare **Salva** per completare l'assegnazione del ruolo. L'applicazione viene visualizzata nell'elenco di utenti con un ruolo per tale ambito.
 
 L'entità servizio è stata configurata ed è possibile iniziare a usarla per eseguire script o app. Nella sezione successiva viene illustrato come ottenere i valori necessari quando si accede a livello di codice.
 
@@ -112,7 +112,7 @@ Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto 
 1. Selezionare **Segreti client -> Nuovo segreto client**.
 1. Specificare una descrizione del segreto e una durata. Al termine, fare clic su **Aggiungi**.
 
-   Il valore del segreto client verrà visualizzato dopo il salvataggio. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Il valore della chiave sarà fornito insieme all'ID applicazione per eseguire l'accesso come applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
+   Il valore del segreto client verrà visualizzato dopo il salvataggio. Copiare questo valore perché non sarà possibile recuperare la chiave in un secondo momento. Il valore della chiave sarà fornito con l'ID applicazione per accedere come applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
 
    ![Copiare il valore del segreto perché non sarà possibile recuperarlo in seguito](./media/howto-create-service-principal-portal/copy-secret.png)
 
@@ -126,7 +126,7 @@ Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiun
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
-È necessario disporre di autorizzazioni sufficienti per registrare un'applicazione con il tenant di Azure AD e assegnare l'applicazione a un ruolo nella sottoscrizione di Azure.
+È necessario disporre di autorizzazioni sufficienti per registrare un'applicazione con il tenant di Azure AD e assegnare all'applicazione un ruolo nella sottoscrizione di Azure.
 
 ### <a name="check-azure-ad-permissions"></a>Controllare le autorizzazioni di Azure AD
 
@@ -138,11 +138,11 @@ Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiun
 1. Nel riquadro sinistro selezionare **impostazioni utente**.
 1. Controllare l'impostazione **Registrazioni per l'app**. Questo valore può essere impostato solo da un amministratore. Se è impostato su **Sì**, qualsiasi utente nel tenant di Azure AD può registrare un'app.
 
-Se l'impostazione relativa alle registrazioni dell'app è impostata su **No**, solo gli utenti con un ruolo di amministratore possono registrare questi tipi di applicazioni. Vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e [Autorizzazioni dei ruoli](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) per informazioni sui ruoli di amministratore disponibili e le specifiche autorizzazioni di Azure AD assegnate a ogni ruolo. Se l'account è assegnato al ruolo Utente, ma l'impostazione relativa alle registrazioni dell'app è limitata agli utenti amministratori, chiedere al proprio amministratore di essere assegnati a uno dei ruoli di amministratore in grado di gestire tutti gli aspetti delle registrazioni dell'app oppure di consentire agli utenti di registrare le app.
+Se l'impostazione relativa alle registrazioni dell'app è impostata su **No**, solo gli utenti con un ruolo di amministratore possono registrare questi tipi di applicazioni. Vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e [Autorizzazioni dei ruoli](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) per informazioni sui ruoli di amministratore disponibili e le specifiche autorizzazioni di Azure AD assegnate a ogni ruolo. Se l'account è assegnato al ruolo utente, ma l'impostazione di registrazione dell'app è limitata agli utenti amministratori, richiedere all'amministratore di assegnare uno dei ruoli di amministratore che possono creare e gestire tutti gli aspetti delle registrazioni di app o per consentire agli utenti di registrarsi applicazioni.
 
 ### <a name="check-azure-subscription-permissions"></a>Controllare le autorizzazioni di sottoscrizione di Azure
 
-Nella sottoscrizione di Azure è necessario che l'account disponga dell'accesso `Microsoft.Authorization/*/Write` per assegnare un'app di Active Directory a un ruolo. Questa azione è concessa tramite il ruolo [Proprietario](../../role-based-access-control/built-in-roles.md#owner) o [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se il proprio account è assegnato al ruolo **Collaboratore**, non si dispone dell'autorizzazione appropriata. Se si tenterà di assegnare l'entità servizio a un ruolo si riceve un errore.
+Nella sottoscrizione di Azure, l'account deve avere `Microsoft.Authorization/*/Write` accesso per assegnare un ruolo a un'app AD. Questa azione è concessa tramite il ruolo [Proprietario](../../role-based-access-control/built-in-roles.md#owner) o [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se al proprio account è assegnato il ruolo **collaboratore** , non si dispone delle autorizzazioni appropriate. Si riceverà un errore durante il tentativo di assegnare l'entità servizio a un ruolo.
 
 Per controllare le proprie autorizzazioni di sottoscrizione:
 
@@ -154,9 +154,9 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
    ![Selezionare la sottoscrizione in cui si vuole creare l'entità servizio](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Selezionare **assegnazioni di ruolo** per visualizzare i ruoli assegnati e determinare se si dispone di autorizzazioni adeguate per assegnare un'app ad a un ruolo. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nella figura seguente l'utente è assegnato al ruolo Proprietario, perciò dispone delle autorizzazioni adeguate.
+1. Selezionare **assegnazioni di ruolo** per visualizzare i ruoli assegnati e determinare se si dispone di autorizzazioni adeguate per assegnare un ruolo a un'app ad. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nell'immagine seguente all'utente viene assegnato il ruolo proprietario, il che significa che l'utente dispone di autorizzazioni appropriate.
 
-   ![Questo esempio mostra che l'utente è assegnato al ruolo proprietario](./media/howto-create-service-principal-portal/view-user-role.png)
+   ![Questo esempio mostra che all'utente è assegnato il ruolo di proprietario](./media/howto-create-service-principal-portal/view-user-role.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

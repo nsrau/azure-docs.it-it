@@ -10,22 +10,22 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5ed903eefea3a8c13bb9e43f5ef71063b453d93
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f31d742dc78e16d4786216259a8fce5349152c63
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806644"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591252"
 ---
 # <a name="available-skus-for-hli"></a>SKU disponibili per HLI
 
 Il servizio SAP HANA in Azure (istanze large) basato su indicatori di revisione 3 è disponibile in diverse configurazioni nelle aree di Azure di:
 
 - Stati Uniti occidentali
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Australia orientale
 - Australia sud-orientale
 - Europa occidentale
@@ -36,7 +36,7 @@ Il servizio SAP HANA in Azure (istanze large) basato su indicatori di revisione 
 Il servizio SAP HANA in Azure (istanze large) basato su indicatori di revisione 4 è disponibile in diverse configurazioni nelle aree di Azure di:
 
 - Stati Uniti occidentali 2
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti centro-meridionali
 - Europa occidentale
 - Europa settentrionale
@@ -55,6 +55,7 @@ Esempio di elenco [SKU certificati SAP HANA per HANA istanze Large](https://www.
 | Ottimizzata per OLTP: SAP Business Suite<br /> in SAP HANA o S/4HANA (OLTP),<br /> OLTP generico | SAP HANA in Azure S72m<br /> – 2 x processore Intel® Xeon® E7-8890 v3<br /> 36 core CPU e 72 thread CPU |  1,5 TB |  6 TB | Non più disponibile |
 |---| SAP HANA in Azure S144m<br /> – 4 x processore Intel® Xeon® E7-8890 v3<br /> 72 core CPU e 144 thread CPU |  3 TB |  12 TB | Non più disponibile |
 |---| SAP HANA in Azure S192m<br /> – 4 x processore Intel® Xeon® E7-8890 v4<br /> 96 core CPU e 192 thread CPU  |  4 TB |  16 TB | Non più disponibile |
+| --- | SAP HANA in Azure S224m<br /> – 4 x processore Intel® Xeon® Platinum 8276 (noto anche come Cascade Lake)<br /> 112 core CPU e 224 thread CPU |  6 TB |  10,5 TB | Disponibile nei timbri Revision3 e Revision4  |
 |---| SAP HANA in Azure S384m<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  6 TB |  18 TB | Disponibile in Revision4 stamps|
 |---| SAP HANA in Azure S384xm<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  8 TB |  22 TB |  Disponibile in Revision4 stamps |
 |---| SAP HANA in Azure S576m<br /> – 12 x processore Intel® Xeon® E7-8890 v4<br /> 288 core CPU e 576 thread CPU |  12 TB |  28 TB | Disponibile in Revision4 stamps|
@@ -90,7 +91,7 @@ Le configurazioni specifiche scelte dipendono dal carico di lavoro, dalle risors
 
 La base hardware delle offerte gode della certificazione TDI di SAP Hana, ad eccezione dei progetti oggetto di dimensionamento specifico da parte dei clienti. Gli SKU sono suddivisi in due diverse classi di hardware:
 
-- S72, S72m, S96, S144, S144m, S192, S192m, S192xm e S224, detti "classe di tipo I" di SKU.
+- S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 e S224m, detti "classe di tipo I" degli SKU.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, detti "classe di tipo II" degli SKU.
 - Per ottenere altre informazioni, se si è interessati ad altre SKU S224 da 4,5 TB a 9TB con Optane, contattare il team di account Microsoft. 
 

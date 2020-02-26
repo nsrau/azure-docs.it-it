@@ -3,7 +3,7 @@ title: Usare la caccia livestream in Sentinel di Azure per rilevare le minacce |
 description: Questo articolo descrive come usare la caccia a livestream in Azure Sentinel per tenere traccia dei dati.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2019
-ms.author: cabailey
-ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.author: yelevin
+ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900450"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582127"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Usare la caccia a livestream in Azure Sentinel per rilevare le minacce
 
@@ -53,7 +53,7 @@ Usare la caccia di livestream per creare sessioni interattive che consentono di 
 2. Per creare una sessione Livestream da una query di ricerca:
     
     1. Dalla scheda **query** individuare la query di ricerca da usare.
-    2. Fare clic con il pulsante destro del mouse sulla query e scegliere **Aggiungi a livestream**. ad esempio:
+    2. Fare clic con il pulsante destro del mouse sulla query e scegliere **Aggiungi a livestream**. Ad esempio:
     
     > [!div class="mx-imgBorder"]
     > ![creare una sessione livestream dalla query di ricerca di Azure Sentinel](./media/livestream/livestream-from-query.png)
@@ -83,7 +83,7 @@ Usare la caccia di livestream per creare sessioni interattive che consentono di 
 
 1. Nella portale di Azure passare a **Sentinel** > **Threat Management** > **Hunting** > **livestream** Tab.
 
-2. Selezionare la sessione livestream che si vuole visualizzare o modificare. ad esempio:
+2. Selezionare la sessione livestream che si vuole visualizzare o modificare. Ad esempio:
     
     > [!div class="mx-imgBorder"]
     > ![creare una sessione livestream dalla query di ricerca di Azure Sentinel](./media/livestream/livestream-tab.png)
@@ -92,7 +92,7 @@ Usare la caccia di livestream per creare sessioni interattive che consentono di 
 
 ## <a name="receive-notifications-when-new-events-occur"></a>Ricevi notifiche quando si verificano nuovi eventi
 
-Poiché le notifiche livestream per i nuovi eventi usano portale di Azure notifiche, queste notifiche vengono visualizzate ogni volta che si usa il portale di Azure. ad esempio:
+Poiché le notifiche livestream per i nuovi eventi usano portale di Azure notifiche, queste notifiche vengono visualizzate ogni volta che si usa il portale di Azure. Ad esempio:
 
 ![Notifica portale di Azure per Livestream](./media/livestream/notification.png)
 

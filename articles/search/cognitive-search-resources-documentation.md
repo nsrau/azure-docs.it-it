@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e73e69f90b1228154d7f209c54c6b52cc03d5eb4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
-ms.translationtype: HT
+ms.openlocfilehash: 9f8a14c348f4f8eddcd60c6946c831c90262757b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837791"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588995"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Risorse di documentazione per l'arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure
 
@@ -23,9 +23,9 @@ Gli articoli seguenti rappresentano la documentazione completa per l'arricchimen
 
 ## <a name="getting-started"></a>Introduzione
 + [Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure](cognitive-search-concept-intro.md)
-+ [Avvio rapido: Creare un set di competenze cognitive nel portale di Azure](cognitive-search-quickstart-blob.md)
-+ [Esercitazione: Indicizzazione arricchita con intelligenza artificiale](cognitive-search-tutorial-blob.md)
-+ [Esempio: Creazione di una competenza personalizzata per l'arricchimento tramite intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
++ [Guida introduttiva: creare un di competenze cognitive nell'portale di Azure](cognitive-search-quickstart-blob.md)
++ [Esercitazione: indicizzazione arricchita con intelligenza artificiale](cognitive-search-tutorial-blob.md)
++ [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guida alle procedure
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
@@ -36,7 +36,7 @@ Gli articoli seguenti rappresentano la documentazione completa per l'arricchimen
 + [Come definire un'interfaccia di competenze personalizzata](cognitive-search-custom-skill-interface.md)
 + [Suggerimenti per la risoluzione dei problemi](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>Informazioni di riferimento
+## <a name="reference"></a>Riferimento
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)

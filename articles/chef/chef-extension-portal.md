@@ -2,19 +2,19 @@
 title: Installare il client Chef dal portale di Azure
 description: Informazioni su come distribuire e configurare il client Chef dal portale di Azure
 keywords: azure, chef, devops, client, installare, portale
-ms.date: 05/15/2018
+ms.date: 02/22/2020
 ms.topic: article
-ms.openlocfilehash: f8707c2fe39fb794381af298c24d27704b1ec255
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6e46133c598c44b314077f2d020852416d3d2745
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158266"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586360"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installare il client Chef dal portale di Azure
 È possibile aggiungere l'estensione client Chef direttamente su un computer Windows o Linux dal portale di Azure. Questo articolo illustra nel dettaglio il processo usando una macchina virtuale Linux nuova.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
@@ -79,24 +79,24 @@ In questa sezione si usa il portale di Azure per creare una macchina virtuale Li
 1. Nella scheda **Installa estensione** specificare i valori seguenti e quindi scegliere **OK**.
 
     - **URL del server Chef**: Immettere l'URL del server Chef che include il nome dell'organizzazione, ad esempio, *https://api.chef.io/organization/mycompany* .
-    - **Chef Node Name** (Nome nodo Chef): immettere il nome del nodo Chef. Può essere qualsiasi valore.
-    - **Elenco di esecuzione**: immettere l'elenco di esecuzione Chef che viene aggiunto alla macchina. Questo può essere lasciato vuoto.
-    - **Validation Client Name** (Nome client di convalida): immettere il nome del client Chef di convalida. ad esempio, *tarcher validator*.
+    - **Nome nodo chef** : immettere il nome del nodo chef.
+    - **Elenco di esecuzione** : immettere l'elenco di esecuzione chef aggiunto al computer. Questo valore può essere lasciato vuoto.
+    - **Nome client di convalida** : immettere il nome del client di convalida chef. Ad esempio, `tarcher-validator`.
     - **Chiave di convalida**: selezionare un file contenente la chiave di convalida usata per il bootstrap delle macchine.
-    - **Client Configuration File** (File di configurazione client): selezionare un file di configurazione per il client Chef. Questo può essere lasciato vuoto.
-    - **Chef Client version** (Versione client Chef): immettere la versione del client Chef da installare. Questo può essere lasciato vuoto. Un valore vuoto installa la versione più recente.
+    - **File di configurazione client** : selezionare un file di configurazione per chef-client. Questo valore può essere lasciato vuoto.
+    - **Chef Client version** (Versione client Chef): immettere la versione del client Chef da installare. Questo valore può essere lasciato vuoto, che installa la versione più recente.
     - **SSL Verification Mode** (Modalità di verifica SSL): selezionare **Nessuna** o **Peer**. *Nessuno* è stato selezionato per la demo.
-    - **Chef Environment** (Ambiente Chef): specificare l'ambiente Chef del quale è membro il nodo corrente. Questo può essere lasciato vuoto.
-    - **Encrypted Databag Secret** (Segreto databag crittografato): selezionare un file contenente il segreto per il databag crittografato al quale avrà accesso la macchina. Questo può essere lasciato vuoto.
-    - **Chef Server SSL Certificate** (Certificato SSL del server Chef): selezionare il certificato SSL assegnato al server Chef. Questo può essere lasciato vuoto.
+    - **Chef Environment** (Ambiente Chef): specificare l'ambiente Chef del quale è membro il nodo corrente. Questo valore può essere lasciato vuoto.
+    - **Secret Data Bag crittografato** : selezionare un file contenente il segreto per il contenitore di dati crittografato a cui deve accedere il computer. Questo valore può essere lasciato vuoto.
+    - **Certificato SSL di chef server** : selezionare il certificato SSL assegnato al server chef. Questo valore può essere lasciato vuoto.
 
       ![Installazione del server Chef in una macchina virtuale Linux](./media/chef-extension-portal/install-extension.png)
 
-1. Quando si torna sulla scheda **Estensioni**, selezionare **OK**.
+1. Quando viene visualizzata la scheda **estensioni** , fare clic su **OK**.
 
-1. Quando si torna sulla scheda **Impostazioni**, selezionare **OK**.
+1. Quando viene visualizzata la scheda **Impostazioni** , fare clic su **OK**.
 
-1. Quando si torna sulla scheda **Crea** (questo rappresenta un riepilogo delle opzioni selezionate e immesse), verificare le informazioni e le **Condizioni per l'utilizzo** e selezionare **Crea**.
+1. Quando viene visualizzata la scheda **Crea** , viene visualizzato un riepilogo delle opzioni selezionate e immesse. Verificare le informazioni e il **condizioni per l'utilizzo**e selezionare **Crea**.
 
 Al completamento del processo di creazione e distribuzione della macchina virtuale con l'estensione Chef, una notifica indica l'esito positivo o negativo dell'operazione. Al completamento della creazione della nuova macchina virtuale nel portale di Azure, viene aperta automaticamente la pagina delle risorse della macchina virtuale.
 
@@ -104,4 +104,5 @@ Al completamento del processo di creazione e distribuzione della macchina virtua
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una macchina virtuale Windows in Azure usando Chef](/azure/virtual-machines/windows/chef-automation)
+> [!div class="nextstepaction"] 
+> [Creare una macchina virtuale Windows in Azure usando Chef](chef-automation.md)

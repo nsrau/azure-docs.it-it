@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi relativi al back
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: fde5fd9f2464c2aff9a7a34ffa440ab9a6a1ca51
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: f311de435d813cb0e6f8a2c3d932e05d695603f3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665049"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583300"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
 
@@ -20,11 +20,11 @@ Questo articolo descrive le soluzioni per i problemi che potrebbero verificarsi 
 Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del sistema, è consigliabile eseguire la convalida seguente:
 
 - [Verificare che l'agente di Servizi di ripristino di Microsoft Azure (MARS) sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Verificare la presenza di connettività di rete tra l'agente dei Servizi di ripristino di Microsoft Azure e Azure](https://aka.ms/AB-A4dp50)
+- [Verificare la presenza di connettività di rete tra l'agente dei Servizi di ripristino di Microsoft Azure e Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se necessario, riavviare e ripetere l'operazione
-- [Verificare che sia disponibile il 5-10% di volume libero nel percorso della cartella dei file temporanei](https://aka.ms/AB-AA4dwtt)
-- [Controllare se un altro processo o un software antivirus interferisce con Backup di Azure](https://aka.ms/AB-AA4dwtk)
-- [Il backup pianificato ha esito negativo, ma il backup manuale funziona](https://aka.ms/ScheduledBackupFailManualWorks)
+- [Verificare che sia disponibile il 5-10% di volume libero nel percorso della cartella dei file temporanei](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Controllare se un altro processo o un software antivirus interferisce con Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
+- [Il backup pianificato ha esito negativo, ma il backup manuale funziona](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
 - Verificare che nel sistema operativo siano installati gli aggiornamenti più recenti
 - [Verificare che le unità e i file non supportati con attributi non supportati siano esclusi dal backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Assicurarsi che l'**orologio** del sistema protetto sia configurato sul fuso orario corretto <br>
@@ -33,14 +33,14 @@ Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del
   - Verificare che l'agente sia stato disinstallato nel server e che sia stato eliminato dal portale <br>
   - Usare la stessa passphrase che è stata usata inizialmente per la registrazione del server <br>
 - Se si tratta di un backup non in linea, verificare che Azure PowerShell versione 3.7.0 sia installato sia nel computer di origine che in quello di copia prima di iniziare l'operazione di backup offline
-- [Considerazione quando l'agente di backup è in esecuzione in una macchina virtuale di Azure](https://aka.ms/AB-AA4dwtr)
+- [Considerazione quando l'agente di backup è in esecuzione in una macchina virtuale di Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine)
 
 ### <a name="limitation"></a>Limitazione
 
 - Il ripristino dello stato del sistema in un hardware diverso non è consigliato
 - Il backup dello stato del sistema supporta attualmente i server Windows "locali". Questa funzionalità non è disponibile per le macchine virtuali di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di risolvere i problemi relativi al backup dello stato del sistema con backup di Azure, eseguire il controllo dei prerequisiti riportato di seguito.  
 
@@ -77,7 +77,7 @@ Per installare Windows Server Backup usando Server Manager, seguire questa proce
 3. Selezionare un server dal pool di server e fare clic su **Avanti**. Nel ruolo del server lasciare la selezione predefinita e fare clic su **Avanti**.
 4. Selezionare **Windows Server Backup** nella scheda **funzionalità** e fare clic su **Avanti**.
 
-    ![elastico](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![funzionalità](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. Nella scheda **conferma** fare clic su **Installa** per avviare il processo di installazione.
 6. Nella scheda **risultati** verrà visualizzata la funzionalità Windows Server backup viene installata correttamente in Windows Server.
@@ -97,8 +97,8 @@ Verificare che i servizi seguenti siano in stato di esecuzione:
 RPC (Remote Procedure Call) | Automatico
 Sistema di eventi COM+ (EventSystem) | Automatico
 Servizio di notifica eventi di sistema (SENS) | Automatico
-Copia shadow del volume (VSS) | Manual
-Microsoft Software Shadow Copy Provider (SWPRV) | Manual
+Copia shadow del volume (VSS) | Manuale
+Microsoft Software Shadow Copy Provider (SWPRV) | Manuale
 
 ### <a name="validate-windows-server-backup-status"></a>Convalida stato Windows Server Backup
 

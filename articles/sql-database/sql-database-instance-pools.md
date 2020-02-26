@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552781"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587397"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Che cosa sono i pool di istanze di database SQL (anteprima)?
 
@@ -112,7 +112,7 @@ Funzionalità o funzionalità facoltative che richiedono la scelta di valori spe
 
 Sebbene le istanze gestite all'interno dei pool dispongano di vCore e RAM dedicate, condividono il disco locale (per l'utilizzo di tempdb) e le risorse di rete. Non è probabile, ma è possibile che si verifichi il fastidioso effetto *adiacente* se più istanze nel pool hanno un consumo di risorse elevato allo stesso tempo. Se si osserva questo comportamento, è consigliabile distribuire queste istanze in un pool più grande o come istanze singole.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Poiché le istanze distribuite in un pool condividono la stessa macchina virtuale, è opportuno considerare la possibilità di disabilitare le funzionalità che introducono rischi di sicurezza più elevati o di controllare con sicurezza le autorizzazioni di accesso a queste funzionalità. Ad esempio, l'integrazione con CLR, il backup e il ripristino nativi, la posta elettronica del database e così via.
 
@@ -126,7 +126,7 @@ Se si verificano problemi relativi alla distribuzione del pool di istanze (creaz
 
 Se si verificano problemi relativi a istanze o database singoli all'interno di un pool, è necessario creare un ticket di supporto regolare per le istanze gestite del database SQL di Azure.
 
-Per creare distribuzioni di istanze gestite di dimensioni maggiori (con o senza pool di istanze), potrebbe essere necessario ottenere una quota regionale più ampia. Usare la [procedura standard dell'istanza gestita per richiedere una quota maggiore](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), ma si noti che se si usano pool di istanze, la logica di distribuzione confronta il consumo totale di vCore *a livello di pool* rispetto alla quota per determinare se è possibile creare nuove risorse senza aumentare ulteriormente la quota.
+Per creare distribuzioni di istanze gestite di dimensioni maggiori (con o senza pool di istanze), potrebbe essere necessario ottenere una quota regionale più ampia. Per altre informazioni, vedere [incremento della quota di richieste per il database SQL di Azure](quota-increase-request.md). Si noti che se si usano pool di istanze, la logica di distribuzione confronta il consumo totale di vCore *a livello di pool* rispetto alla quota per determinare se è possibile creare nuove risorse senza aumentare ulteriormente la quota.
 
 ## <a name="instance-pool-billing"></a>Fatturazione pool di istanze
 

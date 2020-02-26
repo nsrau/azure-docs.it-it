@@ -5,24 +5,24 @@ author: Christina-Kang
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: db271d479fd84e5338d53cc25ecc0122d856c442
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610234"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589148"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gestire un'applicazione di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
 
 Informazioni su come creare ed eliminare applicazioni in esecuzione in un cluster Azure Service Fabric.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Installare l'interfaccia della riga di comando di Service Fabric. Selezionare il cluster Service Fabric. Per altre informazioni, vedere [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md).
 
 * È necessario avere un pacchetto dell'applicazione di Service Fabric pronto per essere distribuito. Per altre informazioni su come creare un'applicazione e inserirla in un pacchetto, vedere l'articolo sul [modello di applicazione di Service Fabric](service-fabric-application-model.md).
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Per distribuire una nuova applicazione, completare questi passaggi:
 
@@ -47,7 +47,7 @@ Prima di creare un'applicazione, caricare il pacchetto dell'applicazione nell'ar
 
 Ad esempio, se il pacchetto dell'applicazione è nella directory `app_package_dir`, usare i comandi seguenti per caricare la directory:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir
 ```
 
@@ -57,7 +57,7 @@ Per i pacchetti di applicazione di grandi dimensioni è possibile specificare l'
 
 Al termine del caricamento eseguire il provisioning dell'applicazione. Per eseguire il provisioning dell'applicazione, usare il comando seguente:
 
-```azurecli
+```shell
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
@@ -69,7 +69,7 @@ Al termine della registrazione dell'applicazione, è consigliabile rimuovere il 
 
 Per eliminare il pacchetto dell'applicazione dall'archivio immagini, usare il comando seguente:
 
-```azurecli
+```shell
 sfctl store delete --content-path app_package_dir
 ```
 
@@ -79,7 +79,7 @@ sfctl store delete --content-path app_package_dir
 
 Dopo il provisioning dell'applicazione, usare il comando seguente per assegnare un nome e creare l'applicazione:
 
-```azurecli
+```shell
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
@@ -91,7 +91,7 @@ Il nome dell'applicazione deve iniziare con il prefisso `fabric:/`.
 
 Dopo avere creato un'applicazione, creare i servizi dall'applicazione. Nell'esempio seguente si crea dall'applicazione un nuovo servizio senza stato. I servizi che è possibile creare da un'applicazione sono definiti in un manifesto del servizio all'interno del pacchetto dell'applicazione di cui in precedenza è stato eseguito il provisioning.
 
-```azurecli
+```shell
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
@@ -100,14 +100,14 @@ sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-t
 
 Per verificare l'integrità completa, usare i seguenti comandi di integrità:
 
-```azurecli
+```shell
 sfctl application list
 sfctl service list --application-id TestApp
 ```
 
 Per verificare l'integrità del servizio, usare comandi simili per recuperare lo stato sia del servizio che dell'applicazione:
 
-```azurecli
+```shell
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
@@ -122,7 +122,7 @@ Per rimuovere un'applicazione, completare le attività seguenti:
 
 Per eliminare l'applicazione, usare il comando seguente:
 
-```azurecli
+```shell
 sfctl application delete --application-id TestEdApp
 ```
 
@@ -130,7 +130,7 @@ sfctl application delete --application-id TestEdApp
 
 Dopo aver eliminato l'applicazione, è possibile annullare il provisioning del tipo di applicazione se non è più necessario. Per annullare il provisioning del tipo di applicazione, usare il comando seguente:
 
-```azurecli
+```shell
 sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
@@ -142,7 +142,7 @@ Dopo avere creato l'applicazione, è possibile ripetere lo stesso set di passagg
 
 Per eseguire un aggiornamento, eseguire prima il provisioning della versione successiva dell'applicazione usando gli stessi comandi, come indicato in precedenza:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
 sfctl store delete --content-path app_package_dir_2
@@ -150,7 +150,7 @@ sfctl store delete --content-path app_package_dir_2
 
 Si consiglia quindi di eseguire un aggiornamento automatico monitorato, avviare l'aggiornamento usando il comando seguente:
 
-```azurecli
+```shell
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 

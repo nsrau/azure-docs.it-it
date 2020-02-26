@@ -3,7 +3,7 @@ title: Connettere Citrix Analytics (sicurezza) ad Azure Sentinel | Microsoft Doc
 description: Informazioni su come connettere Citrix Analytics (sicurezza) ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: b4a720702cdadf641665c4c8dc3754edd1c42361
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610625"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588383"
 ---
 # <a name="connect-citrix-analytics-security"></a>Connettere Citrix Analytics (Security) 
 
@@ -27,7 +27,7 @@ L'integrazione di Citrix Analytics (sicurezza) con Azure Sentinel consente di es
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: c01106bf7288e777e601c06558b1408960f4e49b
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539434"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591524"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurare e gestire il pool di macchine virtuali 
 Questo articolo illustra come eseguire le attività seguenti:
@@ -58,6 +58,9 @@ Il secondo modo consiste nel selezionare una o più macchine virtuali nell'elenc
 ![Avvia macchine virtuali selezionate](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
 Analogamente, è possibile arrestare una o più macchine virtuali attivando il pulsante nella colonna **stato** o selezionando **Interrompi** sulla barra degli strumenti. 
+
+> [!NOTE]
+> Quando un insegnante accende una macchina virtuale per studenti, la quota per lo studente non è interessata. Quota per un utente specifica il numero di ore di Lab disponibili per l'utente al di fuori dell'ora della classe pianificata. Per altre informazioni sulle quote, vedere [impostare le quote per gli utenti](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Reimposta macchine virtuali
 Per reimpostare una o più macchine virtuali, selezionarle nell'elenco e quindi fare clic su **Reimposta** sulla barra degli strumenti. 

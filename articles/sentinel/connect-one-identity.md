@@ -3,7 +3,7 @@ title: Connettere una sicurezza di identità ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere un'identità di sicurezza a Sentinel di Azure.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: 7e33580c253c98279644e10305557a7e60701c90
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610506"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588145"
 ---
 # <a name="connect-one-identity-safeguard"></a>Connettere una sicurezza di identità
 Il One Identity SafeGuard Data Connector migliora il connettore CEF (Common Event Format) standard con sicurezza per i dashboard specifici delle sessioni con privilegi. Usare questo connettore per iniziare facilmente a usare gli eventi generati dal dispositivo per la visualizzazione, gli avvisi, le indagini e altro ancora.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel.
 

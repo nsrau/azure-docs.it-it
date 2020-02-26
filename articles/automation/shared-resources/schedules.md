@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8daa87eca74570f5b1fdf1537b83dae60d292128
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c4898ba62abdc42d95b77b9a77387bfe71fb4771
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849463"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592204"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
 
@@ -27,7 +27,7 @@ Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specific
 
 I cmdlet nella tabella seguente vengono usati per creare e gestire le pianificazioni con PowerShell in automazione di Azure. Vengono forniti nel [modulo Azure PowerShell](/powershell/azure/overview).
 
-| Cmdlets | Description |
+| Cmdlet | Descrizione |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Recupera una pianificazione. |
 | [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Crea una nuova pianificazione. |
@@ -143,7 +143,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 L'intervallo più frequente per il quale è possibile configurare una pianificazione in Automazione di Azure è un'ora. Se sono necessarie pianificazioni da eseguire più frequentemente rispetto a questa, sono disponibili due opzioni:
 
-* Creare un [webhook](../automation-webhooks.md) per il runbook e usare l'[Utilità di pianificazione di Azure](../../scheduler/scheduler-get-started-portal.md) per chiamare il webhook. Utilità di pianificazione di Azure fornisce una granularità più precisa quando si definisce una pianificazione.
+* Creare un [webhook](../automation-webhooks.md) per il Runbook e usare [app](../../logic-apps/logic-apps-overview.md) per la logica di Azure per chiamare il webhook. App per la logica di Azure offre una granularità più dettagliata quando si definisce una pianificazione.
 
 * Creare quattro pianificazioni, tutte in avvio entro 15 minuti una dall'altra, in esecuzione una volta ogni ora. Questo scenario consente l'esecuzione del runbook ogni 15 minuti con pianificazioni diverse.
 

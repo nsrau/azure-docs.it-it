@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 20c30a77201c4f728013bdd204eef81294eefb73
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: d32ce79d0c8b26e0e78e2bae0f0335315c1a3a40
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545161"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587329"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights uso di AI per monitorare e risolvere i problemi relativi alle prestazioni del database (anteprima)
 
@@ -113,7 +113,7 @@ Per usare Hub di eventi per configurare gli avvisi e il monitoraggio personalizz
 
 ### <a name="set-up-with-azure-storage"></a>Configurare con Archiviazione di Azure
 
-Per usare Intelligent Insights con Archiviazione e configurare dati di log di Intelligent Insights da trasmettere ad Archiviazione, vedere [Streaming in Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage).
+Per usare Intelligent Insights con Archiviazione e configurare dati di log di Intelligent Insights da trasmettere ad Archiviazione, vedere [Streaming in Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage).
 
 ### <a name="custom-integrations-of-intelligent-insights-log"></a>Integrazioni personalizzate del log di Intelligent Insights
 

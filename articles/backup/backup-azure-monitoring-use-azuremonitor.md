@@ -4,12 +4,12 @@ description: Monitorare i carichi di lavoro di backup di Azure e creare avvisi p
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: acdd7ae870334fe3a77a37505fac5e02b3af360d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 0673291ac6bd1692c6ebe07540e05077e3025d55
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500676"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583870"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorare su larga scala tramite monitoraggio di Azure
 
@@ -29,11 +29,11 @@ In monitoraggio di Azure è possibile creare avvisi personalizzati in un'area di
 > [!IMPORTANT]
 > Per informazioni sul costo della creazione di questa query, vedere [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
-Selezionare uno dei grafici per aprire la sezione **logs** dell'area di lavoro log Analytics. Nella sezione **logs** modificare le query e creare avvisi su di essi.
+Aprire la sezione **logs** dell'area di lavoro log Analytics e scrivere una query nei propri log. Quando si seleziona **nuova regola di avviso**, viene visualizzata la pagina di creazione degli avvisi di monitoraggio di Azure, come illustrato nella figura seguente.
 
-![Creare un avviso in un'area di lavoro Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+![Creare un avviso in un'area di lavoro Log Analytics](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 
-Quando si seleziona **nuova regola di avviso**, viene visualizzata la pagina di creazione degli avvisi di monitoraggio di Azure, come illustrato nella figura seguente. Qui la risorsa è già contrassegnata come area di lavoro Log Analytics e viene fornita l'integrazione del gruppo di azioni.
+Qui la risorsa è già contrassegnata come area di lavoro Log Analytics e viene fornita l'integrazione del gruppo di azioni.
 
 ![Pagina Creazione avviso Log Analytics](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
@@ -122,6 +122,26 @@ I grafici predefiniti forniscono query kusto per gli scenari di base in cui è p
     )
     on BackupItemUniqueId
     ````
+
+- Archiviazione di backup utilizzata per ogni elemento di backup
+
+    ````Kusto
+    CoreAzureBackup
+    //Get all Backup Items
+    | where OperationName == "BackupItem"
+    //Get distinct Backup Items
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+    | join kind=leftouter
+    (AddonAzureBackupStorage
+    | where OperationName == "StorageAssociation"
+    //Get latest record for each Backup Item
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | project BackupItemUniqueId , StorageConsumedInMBs)
+    on BackupItemUniqueId
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | sort by StorageConsumedInMBs desc
+    ````
+
 
 ### <a name="diagnostic-data-update-frequency"></a>Frequenza di aggiornamento dei dati di diagnostica
 

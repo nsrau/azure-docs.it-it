@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1bc2c3a17aef232df184926dca5f70eac61b03ac
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698765"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585850"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: fornire attestazioni facoltative all'app Azure AD
 
@@ -49,7 +49,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 
 **Tabella 2: set di attestazioni facoltativo v 1.0 e v 2.0**
 
-| Nome                       |  Description   | Tipo di token | Tipo di utente | Note  |
+| Nome                       |  Descrizione   | Tipo di token | Tipo di utente | Note  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Ora dell'ultima autenticazione dell'utente. Vedere la specifica di OpenID Connect.| Token JSON Web        |           |  |
 | `tenant_region_scope`      | Area del tenant della risorsa. | Token JSON Web        |           | |
@@ -78,7 +78,7 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v 1.0, ma non sono
 
 **Tabella 3: attestazioni facoltative solo v 2.0**
 
-| Attestazione JWT     | Nome                            | Description                                | Note |
+| Attestazione JWT     | Nome                            | Descrizione                                | Note |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Indirizzo IP                      | Indirizzo IP da cui il client ha effettuato l'accesso.   |       |
 | `onprem_sid`  | ID di sicurezza locale |                                             |       |
@@ -96,7 +96,7 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
 
 **Tabella 4: valori per la configurazione di attestazioni facoltative**
 
-| Nome proprietà  | Nome proprietà aggiuntiva | Description |
+| Nome proprietà  | Nome proprietà aggiuntiva | Descrizione |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Utilizzabile per le risposte SAML e JWT e per i token v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Include l'UPN guest così come è archiviato nel tenant della risorsa. Ad esempio, usare `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -138,7 +138,7 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 2. Selezionare **Aggiungi attestazione facoltativa**.
 3. Selezionare il tipo di token che si desidera configurare.
 4. Selezionare le attestazioni facoltative da aggiungere.
-5. Scegliere **Aggiungi**.
+5. Fare clic su **Aggiungi**.
 
 **Configurazione di attestazioni facoltative tramite il manifesto dell'applicazione:**
 
@@ -186,7 +186,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome        | Tipo                       | Description                                           |
+| Nome        | Type                       | Descrizione                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT. |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -199,7 +199,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                 | Tipo                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nome                 | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |
@@ -207,7 +207,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 | `additionalProperties` | Raccolta (Edm.String) | Proprietà aggiuntive dell'attestazione. Se esiste una proprietà in questa raccolta, modificherà il comportamento dell'attestazione facoltativa specificata nella proprietà name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurazione delle attestazioni facoltative dell'estensione di directory
 
-Oltre al set di attestazioni facoltative standard, è anche possibile configurare i token per includere le estensioni. Per altre informazioni, vedere [aggiungere dati personalizzati alle risorse usando le estensioni](https://docs.microsoft.com/graph/extensibility-overview). Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. Per un esempio, vedere la parte inferiore di questa pagina.
+Oltre al set di attestazioni facoltative standard, è anche possibile configurare i token per includere le estensioni. Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. Per un esempio, vedere la parte inferiore di questa pagina.
 
 > [!NOTE]
 > - Le estensioni dello schema di directory sono una funzionalità di solo Azure AD, quindi se il manifesto dell'applicazione richiede un'estensione personalizzata e un utente MSA accede all'app, queste estensioni non verranno restituite.
@@ -286,12 +286,12 @@ In questa sezione vengono illustrate le opzioni di configurazione in attestazion
        }
     ```
 
-   | Schema delle attestazioni facoltativo | Valore |
+   | Schema delle attestazioni facoltativo | valore |
    |----------|-------------|
    | **nome** | Deve essere "groups" |
    | **origine** | Non usato. Omettere o specificare null |
    | **essenziale** | Non usato. Omettere o specificare false |
-   | **additionalProperties:** | Elenco di proprietà aggiuntive.  Le opzioni valide sono "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **AdditionalProperties** | Elenco di proprietà aggiuntive.  Le opzioni valide sono "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
    In additionalProperties è necessario solo un "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se è presente più di un oggetto, viene usato il primo e tutti gli altri vengono ignorati.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 7affd408ce2471f34a8362ba32101b639aafc514
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049880"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586607"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -70,7 +70,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 
 * Il Azure NetApp Files subnet delegata deve essere in grado di raggiungere tutti i Active Directory Domain Services (aggiunge) controller di dominio nel dominio, inclusi tutti i controller di dominio locali e remoti. In caso contrario, può verificarsi un'interruzione del servizio.  
 
-    Se si dispone di controller di dominio irraggiungibili tramite la Azure NetApp Files subnet delegata, è possibile inviare una richiesta di supporto di Azure per modificare l'ambito da **globale** (impostazione predefinita) a **sito**.  Azure NetApp Files necessario comunicare solo con i controller di dominio nel sito in cui risiede lo spazio degli indirizzi della subnet delegata Azure NetApp Files.
+    Se si dispone di controller di dominio irraggiungibili tramite la Azure NetApp Files subnet delegata, è possibile specificare un sito di Active Directory durante la creazione della connessione Active Directory.  Azure NetApp Files necessario comunicare solo con i controller di dominio nel sito in cui risiede lo spazio degli indirizzi della subnet delegata Azure NetApp Files.
 
     Vedere [progettazione della topologia del sito](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sui siti e servizi di Active Directory. 
     
@@ -88,8 +88,10 @@ Vedere Azure NetApp Files [domande frequenti su SMB](https://docs.microsoft.com/
         Questo è il DNS necessario per le operazioni di aggiunta a un dominio Active Directory e di autenticazione SMB. 
     *   **DNS secondario**  
         Si tratta del server DNS secondario per garantire i servizi dei nomi ridondanti. 
-    * **Dominio**  
+    * **Nome di dominio DNS AD**  
         Si tratta del nome di dominio del Active Directory Domain Services che si desidera aggiungere.
+    * **Nome sito Active Directory**  
+        Questo è il nome del sito a cui sarà limitata l'individuazione del controller di dominio.
     * **Prefisso server SMB (account computer)**  
         Questo è il prefisso di denominazione per l'account del computer in Active Directory che Azure NetApp Files utilizzerà per la creazione di nuovi account.
 

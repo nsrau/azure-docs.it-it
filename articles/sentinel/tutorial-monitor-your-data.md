@@ -3,7 +3,7 @@ title: Visualizzare i dati usando i dashboard basati sulle cartelle di lavoro di
 description: Usare questa esercitazione per informazioni su come visualizzare i dati usando i dashboard basati sulle cartelle di lavoro in Sentinel di Azure.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/01/2020
-ms.author: rkarlin
-ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610455"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585221"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Esercitazione: visualizzare e monitorare i dati
 
@@ -33,7 +33,7 @@ Questa esercitazione consente di visualizzare i dati in Sentinel di Azure.
 > * Usare cartelle di lavoro predefinite
 > * Creare nuove cartelle di lavoro
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Per il gruppo di risorse dell'area di lavoro di Azure Sentinel è necessario disporre almeno delle autorizzazioni di collaboratore Reader o cartella di lavoro.
 

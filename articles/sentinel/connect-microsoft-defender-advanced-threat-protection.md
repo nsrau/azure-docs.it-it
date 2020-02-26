@@ -3,7 +3,7 @@ title: Connettere i dati di Microsoft Defender ATP ad Azure Sentinel | Microsoft
 description: Informazioni su come connettere i dati di Microsoft Defender Advanced Threat Protection ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
-ms.author: rkarlin
-ms.openlocfilehash: 19d496ebb61a3ceb47f69f661e30ab529dc64f3d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.author: yelevin
+ms.openlocfilehash: ee2c917d02a442ebabc0e1b40bc245982af794f8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256747"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588213"
 ---
 # <a name="connect-alerts-from-microsoft-defender-advanced-threat-protection"></a>Connetti avvisi da Microsoft Defender Advanced Threat Protection 
 
@@ -32,7 +32,7 @@ ms.locfileid: "72256747"
 
 È possibile trasmettere avvisi da [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) in Azure Sentinel con un solo clic. Questa connessione consente di trasmettere gli avvisi da Microsoft Defender Advanced Threat Protection in Sentinel di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Licenza valida per Microsoft Defender Advanced Threat Protection abilitata come descritto in [convalidare il provisioning delle licenze e completare la configurazione per Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 - È necessario essere un amministratore o un amministratore della sicurezza nel tenant di Azure Sentinel.
@@ -52,5 +52,5 @@ Se Microsoft Defender Advanced Threat Protection viene distribuito e l'inserimen
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Microsoft Defender ATP ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats.md).

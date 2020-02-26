@@ -3,7 +3,7 @@ title: Connettere i dati Azure AD ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere Azure Active Directory dati ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: f08cd731e40b204d042e5df418b03626b9082c3b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.author: yelevin
+ms.openlocfilehash: be9241a6156621d3f90dbab2da5bebeb463b4232
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894666"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588621"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Connettere i dati da Azure Active Directory
 
@@ -28,7 +28,7 @@ ms.locfileid: "74894666"
 
 Azure Sentinel consente di raccogliere dati da [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) e di trasmettere i dati in Azure Sentinel. È possibile scegliere di eseguire lo streaming dei log di [accesso](../active-directory/reports-monitoring/concept-sign-ins.md) e dei [log di controllo](../active-directory/reports-monitoring/concept-audit-logs.md) .
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Se si desidera esportare i dati di accesso da Active Directory, è necessario disporre di una licenza Azure AD P1 o P2.
 
@@ -37,7 +37,7 @@ Azure Sentinel consente di raccogliere dati da [Azure Active Directory](../activ
 - Per poter visualizzare lo stato della connessione, è necessario disporre dell'autorizzazione per accedere ai log di diagnostica Azure AD. 
 
 
-## <a name="connect-to-azure-ad"></a>Connettersi ad Azure AD
+## <a name="connect-to-azure-ad"></a>Connessione ad Azure AD
 
 1. In Sentinel di Azure selezionare **connettori dati** , quindi fare clic sul riquadro **Azure Active Directory** .
 

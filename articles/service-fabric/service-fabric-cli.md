@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4ddc5bb52aeef622a33ace7b3ffad4694d7c072
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904828"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587618"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -18,7 +18,7 @@ L'interfaccia della riga di comando di Azure Service Fabric è un'utilità della
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima dell'installazione, verificare che nell'ambiente siano installati sia Python che pip. Per informazioni, vedere la [documentazione rapida di pip](https://pip.pypa.io/en/latest/quickstart/) e la [documentazione sull'installazione di Python](https://wiki.python.org/moin/BeginnersGuide/Download) ufficiale.
 
@@ -39,9 +39,9 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
-Facoltativamente, è possibile specificare una versione di destinazione dell'interfaccia della riga di comando da installare aggiungendo `==<version>` come suffisso al comando `pip install`. Per la versione 1.1.0, ad esempio, la sintassi sarà la seguente:
+Facoltativamente, è possibile specificare una versione di destinazione dell'interfaccia della riga di comando da installare aggiungendo `pip install` come suffisso al comando `==<version>`. Per la versione 1.1.0, ad esempio, la sintassi sarà la seguente:
 
-```
+```shell
 pip install -I sfctl==1.1.0
 ```
 
@@ -67,14 +67,14 @@ Per Windows 10, Windows Server 2016 e Windows Server 2012 R2 usare le istruzioni
 
 È ora possibile aprire una nuova finestra di comando e ottenere la versione di Python e pip.
 
-```bat
+```shell
 python --version
 pip --version
 ```
 
 Eseguire quindi il comando seguente per installare l'interfaccia della riga di comando di Azure Service Fabric (sfctl) e visualizzare la pagina della Guida dell'interfaccia della riga di comando:
 
-```bat
+```shell
 pip install sfctl
 sfctl -h
 ```
@@ -103,7 +103,7 @@ Assicurarsi che `~/.local/bin` sia accessibile da `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+echo "export PATH=$PATH:~/.local/bin" >> .shellrc
 ```
 
 Se l'installazione nel sottosistema Windows per Linux ha esito negativo a causa di autorizzazioni non corrette per la cartella, potrebbe essere necessario riprovare con autorizzazioni elevate:
@@ -148,7 +148,7 @@ I comandi sono sempre preceduti dal prefisso `sfctl`. Per informazioni generali 
 
 I comandi seguono una struttura ripetibile, in cui la destinazione del comando precede il verbo o l'azione.
 
-```azurecli
+```shell
 sfctl <object> <action>
 ```
 
@@ -161,7 +161,7 @@ Prima di eseguire qualsiasi operazione, è necessario selezionare un cluster a c
 > [!WARNING]
 > Non usare cluster di Service Fabric non protetti in un ambiente di produzione.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
@@ -169,7 +169,7 @@ L'endpoint del cluster deve essere preceduto da `http` o `https` e deve includer
 
 Per i cluster protetti da un certificato, è possibile specificare un certificato con codifica PEM. Il certificato può essere specificato come file singolo o come coppia di certificato e chiave. Se si tratta di un certificato autofirmato non firmato da una CA, è possibile passare l'opzione `--no-verify` per ignorare la verifica della CA.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
@@ -181,7 +181,7 @@ Le informazioni di connessione al cluster vengono mantenute per più sessioni de
 
 Per ottenere lo stato di integrità di un cluster di Service Fabric, ad esempio, usare il comando seguente:
 
-```azurecli
+```shell
 sfctl cluster health
 ```
 
@@ -218,13 +218,13 @@ Ecco alcuni suggerimenti per risolvere i problemi comuni.
 
 L'interfaccia della riga di comando di Service Fabric supporta i certificati lato client come file con estensione pem. Se si usano file PFX di Windows, è necessario convertire tali certificati nel formato PEM. Per convertire un file PFX in un file PEM, usare il comando seguente:
 
-```bash
+```shell
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
 Analogamente, per convertire un file PEM in un file PFX si può usare il comando seguente (non viene fornita alcuna password):
 
-```bash
+```shell
 openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
 ```
 
@@ -246,13 +246,13 @@ I log dettagliati si rivelano spesso utili per il debug o la segnalazione di un 
 
 Per informazioni su un comando o un gruppo di comandi specifico, usare il flag `-h`.
 
-```azurecli
+```shell
 sfctl application -h
 ```
 
 Di seguito è riportato un altro esempio:
 
-```azurecli
+```shell
 sfctl application create -h
 ```
 
@@ -260,7 +260,7 @@ sfctl application create -h
 
 Per aggiornare l'interfaccia della riga di comando di Service Fabric, eseguire i comandi seguenti (sostituire `pip` con `pip3` a seconda della scelta eseguita durante l'installazione originale):
 
-```bash
+```shell
 pip uninstall sfctl
 pip install sfctl
 ```

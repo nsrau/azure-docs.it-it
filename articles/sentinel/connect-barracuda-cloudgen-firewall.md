@@ -3,7 +3,7 @@ title: Connettere Barracuda CloudGen firewall ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere Barracuda CloudGen firewall ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: f7d5531c8aba3e2e7abb56d82342bfda79dbc71b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610727"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588502"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Connettere Barracuda CloudGen Firewall
 
@@ -28,7 +28,7 @@ Il connettore Barracuda CloudGen firewall (CGFW) consente di connettere facilmen
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel.
 

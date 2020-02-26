@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ea6a8963d0905036f759fbab792492cc63d551c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9719f1a081da688501e6dbea0fc1b865168077c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806746"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591218"
 ---
 # <a name="know-the-terms"></a>Conoscere i termini
 
@@ -38,7 +38,7 @@ Nella guida all'architettura e alla distribuzione vengono comunemente usati alcu
    Gli utenti del dominio locale possono accedere ai server ed eseguire servizi in queste VM, ad esempio i servizi DBMS. La comunicazione e la risoluzione dei nomi tra le VM distribuite in locale e quelle distribuite in Azure sono possibili. Questo è lo scenario tipico in cui viene distribuita la maggior parte degli asset SAP. Per altre informazioni, vedere [gateway VPN di Azure](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant**: un cliente distribuito nel modulo per istanze Large di HANA viene isolato in un *tenant*. Un tenant è isolato a livello di rete, archiviazione e calcolo dagli altri tenant, Le unità di archiviazione e calcolo assegnate ai diversi tenant non possono vedersi o comunicare tra loro a livello del modulo per istanze Large di HANA. Un cliente può scegliere di avere distribuzioni in tenant diversi. Neppure in questo caso i tenant possono comunicare tra di essi a livello di stamp di istanze Large di HANA.
 - **Categoria SKU**: per le istanze Large di HANA sono disponibili le due categorie di SKU seguenti:
-    - **Classe di tipo I**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm e S224
+    - **Classe di tipo I**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 e S224m
     - **Classe di tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m
 - **Timbro**: definisce la dimensione di distribuzione interna Microsoft delle istanze large di Hana. Prima che le unità di istanze large di HANA possano essere distribuite, un timbro di istanze large di HANA costituito da rack di calcolo, rete e archiviazione deve essere distribuito in una posizione del Data Center. Una distribuzione di questo tipo è detta timbro di istanze large di HANA o dalla revisione 4 (vedere di seguito) in cui si usa l'alternativa del termine di una **riga di istanze large**
 - **Revisione**: per gli indicatori di istanze large di Hana sono presenti due revisioni di timbri diversi. Questi sono diversi in architettura e prossimità degli host di macchine virtuali di Azure

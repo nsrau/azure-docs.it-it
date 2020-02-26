@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462003"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587125"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -65,7 +65,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 
 Tutti gli esempi di criteri di Azure sono disponibili in [esempi di criteri di Azure](../samples/index.md).
 
-## <a name="mode"></a>Modalità
+## <a name="mode"></a>Mode
 
 La **modalità** viene configurata in base al fatto che i criteri siano destinati a una proprietà Azure Resource Manager o a una proprietà del provider di risorse.
 
@@ -265,7 +265,7 @@ Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare
 
 In un **\[\*\]** valore del campo della matrice di alias, ogni elemento della matrice viene valutato singolarmente con gli elementi Logical **e** between. Per ulteriori informazioni, vedere [valutazione della \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-### <a name="fields"></a>Fields
+### <a name="fields"></a>Campi
 
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
 
@@ -322,13 +322,13 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>Valore
+### <a name="value"></a>valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
 
 > [!WARNING]
-> Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri ha esito negativo. Una valutazione non riuscita è un' **negazione**implicita. Per ulteriori informazioni, vedere la pagina relativa alla [prevenzione degli errori del modello](#avoiding-template-failures).
+> Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri non riesce. Una valutazione non riuscita è un risultato **deny** implicito. Per altre informazioni, vedere come [evitare errori dei modelli](#avoiding-template-failures). Usare [enforcementMode](./assignment-structure.md#enforcement-mode) di **DoNotEnforce** per evitare l'effetto di una valutazione non riuscita sulle risorse nuove o aggiornate durante il test e la convalida di una nuova definizione dei criteri.
 
 #### <a name="value-examples"></a>Esempi d'uso di value
 
@@ -372,7 +372,7 @@ Questo esempio di regola dei criteri USA **value** per verificare se il risultat
 
 #### <a name="avoiding-template-failures"></a>Evitare gli errori di modelli
 
-L'utilizzo delle _funzioni di modello_ in **value** consente numerose funzioni annidate complesse. Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri ha esito negativo. Una valutazione non riuscita è un' **negazione**implicita. Un esempio di un **valore** che ha esito negativo in determinati scenari:
+L'utilizzo delle _funzioni di modello_ in **value** consente numerose funzioni annidate complesse. Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri non riesce. Una valutazione non riuscita è un risultato **deny** implicito. Un esempio di un **valore** che ha esito negativo in determinati scenari:
 
 ```json
 {
@@ -580,13 +580,22 @@ Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manag
 
 Le funzioni seguenti sono disponibili per l'uso in una regola dei criteri, ma sono diverse da quelle usate in un modello di Azure Resource Manager:
 
-- addDays(dateTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. fffffffZ '
   - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere
-- utcNow (): diversamente da un modello di Gestione risorse, può essere usato all'esterno di defaultValue.
+- `utcNow()`-diversamente da un modello di Gestione risorse, questo può essere usato all'esterno di defaultValue.
   - Restituisce una stringa impostata sulla data e l'ora correnti nel formato DateTime ISO 8601 universale ' AAAA-MM-GGThh: mm: SS. fffffffZ '
 
-Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
+Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
+
+- `field(fieldName)`
+  - **FieldName**: [Required] nome stringa del [campo](#fields) da recuperare
+  - Restituisce il valore di tale campo dalla risorsa valutata dalla condizione If
+  - `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Restituisce la versione dell'API della richiesta che ha attivato la valutazione del criterio, ad esempio `2019-09-01`. Questa sarà la versione dell'API usata nella richiesta PUT/PATCH per le valutazioni per la creazione o l'aggiornamento delle risorse. La versione più recente dell'API viene sempre usata durante la valutazione della conformità sulle risorse esistenti.
+  
+
 
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 
@@ -669,7 +678,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio,
+Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

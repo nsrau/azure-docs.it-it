@@ -11,28 +11,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: spelluru
-ms.openlocfilehash: 4ca17bece33107de756eb221e14eaab851660a99
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fbac5a2fab91cdac8ebf626e324f12f209cfade5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992235"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588706"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Avvisi di sicurezza per gli ambienti in Azure DevTest Labs
-Questo articolo illustra come visualizzare gli avvisi di sicurezza per gli ambienti in Azure DevTest Labs. 
+Gli utenti del Lab possono ora visualizzare gli avvisi del Centro sicurezza di Azure per gli ambienti Lab. Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni dei partner connesse, come soluzioni di protezione endpoint e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Il Centro sicurezza visualizza un elenco degli avvisi di sicurezza in ordine di priorità, nonché le informazioni necessarie per analizzare rapidamente il problema e indicazioni per risolvere un attacco. [Altre informazioni sugli avvisi di sicurezza nel centro sicurezza di Azure](../security-center//security-center-alerts-overview.md).  
 
-## <a name="prerequisites"></a>Prerequisiti
-Attualmente, è possibile visualizzare gli avvisi di sicurezza solo per gli ambienti distribuiti nel Lab. Per testare o usare questa funzionalità, distribuire un ambiente nel Lab. 
+
+## <a name="prerequisites"></a>Prerequisites
+Attualmente, è possibile visualizzare gli avvisi di sicurezza solo per gli ambienti di piattaforma distribuita come servizio (PaaS) distribuiti nel Lab. Per testare o usare questa funzionalità, [distribuire un ambiente nel Lab](devtest-lab-create-environment-from-arm.md). 
 
 ## <a name="view-security-alerts-for-an-environment"></a>Visualizzare gli avvisi di sicurezza per un ambiente
 
-1. Nella home page per il Lab selezionare avvisi di **sicurezza** nel menu a sinistra. Verrà visualizzato il numero di avvisi di sicurezza (alto, medio e basso).
+1. Nella home page per il Lab selezionare avvisi di **sicurezza** nel menu a sinistra. Verrà visualizzato il numero di avvisi di sicurezza (alto, medio e basso). Altre informazioni sul [modo in cui vengono classificati gli avvisi](../security-center/security-center-alerts-overview.md#how-are-alerts-classified).
 
     ![Avvisi di sicurezza-Panoramica](./media/environment-security-alerts/security-alerts-overview-page.png)
 2. Fare clic con il pulsante destro del mouse su tre punti (...) nell'ultima colonna e selezionare **Visualizza avvisi di sicurezza**. 
 
     ![Visualizzare avvisi di sicurezza](./media/environment-security-alerts/view-security-alerts-menu.png)
-3. Vengono visualizzati altri dettagli sugli avvisi e le raccomandazioni di Advisor. 
+    
+3. Vengono visualizzati altri dettagli sugli avvisi e le raccomandazioni di Advisor. Scopri di più sulla [gestione e sulla risposta agli avvisi di sicurezza nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md).
 
     ![Visualizzare avvisi di sicurezza](./media/environment-security-alerts/advisor-recommendations.png)
 

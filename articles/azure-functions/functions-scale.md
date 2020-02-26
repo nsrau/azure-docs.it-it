@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024654"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584542"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -39,8 +39,8 @@ La tabella seguente indica il livello di supporto corrente per i tre piani di ho
 
 | | Piano a consumo | Piano Premium | Piano dedicato |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | Disponibilità a livello generale | Disponibilità a livello generale | Disponibilità a livello generale |
-| Linux | Disponibilità a livello generale | Disponibilità a livello generale | Disponibilità a livello generale |
+| Windows | GA | GA | GA |
+| Linux | GA | GA | GA |
 
 ## <a name="consumption-plan"></a>Piano a consumo
 
@@ -158,7 +158,7 @@ Il ridimensionamento può variare in base a numerosi fattori e comportarsi diver
 
 Trigger distinti possono avere limiti di ridimensionamento diversi come illustrato di seguito:
 
-* [Hub eventi](functions-bindings-event-hubs.md#trigger---scaling)
+* [Hub eventi](functions-bindings-event-hubs-trigger.md#scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedure consigliate e modelli per app scalabili
 

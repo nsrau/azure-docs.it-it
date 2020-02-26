@@ -3,7 +3,7 @@ title: Connettere i dati di syslog ad Azure Sentinel | Microsoft Docs
 description: Informazioni su come connettere i dati syslog a Sentinel di Azure.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: d5f3d24d10262f28023523668c22f4571799cff9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 73fd55fc24fd94dc88bba2f591c32480f77c7d5d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610472"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588077"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Connettere la soluzione esterna usando syslog
 
@@ -28,7 +28,7 @@ ms.locfileid: "75610472"
 > [!NOTE]
 > Se il dispositivo supporta syslog CEF, la connessione è più completa ed è consigliabile scegliere questa opzione e seguire le istruzioni in [connessione dei dati da CEF](connect-common-event-format.md).
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog. Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente. Quest'ultimo invia quindi il messaggio a Monitoraggio di Azure, dove viene creato un record corrispondente.
 

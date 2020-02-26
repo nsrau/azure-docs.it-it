@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873370"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587686"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Clausola FROM in Azure Cosmos DB
 
@@ -79,9 +79,9 @@ FROM <from_specification>
   
   Specifica che il documento deve essere recuperato dall'altra origine definita dall'alias indicato.  
   
-- `<container_expression> '.' property_`  
+- `<container_expression> '.' property_name`  
   
-  Specifica che il documento deve essere recuperato eseguendo l'accesso alla proprietà `property_name` o all'elemento di matrice array_index per tutti i documenti recuperati dall'espressione di contenitore specificata.  
+  Specifica che il documento deve essere recuperato accedendo alla proprietà `property_name`.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
@@ -103,7 +103,7 @@ Un'espressione di contenitore può avere come ambito un contenitore o un documen
   
 -   Un'espressione ha un ambito documento se l'origine dell'espressione di contenitore sottostante è `input_alias` introdotta in precedenza nella query. Tale espressione rappresenta un set di documenti ottenuti dalla valutazione dell'espressione di contenitore nell'ambito di ogni documento appartenente al set associato al contenitore con alias.  Il set risultante sarà un'unione di set ottenuti dalla valutazione dell'espressione di contenitore per ogni documento del set sottostante. 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ### <a name="get-subitems-by-using-the-from-clause"></a>Ottenere gli elementi secondari utilizzando la clausola FROM
 

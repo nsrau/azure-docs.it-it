@@ -9,27 +9,36 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486377"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589369"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
 Questo articolo illustra come usare Azure Machine Learning per gestire il ciclo di vita dei modelli. Azure Machine Learning usa un approccio per le operazioni di Machine Learning (MLOps). MLOps migliora la qualità e la coerenza delle soluzioni di machine learning. 
 
+## <a name="what-is-mlops"></a>Che cos'è MLOps?
+
+Machine Learning Operations (MLOps) si basa sui principi [DevOps](https://azure.microsoft.com/overview/what-is-devops/) e sulle procedure che aumentano l'efficienza dei flussi di lavoro. Ad esempio, integrazione continua, recapito e distribuzione. MLOps applica queste entità al processo di Machine Learning, con l'obiettivo di:
+
+* Sperimentazione e sviluppo più veloci dei modelli
+* Distribuzione più rapida dei modelli nell'ambiente di produzione
+* Garanzia di qualità
+
 Azure Machine Learning offre le funzionalità di MLOps seguenti:
 
-- **Creare pipeline di ml riproducibili**. Le pipeline consentono di definire passaggi ripetibili e riutilizzabili per i processi di preparazione, formazione e assegnazione dei punteggi.
-- È possibile **registrare, assemblare e distribuire i modelli ovunque** e tenere traccia dei metadati associati necessari per l'utilizzo del modello.
-- **Acquisire i dati di governance necessari per l'acquisizione del ciclo di vita di Machine Learning end-to-end**, inclusi quelli che pubblicano i modelli, i motivi per cui vengono apportate le modifiche e quando i modelli sono stati distribuiti o utilizzati nell'ambiente
-- **Inviare notifiche e avvisi sugli eventi nel ciclo di vita di ml** , ad esempio il completamento dell'esperimento, la registrazione del modello, la distribuzione del modello e il rilevamento della tendenza dei dati
+- **Creare pipeline di ml riproducibili**. Machine Learning pipeline consentono di definire passaggi ripetibili e riutilizzabili per la preparazione dei dati, il training e l'assegnazione di punteggi ai processi.
+- **Creare ambienti software riutilizzabili** per il training e la distribuzione dei modelli.
+- **Registra, assembla e Distribuisci i modelli ovunque ti trovi**. È inoltre possibile tenere traccia dei metadati associati richiesti per l'utilizzo del modello.
+- **Acquisire i dati di governance per il ciclo di vita di Machine Learning end-to-end**. Le informazioni registrate possono includere chi sta pubblicando modelli, perché sono state apportate modifiche e quando i modelli sono stati distribuiti o utilizzati nell'ambiente di produzione.
+- **Inviare notifiche e avvisi sugli eventi nel ciclo di vita di ml**. Ad esempio, il completamento di un esperimento, la registrazione del modello, la distribuzione del modello e il rilevamento della tendenza dei dati.
 - **Monitorare le applicazioni ml per i problemi operativi e ml correlati**. Confrontare gli input del modello tra il training e l'inferenza, esplorare le metriche specifiche del modello e fornire il monitoraggio e gli avvisi nell'infrastruttura ML.
-- **Automatizzare il ciclo di vita end-to-end di Machine Learning con Azure Machine Learning e Azure DevOps** per aggiornare spesso i modelli, testare nuovi modelli e implementare continuamente nuovi modelli ml insieme ad altre applicazioni e servizi.
+- **Automatizzare il ciclo di vita end-to-end per ml con Azure Machine Learning e Azure Pipelines**. L'uso di pipeline consente di aggiornare i modelli di frequente, testare nuovi modelli e implementare continuamente nuovi modelli ML insieme ad altre applicazioni e servizi.
 
 ## <a name="create-reproducible-ml-pipelines"></a>Creare pipeline di ML riproducibili
 
@@ -38,6 +47,12 @@ Usare pipeline ML da Azure Machine Learning per unire tutti i passaggi necessari
 Una pipeline ML può contenere passaggi dalla preparazione dei dati all'estrazione delle funzionalità all'ottimizzazione dell'iperparametro alla valutazione del modello. Per altre informazioni, vedere [pipeline di ml](concept-ml-pipelines.md).
 
 Se si usa la [finestra di progettazione](concept-designer.md) per creare le pipeline di Machine Learning, è possibile in qualsiasi momento fare clic su **"..."** in alto a destra nella pagina della finestra di progettazione e quindi selezionare **Clone**. La clonazione della pipeline consente di eseguire l'iterazione della progettazione della pipeline senza perdere le versioni precedenti.  
+
+## <a name="create-reusable-software-environments"></a>Creare ambienti software riutilizzabili
+
+Gli ambienti Azure Machine Learning consentono di rilevare e riprodurre le dipendenze del software dei progetti man mano che si evolvono. Gli ambienti consentono di garantire che le compilazioni siano riproducibili senza configurazioni software manuali.
+
+Gli ambienti descrivono le dipendenze PIP e conda per i progetti e possono essere usati sia per il training sia per la distribuzione dei modelli. Per ulteriori informazioni, vedere [che cosa sono gli ambienti Azure Machine Learning](concept-environments.md).
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>Registrare, creare pacchetti e distribuire modelli ovunque ci si trovi
 
@@ -82,7 +97,7 @@ Quando si usa un modello come servizio Web o IoT Edge dispositivo, vengono forni
 
 * Il modello o i modelli usati per assegnare un punteggio ai dati inviati al servizio o al dispositivo.
 * Uno script di immissione. Questo script accetta le richieste, usa il modello o i modelli per assegnare un punteggio ai dati e restituire una risposta.
-* Un file di ambiente conda che descrive le dipendenze richieste dai modelli e dallo script di immissione.
+* Un ambiente Azure Machine Learning che descrive le dipendenze PIP e conda richieste dai modelli e dallo script di immissione.
 * Eventuali asset aggiuntivi, ad esempio testo, dati e così via, necessari per i modelli e lo script di immissione.
 
 Viene inoltre fornita la configurazione della piattaforma di distribuzione di destinazione. Ad esempio, il tipo di famiglia di VM, la memoria disponibile e il numero di core quando si esegue la distribuzione nel servizio Azure Kubernetes.
@@ -124,7 +139,7 @@ Azure ML offre la possibilità di tenere traccia dell'audit trail end-to-end di 
 
 - Azure ML si [integra con git](how-to-set-up-training-targets.md#gitintegration) per tenere traccia delle informazioni relative a repository/Branch/commit da cui proviene il codice.
 - I set di dati di [Azure ml](how-to-create-register-datasets.md) consentono di monitorare, profilare e la versione dei dati. 
-- La cronologia di esecuzione di Azure ML archivia uno snapshot del codice, dei dati e del calcolo utilizzati per eseguire il training di un modello.
+- La cronologia di esecuzione di Azure ML archivia uno snapshot del codice, dei dati e dei calcoli usati per il training di un modello.
 - Il registro di sistema del modello di Azure ML acquisisce tutti i metadati associati al modello (che sperimentano il training, la posizione in cui vengono distribuiti, se le distribuzioni sono integre).
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifica, automazione e avviso per gli eventi nel ciclo di vita ML
@@ -162,6 +177,8 @@ L' [estensione Azure Machine Learning](https://marketplace.visualstudio.com/item
 * Consente di attivare le pipeline di rilascio da modelli sottoposti a training creati in una pipeline di training.
 
 Per altre informazioni sull'uso di Azure Pipelines con Azure Machine Learning, vedere l'articolo relativo all' [integrazione continua e alla distribuzione di modelli di Machine Learning con Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) e il repository [Azure Machine Learning MLOps](https://aka.ms/mlops) .
+
+È anche possibile usare Azure Data Factory per creare una pipeline di inserimento dati che prepara i dati per l'uso con il training. Per altre informazioni, vedere [pipeline](how-to-cicd-data-ingestion.md)di inserimento dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

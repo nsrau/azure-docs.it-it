@@ -3,12 +3,12 @@ title: Novità del server di Backup di Microsoft Azure
 description: Il server di Backup di Microsoft Azure offre funzionalità avanzate di backup per la protezione di macchine virtuali, file e cartelle, carichi di lavoro e altro ancora. Informazioni su come installare o aggiornare il server di Backup di Azure V3.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 564b11ebf14652166733c226485dfab94e69dfbb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172229"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582807"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Novità del server di Backup di Microsoft Azure
 
@@ -18,7 +18,7 @@ In MABS V3 sono incluse le funzionalità seguenti:
 
 ## <a name="volume-to-volume-migration"></a>Migrazione da volume a volume
 
-Con Modern Backup Storage (MBS) in MABS V2, è stata annunciata l'archiviazione con riconoscimento del carico di lavoro, in cui è possibile configurare alcuni carichi di lavoro per il backup in specifiche risorse di archiviazione, in base alle proprietà di archiviazione. Dopo la configurazione, tuttavia, può risultare necessario spostare i backup di alcune origini dati in altre risorse di archiviazione per un utilizzo ottimizzato delle risorse. MAB V3 offre la possibilità di eseguire la migrazione dei backup e configurarli in modo che vengano archiviati in un volume diverso in [tre passaggi](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
+Con Modern Backup Storage (MBS) in MABS V2, è stata annunciata l'archiviazione con riconoscimento del carico di lavoro, in cui è possibile configurare alcuni carichi di lavoro per il backup in specifiche risorse di archiviazione, in base alle proprietà di archiviazione. Dopo la configurazione, tuttavia, può risultare necessario spostare i backup di alcune origini dati in altre risorse di archiviazione per un utilizzo ottimizzato delle risorse. MAB V3 offre la possibilità di eseguire la migrazione dei backup e configurarli in modo che vengano archiviati in un volume diverso in [tre passaggi](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842).
 
 ## <a name="prevent-unexpected-data-loss"></a>Evitare perdite di dati impreviste
 

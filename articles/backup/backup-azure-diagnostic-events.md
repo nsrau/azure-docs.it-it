@@ -3,12 +3,12 @@ title: Uso delle impostazioni di diagnostica per gli insiemi di credenziali dei 
 description: Articolo che descrive come usare i vecchi e i nuovi eventi di diagnostica per backup di Azure
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 875adb82aeeb56b378a84ca01e716c7189abc64f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281103"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583946"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Uso delle impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino
 
@@ -21,14 +21,15 @@ Backup di Azure invia eventi di diagnostica che possono essere raccolti e usati 
 ## <a name="diagnostics-events-available-for-azure-backup-users"></a>Eventi di diagnostica disponibili per gli utenti di backup di Azure
 
 Backup di Azure fornisce gli eventi di diagnostica seguenti, ognuno dei quali fornisce dati dettagliati su un set specifico di elementi correlati al backup:
+
 * CoreAzureBackup
 * AddonAzureBackupAlerts
 * AddonAzureBackupProtectedInstance
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
-* AddonAzureBackupStorage 
+* AddonAzureBackupStorage
 
-[Modello di dati per gli eventi di diagnostica di backup di Azure](https://aka.ms/diagnosticsdatamodel)
+[Modello di dati per gli eventi di diagnostica di backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
 
 I dati per questi eventi possono essere inviati a un account di archiviazione, a un'area di lavoro o a un hub eventi. Se si inviano questi dati a un'area di lavoro di LA, è necessario selezionare l'interruttore specifico per le **risorse** nella schermata delle **impostazioni di diagnostica** . per altre informazioni, vedere le sezioni seguenti.
 
@@ -37,6 +38,7 @@ I dati per questi eventi possono essere inviati a un account di archiviazione, a
 In linea con la roadmap di Azure Log Analytics, backup di Azure consente ora di inviare i dati di diagnostica dell'insieme di credenziali alle tabelle di LA dedicata per il backup. Queste tabelle sono denominate [tabelle specifiche delle risorse](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
 
 Per inviare i dati di diagnostica dell'insieme di credenziali a LA:
+
 1.  Passare all'insieme di credenziali e fare clic su **impostazioni di diagnostica**. Fare clic su **+ Aggiungi impostazioni di diagnostica**.
 2.  Assegnare un nome all'impostazione di diagnostica.
 3.  Selezionare la casella **Invia a log Analytics** e selezionare un'area di lavoro log Analytics.
@@ -84,4 +86,4 @@ L'immagine seguente mostra un esempio di un utente che dispone di tre impostazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sul modello di dati Log Analytics per gli eventi di diagnostica](https://aka.ms/diagnosticsdatamodel)
+[Informazioni sul modello di dati Log Analytics per gli eventi di diagnostica](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

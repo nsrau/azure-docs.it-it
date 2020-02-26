@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6fc4b40e9b65f17b0af61b601826279e99410ed1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 826cc155bae037121ddc303a6e1bf300e2d50a27
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920749"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589301"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -35,7 +35,7 @@ Inoltre, gli utenti malintenzionati hanno sviluppato i loro metodi per sovvertir
 
 ## <a name="what-are-security-alerts"></a>Informazioni sugli avvisi di sicurezza
 
-Gli avvisi sono le notifiche generate dal Centro sicurezza quando rileva minacce per le risorse. Il Centro sicurezza assegna le priorità ed elenca gli avvisi, insieme alle informazioni necessarie per analizzare rapidamente il problema. Il Centro sicurezza offre anche raccomandazioni per la risoluzione di un attacco.
+Gli avvisi sono le notifiche generate dal centro sicurezza quando rileva le minacce sulle risorse. Il Centro sicurezza assegna le priorità ed elenca gli avvisi, insieme alle informazioni necessarie per analizzare rapidamente il problema. Il Centro sicurezza fornisce anche indicazioni su come correggere un attacco.
 
 ## In che modo il Centro sicurezza rileva le minacce? <a name="detect-threats"> </a>
 
@@ -57,13 +57,13 @@ Le sezioni seguenti illustrano ogni analisi in modo più dettagliato.
 
 Microsoft vanta un'enorme quantità di dati di intelligence per le minacce globali. Il flusso di dati di telemetria proviene da più origini, ad esempio Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC). I ricercatori ricevono anche informazioni di intelligence per le minacce condivise tra i principali provider di servizi cloud e i feed di terze parti. Il Centro sicurezza di Azure usa queste informazioni per avvisare gli utenti nel caso di minacce provenienti da attori dannosi noti.
 
-### <a name="behavioral-analytics"></a>Analisi comportamentali
+### <a name="behavioral-analytics"></a>Analisi del comportamento
 
 L'analisi del comportamento è una tecnica che analizza e confronta i dati con una raccolta di modelli noti. Tuttavia, questi modelli non sono semplici firme. Sono determinati usando algoritmi di Machine Learning complessi applicati a set di dati di grandi dimensioni. Sono anche definiti tramite l'attento esame di comportamenti dannosi da parte di analisti esperti. Il Centro sicurezza di Azure può usare le analisi del comportamento per identificare le risorse compromesse in base all'analisi dei log delle macchine virtuali, dei dispositivi di rete virtuale, dell'infrastruttura, nonché dei dump di arresto anomalo del sistema e di altre origini.
 
 Inoltre, c'è la correlazione con altri segnali per verificare la presenza di evidenze di una campagna diffusa. La correlazione consente di identificare gli eventi che risultano coerenti con gli indicatori di violazione stabiliti. 
 
-### <a name="anomaly-detection"></a>Rilevazione delle anomalie
+### <a name="anomaly-detection"></a>Rilevamento anomalie
 
 Il Centro sicurezza di Azure usa inoltre il rilevamento anomalie per identificare le minacce. A differenza dell'analisi del comportamento, che dipende da modelli noti derivati da set di dati di grandi dimensioni, il rilevamento anomalie è più "personalizzato" e incentrato sulle baseline specifiche delle distribuzioni. Le tecniche di apprendimento automatico vengono applicate per determinare la normale attività per le distribuzioni dei clienti e quindi vengono generate regole per definire le condizioni degli outlier che possono rappresentare un evento di sicurezza.
 
@@ -72,15 +72,15 @@ Il Centro sicurezza di Azure usa inoltre il rilevamento anomalie per identificar
 Il Centro sicurezza assegna una gravità agli avvisi, in modo da consentire la priorità dell'ordine in cui si partecipa a ogni avviso, in modo che quando una risorsa viene compromessa, è possibile accedervi immediatamente. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi utilizzata per emettere l'avviso, nonché sul livello di confidenza causato da un intento dannoso dietro l'attività che ha portato all'avviso.
 
 > [!NOTE]
-> La gravità degli avvisi viene visualizzata in modo diverso nel portale e nell'API REST. Le differenze sono indicate nell'elenco seguente.
+> La gravità dell'avviso viene visualizzata in modo diverso nel portale e nelle versioni dell'API REST che predatano 01-01-2019. Se si usa una versione precedente dell'API, eseguire l'aggiornamento per l'esperienza coerente descritta di seguito.
 
-* **Elevato:** È molto probabile che la risorsa venga compromessa. È consigliabile controllarla immediatamente. Il Centro sicurezza ha una certezza elevata sia delle finalità dannose che delle conclusioni usate per inviare l'avviso, ad esempio un avviso che rileva l'esecuzione di uno strumento dannoso noto, come Mimikatz, uno strumento comune usato per il furto di credenziali.
-* **Media (bassa nell'API REST)** : si tratta probabilmente di un'attività sospetta che può indicare la compromissione di una risorsa.
+- **Elevato:** È molto probabile che la risorsa venga compromessa. È consigliabile controllarla immediatamente. Il Centro sicurezza ha una certezza elevata sia delle finalità dannose che delle conclusioni usate per inviare l'avviso, ad esempio un avviso che rileva l'esecuzione di uno strumento dannoso noto, come Mimikatz, uno strumento comune usato per il furto di credenziali.
+- **Media:** Si tratta probabilmente di un'attività sospetta che può indicare la compromissione di una risorsa.
 La fiducia del Centro sicurezza nell'analisi o nella conclusione è media e la certezza delle finalità dannose è da media a elevata. Si tratta in genere di rilevamenti basati sulle anomalie o su Machine Learning. Ad esempio, un tentativo di accesso da un percorso anomalo.
-* **Bassa (Informazioni nell'API REST)** : potrebbe trattarsi di un falso positivo o di un attacco bloccato.
+- **Bassa:** Potrebbe trattarsi di un attacco benigno positivo o bloccato.
    * Il Centro sicurezza non è del tutto certo che l'intento sia dannoso e che l'attività possa essere inoffensiva. La cancellazione di un log, ad esempio, è un'azione che può verificarsi quando un utente malintenzionato cerca di nascondere le proprie tracce, ma in molti casi è un'operazione di routine eseguita dagli amministratori.
    * Il Centro sicurezza non segnala in genere quando sono stati bloccati attacchi, a meno che non si tratti di un caso interessante che si consiglia di esaminare. 
-* **Informativo (invisibile nell'API REST)** : gli avvisi informativi verranno visualizzati solo quando si esegue il drill-down di un evento imprevisto relativo alla sicurezza oppure se si usa l'API REST con un ID avviso specifico. Un evento imprevisto è in genere costituito da più avvisi, alcuni dei quali sono di per sé semplicemente informativi, ma nel contesto degli altri avvisi potrebbero richiedere un'analisi più approfondita. 
+- **Informazioni:** Gli avvisi informativi vengono visualizzati solo quando si esegue il drill-down in un evento imprevisto di sicurezza o se si usa l'API REST con un ID di avviso specifico. Un evento imprevisto è in genere costituito da più avvisi, alcuni dei quali sono di per sé semplicemente informativi, ma nel contesto degli altri avvisi potrebbero richiedere un'analisi più approfondita. 
  
 
 ## <a name="continuous-monitoring-and-assessments"></a>Monitoraggio e valutazioni continui
@@ -119,7 +119,7 @@ Oltre a essere disponibile nel portale di Azure o a livello di codice, gli avvis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono stati illustrati i diversi tipi di avvisi disponibili nel centro sicurezza. Per scoprire di più, vedi:
+In questo articolo sono stati illustrati i diversi tipi di avvisi disponibili nel centro sicurezza. Per altre informazioni, vedere:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 * [Domande frequenti sul Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)

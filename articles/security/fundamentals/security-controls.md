@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 570cc8457e69b7056b2865af9c1feb5d62a395eb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 777e0289818053b9029fd9f541714fbdb254dad4
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981444"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588672"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Indice degli articoli "controlli di sicurezza predefiniti" per i servizi di Azure
 
@@ -30,7 +30,6 @@ Gli articoli di controllo della sicurezza predefiniti sono disponibili per i ser
 - [Azure Cosmos DB](../../cosmos-db/cosmos-db-security-controls.md)
 - [Hub eventi di Azure](../../event-hubs/event-hubs-security-controls.md)
 - [ExpressRoute di Azure](../../expressroute/expressroute-security-controls.md)
-- [Insieme di credenziali chiave Azure](../../key-vault/key-vault-security-controls.md)
 - [Servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-security-controls.md)
 - [Messaggistica del bus di servizio di Azure](../../service-bus-messaging/service-bus-messaging-security-controls.md)
 - [Inoltro del bus di servizio di Azure](../../service-bus-relay/service-bus-relay-security-controls.md)

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/25/2020
-ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/24/2020
+ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773857"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587584"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
@@ -35,8 +35,8 @@ Quando si progettano i flussi di dati di mapping, è possibile unit test ogni tr
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento delle dimensioni di calcolo in Azure Integration Runtime
 
 Un Integration Runtime con più core aumenta il numero di nodi negli ambienti di calcolo Spark e offre una maggiore potenza di elaborazione per la lettura, la scrittura e la trasformazione dei dati.
-* Provare un cluster **ottimizzato** per il calcolo se si vuole che la velocità di elaborazione sia superiore alla frequenza di input
-* Se si desidera memorizzare nella cache più dati in memoria, provare un cluster con ottimizzazione per la **memoria** .
+* Provare un cluster **ottimizzato** per il calcolo se si vuole che la velocità di elaborazione sia superiore alla frequenza di input.
+* Se si desidera memorizzare nella cache più dati in memoria, provare un cluster con ottimizzazione per la **memoria** . L'ottimizzazione per la memoria ha un punto di prezzo superiore per core rispetto al calcolo ottimizzato, ma comporta probabilmente una velocità di trasformazione più rapida.
 
 ![Nuovo IR](media/data-flow/ir-new.png "Nuovo IR")
 
@@ -67,7 +67,7 @@ In **Opzioni di origine** nella trasformazione origine le impostazioni seguenti 
 * L'impostazione di una query consente di filtrare le righe nell'origine prima che arrivino nel flusso di dati per l'elaborazione. Questo può rendere più veloce l'acquisizione iniziale dei dati. Se si usa una query, è possibile aggiungere hint di query facoltativi per il database SQL di Azure, ad esempio READ UNCOMMITTED.
 * Read uncommitted fornirà risultati più veloci per le query sulla trasformazione origine
 
-![Origine](media/data-flow/source4.png "Origine")
+![Origine](media/data-flow/source4.png "Source (Sorgente)")
 
 ### <a name="sink-batch-size"></a>Dimensioni batch sink
 
@@ -87,17 +87,24 @@ Nella pipeline aggiungere un' [attività stored procedure](transform-data-using-
 
 Pianificare un ridimensionamento del database SQL di Azure di origine e sink e di DW prima dell'esecuzione della pipeline per aumentare la velocità effettiva e ridurre al minimo la limitazione delle richieste di Azure quando si raggiungono i limiti di DTU. Al termine dell'esecuzione della pipeline, ridimensionare nuovamente i database fino alla frequenza di esecuzione normale.
 
-### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Solo Azure SQL DW] Usare la gestione temporanea per caricare i dati in blocco tramite polibase
+* La tabella di origine del database SQL con 887k righe e 74 colonne a una tabella di database SQL con una singola trasformazione colonna derivata richiede circa 3 minuti end-to-end usando il debug di Azure IRs con ottimizzazione per la memoria 80-core.
+
+### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Solo Azure sinapsi SQL DW] Usare la gestione temporanea per caricare i dati in blocco tramite polibase
 
 Per evitare gli inserimenti riga per riga nel DW, selezionare **Abilita gestione temporanea** nelle impostazioni del sink in modo che ADF possa usare la [polibase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). La polibase consente ad ADF di caricare i dati in blocco.
 * Quando si esegue l'attività flusso di dati da una pipeline, è necessario selezionare un BLOB o ADLS Gen2 percorso di archiviazione per organizzare i dati durante il caricamento bulk.
 
+* L'origine file del file 421Mb con 74 colonne in una tabella sinapsi e una singola trasformazione colonna derivata richiede circa 4 minuti end-to-end usando il debug di Azure IRs con ottimizzazione per la memoria 80-core.
+
 ## <a name="optimizing-for-files"></a>Ottimizzazione per i file
 
-A ogni trasformazione è possibile impostare lo schema di partizionamento che si desidera data factory utilizzare nella scheda Ottimizza.
+A ogni trasformazione è possibile impostare lo schema di partizionamento che si desidera data factory utilizzare nella scheda Ottimizza. È consigliabile testare prima di tutto i sink basati su file mantenendo il partizionamento e le ottimizzazioni predefinite.
+
 * Per i file di dimensioni ridotte, è possibile che la selezione di una *singola partizione* possa essere eseguita in modo migliore e più veloce rispetto alla richiesta di Spark di partizionare i file
 * Se non si dispone di informazioni sufficienti sui dati di origine, scegliere partizionamento *Round Robin* e impostare il numero di partizioni.
 * Se i dati hanno colonne che possono essere chiavi hash valide, scegliere *partizionamento hash*.
+
+* L'origine file con sink di file di un file 421Mb con colonne 74 e una singola trasformazione colonna derivata richiede circa 2 minuti end-to-end usando il debug di Azure IRs con ottimizzazione per la memoria 80-core.
 
 Quando si esegue il debug nell'anteprima dei dati e nel debug della pipeline, le dimensioni del limite e del campionamento per i set di dati di origine basati su file si applicano solo al numero di righe restituite, non al numero di righe lette. Questo può influire sulle prestazioni delle esecuzioni di debug e potrebbe causare l'esito negativo del flusso.
 * I cluster di debug sono piccoli cluster a nodo singolo per impostazione predefinita ed è consigliabile usare file di esempio di piccole dimensioni per il debug. Passare a impostazioni di debug e puntare a un piccolo subset di dati usando un file temporaneo.

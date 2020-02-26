@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb098363a6f1b27bd8afa8e68ab14bfa666ea539
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561647"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585884"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -65,7 +65,7 @@ Le organizzazioni possono scegliere di usare l'identità del dispositivo come pa
 
 ### <a name="require-approved-client-app"></a>Richiedere app client approvata
 
-Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Questi APS client approvati supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) indipendentemente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
+Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Queste app client approvate supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) in modo indipendente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
 Questa impostazione è valida solo per le app client seguenti:
 

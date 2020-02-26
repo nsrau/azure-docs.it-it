@@ -3,12 +3,12 @@ title: 'Domande comuni: individuazione, valutazione e analisi delle dipendenze i
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426293"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589233"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Domande comuni sull'individuazione, la valutazione e l'analisi delle dipendenze
 
@@ -92,7 +92,7 @@ Questi agenti non sono necessari a meno che non si usi la visualizzazione delle 
 
 ## <a name="can-i-use-an-existing-workspace"></a>È possibile usare un'area di lavoro esistente?
 
-Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#how-does-it-work).
+Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. 
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>È possibile esportare il report di visualizzazione delle dipendenze?
 
