@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: f8c146d1a82fd745e6641ac2aea91aa34539d6f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610030"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598103"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Aggiornare la versione di Service Fabric eseguita nel cluster 
 
@@ -139,7 +139,7 @@ Per informazioni dettagliate sull'uso, vedere il comando di PowerShell [Start-Se
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
     ```
 6. Avviare un aggiornamento del cluster a una versione disponibile.
 

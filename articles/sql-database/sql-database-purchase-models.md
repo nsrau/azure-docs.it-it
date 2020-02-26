@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964771"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587295"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Scegliere tra i modelli di acquisto vCore e DTU
 
@@ -55,7 +55,7 @@ Il costo dell'archiviazione di backup è lo stesso per il livello di servizio bu
 
 Per una descrizione del modo in cui viene definita la capacità di calcolo e i costi vengono calcolati per il livello di calcolo senza server, vedere [database SQL senza server](sql-database-serverless.md).
 
-## <a name="storage-costs"></a>Costi delle risorse di archiviazione
+## <a name="storage-costs"></a>Costi di archiviazione
 
 I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, viene addebitata l'archiviazione di cui è stato effettuato il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia a meno che non si riduca o aumenti il valore massimo. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza e vengono allocate in modo dinamico. L'aumento del periodo di conservazione del backup comporta l'aumento dell'archiviazione di backup utilizzata dall'istanza.
 
@@ -77,7 +77,7 @@ Il modello di acquisto basato su vCore consente di scegliere in modo indipendent
 
 > [!IMPORTANT]
 > Le risorse di calcolo, l'I/O e l'archiviazione di dati e log vengono addebitate in base al database o al pool elastico. L'archiviazione di backup viene addebitata per ogni database. Per altre informazioni sui costi delle istanze gestite, vedere le [istanze gestite](sql-database-managed-instance.md).
-> **Limitazioni dell'area:** Per l'elenco corrente delle aree supportate, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Per creare un'istanza gestita in un'area che attualmente non è supportata, [inviare una richiesta di supporto tramite il portale di Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Limitazioni dell'area:** Per l'elenco corrente delle aree supportate, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Per creare un'istanza gestita in un'area che attualmente non è supportata, [inviare una richiesta di supporto tramite il portale di Azure](quota-increase-request.md).
 
 Se il database singolo o il pool elastico consuma più di 300 DTU, la conversione nel modello di acquisto basato su vCore potrebbe ridurre i costi. È possibile eseguire la conversione usando l'API scelta o usando il portale di Azure, senza tempi di inattività. Tuttavia, la conversione non è necessaria e non viene eseguita automaticamente. Se il modello di acquisto basato su DTU soddisfa i requisiti aziendali e di prestazioni, è consigliabile continuare a usarlo.
 

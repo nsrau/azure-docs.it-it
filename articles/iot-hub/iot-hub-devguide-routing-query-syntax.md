@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e01be0442f6d968613ffd800f076705d33e3e16e
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064819"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598205"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
 
@@ -66,7 +66,7 @@ Le proprietà dell'applicazione sono stringhe definite dall'utente che è possib
 
 ### <a name="query-expressions"></a>Espressioni di query
 
-Una query sulle proprietà di sistema del messaggio richiede come prefisso il simbolo `$`. Viene eseguito l'accesso alle query sulle proprietà dell'applicazione con il relativo nome e non devono essere precedute da `$`simbolo. Se un nome di proprietà dell'applicazione inizia con `$`, allora l'hub IoT lo cercherà tra le proprietà del sistema e se non viene trovato, lo cercherà nelle proprietà dell'applicazione. Ad esempio, 
+Una query sulle proprietà di sistema del messaggio richiede come prefisso il simbolo `$`. Viene eseguito l'accesso alle query sulle proprietà dell'applicazione con il relativo nome e non devono essere precedute da `$`simbolo. Se un nome di proprietà dell'applicazione inizia con `$`, allora l'hub IoT lo cercherà tra le proprietà del sistema e se non viene trovato, lo cercherà nelle proprietà dell'applicazione. Ad esempio: 
 
 Per eseguire una query su una proprietà di sistema contentEncoding 
 
@@ -88,7 +88,7 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 
 In [Expression and Conditions](iot-hub-devguide-query-language.md#expressions-and-conditions)viene visualizzato un elenco completo di funzioni e operatori supportati.
 
-## <a name="message-routing-query-based-on-message-body"></a>Query di routing dei messaggi in base al corpo del messaggio 
+## <a name="message-routing-query-based-on-message-body"></a>Query di routing dei messaggi in base al corpo del messaggio
 
 Per abilitare l'esecuzione di query nel corpo del messaggio, il messaggio deve essere in formato JSON codificato in UTF-8, UTF-16 o UTF-32. Il `contentType` deve essere impostato su `application/JSON` e `contentEncoding` su una delle codifiche UTF supportate nelle proprietà di sistema. Se queste proprietà non vengono specificate, l'hub IoT non valuterà l'espressione di query nel corpo del messaggio. 
 
@@ -140,6 +140,10 @@ deviceClient.sendEvent(message, (err, res) => {
     if (res) console.log('status: ' + res.constructor.name);
 });
 ```
+
+> [!NOTE] 
+> Viene illustrato come gestire la codifica del corpo in JavaScript. Se si vuole visualizzare un esempio in, C#scaricare gli [ C# esempi di Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Estrarre il file master.zip. Il file Program.cs della soluzione Visual Studio *SimulatedDevice*illustra come codificare e inviare messaggi a un hub Internet. Si tratta dello stesso esempio usato per testare il routing dei messaggi, come illustrato nell' [esercitazione sul routing dei messaggi](tutorial-routing.md). Nella parte inferiore di Program.cs, dispone anche di un metodo per leggere uno dei file codificati, decodificarlo e scriverlo di nuovo come ASCII, in modo che sia possibile leggerlo. 
+
 
 ### <a name="query-expressions"></a>Espressioni di query
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8bd024fae7496db6c9cb6410df26975fde1984f7
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092957"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585289"
 ---
 # <a name="use-the-change-feed-estimator"></a>Usare lo strumento di stima dei feed di modifiche
 
@@ -33,11 +33,11 @@ Analogamente al [processore di feed di modifiche](./change-feed-processor.md), l
 
 Ad esempio, se il processore di feed di modifiche è definito come segue:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartProcessorEstimator":::
 
 Il modo corretto per inizializzare uno strumento di stima per misurare il processore consiste nell'uso di `GetChangeFeedEstimatorBuilder`, come indicato di seguito:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartEstimator":::
 
 In cui sia il processore che lo strumento di stima condividono lo stesso `leaseContainer` e lo stesso nome.
 
@@ -45,7 +45,7 @@ Gli altri due parametri corrispondono al delegato, che riceverà un numero che r
 
 Di seguito è riportato un esempio di un delegato che riceve la stima:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=EstimationDelegate)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="EstimationDelegate":::
 
 È possibile inviare questa stima alla soluzione di monitoraggio e usarla per comprendere lo stato di avanzamento nel corso del tempo.
 

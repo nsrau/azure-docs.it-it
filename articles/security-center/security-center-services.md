@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8700421551af227f158abaa38d5f96c8e2987ba3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754214"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603398"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funzionalità supportate disponibili nel centro sicurezza di Azure
 
@@ -33,7 +33,7 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 
 ## Funzionalità supportate da macchine virtuali/server<a name="vm-server-features"></a>
 
-### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
+### <a name="windows"></a>[Windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -51,15 +51,15 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 |Controlli adattivi della rete|✔|✔|-|Standard|
 |[Dashboard di conformità normativa & report](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|-|-|-|Standard|
-|Valutazione patch del sistema operativo mancanti|✔|✔|✔|Gratis|
-|Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|Gratis|
-|[Valutazione di Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratis|
-|Valutazione della crittografia del disco|✔|✔|-|Gratis|
-|Valutazione della vulnerabilità di terze parti|✔|-|-|Gratis|
-|[Valutazione della sicurezza di rete](security-center-network-recommendations.md)|✔|✔|-|Gratis|
+|Valutazione patch del sistema operativo mancanti|✔|✔|✔|Gratuito|
+|Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|Gratuito|
+|[Valutazione di Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratuito|
+|Valutazione della crittografia del disco|✔|✔|-|Gratuito|
+|Valutazione della vulnerabilità di terze parti|✔|-|-|Gratuito|
+|[Valutazione della sicurezza di rete](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
 
 
-### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+### <a name="linux"></a>[Linux](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -77,12 +77,12 @@ Le sezioni seguenti illustrano le funzionalità del Centro sicurezza disponibili
 |Controlli adattivi della rete|✔|✔|-|Standard|
 |[Dashboard di conformità normativa & report](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|✔|✔|✔|Standard|
-|Valutazione patch del sistema operativo mancanti|✔|✔|✔|Gratis|
-|Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|Gratis|
-|[Valutazione di Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratis|
-|Valutazione della crittografia del disco|✔|✔|-|Gratis|
-|Valutazione della vulnerabilità di terze parti|✔|-|-|Gratis|
-|[Valutazione della sicurezza di rete](security-center-network-recommendations.md)|✔|✔|-|Gratis|
+|Valutazione patch del sistema operativo mancanti|✔|✔|✔|Gratuito|
+|Valutazione delle configurazioni errate della sicurezza|✔|✔|✔|Gratuito|
+|[Valutazione di Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuito|
+|Valutazione della crittografia del disco|✔|✔|-|Gratuito|
+|Valutazione della vulnerabilità di terze parti|✔|-|-|Gratuito|
+|[Valutazione della sicurezza di rete](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
 
 --- 
 
@@ -116,9 +116,9 @@ Per informazioni sul momento in cui vengono generate le indicazioni per ognuna d
 
 Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 
-|Servizio|Raccomandazioni (gratuito)|Avvisi di rilevamento minacce (standard)|Valutazione della vulnerabilità (standard)|
+|Service|Raccomandazioni (gratuito)|Avvisi di rilevamento minacce (standard)|Valutazione della vulnerabilità (standard)|
 |----|:----:|:----:|:----:|
-|Database SQL|✔|✔|✔|
+|DATABASE SQL|✔|✔|✔|
 |Registro Azure Container|-|-|✔|
 |Servizio Azure Kubernetes|✔|✔|-|
 |Database di Azure per PostgreSQL *|✔|✔|-|
@@ -133,11 +133,11 @@ Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 |Subnet|✔|-|-|
 |NIC|✔|-|-|
 |Gruppi di sicurezza di rete|✔|-|-|
-|Sottoscrizione|✔ **|✔|-|
+|Subscription|✔ **|✔|-|
 |Account Batch|✔|-|-|
 |Account Service Fabric|✔|-|-|
 |Account di Automazione|✔|-|-|
-|Bilanciamento del carico|✔|-|-|
+|Load Balancer|✔|-|-|
 |Ricerca cognitiva|✔|-|-|
 |Spazio dei nomi del bus di servizio|✔|-|-|
 |Analisi dei flussi|✔|-|-|
@@ -145,7 +145,7 @@ Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 |App per la logica|✔|-|-|
 |Cache per Redis|✔|-|-|
 |Data Lake Analytics|✔|-|-|
-|Archiviazione Azure Data Lake|✔|-|-|
+|Archiviazione di Azure Data Lake|✔|-|-|
 |Key Vault|✔|✔ *|-|
 
 \* queste funzionalità sono attualmente supportate in anteprima.
@@ -159,5 +159,5 @@ Le risorse PaaS seguenti sono supportate dal centro sicurezza di Azure:
 - Leggere le informazioni su come [pianificare e progettare l'adozione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
 - Esaminare le [piattaforme che supportano il Centro sicurezza](security-center-os-coverage.md).
 - Altre informazioni sul [rilevamento delle minacce per le macchine virtuali & Server nel centro sicurezza di Azure](security-center-alerts-iaas.md).
-- Vedere le [domande frequenti sull'uso del Centro sicurezza di Azure](security-center-faq.md).
+- Trova le [domande frequenti sul centro sicurezza di Azure](faq-general.md).
 - Vedere i [post di blog sulla sicurezza e sulla conformità di Azure](https://blogs.msdn.com/b/azuresecurity/).

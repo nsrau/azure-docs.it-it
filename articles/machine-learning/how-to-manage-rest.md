@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: e1e19f985c9aa02759c6fff3c634c216c7ef42ef
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525550"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580629"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creazione, esecuzione ed eliminazione di risorse di Azure ML con REST
 
@@ -401,6 +401,23 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 ```
 
 Si dovrebbe ricevere una risposta `202 Accepted` e, nelle intestazioni restituite, un URI `Location`. È possibile ottenere questo URI per informazioni sulla distribuzione, incluse informazioni di debug utili se si verifica un problema con una delle risorse dipendenti, ad esempio se si dimentica di abilitare l'accesso amministrativo nel registro contenitori. 
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+### <a name="resource-provider-errors"></a>Errori del provider di risorse
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>Trasferimento dell'area di lavoro
+
+> [!WARNING]
+> Non è supportato lo stato di un'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o di trasferimento della sottoscrizione proprietaria a un nuovo tenant. Questa operazione può causare errori.
+
+### <a name="deleting-the-azure-container-registry"></a>Eliminazione del Container Registry di Azure
+
+L'area di lavoro Azure Machine Learning USA Azure Container Registry (ACR) per alcune operazioni. Verrà creata automaticamente un'istanza di ACR quando è necessaria per la prima volta.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

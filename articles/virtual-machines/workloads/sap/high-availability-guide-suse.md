@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata in macchine virtuali di Azure per SAP NetWeaver su SUSE Linux Enterprise Server for SAP applications | Microsoft Docs
+title: Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in SLES | Microsoft Docs
 description: Guida alla disponibilità elevata per SAP NetWeaver su SUSE Linux Enterprise Server per SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: 77a26d229ddc4ce5f35fde3db010e3b7c146a563
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4dbce04df4a2542884f1f24b3207fe45fd4b26ae
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985518"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598239"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver su macchina virtuali di Azure in SUSE Linux Enterprise Server for SAP applications
 
@@ -78,7 +78,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * [Guide alle procedure consigliate di SUSE SAP][suse-ha-guide] Le guide contengono tutte le informazioni necessarie per configurare NetWeaver a disponibilità elevata e SAP HANA replica di sistema locale. Usare le guide come indicazioni di base generali. Forniscono informazioni molto più dettagliate.
 * [Note sulla versione di SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Per ottenere la disponibilità elevata, SAP NetWeaver richiede un server NFS. Il server NFS viene configurato in un cluster separato e può essere usato da più sistemi SAP.
 

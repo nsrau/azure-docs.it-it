@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 1688e85c6e6ed57892ccdffdf0813c8628127cc5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202458"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604546"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Applicare gli aggiornamenti del sistema nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora ogni giorno le macchine virtuali e i computer Windows e Linux alla ricerca di eventuali aggiornamenti mancanti del sistema operativo. Il Centro sicurezza recupera un elenco di aggiornamenti di sicurezza e critici disponibili da Windows Update o Windows Server Update Services (WSUS), in base al servizio configurato nel computer Windows. Il Centro sicurezza cerca anche gli aggiornamenti più recenti nei sistemi Linux. Se nella macchina virtuale o nel computer non è stato eseguito un aggiornamento del sistema, il Centro sicurezza ne consiglierà l'applicazione.
@@ -44,19 +44,19 @@ In questo esempio si userà **Calcolo**.
 
    Nella parte inferiore del dashboard vengono elencati tutti gli aggiornamenti mancanti nelle macchine virtuali e nei computer e la gravità dell'aggiornamento mancante.  L'elenco include:
 
-    - NOME: nome dell'aggiornamento mancante.
-    - N. DI VM E COMPUTER: numero totale di macchine virtuali e computer a cui manca l'aggiornamento.
+    - NOME: il nome dell'aggiornamento mancante.
+    - N. DI MACCHINE VIRTUALI E COMPUTER: il numero totale di macchine virtuali e computer a cui manca l'aggiornamento.
     - STATO: stato attuale della raccomandazione:
 
-      - Aperto: la raccomandazione non è ancora stata applicata.
-      - In corso: è in corso l'applicazione della raccomandazione alle risorse e non è richiesta alcuna azione da parte dell'utente.
-      - Risolto: la raccomandazione è già stata completata. Quando il problema è stato risolto, la voce viene visualizzata in grigio.
+      - Aperta: la raccomandazione non è ancora stata risolta.
+      - In corso: la raccomandazione è stata applicata alle risorse e non è richiesta alcuna azione da parte dell'utente.
+      - Risolta: la raccomandazione è stata già completata. Quando il problema è stato risolto, la voce viene visualizzata in grigio.
 
-    - GRAVITÀ: descrive il livello di gravità della raccomandazione:
+    - GRAVITÀ: descrive il livello di gravità della raccomandazione specifica:
 
-      - Alta: è presente una vulnerabilità associata a una risorsa significativa, ad esempio applicazione, macchina virtuale o gruppo di sicurezza di rete, che richiede attenzione.
-      - Media: sono necessari passaggi aggiuntivi, o non critici, per completare un processo o eliminare una vulnerabilità.
-      - Bassa: è consigliabile risolvere la vulnerabilità, ma non è richiesta attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente.
+      - Elevata: esiste una vulnerabilità associata a una risorsa significativa, ad esempio applicazione, macchina virtuale, gruppo di sicurezza di rete, che richiede attenzione.
+      - Media: sono necessari passaggi aggiuntivi o non critici per completare un processo o eliminare una vulnerabilità.
+      - Bassa: vulnerabilità che è opportuno risolvere, ma non richiede attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente.
 
 3. Selezionare un aggiornamento mancante nell'elenco per visualizzare i dettagli.
 
@@ -78,7 +78,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
 
 <!--Image references-->

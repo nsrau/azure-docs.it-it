@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157270"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597169"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -72,7 +72,7 @@ Gli account BlockBlobStorage non supportano attualmente la suddivisione in livel
 
 Un account filestorage è un account di archiviazione specializzato usato per archiviare e creare condivisioni file Premium. Questo tipo di account di archiviazione supporta i file ma non i BLOB in blocchi, i BLOB di Accodamento, i BLOB di pagine, le tabelle o le code.
 
-Gli account filestorage offrono caratteristiche di prestazioni univoche, ad esempio il picchi di IOPS. Per ulteriori informazioni su queste caratteristiche, vedere la sezione [livelli di prestazioni della condivisione file](../files/storage-files-planning.md#file-share-performance-tiers) della Guida alla pianificazione dei file.
+Gli account filestorage offrono caratteristiche esclusive dedicate alle prestazioni, ad esempio il picchi di IOPS. Per ulteriori informazioni su queste caratteristiche, vedere la sezione [livelli di archiviazione di condivisione file](../files/storage-files-planning.md#storage-tiers) della Guida alla pianificazione dei file.
 
 ## <a name="naming-storage-accounts"></a>Denominazione degli account di archiviazione
 

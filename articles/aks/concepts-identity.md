@@ -2,17 +2,14 @@
 title: Concetti - Accesso e identità nei servizi Azure Kubernetes
 description: Informazioni su accesso e identità nel servizio Azure Kubernetes, inclusi integrazione di Azure Active Directory, controllo degli accessi in base al ruolo di Kubernetes e ruoli e associazioni.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: mlearned
-ms.openlocfilehash: 5d29598b0962fc42c855e7a26917a34269c30ddb
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158063"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596369"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 

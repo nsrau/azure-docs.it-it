@@ -3,16 +3,15 @@ title: Ruotare i certificati in Azure Kubernetes Service (AKS)
 description: Informazioni su come ruotare i certificati in un cluster Azure Kubernetes Service (AKS).
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 774a0354c6262598c7d5e1f51e2e475fd17fe2d7
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 02bfdbc840065558003b249e1e3ea52f46ec64d6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468281"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596268"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in Azure Kubernetes Service (AKS)
 
@@ -66,7 +65,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Potrebbero essere necessari fino a 30 minuti per il completamento del `az aks rotate-certs`. Se il comando ha esito negativo prima del completamento, usare `az aks show` per verificare che lo stato del cluster sia *rotazione del certificato*. Se il cluster si trova in uno stato di errore, rieseguire `az aks rotate-certs` per ruotare nuovamente i certificati.
 
-Verificare che i certificati precedenti non siano più validi eseguendo un comando `kubectl`. Poiché i certificati utilizzati da `kubectl`non sono stati aggiornati, verrà visualizzato un errore.  Ad esempio,
+Verificare che i certificati precedenti non siano più validi eseguendo un comando `kubectl`. Poiché i certificati utilizzati da `kubectl`non sono stati aggiornati, verrà visualizzato un errore.  Ad esempio:
 
 ```console
 $ kubectl get no
@@ -79,7 +78,7 @@ Aggiornare il certificato usato da `kubectl` eseguendo `az aks get-credentials`.
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Verificare che i certificati siano stati aggiornati eseguendo un comando `kubectl`, che ora avrà esito positivo. Ad esempio,
+Verificare che i certificati siano stati aggiornati eseguendo un comando `kubectl`, che ora avrà esito positivo. Ad esempio:
 
 ```console
 kubectl get no

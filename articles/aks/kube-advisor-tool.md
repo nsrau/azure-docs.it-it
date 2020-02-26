@@ -3,16 +3,15 @@ title: Controllare le distribuzioni di Kubernetes in Azure per l'implementazione
 description: Informazioni su come controllare l'implementazione delle procedure consigliate nelle distribuzioni nel servizio Azure Kubernetes mediante kube-advisor
 services: container-service
 author: seanmck
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 29ea7dba1df8bc7c68e3d17563a51b784ce4a561
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "65073769"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595434"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verifica delle procedure consigliate di Kubernetes nel cluster
 
@@ -20,9 +19,9 @@ Esistono diverse procedure consigliate da seguire relative alle distribuzioni di
 
 ## <a name="about-kube-advisor"></a>Informazioni su kube-advisor
 
-Lo [strumento kube-advisor][kube-advisor-github] è un singolo contenitore progettato per essere eseguito nel cluster. Esegue una query nel server API Kubernetes per informazioni sulle distribuzioni e restituisce un set di miglioramenti suggeriti.
+Lo [strumento Kube-Advisor][kube-advisor-github] è un singolo contenitore progettato per essere eseguito nel cluster. Esegue una query nel server API Kubernetes per informazioni sulle distribuzioni e restituisce un set di miglioramenti suggeriti.
 
-Lo strumento di kube-advisor può segnalare su richiesta di risorse e i limiti non presente nelle applicazioni PodSpecs per Windows, nonché le applicazioni di Linux, ma solo lo strumento di kube-advisor deve essere pianificato in un pod di Linux. È possibile pianificare un pod per l'esecuzione in un pool di nodi con un sistema operativo specifico utilizzando un [selettore nodo] [ k8s-node-selector] nella configurazione del pod.
+Lo strumento Kube-Advisor può creare report sulle richieste di risorse e sui limiti mancanti in PodSpecs per le applicazioni Windows e sulle applicazioni Linux, ma lo strumento Kube-Advisor stesso deve essere pianificato in un pod Linux. È possibile pianificare l'esecuzione di un pod in un pool di nodi con un sistema operativo specifico usando un [selettore di nodo][k8s-node-selector] nella configurazione del Pod.
 
 > [!NOTE]
 > Lo strumento kube-advisor è supportato da Microsoft nel modo più efficiente possibile. I problemi e i suggerimenti devono essere segnalati in GitHub.
@@ -53,7 +52,7 @@ Lo strumento convalida diverse procedure consigliate di Kubernetes, ognuna con l
 
 ### <a name="resource-requests-and-limits"></a>Richieste di risorse e limiti
 
-Kubernetes supporta la definizione delle [richieste di risorse e dei limiti per le specifiche di pod][kube-cpumem]. La richiesta definisce il valore minimo di CPU e memoria necessario per eseguire il contenitore. Il limite definisce il valore di CPU e memoria massimo che dovrebbe essere consentito.
+Kubernetes supporta la definizione [delle richieste di risorse e dei limiti sulle specifiche Pod][kube-cpumem]. La richiesta definisce il valore minimo di CPU e memoria necessario per eseguire il contenitore. Il limite definisce il valore di CPU e memoria massimo che dovrebbe essere consentito.
 
 Per impostazione predefinita, non vengono impostati richieste o limiti nelle specifiche di pod. Questo può causare la sovrapianificazione dei nodi e l'esaurimento dei contenitori. Lo strumento kube-advisor evidenzia i pod senza impostazione delle richieste e dei limiti.
 

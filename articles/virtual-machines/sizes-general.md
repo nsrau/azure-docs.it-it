@@ -12,14 +12,14 @@ ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 674197bd4d1562d8492a2605d8929572d450af90
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d8a13d9013b2ad526c8e332cf3ea74e04f253d98
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493579"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597712"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di utilizzo generico
 
@@ -31,7 +31,7 @@ Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto C
 
 - Le [serie Dav4 e Dasv4](dav4-dasv4-series.md) sono nuove dimensioni che usano il processore AMD 2.35 GHz EPYC<sup>TM</sup> 7452 in una configurazione multithread con una cache L3 fino a 256 MB che dedicano 8 GB di tale cache L3 a ogni 8 core che aumentano le opzioni dei clienti per l'esecuzione dei carichi di lavoro per uso generico. La serie Dav4 e la serie Dasv4 hanno le stesse configurazioni di memoria e disco della serie D & Dsv3.
 
-- La [serie DC](dc-series.md) è una famiglia di macchine virtuali in Azure che può aiutare a proteggere la riservatezza e l'integrità dei dati e del codice durante l'elaborazione nel cloud pubblico. Questi computer sono supportati dall'ultima generazione di processori Intel® Xeon® a 3.7 GHz con tecnologia SGX. Con la tecnologia Intel Turbo Boost, queste macchine possono arrivare fino a 4,7 GHz. Le istanze della serie DC consentono ai clienti di creare applicazioni sicure basate su enclave per proteggere il codice e i dati mentre sono in uso.
+- La [serie DCv2](dcv2-series.md) può aiutare a proteggere la riservatezza e l'integrità dei dati e del codice durante l'elaborazione nel cloud pubblico. Questi computer sono supportati dall'ultima generazione del processore Intel XEON E-2288G con la tecnologia SGX. Con la tecnologia Intel Turbo Boost, questi computer possono arrivare fino a 5.0 GHz. Le istanze della serie DCv2 consentono ai clienti di creare applicazioni sicure basate su enclave per proteggere il codice e i dati in uso.
 
 - [Serie dv2 e Dsv2](dv2-dsv2-series.md) Le macchine virtuali, una versione successiva alla serie D originale, sono caratterizzate da una CPU più potente e da una configurazione ottimale di CPU a memoria che li rende adatti alla maggior parte dei carichi di lavoro di produzione. La serie dv2 è più veloce del 35% rispetto alla serie D. La serie dv2 è in esecuzione su Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o i processori Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) con la tecnologia Intel Turbo Boost 2,0. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 

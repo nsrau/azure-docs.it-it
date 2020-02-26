@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186958"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598052"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -33,7 +33,7 @@ questa guida è un'introduzione alla piattaforma di Azure per gli sviluppatori d
 
 ## <a name="where-do-i-start"></a>Dove iniziare?
 
-Con tutti i servizi offerti da Azure, può essere un'attività intimidatoria per individuare i servizi necessari per supportare l'architettura della soluzione. Questa sezione evidenzia i servizi di Azure usati più frequentemente dagli sviluppatori. Per un elenco di tutti i servizi di Azure, vedere la [documentazione di Azure](../../index.md).
+Con tutti i servizi offerti da Azure, può essere un'attività intimidatoria per individuare i servizi necessari per supportare l'architettura della soluzione. Questa sezione evidenzia i servizi di Azure usati più frequentemente dagli sviluppatori. Per un elenco di tutti i servizi di Azure, vedere la [documentazione di Azure](../../index.yml).
 
 Prima di tutto, è necessario decidere come ospitare l'applicazione in Azure. È necessario gestire l'intera infrastruttura come una macchina virtuale (VM)? È possibile usare le funzionalità di gestione della piattaforma fornite da Azure? È necessario un framework senza server che ospiti solo l'esecuzione del codice?
 

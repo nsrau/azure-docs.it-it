@@ -1,10 +1,10 @@
 ---
-title: Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure | Microsoft Docs
+title: Configurazione di pacemaker in RHEL in Azure | Microsoft Docs
 description: Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
-ms.author: sedusch
-ms.openlocfilehash: 9ccbd67348a8dae7391471ccd1dcc1ba9b135ea2
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.author: radeltch
+ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941834"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598800"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 
@@ -200,7 +200,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft Azure. Per creare un'entità servizio, seguire questa procedura.
 
-1. Vai a <https://portal.azure.com>
+1. Passare a <https://portal.azure.com>.
 1. Aprire il pannello Azure Active Directory  
    Passare a Proprietà e annotare l'ID directory. Si tratta dell'**ID tenant**.
 1. Fare clic su Registrazioni per l'app
@@ -243,14 +243,14 @@ Per il file di input usare il contenuto seguente. Tale contenuto deve essere ada
 
 Assegnare all'entità servizio il ruolo personalizzato "Linux Fence Agent Role" creato nel capitolo precedente. Non usare più il ruolo Owner.
 
-1. Vai a https://portal.azure.com
+1. Passare a https://portal.azure.com.
 1. Aprire il pannello Tutte le risorse
 1. Selezionare la macchina virtuale del primo nodo del cluster.
 1. Fare clic su Controllo di accesso (IAM)
 1. Fare clic su Aggiungi assegnazione ruolo
 1. Selezionare il ruolo "Linux Fence Agent Role".
 1. Immettere il nome dell'applicazione creata in precedenza
-1. Fai clic su Salva.
+1. Fare clic su Salva.
 
 Ripetere la procedura precedente per il secondo nodo del cluster.
 

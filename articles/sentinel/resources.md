@@ -3,7 +3,7 @@ title: Risorse utili quando si lavora con Sentinel di Azure | Microsoft Docs
 description: Questo documento fornisce un elenco di risorse utili quando si lavora con Sentinel di Azure.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.author: yelevin
+ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548000"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585272"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Risorse utili per l'uso di Azure Sentinel
 
@@ -55,7 +55,7 @@ Le operazioni supportate seguenti possono essere controllate.
 |Crea commenti case   |Microsoft. SecurityInsights/case/Commenti|
 |Aggiornare i connettori dati |Microsoft. SecurityInsights/dataconnectors|
 |Elimina connettori dati |Microsoft. SecurityInsights/dataconnectors|
-|Aggiorna impostazioni    |Microsoft. SecurityInsights/Settings|
+|Impostazioni aggiornamento    |Microsoft. SecurityInsights/Settings|
 
 ### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Visualizzare i dati di controllo e report in Sentinel di Azure
 

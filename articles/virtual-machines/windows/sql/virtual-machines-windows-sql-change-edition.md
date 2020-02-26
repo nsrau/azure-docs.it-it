@@ -14,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d096f721869e43e9a860733d0f6893f224a6776
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bd9622d3e34198402bc45e5d855d05b0c8e35eb8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772579"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605453"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Modifica sul posto dell'edizione SQL Server in una macchina virtuale di Azure
 
@@ -29,13 +29,13 @@ L'edizione di SQL Server è determinata dal codice Product Key e viene specifica
 
 Una volta che l'edizione di SQL Server è stata modificata internamente alla VM SQL Server, è necessario aggiornare la proprietà Edition di SQL Server nel portale di Azure ai fini della fatturazione. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per eseguire una modifica sul posto dell'edizione di SQL Server, è necessario quanto segue: 
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 - Una [macchina virtuale SQL Server in Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrata con il [provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Configurare i supporti con l' **edizione desiderata** di SQL Server. I clienti che dispongono di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere i supporti di installazione da [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di installazione di Azure Marketplace SQL Server immagine di macchina virtuale con l'edizione desiderata (in genere si trova in `c:\SQLInstalls`). 
+- Configurare i supporti con l' **edizione desiderata** di SQL Server. I clienti che dispongono di [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere i supporti di installazione da [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di installazione di Azure Marketplace SQL Server immagine di macchina virtuale con l'edizione desiderata (in genere si trova in `C:\SQLServerFull`). 
 
 
 ## <a name="upgrade-an-edition"></a>Aggiornare un'edizione

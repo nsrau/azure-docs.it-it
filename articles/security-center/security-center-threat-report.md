@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: c389fd72d9b185bc920ffeefdfb84e05b3d13001
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 10e1081c7a91c65c21ffcb3da66930fb7c6e73bb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200722"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603441"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Report di intelligence per le minacce generato dal Centro sicurezza di Azure
 Questo documento spiega come i report di intelligence per le minacce del Centro sicurezza di Azure possono essere utili per raccogliere informazioni più dettagliate su una minaccia che ha generato un avviso di sicurezza.
@@ -55,7 +55,7 @@ Questo tipo di informazioni è utile durante il processo di risposta agli eventi
 1. Nel dashboard del Centro sicurezza è disponibile il riquadro **Avvisi di sicurezza** .
 2. Fare clic sul riquadro per aprire il pannello **Avvisi di sicurezza** contenente altre informazioni sugli avvisi e fare clic sull'avviso di sicurezza per cui si vuole ottenere altre informazioni.
 
-    ![Avvisi sicurezza](./media/security-center-threat-report/security-center-threat-report-fig1.png)
+    ![Avvisi di sicurezza](./media/security-center-threat-report/security-center-threat-report-fig1.png)
 3. In questo caso, il pannello **Processo sospetto eseguito** visualizza i dettagli sull'avviso, come illustrato nella figura seguente:
 
     ![Dettagli dell'avviso di sicurezza](./media/security-center-threat-report/security-center-threat-report-fig2.png)
@@ -68,8 +68,6 @@ Da qui è possibile scaricare il file PDF per questo report e ottenere altre inf
 ## <a name="see-also"></a>Vedere anche
 In questo documento è stata evidenziata l'importanza dei report di intelligence per le minacce generati dal Centro sicurezza di Azure nel corso di un'analisi degli avvisi di sicurezza. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Domande frequenti sull'uso del servizio.
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md). Informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md). Informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure](security-center-incident.md)
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.

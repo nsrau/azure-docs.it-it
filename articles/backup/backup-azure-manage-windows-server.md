@@ -3,12 +3,12 @@ title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Questo articolo illustra come usare il dashboard di panoramica dell'insieme di credenziali di servizi di ripristino per monitorare e gestire gli insiemi di credenziali dei servizi di ripristino.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173035"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586445"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -73,7 +73,7 @@ Il report Avvisi di backup elenca gli avvisi per l'insieme di credenziali.
 
 ![Avvisi di backup](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>Avvisi
 
 L'elenco Avvisi di backup visualizza le informazioni selezionate per gli avvisi filtrati. Nel menu Avvisi di backup è possibile filtrare gli avvisi critici o le avvertenze.
 
@@ -81,7 +81,7 @@ L'elenco Avvisi di backup visualizza le informazioni selezionate per gli avvisi 
 | ----------- | ----------- |
 | Critico | Si ricevono avvisi critici quando: i processi di backup hanno esito negativo, i processi di ripristino hanno esito negativo e quando si arresta la protezione su un server, ma si conservano i dati.|
 | Avviso | Si ricevono avvertenze quando: i processi di backup vengono completati con avvisi, ad esempio quando non viene eseguito un backup di meno di 100 file a causa di problemi di danneggiamento o quando viene eseguito un backup di più di 1.000.000 di file. |
-| Informazioni | Non sono attualmente in uso avvisi informativi. |
+| Informativo | Non sono attualmente in uso avvisi informativi. |
 
 ### <a name="viewing-alert-details"></a>Visualizzazione dei dettagli dell'avviso
 
@@ -95,7 +95,7 @@ Per impostazione predefinita, tutti i dettagli, tranne **Ora ultima occorrenza**
 * Elementi di backup
 * Server protetti
 * Gravità
-* Durata
+* Duration
 * Data creazione
 * Stato
 * Ora ultima occorrenza
@@ -200,7 +200,7 @@ Per modificare i filtri:
 
 2. Scegliere le impostazioni del filtro e fare clic su **Fine**. L'elenco filtrato viene aggiornato in base alle nuove impostazioni.
 
-#### <a name="item-type"></a>Tipo di elemento
+#### <a name="item-type"></a>Tipo elemento
 
 Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne esistono quattro tipi. Vedere l'elenco seguente. È possibile visualizzare tutti i tipi di elemento o un tipo di elemento. Non è possibile selezionare due o tre tipi di elemento. I tipi di elemento disponibili sono:
 
@@ -218,19 +218,19 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 * Register
 * Configurare il backup
 * Backup
-* Ripristino
+* Restore
 * Disabilitare il backup
-* Eliminare i dati di backup
+* Elimina dati di backup
 
 #### <a name="status"></a>Stato
 
 È possibile visualizzare tutti gli stati o uno. Non è possibile selezionare due o tre stati. Gli stati disponibili sono:
 
 * Tutti gli stati
-* Completed
+* Completi
 * In corso
-* Non riuscito
-* Canceled
+* Operazione non riuscita
+* Cancellati
 * Completato con avvisi
 
 #### <a name="start-time"></a>Ora di inizio
@@ -249,7 +249,7 @@ Per esportare le informazioni sui processi in un foglio di calcolo, fare clic su
 
 ## <a name="monitor-backup-usage"></a>Monitorare l'utilizzo del backup
 
-Il riquadro Utilizzo del backup del dashboard indica lo spazio di archiviazione utilizzato in Azure. L'utilizzo dello spazio di archiviazione viene fornito per:
+Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione utilizzato in Azure. L'utilizzo dello spazio di archiviazione viene fornito per:
 
 * Utilizzo dello spazio di archiviazione con ridondanza locale nel cloud associato all'insieme di credenziali
 * Utilizzo dello spazio di archiviazione con ridondanza geografica nel cloud associato all'insieme di credenziali
@@ -272,4 +272,4 @@ Il riquadro Utilizzo del backup del dashboard indica lo spazio di archiviazione 
 
 * [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 * Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
-* Visitare il [Forum su Backup di Azure](https://go.microsoft.com/fwlink/p/?LinkId=290933)
+

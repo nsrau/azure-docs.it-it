@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dcb0ffef0cf48a7bcbfbdb0107999f7e90333559
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151990"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598572"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -51,8 +51,8 @@ Per questi limiti, vedere la sezione [obiettivi di scalabilità dell'account di 
 ### <a name="file-share-and-file-scale-targets"></a>Destinazioni di condivisione file e scala file
 
 > [!NOTE]
-> Le condivisioni file standard maggiori di 5 TiB presentano alcune limitazioni.
-> Per un elenco di limitazioni, informazioni internazionali e istruzioni per abilitare le dimensioni di condivisione file più grandi, vedere la sezione [onboarding file](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) shares della Guida alla pianificazione.
+> Le condivisioni file standard di dimensioni maggiori di 5 TiB presentano alcune limitazioni e limitazioni a livello di area.
+> Per un elenco di limitazioni, informazioni internazionali e istruzioni per abilitare le dimensioni di condivisione file più grandi, vedere la sezione [onboarding file](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) shares della Guida alla pianificazione.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

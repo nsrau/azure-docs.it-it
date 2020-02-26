@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/21/2020
+ms.date: 02/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abbacf57f6e00411c6041422cfc47e68fd46bb15
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: d6efad8160115347469fb387108812ddc9adecc1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566030"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77601928"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -120,8 +120,17 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 02/25/2020: modificare la [disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) per puntare a documenti che descrivono l'accesso a un endpoint pubblico con Azure Load Balancer standard
+- 02/21/2020: modificare la [configurazione di archiviazione della macchina virtuale di Azure SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per rappresentare la nuova raccomandazione in dimensioni stripe per/Hana/data e aggiungere l'impostazione dell'utilità di pianificazione I/O
+- 02/21/2020: modifiche nei documenti di istanze large di HANA per rappresentare SKU appena certificati di S224 e S224m
 - 02/21/2020: modificare la disponibilità [elevata delle macchine virtuali di Azure per SAP NetWeaver in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) e [la disponibilità elevata della macchina virtuale di Azure per SAP NetWeaver in RHEL con Azure NetApp files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) per modificare i vincoli del cluster per l'architettura di Accodamento Server Replication 2 (ENSA2)
 - 02/20/2020: modificare la [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure nella Guida](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) a più SID di SLES per aggiungere un collegamento alla guida del cluster SUSE a più SID
+- 02/13/2020: modifiche apportate alla [pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) per implementare collegamenti a nuovi documenti
+- 02/13/2020: aggiunta del nuovo [carico di lavoro SAP del documento in uno scenario supportato dalla macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+- 02/13/2020: aggiunto nuovo documento [quale software SAP è supportato per la distribuzione di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure)
+- 02/13/2020: modificare la [disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure nel Server Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw) per puntare a documenti che descrivono l'accesso a un endpoint pubblico con Azure Load Balancer standard
+- 02/13/2020: aggiungere i nuovi tipi di VM alle [configurazioni e alle certificazioni SAP in esecuzione in Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
+- 02/13/2020: aggiungere nuove note di supporto SAP [carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 02/13/2020: modificare la disponibilità [elevata delle macchine virtuali di Azure per SAP NetWeaver in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) e la [disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in RHEL con Azure NetApp files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) per allineare i timeout delle risorse del cluster alle raccomandazioni per il timeout di Red Hat
 - 02/11/2020: rilascio di [SAP Hana sulla migrazione di istanze large di Azure alle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)
 - 02/07/2020: modificare [la connettività degli endpoint pubblici per le macchine virtuali con ILB standard di Azure negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) per aggiornare la schermata di esempio NSG
@@ -157,10 +166,5 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 - 08/16/2019: modifiche apportate alla [configurazione di pacemaker in Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) per ricordare ai clienti di aggiornare le azioni nel ruolo personalizzato, se aggiornate alla nuova versione dell'agente di recinzione di Azure  
 - 08/15/2019: modifiche in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per riflettere la disponibilità generale del disco Ultra (in precedenza ultra SSD)
 - 08/01/2019: modifiche apportate alla [configurazione di pacemaker in SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) per integrare le modifiche in modo specifico per SLES 15 
-- 07/23/2019: modifiche nel [cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite una condivisione file in Azure](sap-high-availability-guide-wsfc-file-share.md) per riflettere il supporto dello spazio di archiviazione diretto da Azure Site Recovery Services
-- 07/14/2019: rilascio dei [gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md)
-- 07/11/2019: modifiche nei diversi documenti che coprono istanze large di HANA per coprire la revisione 4 delle istanze large di HANA
-- 07/09/2019: rilascio di una nuova guida per [IBM DB2 HADR in Red Hat Enterprise Server](high-availability-guide-rhel-ibm-db2-luw.md)
-- 06/13/2019: rilascio della [disponibilità elevata per SAP NetWeaver in Red Hat Enterprise Linux con Azure NetApp files per le applicazioni SAP](high-availability-guide-rhel-netapp-files.md)
 
 

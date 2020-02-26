@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b37b386273947f8c39fe182e4f29b7b080addf7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486394"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605633"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -37,7 +37,6 @@ La funzionalità autenticazione a più fattori è supportata se Azure Active Dir
 [Autenticazione ![in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
 Per altre informazioni, vedere [configurare l'autenticazione per Azure Machine Learning risorse e flussi di lavoro](how-to-setup-authentication.md). Questo articolo fornisce informazioni ed esempi sull'autenticazione, tra cui l'uso di entità servizio e flussi di lavoro automatizzati.
-
 
 ### <a name="authentication-for-web-service-deployment"></a>Autenticazione per la distribuzione del servizio Web
 
@@ -77,6 +76,9 @@ Nella tabella seguente sono elencate alcune delle principali operazioni di Azure
 | Chiama servizio Web | ✓ | ✓ | ✓ |
 
 Se i ruoli predefiniti non soddisfano le proprie esigenze, è possibile creare ruoli personalizzati. I ruoli personalizzati sono supportati solo per le operazioni nell'area di lavoro e ambiente di calcolo di Machine Learning. I ruoli personalizzati possono disporre di autorizzazioni di lettura, scrittura o eliminazione per l'area di lavoro e per la risorsa di calcolo in tale area di lavoro. È possibile rendere il ruolo disponibile a livello di area di lavoro specifico, a un livello di gruppo di risorse specifico o a un livello di sottoscrizione specifico. Per altre informazioni, vedere [gestire utenti e ruoli in un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
+
+> [!WARNING]
+> Azure Machine Learning non è attualmente supportata con Azure Active Directory collaborazione business-to-business.
 
 ### <a name="securing-compute-targets-and-data"></a>Protezione dei dati e delle destinazioni di calcolo
 

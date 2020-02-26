@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 79e7f2a8dad59de4dc9d84a26d24c82889c14c2f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 6c002838d5a4f515a594d61e5137196c4d391795
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493319"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605445"
 ---
 # <a name="updated-ndv2-series-preview"></a>Aggiornamento della serie NDv2 (anteprima)
 
@@ -24,13 +24,16 @@ Le istanze di NDv2 offrono prestazioni eccellenti per i carichi di lavoro HPC e 
 
 In modo critico, il NDv2 è progettato per la scalabilità verticale sia a livello di calcolo (sfruttando 8 GPU per macchina virtuale) sia per la scalabilità orizzontale (sfruttando più macchine virtuali che operano insieme) carichi di lavoro. La serie NDv2 supporta ora le reti back-end InfiniBand EDR 100-Gigabit, simili a quelle disponibili nella serie HB della VM HPC, per consentire il clustering a prestazioni elevate per gli scenari paralleli, incluso il training distribuito per AI e ML. Questa rete back-end supporta tutti i principali protocolli InfiniBand, inclusi quelli usati dalle librerie NCCL2 di NVIDIA, consentendo un clustering di GPU senza problemi.
 
+
+> [!NOTE]
 > Quando si [Abilita InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) nella macchina virtuale ND40rs_v2, usare il driver OFED Mellanox 4.7-1.0.0.1.
-
+>
 > A causa di una maggiore memoria GPU, la nuova macchina virtuale ND40rs_v2 richiede l'uso di [macchine virtuali di seconda generazione](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) e immagini del Marketplace. 
-
+>
 > [Iscriversi per richiedere l'accesso anticipato all'anteprima della macchina virtuale NDv2.](https://aka.ms/AzureNDrv2Preview)
-
+>
 > Nota: la ND40s_v2 con 16 GB di memoria per GPU non è più disponibile in anteprima ed è stata sostituita dalla ND40rs_v2 aggiornata.
+
 <br>
 
 Archiviazione Premium: supportata

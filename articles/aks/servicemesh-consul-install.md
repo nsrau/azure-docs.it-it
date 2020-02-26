@@ -2,17 +2,16 @@
 title: Installare console in Azure Kubernetes Service (AKS)
 description: Informazioni su come installare e usare Consul per creare una mesh di servizi in un cluster Azure Kubernetes Service (AKS)
 author: dstrebel
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 06ca2327b2859ffb0f5b314d7b92082d5a83dc48
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885398"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594262"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installare e usare Consul in Azure Kubernetes Service (AKS)
 
@@ -25,7 +24,7 @@ Questo articolo illustra come installare Console. I componenti Consul sono insta
 >
 > Le versioni di console `1.6.x` possono essere eseguite con le versioni di Kubernetes `1.13+`. Altre versioni di Consul sono disponibili nelle versioni di [GitHub-console][consul-github-releases] e informazioni su ognuna delle versioni in [console-note sulla versione][consul-release-notes].
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Installare i componenti di console su AKS

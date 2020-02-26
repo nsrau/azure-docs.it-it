@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: de6bbb81b04b93cce8ab7ddaf1d983cb7e4a700d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 2f4b034948605b0a53a0320863608d284719a96d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990590"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587533"
 ---
-# <a name="overview-of-azure-security-controls"></a>Panoramica dei controlli di sicurezza di Azure
+# <a name="overview-of-the-azure-security-benchmark"></a>Panoramica del benchmark di sicurezza di Azure
 
 Il benchmark di sicurezza di Azure contiene raccomandazioni che consentono di migliorare la sicurezza delle applicazioni e dei dati in Azure.
 
@@ -48,7 +48,7 @@ Ogni raccomandazione include le informazioni seguenti:
 
 Siamo lieti di ricevere commenti e suggerimenti dettagliati e partecipare attivamente allo sforzo di benchmark di sicurezza di Azure. Per fornire l'input diretto del team di benchmark, compilare il modulo in [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere il primo controllo di sicurezza: [sicurezza di rete](security-control-network-security.md)
 - Leggi l' [Introduzione al benchmark di sicurezza di Azure](introduction.md)

@@ -4,12 +4,12 @@ description: Risposte alle domande frequenti sul backup di SQL Server database i
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 73224164286e35f8c9447dd24cd81d7242fbb7b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172028"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597083"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -37,13 +37,15 @@ Per impostazione predefinita, la funzionalità di correzione automatica è abili
 - Salvare le modifiche e chiudere il file.
 - Nell'istanza SQL Server aprire **attività Gestisci** e riavviare il servizio **AzureWLBackupCoordinatorSvc** .
 
-## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>È possibile controllare il numero di backup simultanei eseguiti in SQL Server?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>È possibile controllare il numero di backup simultanei eseguiti in SQL Server?
 
 Sì. È possibile imitare la velocità di esecuzione del criterio di backup per ridurre al minimo l'impatto su un'istanza di SQL Server. Per modificare l'impostazione:
 
 1. Nell'istanza di SQL Server, nella cartella *C:\Program Files\Azure workload Backup\bin* creare il file *ExtensionSettingsOverrides. JSON* .
 2. Nel file *ExtensionSettingsOverrides. JSON* , modificare l'impostazione **DefaultBackupTasksThreshold** impostando un valore inferiore (ad esempio, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
+<br>
+Il valore predefinito di DefaultBackupTasksThreshold è **20**.
 
 3. Salvare le modifiche e chiudere il file.
 4. Nell'istanza di SQL Server, aprire **Task Manager**. Riavviare il servizio **AzureWLBackupCoordinatorSvc**.<br/> <br/>

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 795661912633f0d225aef4de8ea7620a8766e096
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 71c30e0a86f67a2e2826859032144aa491c0cee1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766991"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597032"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai set di scalabilità di macchine virtuali, dai contenitori IaaS e dai computer non Azure (inclusi quelli locali) per monitorare le vulnerabilità e le minacce per la sicurezza. I dati vengono raccolti utilizzando l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza e registri eventi dal computer e copia i dati nell'area di lavoro per l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. L'agente Log Analytics inoltre copia i file di dump di arresto anomalo del sistema nell'area di lavoro
@@ -43,7 +43,7 @@ Per abilitare il provisioning automatico dell'agente di Log Analytics:
 1. Scegliere **Prezzi e impostazioni** dal menu principale del Centro sicurezza.
 2. Fare clic sulla sottoscrizione applicabile
 
-   ![Selezionare la sottoscrizione][7]
+   ![Seleziona sottoscrizione][7]
 
 3. Selezionare **raccolta dati**.
 4. In **Provisioning automatico** selezionare **Attivato** per abilitare il provisioning automatico.
@@ -72,7 +72,7 @@ Per selezionare un'area di lavoro creata dal Centro sicurezza:
 1. In **Configurazione dell'area di lavoro predefinita** selezionare l'opzione per usare un'altra area di lavoro creata dal Centro sicurezza.
    ![Selezionare un piano tariffario][10] 
 
-1. Fare clic su **Salva**<br>
+1. Fare clic su **Salva**.<br>
     Il Centro sicurezza crea un nuovo gruppo di risorse e un'area di lavoro predefinita in corrispondenza della posizione geografica specificata e quindi connette l'agente all'area di lavoro. Ecco le convenzioni di denominazione per l'area di lavoro e il gruppo di risorse:<br>
    **Area di lavoro: DefaultWorkspace-[subscription-ID]-[geo]<br> Gruppo di risorse: DefaultResourceGroup-[geo]**
 
@@ -83,7 +83,7 @@ Per selezionare un'area di lavoro creata dal Centro sicurezza:
 > Il piano tariffario di Log Analytics per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza. Questa è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro. Per il livello Gratuito, il Centro sicurezza abilita la soluzione *SecurityCenterFree* nell'area di lavoro predefinita. Per il livello Standard, il Centro sicurezza abilita la soluzione *Security* nell'area di lavoro predefinita.
 > L'archiviazione dei dati in Log Analytics potrebbe comportare costi aggiuntivi per l'archiviazione dei dati. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
-Per altre informazioni sugli account di log Analytics esistenti, vedere [Customers log Analytics](security-center-faq.md#existingloganalyticscust).
+Per altre informazioni sugli account di log Analytics esistenti, vedere [Customers log Analytics](./faq-azure-monitor-logs.md).
 
 ### <a name="using-an-existing-workspace"></a>Utilizzo di un'area di lavoro esistente
 
@@ -145,7 +145,7 @@ La selezione di un livello di raccolta dati nel Centro sicurezza di Azure avrà 
 > 
 > È possibile scegliere i criteri di filtro adatti alle sottoscrizioni e alle aree di lavoro da quattro set di eventi da archiviare nell'area di lavoro: 
 
-- **Nessuno**: disabilita l'archiviazione degli eventi di sicurezza. Questa è l'impostazione predefinita.
+- **Nessuno**: disabilita l'archiviazione degli eventi di sicurezza. Si tratta dell'impostazione predefinita.
 - **Minimi**: un insieme più piccolo di eventi per i clienti che desiderano ridurre al minimo il volume di eventi.
 - **Comuni**: si tratta di un insieme di eventi che soddisfa la maggior parte dei clienti e consente loro di avere un audit trail completo.
 - **Tutti gli eventi**: per i clienti che vogliono assicurarsi che tutti gli eventi vengano archiviati.
@@ -170,7 +170,7 @@ Di seguito è riportata una suddivisione completa degli ID di eventi di sicurezz
 | --- | --- |
 | Minime | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Comune | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
+| Comuni | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -179,7 +179,7 @@ Di seguito è riportata una suddivisione completa degli ID di eventi di sicurezz
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - Se si usa l'oggetto Criteri di gruppo, è consigliabile abilitare i criteri di controllo della creazione del processo dell'evento 4688 e il campo *CommandLine* all'interno dell'evento 4688. Per altre informazioni sulla creazione del processo dell'evento 4688, vedere le [domande frequenti](security-center-faq.md#what-happens-when-data-collection-is-enabled) del Centro sicurezza. Per altre informazioni su questi criteri di controllo, vedere [Suggerimenti per i criteri di controllo](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - Se si usa l'oggetto Criteri di gruppo, è consigliabile abilitare i criteri di controllo della creazione del processo dell'evento 4688 e il campo *CommandLine* all'interno dell'evento 4688. Per altre informazioni sulla creazione del processo dell'evento 4688, vedere le [domande frequenti](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled) del Centro sicurezza. Per altre informazioni su questi criteri di controllo, vedere [Suggerimenti per i criteri di controllo](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  Per abilitare la raccolta dei dati per i [controlli applicazione adattivi](security-center-adaptive-application.md), Centro sicurezza consente di configurare criteri AppLocker locali in modalità di controllo per consentire tutte le applicazioni. In questo modo AppLocker genererà eventi che vengono poi raccolti e sfruttati dal Centro sicurezza. È importante notare che questi criteri non saranno configurati nei computer in cui è già configurato un criterio AppLocker. 
 > - Per raccogliere l'[ID evento 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156) della piattaforma filtri Windows, è necessario abilitare [Controlla Connessione a Piattaforma filtro Windows](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Connessione a Piattaforma filtro" /Success:Enable)
 >
@@ -211,7 +211,7 @@ Nota: se è installato Operations Manager agente versione 2012, **non** attivare
 - È presente un'estensione di macchina virtuale preesistente<br>
     - Quando l'agente di monitoraggio viene installato come estensione, la configurazione dell'estensione consente la segnalazione solo a una singola area di lavoro. Il Centro sicurezza non esegue l'override delle connessioni esistenti alle aree di lavoro degli utenti. Il Centro sicurezza archivia i dati di sicurezza dalla macchina virtuale nell'area di lavoro già connessa, a condizione che sia stata installata la soluzione "Security" o "securityFree". Il Centro sicurezza può aggiornare la versione dell'estensione alla versione più recente in questo processo.  
     - Per vedere a quale area di lavoro l'estensione esistente invia i dati, eseguire il test per [convalidare la connettività con il Centro sicurezza di Azure](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). In alternativa, è possibile aprire Log Analytics aree di lavoro, selezionare un'area di lavoro, selezionare la VM ed esaminare la connessione Log Analytics Agent. 
-    - Se si dispone di un ambiente in cui l'agente di Log Analytics è installato nelle workstation client e la creazione di report in un'area di lavoro Log Analytics esistente, esaminare l'elenco dei [sistemi operativi supportati dal centro sicurezza di Azure](security-center-os-coverage.md) per assicurarsi che il sistema operativo sia supportato. Per altre informazioni, vedere [clienti di log Analytics esistenti](security-center-faq.md#existingloganalyticscust).
+    - Se si dispone di un ambiente in cui l'agente di Log Analytics è installato nelle workstation client e la creazione di report in un'area di lavoro Log Analytics esistente, esaminare l'elenco dei [sistemi operativi supportati dal centro sicurezza di Azure](security-center-os-coverage.md) per assicurarsi che il sistema operativo sia supportato. Per altre informazioni, vedere [clienti di log Analytics esistenti](./faq-azure-monitor-logs.md).
  
 ### Disattivare il provisioning automatico<a name="offprovisioning"></a>
 È possibile disattivare il provisioning automatico dalle risorse in qualsiasi momento disattivando questa impostazione nei criteri di sicurezza. 
@@ -231,7 +231,7 @@ Se si disattiva il provisioning automatico precedentemente attivato:
 -   Il Centro sicurezza interromperà la raccolta dei dati dall'area di lavoro predefinita.
  
 > [!NOTE]
->  La disabilitazione del provisioning automatico non comporta la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure in cui è stato effettuato il provisioning dell'agente. Per informazioni sulla rimozione dell'estensione OMS, vedere [How do I remove OMS extensions installed by Security Center](security-center-faq.md#remove-oms) (Come si rimuovono le estensioni OMS installate dal Centro sicurezza).
+>  La disabilitazione del provisioning automatico non comporta la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure in cui è stato effettuato il provisioning dell'agente. Per informazioni sulla rimozione dell'estensione OMS, vedere [How do I remove OMS extensions installed by Security Center](faq-data-collection-agents.md#remove-oms) (Come si rimuovono le estensioni OMS installate dal Centro sicurezza).
 >
     
 ## Provisioning manuale dell'agente <a name="manual-agent"></a>
@@ -314,7 +314,7 @@ Esistono diversi modi per installare manualmente l'agente di Log Analytics. Quan
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato il funzionamento della raccolta dati e del provisioning automatico nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
+* [Domande frequenti sul Centro sicurezza di Azure](faq-general.md): domande frequenti sull'uso del servizio.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 
 

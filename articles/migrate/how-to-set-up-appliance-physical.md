@@ -6,19 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028844"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598171"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
 Questo articolo descrive come configurare l'appliance Azure Migrate se si sta valutando server fisici con lo strumento di valutazione Azure Migrate: Server.
-
-> [!NOTE]
-> Se le funzionalità sono indicate qui, non è ancora possibile vedere il portale di Azure Migrate, bloccarsi. Compariranno all'incirca la prossima settimana.
 
 Il Azure Migrate Appliance è un'appliance semplice, usata da Azure Migrate Assessment server per eseguire le operazioni seguenti:
 
@@ -44,7 +41,7 @@ Scaricare il file compresso per l'appliance.
 2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
 3. Fare clic su **Scarica** per scaricare il file compresso.
 
-    ![Scaricare la VM](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+    ![Scaricare la VM](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### <a name="verify-security"></a>Verificare la sicurezza
@@ -55,21 +52,16 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Per la versione dell'appliance più recente, l'hash generato deve corrispondere a queste impostazioni.
-
-  **Algoritmo** | **Valore hash**
-  --- | ---
-  MD5 | 96fd99581072c400aa605ab036a0a7c0
-  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+3.  Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste [Impostazioni](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
 
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Eseguire lo script del programma di installazione di Azure Migrate
-= Il programma di installazione esegue le operazioni seguenti:
+Lo script del programma di installazione esegue le operazioni seguenti:
 
 - Installa gli agenti e un'applicazione Web per l'individuazione e la valutazione dei server fisici.
 - Installa i ruoli di Windows, tra cui il Servizio Attivazione Windows, IIS e PowerShell ISE.
-- Scarica e installa un modulo di IIS riscrivibile. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435)
+- Scarica e installa un modulo di IIS riscrivibile. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435).
 - Aggiorna una chiave del Registro di sistema (HKLM) con i dettagli delle impostazioni permanenti per Azure Migrate.
 - Crea i seguenti file nei relativi percorsi:
     - **File di configurazione**: %Programdata%\Microsoft Azure\Config
@@ -80,13 +72,16 @@ Eseguire lo script nel modo seguente:
 1. Estrarre il file compresso in una cartella nel server che ospiterà l'appliance.
 2. Avviare PowerShell nello stesso server con privilegi amministrativi (elevati).
 3. Modificare la directory di PowerShell nella cartella in cui è stato estratto il contenuto del file compresso scaricato.
-4. Eseguire lo script eseguendo il comando seguente:
+4. Eseguire lo script denominato **AzureMigrateInstaller.ps1** eseguendo il comando seguente:
     ```
-    AzureMigrateInstaller.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
 Lo script avvierà l'applicazione Web dell'appliance al termine dell'operazione.
 
+In caso di problemi, è possibile accedere ai log degli script in C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log per la risoluzione dei problemi.
 
+> [!NOTE]
+> Non eseguire lo script del programma di installazione di Azure Migrate in un'appliance di Azure Migrate esistente.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 

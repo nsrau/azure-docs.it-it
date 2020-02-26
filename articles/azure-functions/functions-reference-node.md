@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare funzioni con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: ee6b886c6ed18aad54092005d800b4087280190b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714787"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584490"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -128,7 +128,7 @@ In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'inp
    };
    ```
 
-### <a name="outputs"></a>Outputs
+### <a name="outputs"></a>Output
 Gli output (associazioni di `direction === "out"`) possono essere scritti da una funzione in diversi modi. In tutti i casi, la proprietà `name` dell'associazione come definita in *function.json* corrisponde al nome del membro dell'oggetto scritto nella funzione. 
 
 È possibile assegnare i dati alle associazioni di output in uno dei modi seguenti (non combinare questi metodi):
@@ -232,7 +232,7 @@ context.bindings.myOutput = {
 context.bindingData
 ```
 
-Restituisce un oggetto denominato che contiene i metadati del trigger e i dati di chiamata della funzione (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Per un esempio dei metadati del trigger, vedere questo [esempio di hub eventi](functions-bindings-event-hubs.md#trigger).
+Restituisce un oggetto denominato che contiene i metadati del trigger e i dati di chiamata della funzione (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Per un esempio dei metadati del trigger, vedere questo [esempio di hub eventi](functions-bindings-event-hubs-trigger.md).
 
 ### <a name="contextdone-method"></a>Metodo context.done
 
@@ -418,14 +418,17 @@ Il FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato dalle funzioni d
 
 ## <a name="node-version"></a>Versione del nodo
 
-La tabella seguente mostra la versione di Node.js usata da ogni versione principale del runtime di Funzioni:
+La tabella seguente illustra le versioni correnti di node. js supportate per ogni versione principale del runtime di funzioni, per sistema operativo:
 
-| Versione di Funzioni | Versione di Node.js | 
-|---|---|
-| 1.x | 6.11.2 (bloccata dal runtime) |
-| 2.x  | Versioni di node. js _attiva_ e di _manutenzione_ LTS (~ 10 consigliate). Specificare come destinazione la versione in Azure impostando l' [impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION su `~10`.|
+| Versione di Funzioni | Versione del nodo (Windows) | Versione del nodo (Linux) |
+|---|---| --- |
+| 1.x | 6.11.2 (bloccata dal runtime) | n/d |
+| 2.x  | ~ 8<br/>~ 10 (scelta consigliata)<br/>~ 12<sup>*</sup> | ~ 8 (scelta consigliata)<br/>~ 10  |
+| 3.x | ~ 10<br/>~ 12 (scelta consigliata)  | ~ 10<br/>~ 12 (scelta consigliata) |
 
-È possibile visualizzare la versione corrente usata dal runtime controllando l'impostazione dell'app seguente o stampando `process.version` da qualsiasi funzione.
+<sup>*</sup> Il nodo ~ 12 è attualmente consentito nella versione 2. x del runtime di funzioni. Tuttavia, per ottenere prestazioni ottimali, è consigliabile usare funzioni runtime versione 3. x con node ~ 12. 
+
+È possibile visualizzare la versione corrente usata dal runtime controllando l'impostazione dell'app seguente o stampando `process.version` da qualsiasi funzione. Specificare come destinazione la versione in Azure impostando l' [impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION su una versione LTS supportata, ad esempio `~10`.
 
 ## <a name="dependency-management"></a>Gestione delle dipendenze
 Per poter usare librerie della community nel codice JavaScript, come mostrato nell'esempio seguente, è necessario assicurarsi che tutte le dipendenze siano installate nell'app per le funzioni in Azure.
@@ -693,7 +696,7 @@ module.exports = async function (context) {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le seguenti risorse:
 
 + [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
 + [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)

@@ -2,23 +2,20 @@
 title: Procedure consigliate per l'operatore - Identità nel servizio Azure Kubernetes (AKS)
 description: Procedure consigliate per l'operatore del cluster per la gestione dell'autenticazione e dell'autorizzazione per i cluster nel servizio Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: mlearned
-ms.openlocfilehash: 35cded14977988c80455a9c28a0e01e7913d58f4
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 5ff5bdaced46a20dec3e7c5d7fb029f9428a12f2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069507"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594771"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'autenticazione e l'autorizzazione nel servizio Azure Kubernetes (AKS)
 
 Durante la distribuzione e la gestione dei cluster nel servizio Azure Kubernetes (AKS), è necessario implementare opportune modalità di gestione dell'accesso a risorse e servizi. Senza questi controlli, gli account possono avere accesso alle risorse e ai servizi di cui non hanno bisogno. Può essere inoltre difficile tenere traccia del set di credenziali usato per apportare le modifiche.
 
-Questo articolo sulle procedure consigliate è incentrato su come un operatore del cluster può gestire l'accesso e l'identità per i cluster servizio Azure Kubernetes. In questo articolo viene spiegato come:
+Questo articolo sulle procedure consigliate è incentrato su come un operatore del cluster può gestire l'accesso e l'identità per i cluster servizio Azure Kubernetes. In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Autenticare gli utenti del cluster servizio Azure Kubernetes con Azure Active Directory

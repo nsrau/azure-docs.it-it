@@ -3,17 +3,16 @@ title: Disponibilità elevata e ripristino di emergenza in Azure Kubernetes Serv
 description: Informazioni sulle procedure consigliate per un operatore cluster per ottenere il massimo tempo di attività per le applicazioni, offrendo disponibilità elevata e preparazione per il ripristino di emergenza in Azure Kubernetes Service (AKS).
 services: container-service
 author: lastcoolnameleft
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 855d40f9c20f966f6fa2b89949e47c943704bf2b
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549156"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594745"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 

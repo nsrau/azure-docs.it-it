@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/25/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fcea0aaecb860e07c2066877494c05b51f43ca4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7637d18017f5bdc76c8a271198a88f21a59a6aac
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976248"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604988"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -29,19 +29,19 @@ Conoscere i limiti delle risorse per Azure NetApp Files è utile per gestire i v
 
 La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 
-|  Gruppi  |  Limite predefinito  |  Modificabile tramite richiesta di supporto  |
+|  Risorsa  |  Limite predefinito  |  Modificabile tramite richiesta di supporto  |
 |----------------|---------------------|--------------------------------------|
-|  Numero di account NetApp per area di Azure   |  10    |  SÌ   |
-|  Numero di pool di capacità per account NetApp   |    25     |   SÌ   |
-|  Numero di volumi per pool di capacità     |    500   |    SÌ     |
+|  Numero di account NetApp per area di Azure   |  10    |  Sì   |
+|  Numero di pool di capacità per account NetApp   |    25     |   Sì   |
+|  Numero di volumi per pool di capacità     |    500   |    Sì     |
 |  Numero di snapshot per volume       |    255     |    No        |
 |  Numero di subnet delegate a Azure NetApp Files (Microsoft. NetApp/volumes) per rete virtuale di Azure    |   1   |    No    |
-|  Numero di indirizzi IP in un VNet (incluso reti virtuali con peering) che possono accedere Azure NetApp Files   |    1000   |    SÌ   |
+|  Numero di indirizzi IP usati in un VNet (inclusi reti virtuali immediatamente con peering) con Azure NetApp Files   |    1000   |    Sì   |
 |  Dimensioni minime di un singolo pool di capacità   |  4 TiB     |    No  |
 |  Dimensioni massime di un singolo pool di capacità    |  500 TiB   |   No   |
 |  Dimensioni minime di un singolo volume    |    100 GiB    |    No    |
 |  Dimensioni massime di un singolo volume     |    100 TiB    |    No    |
-|  Numero massimo di file ([maxfiles](#maxfiles)) per volume     |    100 milioni    |    SÌ    |    
+|  Numero massimo di file ([maxfiles](#maxfiles)) per volume     |    100 milioni    |    Sì    |    
 |  Dimensioni massime di un singolo file     |    16 TiB    |    No    |    
 
 ## Limiti di maxfiles<a name="maxfiles"></a> 
@@ -76,7 +76,7 @@ Dal piano di navigazione portale di Azure:
 4. Nella scheda Dettagli:
     1. Nella casella Descrizione specificare le informazioni seguenti per il tipo di risorsa corrispondente:
 
-        |  Gruppi  |    Risorse padre      |    Nuovi limiti richiesti     |    Motivo dell'aumento della quota       |
+        |  Risorsa  |    Risorse padre      |    Nuovi limiti richiesti     |    Motivo dell'aumento della quota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Account |  *ID sottoscrizione*   |  *Nuovo numero di **conto** massimo richiesto*    |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
         |  Pool    |  *ID sottoscrizione, URI account*  |  *Numero massimo di **pool** richiesti*   |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |

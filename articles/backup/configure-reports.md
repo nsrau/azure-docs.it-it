@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report per backup di Azure con Log Analytics e cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5c43efc8d61d7aa6c8fc94c6c39294d744cd6b87
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501121"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582705"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -41,11 +41,11 @@ Per impostazione predefinita, i dati in un'area di lavoro LA vengono conservati 
 
 Azure Resource Manager risorse, ad esempio gli insiemi di credenziali dei servizi di ripristino, registrare le informazioni sulle operazioni pianificate e le operazioni attivate dall'utente come dati di diagnostica. 
 
-Nella sezione monitoraggio dell'insieme di credenziali di servizi di ripristino selezionare **impostazioni di diagnostica** e specificare la destinazione per i dati di diagnostica dell'insieme di credenziali di servizi di ripristino. [Altre informazioni sull'uso degli eventi di diagnostica](https://aka.ms/AzureBackupDiagnosticDocs).
+Nella sezione monitoraggio dell'insieme di credenziali di servizi di ripristino selezionare **impostazioni di diagnostica** e specificare la destinazione per i dati di diagnostica dell'insieme di credenziali di servizi di ripristino. [Altre informazioni sull'uso degli eventi di diagnostica](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
 
 ![Pannello impostazioni di diagnostica](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Backup di Azure fornisce anche un criterio predefinito di Azure, che consente di automatizzare la configurazione delle impostazioni di diagnostica per tutti gli insiemi di credenziali in un ambito specifico. Vedere l'articolo seguente per informazioni su come usare questo criterio: [configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala](https://aka.ms/AzureBackupDiagnosticsPolicyDocs)
+Backup di Azure fornisce anche un criterio predefinito di Azure, che consente di automatizzare la configurazione delle impostazioni di diagnostica per tutti gli insiemi di credenziali in un ambito specifico. Vedere l'articolo seguente per informazioni su come usare questo criterio: [configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
 3. **Visualizzare i report nel portale di Azure:**
 
@@ -53,7 +53,7 @@ Dopo aver configurato gli insiemi di credenziali per l'invio di dati a LA, visua
 
 ![Dashboard dell'insieme di credenziali](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-Facendo clic su questo collegamento viene aperta la cartella di lavoro report di backup. 
+Facendo clic su questo collegamento viene aperta la cartella di lavoro report di backup.
 
 > [!NOTE]
 > Attualmente, il carico iniziale del report può richiedere fino a 1 minuto.

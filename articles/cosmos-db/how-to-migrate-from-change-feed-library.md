@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9570a8512e3437b12ecce2ef0c708a74a8806482
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f651beb181430f65d0b4c86f285e74958f8366eb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077555"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588884"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Eseguire la migrazione dalla libreria del processore dei feed delle modifiche al Azure Cosmos DB .NET V3 SDK
 
@@ -21,23 +21,23 @@ Questo articolo descrive i passaggi necessari per eseguire la migrazione del cod
 
 .NET V3 SDK presenta diverse modifiche di rilievo. di seguito sono riportati i passaggi principali per eseguire la migrazione dell'applicazione:
 
-1. Convertire le `DocumentCollectionInfo` istanze in `Container` riferimenti per i contenitori monitorati e lease.
-1. Le personalizzazioni che `WithProcessorOptions` usano devono essere aggiornate per `WithLeaseConfiguration` usare `WithPollInterval` e per gli `WithStartTime` intervalli, per l'ora `WithMaxItems` di [inizio](how-to-configure-change-feed-start-time.md)e per definire il numero massimo di elementi.
-1. `ChangeFeedProcessorOptions.LeasePrefix` `string.Empty` Impostare on in`GetChangeFeedProcessorBuilder` modo che corrisponda al valore configurato in oppure utilizzare in caso contrario. `processorName`
-1. Poiché le modifiche non vengono più recapitate come `IReadOnlyList<Document>`, invece, si tratta di un `IReadOnlyCollection<T>` tipo in cui `T` è necessario definire, non esiste più una classe di elementi di base.
+1. Convertire le istanze di `DocumentCollectionInfo` in riferimenti `Container` per i contenitori monitorati e lease.
+1. Le personalizzazioni che usano `WithProcessorOptions` devono essere aggiornate per usare `WithLeaseConfiguration` e `WithPollInterval` per gli intervalli, `WithStartTime` [per l'ora di inizio](how-to-configure-change-feed-start-time.md)e `WithMaxItems` per definire il numero massimo di elementi.
+1. Impostare il `processorName` su `GetChangeFeedProcessorBuilder` in modo che corrisponda al valore configurato per `ChangeFeedProcessorOptions.LeasePrefix`oppure utilizzare `string.Empty` in caso contrario.
+1. Le modifiche non vengono più recapitate come `IReadOnlyList<Document>`, ma si tratta di un `IReadOnlyCollection<T>` in cui `T` è un tipo che è necessario definire, non esiste più una classe di elementi di base.
 1. Per gestire le modifiche, non è più necessaria un'implementazione, bensì è necessario [definire un delegato](change-feed-processor.md#implementing-the-change-feed-processor). Il delegato può essere una funzione statica o, se è necessario mantenere lo stato tra le esecuzioni, è possibile creare una classe personalizzata e passare un metodo di istanza come delegato.
 
 Se, ad esempio, il codice originale per compilare il processore del feed delle modifiche è simile al seguente:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorLibrary)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorLibrary":::
 
 Il codice migrato sarà simile al seguente:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorMigrated":::
 
 E il delegato, può essere un metodo statico:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="Delegate":::
 
 ## <a name="state-and-lease-container"></a>Stato e contenitore lease
 

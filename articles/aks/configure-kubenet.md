@@ -2,18 +2,15 @@
 title: Configurare funzionalità di rete kubenet nel servizio Azure Kubernetes
 description: Informazioni su come configurare una rete kubenet (di base) nel servizio Azure Kubernetes per distribuire un cluster del servizio Azure Kubernetes in una rete virtuale e una subnet esistenti.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 382895c1b5a4cb2bc88ff2371cec59267ea4e176
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9931c752d5ce33beb41dc00194c27d06b9469807
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442930"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595894"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -23,7 +20,7 @@ Con l' [interfaccia di rete del contenitore di Azure (CNI)][cni-networking], ogn
 
 Questo articolo illustra come usare le funzionalità di rete *kubenet* per creare e usare una subnet di rete virtuale per un cluster del servizio Azure Kubernetes. Per altre informazioni sulle opzioni di rete e le considerazioni, vedere [concetti di rete per Kubernetes e AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
 * Non creare più di un cluster servizio Azure Kubernetes nella stessa subnet.

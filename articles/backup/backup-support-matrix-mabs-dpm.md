@@ -3,12 +3,12 @@ title: Matrice di supporto di Mab & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444027"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582654"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -113,11 +113,34 @@ Se si distribuisce il server di Backup di Microsoft Azure in una macchina virtua
 
 Il server DPM o il server di Backup di Microsoft Azure deve poter accedere agli URL seguenti:
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.windowsazure.com
 - *.microsoftonline.com
 - *.windows.net
+
+### <a name="azure-expressroute-support"></a>Supporto di Azure ExpressRoute
+
+È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.
+
+Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Con il peering Microsoft, selezionare i seguenti servizi/aree e i valori della community pertinenti:
+
+* Azure Active Directory (12076:5060)
+* Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+* Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+
+Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>Il peering pubblico è deprecato per i nuovi circuiti.
 
 ### <a name="dpmmabs-connectivity-to-azure-backup"></a>Connettività di DPM o del server di Backup di Microsoft Azure al servizio Backup di Azure
 

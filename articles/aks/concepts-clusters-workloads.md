@@ -2,17 +2,14 @@
 title: Concetti - Nozioni di base di Kubernetes per il servizio Azure Kubernetes
 description: Informazioni sui componenti di base del cluster e del carico di lavoro di Kubernetes e sulle loro relazioni con le funzionalità del servizio Azure Kubernetes
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
-ms.openlocfilehash: 9efd053bde11a29c37e3ff6afb7c6fc4492338db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967562"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596233"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -20,7 +17,7 @@ Quando lo sviluppo di applicazioni si sposta verso un approccio basato su conten
 
 Questo articolo presenta i componenti principali dell'infrastruttura Kubernetes, ad esempio il *piano di controllo*, i *nodi*e i *pool di nodi*. Sono presentate anche risorse del carico di lavoro come *pod*, *distribuzioni* e *set*, nonché la procedura per raggruppare risorse in *spazi dei nomi*.
 
-## <a name="what-is-kubernetes"></a>Cos'è Kubernetes?
+## <a name="what-is-kubernetes"></a>Cos'è Kubernetes
 
 Kubernetes è una piattaforma in rapida evoluzione che gestisce applicazioni basate su contenitori e i componenti di rete e archiviazione associati. La piattaforma è incentrata sui carichi di lavoro applicativi e non sui componenti dell'infrastruttura sottostante. Kubernetes offre un approccio dichiarativo alle distribuzioni, supportato da una gamma completa di API per operazioni di gestione.
 
@@ -106,7 +103,7 @@ Per mantenere le prestazioni e le funzionalità del nodo, le risorse vengono ris
     - 6% dei 112 GB di memoria successivi (fino a 128 GB)
     - 2% di memoria superiore a 128 GB
 
-Le regole precedenti per l'allocazione di memoria e CPU vengono usate per rendere integri i nodi dell'agente, alcuni pod di sistema host critici per l'integrità del cluster. Queste regole di allocazione fanno anche in modo che il nodo segnali una quantità di memoria e CPU meno allocabile rispetto a quella che sarebbe se non facesse parte di un cluster Kubernetes. Non è possibile modificare le prenotazioni di risorse sopra indicate.
+Le regole precedenti per l'allocazione di memoria e CPU vengono usate per rendere integri i nodi dell'agente, inclusi alcuni pod di sistema di hosting cruciali per l'integrità del cluster. Queste regole di allocazione fanno anche in modo che il nodo segnali una quantità di memoria e CPU meno allocabile rispetto a quella che sarebbe se non facesse parte di un cluster Kubernetes. Non è possibile modificare le prenotazioni di risorse sopra indicate.
 
 Se, ad esempio, un nodo dispone di 7 GB, verrà segnalato il 34% della memoria non allocabile al di sopra della soglia di rimozione hardware di 750Mi.
 
@@ -224,7 +221,7 @@ Esistono due risorse di Kubernetes che consentono di gestire questi tipi di appl
 
 ### <a name="statefulsets"></a>Oggetti StatefulSet
 
-Molte applicazioni sviluppate attualmente sono senza stato, mentre gli oggetti *StatefulSet* possono essere usati per le applicazioni con stato, ad esempio le applicazioni che includono componenti di database. Un oggetto StatefulSet è simile a una distribuzione per il fatto che vengono creati e gestiti uno o più pod identici. Le repliche in un oggetto StatefulSet seguono un approccio sequenziale normale alla distribuzione, il ridimensionamento, gli aggiornamenti e la chiusura. Con un oggetto StatefulSet, la convenzione di denominazione, i nomi di rete e l'archiviazione sono mantenuti quando le repliche vengono ripianificate.
+Molte applicazioni sviluppate attualmente sono senza stato, mentre gli oggetti *StatefulSet* possono essere usati per le applicazioni con stato, ad esempio le applicazioni che includono componenti di database. Un oggetto StatefulSet è simile a una distribuzione per il fatto che vengono creati e gestiti uno o più pod identici. Le repliche in un oggetto StatefulSet seguono un approccio sequenziale normale alla distribuzione, il ridimensionamento, gli aggiornamenti e la chiusura. Con StatefulSet (quando le repliche vengono ripianificate) la convenzione di denominazione, i nomi di rete e l'archiviazione vengono mantenuti.
 
 Si definisce l'applicazione nel formato YAML tramite `kind: StatefulSet` e poi il controller StatefulSet gestisce la distribuzione e la gestione delle repliche necessarie. I dati vengono scritti nella risorsa di archiviazione permanente fornita da Managed Disks di Azure o File di Azure. Con gli oggetti StatefulSet, la risorsa di archiviazione permanente sottostante rimane anche quando viene eliminato l'oggetto StatefulSet.
 

@@ -2,17 +2,14 @@
 title: Procedure consigliate per l'operatore - Gestione delle immagini del contenitore nel servizio Azure Kubernetes
 description: Procedure consigliate per l'operatore del cluster per la gestione e la protezione delle immagini del contenitore nel servizio Azure Kubernetes
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: mlearned
-ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: efe72157f598c336248e407c57bce92fe87da23a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442910"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594746"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore nel servizio Azure Kubernetes
 

@@ -5,12 +5,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Informazioni su come creare in modo rapido un cluster Kubernetes abilitato per Azure Dev Spaces direttamente dal browser senza installare alcun componente.
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 35ea52b940c74b34817b4ed12d224de83f4dda74
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5e2e5cfd22eeedd3554737458caeca0b891b62fe
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771105"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605295"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Creare un cluster Kubernetes con Azure Dev Spaces abilitato con Azure Cloud Shell
 
@@ -27,7 +27,7 @@ az group create --name MyResourceGroup --location <region>
 Usare il comando seguente per creare un cluster Kubernetes:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 La creazione del cluster richiede alcuni minuti.  Al termine dell'esercitazione, viene visualizzato l'output in formato JSON. Cercare `provisioningState` e verificare il `Succeeded`.

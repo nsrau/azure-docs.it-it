@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530953"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603801"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
@@ -113,7 +113,7 @@ Tutti gli eventi del Centro sicurezza di Azure vengono pubblicati nel [log attiv
 
 Le sezioni seguenti spiegano come configurare i dati per poterli trasmettere a un hub eventi. In questi passaggi si presuppone che l'utente abbia già configurato Centro sicurezza di Azure nella sottoscrizione Azure.
 
-### <a name="high-level-overview"></a>Panoramica di alto livello
+### <a name="high-level-overview"></a>Panoramica generale
 
 ![Panoramica generale](media/security-center-export-data-to-siem/overview.png)
 
@@ -129,13 +129,13 @@ Prima di iniziare, [creare uno spazio dei nomi di hub eventi](../event-hubs/even
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
 
-Vedere l'articolo seguente [trasmettere il log attività a hub eventi](../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+Vedere l'articolo seguente [trasmettere il log attività a hub eventi](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 #### <a name="install-a-partner-siem-connector"></a>Installare un connettore SIEM partner 
 
 Il routing dei dati di monitoraggio a un hub eventi con Monitoraggio di Azure consente di integrare facilmente gli strumenti di monitoraggio e le informazioni di sicurezza e gestione degli eventi di partner.
 
-Per l'elenco dei [Siem supportati](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub) , vedere l'articolo seguente.
+Per l'elenco dei [Siem supportati](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration), vedere l'articolo seguente.
 
 ### <a name="example-for-querying-data"></a>Esempio di query sui dati 
 
@@ -153,5 +153,3 @@ Ecco alcune query Splunk che è possibile usare per eseguire il pull dei dati di
 In questo articolo è stato illustrato come integrare soluzioni partner nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Risposte alle domande frequenti sull'uso del Centro sicurezza.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.

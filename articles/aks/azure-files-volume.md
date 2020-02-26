@@ -2,17 +2,14 @@
 title: Creare un volume statico per pod multipli nel servizio Azure Kubernetes
 description: Informazioni su come creare manualmente un volume con i File di Azure per l'uso con pod multipli contemporaneamente nel servizio Azure Kubernetes
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: mlearned
-ms.openlocfilehash: 7b5f7c25cd1627475d8e37a539956f01ae6151ab
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 084ab5cd6736c9148bcab1faf048d3d9081855d4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914028"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596403"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con la condivisione di File di Azure nel servizio Azure Kubernetes
 
@@ -163,7 +160,7 @@ spec:
 
 Se si usa un cluster di una versione da 1.8.0 a 1.8.4, è possibile specificare un contesto di protezione con il valore *runAsUser* impostato su *0*. Per altre informazioni sul contesto di sicurezza di Pod, vedere [configurare un contesto di sicurezza][kubernetes-security-context].
 
-Per aggiornare le opzioni di montaggio, creare un file *azurefile-Mount-Options-PV. YAML* con una *PersistentVolume*. ad esempio:
+Per aggiornare le opzioni di montaggio, creare un file *azurefile-Mount-Options-PV. YAML* con una *PersistentVolume*. Ad esempio:
 
 ```yaml
 apiVersion: v1
@@ -189,7 +186,7 @@ spec:
   - nobrl
 ```
 
-Creare un file *azurefile-Mount-Options-PVC. YAML* con un *PersistentVolumeClaim* che usa *PersistentVolume*. ad esempio:
+Creare un file *azurefile-Mount-Options-PVC. YAML* con un *PersistentVolumeClaim* che usa *PersistentVolume*. Ad esempio:
 
 ```yaml
 apiVersion: v1
@@ -221,7 +218,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-Aggiornare le specifiche del contenitore in modo che facciano riferimento al *PersistentVolumeClaim* e aggiornino il pod. ad esempio:
+Aggiornare le specifiche del contenitore in modo che facciano riferimento al *PersistentVolumeClaim* e aggiornino il pod. Ad esempio:
 
 ```yaml
 ...

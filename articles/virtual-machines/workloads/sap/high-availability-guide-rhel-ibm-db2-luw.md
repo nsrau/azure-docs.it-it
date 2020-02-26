@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/10/2019
+ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 5487b90172788c08a4383a32462ea5a85c1763ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099673"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598698"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -101,7 +101,7 @@ Prima di iniziare un'installazione, vedere le note e la documentazione SAP segue
 
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Per ottenere la disponibilità elevata, IBM DB2 LUW con HADR è installato in almeno due macchine virtuali di Azure, che vengono distribuite in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) o tra [zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
 
 La grafica seguente mostra una configurazione di due macchine virtuali di Azure del server di database. Entrambe le macchine virtuali di Azure del server di database hanno una propria archiviazione collegata e sono in esecuzione. In HADR, un'istanza di database in una delle macchine virtuali di Azure ha il ruolo di istanza primaria. Tutti i client sono connessi all'istanza primaria. Tutte le modifiche apportate alle transazioni del database vengono rese disponibili localmente nel log delle transazioni DB2. Poiché i record del log delle transazioni vengono salvati in modo permanente in locale, i record vengono trasferiti tramite TCP/IP all'istanza del database nel secondo server di database, nel server di standby o nell'istanza di standby. L'istanza standby aggiorna il database locale eseguendo il rollforward dei record del log delle transazioni trasferiti. In questo modo, il server di standby viene mantenuto sincronizzato con il server primario.
@@ -148,7 +148,7 @@ Completare il processo di pianificazione prima di eseguire la distribuzione. La 
 | Macchine virtuali che ospitano IBM DB2 LUW | Dimensioni della macchina virtuale, archiviazione, rete e indirizzo IP. |
 | Nome host virtuale e IP virtuale per il database IBM DB2| Indirizzo IP virtuale o nome host usato per la connessione dei server applicazioni SAP. **DB-virt-hostname**, **DB-virt-IP**. |
 | Schermatura di Azure | Viene impedito il metodo per evitare la suddivisione di situazioni cerebrali. |
-| Servizio di bilanciamento del carico di Azure | Utilizzo di Basic o standard (scelta consigliata), porta Probe per database DB2 (raccomandazione 62500) **Probe-Port**. |
+| Azure Load Balancer | Utilizzo di Basic o standard (scelta consigliata), porta Probe per database DB2 (raccomandazione 62500) **Probe-Port**. |
 | Risoluzione dei nomi| Funzionamento della risoluzione dei nomi nell'ambiente. Il servizio DNS è altamente consigliato. È possibile usare il file hosts locale. |
     
 Per altre informazioni su pacemaker per Linux in Azure, vedere la pagina relativa alla [configurazione di pacemaker in Red Hat Enterprise Linux in Azure][rhel-pcs-azr].
@@ -370,7 +370,7 @@ Gli elementi seguenti sono preceduti da uno dei seguenti elementi:
 - **[1]** : applicabile solo al nodo 1 
 - **[2]** : applicabile solo al nodo 2
 
-**[A]** prerequisiti per la configurazione di pacemaker:
+**[A]** prerequisito per la configurazione di pacemaker:
 1. Arrestare entrambi i server di database con l'utente DB2\<SID > con db2stop.
 1. Modificare l'ambiente della Shell per DB2\<SID > utente in */bin/ksh*:
 <pre><code># Install korn shell:
@@ -434,6 +434,11 @@ Stato del daemon: Corosync: attivo/disabilitato pacemaker: attivo/disabilitato P
 
 ### <a name="configure-azure-load-balancer"></a>Configurare Azure Load Balancer
 Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) e quindi eseguire le operazioni seguenti:
+
+> [!NOTE]
+> Lo SKU Load Balancer Standard presenta restrizioni per l'accesso agli indirizzi IP pubblici dai nodi sotto la Load Balancer. L'articolo [connettività dell'endpoint pubblico per le macchine virtuali che usano Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) descrive come abilitare tali nodi per accedere a indirizzi IP pubblici
+
+
 
 1. Creare un pool di indirizzi IP front-end:
 
@@ -499,7 +504,7 @@ Per connettersi all'istanza primaria della configurazione HADR, il livello dell'
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<SID>/global/db6/db2cli.ini
+/sapmnt/\<SID >/Global/DB6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 

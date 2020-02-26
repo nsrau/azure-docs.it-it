@@ -2,17 +2,14 @@
 title: Usare i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 description: Informazioni su come controllare l'ammissione di pod usando PodSecurityPolicy in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: mlearned
-ms.openlocfilehash: 5aec645c19ee5f813fdefb57d728c14688da8712
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bc22a577777e50724fbafa04cf01f28362113cc7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926402"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592833"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
@@ -73,7 +70,7 @@ In un cluster Kubernetes, un controller di ammissione viene usato per intercetta
 
 Quando si abilitano i criteri di sicurezza pod in un cluster AKS, vengono applicati alcuni criteri predefiniti. Questi criteri predefiniti offrono un'esperienza predefinita per definire quali Pod è possibile pianificare. Tuttavia, gli utenti del cluster potrebbero riscontrare problemi durante la distribuzione di pod fino a quando non si definiscono i propri criteri. L'approccio consigliato consiste nell'eseguire le operazioni seguenti:
 
-* Creare un cluster del servizio Azure Container
+* Creare un cluster AKS
 * Definire i propri criteri di sicurezza Pod
 * Abilitare la funzionalità dei criteri di sicurezza Pod
 

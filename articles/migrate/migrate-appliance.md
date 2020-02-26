@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzata per la valutazione e la migrazione dei server.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1b1e35c3b7a9d98e57ec4261f6f913c370bbb365
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425460"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597542"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -34,7 +34,7 @@ Computer fisico |  Azure Migrate: valutazione del server |  Individuare i server
 **License** | Il modello di appliance scaricato è disponibile con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
 **Distribuzione** | Si distribuisce l'appliance come macchina virtuale VMware. Per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un compartitore virtuale esterno, è necessario disporre di risorse sufficienti nel server vCenter.<br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/> Il dispositivo può connettersi a una singola server vCenter.
 **Hardware** | Risorse su vCenter per allocare una macchina virtuale con 32 GB di RAM 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno. 
-**Valore hash** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+**Valore hash** | Verifica [qui](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)
 **server vCenter/host** | La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva.<br/><br/> server vCenter che esegue 5,5, 6,0, 6,5 o 6,7.
 **Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
 **Individuazione** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una singola server vCenter.
@@ -52,7 +52,7 @@ Computer fisico |  Azure Migrate: valutazione del server |  Individuare i server
 **License** | Il modello di appliance scaricato è disponibile con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
 **Distribuzione dell'appliance**   |  Si distribuisce l'appliance come macchina virtuale Hyper-V.<br/> La macchina virtuale dell'appliance fornita da Azure Migrate è la macchina virtuale Hyper-V 5,0.<br/> L'host Hyper-V deve eseguire Windows Server 2012 R2 o versione successiva.<br/> L'host necessita di spazio sufficiente per allocare 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno per la macchina virtuale dell'appliance.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
 **Hardware** | Risorse nell'host Hyper-V per allocare 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno per la macchina virtuale dell'appliance.
-**Valore hash** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+**Valore hash** | Verifica [qui](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)
 **Host Hyper-V** | Esecuzione di Windows Server 2012 R2 o versione successiva.
 **Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
 **Individuazione** | Un'appliance può individuare fino a 5000 macchine virtuali Hyper-V.<br/> Un appliance può connettersi a un massimo di 300 host Hyper-V.
@@ -67,7 +67,7 @@ Computer fisico |  Azure Migrate: valutazione del server |  Individuare i server
 **Collegamento di download** | [Collegamento di download](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Dimensioni del download** | 59,7 MB
 **Hardware** | Computer fisico dedicato oppure utilizzare una macchina virtuale. Il computer che esegue l'appliance necessita di 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
-**Valore hash** | MD5:1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**Valore hash** | Verifica [qui](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)
 **Sistema operativo** | Il computer del dispositivo deve eseguire Windows Server 2016. 
 **Distribuzione dell'appliance**   |  Lo script del programma di installazione dell'Appliance viene scaricato dal portale (in una cartella compressa). <br/> È possibile decomprimere la cartella ed eseguire lo script di PowerShell (AzureMigrateInstaller. ps1).
 **Individuazione** | Un'appliance può individuare fino a 250 di server fisici.
@@ -107,8 +107,8 @@ Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance rac
 
 **Dati** | **Contatore** | **Impatto valutazione**
 --- | --- | ---
-Utilizzo CPU | cpu.usage.average | Costo/dimensioni VM consigliate
-Utilizzo memoria | mem.usage.average | Costo/dimensioni VM consigliate
+Uso della CPU | cpu.usage.average | Costo/dimensioni VM consigliate
+Utilizzo della memoria | mem.usage.average | Costo/dimensioni VM consigliate
 Velocità effettiva lettura disco (MB al secondo) | virtualDisk.read.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Velocità effettiva scritture disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Operazioni di lettura disco al secondo | virtualDisk.numberReadAveraged.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
@@ -139,8 +139,8 @@ Memoria (MB) | vm.Config.Hardware.MemoryMB
 Numero di dischi | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk). Count
 Elenco dimensioni disco | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk)
 Elenco schede di rete | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualEthernet). Count
-Utilizzo CPU | cpu.usage.average
-Utilizzo memoria |mem.usage.average
+Uso della CPU | cpu.usage.average
+Utilizzo della memoria |mem.usage.average
 **Dettagli per disco** | 
 Valore chiave disco | disk.Key
 Numero Dikunit | disk.UnitNumber
@@ -159,7 +159,7 @@ Indirizzi IPv6 | vm.Guest.Net
 Velocità effettiva lettura (MB al secondo) | net.received.average
 Velocità effettiva scrittura (MB al secondo) | net.transmitted.average
 **Dettagli percorso inventario** | 
-Name | container.GetType().Name
+Nome | container.GetType().Name
 Tipo di oggetto figlio | container.ChildType
 Informazioni di riferimento | container.MoRef
 Dettagli elemento padre | Container.Parent
@@ -243,7 +243,7 @@ L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il p
 4. Valutazione **e migrazione**: è ora possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure migrate Assessment server. Inoltre, è possibile avviare la migrazione di macchine virtuali VMware con Azure Migrate migrazione del server per orchestrare la replica di VM senza agenti.
 
 
-![Architettura](./media/migrate-appliance/architecture.png)
+![Architecture](./media/migrate-appliance/architecture.png)
 
 
 ## <a name="appliance-upgrades"></a>Aggiornamenti Appliance

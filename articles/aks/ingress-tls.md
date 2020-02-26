@@ -2,17 +2,14 @@
 title: Creare una risorsa di ingresso HTTPS con il cluster del servizio Azure Kubernetes
 description: Informazioni su come installare e configurare un controller di ingresso NGINX che usa la crittografia per la generazione automatica di certificati TLS in un cluster Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2020
-ms.author: mlearned
-ms.openlocfilehash: 661ed72265b81f47cbe8e9cf26595632360ec352
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6b465aeb08f14e48249be9587e5fdee1f4b08ba4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898801"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595536"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS nel servizio Azure Kubernetes
 
@@ -344,7 +341,7 @@ In questo articolo sono stati inclusi alcuni componenti esterni ad servizio Azur
 
 - [INTERFACCIA della riga di comando][helm-cli]
 - [Controller di ingresso NGINX][nginx-ingress]
-- [cert-manager][cert-manager]
+- [Gestione certificati][cert-manager]
 
 È anche possibile:
 

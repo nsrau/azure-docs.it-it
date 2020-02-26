@@ -2,20 +2,20 @@
 title: Connettersi Azure Information Protection ad Azure Sentinel
 description: Informazioni su come connettere Azure Information Protection dati in Sentinel di Azure.
 services: sentinel
-author: cabailey
+author: yelevin
 manager: rkarlin
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: cabailey
-ms.openlocfilehash: ef97ad601436faf44b0f49bd48d78c4c9420c7c8
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.author: yelevin
+ms.openlocfilehash: 396fd7c4289c9d02d451b26f5fb6299acd31e2a4
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563684"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588553"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Connettere i dati da Azure Information Protection
 
@@ -35,7 +35,7 @@ Tuttavia, se le informazioni di registrazione da Azure Information Protection pa
     
     Se si modifica l'area di lavoro, i nuovi dati per la creazione di report per Azure Information Protection verranno ora archiviati nell'area di lavoro in uso per Sentinel di Azure e i dati cronologici non sono disponibili per Sentinel di Azure. Se, inoltre, l'area di lavoro precedente è configurata per query personalizzate, avvisi o API REST, è necessario riconfigurarli per l'area di lavoro di Azure Sentinel se si desidera utilizzarli per Azure Information Protection. Non è necessaria alcuna riconfigurazione per i client e i servizi che usano Azure Information Protection.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Uno dei seguenti ruoli di amministratore Azure AD per il tenant: 
     - Amministratore Azure Information Protection

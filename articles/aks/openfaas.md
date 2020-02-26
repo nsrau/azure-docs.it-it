@@ -2,23 +2,22 @@
 title: Usare OpenFaaS con servizio Azure Kubernetes
 description: Distribuire e usare OpenFaaS con il servizio Azure Kubernetes
 author: justindavies
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 7949735eff4478d2d04700e1c6df69d28fe25979
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e684aee1469f855ec651567b805262c71aaf32e5
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278486"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594924"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in servizio Azure Kubernetes
 
 [OpenFaaS][open-faas] è un Framework per la creazione di funzioni senza server tramite l'uso di contenitori. Il fatto che si tratti di un progetto Open Source ne ha favorito l'adozione su larga scala all'interno della community. Questo documento descrive l'installazione e l'uso di OpenFaaS in un cluster del servizio Azure Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare la procedura descritta in questo articolo è necessario quanto segue.
 
@@ -243,7 +242,7 @@ Output:
 
 ![testo alternativo](media/container-service-serverless/OpenFaaSUI.png)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 È possibile continuare ad apprendere con il workshop OpenFaaS tramite un set di laboratori pratici che trattano argomenti come la creazione di un bot GitHub, l'utilizzo di segreti, la visualizzazione di metriche e la scalabilità automatica.
 

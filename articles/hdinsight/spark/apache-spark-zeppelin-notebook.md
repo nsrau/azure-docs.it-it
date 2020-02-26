@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e313048986beca1991e38ce2e65ea12f954170d2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484809"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598273"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Apache Zeppelin con cluster Apache Spark in Azure HDInsight
 
@@ -150,6 +150,25 @@ I notebook Zeppelin vengono salvati nei nodi head del cluster. Se si elimina il 
 ![Scarica Notebook](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Scaricare il notebook")
 
 Il notebook verrà così salvato come file JSON nel percorso di download dell'utente.
+
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Usare Shiro per configurare l'accesso agli interpreti Zeppelin nei cluster Enterprise Security Package (ESP)
+Come indicato in precedenza, l'interprete `%sh` non è supportato da HDInsight 4,0 e versioni successive. Inoltre, poiché `%sh` interprete introduce i potenziali problemi di sicurezza, ad esempio l'accesso alle schede di tastiera usando i comandi della shell, è stato rimosso anche dai cluster ESP HDInsight 3,6. Ciò significa che `%sh` interprete non è disponibile quando si fa clic su **Crea nuova nota** o nell'interfaccia utente dell'interprete per impostazione predefinita. 
+
+Gli utenti con privilegi di dominio possono utilizzare il file di `Shiro.ini` per controllare l'accesso all'interfaccia utente dell'interprete. In questo modo, solo questi utenti possono creare nuovi interpreti `%sh` e impostare le autorizzazioni per ogni nuovo interprete di `%sh`. Per controllare l'accesso tramite il file di `shiro.ini`, attenersi alla procedura seguente:
+
+1. Definire un nuovo ruolo utilizzando un nome di gruppo di dominio esistente. Nell'esempio seguente `adminGroupName` è un gruppo di utenti con privilegi in AAD. Non usare caratteri speciali o spazi vuoti nel nome del gruppo. I caratteri dopo `=` forniscono le autorizzazioni per questo ruolo. `*` indica che il gruppo dispone di autorizzazioni complete.
+
+    ```
+    [roles]
+    adminGroupName = *
+    ```
+
+2. Aggiungere il nuovo ruolo per l'accesso agli interpreti Zeppelin. Nell'esempio seguente, a tutti gli utenti in `adminGroupName` viene concesso l'accesso agli interpreti Zeppelin e sono in grado di creare nuovi interpreti. È possibile inserire più ruoli tra le parentesi quadre in `roles[]`, separate da virgole. Quindi, gli utenti che dispongono delle autorizzazioni necessarie possono accedere agli interpreti Zeppelin.
+
+    ```
+    [urls]
+    /api/interpreter/** = authc, roles[adminGroupName]
+    ```
 
 ## <a name="livy-session-management"></a>Gestione delle sessioni di Livy
 

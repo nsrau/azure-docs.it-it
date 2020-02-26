@@ -3,16 +3,15 @@ title: Versioni Kubernetes supportate nel servizio Azure Kubernetes
 description: Comprendere i criteri di supporto di della versione di Kubernetes e il ciclo di vita dei cluster nel servizio Azure Kubernetes
 services: container-service
 author: sauryadas
-ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 625b44ae3f8a1d5d474d980693d92840b1317f09
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 77d64391888957a1697a5823a1485413686682d1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425766"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593445"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -139,7 +138,7 @@ az aks get-versions --location eastus --output table
 
 **Cosa accade quando un cliente esegue l'aggiornamento di un cluster Kubernetes con una versione secondaria che non è supportata?**
 
-Se si utilizza la versione *n-3* , l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento. Se l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si è ora all'interno dei criteri di supporto. Ad esempio,
+Se si utilizza la versione *n-3* , l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento. Se l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si è ora all'interno dei criteri di supporto. Ad esempio:
 
 - Se la versione più recente di AKS supportata è *1.13. a* e l'utente si trova in *1.12. b* o versioni precedenti, l'utente non è supportato.
 - Se l'aggiornamento da *1.12. b* a *1.13. a* o versione successiva ha esito positivo, si torna all'interno dei criteri di supporto.

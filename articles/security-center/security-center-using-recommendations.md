@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 5b496523f6205532ea7a4278671e3be6986935a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355289"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603275"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
 Configurando i criteri di sicurezza e implementando le raccomandazioni offerte dal Centro sicurezza di Azure, è possibile ridurre le probabilità di un importante evento di sicurezza. Questo articolo illustra come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza. 
@@ -35,7 +35,7 @@ In questo scenario viene illustrato come usare il Centro sicurezza per ridurre i
 
 Contoso di recente ha eseguito la migrazione di alcune delle proprie risorse locali in Azure. Contoso vuole proteggere le risorse e ridurre la vulnerabilità delle risorse nel cloud.
 
-## <a name="use-azure-security-center"></a>Usa il Centro sicurezza di Azure
+## <a name="use-azure-security-center"></a>Usare il Centro sicurezza di Azure
 David, del reparto sicurezza IT di Contoso, ha già scelto di eseguire l'onboarding del Centro sicurezza nelle sottoscrizioni di Contoso al Centro sicurezza di Azure per prevenire e rilevare le vulnerabilità di sicurezza. 
 
 Il Centro sicurezza analizza automaticamente lo stato di sicurezza delle risorse di Azure di Contoso e applica i criteri di sicurezza predefiniti. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea **raccomandazioni** in base ai controlli impostati nel criterio di sicurezza. 
@@ -57,7 +57,7 @@ Come parte delle attività di monitoraggio quotidiane, Jeff accede ad Azure e ap
 
 2. Jeff controlla il **Punteggio sicuro** per ottenere un'immagine complessiva della protezione delle sottoscrizioni e rileva che il punteggio è 548.
 
-3. Jeff deve decidere quali raccomandazioni gestire per prime. Quindi, Jeff fa clic sul punteggio di sicurezza e inizia a gestire raccomandazioni in base a quanto migliorano l'[impatto di punteggio di sicurezza](security-center-secure-score.md).
+3. Jeff deve decidere quali raccomandazioni gestire per prime. Quindi, Jeff fa clic su Punteggio sicuro e inizia a gestire le raccomandazioni in base al grado di miglioramento dell' [effetto del Punteggio sicuro](security-center-secure-score.md).
 
 4. Poiché ha un numero elevato di server e macchine virtuali connesse, Jeff decide di concentrarsi su **Risorse di calcolo e app**.
 
@@ -65,10 +65,10 @@ Come parte delle attività di monitoraggio quotidiane, Jeff accede ad Azure e ap
 
 6. Jeff dispone di numerose macchine virtuali con connessione Internet e, poiché le relative porte sono esposte, temono che un utente malintenzionato possa ottenere il controllo sui server. Quindi, Jeff sceglie di usare [**l'accesso just-in-time alle macchine virtuali**](security-center-just-in-time.md).
 
-Jeff continua a sfogliare le raccomandazioni con priorità alta e media, decidendo di volta in volta sull'implementazione. Per ogni raccomandazione, Jeff esamina le informazioni dettagliate fornite dal Centro sicurezza per comprendere quali risorse sono interessate, qual è l'impatto di punteggio sicuro, il significato di ogni raccomandazione e la procedura di correzione per attenuare i problemi.
+Jeff continua a sfogliare le raccomandazioni con priorità alta e media, decidendo di volta in volta sull'implementazione. Per ogni raccomandazione, Jeff esamina le informazioni dettagliate fornite dal centro sicurezza per comprendere quali sono le risorse interessate, qual è l'effetto del Punteggio sicuro, il significato di ogni raccomandazione e i passaggi correttivi per la risoluzione di ogni problema.
 
 ## <a name="conclusion"></a>Conclusioni
-Il monitoraggio delle raccomandazioni nel Centro sicurezza contribuisce a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. Quando si fanno correzioni in base alle raccomandazioni, il punteggio di sicurezza e le condizioni di sicurezza dei carichi di lavoro migliorano. Il Centro sicurezza individua automaticamente le nuove risorse distribuite, le valuta in base ai criteri di sicurezza e offre nuove raccomandazioni per proteggerle.
+Il monitoraggio delle raccomandazioni nel Centro sicurezza contribuisce a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. Quando si correggono le raccomandazioni, il Punteggio sicuro e il comportamento di sicurezza dei carichi di lavoro migliorano. Il Centro sicurezza individua automaticamente le nuove risorse distribuite, le valuta in base ai criteri di sicurezza e offre nuove raccomandazioni per proteggerle.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

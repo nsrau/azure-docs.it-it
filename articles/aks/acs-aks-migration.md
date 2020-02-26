@@ -2,18 +2,15 @@
 title: Eseguire la migrazione ad Azure Kubernetes Service (AKS)
 description: Eseguire la migrazione ad Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 11/07/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c4ed78dc9fd277fc61a923364519e338a9f720c2
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bc96d3e8e5a595c80822065801873a44642be078
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290394"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596845"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Eseguire la migrazione ad Azure Kubernetes Service (AKS)
 
@@ -35,7 +32,7 @@ Diversi strumenti open source possono essere utili per la migrazione, a seconda 
 
 * [Velero](https://velero.io/) (richiede Kubernetes 1.7 +)
 * [Estensione CLI di Azure Kube](https://github.com/yaron2/azure-kube-cli)
-* [ReShifter](https://github.com/mhausenblas/reshifter)
+* [Rispostamento](https://github.com/mhausenblas/reshifter)
 
 In questo articolo vengono riepilogati i dettagli della migrazione per:
 

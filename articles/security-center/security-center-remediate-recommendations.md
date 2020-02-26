@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 325c68e5e4531e5519596bea00c370c26460a8ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6863f4bbfc6aabc4e7bf4314ad26dd4590d31362
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981903"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603492"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Correggere le raccomandazioni nel centro sicurezza di Azure
 
@@ -80,7 +80,7 @@ Per applicare la configurazione nella risorsa, l'operazione di monitoraggio e ag
 |È necessario abilitare la sicurezza dei dati avanzata in SQL Server|Questa azione Abilita la sicurezza avanzata dei dati (ADS) sui server selezionati e i relativi database. <br>**Nota**:<ul><li>Per ogni area e gruppo di risorse dei server SQL selezionati, un account di archiviazione per archiviare i risultati dell'analisi verrà creato e condiviso da tutti i server in tale area. <</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||
 |È necessario abilitare la valutazione della vulnerabilità in SQL Server|Questa azione consentirà la valutazione della vulnerabilità SQL su questi server selezionati e i relativi database. <br>**Nota**:<ul><li>La valutazione della vulnerabilità SQL fa parte del pacchetto SQL Advanced Data Security (ADS). Se ADS non è già abilitato, verrà abilitato automaticamente in SQL Server.</li><li>Per ogni area e gruppo di risorse dei server SQL selezionati, un account di archiviazione per archiviare i risultati dell'analisi verrà creato e condiviso da tutte le istanze di tale area.</li><li>ADS viene addebitato a $15 per SQL Server.</li></ul>||
 |È necessario abilitare la funzionalità Transparent Data Encryption nei database SQL|Questa azione Abilita il database SQL Transparent Data Encryption (Transparent Data Encryption) sui database selezionati. <br>**Nota**: per impostazione predefinita, verranno usate le chiavi di crittografia di crittografia gestite dal servizio.
-|Il trasferimento sicuro negli account di archiviazione deve essere abilitato|Questa azione Aggiorna la sicurezza dell'account di archiviazione in modo da consentire solo le richieste tramite connessioni sicure. (HTTPS). <br>**Nota**:<ul><li>Tutte le richieste che usano HTTP verranno rifiutate.</li><li>Quando si usa il servizio file di Azure, la connessione senza crittografia avrà esito negativo, inclusi gli scenari che usano SMB 2,1, SMB 3,0 senza crittografia e alcune versioni del client SMB Linux. Scopri di più.</li></ul>|
+|Il trasferimento sicuro negli account di archiviazione deve essere abilitato|Questa azione Aggiorna la sicurezza dell'account di archiviazione in modo da consentire solo le richieste tramite connessioni sicure. (HTTPS). <br>**Nota**:<ul><li>Tutte le richieste che usano HTTP verranno rifiutate.</li><li>Quando si usa il servizio file di Azure, la connessione senza crittografia avrà esito negativo, inclusi gli scenari che usano SMB 2,1, SMB 3,0 senza crittografia e alcune versioni del client SMB Linux. Altre informazioni.</li></ul>|
 |L'applicazione Web deve essere accessibile solo tramite HTTPS|Questa azione consente di reindirizzare tutto il traffico da HTTP a HTTPS, sulle risorse selezionate. <br>**Nota**:<ul><li>Un endpoint HTTPS che non dispone di un certificato SSL verrà visualizzato nel browser con un "errore di privacy". Gli utenti che hanno un dominio personalizzato devono quindi verificare di aver configurato un certificato SSL.</li><li>Verificare che i pacchetti e i firewall applicazione Web proteggano il servizio app, consentono l'invio di sessioni HTTPS.</li></ul>|
 |L'app per le funzioni deve essere accessibile solo tramite HTTPS|Questa azione consente di reindirizzare tutto il traffico da HTTP a HTTPS, sulle risorse selezionate. <br>**Nota**:<ul><li>Un endpoint HTTPS che non dispone di un certificato SSL verrà visualizzato nel browser con un "errore di privacy". Gli utenti che hanno un dominio personalizzato devono quindi verificare di aver configurato un certificato SSL.</li><li>Verificare che i pacchetti e i firewall applicazione Web proteggano il servizio app, consentono l'invio di sessioni HTTPS.</li></ul>|
 |L'app per le API deve essere accessibile solo tramite HTTPS|Questa azione consente di reindirizzare tutto il traffico da HTTP a HTTPS, sulle risorse selezionate. <br>**Nota**:<ul><li>Un endpoint HTTPS che non dispone di un certificato SSL verrà visualizzato nel browser con un "errore di privacy". Gli utenti che hanno un dominio personalizzato devono quindi verificare di aver configurato un certificato SSL.</li><li>Verificare che i pacchetti e i firewall applicazione Web proteggano il servizio app, consentono l'invio di sessioni HTTPS.</li></ul>|

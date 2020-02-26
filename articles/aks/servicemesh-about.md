@@ -2,16 +2,15 @@
 title: Informazioni sulle mesh del servizio
 description: Ottenere una panoramica delle reti mesh dei servizi, dell'architettura e delle funzionalità e dei criteri da considerare quando si seleziona uno per la distribuzione.
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 226a4e5cf97be2e23ef13a95b80be07b7fbf5d7a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530706"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594312"
 ---
 # <a name="about-service-meshes"></a>Informazioni sulle mesh del servizio
 
@@ -51,7 +50,7 @@ Ognuna delle reti mesh dei servizi ha una scelta naturale e si concentra sul sup
 - **Criteri** : controllo di accesso, limiti di velocità, quote
 - **Test** -fault injection
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 - **Crittografia** -MTLS, gestione certificati, CA esterna
 - **Identità complessa** : SPIFFE o simile
@@ -88,7 +87,7 @@ Prendere in considerazione le aree seguenti e quali sono più allineate con i re
 
 - Supporto **commerciale commerciale,** fondamento (CNCF), licenza OSS, governance
 
-- **Operativo** : installazione/aggiornamenti, requisiti delle risorse, requisiti delle prestazioni, integrazioni (metriche, telemetria, dashboard, strumenti, SMI), carichi di lavoro misti (pool di nodi Linux e Windows), calcolo (Kubernetes, macchine virtuali), più cluster
+- **Operativo** : installazione/aggiornamenti, requisiti delle risorse, requisiti delle prestazioni, integrazioni (metriche, telemetria, dashboard, strumenti, SMI), carichi di lavoro misti (pool di nodi Linux e Windows), calcolo (Kubernetes, macchine virtuali), multicluster
 
 - **Sicurezza** -autenticazione, identità, gestione dei certificati e rotazione, CA esterna collegabile
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 6e4c50e5dcc35450463d02bbed040754ea778e70
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 953121a9a15d4fef56d381e3aab85329fadacce2
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093610"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604955"
 ---
 # <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Come configurare i criteri di connessione usati dal trigger di Funzioni di Azure per Cosmos DB
 
@@ -23,7 +23,7 @@ Esistono due modalità di connessione: Diretta e Gateway. Per altre informazioni
 
 ## <a name="changing-the-connection-mode-and-protocol"></a>Modifica della modalità e del protocollo di connessione
 
-Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la **modalità di connessione** e il **protocollo di connessione**. È possibile cambiare la modalità e il protocollo di connessione predefiniti usati dal trigger di Funzioni di Azure per Cosmos DB e da tutti i [binding di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#output). Per cambiare le impostazioni predefinite, è necessario individuare il file `host.json` nel progetto di Funzioni di Azure o nell'app per le funzioni di Azure e aggiungere l'[impostazione aggiuntiva](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) seguente:
+Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la **modalità di connessione** e il **protocollo di connessione**. È possibile cambiare la modalità e il protocollo di connessione predefiniti usati dal trigger di Funzioni di Azure per Cosmos DB e da tutti i [binding di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md). Per cambiare le impostazioni predefinite, è necessario individuare il file `host.json` nel progetto di Funzioni di Azure o nell'app per le funzioni di Azure e aggiungere l'[impostazione aggiuntiva](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) seguente:
 
 ```js
 {

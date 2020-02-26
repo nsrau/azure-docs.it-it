@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19afaf743cc594ab17776b990687a442c339ed92
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f07b37fffe61a6be62a72a0281e701b69167e95b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559012"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596760"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -45,14 +45,14 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 Creare directory di Azure AD B2C | Tutti gli utenti non guest ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Creare applicazioni B2C | Amministratore globale | 
 Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore di applicazioni
-Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore globale | 
-Creare, leggere, aggiornare ed eliminare provider di identità | Amministratore globale | 
-Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | Amministratore globale | 
-Creare, leggere, aggiornare ed eliminare flussi utente con modifica dei profili | Amministratore globale | 
-Creare, leggere, aggiornare ed eliminare flussi utente con accesso | Amministratore globale | 
-Creare, leggere, aggiornare ed eliminare flussi utente con iscrizione |Amministratore globale | 
-Creare, leggere, aggiornare ed eliminare attributi utente | Amministratore globale | 
-Creare, leggere, aggiornare ed eliminare utenti | Amministratore globale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
+Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore criteri B2C Framework dell'esperienza | 
+Creare, leggere, aggiornare ed eliminare provider di identità | Amministratore del provider di identità esterno | 
+Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | Amministratore flusso utente B2C | 
+Creare, leggere, aggiornare ed eliminare flussi utente con modifica dei profili | Amministratore flusso utente B2C | 
+Creare, leggere, aggiornare ed eliminare flussi utente con accesso | Amministratore flusso utente B2C | 
+Creare, leggere, aggiornare ed eliminare flussi utente con iscrizione |Amministratore flusso utente B2C | 
+Creare, leggere, aggiornare ed eliminare attributi utente | Amministratore attributi flusso utente B2C | 
+Creare, leggere, aggiornare ed eliminare utenti | Amministratore utenti
 Leggere tutta la configurazione | Lettore globale | 
 Log di controllo di B2C di lettura | Lettore globale ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
@@ -127,7 +127,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Fornire il consenso per eventuali autorizzazioni delegate | Amministratore di applicazioni cloud | Amministratore di applicazioni
 Il consenso alle autorizzazioni dell'applicazione non include Microsoft Graph | Amministratore di applicazioni cloud | Amministratore di applicazioni
-Consenso alle autorizzazioni dell'applicazione per Microsoft Graph | Amministratore globale | 
+Consenso alle autorizzazioni dell'applicazione per Microsoft Graph | Amministratore dei ruoli con privilegi | 
 Fornire il consenso alle applicazioni che accedono ai propri dati | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Creare applicazioni aziendali | Amministratore di applicazioni cloud | Amministratore di applicazioni
 Gestire proxy di applicazione | Amministratore di applicazioni | 
@@ -156,7 +156,7 @@ Assegnare una licenza | Amministratore utenti |
 Creare un gruppo | Amministratore utenti | 
 Creare, aggiornare o cancellare la verifica di accesso di un gruppo o di un'applicazione | Amministratore utenti | 
 Gestire la scadenza dei gruppi | Amministratore utenti | 
-Gestire le impostazioni dei gruppi | Amministratore globale | 
+Gestire le impostazioni dei gruppi | Amministratore gruppi | Amministratore utenti | 
 Leggere tutta la configurazione (eccetto l'appartenenza nascosta) | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Leggere le appartenenze nascoste | Membro di un gruppo | Proprietario del gruppo, amministratore password, amministratore di Exchange, amministratore di SharePoint, amministratore team, Amministratore utenti
 Leggere l'appartenenza dei gruppi con appartenenza nascosta | Amministratore del supporto tecnico | Amministratore utenti, amministratore team
@@ -234,7 +234,7 @@ Leggere lo stato del server | Lettore globale |
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Gestire i provider di identità | Amministratore globale | 
+Gestire i provider di identità | Amministratore del provider di identità esterno | 
 Gestire le impostazioni | Amministratore globale | 
 Gestire le condizioni per l'utilizzo | Amministratore globale | 
 Leggere tutta la configurazione | Lettore globale | 
@@ -330,11 +330,11 @@ Create user | Amministratore utenti |
 Eliminare gli utenti | Amministratore utenti | 
 Invalidare i token di aggiornamento degli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 
 Invalidare i token di aggiornamento dei non amministratori (vedere la documentazione) | Amministratore password | Amministratore utenti
-Invalidare i token di aggiornamento degli amministratori con privilegi (vedere la documentazione) | Amministratore globale | 
+Invalidare i token di aggiornamento degli amministratori con privilegi (vedere la documentazione) | Amministratore di autenticazione con privilegi | 
 Leggere configurazione di base | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Reimpostare la password per gli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 
 Reimpostare la password per i non amministratori (vedere la documentazione) | Amministratore password | Amministratore utenti
-Reimpostare la password degli amministratori con privilegi | Amministratore globale | 
+Reimpostare la password degli amministratori con privilegi | Amministratore di autenticazione con privilegi | 
 Revocare la licenza | Amministratore licenze | Amministratore utenti
 Aggiornare tutte le proprietà, ad eccezione del nome dell'entità utente | Amministratore utenti | 
 Aggiornare il nome dell'entità utente per gli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 

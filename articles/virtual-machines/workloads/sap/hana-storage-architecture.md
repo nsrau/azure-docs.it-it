@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/04/2019
+ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 256aaf94175394fd737e53c6281f2d8b45e8af41
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d25201c8195fa6c4c36e159904b5b71a20a45ea
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099651"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598494"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architettura di archiviazione di SAP HANA (istanze Large)
 
@@ -36,6 +36,8 @@ Per l'allocazione dello spazio di archiviazione, vedere la tabella seguente, che
 | S192 | 4608 GB | 1024 GB | 1536 GB | 1024 GB |
 | S192m | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S192xm |  11.520 GB |  1536 GB |  1792 GB |  1536 GB |
+| S224 |  4\.224 GB |  512 GB |  1024 GB |  512 GB |
+| S224m |  8\.448 GB |  512 GB |  1024 GB |  512 GB |
 | S384 | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S384m | 12.000 GB | 2050 GB | 2050 GB | 2040 GB |
 | S384xm | 16.000 GB | 2050 GB | 2050 GB | 2040 GB |
@@ -53,7 +55,7 @@ In caso di suddivisione di uno SKU delle istanze Large di HANA, ecco alcuni esem
 
 | Partizione di memoria in GB | hana/data | hana/log | hana/shared | HANA/log/backup |
 | --- | --- | --- | --- | --- |
-| 256 | 400 GB | 160 GB | 304 GB | 160 GB |
+| 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
 | 768 | 1280 GB | 512 GB | 768 GB | 512 GB |
 | 1\.024 | 1792 GB | 640 GB | 1024 GB | 640 GB |
@@ -72,13 +74,13 @@ Per informazioni sui dettagli relativi al layout di archiviazione per lo scenari
 
 Nelle unità di istanze Large di HANA è possibile ospitare più istanze attive di SAP HANA. Per offrire le funzionalità degli snapshot di archiviazione e del ripristino di emergenza, una configurazione di questo tipo richiede un set di volumi per istanza. Attualmente, le unità di istanze Large di HANA possono essere suddivise come segue:
 
-- **S72, S72m, S96, S144, S192**: Con incrementi di 256 GB, con 256 GB di unità di avvio più piccola. È possibile combinare incrementi diversi, ad esempio 256 GB e 512 GB, fino al massimo della memoria dell'unità.
-- **S144m e S192m**: Con incrementi di 256 GB, con 512 GB l'unità più piccola. È possibile combinare incrementi diversi, ad esempio 512 GB e 768 GB, fino al massimo della memoria dell'unità.
-- **Classe di tipo II**: Con incrementi di 512 GB, con l'unità iniziale più piccola di 2 TB. È possibile combinare incrementi diversi, ad esempio 512 GB, 1 TB e 1,5 TB, fino al massimo della memoria dell'unità.
+- **S72, S72m, S96, S144, S192**: con incrementi di 256 GB e 256 GB come unità iniziale più piccola. È possibile combinare incrementi diversi, ad esempio 256 GB e 512 GB, fino al massimo della memoria dell'unità.
+- **S144m e S192m**: con incrementi di 256 GB e 512 GB come unità più piccola. È possibile combinare incrementi diversi, ad esempio 512 GB e 768 GB, fino al massimo della memoria dell'unità.
+- **Classe di tipo II**: con incrementi di 512 GB e 2 TB come unità iniziale più piccola. È possibile combinare incrementi diversi, ad esempio 512 GB, 1 TB e 1,5 TB, fino al massimo della memoria dell'unità.
 
 Di seguito sono riportati alcuni esempi di esecuzione di più istanze di SAP HANA.
 
-| SKU | Dimensioni memoria | Dimensioni archiviazione | Dimensioni con più database |
+| SKU | Dimensioni memoria | Dimensioni dello spazio di archiviazione | Dimensioni con più database |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1 istanza di HANA da 768 GB<br /> o 1 istanza da 512 GB + 1 istanza da 256 GB<br /> o 3 istanze da 256 GB | 
 | S72m | 1,5 TB | 6 TB | 3 istanze di HANA da 512 GB<br />o 1 istanza da 512 GB + 1 istanza da 1 TB<br />o 6 istanze da 256 GB<br />o 1 istanza da 1,5 TB | 

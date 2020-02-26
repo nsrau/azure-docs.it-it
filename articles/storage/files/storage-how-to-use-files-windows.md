@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 831c771da385ef6faeba194878ca53ede34ccc0a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816648"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598586"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -22,30 +22,28 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 È possibile usare le condivisioni file di Azure in un'installazione Windows in esecuzione in una VM di Azure o in locale. La tabella seguente illustra le versioni del sistema operativo che supportano l'accesso a condivisioni file in un determinato ambiente:
 
 | Versione di Windows        | Versione di SMB | Montabile in una VM di Azure | Montabile in locale |
-|------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | Sì | Sì |
+|------------------------|-------------|-----------------------|-----------------------|
+| Windows Server 2019 | SMB 3.0 | Sì | Sì |
 | Windows 10<sup>1</sup> | SMB 3.0 | Sì | Sì |
-| Canale semestrale di Windows Server<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server 2016    | SMB 3.0     | Yes                   | Sì                  |
-| Windows 8.1            | SMB 3.0     | Sì                   | Sì                  |
-| Windows Server 2012 R2 | SMB 3.0     | Sì                   | Sì                  |
-| Windows Server 2012    | SMB 3.0     | Sì                   | Sì                  |
-| Windows 7              | SMB 2.1     | Sì                   | No                   |
-| Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
+| Canale semestrale di Windows Server<sup>2</sup> | SMB 3.0 | Sì | Sì |
+| Windows Server 2016 | SMB 3.0 | Sì | Sì |
+| Windows 8.1 | SMB 3.0 | Sì | Sì |
+| Windows Server 2012 R2 | SMB 3.0 | Sì | Sì |
+| Windows Server 2012 | SMB 3.0 | Sì | Sì |
+| Windows 7<sup>3</sup> | SMB 2.1 | Sì | No |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sì | No |
 
-<sup>1</sup> Windows 10, versioni 1507, 1607, 1703, 1709, 1803, 1809 e 1903.  
-<sup>2</sup> Windows Server, versioni 1803, 1809 e 1903.
+<sup>1</sup> Windows 10, versioni 1507, 1607, 1709, 1803, 1809, 1903 e 1909.  
+<sup>2</sup> Windows Server, versioni 1809, 1903 e 1909.  
+<sup>3</sup> Il normale supporto Microsoft per Windows 7 e Windows Server 2008 R2 è terminato. È possibile acquistare supporto aggiuntivo per gli aggiornamenti della sicurezza solo tramite il [programma di aggiornamento della sicurezza estesa (UDE)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Si consiglia vivamente di eseguire la migrazione di questi sistemi operativi.
 
 > [!Note]  
 > È sempre consigliabile seguire l'articolo della KB più recente per la propria versione di Windows.
 
+## <a name="prerequisites"></a>Prerequisites 
+* **Nome dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessario il nome dell'account di archiviazione.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-## <a name="prerequisites"></a>Prerequisiti 
-* **Nome account di archiviazione**: per montare una condivisione file di Azure, sarà necessario il nome dell'account di archiviazione.
-
-* **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave di archiviazione primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
+* **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave dell'account primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
 * **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Qui è possibile ottenere informazioni sui [vari modi per aggirare la porta bloccata 445](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
@@ -82,7 +80,7 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 ## <a name="using-an-azure-file-share-with-windows"></a>Uso di una condivisione file di Azure con Windows
 Per usare una condivisione file di Azure con Windows, è necessario montare la condivisione, ossia assegnarle una lettera di unità o il percorso di un punto di montaggio, oppure accedervi tramite il relativo [percorso UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-A differenza di altre condivisioni SMB con cui si potrebbe aver interagito, come quelle ospitate in Windows Server, in un server Linux Samba o in un dispositivo NAS, le condivisioni file di Azure attualmente non supportano l'autenticazione Kerberos con l'identità di Active Directory (AD) o Azure Active Directory (AAD), nonostante Microsoft stia [lavorando per offrire questa funzionalità](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). È necessario invece accedere alla condivisione file di Azure con la chiave dell'account di archiviazione contenente la condivisione. La chiave di un account di archiviazione è una chiave amministratore per l'account di archiviazione, con autorizzazioni di amministratore per tutti i file e le cartelle nella condivisione file a cui si accede, e per tutte le condivisioni file e le altre risorse di archiviazione (BLOB, code, tabelle e così via) contenute nell'account di archiviazione. Se questo non è sufficiente per lo specifico carico di lavoro, [Sincronizzazione file di Azure](storage-files-planning.md#data-access-method) può risolvere nel frattempo l'assenza dell'autenticazione Kerberos e del supporto degli elenchi di controllo di accesso finché tali funzionalità basate su AAD non saranno pubblicamente disponibili.
+A differenza di altre condivisioni SMB con cui si potrebbe aver interagito, come quelle ospitate in Windows Server, in un server Linux Samba o in un dispositivo NAS, le condivisioni file di Azure attualmente non supportano l'autenticazione Kerberos con l'identità di Active Directory (AD) o Azure Active Directory (AAD), nonostante Microsoft stia [lavorando per offrire questa funzionalità](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). È necessario invece accedere alla condivisione file di Azure con la chiave dell'account di archiviazione contenente la condivisione. Una chiave dell'account di archiviazione è una chiave di amministratore per un account di archiviazione, incluse le autorizzazioni di amministratore per tutti i file e le cartelle all'interno della condivisione file a cui si sta accedendo e per tutte le condivisioni file e altre risorse di archiviazione (BLOB, code, tabelle e così via) contenute nell'account di archiviazione. Se questo non è sufficiente per lo specifico carico di lavoro, [Sincronizzazione file di Azure](storage-sync-files-planning.md) può risolvere nel frattempo l'assenza dell'autenticazione Kerberos e del supporto degli elenchi di controllo di accesso finché tali funzionalità basate su AAD non saranno pubblicamente disponibili.
 
 Un modello comune per il trasferimento in modalità lift-and-shift in Azure di applicazioni line-of-business che prevedono una condivisione file SMB consiste nell'usare una condivisione file di Azure come alternativa per eseguire un file server Windows dedicato in una VM di Azure. Una considerazione importante per eseguire correttamente la migrazione di un'applicazione line-of-business in modo da usare una condivisione file di Azure è che molte applicazioni line-of-business vengono eseguite nel contesto di un account di servizio dedicato con autorizzazioni di sistema limitate anziché con l'account amministrativo della VM. Di conseguenza, è necessario assicurarsi di eseguire il montaggio/salvare le credenziali per la condivisione file di Azure dal contesto dell'account di servizio anziché dall'account amministrativo.
 
@@ -207,7 +205,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 7. Quando si è pronti per smontare la condivisione file di Azure, fare clic con il pulsante destro del mouse sulla voce relativa alla condivisione in **Percorsi di rete** in Esplora file e scegliere **Disconnetti**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Accedere agli snapshot di condivisione da Windows
-Se è stato creato uno snapshot di condivisione manualmente o automaticamente con uno script o un servizio come Backup di Azure, è possibile visualizzare le versioni precedenti di una condivisione, di una directory o di un determinato file dalla condivisione file in Windows. È possibile creare uno snapshot di condivisione con il [portale di Azure](storage-how-to-use-files-portal.md), con [Azure PowerShell](storage-how-to-use-files-powershell.md) o con l'[interfaccia della riga di comando di Azure](storage-how-to-use-files-cli.md).
+Se è stato creato uno snapshot di condivisione manualmente o automaticamente con uno script o un servizio come Backup di Azure, è possibile visualizzare le versioni precedenti di una condivisione, di una directory o di un determinato file dalla condivisione file in Windows. È possibile creare uno snapshot di condivisione dalla [portale di Azure](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md)e dall' [interfaccia](storage-how-to-use-files-cli.md)della riga di comando di Azure.
 
 #### <a name="list-previous-versions"></a>Elencare le versioni precedenti
 Passare all'elemento o all'elemento padre da ripristinare. Fare doppio clic per passare alla directory desiderata. Fare clic con il pulsante destro del mouse e scegliere **Proprietà** dal menu.
@@ -236,13 +234,13 @@ La tabella seguente offre informazioni dettagliate sullo stato di SMB 1 in ogni 
 | Windows Server 2019                       | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows Server versione 1709 e successive            | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows 10 versione 1709 e successive                | Disabled             | Rimuovere con funzionalità di Windows |
-| Windows Server 2016                       | Enabled              | Rimuovere con funzionalità di Windows |
-| Windows 10 versioni 1507, 1607 e 1703 | Enabled              | Rimuovere con funzionalità di Windows |
-| Windows Server 2012 R2                    | Enabled              | Rimuovere con funzionalità di Windows | 
-| Windows 8.1                               | Enabled              | Rimuovere con funzionalità di Windows | 
-| Windows Server 2012                       | Enabled              | Disabilitare con Registro di sistema       | 
-| Windows Server 2008 R2                    | Enabled              | Disabilitare con Registro di sistema       |
-| Windows 7                                 | Enabled              | Disabilitare con Registro di sistema       | 
+| Windows Server 2016                       | Attivato              | Rimuovere con funzionalità di Windows |
+| Windows 10 versioni 1507, 1607 e 1703 | Attivato              | Rimuovere con funzionalità di Windows |
+| Windows Server 2012 R2                    | Attivato              | Rimuovere con funzionalità di Windows | 
+| Windows 8.1                               | Attivato              | Rimuovere con funzionalità di Windows | 
+| Windows Server 2012                       | Attivato              | Disabilitare con Registro di sistema       | 
+| Windows Server 2008 R2                    | Attivato              | Disabilitare con Registro di sistema       |
+| Windows 7                                 | Attivato              | Disabilitare con Registro di sistema       | 
 
 ### <a name="auditing-smb-1-usage"></a>Controllo dell'utilizzo di SMB 1
 > Si applica a Windows Server 2019, canale semestrale di Windows Server (versioni 1709 e 1803), Windows Server 2016, Windows 10 (versioni 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1

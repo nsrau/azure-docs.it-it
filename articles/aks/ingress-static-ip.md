@@ -2,17 +2,14 @@
 title: Creare un controller di ingresso HTTP con un indirizzo IP statico nel servizio Azure Kubernetes
 description: Informazioni su come installare e configurare un controller di ingresso NGINX con un indirizzo IP pubblico statico in un cluster del servizio Azure Kubernetes.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: mlearned
-ms.openlocfilehash: 73798bf496f600e2ef98940051070a0ee117bdb3
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: a72312e2921b4721a4a5944cf62241b513da1e0a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261858"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595519"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso con un indirizzo IP pubblico statico nel servizio Azure Kubernetes
 
@@ -391,7 +388,7 @@ In questo articolo sono stati inclusi alcuni componenti esterni ad servizio Azur
 
 - [INTERFACCIA della riga di comando][helm-cli]
 - [Controller di ingresso NGINX][nginx-ingress]
-- [cert-manager][cert-manager]
+- [Gestione certificati][cert-manager]
 
 È anche possibile:
 

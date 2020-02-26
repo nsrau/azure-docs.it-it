@@ -1,29 +1,31 @@
 ---
-title: Spostare app per la logica in sottoscrizioni, gruppi di risorse o aree
+title: Eseguire la migrazione di app per la logica in sottoscrizioni, gruppi di risorse o aree
 description: Eseguire la migrazione di app per la logica o account di integrazione ad altre sottoscrizioni di Azure, gruppi di risorse o posizioni (aree)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965881"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605615"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Spostare le risorse dell'app per la logica in altre sottoscrizioni, gruppi di risorse o aree di Azure
 
-Per spostare l'app per la logica o le risorse correlate in un'altra sottoscrizione di Azure, gruppo di risorse o area, sono disponibili vari modi per completare queste attività, ad esempio portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Prima di spostare le risorse, esaminare le considerazioni seguenti: 
+Per eseguire la migrazione dell'app per la logica o delle risorse correlate a un'altra sottoscrizione di Azure, gruppo di risorse o area, sono disponibili vari modi per completare queste attività, ad esempio portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Prima di spostare le risorse, esaminare le considerazioni seguenti: 
 
 * È possibile spostare solo [specifici tipi di risorse dell'app](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) per la logica tra gruppi di risorse o sottoscrizioni di Azure.
 
 * Verificare i [limiti](../logic-apps/logic-apps-limits-and-config.md) per il numero di risorse dell'app per la logica che è possibile avere nella sottoscrizione di Azure e in ogni area di Azure. Questi limiti influiscono sulla possibilità di spostare tipi di risorse specifici quando l'area rimane invariata tra le sottoscrizioni o i gruppi di risorse. Ad esempio, è possibile avere un solo account di integrazione del livello gratuito per ogni area di Azure in ogni sottoscrizione di Azure.
 
-* Quando si spostano le risorse, Azure crea nuovi ID risorsa. Quindi, assicurarsi di usare invece i nuovi ID e aggiornare gli script o gli strumenti associati alle risorse spostate. Dopo aver spostato le app per la logica tra sottoscrizioni, gruppi di risorse o aree, è necessario ricreare o riautorizzare le connessioni basate su OAuth.
+* Dopo aver eseguito la migrazione delle app per la logica tra sottoscrizioni, gruppi di risorse o aree, è necessario ricreare o riautorizzare le connessioni che richiedono l'autenticazione aperta (OAuth).
 
-## <a name="prerequisites"></a>Prerequisiti
+* Quando si spostano le risorse, Azure crea nuovi ID di risorsa. Quindi, assicurarsi di usare invece i nuovi ID e aggiornare gli script o gli strumenti associati alle risorse spostate.
+
+## <a name="prerequisites"></a>Prerequisites
 
 * La stessa sottoscrizione di Azure usata per creare l'app per la logica o l'account di integrazione che si desidera spostare
 

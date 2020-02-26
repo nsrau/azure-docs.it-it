@@ -3,12 +3,12 @@ title: Matrice di supporto per l'agente MARS
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425018"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582637"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -45,7 +45,7 @@ Quando si usa l'agente MARS per eseguire il backup dei dati, l'agente acquisisce
 --- | ---
 Dimensione |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
 Location | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
-Folder | La cartella della cache non deve essere crittografata in un volume deduplicato o in una cartella compressa, di tipo sparse o con un punto di analisi.
+Cartella | La cartella della cache non deve essere crittografata in un volume deduplicato o in una cartella compressa, di tipo sparse o con un punto di analisi.
 Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di backup (`net stop bengine`) e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
 
 ## <a name="networking-and-access-support"></a>Supporto delle funzionalità di rete e dell'accesso
@@ -66,6 +66,29 @@ E a questi indirizzi IP:
 - 40.126.0.0/18
 
 L'accesso a tutti gli URL e gli indirizzi IP elencati in precedenza usa il protocollo HTTPS sulla porta 443.
+
+### <a name="azure-expressroute-support"></a>Supporto di Azure ExpressRoute
+
+È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.
+
+Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+Con il peering Microsoft, selezionare i seguenti servizi/aree e i valori della community pertinenti:
+
+- Azure Active Directory (12076:5060)
+- Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+- Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+
+Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>Il peering pubblico è deprecato per i nuovi circuiti.
 
 ### <a name="throttling-support"></a>Supporto della limitazione della larghezza di banda della rete
 
@@ -129,7 +152,7 @@ Compresso e sparse |Supportato.
 Collegamenti reali| Non supportato. Ignorato.
 Reparse point| Non supportato. Ignorato.
 Crittografato e sparse |Non supportato. Ignorato.
-Flussi compressi| Non supportato. Ignorato.
+Flusso compresso| Non supportato. Ignorato.
 Flusso di tipo sparse| Non supportato. Ignorato.
 OneDrive (i file sincronizzati sono flussi sparse)| Non supportato.
 Cartelle con Replica DFS abilitata | Non supportato.

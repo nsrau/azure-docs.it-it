@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372981"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581107"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,7 +44,7 @@ L'elemento **ClaimType** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Id | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
+| ID | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
 
 L'elemento **ClaimType** contiene gli elementi seguenti:
 
@@ -66,11 +66,11 @@ L'elemento **DataType** supporta i valori seguenti:
 | Type | Descrizione |
 | ------- | ----------- | 
 |boolean|Rappresenta un valore booleano (`true` o `false`).|
-|date| Rappresenta un istante di tempo, in genere espresso come data di un giorno. Il valore della data segue la convenzione ISO 8601.|
+|Data| Rappresenta un istante di tempo, in genere espresso come data di un giorno. Il valore della data segue la convenzione ISO 8601.|
 |dateTime|Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Il valore della data segue la convenzione ISO 8601.|
 |duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato di è `PnYnMnDTnHnMnS`, dove `P` indica positivo o `N` per un valore negativo. `nY` è il numero di anni seguito da un `Y`letterale. `nMo` è il numero di mesi seguito da un `Mo`letterale. `nD` è il numero di giorni seguito da un `D`letterale. Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo` rappresenta un anno e due mesi. `P1Y2Mo5D` rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S` rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
 |phoneNumber|Rappresenta un numero di telefono. |
-|int| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
+|INT| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
 |long| Rappresenta il numero compreso tra-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
 |string| Rappresenta il testo come sequenza di unità di codice UTF-16.|
 |stringCollection|Rappresenta una raccolta di oggetti `string`.|
@@ -89,7 +89,7 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sì | Nome del tipo di attestazione da usare. |
 
 Nell'esempio seguente, quando il framework dell'esperienza di gestione delle identità interagisce con un provider di identità SAML2 o un'applicazione basata su attestazioni, l'attestazione **surname** (cognome) viene mappata a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Quando il framework interagisce con OpenIdConnect e OAuth2, l'attestazione viene mappata a `family_name`.
@@ -175,12 +175,14 @@ L'elemento **Restriction** contiene gli elementi seguenti:
 
 #### <a name="enumeration"></a>Enumerazione
 
+L'elemento **Enumeration** definisce le opzioni disponibili che l'utente deve selezionare per un'attestazione nell'interfaccia utente, ad esempio un valore in un `CheckboxMultiSelect`, `DropdownSingleSelect`o `RadioSingleSelect`. In alternativa, è possibile definire e localizzare le opzioni disponibili con l'elemento [LocalizedCollections](localization.md#localizedcollections) . Per cercare un elemento da una raccolta di **enumerazioni** di attestazioni, usare la trasformazione delle attestazioni [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) .
+
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
-|Valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
+|valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
 L'esempio seguente configura un'attestazione di elenco a discesa di **città** con il valore predefinito impostato su `New York`:
@@ -209,7 +211,7 @@ L'elemento **Pattern** può contenere gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | RegularExpression | Sì | Espressione regolare a cui le attestazioni di questo tipo devono corrispondere per poter essere valide. |
-| HelpText | No | Criterio o espressione regolare per questa attestazione. |
+| HelpText | No | Messaggio di errore per gli utenti se il controllo dell'espressione regolare ha esito negativo. |
 
 L'esempio seguente configura un'attestazione **messaggio e-mail** con la convalida di input dell'espressione regolare e con il testo della Guida:
 
@@ -244,7 +246,7 @@ Tipi di input utente disponibili nell'elemento **tipo** :
 |DateTimeDropdown | `date`, `dateTime` |Elenchi a discesa per selezionare un giorno, un mese e un anno. |
 |DropdownSingleSelect |`string` |Casella di riepilogo a discesa selezione singola. Il valore dell'attestazione è il valore selezionato.|
 |EmailBox | `string` |Campo di input della posta elettronica. |
-|Paragrafo | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Campo che mostra solo il testo in un tag di paragrafo. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Campo che mostra solo il testo in un tag di paragrafo. |
 |Password | `string` |Casella di testo password.|
 |RadioSingleSelect |`string` | Raccolta di pulsanti di opzione. Il valore dell'attestazione è il valore selezionato.|
 |Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Casella di testo di sola lettura. |
@@ -387,7 +389,7 @@ Il tipo di input utente **Readonly** viene usato per visualizzare un campo di so
 ```
 
 
-#### <a name="paragraph"></a>Paragrafo
+#### <a name="paragraph"></a>Paragraph
 
 Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo,  ad esempio &lt;p&gt;testo&lt;/p&gt;. Un tipo di input utente di **paragrafo** `OutputClaim` di un profilo tecnico autocertificato, deve impostare l'attributo `Required` `false` (impostazione predefinita).
 
@@ -407,5 +409,3 @@ Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che 
   </Restriction>
 </ClaimType>
 ```
-
-Per visualizzare uno dei valori di **Enumeration** in un'attestazione **responseMsg** (Msgrisposta), usare la trasformazione di attestazioni `GetMappedValueFromLocalizedCollection` o `CreateStringClaim`. Per altre informazioni, vedere [String Claims Transformations](string-transformations.md) (Trasformazioni di attestazioni stringa)

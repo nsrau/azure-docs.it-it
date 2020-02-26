@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2019
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26994c3488feb5f2c1522960ba4d2664bdbc80f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707465"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598528"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -42,7 +42,7 @@ Le condizioni minime SAP HANA certificate per i diversi tipi di archiviazione so
 - Azure ultra disk almeno per il volume/Hana/log. Il volume/Hana/data può essere inserito in SSD Premium senza acceleratore di scrittura di Azure o per ottenere tempi di riavvio più rapidi.
 - Volumi **NFS v 4.1** sopra Azure NetApp files per/Hana/log **e** /Hana/data. Il volume di/Hana/Shared può utilizzare il protocollo NFS v3 o NFS v 4.1. Il protocollo NFS v 4.1 è obbligatorio per i volumi/Hana/data e/Hana/log.
 
-È possibile combinare alcuni tipi di archiviazione. Ad esempio, è possibile inserire/Hana/data nell'archiviazione Premium e/Hana/log può essere posizionato in archiviazione su disco Ultra per ottenere la bassa latenza richiesta. Tuttavia, se si usa un volume NFS v 4.1 Basato su e per/Hana/data, è necessario usare un altro volume NFS v 4.1 Basato su e per/Hana/log. L'uso di NFS su e per uno dei volumi (ad esempio/Hana/Data) e l'archiviazione Premium di Azure o ultra disk per l'altro volume (come/Hana/log) **non è supportato**.
+È possibile combinare alcuni tipi di archiviazione. Ad esempio, è possibile inserire/Hana/data nell'archiviazione Premium e/Hana/log può essere collocato in una risorsa di archiviazione su disco Ultra per ottenere la bassa latenza richiesta. Tuttavia, se si usa un volume NFS v 4.1 Basato su e per/Hana/data, è necessario usare un altro volume NFS v 4.1 Basato su e per/Hana/log. L'uso di NFS su e per uno dei volumi (ad esempio/Hana/Data) e l'archiviazione Premium di Azure o ultra disk per l'altro volume (come/Hana/log) **non è supportato**.
 
 Nel mondo locale, raramente era necessario preoccuparsi dei sottosistemi di I/O e delle relative funzionalità. perché il fornitore dell'appliance deve assicurarsi che siano soddisfatti i requisiti di archiviazione minima per SAP HANA. Quando si compila autonomamente l'infrastruttura di Azure, è necessario essere a conoscenza di alcuni di questi requisiti rilasciati da SAP. Alcune delle caratteristiche minime della velocità effettiva richieste da SAP sono la necessità di:
 
@@ -54,8 +54,11 @@ Detto questo, una bassa latenza di archiviazione è fondamentale per i sistemi D
 
 **Raccomandazione: come dimensioni stripe per il RAID 0, è consigliabile usare:**
 
-- 64 KB o 128 KB per **/hana/data**
+- 256 KB per **/Hana/data**
 - 32 KB per **/hana/log**
+
+> [!IMPORTANT]
+> Le dimensioni di striping per/Hana/data sono state modificate rispetto alle raccomandazioni precedenti per la chiamata di 64 KB o 128 KB a 256 KB in base alle esperienze dei clienti con versioni più recenti di Linux. Le dimensioni di 256 KB offrono prestazioni leggermente migliori
 
 > [!NOTE]
 > Non è necessario configurare alcun livello di ridondanza con i volumi RAID perché l'Archiviazione Standard e Premium di Azure mantiene tre immagini di un disco rigido virtuale. L'utilizzo di un volume RAID è richiesto esclusivamente per configurare volumi in grado di offrire una velocità effettiva di I/O sufficiente.
@@ -65,7 +68,7 @@ Accumulare un certo numero di dischi rigidi virtuali di Azure in una configurazi
 Durante il ridimensionamento o quando si sceglie una macchina virtuale, tenere presente anche la velocità effettiva di I/O complessiva delle macchine virtuali. Per informazioni sulla velocità effettiva di archiviazione complessiva delle macchine virtuali, vedere l'articolo [Dimensioni delle macchine virtuali ottimizzate per la memoria](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## <a name="linux-io-scheduler-mode"></a>Modalità di pianificazione I/O Linux
-Linux offre varie modalità di pianificazione I/O diverse. Una raccomandazione comune per i fornitori di Linux e SAP è riconfigurare la modalità di pianificazione I/O per i volumi del disco dalla modalità **CFQ** alla modalità **NoOp** . Per informazioni dettagliate, fare riferimento alla [Nota SAP #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux offre varie modalità di pianificazione I/O diverse. Una raccomandazione comune per i fornitori Linux e SAP consiste nel riconfigurare la modalità di pianificazione I/O per i volumi del disco dalla modalità **CFQ** alla modalità **NoOp** (non multicoda) o **None** per la modalità (multicoda). Per informazioni dettagliate, fare riferimento alla [Nota SAP #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluzioni con archiviazione Premium e Azure acceleratore di scrittura per macchine virtuali di Azure serie M
@@ -182,7 +185,7 @@ Microsoft sta implementando un nuovo tipo di archiviazione di Azure denominato [
 
 Il disco Ultra consente di definire un singolo disco che soddisfi le dimensioni, i IOPS e l'intervallo di velocità effettiva del disco. Anziché usare gestori di volumi logici come LVM o MDADM in archiviazione Premium di Azure per costruire volumi che soddisfino i requisiti di IOPS e velocità effettiva di archiviazione. È possibile eseguire una combinazione di configurazioni tra il disco Ultra e l'archiviazione Premium. Di conseguenza, è possibile limitare l'utilizzo del disco Ultra ai volumi/Hana/data e/Hana/log critici per le prestazioni e coprire gli altri volumi con archiviazione Premium di Azure.
 
-Altri vantaggi di ultra disk possono essere la latenza di lettura migliore rispetto all'archiviazione Premium. La latenza di lettura più veloce può avere vantaggi quando si desidera ridurre i tempi di avvio di HANA e il successivo caricamento dei dati in memoria. I vantaggi dell'archiviazione su disco possono anche essere ritenuti quando HANA sta scrivendo salvataggio. Poiché i dischi di archiviazione Premium per/Hana/data non sono in genere acceleratore di scrittura memorizzati nella cache, la latenza di scrittura su/Hana/data in archiviazione Premium rispetto al disco Ultra è superiore. Si può prevedere che la scrittura salvataggio con ultra disk funzioni meglio su disco Ultra.
+Altri vantaggi di ultra disk possono essere la latenza di lettura migliore rispetto all'archiviazione Premium. La latenza di lettura più veloce può avere vantaggi quando si vogliono ridurre i tempi di avvio di HANA e il successivo caricamento dei dati in memoria. I vantaggi dell'archiviazione su disco possono anche essere ritenuti quando HANA sta scrivendo salvataggio. Poiché i dischi di archiviazione Premium per/Hana/data non sono in genere acceleratore di scrittura memorizzati nella cache, la latenza di scrittura su/Hana/data in archiviazione Premium rispetto al disco Ultra è superiore. Si può prevedere che la scrittura salvataggio con ultra disk funzioni meglio su disco Ultra.
 
 > [!IMPORTANT]
 > Il disco Ultra non è ancora presente in tutte le aree di Azure e non supporta ancora tutti i tipi di VM elencati di seguito. Per informazioni dettagliate sulla disponibilità di ultra disk e sulle famiglie di macchine virtuali supportate, vedere l'articolo sui [tipi di dischi disponibili in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).
@@ -200,12 +203,12 @@ Le raccomandazioni spesso superano i requisiti minimi di SAP come indicato in pr
 | M64ls | 512 GiB | 1\.000 MB/s | 600 GB | 600 MBps | 7\.500 | 512 GB | 400 MBps  | 2\.500 |
 | M64s | GiB 1.000 | 1\.000 MB/s |  1\.200 GB | 600 MBps | 7\.500 | 512 GB | 400 MBps  | 2\.500 |
 | M64ms | GiB 1.750 | 1\.000 MB/s | 2\.100 GB | 600 MBps | 7\.500 | 512 GB | 400 MBps  | 2\.500 |
-| M128s | GiB 2.000 | 2\.000 MB/s |2\.400 GB | 1\.200 MBps |9000 | 512 GB | 800 MBps  | 3\.000 | 
-| M128ms | GiB 3.800 | 2\.000 MB/s | 4\.800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3\.000 | 
+| M128s | GiB 2.000 | 2\.000 MB/s |2\.400 GB | 1\.200 MBps |9000 | 512 GB | 800 MBps  | 3,000 | 
+| M128ms | GiB 3.800 | 2\.000 MB/s | 4\.800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3,000 | 
 | M208s_v2 | GiB 2.850 | 1\.000 MB/s | 3\.500 GB | 1\.000 MBps | 9000 | 512 GB | 400 MBps  | 2\.500 | 
 | M208ms_v2 | GiB 5.700 | 1\.000 MB/s | 7\.200 GB | 1\.000 MBps | 9000 | 512 GB | 400 MBps  | 2\.500 | 
-| M416s_v2 | GiB 5.700 | 2\.000 MB/s | 7\.200 GB | 1\.500 MBps | 9000 | 512 GB | 800 MBps  | 3\.000 | 
-| M416ms_v2 | GiB 11.400 | 2\.000 MB/s | 14.400 GB | 1\.500 MBps | 9000 | 512 GB | 800 MBps  | 3\.000 |   
+| M416s_v2 | GiB 5.700 | 2\.000 MB/s | 7\.200 GB | 1\.500 MBps | 9000 | 512 GB | 800 MBps  | 3,000 | 
+| M416ms_v2 | GiB 11.400 | 2\.000 MB/s | 14.400 GB | 1\.500 MBps | 9000 | 512 GB | 800 MBps  | 3,000 |   
 
 I valori elencati sono intesi come punto di partenza e devono essere valutati in base alle effettive esigenze. Il vantaggio di Azure ultra disk è che i valori per IOPS e velocità effettiva possono essere adattati senza la necessità di arrestare la macchina virtuale o di arrestare il carico di lavoro applicato al sistema.   
 
@@ -275,7 +278,7 @@ I [limiti di velocità effettiva Azure NetApp files](https://docs.microsoft.com/
 
 Per soddisfare i requisiti di velocità effettiva minima SAP per dati e log e in base alle linee guida per `/hana/shared`, le dimensioni consigliate sono le seguenti:
 
-| Volume | Dimensioni<br /> Livello di archiviazione Premium | Dimensioni<br /> Livello di archiviazione Ultra | Protocollo NFS supportato |
+| Volume | Dimensione<br /> Livello di archiviazione Premium | Dimensione<br /> Livello di archiviazione Ultra | Protocollo NFS supportato |
 | --- | --- | --- |
 | /Hana/log | 4 TiB | 2 TiB | v 4.1 |
 | /hana/data | 6,3 TiB | 3,2 TiB | v 4.1 |
@@ -294,6 +297,6 @@ La documentazione su come distribuire una configurazione con scalabilità orizzo
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per scoprire di più, vedi:
+Per altre informazioni, vedere:
 
 - [SAP Hana guida alla disponibilità elevata per macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

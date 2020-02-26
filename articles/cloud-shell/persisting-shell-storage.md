@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15a5770eb2964f0f2039fe93de904af65d4c81ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385557"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598749"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
 Cloud Shell utilizza l'archiviazione dei file di Azure per mantenere i file in più sessioni. Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o esistente per mantenere i file in più sessioni.
@@ -62,15 +62,25 @@ Cloud Shell usa una condivisione file di Azure in un account di archiviazione, a
 Gli utenti devono bloccare l'accesso ai file impostando le autorizzazioni a livello di account di archiviazione o di sottoscrizione.
 
 ## <a name="supported-storage-regions"></a>Aree di archiviazione supportate
-Gli account di archiviazione di Azure associati devono risiedere nella stessa area del computer Cloud Shell in cui vengono montati. Per trovare l'area corrente, è possibile eseguire `env` in Bash e individuare la variabile `ACC_LOCATION`. Le condivisioni file ricevono un'immagine da 5 GB creata automaticamente per mantenere persistente la directory `$Home`.
+Per trovare l'area corrente, è possibile eseguire `env` in bash e individuare la variabile `ACC_LOCATION`o da PowerShell eseguire `$env:ACC_LOCATION`. Le condivisioni file ricevono un'immagine da 5 GB creata automaticamente per mantenere persistente la directory `$Home`.
 
 I computer Cloud Shell esistono nelle aree seguenti:
 
-|Area|Area|
+|Area|Region|
 |---|---|
 |Americhe|Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti occidentali|
 |Europa|Europa settentrionale, Europa occidentale|
 |Asia Pacifico|India centrale, Asia sud-orientale|
+
+I clienti devono scegliere un'area primaria, a meno che non dispongano di un requisito per archiviare i dati inattivi in una determinata area. Se hanno un requisito di questo tipo, è necessario usare un'area di archiviazione secondaria.
+
+### <a name="secondary-storage-regions"></a>Aree di archiviazione secondarie
+Se viene usata un'area di archiviazione secondaria, l'account di archiviazione di Azure associato si trova in un'area diversa come il computer Cloud Shell in cui vengono montati. Ad esempio, Jane può impostare l'account di archiviazione in modo che si trovi in Canada orientale, un'area secondaria, ma la macchina a cui è montata si trova ancora in un'area primaria. I dati inattivi si trovano in Canada, ma vengono elaborati nella Stati Uniti.
+
+> [!NOTE]
+> Se viene usata un'area secondaria, l'accesso ai file e l'ora di avvio per Cloud Shell potrebbero risultare più lenti.
+
+Un utente può eseguire `(Get-CloudDrive | Get-AzStorageAccount).Location` in PowerShell per visualizzare il percorso della condivisione file.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Limitare la creazione di risorse con i criteri delle risorse di Azure
 Gli account di archiviazione che si creano in Cloud Shell sono contrassegnati con `ms-resource-usage:azure-cloud-shell`. Se si desidera impedire agli utenti di creare account di archiviazione con Cloud Shell, creare [criteri di risorse di Azure per tag](../azure-policy/json-samples.md) che vengono attivati dal tag specificato.

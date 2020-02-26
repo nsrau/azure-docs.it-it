@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f76b5443d6c1e3fd2cebf87cba39ba0a6bbdeaee
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: cfa39799e44cee0a2d36efccd454ccf8ca15157f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521787"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603235"
 ---
 # <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>Aggiornare i pacchetti di conformità dinamici nel dashboard conformità normativa (anteprima)
 
@@ -76,5 +76,4 @@ Per altri materiali correlati, vedere gli articoli seguenti:
 
 - [Dashboard conformità normativa del Centro sicurezza](security-center-compliance-dashboard.md)
 - [Uso dei criteri di sicurezza](tutorial-security-policy.md)
-- [Gestione delle raccomandazioni di sicurezza nel centro sicurezza di Azure](security-center-recommendations.md) : informazioni su come usare le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse di Azure.
-- Domande frequenti sul [Centro sicurezza di Azure](security-center-faq.md) : risposte alle domande frequenti sull'uso del Centro sicurezza.
+- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni su come usare le raccomandazioni del Centro sicurezza di Azure per proteggere le risorse di Azure.

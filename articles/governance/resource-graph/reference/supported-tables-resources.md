@@ -1,14 +1,14 @@
 ---
 title: Tipi di risorse Gestione risorse supportati
 description: Fornire un elenco dei tipi di risorse Gestione risorse supportati da Azure Resource Graph e la cronologia delle modifiche.
-ms.date: 02/20/2020
+ms.date: 02/25/2020
 ms.topic: reference
-ms.openlocfilehash: 130b11f0060f7f27091a21652aa481f0340b288f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: dc08c4a33ec9e0c20b865ffa4d7c6ff9d5248e90
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77530224"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602566"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Riferimento al tipo di risorsa e alla tabella del grafico delle risorse di Azure
 
@@ -34,7 +34,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. resources/Subscriptions
 - Microsoft. resources/subscriptions/ResourceGroups
 
-## <a name="resources"></a>risorse
+## <a name="resources"></a>resources
 
 - 84codes. cloudamqp/server
 - Citrix. Services/xenappessentials
@@ -116,6 +116,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. Compute/sharedvmimages
 - Microsoft. Compute/sharedvmimages/Versions
 - Microsoft. Compute/Snapshots
+- Microsoft. Compute/sshpublickeys
 - Microsoft. Compute/VirtualMachines
 - Microsoft. Compute/VirtualMachines/Extensions
 - Microsoft. Compute/virtualmachinescalesets
@@ -277,6 +278,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. Network/firewallpolicies
 - Microsoft. Network/frontdoors
 - Microsoft. Network/frontdoorwebapplicationfirewallpolicies
+- Microsoft. Network/ipallocations
 - Microsoft. Network/ipgroups
 - Microsoft. Network/loadbalancers
 - Microsoft. Network/localnetworkgateways

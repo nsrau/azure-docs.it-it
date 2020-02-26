@@ -3,12 +3,12 @@ title: Abilitare automaticamente il backup durante la creazione di macchine virt
 description: Articolo che descrive come usare i criteri di Azure per abilitare automaticamente il backup per tutte le macchine virtuali create in un determinato ambito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450127"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584269"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
 
@@ -16,9 +16,9 @@ Una delle responsabilità principali di un amministratore di backup o di conform
 
 Attualmente, backup di Azure fornisce un criterio predefinito (usando criteri di Azure) che può essere assegnato a **tutte le macchine virtuali di Azure in una posizione specifica all'interno di una sottoscrizione o di un gruppo di risorse**. Quando questo criterio viene assegnato a un determinato ambito, tutte le nuove macchine virtuali create in tale ambito vengono automaticamente configurate per il backup in un insieme di credenziali **esistente nello stesso percorso e nella stessa sottoscrizione**. L'utente può specificare l'insieme di credenziali e i criteri di conservazione a cui devono essere associate le macchine virtuali di cui è stato eseguito il backup.
 
-## <a name="supported-scenarios"></a>Scenari Supportati 
+## <a name="supported-scenarios"></a>Scenari Supportati
 
-* I criteri predefiniti sono attualmente supportati solo per le macchine virtuali di Azure. Gli utenti devono prestare attenzione per assicurarsi che i criteri di conservazione specificati durante l'assegnazione siano criteri di conservazione delle macchine virtuali. Fare riferimento a [questo](https://aka.ms/PolicySupportedSKUs) documento per visualizzare tutti gli SKU di VM supportati da questo criterio.
+* I criteri predefiniti sono attualmente supportati solo per le macchine virtuali di Azure. Gli utenti devono prestare attenzione per assicurarsi che i criteri di conservazione specificati durante l'assegnazione siano criteri di conservazione delle macchine virtuali. Fare riferimento a [questo](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) documento per visualizzare tutti gli SKU di VM supportati da questo criterio.
 
 * Il criterio può essere assegnato a una singola posizione e a una sottoscrizione alla volta. Per abilitare il backup per le macchine virtuali tra percorsi e sottoscrizioni, è necessario creare più istanze dell'assegnazione dei criteri, una per ogni combinazione di percorso e sottoscrizione.
 
@@ -54,6 +54,6 @@ Nozioni di base sull'assegnazione di criteri ![](./media/backup-azure-auto-enabl
 >
 > Si consiglia di non assegnare questo criterio a più di 200 macchine virtuali alla volta. Se il criterio è assegnato a più di 200 macchine virtuali, il backup potrebbe essere attivato alcune ore dopo il valore specificato dalla pianificazione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [Altre informazioni su criteri di Azure](https://docs.microsoft.com/azure/governance/policy/overview)

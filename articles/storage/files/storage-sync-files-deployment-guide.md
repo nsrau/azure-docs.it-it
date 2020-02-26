@@ -7,23 +7,23 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4f9a2842f99c7f8b0bb9f820584fb2cd4e41a2b2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2c4e762ebf10a5ca2120c13a52750a7781d60b9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927884"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598426"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
 
 È consigliabile leggere [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md) e [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) prima di completare i passaggi descritti in questo articolo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * Una condivisione file di Azure nella stessa area che si vuole distribuire Sincronizzazione file di Azure. Per ulteriori informazioni, vedere:
-    - [Aree di disponibilità](storage-sync-files-planning.md#region-availability) per Sincronizzazione file di Azure.
+    - [Aree di disponibilità](storage-sync-files-planning.md#azure-file-sync-region-availability) per Sincronizzazione file di Azure.
     - [Creare una condivisione file](storage-how-to-create-file-share.md) per una descrizione dettagliata della procedura per la creazione di una condivisione file.
-* Almeno un'istanza supportata di Windows Server o di un cluster di Windows Server per la sincronizzazione con Sincronizzazione file di Azure. Per ulteriori informazioni sulle versioni supportate di Windows Server, vedere [interoperabilità con Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* Almeno un'istanza supportata di Windows Server o di un cluster di Windows Server per la sincronizzazione con Sincronizzazione file di Azure. Per ulteriori informazioni sulle versioni supportate di Windows Server, vedere [interoperabilità con Windows Server](storage-sync-files-planning.md#windows-file-server-considerations).
 * Il modulo AZ PowerShell può essere usato con PowerShell 5,1 o PowerShell 6 +. È possibile usare il modulo AZ PowerShell per Sincronizzazione file di Azure in qualsiasi sistema supportato, inclusi i sistemi non Windows, ma il cmdlet di registrazione del server deve essere sempre eseguito nell'istanza di Windows Server che si sta registrando. questa operazione può essere eseguita direttamente o tramite PowerShell Servizi remoti). In Windows Server 2012 R2 è possibile verificare che sia in esecuzione almeno PowerShell 5,1.\* esaminando il valore della proprietà **psversion** dell'oggetto **$psversiontable** :
 
     ```powershell
@@ -53,7 +53,7 @@ Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Preparare Windows Server per l'uso con Sincronizzazione file di Azure
 Per ogni server da usare con Sincronizzazione file di Azure, incluso ogni nodo server in un cluster di failover, disabilitare **Sicurezza avanzata di Internet Explorer**. Questa operazione è necessaria solo per la registrazione iniziale del server e l'opzione può essere riabilitata dopo che il server è stato registrato.
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 > [!Note]  
 > È possibile ignorare questo passaggio se si sta distribuendo Sincronizzazione file di Azure in Windows Server Core.
 
@@ -65,7 +65,7 @@ Per ogni server da usare con Sincronizzazione file di Azure, incluso ogni nodo s
 4. Nella finestra di dialogo **Configurazione sicurezza avanzata IE** selezionare **Disattivato** per **Amministratori** e **Utenti**:  
     ![Finestra popup Configurazione sicurezza avanzata IE con opzione "Disattivato" selezionata](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Per disabilitare Sicurezza avanzata di Internet Explorer, eseguire quanto segue da una sessione di PowerShell con privilegi elevati:
 
 ```powershell
@@ -96,7 +96,7 @@ La distribuzione di Sincronizzazione file di Azure inizia con l'inserimento di u
 > [!Note]
 > Il servizio di sincronizzazione archiviazione eredita le autorizzazioni di accesso dalla sottoscrizione e dal gruppo di risorse in cui è stato distribuito. È consigliabile controllare attentamente chi dispone di accesso. Le entità con accesso in scrittura possono avviare la sincronizzazione di nuovi set di file dai server registrati in questo servizio di sincronizzazione archiviazione, causando il flusso dei dati in un archivio di Azure a loro accessibile.
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Per distribuire un servizio di sincronizzazione archiviazione, passare alla [portale di Azure](https://portal.azure.com/), fare clic su *Crea una risorsa* e quindi cercare sincronizzazione file di Azure. Nei risultati della ricerca selezionare **sincronizzazione file di Azure**e quindi selezionare **Crea** per aprire la scheda **Distribuisci sincronizzazione archiviazione** .
 
 Nel pannello che viene visualizzato immettere le informazioni seguenti:
@@ -108,8 +108,8 @@ Nel pannello che viene visualizzato immettere le informazioni seguenti:
 
 Al termine, selezionare **Crea** per distribuire il servizio di sincronizzazione di archiviazione.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Sostituire **< Az_Region >** , **<** RG_Name > **e < my_storage_sync_service > con valori** personalizzati, quindi usare il cmds seguente per creare e distribuire un servizio di sincronizzazione archiviazione:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Sostituire `<Az_Region>`, `<RG_Name>`e `<my_storage_sync_service>` con i propri valori, quindi usare i comandi seguenti per creare e distribuire un servizio di sincronizzazione archiviazione:
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -160,7 +160,7 @@ $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name 
 ## <a name="install-the-azure-file-sync-agent"></a>Installare l'agente Sincronizzazione file di Azure
 L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente di sincronizzare Windows Server con una condivisione file di Azure. 
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 È possibile scaricare l'agente dall'[Area download Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). Al termine del download, fare doppio clic sul pacchetto MSI per avviare l'installazione dell'agente Sincronizzazione file di Azure.
 
 > [!Important]  
@@ -172,7 +172,7 @@ L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente
 
 Al termine dell'installazione dell'agente Sincronizzazione file di Azure, viene avviata automaticamente l'interfaccia utente di Registrazione server. È necessario disporre di un servizio di sincronizzazione archiviazione prima di eseguire la registrazione. Per creare un servizio di sincronizzazione archiviazione, vedere la sezione successiva.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Eseguire il codice di PowerShell seguente per scaricare la versione appropriata dell'agente di Sincronizzazione file di Azure per il sistema operativo in uso e installarla nel sistema.
 
 > [!Important]  
@@ -216,7 +216,7 @@ La registrazione di Windows Server con un servizio di sincronizzazione archiviaz
 > [!Note]
 > La registrazione server usa le credenziali di Azure per creare una relazione di trust tra il servizio di sincronizzazione archiviazione e Windows Server. Tuttavia, il server crea e usa successivamente la propria identità, che rimane valida fino a quando il server risulta registrato e il token di firma di accesso condiviso (SAS di archiviazione) corrente è valido. Non è possibile rilasciare un nuovo token di firma di accesso condiviso per il server dopo l'annullamento della registrazione del server, quindi il server non può più accedere alle condivisioni file di Azure con il conseguente arresto di ogni attività di sincronizzazione.
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 L'interfaccia utente di Registrazione server viene visualizzata automaticamente al termine dell'installazione dell'agente Sincronizzazione file di Azure. In caso contrario, è possibile aprirla manualmente dal percorso: c:\Programmi\Microsoft Files\Azure\StorageSyncAgent\ServerRegistration.exe. Dopo avere aperto l'interfaccia utente di Registrazione server fare clic su **Accesso** per iniziare.
 
 Eseguito l'accesso, viene richiesto di specificare le informazioni seguenti:
@@ -229,7 +229,7 @@ Eseguito l'accesso, viene richiesto di specificare le informazioni seguenti:
 
 Dopo avere selezionato le informazioni appropriate, fare clic su **Registra** per completare la registrazione del server. Come parte del processo di registrazione, viene richiesto un accesso aggiuntivo.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
@@ -244,7 +244,7 @@ Un endpoint cloud è un puntatore a una condivisione file di Azure. Tutti gli en
 > [!Important]  
 > È possibile apportare modifiche a qualsiasi endpoint cloud o endpoint server nel gruppo di sincronizzazione e fare in modo che i file vengano sincronizzati con gli altri endpoint del gruppo di sincronizzazione. Se si apporta direttamente una modifica all'endpoint cloud (condivisione file di Azure), le modifiche apportate devono essere prima di tutto individuate da un processo di rilevamento delle modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Per altre informazioni, vedere [Domande frequenti su File di Azure](storage-files-faq.md#afs-change-detection).
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Per creare un gruppo di sincronizzazione, accedere al [portale di Azure](https://portal.azure.com/), passare al servizio di sincronizzazione archiviazione e quindi selezionare **+ Gruppo di sincronizzazione**:
 
 ![Creare un nuovo gruppo di sincronizzazione nel portale di Azure](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
@@ -256,7 +256,7 @@ Nel riquadro che viene visualizzato immettere le informazioni seguenti per crear
 - **Account di archiviazione**: se si seleziona **Selezionare l'account di archiviazione**, viene visualizzato un altro riquadro in cui è possibile selezionare l'account di archiviazione che contiene la condivisione file di Azure con cui si vuole eseguire la sincronizzazione.
 - **Condivisione file di Azure**: il nome della condivisione file di Azure con cui si vuole eseguire la sincronizzazione.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Per creare il gruppo di sincronizzazione, eseguire il comando di PowerShell seguente. Ricordarsi di sostituire `<my-sync-group>` con il nome desiderato per il gruppo di sincronizzazione.
 
 ```powershell
@@ -306,7 +306,7 @@ New-AzStorageSyncCloudEndpoint `
 ## <a name="create-a-server-endpoint"></a>Creare un endpoint server
 Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Un endpoint server deve essere un percorso in un server registrato (diverso da una condivisione montata) e per usare la suddivisione in livelli cloud il percorso deve trovarsi in un volume non di sistema. L'archiviazione NAS (Network Attached Storage) non è supportata.
 
-# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Per aggiungere un endpoint server, passare al gruppo di sincronizzazione appena creato e fare clic su **Aggiungi endpoint server**.
 
 ![Aggiungere un nuovo endpoint server nel riquadro del gruppo di sincronizzazione](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
@@ -320,7 +320,7 @@ Nel riquadro **Aggiungi endpoint server** immettere le informazioni seguenti per
 
 Per aggiungere l'endpoint server, selezionare **Crea**. I file vengono ora mantenuti sincronizzati tra la condivisione file di Azure e Windows Server. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Eseguire i comandi di PowerShell seguenti per creare l'endpoint server e assicurarsi di sostituire `<your-server-endpoint-path>` e `<your-volume-free-space>` con i valori desiderati.
 
 ```powershell
@@ -358,7 +358,7 @@ if ($cloudTieringDesired) {
 
 ## <a name="configure-firewall-and-virtual-network-settings"></a>Configurare le impostazioni del firewall e della rete virtuale
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 Se si vuole configurare sincronizzazione file di Azure per l'uso con le impostazioni del firewall e della rete virtuale, eseguire le operazioni seguenti:
 
 1. Dalla portale di Azure passare all'account di archiviazione che si vuole proteggere.

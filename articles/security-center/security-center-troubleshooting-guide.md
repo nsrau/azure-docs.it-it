@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 68d37bfbc629062a788ba32793b95c6f1653ff42
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 55a4aa066739203f8697fb4c9083869f5a05ef4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749648"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603384"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -21,7 +21,7 @@ Questa guida è destinata a professionisti IT, analisti della sicurezza delle in
 
 Il Centro sicurezza usa il Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
 
-## <a name="troubleshooting-guide"></a>Guida alla risoluzione dei problemi
+## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
 Questa guida illustra come risolvere i problemi correlati al Centro sicurezza.
 
@@ -83,7 +83,7 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 
 **Stato di monitoraggio** definisce il motivo per cui il Centro sicurezza non riesce a monitorare correttamente le VM e i computer inizializzati per il provisioning automatico. La tabella seguente mostra i valori, le descrizioni e le procedure di risoluzione di **Stato di monitoraggio**.
 
-| Stato di monitoraggio | Description | Procedura per la risoluzione |
+| Stato di monitoraggio | Descrizione | Procedura per la risoluzione |
 |---|---|---|
 | Installazione dell'agente in sospeso | L'installazione di Microsoft Monitoring Agent è ancora in esecuzione.  L'installazione può richiedere alcune ore. | Attendere il completamento dell'installazione automatica. |
 | Stato dell'alimentazione disattivato | La macchina virtuale è stata arrestata.  Microsoft Monitoring Agent può essere installato solo su una VM in esecuzione. | Riavviare la VM. |
@@ -136,9 +136,9 @@ In caso di problemi di caricamento del dashboard del Centro sicurezza, assicurar
 
 Alcuni problemi possono essere identificati usando le linee guida contenute in questo articolo, altri sono documentati nel [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)pubblico del Centro sicurezza. Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il **portale di Azure**, come illustrato di seguito:
 
-![Supporto Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
+![Supporto tecnico Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 In questo documento è stato descritto come configurare i criteri di sicurezza nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
@@ -154,5 +154,5 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 * [Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azure](security-center-investigation.md)
 * [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md)
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio
+* [Domande frequenti sul Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure

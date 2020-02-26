@@ -2,17 +2,14 @@
 title: Personalizzare le route definite dall'utente (UDR) in Azure Kubernetes Service (AKS)
 description: Informazioni su come definire una route in uscita personalizzata in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/31/2020
-ms.author: mlearned
-ms.openlocfilehash: bd55c7fbf017aec55cee4c9121ede606278a7334
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: d108c6f49a8f483dc489fd644db6b480fc0e74fc
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212945"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595808"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizzare l'uscita del cluster con una route definita dall'utente (anteprima)
 
@@ -26,7 +23,7 @@ Questo articolo illustra come personalizzare la route in uscita di un cluster pe
 > * [Criteri di supporto AKS](support-policies.md)
 > * [Domande frequenti relative al supporto tecnico Azure](faq.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * Versione 2.0.81 o successiva dell'interfaccia della riga di comando di Azure
 * Versione di anteprima dell'interfaccia della riga di comando di Azure 0.4.28 o successiva
 * Versione API di `2020-01-01` o superiore

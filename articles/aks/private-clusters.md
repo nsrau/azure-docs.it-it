@@ -2,17 +2,14 @@
 title: Creare un cluster di servizi Kubernetes di Azure privato
 description: Informazioni su come creare un cluster Azure Kubernetes Service (AKS) privato
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.author: mlearned
-ms.openlocfilehash: 08929d5ec05fbeb80eddebfd667fe1e0fde9bff7
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544233"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594567"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creare un cluster privato del servizio Kubernetes di Azure (anteprima)
 
@@ -26,7 +23,7 @@ Il piano di controllo o il server API si trova in una sottoscrizione di Azure ge
 > * [Criteri di supporto AKS](support-policies.md)
 > * [Domande frequenti relative al supporto tecnico Azure](faq.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * L'interfaccia della riga di comando di Azure versione 2.0.77 o successiva e l'estensione dell'interfaccia della riga di comando di Azure AKS Preview 0.4.18
 
@@ -118,7 +115,7 @@ Dove *--Enable-Private-cluster* è un flag obbligatorio per un cluster privato.
 > Se l'indirizzo CIDR del Bridge Docker (172.17.0.1/16) si scontra con la CIDR della subnet, modificare l'indirizzo del Bridge Docker in modo appropriato.
 
 ## <a name="connect-to-the-private-cluster"></a>Connettersi al cluster privato
-L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è necessario creare una macchina virtuale (VM) di Azure in una rete virtuale e connettersi al server API. A tale scopo, eseguire le operazioni seguenti:
+L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è necessario creare una macchina virtuale (VM) di Azure in una rete virtuale e connettersi al server API. A tale scopo, seguire questa procedura:
 
 1. Ottenere le credenziali per la connessione al cluster.
 
@@ -126,7 +123,7 @@ L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è ne
    az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
    ```
 
-1. Eseguire una delle operazioni seguenti:
+1. Effettuare una delle operazioni seguenti:
    * Creare una VM nella stessa rete virtuale del cluster AKS.  
    * Creare una macchina virtuale in una rete virtuale diversa ed esaminarla con la rete virtuale del cluster AKS.
 

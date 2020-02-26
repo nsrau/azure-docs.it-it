@@ -2,17 +2,14 @@
 title: Reimpostare le credenziali per un cluster del servizio Azure Kubernetes (AKS)
 description: Informazioni su come aggiornare o reimpostazione le credenziali dell'entità servizio per un cluster in servizio Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: mlearned
-ms.openlocfilehash: bda0ab50b829fa2e6d58e73b51e3a0a0f6c9e2af
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 46665e78450538cdc473de32e6c2e9a418660af1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432928"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593071"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Aggiornare o alternare le credenziali per un'entità servizio in servizio Azure Kubernetes (AKS)
 
@@ -31,7 +28,7 @@ Quando si desidera aggiornare le credenziali per un cluster del servizio Azure K
 
 ### <a name="update-existing-service-principal-expiration"></a>Aggiorna scadenza entità servizio esistente
 
-Per aggiornare le credenziali per l'entità servizio esistente, ottenere l'ID entità servizio del cluster usando il comando [AZ AKS Show][az-aks-show] . L'esempio seguente ottiene l'ID per il cluster denominato *myAKSCluster* nel gruppo di risorse *myResourceGroup*. L'ID dell'entità servizio viene impostato come variabile denominata *SP_ID* per l'uso in un comando aggiuntivo.
+Per aggiornare le credenziali per l'entità servizio esistente, ottenere l'ID entità servizio del cluster usando il comando [AZ AKS Show][az-aks-show] . L'esempio seguente ottiene l'ID per il cluster denominato *myAKSCluster* nel gruppo di risorse *myResourceGroup*. L'ID entità servizio è impostato come variabile denominata *SP_ID* per l'uso in un comando aggiuntivo.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \

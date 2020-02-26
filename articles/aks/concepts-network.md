@@ -1,18 +1,15 @@
 ---
 title: Concetti - Funzionalità di rete nel servizio Azure Kubernetes
 description: Informazioni sulle funzionalità di rete nel servizio Azure Kubernetes, tra cui funzionalità di rete kubenet e Azure CNI, controller di ingresso, bilanciamento del carico e indirizzi IP statici.
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
-ms.author: mlearned
-ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084273"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596165"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -117,7 +114,7 @@ Indipendentemente dal modello di rete usato, sia kubenet che Azure CNI possono e
 * La piattaforma Azure può creare e configurare automaticamente le risorse della rete virtuale quando si crea un cluster AKS.
 * Quando si crea il cluster AKS, è possibile creare e configurare manualmente le risorse della rete virtuale e connetterle a tali risorse.
 
-Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. Ad esempio,
+Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. Ad esempio:
 
 * Se si creano manualmente le risorse della rete virtuale per un cluster AKS, quando si configurano gli endpoint di servizio o UdR personalizzati, si è supportati.
 * Se la piattaforma Azure crea automaticamente le risorse di rete virtuale per il cluster del servizio contenitore di Azure, non è supportata la modifica manuale delle risorse gestite da AKS per configurare UdR o endpoint di servizio personalizzati.

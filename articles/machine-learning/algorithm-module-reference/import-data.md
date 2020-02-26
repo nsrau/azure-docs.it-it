@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163195"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598460"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
 
@@ -48,9 +48,7 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
 1. Aggiungere il modulo **Import Data (Importa dati** ) alla pipeline. È possibile trovare questo modulo nella categoria **input e output dei dati** nella finestra di progettazione.
 
-1. Fare clic su **Avvia importazione guidata dati** per configurare l'origine dati utilizzando una procedura guidata.
-
-    La procedura guidata ottiene il nome e le credenziali dell'account e consente di configurare altre opzioni. Se si sta modificando una configurazione esistente, vengono caricati prima i valori correnti.
+1. Selezionare il modulo per aprire il riquadro di destra.
 
 1. Selezionare **origine dati**e scegliere il tipo di origine dati. Potrebbe essere HTTP o archivio dati.
 
@@ -60,6 +58,11 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
     ![importazione-dati-anteprima](media/module/import-data.png)
 
+1. La casella di controllo **Rigenera output**, decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
+
+    Per impostazione predefinita, è deselezionata, ovvero se il modulo è stato eseguito con gli stessi parametri in precedenza, il sistema riutilizzerà l'output dell'ultima esecuzione per ridurre il tempo di esecuzione. 
+
+    Se questa opzione è selezionata, il sistema eseguirà di nuovo il modulo per rigenerare l'output. Quindi, selezionare questa opzione quando vengono aggiornati i dati sottostanti nell'archiviazione, che possono essere utili per ottenere i dati più recenti.
 
 
 1. Eseguire la pipeline.

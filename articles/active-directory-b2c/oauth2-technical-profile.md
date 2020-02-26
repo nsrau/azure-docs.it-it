@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d0fc5e6b5cafa22da6707a8f34675dcbdf5af8cc
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f9db8fd0865b7dba869795526cf6b68f4ad3ffb9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198021"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585782"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
@@ -97,6 +97,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ExtraParamsInAccessTokenEndpointResponse | No | Contiene altri parametri che possono essere restituiti nella risposta di **AccessTokenEndpoint** da alcuni provider di identità. Ad esempio, la risposta di **AccessTokenEndpoint** contiene un altro parametro, ad esempio `openid`, ovvero un parametro obbligatorio oltre all'access_token in una stringa di query della richiesta **ClaimsEndpoint**. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
 | ExtraParamsInClaimsEndpointRequest | No | Contiene altri parametri che possono essere restituiti nella richiesta **ClaimsEndpoint** da alcuni provider di identità. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questo valore su `true`. |
+| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true`o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#outputclaims)impostare il `PartnerClaimType` sull'elemento del percorso JSON di cui si vuole eseguire l'output. Ad esempio: `firstName.localized`o `data.0.to.0.email`.|
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a600b17ce25a467b788671e12e3c2425ad20b809
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665769"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604088"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure
 
@@ -57,11 +57,10 @@ Gli argomenti seguenti illustrano come il Centro sicurezza usa i diversi dati di
 * [Avvisi del livello di servizio](security-center-alerts-service-layer.md)
 * [Rilevamento delle minacce per Azure WAF e protezione DDoS di Azure](security-center-alerts-integration.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come usare le funzionalità relative agli eventi imprevisti della sicurezza nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Avvisi di sicurezza nel centro sicurezza di Azure](security-center-alerts-overview.md).
 * [Gestire gli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità in Azure.

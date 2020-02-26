@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 525eba8a5a4e891526eb32a24287ea3887ee6743
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 9cbc48d8bca2f7491d0464be1c5bd64054927dc9
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474258"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77608730"
 ---
 Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in genere consigliabile una certa parte di automazione. Sono disponibili numerosi strumenti e soluzioni che consentono di automatizzare l'intero ciclo di vita di distribuzione e gestione dell'infrastruttura di Azure. Questo articolo presenta alcuni degli strumenti di automazione dell'infrastruttura che è possibile usare in Azure. Questi strumenti sono in genere associati a uno degli approcci seguenti:
 
@@ -40,7 +40,7 @@ Viene illustrato come:
 Viene illustrato come:
 
 - [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview) (Distribuire Chef Automate da Azure Marketplace).
-- [Installare Chef in Windows e creare macchine virtuali di Azure](../articles/virtual-machines/windows/chef-automation.md).
+- [Installare Chef in Windows e creare macchine virtuali di Azure](../articles/chef/chef-automation.md).
 
 
 ## <a name="puppet"></a>Puppet
@@ -128,7 +128,7 @@ Altre informazioni su:
 
 Viene illustrato come:
 
-- [Come creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
+- [Come creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

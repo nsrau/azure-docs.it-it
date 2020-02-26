@@ -1,10 +1,10 @@
 ---
-title: Clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster in Azure | Microsoft Docs
+title: Istanza di SAP ASC/SCS del cluster in WSFC usando un disco condiviso in Azure | Microsoft Docs
 description: Informazioni sul clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fae3c08dd4b51b8c8dc9437fce5b5b5de063726
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8156f8706828afae30889b3250cf0b26252bf394
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75637917"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598477"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -191,7 +191,7 @@ Windows Server Failover Clustering è alla base di un'istallazione ASCS/SCS di S
 
 Un cluster di failover è un gruppo di 1 + n server, ovvero nodi, indipendenti che funzionano insieme per aumentare la disponibilità di applicazioni e servizi. Se si verifica un errore in un nodo, Windows Server Failover Clustering calcola il numero di errori che possono verificarsi e mantiene un cluster integro per fornire applicazioni e servizi. A questo scopo è possibile scegliere tra diverse modalità quorum per ottenere il clustering di failover.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Prima di svolgere le attività descritte in questo articolo, leggere l'articolo seguente:
 
 * [Architettura e scenari di disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver][sap-high-availability-architecture-scenarios]

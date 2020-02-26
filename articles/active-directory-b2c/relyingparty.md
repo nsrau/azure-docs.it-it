@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/02/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 502b4cef4fc44abcc55c1733b86fb6052e3e43ab
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: b64583bc61b87e900690e397fac57d64d145db05
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372741"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585697"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -117,6 +117,7 @@ L'elemento **UserJourneyBehaviors** contiene gli elementi seguenti:
 | SessionExpiryInSeconds | 0:1 | Durata del cookie di sessione di Azure AD B2C specificato come intero e archiviato nel browser dell'utente dopo l'autenticazione. |
 | JourneyInsights | 0:1 | Chiave di strumentazione di Azure Application Insights da usare. |
 | ContentDefinitionParameters | 0:1 | Elenco di coppie chiave-valore da accodare all'URI di caricamento della definizione del contenuto. |
+|ScriptExecution| 0:1| Modalità di esecuzione [JavaScript](javascript-samples.md) supportate. Valori possibili: `Allow` o `Disallow` (impostazione predefinita).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -124,7 +125,7 @@ L'elemento **SingleSignOn** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Ambito | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
+| Scope | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
 | KeepAliveInDays | Sì | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](custom-policy-keep-me-signed-in.md). |
 |EnforceIdTokenHintOnLogout| No|  Forzare il passaggio di un token ID emesso in precedenza all'endpoint di disconnessione come hint per la sessione autenticata corrente dell'utente finale con il client. I valori possibili sono: `false` (impostazione predefinita) o `true`. Per altre informazioni, vedere [accesso Web con OpenID Connect](openid-connect.md).  |
 
@@ -162,7 +163,7 @@ L'elemento **ContentDefinitionParameter** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome della coppia chiave-valore. |
+| Nome | Sì | Nome della coppia chiave-valore. |
 
 Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
 
@@ -172,7 +173,7 @@ L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Id | Sì | Il valore deve essere `PolicyProfile`. |
+| ID | Sì | Il valore deve essere `PolicyProfile`. |
 
 L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
@@ -189,7 +190,7 @@ L'elemento **Protocol** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OpenIdConnect` o `SAML2`. Il valore `OpenIdConnect` rappresenta lo standard del protocollo OpenID Connect 1.0 in base alla specifica di OpenID Foundation. `SAML2` rappresenta lo standard del protocollo SAML 2.0 in base alla specifica di OASIS. Non usare un token SAML nell'ambiente di produzione. |
+| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OpenIdConnect` o `SAML2`. Il valore `OpenIdConnect` rappresenta lo standard del protocollo OpenID Connect 1.0 in base alla specifica di OpenID Foundation. `SAML2` rappresenta lo standard del protocollo SAML 2.0 in base alla specifica di OASIS. Non usare un token SAML nell'ambiente di produzione. |
 
 ## <a name="outputclaims"></a>OutputClaims
 

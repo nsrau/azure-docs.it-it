@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: fdc98991134e0857d24575d22962a52e43266cbe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939232"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598307"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -38,7 +38,7 @@ Il criterio di gestione del ciclo di vita è disponibile con gli account per uti
 
 La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene addebitato il normale costo dell'operazione per le chiamate API [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (Elenca BLOB) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (Imposta livello BLOB). L'operazione di eliminazione è gratuita. Per altre informazioni sui prezzi, vedere [Prezzi dei BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+## <a name="regional-availability"></a>Disponibilità internazionale
 
 La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree di Azure.
 
@@ -58,7 +58,7 @@ Un criterio può essere letto o scritto completamente. Gli aggiornamenti parzial
 
 Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Esistono due modi per aggiungere un criterio tramite il portale di Azure. 
 
@@ -128,7 +128,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 6. Per altre informazioni su questo esempio JSON, vedere le sezioni [criteri](#policy) e [regole](#rules) .
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Lo script di PowerShell seguente può essere usato per aggiungere un criterio all'account di archiviazione. La variabile `$rgname` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione.
 
@@ -158,7 +158,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+# <a name="template"></a>[Modello](#tab/template)
 
 È possibile definire la gestione del ciclo di vita usando Azure Resource Manager modelli. Ecco un modello di esempio per distribuire un account di archiviazione RA-GRS GPv2 con criteri di gestione del ciclo di vita.
 
@@ -202,7 +202,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ---
 
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Policy
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -232,12 +232,12 @@ Un criterio è una raccolta di regole:
 
 Ogni regola all'interno del criterio presenta diversi parametri:
 
-| Nome parametro | Tipo di parametro | Note | Obbligatorio |
+| Nome parametro | Tipo di parametro | Note | Obbligatoria |
 |----------------|----------------|-------|----------|
-| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | Vero |
-| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | Vero |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
+| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
+| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
 
 ## <a name="rules"></a>Regole
 
@@ -302,8 +302,8 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 | Azione        | BLOB di base                                   | Snapshot      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Supporto non disponibile |
-| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Supporto non disponibile |
+| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportate |
+| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportate |
 | delete        | Supportato                                   | Supportato     |
 
 >[!NOTE]
@@ -311,7 +311,7 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 Le condizioni di esecuzione sono basate sull'età. Per tenere traccia del tempo trascorso, i BLOB di base usano la data/ora dell'ultima modifica, mentre gli snapshot dei BLOB usano la data/ora di creazione dello snapshot.
 
-| Condizione di esecuzione azione             | Valore della condizione                          | Description                             |
+| Condizione di esecuzione azione             | Valore della condizione                          | Descrizione                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni BLOB di base     |
 | daysAfterCreationGreaterThan     | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni snapshot BLOB |
@@ -432,13 +432,13 @@ Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo d
 }
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 **Ho creato un nuovo criterio, perché le azioni non vengono eseguite immediatamente?**  
 La piattaforma esegue i criteri di gestione del ciclo di vita una volta al giorno. Una volta configurati i criteri, possono essere necessarie fino a 24 ore prima che alcune azioni vengano eseguite per la prima volta.  
 
 **Se si aggiorna un criterio esistente, quanto tempo è necessario per l'esecuzione delle azioni?**  
-Il criterio aggiornato richiede fino a 24 ore per diventare effettivo. Una volta attivati i criteri, potrebbero essere necessarie fino a 24 ore per l'esecuzione delle azioni. Pertanto, l'esecuzione dei criteri potrebbe richiedere fino a 48 ore.   
+Il criterio aggiornato richiede fino a 24 ore per diventare effettivo. Una volta attivati i criteri, potrebbero essere necessarie fino a 24 ore per l'esecuzione delle azioni. Per il completamento delle azioni dei criteri, quindi, potrebbero essere necessarie fino a 48 ore.   
 
 **Ho reidratato manualmente un BLOB archiviato. come posso impedire che venga spostato di nuovo nel livello di archiviazione temporaneamente?**  
 Quando un BLOB viene spostato da un livello di accesso a un altro, l'ora dell'Ultima modifica non cambia. Se si riattiva manualmente un BLOB archiviato in un livello di accesso frequente, questo verrà spostato di nuovo al livello archivio dal motore di gestione del ciclo di vita. Disabilitare temporaneamente la regola che influisca su questo BLOB per impedirne l'archiviazione. Abilitare nuovamente la regola quando il BLOB può essere spostato di nuovo in modo sicuro nel livello archivio. È anche possibile copiare il BLOB in un altro percorso se deve rimanere in modo permanente ad accesso frequente o ad accesso sporadico.

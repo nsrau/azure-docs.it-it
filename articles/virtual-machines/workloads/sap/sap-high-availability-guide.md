@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fbff3679004b8278b7634c2dc21253973cf34d0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3a3e4c76463aaea0735d20d4fcc283aee460b48f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647663"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597525"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver
 
@@ -443,7 +443,7 @@ _**Figura 11:** Impostare i parametri di Azure Resource Manager di disponibilit�
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Distribuire macchine virtuali con connettività di rete aziendale (cross-premise) da usare in fase di produzione
-Per i sistemi SAP di produzione, distribuire le macchine virtuali di Azure con la [connettività di rete aziendale (cross-premise)][planning-guide-2.2] usando la VPN da sito a sito di Azure o Azure ExpressRoute.
+Per i sistemi SAP di produzione, distribuire le macchine virtuali di Azure con la connettività di rete aziendale usando la VPN da sito a sito di Azure o Azure ExpressRoute.
 
 > [!NOTE]
 > È possibile usare l'istanza di Rete virtuale di Azure. La rete virtuale e la subnet sono già state create e preparate.
@@ -548,7 +548,7 @@ Il servizio di bilanciamento del carico viene configurato per l'uso delle porte 
 
 Il modello di database distribuisce una o due macchine virtuali che è possibile usare per installare il sistema di gestione di database relazionali (RDBMS) per un sistema SAP. Se, ad esempio, si distribuisce un modello ASCS/SCS per 5 sistemi SAP, è necessario distribuire questo modello cinque volte.
 
-Per configurare il modello a più SID del database, nel [modello a più SID di database][sap-templates-3-tier-multisid-db-marketplace-image] o nel [modello a più SID del database usando Managed disks][sap-templates-3-tier-multisid-db-marketplace-image-md], immettere i valori per i parametri seguenti:
+Per configurare il modello a più SID del database, [nel modello a più SID][sap-templates-3-tier-multisid-db-marketplace-image] di database o nel modello a più SID del database [usando Managed disks][sap-templates-3-tier-multisid-db-marketplace-image-md], immettere i valori per i parametri seguenti:
 
 - **ID del sistema SAP**. Immettere l'ID del sistema SAP che si vuole installare. L'ID verrà usato come prefisso per le risorse distribuite.
 - **Os Type**. Selezionare il sistema operativo delle macchine virtuali.
@@ -565,7 +565,7 @@ Per configurare il modello a più SID del database, nel [modello a più SID di d
 
 Il modello dei server applicazioni consente di distribuire due o più macchine virtuali che possono essere usate come istanze del server applicazioni SAP per un sistema SAP. Se, ad esempio, si distribuisce un modello ASCS/SCS per 5 sistemi SAP, è necessario distribuire questo modello cinque volte.
 
-Per configurare il modello a più SID dei server applicazioni, nel [modello a più SID dei server applicazioni][sap-templates-3-tier-multisid-apps-marketplace-image] o nel [modello a più SID dei server applicazioni con Managed disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], immettere i valori per i parametri seguenti:
+Per configurare il modello a più SID dei server applicazioni, [nel modello a più SID][sap-templates-3-tier-multisid-apps-marketplace-image] dei server applicazioni o nel modello a più SID dei server applicazioni [con Managed disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], immettere i valori per i parametri seguenti:
 
   -  **ID del sistema SAP**. Immettere l'ID del sistema SAP che si vuole installare. L'ID verrà usato come prefisso per le risorse distribuite.
   -  **Os Type**. Selezionare il sistema operativo delle macchine virtuali.
@@ -589,7 +589,7 @@ Per impostare gli indirizzi IP DNS necessari, attenersi alla procedura seguente.
 
 1. Nel pannello **Server DSN** del portale di Azure verificare che l'opzione **Server DNS** della rete virtuale sia impostata su **DNS personalizzato**.
 2. Selezionare le impostazioni in base al tipo di rete esistente. Per altre informazioni, vedere le seguenti risorse:
-   * [Connettività di rete aziendale (cross-premise)][planning-guide-2.2]: aggiungere gli indirizzi IP dei server DNS locali.  
+   * aggiungere gli indirizzi IP dei server DNS locali.  
    È possibile estendere i server DNS locali alle macchine virtuali in esecuzione in Azure. In tale scenario è possibile aggiungere gli indirizzi IP delle macchine virtuali di Azure in cui si esegue il servizio DNS.
    * Per le distribuzioni di VM isolate in Azure: distribuire una macchina virtuale aggiuntiva nella stessa istanza di rete virtuale che funge da server DNS. Aggiungere gli indirizzi IP delle macchine virtuali di Azure configurate per l'esecuzione del servizio DNS.
 
@@ -770,7 +770,7 @@ Per aggiungere le voci del Registro di sistema in entrambi i nodi del cluster de
 | --- | --- |
 | Nome variabile |`KeepAliveTime` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| valore |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabella 3:** Modificare il primo parametro TCP/IP_
@@ -781,7 +781,7 @@ Aggiungere quindi le voci del Registro di sistema Windows in entrambi i nodi del
 | --- | --- |
 | Nome variabile |`KeepAliveInterval` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| valore |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabella 4:** Modificare il secondo parametro TCP/IP_

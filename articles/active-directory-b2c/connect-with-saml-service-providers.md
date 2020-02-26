@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7ccc5fe314d49ea65aaa8750937170ab79a8c04f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836661"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581464"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -38,12 +38,12 @@ Azure AD B2C Ottiene l'interoperabilità SAML in uno dei due modi seguenti:
 
 Riepilogo dei due scenari di base non esclusivi con SAML:
 
-| Scenario | Ruolo Azure AD B2C | Procedura |
+| Scenario | Ruolo Azure AD B2C | Procedure |
 | -------- | ----------------- | ------- |
 | L'applicazione prevede che un'asserzione SAML completi un'autenticazione. | **Azure AD B2C funge da provider di identità (IdP)**<br />Azure AD B2C funge da IdP SAML per le applicazioni. | Questo articolo. |
 | Gli utenti hanno bisogno dell'accesso Single Sign-on con un provider di identità conforme a SAML, ad esempio ADFS, Salesforce o Shibboleth.  | **Azure AD B2C funge da provider di servizi (SP)**<br />Azure AD B2C funge da provider di servizi per la connessione al provider di identità SAML. Si tratta di un proxy federativo tra l'applicazione e il provider di identità SAML.  | <ul><li>[Configurare l'accesso con ADFS come IdP SAML usando criteri personalizzati](identity-provider-adfs2016-custom.md)</li><li>[Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Completare i passaggi descritti in [Introduzione ai criteri personalizzati in Azure ad B2C](custom-policy-get-started.md). Sono necessari i criteri personalizzati di *SocialAndLocalAccounts* dello Starter Pack per i criteri personalizzati descritti nell'articolo.
 * Conoscenza di base del protocollo Security Assertion Markup Language (SAML).
@@ -259,7 +259,7 @@ Il file dei criteri di relying party finale dovrebbe essere simile al seguente:
 
 Salvare le modifiche e caricare il nuovo file dei criteri. Dopo aver caricato entrambi i criteri (estensione e file di relying party), aprire un Web browser e passare ai metadati dei criteri.
 
-I metadati dei criteri Azure AD B2C sono disponibili nel seguente URL. Sostituire `tenant-name` con il nome del tenant di Azure AD B2C e `policy-name` con il nome (ID) del criterio:
+I metadati IDP dei criteri Azure AD B2C sono informazioni usate nel protocollo SAML per esporre la configurazione di un provider di identità SAML. I metadati definiscono il percorso dei servizi, ad esempio accesso e disconnessione, certificati, metodo di accesso e altro ancora. I metadati dei criteri Azure AD B2C sono disponibili nel seguente URL. Sostituire `tenant-name` con il nome del tenant di Azure AD B2C e `policy-name` con il nome (ID) del criterio:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -321,7 +321,7 @@ Per questa esercitazione, in cui si usa l'applicazione di test SAML, impostare l
 ],
 ```
 
-#### <a name="logouturl-optional"></a>LogoutUrl (facoltativo)
+#### <a name="logouturl-optional"></a>logoutUrl (facoltativo)
 
 Questa proprietà facoltativa rappresenta l'URL di `Logout` (`SingleLogoutService` URL nei metadati del relying party) e il `BindingType` per questo si presuppone `Http-Redirect`.
 

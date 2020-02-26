@@ -4,18 +4,18 @@ description: Informazioni su come eseguire il backup di un server di Exchange in
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 73dcc190446a71498dee3f12a5225a56c9f4ddc7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 051e33e9340a5ee788011254bb2cf88029ba1505
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173118"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583844"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Azure con il server di Backup di Azure
 
 Questo articolo descrive come configurare il server di Backup di Microsoft Azure (MABS) per eseguire il backup di un server Microsoft Exchange in Azure.  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di continuare, assicurarsi che il Server di Backup di Azure sia [installato e pronto](backup-azure-microsoft-azure-backup.md).
 
@@ -23,8 +23,8 @@ Prima di continuare, assicurarsi che il Server di Backup di Azure sia [installat
 
 Per installare l'agente protezione MABS nel server di Exchange, seguire questi passaggi:
 
-1. Assicurarsi che i firewall siano configurati correttamente. Vedere [Configurare le eccezioni del firewall per l'agente](https://technet.microsoft.com/library/Hh758204.aspx).
-2. Per installare l'agente nel server di Exchange, fare clic su **Gestione > Agenti > Installa** nella Console amministrazione MABS. Per la procedura dettagliata, vedere [Installare l'agente protezione MABS](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) .
+1. Assicurarsi che i firewall siano configurati correttamente. Vedere [Configurare le eccezioni del firewall per l'agente](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758204(v=sc.12)).
+2. Per installare l'agente nel server di Exchange, fare clic su **Gestione > Agenti > Installa** nella Console amministrazione MABS. Per la procedura dettagliata, vedere [Installare l'agente protezione MABS](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12)) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Creare un gruppo di protezione per il server di Exchange
 
@@ -34,7 +34,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 4. Selezionare il database di Exchange Server che si vuole proteggere e fare clic su **Avanti**.
 
    > [!NOTE]
-   > Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](https://technet.microsoft.com/library/dn751029.aspx).
+   > Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
    >
    >
 
@@ -47,7 +47,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 
    * Protezione dati breve termine tramite: Disco.
    * Protezione dati online.
-6. Fare clic su **Next** (Avanti).
+6. Fare clic su **Avanti**.
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
     Dopo aver selezionato questa opzione, la verifica coerenza del backup verrà eseguito in MABS per evitare il traffico di I/O che viene generato eseguendo il comando **eseutil** sul server di Exchange.
@@ -57,7 +57,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Fare clic su **Next** (Avanti).
+8. Fare clic su **Avanti**.
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
    > [!NOTE]

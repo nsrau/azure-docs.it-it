@@ -2,17 +2,16 @@
 title: 'Esercitazione: Eseguire la distribuzione da GitHub nel servizio Azure Kubernetes (AKS) con Jenkins'
 description: Configurare Jenkins per l'integrazione continua (CI) da GitHub e la distribuzione continua (CD) nel servizio Azure Kubernetes (AKS)
 services: container-service
-ms.service: container-service
 author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: e46e2c2933ee9afda860b68b10c135ac75a5d247
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: fd754b539a9b0ba3d47ddd2228365dbd09d6e6df
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263937"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595485"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub nel servizio Azure Kubernetes (AKS) con integrazione continua e distribuzione continua di Jenkins
 
@@ -27,7 +26,7 @@ In questa esercitazione si completeranno le attività seguenti:
 > * Creare un processo di compilazione Jenkins e un webhook GitHub per compilazioni automatizzate.
 > * Testare la pipeline CI/CD per aggiornare un'applicazione in servizio Azure Kubernetes in base ai commit del codice di GitHub.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario quanto segue:
 

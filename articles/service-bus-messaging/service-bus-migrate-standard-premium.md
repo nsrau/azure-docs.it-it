@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 610c3aa486b48b2d29df48d98e93b37cfec4854c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 548163f4c86f4df4d858b31afd95e0e4615f1696
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790372"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587499"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti al livello Premium
 In precedenza, il bus di servizio di Azure offriva gli spazi dei nomi solo nel livello standard. Gli spazi dei nomi sono configurazioni multi-tenant ottimizzate per la velocità effettiva bassa e gli ambienti di sviluppo. Il livello Premium offre risorse dedicate per spazio dei nomi per la latenza prevedibile e una maggiore velocità effettiva a un prezzo fisso. Il livello Premium è ottimizzato per ambienti di produzione e velocità effettiva elevata che richiedono funzionalità aziendali aggiuntive.
@@ -32,7 +32,7 @@ Alcuni punti da considerare:
 - Lo spazio dei nomi Premium **non** deve contenere entità perché la migrazione abbia esito positivo. 
 - Tutte le **entità** nello spazio dei nomi standard vengono **copiate** nello spazio dei nomi Premium durante il processo di migrazione. 
 - La migrazione supporta **1.000 entità per ogni unità di messaggistica** nel livello Premium. Per identificare il numero di unità di messaggistica necessarie, iniziare con il numero di entità disponibili nello spazio dei nomi standard corrente. 
-- Non è possibile eseguire direttamente la migrazione dal livello **Basic** al **livello Premier**, ma è possibile eseguire questa operazione indirettamente eseguendo la migrazione da Basic a standard e quindi da standard a Premium nel passaggio successivo.
+- Non è possibile eseguire la migrazione diretta dal livello **Basic** al **livello Premium**, ma è possibile eseguire questa operazione indirettamente eseguendo la migrazione da Basic a standard e quindi da standard a Premium nel passaggio successivo.
 
 ## <a name="migration-steps"></a>Passaggi della migrazione
 Alcune condizioni sono associate al processo di migrazione. Acquisire familiarità con i passaggi seguenti per ridurre la possibilità di errori. Questi passaggi illustrano il processo di migrazione e i dettagli sono elencati nelle sezioni seguenti.
@@ -62,7 +62,7 @@ Per eseguire la migrazione dello spazio dei nomi standard del bus di servizio a 
    ```
 
     >[!IMPORTANT]
-    > L'alias/nome post-migrazione (post_migration_dns_name) verrà usato per accedere allo spazio dei nomi standard precedente dopo la migrazione. Utilizzare questa operazione per svuotare le code e le sottoscrizioni e quindi eliminare lo spazio dei nomi.
+    > L'alias/nome post-migrazione (post_migration_dns_name) verrà usato per accedere allo spazio dei nomi standard precedente, dopo la migrazione. Utilizzare questa operazione per svuotare le code e le sottoscrizioni e quindi eliminare lo spazio dei nomi.
 
 1. Associare gli spazi dei nomi standard e Premium e avviare la sincronizzazione usando il comando seguente:
 
@@ -118,7 +118,7 @@ La migrazione tramite il portale di Azure ha lo stesso flusso logico della migra
     La pagina di conferma viene visualizzata al termine della migrazione.
     ![spazio dei nomi switch-Success][]
 
-## <a name="caveats"></a>Avvertenze
+## <a name="caveats"></a>Precisazioni
 
 Alcune delle funzionalità fornite dal livello standard del bus di servizio di Azure non sono supportate dal livello Premium del bus di servizio di Azure. Si tratta di un progetto perché il livello Premium offre risorse dedicate per la velocità effettiva e la latenza prevedibili.
 
@@ -190,7 +190,7 @@ Tuttavia, non elimina le entità nello spazio dei nomi Premium o Elimina lo spaz
 >[!IMPORTANT]
 > Se si decide di interrompere la migrazione, eliminare lo spazio dei nomi premium di cui è stato effettuato il provisioning per la migrazione in modo che non vengano addebitate le risorse.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Non desidero svuotare i messaggi. Che cosa occorre fare?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Non desidero svuotare i messaggi. Cosa devo fare?
 
 È possibile che siano presenti messaggi inviati dalle applicazioni del mittente e di cui è stato eseguito il commit nell'archiviazione nello spazio dei nomi standard mentre è in corso la migrazione e appena prima del commit della migrazione.
 

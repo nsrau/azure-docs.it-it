@@ -3,16 +3,15 @@ title: Sviluppare in Azure Kubernetes Service (AKS) con Draft
 description: Usare Draft con il servizio Azure Container e con Registro Azure Container
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: 07e267af307fedd9b896e08919b7026a3a1c2bac
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: b03256ee65a3c40d8a64d70b877c49e44e68f822
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292963"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595222"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Guida introduttiva: sviluppare in Azure Kubernetes Service (AKS) con Draft
 
@@ -21,7 +20,7 @@ Draft è uno strumento open source che consente di creare pacchetti di contenito
 Questo articolo illustra come usare Draft per creare un pacchetto ed eseguire un'applicazione in AKS.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 * [L'interfaccia della riga di comando di Azure installata](/cli/azure/install-azure-cli?view=azure-cli-latest).

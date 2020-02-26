@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: f0a707f65ecf17887b4e5d12e3487ba3359a68ec
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 64bd6bb0a1a064f38eae472cb889acb6df7ae4b1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888312"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605153"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Installare ed eseguire i contenitori di riconoscimento form (anteprima)
 
@@ -25,17 +25,17 @@ Per ridurre la complessità e integrare facilmente un modello di Riconoscimento 
 > [!IMPORTANT]
 > I contenitori di riconoscimento form utilizzano attualmente la versione 1,0 dell'API di riconoscimento form. È possibile accedere alla versione più recente dell'API usando invece il servizio gestito.
 
-|Funzione|database elastico|
+|Funzione|Funzionalità|
 |-|-|
 |Riconoscimento modulo| <li>Elabora file PDF, PNG e JPG<li>Addestra i modelli personalizzati con un minimo di cinque forme dello stesso layout <li>Estrae coppie chiave-valore e informazioni della tabella <li>Usa la funzionalità di riconoscimento del testo dell'API Visione artificiale di Servizi cognitivi per rilevare ed estrarre testo stampato dalle immagini all'interno dei moduli<li>Non richiede annotazioni o assegnazioni di etichette|
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di usare i contenitori di Riconoscimento modulo, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatorio|Finalità|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, è anche necessario configurare Docker per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
@@ -64,7 +64,7 @@ Questa chiave viene usata per avviare il contenitore ed è disponibile nella pag
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
-È necessario prima di tutto completare e inviare il [modulo di richiesta dei contenitori di Riconoscimento modulo in Servizi cognitivi](https://aka.ms/FormRecognizerRequestAccess) per richiedere l'accesso al contenitore. In questo modo verrà ance effettuata l'iscrizione a Visione artificiale. Non è necessario iscriversi con il modulo di richiesta di Visione artificiale separatamente. 
+È necessario prima di tutto completare e inviare il [modulo di richiesta dei contenitori di Riconoscimento modulo in Servizi cognitivi](https://aka.ms/FormRecognizerContainerRequestAccess) per richiedere l'accesso al contenitore. In questo modo verrà ance effettuata l'iscrizione a Visione artificiale. Non è necessario iscriversi con il modulo di richiesta di Visione artificiale separatamente. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -80,7 +80,7 @@ La tabella seguente indica i core di CPU minimi e consigliati e la memoria da al
 
 | Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
-| Riconoscimento modulo | 2 Core, 4 GB di memoria | 4 core, 8 GB di memoria |
+| Riconoscimento modulo | 2 core, 4 GB di memoria | 4 core, 8 GB di memoria |
 | Riconoscimento del testo | 1 core, 8 GB di memoria | 2 Core, 8 GB di memoria |
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
@@ -132,7 +132,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori di `{COMPUTER_VISION_ENDPOINT_URI}`, `{COMPUTER_VISION_API_KEY}`, `{FORM_RECOGNIZER_ENDPOINT_URI}` e `{FORM_RECOGNIZER_API_KEY}`, vedere [raccolta di parametri obbligatori](#gathering-required-parameters) .
 
-Sono disponibili [esempi](form-recognizer-container-configuration.md#example-docker-run-commands) di comando `docker run`.
+Sono disponibili [esempi](form-recognizer-container-configuration.md#example-docker-run-commands) del comando `docker run`.
 
 ### <a name="form-recognizer"></a>Riconoscimento modulo
 
@@ -304,7 +304,7 @@ Il contenitore fornisce le API endpoint REST, disponibili nella pagina dell'[API
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si esegue il contenitore con un punto di [montaggio](form-recognizer-container-configuration.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore.
 
@@ -322,7 +322,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](for
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Riconoscimento modulo. In sintesi:
 

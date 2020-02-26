@@ -2,17 +2,14 @@
 title: Procedure consigliate per l'operatore - Funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 description: Procedure consigliate per l'operatore del cluster per l'uso delle funzionalità avanzate dell'utilità di pianificazione, come taint e tolleranze, selettori di nodo e affinità oppure affinità tra pod e anti-affinità, nel servizio Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: mlearned
-ms.openlocfilehash: 2ac66e46d449100fcdd004627820252473f6e2f3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 546c1d6ae25a33c6df93469ccf8c230b4b1c474b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293658"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594992"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 

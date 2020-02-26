@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 203e3718cedca693dc029a4ba20a86ca50ab3e32
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666296"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603850"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure
 
@@ -65,7 +65,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
     > [!NOTE]
     >In alcuni casi, l'indirizzo IP di origine non è disponibile, alcuni log eventi di sicurezza di Windows non includono l'indirizzo IP.
 
-1. La procedura di correzione consigliata dal Centro sicurezza varia in base all'avviso di sicurezza. Seguirli per ogni avviso. In alcuni casi, per mitigare un avviso di rilevamento delle minacce, potrebbe essere necessario usare altri controlli o servizi di Azure per implementare la correzione consigliata. 
+1. Le fasi di correzione suggerite dal centro sicurezza variano in base all'avviso di sicurezza. Seguirli per ogni avviso. In alcuni casi, per mitigare un avviso di rilevamento delle minacce, potrebbe essere necessario usare altri controlli o servizi di Azure per implementare la correzione consigliata. 
 
     Gli argomenti seguenti illustrano i diversi avvisi in base ai tipi di risorse:
     
@@ -78,12 +78,10 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
     * [Avvisi del livello di servizio](security-center-alerts-service-layer.md)
     * [Rilevamento delle minacce per Azure WAF e protezione DDoS di Azure](security-center-alerts-integration.md)
     
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 In questo documento si è appreso come configurare i criteri di sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Avvisi di sicurezza nel centro sicurezza di Azure](security-center-alerts-overview.md).
 * [Gestione degli eventi imprevisti della sicurezza](security-center-incident.md)
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.

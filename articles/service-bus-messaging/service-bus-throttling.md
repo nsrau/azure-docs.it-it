@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
-ms.openlocfilehash: 21a3bfd09e83571e489e15e9351e12220a99e563
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301256"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598290"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Operazioni di limitazione sul bus di servizio di Azure
 
@@ -55,6 +55,11 @@ Non tutte le operazioni vengono create uguali. Ecco i costi di credito di ogni o
 |-----------|-----------|
 | Operazioni sui dati (Send, SendAsync, Receive, ReceiveAsync, PEEK) |1 credito per messaggio |
 | Operazioni di gestione (creazione, lettura, aggiornamento, eliminazione su code, argomenti, sottoscrizioni, filtri) | 10 crediti |
+
+> [!NOTE]
+> Si noti che quando si invia a un argomento, ogni messaggio viene valutato in base ai filtri prima di essere reso disponibile nella sottoscrizione.
+> Ogni valutazione del filtro viene conteggiata anche rispetto al limite di credito, ovvero 1 credito per ogni valutazione del filtro.
+>
 
 ### <a name="how-will-i-know-that-im-being-throttled"></a>Come è possibile verificare che la limitazione è stata limitata?
 

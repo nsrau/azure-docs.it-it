@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 0c7ca6236adc5a476fbcf2bfbd54f4cc283bd607
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 7d382ace16305d38b9a65b3a857fd27dfa9e3a2b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201979"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603875"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Centro sicurezza di Azure e macchine virtuali di Azure con Linux
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -41,12 +41,12 @@ Oltre a proteggere le macchine virtuali di Azure, il Centro sicurezza offre funz
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per iniziare a usare il Centro sicurezza di Azure, è necessario conoscere e tenere in considerazione quanto segue:
 
 * È necessaria una sottoscrizione a Microsoft Azure. Per altre informazioni sui livelli gratuito e standard del Centro sicurezza, vedere [Centro sicurezza Prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 * Pianificare l'adozione del Centro sicurezza. Per informazioni sulle considerazioni relative alla pianificazione e alle operazioni, vedere [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
-* Per informazioni relative al supporto dei sistemi operativi, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). 
+* Per informazioni relative al supporto dei sistemi operativi, vedere [Domande frequenti sul Centro sicurezza di Azure](faq-vms.md). 
 
 ## <a name="set-security-policy"></a>Impostare i criteri di sicurezza
 È necessario abilitare la funzionalità di raccolta dati per consentire al Centro sicurezza di Azure di raccogliere le informazioni di cui ha bisogno per fornire indicazioni e avvisi generati sulla base dei criteri di sicurezza configurati. Nella figura seguente è possibile osservare che la funzionalità **Raccolta dati** è stato impostata su **On**.
@@ -64,14 +64,14 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure. Quand
 
 Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga rappresenta una particolare raccomandazione. La tabella seguente offre alcuni esempi di raccomandazioni per le VM di Azure che eseguono il sistema operativo Linux e descrive l'effetto della relativa applicazione. Quando di seleziona una raccomandazione, vengono visualizzate informazioni per l'implementazione della stessa nel Centro sicurezza.
 
-| Indicazione | Descrizione |
+| Recommendation | Descrizione |
 | --- | --- |
-| Abilita la raccolta di dati per le sottoscrizioni|Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni. |
+| Abilita raccolta dati per sottoscrizioni|Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni. |
 | Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)|Consiglia di allineare le configurazioni dei sistemi operativi alle regole di configurazione raccomandate, ad esempio non consentire il salvataggio delle password. |
-| Applica gli aggiornamenti del sistema|Consiglia di distribuire gli aggiornamenti critici e della sicurezza di sistema mancanti nelle macchine virtuali. |
-| Riavvia dopo gli aggiornamenti del sistema|Consiglia di riavviare una macchina virtuale per completare il processo di applicazione degli aggiornamenti del sistema. |
-| Abilita l'agente di macchine virtuali|Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter effettuare il provisioning dei programmi di analisi delle patch, analisi della baseline e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) offre informazioni su come installare l'agente di macchine virtuali. |
-| Applica la crittografia del disco |Suggerisce di crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure (VM Windows e Linux). La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale. |
+| Applicare gli aggiornamenti di sistema|Consiglia di distribuire gli aggiornamenti critici e della sicurezza di sistema mancanti nelle macchine virtuali. |
+| Riavviare dopo gli aggiornamenti del sistema|Consiglia di riavviare una macchina virtuale per completare il processo di applicazione degli aggiornamenti del sistema. |
+| Abilita l'agente di macchine virtuali|Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter effettuare il provisioning dei programmi di analisi delle patch, analisi della baseline e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all' [agente di macchine virtuali e relative estensioni, parte 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornisce informazioni su come installare l'agente di macchine virtuali. |
+| Applicare Crittografia dischi |Suggerisce di crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure (VM Windows e Linux). La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale. |
 
 
 > [!NOTE]
@@ -86,11 +86,11 @@ Una volta abilitati i [criteri di sicurezza](tutorial-security-policy.md) per le
 ## <a name="manage-and-respond-to-security-alerts"></a>Gestire e rispondere agli avvisi di sicurezza
 Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni dei partner connesse, ad esempio soluzioni di protezione endpoint e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Sfruttando le potenzialità dell'aggregazione di diverse [funzionalità di rilevamento](security-center-alerts-overview.md#detect-threats), Security Center è in grado di generare avvisi di protezione ordinati in base alla priorità che consentono di esaminare rapidamente un problema e forniscono indicazioni su come risolvere possibili attacchi.
 
-![Avvisi sicurezza](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
+![Avvisi di sicurezza](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
 Selezionare un avviso di sicurezza per altre informazioni sugli eventi che hanno attivato l'avviso e, se presenti, i passaggi da eseguire per correggere un attacco. Gli avvisi di sicurezza sono raggruppati per tipo e data.
 
-## <a name="monitor-security-health"></a>Monitora l'integrità della sicurezza
+## <a name="monitor-security-health"></a>Monitorare l'integrità della sicurezza
 Una volta abilitati i [criteri di sicurezza](tutorial-security-policy.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità.  Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene visualizzato il pannello **Macchine virtuali** con raccomandazioni per le macchine virtuali. 
 
 ![Integrità della sicurezza](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
@@ -105,5 +105,5 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
+* Domande [frequenti-macchine virtuali](faq-vms.md) --domande frequenti sull'uso del servizio.
 

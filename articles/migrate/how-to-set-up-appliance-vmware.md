@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate per VMware
 description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali VMware.
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: e331d45d3e87f8007642675a0349839e7494958c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291941"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598154"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -35,7 +35,7 @@ Per configurare l'appliance occorre:
 2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** fare clic su **Sì, con VMware vSphere Hypervisor**.
 3. Fare clic su **Scarica** per scaricare il file di modello OVA.
 
-
+  ![Selezioni per il download di un file OVA](./media/tutorial-assess-vmware/download-ova.png)
 
 ### <a name="verify-security"></a>Verificare la sicurezza
 
@@ -45,12 +45,8 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare l'hash per OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Per la versione dell'appliance più recente, l'hash generato deve corrispondere a queste impostazioni.
+3. Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste [Impostazioni](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
 
-  **Algoritmo** | **Valore hash**
-  --- | ---
-  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>Creare l'appliance VM
@@ -58,6 +54,8 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 Importare il file scaricato e creare una macchina virtuale.
 
 1. Nella console di vSphere Client fare clic su **File** > **Deploy OVF Template** (Distribuisci modello OVF).
+comando di menu ![per la distribuzione di un modello OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
+
 2. Nella procedura guidata Distribuire il modello OVF > **Origine** specificare il percorso del file con estensione ova.
 3. In **Name** (Nome) e **Location** (Posizione) specificare un nome descrittivo per la VM. Selezionare l'oggetto inventario in cui verrà ospitata la VM.
 5. In **Host/Cluster** specificare l'host o il cluster in cui verrà eseguita la macchina virtuale.
@@ -124,7 +122,7 @@ Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dip
 2. Selezionare il **sistema operativo**.
 3. Specificare un nome descrittivo per le credenziali.
 4. In **nome utente** e **password**specificare un account che disponga almeno dell'accesso guest nelle macchine virtuali.
-5. Scegliere **Aggiungi**.
+5. Fare clic su **Aggiungi**.
 
 Dopo aver specificato le credenziali server vCenter e VM (facoltativo), fare clic su **Salva e avvia individuazione** per avviare l'individuazione dell'ambiente locale.
 
