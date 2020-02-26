@@ -31,7 +31,7 @@
         - name: Servizio Azure Kubernetes
           items:
             - name: Integrazione continua e distribuzione continua per Kubernetes
-              href: /azure/aks/jenkins-continuous-deployment
+              href: jenkins-continuous-deployment.md
               maintainContext: true
             - name: Eseguire la distribuzione nel servizio Azure Kubernetes con un modello di tipo blu-verde
               href: jenkins-aks-blue-green-deployment.md
@@ -49,7 +49,7 @@
         - name: Distribuire in Funzioni di Azure
           href: jenkins-azure-functions-deploy.md
         - name: Pubblicare in Archiviazione di Azure
-          href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+          href: storage-java-jenkins-continuous-integration-solution.md
           maintainContext: true
         - name: Integrazione continua e distribuzione continua per le VM Linux
           href: tutorial-jenkins-github-docker-cicd.md
