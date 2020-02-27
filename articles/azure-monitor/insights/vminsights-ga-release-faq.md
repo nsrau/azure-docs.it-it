@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 673cda4005d9c985d8d6ee5ef1d28a3d8c241ac0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 883f24e529f9479f0c6ee6597c1324a0089ece7b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482885"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620386"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Monitoraggio di Azure per le macchine virtuali domande frequenti disponibili a livello generale (GA)
 
@@ -25,8 +25,6 @@ Queste domande frequenti sulla disponibilità generale riguardano le modifiche c
 Con questo aggiornamento, Monitoraggio di Azure per le macchine virtuali i dati sulle prestazioni vengono archiviati nella stessa tabella *InsightsMetrics* di [monitoraggio di Azure per i contenitori](container-insights-overview.md), semplificando l'esecuzione di query sui due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza. 
 
 Le visualizzazioni delle prestazioni ora usano i dati archiviati nella tabella *InsightsMetrics* .  Se non è ancora stato eseguito l'aggiornamento per usare la soluzione VMInsights più recente nell'area di lavoro, i grafici non visualizzeranno più informazioni.  È possibile eseguire l'aggiornamento dalla pagina **introduttiva** come descritto di seguito.
-
-Con questo aggiornamento, Monitoraggio di Azure per le macchine virtuali dati sulle prestazioni vengono archiviati nella stessa tabella *InsightsMetrics* di [monitoraggio di Azure per i contenitori](container-insights-overview.md) , semplificando l'esecuzione di query sui due set di dati. È anche possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza. 
 
 Ci rendiamo conto che la richiesta di aggiornamento da parte dei clienti esistenti causa un'alterazione del flusso di lavoro, motivo per cui abbiamo scelto di eseguire questa operazione ora in anteprima pubblica anziché in un secondo momento dopo GA.
 

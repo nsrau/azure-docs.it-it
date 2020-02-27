@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 03171e395bb23da05ee5420f60abca9a16ffb774
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 395210c582ba7f5e8170a96a46e2816336e33b2d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600293"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624041"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gestire le proprietà e i metadati dei BLOB con .NET
 
@@ -158,9 +158,9 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Operazione Set Blob Properties](/rest/api/storageservices/set-blob-properties)
 - [Operazione Get Blob Properties](/rest/api/storageservices/get-blob-properties)
 - [Impostazione operazione metadati BLOB](/rest/api/storageservices/set-blob-metadata)
-- [Operazione Get Blob Metadata](/rest/api/storageservices/set-blob-metadata)
+- [Operazione Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)

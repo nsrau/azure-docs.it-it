@@ -4,7 +4,7 @@ description: Scenari supportati e relativi dettagli di architettura per SAP HANA
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb8278b053ef52f43171137b02e729bfed085e67
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894708"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617172"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenari supportati nelle istanze Large di HANA
 Questo articolo descrive gli scenari supportati e i dettagli dell'architettura per le istanze large di HANA (HLI).
@@ -39,7 +39,7 @@ Verranno ora illustrati i termini e le definizioni usati in questo articolo:
 - **Multi-SID**: sistema con più istanze configurate; detto anche ambiente MCOS
 - **HSR**: replica di sistema SAP Hana
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Le istanze large di HANA supportano un'ampia gamma di architetture che consentono di soddisfare i requisiti aziendali. Le sezioni seguenti illustrano gli scenari di architettura e i relativi dettagli di configurazione. 
 
 Il progetto di architettura derivata è esclusivamente dal punto di vista dell'infrastruttura ed è necessario consultare SAP o i partner di implementazione per la distribuzione di HANA. Se gli scenari non sono elencati in questo articolo, contattare il team di account Microsoft per esaminare l'architettura e derivare una soluzione.
@@ -67,7 +67,7 @@ Ogni server di cui è stato effettuato il provisioning è preconfigurato con set
 | B | TIPO I | eth2.tenant | eno3.tenant | Da nodo a nodo|
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Da nodo a nodo|
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | STONITH |
@@ -139,7 +139,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -147,7 +147,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |/hana/shared/SID | Installazione di HANA | 
 |/hana/data/SID/mnt00001 | Installazione di file di dati | 
@@ -174,7 +174,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -182,7 +182,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |/hana/shared/SID1 | Installazione di HANA per SID1 | 
 |/hana/data/SID1/mnt00001 | Installazione di file di dati per SID1 | 
@@ -214,7 +214,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -222,7 +222,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |/hana/shared/SID | Installazione di HANA per SID | 
 |/hana/data/SID/mnt00001 | Installazione di file di dati per SID | 
@@ -255,7 +255,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -263,7 +263,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nel sito primario**|
 |/hana/shared/SID | Installazione di HANA per SID di produzione | 
@@ -310,7 +310,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usato per STONITH |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Usato per STONITH |
@@ -318,7 +318,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nel nodo primario**|
 |/hana/shared/SID | Installazione di HANA per SID di produzione | 
@@ -356,7 +356,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usato per STONITH |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Usato per STONITH |
@@ -364,7 +364,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nel nodo primario del sito primario**|
 |/hana/shared/SID | Installazione di HANA per SID di produzione | 
@@ -415,7 +415,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -423,7 +423,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nei nodi master e standby**|
 |/hana/shared | Installazione di HANA per SID di produzione | 
@@ -456,7 +456,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -464,7 +464,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nei nodi master, di lavoro e standby**|
 |/hana/shared | Installazione di HANA per SID di produzione | 
@@ -492,7 +492,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -500,7 +500,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nei nodi master e di lavoro**|
 |/hana/shared | Installazione di HANA per SID di produzione | 
@@ -531,7 +531,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -539,7 +539,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nel nodo primario**|
 |/hana/shared | Installazione di HANA per SID di produzione | 
@@ -576,7 +576,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -584,7 +584,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati in entrambe le unità HLI (primario e ripristino di emergenza):
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |/hana/shared/SID | Installazione di HANA per SID | 
 |/hana/data/SID/mnt00001 | Installazione di file di dati per SID | 
@@ -617,7 +617,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -625,7 +625,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nel sito primario**|
 |/hana/shared/SID | Installazione di HANA per SID di produzione | 
@@ -667,7 +667,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -675,7 +675,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nel sito primario**|
 |/hana/shared/SID | Installazione di HANA per SID di produzione | 
@@ -712,7 +712,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurato ma non in uso |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -720,7 +720,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nel sito primario**|
 |/hana/shared/SID | Installazione di HANA per SID di produzione | 
@@ -763,7 +763,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo a archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| A | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI/HSR |
+| A | TIPO II | VLAN\<tenantNo > | team0.tenant | Da client a HLI/HSR |
 | B | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicazione da nodo a nodo |
 | C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Da nodo a archiviazione |
 | D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurato ma non in uso |
@@ -771,7 +771,7 @@ Sono preconfigurate le interfacce di rete seguenti:
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
 
-| Mount point (Punto di montaggio) | Caso d'uso | 
+| Punto di montaggio | Caso d'uso | 
 | --- | --- |
 |**Nel nodo primario**|
 |/hana/shared | Installazione di HANA per SID di produzione | 

@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034601"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605531"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Esercitazione: usare il Centro sicurezza di Azure per monitorare le macchine virtuali Linux
 
 Il Centro sicurezza di Azure consente di ottenere visibilità nelle procedure per la sicurezza delle risorse di Azure. Il Centro sicurezza offre il monitoraggio della sicurezza integrato. Consente di rilevare minacce che altrimenti non verrebbero rilevate. Questa esercitazione illustra il Centro sicurezza di Azure e come:
  
 > [!div class="checklist"]
-> * configurare la raccolta dei dati
+> * Configurare la raccolta dei dati
 > * configurare i criteri di sicurezza
 > * visualizzare e risolvere i problemi di integrità della configurazione
 > * esaminare le minacce rilevate
@@ -129,10 +129,10 @@ In questa esercitazione viene configurato il Centro sicurezza di Azure e vengono
 > * Configurare la raccolta dei dati
 > * configurare i criteri di sicurezza
 > * visualizzare e risolvere i problemi di integrità della configurazione
-> * Esaminare le minacce rilevate
+> * esaminare le minacce rilevate
 
 Passare all'esercitazione successiva per altre informazioni sulla creazione di una pipeline CI/CD con Jenkins, GitHub e Docker.
 
 > [!div class="nextstepaction"]
-> [Creare un'infrastruttura di integrazione continua e di distribuzione continua con Jenkins, GitHub e Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Creare un'infrastruttura di integrazione continua e di distribuzione continua con Jenkins, GitHub e Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

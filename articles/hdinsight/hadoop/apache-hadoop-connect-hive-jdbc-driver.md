@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 016107248399e84b7a82a656c9d590c3cbe0cdbe
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 7d1a77800093ae01bc4eb1e1269d1e9a60f9ce26
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466927"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616670"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Apache Hive tramite il driver JDBC in HDInsight
 
@@ -36,6 +36,18 @@ Le connessioni JDBC a un cluster HDInsight in Azure vengono effettuate sulla por
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 Sostituire `CLUSTERNAME` con il nome del cluster HDInsight.
+
+In alternativa, è possibile ottenere la connessione tramite l' **interfaccia utente di Ambari > configurazioni > Hive > avanzate**.
+
+![Ottenere la stringa di connessione JDBC tramite Ambari](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png)
+
+### <a name="host-name-in-connection-string"></a>Nome host nella stringa di connessione
+
+Il nome host ' CLUSTERNAME.azurehdinsight.net ' nella stringa di connessione è uguale all'URL del cluster. È possibile ottenerlo tramite portale di Azure. 
+
+### <a name="port-in-connection-string"></a>Porta nella stringa di connessione
+
+È possibile usare solo la **porta 443** per connettersi al cluster da alcune posizioni esterne alla rete virtuale di Azure. HDInsight è un servizio gestito, il che significa che tutte le connessioni al cluster vengono gestite tramite un gateway sicuro. Non è possibile connettersi direttamente a del 2 sulle porte 10001 o 10000 perché queste porte non sono esposte all'esterno. 
 
 ## <a name="authentication"></a>Autenticazione
 
@@ -138,6 +150,15 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 1. Uscire da SQuirreL, quindi passare alla directory in cui è installato SQuirreL nel sistema, ad esempio `C:\Program Files\squirrel-sql-4.0.0\lib`. Nella directory `lib` della directory di SquirreL sostituire il file commons-codec.jar esistente con quello scaricato dal cluster HDInsight.
 
 1. Riavviare SQuirreL. L'errore non dovrebbe più verificarsi quando ci si connette a Hive in HDInsight.
+
+### <a name="connection-disconnected-by-hdinsight"></a>Connessione disconnessa da HDInsight
+
+**Sintomi**: quando si tenta di scaricare una grande quantità di dati (ad eccezione di diversi GB) tramite JDBC/ODBC, la connessione viene disconnessa da HDInsight in modo imprevisto durante il download. 
+
+**Causa**: questo errore è causato dalla limitazione dei nodi del gateway. Quando si recuperano dati da JDBC/ODBC, tutti i dati devono passare attraverso il nodo del gateway. Tuttavia, un gateway non è progettato per scaricare una grande quantità di dati, quindi la connessione potrebbe essere chiusa dal gateway se non è in grado di gestire il traffico.
+
+**Soluzione**: evitare di utilizzare il driver JDBC/ODBC per scaricare grandi quantità di dati. Copiare i dati direttamente dall'archivio BLOB.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

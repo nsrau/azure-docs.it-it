@@ -2,18 +2,15 @@
 title: Esercitazione su Kubernetes in Azure - Aggiornare un'applicazione
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come aggiornare la distribuzione di un'applicazione esistente nel servizio Azure Kubernetes con una nuova versione del codice dell'applicazione.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614387"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593377"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Esercitazione: Aggiornare un'applicazione nel servizio Azure Kubernetes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a82d2ad3e79633bb930348c6162996e961c4306
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704264"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612958"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Informazioni sugli stati di integrità e risoluzione dei domini sospesi in Azure Active Directory Domain Services
 
@@ -41,7 +41,7 @@ Un dominio gestito di Azure AD DS può trovarsi in uno degli Stati seguenti:
 
 Un dominio gestito Azure AD DS configurato correttamente e in esecuzione senza problemi è nello stato in *esecuzione* . Si tratta dello stato desiderato per un dominio gestito.
 
-### <a name="what-to-expect"></a>Programma
+### <a name="what-to-expect"></a>Cosa aspettarsi
 
 * La piattaforma Azure può monitorare regolarmente l'integrità del dominio gestito.
 * I controller di dominio per il dominio gestito vengono corretti e aggiornati regolarmente.
@@ -56,7 +56,7 @@ Un esempio di avviso è costituito da un gruppo di sicurezza di rete restrittivo
 
 Per ulteriori informazioni, vedere [come risolvere i problemi relativi agli avvisi per un dominio gestito di Azure AD DS][resolve-alerts].
 
-### <a name="what-to-expect"></a>Programma
+### <a name="what-to-expect"></a>Cosa aspettarsi
 
 Quando un dominio gestito di Azure AD DS è nello stato *richiesta attenzione* , la piattaforma Azure potrebbe non essere in grado di monitorare, applicare patch, aggiornare o eseguire il backup dei dati a intervalli regolari. In alcuni casi, ad esempio con una configurazione di rete non valida, è possibile che i controller di dominio per il dominio gestito non siano raggiungibili.
 
@@ -77,7 +77,7 @@ Un dominio gestito di Azure AD DS entra nello stato **suspended** per uno dei se
 
 I domini gestiti vengono sospesi quando la piattaforma Azure non è in grado di gestire, monitorare, applicare patch o eseguire il backup del dominio. Un dominio gestito rimane in stato *sospeso* per 15 giorni. Per mantenere l'accesso al dominio gestito, risolvere immediatamente gli avvisi critici.
 
-### <a name="what-to-expect"></a>Programma
+### <a name="what-to-expect"></a>Cosa aspettarsi
 
 Il comportamento seguente si verifica quando un dominio gestito di Azure AD DS si trova nello stato *suspended* :
 
@@ -96,7 +96,7 @@ Viene visualizzato un [avviso][resolve-alerts] nella pagina relativa all'integri
 Per ripristinare l'integrità di un dominio gestito di Azure AD DS nello stato *suspended* , attenersi alla procedura seguente:
 
 1. Nella portale di Azure cercare e selezionare **servizi di dominio**.
-1. Scegliere il dominio gestito di Azure AD DS dall'elenco, ad esempio *aadds.contoso.com*, quindi selezionare **Health (integrità**).
+1. Scegliere il dominio gestito di Azure AD DS dall'elenco, ad esempio *aaddscontoso.com*, quindi selezionare **Health (integrità**).
 1. Selezionare l'avviso, ad esempio *AADDS503* o *AADDS504*, a seconda della cause della sospensione.
 1. Scegliere il collegamento di risoluzione fornito nell'avviso e seguire la procedura per risolverlo.
 
@@ -108,7 +108,7 @@ Dopo aver risolto gli avvisi quando il dominio gestito si trova nello stato *sus
 
 Se uno Azure AD dominio gestito DS rimane nello stato *suspended* per 15 giorni, viene eliminato. Questo processo è irreversibile.
 
-### <a name="what-to-expect"></a>Programma
+### <a name="what-to-expect"></a>Cosa aspettarsi
 
 Quando un dominio gestito di Azure AD DS entra nello stato *eliminato* , viene visualizzato il comportamento seguente:
 

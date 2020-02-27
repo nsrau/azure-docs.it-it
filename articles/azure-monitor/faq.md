@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: 33af9c8f3fbe4de57d65be432f249d4aeb5d3e27
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 169cc3f6a195a7339ab33eb9f00d9937451a93e0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485336"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620443"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su monitoraggio di Azure
 
@@ -82,7 +82,7 @@ Per visualizzare le soluzioni nella portale di Azure, fare clic su **altro** nel
 
 
 
-## <a name="logs"></a>Log
+## <a name="logs"></a>Registri
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Qual è la differenza tra i log di monitoraggio di Azure e Esplora dati di Azure?
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. I log di monitoraggio di Azure si basano su Esplora dati di Azure e usano lo stesso linguaggio di query kusto (KQL) con alcune differenze minime. Vedere le [differenze del linguaggio di query del log di monitoraggio di Azure](log-query/data-explorer-difference.md).
@@ -279,7 +279,7 @@ Un'app desktop che è possibile usare nel server Web IIS per configurare Applica
 
 Da app Web del server:
 
-* Richieste HTTP
+* richieste HTTP
 * [Dipendenze](app/asp-net-dependencies.md). Chiamate a: database SQL, chiamate HTTP a servizi esterni, Azure Cosmos DB, tabelle, archiviazione BLOB e code. 
 * [Eccezioni](app/asp-net-exceptions.md) e analisi dello stack.
 * [Contatori delle prestazioni](app/performance-counters.md) : se si usa [Status Monitor](app/monitor-performance-live-website-now.md), [monitoraggio di Azure per i servizi app](app/azure-web-apps.md), [monitoraggio di Azure per VM o set di scalabilità di macchine virtuali](app/azure-vm-vmss-apps.md)o il [writer Application Insights collectd](app/java-collectd.md).
@@ -492,7 +492,7 @@ Per altre informazioni, vedere l'articolo di DotNet in [defaultProxy](https://do
 
 ### <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>È possibile eseguire test Web di disponibilità in un server Intranet?
 
-I [test Web](app/monitor-web-app-availability.md) vengono eseguiti in punti di presenza distribuiti in tutto il globo. Sono disponibili due soluzioni:
+I [test Web](app/monitor-web-app-availability.md) vengono eseguiti in punti di presenza distribuiti in tutto il globo. Sono due le possibili soluzioni:
 
 * Porta di firewall: consentire al server di ricevere richieste dall'[elenco esteso e modificabile degli agenti di test Web](app/ip-addresses.md).
 * Scrivere un codice personalizzato per inviare richieste periodiche al server dall'interno della rete Intranet. A tale scopo è anche possibile eseguire test Web di Visual Studio. Il tester può inviare i risultati ad Application Insights tramite l'API TrackAvailability().

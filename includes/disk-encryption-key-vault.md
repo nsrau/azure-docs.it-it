@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 398da52ba424c08bd1bbdc6f02641109e136f45c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72511488"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77618503"
 ---
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -120,7 +120,7 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 1. Selezionare l'insieme di credenziali delle chiavi, passare a **criteri di accesso**e **fare clic su per visualizzare i criteri di accesso avanzati**.
 2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi**.
 3. Selezionare **Abilita l'accesso alle macchine virtuali di Azure per la distribuzione** e/o **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli**, se necessario. 
-4. Fare clic su **Salva**
+4. Fare clic su **Salva**.
 
     ![Criteri di accesso avanzati per l'insieme di credenziali delle chiavi di Azure](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -151,7 +151,7 @@ Usare l'interfaccia della riga di comando di Azure [AZ Key Vault Key create](/cl
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA-HSM
 ```
 
-. È invece possibile importare una chiave privata usando l'interfaccia della riga di comando di Azure [AZ chiave Vault Key Import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) :
+È invece possibile importare una chiave privata usando l'interfaccia della riga di comando di Azure [AZ chiave Vault Key Import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) :
 
 In entrambi i casi, si fornirà il nome della KEK all'interfaccia della riga di comando di Azure [AZ VM Encryption Enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) --Key-Encryption-Key. 
 

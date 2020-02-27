@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 038e53251bd81552fd3379f2d7645570fbcda4ef
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6b36694c2fe1bf264c876944b054d39371db616c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471347"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614289"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -61,12 +61,12 @@ La tabella seguente illustra i tipi di account di archiviazione che supportano Z
 
 |    Tipo di account di archiviazione    |    Aree supportate    |    Servizi supportati    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europa occidentale<br /> Stati Uniti orientali    |    Solo BLOB in blocchi    |
-|    FileStorage    | Europa occidentale<br /> Stati Uniti orientali    |    Solo File di Azure    |
+|    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti Orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
+|    BlockBlobStorage<sup>1</sup>    | Europa occidentale<br /> Stati Uniti Orientali    |    Solo BLOB in blocchi    |
+|    FileStorage    | Europa occidentale<br /> Stati Uniti Orientali    |    Solo File di Azure    |
 
 <sup>1</sup> il livello archivio non è attualmente supportato per gli account ZRS.<br />
-<sup>2</sup> i dischi di Azure per le macchine virtuali, inclusi i dischi gestiti e non gestiti, supportano solo con ridondanza locale. Non supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [prezzi per Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+<sup>2</sup> gli account di archiviazione che contengono Azure Managed disks per le macchine virtuali usano sempre con ridondanza locale. I dischi non gestiti di Azure devono anche usare con ridondanza locale. È possibile creare un account di archiviazione per i dischi non gestiti di Azure che usa GRS, ma non è consigliabile a causa di problemi potenziali con la coerenza della replica geografica asincrona. I dischi gestiti e non gestiti non supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [prezzi per Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 Per informazioni sulle aree che supportano ZRS, vedere **supporto dei servizi in base all'area** in [zone di disponibilità di Azure](../../availability-zones/az-overview.md).
 
@@ -110,7 +110,7 @@ GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 - Europa settentrionale
 - Europa occidentale
 - Regno Unito meridionale
-- Stati Uniti orientali
+- Stati Uniti Orientali
 - Stati Uniti orientali 2
 - Stati Uniti centrali
 
@@ -131,7 +131,7 @@ Se l'account di archiviazione è configurato per l'accesso in lettura all'area s
 
 Quando è abilitato l'accesso in lettura al database secondario, i dati possono essere letti dall'endpoint secondario e dall'endpoint primario per l'account di archiviazione. L'endpoint secondario aggiunge il suffisso *-secondario* al nome dell'account. Ad esempio, se l'endpoint primario per l'archiviazione BLOB è `myaccount.blob.core.windows.net`, l'endpoint secondario viene `myaccount-secondary.blob.core.windows.net`. Le chiavi di accesso dell'account per l'account di archiviazione sono le stesse per gli endpoint primario e secondario.
 
-### <a name="check-the-last-sync-time-property"></a>Controllare la proprietà ora ultima sincronizzazione
+### <a name="check-the-last-sync-time-property"></a>Controllare la proprietà Ora ultima sincronizzazione
 
 Poiché i dati vengono replicati in modo asincrono nell'area secondaria, l'area secondaria è spesso dietro l'area primaria. Se si verifica un errore nell'area primaria, è probabile che tutte le scritture nel database primario non siano ancora state replicate nel database secondario.
 

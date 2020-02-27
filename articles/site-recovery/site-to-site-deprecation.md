@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 29a939452d9b90bd8afda7db4e115d10956ee5e5
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 68d975a1b8bb8d47011bb292d3cf897956b31712
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606633"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623612"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Deprecazione del ripristino di emergenza tra siti gestiti dal cliente (con VMM) con Azure Site Recovery
 
@@ -26,9 +26,9 @@ RIPRISTINO di emergenza tra siti di proprietà del cliente gestiti da System Cen
 
 ## <a name="what-changes-should-you-expect"></a>Quali modifiche si aspettano?
 
-- A partire dal 2019 novembre, per questi scenari non saranno consentiti nuovi utenti in bacheca. **Le operazioni di replica e di gestione esistenti** , tra cui il failover, il failover di test, il monitoraggio e così via, **non saranno interessate**.
+- A partire da marzo 2020, si riceveranno notifiche portale di Azure & comunicazioni tramite posta elettronica con la prossima deprecazione della replica da sito a sito delle VM Hyper-V. La deprecazione è prevista per il 2023 marzo.
 
-- Se si dispone di una configurazione esistente, non sarà possibile registrare nuovi VMMs.
+- Se si dispone di una configurazione esistente, l'installazione non avrà alcun effetto.
 
 - Una volta che gli scenari sono stati deprecati, a meno che il cliente non segua gli approcci alternativi, è possibile che le repliche esistenti vengano interrotte. I clienti non saranno in grado di visualizzare, gestire o eseguire operazioni relative al ripristino di emergenza tramite l'esperienza Azure Site Recovery in portale di Azure.
  

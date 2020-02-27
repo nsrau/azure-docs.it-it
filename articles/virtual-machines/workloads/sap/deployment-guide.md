@@ -4,7 +4,7 @@ description: Informazioni su come distribuire il software SAP in macchine virtua
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: e7a61cc64ae72adfcbeb347ddd076065ccc3a321
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 19dc9f25cc7355eb540b68f009a77b1ca1e5fb86
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645855"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614893"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -315,7 +315,7 @@ Macchine virtuali di Azure è la soluzione ideale per le organizzazioni che nece
 
 In questo articolo viene illustrata la procedura per distribuire applicazioni SAP in macchine virtuali in Azure, incluse le opzioni di distribuzione alternative e la risoluzione dei problemi. Questo articolo si basa sulle informazioni contenute in [pianificazione e implementazione di macchine virtuali di Azure per SAP NetWeaver][planning-guide]. Integra anche la documentazione sull'installazione di SAP e le note su SAP, che sono le risorse principali per l'installazione e la distribuzione del software SAP.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -692,7 +692,7 @@ Il diagramma di flusso seguente illustra la sequenza di passaggi per spostare un
 
 Se il disco è già caricato e definito in Azure (vedere [pianificazione e implementazione di macchine virtuali di Azure per SAP NetWeaver][planning-guide]), eseguire le attività descritte nelle sezioni successive.
 
-#### <a name="create-a-virtual-machine"></a>Crea una macchina virtuale
+#### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
 Per creare una distribuzione usando un disco del sistema operativo privato tramite il portale di Azure, usare il modello SAP pubblicato nel [repository Azure-QuickStart-Templates di GitHub][azure-quickstart-templates-github]. È anche possibile creare una macchina virtuale manualmente usando PowerShell.
 

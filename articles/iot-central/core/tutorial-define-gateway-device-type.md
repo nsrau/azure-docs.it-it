@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8020abf3f8ab153d0143ff50d837ebcfbf5bdfba
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ec84d3804c24766c6344e9909ba10089e186599c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423721"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623448"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo gateway IoT nell'applicazione Azure IoT Central
 
@@ -30,7 +30,7 @@ Oltre a consentire ai dispositivi downstream di comunicare con l'applicazione Io
 * Rispondere agli aggiornamenti di proprietà scrivibili eseguiti da un operatore. Ad esempio, un operatore potrebbe modificare l'intervallo di invio dei dati di telemetria.
 * Rispondere ai comandi, ad esempio il riavvio del dispositivo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario [creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md).
 
@@ -207,4 +207,4 @@ In questa esercitazione sono state illustrate le procedure per:
 Successivamente, sarà possibile:
 
 > [!div class="nextstepaction"]
-> [Connettere un dispositivo](tutorial-connect-pnp-device.md)
+> [Connettere un dispositivo](tutorial-connect-device.md)

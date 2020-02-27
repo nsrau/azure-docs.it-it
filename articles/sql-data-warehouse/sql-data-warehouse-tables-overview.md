@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9220d3adb31005551b6358034207f1071065b1a7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: da06112b0990898227191c919b209c8a95d15197
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692392"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616526"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Progettazione di tabelle in Azure SQL Data Warehouse
 
@@ -41,10 +41,10 @@ CREATE SCHEMA wwi;
 
 Per visualizzare l'organizzazione delle tabelle in SQL Data Warehouse, è possibile usare fact, dim e int come prefissi dei nomi delle tabelle. La tabella seguente include alcuni dei nomi di tabella e dello schema per WideWorldImportersDW.  
 
-| Tabella WideWorldImportersDW  | Tipo di tabella | SQL Data Warehouse |
+| Tabella WideWorldImportersDW  | Tipo di tabella. | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| city | Dimensione | wwi.DimCity |
-| Ordine | Fact | wwi.FactOrder |
+| Città | Dimension | wwi.DimCity |
+| Order | Fact | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Persistenza delle tabelle 
@@ -92,17 +92,17 @@ La categoria della tabella spesso determina l'opzione appropriata per la distrib
 | Categoria di tabella | Opzione di distribuzione consigliata |
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
-| Dimensione      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
-| Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
+| Dimension      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
+| Gestione temporanea        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
 
 ## <a name="table-partitions"></a>Partizioni della tabella
-Una tabella partizionata archivia ed esegue operazioni sulle righe di tabella in base agli intervalli di dati. Una tabella può, ad esempio, essere partizionata in base ai giorni, ai mesi o agli anni. È possibile migliorare le prestazioni delle query tramite l'eliminazione della partizione, che limita l'analisi di una query ai dati all'interno di una partizione. È inoltre possibile gestire i dati tramite la commutazione tra partizioni. Poiché i dati in SQL Data Warehouse sono già distribuiti, un numero eccessivo di partizioni può rallentare le prestazioni delle query. Per altre informazioni, vedere [Indicazioni sul partizionamento](sql-data-warehouse-tables-partition.md).  Quando la partizione passa a partizioni di tabella non vuote, provare a usare l'opzione TRUNCATE_TARGET nell'istruzione [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) se i dati esistenti devono essere troncati. Il codice seguente passa i dati giornalieri trasformati in SalesFact sovrascrivendo i dati esistenti. 
+Una tabella partizionata archivia ed esegue operazioni sulle righe di tabella in base agli intervalli di dati. Una tabella può, ad esempio, essere partizionata in base ai giorni, ai mesi o agli anni. È possibile migliorare le prestazioni delle query tramite l'eliminazione della partizione, che limita l'analisi di una query ai dati all'interno di una partizione. È inoltre possibile gestire i dati tramite la commutazione tra partizioni. Poiché i dati in SQL Data Warehouse sono già distribuiti, un numero eccessivo di partizioni può rallentare le prestazioni delle query. Per altre informazioni, vedere [Indicazioni sul partizionamento](sql-data-warehouse-tables-partition.md).  Quando la partizione passa a partizioni di tabella non vuote, è consigliabile utilizzare l'opzione TRUNCATE_TARGET nell'istruzione [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) se i dati esistenti devono essere troncati. Il codice seguente passa i dati giornalieri trasformati in SalesFact sovrascrivendo i dati esistenti. 
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
-## <a name="columnstore-indexes"></a>Indici Columnstore
+## <a name="columnstore-indexes"></a>Indici columnstore
 Per impostazione predefinita, SQL Data Warehouse archivia una tabella come indice columnstore cluster. Questo modulo di archiviazione dei dati raggiunge compressione dei dati e prestazioni di query elevate su tabelle di grandi dimensioni.  L'indice columnstore cluster è in genere la scelta migliore, ma in alcuni casi un indice cluster o un heap è la struttura di archiviazione appropriata.  Una tabella heap può essere particolarmente utile per il caricamento di dati temporanei, ad esempio una tabella di staging, che viene trasformata in una tabella finale.
 
 Per un elenco delle funzionalità columnstore, vedere [Indici columnstore - Novità](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Per migliorare le prestazioni dell'indice columnstore, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
@@ -213,6 +213,7 @@ LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where dist
 LEFT OUTER JOIN sys.columns c
     ON cdp.[object_id] = c.[object_id]
     AND cdp.[column_id] = c.[column_id]
+WHERE pn.[type] = 'COMPUTE'
 )
 , size
 AS

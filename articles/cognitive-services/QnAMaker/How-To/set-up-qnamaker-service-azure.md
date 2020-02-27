@@ -1,37 +1,23 @@
 ---
 title: Configurare un servizio QnA Maker-QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare un servizio QnA Maker in Azure. Qualsiasi utente autorizzato a creare nuove risorse in una sottoscrizione può configurare un servizio QnA Maker.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 00b8e6d44ed8449aa4ddf8716039c8c85c558b8f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 663cbce0e096c6189d97cf7872d466383d272f06
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901735"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650419"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
 Prima di poter creare una Knowledge Base di QnA Maker, è necessario configurare un servizio QnA Maker in Azure. Qualsiasi utente autorizzato a creare nuove risorse in una sottoscrizione può configurare un servizio QnA Maker.
 
-## <a name="types-of-keys-in-qna-maker"></a>Tipi di chiavi in QnA Maker
+Una conoscenza approfondita dei concetti seguenti è utile prima di creare la risorsa:
 
-Il servizio QnA Maker gestisce due tipi di chiavi: chiavi di **sottoscrizione** e **chiavi dell'endpoint**.
-
-![Gestione delle chiavi](../media/qnamaker-how-to-key-management/key-management.png)
-
-|Nome|Percorso|Finalità|
-|--|--|--|
-|Chiave della sottoscrizione|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Queste chiavi vengono usate per accedere alle [API del servizio di gestione QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
-|Chiave endpoint|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono utilizzate per accedere all'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
+* [Risorse QnA Maker](../Concepts/azure-resources.md)
+* [Creazione e pubblicazione di chiavi](../Concepts/azure-resources.md#keys-in-qna-maker)
 
 ## <a name="create-a-new-qna-maker-service"></a>Creare un nuovo servizio QnA Maker
 
@@ -63,7 +49,7 @@ Questa procedura consente di creare le risorse di Azure necessarie per gestire i
 
     * Specificare se si desidera abilitare o meno **Application Insights**. Se **Application Insights** è abilitato, QnA Maker raccoglierà dati di telemetria su traffico, log delle chat ed errori.
     * Scegliere il **percorso di App Insights** in cui verrà distribuita la risorsa Application Insights.
-    * Per le misure di risparmio sui costi, è possibile [condividere](#share-existing-services-with-qna-maker) alcune ma non tutte le risorse di Azure create per QnA Maker.
+    * Per le misure di risparmio sui costi, è possibile [condividere](#configure-qna-maker-to-use-different-cognitive-search-resource) alcune ma non tutte le risorse di Azure create per QnA Maker.
 
 1. Dopo la convalida di tutti i campi, selezionare **Crea**. Il completamento del processo può richiedere alcuni minuti.
 
@@ -98,67 +84,10 @@ Le chiavi endpoint possono essere gestite dal [portale di QnA Maker](https://qna
 2. Visualizza o Reimposta le chiavi:
 
     > [!div class="mx-imgBorder"]
-    > [![visualizzare, copiare o impostare la chiave dell'endpoint nelle impostazioni del servizio](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)](../media/qnamaker-how-to-key-management/Endpoint-keys1.png#lightbox)
+    > Gestione chiavi ![endpoint](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
     >Aggiornare le chiavi se si ritiene che siano state compromesse. Questa operazione può richiedere modifiche corrispondenti al codice del bot o dell'applicazione client.
-
-## <a name="share-existing-services-with-qna-maker"></a>Condividere i servizi esistenti con QnA Maker
-
-QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantaggio dalla condivisione dei costi, usare la tabella seguente per comprendere cosa è possibile e non è possibile condividere:
-
-|Servizio|Condivisione|Motivo|
-|--|--|--|
-|Servizi cognitivi|X|Non possibile dalla progettazione|
-|Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app che condividono lo stesso piano di servizio app usano spazio su disco significativo, si verificheranno problemi nell'istanza del servizio app QnAMaker.|
-|Servizio app|X|Non possibile dalla progettazione|
-|Application Insights|✔|Può essere condivisa|
-|Servizio di ricerca|✔|1. `testkb` è un nome riservato per il servizio QnAMaker. non può essere usato da altri.<br>2. la mappa dei sinonimi in base al nome `synonym-map` è riservata per il servizio QnAMaker.<br>3. il numero di Knowledge base pubblicate è limitato dal livello di servizio di ricerca. Se sono disponibili indici gratuiti, possono essere usati da altri servizi.|
-
-Altre informazioni sul servizio [app](../../../app-service/index.yml) e il [servizio di ricerca](../../../search/index.yml).
-
-## <a name="using-a-single-search-service"></a>Uso di un singolo servizio di ricerca
-
-Se si crea un servizio QnA e le relative dipendenze (ad esempio la ricerca) tramite il portale, viene creato un servizio di ricerca e collegato al servizio QnA Maker. Dopo aver creato queste risorse, è possibile aggiornare l'impostazione del servizio app per usare un servizio di ricerca precedentemente esistente e rimuovere quello appena creato.
-
-Se si crea un servizio QnA tramite modelli di Azure Resource Manager, è possibile creare tutte le risorse e controllare la creazione del servizio app per l'uso di un servizio di ricerca esistente.
-
-
-## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Configurare QnA Maker per l'uso di risorse ricerca cognitiva diverse
-
-Se si crea un servizio QnA e le relative dipendenze (ad esempio la ricerca) tramite il portale, viene creato un servizio di ricerca e collegato al servizio QnA Maker. Dopo aver creato queste risorse, è possibile aggiornare l'impostazione del servizio app per usare un servizio di ricerca precedentemente esistente e rimuovere quello appena creato.
-
-La risorsa del **servizio app** di QnA Maker usa la risorsa ricerca cognitiva. Per modificare la risorsa ricerca cognitiva utilizzata da QnA Maker, è necessario modificare l'impostazione nella portale di Azure.
-
-1. Ottenere la **chiave di amministrazione** e il **nome** della risorsa ricerca cognitiva che si desidera QnA Maker usare.
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e trovare il **servizio app** associato alla risorsa QnA Maker. Entrambe le con hanno lo stesso nome.
-
-1. Selezionare **Settings (impostazioni**) e quindi **Configuration (configurazione**). Vengono visualizzate tutte le impostazioni esistenti per il servizio app del QnA Maker.
-
-    > [!div class="mx-imgBorder"]
-    > [![screenshot di portale di Azure visualizzazione delle impostazioni di configurazione del servizio app](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png#lightbox)
-
-1. Modificare i valori per le chiavi seguenti:
-
-    * **AzureSearchAdminKey**
-    * **AzureSearchName**
-
-1. Per usare le nuove impostazioni, è necessario riavviare il servizio app. Selezionare **Panoramica**, quindi fare clic su **Riavvia**.
-
-    > [!div class="mx-imgBorder"]
-    > [![screenshot di portale di Azure il riavvio del servizio app dopo la modifica delle impostazioni di configurazione](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
-
-Se si crea un servizio QnA tramite modelli di Azure Resource Manager, è possibile creare tutte le risorse e controllare la creazione del servizio app per l'uso di un servizio di ricerca esistente.
-
-## <a name="upgrade-qna-maker"></a>QnA Maker di aggiornamento
-
-|Aggiornamento|Motivo|
-|--|--|
-|[Aggiornamento](#upgrade-qna-maker-sku) di SKU di gestione QnA Maker|Si desiderano ulteriori domande e risposte nella Knowledge base.|
-|[Aggiornamento](#upgrade-app-service) di SKU del servizio app|La Knowledge base deve soddisfare un numero maggiore di richieste provenienti dall'app client, ad esempio un bot di chat.|
-|[Aggiornamento](#upgrade-the-azure-cognitive-search-service) di Servizio ricerca cognitiva di Azure|Si prevede di avere molte Knowledge base.|
-
 
 ### <a name="upgrade-qna-maker-sku"></a>Aggiornare QnA Maker SKU
 
@@ -220,19 +149,45 @@ Il runtime di QnAMaker fa parte dell'istanza del servizio app Azure distribuita 
 
 1. Passare al servizio QnAMaker (gruppo di risorse) nell' [portale di Azure](https://portal.azure.com).
 
-    ![Gruppo di risorse di Azure per QnA Maker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    > [!div class="mx-imgBorder"]
+    > ![gruppo di risorse di Azure di QnAMaker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 1. Selezionare l'istanza del servizio app e aprire la sezione **Panoramica** .
 
-    ![Istanza del servizio app QnAMaker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+    > [!div class="mx-imgBorder"]
+    > ![istanza del servizio app di QnAMaker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
 
 1. Riavviare il servizio app. Il processo di aggiornamento dovrebbe terminare tra qualche secondo. Eventuali applicazioni dipendenti o bot che usano questo servizio QnAMaker non saranno disponibili per gli utenti finali durante questo periodo di riavvio.
 
     ![Riavvio dell'istanza del servizio app QnAMaker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-## <a name="management-service-region"></a>Area del servizio di gestione
+## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Configurare QnA Maker per l'uso di risorse ricerca cognitiva diverse
 
-Il servizio di gestione di QnA Maker viene usato solo per il portale di QnA Maker e per l'elaborazione iniziale dei dati. Questo servizio è disponibile solo nell'area Stati Uniti occidentali. Nessun dato cliente è archiviato in questo servizio Stati Uniti occidentali.
+Se si crea un servizio QnA e le relative dipendenze (ad esempio la ricerca) tramite il portale, viene creato un servizio di ricerca e collegato al servizio QnA Maker. Dopo aver creato queste risorse, è possibile aggiornare l'impostazione del servizio app per usare un servizio di ricerca precedentemente esistente e rimuovere quello appena creato.
+
+La risorsa del **servizio app** di QnA Maker usa la risorsa ricerca cognitiva. Per modificare la risorsa ricerca cognitiva utilizzata da QnA Maker, è necessario modificare l'impostazione nella portale di Azure.
+
+1. Ottenere la **chiave di amministrazione** e il **nome** della risorsa ricerca cognitiva che si desidera QnA Maker usare.
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e trovare il **servizio app** associato alla risorsa QnA Maker. Entrambe le con hanno lo stesso nome.
+
+1. Selezionare **Settings (impostazioni**) e quindi **Configuration (configurazione**). Vengono visualizzate tutte le impostazioni esistenti per il servizio app del QnA Maker.
+
+    > [!div class="mx-imgBorder"]
+    > ![screenshot della portale di Azure che mostra le impostazioni di configurazione del servizio app](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
+
+1. Modificare i valori per le chiavi seguenti:
+
+    * **AzureSearchAdminKey**
+    * **AzureSearchName**
+
+1. Per usare le nuove impostazioni, è necessario riavviare il servizio app. Selezionare **Panoramica**, quindi fare clic su **Riavvia**.
+
+    > [!div class="mx-imgBorder"]
+    > ![screenshot di portale di Azure il riavvio del servizio app dopo la modifica delle impostazioni di configurazione](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
+
+Se si crea un servizio QnA tramite modelli di Azure Resource Manager, è possibile creare tutte le risorse e controllare la creazione del servizio app per l'uso di un servizio di ricerca esistente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

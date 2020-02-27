@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d08c0b8817c0008a0ecfbab1a9d38243ec0bea79
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705684"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619884"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer domande frequenti
 
@@ -23,7 +23,7 @@ Questo articolo contiene le risposte alle domande frequenti relative a Video Ind
 
 ## <a name="general-questions"></a>Domande generali
 
-### <a name="what-is-video-indexer"></a>Che cos'è Video Indexer?
+### <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
 Video Indexer è un servizio di intelligenza artificiale che fa parte di Servizi multimediali di Microsoft Azure. Video Indexer fornisce un'orchestrazione di più modelli di Machine Learning che consentono di estrarre facilmente informazioni molto dettagliate da un video. Per fornire informazioni avanzate e accurate, Video Indexer si serve di più canali del video: audio, parlato e oggetti visivi. Le informazioni dettagliate di Video Indexer possono essere usate in diversi modi, ad esempio per migliorare l'individuabilità e l'accessibilità dei contenuti, creare nuove opportunità di monetizzazione o sviluppare nuove esperienze che usano le informazioni dettagliate. Video Indexer fornisce un'interfaccia basata sul Web per il test, la configurazione e la personalizzazione dei modelli nell'account. Gli sviluppatori possono usare un'API basata su REST per integrare Video Indexer nel sistema di produzione. 
 
@@ -77,6 +77,14 @@ Sì, è possibile integrare Video Indexer nelle tecnologie serverless, ad esempi
 
 È possibile conoscere le aree di Azure in cui è disponibile Video Indexer nella pagina [Aree](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
+### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>È possibile personalizzare I modelli di Video Indexer per un caso d'uso specifico? 
+
+Sì. In Video Indexer è possibile personalizzare alcuni dei modelli disponibili per soddisfare al meglio le proprie esigenze. 
+
+Il modello di persona, ad esempio, supporta i visi 1 milione predefiniti di riconoscimento celebrità, ma è anche possibile eseguirne il training per riconoscere altre facce non presenti in tale database. 
+
+Per informazioni dettagliate, vedere gli articoli sulla personalizzazione di [persona](customize-person-model-overview.md), [marchi](customize-brands-model-overview.md)e modelli di [lingua](customize-language-model-overview.md) . 
+
 ### <a name="what-is-the-sla-for-video-indexer"></a>Qual è il contratto di servizio per Video Indexer?
 
 Il contratto di servizio di Servizi multimediali di Azure copre Video Indexer ed è disponibile nella pagina [Contratto di Servizio](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/). Il contratto di servizio si applica solo agli account a pagamento di Video Indexer e non alla versione di valutazione gratuita.
@@ -111,13 +119,28 @@ In base alle [condizioni per i Servizi online di Azure](https://www.microsoftvol
 
 Sì, il contenuto e le informazioni dettagliate vengono mantenuti all'interno dell'area di Azure, a meno che non si abbia una configurazione manuale nella sottoscrizione di Azure che usa più aree di Azure. 
 
-### <a name="what-is-the-privacy-policy-for-video-indexer"></a>Qual è l'Informativa sulla privacy per Video Indexer?
+### <a name="what-is-the-privacy-policy-for-video-indexer"></a>Qual è l'informativa sulla privacy per Video Indexer?
 
 Video Indexer è coperto dall'[Informativa sulla privacy di Microsoft](https://privacy.microsoft.com/privacystatement). L'informativa sulla privacy illustra i dati personali elaborati da Microsoft, come Microsoft li elabora e per quali scopi Microsoft li elabora. Per altre informazioni sulla privacy, vedere [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ### <a name="what-certifications-does-video-indexer-have"></a>Quali certificazioni ha Video Indexer?
 
 Video Indexer attualmente ha la certificazione SOC. Per informazioni sulla certificazione di Video Indexer, vedere [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
+
+### <a name="what-is-the-difference-between-private-and-public-videos"></a>Qual è la differenza tra video privati e pubblici? 
+
+Quando i video vengono caricati in Video Indexer, è possibile scegliere tra due impostazioni per la privacy: privato e pubblico. I video pubblici sono accessibili per tutti gli utenti, inclusi gli utenti anonimi e non identificati. Quelle private sono limitate esclusivamente ai membri dell'account. 
+
+### <a name="i-tried-to-upload-a-video-as-public-and-it-was-flagged-for-inappropriate-or-offensive-content-what-does-that-mean"></a>Ho provato a caricare un video come pubblico ed è stato contrassegnato per contenuti inappropriati o offensivi, cosa significa? 
+
+Quando si carica un video in Video Indexer, un'analisi automatica del contenuto viene eseguita da algoritmi e modelli per assicurarsi che non vengano presentati pubblicamente contenuti inappropriati. Se si trova un video sospetto che contiene contenuto esplicito, non sarà possibile impostarlo come Public. Tuttavia, i membri dell'account possono comunque accedervi come video privati (visualizzarlo, scaricare le informazioni dettagliate ed estrarre gli artefatti ed eseguire altre operazioni disponibili per i membri dell'account).   
+
+Per impostare il video per l'accesso pubblico, è possibile effettuare una delle operazioni seguenti: 
+
+* È possibile creare un livello di interfaccia personalizzato, ad esempio un'app o un sito Web, e usarlo per interagire con il servizio Video Indexer. In questo modo il video rimane privato nel portale e gli utenti possono interagire con esso tramite l'interfaccia. Ad esempio, è comunque possibile ottenere informazioni dettagliate o consentire la visualizzazione del video nella propria interfaccia. 
+* Richiedere una revisione umana del contenuto, causando la rimozione della restrizione presumendo che il contenuto non sia esplicito. 
+
+    Questa opzione può essere esaminata se il sito Web Video Indexer viene usato direttamente dagli utenti come livello di interfaccia e per la visualizzazione pubblica (non autenticata). 
 
 ## <a name="api-questions"></a>Domande sull'API
 
@@ -161,7 +184,7 @@ Video Indexer usa un semplice modello di determinazione dei prezzi con pagamento
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando viene addebitato l'utilizzo di Video Indexer?
 
-Quando invia un video per l'indicizzazione, l'utente definirà l'indicizzazione come analisi video, analisi audio o entrambe. Questa selezione determina gli SKU che verranno addebitati. Se si verifica un errore di livello critico durante l'elaborazione, verrà restituito come risposta un codice errore. In tale caso non viene applicata alcuna fatturazione.  Un errore critico può essere provocato da un bug nel codice o da un errore critico in una dipendenza interna del server. Errori quali un'identificazione o un'estrazione di informazioni dettagliate non corretta non vengono considerati critici e viene restituita una risposta. Nei casi in cui viene restituita una risposta valida, ovvero un codice non di errore, viene applicata la fatturazione.
+Quando si invia un video da indicizzare, l'utente definisce l'indicizzazione come analisi video, analisi audio o entrambi. In questo modo verranno determinati gli SKU che verranno addebitati. Se si verifica un errore di livello critico durante l'elaborazione, verrà restituito un codice di errore come risposta. In tal caso, non viene eseguita alcuna fatturazione.  Un errore critico può essere causato da un bug nel codice o da un errore critico in una dipendenza interna del servizio. Errori come l'identificazione errata o l'estrazione di informazioni non vengono considerati critici e viene restituita una risposta. In ogni caso in cui viene restituita una risposta valida (codice non di errore), viene eseguita la fatturazione.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>È disponibile una versione di valutazione gratuita di Video Indexer?
 

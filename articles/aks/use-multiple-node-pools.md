@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di nodi multipli per un 
 services: container-service
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 846425e6d36462636ea1f4e82d6c7233dcb28ac9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 3e0890a0e8600526da2047cabc0b50af8177ea37
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592884"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615705"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -29,8 +29,7 @@ Questo articolo illustra come creare e gestire più pool di nodi in un cluster A
 Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, si applicano le limitazioni seguenti:
 
 * Vedere [quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità di aree in Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* Non è possibile eliminare il pool di nodi predefinito (primo).
-* Non è possibile usare il componente aggiuntivo routing applicazione HTTP.
+* Non è possibile eliminare il pool di nodi di sistema, per impostazione predefinita il primo pool di nodi.
 * Il cluster AKS deve usare il servizio di bilanciamento del carico SKU standard per usare più pool di nodi. la funzionalità non è supportata con i bilanciamenti del carico SKU Basic.
 * Il cluster AKS deve usare i set di scalabilità di macchine virtuali per i nodi.
 * Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f0d6d74271cc4ff0be4a653b389cc70ad5c56ef9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983079"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620845"
 ---
 # <a name="boolean-claims-transformations"></a>Trasformazioni delle attestazioni booleane
 
@@ -120,9 +120,9 @@ Verifica che il valore booleano di un'attestazione sia uguale a `true` o `false`
 
 | Elemento | TransformationClaimType  | Tipo di dati  | Note |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | Il ClaimType da confermare. |
+| InputClaim | inputClaim | boolean | Il ClaimType da confermare. |
 | InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
-| OutputClaim | inputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
+| OutputClaim | compareResult | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 
 La trasformazione delle attestazioni seguente mostra come controllare il valore di un ClaimType booleano con un valore `true`. Se il valore della `IsAgeOver21Years` ClaimType è uguale `true`, la trasformazione delle attestazioni restituisce `true`, in caso contrario `false`.

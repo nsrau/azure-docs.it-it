@@ -3,12 +3,12 @@ title: Creare un cluster di Azure Service Fabric
 description: Informazioni su come configurare un cluster di Service Fabric protetto in Azure usando Azure Resource Manager.  È possibile creare un cluster usando un modello predefinito o il proprio modello di cluster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 935f67c25f4a2aee7d06be7591dbe7576c87806e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349862"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624121"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creare un cluster di Service Fabric usando Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -26,17 +26,17 @@ Per la creazione di un cluster di produzione per l'esecuzione di carichi di lavo
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 In questo articolo, è possibile usare powershell Resource Manager di Service Fabric o moduli dell’interfaccia della riga di comando di Azure per distribuire un cluster:
 
 * [Azure PowerShell 4,1 e versioni successive][azure-powershell]
 * [INTERFACCIA della riga di comando di Azure versione 2,0 e successive][azure-CLI]
 
 È possibile trovare la documentazione di riferimento per i moduli di Service Fabric di seguito:
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
+* [AZ. ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
 * [modulo della riga di comando az SF](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
-### <a name="sign-in-to-azure"></a>Accedere a Azure
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Prima di eseguire i comandi di questo articolo, accedere ad Azure.
 
@@ -262,7 +262,7 @@ $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
 $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretID -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 ```
 
 Distribuire il cluster usando l’interfaccia della riga di comando di Azure:
@@ -271,11 +271,11 @@ Distribuire il cluster usando l’interfaccia della riga di comando di Azure:
 declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
-declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+declare $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifier az $secretID  \
-    --template-file $templateFilePath --parameter-file $parametersFilePath 
+    --secret-identifier $secretID  \
+    --template-file $templateFilePath --parameter-file $parameterFilePath 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

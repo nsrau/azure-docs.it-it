@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/6/2019
 ms.author: iainfou
-ms.openlocfilehash: c0fcb8c2c5f9afa7fabe2ffa63a715ec24aa4a26
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720481"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613976"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Distribuire Azure AD proxy di applicazione per l'accesso sicuro alle applicazioni interne in un dominio gestito Azure AD Domain Services
 
@@ -74,7 +74,7 @@ Con una macchina virtuale pronta per l'uso come connettore del proxy di applicaz
         > [!NOTE]
         > L'account amministratore globale usato per registrare il connettore deve appartenere alla stessa directory in cui si Abilita il servizio proxy di applicazione.
         >
-        > Se ad esempio il dominio Azure AD è *contoso.com*, l'amministratore globale deve essere `admin@contoso.com` o un altro alias valido in tale dominio.
+        > Se ad esempio il dominio Azure AD è *aaddscontoso.com*, l'amministratore globale deve essere `admin@aaddscontoso.com` o un altro alias valido in tale dominio.
 
    * Se è attivata la configurazione sicurezza avanzata di Internet Explorer per la macchina virtuale in cui si installa il connettore, la schermata di registrazione potrebbe essere bloccata. Per consentire l'accesso, seguire le istruzioni nel messaggio di errore o disattivare sicurezza avanzata di Internet Explorer durante il processo di installazione.
    * Se la registrazione del connettore non riesce, vedere [risolvere i problemi del proxy dell'applicazione](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -99,16 +99,16 @@ Per ulteriori informazioni, vedere [configurare la delega vincolata Kerberos (de
 
 Usare [Get-ADComputer][Get-ADComputer] per recuperare le impostazioni per il computer in cui è installato il connettore del proxy di applicazione Azure ad. Eseguire i cmdlet seguenti dalla macchina virtuale di gestione aggiunta al dominio e connessi come account utente membro del gruppo di *amministratori di Azure ad DC* .
 
-Nell'esempio seguente vengono ottenute informazioni sull'account computer denominato *appproxy.contoso.com*. Specificare il nome computer per la macchina virtuale del proxy di applicazione Azure AD configurata nei passaggi precedenti.
+Nell'esempio seguente vengono ottenute informazioni sull'account computer denominato *appproxy.aaddscontoso.com*. Specificare il nome computer per la macchina virtuale del proxy di applicazione Azure AD configurata nei passaggi precedenti.
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity appproxy.contoso.com
+$ImpersonatingAccount = Get-ADComputer -Identity appproxy.aaddscontoso.com
 ```
 
-Per ogni server applicazioni che esegue le app dietro Azure AD proxy di applicazione usare il cmdlet di PowerShell [set-ADComputer][Set-ADComputer] per configurare delega vincolata Kerberos basato su risorse. Nell'esempio seguente, al connettore del proxy di applicazione Azure AD vengono concesse le autorizzazioni per l'uso del computer *AppServer.contoso.com* :
+Per ogni server applicazioni che esegue le app dietro Azure AD proxy di applicazione usare il cmdlet di PowerShell [set-ADComputer][Set-ADComputer] per configurare delega vincolata Kerberos basato su risorse. Nell'esempio seguente, al connettore del proxy di applicazione Azure AD vengono concesse le autorizzazioni per l'uso del computer *AppServer.aaddscontoso.com* :
 
 ```powershell
-Set-ADComputer appserver.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 Se si distribuiscono più connettori proxy di applicazione Azure AD, è necessario configurare delega vincolata Kerberos basati sulle risorse per ogni istanza del connettore.

@@ -3,12 +3,12 @@ title: Usare server di Backup di Azure per eseguire il backup dei carichi di lav
 description: In questo articolo viene illustrato come preparare l'ambiente per la protezione e il backup dei carichi di lavoro utilizzando il server di Backup di Microsoft Azure (MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: e601328a09ece54eb1c678310f76c7999c69f24c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586428"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617621"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -51,21 +51,21 @@ La protezione dei carichi di lavoro con il server di Backup di Azure è piuttost
 
 Se non si vuole eseguire il server di base in Azure, è possibile eseguire il server in una VM Hyper-V o VMware oppure in un host fisico. I requisiti minimi consigliati per l'hardware del server sono due core e 8 GB di RAM. Nella tabella seguente sono elencati i sistemi operativi supportati:
 
-| Sistema operativo | Piattaforma | SKU |
+| Sistema operativo | Platform | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 e versioni più recenti di SP |64 bit |Standard, Datacenter, Essentials  |
 
-È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn891438(v=sc.12)) in caso di distribuzione in macchine virtuali Hyper-V.
+È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](https://docs.microsoft.com/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) in caso di distribuzione in macchine virtuali Hyper-V.
 
 > [!NOTE]
 > Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
 >
 > * Un computer in esecuzione come controller di dominio
-> * Un computer in cui è installato il ruolo di server applicazioni
+> * in un computer in cui è installato il ruolo Application Server,
 > * Un computer che sia un server di gestione di System Center Operations Manager
-> * Un computer su cui è in esecuzione Exchange Server
-> * Un computer che sia un nodo di un cluster
+> * in un computer che esegue Exchange Server,
+> * in un computer che è un nodo di un cluster.
 >
 > L'installazione di server di Backup di Azure non è supportata in Windows Server Core o Microsoft Hyper-V Server.
 
@@ -265,7 +265,7 @@ Ecco i passaggi necessari se si vuole spostare MABS in un nuovo server, mantenen
 2. Arrestare il server di backup di Azure originale o portarlo fuori rete.
 3. Reimpostare l'account del computer in Active Directory.
 4. Installare SQL Server 2016 nel nuovo computer e assegnare al computer lo stesso nome del server di Backup di Azure originale.
-5. Eseguire l'aggiunta al dominio
+5. Aggiunta al dominio
 6. Installare il server di backup di Azure V3 o versione successiva (spostare i dischi del pool di archiviazione di MAB dal vecchio server e importare)
 7. Ripristinare il database di Data Protection Manager acquisito nel passaggio 1.
 8. Collegare l'archiviazione dal server di backup originale a quello nuovo.
@@ -286,7 +286,7 @@ Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato
 
 Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
-| Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
+| Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Esegui il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
 | Connesso |Attivo |Consentito |Consentito |Consentito |Consentito |
 | Connesso |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
@@ -352,14 +352,14 @@ Per aggiornare MABS, usare i passaggi seguenti:
 4. I backup continueranno senza la necessità di riavviare i server di produzione.
 5. È ora possibile iniziare a proteggere i dati. Se si esegue l'aggiornamento a Modern Backup Storage, insieme alla protezione è anche possibile scegliere i volumi in cui archiviare i backup e verificare la presenza di spazio con provisioning. [Altre informazioni](backup-mabs-add-storage.md).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 In caso di errori del server di Backup di Microsoft Azure durante la fase di installazione, di backup o ripristino, vedere questo [documento sui codici di errore](https://support.microsoft.com/kb/3041338) per altre informazioni.
 È anche possibile vedere [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Qui è possibile ottenere informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758176(v=sc.12)). Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure. È possibile usare una serie di [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) per l'esecuzione di varie operazioni.
+Qui è possibile ottenere informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure. È possibile usare una serie di [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) per l'esecuzione di varie operazioni.
 
 È possibile usare questi articoli per acquisire una comprensione più profonda della protezione dei carichi di lavoro tramite il server di Backup di Microsoft Azure.
 

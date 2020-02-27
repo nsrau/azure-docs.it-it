@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 140edb3162d4f76c741a5692faa19325581a3ba7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5507579338ad0d87bc6223b56283fe7ed46af7d8
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704500"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613295"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurare le notifiche di posta elettronica per i problemi in Azure Active Directory Domain Services
 
@@ -58,7 +58,7 @@ L'elenco dei destinatari di posta elettronica per Azure AD DS deve essere costit
 Per esaminare i destinatari delle notifiche di posta elettronica esistenti o aggiungere altri destinatari, seguire questa procedura:
 
 1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
-1. Selezionare il dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*.
+1. Selezionare il dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*.
 1. Sul lato sinistro della finestra della risorsa Azure AD DS selezionare **impostazioni di notifica**. Vengono visualizzati i destinatari esistenti per le notifiche tramite posta elettronica.
 1. Per aggiungere un destinatario di posta elettronica, immettere l'indirizzo di posta elettronica nella tabella destinatari aggiuntivi.
 1. Al termine, selezionare **Salva** nella finestra di spostamento in alto a destra.
@@ -68,7 +68,7 @@ Per esaminare i destinatari delle notifiche di posta elettronica esistenti o agg
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>È stata ricevuta una notifica di posta elettronica per un avviso, ma nel portale di Azure non è presente alcun avviso. Che cosa è successo?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>È stata ricevuta una notifica di posta elettronica per un avviso, ma nel portale di Azure non è presente alcun avviso. Cosa è successo?
 
 Se un avviso viene risolto, l'avviso viene cancellato dal portale di Azure. Il motivo più probabile è che un altro utente che riceve le notifiche tramite posta elettronica ha risolto l'avviso sul dominio gestito Azure AD DS oppure è stato risolto automaticamente dalla piattaforma Azure.
 

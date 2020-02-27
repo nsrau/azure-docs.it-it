@@ -2,13 +2,13 @@
 title: Struttura e sintassi del modello
 description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 9cd602644ecf803e97254189cfc157d60713cc6c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/25/2020
+ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209461"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622889"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manger
 
@@ -260,10 +260,14 @@ L'esempio seguente illustra la struttura di una definizione di output:
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -273,7 +277,8 @@ L'esempio seguente illustra la struttura di una definizione di output:
 | nome di output |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condizione |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |
 | type |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. Se si specifica **SecureString** per il tipo di output, il valore non viene visualizzato nella cronologia di distribuzione e non può essere recuperato da un altro modello. Per usare un valore segreto in più di un modello, archiviare il segreto in un Key Vault e fare riferimento al segreto nel file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md). |
-| value |Sì |Espressione del linguaggio di modello valutata e restituita come valore di output. |
+| value |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare un **valore** o una **copia**. |
+| copiare |No | Utilizzato per restituire più di un valore per un output. Specificare il **valore** o la **copia**. Per altre informazioni, vedere [iterazione di output nei modelli Azure Resource Manager](copy-outputs.md). |
 
 Per esempi relativi all'uso degli output, vedere [output nel modello di Azure Resource Manager](template-outputs.md).
 
@@ -302,7 +307,7 @@ Per i commenti inline, è possibile usare `//` o `/* ... */` ma questa sintassi 
   ],
 ```
 
-In Visual Studio Code, l' [estensione strumenti Azure Resource Manager](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) può rilevare automaticamente Gestione risorse modello e modificare di conseguenza la modalità della lingua. Se viene visualizzato **Azure Resource Manager modello** nell'angolo inferiore destro di vs code, è possibile usare i commenti inline. In questo modo i commenti inline non verranno più contrassegnati come non validi.
+In Visual Studio Code, l' [estensione strumenti Azure Resource Manager](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) può rilevare automaticamente Gestione risorse modello e modificare di conseguenza la modalità della lingua. Se viene visualizzato **Azure Resource Manager modello** nell'angolo in basso a destra di vs code, è possibile usare i commenti inline. In questo modo i commenti inline non verranno più contrassegnati come non validi.
 
 ![Modalità modello di Visual Studio Code Azure Resource Manager](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -379,7 +384,7 @@ Non è possibile aggiungere un oggetto metadata alle funzioni definite dall'uten
 
 ## <a name="multi-line-strings"></a>Stringhe a più righe
 
-È possibile suddividere una stringa in più righe. Ad esempio la proprietà Location e uno dei commenti nell'esempio JSON seguente.
+È possibile suddividere una stringa in più righe. Vedere ad esempio la proprietà Location e uno dei commenti nell'esempio JSON seguente.
 
 ```json
 {

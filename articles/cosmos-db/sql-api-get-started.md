@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 78b88f4e4e60d1f79263bfd9d7dfaf0cabc70de6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ba8b097dc852ba97d4223ba09f78d1f2cdb568e0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173900"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587448"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Esercitazione: Compilare un'app console .NET per gestire i dati in un account API SQL di Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Non si ha tempo? Nessun problema. La soluzione completa è disponibile in [GitHu
 
 Ecco come procedere.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
@@ -146,7 +146,7 @@ L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziam
 
 1. Aggiungere il codice seguente per eseguire l'attività asincrona **GetStartedDemoAsync** dal metodo **Main**. Il metodo **Main** rileva le eccezioni e le scrive nella console.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="Main":::
 
 1. Premere F5 per eseguire l'applicazione.
 
@@ -154,13 +154,13 @@ L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziam
 
 Congratulazioni! La connessione con un account di Azure Cosmos DB è stata stabilita correttamente.
 
-## <a name="step-4-create-a-database"></a>Passaggio 4: Creare un database
+## <a name="step-4-create-a-database"></a>Passaggio 4: Creazione di un database
 
 Un database è un contenitore logico di elementi partizionati tra contenitori. Il metodo `CreateDatabaseIfNotExistsAsync` o `CreateDatabaseAsync` della classe [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) può creare un database.
 
 1. Copiare e incollare il metodo `CreateDatabaseAsync` seguente sotto il metodo `GetStartedDemoAsync`.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateDatabaseAsync&highlight=7)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="CreateDatabaseAsync":::
 
     `CreateDatabaseAsync` crea un nuovo database con ID `FamilyDatabase`, se non esiste già, ossia l'ID specificato nel campo `databaseId`.
 
@@ -281,7 +281,7 @@ Un contenitore può essere creato usando il metodo [**CreateContainerIfNotExists
 
 1. Copiare e incollare il metodo `CreateContainerAsync` seguente sotto il metodo `CreateDatabaseAsync`. `CreateContainerAsync` crea un nuovo contenitore con l'ID `FamilyContainer`, se non esiste già, usando l'ID specificato nel campo `containerId` partizionato dalla proprietà `LastName`.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateContainerAsync&highlight=9)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="CreateContainerAsync&highlight":::
 
 1. Copiare e incollare il codice seguente nel punto in cui è stata creata l'istanza di CosmosClient per chiamare il metodo **CreateContainer** appena aggiunto.
 
@@ -313,11 +313,13 @@ Prima di tutto creare una classe `Family` che rappresenterà gli oggetti archivi
 
 1. Copiare e incollare le classi `Family`, `Parent`, `Child`, `Pet` e `Address` in `Family.cs`.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs":::
+
 
 1. Nel file *Program.cs* aggiungere il metodo `AddItemsToContainerAsync` dopo il metodo `CreateContainerAsync`.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="AddItemsToContainerAsync":::
+
 
     Il codice verifica che non esista già un elemento con lo stesso ID. Verranno inseriti due elementi, uno per *Andersen Family* e l'altro per *Wakefield Family*.
 
@@ -346,7 +348,7 @@ Azure Cosmos DB supporta le query complesse sui documenti JSON archiviati in ogn
 
 1. Copiare e incollare il metodo `QueryItemsAsync` dopo il metodo `AddItemsToContainerAsync`.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync&highlight=10-11,17-18)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="QueryItemsAsync":::
 
 1. Aggiungere una chiamata a ``QueryItemsAsync`` nel metodo ``GetStartedDemoAsync``.
 
@@ -374,7 +376,7 @@ Aggiornare ora un elemento in Azure Cosmos DB. Cambiare la proprietà `IsRegiste
 
 1. Copiare e incollare il metodo `ReplaceFamilyItemAsync` dopo il metodo `QueryItemsAsync`.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=ReplaceFamilyItemAsync&highlight=15)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="ReplaceFamilyItemAsync":::
 
 1. Aggiungere una chiamata a `ReplaceFamilyItemAsync` nel metodo `GetStartedDemoAsync`.
 
@@ -403,7 +405,7 @@ Eliminare ora un elemento in Azure Cosmos DB.
 
 1. Copiare e incollare il metodo `DeleteFamilyItemAsync` dopo il metodo `ReplaceFamilyItemAsync`.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteFamilyItemAsync&highlight=10)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="DeleteFamilyItemAsync":::
 
 1. Aggiungere una chiamata a `DeleteFamilyItemAsync` nel metodo `GetStartedDemoAsync`.
 
@@ -433,11 +435,11 @@ A questo punto verrà eliminato il database. Se si elimina il database creato, v
 
 1. Copiare e incollare il metodo `DeleteDatabaseAndCleanupAsync` dopo il metodo `DeleteFamilyItemAsync`.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteDatabaseAndCleanupAsync)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="DeleteDatabaseAndCleanupAsync":::
 
 1. Aggiungere una chiamata a ``DeleteDatabaseAndCleanupAsync`` nel metodo ``GetStartedDemoAsync``.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=GetStartedDemoAsync&highlight=14)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="GetStartedDemoAsync":::
 
 1. Premere F5 per eseguire l'applicazione.
 
@@ -492,7 +494,7 @@ A questo punto non resta che procedere con la compilazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'esercitazione su MVC ASP.NET più complessa, Per istruzioni dettagliate, vedere [Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET Core con Azure Cosmos DB usando .NET SDK](sql-api-dotnet-application.md).
+* Per un'esercitazione su MVC ASP.NET più complessa, Vedere [Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET Core con Azure Cosmos DB usando .NET SDK](sql-api-dotnet-application.md).
 * Per informazioni sull'esecuzione di test delle prestazioni e della scalabilità con Azure Cosmos DB, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 * Per informazioni su come monitorare le richieste, l'utilizzo e le risorse di archiviazione di Azure Cosmos DB, vedere [Monitorare le metriche di prestazioni e archiviazione in Azure Cosmos DB](monitor-accounts.md).
 * Per eseguire query sul set di dati di esempio, vedere [Playground per le query](https://www.documentdb.com/sql/demo).

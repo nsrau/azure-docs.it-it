@@ -8,17 +8,17 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903279"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621998"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Hub eventi di Azure ora supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente (Bring Your Own Key – BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia dei dati inattivi di hub eventi di Azure.
 
 L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
@@ -99,14 +99,14 @@ Seguire questa procedura per abilitare i log per le chiavi gestite dal cliente.
 ## <a name="log-schema"></a>Schema del log 
 Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogni voce contiene campi stringa che usano il formato descritto nella tabella seguente. 
 
-| Nome | Description |
+| Name | Descrizione |
 | ---- | ----------- | 
 | TaskName | Descrizione dell'attività non riuscita. |
 | ActivityId | ID interno usato per il rilevamento. |
 | category | Definisce la classificazione dell'attività. Se, ad esempio, la chiave dell'insieme di credenziali delle chiavi è disabilitata, sarà una categoria di informazioni o se non è possibile decrittografare una chiave, potrebbe rientrare in errore. |
 | resourceId | ID della risorsa Azure Resource Manager |
 | keyVault | Nome completo dell'insieme di credenziali delle chiavi. |
-| Key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
+| key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
 | version | Versione della chiave usata. |
 | operazione | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
 | codice | Codice associato all'operazione. Esempio: codice errore 404 indica che la chiave non è stata trovata. |
@@ -144,7 +144,263 @@ Di seguito è riportato un esempio di log per una chiave gestita dal cliente:
 }
 ```
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Usare Gestione risorse modello per abilitare la crittografia
+In questa sezione viene illustrato come eseguire le attività seguenti utilizzando i **modelli di Azure Resource Manager**. 
+
+1. Creare uno **spazio dei nomi di hub eventi** con un'identità del servizio gestito.
+2. Creare un insieme di credenziali delle **chiavi** e concedere all'identità del servizio l'accesso all'insieme di credenziali delle chiavi. 
+3. Aggiornare lo spazio dei nomi di hub eventi con le informazioni sull'insieme di credenziali delle chiavi (chiave/valore). 
+
+
+### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Creare un cluster di hub eventi e uno spazio dei nomi con identità del servizio gestito
+Questa sezione illustra come creare uno spazio dei nomi di hub eventi di Azure con l'identità del servizio gestito usando un modello di Azure Resource Manager e PowerShell. 
+
+1. Creare un modello di Azure Resource Manager per creare uno spazio dei nomi di hub eventi con un'identità del servizio gestito. Denominare il file: **CreateEventHubClusterAndNamespace. JSON**: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/clusters",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('clusterName')]",
+             "location":"[parameters('location')]",
+             "sku":{
+                "name":"Dedicated",
+                "capacity":1
+             }
+          },
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             },
+             "dependsOn":[
+                "[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             ]
+          }
+       ],
+       "outputs":{
+          "EventHubNamespaceId":{
+             "type":"string",
+             "value":"[resourceId('Microsoft.EventHub/namespaces',parameters('namespaceName'))]"
+          }
+       }
+    }
+    ```
+2. Creare un file di parametri di modello denominato: **CreateEventHubClusterAndNamespaceParams. JSON**. 
+
+    > [!NOTE]
+    > Sostituire i valori seguenti: 
+    > - Nome `<EventHubsClusterName>` del cluster di hub eventi    
+    > - Nome `<EventHubsNamespaceName>` dello spazio dei nomi di hub eventi
+    > - `<Location>`-location dello spazio dei nomi di hub eventi
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          }
+       }
+    }
+    
+    ```
+3. Eseguire il comando di PowerShell seguente per distribuire il modello per creare uno spazio dei nomi di hub eventi. Recuperare quindi l'ID dello spazio dei nomi di hub eventi per usarlo in un secondo momento. Sostituire `{MyRG}` con il nome del gruppo di risorse prima di eseguire il comando.  
+
+    ```powershell
+    $outputs = New-AzResourceGroupDeployment -Name CreateEventHubClusterAndNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateEventHubClusterAndNamespace.json -TemplateParameterFile ./CreateEventHubClusterAndNamespaceParams.json
+
+    $EventHubNamespaceId = $outputs.Outputs["eventHubNamespaceId"].value
+    ```
+ 
+### <a name="grant-event-hubs-namespace-identity-access-to-key-vault"></a>Concessione dell'accesso all'identità dello spazio dei nomi di hub eventi a Key Vault
+
+1. Eseguire il comando seguente per creare un insieme di credenziali delle chiavi con la **protezione di ripulitura** e l' **eliminazione** temporanea abilitata. 
+
+    ```powershell
+    New-AzureRmKeyVault -Name {keyVaultName} -ResourceGroupName {RGName}  -Location {location} -EnableSoftDelete -EnablePurgeProtection    
+    ```     
+    
+    (OPPURE)    
+    
+    Eseguire il comando seguente per aggiornare un insieme di credenziali delle **chiavi esistente**. Specificare i valori per i nomi dei gruppi di risorse e delle chiavi prima di eseguire il comando. 
+    
+    ```powershell
+    ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
+    ``` 
+2. Impostare i criteri di accesso di Key Vault in modo che l'identità gestita dello spazio dei nomi di hub eventi possa accedere al valore della chiave nell'insieme di credenziali delle chiavi. Usare l'ID dello spazio dei nomi di hub eventi della sezione precedente. 
+
+    ```powershell
+    $identity = (Get-AzureRmResource -ResourceId $EventHubNamespaceId -ExpandProperties).Identity
+    
+    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+    ```
+
+### <a name="encrypt-data-in-event-hubs-namespace-with-customer-managed-key-from-key-vault"></a>Crittografare i dati nello spazio dei nomi di hub eventi con chiave gestita dal cliente da Key Vault
+Fino a questo punto sono stati eseguiti i passaggi seguenti: 
+
+1. È stato creato uno spazio dei nomi Premium con un'identità gestita.
+2. Creare un insieme di credenziali delle chiavi e concedere all'identità gestita l'accesso a Key Vault. 
+
+In questo passaggio verrà aggiornato lo spazio dei nomi di hub eventi con le informazioni sull'insieme di credenziali delle chiavi. 
+
+1. Creare un file JSON denominato **CreateEventHubClusterAndNamespace. JSON** con il contenuto seguente: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          },
+          "keyVaultUri":{
+             "type":"string",
+             "metadata":{
+                "description":"URI of the KeyVault."
+             }
+          },
+          "keyName":{
+             "type":"string",
+             "metadata":{
+                "description":"KeyName."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+                "encryption":{
+                   "keySource":"Microsoft.KeyVault",
+                   "keyVaultProperties":[
+                      {
+                         "keyName":"[parameters('keyName')]",
+                         "keyVaultUri":"[parameters('keyVaultUri')]"
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+    ``` 
+
+2. Creare un file di parametri di modello: **UpdateEventHubClusterAndNamespaceParams. JSON**. 
+
+    > [!NOTE]
+    > Sostituire i valori seguenti: 
+    > - Nome `<EventHubsClusterName>` del cluster di hub eventi.        
+    > - Nome `<EventHubsNamespaceName>` dello spazio dei nomi di hub eventi
+    > - `<Location>`-location dello spazio dei nomi di hub eventi
+    > - Nome `<KeyVaultName>` dell'insieme di credenziali delle chiavi
+    > - Nome `<KeyName>` della chiave nell'insieme di credenziali delle chiavi
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          },
+          "keyName":{
+             "value":"<KeyName>"
+          },
+          "keyVaultUri":{
+             "value":"https://<KeyVaultName>.vault.azure.net"
+          }
+       }
+    }
+    ```             
+3. Eseguire il comando di PowerShell seguente per distribuire il modello di Gestione risorse. Sostituire `{MyRG}` con il nome del gruppo di risorse prima di eseguire il comando. 
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
+    ```
+
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 Come procedura consigliata, abilitare sempre i log, come illustrato nella sezione precedente. Consente di tenere traccia delle attività quando è abilitata la crittografia BYOK. Consente inoltre di rientrare nell'ambito dei problemi.
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.
