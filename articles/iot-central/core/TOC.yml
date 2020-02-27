@@ -21,6 +21,8 @@
   items:
     - name: Connettersi
       items:
+        - name: Connettere un dispositivo
+          href: tutorial-connect-device.md
         - name: Connettere un dispositivo Plug and Play (anteprima)
           href: tutorial-connect-pnp-device.md
         - name: Creare un modello di dispositivo gateway

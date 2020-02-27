@@ -78,6 +78,8 @@
       items:
         - name: Panoramica
           href: custom-roles.md
+        - name: Portale
+          href: custom-roles-portal.md
         - name: PowerShell
           href: custom-roles-powershell.md
         - name: Interfaccia della riga di comando di Azure

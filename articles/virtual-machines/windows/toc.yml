@@ -166,8 +166,8 @@
               href: ../av2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie B con possibilità di burst
               href: ../sizes-b-series-burstable.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Serie DC
-              href: ../dc-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie DCv2
+              href: ../dcv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie Dv2 e DSv2
               href: ../dv2-dsv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie Dv3 e Dsv3

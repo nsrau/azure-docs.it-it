@@ -37,18 +37,12 @@
       href: storage-snapshots-files.md
     - name: Obiettivi di scalabilità e prestazioni
       href: storage-files-scale-targets.md
-    - name: Security
-      items:
-        - name: Autorizzazione
-          href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Crittografia di Archiviazione di Azure
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Autenticazione e autorizzazione basate su identità
-          href: storage-files-active-directory-overview.md
-        - name: Usare endpoint privati di Azure
-          href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Offerte di conformità
-          href: ../common/storage-compliance-offerings.md
+    - name: Autenticazione e autorizzazione basate su identità
+      href: storage-files-active-directory-overview.md
+    - name: Crittografia dei dati inattivi
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Offerte di conformità
+      href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Sviluppo
       items:
         - name: Gestire la concorrenza
@@ -67,17 +61,13 @@
           href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Metriche di Analisi archiviazione (versione classica)
           href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Ridondanza dei dati
-      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Ripristino di emergenza e failover
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Domande frequenti
       href: storage-files-faq.md
 - name: Guide pratiche
   items:
     - name: Create
       items:
-        - name: Creare una condivisione file standard
+        - name: Creare una condivisione file
           href: storage-how-to-create-file-share.md
         - name: Abilitare condivisioni file di grandi dimensioni
           href: storage-files-how-to-create-large-file-share.md
@@ -129,20 +119,8 @@
       items:
         - name: Eseguire la migrazione a Sincronizzazione file di Azure
           href: storage-sync-offline-data-transfer.md
-        - name: Spostare dati da e verso Archiviazione di Azure
-          href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Eseguire la migrazione a Sincronizzazione file di Azure da StorSimple
           href: storage-sync-files-storsimple-migration.md
-        - name: Spostare dati con AzCopy
-          items:
-            - name: Introduzione
-              href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Usare con File
-              href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: 'Configurare, ottimizzare, risolvere i problemi'
-              href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Trasferire dati con la libreria di Spostamento dati
-              href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Sviluppo
       items:
         - name: Configurare le stringhe di connessione
@@ -174,9 +152,9 @@
         - name: Richiedere il trasferimento sicuro
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Abilitare l'autenticazione e l'autorizzazione di AD
-          href: storage-files-active-directory-domain-services-enable.md
+          href: storage-files-identity-auth-active-directory-enable.md
         - name: Abilitare l'autenticazione e l'autorizzazione di Azure AD
-          href: storage-files-active-directory-enable.md
+          href: storage-files-identity-auth-active-directory-domain-service-enable.md
         - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
           href: ../common/storage-security-tls.md
     - name: Risolvere problemi
@@ -235,42 +213,6 @@
       href: 'https://azure.github.io/azure-storage-ios/'
     - name: Android
       href: 'https://azure.github.io/azure-storage-android'
-    - name: AzCopy v10
-      items:
-        - name: azcopy
-          href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy bench
-          href: ../common/storage-ref-azcopy-bench.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy copy
-          href: ../common/storage-ref-azcopy-copy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy doc
-          href: ../common/storage-ref-azcopy-doc.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy env
-          href: ../common/storage-ref-azcopy-env.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy jobs
-          href: ../common/storage-ref-azcopy-jobs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy jobs clean
-          href: ../common/storage-ref-azcopy-jobs-clean.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy jobs list
-          href: ../common/storage-ref-azcopy-jobs-list.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy jobs remove
-          href: ../common/storage-ref-azcopy-jobs-remove.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy jobs resume
-          href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy jobs show
-          href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy list
-          href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy login
-          href: ../common/storage-ref-azcopy-login.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy logout
-          href: ../common/storage-ref-azcopy-logout.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy make
-          href: ../common/storage-ref-azcopy-make.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy remove
-          href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: azcopy sync
-          href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Modello di Resource Manager
       displayName: arm
       href: /azure/templates/microsoft.storage/allversions
@@ -282,18 +224,6 @@
       href: 'https://azure.microsoft.com/updates/?category=storage'
     - name: Note sulla versione di Sincronizzazione file di Azure
       href: storage-files-release-notes.md
-    - name: Esplora archivi Azure
-      items:
-        - name: Scaricare Storage Explorer
-          href: 'https://azure.microsoft.com/features/storage-explorer/'
-        - name: Introduzione a Storage Explorer
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Note sulla versione di Storage Explorer
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Risolvere i problemi di Storage Explorer
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Accessibilità di Storage Explorer
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Forum di Archiviazione di Azure
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
     - name: Archiviazione di Azure in Stack Overflow

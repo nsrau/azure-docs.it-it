@@ -329,23 +329,18 @@
           href: how-to-deploy-existing-model.md
         - name: Risolvere i problemi ed eseguire il debug
           href: how-to-troubleshoot-deployment.md
-    - name: Utilizzare i servizi Web
-      items:
-        - name: Utilizzo in tempo reale
+        - name: Creare client
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Previsioni in batch nella finestra di progettazione
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-    - name: Monitorare i modelli
-      items:
-        - name: Raccogliere e valutare i dati dei modelli
-          displayName: track production
-          href: how-to-enable-data-collection.md
-        - name: Rilevare la deriva dei dati
-          href: how-to-monitor-data-drift.md
-        - name: Monitorare con Application Insights
-          href: how-to-enable-app-insights.md
+        - name: Monitorare i modelli
+          items:
+            - name: Raccogliere e valutare i dati dei modelli
+              displayName: track production
+              href: how-to-enable-data-collection.md
+            - name: Rilevare la deriva dei dati
+              href: how-to-monitor-data-drift.md
+            - name: Monitorare con Application Insights
+              href: how-to-enable-app-insights.md
     - name: Creare e usare le pipeline di Machine Learning
       displayName: pipelines
       items:
@@ -372,6 +367,9 @@
         - name: Eseguire il debug e la risoluzione dei problemi del passaggio di esecuzione in parallelo
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: Previsioni in batch nella finestra di progettazione
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
     - name: Gestire le quote di risorse
       displayName: limits
       href: how-to-manage-quotas.md

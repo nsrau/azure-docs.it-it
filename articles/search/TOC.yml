@@ -109,6 +109,8 @@
           href: search-capacity-planning.md
         - name: Ridimensionare in base alle prestazioni
           href: search-performance-optimization.md
+        - name: Spostare il servizio tra aree
+          href: search-howto-move-across-regions.md
         - name: Architettura multitenant
           href: search-modeling-multitenant-saas-applications.md
     - name: Security

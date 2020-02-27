@@ -2,17 +2,14 @@
 title: Limitare il traffico in uscita in Azure Kubernetes Service (AKS)
 description: Informazioni sulle porte e sugli indirizzi necessari per controllare il traffico in uscita in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.author: mlearned
-ms.openlocfilehash: 1206c20ec4f547dd591ac711d546d1dad0b7a19a
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: a76f4eb8680d07193feb29450fdba7bb2a710a68
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251601"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595009"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster in Azure Kubernetes Service (AKS)
 
@@ -65,7 +62,7 @@ Sono necessarie le seguenti regole di FQDN/applicazione:
 
 - Azure Global
 
-| Nome di dominio completo                       | Porta      | Utilizzo      |
+| Nome di dominio completo                       | Porta      | Uso      |
 |----------------------------|-----------|----------|
 | *. HPC. percorso\<\>. azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
 | *. tun. percorso\<\>. azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
@@ -79,7 +76,7 @@ Sono necessarie le seguenti regole di FQDN/applicazione:
 
 - 21Vianet per Azure Cina
 
-| Nome di dominio completo                       | Porta      | Utilizzo      |
+| Nome di dominio completo                       | Porta      | Uso      |
 |----------------------------|-----------|----------|
 | *. HPC. percorso\<\>. cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
 | *. tun. percorso\<\>. cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
@@ -93,7 +90,7 @@ Sono necessarie le seguenti regole di FQDN/applicazione:
 
 - Azure Government
 
-| Nome di dominio completo                       | Porta      | Utilizzo      |
+| Nome di dominio completo                       | Porta      | Uso      |
 |----------------------------|-----------|----------|
 | *. HPC. percorso\<\>. cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
 | *. tun. percorso\<\>. cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
@@ -111,7 +108,7 @@ Le seguenti regole di rete/porte in uscita sono facoltative per un cluster AKS:
 
 Per il corretto funzionamento dei cluster AKS sono consigliate le seguenti regole per il nome di dominio completo/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | Questo indirizzo consente ai nodi del cluster Linux di scaricare le patch di sicurezza e gli aggiornamenti necessari. |
 
@@ -119,7 +116,7 @@ Per il corretto funzionamento dei cluster AKS sono consigliate le seguenti regol
 
 Per i cluster AKS per i quali è abilitata la GPU sono necessarie le seguenti regole di FQDN/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | nvidia.github.io | HTTPS:443 | Questo indirizzo viene usato per l'installazione e il funzionamento corretto dei driver nei nodi basati su GPU. |
 | us.download.nvidia.com | HTTPS:443 | Questo indirizzo viene usato per l'installazione e il funzionamento corretto dei driver nei nodi basati su GPU. |
@@ -129,7 +126,7 @@ Per i cluster AKS per i quali è abilitata la GPU sono necessarie le seguenti re
 
 Per i cluster AKS in cui è abilitato il monitoraggio di Azure per i contenitori sono necessarie le seguenti regole di FQDN/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | dc.services.visualstudio.com | HTTPS:443  | Questo è per le metriche corrette e per il monitoraggio dei dati di telemetria con monitoraggio di Azure. |
 | *.ods.opinsights.azure.com    | HTTPS:443 | Viene usato da monitoraggio di Azure per l'inserimento dei dati di log Analytics. |
@@ -141,12 +138,12 @@ Per i cluster AKS in cui è abilitato il monitoraggio di Azure per i contenitori
 
 Per i cluster AKS con la Azure Dev Spaces abilitata sono necessarie le seguenti regole di FQDN/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Questo indirizzo viene usato per eseguire il pull di immagini Linux alpine e di altro Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Questo indirizzo viene usato per eseguire il pull delle immagini Helm/Tiller |
 | storage.googleapis.com | HTTP: 443 | Questo indirizzo viene usato per eseguire il pull delle immagini Helm/Tiller |
-| azds-<guid>.<location>.azds.io | HTTPS:443 | Per comunicare con Azure Dev Spaces servizi back-end per il controller. L'FQDN esatto è reperibile in "dataplaneFqdn" in% USERPROFILE%\.azds\settings.JSON |
+| azds-<guid>.<location>. azds.io | HTTPS:443 | Per comunicare con Azure Dev Spaces servizi back-end per il controller. L'FQDN esatto è reperibile in "dataplaneFqdn" in% USERPROFILE%\.azds\settings.JSON |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Indirizzi e porte richiesti per i cluster AKS con criteri di Azure (in anteprima pubblica) abilitati
 
@@ -155,11 +152,11 @@ Per i cluster AKS con la Azure Dev Spaces abilitata sono necessarie le seguenti 
 
 Le seguenti regole di dominio completo/applicazione sono necessarie per i cluster AKS per i quali è abilitato il criterio di Azure.
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Questo indirizzo viene usato per il corretto funzionamento di criteri di Azure. (attualmente in anteprima in AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Questo indirizzo viene usato per eseguire il pull dei criteri predefiniti da GitHub per assicurare il corretto funzionamento di criteri di Azure. (attualmente in anteprima in AKS) |
-| *.GK.<location>.azmk8s.io | HTTPS:443 | Componente aggiuntivo di criteri di Azure che comunica all'endpoint di controllo gatekeeper in esecuzione nel server master per ottenere i risultati del controllo. |
+| *. GK.<location>. azmk8s.io | HTTPS:443 | Componente aggiuntivo di criteri di Azure che comunica all'endpoint di controllo gatekeeper in esecuzione nel server master per ottenere i risultati del controllo. |
 | dc.services.visualstudio.com | HTTPS:443 | Componente aggiuntivo di criteri di Azure che invia i dati di telemetria all'endpoint di Application Insights. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Richiesto dai nodi basati su Windows Server (in anteprima pubblica) abilitato
@@ -169,7 +166,7 @@ Le seguenti regole di dominio completo/applicazione sono necessarie per i cluste
 
 Per i cluster AKS basati su Windows Server sono necessarie le seguenti regole di FQDN/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Per installare i file binari correlati a Windows |
 | mp.microsoft.com, www<span></span>. msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Per installare i file binari correlati a Windows |

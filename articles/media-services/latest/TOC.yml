@@ -148,6 +148,8 @@
           href: live-event-states-billing.md
         - name: Latenza
           href: live-event-latency.md
+        - name: Codici errore di eventi live
+          href: live-event-error-codes.md
     - name: Monitoraggio
       items:
         - name: Eventi con Griglia di eventi
@@ -175,6 +177,8 @@
           items:
             - name: Codici di errore degli endpoint di streaming
               href: streaming-endpoint-error-codes.md
+            - name: Codici errore di eventi live
+              href: live-event-error-codes.md
             - name: Codici di errore dei processi
               href: job-error-codes.md
     - name: Indicazioni sulla migrazione dalla versione 2 alla versione 3
@@ -325,6 +329,8 @@
       items:
         - name: Codici di errore degli endpoint di streaming
           href: streaming-endpoint-error-codes.md
+        - name: Codici errore di eventi live
+          href: live-event-error-codes.md
         - name: Codici di errore dei processi
           href: job-error-codes.md
 - name: Risorse

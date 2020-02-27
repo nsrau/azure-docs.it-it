@@ -181,6 +181,20 @@
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Domande frequenti su Centro sicurezza di Azure
+      items:
+        - name: Domande generali
+          href: faq-general.md
+        - name: Domande sulla fatturazione
+          href: faq-billing.md
+        - name: Domande sulle autorizzazioni
+          href: faq-permissions.md
+        - name: Domande sulla raccolta dati e sull'agente
+          href: faq-data-collection-agents.md
+        - name: Domande sulle macchine virtuali
+          href: faq-vms.md
+        - name: Utenti esistenti di Azure Log Analytics
+          href: faq-azure-monitor-logs.md
     - name: Note sulla versione
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Ritiro di funzionalità e API (luglio 2019)
@@ -195,8 +209,6 @@
       href: security-center-privacy.md
     - name: Documentazione del Centro sicurezza di Azure per IoT
       href: 'https://docs.microsoft.com/azure/asc-for-iot/'
-    - name: Domande frequenti
-      href: security-center-faq.md
     - name: Documentazione sulla sicurezza di Azure
       href: /azure/security/
     - name: Aggiornamenti di Azure

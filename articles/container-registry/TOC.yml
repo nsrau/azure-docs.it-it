@@ -141,15 +141,17 @@
       items:
         - name: Automatizzare le compilazioni di immagini di contenitori
           items:
-            - name: Compilare dal contesto di origine
+            - name: 1 - Compilare dal contesto di origine
               href: container-registry-tutorial-quick-task.md
-            - name: Compilare in caso di commit del codice
+            - name: 2a- Compilare in caso di commit del codice
               href: container-registry-tutorial-build-task.md
-            - name: Attività in più passaggi in caso di commit del codice
+            - name: 2b - Attività in più passaggi in caso di commit del codice
               href: container-registry-tutorial-multistep-task.md
-            - name: Compilare in caso di aggiornamento dell'immagine di base
+            - name: 3a- Compilare in caso di aggiornamento dell'immagine di base
               href: container-registry-tutorial-base-image-update.md
-            - name: Pianificare un'attività
+            - name: 3b- Compilare in caso di aggiornamento dell'immagine di base privata
+              href: container-registry-tutorial-private-base-image-update.md
+            - name: 4 - Compilare in base a una pianificazione
               href: container-registry-tasks-scheduled.md
     - name: Esempi
       expanded: false
@@ -160,6 +162,8 @@
       items:
         - name: Attività in più passaggi
           href: container-registry-tasks-multi-step.md
+        - name: Aggiornamenti dell'immagine di base
+          href: container-registry-tasks-base-images.md
     - name: Guide pratiche
       expanded: false
       items:

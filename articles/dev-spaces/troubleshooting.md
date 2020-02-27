@@ -1,16 +1,16 @@
 ---
-title: Risoluzione dei problemi
+title: risoluzione dei problemi
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Informazioni su come risolvere i problemi comuni durante l'abilitazione e l'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 0c6a712f1dfb4410f3eee0fbd0192c6147618f96
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539587"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605260"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -24,7 +24,7 @@ Per risolvere i problemi in modo più efficace, può essere utile creare log mag
 
 Per l'estensione di Visual Studio impostare la variabile di ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` su 1. Assicurarsi di riavviare Visual Studio per rendere effettiva la variabile di ambiente. Una volta abilitati, i log dettagliati vengono scritti nella directory `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-Nell'interfaccia della riga di comando è possibile visualizzare altre informazioni durante l'esecuzione del comando usando lo switch `--verbose`. È anche possibile esplorare i log più dettagliati in `%TEMP%\Azure Dev Spaces`. In un computer Mac la directory TEMP è reperibile eseguendo `echo $TMPDIR` da una finestra del terminale. In un computer Linux la directory TEMP è generalmente `/tmp`.
+Nell'interfaccia della riga di comando è possibile visualizzare altre informazioni durante l'esecuzione del comando usando lo switch `--verbose`. È anche possibile esplorare i log più dettagliati in `%TEMP%\Azure Dev Spaces`. In un Mac è possibile trovare la directory *temporanea* eseguendo `echo $TMPDIR` da una finestra del terminale. In un computer Linux, la directory *Temp* è in genere `/tmp`. Verificare inoltre che la registrazione sia abilitata nel [file di configurazione dell'interfaccia](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables)della riga di comando di Azure.
 
 Azure Dev Spaces funziona anche quando si esegue il debug di una singola istanza o di un pod. Il file di `azds.yaml` contiene un'impostazione, *replicaCount*, che indica il numero di Pod eseguiti da Kubernetes per il servizio. Se si modifica *replicaCount* per configurare l'applicazione in modo che esegua più POD per un determinato servizio, il debugger si connette al primo pod, quando è elencato in ordine alfabetico. Il debugger si collega a un pod diverso quando il pod originale viene riciclato, determinando un comportamento imprevisto.
 
@@ -52,13 +52,13 @@ Per ricreare il controller è possibile usare l'interfaccia della riga di comand
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Creazione del controller non riuscita a causa della lunghezza del nome del controller
 
-Il nome di un controller di Azure Dev Spaces non può contenere più di 31 caratteri. Se il nome del controller supera i 31 caratteri quando si abilitano gli spazi di sviluppo in un cluster AKS o si crea un controller, si riceverà un errore. Ad esempio,
+Il nome di un controller di Azure Dev Spaces non può contenere più di 31 caratteri. Se il nome del controller supera i 31 caratteri quando si abilitano gli spazi di sviluppo in un cluster AKS o si crea un controller, si riceverà un errore. Ad esempio:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Per risolvere questo problema, creare un controller con un nome alternativo. Ad esempio,
+Per risolvere questo problema, creare un controller con un nome alternativo. Ad esempio:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -159,7 +159,7 @@ Si supponga, ad esempio, di usare un comando Helm per eseguire l'intera applicaz
 
 Azure Dev Spaces può essere configurato per puntare a un _Dockerfile_ specifico all'interno del progetto. Se sembra che Azure Dev Spaces non usi il documento _Dockerfile_ previsto per compilare i contenitori, potrebbe essere necessario indicare in modo esplicito ad Azure Dev Spaces quale Dockerfile usare. 
 
-Per risolvere questo problema, aprire il file _azds. YAML_ che Azure Dev Spaces generato nel progetto. Configurazioni di aggiornamento *: develop: Build: dockerfile* in modo che punti al dockerfile che si vuole usare. Ad esempio,
+Per risolvere questo problema, aprire il file _azds. YAML_ che Azure Dev Spaces generato nel progetto. Configurazioni di aggiornamento *: develop: Build: dockerfile* in modo che punti al dockerfile che si vuole usare. Ad esempio:
 
 ```yaml
 ...
@@ -206,7 +206,7 @@ install:
 
 Si potrebbe verificare questo errore quando il codice del servizio non viene avviato. La causa è spesso nel codice utente. Per ottenere altre informazioni di diagnostica, abilitare la registrazione più dettagliata all'avvio del servizio.
 
-Dalla riga di comando usare il `--verbose` per abilitare la registrazione più dettagliata. È anche possibile specificare un formato di output usando `--output`. Ad esempio,
+Dalla riga di comando usare il `--verbose` per abilitare la registrazione più dettagliata. È anche possibile specificare un formato di output usando `--output`. Ad esempio:
 
 ```cmd
 azds up --verbose --output json
@@ -335,7 +335,7 @@ Per risolvere il problema:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Errore di autorizzazione "Microsoft. DevSpaces/Register/Action"
 
-Per gestire Azure Dev Spaces, è necessario l'accesso *Proprietario* o *Collaboratore* nella sottoscrizione di Azure. Se si sta tentando di gestire gli spazi di sviluppo e non si dispone dell'accesso come *proprietario* o *collaboratore* alla sottoscrizione di Azure associata, potrebbe essere visualizzato un errore di autorizzazione. Ad esempio,
+Per gestire Azure Dev Spaces, è necessario l'accesso *Proprietario* o *Collaboratore* nella sottoscrizione di Azure. Se si sta tentando di gestire gli spazi di sviluppo e non si dispone dell'accesso come *proprietario* o *collaboratore* alla sottoscrizione di Azure associata, potrebbe essere visualizzato un errore di autorizzazione. Ad esempio:
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -391,7 +391,7 @@ Per aggiornare il ruolo RBAC dell'utente per il controller:
     * Per *ruolo*selezionare *collaboratore* o *proprietario*.
     * In *Assegna accesso a* selezionare *Utente, gruppo o entità servizio di Azure AD*.
     * Per *Select*, cercare l'utente a cui si vogliono concedere le autorizzazioni.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Risoluzione dei nomi DNS non completa l'operazione per un URL pubblico associato al servizio Dev Spaces
 
@@ -469,12 +469,12 @@ Dopo aver riavviato i pod, è possibile iniziare a usare lo spazio dei nomi esis
 
 Per abilitare Azure Dev Spaces in un cluster AKS per il quale il traffico in uscita dai nodi del cluster è limitato, è necessario consentire i nomi di dominio completi seguenti:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Per eseguire il pull di immagini Linux alpine e di altro Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Per estrarre le immagini Helm/Tiller|
 | storage.googleapis.com | HTTP: 443 | Per estrarre le immagini Helm/Tiller|
-| azds-<guid>.<location>. azds.io | HTTPS:443 | Per comunicare con Azure Dev Spaces servizi back-end per il controller. L'FQDN esatto è reperibile in "dataplaneFqdn" in% USERPROFILE%\.azds\settings.JSON|
+| azds-<guid>.<location>.azds.io | HTTPS:443 | Per comunicare con Azure Dev Spaces servizi back-end per il controller. L'FQDN esatto è reperibile in "dataplaneFqdn" in% USERPROFILE%\.azds\settings.JSON|
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Errore "Impossibile trovare il cluster \<cluster\> nella sottoscrizione \<subscriptionId\>"
 

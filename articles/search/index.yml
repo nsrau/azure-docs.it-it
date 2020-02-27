@@ -10,29 +10,43 @@ metadata:
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 3d011bdf1f0da04efec86adc121326a877532b6f
-  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.date: 02/25/2020
+  ms.openlocfilehash: b1df45b155e9c9d1bd4433d7ddc765c126686a07
+  ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/24/2020
-  ms.locfileid: "76721065"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77614962"
 landingContent:
 - title: Informazioni sulla ricerca cognitiva
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è la ricerca cognitiva di Azure?
+    - text: Che cos'è la ricerca cognitiva di Azure
       url: search-what-is-azure-search.md
-  - linkListType: architecture
-    links:
-    - text: Funzionamento della ricerca full-text nella ricerca cognitiva
-      url: search-lucene-query-architecture.md
+    - text: Che cos'è arricchimento con intelligenza artificiale
+      url: cognitive-search-concept-intro.md
+    - text: Che cos'è un indicizzatore
+      url: search-indexer-overview.md
   - linkListType: video
     links:
     - text: Che cos'è la ricerca cognitiva (1 min 27 sec)
       url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
-- title: Introduzione
+- title: Indicizzare i dati di Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Indicizzare da Archiviazione BLOB di Azure
+      url: search-blob-storage-integration.md
+    - text: Indicizzare dal database SQL di Azure
+      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - text: Indicizzare da Cosmos DB
+      url: search-howto-index-cosmosdb.md
+  - linkListType: tutorial
+    links:
+    - text: Indicizzare dati BLOB semistrutturati
+      url: search-semi-structured-data.md
+- title: Guide di avvio rapido di 10 minuti
   linkLists:
   - linkListType: quickstart
     links:
@@ -40,64 +54,34 @@ landingContent:
       url: search-create-service-portal.md
     - text: Creare un indice
       url: search-get-started-portal.md
-    - text: Creare una pipeline di arricchimento
-      url: cognitive-search-quickstart-blob.md
-  - linkListType: tutorial
-    links:
     - text: Creare un'app
-      url: tutorial-csharp-create-first-app.md
-  - linkListType: learn
-    links:
-    - text: Introduzione alla ricerca cognitiva di Azure
-      url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
-- title: Uso con l'archiviazione BLOB
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Usare l'intelligenza artificiale per comprendere i dati BLOB
-      url: search-blob-ai-integration.md
-    - text: Eseguire ricerche nel contenuto del BLOB
-      url: search-blob-storage-integration.md
-    - text: Archiviare gli arricchimenti di intelligenza artificiale
-      url: knowledge-store-concept-intro.md
-  - linkListType: tutorial
-    links:
-    - text: Indicizzare dati BLOB semistrutturati
-      url: search-semi-structured-data.md
-- title: Indicizzare i dati
+      url: search-create-app-portal.md
+    - text: Inserire ed estrarre testo e immagini non elaborati
+      url: cognitive-search-quickstart-blob.md
+- title: Indicizzare qualsiasi dato
   linkLists:
   - linkListType: concept
     links:
-    - text: Definizione di un indice
+    - text: Definire un indice
       url: search-what-is-an-index.md
-    - text: Importazione di dati
+    - text: Importa dati
       url: search-what-is-data-import.md
-    - text: Usare un indicizzatore
-      url: search-indexer-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: Indicizzare dal database SQL di Azure
-      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-    - text: Indicizzare da dati di Cosmos DB
-      url: search-howto-index-cosmosdb.md
   - linkListType: reference
     links:
     - text: Creare un indice (REST)
       url: https://docs.microsoft.com/rest/api/searchservice/create-index
     - text: Creare un indicizzatore (REST)
       url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
-- title: Arricchire i dati
+- title: Arricchimenti di intelligenza artificiale
   linkLists:
   - linkListType: concept
     links:
-    - text: Pipeline di arricchimento con intelligenza artificiale
-      url: cognitive-search-concept-intro.md
     - text: Set di competenze
       url: cognitive-search-defining-skillset.md
     - text: Archivi conoscenze
       url: knowledge-store-concept-intro.md
     - text: Proiezioni
-      url: knowledge-store-projection-overview.md
+      url: knowledge-store-projections-examples.md
   - linkListType: how-to-guide
     links:
     - text: Collega Servizi cognitivi
@@ -114,7 +98,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Panoramica
+    - text: Tipi di query e composizione
       url: search-query-overview.md
     - text: Sintassi semplice (impostazione predefinita)
       url: query-simple-syntax.md

@@ -23,9 +23,11 @@
     - name: Funzionamento di Personalizza esperienze
       href: how-personalizer-works.md
       displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
-    - name: In quali situazioni è possibile usare Personalizza esperienze?
+    - name: In quali situazioni usare Personalizza esperienze
       href: where-can-you-use-personalizer.md
       displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: Terminologia
+      href: terminology.md
     - name: Etica e uso responsabile
       href: ethics-responsible-use.md
       displayName: 'best practice, design'
@@ -34,9 +36,11 @@
         - name: Azione e contesto delle funzionalità
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
-        - name: Eventi attivi e inattivi
+        - name: Criteri di apprendimento
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: Eventi attivi e inattivi
+          href: concept-active-inactive-events.md
         - name: Ricompense
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -56,15 +60,15 @@
       href: concepts-scalability-performance.md
 - name: Guide pratiche
   items:
-    - name: Creare e configurare Personalizza esperienze
+    - name: Creare la risorsa di Personalizza esperienze
+      href: how-to-create-resource.md
+    - name: Configurare un ciclo di apprendimento
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
-    - name: Gestire i criteri di apprendimento
-      href: how-to-learning-policy.md
-    - name: Analisi
-      items:
-        - name: Valutazione offline
-          href: how-to-offline-evaluation.md
+    - name: Gestire il modello e le impostazioni di apprendimento
+      href: how-to-manage-model.md
+    - name: Analizzare con una valutazione offline
+      href: how-to-offline-evaluation.md
 - name: Informazioni di riferimento
   items:
     - name: Esempi

@@ -62,10 +62,14 @@
       href: load-balancer-security-controls.md
 - name: Procedure
   items:
-    - name: Aggiornare Load Balancer pubblico Basic a Load Balancer pubblico Standard
-      href: upgrade-basic-standard.md
-    - name: Aggiornare Load Balancer interno Basic a Load Balancer interno Standard
-      href: upgrade-basicInternal-standard.md
+    - name: Aggiornare Load Balancer Basic a Load Balancer Standard
+      items:
+        - name: Aggiornare Load Balancer pubblico Basic
+          href: upgrade-basic-standard.md
+        - name: Aggiornare Load Balancer interno Basic - Nessuna connessione in uscita necessaria
+          href: upgrade-basicInternal-standard.md
+        - name: Aggiornare Load Balancer interno Basic - Connessione in uscita necessaria
+          href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configurare le regole in uscita
       items:
         - name: Portale di Azure
