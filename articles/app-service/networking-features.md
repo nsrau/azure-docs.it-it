@@ -4,15 +4,15 @@ description: Informazioni sulle funzionalità di rete nel servizio app Azure e s
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 02/27/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971758"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649227"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -26,9 +26,9 @@ Il servizio app Azure è un sistema distribuito. I ruoli che gestiscono le richi
 
 | Funzionalità in ingresso | Funzionalità in uscita |
 |---------------------|-------------------|
-| Indirizzo assegnato dall'app | Connessioni ibride |
+| Indirizzo assegnato dall'app | connessioni ibride |
 | Restrizioni di accesso | Integrazione VNet necessaria per il gateway |
-| Endpoint del servizio | Integrazione di VNet (anteprima) |
+| Endpoint servizio | Integrazione rete virtuale |
 
 Se non diversamente specificato, tutte le funzionalità possono essere usate insieme. È possibile combinare le funzionalità per risolvere i diversi problemi.
 
@@ -42,7 +42,7 @@ Per ogni caso di utilizzo specifico, è possibile risolvere il problema in alcun
 | Indirizzo in ingresso non condiviso e dedicato per l'app | indirizzo assegnato dall'app |
 | Limitare l'accesso all'app da un set di indirizzi ben definiti | Restrizioni di accesso |
 | Esporre l'app in indirizzi IP privati nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> Gateway applicazione con endpoint di servizio |
-| Limitare l'accesso all'app dalle risorse in una VNet | Endpoint del servizio </br> Ambiente del servizio app con bilanciamento del carico interno |
+| Limitare l'accesso all'app dalle risorse in una VNet | Endpoint servizio </br> Ambiente del servizio app con bilanciamento del carico interno |
 | Esporre l'app in un indirizzo IP privato nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> IP privato per il traffico in ingresso in un gateway applicazione con endpoint di servizio |
 | Proteggi l'app con un WAF | Gateway applicazione + ambiente del servizio app ILB </br> Gateway applicazione con endpoint di servizio </br> Sportello anteriore di Azure con restrizioni di accesso |
 | Bilanciare il carico del traffico verso le app personali in aree diverse | Sportello anteriore di Azure con restrizioni di accesso | 
@@ -55,8 +55,10 @@ I seguenti casi di utilizzo in uscita suggeriscono come usare le funzionalità d
 | Accedere alle risorse in una Rete in ingresso virtuale di Azure nella stessa area | Integrazione rete virtuale </br> ASE |
 | Accedere alle risorse in una Rete in ingresso virtuale di Azure in un'area diversa | Integrazione VNet necessaria per il gateway </br> Peering ASE e VNet |
 | Accedere alle risorse protette con gli endpoint di servizio | Integrazione rete virtuale </br> ASE |
-| Accedere alle risorse in una rete privata non connessa ad Azure | Connessioni ibride |
-| Accedere alle risorse tra circuiti ExpressRoute | Integrazione di VNet (limitata agli indirizzi RFC 1918 per il momento) </br> ASE | 
+| Accedere alle risorse in una rete privata non connessa ad Azure | connessioni ibride |
+| Accedere alle risorse tra circuiti ExpressRoute | Integrazione rete virtuale </br> ASE | 
+| Proteggere il traffico in uscita dall'app Web | Integrazione di VNet e gruppi di sicurezza di rete </br> ASE | 
+| Instradare il traffico in uscita dall'app Web | Integrazione di VNet e tabelle di route </br> ASE | 
 
 
 ### <a name="default-networking-behavior"></a>Comportamento di rete predefinito
@@ -101,7 +103,7 @@ Se si vuole bloccare l'accesso all'app in modo che possa essere raggiunto solo d
 
 Gli endpoint di servizio consentono di bloccare l'accesso in **ingresso** all'app in modo che l'indirizzo di origine debba provenire da un set di subnet selezionato. Questa funzionalità funziona insieme alle restrizioni di accesso IP. Gli endpoint di servizio vengono impostati nella stessa esperienza utente delle restrizioni di accesso IP. È possibile compilare un elenco Consenti/Nega di regole di accesso che include indirizzi pubblici e subnet nella reti virtuali. Questa funzionalità supporta scenari come:
 
-![Endpoint del servizio](media/networking-features/service-endpoints.png)
+![endpoint di servizio](media/networking-features/service-endpoints.png)
 
 * Configurazione di un gateway applicazione con l'app per bloccare il traffico in ingresso verso l'app
 * Limitazione dell'accesso all'app alle risorse nella VNet. Questo può includere VM, gli ambienti o anche altre app che usano l'integrazione VNet 
@@ -110,7 +112,7 @@ Gli endpoint di servizio consentono di bloccare l'accesso in **ingresso** all'ap
 
 Per altre informazioni sulla configurazione degli endpoint di servizio con l'app, vedere l'esercitazione sulla [configurazione delle restrizioni di accesso agli endpoint di servizio][serviceendpoints]
  
-### <a name="hybrid-connections"></a>Connessioni ibride
+### <a name="hybrid-connections"></a>connessioni ibride
 
 Il servizio app Connessioni ibride consente alle app di effettuare chiamate in **uscita** agli endpoint TCP specificati. L'endpoint può trovarsi in locale, in una VNet o ovunque, che consente il traffico in uscita verso Azure sulla porta 443. La funzionalità richiede l'installazione di un agente di inoltro denominato Gestione connessione ibrida (HCM) in un host Windows Server 2012 o versione successiva. Gestione connessione ibrida deve essere in grado di raggiungere il relè di Azure sulla porta 443. È possibile scaricare gestione connessione ibrida dal servizio app Connessioni ibride interfaccia utente nel portale. 
 
@@ -146,15 +148,17 @@ Quando questa funzionalità è abilitata, l'app userà il server DNS con cui è 
 
 ### <a name="vnet-integration"></a>Integrazione rete virtuale
 
-La funzionalità di integrazione VNet necessaria per il gateway è molto utile, ma non risolve l'accesso alle risorse tra ExpressRoute. Oltre a dover raggiungere le connessioni ExpressRoute, è necessario che le app siano in grado di effettuare chiamate a servizi protetti con endpoint di servizio. Per risolvere entrambe le esigenze aggiuntive, è stata aggiunta un'altra funzionalità di integrazione VNet. La nuova funzionalità di integrazione VNet consente di collocare il back-end dell'app in una subnet in un Gestione risorse VNet nella stessa area. Questa funzionalità non è disponibile da un ambiente del servizio app, che è già presente in una VNet. Questa funzionalità offre i vantaggi seguenti:
+La funzionalità di integrazione VNet necessaria per il gateway è molto utile, ma non risolve l'accesso alle risorse tra ExpressRoute. Oltre a dover raggiungere le connessioni ExpressRoute, è necessario che le app siano in grado di effettuare chiamate a servizi protetti con endpoint di servizio. Per risolvere entrambe le esigenze aggiuntive, è stata aggiunta un'altra funzionalità di integrazione VNet. La nuova funzionalità di integrazione VNet consente di collocare il back-end dell'app in una subnet in un Gestione risorse VNet nella stessa area. Questa funzionalità non è disponibile da un ambiente del servizio app, che è già presente in una VNet. Questa funzionalità consente di:
 
 * Accesso alle risorse in Gestione risorse reti virtuali nella stessa area
 * Accesso alle risorse protette con gli endpoint di servizio 
 * Accesso alle risorse accessibili attraverso connessioni VPN o ExpressRoute
+* Protezione di tutto il traffico in uscita 
+* Forzare il tunneling di tutto il traffico in uscita. 
 
 ![Integrazione rete virtuale](media/networking-features/vnet-integration.png)
 
-Questa funzionalità è in anteprima e non deve essere usata per i carichi di lavoro di produzione. Per altre informazioni su questa funzionalità, leggere la documentazione relativa all' [integrazione di VNet nel servizio app][vnetintegration].
+Per altre informazioni su questa funzionalità, leggere la documentazione relativa all' [integrazione di VNet nel servizio app][vnetintegration].
 
 ## <a name="app-service-environment"></a>Ambiente del servizio app 
 

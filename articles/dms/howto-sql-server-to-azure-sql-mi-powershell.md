@@ -3,21 +3,21 @@ title: "PowerShell: eseguire la migrazione di SQL Server a un'istanza gestita di
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione da SQL Server locali all'istanza gestita di database SQL di Azure usando Azure PowerShell e il servizio migrazione del database di Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 3b434bc8a495f47f7fb2de8429069283821cf397
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/20/2020
+ms.openlocfilehash: 9ea9f55681b93e79eec836f5808d2c6feaa6bb29
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746623"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650725"
 ---
 # <a name="migrate-sql-server-to-sql-database-managed-instance-with-powershell--azure-database-migration-service"></a>Eseguire la migrazione di SQL Server all'istanza gestita di database SQL con PowerShell & il servizio migrazione del database di Azure
 
@@ -35,7 +35,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Questo articolo include informazioni dettagliate su come eseguire migrazioni in linea e non in linea.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questi passaggi è necessario disporre di:
 

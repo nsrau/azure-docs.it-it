@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: 586c705b821ba74536ba11e6a242553170d518f1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7927866adb5efbdc8eb55b9b5209603a3658ae2c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77371092"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495219"
 ---
-|Nome |Descrizione |Effetto/i |Versione |Origine |
+|Nome |Descrizione |Effetto/i |Versione |Source (Sorgente) |
 |---|---|---|---|
 |[È necessario applicare un criterio IPSec/IKE personalizzato a tutte le connessioni del gateway di rete virtuale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Questo criterio garantisce che tutte le connessioni del gateway di rete virtuale di Azure usino un criterio IPSec (Internet Protocol Security)/IKE (Internet Key Exchange) personalizzato. Per i livelli di attendibilità delle chiavi e gli algoritmi supportati, vedere https://aka.ms/AA62kb0 |Audit, Disabled |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
 |[Il servizio app deve usare un endpoint servizio di rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Questo criterio controlla i servizi app che non sono configurati per usare un endpoint servizio di rete virtuale. |AuditIfNotExists, Disabled |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json)

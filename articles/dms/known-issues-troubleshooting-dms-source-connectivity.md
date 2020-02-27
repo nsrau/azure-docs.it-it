@@ -3,21 +3,21 @@ title: Problemi di connessione dei database di origine
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come risolvere i problemi noti o gli errori associati alla connessione del servizio migrazione del database di Azure ai database di origine.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: b697faeded4177381f70ebb9d1f93d928b25d7b1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 332f612e1ffe57fc4edd90b1fe4c6a5ea5a2904a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437801"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649176"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Risolvere gli errori DMS durante la connessione ai database di origine
 
@@ -65,7 +65,7 @@ Nella tabella seguente sono riportati i potenziali problemi associati alla conne
 > * [Risoluzione dei problemi relativi alla connettività di Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
 > * [Ricerca per categorie risolvere i problemi di connessione a un'istanza di database Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
-## <a name="aws-rds-sql-server"></a>AWS RDS per SQL Server
+## <a name="aws-rds-sql-server"></a>SQL Server RDS di AWS
 
 Nella tabella seguente sono riportati i potenziali problemi associati alla connessione a un database di SQL Server RDS di AWS di origine e come risolverli.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906794"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651362"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server con una condivisione file Premium in macchine virtuali di Azure
 
@@ -71,7 +71,7 @@ Per informazioni complete sulle licenze SQL Server, consultare [Prezzi](https://
 
 FILESTREAM non è supportato per un cluster di failover con una condivisione file Premium. Per usare FILESTREAM, distribuire il cluster usando [spazi di archiviazione diretta](virtual-machines-windows-portal-sql-create-failover-cluster.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di completare i passaggi descritti in questo articolo, è necessario avere già:
 
@@ -149,11 +149,11 @@ Con questi prerequisiti, è possibile iniziare a compilare il cluster di failove
 
    1. Selezionare **Avanti**, quindi selezionare **Rimuovi**.
 
-1. <a name="ports"></a>Aprire le porte del firewall.
+1. <span id="ports"></span> Aprire le porte del firewall.  
 
    In ogni macchina virtuale aprire queste porte nella Windows Firewall:
 
-   | Finalità | Porta TCP | Note
+   | Scopo | Porta TCP | Note
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta.
    | Probe di integrità | 59999 | Qualsiasi porta TCP aperta. In un passaggio successivo, configurare il [probe di integrità](#probe) del servizio di bilanciamento del carico e il cluster per l'uso di questa porta.
@@ -369,7 +369,7 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Selezionare **Aggiungi**.
 
-1. Nel pannello **Aggiungi Probe** di integrità <a name="probe"> </a>impostare i parametri del probe di integrità seguenti.
+1. Nel pannello **Aggiungi Probe** di integrità <span id="probe"></span> impostare i parametri del probe di integrità seguenti.
 
    - **Nome**: nome del probe di integrità.
    - **Protocollo**: TCP.
@@ -465,7 +465,7 @@ In macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016 o 
 - Non è possibile configurare la risorsa MSDTC in cluster per usare l'archiviazione condivisa. In Windows Server 2016, se si crea una risorsa MSDTC, non verrà visualizzata alcuna archiviazione condivisa disponibile per l'uso, anche se è disponibile spazio di archiviazione. Questo problema è stato risolto per Windows Server 2019.
 - Il servizio di bilanciamento del carico di base non gestisce le porte RPC.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server istanze del cluster di failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

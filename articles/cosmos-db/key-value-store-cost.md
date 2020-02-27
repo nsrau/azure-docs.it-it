@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a79db11ff05bcc9d18619c7f508a9864c17c3b8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012806"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647512"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi
 
@@ -26,12 +26,12 @@ Azure Cosmos DB prestazioni si basano sulla quantità di velocità effettiva con
 
 Come sistema di database distribuito a livello globale, Cosmos DB è l'unico servizio di Azure che offre contratti di servizio completi relativi a latenza, velocità effettiva, coerenza e disponibilità elevata. La velocità effettiva di cui viene effettuato il provisioning viene applicata a ognuna delle aree associate all'account Cosmos. Per le letture, Cosmos DB offre più [livelli di coerenza](consistency-levels.md) ben definiti tra cui scegliere. 
 
-La tabella seguente mostra il numero di ur necessarie per eseguire operazioni di lettura e scrittura basate su un elemento di dati di dimensioni pari a 1 KB e 100 KB.
+La tabella seguente mostra il numero di ur necessarie per eseguire operazioni di lettura e scrittura basate su un elemento di dati di dimensioni pari a 1 KB e 100 KBs con l'indicizzazione automatica predefinita disattivata. 
 
 |Dimensioni dell'elemento|1 Lettura|1 Scrittura|
 |-------------|------|-------|
 |1 KB|1 UR|5 UR|
-|100 KB|10 UR|50 UR|
+|100 kB|10 UR|50 UR|
 
 ## <a name="cost-of-reads-and-writes"></a>Costo di letture e scritture
 
@@ -40,7 +40,7 @@ Se si effettua il provisioning di 1.000 UR/sec, questo importo è pari a 3,6 mil
 |Dimensioni dell'elemento|Costo di 1 milione letture|Costo di 1 milione Scritture|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
-|100 KB|$0.222|$1.111|
+|100 kB|$0.222|$1.111|
 
 
 La maggior parte dei servizi di archivi di oggetti o BLOB di base addebita 0,40 dollari per milione di transazioni di lettura e 5 dollari per milione transazioni di scrittura. Se usato in modo ottimale, Cosmos DB può essere fino al 98% più economico di queste altre soluzioni (per transazioni da 1 KB).

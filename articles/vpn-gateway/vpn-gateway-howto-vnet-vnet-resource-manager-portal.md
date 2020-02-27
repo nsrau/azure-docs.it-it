@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: b98fb4044028ec9b335dc314732da04d18a3e2f9
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b26947f2dd25f950b2d69d58321582a503aea83d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894966"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619783"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurare una connessione gateway VPN da rete virtuale a rete virtuale con il portale di Azure
 
@@ -78,7 +78,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
     - **Spazio di indirizzi**: immettere *10.11.0.0/16*.
     - **Sottoscrizione**: selezionare la sottoscrizione che si vuole usare.
     - **Gruppo di risorse**: immettere *TestRG1*.
-    - **Località**: selezionare **East US**.
+    - **Località**: selezionare **Stati Uniti orientali**.
     - **Subnet**
         - **Nome**: immettere front- *end*.
         - **Intervallo di indirizzi**: immettere *10.11.0.0/24*.
@@ -103,7 +103,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
    - **Spazio di indirizzi**: immettere *10.41.0.0/16*.
    - **Sottoscrizione**: selezionare la sottoscrizione che si vuole usare.
    - **Gruppo di risorse**: immettere *TestRG4*.
-   - **Posizione**: selezionare **Stati Uniti occidentali**.
+   - **Località**: selezionare **Stati Uniti occidentali**.
    - **Subnet** 
       - **Nome**: immettere front- *end*.
       - **Intervallo di indirizzi**: immettere *10.41.0.0/24*.
@@ -183,7 +183,7 @@ Individuare il gateway di rete virtuale nel portale di Azure. Nella pagina **Gat
 
 Quando inizia il flusso dei dati, vengono visualizzati valori per **Dati in entrata** e **Dati in uscita**.
 
-![Informazioni di base](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
+![Informazioni di base](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Informazioni di base")
 
 ## <a name="add-additional-connections"></a>Aggiungere altre connessioni
 

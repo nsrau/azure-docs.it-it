@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: c59089510bf7104ef69ec5d6362e7c89597e1d8c
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 28b83f0adae3292ef7e59527843de671fe5f18ad
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77371121"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495080"
 ---
-|Nome |Descrizione |Effetto/i |Versione |Origine |
+|Nome |Descrizione |Effetto/i |Versione |Source (Sorgente) |
 |---|---|---|---|
 |[\[Anteprima\]: Controlla la distribuzione di Dependency Agent - Immagine macchina virtuale (sistema operativo) non in elenco](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F11ac78e3-31bc-4f0c-8434-37ab963cea07) |Segnala le macchine virtuali come non conformi se l'immagine della macchina virtuale (sistema operativo) non è nell'elenco definito e l'agente non è installato. L'elenco delle immagini dei sistemi operativi verrà aggiornato nel tempo in base all'aggiornamento del supporto. |auditIfNotExists |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgent_OSImage_Audit.json)
 |[\[Anteprima\]: Controlla la distribuzione di Dependency Agent nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe2dd799a-a932-4e9d-ac17-d473bc3c6c10) |Segnala i set di scalabilità di macchine virtuali come non conformi se l'immagine (sistema operativo) della macchina virtuale non è nell'elenco definito e l'agente non è installato. L'elenco delle immagini dei sistemi operativi verrà aggiornato nel tempo in base all'aggiornamento del supporto. |auditIfNotExists |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgent_OSImage_VMSS_Audit.json)

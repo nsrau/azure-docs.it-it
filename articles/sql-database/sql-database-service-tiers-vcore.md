@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045196"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650300"
 ---
 # <a name="vcore-model-overview"></a>Panoramica del modello vCore
 
@@ -36,7 +36,7 @@ Le opzioni del livello di servizio nel modello vCore includono per utilizzo gene
 |IOPS e velocità effettiva (approssimativa)|**Database singoli e pool elastici**: vedere limiti delle risorse per [database singoli](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [pool elastici](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Istanza gestita**: vedere [Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [pool elastici](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
 |Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 [repliche con scalabilità in lettura](sql-database-read-scale-out.md)|
 |Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
-|In memoria|Supporto non disponibile|Supportato|Supporto non disponibile|
+|In memoria|Non supportate|Supportato|Non supportate|
 |||
 
 
@@ -59,7 +59,7 @@ Le opzioni del livello di calcolo nel modello vCore includono i livelli di calco
 Il livello di calcolo con provisioning fornisce una quantità specifica di risorse di calcolo di cui viene eseguito il provisioning continuo indipendentemente dall'attività del carico di lavoro e le fatture per la quantità di calcolo di cui è stato effettuato il provisioning a un prezzo fisso all'ora.
 
 
-### <a name="serverless-compute"></a>Elaborazione serverless
+### <a name="serverless-compute"></a>Calcolo serverless
 
 Il [livello di calcolo senza server](sql-database-serverless.md) consente di ridimensionare automaticamente le risorse di calcolo in base all'attività del carico di lavoro e le fatture per la quantità di calcolo usata al secondo.
 
@@ -89,7 +89,7 @@ Per le aree in cui è disponibile la serie Fsv2, vedere [disponibilità della se
 - La serie M è un'opzione hardware con ottimizzazione per la memoria per carichi di lavoro che richiedono più memoria e limiti di calcolo superiori rispetto a quelli forniti da Quinta generazione.
 - La serie M offre 29 GB per vCore e 128 Vcore, che aumenta il limite di memoria rispetto a Quinta generazione da 8x a circa 4 TB.
 
-Per abilitare l'hardware della serie M per una sottoscrizione e un'area, è necessario che sia aperta una richiesta di supporto. Se la richiesta di supporto è approvata, l'esperienza di selezione e provisioning della serie M segue lo stesso modello di altre generazioni di hardware. Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series).
+Per abilitare l'hardware della serie M per una sottoscrizione e un'area, è necessario aprire una richiesta di supporto. La sottoscrizione deve essere un tipo di offerta a pagamento, incluso il pagamento in base al consumo o Enterprise Agreement (EA).  Se la richiesta di supporto è approvata, l'esperienza di selezione e provisioning della serie M segue lo stesso modello di altre generazioni di hardware. Per le aree in cui è disponibile la serie M, vedere [disponibilità della serie m](#m-series).
 
 
 ### <a name="compute-and-memory-specifications"></a>Specifiche di calcolo e memoria
@@ -97,7 +97,7 @@ Per abilitare l'hardware della serie M per una sottoscrizione e un'area, è nece
 
 |Generazione dell'hardware  |Calcolo  |Memoria  |
 |:---------|:---------|:---------|
-|Quarta generazione     |-Processori Intel E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
+|Gen4     |-Processori Intel E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
 |Quinta generazione     |**Calcolo con provisioning**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake)<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake)<br>-Scalabilità automatica fino a 16 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 48 GB max|
 |Serie Fsv2     |-Processori Intel Xeon Platinum 8168 (SkyLake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Provisioning di 136 GB|
 |Serie M     |-Processori Intel Xeon E7-8890 V3 2,5 GHz<br>-Provisioning 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Provisioning 3,7 TB|
@@ -142,7 +142,7 @@ Nella scheda **nozioni di base** selezionare il collegamento **Configura databas
   
 **Per modificare la generazione di hardware di un'istanza gestita esistente**
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Nella pagina istanza gestita selezionare il collegamento piano **tariffario** nella sezione Impostazioni
 
@@ -150,43 +150,25 @@ Nella pagina istanza gestita selezionare il collegamento piano **tariffario** ne
 
 Nella pagina piano **tariffario** sarà possibile modificare la generazione dell'hardware come descritto nei passaggi precedenti.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Usare lo script di PowerShell seguente:
+Usare il seguente script di PowerShell:
 
 ```powershell-interactive
-$subscriptionId = "**************"
-Select-AzSubscription -Subscription $subscriptionId
-
-$instanceName = "********"
-$resourceGroup = "****"
-
-# THIS IS IMPORTANT PARAMETER:
-$sku = @{name = "GP_Gen5" }
-
-# NOTE: These properties are not necessary, but it would be good to set them to the current values:
-# You might want to change vCores or storage with hardware generation
-# $admin_login = "******"
-# $admin_pass = "******"
-# $location = "***** # for example: ""northeurope"
-# $vCores = 8
-# $maxStorage = 1024
-# $license = "BasePrice"
-# $subnetId = "/subscriptions/****/subnets/*******"
-
-## NOTE: Uncomment some of the properties below if you have set them.
-$properties = New-Object System.Object
-# $properties | Add-Member -type NoteProperty -name subnetId -Value $subnetId
-# $properties | Add-Member -type NoteProperty -name administratorLogin -Value $admin_login
-# $properties | Add-Member -type NoteProperty -name administratorLoginPassword -Value $admin_pass
-# $properties | Add-Member -type NoteProperty -name vCores -Value $vCores
-# $properties | Add-Member -type NoteProperty -name storageSizeInGB -Value $maxStorage
-# $properties | Add-Member -type NoteProperty -name licenseType -Value $license
-
-Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
+Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Assicurarsi di immettere l'ID sottoscrizione, il nome e il gruppo di risorse dell'istanza gestita.
+Per altri dettagli, vedere il comando [set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Usare il comando dell'interfaccia della riga di comando seguente:
+
+```azurecli-interactive
+az sql mi update -g mygroup -n myinstance --family Gen5
+```
+
+Per altri dettagli, vedere comando [AZ SQL mi Update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) .
 
 ---
 
@@ -194,7 +176,7 @@ Assicurarsi di immettere l'ID sottoscrizione, il nome e il gruppo di risorse del
 
 #### <a name="gen4gen5-1"></a>Gen4/quinta generazione
 
-I nuovi database Gen4 non sono più supportati nelle aree dell'Australia orientale o del Brasile meridionale. 
+L'hardware Gen4 [viene eliminato e non](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) è più disponibile per le nuove distribuzioni. Tutti i nuovi database devono essere distribuiti nell'hardware quinta generazione.
 
 Quinta generazione è disponibile nella maggior parte delle aree del mondo.
 

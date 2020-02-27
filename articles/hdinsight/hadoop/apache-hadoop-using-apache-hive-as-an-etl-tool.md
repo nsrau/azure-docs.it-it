@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: be331f36a6305b05ce83a2b2d5fdfb73a154ce3d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561763"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623109"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usare Apache Hive come strumento per estrazione, trasformazione e caricamento (ETL, Extract, Transform, and Load)
 
@@ -81,7 +81,7 @@ Il modello ETL in genere viene usato per:
 
 * Caricare il flusso di dati o grandi quantità di dati semistrutturati o non strutturati da origini esterne in un sistema di informazioni o in database esistente.
 * Pulire, trasformare e convalidare i dati prima di caricarli, possibilmente con più di un passaggio di trasformazione nel cluster.
-* Generare report e visualizzazioni che vengono regolarmente aggiornati.  Ad esempio, se la generazione di un report richiede troppo tempo durante il giorno, è possibile pianificarne l'esecuzione durante la notte.  È possibile usare l'utilità di pianificazione di Azure e PowerShell per eseguire automaticamente una query Hive.
+* Generare report e visualizzazioni che vengono regolarmente aggiornati. Ad esempio, se la generazione di un report richiede troppo tempo durante il giorno, è possibile pianificarne l'esecuzione durante la notte. Per eseguire automaticamente una query hive, è possibile usare [app](../../logic-apps/logic-apps-overview.md) per la logica di Azure e PowerShell.
 
 Se la destinazione per i dati non è un database, è possibile generare un file nel formato appropriato all'interno della query, ad esempio un volume condiviso cluster. Questo file può essere quindi importato in Excel o in Power BI.
 

@@ -1,18 +1,18 @@
 ---
 title: Integrare l'app con rete virtuale di Azure
-description: Informazioni sul modo in cui il servizio app Azure si integra con rete virtuale di Azure e su come connettere un'app a una rete virtuale.
+description: Integra le app nel servizio app Azure con le reti virtuali di Azure.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 02/27/2020
 ms.author: ccompy
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 472fe621fc7a95317f143ef96a1d7f8b5adfe581
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.custom: seodec18
+ms.openlocfilehash: 76139716fe11536faa0ff792185ba1643801c641
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016970"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649025"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione della rete virtuale del servizio app Azure e come configurarla con le app nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] (reti virtuali) consentono di inserire molte delle risorse di Azure in una rete instradabile non Internet.  
@@ -22,203 +22,169 @@ Il servizio app Azure presenta due varianti.
 1. I sistemi multi-tenant che supportano l'intera gamma dei piani tariffari, ad eccezione di Isolated
 2. Il ambiente del servizio app (ambiente del servizio app), che distribuisce nella VNet e supporta le app di piano tariffario isolate
 
-Questo documento illustra le due funzionalità di integrazione VNet, che è destinata all'uso nel servizio app multi-tenant. Se l'app è in [ambiente del servizio app][ASEintro], si trova già in una VNet e non richiede l'uso della funzionalità di integrazione VNet per raggiungere le risorse nello stesso VNet. Per informazioni dettagliate su tutte le funzionalità di rete del servizio app, vedere [funzionalità di rete del servizio app](networking-features.md)
+Questo documento descrive la funzionalità di integrazione VNet, che può essere usata nel servizio app multi-tenant. Se l'app è in [ambiente del servizio app][ASEintro], si trova già in una VNet e non richiede l'uso della funzionalità di integrazione VNet per raggiungere le risorse nello stesso VNet. Per informazioni dettagliate su tutte le funzionalità di rete del servizio app, vedere [funzionalità di rete del servizio app](networking-features.md)
 
-Esistono due moduli per la funzionalità di integrazione di VNet
+L'integrazione di VNet consente all'app Web di accedere alle risorse nella rete virtuale, ma non concede l'accesso privato in ingresso all'app Web dalla VNet. Per accesso privato s'intende la possibilità di rendere l'app accessibile soltanto da una rete privata, ad esempio all'interno di una rete virtuale di Azure. L'integrazione di VNet è solo per la creazione di chiamate in uscita dall'app in VNet. La funzionalità di integrazione VNet si comporta in modo diverso quando viene usata con reti virtuali nella stessa area e con reti virtuali in altre aree. La funzionalità di integrazione VNet presenta due varianti.
 
-1. Una versione consente l'integrazione con reti virtuali nella stessa area. Questo modulo della funzionalità richiede una subnet in un VNet nella stessa area. Questa funzionalità è ancora in anteprima, ma è supportata per i carichi di lavoro di produzione delle app Windows con alcune avvertenze indicate di seguito.
-2. L'altra versione consente l'integrazione con reti virtuali in altre aree o con reti virtuali classiche. Questa versione della funzionalità richiede la distribuzione di un gateway di rete virtuale nella VNet. Si tratta della funzionalità basata su VPN da punto a sito ed è supportata solo con le app di Windows.
+1. Integrazione VNet a livello di area: quando ci si connette a Gestione risorse reti virtuali nella stessa area, è necessario disporre di una subnet dedicata nel VNet con cui si esegue l'integrazione. 
+2. Integrazione VNet necessaria per il gateway: quando ci si connette a reti virtuali in altre aree o a una VNet classica nella stessa area è necessario un gateway di rete virtuale di cui è stato effettuato il provisioning nel VNet di destinazione.
 
-Un'app può usare solo un modulo della funzionalità di integrazione VNet alla volta. La domanda è la funzionalità da usare. È possibile utilizzare per molti aspetti. Tuttavia, i differenziatori chiari sono:
+Funzionalità di integrazione di VNet:
 
-| Problema  | Soluzione | 
-|----------|----------|
-| Si desidera raggiungere un indirizzo RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) nella stessa area | Integrazione VNet a livello di area |
-| Si vuole raggiungere le risorse in una VNet classica o in una VNet in un'altra area | Integrazione VNet necessaria per il gateway |
-| Si vuole raggiungere gli endpoint RFC 1918 tra ExpressRoute | Integrazione VNet a livello di area |
-| Desidera raggiungere risorse tra gli endpoint del servizio | Integrazione VNet a livello di area |
-
-Nessuna delle due funzionalità consentirà di raggiungere indirizzi non RFC 1918 tra ExpressRoute. A tale scopo, è necessario usare un ambiente del servizio app per il momento.
-
-L'uso dell'integrazione VNet a livello di area non connette il VNet a locale o configura gli endpoint di servizio. Si tratta di una configurazione di rete separata. L'integrazione VNet regionale consente semplicemente all'app di effettuare chiamate tra i tipi di connessione.
-
-Indipendentemente dalla versione usata, l'integrazione di VNet consente all'app Web di accedere alle risorse nella rete virtuale, ma non concede l'accesso privato in ingresso all'app Web dalla rete virtuale. Per accesso privato s'intende la possibilità di rendere l'app accessibile soltanto da una rete privata, ad esempio all'interno di una rete virtuale di Azure. L'integrazione di VNet è solo per la creazione di chiamate in uscita dall'app in VNet. 
-
-La funzionalità Integrazione rete virtuale:
-
-* richiede un piano tariffario Standard, Premium o PremiumV2 
-* supporta TCP e UDP
-* funziona con le app del servizio app e con le app per le funzioni
+* Richiedi un piano tariffario standard, Premium, PremiumV2 o Elastic Premium 
+* supportare TCP e UDP
+* usare le app del servizio app e le app per le funzioni
 
 Alcune operazioni non sono supportate da Integrazione rete virtuale:
 
 * montaggio di un'unità
-* Integrazione di AD 
+* integrazione di AD 
 * NetBios
 
-## <a name="regional-vnet-integration"></a>Integrazione VNet a livello di area 
+L'integrazione VNet necessaria per il gateway consente solo l'accesso alle risorse nel VNet di destinazione o nelle reti connesse al VNet di destinazione con peering o VPN. L'integrazione VNet necessaria per il gateway non consente l'accesso alle risorse disponibili in connessioni ExpressRoute o funziona con gli endpoint di servizio. 
 
-> [!NOTE]
-> Il peering non è ancora disponibile per il servizio App basato su Linux.
->
+Indipendentemente dalla versione usata, l'integrazione di VNet consente all'app Web di accedere alle risorse nella rete virtuale, ma non concede l'accesso privato in ingresso all'app Web dalla rete virtuale. Per accesso privato s'intende la possibilità di rendere l'app accessibile soltanto da una rete privata, ad esempio all'interno di una rete virtuale di Azure. L'integrazione di VNet è solo per la creazione di chiamate in uscita dall'app in VNet. 
 
-Quando si usa l'integrazione di VNet con reti virtuali nella stessa area dell'app, è necessario usare una subnet delegata con almeno 32 indirizzi. Non è possibile usare la subnet per altri scopi. Le chiamate in uscita effettuate dall'app verranno effettuate dagli indirizzi nella subnet delegata. Quando si usa questa versione dell'integrazione VNet, le chiamate vengono effettuate dagli indirizzi in VNet. L'uso di indirizzi nella VNet consente all'app di:
+## <a name="enable-vnet-integration"></a>Abilitare l'integrazione di VNet 
 
-* Effettuare chiamate a servizi protetti dell'endpoint di servizio
-* Accedere alle risorse tra connessioni ExpressRoute
-* Accedere alle risorse nella VNet a cui si è connessi
-* Accedere alle risorse tra connessioni con peering, incluse le connessioni ExpressRoute
+1. Passare all'interfaccia utente di rete nel portale del servizio app. In integrazione VNet selezionare *"fare clic qui per configurare"* . 
 
-Questa funzionalità è in anteprima ma è supportata per i carichi di lavoro di produzione delle app Windows con le limitazioni seguenti:
+1. Selezionare **Add VNet** (Aggiungi rete virtuale).  
 
-* È possibile raggiungere solo indirizzi compresi nell'intervallo RFC 1918. Si tratta di indirizzi nei blocchi di indirizzi 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.
+   ![Seleziona integrazione VNet][1]
+
+1. L'elenco a discesa conterrà tutti i Gestione risorse reti virtuali nella sottoscrizione nella stessa area e in basso che è un elenco di tutti i Gestione risorse reti virtuali in tutte le altre aree. Selezionare il VNet con cui si vuole eseguire l'integrazione.
+
+   ![Selezionare il VNet][2]
+
+   * Se il VNet si trova nella stessa area, creare una nuova subnet o selezionare una subnet preesistente vuota. 
+
+   * Per selezionare un VNet in un'altra area, è necessario disporre di un gateway di rete virtuale di cui è stato effettuato il provisioning con la funzionalità da punto a sito.
+
+   * Per l'integrazione con una VNet classica, invece di fare clic sull'elenco a discesa VNet, selezionare **fare clic qui per connettersi a un VNet classico**. Selezionare la VNet classica desiderata. Il VNet di destinazione deve avere già un gateway di rete virtuale di cui è stato effettuato il provisioning con da punto a sito abilitato.
+
+    ![Selezione VNet classica][3]
+    
+Durante l'integrazione, l'app viene riavviata.  Al termine dell'integrazione, verranno visualizzati i dettagli sul VNet con cui si è integrato. 
+
+Quando l'app è integrata con la VNet, userà lo stesso server DNS con cui è configurata la VNet, a meno che non sia Zone private di DNS di Azure. Attualmente non è possibile usare l'integrazione di VNet con Zone private di DNS di Azure.
+
+## <a name="regional-vnet-integration"></a>Integrazione VNet a livello di area
+
+L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
+
+* risorse in VNet nella stessa area integrata con 
+* risorse in reti virtuali con peering al VNet che si trovano nella stessa area
+* Servizi protetti endpoint di servizio
+* risorse tra connessioni ExpressRoute
+* risorse nella VNet a cui si è connessi
+* risorse tra connessioni con peering, incluse le connessioni ExpressRoute
+* Endpoint privati 
+
+Quando si usa l'integrazione di VNet con reti virtuali nella stessa area, è possibile usare le funzionalità di rete di Azure seguenti:
+
+* Gruppi di sicurezza di rete (gruppi): è possibile bloccare il traffico in uscita con un gruppo di sicurezza di rete che si trova nella subnet di integrazione. Le regole in ingresso non si applicano perché non è possibile usare l'integrazione VNet per fornire l'accesso in ingresso all'app Web.
+* Tabelle di route (UDR): è possibile inserire una tabella di route nella subnet di integrazione per inviare il traffico in uscita laddove si vuole. 
+
+Per impostazione predefinita, l'app indirizza il traffico RFC1918 solo nella VNet. Se si vuole instradare tutto il traffico in uscita nella VNet, applicare l'impostazione dell'app WEBSITE_VNET_ROUTE_ALL all'app. Per configurare l'impostazione dell'app:
+
+1. Passare all'interfaccia utente di configurazione nel portale dell'app. Selezionare l' **impostazione nuova applicazione**
+1. Digitare **WEBSITE_VNET_ROUTE_ALL** nel campo nome e **1** nel campo valore
+
+   ![Specificare l'impostazione dell'applicazione][4]
+
+1. Selezionare **OK**.
+1. Selezionare **Salva**
+
+Se si instrada tutto il traffico in uscita nel VNet, sarà soggetto a gruppi e UdR applicati alla subnet di integrazione. Quando si esegue il routing di tutto il traffico in uscita nella VNet, gli indirizzi in uscita saranno ancora gli indirizzi in uscita elencati nelle proprietà dell'app, a meno che non si forniscano route per inviare il traffico altrove. 
+
+Esistono alcune limitazioni all'uso dell'integrazione di VNet con reti virtuali nella stessa area:
+
 * Non è possibile raggiungere risorse tra connessioni di peering globali
-* Non è possibile impostare le route per il traffico proveniente dall'app in VNet
-* La funzionalità è disponibile solo dalle più recenti unità di scala del servizio app che supportano i piani di servizio app PremiumV2. Si noti che questo non significa che l'app deve essere eseguita in uno SKU di PremiumV2, ma solo che deve essere eseguita in un piano di servizio app in cui è disponibile l'opzione PremiumV2 (che implica che si tratta di un'unità di scala più recente in cui è disponibile anche questa funzionalità di integrazione di VNet).
+* La funzionalità è disponibile solo dalle più recenti unità di scala del servizio app che supportano i piani di servizio app PremiumV2.
 * La subnet di integrazione può essere usata solo da un solo piano di servizio app
 * Non è possibile usare la funzionalità da app del piano isolato che si trovano in un ambiente del servizio app
-* Per la funzionalità è necessaria una subnet inutilizzata/27 con indirizzi 32 o più grandi nel Gestione risorse VNet
+* Per la funzionalità è necessaria una subnet inutilizzata/27 con indirizzi 32 o più grandi in una Gestione risorse VNet
 * L'app e la rete virtuale devono essere nella stessa area
-* Non è possibile eliminare una rete virtuale con un'app integrata. È necessario rimuovere prima l'integrazione 
+* Non è possibile eliminare una rete virtuale con un'app integrata. Rimuovere l'integrazione prima di eliminare il VNet. 
+* È possibile eseguire l'integrazione solo con reti virtuali nella stessa sottoscrizione dell'app Web
 * È possibile avere una sola integrazione VNet a livello di area per ogni piano di servizio app. Più app nello stesso piano di servizio app possono usare lo stesso VNet. 
 * Non è possibile modificare la sottoscrizione di un'app o di un piano di servizio app mentre è presente un'app che usa l'integrazione VNet a livello di area
 
-Viene usato un indirizzo per ogni istanza del piano di servizio app. Se l'app è stata ridimensionata a 5 istanze, verranno usati 5 indirizzi. Poiché non è possibile modificare le dimensioni della subnet dopo l'assegnazione, è necessario usare una subnet sufficientemente grande da contenere la scala che l'app può raggiungere. Le dimensioni consigliate sono le dimensioni consigliate per/26 con indirizzi 64. Se non si modificano le dimensioni del piano di servizio app, a/27 con indirizzi 32 verranno riportate le istanze del piano di servizio App Premium 20. Quando si ridimensiona un piano di servizio app verso l'alto o verso il basso, sono necessari due volte il numero di indirizzi per un breve periodo di tempo. 
+Viene usato un indirizzo per ogni istanza del piano di servizio app. Se si ridimensiona l'app a cinque istanze, vengono usati cinque indirizzi. Poiché non è possibile modificare le dimensioni della subnet dopo l'assegnazione, è necessario usare una subnet sufficientemente grande da contenere la scala che l'app può raggiungere. Le dimensioni consigliate sono le dimensioni consigliate per/26 con indirizzi 64. Un piano di servizio App Premium a/26 con 64 includerà 30 istanze. Quando si ridimensiona un piano di servizio app verso l'alto o verso il basso, sono necessari due volte il numero di indirizzi per un breve periodo di tempo. 
 
 Se si vuole che le app in un altro piano di servizio app raggiungano una VNet connessa già da app in un altro piano di servizio app, è necessario selezionare una subnet diversa da quella usata dall'integrazione VNet preesistente.  
 
-La funzionalità è in anteprima anche per Linux. Per usare la funzionalità di integrazione VNet con un Gestione risorse VNet nella stessa area:
+La funzionalità è in anteprima per Linux. Il formato Linux della funzionalità supporta solo l'esecuzione di chiamate a indirizzi RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
 
-1. Passare all'interfaccia utente di Rete nel portale. Se l'app è in grado di usare la nuova funzionalità, verrà visualizzata un'opzione per aggiungere VNet (anteprima).  
+### <a name="web-app-for-containers"></a>App Web per contenitori
 
-   ![Seleziona integrazione VNet][6]
+Se si usa il servizio app in Linux con le immagini predefinite, l'integrazione VNet a livello di area funziona senza modifiche aggiuntive. Se si usa app Web per contenitori, è necessario modificare l'immagine Docker per usare l'integrazione VNet. Nell'immagine Docker usare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma del servizio app al momento dell'avvio del contenitore. Se si usa SSH, il daemon SSH deve essere configurato in modo da restare in ascolto sul numero di porta specificato dalla variabile di ambiente SSH_PORT quando si usa l'integrazione VNet a livello di area.  Non è disponibile alcun supporto per l'integrazione VNet necessaria per il gateway in Linux. 
 
-1. Selezionare **Aggiungi rete virtuale (anteprima)** .  
+### <a name="service-endpoints"></a>Endpoint servizio
 
-1. Selezionare la rete virtuale di Resource Manager da integrare e creare una nuova subnet o sceglierne una vuota esistente. Il completamento dell'integrazione richiede meno di un minuto. Durante l'integrazione, l'app viene riavviata.  Al termine dell'integrazione verranno visualizzati i dettagli della rete virtuale da integrare e un banner in alto indicante che la funzionalità è in anteprima.
+L'integrazione VNet a livello di area consente di usare gli endpoint di servizio.  Per usare gli endpoint di servizio con l'app, usare l'integrazione VNet a livello di area per connettersi a un VNet selezionato e quindi configurare gli endpoint di servizio nella subnet usata per l'integrazione. 
 
-   ![Selezionare la rete virtuale e la subnet][7]
+### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
-Dopo che l'app è stata integrata con la VNet, userà lo stesso server DNS con cui è configurata la VNet. 
+I gruppi di sicurezza di rete consentono di bloccare il traffico in ingresso e in uscita verso le risorse in una VNet. Un'app Web che usa l'integrazione VNet a livello di area può usare il [gruppo di sicurezza di rete][VNETnsg] per bloccare il traffico in uscita verso le risorse in VNet o Internet. Per bloccare il traffico verso indirizzi pubblici, è necessario che l'impostazione dell'applicazione WEBSITE_VNET_ROUTE_ALL impostata su 1. Le regole in ingresso in una NSG non si applicano all'app perché l'integrazione con VNet influiscono solo sul traffico in uscita dall'app. Per controllare il traffico in ingresso verso l'app Web, usare la funzionalità restrizioni di accesso. Un NSG applicato alla subnet di integrazione sarà attivo indipendentemente dalle route applicate alla subnet di integrazione. Se WEBSITE_VNET_ROUTE_ALL è stato impostato su 1 e non sono presenti route che influiscono sul traffico degli indirizzi pubblici sulla subnet di integrazione, tutto il traffico in uscita sarà ancora soggetto a gruppi assegnati alla subnet di integrazione. Se WEBSITE_VNET_ROUTE_ALL non è stato impostato, gruppi verrà applicato solo al traffico RFC1918.
 
-L'integrazione VNet a livello di area richiede la delega della subnet di integrazione a Microsoft. Web.  L'interfaccia utente di integrazione di VNet delegherà automaticamente la subnet a Microsoft. Web. Se l'account non dispone di autorizzazioni di rete sufficienti per impostare questa impostazione, sarà necessario disporre di un utente che può impostare gli attributi nella subnet di integrazione per delegare la subnet. Per delegare manualmente la subnet di integrazione, passare all'interfaccia utente della subnet della rete virtuale di Azure e impostare la delega per Microsoft. Web.
+### <a name="routes"></a>Route
 
-Per disconnettere l'app dalla rete virtuale, selezionare **Disconnetti**. L'app Web verrà riavviata. 
+Le tabelle di route consentono di instradare il traffico in uscita dall'app a qualsiasi posizione. Per impostazione predefinita, le tabelle di route avranno effetto solo sul traffico di destinazione RFC1918.  Se si imposta WEBSITE_VNET_ROUTE_ALL su 1, verranno interessate tutte le chiamate in uscita. Le route impostate nella subnet di integrazione non avranno effetto sulle risposte alle richieste di app in ingresso. Le destinazioni comuni possono includere dispositivi firewall o gateway. Se si vuole instradare tutto il traffico in uscita in locale, è possibile usare una tabella di route per inviare tutto il traffico in uscita al gateway ExpressRoute. Se si esegue il routing del traffico a un gateway, assicurarsi di impostare le route nella rete esterna per restituire le risposte.
 
+Le route Border Gateway Protocol (BGP) influiscono anche sul traffico dell'app. Se si hanno Route BGP da un gateway ExpressRoute, il traffico in uscita dell'app sarà interessato. Per impostazione predefinita, le route BGP avranno effetto solo sul traffico di destinazione RFC1918. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1, tutto il traffico in uscita può essere influenzato dalle route BGP. 
 
-#### <a name="web-app-for-containers"></a>App Web per contenitori
+### <a name="how-regional-vnet-integration-works"></a>Funzionamento dell'integrazione VNet a livello di area
 
-Se si usa il servizio app in Linux con le immagini predefinite, la funzionalità di integrazione VNet a livello di area funziona senza modifiche aggiuntive. Se si usa app Web per contenitori, è necessario modificare l'immagine Docker per usare l'integrazione VNet. Nell'immagine Docker usare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma del servizio app al momento dell'avvio del contenitore. Se si usa SSH, il daemon SSH deve essere configurato in modo da restare in ascolto sul numero di porta specificato dalla variabile di ambiente SSH_PORT quando si usa l'integrazione VNet a livello di area.
+Le app nel servizio app sono ospitate in ruoli di lavoro. I piani tariffari di base e superiore sono piani di hosting dedicati in cui non sono presenti altri carichi di lavoro in esecuzione negli stessi thread di lavoro. L'integrazione VNet a livello di area funziona montando interfacce virtuali con indirizzi nella subnet delegata. Poiché l'indirizzo from si trova nel VNet, può accedere alla maggior parte delle operazioni in o tramite il VNet proprio come una VM nel VNet. L'implementazione della rete è diversa rispetto all'esecuzione di una macchina virtuale nella VNet ed è per questo motivo che alcune funzionalità di rete non sono ancora disponibili durante l'uso di questa funzionalità.
 
-### <a name="service-endpoints"></a>Endpoint del servizio
+![Funzionamento dell'integrazione VNet a livello di area][5]
 
-La nuova funzionalità Integrazione rete virtuale consente di usare gli endpoint servizio.  Per usarli con l'app, usare la nuova funzionalità Integrazione rete virtuale per connettersi a una rete virtuale selezionata e configurare gli endpoint servizio nella subnet usata per l'integrazione. 
-
-
-### <a name="how-vnet-integration-works"></a>Funzionamento di Integrazione rete virtuale
-
-Le app nel servizio app sono ospitate in ruoli di lavoro. I piani tariffari di base e superiore sono piani di hosting dedicati in cui non sono presenti altri carichi di lavoro in esecuzione negli stessi thread di lavoro. L'integrazione di VNet funziona mediante l'installazione di interfacce virtuali con indirizzi nella subnet delegata. Poiché l'indirizzo from si trova nel VNet, può accedere alla maggior parte delle cose in o tramite il VNet proprio come una VM nel VNet. L'implementazione della rete è diversa rispetto all'esecuzione di una macchina virtuale nella VNet ed è per questo motivo che alcune funzionalità di rete non sono ancora disponibili durante l'uso di questa funzionalità.
-
-![Integrazione rete virtuale](media/web-sites-integrate-with-vnet/vnet-integration.png)
-
-Quando è abilitata l'integrazione con VNet, l'app effettuerà comunque chiamate in uscita a Internet tramite gli stessi canali del normale. Gli indirizzi in uscita elencati nel portale delle proprietà dell'app sono ancora gli indirizzi usati dall'app. Quali modifiche sono state apportate all'app, le chiamate a servizi protetti per endpoint di servizio o indirizzi RFC 1918 passano alla VNet. 
+Quando è abilitata l'integrazione VNet a livello di area, l'app effettuerà comunque chiamate in uscita a Internet tramite gli stessi canali del normale. Gli indirizzi in uscita elencati nel portale delle proprietà dell'app sono ancora gli indirizzi usati dall'app. Quali modifiche sono state apportate all'app, le chiamate a servizi protetti per endpoint di servizio o indirizzi RFC 1918 passano alla VNet. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1, tutto il traffico in uscita può essere inviato a VNet. 
 
 La funzionalità supporta solo un'interfaccia virtuale per ogni thread di lavoro.  Un'interfaccia virtuale per ogni thread di lavoro indica un'integrazione VNet a livello di area per ogni piano di servizio app. Tutte le app nello stesso piano di servizio app possono usare la stessa integrazione di VNet, ma se è necessario che un'app possa connettersi a un VNet aggiuntivo, sarà necessario creare un altro piano di servizio app. L'interfaccia virtuale utilizzata non è una risorsa a cui i clienti hanno accesso diretto.
 
 A causa della natura del funzionamento di questa tecnologia, il traffico usato con l'integrazione di VNet non viene visualizzato nei log di flusso Network Watcher o NSG.  
 
-## <a name="gateway-required-vnet-integration"></a>Integrazione VNet necessaria per il gateway 
+## <a name="gateway-required-vnet-integration"></a>Integrazione VNet necessaria per il gateway
 
-La funzionalità di integrazione VNet necessaria per il gateway:
+L'integrazione VNet necessaria per il gateway supporta la connessione a una VNet in un'altra area o a una VNet classica. Integrazione VNet necessaria per il gateway: 
 
-* Può essere usato per connettersi a reti virtuali in qualsiasi area Gestione risorse o reti virtuali classiche
 * Consente a un'app di connettersi solo a 1 VNet alla volta
-* Consente l'integrazione di un massimo di cinque reti virtuali con in un piano di servizio app 
-* Consente l'uso della stessa VNet da parte di più app in un piano di servizio app senza influisca sul numero totale che può essere usato da un piano di servizio app.  Se sono presenti 6 app che usano lo stesso VNet nello stesso piano di servizio app, il numero è pari a 1 VNet in uso. 
-* Richiede un gateway di rete virtuale configurato con una VPN da punto a sito
+* Consente l'integrazione di un massimo di cinque reti virtuali all'interno di un piano di servizio app 
+* Consente l'uso della stessa VNet da parte di più app in un piano di servizio app senza influisca sul numero totale che può essere usato da un piano di servizio app.  Se sono presenti sei app che usano lo stesso VNet nello stesso piano di servizio app, il numero è pari a 1 VNet in uso. 
 * Supporta uno SLA del 99,9% a causa del contratto di contratto sul gateway
+* Consente alle app di usare il DNS con cui è configurato il VNet
+* Richiede un gateway basato su route di rete virtuale configurato con una VPN da punto a sito SSTP prima che possa essere connessa all'app. 
 
-Questa funzionalità non supporta:
-* Usare con le app Linux
-* Accesso alle risorse in ExpressRoute 
-* Accesso alle risorse negli endpoint servizio 
+Non è possibile usare l'integrazione VNet necessaria per il gateway:
 
-### <a name="getting-started"></a>Inizia ora
-
-Prima di procedere con la connessione della propria app Web a una rete virtuale, è opportuno prendere in considerazione i seguenti aspetti:
-
-* In una rete virtuale di destinazione deve essere abilitata la VPN da punto a sito con un gateway basato su route per poter eseguire la connessione a un'app. 
-* La rete virtuale deve essere inclusa nella stessa sottoscrizione del piano di servizio app (ASP).
-* Le app che si integrano con una rete virtuale usano il DNS specificato per quella rete virtuale.
+* Con le app Linux
+* Con una VNet connessa a ExpressRoute 
+* Per accedere alle risorse protette degli endpoint di servizio
+* Con un gateway di coesistenza che supporta le VPN ExpressRoute e da punto a sito/sito a sito
 
 ### <a name="set-up-a-gateway-in-your-vnet"></a>Configurare un gateway nella rete virtuale ###
 
-Se è già stato configurato un gateway con indirizzi da punto a sito, è possibile passare alla configurazione di Integrazione rete virtuale con l'app.  
 Per creare un gateway:
 
 1. [Creare una subnet del gateway][creategatewaysubnet] nella VNet.  
 
 1. [Creare il gateway VPN][creategateway]. Selezionare un tipo di VPN basato su route.
 
-1. [Impostare gli indirizzi da punto a sito][setp2saddresses]. Se il gateway non si trova nello SKU di base, IKEV2 deve essere disabilitato nella configurazione da punto a sito e SSTP deve essere selezionato. Lo spazio degli indirizzi deve essere nei blocchi di indirizzi RFC 1918, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+1. [Impostare gli indirizzi da punto a sito][setp2saddresses]. Se il gateway non si trova nello SKU Basic, IKEV2 deve essere disabilitato nella configurazione da punto a sito ed è necessario selezionare SSTP. Lo spazio di indirizzi da punto a sito deve essere nei blocchi di indirizzi RFC 1918, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 
 Se si sta semplicemente creando il gateway per l'uso con l'integrazione VNet del servizio app, non è necessario caricare un certificato. La creazione del gateway può richiedere 30 minuti. Non sarà possibile integrare l'app con la rete virtuale fino al completamento del provisioning del gateway. 
 
-### <a name="configure-vnet-integration-with-your-app"></a>Configurare Integrazione rete virtuale con l'app 
+### <a name="how-gateway-required-vnet-integration-works"></a>Funzionamento dell'integrazione VNet necessaria per il gateway
 
-Per abilitare Integrazione rete virtuale nell'app: 
+Il gateway richiede l'integrazione VNet basata sulla tecnologia VPN da punto a sito. Le VPN da punto a sito limitano l'accesso alla rete solo alla macchina virtuale che ospita l'app. Le app possono esclusivamente inviare traffico in Internet tramite Connessioni ibride o Integrazione rete virtuale. Quando l'app è configurata con il portale per l'uso dell'integrazione VNet necessaria per il gateway, per conto di creare e assegnare certificati sul gateway e sul lato applicazione viene gestita una negoziazione complessa. Il risultato finale è che i ruoli di lavoro usati per ospitare le app sono in grado di connettersi direttamente al gateway di rete virtuale nel VNet selezionato. 
 
-1. Passare all'app nel portale di Azure, aprire le impostazioni e selezionare Rete > Integrazione rete virtuale. L'ASP deve essere in uno SKU standard o meglio usare una delle funzionalità di integrazione di VNet. 
- ![Interfaccia utente di Integrazione rete virtuale][1]
+![Funzionamento dell'integrazione VNet necessaria per il gateway][6]
 
-1. Selezionare **Add VNet** (Aggiungi rete virtuale). 
- ![Aggiungere Integrazione rete virtuale][2]
+### <a name="accessing-on-premises-resources"></a>Accesso alle risorse locali
 
-1. Selezionare la rete virtuale. 
-  ![Selezionare la rete virtuale][8]
-  
-L'app verrà riavviata dopo quest'ultimo passaggio.  
-
-### <a name="how-the-gateway-required-vnet-integration-feature-works"></a>Funzionamento della funzionalità di integrazione VNet necessaria per il gateway
-
-La funzionalità di integrazione VNet necessaria per il gateway è basata sulla tecnologia VPN da punto a sito. La tecnologia da punto a sito limita l'accesso alla rete alla sola macchina virtuale che ospita l'app. Le app possono esclusivamente inviare traffico in Internet tramite Connessioni ibride o Integrazione rete virtuale. 
-
-![Funzionamento di Integrazione rete virtuale][3]
-
-## <a name="managing-vnet-integration"></a>Gestione dell'integrazione di VNet
-La possibilità di connettersi e disconnettersi da una rete virtuale è a livello di app. Le operazioni che possono influenzare Integrazione rete virtuale tra più app sono a livello del piano di Servizio app. Dall'app > Networking > portale di integrazione VNet, è possibile ottenere informazioni dettagliate sul VNet. È possibile visualizzare informazioni simili a livello di ASP nella rete ASP > > portale di integrazione VNet, incluse le app nel piano di servizio app che usano una data integrazione.
-
- ![Dettagli della rete virtuale][4]
-
-Le informazioni disponibili nell'interfaccia utente di integrazione VNet sono le stesse tra i portali app e ASP.
-
-* Nome rete virtuale: rimanda all'interfaccia utente della rete virtuale
-* Località: indica la località della rete virtuale. L'integrazione con una rete virtuale in un'altra località può causare problemi di latenza per l'app. 
-* Stato certificato: indica se i certificati sono sincronizzati tra il piano di Servizio app e la rete virtuale.
-* Stato del gateway: se si usa l'integrazione VNet necessaria del gateway, è possibile visualizzare lo stato del gateway.
-* Spazio di indirizzi della rete virtuale: mostra lo spazio di indirizzi IP della rete virtuale. 
-* Spazio di indirizzi da punto a sito: mostra lo spazio di indirizzi IP da punto a sito della rete virtuale. Quando si effettuano chiamate nel VNet quando si usa la funzionalità gateway richiesta, l'app da indirizzo sarà uno di questi indirizzi. 
-* Spazio di indirizzi da sito a sito: è possibile usare una connessione VPN da sito a sito per connettere la rete virtuale alle risorse locali o ad altre reti virtuali. Di seguito sono riportati gli intervalli IP definiti con la connessione VPN.
-* Server DNS: mostra i server DNS configurati con la rete virtuale.
-* Routing degli indirizzi IP alla rete virtuale: mostra i blocchi di indirizzi instradati usati per guidare traffico nella rete virtuale 
-
-L'unica operazione possibile nella vista app di Integrazione rete virtuale è la disconnessione dell'app dalla rete virtuale a cui è attualmente connessa. Per disconnettere l'app da una rete virtuale, selezionare **Disconnetti**. L'app verrà riavviata quando ci si disconnette da una rete virtuale. La disconnessione non modifica la rete virtuale. La subnet o il gateway non viene rimosso. Se quindi si vuole eliminare la VNet, è necessario prima disconnettere l'app dalla VNet ed eliminare le risorse in esso presenti, ad esempio i gateway. 
-
-Per raggiungere l'interfaccia utente di Integrazione rete virtuale del piano di servizio app, aprire l'interfaccia utente ASP e selezionare **Rete**.  In Integrazione rete virtuale selezionare **Fare clic qui per configurare** per aprire l'interfaccia utente di Stato funzionalità di rete.
-
-![Informazioni di Integrazione rete virtuale del piano di servizio app][5]
-
-L'interfaccia utente di Integrazione rete virtuale del piano di servizio app illustra tutte le reti virtuali usate dalle app nel piano di servizio app. Per visualizzare i dettagli su ogni rete virtuale, fare clic sulla rete virtuale in questione. Qui è possibile eseguire due azioni.
-
-* **Sincronizza rete**. L'operazione di sincronizzazione della rete è solo per la funzionalità di integrazione VNet dipendente dal gateway. L'esecuzione di un'operazione di sincronizzazione della rete garantisce che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o si modifica il DNS del VNet, è necessario eseguire un'operazione di **sincronizzazione della rete** . Questa operazione riavvierà qualsiasi app con questa rete virtuale.
-* **Aggiungi route**. L'aggiunta di route indirizzerà il traffico in uscita nella rete virtuale.
-
-**Routing**: le route definite in una rete virtuale vengono usate per indirizzare il traffico dall'app alla propria rete virtuale. Se è necessario inviare altro traffico in uscita nella rete virtuale, è possibile aggiungere qui i blocchi di indirizzi. Questa funzionalità funziona solo con l'integrazione VNet obbligatoria del gateway.
-
-**Certificati** Quando il gateway richiede l'integrazione di VNet abilitata, è necessario lo scambio di certificati per garantire la sicurezza della connessione. Con i certificati si ottengono la configurazione DNS, le route e altre informazioni simili che descrivono la rete.
-Se vengono modificati i certificati o le informazioni di rete, è necessario fare clic su "Sincronizza rete". Quando si fa clic su "Sincronizza rete", si verifica una breve interruzione della connettività tra l'app e la rete virtuale. L'app non viene riavviata, ma la perdita di connettività potrebbe causare il funzionamento non corretto del sito. 
-
-## <a name="accessing-on-premises-resources"></a>Accesso alle risorse locali
 Le app possono accedere alle risorse locali grazie all'integrazione con le reti virtuali che dispongono di connessioni da sito a sito. Se si usa l'integrazione VNet necessaria per il gateway, è necessario aggiornare le route del gateway VPN locale con i blocchi di indirizzi da punto a sito. Quando la connessione VPN da sito a sito viene configurata per la prima volta, gli script usati per la configurazione devono configurare le route in modo appropriato. Se gli indirizzi da punto a sito vengono aggiunti dopo aver creato la VPN da sito a sito, è necessario aggiornare le route manualmente. Le informazioni dettagliate su come eseguire questa operazione variano in base al gateway e non sono descritte in questo documento. Non è possibile configurare BGP con una connessione VPN da sito a sito.
 
 Non è necessaria alcuna configurazione aggiuntiva per la funzionalità di integrazione VNet a livello di area tramite VNet e in locale. È sufficiente connettere la VNet al sito locale usando ExpressRoute o una VPN da sito a sito. 
@@ -228,7 +194,8 @@ Non è necessaria alcuna configurazione aggiuntiva per la funzionalità di integ
 > 
 > 
 
-## <a name="peering"></a>Peering
+### <a name="peering"></a>Peering
+
 Se si usa il peering con l'integrazione VNet a livello di area, non è necessario eseguire alcuna configurazione aggiuntiva. 
 
 Se si usa il gateway necessario per l'integrazione di VNet con il peering, è necessario configurare alcuni elementi aggiuntivi. Per configurare il peering per interagire con l'app:
@@ -237,6 +204,21 @@ Se si usa il gateway necessario per l'integrazione di VNet con il peering, è ne
 1. Aggiungere una connessione di peering nella rete virtuale sottoposta a peering alla rete virtuale a cui si è connessi. Quando si aggiunge la connessione di peering nella rete virtuale di destinazione, abilitare **Consenti accesso alla rete virtuale** e selezionare **Consenti traffico inoltrato** e **Usa gateway remoti**.
 1. Passare a Piano di servizio app > Rete > interfaccia utente di Integrazione rete virtuale nel portale.  Selezionare la rete virtuale a cui si connette l'app. Nella sezione Routing aggiungere l'intervallo di indirizzi della rete virtuale sottoposta a peering alla rete virtuale a cui è connessa l'app.  
 
+## <a name="managing-vnet-integration"></a>Gestione dell'integrazione di VNet 
+
+La connessione e la disconnessione con un VNet sono a livello di app. Le operazioni che possono influenzare Integrazione rete virtuale tra più app sono a livello del piano di Servizio app. Dall'app > Networking > portale di integrazione VNet, è possibile ottenere informazioni dettagliate sul VNet. È possibile visualizzare informazioni simili a livello di ASP nella rete ASP > > portale di integrazione VNet.
+
+L'unica operazione possibile nella vista app di Integrazione rete virtuale è la disconnessione dell'app dalla rete virtuale a cui è attualmente connessa. Per disconnettere l'app da una rete virtuale, selezionare **Disconnetti**. L'app verrà riavviata quando ci si disconnette da una rete virtuale. La disconnessione non modifica la rete virtuale. La subnet o il gateway non viene rimosso. Se quindi si vuole eliminare la VNet, è necessario prima disconnettere l'app dalla VNet ed eliminare le risorse in esso presenti, ad esempio i gateway. 
+
+L'interfaccia utente di integrazione ASP VNet mostrerà tutte le integrazioni di VNet usate dalle app in ASP. Per visualizzare i dettagli su ogni rete virtuale, fare clic sulla rete virtuale in questione. Esistono due azioni che è possibile eseguire qui per l'integrazione VNet necessaria per il gateway.
+
+* **Sincronizza rete**. L'operazione di sincronizzazione della rete è solo per la funzionalità di integrazione VNet dipendente dal gateway. L'esecuzione di un'operazione di sincronizzazione della rete garantisce che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o si modifica il DNS del VNet, è necessario eseguire un'operazione di **sincronizzazione della rete** . Questa operazione riavvierà qualsiasi app con questa rete virtuale.
+* **Aggiungi route**. L'aggiunta di route indirizzerà il traffico in uscita nella rete virtuale. 
+
+Il **gateway richiede il routing dell'integrazione VNet** Le route definite in VNet vengono usate per indirizzare il traffico nella VNet dall'app. Se è necessario inviare altro traffico in uscita nella rete virtuale, è possibile aggiungere qui i blocchi di indirizzi. Questa funzionalità funziona solo con l'integrazione VNet obbligatoria del gateway. Le tabelle di route non influiscono sul traffico dell'app quando si usa l'integrazione VNet necessaria del gateway nel modo in cui vengono eseguite con l'integrazione VNet a livello di area.
+
+**Certificati di integrazione VNet necessari** per il gateway Quando il gateway richiede l'integrazione di VNet abilitata, è necessario lo scambio di certificati per garantire la sicurezza della connessione. Con i certificati si ottengono la configurazione DNS, le route e altre informazioni simili che descrivono la rete.
+Se vengono modificati i certificati o le informazioni di rete, è necessario fare clic su "Sincronizza rete". Quando si fa clic su "Sincronizza rete", si verifica una breve interruzione della connettività tra l'app e la rete virtuale. L'app non viene riavviata, ma la perdita di connettività potrebbe causare il funzionamento non corretto del sito. 
 
 ## <a name="pricing-details"></a>Dettagli prezzi
 La funzionalità di integrazione VNet a livello di area non prevede costi aggiuntivi per l'utilizzo oltre l'importo del piano tariffario ASP.
@@ -247,12 +229,11 @@ Esistono tre addebiti correlati all'uso della funzionalità di integrazione VNet
 * Costi di trasferimento dei dati: è previsto un addebito per l'uscita dei dati, anche se il VNet è nello stesso data center. Questi addebiti sono descritti in [Dettagli prezzi trasferimento dati][DataPricing]. 
 * Costi del gateway VPN: un costo per il gateway VNet richiesto per la VPN da punto a sito. I dettagli sono disponibili nella pagina dei [prezzi del gateway VPN][VNETPricing] .
 
-
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 La funzionalità è semplice da configurare, ma possono comunque verificarsi problemi durante l'uso. In caso di problemi di accesso all'endpoint desiderato, sono disponibili varie utilità che permettono di testare la connettività dalla console dell'app. Le console disponibili sono due: la console Kudu e la console nel portale di Azure. Per accedere alla console Kudu dalla propria app, selezionare Strumenti -> Kudu. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Una volta caricato il sito Web, passare alla scheda Debug Console. Per accedere alla console ospitata portale di Azure quindi dall'app, passare a strumenti-> Console. 
 
 #### <a name="tools"></a>Strumenti
-Gli strumenti **ping**, **nslookup** e **tracert** non funzionano dalla console a causa di vincoli di sicurezza. Per questo motivo sono stati aggiunti due strumenti separati. Per testare la funzionalità del DNS è stato aggiunto lo strumento nameresolver.exe. La sintassi è:
+Gli strumenti **ping**, **nslookup**e **tracert** non funzioneranno tramite la console a causa di vincoli di sicurezza. Per riempire il void, sono stati aggiunti due strumenti distinti. Per testare la funzionalità del DNS è stato aggiunto lo strumento nameresolver.exe. La sintassi è:
 
     nameresolver.exe hostname [optional: DNS Server]
 
@@ -273,15 +254,17 @@ L'app potrebbe non riuscire a raggiungere un host e una porta specifici per una 
 Se tali elementi non rispondono ai problemi, cercare prima di tutto, ad esempio: 
 
 **Integrazione VNet a livello di area**
-* è la destinazione un indirizzo RFC 1918
+* la destinazione è un indirizzo non RFC1918 e non si dispone di WEBSITE_VNET_ROUTE_ALL impostato su 1
 * è presente un blocco NSG in uscita dalla subnet di integrazione
-* Se si passa attraverso ExpressRoute o una VPN, il gateway locale è configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint in VNet ma non in locale, è opportuno controllarlo.
+* Se si passa attraverso ExpressRoute o una VPN, il gateway locale è configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint in VNet, ma non in locale, verificare le route.
+* si dispone di autorizzazioni sufficienti per impostare la delega sulla subnet di integrazione? Durante la configurazione dell'integrazione VNet a livello di area, la subnet di integrazione verrà delegata a Microsoft. Web. L'interfaccia utente di integrazione di VNet delegherà automaticamente la subnet a Microsoft. Web. Se l'account non dispone di autorizzazioni di rete sufficienti per impostare la delega, sarà necessario un utente che può impostare gli attributi nella subnet di integrazione per delegare la subnet. Per delegare manualmente la subnet di integrazione, passare all'interfaccia utente della subnet della rete virtuale di Azure e impostare la delega per Microsoft. Web. 
 
 **Integrazione VNet necessaria per il gateway**
 * l'intervallo di indirizzi da punto a sito è compreso negli intervalli RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
 * Il gateway viene visualizzato come attivo nel portale? Se il gateway è inattivo, è necessario riattivarlo.
 * I certificati vengono visualizzati come sincronizzati o si ritiene che la configurazione di rete sia stata modificata?  Se i certificati non sono sincronizzati o si ritiene che sia stata apportata una modifica alla configurazione di VNet che non è stata sincronizzata con gli ASP, fare clic su "Sincronizza rete".
-* Se si passa attraverso ExpressRoute o una VPN, il gateway locale è configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint in VNet ma non in locale, è opportuno controllarlo.
+* Se si passa attraverso una VPN, è il gateway locale configurato per instradare il traffico al backup in Azure? Se è possibile raggiungere gli endpoint in VNet, ma non in locale, verificare le route.
+* si sta provando a usare un gateway di coesistenza che supporta sia da punto a sito che da ExpressRoute? I gateway di coesistenza non sono supportati con l'integrazione VNet 
 
 Il debug dei problemi di rete è una sfida perché non è possibile vedere che cosa blocca l'accesso a una combinazione host: porta specifica. Tra le cause possibili:
 
@@ -314,20 +297,41 @@ Se la macchina virtuale ospitata nella rete virtuale può raggiungere il sistema
 * si sta tentando di raggiungere un indirizzo non RFC 1918 usando la funzionalità di integrazione VNet a livello di area
 
 
-## <a name="powershell-automation"></a>Automazione di PowerShell
+## <a name="automation"></a>Automazione
 
-È possibile integrare Servizio app con una rete virtuale di Azure tramite PowerShell. Per uno script pronto per l'esecuzione, vedere [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3) (Connettere un'app del Servizio app di Azure a una rete virtuale di Azure).
+È disponibile il supporto dell'interfaccia della riga di comando per l'integrazione VNet regionale. Per accedere ai comandi seguenti, [installare l'interfaccia][installCLI]della riga di comando di Azure. 
+
+        az webapp vnet-integration --help
+
+        Group
+            az webapp vnet-integration : Methods that list, add, and remove virtual network integrations
+            from a webapp.
+                This command group is in preview. It may be changed/removed in a future release.
+        Commands:
+            add    : Add a regional virtual network integration to a webapp.
+            list   : List the virtual network integrations on a webapp.
+            remove : Remove a regional virtual network integration from webapp.
+
+        az appservice vnet-integration --help
+
+        Group
+            az appservice vnet-integration : A method that lists the virtual network integrations used in an
+            appservice plan.
+                This command group is in preview. It may be changed/removed in a future release.
+        Commands:
+            list : List the virtual network integrations used in an appservice plan.
+
+Per l'integrazione VNet necessaria per il gateway, è possibile integrare il servizio app con una rete virtuale di Azure usando PowerShell. Per uno script pronto per l'esecuzione, vedere [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3) (Connettere un'app del Servizio app di Azure a una rete virtuale di Azure).
 
 
 <!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
 [2]: ./media/web-sites-integrate-with-vnet/vnetint-addvnet.png
-[3]: ./media/web-sites-integrate-with-vnet/vnetint-howitworks.png
-[4]: ./media/web-sites-integrate-with-vnet/vnetint-details.png
-[5]: ./media/web-sites-integrate-with-vnet/vnetint-aspdetails.png
-[6]: ./media/web-sites-integrate-with-vnet/vnetint-newvnet.png
-[7]: ./media/web-sites-integrate-with-vnet/vnetint-newvnetdetails.png
-[8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
+[3]: ./media/web-sites-integrate-with-vnet/vnetint-classic.png
+[4]: ./media/web-sites-integrate-with-vnet/vnetint-appsetting.png
+[5]: ./media/web-sites-integrate-with-vnet/vnetint-regionalworks.png
+[6]: ./media/web-sites-integrate-with-vnet/vnetint-gwworks.png
+
 
 <!--Links-->
 [VNETOverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
@@ -344,3 +348,6 @@ Se la macchina virtuale ospitata nella rete virtuale può raggiungere il sistema
 [creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
+[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
+[VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
+[installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/

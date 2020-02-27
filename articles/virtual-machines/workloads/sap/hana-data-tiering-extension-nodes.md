@@ -3,27 +3,27 @@ title: Nodi di estensione e suddivisione in livelli dei dati per SAP HANA in Azu
 description: Nodi di estensione e suddivisione in livelli dei dati per SAP HANA in Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 261009edc20f946fa86f0482d8ab5045f4b4f84b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c3553ac9704ac26d0bdaae0f93b89f41a87ac716
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099851"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617157"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Usare nodi di estensione e suddivisione in livelli dei dati di SAP HANA
 
 SAP supporta un modello di suddivisione in livelli dei dati per SAP BW di diverse versioni di SAP NetWeaver e SAP BW/4HANA. Per altre informazioni sul modello di suddivisione in livelli dei dati, vedere il documento di SAP [SAP BW/4HANA and SAP BW on HANA with SAP HANA extension nodes](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#) (SAP BW/4HANA e SAP BW su HANA con nodi di estensione di SAP HANA).
-Con le istanze Large di HANA è possibile usare la configurazione option-1 dei nodi di estensione di SAP HANA, come descritto in dettaglio nei documenti delle domande frequenti e del blog di SAP. Le configurazioni Option-2 possono essere configurate con gli SKU di istanze large di HANA seguenti: S72m, S192, S192m, S384 e S384m. 
+Con le istanze Large di HANA è possibile usare la configurazione option-1 dei nodi di estensione di SAP HANA, come descritto in dettaglio nei documenti delle domande frequenti e del blog di SAP. Le configurazioni option-2 possono essere impostate con le SKU delle istanze Large di HANA seguenti: S72m, S192, S192m, S384 e S384m. 
 
 Quando si esamina la documentazione, il vantaggio può non essere immediatamente visibile. Se tuttavia si leggono le linee guida del dimensionamento di SAP, il vantaggio offerto dai nodi di estensione option-1 e option-2 di SAP HANA è evidente. Ecco alcuni esempi:
 

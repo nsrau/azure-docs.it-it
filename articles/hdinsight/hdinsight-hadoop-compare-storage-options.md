@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: b73810b37020bf01c1088f194bd426e93fd95d2c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 02/25/2020
+ms.openlocfilehash: 593f80583067d28292701353c8a6a62d81282614
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180778"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650827"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -26,36 +26,39 @@ Questo articolo offre una panoramica di questi tipi di archiviazione e delle rel
 
 La tabella seguente riepiloga i servizi di archiviazione di Azure supportati con diverse versioni di HDInsight:
 
-| Servizio di archiviazione | Tipo di account | Tipo di spazio dei nomi | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati | Versione HDInsight | Tipo di cluster |
+| Servizio di archiviazione | Tipo di account | Tipo di spazio dei nomi | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati | HDInsight Version | Tipo di cluster |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (filesystem) | Blob | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
-|Archiviazione di Azure| Utilizzo generico v2 | Object | Blob | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
-|Archiviazione di Azure| Utilizzo generico v1 | Object | Blob | Standard | N/D | Tutti | Tutti |
-|Archiviazione di Azure| Archiviazione BLOB * * | Object | BLOB in blocchi | Standard | Frequente, ad accesso sporadico, archivio | Tutti | Tutti |
+|Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (filesystem) | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti tranne Spark 2,1 |
+|Archiviazione di Azure| Utilizzo generico v2 | Oggetto | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
+|Archiviazione di Azure| Utilizzo generico v1 | Oggetto | BLOB | Standard | N/D | Tutti | Tutti |
+|Archiviazione di Azure| Archiviazione BLOB * * | Oggetto | BLOB in blocchi | Standard | Frequente, ad accesso sporadico, archivio | Tutti | Tutti |
 |Azure Data Lake Storage Gen1| N/D | Gerarchico (filesystem) | N/D | N/D | N/D | solo 3,6 | Tutti tranne HBase |
 
 \* * Per i cluster HDInsight, solo gli account di archiviazione secondari possono essere di tipo BlobStorage e il BLOB di pagine non è un'opzione di archiviazione supportata.
 
 Per altre informazioni sui tipi di account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md)
 
-Per altre informazioni sui livelli di accesso di archiviazione di Azure [, vedere Archiviazione BLOB di Azure: Livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio](../storage/blobs/storage-blob-storage-tiers.md)
+Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere [archiviazione BLOB di Azure: livelli di archiviazione Premium (anteprima),](../storage/blobs/storage-blob-storage-tiers.md) ad accesso frequente, ad accesso sporadico e archivio
 
 È possibile creare un cluster usando diverse combinazioni di servizi per l'archiviazione secondaria primaria e facoltativa. Nella tabella seguente sono riepilogate le configurazioni di archiviazione del cluster attualmente supportate in HDInsight:
 
-| Versione HDInsight | Archiviazione primaria | Archiviazione secondaria | Supportato |
+| HDInsight Version | Archiviazione primaria | Archiviazione secondaria | Supportato |
 |---|---|---|---|
-| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen2 | No |
-| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | Yes |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Yes |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | Sì |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sì |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
-| 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Yes |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
+| 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
-| 4.0 | Data Lake Storage Gen1 | Any | No |
+| 4.0 | Data Lake Storage Gen1 | Qualsiasi | No |
 
 \* = Può trattarsi di uno o più account Data Lake Storage Gen2, purché tutti i set di impostazioni usino la stessa identità gestita per l'accesso al cluster.
+
+> [!Note] 
+> Data Lake Storage Gen2 archiviazione primaria non è supportata per i cluster Spark 2,1. 
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Usare Azure Data Lake Storage Gen2 con Apache Hadoop in Azure HDInsight
 
@@ -65,15 +68,15 @@ Per altre informazioni su Azure Data Lake Storage Gen2, consultare [Introduzione
 
 ### <a name="core-functionality-of-azure-data-lake-storage-gen2"></a>Funzionalità principali di Azure Data Lake Storage Gen2
 
-* **Accesso compatibile con Hadoop:** in Azure Data Lake Storage Gen2 è possibile gestire i dati e accedervi esattamente come con Hadoop Distributed File System (HDFS). Il driver del file system BLOB di Azure (ABFS) è disponibile in tutti gli ambienti Apache Hadoop, tra cui Azure HDInsight e Azure Databricks. Usarlo per accedere ai dati archiviati in Data Lake Storage Gen2.
+* **Accesso compatibile con Hadoop:** In Azure Data Lake Storage Gen2, è possibile gestire e accedere ai dati Analogamente a una Hadoop Distributed File System (HDFS). Il driver del file system BLOB di Azure (ABFS) è disponibile in tutti gli ambienti Apache Hadoop, tra cui Azure HDInsight e Azure Databricks. Usarlo per accedere ai dati archiviati in Data Lake Storage Gen2.
 
-* **Superset di autorizzazioni POSIX:** il modello di sicurezza per Data Lake Gen2 supporta l'elenco di controllo di accesso e le autorizzazioni POSIX oltre a una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o framework quali Apache Hive e Apache Spark.
+* **Superset delle autorizzazioni POSIX:** Il modello di sicurezza per Data Lake Gen2 supporta le autorizzazioni ACL e POSIX insieme a una granularità aggiuntiva specifica per Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o framework quali Apache Hive e Apache Spark.
 
-* **Convenienza:** Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. Funzionalità come il ciclo di vita di Archiviazione BLOB di Azure consentono di ridurre i costi modificando le tariffe di fatturazione man mano che procede il ciclo di vita dei dati.
+* **Efficienza dei costi:** Data Lake Storage Gen2 offre capacità e transazioni di archiviazione a basso costo. Funzionalità come il ciclo di vita di Archiviazione BLOB di Azure consentono di ridurre i costi modificando le tariffe di fatturazione man mano che procede il ciclo di vita dei dati.
 
-* **Compatibilità con gli strumenti, i framework e le app di archiviazione BLOB:** Data Lake Storage Gen2 continua a funzionare con una vasta gamma di strumenti, framework e applicazioni per archiviazione Blob.
+* **Compatibilità con gli strumenti di archiviazione BLOB, i Framework e le app:** Data Lake Storage Gen2 continua a funzionare con un'ampia gamma di strumenti, Framework e applicazioni per l'archiviazione BLOB.
 
-* **Driver ottimizzato:** il driver ABFS è ottimizzato appositamente per l'analisi dei Big Data. Le API REST corrispondenti vengono rilevate tramite l'endpoint del file system distribuito (DFS), ovvero dfs.core.windows.net.
+* **Driver ottimizzato:** Il driver ABFS è ottimizzato in modo specifico per Big Data Analytics. Le API REST corrispondenti vengono rilevate tramite l'endpoint del file system distribuito (DFS), ovvero dfs.core.windows.net.
 
 ### <a name="whats-new-for-azure-data-lake-storage-gen-2"></a>Novità di Azure Data Lake Storage Gen2
 
@@ -89,7 +92,7 @@ Le applicazioni Apache Hadoop prevedono in modo nativo di leggere e scrivere i d
 
 Nelle versioni precedenti il driver del file system Hadoop converte tutte le operazioni del file system in chiamate API REST di Archiviazione di Azure sul lato client e quindi richiama l'API REST. Questa conversione lato client tuttavia restituisce più chiamate API REST per una singola operazione di file system come la ridenominazione di un file. ABFS ha spostato parte della logica del file system Hadoop dal lato client al lato server. L'API di Azure Data Lake Storage Gen2 viene ora eseguita in parallelo con l'API BLOB. Questa migrazione comporta un miglioramento delle prestazioni perché ora le operazioni comuni del file system Hadoop possono essere eseguite con una chiamata API REST.
 
-Per altre informazioni, vedere [Driver del file system del BLOB di Azure: un driver di Archiviazione di Azure dedicato per Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md).
+Per altre informazioni, vedere [il driver del file System BLOB di Azure (ABFS): un driver di archiviazione di Azure dedicato per Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md).
 
 #### <a name="uri-scheme-for-azure-data-lake-storage-gen-2"></a>Schema URI di Azure Data Lake Storage Gen2 
 
@@ -123,13 +126,13 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile di utilizzo 
 
 Si consiglia di usare contenitori di archiviazione separati per l'archiviazione del cluster predefinita e i dati aziendali, per isolare i log HDInsight e i file temporanei dai dati aziendali. È inoltre consigliabile eliminare il contenitore BLOB predefinito, che contiene i registri applicazioni e di sistema, dopo ogni uso per ridurre i costi di archiviazione. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
-Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere alla risorsa di archiviazione account.
+Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere all'account di archiviazione.
 
 ### <a name="hdinsight-storage-architecture"></a>Architettura di archiviazione di HDInsight
 
 Nel diagramma seguente viene sintetizzata l'architettura HDInsight di Archiviazione di Azure:
 
-![Architettura archiviazione HDInsight](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Architettura archiviazione HDInsight")
+![Architettura Archiviazione HDInsight](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Architettura Archiviazione HDInsight")
 
 HDInsight offre accesso al file system distribuito collegato localmente ai nodi di calcolo. Il file system è accessibile tramite l'URI completo, ad esempio:
 
@@ -141,18 +144,18 @@ Tramite HDInsight è anche possibile accedere ai dati in Archiviazione di Azure.
 
 Tenere conto delle considerazioni seguenti quando si usa un account di Archiviazione di Azure con cluster HDInsight:
 
-* **Contenitori negli account di archiviazione connessi a un cluster:** poiché il nome e la chiave dell'account sono associati al cluster durante il processo di creazione, si disporrà di un accesso completo ai BLOB presenti in tali contenitori.
+* **Contenitori negli account di archiviazione connessi a un cluster:** poiché il nome e la chiave dell'account sono associati al cluster durante il processo di archiviazione, si disporrà di un accesso completo ai BLOB presenti in tali contenitori.
 
-* **Contenitori pubblici o BLOB pubblici in account di archiviazione *non* connessi a un cluster:** si dispone dell'autorizzazione di sola lettura ai BLOB nei contenitori.
+* **Contenitori pubblici o BLOB pubblici negli account di archiviazione *non* connessi a un cluster:** Si dispone dell'autorizzazione di sola lettura per i BLOB nei contenitori.
   
   > [!NOTE]  
   > Un contenitore pubblico consente di ottenere un elenco di tutti i BLOB in esso disponibili, nonché i metadati del contenitore stesso. È possibile accedere a un BLOB pubblico solo se ne conosce l'URL esatto. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/storage-manage-access-to-resources.md).
 
-* **Contenitori privati in account di archiviazione *non* connessi a un cluster:** non è possibile accedere ai BLOB nei contenitori a meno che non sia stato definito l'account di archiviazione quando sono stati inviati i processi WebHCat. 
+* **Contenitori privati negli account di archiviazione *non* connessi a un cluster:** Non è possibile accedere ai BLOB nei contenitori a meno che non si definisce l'account di archiviazione quando si inviano i processi di WebHCat. 
 
 Gli account di archiviazione definiti durante il processo di creazione, con le rispettive chiavi, sono archiviati in %HADOOP_HOME%/conf/core-site.xml nei nodi del cluster. Per impostazione predefinita, HDInsight usa gli account di archiviazione definiti nel file core-site.xml. È possibile modificare questa impostazione usando [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
 
-Più processi WebHCat, inclusi Apache Hive, MapReduce, lo streaming Apache Hadoop e Apache Pig, possono includere una descrizione degli account di archiviazione e dei metadati. Questo è valido attualmente per Pig con account di archiviazione, ma non per i metadati. Per altre informazioni, vedere [Using an HDInsight cluster with alternate storage accounts and metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Uso di un cluster HDInsight con account di archiviazione e metastore alternativi).
+Più processi WebHCat, inclusi Apache Hive, MapReduce, lo streaming Apache Hadoop e Apache Pig, possono includere una descrizione degli account di archiviazione e dei metadati. Questa operazione è attualmente valida per Pig con account di archiviazione ma non per i metadati. Per altre informazioni, vedere [uso di un cluster HDInsight con account di archiviazione e Metastore alternativi](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 I BLOB possono essere usati per i dati strutturati e non strutturati. I contenitori BLOB archiviano i dati come coppie chiave/valore e non dispongono di una gerarchia di directory. Il nome della chiave tuttavia può includere una barra (/) per far sembrare che un file sia archiviato in una struttura di directory. Ad esempio, la chiave di un BLOB può essere `input/log1.txt`. Non esiste una directory `input`, ma a causa della barra nel nome, la chiave è simile a un percorso file.
 
@@ -161,15 +164,15 @@ I cluster di elaborazione e le risorse di archiviazione senza percorso condiviso
 
 Se si archiviano i dati in Archiviazione di Azure anziché in HDFS, si ottengono diversi vantaggi:
 
-* **Condivisione e riutilizzo dei dati:** i dati in HDFS sono situati all'interno del cluster di elaborazione. Solo le applicazioni che hanno accesso al cluster di calcolo, quindi, possono usare i dati tramite le API HDFS. È possibile accedere ai dati in Archiviazione di Azure invece tramite le API HDFS o tramite le API REST dell'archiviazione BLOB. Con questa soluzione, è possibile usare una più ampia gamma di strumenti e applicazioni, compresi altri cluster HDInsight, per produrre e usare i dati.
+* **Riuso e condivisione dei dati:** i dati in HDFS sono situati all'interno del cluster di calcolo. Solo le applicazioni che hanno accesso al cluster di calcolo, quindi, possono usare i dati tramite le API HDFS. È possibile accedere ai dati in Archiviazione di Azure invece tramite le API HDFS o tramite le API REST dell'archiviazione BLOB. Con questa soluzione, è possibile usare una più ampia gamma di strumenti e applicazioni, compresi altri cluster HDInsight, per produrre e usare i dati.
 
-* **Archiviazione dati:** quando si archiviano dati in Archiviazione di Azure, i cluster HDInsight usati per i calcoli possono essere eliminati in modo sicuro senza perdita di dati utente.
+* **Archiviazione dei dati:** Quando i dati vengono archiviati in archiviazione di Azure, è possibile eliminare in modo sicuro i cluster HDInsight usati per il calcolo senza perdere i dati utente.
 
-* **Costo di archiviazione dei dati:** l'archiviazione a lungo termine di dati in DFS è più costosa rispetto ad Archiviazione di Azure, dato che il costo di un cluster di elaborazione è più alto rispetto a quello di Archiviazione di Azure. Poiché inoltre non è necessario ricaricare i dati ogni volta che si genera un cluster di elaborazione, si risparmiano anche i costi di caricamento dei dati.
+* **Costo di archiviazione dei dati:** L'archiviazione dei dati in DFS a lungo termine è più costosa rispetto all'archiviazione dei dati in archiviazione di Azure, perché il costo di un cluster di calcolo è superiore al costo di archiviazione di Azure. Poiché inoltre non è necessario ricaricare i dati ogni volta che si genera un cluster di elaborazione, si risparmiano anche i costi di caricamento dei dati.
 
-* **Scalabilità orizzontale elastica:** anche se Hadoop Distributed File System offre scalabilità orizzontale del file system, la scalabilità è determinata dal numero di nodi creati per il cluster. Il ridimensionamento del cluster può essere quindi un processo più complicato rispetto al semplice uso delle funzionalità di scalabilità elastica automaticamente disponibili in Archiviazione di Azure.
+* **Scalabilità orizzontale elastica:** anche se HDFS offre scalabilità orizzontale del file system, la scala è determinata dal numero di nodi di cui si effettua la creazione per il cluster. Il ridimensionamento del cluster può essere quindi un processo più complicato rispetto al semplice uso delle funzionalità di scalabilità elastica automaticamente disponibili in Archiviazione di Azure.
 
-* **Replica geografica:** Archiviazione di Azure supporta la replica geografica. Sebbene la replica geografica offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide negativamente sulle prestazioni e può comportare costi aggiuntivi. Scegliere pertanto la replica geografica con cautela e solo se il valore dei dati giustifica i costi aggiuntivi.
+* **Replica geografica:** È possibile eseguire la replica geografica dell'archiviazione di Azure. Sebbene la replica geografica offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide negativamente sulle prestazioni e può comportare costi aggiuntivi. Scegliere pertanto la replica geografica con cautela e solo se il valore dei dati giustifica i costi aggiuntivi.
 
 Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non si vuole archiviare in Archiviazione di Azure. In questo caso, è possibile scegliere di archiviare i dati nel file system HDFS locale. HDInsight usa DFS per molti di questi risultati intermedi nei processi Hive e in altri processi.
 
@@ -200,7 +203,7 @@ Data Lake Storage Gen1 offre un'archiviazione illimitata ed è adatto per l'arch
 
 Data Lake Storage Gen1 è progettato per l'esecuzione di sistemi di analisi su larga scala che richiedono una velocità effettiva elevata per eseguire query e analisi su grandi quantità di dati. Il Data Lake distribuisce parti di un file su più server di archiviazione singoli. Durante l'analisi dei dati, questa configurazione migliora la velocità effettiva di lettura quando il file viene letto in parallelo.
 
-### <a name="readiness-for-enterprise-highly-available-and-secure"></a>Idoneità per le aziende - Sicurezza e disponibilità elevate
+### <a name="readiness-for-enterprise-highly-available-and-secure"></a>Conformità per Enterprise: disponibilità elevata e sicurezza
 
 Data Lake Storage Gen1 offre affidabilità e disponibilità standard del settore. Gli asset di dati vengono archiviati in modo permanente: copie ridondanti salvaguardano da errori imprevisti. Le aziende possono usare Data Lake Storage Gen1 nelle loro soluzioni come una parte importante della piattaforma di dati esistente.
 

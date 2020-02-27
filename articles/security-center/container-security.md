@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: c18751d315af6da1a4b2f06aaca28c84746b7be5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 62728f5b66825eb6698e37bb7ad3adbad831b465
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470769"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615338"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza del contenitore nel centro sicurezza
 
@@ -65,7 +65,7 @@ Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurez
 
 Il Centro sicurezza fornisce il rilevamento delle minacce in tempo reale per gli ambienti in contenitori e genera avvisi per le attività sospette. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
 
-Le minacce vengono rilevate a livello di host e del cluster AKS. Per informazioni dettagliate, vedere [rilevamento delle minacce per i contenitori di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
+Le minacce vengono rilevate a livello di host e del cluster AKS. Per informazioni dettagliate, vedere la pagina relativa alla [protezione dalle minacce per i contenitori di Azure](threat-protection.md#azure-containers).
 
 
 ## <a name="container-security-faq"></a>Domande frequenti sulla sicurezza del contenitore

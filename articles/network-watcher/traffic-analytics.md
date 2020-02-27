@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47d9508c891d2b4fe74b42114783b02c58e8c91f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426225"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620000"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -115,16 +115,16 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * US Gov Virginia
 * Cina orientale 2
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="user-access-requirements"></a>Requisiti di accesso utente
 
 L'account deve essere un membro di uno de seguenti [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) di Azure:
 
-|Modello di distribuzione   | Role                   |
+|Modello di distribuzione   | Ruolo                   |
 |---------          |---------               |
 |Gestione risorse   | Proprietario                  |
-|                   | Contributor            |
+|                   | Collaboratore            |
 |                   | Reader                 |
 |                   | Collaboratore di rete    |
 
@@ -201,7 +201,7 @@ Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete p
 
 ## <a name="view-traffic-analytics"></a>Visualizzare Analisi del traffico
 
-Sul lato sinistro del portale selezionare **Tutti i servizi**, quindi immettere *Monitoraggio* nella casella **Filtro**. Selezionare **Monitoraggio** quando viene visualizzato nei risultati della ricerca. Per iniziare a esplorare Analisi del traffico e le relative funzionalità, selezionare **Network Watcher**, quindi **Analisi del traffico**.
+Per visualizzare Analisi del traffico, cercare **Network Watcher** nella barra di ricerca del portale. Una volta all'interno Network Watcher, per esplorare analisi del traffico e le relative funzionalità, selezionare **analisi del traffico** dal menu a sinistra. 
 
 ![Accesso al dashboard Analisi del traffico](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

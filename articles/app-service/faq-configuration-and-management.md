@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 598fdd5e3682226253ef8f2611ede2bbeba596f7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190430"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649279"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -199,7 +199,7 @@ Attualmente, non è possibile avere connessioni VPN da punto a sito a una rete v
 
 Attualmente, la connessione di un'app Web del servizio app a una rete virtuale che dispone di un gateway con routing statico (basato su criteri) non è supportata. Se la rete virtuale di destinazione esiste già, deve avere una VPN da punto a sito abilitata con un gateway di routing dinamico per poter eseguire la connessione a un'app. Se il gateway è impostato per il routing statico, è possibile abilitare una VPN da punto a sito. 
 
-Per altre informazioni, vedere [Integrare un'app in una rete virtuale di Azure](web-sites-integrate-with-vnet.md#getting-started).
+Per altre informazioni, vedere [Integrare un'app in una rete virtuale di Azure](web-sites-integrate-with-vnet.md).
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>Nell'ambiente del servizio app, perché è possibile creare solo un piano di servizio app anche se sono disponibili due ruoli di lavoro?
 

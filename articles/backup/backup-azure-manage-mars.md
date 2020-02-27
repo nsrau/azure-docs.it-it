@@ -4,12 +4,12 @@ description: Informazioni su come gestire e monitorare i backup degli agenti Ser
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 26ed6fefdf95281429a8c91057195785db4f5589
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496983"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617593"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup degli agenti Servizi di ripristino di Microsoft Azure (MARS) con il servizio backup di Azure
 
@@ -162,7 +162,7 @@ Viene usata una passphrase per crittografare e decrittografare i dati durante il
 - Fare clic su **Sfoglia** per salvare la nuova passphrase.
 
     ![Genera passphrase.](./media/backup-azure-manage-mars/passphrase.png)
-- Fai clic su **OK** per applicare le modifiche.  Se la [funzionalità di sicurezza](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) è abilitata nella portale di Azure per l'insieme di credenziali di servizi di ripristino, verrà richiesto di immettere il pin di sicurezza. Per ricevere il PIN, seguire i passaggi elencati in questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+- Fare clic su **OK** per applicare le modifiche.  Se la [funzionalità di sicurezza](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) è abilitata nella portale di Azure per l'insieme di credenziali di servizi di ripristino, verrà richiesto di immettere il pin di sicurezza. Per ricevere il PIN, seguire i passaggi elencati in questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
 - Incollare il PIN di sicurezza dal portale e fare clic su **OK** per applicare le modifiche.<br>
 
     ![Genera passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
@@ -172,4 +172,4 @@ Viene usata una passphrase per crittografare e decrittografare i dati durante il
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sugli scenari e le limitazioni supportati, vedere la [matrice di supporto per l'agente Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Altre informazioni sul [comportamento di conservazione dei criteri di backup su richiesta](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).
+- Altre informazioni sul [comportamento di conservazione dei criteri di backup su richiesta](backup-configure-vault.md#set-up-on-demand-backup-policy-retention-behavior).

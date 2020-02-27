@@ -4,12 +4,12 @@ description: Procedure consigliate per l'operatore del cluster per l'archiviazio
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 6521655ded45f0a1d15c3ec40a44993d757b8854
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: a58a42f65472a9c4b495e0cb964eefa40bf82041
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594669"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649620"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
 
@@ -35,7 +35,7 @@ La tabella seguente descrive i tipi di archiviazione disponibili e le relative f
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Configurazione condivisa       | File di Azure   | Sì | Sì | Sì | Sì |
 | Dati di app strutturati        | Dischi di Azure   | Sì | No  | No  | Sì |
-| Dati non strutturati, operazioni sui file system | [BlobFuse (anteprima)][blobfuse] | Sì | Sì | Sì | No |
+| Dati non strutturati, operazioni sui file system | [BlobFuse][blobfuse] | Sì | Sì | Sì | No |
 
 I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo del servizio Azure Kubernetes.
 

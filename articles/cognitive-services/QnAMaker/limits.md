@@ -3,12 +3,12 @@ title: Limiti - QnA Maker
 description: QnA Maker prevede metalimiti per alcune parti della knowledge base e del servizio. Per poter eseguire test e pubblicare, è importate rispettare i limiti previsti per la knowledge base.
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252009"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650368"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -37,7 +37,7 @@ I nomi file non possono includere i caratteri seguenti:
 
 ### <a name="maximum-file-size"></a>Dimensione massima dei file
 
-|Formato|Dimensioni massime file (MB)|
+|Format|Dimensioni massime file (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -55,7 +55,7 @@ Il numero massimo di collegamenti profondi che possono essere sottoposti a ricer
 
 ## <a name="metadata-limits"></a>Limiti di metadati
 
-I metadati vengono archiviati e confrontati in lettere minuscole.
+I metadati vengono presentati come una coppia chiave-valore basata su testo, ad esempio `product:windows 10`. Viene archiviato e confrontato in lettere minuscole.
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Da Azure ricerca cognitiva piano tariffario
 
@@ -71,8 +71,8 @@ Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per 
 
 |Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
-|Name|Consente<br>alfanumerico (lettere e cifre)<br>`_` (carattere di sottolineatura)|`^[a-zA-Z0-9_]+$`|100|
-|Valore|Consente tutti gli elementi eccetto<br>`:` (due punti)<br>`|` (barra verticale)|`^[^:|]+$`|500|
+|Nome (chiave)|Consente<br>alfanumerico (lettere e cifre)<br>`_` (carattere di sottolineatura)<br> Non devono contenere spazi.|`^[a-zA-Z0-9_]+$`|100|
+|valore|Consente tutti gli elementi eccetto<br>`:` (due punti)<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base
@@ -103,4 +103,4 @@ Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ov
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su quando e come modificare i [piani tariffari dei servizi](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
+Informazioni su quando e come modificare i [piani tariffari dei servizi](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

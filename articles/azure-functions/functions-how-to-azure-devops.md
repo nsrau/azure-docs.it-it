@@ -1,16 +1,16 @@
 ---
 title: Aggiornare continuamente il codice dell'app per le funzioni usando Azure DevOps
 description: Informazioni su come configurare una pipeline di Azure DevOps destinata a funzioni di Azure.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
-ms.openlocfilehash: e6ea7edb16aa28428754cbe920e1d350aded0cff
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.author: cshoe
+ms.openlocfilehash: 1d627329a6d5f4c283a4480c1b0b1077a8e856cf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834032"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649943"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Recapito continuo tramite Azure DevOps
 
@@ -25,11 +25,11 @@ Per la definizione della pipeline sono disponibili due opzioni:
 
 Per creare una pipeline basata su YAML, compilare prima l'app e quindi distribuire l'app.
 
-### <a name="build-your-app"></a>Crea la tua app
+### <a name="build-your-app"></a>Creare l'app
 
 La modalità di compilazione dell'app in Azure Pipelines dipende dal linguaggio di programmazione dell'app. Ogni linguaggio dispone di passaggi di compilazione specifici che creano un artefatto di distribuzione. Viene usato un artefatto di distribuzione per distribuire l'app per le funzioni in Azure.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 È possibile usare l'esempio seguente per creare un file YAML per compilare un'app .NET:
 
@@ -60,7 +60,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 È possibile usare l'esempio seguente per creare un file YAML per compilare un'app JavaScript:
 
@@ -88,7 +88,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 È possibile usare uno degli esempi seguenti per creare un file YAML per compilare un'app per una versione specifica di Python. Python è supportato solo per le app per le funzioni in esecuzione su Linux.
 
@@ -150,7 +150,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 È possibile usare l'esempio seguente per creare un file YAML per creare il pacchetto di un'app PowerShell. PowerShell è supportato solo per le funzioni di Windows Azure.
 
@@ -215,7 +215,7 @@ steps:
 
 I modelli in Azure DevOps sono gruppi predefiniti di attività che compilano o distribuiscono un'app.
 
-### <a name="build-your-app"></a>Crea la tua app
+### <a name="build-your-app"></a>Creare l'app
 
 La modalità di compilazione dell'app in Azure Pipelines dipende dal linguaggio di programmazione dell'app. Ogni linguaggio dispone di passaggi di compilazione specifici che creano un artefatto di distribuzione. Viene usato un artefatto di distribuzione per aggiornare l'app per le funzioni in Azure.
 

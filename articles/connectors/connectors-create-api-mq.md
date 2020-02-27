@@ -9,12 +9,12 @@ ms.reviewer: valthom, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: 489f53a4f4c1c0d5bd782f42a9daf73217234793
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6bfd626c1ce69029ee720d24b0b143e7b4c3dd56
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118043"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650948"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Connettersi a un server IBM MQ da app per la logica di Azure
 
@@ -28,7 +28,7 @@ Il connettore IBM MQ include queste azioni, ma non fornisce trigger:
 - Ricevere un batch di messaggi ed eliminare i messaggi dal server IBM MQ
 - Invia un singolo messaggio al server IBM MQ
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se si usa un server MQ locale, [installare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md) in un server all'interno della rete. Nel server in cui è installato il gateway dati locale deve essere installato anche .NET Framework 4,6 per il funzionamento del connettore MQ. È anche necessario creare una risorsa in Azure per il gateway dati locale. Per altre informazioni, vedere [configurare la connessione al gateway dati](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -134,7 +134,10 @@ Quando si aggiunge l'azione **Invia messaggi** , per impostazione predefinita vi
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche su azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento](/connectors/mq/)del connettore.
+Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/mq/).
+
+> [!NOTE]
+> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

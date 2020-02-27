@@ -2,21 +2,21 @@
 title: Monitorare l'attività di migrazione-servizio migrazione del database di Azure
 description: Informazioni sull'uso del Servizio Migrazione del database di Azure per monitorare l'attività di migrazione.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437926"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648513"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorare l'attività di migrazione con il servizio migrazione del database di Azure
 Questo articolo illustra come monitorare lo stato di avanzamento di una migrazione sia a livello di database sia a livello di tabella.
@@ -63,7 +63,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>La pipeline del Servizio Migrazione del database è in esecuzione e sta eseguendo la migrazione.</td>
     </tr>
     <tr>
-      <td>Soluzione completa</td>
+      <td>Operazione completata</td>
       <td>Migrazione completata.</td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ Nella parte inferiore del pannello sono elencate le tabelle ed è presente un br
 
 La tabella seguente descrive i campi visualizzati nei dettagli a livello di tabella.
 
-| Nome campo        | Description       |
+| Nome campo        | Descrizione       |
 | ------------- | ------------- |
 | **Caricamento completo completato**      | Numero di tabelle per cui il caricamento completo dei dati è stato completato. |
 | **Caricamento completo accodato**      | Numero di tabelle in coda per il caricamento completo.      |
@@ -129,7 +129,7 @@ Sono presenti due schede che mostrano lo stato di avanzamento della migrazione p
 
 La tabella seguente descrive i campi visualizzati nello stato di avanzamento della migrazione a livello di tabella.
 
-| Nome campo        | Description       |
+| Nome campo        | Descrizione       |
 | ------------- | ------------- |
 | **Stato - Sincronizzazione**      | Sincronizzazione continua in esecuzione. |
 | **Inserimento**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |

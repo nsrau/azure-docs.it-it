@@ -4,12 +4,12 @@ description: Informazioni su come creare un cluster Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594567"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649508"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creare un cluster privato del servizio Kubernetes di Azure (anteprima)
 
@@ -55,6 +55,18 @@ Il piano di controllo o il server API si trova in una sottoscrizione di Azure ge
 * Stati Uniti occidentali 2
 * Stati Uniti orientali 2
 
+## <a name="currently-supported-availability-zones"></a>Attualmente supportato zone di disponibilità
+
+* Stati Uniti centrali
+* Stati Uniti orientali
+* Stati Uniti orientali 2
+* Francia centrale
+* Giappone orientale
+* Europa settentrionale
+* Asia sud-orientale
+* Regno Unito meridionale
+* Europa occidentale
+* Stati Uniti occidentali 2
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installare l'estensione più recente dell'interfaccia della riga di comando di Azure AKS
 
@@ -115,6 +127,7 @@ Dove *--Enable-Private-cluster* è un flag obbligatorio per un cluster privato.
 > Se l'indirizzo CIDR del Bridge Docker (172.17.0.1/16) si scontra con la CIDR della subnet, modificare l'indirizzo del Bridge Docker in modo appropriato.
 
 ## <a name="connect-to-the-private-cluster"></a>Connettersi al cluster privato
+
 L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è necessario creare una macchina virtuale (VM) di Azure in una rete virtuale e connettersi al server API. A tale scopo, seguire questa procedura:
 
 1. Ottenere le credenziali per la connessione al cluster.
@@ -148,7 +161,8 @@ L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è ne
 * Per usare un server DNS personalizzato, distribuire un server AD con DNS da trasmettere a questo 168.63.129.16 IP
 
 ## <a name="limitations"></a>Limitazioni 
-* zone di disponibilità sono attualmente supportate solo per le aree Stati Uniti orientali 2 e Stati Uniti occidentali 2
+* Gli intervalli autorizzati IP non possono essere applicati all'endpoint server dell'API privata, ma si applicano solo al server API pubblico
+* Zone di disponibilità sono attualmente supportate per determinate aree, vedere l'inizio di questo documento. 
 * Le [limitazioni del servizio di collegamento privato di Azure][private-link-service] si applicano a cluster privati, endpoint privati di Azure e endpoint di servizio della rete virtuale, che non sono attualmente supportati nella stessa rete virtuale.
 * Nessun supporto per i nodi virtuali in un cluster privato per la rotazione di istanze di contenitore di Azure private in una rete virtuale di Azure privata
 * Nessun supporto per l'integrazione di Azure DevOps con i cluster privati

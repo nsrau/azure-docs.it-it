@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: 7fc00965f11e6316258dc4ee629b4c7841e4a351
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 8aff431b5160548599055c56d1317065236e7a68
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77371078"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495578"
 ---
-|Nome |Descrizione |Effetto/i |Versione |Origine |
+|Nome |Descrizione |Effetto/i |Versione |Source (Sorgente) |
 |---|---|---|---|
 |[\[Anteprima limitata\]: \[Servizio Azure Kubernetes\] Non consentire contenitori con privilegi nel servizio Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ce7ac02-a5c6-45d6-8d1b-844feb1c1531) |Questo criterio non consente la creazione di contenitori con privilegi in un cluster del servizio Azure Kubernetes. I criteri in anteprima limitata funzionano solo per le sottoscrizioni registrate. Per effettuare la registrazione, vedere https://aka.ms/akspolicyonboarding. Per le istruzioni di utilizzo di questo criterio, vedere https://aka.ms/akspolicydoc. |EnforceRegoPolicy, Disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/ContainerNoPrivilege_EnforceRegoPolicy.json)
 |[\[Anteprima limitata\]: \[Servizio Azure Kubernetes\] Imponi il traffico HTTPS in ingresso nel servizio Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2fbff515-eecc-4b7e-9b63-fcc7138b7dc3) |Questo criterio impone il traffico HTTPS in ingresso in un cluster del servizio Azure Kubernetes. I criteri in anteprima limitata funzionano solo per le sottoscrizioni registrate. Per effettuare la registrazione, vedere https://aka.ms/akspolicyonboarding. Per le istruzioni di utilizzo di questo criterio, vedere https://aka.ms/akspolicydoc. |EnforceRegoPolicy, Disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/IngressHttpsOnly_EnforceRegoPolicy.json)

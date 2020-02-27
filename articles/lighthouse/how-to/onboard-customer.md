@@ -3,12 +3,12 @@ title: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Az
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
 ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34c6173211a9125cace59d77ea942d301919aa26
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 33cf880098e174c2c230a3d78e125ad8df7d894a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526213"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649790"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -16,7 +16,7 @@ Questo articolo illustra come un provider di servizi può eseguire l'onboarding 
 
 È possibile ripetere questo processo se si gestiscono risorse per più clienti. Quando un utente autorizzato accede al tenant, tale utente può quindi essere autorizzato negli ambiti di tenancy dei clienti a eseguire operazioni di gestione senza dover accedere al tenant di ogni singolo cliente.
 
-Per tenere traccia dell'effetto tra gli impegni dei clienti e ricevere il riconoscimento, associare l'ID Microsoft Partner Network (MPN) alle sottoscrizioni caricate. Per altre informazioni, vedere [Collegare un ID partner agli account Azure](../../billing/billing-partner-admin-link-started.md). Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi.
+Per tenere traccia dell'effetto tra gli impegni dei clienti e ricevere il riconoscimento, associare l'ID Microsoft Partner Network (MPN) con almeno un account utente che abbia accesso a ogni sottoscrizione caricata. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi. Per semplicità, è consigliabile creare un account dell'entità servizio nel tenant associato all'ID MPN e concedere a tale utente l'accesso a tutti i clienti caricati. Per altre informazioni, vedere [collegare un ID partner agli account Azure](../../billing/billing-partner-admin-link-started.md). 
 
 > [!NOTE]
 > È possibile eseguire l'onboarding dei clienti anche quando acquistano un'offerta di servizi gestiti (pubblica o privata) pubblicata in Azure Marketplace. Per altre informazioni, vedere [Pubblicare offerte di servizi gestiti in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare la procedura di onboarding descritta qui insieme a un'offerta pubblicata in Azure Marketplace.

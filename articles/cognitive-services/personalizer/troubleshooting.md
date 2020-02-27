@@ -2,14 +2,14 @@
 title: Risoluzione dei problemi-personalizzatore
 description: Questo articolo contiene le risposte alle domande frequenti sulla risoluzione dei problemi relativi a personalizzazione.
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469545"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650521"
 ---
 # <a name="personalizer-troubleshooting"></a>Risoluzione dei problemi di personalizzazione
 
@@ -32,6 +32,19 @@ Questo articolo contiene le risposte alle domande frequenti sulla risoluzione de
 </details>
 
 ## <a name="learning-loop"></a>Ciclo di apprendimento
+
+<details>
+<summary>
+<b>Il ciclo di apprendimento non raggiunge una corrispondenza del 100% con il sistema senza personalizzazione. Ricerca per categorie risolvere questo problema?</b></summary>
+
+**Risposta**: i motivi per cui non si raggiunge l'obiettivo del ciclo di apprendimento:
+* Funzionalità non sufficienti inviate con la chiamata API di rango
+* Bug nelle funzionalità inviate, ad esempio l'invio di dati di funzionalità non aggregati, ad esempio i timestamp all'API Rank
+* Bug con elaborazione del ciclo, ad esempio l'invio di dati Reward a reward API per gli eventi
+
+Per risolvere il problema, è necessario modificare l'elaborazione modificando le funzionalità inviate al ciclo o assicurarsi che la ricompensa sia una valutazione corretta della qualità della risposta di rango.
+
+</details>
 
 <details>
 <summary>
@@ -91,7 +104,7 @@ Quando inizia il nuovo periodo di aggiornamento, viene usato il modello aggiorna
 <details>
 <summary><b>Ricerca per categorie importare un criterio di formazione?</b></summary>
 
-**Risposta**: altre informazioni sui [concetti](concept-active-learning.md#understand-learning-policy-settings) relativi ai criteri di formazione e su [come applicare](how-to-learning-policy.md) un nuovo criterio di formazione. Se non si vuole selezionare un criterio di formazione, è possibile usare la [valutazione offline](how-to-offline-evaluation.md) per suggerire un criterio di apprendimento, in base agli eventi correnti.
+**Risposta**: altre informazioni sui [concetti](concept-active-learning.md#understand-learning-policy-settings) relativi ai criteri di formazione e su [come applicare](how-to-manage-model.md) un nuovo criterio di formazione. Se non si vuole selezionare un criterio di formazione, è possibile usare la [valutazione offline](how-to-offline-evaluation.md) per suggerire un criterio di apprendimento, in base agli eventi correnti.
 
 </details>
 

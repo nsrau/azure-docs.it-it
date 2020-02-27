@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/02/2020
-ms.openlocfilehash: 13c064701a5ecae2090a99980249f5daaa8d5395
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/26/2020
+ms.openlocfilehash: 9c801f5c039996ac36c4f4479318d64cccdd204d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198957"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649994"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Apache Hadoop disponibili in HDInsight.
 
@@ -62,6 +62,12 @@ Le versioni dei componenti dell'ecosistema Hadoop associate alle versioni cluste
 Per altre note sulla versione relative alle versioni più recenti di HDInsight, vedere [Note sulla versione di HDInsight](hdinsight-release-notes.md) .
 
 ## <a name="supported-hdinsight-versions"></a>Versioni supportate di HDInsight
+
+### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Supportare la scadenza e il ritiro per le versioni di HDInsight
+
+La **scadenza del supporto** indica che Microsoft non fornirà più il supporto per la versione specificata di HDInsight e non sarà più disponibile tramite il portale di Azure per la creazione del cluster. Tuttavia, queste versioni possono comunque essere create usando l'interfaccia della riga di comando di Azure o i vari SDK. 
+
+Il **ritiro** di una versione di HDInsight significa che i cluster esistenti continueranno a essere eseguiti così come sono. I nuovi cluster di questa versione, tuttavia, non possono essere creati con alcun mezzo (inclusi CLI e SDK). Anche altre funzionalità del piano di controllo, ad esempio la scalabilità manuale e la scalabilità automatica, potrebbero non funzionare dopo il ritiro della versione. Il supporto non è disponibile per le versioni ritirate.
 
 Le tabelle seguenti elencano le versioni di HDInsight. Se note, vengono indicate anche la data di scadenza del supporto e la data di ritiro.
 

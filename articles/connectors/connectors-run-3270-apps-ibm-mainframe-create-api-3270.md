@@ -9,19 +9,19 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789240"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647666"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app basate su schermo 3270 in mainframe IBM con Azure usando app per la logica di Azure e il connettore IBM 3270
 
 > [!NOTE]
 > Questo connettore è in [*anteprima pubblica*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Con le app per la logica di Azure e il connettore IBM 3270, è possibile accedere ed eseguire app IBM mainframe che in genere si spostano attraverso le schermate dell'emulatore 3270. In questo modo, è possibile integrare le app IBM mainframe con Azure, Microsoft e altre app, servizi e sistemi creando flussi di lavoro automatizzati con app per la logica di Azure. Il connettore comunica con i mainframe IBM usando il protocollo TN3270 ed è disponibile in tutte le aree di app per la logica di Azure ad eccezione di Azure per enti pubblici e Azure China 21Vianet. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+Con le app per la logica di Azure e il connettore IBM 3270, è possibile accedere ed eseguire app IBM mainframe che in genere si spostano attraverso le schermate dell'emulatore 3270. In questo modo, è possibile integrare le app IBM mainframe con Azure, Microsoft e altre app, servizi e sistemi creando flussi di lavoro automatizzati con app per la logica di Azure. Il connettore comunica con i mainframe IBM usando il protocollo TN3270 ed è disponibile in tutte le aree di app per la logica di Azure ad eccezione di Azure per enti pubblici e Azure China 21Vianet. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 Questo articolo descrive gli aspetti relativi all'uso del connettore 3270: 
 
@@ -39,7 +39,7 @@ Per estendere questi scenari, il connettore IBM 3270 in app per la logica di Azu
 
 Dopo aver generato il file di metadati dallo strumento di progettazione, è necessario aggiungerlo a un account di integrazione in Azure. In questo modo, l'app per la logica può accedere ai metadati dell'app quando si aggiunge un'azione 3270 Connector. Il connettore legge il file di metadati dall'account di integrazione, gestisce la navigazione attraverso le schermate 3270 e visualizza dinamicamente i parametri per l'azione del connettore 3270. È quindi possibile fornire dati all'applicazione host e il connettore restituisce i risultati all'app per la logica. In questo modo, è possibile integrare le app legacy con Azure, Microsoft e altre app, servizi e sistemi supportati da app per la logica di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -182,11 +182,11 @@ In questa modalità è possibile definire il flusso o i passaggi per spostarsi t
 
 1. In **Scegli nuovo piano nome**immettere un nome per il piano. Nell'elenco **tipo** selezionare il tipo di piano:
 
-   | Tipo di piano | Description |
+   | Tipo di piano | Descrizione |
    |-----------|-------------|
    | **Processo** | Per piani autonomi o combinati |
    | **Connettere** | Per i piani di connessione |
-   | **Disconnettere** | Per i piani di disconnessione |
+   | **Disconnetti** | Per i piani di disconnessione |
    |||
 
 1. Dal riquadro **schermate host** trascinare le anteprime acquisite nella superficie del piano di spostamento nel riquadro di **spostamento** .
@@ -218,13 +218,13 @@ In questo esempio si supponga di eseguire una transazione CICS denominata "WBGB"
 
 Si supponga inoltre di ripetere questi passaggi, ma si immettono dati non corretti per poter acquisire la schermata che mostra l'errore. Ecco le schermate acquisite:
 
-* MESSAGGIO-10
+* MSG-10
 * Pagina iniziale di CICS
 * Empty
 * WBGB_1 (input)
 * WBGB_2 (errore)
 * Empty_1
-* MESSAGGIO-10_1
+* MSG-10_1
 
 Sebbene molte schermate ottengano nomi univoci, alcune schermate sono la stessa schermata, ad esempio "MSG-10" e "Empty". Per una schermata ripetuta, utilizzare solo un'istanza per la schermata del piano. Di seguito sono riportati alcuni esempi che illustrano come un piano autonomo, un piano di connessione, un piano di disconnessione e un piano combinato potrebbero essere:
 
@@ -358,12 +358,12 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
 
 1. Se non esiste ancora alcuna connessione, fornire le informazioni necessarie per la connessione e scegliere **Crea**.
 
-   | Proprietà | Obbligatoria | Value | Description |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
-   | **Connection Name** (Nome connessione) | SÌ | <*nome connessione*> | Nome per la connessione |
-   | **ID account di integrazione** | SÌ | <*integration-account-name*> | Nome dell'account di integrazione |
-   | **URL SAS dell'account di integrazione** | SÌ | <*Integration-account-SAS-URL*> | L'URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nella portale di Azure. <p>1. nel menu dell'account di integrazione in **Impostazioni**selezionare **URL callback**. <br>2. nel riquadro di destra, copiare il valore di **URL callback generato** . |
-   | **Server** | SÌ | <*TN3270-server-name*> | Nome del server per il servizio TN3270 |
+   | **Connection Name** (Nome connessione) | Sì | <*nome connessione*> | Nome per la connessione |
+   | **ID account di integrazione** | Sì | <*integration-account-name*> | Nome dell'account di integrazione |
+   | **URL SAS dell'account di integrazione** | Sì | <*Integration-account-SAS-URL*> | L'URL di firma di accesso condiviso (SAS) dell'account di integrazione, che è possibile generare dalle impostazioni dell'account di integrazione nella portale di Azure. <p>1. nel menu dell'account di integrazione in **Impostazioni**selezionare **URL callback**. <br>2. nel riquadro di destra, copiare il valore di **URL callback generato** . |
+   | **Server** | Sì | <*TN3270-server-name*> | Nome del server per il servizio TN3270 |
    | **Porta** | No | <*TN3270-server-port*> | La porta usata dal server TN3270. Se lasciato vuoto, il connettore USA `23` come valore predefinito. |
    | **Tipo di dispositivo** | No | <> *IBM-Terminal-Model* | Nome o numero del modello per il terminale IBM da emulare. Se viene lasciato vuoto, il connettore usa i valori predefiniti. |
    | **Tabella codici** | No | <*codice-numero di pagina*> | Numero della tabella codici per l'host. Se lasciato vuoto, il connettore USA `37` come valore predefinito. |
@@ -372,19 +372,19 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
    | **Convalidare il certificato SSL host?** | No | On o off | Attivare o disattivare la convalida per il certificato del server. |
    ||||
 
-   ad esempio:
+   Ad esempio:
 
-   ![Connection properties (Proprietà connessione)](./media/connectors-create-api-3270/connection-properties.png)
+   ![Proprietà di connessione](./media/connectors-create-api-3270/connection-properties.png)
 
 1. Fornire le informazioni necessarie per l'azione:
 
-   | Proprietà | Obbligatoria | Value | Description |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
-   | **Nome hidx** | SÌ | <*hidx-nome file*> | Selezionare il file HIDX 3270 che si vuole usare. |
-   | **Nome metodo** | SÌ | *nome-metodo* <> | Selezionare il metodo nel file HIDX che si desidera utilizzare. Dopo aver selezionato un metodo, viene visualizzato l'elenco **Aggiungi nuovo parametro** in modo che sia possibile selezionare i parametri da usare con il metodo. |
+   | **Nome hidx** | Sì | <*hidx-nome file*> | Selezionare il file HIDX 3270 che si vuole usare. |
+   | **Nome metodo** | Sì | *nome-metodo* <> | Selezionare il metodo nel file HIDX che si desidera utilizzare. Dopo aver selezionato un metodo, viene visualizzato l'elenco **Aggiungi nuovo parametro** in modo che sia possibile selezionare i parametri da usare con il metodo. |
    ||||
 
-   ad esempio:
+   Ad esempio:
 
    **Selezionare il file HIDX**
 
@@ -409,7 +409,10 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento del connettore](/connectors/si3270/).
+Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/si3270/).
+
+> [!NOTE]
+> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,12 +4,12 @@ description: Informazioni sulle limitazioni note quando si eseguono i pool di no
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 6d951652e3522b7ff926b72a3916bffe97575054
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592494"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615650"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitazioni correnti per i pool di nodi di Windows Server e i carichi di lavoro delle applicazioni in Azure Kubernetes Service (AKS)
 
@@ -51,9 +51,9 @@ I nodi master (il piano di controllo) in un cluster AKS sono ospitati da AKS il 
 
 I cluster AKS con pool di nodi di Windows devono usare il modello di rete Azure CNI (Advanced). La rete Kubenet (Basic) non è supportata. Per altre informazioni sulle differenze nei modelli di rete, vedere [concetti di rete per le applicazioni in AKS][azure-network-models]. -Il modello di rete CNI di Azure richiede una pianificazione e considerazioni aggiuntive per la gestione degli indirizzi IP. Per altre informazioni su come pianificare e implementare Azure CNI, vedere [configurare la rete di Azure CNI in AKS][configure-azure-cni].
 
-## <a name="can-i-change-the-min--of-pods-per-node"></a>È possibile modificare il numero minimo di pod per nodo?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>È possibile modificare il valore max. n. di pod per nodo?
 
-È attualmente necessario impostare un minimo di 30 POD per garantire l'affidabilità dei cluster.
+È attualmente necessario impostare un massimo di 30 POD per garantire l'affidabilità dei cluster.
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Come si applica la patch ai nodi Windows?
 

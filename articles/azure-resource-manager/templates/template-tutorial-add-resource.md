@@ -2,15 +2,15 @@
 title: 'Esercitazione: Aggiungere una risorsa al modello'
 description: Descrive i passaggi per creare il primo modello di Azure Resource Manager. Viene illustrata la sintassi dei file modello e viene spiegato su come distribuire un account di archiviazione.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 02/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765582"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586683"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Esercitazione: Aggiungere una risorsa al modello di Azure Resource Manager
 
@@ -26,7 +26,10 @@ Nell'[esercitazione precedente](template-tutorial-create-first-template.md) è s
 
 Per aggiungere una definizione di account di archiviazione al modello esistente, esaminare il codice JSON evidenziato nell'esempio seguente. Invece di provare a copiare sezioni del modello, copiare l'intero file e sostituire il modello con il relativo contenuto.
 
-Sostituire **{provide-unique-name}** con un nome di account di archiviazione univoco. Il nome dell'account di archiviazione deve essere univoco in Azure. Il nome deve essere composto solo da lettere minuscole e numeri e non deve superare i 24 caratteri. Come criterio di denominazione è possibile provare a usare il prefisso **store1** e aggiungere le proprie iniziali e la data odierna. Il nome usato può, ad esempio, essere simile a **store1abc09092019**.
+Sostituire **{provide-unique-name}** con un nome di account di archiviazione univoco.
+
+> [!IMPORTANT]
+> Il nome dell'account di archiviazione deve essere univoco in Azure. Il nome deve essere composto solo da lettere minuscole e numeri e non deve superare i 24 caratteri. Come criterio di denominazione è possibile provare a usare il prefisso **store1** e aggiungere le proprie iniziali e la data odierna. Il nome usato può, ad esempio, essere simile a **store1abc09092019**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
@@ -58,7 +61,7 @@ Se si decide di modificare la versione dell'API per una risorsa, assicurarsi di 
 
 Se non è stato ancora creato il gruppo di risorse, vedere [Creare il gruppo di risorse](template-tutorial-create-first-template.md#create-resource-group). Nell'esempio si presuppone che la variabile **templateFile** sia stata impostata sul percorso del file modello, come illustrato nella [prima esercitazione](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,7 +70,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
 az group deployment create \

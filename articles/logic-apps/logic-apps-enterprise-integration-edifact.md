@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/26/2016
-ms.openlocfilehash: b6a6ee21774ba931d9982d82b99008f312d19736
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3ada12a0cde122fb78815a1d3241d8acb9da2580
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793012"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651458"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi EDIFACT per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -43,7 +43,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
    ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
    > [!TIP]
-   > Se **Tutti i servizi** non viene visualizzato, può essere necessario espandere il menu. Nella parte superiore del menu compresso selezionare **Mostra etichette testo**.
+   > Se **Tutti i servizi** non viene visualizzato, può essere necessario espandere prima il menu. Nella parte superiore del menu compresso selezionare **Mostra etichette testo**.
 
 3. In **Account di integrazione** selezionare l'account di integrazione nel quale si vuole creare il contratto.
 
@@ -61,9 +61,9 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
    ![Fornire i dettagli relativi al contratto](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | Proprietà | Description |
+   | Proprietà | Descrizione |
    | --- | --- |
-   | name |Nome del contratto |
+   | Nome |Nome del contratto |
    | Tipo di contratto | Deve essere EDIFACT |
    | Host Partner (Partner host) |Un contratto prevede un partner host e un partner guest. Il partner host rappresenta l'organizzazione che configura il contratto. |
    | Host Identity (Identità host) |Un identificatore per il partner host |
@@ -90,21 +90,21 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 ### <a name="identifiers"></a>Identificatori
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB6.1 (password di riferimento destinatario) |Immettere un valore alfanumerico costituito da un numero di caratteri compreso tra 1 e 14. |
 | UNB6.2 (qualificatore di riferimento destinatario) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo due. |
 
 ### <a name="acknowledgments"></a>Ringraziamenti
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | Conferma recapito messaggi (CONTRL) |Selezionare questa casella di controllo per restituire un acknowledgment tecnico (CONTRL) al mittente dell'interscambio. L'acknowledgment viene inviato al mittente dell'interscambio in base alle impostazioni di invio del contratto. |
 | Acknowledgement (CONTRL) |Selezionare questa casella di controllo per restituire un acknowledgment funzionale (CONTRL) al mittente dell'interscambio. L'acknowledgment viene inviato al mittente dell'interscambio in base alle impostazioni di invio del contratto. |
 
 ### <a name="schemas"></a>Schemi
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNH2.1 (tipo) |Selezionare un tipo di set di transazioni. |
 | UNH2.2 (versione) |Immettere il numero di versione del messaggio (da un minimo di un carattere a un massimo di tre). |
@@ -112,10 +112,11 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 | UNH2.5 (codice assegnato associazione) |Immettere il codice assegnato (deve contenere al massimo sei caratteri, che devono essere alfanumerici). |
 | UNH2.1 (ID mittente APP) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo 35. |
 | UNH2.2 (qualificatore codice mittente APP) |Immettere un valore alfanumerico con lunghezza massima di quattro caratteri. |
-| Schema |Selezionare lo schema caricato in precedenza che si vuole usare dall'account di integrazione associato. |
+| SCHEMA |Selezionare lo schema caricato in precedenza che si vuole usare dall'account di integrazione associato. |
 
 ### <a name="control-numbers"></a>Numeri di controllo
-| Proprietà | Description |
+
+| Proprietà | Descrizione |
 | --- | --- |
 | Disallow Interchange Control Number duplicates (Non consentire duplicati di numeri di controllo interscambio) |Selezionare questa casella di controllo per bloccare gli interscambi duplicati. Se questa opzione è selezionata, l'azione di decodifica EDIFACT verifica che il numero di controllo (UNB5) dell'interscambio ricevuto non corrisponda al numero di controllo di un interscambio elaborato in precedenza. Se viene rilevata una corrispondenza, l'interscambio non viene elaborato. |
 | Verifica UNB5 duplicati ogni (giorni) |Se si è scelto di non consentire numeri di controllo di interscambio duplicati, è possibile il numero di giorni in cui verrà eseguito il controllo assegnando il valore appropriato a questa impostazione. |
@@ -123,13 +124,13 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 | Disallow Transaction set control number duplicates (Non consentire duplicati di numeri di controllo set di transazioni) |Selezionare questa opzione per bloccare gli interscambi con numeri di controllo di set di transazioni duplicati (UNH1). |
 | Numero di controllo acknowledgement EDIFACT |Per designare i numeri di riferimento di set di transazioni da usare in un riconoscimento, immettere un valore per il prefisso, un intervallo di numeri di riferimento e un suffisso. |
 
-### <a name="validations"></a>Convalide
+### <a name="validation"></a>Convalida
 
 Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente un'altra. Se non si specifica alcuna regola, la convalida usa la riga predefinita.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
-| Tipo messaggio |Selezionare il tipo di messaggio EDI. |
+| Tipo di messaggio |Selezionare il tipo di messaggio EDI. |
 | EDI Validation (Convalida EDI) |Esegue la convalida EDI sui tipi di dati secondo quanto definito dalle proprietà EDI dello schema, le restrizioni di lunghezza, gli elementi dati vuoti e i separatori finali. |
 | Convalida estesa |Se il tipo di dati non è EDI, la convalida viene eseguita sul requisito dell'elemento dati e sulla ripetizione consentita, nonché sulle enumerazioni e sulla convalida della lunghezza dell'elemento dati (min/max). |
 | Consenti zeri iniziali e finali |Tutti gli zero iniziali e finali e i caratteri di spazio vengono mantenuti e non vengono rimossi. |
@@ -138,7 +139,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ### <a name="internal-settings"></a>Impostazioni interne
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | Crea tag XML vuoti se sono consentiti separatori finali |Selezionare questa casella di controllo se si vuole che il mittente dell'interscambio includa tag XML vuoti come separatori finali. |
 | Suddividi interscambio in set di transazioni - Sospendi set di transazioni in caso di errore|Consente di analizzare ogni set di transazioni di un interscambio in un documento XML separato applicando la busta appropriata al set di transazioni. Sospende solo i set di transazioni che non superano la convalida. |
@@ -163,7 +164,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ### <a name="identifiers"></a>Identificatori
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB1.2 (versione sintassi) |Selezionare un valore compreso tra **1** e **4**. |
 | UNB2.3 (indirizzo di routing inverso mittente) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo 14. |
@@ -173,22 +174,25 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 | UNB7 (ID riferimento applicazione) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo 14. |
 
 ### <a name="acknowledgment"></a>Acknowledgment (Riconoscimento)
-| Proprietà | Description |
+
+| Proprietà | Descrizione |
 | --- | --- |
 | Conferma recapito messaggi (CONTRL) |Selezionare questa casella di controllo se il partner host prevede di ricevere un riconoscimento tecnico (CONTRL). Questa impostazione specifica che il partner host che invia il messaggio richiede un acknowledgment dal partner guest. |
 | Acknowledgement (CONTRL) |Selezionare questa casella di controllo se il partner host prevede di ricevere un acknowledgment funzionale (CONTRL). Questa impostazione specifica che il partner host che invia il messaggio richiede un acknowledgment dal partner guest. |
 | Genera il ciclo SG1/SG4 per i set di transazioni accettate |Se si è scelto di richiedere un acknowledgement funzionale, selezionare questa casella di controllo per forzare la generazione di cicli SG1/SG4 negli acknowledgement funzionali CONTRL per i set di transazioni accettati. |
 
 ### <a name="schemas"></a>Schemi
-| Proprietà | Description |
+
+| Proprietà | Descrizione |
 | --- | --- |
 | UNH2.1 (tipo) |Selezionare un tipo di set di transazioni. |
 | UNH2.2 (versione) |Immettere il numero di versione del messaggio |
 | UNH2.3 (versione) |Immettere il numero di rilascio del messaggio |
-| Schema |Selezionare lo schema da usare. Gli schemi si trovano nell'account di integrazione. Per accedere agli schemi, collegare l'account di integrazione alla app per la logica. |
+| SCHEMA |Selezionare lo schema da usare. Gli schemi si trovano nell'account di integrazione. Per accedere agli schemi, collegare l'account di integrazione alla app per la logica. |
 
 ### <a name="envelopes"></a>Buste
-| Proprietà | Description |
+
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB8 (codice di priorità elaborazione) |Immettere un valore alfabetico di lunghezza non superiore a un carattere. |
 | UNB10 (contratto comunicazioni) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo 40. |
@@ -196,11 +200,11 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 | Applica segmento UNA (avviso stringa servizio) |Selezionare questa casella di controllo per generare un segmento UNA per l'interscambio da inviare. |
 | Applica segmenti UNG (intestazione gruppo funzionale) |Selezionare questa casella di controllo per creare segmenti di raggruppamento nell'intestazione di gruppo funzionale nei messaggi inviati al partner guest. Per creare i segmenti UNG vengono usati i valori seguenti: <p>Per **UNG1**, immettere un valore alfanumerico costituito da almeno un carattere e al massimo sei. <p>Per **UNG2.1**, immettere un valore alfanumerico costituito da almeno un carattere e al massimo 35. <p>Per **UNG2.2** immettere un valore alfanumerico con lunghezza massima di quattro caratteri. <p>Per **UNG3.1**, immettere un valore alfanumerico costituito da almeno un carattere e al massimo 35. <p>Per **UNG3.2** immettere un valore alfanumerico con lunghezza massima di quattro caratteri. <p>Per **UNG6** immettere un valore alfanumerico costituito da almeno un carattere e al massimo tre. <p>Per **UNG7.1** immettere un valore alfanumerico costituito da almeno un carattere e al massimo tre. <p>Per **UNG7.2** immettere un valore alfanumerico costituito da almeno un carattere e al massimo tre. <p>Per **UNG7.3** immettere un valore alfanumerico costituito da almeno 1 carattere e al massimo 6. <p>Per **UNG8**, immettere un valore alfanumerico costituito da almeno un carattere e al massimo 14. |
 
-### <a name="character-sets-and-separators"></a>Character Sets and Separators (Set di caratteri e separatori)
+### <a name="character-sets-and-separators"></a>Set di caratteri e separatori
 
 Oltre al set di caratteri, è possibile immettere un diverso set di delimitatori da usare per ogni tipo di messaggio. Se per un determinato schema del messaggio non è specificato un set di caratteri, viene usato il set di caratteri predefinito.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB1.1 (identificatore di sistema) |Selezionare il set di caratteri EDIFACT da applicare all'interscambio in uscita. |
 | SCHEMA |Selezionare uno schema nell'elenco a discesa. Dopo aver completato ogni riga, viene aggiunta automaticamente una nuova riga. Per lo schema selezionato, selezionare il set di separatori da usare, in base alle descrizioni di separatore seguenti. |
@@ -211,19 +215,20 @@ Oltre al set di caratteri, è possibile immettere un diverso set di delimitatori
 | Suffisso |Selezionare il carattere usato con l'identificatore di segmento. Se si designa un suffisso, l'elemento dati del terminatore di segmenti può essere vuoto. Se il carattere di terminazione segmento viene lasciato vuoto, è necessario designare un suffisso. |
 
 ### <a name="control-numbers"></a>Numeri di controllo
-| Proprietà | Description |
+
+| Proprietà | Descrizione |
 | --- | --- |
 | UNB5 (numero di controllo interscambio) |Immettere un prefisso, un intervallo di valori per il numero di controllo dell'interscambio e un suffisso. Questi valori verranno usati per generare un interscambio in uscita. Il prefisso e il suffisso sono facoltativi, mentre il numero di controllo è obbligatorio. Il numero di controllo viene incrementato per ogni nuovo messaggio, mentre il prefisso e il suffisso rimangono invariati. |
 | UNG5 (numero di controllo gruppo) |Immettere un prefisso, un intervallo di valori per il numero di controllo dell'interscambio e un suffisso. Questi valori verranno usati per generare il numero di controllo di gruppo. Il prefisso e il suffisso sono facoltativi, mentre il numero di controllo è obbligatorio. Il numero di controllo viene incrementato per ogni nuovo messaggio fino al raggiungimento del valore massimo, mentre il prefisso e il suffisso rimangono invariati. |
 | UNH1 (numero di riferimento intestazione messaggio) |Immettere un prefisso, un intervallo di valori per il numero di controllo dell'interscambio e un suffisso. Questi valori verranno usati per generare il numero di riferimento dell'intestazione del messaggio. Il prefisso e il suffisso sono facoltativi, mentre il numero di riferimento è obbligatorio. Il numero di riferimento viene incrementato per ogni nuovo messaggio, mentre il prefisso e il suffisso rimangono invariati. |
 
-### <a name="validations"></a>Convalide
+### <a name="validation"></a>Convalida
 
 Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente un'altra. Se non si specifica alcuna regola, la convalida usa la riga predefinita.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
-| Tipo messaggio |Selezionare il tipo di messaggio EDI. |
+| Tipo di messaggio |Selezionare il tipo di messaggio EDI. |
 | EDI Validation (Convalida EDI) |Esegue la convalida EDI sui tipi di dati secondo quanto definito dalle proprietà EDI dello schema, le restrizioni di lunghezza, gli elementi dati vuoti e i separatori finali. |
 | Convalida estesa |Se il tipo di dati non è EDI, la convalida viene eseguita sul requisito dell'elemento dati e sulla ripetizione consentita, nonché sulle enumerazioni e sulla convalida della lunghezza dell'elemento dati (min/max). |
 | Consenti zeri iniziali e finali |Tutti gli zero iniziali e finali e i caratteri di spazio vengono mantenuti e non vengono rimossi. |
@@ -240,9 +245,13 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
     ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
-## <a name="view-swagger-file"></a>Visualizzare il file Swagger
-Per visualizzare i dettagli di Swagger per il connettore EDIFACT, vedere [EDIFACT](/connectors/edifact/).
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-## <a name="learn-more"></a>Altre informazioni.
-* [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack")  
+Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/edifact/).
 
+> [!NOTE]
+> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

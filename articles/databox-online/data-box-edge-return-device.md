@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 521277b2eed7edfba016f6a80e8f877decfb0ac5
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356155"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651101"
 ---
 # <a name="return-or-replace-your-azure-data-box-edge-device"></a>Restituisce o sostituisce il dispositivo Azure Data Box Edge
 
 Questo articolo descrive come eliminare i dati e restituire il dispositivo Azure Data Box Edge. Dopo aver restituito il dispositivo, è anche possibile eliminare la risorsa associata al dispositivo o ordinare un dispositivo sostitutivo.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Cancellazione dei dati dai dischi dati del dispositivo
@@ -47,11 +47,11 @@ Per reimpostare il dispositivo tramite l'interfaccia utente Web locale, seguire 
 
 Il ripristino cancella i dati dai dischi dati del dispositivo. A seconda della quantità di dati nel dispositivo, questo processo richiede circa 30-40 minuti.
 
-In alternativa, connettersi all'interfaccia di PowerShell del dispositivo e usare il `Reset-HcsAppliance` cmdlet per cancellare i dati dai dischi dati. Per altre informazioni, vedere [reimpostare il dispositivo](data-box-edge-connect-powershell-interface.md#reset-your-device).
+In alternativa, connettersi all'interfaccia di PowerShell del dispositivo e usare il cmdlet `Reset-HcsAppliance` per cancellare i dati dai dischi dati. Per altre informazioni, vedere [reimpostare il dispositivo](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
 > - Se si sta scambiando o aggiornando un nuovo dispositivo, si consiglia di reimpostare il dispositivo solo dopo la ricezione del nuovo dispositivo.
-> - Il ripristino del dispositivo eliminerà solo tutti i dati locali dal dispositivo. I dati presenti nel cloud non vengono eliminati e gli [addebiti](https://azure.microsoft.com/pricing/details/storage/) vengono raccolti. Questi dati devono essere eliminati separatamente usando uno strumento di gestione dell'archiviazione cloud come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> - Il ripristino del dispositivo eliminerà solo tutti i dati locali dal dispositivo. I dati presenti nel cloud non vengono eliminati e gli [addebiti](https://azure.microsoft.com/pricing/details/storage/)vengono raccolti. Questi dati devono essere eliminati separatamente usando uno strumento di gestione dell'archiviazione cloud come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="open-a-support-ticket"></a>Aprire un ticket di supporto
 
@@ -59,7 +59,7 @@ Per iniziare il processo di restituzione, seguire questa procedura.
 
 1. Aprire un ticket di supporto con supporto tecnico Microsoft per indicare che si vuole restituire il dispositivo. Selezionare il tipo di problema come **Data Box Edge hardware**.
 
-    ![Apri ticket di supporto](media/data-box-edge-return-device/open-support-ticket-1.png)  
+    ![Aprire il ticket di supporto](media/data-box-edge-return-device/open-support-ticket-1.png)  
 
 2. Un tecnico supporto tecnico Microsoft ti contatterà. Specificare i dettagli della spedizione.
 3. Se è necessaria una casella di spedizione di ritorno, è possibile richiederla. Risposta **Sì** alla domanda è **necessario che venga restituita una casella vuota**.
@@ -72,7 +72,7 @@ Per iniziare il processo di restituzione, seguire questa procedura.
 3. Scollegare i cavi di alimentazione e rimuovere tutti i cavi di rete dal dispositivo.
 4. Preparare il pacchetto di spedizione usando la propria casella o la casella vuota ricevuta da Azure. Posizionare il dispositivo e i cavi di alimentazione forniti con il dispositivo nella casella.
 5. Applicare l'etichetta di spedizione ricevuta da Azure nel pacchetto.
-6. Pianificare un ritiro con il corriere di zona. Se la restituzione del dispositivo è in uso, il vettore è UPS. Per pianificare un ritiro:
+6. Pianificare un ritiro con il corriere di zona. Se la restituzione del dispositivo è in uso, il vettore potrebbe essere UPS o FedEx. Per pianificare un pickup con UPS:
 
     1. Chiamare il servizio UPS locale (numero verde specifico del paese).
     2. Nella chiamata, citare il numero di tracciamento della spedizione inversa come indicato nell'etichetta stampata.
@@ -103,7 +103,7 @@ Eseguire la procedura seguente per eliminare il dispositivo e la risorsa in port
 
 2. Nel pannello **Elimina dispositivo** Digitare il nome del dispositivo che si desidera eliminare e selezionare **Elimina**.
 
-    ![Conferma eliminazione](media/data-box-edge-return-device/delete-resource-2.png)
+    ![Conferma dell'eliminazione](media/data-box-edge-return-device/delete-resource-2.png)
 
 Si riceverà una notifica dopo che il dispositivo e la risorsa associata verranno eliminati correttamente.
 

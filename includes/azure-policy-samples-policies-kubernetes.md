@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: cda5b81eae9cf97311de6c53b8d4a9a6d184fd47
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 4a7ab395715d45894d355a35da81f6c2e58861ec
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77371045"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495576"
 ---
-|Nome |Descrizione |Effetto/i |Versione |Origine |
+|Nome |Descrizione |Effetto/i |Versione |Source (Sorgente) |
 |---|---|---|---|
 |[\[Anteprima\]: \[Motore del servizio Azure Kubernetes\] Non consentire contenitori con privilegi nel cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |Questo criterio non consente la creazione di contenitori con privilegi in un cluster Kubernetes. Per istruzioni sull'utilizzo di questo criterio, vedere https://aka.ms/kubepolicydoc. |enforceOPAConstraint, disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege_EnforceOPAConstraint.json)
 |[\[Anteprima\]: \[Motore del servizio Azure Kubernetes\] Imponi il traffico HTTPS in ingresso nel cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |Questo criterio impone il traffico HTTPS in ingresso in un cluster Kubernetes. Per istruzioni sull'utilizzo di questo criterio, vedere https://aka.ms/kubepolicydoc. |enforceOPAConstraint, disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly_EnforceOPAConstraint.json)

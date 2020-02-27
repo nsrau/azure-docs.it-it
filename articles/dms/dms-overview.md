@@ -3,19 +3,19 @@ title: Che cos'è il Servizio Migrazione del database di Azure?
 description: Panoramica del servizio migrazione del database di Azure, che fornisce migrazioni senza problemi da numerose origini di database alle piattaforme dati di Azure.
 services: database-migration
 author: pochiraju
-ms.author: jtoland
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 06/01/2019
-ms.openlocfilehash: d573378bc5e729eb75b6c3b51d3671492f7f98f1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/20/2020
+ms.openlocfilehash: 8607f1a687f2979c37c67099874288c6c5ead164
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209376"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647491"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Che cos'è il Servizio Migrazione del database di Azure?
 
@@ -32,7 +32,7 @@ Il servizio migrazione del database di Azure integra alcune funzionalità degli 
 
 Per informazioni aggiornate sulla disponibilità a livello di area del servizio migrazione del database di Azure, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
-## <a name="pricing"></a>Pricing
+## <a name="pricing"></a>Prezzi
 
 Per informazioni aggiornate sui prezzi del servizio Migrazione del database di Azure, vedere [prezzi del servizio Migrazione del database di Azure](https://azure.microsoft.com/pricing/details/database-migration/).
 
