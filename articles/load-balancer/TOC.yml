@@ -12,8 +12,9 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Modello
+    - name: Modello di Azure Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+      displayName: ARM
 - name: Esercitazioni
   items:
     - name: Bilanciare il carico del traffico Internet verso le macchine virtuali
@@ -84,16 +85,18 @@
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
-        - name: Modello
+        - name: Modello di Azure Resource Manager
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
+          displayName: ARM
     - name: Configurare un servizio di bilanciamento del carico interno
       items:
         - name: Interfaccia della riga di comando di Azure
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Azure PowerShell
           href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Modello
+        - name: Modello di Azure Resource Manager
           href: load-balancer-get-started-ilb-arm-template.md
+          displayName: ARM
     - name: Configurare il timeout di inattività TCP per il servizio di bilanciamento del carico
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurare la modalità di distribuzione per Load Balancer
@@ -141,6 +144,9 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations'
     - name: REST
       href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
+    - name: Modello di Resource Manager
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers'
+      displayName: ARM
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

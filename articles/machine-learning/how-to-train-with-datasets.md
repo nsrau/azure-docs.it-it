@@ -11,23 +11,23 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2e48b47967e29a421a96bb09dd17b2cdcdbaff3c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543308"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580510"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In questo articolo vengono illustrati i due modi per utilizzare [Azure Machine Learning set](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) di dati in un training di esperimento remoto senza preoccuparsi delle stringhe di connessione o dei percorsi di dati.
 
-- Opzione 1: se si dispone di dati strutturati, creare un TabularDataset e usarlo direttamente nello script di training.
+- Opzione 1: Se sono presenti dati strutturati, creare un TabularDataset e usarlo direttamente nello script di training.
 
-- Opzione 2: se si dispone di dati non strutturati, creare un file filedataset e montare o scaricare file in un computer remoto per il training.
+- Opzione 2: Se si dispone di dati non strutturati, creare un file filedataset e montarli o scaricarli in un computer remoto per il training.
 
-Azure Machine Learning [set di impostazioni](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py)forniscono un'integrazione perfetta con Azure machine learning prodotti di formazione come [scriptrun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) e iperguida.
+Azure Machine Learning set di impostazioni forniscono un'integrazione perfetta con Azure Machine Learning prodotti di formazione come [scriptrun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), iperguida e [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,9 +40,9 @@ Per creare ed eseguire il training con i set di impostazioni, è necessario:
 * [SDK Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), che include il pacchetto azureml-DataSets.
 
 > [!Note]
-> Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti:  Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
-## <a name="option-1-use-datasets-directly-in-training-scripts"></a>Opzione 1: usare i set di impostazioni direttamente negli script di training
+## <a name="option-1-use-datasets-directly-in-training-scripts"></a>Opzione 1: Usare i set di impostazioni direttamente negli script di training
 
 In questo esempio si crea un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e lo si usa come input diretto all'oggetto `estimator` per il training. 
 
@@ -100,11 +100,12 @@ experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
 ```
 
-## <a name="option-2--mount-files-to-a-remote-compute-target"></a>Opzione 2: montare i file in una destinazione di calcolo remota
+
+## <a name="option-2--mount-files-to-a-remote-compute-target"></a>Opzione 2:  Montare i file in una destinazione di calcolo remota
 
 Se si desidera rendere disponibili i file di dati nella destinazione di calcolo per il training, utilizzare [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) per montare o scaricare i file a cui fa riferimento.
 
-### <a name="mount-vs-download"></a>Montare v.s. Download
+### <a name="mount-vs-download"></a>Montaggio rispetto a Scarica
 Quando si monta un set di dati, si collegano i file a cui fa riferimento il set di dati a una directory (punto di montaggio) e lo si rende disponibile nella destinazione di calcolo. Il montaggio è supportato per i calcoli basati su Linux, tra cui Azure Machine Learning calcolo, macchine virtuali e HDInsight. Se le dimensioni dei dati superano le dimensioni del disco di calcolo o se si carica solo una parte del set di dati nello script, è consigliabile montarlo. Poiché il download di un set di dati di dimensioni superiori a quelle del disco avrà esito negativo e il montaggio caricherà solo la parte di dati usata dallo script al momento dell'elaborazione. 
 
 Quando si scarica un set di dati, tutti i file a cui fa riferimento il set di dati verranno scaricati nella destinazione di calcolo. Il download è supportato per tutti i tipi di calcolo. Se lo script elabora tutti i file a cui fa riferimento il set di dati e il disco di calcolo può adattarsi al set di dati completo, è consigliabile scaricare il download per evitare il sovraccarico del flusso dei dati dai servizi di archiviazione.
@@ -199,4 +200,4 @@ I [notebook del set di dati](https://aka.ms/dataset-tutorial) dimostrano ed espa
 
 * [Training di modelli di classificazione delle immagini](https://aka.ms/filedataset-samplenotebook) con filedataset
 
-* [Creazione e gestione di ambienti per il training e la distribuzione](how-to-use-environments.md)
+* [Eseguire il training con i set di impostazioni usando le pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)
