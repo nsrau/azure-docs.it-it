@@ -1,5 +1,6 @@
 ---
-title: 'Guida introduttiva: Creare una Data Science Virtual Machine con intelligenza artificiale geografica'
+title: 'Avvio rapido: Creare una Data Science Virtual Machine con intelligenza artificiale geografica'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una Data Science Virtual Machine con intelligenza artificiale geografica in Azure per l'analisi geospaziale e il Machine Learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,14 +8,14 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f3ff9bd64f54d8f83fd1889078e8a4c01827d135
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170717"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525890"
 ---
-# <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Guida introduttiva: Configurare una macchina virtuale con intelligenza artificiale geografica in Azure 
+# <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Avvio rapido: Configurare una macchina virtuale con intelligenza artificiale geografica in Azure 
 
 La Geo AI Data Science Virtual Machine (Geo-DSVM) è una speciale estensione della famosa [Azure Data Science Virtual Machine](https://aka.ms/dsvm) configurata specificamente per combinare intelligenza artificiale e analisi geospaziale. L'analisi geospaziale nella macchina virtuale è basata sulla tecnologia [ArcGIS Pro](https://www.arcgis.com/features/index.html). La Data Science Virtual Machine (DSVM) consente il training rapido dei modelli di Machine Learning e anche Deep Learning. Per sviluppare questi modelli, vengono usati dati arricchiti con informazioni geografiche. La Geo-DSVM è supportata solo nella DSVM Windows 2016. 
 
@@ -41,9 +42,9 @@ Per creare un'istanza della Geo AI Data Science VM, procedere come segue:
 
 **Nozioni di base**:
 
-- **Nome**: Nome del server di data science che si sta creando.
+- **Name**: Nome del server di data science che si sta creando.
     
-- **User name** (Nome utente): ID di accesso dell'account amministratore.
+- **Nome utente**: ID di accesso dell'account amministratore.
     
 - **Password**: password dell'account amministratore.
     

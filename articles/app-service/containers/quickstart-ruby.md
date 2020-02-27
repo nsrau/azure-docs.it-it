@@ -1,17 +1,17 @@
 ---
-title: "Guida introduttiva: Creare un'app Ruby in Linux"
+title: "Avvio rapido: Creare un'app Ruby in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Ruby in un contenitore Linux nel servizio app.
 keywords: servizio app di azure, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 17c81ab71352f57731d9b36138c88c34421e374c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2fcbc40bf78357700e59551b77b7e4d2da1bd82d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689022"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524054"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Creare un'app Ruby on Rails con il Servizio app di Azure in Linux
 
@@ -24,7 +24,7 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installare Ruby 2.6 o versione successiva</a>
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>

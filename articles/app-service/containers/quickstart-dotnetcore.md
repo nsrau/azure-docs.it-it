@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Eseguire un'app ASP.NET Core Linux"
+title: "Avvio rapido: Eseguire un'app ASP.NET Core Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app ASP.NET Core in un contenitore Linux nel servizio app.
 keywords: Servizio app di Azure, app Web, dotnet, core, linux, oss
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
@@ -7,12 +7,12 @@ ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea9449a89bcfbdb1378f0cceb31a07a288661bf7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: a23ad0fbe55367552c0747c6199328130fd194d4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687567"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524122"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Creare un'app ASP.NET Core nel Servizio app in Linux
 
@@ -28,7 +28,7 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva:
 

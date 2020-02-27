@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: fb6451ce5e1e00bffc9195410125eb61b34555e4
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 59e59fdf7fc6207a77bbe9923899570eeaa06a87
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672091"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500149"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creare un'app Web PHP in Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "74672091"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida introduttiva:
 
@@ -150,7 +150,7 @@ Il codice di esempio PHP è in esecuzione in un'app Web del servizio app di Azur
 
 ![App di esempio in esecuzione in Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-**Congratulazioni.** La distribuzione della prima app PHP nel servizio app è stata completata.
+**Congratulazioni** La distribuzione della prima app PHP nel servizio app è stata completata.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice in locale
 
@@ -177,7 +177,7 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
     ![Cercare Servizi app, portale di Azure, creare un'app Web PHP](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-2. Selezionare il nome dell'app Azure.
+2. Selezionare il nome dell'app di Azure.
 
     ![Passaggio all'app di Azure nel portale](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 

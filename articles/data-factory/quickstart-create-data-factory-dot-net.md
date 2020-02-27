@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 71a256b0350742f0e7a7b95519fafff5bc32f58b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a2b775afcd9e603a11b560bb7c42d6cf76be9b34
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928779"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597916"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Guida introduttiva: Creare una data factory e una pipeline con .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Avvio rapido: Creare una data factory e una pipeline con .NET SDK
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -48,7 +48,7 @@ Dalle sezioni in *Procedura: Usare il portale per creare un'entità servizio e a
 1. In [Creare un'applicazione Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) creare un'applicazione che rappresenti l'applicazione .NET che verrà creata in questa esercitazione. Come URL di accesso è possibile specificare un URL fittizio, come illustrato nell'articolo (`https://contoso.org/exampleapp`).
 2. In [Ottenere i valori per l'accesso](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) ottenere l'**ID dell'applicazione** e l'**ID del tenant**, quindi prendere nota di questi valori che verranno usati più avanti in questa esercitazione. 
 3. In [Certificati e segreti](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) ottenere la **chiave di autenticazione** e prendere nota di questo valore che verrà usato più avanti in questa esercitazione.
-4. In [Assegnare l'applicazione a un ruolo](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role) assegnare l'applicazione al ruolo **Collaboratore** a livello di sottoscrizione, in modo che l'applicazione possa creare le data factory nella sottoscrizione.
+4. In [Assegnare l'applicazione a un ruolo](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) assegnare l'applicazione al ruolo **Collaboratore** a livello di sottoscrizione, in modo che l'applicazione possa creare le data factory nella sottoscrizione.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 

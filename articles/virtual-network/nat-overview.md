@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484996"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589437"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Che cos'è NAT di rete virtuale (anteprima pubblica)?
 
@@ -140,9 +140,6 @@ NAT è attualmente disponibile nelle aree seguenti:
 
 Per la partecipazione all'anteprima pubblica, è necessario registrare le sottoscrizioni.  La partecipazione prevede un processo in due passaggi. Le istruzioni per l'interfaccia della riga di comando di Azure e Azure PowerShell sono fornite di seguito.  Il completamento dell'attivazione può richiedere alcuni minuti.
 
-> [!IMPORTANT]
-> Dopo aver [abilitato l'anteprima](./nat-overview.md#enable-preview) del servizio NAT di rete virtuale di Azure nella sottoscrizione, usare https://aka.ms/natportal per accedere al portale.
-
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 1. Registra la sottoscrizione per l'anteprima pubblica
@@ -168,7 +165,7 @@ Per la partecipazione all'anteprima pubblica, è necessario registrare le sottos
 2. Attiva la registrazione
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## <a name="pricing"></a>Prezzi
@@ -197,7 +194,6 @@ Ci interessa sapere come possiamo migliorare il servizio. Gli utenti sono invita
 
 - NAT è compatibile con risorse di indirizzi IP pubblici, prefissi di indirizzi IP pubblici e servizi di bilanciamento del carico di SKU standard.   Le risorse di base, ad esempio il servizio di bilanciamento del carico di base, nonché qualsiasi prodotto derivato non sono compatibili con NAT.  Le risorse di base devono essere inserite in una subnet non configurata con NAT.
 - La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.
-- Il gruppo di sicurezza di rete su subnet o scheda di interfaccia di rete non viene rispettato per i flussi in uscita verso endpoint pubblici tramite NAT.
 - La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
 - NAT non può estendersi in più reti virtuali.
 
@@ -205,4 +201,4 @@ Ci interessa sapere come possiamo migliorare il servizio. Gli utenti sono invita
 
 - Informazioni sulla [risorsa gateway NAT](./nat-gateway-resource.md).
 - [Inviare suggerimenti per nuove funzionalità in UserVoice](https://aka/natuservoice).
-- [Inviare commenti e suggerimenti sull'anteprima pubblica](https://aka.ms/natfeedback).
+- [Inviare feedback sull'anteprima pubblica](https://aka.ms/natfeedback).

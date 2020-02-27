@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/10/2020
-ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6587b6d5ceb18bcc2374594aef91da91f792bb84
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867269"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585935"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Avvio rapido: Compilare un'app console con .NET V4 SDK per gestire le risorse dell'account API SQL di Azure Cosmos DB.
 
@@ -151,64 +151,64 @@ Per altre informazioni sulla gerarchia delle diverse entità, vedere l'articolo 
 
 Il codice di esempio descritto in questo articolo crea un database relativo alla famiglia in Azure Cosmos DB. Il database contiene i dettagli della famiglia, ad esempio nome, indirizzo, località e genitori, figli e animali domestici associati. Prima di popolare i dati nell'account Azure Cosmos, definire le proprietà di un elemento della famiglia. Creare una nuova classe denominata `Family.cs` al livello radice dell'applicazione di esempio e aggiungervi il codice seguente:
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Family.cs)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Family.cs":::
 
 ### <a name="add-the-using-directives--define-the-client-object"></a>Aggiungere le direttive using e definire l'oggetto client
 
 Dalla directory del progetto aprire il file `Program.cs` nell'editor e aggiungere le direttive using seguenti all'inizio dell'applicazione:
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=Usings)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="Usings":::
 
 
 Aggiungere le variabili globali seguenti nella classe `Program`. Sono inclusi l'endpoint e le chiavi di autorizzazione, il nome del database e del contenitore che verranno creati. Assicurarsi di sostituire i valori dell'endpoint e delle chiavi di autorizzazione in base all'ambiente in uso. 
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=Constants)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="Constants":::
 
 Infine, sostituire il metodo `Main`:
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=Main)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="Main":::
 
 ### <a name="create-a-database"></a>Creazione di un database 
 
 Definire il metodo `CreateDatabaseAsync` nella classe `program.cs`. Questo metodo crea `FamilyDatabase` se non esiste già.
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=CreateDatabaseAsync)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="CreateDatabaseAsync":::
 
 ### <a name="create-a-container"></a>Creare un contenitore
 
 Definire il metodo `CreateContainerAsync` nella classe `Program`. Questo metodo crea `FamilyContainer` se non esiste già. 
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=CreateContainerAsync)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="CreateContainerAsync":::
 
 ### <a name="create-an-item"></a>Creare un elemento
 
 Creare un elemento della famiglia aggiungendo il metodo `AddItemsToContainerAsync` con il codice seguente. Per creare un elemento, è possibile usare il metodo `CreateItemAsync` o `UpsertItemAsync`:
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=AddItemsToContainerAsync)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="AddItemsToContainerAsync":::
 
 ### <a name="query-the-items"></a>Eseguire una query sugli elementi
 
 Dopo aver inserito un elemento, è possibile eseguire una query per ottenere i dettagli della famiglia "Andersen". Il codice seguente illustra come eseguire la query usando direttamente la query SQL. La query SQL per ottenere i dettagli della famiglia "Anderson" è: `SELECT * FROM c WHERE c.LastName = 'Andersen'`. Definire il metodo `QueryItemsAsync` nella classe `Program` e aggiungervi il codice seguente:
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=QueryItemsAsync)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="QueryItemsAsync":::
 
 ### <a name="replace-an-item"></a>Sostituire un elemento 
 
 Eseguire la lettura di un elemento della famiglia e quindi aggiornarlo aggiungendo il metodo `ReplaceFamilyItemAsync` con il codice seguente.
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=ReplaceFamilyItemAsync)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="ReplaceFamilyItemAsync":::
 
 ### <a name="delete-an-item"></a>Eliminare un elemento 
 
 Eliminare un elemento della famiglia aggiungendo il metodo `DeleteFamilyItemAsync` con il codice seguente.
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=DeleteFamilyItemAsync)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="DeleteFamilyItemAsync":::
 
 ### <a name="delete-the-database"></a>eliminare il database 
 
 È infine possibile eliminare il database aggiungendo il metodo `DeleteDatabaseAndCleanupAsync` con il codice seguente:
 
-[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=DeleteDatabaseAndCleanupAsync)]
+:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="DeleteDatabaseAndCleanupAsync":::
 
 Dopo aver aggiunto tutti i metodi necessari, salvare il file `Program`. 
 

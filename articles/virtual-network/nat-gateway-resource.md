@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/19/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: a118d560541595e26c80547dd641968c518aa353
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9d9033689472fbc462eefd3d31c2b36a19add81a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485013"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589471"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Progettazione di reti virtuali con risorse gateway NAT (anteprima pubblica)
 
@@ -35,9 +35,6 @@ Le risorse gateway NAT fanno parte del servizio [NAT di rete virtuale](nat-overv
 
 >[!NOTE] 
 >NAT di rete virtuale è attualmente disponibile in anteprima pubblica e in un set limitato di [aree](nat-overview.md#region-availability). Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.comsupport/legal/preview-supplemental-terms).
-
-> [!IMPORTANT]
-> Dopo aver abilitato il servizio NAT di rete virtuale di Azure in [anteprima](./nat-overview.md#enable-preview) nella sottoscrizione, usare https://aka.ms/natportal per accedere al portale.
 
 ## <a name="how-to-deploy-nat"></a>Come distribuire NAT
 
@@ -339,7 +336,6 @@ Una porta SNAT è disponibile per il riutilizzo nello stesso indirizzo IP di des
 
 - NAT è compatibile con risorse di indirizzi IP pubblici, prefissi di indirizzi IP pubblici e servizi di bilanciamento del carico di SKU standard.   Le risorse di base, ad esempio il servizio di bilanciamento del carico di base, nonché qualsiasi prodotto derivato non sono compatibili con NAT.  Le risorse di base devono essere inserite in una subnet non configurata con NAT.
 - La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.
-- Il gruppo di sicurezza di rete su subnet o scheda di interfaccia di rete non viene rispettato per i flussi in uscita verso endpoint pubblici tramite NAT.
 - La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
 - NAT non può estendersi in più reti virtuali.
 
