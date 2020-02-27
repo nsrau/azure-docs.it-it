@@ -4,7 +4,7 @@ description: Guida introduttiva per l'installazione manuale di SAP HANA a istanz
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0090ffe977dee3e493d726c9eb4d151bcbeb503f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750378"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617240"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Guida introduttiva: installazione manuale di SAP HANA a istanza singola in macchine virtuali di Azure
 ## <a name="introduction"></a>Introduzione
@@ -177,18 +177,18 @@ Di seguito è riportato un esempio di come verificare la disponibilità di patch
 A seconda del tipo di problema, le patch sono suddivise per categoria e gravità. I valori di uso comune per Category sono: 
 - Sicurezza
 - Consigliato
-- Facoltativo
-- Funzionalità
-- Di documenti
+- Facoltativa
+- Caratteristica
+- Documento
 - YaST
 
 I valori usati comunemente per la gravità sono:
 
 - Critico
 - Importante
-- Moderate
-- Basse
-- Unspecified
+- Moderata
+- Bassa
+- Non specificato
 
 Il comando **zypper** ricerca solo gli aggiornamenti necessari ai pacchetti installati. Ad esempio, è possibile usare questo comando:
 

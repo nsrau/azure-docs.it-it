@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: b28d228dd950796265c5412be30e5d7777cf94c6
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526513"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621955"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -50,11 +50,11 @@ Sono disponibili tre tipi di raccolte di regole:
 
 * *Regole dell'applicazione*: configurare nomi di dominio completi (FQDN) a cui è possibile accedere da una subnet.
 * *Regole di rete*: configurare regole che contengono indirizzi di origine, protocolli, porte di destinazione e indirizzi di destinazione.
-* *Regole NAT*: configurare le regole di DNAT per consentire le connessioni in ingresso.
+* *Regole NAT*: configurare le regole di DNAT per consentire le connessioni Internet in ingresso.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Firewall di Azure supporta il filtraggio del traffico in ingresso?
 
-Firewall di Azure supporta i filtri in ingresso e in uscita. La protezione in ingresso viene in genere usata per i protocolli non HTTP/S. Ad esempio i protocolli RDP, SSH e FTP. Per la migliore protezione HTTP/S in ingresso, usare un web application firewall come il [firewall applicazione Web di Azure in applicazione Azure gateway](../web-application-firewall/ag/ag-overview.md).
+Firewall di Azure supporta i filtri in ingresso e in uscita. La protezione in ingresso viene in genere usata per i protocolli non HTTP/S. Ad esempio i protocolli RDP, SSH e FTP. Per la migliore protezione HTTP/S in ingresso, usare un web application firewall come [Azure Web Application Firewall (WAF)](../web-application-firewall/overview.md).
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quali servizi di registrazione e analisi sono supportati da Firewall di Azure?
 
@@ -88,7 +88,7 @@ Vedere [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/az
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-Ad esempio:
+Ad esempio,
 
 ```azurepowershell
 # Stop an existing firewall
@@ -139,7 +139,7 @@ Se la configurazione richiede il tunneling forzato in una rete locale ed è poss
 
 Sì. Il firewall, VNet, e l'indirizzo IP pubblico devono trovarsi tutti nello stesso gruppo di risorse.
 
-## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Quando si configura DNAT per il traffico di rete in ingresso, è necessario anche configurare una regola di rete corrispondente per consentire tale traffico?
+## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Quando si configura DNAT per il traffico di rete Internet in ingresso, è necessario configurare anche una regola di rete corrispondente per consentire il traffico?
 
 No. Le regole NAT aggiungono in modo implicito una regola di rete corrispondente per consentire il traffico convertito. È possibile sostituire questo comportamento aggiungendo in modo esplicito una raccolta regole di rete con regole di negazione corrispondenti al traffico convertito. Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).
 

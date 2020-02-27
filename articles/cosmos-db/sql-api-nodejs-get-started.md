@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a273b89d864d97d9bc71acff476371f77cfff066
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 5204c7cf80a5b52b0c30b3165d522aa2648cd95c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754829"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587431"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Esercitazione: Compilare un'applicazione console Node.js con l'SDK JavaScript per gestire i dati API SQL di Azure Cosmos DB
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere elementi al contenitore.
 > * Eseguire operazioni di base sugli elementi, sul contenitore e sul database.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 Assicurarsi di disporre delle risorse seguenti:
 
@@ -95,7 +95,7 @@ Ora che l'applicazione esiste, è necessario assicurarsi che possa comunicare co
 
 1. Copiare e incollare i dati di ```database```, ```container``` e ```items``` nell'oggetto ```config``` seguente in cui sono impostate le proprietà ```config.endpoint``` e ```config.key```. Se sono già disponibili dati da archiviare nel database, è possibile usare lo strumento Migrazione dati di Azure Cosmos DB invece di definire i dati qui. Il file config.js dovrà includere il codice seguente:
 
-   [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
+   :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
    L'SDK JavaScript usa i termini generici *contenitore* ed *elemento*. Un contenitore può essere una raccolta, un grafo o una tabella. Un elemento può essere un documento, un arco/vertice o una riga ed è il contenuto all'interno di un contenitore. 
    
@@ -133,7 +133,7 @@ Ora che l'applicazione esiste, è necessario assicurarsi che possa comunicare co
 
 Ora che è disponibile il codice per inizializzare il client Azure Cosmos DB, è possibile esaminare come usare le risorse di Azure Cosmos DB.
 
-## <a name="create-a-database"></a>Creare un database
+## <a name="create-a-database"></a>Creazione di un database
 
 1. Copiare e incollare il codice seguente per impostare l'ID del database e l'ID del contenitore. Tali ID definiscono il modo in cui il client Azure Cosmos DB trova il contenitore e il database corretti.
 
@@ -414,7 +414,7 @@ Successivamente, creare un contenitore all'interno dell'account Azure Cosmos DB,
    ```
 
 
-## <a id="Query"></a>Sottoporre a query le risorse di Azure Cosmos DB
+## <a id="Query"></a>Eseguire query sulle risorse di Azure Cosmos DB
 
 Azure Cosmos DB supporta le query complesse sui documenti JSON archiviati in ogni contenitore. L'esempio di codice seguente illustra una query eseguibile nei documenti del contenitore.
 
@@ -602,7 +602,7 @@ Se si elimina il database creato, insieme al database vengono rimosse tutte le r
 
 Il codice finale avrà un aspetto simile al seguente:
 
-[!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/app.js)]
+:::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js":::
 
 Nel terminale trovare il file ```app.js``` ed eseguire il comando: 
 

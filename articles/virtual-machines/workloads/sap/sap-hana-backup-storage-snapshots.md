@@ -4,20 +4,20 @@ description: Esistono due possibilità principali per il backup di SAP HANA su m
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
-ms.openlocfilehash: 8bcfdefa2ea9de12ca6029839a41c91111a5c61c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: hermannd
+ms.openlocfilehash: c977bc7db5608e5718e98a26ed594e5ebf2be998
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078590"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617409"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Backup di SAP HANA basato su snapshot di archiviazione
 
@@ -31,7 +31,7 @@ Quando si usa una funzionalità di backup di VM per un sistema dimostrativo all-
 
 SAP HANA dispone di una funzionalità che supporta la creazione di uno snapshot di archiviazione. Esiste una limitazione per i sistemi a contenitore singolo. Scenari di accesso a SAP HANA MCS con più di un tenant non supportano questo tipo di snapshot del database SAP HANA (vedere [Creare uno Snapshot di archiviazione (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
 
-Funziona come indicato di seguito:
+Il funzionamento è il seguente:
 
 - Preparare la creazione dello snapshot di archiviazione avviando lo snapshot di SAP HANA
 - Eseguire lo snapshot di archiviazione (ad esempio uno snapshot BLOB di Azure)
@@ -51,7 +51,7 @@ Sul disco lo snapshot appare nella directory dei dati di SAP HANA.
 
 Prima di eseguire lo snapshot di archiviazione, mentre SAP HANA si trova nella modalità di preparazione dello snapshot, è necessario assicurarsi che sia garantita anche la coerenza del file system. Vedere _Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione_ nell'articolo correlato [Guida del backup di SAP HANA in Macchine virtuali di Azure](sap-hana-backup-guide.md).
 
-Dopo avere completato lo snapshot di archiviazione, è fondamentale confermare lo snapshot di SAP HANA. È necessario eseguire un'istruzione SQL corrispondente: BACKUP DATA CLOSE SNAPSHOT. Vedere [BACKUP DATA CLOSE SNAPSHOT Statement (Backup and Recovery)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm) (Istruzione BACKUP DATA CLOSE SNAPSHOT (Backup e ripristino).
+Dopo avere completato lo snapshot di archiviazione, è fondamentale confermare lo snapshot di SAP HANA. C'è un'istruzione SQL corrispondente da eseguire, ovvero BACKUP DATA CLOSE SNAPSHOT: vedere [BACKUP DATA CLOSE SNAPSHOT Statement - Backup and Recovery](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm) (Istruzione BACKUP DATA CLOSE SNAPSHOT - Backup e ripristino).
 
 > [!IMPORTANT]
 > Confermare lo snapshot HANA. A causa di &quot;Copy-on-Write&quot; SAP HANA potrebbe richiedere ulteriore spazio su disco nella modalità di preparazione dello snapshot e non è possibile avviare nuovi backup fino a quando lo snapshot di SAP HANA viene confermato.
@@ -74,14 +74,14 @@ Pertanto è necessario assicurarsi che SAP HANA sia in uno stato coerente sul di
 
 L'articolo afferma quanto segue:
 
-_&quot;Si consiglia di confermare o abbandonare uno snapshot di archiviazione appena possibile dopo che è stato creato. Mentre lo snapshot di archiviazione viene preparato o creato, i dati interessati dallo snapshot vengono bloccati. Mentre i dati interessati dallo snapshot rimangano bloccati è comunque possibile apportare modifiche nel database. Tali modifiche non comporteranno variazioni nei dati bloccati interessati dallo snapshot. Le modifiche vengono scritte in posizioni dell'area dati separate dallo snapshot di archiviazione. Le modifiche vengono scritte anche nel log. Più i dati interessati dallo snapshot sono mantenuti bloccati, più il volume dei dati può aumentare.&quot;_
+_&quot;è consigliabile confermare o abbandonare uno snapshot di archiviazione appena possibile dopo che è stato creato. Durante la preparazione o la creazione dello snapshot di archiviazione, i dati rilevanti per lo snapshot vengono bloccati. Mentre i dati rilevanti per lo snapshot rimangono bloccati, le modifiche possono comunque essere apportate nel database. Tali modifiche non comporteranno la modifica dei dati bloccati relativi agli snapshot. Le modifiche vengono invece scritte in posizioni nell'area dati separate dallo snapshot di archiviazione. Anche le modifiche vengono scritte nel log. Tuttavia, più a lungo i dati rilevanti per lo snapshot vengono conservati, maggiore sarà il volume di dati.&quot;_
 
 Il servizio Backup di Azure si occupa della coerenza del file system mediante le estensioni di VM di Azure. Queste estensioni non sono disponibili in modalità autonoma e funzionano solo in combinazione con il servizio Backup di Azure. È comunque necessario fornire script per creare ed eliminare uno snapshot di SAP HANA per garantire la coerenza delle app.
 
 Backup di Azure presenta quattro fasi principali:
 
 - Eseguire script di preparazione: lo script dovrà creare uno snapshot SAP HANA
-- Creare lo snapshot
+- Crea snapshot
 - Eseguire lo script di post-snapshot - lo script deve eliminare il servizio SAP HANA creato dallo script di preparazione
 - Trasferire i dati all'insieme di credenziali
 

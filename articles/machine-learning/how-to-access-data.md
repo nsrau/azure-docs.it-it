@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 54ad9109a23b0fb25470987c2bc863934864b83f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b31d0237f04ef535fa6528d5b3a04e5ee7256e22
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580679"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623685"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accedere ai dati nei servizi di archiviazione di Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Questo articolo illustra come accedere facilmente ai dati nei servizi di archivi
 
 È possibile creare archivi dati da [queste soluzioni di archiviazione di Azure](#matrix). Per le soluzioni di archiviazione non supportate e per risparmiare i costi in uscita durante gli esperimenti di Machine Learning, è consigliabile [spostare i dati](#move) in soluzioni di archiviazione di Azure supportate. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Sono necessari gli elementi seguenti:
 - Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -84,13 +84,12 @@ Tuttavia, per Azure Data Lake Storage archivi dati di generazione 1 e 2, questa 
 
 Tutti i metodi Register si trovano nella classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) e hanno il formato `register_azure_*`.
 
-È possibile trovare le informazioni necessarie per popolare il metodo `register()` usando il [portale di Azure](https://portal.azure.com):
+È possibile trovare le informazioni necessarie per popolare il metodo `register()` nel [portale di Azure](https://portal.azure.com).
+Selezionare **account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione che si desidera registrare. Nella pagina **Panoramica** sono disponibili informazioni quali il nome dell'account, il contenitore e il nome della condivisione file. 
 
-1. Selezionare **account di archiviazione** nel riquadro sinistro e scegliere l'account di archiviazione che si desidera registrare. 
-2. Per informazioni come il nome dell'account, il contenitore e il nome della condivisione file, passare alla pagina **Panoramica** . 
-3. Per informazioni sull'autenticazione, ad esempio la chiave dell'account o il token di firma di accesso condiviso, passare a **chiavi di accesso** nel riquadro **Impostazioni** . 
+* Per gli elementi di autenticazione, ad esempio chiave account o token di firma di accesso condiviso, passare a **chiavi account** nel riquadro **Impostazioni** . 
 
-4. Per gli elementi dell'entità servizio, ad esempio ID tenant e ID client, passare alla pagina **Panoramica** del **registrazioni app**. 
+* Per gli elementi dell'entità servizio, ad esempio ID tenant e ID client, passare alla **registrazioni app** e selezionare l'app che si vuole usare. La pagina di **Panoramica** corrispondente conterrà questi elementi.
 
 > [!IMPORTANT]
 > Se l'account di archiviazione si trova in una rete virtuale, è supportata solo la creazione di BLOB, condivisione file, ADLS gen 1 e ADLS gen 2 datastores **tramite SDK** . Per concedere l'accesso all'area di lavoro all'account di archiviazione, impostare il parametro `grant_workspace_access` su `True`.
@@ -137,7 +136,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage generazione 2
 
-Per un archivio dati di Azure Data Lake Storage generazione 2 (ADLS gen 2), usare [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) per registrare un archivio dati delle credenziali connesso a una risorsa di archiviazione di Azure datalake gen 2 con le [autorizzazioni dell'entità servizio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Per poter usare l'entità servizio, è necessario [registrare l'applicazione](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Altre informazioni sulla [configurazione del controllo di accesso per ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Per un archivio dati di Azure Data Lake Storage generazione 2 (ADLS gen 2), usare [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) per registrare un archivio dati delle credenziali connesso a una risorsa di archiviazione di Azure datalake gen 2 con le [autorizzazioni dell'entità servizio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Per usare l'entità servizio, è necessario [registrare l'applicazione](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e impostare le assegnazioni di ruolo su lettura e accesso ai dati. Altre informazioni sulla [configurazione del controllo di accesso per ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 Il codice seguente crea e registra l'archivio dati `adlsgen2_datastore_name` nell'area di lavoro `ws`. Questo archivio dati accede al `test` file system nell'account di archiviazione `account_name` usando le credenziali dell'entità servizio fornite.
 
@@ -177,7 +176,7 @@ Creare un nuovo archivio dati in pochi passaggi in Azure Machine Learning Studio
 
 * Per gli elementi di autenticazione, ad esempio chiave account o token di firma di accesso condiviso, passare a **chiavi account** nel riquadro **Impostazioni** . 
 
-* Per gli elementi dell'entità servizio, ad esempio ID tenant e ID client, passare alla pagina **Panoramica** del **registrazioni app**. 
+* Per gli elementi dell'entità servizio, ad esempio ID tenant e ID client, passare alla **registrazioni app** e selezionare l'app che si vuole usare. La pagina di **Panoramica** corrispondente conterrà questi elementi. 
 
 Nell'esempio seguente viene illustrato l'aspetto del form quando si crea un archivio dati BLOB di Azure: 
     
@@ -221,7 +220,7 @@ ws.set_default_datastore('your datastore name')
 
 I metodi [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) e [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) descritti negli esempi seguenti sono specifici di e funzionano in modo identico per le classi [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) e [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) .
 
-### <a name="upload"></a>Caricamento
+### <a name="upload"></a>Carica
 
 Caricare una directory o singoli file nell'archivio dati usando Python SDK:
 

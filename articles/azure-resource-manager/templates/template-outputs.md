@@ -2,13 +2,13 @@
 title: Output nei modelli
 description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 7244e1ac0eff973d550a2bae8a70fa5055ca2248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/25/2020
+ms.openlocfilehash: ec96b45cdc5ccf488d46c2d8da03caf16d002dfa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483921"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622847"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Output nel modello di Azure Resource Manager
 
@@ -43,6 +43,24 @@ Nella sezione output è possibile restituire un valore in modo condizionale. In 
 
 Per un esempio semplice di output condizionale, vedere [modello di output condizionale](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
+## <a name="dynamic-number-of-outputs"></a>Numero dinamico di output
+
+In alcuni scenari non si conosce il numero di istanze di un valore che è necessario restituire quando si crea il modello. È possibile restituire un numero variabile di valori usando l'elemento **Copy** .
+
+```json
+"outputs": {
+  "storageEndpoints": {
+    "type": "array",
+    "copy": {
+      "count": "[parameters('storageCount')]",
+      "input": "[reference(concat(copyIndex(), variables('baseName'))).primaryEndpoints.blob]"
+    }
+  }
+}
+```
+
+Per ulteriori informazioni, vedere l' [iterazione degli output nei modelli Azure Resource Manager](copy-outputs.md).
+
 ## <a name="linked-templates"></a>Modelli collegati
 
 Per recuperare il valore di output da un modello collegato, usare la funzione [Reference](template-functions-resource.md#reference) nel modello padre. La sintassi nel modello padre è la seguente:
@@ -69,7 +87,7 @@ Quando la distribuzione ha esito positivo, i valori di output vengono restituiti
 
 Per ottenere i valori di output dalla cronologia di distribuzione, è possibile usare lo script.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment `
@@ -77,7 +95,7 @@ Per ottenere i valori di output dalla cronologia di distribuzione, è possibile 
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group deployment show \
@@ -92,7 +110,7 @@ az group deployment show \
 
 Gli esempi seguenti illustrano gli scenari per l'uso degli output.
 
-|Modello  |Description  |
+|Modello  |Descrizione  |
 |---------|---------|
 |[Copia variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crea variabili complesse e restituisce i valori. Non distribuisce alcuna risorsa. |
 |[Indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crea un indirizzo IP pubblico e restituisce l'ID risorsa. |

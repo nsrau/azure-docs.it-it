@@ -1,27 +1,22 @@
 ---
 title: Punteggio di ricompensa - Personalizza esperienze
-titleSuffix: Azure Cognitive Services
 description: Il punteggio di ricompensa indica quanto ha funzionato la scelta di personalizzazione, RewardActionID, per l'utente. Il valore del punteggio di ricompensa è determinato dalla logica di business sulla base delle osservazioni del comportamento degli utenti. Personalizza esperienze esegue il training dei modelli di Machine Learning valutando le ricompense.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490886"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623774"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>I punteggi di ricompensa indicano il grado di successo della personalizzazione
 
 Il punteggio di ricompensa indica l'efficacia della scelta di personalizzazione, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), per l'utente. Il valore del punteggio di ricompensa è determinato dalla logica di business sulla base delle osservazioni del comportamento degli utenti.
 
-Personalizza esperienze esegue il training dei modelli di Machine Learning valutando le ricompense. 
+Personalizza esperienze esegue il training dei modelli di Machine Learning valutando le ricompense.
+
+Informazioni [su come](how-to-settings.md#configure-rewards-for-the-feedback-loop) configurare il Punteggio di ricompensa predefinito nel portale di Azure per la risorsa di personalizzazione.
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Usare l'API Ricompensa per inviare il punteggio di ricompensa a Personalizza esperienze
 
@@ -47,16 +42,16 @@ Prendere in considerazione questi segnali e comportamenti per il contesto del pu
 
 Un punteggio di ricompensa deve essere calcolato nella logica di business. Il punteggio può essere rappresentato come:
 
-* Un singolo numero inviato una volta 
+* Un singolo numero inviato una volta
 * Un punteggio inviato immediatamente (ad esempio 0,8) e un punteggio aggiuntivo inviato in un secondo momento (in genere 0,2).
 
 ## <a name="default-rewards"></a>Ricompense predefinite
 
 Se non viene ricevuta alcuna ricompensa nel tempo indicato per [Tempo di attesa per la ricompensa](#reward-wait-time), il tempo trascorso dopo la chiamata a Classifica, Personalizza esperienze applica implicitamente il valore di **Ricompensa predefinita** all'evento di Classifica.
 
-## <a name="building-up-rewards-with-multiple-factors"></a>Creazione di ricompense con più fattori  
+## <a name="building-up-rewards-with-multiple-factors"></a>Creazione di ricompense con più fattori
 
-Per una personalizzazione efficace, è possibile creare il Punteggio di ricompensa in base a più fattori. 
+Per una personalizzazione efficace, è possibile creare il Punteggio di ricompensa in base a più fattori.
 
 È ad esempio possibile applicare queste regole per la personalizzazione di un elenco di contenuti video:
 
@@ -93,8 +88,8 @@ Con l'aggiunta di punteggi Reward, il premio finale potrebbe non essere compreso
 * **Prendere in considerazione le conseguenze impreviste**: creare funzioni Reward che consentano di ottenere risultati responsabili con l' [etica e l'uso responsabile](ethics-responsible-use.md).
 
 * **Usare i vantaggi incrementali**: l'aggiunta di premi parziali per i comportamenti degli utenti più piccoli aiuta la personalizzazione a ottenere migliori vantaggi. La ricompensa incrementale consente all'algoritmo di capire che si sta avvicinando all'obiettivo di indurre nell'utente il comportamento desiderato finale.
-    * Se si mostra un elenco di film e l'utente passa il puntatore del mouse sul primo per un periodo di tempo e visualizza altre informazioni, è possibile determinare che si è verificato un engagement dell'utente. Al comportamento può essere assegnato un punteggio di ricompensa pari a 0,1. 
-    * Se l'utente ha aperto la pagina per poi uscire, il punteggio di ricompensa può essere di 0,2. 
+    * Se si mostra un elenco di film e l'utente passa il puntatore del mouse sul primo per un periodo di tempo e visualizza altre informazioni, è possibile determinare che si è verificato un engagement dell'utente. Al comportamento può essere assegnato un punteggio di ricompensa pari a 0,1.
+    * Se l'utente ha aperto la pagina per poi uscire, il punteggio di ricompensa può essere di 0,2.
 
 ## <a name="reward-wait-time"></a>Reward wait time (Tempo di attesa ricompense)
 
@@ -106,12 +101,12 @@ Se il valore di **Tempo di attesa per la ricompensa** scade e non sono state for
 
 Seguire questi consigli per ottenere risultati ottimali.
 
-* Impostare il tempo di attesa per la ricompensa più breve possibile, lasciando un tempo sufficiente per ottenere il feedback degli utenti. 
+* Impostare il tempo di attesa per la ricompensa più breve possibile, lasciando un tempo sufficiente per ottenere il feedback degli utenti.
 
 * Non scegliere una durata inferiore al tempo necessario per ottenere il feedback. Se ad esempio alcune ricompense vengono fornite dopo che un utente ha guardato un video per un minuto, la durata dell'esperimento deve corrispondere almeno al doppio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Apprendimento per rinforzo](concepts-reinforcement-learning.md) 
+* [Apprendimento per rinforzo](concepts-reinforcement-learning.md)
 * [Provare l'API Classifica](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
 * [Provare l'API Ricompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)

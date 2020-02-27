@@ -4,24 +4,24 @@ description: La guida del backup per SAP HANA offre due opzioni principali per i
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
-ms.openlocfilehash: 05a4b8e8034e1c354a4209244694aeb2fc2c6007
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: hermannd
+ms.openlocfilehash: 8de83cbb7060e6ca5390720a4a241be71bb9dc92
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078755"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617435"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guida del backup di SAP HANA in macchine virtuali di Azure
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 La guida del backup per SAP HANA in esecuzione su macchine virtuali di Azure illustra esclusivamente argomenti specifici di Azure. Per gli elementi correlati al backup generale di SAP HANA, consultare la documentazione di SAP HANA (vedere _Documentazione di backup per SAP HANA_ più avanti in questo articolo).
 
@@ -30,11 +30,11 @@ Questo articolo illustra le due principali opzioni di backup per SAP HANA in mac
 - Backup di HANA nel file system di una macchina virtuale Linux in Azure (vedere [Backup di SAP HANA di Azure a livello di file](sap-hana-backup-file-level.md))
 - Backup di HANA basato su snapshot di archiviazione attraverso la funzionalità di snapshot del BLOB del servizio di archiviazione di Azure manualmente o con il servizio di Backup di Azure (vedere [Backup di SAP HANA basato su snapshot di archiviazione](sap-hana-backup-storage-snapshots.md))
 
-SAP HANA offre un'API di backup, che consente agli strumenti di backup di terze parti di integrarsi direttamente con SAP HANA (questo argomento non è compreso nella presente guida). Al momento non è prevista alcuna integrazione diretta di SAP HANA con il servizio di Backup di Azure basato su tale API.
+SAP HANA offre un'API di backup, che consente agli strumenti di backup di terze parti di integrarsi direttamente con SAP HANA Non rientra nell'ambito di questa guida. Attualmente non è disponibile alcuna integrazione diretta di SAP HANA con il servizio backup di Azure in base a questa API.
 
 SAP HANA è ufficialmente supportato in vari tipi di macchine virtuali di Azure, ad esempio Azure di serie M. Per un elenco completo di macchine virtuali di Azure certificate SAP HANA, consultare [Trova piattaforme IaaS certificate](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Questo articolo verrà aggiornato non appena saranno disponibili nuove offerte per SAP HANA in Azure.
 
-Azure offre anche una soluzione ibrida SAP HANA, in cui SAP HANA viene eseguito in modo non virtualizzato su server fisici. La presente guida del backup di SAP HANA in Azure descrive un ambiente di Azure genuino in cui SAP HANA viene eseguito in una VM di Azure, non su &quot;istanze di grandi dimensioni&quot;. Vedere [SAP HANA (large instances) overview and architecture on Azure](hana-overview-architecture.md) (Panoramica e architettura di SAP HANA (istanze di grandi dimensioni) in Azure) per altre informazioni su questa soluzione di backup per &quot;istanze di grandi dimensioni&quot; basate su snapshot di archiviazione.
+Azure offre anche una soluzione ibrida SAP HANA, in cui SAP HANA viene eseguito in modo non virtualizzato su server fisici. Tuttavia, questo SAP HANA Guida di backup di Azure copre un ambiente Azure puro in cui SAP HANA viene eseguito in una macchina virtuale di Azure, non SAP HANA in esecuzione in istanze &quot;large.&quot; vedere [Cenni preliminari sull'architettura di SAP Hana (istanze large) in Azure](hana-overview-architecture.md) per altre informazioni su questa soluzione di backup in &quot;istanze large&quot; basate sugli snapshot di archiviazione.
 
 Informazioni generali sui prodotti SAP supportati in Azure sono reperibili in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533) (Nota SAP 1928533).
 
@@ -54,7 +54,7 @@ La figura seguente mostra un potenziale scenario futuro di backup di SAP HANA. S
 
 _&quot;È possibile eseguire i backup sul lato secondario?_
 
-_No, attualmente è possibile eseguire solo backup di dati e log sul lato primario. Se il backup automatico dei log è abilitato, dopo l'acquisizione sul lato secondario, i backup dei log verranno scritti automaticamente in questa posizione.&quot;_
+_No, attualmente è possibile eseguire solo backup di dati e log sul lato primario. Se il backup del log automatico è abilitato, dopo l'acquisizione sul lato secondario, i backup del log verranno scritti automaticamente.&quot;_
 
 ## <a name="sap-resources-for-hana-backup"></a>Risorse SAP per il backup di HANA
 
@@ -89,7 +89,7 @@ SAP non esprime preferenze tra l'esecuzione del backup di HANA e lo snapshot di 
 
 In Azure, tenere in considerazione il fatto che la funzionalità dello snapshot del BLOB di Azure non garantisce coerenza dei file system. Vedere [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)(Uso degli snapshot BLOB con PowerShell). Nella sezione successiva, _Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione_, vengono presentate alcune considerazioni su questa funzionalità.
 
-Inoltre, è necessario comprendere le implicazioni relative alla fatturazione quando si lavora spesso con gli snapshot BLOB, come descritto in questo articolo: [Comprendere il modo](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)in cui gli snapshot aumentano i&#39;costi: non è così ovvio come usare i dischi virtuali di Azure.
+È anche necessario comprendere le implicazioni di fatturazione quando si lavora spesso con gli snapshot del BLOB, come descritto in questo articolo: [Informazioni sull'incremento dei costi dovuto agli snapshot](/rest/api/storageservices/understanding-how-snapshots-accrue-charges). Non è scontato come per l'uso dei dischi virtuali di Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione
 
@@ -131,7 +131,7 @@ La guida all'amministrazione di HANA offre un elenco di esempio. Si consiglia di
 2. Backup differenziale
 3. Backup incrementale 1
 4. Backup incrementale 2
-5. Backup dei log
+5. Backup del log
 
 Per quanto riguarda una pianificazione esatta di quando e con quale frequenza deve essere svolto un tipo di backup specifico, non è possibile fornire linee guida generali: si tratta di un elemento specifico del cliente, che dipende dal numero di modifiche dei dati che si verifica nel sistema. Un consiglio di base dal lato SAP, che può essere considerato come linea guida generale, è quello di eseguire un backup HANA completo una volta alla settimana.
 Per quanto riguarda i backup dei log, vedere la documentazione di SAP HANA [Log Backups](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm) (Backup dei log).
@@ -192,7 +192,7 @@ Per trasferire i file di backup di SAP HANA direttamente in Archiviazione BLOB d
 
 ### <a name="test-backup-size-estimation"></a>Testare la stima della dimensione del backup
 
-È importante stimare la dimensione del backup di SAP HANA. Questa stima consente di migliorare le prestazioni definendo la dimensione massima del file di backup per un numero di file di backup, grazie al parallelismo durante una copia del file. Questi dettagli verranno spiegati più avanti nell'articolo. Si deve anche decidere se eseguire un backup completo o un backup delta (incrementale o differenziale).
+È importante stimare la dimensione del backup di SAP HANA. Questa stima consente di migliorare le prestazioni definendo la dimensione massima del file di backup per un numero di file di backup, grazie al parallelismo durante una copia del file. Questi dettagli sono descritti più avanti in questo articolo. È inoltre necessario decidere se eseguire un backup completo o un backup differenziale (incrementale o differenziale).
 
 Fortunatamente, esiste una semplice istruzione SQL che stima la dimensione dei file di backup: **selezionare \* da M\_BACKUP\_DIMENSIONE\_STIME**. Vedere [Estimate the Space Needed in the File System for a Data Backup](https://help.sap.com/saphelp_hanaplatform/helpdata/en/7d/46337b7a9c4c708d965b65bc0f343c/content.htm) (Stimare lo spazio necessario nel file system per un backup di dati).
 
@@ -219,7 +219,7 @@ In base ai risultati dei test, le tabelle seguenti mostrano i vantaggi e gli sva
 |Copia di BLOB tramite Powershell o interfaccia della riga di comando                    |Nessuno strumento aggiuntivo necessario, è possibile procedere con l'esecuzione tramite Azure Powershell o interfaccia della riga di comando |Processo manuale, il cliente si deve occupare dello script e della gestione di BLOB copiati per il ripristino|
 |Copia nella condivisione NFS                                  |Post-elaborazione dei file di backup in altre macchine virtuali senza alcun impatto sul server HANA|Processo di copia lenta|
 |Copia di blobxfer nel Servizio file di Azure                |Non consuma spazio sui dischi della macchina virtuale locale|Nessun supporto di scrittura diretto dal backup di HANA, la restrizione sulle dimensioni della condivisione di file è attualmente di 5 TB|
-|Agente di Backup di Azure                                 | Soluzione preferibile         | Attualmente non disponibile su Linux    |
+|Azure Backup Agent                                 | Soluzione preferibile         | Attualmente non disponibile su Linux    |
 
 
 

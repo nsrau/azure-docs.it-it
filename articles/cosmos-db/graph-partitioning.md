@@ -8,32 +8,32 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c8761d82c8a735ac9c4bff2e5ac0107b2a57fe0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 44d3b7c2b9e23b90f696162747d9728b18fb7d3f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537535"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623364"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso di un grafo partizionato in Azure Cosmos DB
 
 Una delle funzionalità chiave dell'API Gremlin di Azure Cosmos DB è la possibilità di gestire grafi su vasta scala tramite la scalabilità orizzontale. I contenitori possono essere ridimensionati in modo indipendente sia a livello di archiviazione che di velocità effettiva. È possibile creare contenitori in Azure Cosmos DB che possono essere ridimensionati automaticamente per archiviare i dati di un grafo. I dati vengono bilanciati automaticamente in base alla **chiave di partizione** specificata.
 
-Il **partizionamento è obbligatorio** se si prevede che il contenitore archivi più di 10 GB o se si vogliono allocare più di 10.000 unità richiesta al secondo (UR). Gli stessi principi generali dal [Azure Cosmos DB meccanismo di partizionamento](partition-data.md) applicare con alcune ottimizzazioni specifiche del grafico descritte di seguito.
+Il **partizionamento è obbligatorio** se si prevede che il contenitore memorizzi più di 20 GB di dimensioni o se si desidera allocare più di 10.000 unità richiesta al secondo (UR). Gli stessi principi generali del [meccanismo di partizionamento Azure Cosmos DB](partition-data.md) si applicano con alcune ottimizzazioni specifiche del grafo descritte di seguito.
 
-![Partizionamento Graph.](./media/graph-partitioning/graph-partitioning.png)
+![Partizionamento del grafo.](./media/graph-partitioning/graph-partitioning.png)
 
-## <a name="graph-partitioning-mechanism"></a>Meccanismo di partizionamento Graph
+## <a name="graph-partitioning-mechanism"></a>Meccanismo di partizionamento del grafo
 
-Le linee guida seguenti descrivono come opera la strategia di partizionamento in Azure Cosmos DB:
+Le linee guida seguenti descrivono il funzionamento della strategia di partizionamento in Azure Cosmos DB:
 
 - **Sia i vertici che gli archi vengono archiviati come documenti JSON**.
 
-- **Per i vertici è richiesta una chiave di partizione**. Questa chiave determina in quali partizione verrà archiviato il vertice tramite un algoritmo di hash. Il nome di proprietà della chiave di partizione è definito quando si crea un nuovo contenitore e ha un formato: `/partitioning-key-name`.
+- **Per i vertici è richiesta una chiave di partizione**. Questa chiave determina in quali partizione verrà archiviato il vertice tramite un algoritmo di hash. Il nome della proprietà della chiave di partizione viene definito durante la creazione di un nuovo contenitore e presenta un formato: `/partitioning-key-name`.
 
-- **Gli archi verranno archiviati insieme al relativo vertice di origine**. In altre parole, per ogni vertice la relativa chiave di partizione definisce la posizione di archiviazione insieme ai relativi archi in uscita. Questa ottimizzazione viene eseguita per evitare query tra partizioni quando si usa il `out()` cardinalità nelle query sul grafo.
+- **Gli archi verranno archiviati insieme al relativo vertice di origine**. In altre parole, per ogni vertice la relativa chiave di partizione definisce la posizione di archiviazione insieme ai relativi archi in uscita. Questa ottimizzazione viene eseguita per evitare query tra partizioni quando si usa la cardinalità `out()` nelle query Graph.
 
-- **Bordi contengono riferimenti a vertici facciano riferimento**. Tutti i bordi vengono archiviati con le chiavi di partizione e ID di vertici che fanno riferimento a. Questo calcolo rende tutti `out()` query direzione da sempre una query con ambita partizionata e non una query tra partizioni nascosta. 
+- **I bordi contengono riferimenti ai vertici a cui puntano**. Tutti i bordi vengono archiviati con le chiavi di partizione e gli ID dei vertici a cui puntano. Questo calcolo rende tutte le query di direzione del `out()` essere sempre una query partizionata con ambito e non una query nascosta tra partizioni. 
 
 - **Per le query sul grafo è necessario specificare una chiave di partizione**. Per sfruttare appieno il partizionamento orizzontale in Azure Cosmos DB, è necessario specificare la chiave di partizione quando si seleziona un singolo vertice, ogni volta possibile. Le query seguenti consentono la selezione di uno o più vertici in un grafo partizionato:
 
@@ -58,13 +58,13 @@ Le linee guida seguenti descrivono come opera la strategia di partizionamento in
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
         
-    - Selezione di un set di vertici con i relativi ID e **specificando un elenco di valori di chiave di partizione**: 
+    - Selezione di un set di vertici con i relativi ID e **specifica di un elenco di valori di chiave di partizione**: 
     
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - Usando il **strategia di partizione** all'inizio di una query e specifica una partizione per l'ambito del resto della query Gremlin: 
+    - Usando la **strategia di partizione** all'inizio di una query e specificando una partizione per l'ambito del resto della query Gremlin: 
     
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
@@ -74,9 +74,9 @@ Le linee guida seguenti descrivono come opera la strategia di partizionamento in
 
 Usare le linee guida seguenti per garantire prestazioni e scalabilità quando si usano grafi partizionati con contenitori illimitati:
 
-- **Specificare sempre il valore della chiave di partizione quando si eseguono query su un vertice**. Il recupero di un vertice da una partizione nota è il modo più efficiente in termini di prestazioni. Tutte le operazioni di adiacenza successivi avranno sempre come ambite una partizione poiché bordi contengono riferimenti ID e chiave di partizione per i vertici di destinazione.
+- **Specificare sempre il valore della chiave di partizione quando si eseguono query su un vertice**. Il recupero di un vertice da una partizione nota è il modo più efficiente in termini di prestazioni. Tutte le operazioni adiacenza successive verranno sempre limitate a una partizione, perché i bordi contengono l'ID di riferimento e la chiave di partizione nei vertici di destinazione.
 
-- **Usare la direzione in uscita quando si eseguono query sugli archi ogni volta che è possibile**. Come indicato in precedenza, gli archi vengono archiviati con i rispettivi vertici di origine nella direzione in uscita. Ciò significa che le probabilità di ricorrere a query tra partizioni sono ridotte al minimo quando i dati e le query sono progettati tenendo conto di questo meccanismo. Al contrario, il `in()` query sarà sempre una query di tipo fan-out costosa.
+- **Usare la direzione in uscita quando si eseguono query sugli archi ogni volta che è possibile**. Come indicato in precedenza, gli archi vengono archiviati con i rispettivi vertici di origine nella direzione in uscita. Ciò significa che le probabilità di ricorrere a query tra partizioni sono ridotte al minimo quando i dati e le query sono progettati tenendo conto di questo meccanismo. Al contrario, la query `in()` sarà sempre una query di fan-out costosa.
 
 - **Scegliere una chiave di partizione che distribuisce i dati in modo uniforme tra le partizioni**. Questa decisione dipende in gran parte dal modello di dati della soluzione. Per altre informazioni sulla creazione di una chiave di partizione appropriata, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](partition-data.md).
 

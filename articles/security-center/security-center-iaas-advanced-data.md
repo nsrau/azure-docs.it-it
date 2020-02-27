@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907019"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617102"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Sicurezza dei dati avanzata per SQL Server in macchine virtuali di Azure (anteprima)
 La protezione avanzata dei dati per SQL Server in macchine virtuali di Azure è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. Questa funzionalità di anteprima include funzionalità per l'identificazione e la mitigazione di potenziali vulnerabilità del database e per il rilevamento di attività anomale che potrebbero indicare minacce per il database. 
@@ -26,7 +26,7 @@ La protezione avanzata dei dati per SQL Server in macchine virtuali di Azure è 
 Questa offerta di sicurezza per le macchine virtuali di Azure SQL Server è basata sulla stessa tecnologia fondamentale usata nel [pacchetto di sicurezza dei dati avanzato del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Advanced Data Security offre un set di funzionalità avanzate per la sicurezza di SQL, costituite da valutazione della vulnerabilità e da Advanced Threat Protection.
 
@@ -61,7 +61,7 @@ Per creare una nuova area di lavoro, seguire le istruzioni riportate in [creare 
 Per connettere l'host del SQL Server a un'area di lavoro, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-## <a name="set-up-email-notification-for-atp-alerts"></a>Configurare la notifica di posta elettronica per gli avvisi ATP 
+## <a name="set-up-email-notification-for-security-alerts"></a>Configurare la notifica di posta elettronica per gli avvisi di sicurezza 
 
 È possibile impostare un elenco di destinatari per ricevere una notifica tramite posta elettronica quando vengono generati gli avvisi del Centro sicurezza. Il messaggio di posta elettronica contiene un collegamento diretto all'avviso nel centro sicurezza di Azure con tutti i dettagli pertinenti. 
 
@@ -72,7 +72,7 @@ Per connettere l'host del SQL Server a un'area di lavoro, seguire le istruzioni 
 1. Scegliere **notifiche tramite posta elettronica**dal menu impostazioni. 
 1. Nella casella di testo **indirizzo di posta elettronica** immettere gli indirizzi di posta elettronica per ricevere le notifiche. È possibile immettere più di un indirizzo di posta elettronica separando gli indirizzi di posta elettronica con una virgola (,).  Ad esempio admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-    ![Impostazioni di posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![Impostazioni posta elettronica](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Nelle impostazioni di **notifica tramite posta elettronica** impostare le opzioni seguenti:
   

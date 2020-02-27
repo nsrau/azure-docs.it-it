@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: a600b17ce25a467b788671e12e3c2425ad20b809
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 1a6dbaeac5355d50edb93a7f215d7f8e88231e98
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604088"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615961"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure
 
@@ -48,14 +48,20 @@ Per ulteriori informazioni sugli avvisi, sulla [gestione e sulla risposta agli a
 
 Gli argomenti seguenti illustrano i diversi avvisi in base ai tipi di risorse:
 
-* [Avvisi server e VM IaaS](security-center-alerts-iaas.md)
-* [Avvisi di calcolo nativi](security-center-alerts-compute.md)
-* [Avvisi di servizi dati](security-center-alerts-data-services.md)
+* [Avvisi per i computer Windows IaaS](threat-protection.md#windows-machines)
+* [Avvisi per computer Linux IaaS](threat-protection.md#linux-machines)
+* [Avvisi per il servizio app Azure](threat-protection.md#app-services)
+* [Avvisi per i contenitori di Azure](threat-protection.md#azure-containers)
+* [Avvisi per database SQL e SQL Data Warehouse](threat-protection.md#data-sql)
+* [Avvisi per archiviazione di Azure](threat-protection.md#azure-storage)
+* [Avvisi per Cosmos DB](threat-protection.md#cosmos-db)
 
 Gli argomenti seguenti illustrano come il Centro sicurezza usa i diversi dati di telemetria raccolti dall'integrazione con l'infrastruttura di Azure, in modo da applicare livelli di protezione aggiuntivi per le risorse distribuite in Azure:
 
-* [Avvisi del livello di servizio](security-center-alerts-service-layer.md)
-* [Rilevamento delle minacce per Azure WAF e protezione DDoS di Azure](security-center-alerts-integration.md)
+* [Avvisi per il livello di gestione di Azure (Azure Resource Manager) (anteprima)](threat-protection.md#management-layer)
+* [Avvisi per Azure Key Vault (anteprima)](threat-protection.md#azure-keyvault)
+* [Avvisi per il livello di rete di Azure](threat-protection.md#network-layer)
+* [Avvisi da altri servizi](threat-protection.md#alerts-other)
 
 ## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come usare le funzionalità relative agli eventi imprevisti della sicurezza nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -63,4 +69,3 @@ In questo documento è stato descritto come usare le funzionalità relative agli
 * [Avvisi di sicurezza nel centro sicurezza di Azure](security-center-alerts-overview.md).
 * [Gestire gli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità in Azure.

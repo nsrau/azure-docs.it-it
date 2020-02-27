@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5c820b7e11c06f2d785da036f5174298caf56da6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960607"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651339"
 ---
 #    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Abilità cognitiva per la ricerca di entità personalizzate (anteprima)
 
@@ -36,7 +36,7 @@ Microsoft. Skills. Text. CustomEntityLookupSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Description |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | entitiesDefinitionUri | Percorso di un file JSON o CSV contenente tutto il testo di destinazione rispetto al quale eseguire la corrispondenza. Questa definizione di entità viene letta all'inizio dell'esecuzione di un indicizzatore; eventuali aggiornamenti al file a metà esecuzione non verranno realizzati fino alle esecuzioni successive. Questa configurazione deve essere accessibile tramite HTTPS. Per lo schema CSV o JSON previsto, vedere il formato di [definizione dell'entità personalizzata](#custom-entity-definition-format) ".|
 |inlineEntitiesDefinition | Definizioni di entità JSON inline. Questo parametro sostituisce il parametro entitiesDefinitionUri se presente. Non è possibile fornire inline più di 10 KB di configurazione. Vedere la [definizione di entità personalizzata](#custom-entity-definition-format) riportata di seguito per lo schema JSON previsto. |
@@ -45,7 +45,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input      | Description                   |
+| Nome input      | Descrizione                   |
 |---------------|-------------------------------|
 | text          | Testo da analizzare.          |
 | languageCode  | Facoltativa. Il valore predefinito è `"en"`.  |
@@ -54,7 +54,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="skill-outputs"></a>Output competenze
 
 
-| Nome output     | Description                   |
+| Nome output     | Descrizione                   |
 |---------------|-------------------------------|
 | entities | Matrice di oggetti che contengono informazioni sulle corrispondenze trovate e sui metadati correlati. Ognuna delle entità identificate può contenere i campi seguenti:  <ul> <li> *Name*: entità di primo livello identificata. L'entità rappresenta il form "normalizzato". </li> <li> *ID*: identificatore univoco per l'entità in base a quanto definito dall'utente nel "formato di definizione dell'entità personalizzata".</li> <li> *Descrizione*: Descrizione dell'entità definita dall'utente nel "formato di definizione dell'entità personalizzata". </li> <li> *tipo:* Tipo di entità definito dall'utente nel formato di definizione dell'entità personalizzata.</li> <li> *Sottotipo:* Sottotipo di entità definito dall'utente nel "formato di definizione dell'entità personalizzata".</li>  <li> *Matches*: raccolta che descrive ognuna delle corrispondenze per quell'entità nel testo di origine. Ogni corrispondenza avrà i membri seguenti: </li> <ul> <li> *Text*: il testo non elaborato corrisponde al documento di origine. </li> <li> *offset*: posizione in cui è stata trovata la corrispondenza nel testo. </li> <li> *length*: lunghezza del testo corrispondente. </li> <li> *matchDistance*: il numero di caratteri diverso da questa corrispondenza è stato dal nome dell'entità originale o dall'alias.  </li> </ul> </ul>
   |
@@ -63,7 +63,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 Esistono tre modi diversi per fornire l'elenco di entità personalizzate alla capacità di ricerca di entità personalizzata. È possibile specificare l'elenco in un oggetto. File CSV, a. File JSON o come definizione inline come parte della definizione di competenze.  
 
-Se il file di definizione è un oggetto. CSV o. File JSON, il percorso del file deve essere fornito come parte del parametro *entitiesDefitionUri* . In questo caso, il file viene scaricato una volta all'inizio di ogni indicizzatore eseguito. Il file deve essere accessibile fino a quando l'indicizzatore deve essere eseguito.
+Se il file di definizione è un oggetto. CSV o. File JSON, il percorso del file deve essere fornito come parte del parametro *entitiesDefitionUri* . In questo caso, il file viene scaricato una volta all'inizio di ogni indicizzatore eseguito. Il file deve essere accessibile fino a quando l'indicizzatore deve essere eseguito. Inoltre, il file deve essere codificato in UTF-8.
 
 Se la definizione viene fornita inline, deve essere fornita come inline come contenuto del parametro skill *inlineEntitiesDefinition* . 
 
@@ -143,7 +143,7 @@ Un esempio più complesso di una definizione JSON può facoltativamente fornire 
 
 Le tabelle seguenti descrivono in modo più dettagliato i diversi parametri di configurazione che è possibile impostare quando si definiscono le entità corrispondenti:
 
-|  Nome campo  |        Description  |
+|  Nome campo  |        Descrizione  |
 |--------------|----------------------|
 | name | Descrittore di entità di primo livello. Le corrispondenze nell'output skill verranno raggruppate in base a questo nome e dovrebbe rappresentare il formato "normalizzato" del testo trovato.  |
 | description  | Opzionale Questo campo può essere utilizzato come passthrough per i metadati personalizzati relativi ai testi corrispondenti. Il valore di questo campo verrà visualizzato con ogni corrispondenza della relativa entità nell'output della competenza. |
@@ -156,7 +156,7 @@ Le tabelle seguenti descrivono in modo più dettagliato i diversi parametri di c
 | defaultFuzzyEditDistance | Opzionale Modifica il valore predefinito della distanza di modifica fuzzy per questa entità. Può essere usato per modificare il valore predefinito di tutti i valori fuzzyEditDistance di alias. |
 | alias | Opzionale Matrice di oggetti complessi che può essere utilizzata per specificare ortografie alternative o sinonimi per il nome dell'entità radice. |
 
-| Proprietà alias | Description |
+| Proprietà alias | Descrizione |
 |------------------|-------------|
 | text  | Ortografia alternativa o rappresentazione di un nome di entità di destinazione.  |
 | caseSensitive | Opzionale Funziona allo stesso modo del parametro "caseSensitive" dell'entità radice, ma si applica solo a questo alias. |
@@ -296,7 +296,7 @@ In alternativa, se si decide di fornire un puntatore al file di definizione dell
   } 
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

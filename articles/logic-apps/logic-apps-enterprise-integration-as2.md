@@ -7,15 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 08/22/2019
-ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.date: 02/27/2020
+ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666704"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650564"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
+
+> [!IMPORTANT]
+> Il connettore AS2 originale viene deprecato, quindi assicurarsi di usare il connettore **AS2 (v2)** . Questa versione offre le stesse funzionalità della versione originale, è nativa per il runtime di app per la logica e offre miglioramenti significativi delle prestazioni in termini di velocità effettiva e dimensione dei messaggi. Inoltre, il connettore nativo V2 non richiede la creazione di una connessione all'account di integrazione. Al contrario, come descritto nei prerequisiti, assicurarsi di collegare l'account di integrazione all'app per la logica in cui si prevede di usare il connettore.
 
 Per lavorare con i messaggi AS2 in app per la logica di Azure, è possibile usare il connettore AS2, che fornisce trigger e azioni per la gestione della comunicazione AS2. Ad esempio, per stabilire sicurezza e affidabilità durante la trasmissione dei messaggi, è possibile usare le azioni seguenti:
 
@@ -39,17 +42,14 @@ Per lavorare con i messaggi AS2 in app per la logica di Azure, è possibile usar
 
   Questa azione esegue anche queste attività quando è configurata:
 
-  * Consente di verificare la firma.
+  * Verifica la firma.
   * Decrittografa i messaggi.
   * Decomprime il messaggio.
   * Verificare e impedire i duplicati degli ID messaggio.
 
 Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 a un'app per la logica esistente.
 
-> [!IMPORTANT]
-> Il connettore AS2 originale sarà deprecato, quindi assicurarsi di usare il connettore **AS2 (v2)** . Questa versione offre le stesse funzionalità della versione originale, è nativa per il runtime di app per la logica e offre miglioramenti significativi delle prestazioni in termini di velocità effettiva e dimensione dei messaggi. Inoltre, il connettore nativo V2 non richiede la creazione di una connessione all'account di integrazione. Al contrario, come descritto nei prerequisiti, assicurarsi di collegare l'account di integrazione all'app per la logica in cui si prevede di usare il connettore.
-
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si dispone ancora di una sottoscrizione di Azure, [registrarsi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -63,9 +63,9 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 * Se si usa [Azure Key Vault](../key-vault/key-vault-overview.md) per la gestione dei certificati, verificare che le chiavi dell'insieme di credenziali consentano le operazioni di **crittografia** e **decrittografia** . In caso contrario, le azioni di codifica e decodifica avranno esito negativo.
 
-  Nel portale di Azure passare all'insieme di credenziali delle chiavi, visualizzare le **operazioni consentite**della chiave dell'insieme di credenziali e verificare che le operazioni di **crittografia** e **decrittografia** siano selezionate.
+  Nel portale di Azure passare alla chiave nell'insieme di credenziali delle chiavi, esaminare le **operazioni consentite**per la chiave e verificare che le operazioni di **crittografia** e **decrittografia** siano selezionate, ad esempio:
 
-  ![Controllare le operazioni di Key Vault](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
+  ![Controllare le operazioni di Key Vault](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 
 <a name="encode"></a>
 
@@ -81,7 +81,7 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
 
 1. Specificare ora le informazioni per queste proprietà:
 
-   | Proprietà | Description |
+   | Proprietà | Descrizione |
    |----------|-------------|
    | **Messaggio da codificare** | Payload del messaggio |
    | **AS2 da** | Identificatore del mittente del messaggio come specificato dall'accordo AS2 |
@@ -91,6 +91,9 @@ Questo articolo illustra come aggiungere le azioni di codifica e decodifica AS2 
    Ad esempio:
 
    ![Proprietà di codifica del messaggio](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
+
+> [!TIP]
+> Se si verificano problemi durante l'invio di messaggi firmati o crittografati, provare a provare diversi formati di algoritmi SHA256. La specifica AS2 non fornisce informazioni sui formati SHA256, quindi ogni provider usa la propria implementazione o il formato.
 
 <a name="decode"></a>
 
@@ -116,8 +119,11 @@ Per distribuire un'app per la logica completamente operativa e uno scenario AS2 
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file OpenAPI (in precedenza spavalderia) del connettore, vedere la [pagina di riferimento del connettore](/connectors/as2/).
+Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/as2/). 
+
+> [!NOTE]
+> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), questa versione originale di ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sulla [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

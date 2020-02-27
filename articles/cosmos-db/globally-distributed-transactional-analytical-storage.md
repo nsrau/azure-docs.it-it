@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445395"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623388"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Archiviazione transazionale e analitica distribuita a livello globale per i contenitori di Azure Cosmos
 
@@ -27,10 +27,10 @@ Azure Cosmos container è supportato internamente da due motori di archiviazione
 Il motore di archiviazione transazionale è supportato da unità SSD locali, mentre l'archiviazione analitica è archiviata in un servizio di archiviazione SSD fuori cluster economico. Nella tabella seguente sono riportate le differenze rilevanti tra l'archiviazione transazionale e quella analitica.
 
 
-|Funzionalità  |Archiviazione transazionale  |Archiviazione analitica |
+|Caratteristica  |Archiviazione transazionale  |Archiviazione analitica |
 |---------|---------|---------|
-|Archiviazione massima per ogni contenitore di Azure Cosmos |   Senza limiti      |    Senza limiti     |
-|Spazio di archiviazione massimo per chiave di partizione logica   |   10 GB      |   Senza limiti      |
+|Archiviazione massima per ogni contenitore di Azure Cosmos |   Illimitato      |    Illimitato     |
+|Spazio di archiviazione massimo per chiave di partizione logica   |   20 GB      |   Illimitato      |
 |Codifica archiviazione  |   Orientato alla riga, con un formato interno.   |   Orientato alle colonne, usando il formato parquet Apache. |
 |Località di archiviazione |   Archiviazione replicata supportata da unità SSD locali/intra-cluster. |  Archiviazione replicata supportata da SSD economici remote/off-cluster.       |
 |Durata  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |

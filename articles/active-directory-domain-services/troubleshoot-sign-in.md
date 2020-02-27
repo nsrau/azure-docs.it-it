@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: aa03e388019bf696324ea7af6062ec98386df5fa
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827043"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612735"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Risolvere i problemi di accesso dell'account con un dominio gestito Azure AD Domain Services
 
@@ -32,7 +32,7 @@ I motivi più comuni per un account utente che non riesce ad accedere a un domin
 
 A seconda delle dimensioni della directory, è possibile che gli account utente e gli hash delle credenziali siano disponibili in Azure AD DS. Per le directory di grandi dimensioni, la sincronizzazione iniziale unidirezionale da Azure AD può richiedere alcune ore e un massimo di un giorno o due. Assicurarsi di attendere abbastanza tempo prima di ritentare l'autenticazione.
 
-Per gli ambienti ibridi che Azure AD Connect utente per sincronizzare i dati della directory locale in Azure AD, assicurarsi di eseguire la versione più recente di Azure AD Connect e di aver [configurato Azure ad Connect per eseguire una sincronizzazione completa dopo aver abilitato Azure Servizi di dominio Active Directory][azure-ad-connect-phs]. Se si disattiva Azure AD DS e quindi si Abilita nuovamente, è necessario eseguire di nuovo questi passaggi.
+Per gli ambienti ibridi che Azure AD Connect utente per sincronizzare i dati della directory locale in Azure AD, assicurarsi di eseguire la versione più recente di Azure AD Connect e di aver [configurato Azure ad Connect per eseguire una sincronizzazione completa dopo aver abilitato Azure AD DS][azure-ad-connect-phs]. Se si disattiva Azure AD DS e quindi si Abilita nuovamente, è necessario eseguire di nuovo questi passaggi.
 
 Se continuano a verificarsi problemi con gli account che non vengono sincronizzati tramite Azure AD Connect, riavviare il servizio Azure AD Sync. Dal computer con Azure AD Connect installato, aprire una finestra del prompt dei comandi ed eseguire i comandi seguenti:
 
@@ -59,7 +59,7 @@ Azure AD domini gestiti di DS senza sincronizzazione locale, solo gli account in
     * [Modificare la password dell'account][enable-user-accounts] per generare gli hash delle password richiesti, quindi attendere 15 minuti prima di riprovare ad accedere.
     * Se si disattiva Azure AD DS e quindi si riabilita, ogni account deve eseguire di nuovo i passaggi per modificare la password e generare gli hash delle password richiesti.
 * **Sì, la password è stata modificata.**
-    * Provare ad accedere usando il formato *UPN* , ad esempio `driley@contoso.com`, anziché il formato *sAMAccountName* come `CONTOSO\deeriley`.
+    * Provare ad accedere usando il formato *UPN* , ad esempio `driley@aaddscontoso.com`, anziché il formato *sAMAccountName* come `AADDSCONTOSO\deeriley`.
     * Il *sAMAccountName* può essere generato automaticamente per gli utenti il cui prefisso UPN è troppo lungo o è uguale a un altro utente nel dominio gestito. Il formato *UPN* è sicuramente univoco all'interno di un tenant di Azure ad.
 
 ## <a name="the-account-is-locked-out"></a>L'account è bloccato

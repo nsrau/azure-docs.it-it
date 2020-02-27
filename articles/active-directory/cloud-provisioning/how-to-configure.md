@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853950cf441007eac0170f32f28f2d9c16a71292
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c086227d23901cb7904d8cc0a768e9f4b5ad43db
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549432"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620979"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-new-agent-configuration"></a>Azure AD Connect la configurazione del nuovo agente per il provisioning cloud
+# <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Creare una nuova configurazione per il provisioning Azure AD Connect basato sul cloud
 
 Dopo aver installato l'agente, è necessario accedere al portale di Azure e configurare Azure Active Directory (Azure AD) connettere il provisioning cloud. Per abilitare l'agente, attenersi alla seguente procedura.
 
@@ -56,7 +56,8 @@ Per configurare il provisioning, attenersi alla seguente procedura.
 
     ![Opzione gruppi di sicurezza selezionati](media/how-to-configure/scope3.png)
 
-1.  In alternativa, è possibile modificare l'ambito in modo da includere solo unità organizzative specifiche. Selezionare **fatto** e **Salva**.
+1.  In alternativa, è possibile modificare l'ambito in modo da includere solo unità organizzative specifiche. Selezionare **fatto** e **Salva**.  
+2.  Dopo aver modificato l'ambito, è necessario [riavviare il provisioning](#restart-provisioning) per avviare una sincronizzazione immediata delle modifiche.
 
     ![Opzione unità organizzative selezionate](media/how-to-configure/scope4.png)
 

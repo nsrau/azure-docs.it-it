@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 887019bbdb92807d49c09af3a83313470f334a52
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251210"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649544"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
@@ -29,7 +29,7 @@ Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a
 > [!WARNING]
 > I clienti che desiderano utilizzare l'aggiunta dei certificati per migliorare la sicurezza delle applicazioni devono utilizzare un nome di dominio personalizzato e un certificato che gestiscono, non il certificato predefinito. I clienti che aggiungono il certificato predefinito avranno una dipendenza rigida dalle proprietà del certificato che non controllano, che non è una procedura consigliata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
@@ -52,7 +52,8 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     - **Gateway** (il valore predefinito è: `<apim-service-name>.azure-api.net`),
     - **Portale** (il valore predefinito è: `<apim-service-name>.portal.azure-api.net`),
     - **Gestione** (il valore predefinito è: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (il valore predefinito è: `<apim-service-name>.scm.azure-api.net`).
+    - **SCM** (il valore predefinito è: `<apim-service-name>.scm.azure-api.net`),
+    - **Newport** (valore predefinito: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
     > Solo l'endpoint del **gateway** è disponibile per la configurazione nel livello di consumo.

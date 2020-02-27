@@ -4,12 +4,12 @@ description: Informazioni su come aggiornare un cluster del servizio Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 9acf08765ee42401229bc464b4513856127e9f66
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592986"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621970"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -22,7 +22,7 @@ Per i cluster AKS che usano più pool di nodi o nodi di Windows Server (attualme
 Questo articolo richiede la versione 2.0.65 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 > [!WARNING]
-> Un aggiornamento del cluster AKS attiva un cordone e lo svuotamento dei nodi. Se è disponibile una quota di calcolo bassa, l'aggiornamento potrebbe non riuscire.  Per altre informazioni, vedere [aumentare le quote](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) .
+> Un aggiornamento del cluster AKS attiva un cordone e lo svuotamento dei nodi. Se è disponibile una quota di calcolo bassa, l'aggiornamento potrebbe non riuscire. Per altre informazioni, vedere [aumentare le quote](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) .
 > Se si esegue la distribuzione del servizio di scalabilità automatica del cluster, disabilitarla (è possibile ridimensionarla a zero repliche) durante l'aggiornamento, in quanto esiste la possibilità che interferisca con il processo di aggiornamento. Il ridimensionamento automatico gestito lo gestisce automaticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verificare la presenza di aggiornamenti disponibili per il cluster del servizio Azure Kubernetes

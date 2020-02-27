@@ -2,21 +2,21 @@
 title: Problemi comuni-servizio migrazione del database di Azure
 description: Informazioni su come risolvere i problemi noti o gli errori comuni associati all'uso del servizio migrazione del database di Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/18/2019
-ms.openlocfilehash: 5bed7935f673ef824037cb5641ac8e8577fee550
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437782"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649108"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi e gli errori comuni del servizio migrazione del database di Azure
 
@@ -112,7 +112,7 @@ Quando si esegue la migrazione di un database MySQL a un'istanza di database di 
 
 Quando si tenta di connettere il servizio migrazione del database di Azure a SQL Server origine eseguita in un'istanza denominata o in una porta dinamica, la connessione ha esito negativo con questo errore:
 
-* **Errore**:-1-connessione SQL non riuscita. Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che il server sia configurato in modo da consentire connessioni remote. (provider: interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificata)
+* **Errore**:-1-connessione SQL non riuscita. Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che il server sia configurato in modo da consentire connessioni remote. (provider: interfacce di rete SQL, errore: 26-errore nell'individuazione del server/dell'istanza specificati)
 
 | Causa         | Risoluzione    |
 | ------------- | ------------- |

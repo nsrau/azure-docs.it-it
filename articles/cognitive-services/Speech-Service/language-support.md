@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/25/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 86224508b9f24906abce157b92a77c0a2f24d882
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 13d12bfbf64af9e19b66e63c88c9d7e0534571f3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605724"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617273"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Supporto di lingue e aree per il servizio di riconoscimento vocale
 
@@ -34,11 +34,11 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
- Impostazioni locali | Linguaggio | Supportato | Personalizzazioni
+ Impostazioni locali | Lingua: | Supportato | Personalizzazioni
 ------|------------|-----------|-------------
 `ar-AE` | Arabo (UAE) | Sì | No
-`ar-BH` | Arabo (Bahrein) | Sì | Modello linguistico
-`ar-EG` | Arabo (Egitto), standard moderno | Sì | Modello linguistico
+`ar-BH` | Arabo (Bahrain), standard moderno | Sì | Modello linguistico
+`ar-EG` | Arabo (Egitto) | Sì | Modello linguistico
 `ar-KW` | Arabo (Kuwait) | Sì | No
 `ar-QA` | Arabo (Qatar) | Sì | No
 `ar-SA` | Arabo (Arabia Saudita) | Sì | No
@@ -92,7 +92,7 @@ Le voci neurali possono essere usate per rendere più naturali e accattivanti le
 
 Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
-Impostazioni locali | Linguaggio | Sesso | Mapping completo del nome del servizio | Nome breve vocale
+Impostazioni locali | Lingua: | Sesso | Mapping completo del nome del servizio | Nome breve vocale
 --------|----------|--------|---------|------------
 `de-DE` | Tedesco (Germania) | Female | "Voce Sintesi vocale vocale di Microsoft Server (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
 `en-US` | Inglese (Stati Uniti) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
@@ -110,7 +110,7 @@ Per informazioni su come configurare e modificare le voci neurali, vedere [lingu
 
 Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni locali, che consentono di convertire il testo in contenuto vocale sintetizzato. Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
-Impostazioni locali | Linguaggio | Sesso | Mapping completo del nome del servizio | Nome breve
+Impostazioni locali | Lingua: | Sesso | Mapping completo del nome del servizio | Nome breve
 -------|----------|---------|----------|----------
 <sup>1</sup>`ar-EG` | Arabo (Egitto) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-un".
 `ar-SA` | Arabo (Arabia Saudita) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"

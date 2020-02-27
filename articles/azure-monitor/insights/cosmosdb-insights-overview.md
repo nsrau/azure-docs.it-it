@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: 8e265b592bebfc506ae0116c955403dd1070ad3f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dece5b0bb0508e2d83ee184e71ef0b4364d25ac8
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166408"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622934"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Esplora monitoraggio di Azure per Azure Cosmos DB (anteprima)
 
@@ -35,8 +35,35 @@ Per questa funzionalità non è necessario abilitare o configurare elementi, per
 >[!NOTE]
 >Non sono previsti addebiti per accedere a questa funzionalità e verranno addebitate solo le funzionalità essenziali di monitoraggio di Azure configurate o abilitate, come descritto nella pagina [Dettagli prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) .
 
+## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visualizzare le metriche a livello di operazione per Azure Cosmos DB
 
-## <a name="accessing-azure-monitor-for-azure-cosmos-db"></a>Accesso a monitoraggio di Azure per Azure Cosmos DB
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+
+1. Selezionare **monitoraggio** nella barra di spostamento a sinistra e selezionare **metrica**.
+
+   ![Riquadro metriche in monitoraggio di Azure](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
+
+1. Dal riquadro **metriche** > **selezionare una risorsa** > scegliere la **sottoscrizione**e il **gruppo di risorse**richiesti. Per il **tipo di risorsa**selezionare **account Azure Cosmos DB**, scegliere uno degli account Azure Cosmos esistenti e selezionare **applica**.
+
+   ![Scegliere un account Cosmos DB per visualizzare le metriche](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
+
+1. È quindi possibile selezionare una metrica dall'elenco delle metriche disponibili. È possibile selezionare metriche specifiche per unità richiesta, archiviazione, latenza, disponibilità, Cassandra e altre. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [metriche per categoria](../../cosmos-db/monitor-cosmos-db-reference.md) . In questo esempio, selezionare **unità richiesta** e **AVG** come valore di aggregazione.
+
+   Oltre a questi dettagli, è anche possibile selezionare l' **intervallo di tempo** e la **granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche negli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro. È possibile visualizzare il numero medio di unità richiesta utilizzate al minuto per il periodo selezionato.  
+
+   ![Scegliere una metrica dalla portale di Azure](./media/cosmosdb-insights-overview/metric-types.png)
+
+### <a name="add-filters-to-metrics"></a>Aggiungere filtri alle metriche
+
+È anche possibile filtrare le metriche e il grafico visualizzato da uno specifico **CollectionName**, **DatabaseName**, **OperationType**, **Region**e **statusCode**. Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprietà obbligatoria, ad esempio **OperationType** , e selezionare un valore, ad esempio **query**. Il grafico Visualizza quindi le unità richiesta utilizzate per l'operazione di query per il periodo selezionato. Le operazioni eseguite tramite la stored procedure non vengono registrate in modo che non siano disponibili nella metrica OperationType.
+
+![Aggiungere un filtro per selezionare la granularità della metrica](./media/cosmosdb-insights-overview/add-metrics-filter.png)
+
+È possibile raggruppare le metriche usando l'opzione **applica suddivisione** . È ad esempio possibile raggruppare le unità richiesta per tipo di operazione e visualizzare il grafico per tutte le operazioni in una sola volta, come illustrato nell'immagine seguente:
+
+![Aggiungi filtro di suddivisione applica](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
+
+## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Visualizzare le metriche di utilizzo e delle prestazioni per Azure Cosmos DB
 
 Per visualizzare l'utilizzo e le prestazioni degli account di archiviazione in tutte le sottoscrizioni, seguire questa procedura.
 
@@ -74,11 +101,11 @@ Selezionare **errori** nella parte superiore della pagina e viene visualizzata l
 
 ![Screenshot degli errori con suddivisione in base al tipo di richiesta HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Codice      |  Description       | 
+| Codice      |  Descrizione       | 
 |-----------|:--------------------|
-| `200 OK`  | Una delle operazioni REST seguenti ha avuto esito positivo: </br>-OTTENERE su una risorsa. </br> -PUT su una risorsa. </br> -POST su una risorsa. </br> -POST su una risorsa stored procedure per eseguire l'stored procedure.|
-| `201 Created` | Un'operazione POST per la creazione di una risorsa ha esito positivo. |
-| `404 Not Found` | L'operazione sta tentando di agire su una risorsa che non esiste più. Ad esempio, è possibile che la risorsa sia già stata eliminata. |
+| `200 OK`  | Una delle operazioni REST seguenti è riuscita: </br>-OTTENERE su una risorsa. </br> -PUT su una risorsa. </br> -POST su una risorsa. </br> -POST su una risorsa stored procedure per eseguire l'stored procedure.|
+| `201 Created` | Un'operazione POST per la creazione di una risorsa è riuscita. |
+| `404 Not Found` | L'operazione tenta di agire su una risorsa che non esiste più. È ad esempio possibile che la risorsa sia già stata eliminata. |
 
 Per un elenco completo dei codici di stato, vedere l' [articolo Azure Cosmos DB codice di stato http](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 

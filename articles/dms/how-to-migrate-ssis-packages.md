@@ -3,21 +3,21 @@ title: Ridistribuire pacchetti SSIS in un database SQL singolo
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione o la ridistribuzione di SQL Server Integration Services pacchetti e progetti nel database SQL di Azure single database usando il servizio migrazione del database di Azure e Data Migration Assistant.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/08/2019
-ms.openlocfilehash: b1889410a6c6925ebba5632a08c34bc967ced627
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 90a39b8fe3604a05f1d35a875ae4e34491b47d72
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437977"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648530"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Ridistribuire pacchetti SSIS nel database SQL di Azure con il servizio migrazione del database di Azure
 
@@ -34,7 +34,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Valutare i progetti/pacchetti SSIS di origine.
 > * Eseguire la migrazione di pacchetti/progetti SSIS in Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questi passaggi è necessario disporre di:
 

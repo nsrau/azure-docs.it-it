@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60928295"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623338"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
 
@@ -26,7 +26,7 @@ Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e de
 - [Cosa bisogna fare per garantire l'accesso ininterrotto ai dati?](#uninterrupted-access)
 - [Dopo la migrazione, come cambierà una raccolta esistente?](#collection-change)
 - [Dopo la migrazione a raccolte a partizione singola, come cambierà la fatturazione?](#billing-change)
-- [Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?](#more-storage-needed)
+- [Cosa accade se sono necessari più di 20 GB di spazio di archiviazione?](#more-storage-needed)
 - [È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima della migrazione pianificata?](#change-before)
 - [Come è possibile seguire autonomamente la migrazione dai livelli di prestazioni S1, S2 e S3 alle raccolte a partizione singola?](#migrate-diy)
 - [Quali sono le conseguenze per i clienti EA?](#ea-customer)
@@ -45,9 +45,9 @@ Nella tabella seguente vengono confrontate le opzioni di archiviazione e di velo
 
 |   |Raccolta partizionata|Raccolta a partizione singola|S1|S2|S3|
 |---|---|---|---|---|---|
-|Velocità effettiva massima|Illimitato|10\.000 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
+|Velocità effettiva massima|Illimitato|10.000 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
 |Velocità effettiva minima|2500 UR/sec|400 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
-|Spazio di archiviazione massimo|Illimitato|10 GB|10 GB|10 GB|10 GB|
+|Spazio di archiviazione massimo|Illimitato|20 GB|20 GB|20 GB|20 GB|
 |Prezzo (ogni mese)|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $ 0,25/GB|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $ 0,25/GB|$ 25 USD|$ 50 USD|$ 100 USD|
 
 Per i clienti EA, è consigliabile fare riferimento a [Quali sono le conseguenze per i clienti EA?](#ea-customer)
@@ -80,9 +80,9 @@ Si supponga di avere a disposizione 10 raccolte S1, ciascuna con 1 GB di spazio 
 
 <a name="more-storage-needed"></a>
 
-## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?
+## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>Cosa accade se sono necessari più di 20 GB di spazio di archiviazione?
 
-Se si ha una raccolta con livello di prestazioni S1, S2 o S3 o una raccolta a partizione singola con spazio di archiviazione disponibile di 10 GB, è possibile usare lo strumento di migrazione dati di Azure Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con spazio di archiviazione quasi illimitato. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](sql-api-partition-data.md). 
+Se si dispone di una raccolta con livello di prestazioni S1, S2 o S3 o se si dispone di una raccolta a partizione singola, in cui sono disponibili almeno 20 GB di spazio di archiviazione, è possibile usare lo strumento di migrazione dei dati Azure Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con virtualmente archiviazione illimitata. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 

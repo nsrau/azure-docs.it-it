@@ -3,8 +3,8 @@ title: Architettura di rete di SAP HANA in Azure (istanze Large) | Microsoft Doc
 description: Architettura di rete della distribuzione di SAP HANA in Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3777180a4d62f8b253ac4cd096bff15613f33565
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 068cc2ed9743a62aa2249a815893c71499711092
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206614"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617025"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architettura di rete di SAP HANA (istanze Large)
 

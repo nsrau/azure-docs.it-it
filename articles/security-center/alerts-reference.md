@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5453793c7e1bb1ef766939d2e7fdf32a1ac1ec72
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499936"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623963"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Avvisi di sicurezza-Guida di riferimento
 
@@ -33,7 +33,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-windows"></a>Avvisi per i computer Windows
 
-[Ulteriori dettagli e note](security-center-alerts-iaas.md#windows-)
+[Ulteriori dettagli e note](threat-protection.md#windows-machines)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -124,7 +124,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-linux"></a>Avvisi per computer Linux
 
-[Ulteriori dettagli e note](security-center-alerts-iaas.md#linux-)
+[Ulteriori dettagli e note](threat-protection.md#linux-machines)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -213,7 +213,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-azureappserv"></a>Avvisi per il servizio app Azure
 
-[Ulteriori dettagli e note](security-center-alerts-compute.md#azure-app-service-)
+[Ulteriori dettagli e note](threat-protection.md#app-services)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -238,7 +238,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-akscluster"></a>Avvisi per i contenitori-cluster del servizio Azure Kubernetes
 
-[Ulteriori dettagli e note](security-center-alerts-compute.md#azure-containers-)
+[Ulteriori dettagli e note](threat-protection.md#azure-containers)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -253,7 +253,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-containerhost"></a>Avvisi per contenitori-livello host
 
-[Ulteriori dettagli e note](security-center-alerts-compute.md#azure-containers-)
+[Ulteriori dettagli e note](threat-protection.md#azure-containers)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -269,7 +269,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Avvisi per database SQL e SQL Data Warehouse
 
-[Ulteriori dettagli e note](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+[Ulteriori dettagli e note](threat-protection.md#data-sql)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -287,7 +287,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-azurestorage"></a>Avvisi per archiviazione di Azure
 
-[Ulteriori dettagli e note](security-center-alerts-data-services.md#azure-storage-)
+[Ulteriori dettagli e note](threat-protection.md#azure-storage)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -308,7 +308,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-azurecosmos"></a>Avvisi per Azure Cosmos DB (anteprima)
 
-[Ulteriori dettagli e note](security-center-alerts-data-services.md#azure-cosmos-db)
+[Ulteriori dettagli e note](threat-protection.md#cosmos-db)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -319,7 +319,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-azurenetlayer"></a>Avvisi per il livello di rete di Azure
 
-[Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-network-layer)
+[Ulteriori dettagli e note](threat-protection.md#network-layer)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -344,7 +344,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-azureresourceman"></a>Avvisi per Azure Resource Manager (anteprima)
 
-[Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+[Ulteriori dettagli e note](threat-protection.md#management-layer)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -363,7 +363,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-azurekv"></a>Avvisi per Azure Key Vault (anteprima)
 
-[Ulteriori dettagli e note](security-center-alerts-service-layer.md#azure-keyvault)
+[Ulteriori dettagli e note](threat-protection.md#azure-keyvault)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -381,7 +381,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 
 ## <a name="alerts-azureddos"></a>Avvisi per la protezione DDoS di Azure
 
-[Ulteriori dettagli e note](security-center-alerts-integration.md#azure-ddos)
+[Ulteriori dettagli e note](threat-protection.md#azure-ddos)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
@@ -418,6 +418,7 @@ Le finalità della catena di Kill per il Centro sicurezza sono basate su [Mitre 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sugli avvisi, vedere gli argomenti seguenti:
 
+* [Protezione dalle minacce nel centro sicurezza di Azure](threat-protection.md)
 * [Avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-overview.md)
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
 * [Esportare avvisi e raccomandazioni sulla sicurezza (anteprima)](continuous-export.md)

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445260"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623358"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Eseguire la migrazione di contenitori non partizionati a contenitori partizionati
 
-Azure Cosmos DB supporta la creazione di contenitori senza una chiave di partizione. Attualmente è possibile creare contenitori non partizionati usando l'interfaccia della riga di comando di Azure e Azure Cosmos DB SDK (.NET, Java, NodeJs) con una versione inferiore o uguale a 2. x. Non è possibile creare contenitori non partizionati utilizzando il portale di Azure. Tuttavia, tali contenitori non partizionati non sono elastici e hanno una capacità di archiviazione fissa di 10 GB e un limite di velocità effettiva di 10.000 UR/s.
+Azure Cosmos DB supporta la creazione di contenitori senza una chiave di partizione. Attualmente è possibile creare contenitori non partizionati usando l'interfaccia della riga di comando di Azure e Azure Cosmos DB SDK (.NET, Java, NodeJs) con una versione inferiore o uguale a 2. x. Non è possibile creare contenitori non partizionati utilizzando il portale di Azure. Tuttavia, tali contenitori non partizionati non sono elastici e hanno una capacità di archiviazione fissa di 20 GB e un limite di velocità effettiva di 10.000 UR/s.
 
 I contenitori non partizionati sono legacy ed è necessario eseguire la migrazione dei contenitori non partizionati esistenti ai contenitori partizionati per ridimensionare l'archiviazione e la velocità effettiva. Azure Cosmos DB fornisce un meccanismo definito dal sistema per la migrazione dei contenitori non partizionati ai contenitori partizionati. Questo documento illustra come viene eseguita la migrazione automatica di tutti i contenitori non partizionati esistenti in contenitori partizionati. È possibile sfruttare la funzionalità di migrazione automatica solo se si usa la versione V3 degli SDK in tutte le lingue.
 

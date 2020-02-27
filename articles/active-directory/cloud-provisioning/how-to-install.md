@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f4e8450593b8ff0f73c09f236f17eb4ef09334c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549503"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620944"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
 Questo documento illustra il processo di installazione per l'agente di provisioning di Azure Active Directory (Azure AD) e come configurarlo inizialmente nella portale di Azure.
@@ -45,7 +45,7 @@ Per installare l'agente, attenersi alla seguente procedura.
    ![Schermata del pacchetto dell'agente di provisioning di Microsoft Azure AD Connect](media/how-to-install/install1.png)</br>
 
 1. Al termine di questa operazione, viene avviata la configurazione guidata. Accedere con l'account amministratore globale di Azure AD.
-1. Nella schermata **connetti Active Directory** selezionare **Aggiungi directory**. Accedere quindi con l'account amministratore Active Directory. Questa operazione aggiunge la directory locale. Selezionare **Avanti**.
+1. Nella schermata **connetti Active Directory** selezionare **Aggiungi directory**. Accedere quindi con l'account amministratore Active Directory. Questa operazione aggiunge la directory locale. Fare clic su **Avanti**.
 
    ![Schermata Connetti Active Directory](media/how-to-install/install3.png)</br>
 
@@ -96,7 +96,7 @@ Per verificare che l'agente sia in esecuzione, attenersi alla seguente procedura
     ![Schermata dei servizi](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->L'agente è stato installato, ma è necessario configurarlo e abilitarlo prima di avviare la sincronizzazione degli utenti. Per configurare un nuovo agente, vedere [Azure ad Connect Configurazione del nuovo agente per il provisioning cloud](how-to-configure.md).
+>L'agente è stato installato, ma è necessario configurarlo e abilitarlo prima di avviare la sincronizzazione degli utenti. Per configurare un nuovo agente, vedere [creare una nuova configurazione per il provisioning basato su cloud Azure ad Connect](how-to-configure.md).
 
 
 

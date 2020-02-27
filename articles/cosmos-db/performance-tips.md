@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dc9d10a6539c7fc3a7c5c8b3db290cc951c24883
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720997"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623326"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -24,6 +24,35 @@ ms.locfileid: "76720997"
 Azure Cosmos DB è un database distribuito veloce e flessibile, facilmente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con Azure Cosmos DB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API. Per altre informazioni, vedere [Effettuare il provisioning della velocità effettiva per un contenitore](how-to-provision-container-throughput.md) oppure [Effettuare il provisioning della velocità effettiva per un database](how-to-provision-database-throughput.md). Dato che si accede ad Azure Cosmos DB tramite chiamate di rete, è tuttavia possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali se si usa l'[SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
 Se si vogliono migliorare le prestazioni del database, prendere in considerazione le opzioni seguenti:
+
+## <a name="hosting-recommendations"></a>Suggerimenti per l'hosting
+
+1.  **Per i carichi di lavoro a elevato utilizzo di query, usare Windows a 64 bit anziché l'elaborazione di host Linux o Windows 32**
+
+    Per migliorare le prestazioni, è consigliabile usare l'elaborazione host Windows a 64 bit. SQL SDK include un file ServiceInterop. dll nativo per analizzare e ottimizzare le query in locale ed è supportato solo nella piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop. dll non è disponibile, effettuerà una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata. I tipi seguenti di applicazioni dispongono di un processo host a 32 bit per impostazione predefinita; per passare a un processo a 64 bit, seguire questi passaggi in base al tipo di applicazione:
+
+    - Per le applicazioni eseguibili, è possibile eseguire questa operazione impostando la [destinazione della piattaforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) su **x64** nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
+
+    - Per progetti di test basati su VSTest questa operazione può essere eseguita selezionando **Test**->**Impostazioni test**->**Default Processor Architecture as X64** (Imposta architettura processore X64 come predefinita) dall'opzione **Visual Studio Test**.
+
+    - Per le applicazioni Web ASP.NET distribuite in locale questa operazione può essere eseguita selezionando **Utilizzare la versione a 64 bit di IIS Express per progetti e siti Web** in **Strumenti**->**Opzioni**->**Progetti e soluzioni**->**Progetti Web**.
+
+    - Per le applicazioni Web ASP.NET distribuite in Azure questa operazione può essere eseguita selezionando **Platform as 64-bit** (Piattaforma 64 bit) in **Impostazioni applicazione** nel Portale di Azure.
+
+    > [!NOTE] 
+    > Visual Studio imposta come predefiniti i nuovi progetti in qualsiasi CPU. È consigliabile impostare il progetto su x64 per evitare il trasferimento a x86. Qualsiasi progetto CPU può passare facilmente a x86 se viene aggiunta una dipendenza solo x86.<br/>
+    > ServiceInterop. dll deve trovarsi nella stessa cartella in cui viene eseguita la DLL SDK. Questa operazione deve essere eseguita solo per gli utenti che devono eseguire manualmente il coping di dll o avere sistemi di compilazione/distribuzione personalizzati.
+    
+2. **Attivare Garbage Collection sul lato server (GC)**
+
+    In alcuni casi, può essere utile ridurre la frequenza di Garbage Collection. In .NET impostare [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) su true.
+
+3. **Aumentare il carico di lavoro client**
+
+    Se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a effettuare il push dell'account Azure Cosmos DB aumentando il numero di istanze delle applicazioni client in più server.
+
+    > [!NOTE] 
+    > Un utilizzo elevato della CPU può causare un aumento della latenza e delle eccezioni di timeout richieste.
 
 ## <a name="networking"></a>Rete
 <a id="direct-connection"></a>
@@ -47,7 +76,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
      |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Diretto    |     TCP    |  .NET SDK    | Porte nell'intervallo da 10.000 a 20.000 |
+     |Connessione diretta    |     TCP    |  .NET SDK    | Porte nell'intervallo da 10.000 a 20.000 |
 
      Azure Cosmos DB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Il protocollo TCP utilizza SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
 
@@ -96,6 +125,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     ![Illustrazione dei criteri di connessione di Azure Cosmos DB](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
+
 4. **Aumentare il numero di thread/attività**
 
     Dato che le chiamate ad Azure Cosmos DB vengono eseguite sulla rete, può essere necessario modificare il grado di parallelismo delle richieste in modo che i tempi di attesa dell'applicazione client tra le richieste siano molto ridotti. Se si usa [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx) di .NET, ad esempio, creare centinaia di attività di lettura o scrittura in Azure Cosmos DB.
@@ -121,9 +151,11 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     Ogni istanza di DocumentClient e CosmosClient è thread-safe ed esegue la gestione efficiente delle connessioni e la memorizzazione nella cache degli indirizzi quando si opera in modalità diretta. Per consentire una gestione efficiente delle connessioni e prestazioni migliori da parte del client SDK, è consigliabile usare una singola istanza per AppDomain per la durata dell'applicazione.
 
    <a id="max-connection"></a>
+
 4. **Aumentare il valore di System.Net MaxConnections per host se si usa la modalità Gateway**.
 
-    Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare MaxConnections su un valore più alto (100-1000) in modo che la libreria client possa usare più connessioni simultanee a Azure Cosmos DB. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) è 50 e per modificare il valore è possibile impostare [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) su un valore più elevato.   
+    Quando si usa la modalità Gateway, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare MaxConnections su un valore più alto (100-1000) in modo che la libreria client possa usare più connessioni simultanee a Azure Cosmos DB. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) è 50 e per modificare il valore è possibile impostare [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) su un valore più elevato.
+
 5. **Ottimizzazione delle query parallele per le raccolte partizionate**
 
      SQL .NET SDK versione 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query su una raccolta partizionata in parallelo. Per altre informazioni, vedere [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) correlati all'utilizzo con gli SDK. Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
@@ -135,10 +167,8 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     (b) ***Ottimizzazione di MaxBufferedItemCount\:*** la query parallela è progettata per la prelettura dei risultati mentre il client elabora il batch di risultati corrente. La prelettura consente il miglioramento complessivo della latenza di una query. MaxBufferedItemCount è il parametro che consente di limitare il numero di risultati di prelettura. L'impostazione di MaxBufferedItemCount sul numero previsto di risultati restituiti (o un numero più alto) consente alla query di ottenere il massimo vantaggio dalla prelettura.
 
     Il recupero preliminare funziona allo stesso modo indipendentemente dal grado di parallelismo ed esiste un singolo buffer per i dati di tutte le partizioni.  
-6. **Attivare GC sul lato server**
 
-    In alcuni casi, può essere utile ridurre la frequenza di Garbage Collection. In .NET impostare [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) su true.
-7. **Implementare il backoff in corrispondenza di intervalli RetryAfter**
+6. **Implementare il backoff in corrispondenza di intervalli RetryAfter**
 
     Durante il test delle prestazioni, è necessario aumentare il carico fino a limitare un numero ridotto di richieste. Se limitata, l'applicazione client deve eseguire il backoff sulla limitazione per l'intervallo tra tentativi specificato dal server. Rispettando il backoff si garantiscono tempi di attesa minimi tra i tentativi. Il supporto dei criteri di ripetizione dei tentativi è incluso nella versione 1.8.0 e versioni successive degli SDK [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), nella versione 1.9.0 e versioni successive degli SDK [Node.js](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md) e in tutte le versioni supportate degli SDK [.NET Core](sql-api-sdk-dotnet-core.md) di SQL. Per altre informazioni, [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
@@ -147,16 +177,13 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
     readDocument.RequestDiagnosticsString 
     ```
-    
-8. **Aumentare il carico di lavoro client**
 
-    Se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a effettuare il push dell'account Azure Cosmos DB aumentando il numero di istanze delle applicazioni client in più server.
-9. **Memorizzare nella cache gli URI dei documenti per una minore latenza di lettura**
+7. **Memorizzare nella cache gli URI dei documenti per una minore latenza di lettura**
 
-    Memorizzare nella cache gli URI dei documenti quando possibile per ottenere prestazioni di lettura ottimali. È necessario definire la logica per memorizzare nella cache il valore ResourceId quando si crea la risorsa. Le ricerche basate sul valore ResourceId sono più veloci rispetto alle ricerche basate sul nome, per cui la memorizzazione nella cache di questi valori migliora le prestazioni. 
+    Memorizzare nella cache gli URI dei documenti quando possibile per ottenere prestazioni di lettura ottimali. È necessario definire la logica per memorizzare nella cache l'ID risorsa quando si crea la risorsa. Le ricerche basate su ID risorsa sono più veloci rispetto alle ricerche basate su nomi, pertanto la memorizzazione nella cache di questi valori migliora le prestazioni. 
 
    <a id="tune-page-size"></a>
-10. **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**
+8. **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**
 
    Quando si esegue una lettura in blocco di documenti usando la funzionalità dei feed di lettura, ad esempio ReadDocumentFeedAsync, oppure quando si emette una query SQL, i risultati vengono restituiti in modo segmentato se il set di risultati è troppo grande. Per impostazione predefinita, i risultati vengono restituiti in blocchi di 100 elementi o 1 MB, a seconda del limite che viene raggiunto prima.
 
@@ -173,23 +200,11 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     
    Quando viene eseguita una query, i dati risultanti vengono inviati all'interno di un pacchetto TCP. Se si specifica un valore troppo basso per `maxItemCount`, il numero di corse necessarie per inviare i dati all'interno del pacchetto TCP è elevato, che influisca negativamente sulle prestazioni. Se non si è certi del valore da impostare per `maxItemCount` proprietà, è consigliabile impostarlo su-1 e consentire all'SDK di scegliere il valore predefinito. 
 
-11. **Aumentare il numero di thread/attività**
+9. **Aumentare il numero di thread/attività**
 
     Vedere [Aumentare il numero di thread/attività](#increase-threads) nella sezione Rete.
 
-12. **Usare processi host a 64 bit**
-
-    L'SDK di SQL funziona in un processo host a 32 bit quando si usa SQL .NET SDK versione 1.11.4 e versioni successive. Tuttavia, se si usano query tra partizioni, è consigliabile usare l'elaborazione dell'host a 64 bit per migliorare le prestazioni. I tipi seguenti di applicazioni dispongono di un processo host a 32 bit per impostazione predefinita; per passare a un processo a 64 bit, seguire questi passaggi in base al tipo di applicazione:
-
-    - Per le applicazioni eseguibili è possibile, a tale scopo, deselezionare l'opzione **Preferisci 32 bit** nella scheda **Compila** della finestra **Proprietà progetto**.
-
-    - Per progetti di test basati su VSTest questa operazione può essere eseguita selezionando **Test**->**Impostazioni test**->**Default Processor Architecture as X64** (Imposta architettura processore X64 come predefinita) dall'opzione **Visual Studio Test**.
-
-    - Per le applicazioni Web ASP.NET distribuite in locale questa operazione può essere eseguita selezionando **Utilizzare la versione a 64 bit di IIS Express per progetti e siti Web** in **Strumenti**->**Opzioni**->**Progetti e soluzioni**->**Progetti Web**.
-
-    - Per le applicazioni Web ASP.NET distribuite in Azure questa operazione può essere eseguita selezionando **Platform as 64-bit** (Piattaforma 64 bit) in **Impostazioni applicazione** nel Portale di Azure.
-
-## <a name="indexing-policy"></a>Criteri di indicizzazione
+## <a name="indexing-policy"></a>Criterio di indicizzazione
  
 1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 
@@ -247,7 +262,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     Benché il comportamento automatizzato per la ripetizione dei tentativi consenta di migliorare la resilienza e l'usabilità per la maggior parte delle applicazioni, è possibile che provochi conflitti durante l'esecuzione dei benchmark delle prestazioni, in particolare durante la misurazione della latenza.  La latenza osservata dal client presenterà dei picchi se l'esperimento raggiunge il limite del server e fa in modo che l'SDK client ripeta automaticamente i tentativi. Per evitare i picchi di latenza durante gli esperimenti relativi alle prestazioni, misurare l'addebito restituito da ogni operazione e assicurarsi che le richieste operino al di sotto della frequenza delle richieste riservata. Per altre informazioni, vedere [Unità richiesta](request-units.md).
 3. **Progettare documenti di dimensioni minori per ottenere una velocità effettiva maggiore**
 
-    L'addebito per le richieste, ovvero il costo di elaborazione delle richieste, per un'operazione specifica è correlato direttamente alle dimensioni del documento. Le operazioni sui documenti di grandi dimensioni sono più costose rispetto alle operazioni per i documenti di piccole dimensioni.
+    L'addebito per le richieste, ovvero il costo di elaborazione delle richieste, di una determinata operazione è correlato direttamente alle dimensioni del documento. Le operazioni sui documenti di grandi dimensioni sono più costose rispetto alle operazioni per i documenti di piccole dimensioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un'applicazione di esempio usata per valutare Azure Cosmos DB per scenari a prestazioni elevate su un numero ridotto di computer client, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).

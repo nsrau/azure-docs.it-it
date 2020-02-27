@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 333e51782fd0dd88b3e8747fb831b841a22c8e6c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 02/25/2020
+ms.openlocfilehash: 3e10c23aaaef6315e072348d879d5f077e16382a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773091"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623666"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Eseguire il backup e il ripristino in Database di Azure per MariaDB
 
@@ -20,6 +20,8 @@ Database di Azure per MariaDB crea automaticamente backup del server e li archiv
 ## <a name="backups"></a>Backup
 
 Database di Azure per MariaDB crea backup completi, differenziali e del log delle transazioni. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
+
+Non è possibile esportare i file di backup. I backup possono essere usati solo per le operazioni di ripristino nel database di Azure per MariaDB. Per copiare un database, è possibile usare [mysqldump](howto-migrate-dump-restore.md) .
 
 ### <a name="backup-frequency"></a>Frequenza di backup
 
@@ -40,7 +42,7 @@ Se è stato effettuato il provisioning di un server con 250 GB, ad esempio, sono
 
 Per altre informazioni sul costo dell'archiviazione di backup, visitare la [pagina dei prezzi di MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).
 
-## <a name="restore"></a>Ripristinare
+## <a name="restore"></a>Ripristina
 
 In Database di Azure per MariaDB l'esecuzione di un ripristino crea un nuovo server dai backup del server originale.
 

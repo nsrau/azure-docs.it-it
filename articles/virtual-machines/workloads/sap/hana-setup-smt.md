@@ -4,21 +4,21 @@ description: Come configurare il server SMT per SAP HANA in Azure (istanze Large
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: rclaus
+ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d9e86e54a4c94db97b6c89b3ef8799855963020
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099770"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616987"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configurare il server SMT per SUSE Linux
 Le istanze Large di SAP HANA non hanno connettività diretta a Internet. La registrazione di un'unità di questo tipo nel provider del sistema operativo e il download e l'applicazione di aggiornamenti non sono processi semplici. Per SUSE Linux una soluzione può essere configurare un server SMT in una macchina virtuale di Azure. Ospitare la macchina virtuale in una rete virtuale di Azure, che è connessa all'istanza Large di HANA. Con un server SMT, l'unità di istanze Large di HANA può eseguire la registrazione e scaricare aggiornamenti. 

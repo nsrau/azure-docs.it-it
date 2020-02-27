@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: f9889f58ead8d1dd35ceb50fa100b2b466cbe7cf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d97b63aa87bfd8cf8ca1a3f5b213d6b16ca066df
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022393"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616855"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurare Advanced Threat Protection per archiviazione di Azure
 
@@ -31,7 +31,7 @@ Advanced Threat Protection per archiviazione di Azure inserisce i log di diagnos
 
 È possibile configurare Advanced Threat Protection in diversi modi, descritti nelle sezioni riportate di seguito.
 
-### <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Avviare il [portale di Azure](https://portal.azure.com/).
 1. Passare all'account di archiviazione di Azure. In **Impostazioni**selezionare **sicurezza avanzata**.
@@ -41,7 +41,7 @@ Advanced Threat Protection per archiviazione di Azure inserisce i log di diagnos
 
     ![Attivare la protezione avanzata dalle minacce di Archiviazione di Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="azure-security-centertabazure-security-center"></a>[Centro sicurezza di Azure](#tab/azure-security-center)
+### <a name="azure-security-center"></a>[Centro sicurezza di Azure](#tab/azure-security-center)
 
 Quando si sottoscrive il livello standard nel centro sicurezza di Azure, Advanced Threat Protection viene configurato automaticamente in tutti gli account di archiviazione. È possibile abilitare o disabilitare Advanced Threat Protection per gli account di archiviazione in una sottoscrizione specifica, come indicato di seguito:
 
@@ -55,13 +55,13 @@ Quando si sottoscrive il livello standard nel centro sicurezza di Azure, Advance
 1. Nella sezione **selezionare il piano tariffario per tipo di risorsa** , nella riga **account di archiviazione** , fare clic su **abilitato** o **disabilitato**.
 
     ![Abilita ATP nel centro sicurezza](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
-### <a name="templatetabtemplate"></a>[Modello](#tab/template)
+### <a name="template"></a>[Modello](#tab/template)
 
 Usare un modello di Azure Resource Manager per distribuire un account di archiviazione di Azure con Advanced Threat Protection abilitata. Per altre informazioni, vedere [account di archiviazione con Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### <a name="azure-policytabazure-policy"></a>[Criteri di Azure](#tab/azure-policy)
+### <a name="azure-policy"></a>[Criteri di Azure](#tab/azure-policy)
 
 Usare un criterio di Azure per abilitare la protezione avanzata dalle minacce tra gli account di archiviazione in una sottoscrizione o un gruppo di risorse specifico.
 
@@ -79,14 +79,14 @@ Usare un criterio di Azure per abilitare la protezione avanzata dalle minacce tr
 
     ![Pagina definizioni criteri](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-apitabrest-api"></a>[REST API](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Usare i comandi dell'API REST per creare, aggiornare o ottenere l'impostazione Advanced Threat Protection per un account di archiviazione specifico.
 
 * [Advanced Threat Protection-crea](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced Threat Protection-Ottieni](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Usare i cmdlet di PowerShell seguenti:
 
@@ -116,9 +116,9 @@ L'e-mail fornisce inoltre informazioni sulle possibili cause e le azioni consigl
 
 ![E-mail di avviso di protezione avanzata dalle minacce di Archiviazione di Microsoft Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
 
-## <a name="protection-alerts"></a>Avvisi di protezione
+## <a name="security-alerts"></a>Avvisi di sicurezza
 
-Gli avvisi sono generati dai tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Per un elenco degli avvisi per archiviazione di Azure, vedere la sezione **archiviazione** in [rilevamento minacce per i servizi dati negli avvisi del Centro sicurezza di Azure](../../security-center/security-center-alerts-data-services.md#azure-storage)
+Gli avvisi sono generati dai tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Per un elenco degli avvisi per archiviazione di Azure, vedere la sezione **archiviazione** in [protezione dalle minacce per i servizi dati nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 979e83c0eeaac4555fc5144bca479f0b5656cd28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905492"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617531"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: errori di creazione del cluster
 
@@ -172,7 +172,7 @@ Non sono state fornite le autorizzazioni necessarie per gestire l'identità. L'i
 1. Aprire il portale di Azure.
 1. Passare all'account di archiviazione.
 1. Controllare il **controllo di accesso (IAM)** .
-1. Verificare che il ruolo di collaboratore dati BLOB di archiviazione o il ruolo proprietario dati BLOB di archiviazione disponga dell'accesso "assegnato" all'identità gestita assegnata dall'utente per la sottoscrizione.
+1. Verificare che all'utente sia assegnato il ruolo di collaboratore dei dati BLOB di archiviazione o il ruolo di proprietario dei dati BLOB di archiviazione.
 
 Per altre informazioni, vedere [configurare le autorizzazioni per l'identità gestita nell'account data Lake storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 

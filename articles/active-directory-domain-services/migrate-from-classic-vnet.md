@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: bd20bb008c52b7d99416aed7a0599a6e78d2acf2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 114a460b3db67af278f813de2e7a18d571cf3c28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161648"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613444"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Eseguire la migrazione Azure AD Domain Services dal modello di rete virtuale classica a Gestione risorse
 
@@ -104,7 +104,7 @@ Quando si prepara e quindi si esegue la migrazione di un dominio gestito Azure A
 > [!IMPORTANT]
 > Prima di iniziare il processo di migrazione, leggere l'articolo relativo alla migrazione e le linee guida. Il processo di migrazione influiscono sulla disponibilità dei controller di dominio Azure AD DS per periodi di tempo. Utenti, servizi e applicazioni non possono eseguire l'autenticazione nel dominio gestito durante il processo di migrazione.
 
-### <a name="ip-addresses"></a>Indirizzi IP
+### <a name="ip-addresses"></a>indirizzi IP
 
 Gli indirizzi IP del controller di dominio per un dominio gestito Azure AD DS cambiano dopo la migrazione. Questa modifica include l'indirizzo IP pubblico per l'endpoint LDAP sicuro. I nuovi indirizzi IP si trovano all'interno dell'intervallo di indirizzi per la nuova subnet nella rete virtuale Gestione risorse.
 
@@ -112,7 +112,7 @@ In caso di rollback, gli indirizzi IP possono cambiare dopo il rollback.
 
 Azure AD DS USA in genere i primi due indirizzi IP disponibili nell'intervallo di indirizzi, ma ciò non è garantito. Attualmente non è possibile specificare gli indirizzi IP da usare dopo la migrazione.
 
-### <a name="downtime"></a>Tempo di inattività
+### <a name="downtime"></a>Inattività
 
 Il processo di migrazione prevede che i controller di dominio siano offline per un determinato periodo di tempo. I controller di dominio sono inaccessibili mentre viene eseguita la migrazione di Azure AD DS al modello di distribuzione Gestione risorse e alla rete virtuale. In media, il tempo di inattività è di circa da 1 a 3 ore. Questo periodo di tempo si verifica quando i controller di dominio vengono portati offline nel momento in cui il primo controller di dominio torna online. Questa media non include il tempo necessario per la replica del secondo controller di dominio o il tempo impiegato per eseguire la migrazione di risorse aggiuntive al modello di distribuzione Gestione risorse.
 
@@ -151,7 +151,7 @@ Per ulteriori informazioni sui requisiti della rete virtuale, vedere [consideraz
 
 La migrazione al modello di distribuzione Gestione risorse e alla rete virtuale è suddivisa in 5 passaggi principali:
 
-| Passaggio    | Eseguito tramite  | Tempo stimato  | Tempo di inattività  | Eseguire il rollback o il ripristino? |
+| Passaggio    | Eseguito tramite  | Tempo stimato  | Inattività  | Eseguire il rollback o il ripristino? |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Passaggio 1: aggiornare e individuare la nuova rete virtuale](#update-and-verify-virtual-network-settings) | Portale di Azure | 15 minuti | Nessun tempo di inattività necessario | N/D |
 | [Passaggio 2: preparare il dominio gestito di Azure AD DS per la migrazione](#prepare-the-managed-domain-for-migration) | PowerShell | 15-30 minuti in media | Il tempo di inattività di Azure AD DS viene avviato dopo il completamento di questo comando. | Rollback e ripristino disponibili. |
@@ -206,12 +206,12 @@ Per preparare il dominio gestito di Azure AD DS per la migrazione, attenersi all
     $creds = Get-Credential
     ```
 
-1. A questo punto, eseguire il cmdlet `Migrate-Aadds` usando il parametro *-Prepare* . Fornire *-ManagedDomainFqdn* per il dominio gestito di Azure AD DS, ad esempio *contoso.com*:
+1. A questo punto, eseguire il cmdlet `Migrate-Aadds` usando il parametro *-Prepare* . Fornire *-ManagedDomainFqdn* per il dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*:
 
     ```powershell
     Migrate-Aadds `
         -Prepare `
-        -ManagedDomainFqdn contoso.com `
+        -ManagedDomainFqdn aaddscontoso.com `
         -Credentials $creds
     ```
 
@@ -219,7 +219,7 @@ Per preparare il dominio gestito di Azure AD DS per la migrazione, attenersi all
 
 Con il dominio gestito di Azure AD DS preparato e sottoposto a backup, è possibile eseguire la migrazione del dominio. Questo passaggio ricrea le macchine virtuali del controller di dominio Azure AD Domain Services usando il modello di distribuzione Gestione risorse. Il completamento di questo passaggio può richiedere da 1 a 3 ore.
 
-Eseguire il cmdlet `Migrate-Aadds` utilizzando il parametro *-commit* . Specificare *-ManagedDomainFqdn* per il dominio gestito Azure AD DS preparato nella sezione precedente, ad esempio *contoso.com*:
+Eseguire il cmdlet `Migrate-Aadds` utilizzando il parametro *-commit* . Specificare *-ManagedDomainFqdn* per il dominio gestito Azure AD DS preparato nella sezione precedente, ad esempio *aaddscontoso.com*:
 
 Specificare il gruppo di risorse di destinazione che contiene la rete virtuale di cui si vuole eseguire la migrazione Azure AD DS, ad esempio *myResourceGroup*. Fornire la rete virtuale di destinazione, ad esempio *myVnet*, e la subnet, ad esempio *DomainServices*.
 
@@ -228,7 +228,7 @@ Dopo l'esecuzione di questo comando, non è possibile eseguire il rollback:
 ```powershell
 Migrate-Aadds `
     -Commit `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
@@ -265,7 +265,7 @@ Testare ora la connessione alla rete virtuale e la risoluzione dei nomi. In una 
 
 1. Controllare se è possibile effettuare il ping dell'indirizzo IP di uno dei controller di dominio, ad esempio `ping 10.1.0.4`
     * Gli indirizzi IP dei controller di dominio vengono visualizzati nella pagina **Proprietà** del dominio gestito Azure AD DS nel portale di Azure.
-1. Verificare la risoluzione dei nomi del dominio gestito, ad esempio `nslookup contoso.com`
+1. Verificare la risoluzione dei nomi del dominio gestito, ad esempio `nslookup aaddscontoso.com`
     * Specificare il nome DNS per il dominio gestito Azure AD DS per verificare che le impostazioni DNS siano corrette e risolte.
 
 Il secondo controller di dominio deve essere disponibile 1-2 ore dopo il completamento del cmdlet di migrazione. Per verificare se il secondo controller di dominio è disponibile, esaminare la pagina delle **Proprietà** per il dominio gestito Azure AD DS nel portale di Azure. Se vengono visualizzati due indirizzi IP, il secondo controller di dominio è pronto.
@@ -309,23 +309,23 @@ Fino a un determinato punto del processo di migrazione, è possibile scegliere d
 
 Se si verifica un errore quando si esegue il cmdlet di PowerShell per preparare la migrazione nel passaggio 2 o per la migrazione stessa nel passaggio 3, il dominio gestito Azure AD DS può eseguire il rollback alla configurazione originale. Per eseguire il rollback è necessaria la rete virtuale classica originale. Si noti che gli indirizzi IP possono comunque cambiare dopo il rollback.
 
-Eseguire il cmdlet `Migrate-Aadds` utilizzando il parametro *-Abort* . Specificare *-ManagedDomainFqdn* per il dominio gestito di Azure AD DS preparato in una sezione precedente, ad esempio *contoso.com*, e il nome della rete virtuale classica, ad esempio *myClassicVnet*:
+Eseguire il cmdlet `Migrate-Aadds` utilizzando il parametro *-Abort* . Specificare *-ManagedDomainFqdn* per il dominio gestito di Azure AD DS preparato in una sezione precedente, ad esempio *aaddscontoso.com*, e il nome della rete virtuale classica, ad esempio *myClassicVnet*:
 
 ```powershell
 Migrate-Aadds `
     -Abort `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Ripristina
 
 Come ultima risorsa, è possibile ripristinare Azure AD Domain Services dall'ultimo backup disponibile. Nel passaggio 1 della migrazione viene effettuato un backup per assicurarsi che sia disponibile il backup più recente. Questo backup viene archiviato per 30 giorni.
 
 Per ripristinare il dominio gestito di Azure AD DS dal backup, [aprire un ticket del caso di supporto usando il portale di Azure][azure-support]. Specificare l'ID directory, il nome di dominio e il motivo per il ripristino. Il completamento del processo di supporto e ripristino può richiedere più giorni.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi dopo la migrazione al modello di distribuzione Gestione risorse, esaminare alcune delle seguenti aree comuni di risoluzione dei problemi:
 

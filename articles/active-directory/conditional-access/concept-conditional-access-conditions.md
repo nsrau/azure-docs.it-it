@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fe24e4a2b25b1ef3f0da2b1a5e1c0f29251df1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192233"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620720"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: Condizioni
 
@@ -41,32 +41,46 @@ Azure AD l'accesso condizionale supporta le piattaforme per dispositivi seguenti
 - Android
 - iOS
 - Windows Phone
-- Windows
+- WINDOWS
 - macOS
 
 Se si blocca l'autenticazione legacy usando la condizione di **altri client** , è anche possibile impostare la condizione della piattaforma del dispositivo.
 
-## <a name="locations"></a>Percorsi
+## <a name="locations"></a>Posizioni
 
 Quando si configura il percorso come condizione, le organizzazioni possono scegliere di includere o escludere percorsi. Queste località denominate possono includere le informazioni sulla rete IPv4 pubbliche, il paese o l'area geografica o anche aree sconosciute che non sono mappate a specifici paesi o aree geografiche. Solo gli intervalli IP possono essere contrassegnati come un percorso attendibile.
 
 Quando si include **un percorso qualsiasi**, questa opzione include qualsiasi indirizzo IP in Internet non appena configurato località denominate. Quando si seleziona **un percorso qualsiasi**, gli amministratori possono scegliere di escludere **tutti i percorsi attendibili** o **selezionati**.
 
-Ad esempio, alcune organizzazioni possono scegliere di non richiedere l'autenticazione a più fattori quando gli utenti sono connessi alla rete in una posizione attendibile, ad esempio la sede fisica. Gli amministratori possono creare un criterio che include qualsiasi percorso, ma esclude le località selezionate per le rispettive reti centrali
+Ad esempio, alcune organizzazioni possono scegliere di non richiedere l'autenticazione a più fattori quando gli utenti sono connessi alla rete in una posizione attendibile, ad esempio la sede fisica. Gli amministratori possono creare un criterio che include qualsiasi percorso, ma esclude le località selezionate per le rispettive reti centrali.
+
+Altre informazioni sulle località sono disponibili nell'articolo, [Qual è la condizione della posizione in Azure Active Directory accesso condizionale](location-condition.md).
 
 ## <a name="client-apps-preview"></a>App client (anteprima)
 
 Per impostazione predefinita, i criteri di accesso condizionale si applicano alle applicazioni basate su browser e alle applicazioni che utilizzano protocolli di autenticazione moderni. Oltre a queste applicazioni, gli amministratori possono scegliere di includere i client di Exchange ActiveSync e altri client che usano protocolli legacy.
 
-- Browser
+- Browser.
    - Sono incluse le applicazioni basate sul Web che usano protocolli quali SAML, WS-Federation, OpenID Connect o i servizi registrati come client Confidential OAuth.
 - App per dispositivi mobili e client desktop
    - Client di autenticazione moderni
       - Questa opzione include applicazioni come le applicazioni desktop e per telefoni di Office.
    - Client Exchange ActiveSync
+      - Per impostazione predefinita, è incluso l'uso del protocollo EAS (Exchange ActiveSync). La scelta di **applica i criteri solo alle piattaforme supportate** limiterà le piattaforme supportate come iOS, Android e Windows.
       - Quando i criteri bloccano l'uso di Exchange ActiveSync, l'utente interessato riceverà un messaggio di posta elettronica di quarantena singolo. Questo messaggio di posta elettronica con fornisce informazioni sul motivo del blocco e include le istruzioni per la correzione, se possibile.
    - Altri client
-      - Questa opzione include i client che usano i protocolli di autenticazione di base/legacy, incluse le applicazioni IMAP, MAPI, POP, SMTP e legacy di Office che non supportano l'autenticazione moderna.
+      - Questa opzione include i client che usano i protocolli di autenticazione di base/legacy che non supportano l'autenticazione moderna.
+         - SMTP autenticato: usato dal POP e dal client IMAP per inviare messaggi di posta elettronica.
+         - Individuazione automatica: usata dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.
+         - PowerShell per Exchange Online: usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [connettersi a Exchange Online PowerShell usando l'autenticazione a più fattori](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Servizi Web Exchange (EWS): un'interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.
+         - IMAP4: usato dai client di posta elettronica IMAP.
+         - MAPI su HTTP (MAPI/HTTP): usato da Outlook 2010 e versioni successive.
+         - Rubrica non in linea (OAB): copia delle raccolte di elenchi di indirizzi scaricate e usate da Outlook.
+         - Outlook Anywhere (RPC su HTTP): usato da Outlook 2016 e versioni precedenti.
+         - Servizio Outlook: usato dall'app di posta elettronica e calendario per Windows 10.
+         - POP3: usato dai client di posta elettronica POP.
+         - Servizi Web di Reporting: consente di recuperare i dati del report in Exchange Online.
 
 Queste condizioni vengono comunemente usate quando si richiede un dispositivo gestito, bloccando l'autenticazione legacy e bloccando le applicazioni Web, ma consentendo le app per dispositivi mobili o desktop.
 
@@ -84,7 +98,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Phone | Microsoft Edge, Internet Explorer |
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
-| Windows Server 2012 R2 | Internet Explorer |
+| Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
@@ -100,19 +114,19 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Nome | 1 |
+| Percorso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Name | 1 |
 | Type | REG_SZ (String) |
-| data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS\://clients2.google.com/service/update2/crx |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS\://clients2.google.com/service/update2/crx |
 
 Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Nome | 1 |
+| Percorso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Name | 1 |
 | Type | REG_SZ (String) |
-| data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Questi browser supportano l'autenticazione del dispositivo, consentendo al dispositivo di essere identificato e convalidato rispetto a un criterio. Il controllo del dispositivo ha esito negativo se il browser è in esecuzione in modalità privata.
 
@@ -122,7 +136,7 @@ Le organizzazioni possono selezionare app per **dispositivi mobili e client desk
 
 Questa impostazione interessa i tentativi di accesso eseguiti dalle app per dispositivi mobili e client desktop seguenti:
 
-| App client | Servizio di destinazione | Piattaforma |
+| App client | Servizio di destinazione | Platform |
 | --- | --- | --- |
 | Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Office 365 Exchange Online | Windows 10 |
@@ -139,7 +153,7 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 | Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | App Outlook Mobile | Office 365 Exchange Online | Android, iOS |
 | App Power BI | servizio Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype for Business Online | Office 365 Exchange Online| Android, iOS |
+| Skype for Business | Office 365 Exchange Online| Android, iOS |
 | App Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
 ### <a name="exchange-activesync-clients"></a>Client Exchange ActiveSync

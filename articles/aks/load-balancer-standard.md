@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3fe4de2b8b85e603bc200b27fa15c67f6cc05dd4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595162"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622176"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ Se si dispone di un cluster esistente con lo SKU Basic Load Balancer, quando si 
 
 Ad esempio, l'esecuzione di distribuzioni Blue/Green per la migrazione dei cluster è una pratica comune, dato che il tipo di `load-balancer-sku` di un cluster può essere definito solo in fase di creazione del cluster. Tuttavia, i bilanciamenti del carico *SKU Basic* usano gli indirizzi IP dello *SKU Basic* che non sono compatibili con i bilanciamenti del carico *SKU standard* perché richiedono indirizzi IP *SKU standard* . Quando si esegue la migrazione dei cluster per aggiornare Load Balancer SKU, sarà necessario un nuovo indirizzo IP con lo SKU di un indirizzo IP compatibile.
 
-Per altre considerazioni su come eseguire la migrazione dei cluster, vedere [la documentazione relativa alle considerazioni sulla migrazione](acs-aks-migration.md) per visualizzare un elenco di argomenti importanti da considerare durante la migrazione. Le limitazioni seguenti sono anche importanti differenze comportamentali da tenere presente quando si usa il servizio di bilanciamento del carico SKU standard in AKS.
+Per altre considerazioni su come eseguire la migrazione dei cluster, vedere [la documentazione relativa alle considerazioni sulla migrazione](aks-migration.md) per visualizzare un elenco di argomenti importanti da considerare durante la migrazione. Le limitazioni seguenti sono anche importanti differenze comportamentali da tenere presente quando si usa il servizio di bilanciamento del carico SKU standard in AKS.
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -188,7 +188,7 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 L'output di esempio mostra il valore predefinito per *AllocatedOutboundPorts* e *IdleTimeoutInMinutes*. Il valore 0 per *AllocatedOutboundPorts* imposta il numero di porte in uscita che usano l'assegnazione automatica per il numero di porte in uscita in base alle dimensioni del pool back-end. Se, ad esempio, il cluster ha 50 o meno nodi, vengono allocate 1024 porte per ogni nodo.
 
-Provare a modificare l'impostazione di *allocatedOutboundPorts* o *IdleTimeoutInMinutes* se si prevede di affrontare l'esaurimento del SNAT in base alla configurazione predefinita precedente. Ogni indirizzo IP aggiuntivo Abilita 64.000 porte aggiuntive per l'allocazione, tuttavia il Load Balancer Standard di Azure non aumenta automaticamente le porte per nodo quando vengono aggiunti più indirizzi IP. È possibile modificare questi valori impostando i parametri *Load-Balancer-Outbound-Ports* e *Load-Balancer-Idle-timeout* . Ad esempio:
+Provare a modificare l'impostazione di *allocatedOutboundPorts* o *IdleTimeoutInMinutes* se si prevede di affrontare l'esaurimento del SNAT in base alla configurazione predefinita precedente. Ogni indirizzo IP aggiuntivo Abilita 64.000 porte aggiuntive per l'allocazione, tuttavia il Load Balancer Standard di Azure non aumenta automaticamente le porte per nodo quando vengono aggiunti più indirizzi IP. È possibile modificare questi valori impostando i parametri *Load-Balancer-Outbound-Ports* e *Load-Balancer-Idle-timeout* . Ad esempio,
 
 ```azurecli-interactive
 az aks update \
@@ -201,7 +201,7 @@ az aks update \
 > [!IMPORTANT]
 > È necessario [calcolare la quota necessaria][calculate-required-quota] prima di personalizzare *allocatedOutboundPorts* per evitare problemi di connettività o di ridimensionamento. Il valore specificato per *allocatedOutboundPorts* deve essere anche un multiplo di 8.
 
-Quando si crea un cluster, è anche possibile usare i parametri *Load-Balancer-Ports-Outbound-Ports* e *Load-Balancer-Idle-timeout* . Tuttavia, è necessario specificare anche Load-Balancer-Managed-Outbound- *IP-count*, *Load-Balancer-* Outbound-IP- *prefissi* .  Ad esempio:
+Quando si crea un cluster, è anche possibile usare i parametri *Load-Balancer-Ports-Outbound-Ports* e *Load-Balancer-Idle-timeout* . Tuttavia, è necessario specificare anche Load-Balancer-Managed-Outbound- *IP-count*, *Load-Balancer-* Outbound-IP- *prefissi* .  Ad esempio,
 
 ```azurecli-interactive
 az aks create \

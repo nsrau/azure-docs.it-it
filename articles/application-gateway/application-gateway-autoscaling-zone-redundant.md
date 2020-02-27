@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 39b7e94747f556b61f661968f7126d122156d9cf
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031561"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622009"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -26,8 +26,8 @@ Il nuovo SKU v2 include i miglioramenti seguenti:
   La ridondanza della zona è disponibile solo se sono disponibili zone di Azure. In altre aree sono supportate tutte le altre funzionalità. Per altre informazioni, vedere [Informazioni sulle zone di disponibilità di Azure](../availability-zones/az-overview.md#services-support-by-region)
 - Indirizzo **VIP statico**: lo SKU del gateway applicazione V2 supporta il tipo di indirizzo VIP statico in modo esclusivo. In questo modo si assicura che l'indirizzo VIP associato al gateway applicazione non cambi per il ciclo di vita della distribuzione, anche dopo un riavvio.  Non esiste un indirizzo VIP statico nella versione 1, quindi è necessario usare l'URL del gateway applicazione anziché l'indirizzo IP per il routing del nome di dominio ai servizi app tramite il gateway applicazione.
 - **Header Rewrite**: il gateway applicazione consente di aggiungere, rimuovere o aggiornare intestazioni di richiesta e risposta http con lo SKU V2. Per altre informazioni, vedere [riscrivere le intestazioni HTTP con il gateway applicazione](rewrite-http-headers.md)
-- **Integrazione di Key Vault (anteprima)** : il gateway applicazione V2 supporta l'integrazione con Key Vault (in anteprima pubblica) per i certificati server collegati ai listener abilitati per HTTPS. Per ulteriori informazioni, vedere [terminazione SSL con Key Vault Certificates](key-vault-certs.md).
-- Controller di ingresso del **servizio Azure Kubernetes (anteprima)** : il controller di ingresso del gateway applicazione v2 consente l'uso del gateway applicazione Azure come ingresso per un servizio Azure KUBERNETES (AKS) noto come cluster AKS. Per ulteriori informazioni, vedere la [pagina della documentazione](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Integrazione con Key Vault**: il gateway applicazione V2 supporta l'integrazione con Key Vault per i certificati server collegati ai listener abilitati per HTTPS. Per ulteriori informazioni, vedere [terminazione SSL con Key Vault Certificates](key-vault-certs.md).
+- Controller di ingresso del **servizio Azure Kubernetes**: il controller di ingresso del gateway applicazione v2 consente l'uso del gateway applicazione Azure come ingresso per un servizio Azure KUBERNETES (AKS) noto come cluster AKS. Per altre informazioni, vedere [che cos'è il controller di ingresso del gateway applicazione?](ingress-controller-overview.md).
 - **Miglioramenti delle prestazioni**: lo SKU V2 offre prestazioni di offload SSL migliori a 5X rispetto allo SKU standard/WAF.
 - **Tempo di distribuzione e aggiornamento più rapido** Lo SKU V2 offre tempi di distribuzione e aggiornamento più veloci rispetto allo SKU standard/WAF. Sono incluse anche le modifiche della configurazione di WAF.
 
@@ -61,7 +61,7 @@ Nella tabella seguente vengono illustrati i prezzi di esempio e sono solo a scop
 
 |              Nome SKU                             | Prezzo fisso ($/ora)  | Prezzo unitario di capacità ($/CU-hr)   |
 | ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0.20             | 0,0080                          |
+| Standard_v2                                       |    0,20             | 0,0080                          |
 | WAF_v2                                            |    0,36             | 0,0144                          |
 
 Per ulteriori informazioni sui prezzi, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/). 
@@ -141,7 +141,7 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 
 |                                                   | SKU V1   | SKU V2   |
 | ------------------------------------------------- | -------- | -------- |
-| Ridimensionamento automatico                                       |          | &#x2713; |
+| Scalabilità automatica                                       |          | &#x2713; |
 | Ridondanza della zona                                   |          | &#x2713; |
 | Indirizzo VIP statico                                        |          | &#x2713; |
 | Controller di ingresso del servizio Azure Kubernetes (AKS) |          | &#x2713; |

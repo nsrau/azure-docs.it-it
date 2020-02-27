@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ca9ed8781a13f9ab5e949e0e5f019a851dc75f4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057482"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621520"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Esercitazione: configurare Insight4GRC per il provisioning utenti automatico
 
@@ -35,7 +35,7 @@ Questa esercitazione descrive i passaggi da eseguire sia in Insight4GRC che in A
 > * Effettuare il provisioning di gruppi e appartenenze a gruppi in Insight4GRC
 > * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial) per Insight4GRC (scelta consigliata)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -90,7 +90,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere il nome utente e le credenziali di amministratore di Insight4GRC. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Insight4GRC. Se la connessione non riesce, verificare che l'account Insight4GRC disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere l'URL dell'endpoint scim nell' **URL del tenant**. Il formato dell'URL dell'endpoint deve essere `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` in cui il **nome di dominio Insight4GRC** è il valore recuperato nei passaggi precedenti. Immettere il valore bearer token recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Insight4GRC. Se la connessione non riesce, verificare che l'account Insight4GRC disponga delle autorizzazioni di amministratore e riprovare.
 
     ![provisioning](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
@@ -106,14 +106,14 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |externalId|string|
-   |active|Boolean|
-   |title|string|
-   |name.givenName|string|
-   |name.familyName|string|
-   |emails[type eq "work"].value|string|
-   |phoneNumbers[type eq "work"].value|string|
+   |userName|String|
+   |externalId|String|
+   |attivo|Boolean|
+   |title|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |emails[type eq "work"].value|String|
+   |phoneNumbers[type eq "work"].value|String|
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Insight4GRC**.
 
@@ -121,9 +121,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
       |Attributo|Type|
       |---|---|
-      |displayName|string|
-      |externalId|string|
-      |Membri di|Riferimento|
+      |displayName|String|
+      |externalId|String|
+      |membri|Riferimento|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

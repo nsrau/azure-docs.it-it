@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 8eb115497427338599db08e8c7bbdd55c5a158fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807958"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624158"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Progettazione di servizi disponibili a livello globale con il database SQL di Azure
 
@@ -119,7 +119,7 @@ Le risorse dell'applicazione dovranno essere distribuite in ogni area geografica
 
 ![Scenario 3. Configurazione con database primario nell'area Stati Uniti orientali.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-Alla fine della giornata (ad esempio, alle 23 ora locale), i database attivi dovranno essere trasferiti all'area successiva (Europa settentrionale). Questa attività può essere interamente automatizzata con il [servizio di pianificazione di Azure](../scheduler/scheduler-intro.md).  L'attività include i passaggi seguenti:
+Alla fine della giornata, ad esempio alle 23.00 ora locale, i database attivi devono essere passati all'area successiva (Europa settentrionale). Questa attività può essere completamente automatizzata usando [app](../logic-apps/logic-apps-overview.md)per la logica di Azure. L'attività include i passaggi seguenti:
 
 * Trasferire il server primario del gruppo di failover all'area Europa settentrionale con il failover semplice (1).
 * Rimuovere il gruppo di failover tra Stati Uniti orientali ed Europa settentrionale.
@@ -130,7 +130,7 @@ Il diagramma seguente illustra la nuova configurazione dopo il failover pianific
 
 ![Scenario 3. Transizione del database primario all'area Europa settentrionale.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-In caso di interruzione nell'area Europa settentrionale, ad esempio, il gruppo di failover avvia il failover automatico del database, che di fatto determina lo spostamento dell'applicazione nell'area successiva in anticipo rispetto alla pianificazione (1).  In tal caso, gli Stati Uniti orientali sono l'unica area secondaria rimanente finché l'area Europa settentrionale non è di nuovo online. Le due aree rimanenti gestiscono i clienti in tutte e tre le aree geografiche cambiando i ruoli. L'utilità di pianificazione di Azure deve essere modificata di conseguenza. Dato che le aree rimanenti ricevono traffico utente aggiuntivo dall'Europa, le prestazioni dell'applicazione risultano peggiorate a causa non solo della latenza aggiuntiva ma anche di un maggior numero di connessioni degli utenti finali. Dopo che l'interruzione in Europa settentrionale è stata risolta, il database secondario in tale area viene immediatamente sincronizzato con il database primario corrente. Il diagramma seguente illustra un'interruzione nell'area Europa settentrionale:
+In caso di interruzione nell'area Europa settentrionale, ad esempio, il gruppo di failover avvia il failover automatico del database, che di fatto determina lo spostamento dell'applicazione nell'area successiva in anticipo rispetto alla pianificazione (1).  In tal caso, gli Stati Uniti orientali sono l'unica area secondaria rimanente finché l'area Europa settentrionale non è di nuovo online. Le due aree rimanenti gestiscono i clienti in tutte e tre le aree geografiche cambiando i ruoli. Le app per la logica di Azure devono essere modificate di conseguenza. Dato che le aree rimanenti ricevono traffico utente aggiuntivo dall'Europa, le prestazioni dell'applicazione risultano peggiorate a causa non solo della latenza aggiuntiva ma anche di un maggior numero di connessioni degli utenti finali. Dopo che l'interruzione in Europa settentrionale è stata risolta, il database secondario in tale area viene immediatamente sincronizzato con il database primario corrente. Il diagramma seguente illustra un'interruzione nell'area Europa settentrionale:
 
 ![Scenario 3. Interruzione nell'area Europa settentrionale.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 

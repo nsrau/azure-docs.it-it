@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212465"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615674"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -103,32 +103,33 @@ Ad esempio, un'app per le funzioni JavaScript è vincolata dal limite di memoria
 
 Di seguito sono elencate le aree attualmente supportate per ogni sistema operativo.
 
-|Region| WINDOWS | Linux |
+|Region| Windows | Linux |
 |--| -- | -- |
 |Australia centrale| ✔<sup>1</sup> | |
 |Australia centrale 2| ✔<sup>1</sup> | |
-|Australia orientale| ✔ | |
+|Australia orientale| ✔ | ✔<sup>1</sup> |
 |Australia sud-orientale | ✔ | ✔<sup>1</sup> |
 |Brasile meridionale| ✔<sup>2</sup> |  |
-|Canada centrale| ✔ |  |
+|Canada centrale| ✔ | ✔<sup>1</sup> |
 |Stati Uniti centrali| ✔ |  |
 |Asia orientale| ✔ |  |
 |Stati Uniti orientali | ✔ | ✔<sup>1</sup> |
-|Stati Uniti orientali 2| ✔ |  |
+|Stati Uniti orientali 2| ✔ | ✔<sup>1</sup> |
 |Francia centrale| ✔ |  |
 |Germania centro-occidentale| ✔ | |
 |Giappone orientale| ✔ | ✔<sup>1</sup> |
-|Giappone occidentale| ✔ | |
-|Corea centrale| ✔ |  |
+|Giappone occidentale| ✔ | ✔<sup>1</sup> |
+|Corea centrale| ✔ | ✔<sup>1</sup> |
 |Stati Uniti centro-settentrionali| ✔ |  |
 |Europa settentrionale| ✔ | ✔<sup>1</sup> |
 |Stati Uniti centro-meridionali| ✔ | ✔<sup>1</sup> |
 |India meridionale | ✔ | |
 |Asia sud-orientale| ✔ | ✔<sup>1</sup> |
-|Regno Unito meridionale| ✔ | |
+|Regno Unito meridionale| ✔ | ✔<sup>1</sup> |
 |Regno Unito occidentale| ✔ |  |
 |Europa occidentale| ✔ | ✔<sup>1</sup> |
 |India occidentale| ✔ |  |
+|Stati Uniti centro-occidentali| | ✔<sup>1</sup> |
 |Stati Uniti occidentali| ✔ | ✔<sup>1</sup> |
 |Stati Uniti occidentali 2| ✔ |  |
 

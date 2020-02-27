@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 179d0ff8143b526e100b89cffbbac0bbc29ca3e1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 83cac961eb3cd700451f16c684c64185b35e9bd3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776664"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616758"
 ---
-# <a name="upgrade-azure-public-load-balancer-from-basic-sku-to-standard-sku"></a>Aggiornare Load Balancer di Azure Public dallo SKU Basic allo SKU standard
+# <a name="upgrade-azure-public-load-balancer"></a>Aggiornare Load Balancer pubblico di Azure
 [Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 In un aggiornamento sono presenti due fasi:
@@ -28,8 +28,8 @@ Questo articolo illustra la migrazione della configurazione. L'aggiunta di macch
 
 È disponibile uno script Azure PowerShell che esegue le operazioni seguenti:
 
-* Crea uno SKU pubblico standard Load Balancer nel gruppo di risorse e nella posizione specificati.
-* Copia agevolmente le configurazioni del Load Balancer pubblico dello SKU di base nel Load Balancer pubblico standard appena creato.
+* Crea uno SKU standard Load Balancer nel gruppo di risorse e nella posizione specificati dall'utente.
+* Copia agevolmente le configurazioni dello SKU Basic Load Balancer al Load Balancer Standard appena creato.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
@@ -70,18 +70,9 @@ Per eseguire lo script:
 
 1. Usare `Import-Module Az` per importare i moduli AZ.
 
-1. Eseguire `Get-Help AzureLBUpgrade.ps1` per esaminare i parametri obbligatori:
+1. Esaminare i parametri obbligatori:
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   Parametri per lo script:
-   * **oldRgName: [String]: required** : questo è il gruppo di risorse per la Load Balancer di base esistente che si vuole aggiornare. Per trovare questo valore di stringa, passare al portale di Azure, selezionare l'origine di base Load Balancer e fare clic sulla **Panoramica** per il servizio di bilanciamento del carico. Il gruppo di risorse si trova in questa pagina.
+   * **oldRgName: [String]: required** : questo è il gruppo di risorse per la Load Balancer di base esistente che si vuole aggiornare. Per trovare questo valore stringa, passare a portale di Azure, selezionare l'origine Load Balancer di base e fare clic sulla **Panoramica** per il servizio di bilanciamento del carico. Il gruppo di risorse si trova in questa pagina.
    * **oldLBName: [String]: required** . si tratta del nome del servizio di bilanciamento di base esistente che si vuole aggiornare. 
    * **newrgName: [stringa]: obbligatorio** : gruppo di risorse in cui verrà creata la Load Balancer standard. Può trattarsi di un nuovo gruppo di risorse o di uno esistente. Se si seleziona un gruppo di risorse esistente, si noti che il nome del Load Balancer deve essere univoco all'interno del gruppo di risorse. 
    * **newLocation: [String]: obbligatorio** : posizione in cui verrà creata la Load Balancer standard. È consigliabile ereditare la stessa posizione del Load Balancer di base scelto per la Load Balancer Standard per una migliore associazione con altre risorse esistenti.

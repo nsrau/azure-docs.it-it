@@ -8,12 +8,13 @@ ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: 3aa5b5085a6120ca513f0aeba344e7f541f0fd72
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+- cli-validate
+ms.openlocfilehash: 13431b62e64774a4c31cf95200def3ba77f973d7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713419"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523935"
 ---
 # <a name="tutorial-run-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Eseguire un'app Web Python (Django) con PostgreSQL nel Servizio app di Azure
 

@@ -4,7 +4,7 @@ description: Come eseguire la migrazione di SAP HANA in Azure (istanze large) in
 services: virtual-machines-linux
 documentationcenter: ''
 author: bentrin
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82d39ef9f0b9bfee15bb78e897b247426bf8e2a2
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369720"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617048"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA sulla migrazione di istanze large di Azure alle macchine virtuali di Azure
 Questo articolo descrive i possibili scenari di distribuzione di istanze large di Azure e offre un approccio di pianificazione e migrazione con tempi di inattività della transizione minimi
@@ -109,7 +109,7 @@ L'area di distribuzione corrente dei server applicazioni SAP è in genere vicina
 ### <a name="virtual-network"></a>Rete virtuale 
 I clienti devono scegliere se eseguire il nuovo database HANA in una rete virtuale esistente o crearne uno nuovo.  Il fattore decisivo principale è il layout di rete corrente per il panorama applicativo SAP.  Inoltre, quando l'infrastruttura passa dalla distribuzione da una zona a una a due zone e USA PPG, impone una modifica dell'architettura. Per altre informazioni, vedere l'articolo [di Azure PPG per la latenza di rete ottimale con l'applicazione SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).   
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 Se la nuova macchina virtuale SAP HANA che si trova in una VNET/subnet nuova o esistente, rappresenta un nuovo servizio aziendale cruciale che richiede la protezione.  Il controllo di accesso conforme ai criteri di sicurezza delle informazioni aziendali deve essere valutato e distribuito per questa nuova classe di servizio.
 
 ### <a name="vm-sizing-recommendation"></a>Raccomandazione per il dimensionamento delle VM

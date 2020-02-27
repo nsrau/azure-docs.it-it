@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c781c5e12f3f678ef640c6017a768e7ac14448f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871993"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621874"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partizionamento in Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Per ulteriori informazioni sul modo in cui Azure Cosmos DB gestisce le partizion
 
 Di seguito sono riportate informazioni utili per la scelta di una chiave di partizione:
 
-* Una singola partizione logica ha un limite massimo di 10 GB di spazio di archiviazione.  
+* Una singola partizione logica ha un limite massimo di 20 GB di spazio di archiviazione.  
 
 * I contenitori di Azure Cosmos hanno una velocità effettiva minima di 400 unità richiesta al secondo (UR/sec). Quando viene effettuato il provisioning della velocità effettiva in un database, le UR minime per ogni contenitore sono 100 unità richiesta al secondo (UR/sec). Le richieste alla stessa chiave di partizione non possono superare la velocità effettiva allocata a una partizione. Se le richieste superano la velocità effettiva allocata, le richieste sono con limitazione della frequenza. È quindi importante scegliere una chiave di partizione che non generi "aree sensibili" nell'applicazione.
 

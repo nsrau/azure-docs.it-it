@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6efad8160115347469fb387108812ddc9adecc1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: c9d287d5bfc091fcbbff46095da5458fa08de73d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77601928"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624178"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -34,23 +34,20 @@ L'univocità di Azure per SAP HANA è un'offerta che consente di impostare Azure
 L'hosting di scenari di carico di lavoro SAP in Azure può anche creare requisiti per l'integrazione di identità e Single Sign-On. Questa situazione può verificarsi quando si usa Azure Active Directory (Azure AD) per connettere componenti SAP diversi e offerte SaaS (software-as-a-Service) di SAP o piattaforma distribuita come servizio (PaaS). Un elenco di questi scenari di integrazione e Single Sign-On con le entità Azure AD e SAP viene descritto e documentato nella sezione "integrazione delle identità e Single Sign-On di AAD SAP".
 
 ## <a name="changes-to-the-sap-workload-section"></a>Modifiche alla sezione del carico di lavoro SAP
-Alla fine di questo articolo sono elencate le modifiche apportate ai documenti nella sezione del carico di lavoro SAP in Azure.
+Alla fine di questo articolo sono elencate le modifiche apportate ai documenti nella sezione del carico di lavoro SAP in Azure. Le voci nel log delle modifiche vengono mantenute per circa 180 giorni.
 
+## <a name="you-want-to-know"></a>Si vuole saperlo
+In caso di domande specifiche, in questa sezione della pagina iniziale verrà fatto riferimento a documenti o flussi specifici. Si desidera essere a conoscenza di:
 
+- Le macchine virtuali di Azure e le unità di istanze large di HANA sono supportate per le versioni del software SAP e per le versioni del sistema operativo. Leggere il documento relativo a [come il software SAP è supportato per la distribuzione di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) per le risposte e il processo di individuazione delle informazioni
+- Quali scenari di distribuzione SAP sono supportati con le macchine virtuali di Azure e le istanze large di HANA. Le informazioni sugli scenari supportati sono disponibili nei documenti:
+    - [Carico di lavoro SAP negli scenari supportati da macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+    - [Scenari supportati per istanze large di HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+
+ 
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
 
-Una serie di documenti consente di SAP HANA in Azure (istanze large) o in caso di istanze large di HANA. Per informazioni sulle seguenti aree di istanze large di HANA, vedere:
-
-- [Panoramica di SAP HANA in Azure (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Architettura di SAP HANA in Azure (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
-- [Infrastruttura e connettività a SAP HANA in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- [Installare SAP HANA in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
-- [Disponibilità elevata e ripristino di emergenza di SAP HANA in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
-- [Risolvere i problemi e monitorare SAP HANA in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-
-Passaggi successivi:
-
-- Leggi [la panoramica e l'architettura dei SAP Hana in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+Una serie di documenti consente di SAP HANA in Azure (istanze large) o in caso di istanze large di HANA. Per informazioni sulle istanze large di HANA, iniziare con la panoramica del documento [e l'architettura di SAP Hana in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) e passare attraverso la documentazione correlata nella sezione relativa alle istanze large di Hana.
 
 
 
@@ -120,7 +117,9 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+- 02/25/2020: modificare l' [architettura e gli scenari di disponibilità elevata per SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) per aggiungere collegamenti a articoli a disponibilità elevata più recenti
 - 02/25/2020: modificare la [disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) per puntare a documenti che descrivono l'accesso a un endpoint pubblico con Azure Load Balancer standard
+- 02/21/2020: Revisione completa della [distribuzione DBMS di macchine virtuali di Azure per SAP ASE per il carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
 - 02/21/2020: modificare la [configurazione di archiviazione della macchina virtuale di Azure SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per rappresentare la nuova raccomandazione in dimensioni stripe per/Hana/data e aggiungere l'impostazione dell'utilità di pianificazione I/O
 - 02/21/2020: modifiche nei documenti di istanze large di HANA per rappresentare SKU appena certificati di S224 e S224m
 - 02/21/2020: modificare la disponibilità [elevata delle macchine virtuali di Azure per SAP NetWeaver in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) e [la disponibilità elevata della macchina virtuale di Azure per SAP NetWeaver in RHEL con Azure NetApp files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) per modificare i vincoli del cluster per l'architettura di Accodamento Server Replication 2 (ENSA2)

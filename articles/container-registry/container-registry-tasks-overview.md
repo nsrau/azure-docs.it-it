@@ -2,13 +2,13 @@
 title: Panoramica delle Attività del Registro Azure Container
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 01/22/2020
+ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938887"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615945"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -70,26 +70,12 @@ Per informazioni su come attivare compilazioni in caso di commit del codice sorg
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizzare l'applicazione di patch al sistema operativo e al framework
 
-ACR Tasks può realmente migliorare il flusso di lavoro di compilazione dei contenitori grazie alla capacità di rilevare un aggiornamento di un'immagine di base. Quando viene effettuato il push dell'immagine di base aggiornata nel registro di sistema o un'immagine di base viene aggiornata in un repository pubblico, ad esempio in Docker Hub, le attività di ACR possono compilare automaticamente eventuali immagini dell'applicazione basate su di esso.
+La potenza delle attività ACR per migliorare realmente il flusso di lavoro di compilazione del contenitore deriva dalla capacità di rilevare un aggiornamento a un' *immagine di base*. Una funzionalità della maggior parte delle immagini del contenitore, un'immagine di base è un'immagine padre su cui si basano una o più immagini dell'applicazione. Le immagini di base contengono in genere il sistema operativo e, talvolta, i Framework applicazione. 
 
-Le immagini dei contenitori possono essere suddivise in linea di massima in immagini di *base* e immagini di *applicazioni*. Le immagini di base includono in genere il sistema operativo e i framework applicazioni su cui è basata l'applicazione, insieme ad altre personalizzazioni. Queste immagini di base sono in genere basate su immagini upstream pubbliche, ad esempio [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet]o [node. js][base-node]. Diverse immagini di applicazioni possono condividere un'immagine di base comune.
+È possibile configurare un'attività ACR per tenere traccia di una dipendenza da un'immagine di base durante la compilazione di un'immagine dell'applicazione. Quando viene effettuato il push dell'immagine di base aggiornata nel registro di sistema o un'immagine di base viene aggiornata in un repository pubblico, ad esempio in Docker Hub, le attività di ACR possono compilare automaticamente eventuali immagini dell'applicazione basate su di esso.
+Grazie al rilevamento e alla ricompilazione automatici, ACR Tasks consente di risparmiare il tempo e il lavoro normalmente necessari per monitorare e aggiornare manualmente ogni immagine di applicazione che fa riferimento all'immagine di base aggiornata.
 
-Quando un'immagine del sistema operativo o del framework app viene aggiornata dal gestore upstream, ad esempio con una patch di sicurezza critica del sistema operativo, è necessario aggiornare anche le immagini di base in modo da includere l'aggiornamento critico. È quindi necessario anche ricompilare ogni immagine di applicazione per includere gli aggiornamenti upstream ora inclusi nell'immagine di base.
-
-Individuando dinamicamente le dipendenze dell'immagine di base durante la compilazione di un'immagine del contenitore, Attività del Registro Azure Container può rilevare l'aggiornamento dell'immagine di base di un'immagine di applicazione. Con un'[attività di compilazione](container-registry-tutorial-base-image-update.md#create-a-task) preconfigurata, ACR Tasks **ricompila quindi automaticamente ogni immagine di applicazione**. Grazie al rilevamento e alla ricompilazione automatici, ACR Tasks consente di risparmiare il tempo e il lavoro normalmente necessari per monitorare e aggiornare manualmente ogni immagine di applicazione che fa riferimento all'immagine di base aggiornata.
-
-Per le compilazioni di immagini da un Dockerfile, un'attività ACR tiene traccia dell'aggiornamento di un'immagine di base quando l'immagine di base si trova in una delle posizioni seguenti:
-
-* La stessa istanza di Registro Azure Container in cui viene eseguita l'attività
-* Un'altra istanza di Registro Azure Container nella stessa area 
-* Un repository pubblico in Docker Hub
-* Un repository pubblico in Registro contenitori di Microsoft
-
-> [!NOTE]
-> * Il trigger di aggiornamento dell'immagine di base è abilitato per impostazione predefinita in un'attività ACR. 
-> * Attualmente, le attività ACR tengono traccia solo degli aggiornamenti delle immagini di base per le immagini dell'applicazione (*Runtime*). Le attività ACR non tengono traccia degli aggiornamenti delle immagini di base per le immagini intermedie (*BuildTime*) usate in dockerfile in più fasi. 
-
-Per altre informazioni sull'applicazione di patch per il sistema operativo e il Framework, vedere la terza esercitazione sulle attività di ACR, [automatizzare le compilazioni di immagini nell'aggiornamento dell'immagine di base con container Registry Azure](container-registry-tutorial-base-image-update.md)
+Altre informazioni sui [trigger di base](container-registry-tasks-base-images.md) per l'aggiornamento delle immagini per le attività ACR. Per informazioni su come attivare una compilazione di immagini quando viene eseguito il push di un'immagine di base in un registro contenitori, vedere l'esercitazione [automatizzare le compilazioni di immagini del contenitore quando un'immagine di base viene aggiornata in un registro contenitori di Azure](container-registry-tutorial-base-image-update.md)
 
 ## <a name="schedule-a-task"></a>Pianificare un'attività
 
@@ -116,7 +102,7 @@ Altre informazioni sulle attività in più passaggi in [Run multi-step build, te
 
 La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
 
-| Posizione contesto | Description | Esempio |
+| Posizione contesto | Descrizione | Esempio |
 | ---------------- | ----------- | ------- |
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
 | Ramo master GitHub | File nel ramo master (o un altro valore predefinito) di un repository GitHub pubblico o privato.  | `https://github.com/gituser/myapp-repo.git` |
@@ -133,7 +119,7 @@ La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per 
 
 Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il tag `--platform` per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/architettura, ad esempio `--platform Linux/arm`. Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante (ad esempio, `--platform Linux/arm64/v8`):
 
-| Sistema operativo | Architettura|
+| OS | Architecture|
 | --- | ------- | 
 | Linux | amd64<br/>ARM<br/>arm64<br/>386 |
 | Windows | amd64 |
