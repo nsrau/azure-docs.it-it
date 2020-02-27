@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per copiare dati nell'archiviazione BLOB di Azure Data Box Heavy tramite API REST | Microsoft Docs
+title: "Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST"
 description: Informazioni su come copiare dati nell'archiviazione BLOB di Azure Data Box Heavy tramite API REST
 services: databox
 author: alkohli
@@ -8,25 +8,25 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc48acbadaef56958587dc79be377b76a21fdc0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 43f6404a483cad8377e70591f5454180f0dd07a6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606303"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560338"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
 
 Questa esercitazione descrive le procedure per connettersi all'archiviazione BLOB di Azure Data Box con API REST tramite *HTTP* o *HTTPS*. Una volta stabilita la connessione, vengono descritti anche i passaggi necessari per copiare i dati nell'archiviazione BLOB di Data Box.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Connettersi all'archiviazione BLOB di Data Box tramite *HTTP* o *HTTPS*
 > * Copiare i dati in Data Box Heavy
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 
@@ -104,7 +104,7 @@ Informazioni specifiche per alcune applicazioni sono menzionate in questa sezion
 
 Seguire questa procedura per importare il file `.cer` nell'archivio radice di un client Windows o Linux. In un sistema Windows è possibile usare Windows PowerShell o l'interfaccia utente di Windows Server per importare e installare il certificato nel sistema.
 
-#### <a name="use-windows-powershell"></a>Usare Windows PowerShell
+#### <a name="use-windows-powershell"></a>uso di Windows PowerShell
 
 1. Avviare una sessione di Windows PowerShell come amministratore.
 2. Al prompt dei comandi digitare:
@@ -241,7 +241,7 @@ Il passaggio successivo consiste nel preparare il dispositivo per la spedizione.
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Connettersi all'archiviazione BLOB di Data Box tramite *HTTP* o *HTTPS*
 > * Copiare i dati in Data Box Heavy
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 42ab32e80ef0a1a7f3c02d8a8eedbb8ab13c4b88
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 89fa2297c50b6f28045f6f934092de3fd5d6c879
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132260"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613064"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services
 
@@ -84,7 +84,7 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando il portale
 > I controlli di sicurezza Azure AD DS non sono retroattivi. Non è possibile recuperare o riprodurre gli eventi del passato. Azure AD DS può inviare solo gli eventi che si verificano dopo l'abilitazione di controlli di sicurezza.
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
-1. Nella parte superiore del portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito, ad esempio *aadds.contoso.com*.
+1. Nella parte superiore del portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Nella finestra Azure AD DS selezionare impostazioni di **diagnostica** nella parte sinistra.
 1. Per impostazione predefinita, non è configurata alcuna diagnostica. Per iniziare, selezionare **Aggiungi impostazioni di diagnostica**.
 

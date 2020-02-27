@@ -4,7 +4,7 @@ description: Eseguire il backup e il ripristino del sistema operativo per SAP HA
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 046daed4f548d24010c3d3bef177cee8cf24a55e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098732"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616873"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup e ripristino del sistema operativo per SKU di tipo II di indicatori di revisione 3
 
@@ -31,7 +31,7 @@ Questo documento descrive i passaggi per eseguire un backup e un ripristino a li
 >[!NOTE]
 >Gli script di backup del sistema operativo usano il software ReaR preinstallato nel server.  
 
-Al termine del provisioning da parte del team `Service Management` Microsoft, per impostazione predefinita, il server viene configurato con due pianificazioni di backup per eseguire il backup del file System livello di backup del sistema operativo. È possibile controllare le pianificazioni dei processi di backup usando il comando seguente:
+Al termine del provisioning da parte del team di Microsoft `Service Management`, per impostazione predefinita il server è configurato con due pianificazioni di backup per eseguire il backup del file system il livello di backup del sistema operativo. È possibile controllare le pianificazioni dei processi di backup usando il comando seguente:
 ```
 #crontab –l
 ```
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Lo screenshot seguente mostra il ripristino di un backup completo: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Lo screenshot seguente illustra il ripristino di un backup completo: ![RearToolConfiguration. PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

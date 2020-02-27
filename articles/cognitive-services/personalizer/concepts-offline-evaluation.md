@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 02/20/2020
 ms.author: diberry
-ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513610"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623595"
 ---
 # <a name="offline-evaluation"></a>Valutazione offline
 
@@ -49,6 +49,16 @@ Di seguito sono riportati gli aspetti importanti da considerare per una valutazi
 È possibile usare il processo di valutazione offline per individuare automaticamente i criteri di apprendimento ottimali per Personalizza esperienze.
 
 Dopo aver eseguito la valutazione offline, è possibile verificare l'efficacia comparativa di Personalizza esperienze con i nuovi criteri rispetto ai criteri online correnti. È quindi possibile applicare i criteri di apprendimento per renderli immediatamente effettivi in personalizzatore, scaricando e caricando questi criteri nel pannello modelli e criteri. È anche possibile scaricarlo per un'analisi o un uso futuro.
+
+Criteri correnti inclusi nella valutazione:
+
+| Impostazioni di apprendimento | Scopo|
+|--|--|
+|**Criteri online**| i criteri di apprendimento correnti usati in Personalizza esperienze |
+|**Base**|Il valore predefinito dell'applicazione (come determinato dalla prima azione inviata in Rank Calls)|
+|**Criteri casuali**|un comportamento di classificazione immaginario che restituisce sempre una scelta casuale di azioni da quelle fornite.|
+|**Criteri personalizzati**|ulteriori criteri di apprendimento caricati all'avvio della valutazione.|
+|**Criteri ottimizzati**|se la valutazione è stata avviata con l'opzione di individuare un criterio ottimizzato, anch'esso verrà confrontato e sarà possibile scaricarlo o renderlo il criterio di apprendimento online, sostituendo quello corrente.|
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Identificazione della pertinenza dei risultati della valutazione offline
 
@@ -92,7 +102,7 @@ Le valutazioni offline possono fornire informazioni sul livello di incisività d
 
 * Quali altre caratteristiche aggiuntive potrebbero essere fornite dall'applicazione o dal sistema sulla falsariga di quelle più efficaci?
 * Quali caratteristiche possono essere rimosse in quanto poco efficaci? Le caratteristiche poco efficaci aggiungono _rumore_ nel processo di Machine Learning.
-* Alcune caratteristiche sono state incluse per errore? Si tratta ad esempio di informazioni personali, ID duplicati e così via.
+* Alcune caratteristiche sono state incluse per errore? Esempi di queste sono: informazioni identificabili dall'utente, ID duplicati e così via.
 * Sono state incluse caratteristiche indesiderate che non dovrebbero essere usate per la personalizzazione a causa di considerazioni sull'uso responsabile o per motivi legali? Alcune caratteristiche potrebbero rispecchiare o essere correlate a caratteristiche indesiderate?
 
 

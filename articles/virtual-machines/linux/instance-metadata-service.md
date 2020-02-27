@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: e74e470ec1f3e26ca6e55e74f20030efdc47f971
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 22f50a6d5136eaff457c24864dae71261a20e13e
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525252"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615604"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -134,6 +134,7 @@ Codice di stato HTTP | Motivo
 400 - Richiesta non valida | Manca l'intestazione del `Metadata: true` o il formato non è presente durante l'esecuzione di query su un nodo foglia
 404 - Non trovato | L'elemento richiesto non esiste
 405 - Metodo non consentito | Sono supportate solo le richieste `GET`
+410 Gone | Riprovare tra qualche istante per un massimo di 70 secondi
 429 - Numero eccessivo di richieste | L'API supporta attualmente un massimo di 5 query al secondo
 500 - Errore del servizio     | Ripetere l'operazione in un secondo momento
 
@@ -457,7 +458,7 @@ identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token
 instance | Vedere [API dell'istanza](#instance-api) | 2017-04-02
 scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
 
-#### <a name="instance-api"></a>API dell'istanza
+### <a name="instance-api"></a>API dell'istanza
 
 Le categorie di calcolo seguenti sono disponibili tramite l'API dell'istanza:
 
@@ -569,7 +570,6 @@ Nonce è una stringa facoltativa di 10 cifre. Se non viene specificato, IMDS res
 ```
 
 Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del documento. Contiene il certificato usato per la firma insieme ai dettagli della macchina virtuale, ad esempio vmId, SKU, nonce, subscriptionId, timeStamp per la creazione e la scadenza del documento e le informazioni del piano sull'immagine. Le informazioni sul piano vengono popolate solo per le immagini di Azure Marketplace. Il certificato può essere estratto dalla risposta e usato per verificare che la risposta sia valida e provenga da Azure.
-
 
 ## <a name="example-scenarios-for-usage"></a>Scenari di utilizzo di esempio  
 
@@ -717,9 +717,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 ```
 
 **Risposta**
+
 ```bash
 AzurePublicCloud
 ```
+
 Il cloud e i valori dell'ambiente Azure sono elencati di seguito.
 
  Cloud   | Ambiente Azure
@@ -838,10 +840,12 @@ Dopo aver ottenuto la firma sopra indicata, è possibile verificare che provenga
 
  Cloud | Certificato
 ---------|-----------------
-[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure Cina 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
-[Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
+[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | *. metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *. metadata.azure.us
+[Azure Cina 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *. metadata.azure.cn
+[Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | *. metadata.microsoftazure.de
+
+Esiste un problema noto relativo al certificato utilizzato per la firma. I certificati potrebbero non corrispondere esattamente a `metadata.azure.com` per il cloud pubblico. Di conseguenza la convalida della certificazione dovrebbe consentire un nome comune da qualsiasi sottodominio `.metadata.azure.com`.
 
 ```bash
 
@@ -871,7 +875,7 @@ Per alcuni scenari, quando si eseguono query sul servizio metadati dell'istanza 
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > L'output di esempio seguente da una macchina virtuale Windows Server con il cluster di failover abilitato contiene solo la tabella di route IPv4 per motivi di semplicità.
 
 ```bat

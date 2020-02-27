@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 7c65e1f871fdab2c925f7a5e6747ad23fe8952d9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512777"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613336"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure AD Domain Services
 
@@ -60,7 +60,7 @@ Come indicato nella sezione precedente, è possibile creare solo un dominio gest
 È possibile connettere i carichi di lavoro delle applicazioni ospitati in altre reti virtuali di Azure usando uno dei metodi seguenti:
 
 * Peering di rete virtuale
-* VPN (Virtual Private Networking)
+* Rete privata virtuale (VPN)
 
 ### <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -88,7 +88,7 @@ Le reti virtuali connesse alla rete virtuale Azure AD Domain Services in genere 
 
 Un dominio gestito di Azure AD DS crea alcune risorse di rete durante la distribuzione. Queste risorse sono necessarie per il corretto funzionamento e la gestione del dominio gestito Azure AD DS e non devono essere configurate manualmente.
 
-| Risorsa di Azure                          | Description |
+| Risorsa di Azure                          | Descrizione |
 |:----------------------------------------|:---|
 | Scheda di interfaccia di rete                  | Azure AD DS ospita il dominio gestito in due controller di dominio (DCs) che vengono eseguiti in Windows Server come macchine virtuali di Azure. Ogni macchina virtuale dispone di un'interfaccia di rete virtuale che si connette alla subnet della rete virtuale. |
 | Indirizzo IP pubblico standard dinamico      | Azure AD DS comunica con il servizio di sincronizzazione e gestione usando un indirizzo IP pubblico dello SKU standard. Per altre informazioni sugli indirizzi IP pubblici, vedere [tipi di indirizzi IP e metodi di allocazione in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
@@ -105,12 +105,12 @@ Un [gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie per Azure AD DS per fornire servizi di autenticazione e di gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito di Azure AD DS.
 
-| Numero della porta | Protocollo | Origine                             | Destinazione | Azione | Obbligatorio | Finalità |
+| Numero della porta | Protocollo | Origine                             | Destination | Azione | Obbligatoria | Scopo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |
-| 636         | TCP      | Qualsiasi                                | Qualsiasi         | Allow  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPs). |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Consenti  | Sì      | Sincronizzazione con il tenant del Azure AD. |
+| 3389        | TCP      | CorpNetSaw                         | Any         | Consenti  | Sì      | Gestione del dominio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Consenti  | Sì      | Gestione del dominio. |
+| 636         | TCP      | Any                                | Any         | Consenti  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPs). |
 
 > [!WARNING]
 > Non modificare manualmente le configurazioni e le risorse di rete. Quando si associa un gruppo di sicurezza di rete configurato in modo non configurato o una tabella di route definita dall'utente con la subnet in cui viene distribuito Azure AD DS, è possibile che si verifichino problemi di gestione e gestione del dominio da parte di Microsoft. Viene anche interrotta la sincronizzazione tra il tenant di Azure AD e il dominio gestito di Azure AD DS.
@@ -146,7 +146,7 @@ Le seguenti regole del gruppo di sicurezza di rete sono necessarie per Azure AD 
 
 ## <a name="user-defined-routes"></a>Route definite dall'utente
 
-Le route definite dall'utente non vengono create per impostazione predefinita e non sono necessarie per il corretto funzionamento di Azure AD DS. Se è necessario usare le tabelle di route, evitare di apportare modifiche alla route *0.0.0.0* . Le modifiche apportate a questa route possono compromettere Azure AD Domain Services.
+Le route definite dall'utente non vengono create per impostazione predefinita e non sono necessarie per il corretto funzionamento di Azure AD DS. Se è necessario usare le tabelle di route, evitare di apportare modifiche alla route *0.0.0.0* . Le modifiche apportate a questa route interrompono Azure AD Domain Services e il dominio gestito viene inserito in uno stato non supportato.
 
 È anche necessario instradare il traffico in ingresso dagli indirizzi IP inclusi nei rispettivi tag del servizio di Azure alla subnet Azure AD Domain Services. Per altre informazioni sui tag di servizio e l'indirizzo IP associato da, vedere [intervalli IP e tag di servizio di Azure-cloud pubblico](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 

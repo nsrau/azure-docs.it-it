@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6af5f4c3ab028f8f0c6945eba86ec79dd6027680
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444918"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587465"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET Core con Azure Cosmos DB usando .NET SDK
 
@@ -110,7 +110,7 @@ Aggiungere ora i modelli, le visualizzazioni e i controller a questa applicazion
 
 1. Sostituire il contenuto della classe *Item.cs* con il codice seguente:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
 
 Azure Cosmos DB usa JSON per lo spostamento e l'archiviazione di dati. È possibile usare l'attributo `JsonProperty` per controllare il modo in cui JSON serializza e deserializza gli oggetti. La classe `Item` dimostra l'attributo `JsonProperty`. Questo codice controlla il formato del nome della proprietà inserita in JSON. Rinomina inoltre la proprietà .NET `Completed`.
 
@@ -183,7 +183,7 @@ Dopo aver completato questi passaggi, chiudere tutti i documenti con estensione 
 
 1. Sostituire il contenuto di *ItemController.cs* con il codice seguente:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
 
 L'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di falsificazione (CSRF) richiesta tra siti. Le visualizzazioni dovrebbero funzionare anche con questo token antifalsificazione. Per altre informazioni ed esempi, vedere l'articolo relativo alla [prevenzione delle richieste intersito false (CSRF) nell'applicazione MVC ASP.NET][Preventing Cross-Site Request Forgery]. Il codice sorgente fornito in [GitHub][GitHub] permette l'implementazione completa.
 
@@ -203,11 +203,11 @@ Aggiungere prima di tutto una classe che contiene la logica per connettersi e us
 
 1. Sostituire il contenuto del file *CosmosDBService.cs* con il codice seguente:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
 1. Ripetere i due passaggi precedenti, ma questa volta usare il nome *ICosmosDBService* e il codice seguente:
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
 1. Nel gestore **ConfigureServices** aggiungere la riga seguente:
 
@@ -219,7 +219,7 @@ Aggiungere prima di tutto una classe che contiene la logica per connettersi e us
 
 1. All'interno dello stesso file aggiungere il metodo **InitializeCosmosClientInstanceAsync** seguente, che legge la configurazione e inizializza il client.
 
-    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
 
 1. Definire la configurazione nel file *appsettings.json* del progetto. Aprire il file e aggiungere una sezione denominata **CosmosDb**:
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 816dc9c4460792b56a7dbf0c5d77f92afd257e73
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: df1e363f31aa8c88be54454c9dc060f4ed6b7ca1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429152"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588893"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Avvio rapido: Creare un gateway NAT usando l'interfaccia della riga di comando di Azure
 
@@ -33,8 +33,6 @@ Questa guida di avvio rapido illustra come usare il servizio NAT di rete virtual
 Per completare questa esercitazione, è possibile usare Azure Cloud Shell o eseguire i rispettivi comandi localmente.  Se è la prima volta che si usa Azure Cloud Shell, [accedere ora](https://shell.azure.com) per eseguire la configurazione iniziale.
 Se si sceglie di eseguire questi comandi localmente, è necessario installare l'interfaccia della riga di comando.  Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.71 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> Dopo aver abilitato il servizio NAT di rete virtuale di Azure [anteprima](./nat-overview.md#enable-preview) nella sottoscrizione, usare https://aka.ms/natportal per accedere al portale.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

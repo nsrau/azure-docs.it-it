@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 685e4f841ba077c81f46a27af8040fa6c57c0021
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: bf0710ebef21226d8d8582a920d64027bb015d34
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846207"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622729"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -63,7 +63,7 @@ L'[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-a
 
 Usare Personalizza esperienze quando il contenuto:
 
-* Include un set limitato di elementi (massimo circa 50) tra cui selezionare. Se l'elenco è più lungo, [usare un motore di raccomandazioni](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) per ridurlo a 50 elementi.
+* Include un set limitato di elementi (massimo circa 50) tra cui selezionare. Se l'elenco è più lungo, [usare un motore di raccomandazioni](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) per ridurlo a 50 elementi.
 * Include informazioni che descrivono il contenuto da classificare: _azioni con caratteristiche_ e _caratteristiche del contesto_.
 * Include almeno circa 1000 eventi correlati al contenuto al giorno affinché Personalizza esperienze sia efficace. Se Personalizza esperienze non riceve il traffico minimo richiesto, il servizio impiega più tempo a determinare il singolo elemento di contenuto migliore.
 

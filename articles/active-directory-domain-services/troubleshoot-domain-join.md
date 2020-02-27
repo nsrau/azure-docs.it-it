@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703668"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612813"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Risolvere i problemi di aggiunta al dominio con un Azure AD Domain Services dominio gestito
 
@@ -32,7 +32,7 @@ Se la macchina virtuale non riesce a trovare il dominio gestito Azure AD DS, in 
 
 1. Assicurarsi che la macchina virtuale sia connessa alla stessa rete virtuale con peering abilitata per Azure AD DS. In caso contrario, la macchina virtuale non riesce a trovare e a connettersi al dominio per potersi unire.
     * Se la VM non è connessa alla stessa rete virtuale, verificare che il peering di rete virtuale o la connessione VPN sia *attiva* o *connessa* per consentire il flusso del traffico correttamente.
-1. Provare a eseguire il ping del dominio usando il nome di dominio del dominio gestito Azure AD DS, ad esempio `ping aadds.contoso.com`.
+1. Provare a eseguire il ping del dominio usando il nome di dominio del dominio gestito Azure AD DS, ad esempio `ping aaddscontoso.com`.
     * Se la risposta al ping ha esito negativo, provare a effettuare il ping degli indirizzi IP per il dominio visualizzato nella pagina panoramica nel portale per il dominio gestito Azure AD DS, ad esempio `ping 10.0.0.4`.
     * Se è possibile effettuare correttamente il ping dell'indirizzo IP ma non del dominio, il DNS potrebbe non essere configurato correttamente. Assicurarsi di aver configurato i server DNS del dominio gestito di Azure AD DS per la rete virtuale.
 1. Provare a scaricare la cache del resolver DNS nella macchina virtuale, ad esempio `ipconfig /flushdns`.
@@ -53,7 +53,7 @@ Se viene visualizzata una finestra di dialogo in cui vengono richieste le creden
 
 Per risolvere i problemi relativi alle credenziali, esaminare i passaggi seguenti per la risoluzione dei problemi:
 
-1. Provare a usare il formato UPN per specificare le credenziali, ad esempio `dee@contoso.onmicrosoft.com`. Verificare che il nome UPN sia configurato correttamente in Azure AD.
+1. Provare a usare il formato UPN per specificare le credenziali, ad esempio `dee@aaddscontoso.onmicrosoft.com`. Verificare che il nome UPN sia configurato correttamente in Azure AD.
     * Il *sAMAccountName* per l'account può essere generato automaticamente se sono presenti più utenti con lo stesso prefisso UPN nel tenant o se il prefisso UPN è troppo lungo. Pertanto, il formato di *sAMAccountName* per l'account può essere diverso da quello previsto o da usare nel dominio locale.
 1. Provare a usare le credenziali di un account utente appartenente al gruppo di *amministratori di AAD DC* per aggiungere le macchine virtuali al dominio gestito di Azure AD DS.
 1. Assicurarsi di aver abilitato la [sincronizzazione delle password][enable-password-sync] e di avere atteso il tempo sufficiente per il completamento della sincronizzazione iniziale delle password.

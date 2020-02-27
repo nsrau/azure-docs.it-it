@@ -1,19 +1,19 @@
 ---
 title: Gestire in blocco i dispositivi connessi alla soluzione Monitoraggio remoto - Azure | Microsoft Docs
 description: Questa esercitazione illustra come gestire in blocco i dispositivi connessi a una soluzione Monitoraggio remoto.
-author: aditidugar
+author: Philmea
 manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: adugar
-ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: philmea
+ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980539"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565579"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Esercitazione: Gestire i dispositivi connessi in blocco
 
@@ -237,7 +237,7 @@ In questa sezione si crea e si esegue una distribuzione che applica la configura
 
     ![Creare una distribuzione](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 
-    Fare clic su **Apply**. Nella pagina **Distribuzioni** sarà visibile una nuova distribuzione che mostra le metriche seguenti:
+    Fare clic su **Applica**. Nella pagina **Distribuzioni** sarà visibile una nuova distribuzione che mostra le metriche seguenti:
 
     * **Assegnato** indica il numero di dispositivi nel gruppo.
     * **Applicato** indica il numero di dispositivi che sono stati aggiornati con il contenuto della configurazione.

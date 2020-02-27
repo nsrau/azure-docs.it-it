@@ -9,16 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee8b166077c64ae5e0f2cce18ee0bc77e8c996f4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 171219c001f43137a52f29b282fb1705b3d836aa
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210124"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649824"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
 
 Azure Maps supporta due modi per autenticare le richieste: autenticazione con chiave condivisa e autenticazione Azure Active Directory. Questo articolo illustra questi metodi di autenticazione per semplificare l'implementazione dei servizi di Azure maps.
+
+> [!NOTE]
+> Per migliorare la comunicazione protetta con le mappe di Azure, è ora supportato Transport Layer Security (TLS) 1,2 e il supporto per TLS 1,0 e 1,1 è in fase di ritiro. Per evitare interruzioni del servizio, **aggiornare i server e le applicazioni per l'uso di TLS 1,2 prima del 2 aprile 2020**.  Se attualmente si usa TLS 1. x, valutare la conformità di TLS 1,2 e sviluppare un piano di migrazione con i test descritti in [risoluzione del problema tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Autenticazione con chiave condivisa
 
@@ -57,7 +60,7 @@ Per informazioni generali su come richiedere token da Azure AD, vedere [Informaz
 
 Dopo che Azure AD riceve un token, Azure Maps invia una richiesta con il seguente set di intestazioni di richiesta obbligatorie:
 
-| Intestazione della richiesta    |    Valore    |
+| Intestazione della richiesta    |    valore    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
 | Autorizzazione     | Bearer eyJ0e….HNIVN |

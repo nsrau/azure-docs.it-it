@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fa1cba2d791cd40a46f8ad182c123a726143faec
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509139"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614260"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificare l'integrità di un dominio gestito Azure Active Directory Domain Services
 
@@ -29,7 +29,7 @@ Questo articolo illustra come visualizzare lo stato di integrità di Azure AD DS
 Lo stato di integrità di un dominio gestito Azure AD DS viene visualizzato utilizzando l'portale di Azure. È possibile visualizzare le informazioni relative all'ora dell'ultimo backup e alla sincronizzazione con Azure AD insieme a tutti gli avvisi che indicano un problema relativo all'integrità del dominio gestito. Per visualizzare lo stato di integrità di un dominio gestito di Azure AD DS, completare i passaggi seguenti:
 
 1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
-1. Selezionare il dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*.
+1. Selezionare il dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*.
 1. Sul lato sinistro della finestra Azure AD DS Resource selezionare **Health (integrità**). La schermata di esempio seguente mostra un dominio gestito Azure AD DS integro e lo stato dell'ultimo backup e della sincronizzazione Azure AD:
 
     ![Panoramica della pagina relativa allo stato di integrità nella portale di Azure che mostra lo stato Azure Active Directory Domain Services](./media/check-health/health-page.png)
@@ -49,11 +49,11 @@ Lo stato in alto a destra indica l'integrità complessiva del dominio gestito Az
 
 Lo stato di integrità di un dominio gestito Azure AD DS Mostra due tipi di *monitoraggi*informazioni e *avvisi*. I monitoraggi indicano il tempo di completamento delle attività in background di base. Gli avvisi forniscono informazioni o suggerimenti per migliorare la stabilità del dominio gestito.
 
-### <a name="monitors"></a>Monitoraggi
+### <a name="monitors"></a>Monitor
 
 I monitoraggi sono aree di un dominio gestito Azure AD DS che vengono controllate regolarmente. Se sono presenti avvisi attivi per il dominio gestito Azure AD DS, è possibile che uno dei monitoraggi segnali un problema. Azure AD Domain Services dispone attualmente di monitoraggi per le aree seguenti:
 
-* Eseguire il backup
+* Backup
 * Sincronizzazione con Azure AD
 
 #### <a name="backup-monitor"></a>Monitoraggio backup

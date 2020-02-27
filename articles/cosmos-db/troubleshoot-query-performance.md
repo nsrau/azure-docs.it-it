@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0dd3cb12c52e23a0a8acd57bf401ba68acfb9925
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424933"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623699"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query quando si usa Azure Cosmos DB
 
@@ -22,6 +22,20 @@ Questo articolo illustra un approccio generale consigliato per la risoluzione de
 È possibile suddividere in categorie le ottimizzazioni delle query in Azure Cosmos DB: ottimizzazioni che riducono l'addebito delle unità richiesta (UR) per la query e le ottimizzazioni che riducono solo la latenza. Riducendo il costo delle UR di una query, si ridurrà quasi certamente la latenza.
 
 In questo documento vengono usati esempi che possono essere ricreati usando il set di dati [nutrizionale](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
+
+## <a name="important"></a>Importante
+
+- Per ottenere prestazioni ottimali, seguire i suggerimenti per le [prestazioni](performance-tips.md).
+    > [!NOTE] 
+    > Per migliorare le prestazioni, è consigliabile usare l'elaborazione host Windows a 64 bit. SQL SDK include un file ServiceInterop. dll nativo per analizzare e ottimizzare le query in locale ed è supportato solo nella piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop. dll non è disponibile, effettuerà una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata. 
+- Cosmos DB query non supporta il numero minimo di elementi.
+    - Il codice deve gestire qualsiasi dimensione di pagina da 0 a numero massimo di elementi
+    - Il numero di elementi in una pagina può essere modificato senza preavviso.
+- Le pagine vuote sono previste per le query e possono essere visualizzate in qualsiasi momento. 
+    - Il motivo per cui le pagine vuote sono esposte negli SDK è che consente più opportunità di annullare la query. Consente inoltre di chiarire che l'SDK sta eseguendo più chiamate di rete.
+    - Le pagine vuote possono essere visualizzate nei carichi di lavoro esistenti perché una partizione fisica è divisa in Cosmos DB. Per la prima partizione sono ora presenti 0 risultati, che causano la pagina vuota.
+    - Le pagine vuote sono causate dal back-end che precede la query perché la query sta impiegando più di una quantità di tempo fissa nel back-end per recuperare i documenti. Se Cosmos DB precede una query, restituirà un token di continuazione che consentirà alla query di continuare. 
+- Verificare che la query venga svuotata completamente. Esaminare gli esempi di SDK e usare un ciclo while sul `FeedIterator.HasMoreResults` per svuotare l'intera query.
 
 ### <a name="obtaining-query-metrics"></a>Ottenere le metriche della query:
 

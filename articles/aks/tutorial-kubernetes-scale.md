@@ -2,18 +2,15 @@
 title: "Esercitazione su Kubernetes in Azure: ridimensionare un'applicazione"
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come ridimensionare nodi e pod in Kubernetes e implementare la scalabilità automatica orizzontale dei pod.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b668d2bfecfba53c2a1b0904a8b6b77805ad965b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7db80e9bf0bd864762a88680132d77a3c5d21f19
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967426"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621088"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -57,7 +54,7 @@ kubectl scale --replicas=5 deployment/azure-vote-front
 Eseguire di nuovo [kubectl get pods][kubectl-get] per verificare che il servizio Azure Kubernetes crei i pod aggiuntivi. Dopo circa un minuto i pod aggiuntivi sono disponibili nel cluster:
 
 ```console
-$ kubectl get pods
+kubectl get pods
 
                                     READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
@@ -134,13 +131,13 @@ spec:
 Usare `kubectl apply` per applicare la scalabilità automatica definita nel file manifesto `azure-vote-hpa.yaml`.
 
 ```
-$ kubectl apply -f azure-vote-hpa.yaml
+kubectl apply -f azure-vote-hpa.yaml
 ```
 
 Per visualizzare lo stato della scalabilità automatica, usare il comando `kubectl get hpa` come di seguito:
 
 ```
-$ kubectl get hpa
+kubectl get hpa
 
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m

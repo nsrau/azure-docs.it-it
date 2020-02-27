@@ -3,22 +3,22 @@ title: Requisiti di onboarding per SAP HANA in Azure (istanze Large) | Microsoft
 description: Requisiti di onboarding per SAP HANA in Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101185"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617010"
 ---
 # <a name="onboarding-requirements"></a>Requisiti di onboarding
 
@@ -27,12 +27,12 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 **Microsoft Azure**
 
 - Una sottoscrizione di Azure che può essere collegata a SAP HANA in Azure (istanze di grandi dimensioni).
-- Contratto di supporto tecnico Premier Microsoft. Per informazioni specifiche sull'esecuzione di SAP in Azure, consultare [SAP Support Note #2015553 - SAP on Microsoft Azure: Support prerequisites](https://launchpad.support.sap.com/#/notes/2015553) (Nota di supporto SAP 2015553 - SAP in Microsoft Azure: prerequisiti di supporto). Se si usano unità di istanze Large di HANA con 384 e più CPU, è necessario anche estendere il contratto di supporto tecnico Premier in modo da includere Azure Rapid Response.
+- Contratto di supporto tecnico Premier Microsoft. Per informazioni specifiche sull'esecuzione di SAP in Azure, vedere [SAP Support Note #2015553 - SAP on Microsoft Azure: Support prerequisites](https://launchpad.support.sap.com/#/notes/2015553) (Nota di supporto SAP 2015553 - SAP in Microsoft Azure: prerequisiti di supporto). Se si usano unità di istanze Large di HANA con 384 e più CPU, è necessario anche estendere il contratto di supporto tecnico Premier in modo da includere Azure Rapid Response.
 - Conoscenza degli SKU delle istanze Large di HANA necessari dopo l'esecuzione di un esercizio di ridimensionamento con SAP.
 
 **Connettività di rete**
 
-- ExpressRoute da locale ad Azure: per connettere il data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Per questo motivo, i clienti non rilevano costi aggiuntivi oltre il collegamento ExpressRoute tra l'ambiente locale e Azure.
+- ExpressRoute tra l'ambiente locale e Azure: per la connessione del data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Per questo motivo, i clienti non rilevano costi aggiuntivi oltre il collegamento ExpressRoute tra l'ambiente locale e Azure.
 
 **Sistema operativo**
 
@@ -49,7 +49,7 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 
 - Red Hat Subscription Manager distribuito in Azure in una VM. Con Red Hat Subscription Manager, la soluzione SAP HANA in Azure (istanze Large) può essere registrata e aggiornata da Red Hat. Non è disponibile l'accesso diretto a Internet dall'interno del tenant distribuito nel modulo per istanze Large in Azure.
 - SAP richiede un contratto di supporto anche con il provider di Linux. Questo requisito non viene escluso per il fatto che viene usata la soluzione di istanze Large di HANA o che Linux viene eseguito in Azure. A differenza di alcune delle immagini della raccolta di Azure per Linux, la tariffa del servizio *non* è inclusa nell'offerta della soluzione di istanze Large di HANA. È responsabilità del cliente soddisfare i requisiti di SAP in relazione ai contratti di supporto con il distributore di Linux. 
-   - Per SUSE Linux, consultare i requisiti dei contratti di supporto in [SAP Note #1984787 - SUSE Linux Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Nota SAP 1984787 - SUSE Linux Enterprise Server 12: note di installazione) e [SAP Note #1056161 - SUSE priority support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161) (Nota SAP 1056161 - Supporto SUSE prioritario per applicazioni SAP).
+   - Per SUSE Linux, esaminare i requisiti del contratto di supporto in [SAP Note #1984787 - SUSE Linux Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Nota SAP 1984787 - SUSE Linux Enterprise Server 12: note sull'installazione) e [SAP Note #1056161 - SUSE priority support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161) (Nota SAP 1056161 - Supporto SUSE prioritario per applicazioni SAP).
    - Per Red Hat Linux, è necessario avere livelli di sottoscrizione corretti che includano supporto e aggiornamenti di servizio per i sistemi operativi delle istanze Large di HANA. Red Hat consiglia di ottenere una sottoscrizione Red Hat Enterprise Linux per soluzioni di SAP. Vedere https://access.redhat.com/solutions/3082481. 
 
 Per la matrice di supporto delle diverse versioni di SAP HANA con le varie versioni di Linux, vedere la [nota SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).

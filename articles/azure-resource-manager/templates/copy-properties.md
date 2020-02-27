@@ -3,18 +3,18 @@ title: Definire più istanze di una proprietà
 description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire un'iterazione più volte durante la creazione di una proprietà in una risorsa.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: b1e31f981f361b4cfbe7e7930f2c70bfce8b8656
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b759389cd1065c399658bd8d0c1ddd263054697c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210866"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622869"
 ---
 # <a name="property-iteration-in-azure-resource-manager-templates"></a>Iterazione proprietà nei modelli di Azure Resource Manager
 
 Questo articolo illustra come creare più di un'istanza di una proprietà nel modello di Azure Resource Manager. Aggiungendo l'elemento **Copy** alla sezione Properties di una risorsa nel modello, è possibile impostare dinamicamente il numero di elementi per una proprietà durante la distribuzione. È anche possibile evitare di ripetere la sintassi del modello.
 
-È anche possibile usare copia con [risorse](copy-resources.md) e [variabili](copy-variables.md).
+È anche possibile usare copia con [risorse](copy-resources.md), [variabili](copy-variables.md)e [output](copy-outputs.md).
 
 ## <a name="property-iteration"></a>Iterazione delle proprietà
 
@@ -192,7 +192,10 @@ Nell'esempio seguente viene illustrato uno scenario comune per la creazione di p
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per eseguire un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
-* Per altri usi dell'elemento Copy, vedere [iterazione delle risorse nei modelli di Azure Resource Manager](copy-resources.md) e [iterazione delle variabili nei modelli Azure Resource Manager](copy-variables.md).
+* Per altri usi dell'elemento Copy, vedere:
+  * [Iterazione delle risorse nei modelli di Azure Resource Manager](copy-resources.md)
+  * [Iterazione variabile nei modelli di Azure Resource Manager](copy-variables.md)
+  * [Iterazione di output nei modelli di Azure Resource Manager](copy-outputs.md)
 * Per altre informazioni sulle sezioni di un modello, vedere [Authoring Azure Resource Manager Templates](template-syntax.md) (Creazione di modelli di Azure Resource Manager).
 * Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](deploy-powershell.md).
 

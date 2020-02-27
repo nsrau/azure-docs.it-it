@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367152"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614059"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Creare un'unità organizzativa (OU) in un dominio gestito Azure AD Domain Services
 
@@ -66,11 +66,11 @@ Per creare un'unità organizzativa personalizzata, usare gli strumenti di ammini
 1. Accedere alla macchina virtuale di gestione. Per i passaggi relativi alla modalità di connessione tramite la portale di Azure, vedere [connettersi a una macchina virtuale Windows Server][connect-windows-server-vm].
 1. Dalla schermata Start selezionare strumenti di **Amministrazione**. Viene visualizzato un elenco di strumenti di gestione disponibili che sono stati installati nell'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
 1. Per creare e gestire le unità organizzative, selezionare **centro di amministrazione di Active Directory** dall'elenco di strumenti di amministrazione.
-1. Nel riquadro sinistro scegliere il dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*. Viene visualizzato un elenco di unità organizzative e risorse esistenti:
+1. Nel riquadro sinistro scegliere il dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*. Viene visualizzato un elenco di unità organizzative e risorse esistenti:
 
     ![Selezionare il dominio gestito di Azure AD DS nell'Centro di amministrazione di Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. Il riquadro **attività** viene visualizzato sul lato destro del centro di amministrazione di Active Directory. Nel dominio, ad esempio *aadds.contoso.com*, selezionare **nuovo > unità organizzativa**.
+1. Il riquadro **attività** viene visualizzato sul lato destro del centro di amministrazione di Active Directory. Nel dominio, ad esempio *aaddscontoso.com*, selezionare **nuovo > unità organizzativa**.
 
     ![Selezionare l'opzione per creare una nuova unità organizzativa nel Centro di amministrazione di Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 

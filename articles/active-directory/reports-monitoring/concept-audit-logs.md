@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714482"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648426"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -41,11 +41,11 @@ Questo articolo fornisce una panoramica del report di controllo.
  
 ## <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 
-* Utenti nei ruoli amministratore **sicurezza**, **lettore sicurezza**, **lettore report** o **amministratore globale**
+* Utenti nei ruoli **amministratore sicurezza**, **lettore sicurezza**, lettore **report** , **lettore globale** o **amministratore globale**
 
 ## <a name="audit-logs"></a>Log di controllo
 
-I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere ai log di controllo, selezionare **Log di controllo** nella sezione **Attività** di **Azure Active Directory**. Si noti che i log di controllo possono avere una latenza di un massimo di un'ora, quindi potrebbe essere necessario molto tempo per visualizzare i dati dell'attività di controllo nel portale dopo aver completato l'attività.
+I log di controllo di Azure AD forniscono i record delle attività di sistema per la conformità. Per accedere al report di controllo, selezionare **log di controllo** nella sezione **monitoraggio** del **Azure Active Directory**. Si noti che i log di controllo possono avere una latenza di un massimo di un'ora, quindi potrebbe essere necessario molto tempo per visualizzare i dati dell'attività di controllo nel portale dopo aver completato l'attività.
 
 
 
@@ -89,17 +89,21 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 Il filtro del **servizio** consente di effettuare una selezione da un elenco a discesa dei servizi seguenti:
 
-- Tutte
+- Tutti
+- UX di gestione AAD
 - Verifiche di accesso
-- Provisioning account 
-- SSO applicazione
+- Provisioning degli account
+- Proxy dell'applicazione
 - Metodi di autenticazione
 - B2C
 - Accesso condizionale
 - Directory principale
 - Gestione dei diritti
+- Autenticazione ibrida
 - Identity Protection
 - Utenti invitati
+- Servizio MIM
+- MyApps
 - PIM
 - Gestione gruppi self-service
 - Gestione delle password self-service
@@ -107,19 +111,23 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 
 Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
-- Tutte
+- Tutti
 - AdministrativeUnit
 - ApplicationManagement
-- Autenticazione
-- Authorization
+- Authentication
+- Autorizzazione
 - Contatto
 - Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Altro
-- Criteri
+- KerberosDomain
+- KeyManagement
+- Etichetta
+- Altri
+- PermissionGrantPolicy
+- Policy
 - ResourceManagement
 - RoleManagement
 - UserManagement
@@ -130,18 +138,17 @@ Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e
 
 Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
-- Tutte
-- Success
-- Errore
+- Tutti
+- Operazione completata
+- Operazioni non riuscite
 
-Il filtro di **destinazione** consente di cercare una determinata destinazione in base al nome o al nome dell'entità utente (UPN). Il nome di destinazione e l'UPN fanno distinzione tra maiuscole e minuscole. 
+Il filtro di **destinazione** consente di cercare una determinata destinazione dall'inizio del nome o del nome dell'entità utente (UPN). Il nome di destinazione e l'UPN fanno distinzione tra maiuscole e minuscole. 
 
 Il filtro **avviato da** consente di definire il nome di un attore o un nome dell'entità universale (UPN). Il nome e l'UPN fanno distinzione tra maiuscole e minuscole.
 
 Il filtro **intervallo di date** consente di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
 
-- 1 mese
 - 7 giorni
 - 24 ore
 - Personalizzato
@@ -179,11 +186,11 @@ Con i report di controllo basati su utenti e gruppi, è possibile ottenere rispo
 
 - Quali licenze sono state assegnate a un gruppo o a un utente?
 
-Per rivedere solo i dati di controllo relativi agli utenti, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **attività** della scheda **utenti** . Questo punto di ingresso ha **UserManagement** come categoria preselezionata.
+Per rivedere solo i dati di controllo relativi agli utenti, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **monitoraggio** della scheda **utenti** . Questo punto di ingresso ha **UserManagement** come categoria preselezionata.
 
 ![Log di controllo](./media/concept-audit-logs/users.png "Log di controllo")
 
-Per rivedere solo i dati di controllo relativi ai gruppi, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **attività** della scheda **gruppi** . Questo punto di ingresso ha **GroupManagement** come categoria preselezionata.
+Per rivedere solo i dati di controllo relativi ai gruppi, è possibile trovare una visualizzazione filtrata in **log di controllo** nella sezione **monitoraggio** della scheda **gruppi** . Questo punto di ingresso ha **GroupManagement** come categoria preselezionata.
 
 ![Log di controllo](./media/concept-audit-logs/groups.png "Log di controllo")
 

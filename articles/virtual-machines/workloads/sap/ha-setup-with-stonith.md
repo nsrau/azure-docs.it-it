@@ -4,7 +4,7 @@ description: Stabilire la disponibilità elevata per SAP HANA in Azure (istanze 
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,18 +13,18 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f23fe2aa17934b967e7aecf41687cc555b9552c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71212539"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615091"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
 Questo documento contiene le istruzioni dettagliate per configurare la disponibilità elevata nel sistema operativo SUSE usando il dispositivo STONITH.
 
 **Dichiarazione di non responsabilità:** *questa guida è derivata dal test della configurazione nell'ambiente Microsoft Hana large instances, che funziona correttamente. Poiché il team di gestione dei servizi Microsoft per le istanze large di HANA non supporta il sistema operativo, potrebbe essere necessario contattare SUSE per eventuali ulteriori operazioni di risoluzione dei problemi o chiarimenti sul livello del sistema operativo. Il team di gestione dei servizi Microsoft configura il dispositivo STONITH e supporta completamente e può essere richiesto per la risoluzione dei problemi relativi ai dispositivi STONITH.*
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Per configurare la disponibilità elevata usando il clustering SUSE, è necessario soddisfare i prerequisiti seguenti.
 ### <a name="pre-requisites"></a>Prerequisiti
 - Provisioning delle istanze Large di HANA effettuato
@@ -154,7 +154,7 @@ Fare clic su "Generate Pre-Shared-Keys" (Genera chiavi precondivise) che apre il
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-Fare clic su **OK**
+Fare clic su **OK**.
 
 L'autenticazione viene eseguita usando gli indirizzi IP e le chiavi precondivise in Csync2. Il file della chiave viene generato con csync2 -k /etc/csync2/key_hagroup. Il file key_hagroup, dopo essere stato creato, deve essere copiato manualmente in tutti i membri del cluster. **Assicurarsi di copiare il file da node1 a node2**.
 
@@ -371,7 +371,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 non mostra la visualizzazione grafica
 In questo documento viene usata la schermata grafica di yast2 per configurare il cluster a disponibilità elevata. Se yast2 non si apre con la finestra grafica illustrata e genera l'errore Qt, seguire questa procedura. Se si apre con la finestra grafica, è possibile ignorare la procedura.
 
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
@@ -422,7 +422,7 @@ Usando Yast2>Software>Software management (Gestione software)>selezionare i mode
 
 - SAP HANA server base (Base server SAP HANA)
 - C/C++ Compiler and tools (Strumenti e compilatore C/C++)
-- disponibilità elevata
+- Disponibilità elevata
 - SAP Application server base (Base server applicazioni SAP)
 
 La schermata seguente illustra i passaggi per installare i modelli.

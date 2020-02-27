@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 46557d802222190c0ed82f6243dd2a9b997ecaa5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960568"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614228"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Modificare lo SKU per un dominio gestito Azure AD Domain Services esistente
 
@@ -46,7 +46,7 @@ Per ulteriori informazioni su questi limiti, vedere la pagina relativa ai [limit
 
 Per modificare lo SKU per un dominio gestito Azure AD DS usando il portale di Azure, completare i passaggi seguenti:
 
-1. Nella parte superiore del portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito dall'elenco, ad esempio *aadds.contoso.com*.
+1. Nella parte superiore del portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito dall'elenco, ad esempio *aaddscontoso.com*.
 1. Nel menu sul lato sinistro della pagina Azure AD DS selezionare **impostazioni > SKU**.
 
     ![Selezionare l'opzione di menu SKU per il dominio gestito di Azure AD DS nell'portale di Azure](media/change-sku/overview-change-sku.png)

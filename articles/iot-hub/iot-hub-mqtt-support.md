@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 694697be85b61ad2d59a0a4be1ced3581873cb77
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111744"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648496"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -161,28 +161,27 @@ Questo repository contiene:
 
 **Per Windows:**
 
-• TelemetryMQTTWin32: contiene il codice per inviare un messaggio di telemetria a un hub di Azure, compilato ed eseguito in un computer Windows.
+* TelemetryMQTTWin32: contiene il codice per inviare un messaggio di telemetria a un hub di Azure, compilato ed eseguito in un computer Windows.
 
-• SubscribeMQTTWin32: contiene il codice per sottoscrivere gli eventi di un determinato hub Internet in un computer Windows.
+* SubscribeMQTTWin32: contiene il codice per sottoscrivere gli eventi di un determinato hub Internet in un computer Windows.
 
-• DeviceTwinMQTTWin32: contiene il codice per eseguire una query e sottoscrivere gli eventi del dispositivo gemello di un dispositivo nell'hub Azure Internet in un computer Windows.
+* DeviceTwinMQTTWin32: contiene il codice per eseguire una query e sottoscrivere gli eventi del dispositivo gemello di un dispositivo nell'hub Azure Internet in un computer Windows.
 
-• PnPMQTTWin32: contiene il codice per l'invio di un messaggio di telemetria con il plug-in di Internet delle cose & riprodurre in anteprima le funzionalità del dispositivo in un hub Azure, compilato ed eseguito in un computer Windows. Altre informazioni sul plug & Play[qui](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contiene il codice per l'invio di un messaggio di telemetria con il plug-in di Internet delle cose & riprodurre in anteprima le funzionalità del dispositivo in un hub Azure, compilato ed eseguito in un computer Windows. Altre informazioni sul plug & Play[qui](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Per Linux:**
 
-• MQTTLinux: contiene il codice e lo script di compilazione da eseguire in Linux (i test di WSL, Ubuntu e Raspbian sono stati testati finora).
+* MQTTLinux: contiene codice e script di compilazione da eseguire su Linux (WSL, Ubuntu e Raspbian sono stati testati finora).
 
-• LinuxConsoleVS2019: contiene lo stesso codice, ma in un progetto VS2019 destinato a WSL (sottosistema Windows Linux). Questo progetto consente di eseguire il debug del codice eseguito in Linux passo per passo da Visual Studio.
+* LinuxConsoleVS2019: contiene lo stesso codice, ma in un progetto VS2019 destinato a WSL (sottosistema Windows Linux). Questo progetto consente di eseguire il debug del codice eseguito in Linux passo per passo da Visual Studio.
 
 **Per mosquitto_pub:**
 
-• Questa cartella contiene due comandi di esempio usati con mosquitto_pub strumento utilità fornito da Mosquitto.org.
+Questa cartella contiene due comandi di esempio usati con mosquitto_pub strumento utilità fornito da Mosquitto.org.
 
-Mosquitto_sendmessage: per inviare un messaggio di testo semplice a un hub Azure Internet che funge da dispositivo.
+* Mosquitto_sendmessage: per inviare un messaggio di testo semplice a un hub Azure Internet che funge da dispositivo.
 
-Mosquitto_subscribe: per visualizzare gli eventi che si verificano in un hub Azure.
-
+* Mosquitto_subscribe: per visualizzare gli eventi che si verificano in un hub Azure.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Uso diretto del protocollo MQTT (come modulo)
 
@@ -342,7 +341,7 @@ I possibili codici di stato sono i seguenti:
 
 |Stato | Descrizione |
 | ----- | ----------- |
-| 204 | Operazione riuscita (non viene restituito alcun contenuto) |
+| 200 | Riuscito |
 | 429 | Troppe richieste (limitate), come per la [limitazione dell'hub](iot-hub-devguide-quotas-throttling.md) degli anni |
 | 5** | Errori server |
 
@@ -373,7 +372,7 @@ I possibili codici di stato sono i seguenti:
 
 |Stato | Descrizione |
 | ----- | ----------- |
-| 200 | Riuscito |
+| 204 | Operazione riuscita (non viene restituito alcun contenuto) |
 | 400 | Richiesta non valida. JSON non valido |
 | 429 | Troppe richieste (limitate), come per la [limitazione dell'hub](iot-hub-devguide-quotas-throttling.md) degli anni |
 | 5** | Errori server |
@@ -408,7 +407,7 @@ Quando un dispositivo è connesso, l'hub IoT invia notifiche all'argomento `$iot
 }
 ```
 
-Come per gli aggiornamenti delle proprietà, i valori `null` indicano l'eliminazione del membro dell'oggetto JSON. Si noti inoltre che `$version` indica la nuova versione della sezione delle proprietà desiderate del dispositivo gemello.
+Per quanto riguarda gli aggiornamenti delle proprietà, i valori `null` indicano che è in corso l'eliminazione del membro dell'oggetto JSON. Si noti inoltre che `$version` indica la nuova versione della sezione delle proprietà desiderate del dispositivo gemello.
 
 > [!IMPORTANT]
 > L'hub IoT genera notifiche di modifica solo quando i dispositivi sono connessi. Assicurarsi di implementare il [flusso di riconnessione del dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) per garantire la sincronizzazione delle proprietà desiderate tra l'hub e l'app per dispositivi.

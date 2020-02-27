@@ -7,23 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 49129bede62e456cf2807cc879b7fc5e1793b65b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424950"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623295"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
 L'inserimento di flussi è destinato a scenari che richiedono una bassa latenza con un tempo di inserimento inferiore a 10 secondi per i vari dati del volume. Viene usato per ottimizzare l'elaborazione operativa di molte tabelle, in uno o più database, in cui il flusso di dati in ogni tabella è relativamente piccolo (pochi record al secondo), ma il volume di inserimento dati complessivo è elevato (migliaia di record al secondo).
 
 Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la quantità di dati aumenta fino a un massimo di 1 MB al secondo per tabella. Per ulteriori informazioni sui vari metodi di inserimento, vedere [Cenni preliminari](/azure/data-explorer/ingest-data-overview) sull'inserimento di dati.
-
-> [!NOTE]
-> L'inserimento di flussi non supporta le funzionalità seguenti:
-> * [Cursori del database](/azure/kusto/management/databasecursor).
-> * [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/tables#create-ingestion-mapping) . 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,6 +27,9 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
 * Creare [un cluster e un database di Azure Esplora dati](create-cluster-database-portal.md)
 
 ## <a name="enable-streaming-ingestion-on-your-cluster"></a>Abilitare l'inserimento di flussi nel cluster
+
+> [!WARNING]
+> Verificare le [limitazioni](#limitations) prima di abilitare l'inserimento del vapore.
 
 1. Nel portale di Azure passare a cluster di Esplora dati di Azure. In **Impostazioni**selezionare **configurazioni**. 
 1. Nel riquadro **configurazioni** selezionare **attivato per abilitare l'inserimento del** **flusso**.
@@ -49,8 +47,9 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
 
 Sono disponibili due tipi di inserimento di flussi supportati:
 
-* [Hub eventi](/azure/data-explorer/ingest-data-event-hub) usato come origine dati
-* Per l'inserimento personalizzato è necessario scrivere un'applicazione che usi una delle librerie client di Azure Esplora dati. Per un'applicazione di esempio, vedere esempio di inserimento di [flussi](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) .
+
+* [**Hub eventi**](/azure/data-explorer/ingest-data-event-hub) usato come origine dati
+* Per l'inserimento **personalizzato** è necessario scrivere un'applicazione che usi una delle librerie client di Azure Esplora dati. Per un'applicazione di esempio, vedere esempio di inserimento di [flussi](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) .
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Scegliere il tipo di inserimento flusso appropriato
 
@@ -78,6 +77,10 @@ Sono disponibili due tipi di inserimento di flussi supportati:
 * Gli aggiornamenti dello schema, ad esempio la creazione e la modifica di tabelle e mapping di inserimento, possono richiedere fino a 5 minuti per il servizio di inserimento di flussi.
 * L'abilitazione dell'inserimento di flussi in un cluster, anche quando i dati non vengono inseriti tramite lo streaming, usa una parte del disco SSD locale dei computer del cluster per il flusso dei dati di inserimento e riduce lo spazio di archiviazione disponibile per la cache a caldo.
 * I [tag di extent](/azure/kusto/management/extents-overview.md#extent-tagging) non possono essere impostati sui dati di inserimento del flusso.
+
+L'inserimento di flussi non supporta le funzionalità seguenti:
+* [Cursori del database](/azure/kusto/management/databasecursor).
+* [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/tables#create-ingestion-mapping) . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

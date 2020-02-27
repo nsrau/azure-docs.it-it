@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c83caf31e25ae2212ed120e77e017ac3849898e8
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512665"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612906"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemi noti: avvisi comuni e risoluzioni in Azure Active Directory Domain Services
 
@@ -133,7 +133,7 @@ Azure AD DS crea risorse aggiuntive per funzionare correttamente, ad esempio ind
 
 Questo avviso viene generato quando una di queste risorse obbligatorie viene eliminata. Se la risorsa è stata eliminata meno di 4 ore fa, è possibile che la piattaforma Azure ricrei automaticamente la risorsa eliminata. La procedura seguente illustra come verificare lo stato di integrità e il timestamp per l'eliminazione di risorse:
 
-1. Nella portale di Azure cercare e selezionare **servizi di dominio**. Scegliere il dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*.
+1. Nella portale di Azure cercare e selezionare **servizi di dominio**. Scegliere il dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*.
 1. Nella finestra di spostamento a sinistra selezionare **stato**.
 1. Nella pagina stato selezionare l'avviso con l'ID *AADDS109*.
 1. L'avviso ha un timestamp per la prima volta che è stato trovato. Se il timestamp è inferiore a 4 ore fa, la piattaforma Azure potrebbe riuscire a ricreare automaticamente la risorsa e risolvere l'avviso.

@@ -4,7 +4,7 @@ description: Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 66921280403027d1723b27f104b42d2c83271213
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100075"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616697"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
 Questo articolo descrive come distribuire un sistema SAP IDES in esecuzione con SQL Server e il sistema operativo Windows in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Gli screenshot illustrano il processo in dettaglio. Per distribuire una soluzione diversa, seguire la stessa procedura.
@@ -72,7 +72,7 @@ Dopo l'accesso a SAP CAL, la prima pagina visualizzata è di solito la pagina **
 
     ![Conferma dei servizi cloud di Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
-1. Fare clic **Accept**. Se l'autorizzazione ha esito positivo, viene visualizzata nuovamente la definizione dell'account SAP CAL. Dopo un breve periodo, viene visualizzato un messaggio di conferma del completamento del processo di autorizzazione.
+1. Fare clic su **Accetta**. Se l'autorizzazione ha esito positivo, viene visualizzata nuovamente la definizione dell'account SAP CAL. Dopo un breve periodo, viene visualizzato un messaggio di conferma del completamento del processo di autorizzazione.
 
 1. Per assegnare a un utente l'account SAP CAL appena creato, immettere l'**ID utente** nella casella di testo a destra e fare clic su **Add** (Aggiungi). 
 
@@ -105,7 +105,7 @@ Dopo l'accesso a SAP CAL, la prima pagina visualizzata è di solito la pagina **
 
     ![Modalità SAP CAL di base: creare un'istanza](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. Fare clic su **Create**(Crea). Dopo alcuni minuti, a seconda della dimensione e della complessità della soluzione, di cui SAP CAL fornisce una stima, la soluzione viene visualizzata come attiva e pronta all'uso: 
+1. Fare clic su **Crea**. Dopo alcuni minuti, a seconda della dimensione e della complessità della soluzione, di cui SAP CAL fornisce una stima, la soluzione viene visualizzata come attiva e pronta all'uso: 
 
     ![Istanze di SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525516"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621937"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -106,9 +106,9 @@ Quando si usa .NET SDK, il metodo [DocumentClient. ReadOfferAsync](https://docs.
 |UR minime per contenitore|100|400|
 |UR massime|Illimitate, nel database.|Illimitate, nel contenitore.|
 |UR assegnate o disponibili per un contenitore specifico|Nessuna garanzia. Le UR assegnate a un determinato contenitore dipendono dalle proprietà. Le proprietà possono essere, a scelta, le chiavi di partizione dei contenitori che condividono la velocità effettiva, la distribuzione del carico di lavoro e il numero di contenitori. |Tutte le UR configurate nel contenitore sono riservate esclusivamente per il contenitore.|
-|Archiviazione massima per un contenitore|Senza limiti.|Senza limiti.|
+|Archiviazione massima per un contenitore|Illimitato.|Illimitato.|
 |Velocità effettiva massima per partizione logica di un contenitore|10.000 UR|10.000 UR|
-|Spazio di archiviazione massimo (data + indice) per partizione logica di un contenitore|10 GB|10 GB|
+|Spazio di archiviazione massimo (data + indice) per partizione logica di un contenitore|20 GB|20 GB|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

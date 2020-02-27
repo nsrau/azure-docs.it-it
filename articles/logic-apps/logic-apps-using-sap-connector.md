@@ -9,17 +9,17 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 3990a9d53a8e53ddd29683440917031bc1bb6448
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 39ab222f64d964e95b16e043c9cdeccd8170ace3
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904647"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651016"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
 > [!IMPORTANT]
-> Il server applicazioni SAP e i connettori server dei messaggi SAP precedenti sono stati pianificati per la deprecazione il 29 febbraio 2020. Il connettore SAP corrente consolida questi connettori SAP precedenti, in modo che non sia necessario modificare il tipo di connessione, sia completamente compatibile con i connettori precedenti, fornisca molte funzionalità aggiuntive e continui a usare la libreria del connettore SAP .NET ( NCo SAP).
+> Il server applicazioni SAP e i connettori server dei messaggi SAP precedenti sono deprecati il 29 febbraio 2020. Il connettore SAP corrente consolida questi connettori SAP precedenti, in modo che non sia necessario modificare il tipo di connessione, sia completamente compatibile con i connettori precedenti, fornisca molte funzionalità aggiuntive e continui a usare la libreria del connettore SAP .NET ( NCo SAP).
 >
 > Per le app per la logica che usano i connettori precedenti, [eseguire la migrazione al connettore più recente](#migrate) prima della data di deprecazione. In caso contrario, queste app per la logica si verificheranno errori di esecuzione e non saranno in grado di inviare messaggi al sistema SAP.
 
@@ -39,7 +39,7 @@ Questo articolo spiega come creare esempi di app per la logica che si integrano 
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per proseguire con questo articolo, sono necessari questi elementi:
 
@@ -464,10 +464,10 @@ Prima di iniziare, verificare di aver soddisfatto i [prerequisiti](#pre-reqs)ele
 
    ![Configurare SAP SNC nella connessione](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | Proprietà | Description |
+   | Proprietà | Descrizione |
    |----------| ------------|
    | **Percorso della libreria SNC** | Nome o percorso della libreria SNC relativo al percorso di installazione di NCo o al percorso assoluto. Gli esempi sono `sapsnc.dll` o `.\security\sapsnc.dll` o `c:\security\sapsnc.dll`. |
-   | **SNC SSO** | Quando ci si connette tramite SNC, l'identità SNC viene in genere usata per l'autenticazione del chiamante. Un'altra opzione consiste nell'eseguire l'override di in modo che sia possibile usare le informazioni relative all'utente e alla password per l'autenticazione del chiamante, ma la riga è ancora crittografata. |
+   | **SSO SSO** | Quando ci si connette tramite SNC, l'identità SNC viene in genere usata per l'autenticazione del chiamante. Un'altra opzione consiste nell'eseguire l'override di in modo che sia possibile usare le informazioni relative all'utente e alla password per l'autenticazione del chiamante, ma la riga è ancora crittografata. |
    | **Nome della SNC** | Nella maggior parte dei casi, questa proprietà può essere omessa. La soluzione SNC installata in genere conosce il proprio nome SNC. Solo per le soluzioni che supportano più identità, potrebbe essere necessario specificare l'identità da usare per questa particolare destinazione o server. |
    | **Nome del partner SNC** | Nome del back-end SNC. |
    | **Qualità della protezione di SNC** | Qualità del servizio da utilizzare per la comunicazione SNC di questa particolare destinazione o server. Il valore predefinito è definito dal sistema back-end. Il valore massimo è definito dal prodotto di sicurezza usato per SNC. |
@@ -556,7 +556,10 @@ Di seguito sono riportati i problemi attualmente noti e le limitazioni per il co
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento del connettore](/connectors/sap/).
+Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/sap/).
+
+> [!NOTE]
+> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

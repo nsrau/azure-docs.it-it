@@ -1,24 +1,24 @@
 ---
-title: Iscrizione e accesso tramite telefono con criteri personalizzati
+title: Iscrizione e accesso tramite telefono con criteri personalizzati (anteprima)
 titleSuffix: Azure AD B2C
-description: Informazioni su come inviare password monouso negli SMS ai telefoni degli utenti dell'applicazione con criteri personalizzati in Azure Active Directory B2C.
+description: Inviare password monouso (OTP) negli SMS ai telefoni degli utenti dell'applicazione con criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/25/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 50e7d66fef67e2728c95790947393de8d58398c2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840333"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647519"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C (anteprima)
 
 L'iscrizione e l'accesso tramite telefono in Azure Active Directory B2C (Azure AD B2C) consente agli utenti di iscriversi e accedere alle applicazioni usando una password monouso (OTP) inviata in un messaggio di testo al telefono. Le password monouso consentono di ridurre al minimo il rischio che gli utenti dimentichino o abbiano compromessa la loro password.
 
@@ -26,7 +26,13 @@ Attenersi alla procedura descritta in questo articolo per usare i criteri person
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="pricing"></a>Prezzi
+
+Le password monouso vengono inviate agli utenti tramite SMS ed è possibile che vengano addebitati i costi per ogni messaggio inviato. Per informazioni sui prezzi, vedere la sezione relativa agli **addebiti separati** di [Azure Active Directory B2C prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## <a name="prerequisites"></a>Prerequisites
+
+Prima di configurare OTP è necessario disporre delle risorse seguenti.
 
 * [Tenant di Azure AD B2C](tutorial-create-tenant.md)
 * [Applicazione Web registrata](tutorial-register-applications.md) nel tenant
@@ -69,6 +75,22 @@ Quando si carica ogni file, Azure aggiunge il prefisso `B2C_1A_`.
 1. Per **Seleziona URL di risposta**scegliere `https://jwt.ms`.
 1. Selezionare **Esegui adesso** e iscriversi usando un indirizzo di posta elettronica o un numero di telefono.
 1. Selezionare **Esegui** ancora una volta e accedere con lo stesso account per confermare di avere la configurazione corretta.
+
+## <a name="get-user-account-by-phone-number"></a>Ottieni l'account utente per numero di telefono
+
+Un utente che si iscrive con un numero di telefono, ma non fornisce un indirizzo di posta elettronica di ripristino, viene registrato nella directory Azure AD B2C con il proprio numero di telefono come nome di accesso. Se l'utente desidera modificare il numero di telefono, il help desk o il team di supporto deve prima trovare il proprio account, quindi aggiornare il numero di telefono.
+
+È possibile trovare un utente con il proprio numero di telefono (nome di accesso) usando [Microsoft Graph](manage-user-accounts-graph-api.md):
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
+```
+
+Ad esempio:
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

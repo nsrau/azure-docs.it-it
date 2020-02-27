@@ -3,8 +3,8 @@ title: Creare una configurazione di SAP a più SID in Azure| Documentazione Micr
 description: Guida alla configurazione di SAP NetWeaver a più SID a disponibilità elevata nelle macchine virtuali Windows
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/09/2016
-ms.author: goraco
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2726e9e5de53607d6bb766bf1506d6a09d714701
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8c7c6b797605da2884c6bffc47e593ffc9a3faca
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647595"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615143"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creare una configurazione di SAP NetWeaver a più SID
 
@@ -455,7 +455,7 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 È già stato configurato un cluster WSFC usato per un'istanza di SAP ASC/SCS, come illustrato nella [Guida relativa alla disponibilità elevata di SAP NetWeaver in macchine virtuali Windows][sap-ha-guide] e come illustrato in questo diagramma.
 
 ![Istanza di SAP ASCS/SCS a disponibilità elevata][sap-ha-guide-figure-6001]
@@ -488,7 +488,7 @@ Il panorama generale con due sistemi SAP a disponibilità elevata si presenta co
 ## <a name="prepare-the-infrastructure"></a>Preparare l'infrastruttura
 Per preparare l'infrastruttura, è possibile installare un'istanza aggiuntiva di SAP ASCS/SCS con i parametri seguenti:
 
-| Nome parametro | Valore |
+| Nome parametro | valore |
 | --- | --- |
 | SID di SAP ASCS/SCS |pr1-lb-ascs |
 | Servizio di bilanciamento del carico interno di SAP DBMS | PR5 |

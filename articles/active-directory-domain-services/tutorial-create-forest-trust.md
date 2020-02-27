@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931222"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612526"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Esercitazione: creare un trust tra foreste in uscita per un dominio locale in Azure Active Directory Domain Services (anteprima)
 
@@ -89,7 +89,7 @@ Per configurare il trust in ingresso nel dominio servizi di dominio Active Direc
    > [!NOTE]
    > Se non viene visualizzata l'opzione di menu **trust** , controllare in **Proprietà** per il *tipo di foresta*. Solo le foreste di *risorse* possono creare trust. Se il tipo di foresta è *User*, non è possibile creare trust. Attualmente non è possibile modificare il tipo di foresta di un dominio gestito di Azure AD DS. È necessario eliminare e ricreare il dominio gestito come foresta di risorse.
 
-1. Immettere il nome Azure AD nome di dominio DS, ad esempio *aadds.contoso.com*, quindi fare clic su **Avanti** .
+1. Immettere il nome Azure AD nome di dominio DS, ad esempio *aaddscontoso.com*, quindi fare clic su **Avanti** .
 1. Selezionare l'opzione per creare un **trust tra foreste**, quindi creare un trust in **ingresso unidirezionale** .
 1. Scegliere di creare il trust **solo per questo dominio**. Nel passaggio successivo si creerà il trust nel portale di Azure per il dominio gestito Azure AD DS.
 1. Scegliere di usare **l'autenticazione a livello di foresta**, quindi immettere e confermare una password di attendibilità. Questa stessa password viene immessa anche nella portale di Azure nella sezione successiva.
@@ -102,7 +102,7 @@ Con il dominio di servizi di dominio Active Directory locale configurato per ris
 
 Per creare la relazione di trust in uscita per il dominio gestito Azure AD DS nel portale di Azure, attenersi alla procedura seguente:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**, quindi selezionare il dominio gestito, ad esempio *aadds.contoso.com*
+1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**, quindi selezionare il dominio gestito, ad esempio *aaddscontoso.com*
 1. Dal menu sul lato sinistro del dominio gestito di Azure AD DS selezionare **trust**, quindi scegliere **+ Aggiungi** un trust.
 1. Immettere un nome visualizzato che identifichi il trust, quindi il nome DNS della foresta trusted locale, ad esempio *OnPrem.contoso.com*
 1. Specificare la stessa password di trust utilizzata quando si configura il trust tra foreste in ingresso per il dominio servizi di dominio Active Directory locale nella sezione precedente.
@@ -194,7 +194,7 @@ Usando la macchina virtuale Windows Server aggiunta alla foresta delle risorse A
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Convalidare l'autenticazione tra foreste a una risorsa
 
 1. Accedere a un computer Windows aggiunto al Active Directory locale usando un account utente della Active Directory locale.
-1. Utilizzando **Esplora risorse**, connettersi alla condivisione creata utilizzando il nome host completo e la condivisione, ad esempio `\\fs1.aadds.contoso.com\CrossforestShare`.
+1. Utilizzando **Esplora risorse**, connettersi alla condivisione creata utilizzando il nome host completo e la condivisione, ad esempio `\\fs1.aaddscontoso.com\CrossforestShare`.
 1. Per convalidare l'autorizzazione di scrittura, fare clic con il pulsante destro del mouse nella cartella, scegliere **nuovo**, quindi selezionare **documento di testo**. Usare il nome predefinito **nuovo documento di testo**.
 
     Se le autorizzazioni di scrittura sono impostate correttamente, viene creato un nuovo documento di testo. Nei passaggi seguenti verrà quindi aperto, modificato ed eliminato il file in base alle esigenze.

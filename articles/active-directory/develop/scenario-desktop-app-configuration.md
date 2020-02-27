@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2a5a66f2801804b354dd8945ea7d8eb565e82cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2ba69e6447c686230412c33e74196c4bb594e0de
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702216"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611818"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>App desktop che chiama le API Web: configurazione del codice
 
@@ -29,7 +29,7 @@ Ora che è stata creata l'applicazione, si apprenderà come configurare il codic
 
 Le seguenti librerie di autenticazione Microsoft (MSALs) supportano le applicazioni desktop.
 
-  Microsoft Authentication Library | Description
+  Microsoft Authentication Library | Descrizione
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supporta la creazione di un'applicazione desktop in più piattaforme, ad esempio Linux, Windows e macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supporta la creazione di un'applicazione desktop in più piattaforme.
@@ -40,7 +40,7 @@ Le seguenti librerie di autenticazione Microsoft (MSALs) supportano le applicazi
 
 Dal punto di vista del codice, le applicazioni desktop sono applicazioni client pubbliche. La configurazione sarà leggermente diversa a seconda che si usi o meno l'autenticazione interattiva.
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 È necessario compilare e modificare la `IPublicClientApplication`di MSAL.NET.
 
@@ -106,7 +106,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Altre informazioni.
+### <a name="learn-more"></a>Altre informazioni
 
 Per altre informazioni su come configurare un'applicazione desktop MSAL.NET:
 
@@ -185,17 +185,17 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
 
 Prima della chiamata al metodo `.Build()`, è possibile eseguire l'override della configurazione con chiamate a metodi `.WithXXX`, come illustrato in precedenza.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Di seguito è illustrata la classe utilizzata negli esempi di sviluppo Java per MSAL per configurare gli esempi: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
-PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
-        .authority(TestData.AUTHORITY_COMMON)
+PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
+        .authority(AUTHORITY)
         .build();
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 config = json.load(open(sys.argv[1]))
@@ -208,7 +208,7 @@ app = msal.PublicClientApplication(
     )
 ```
 
-# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[MacOS](#tab/macOS)
 
 Il codice seguente crea un'istanza di un'applicazione client pubblica e firma gli utenti nella Microsoft Azure cloud pubblico con un account aziendale o dell'Istituto di istruzione o un account Microsoft personale.
 

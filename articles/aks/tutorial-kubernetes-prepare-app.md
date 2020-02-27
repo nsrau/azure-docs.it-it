@@ -2,18 +2,15 @@
 title: Esercitazione su Kubernetes in Azure - Preparare un'applicazione
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come preparare e compilare con Docker Compose un'app multicontenitore che è quindi possibile distribuire nel servizio Azure Kubernetes.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71264466"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593161"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Esercitazione: Preparare un'applicazione per il servizio Azure Kubernetes
 

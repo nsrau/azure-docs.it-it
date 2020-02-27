@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: 74572a2743ac9c778cfb7307036aea18582670ed
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 02d1fd96d054bf55dc4ef4d8b478eec73c50f7ed
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77370818"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495470"
 ---
-|Nome |Descrizione |Effetto/i |Versione |Origine |
+|Nome |Descrizione |Effetto/i |Versione |Source (Sorgente) |
 |---|---|---|---|
 |[Le impostazioni di Sicurezza dei dati avanzata per l'istanza gestita di SQL devono contenere un indirizzo di posta elettronica per ricevere gli avvisi di sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3965c43d-b5f4-482e-b74a-d89ee0e0b3a8) |Assicurarsi di specificare un indirizzo di posta elettronica per il campo 'Invia avvisi a' nelle impostazioni del server di Sicurezza dei dati avanzata. Questo indirizzo di posta elettronica riceverà le notifiche di avviso quando vengono rilevate attività anomale nelle istanze gestite di SQL. |AuditIfNotExists, Disabled |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurityEmails_Audit.json)
 |[Le impostazioni di Sicurezza dei dati avanzata per SQL Server devono contenere un indirizzo di posta elettronica per ricevere gli avvisi di sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9677b740-f641-4f3c-b9c5-466005c85278) |Assicurarsi di specificare un indirizzo di posta elettronica per il campo 'Invia avvisi a' nelle impostazioni del server di Sicurezza dei dati avanzata. Questo indirizzo di posta elettronica riceverà le notifiche di avviso quando vengono rilevate attività anomale nei server SQL. |AuditIfNotExists, Disabled |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurityEmails_Audit.json)
