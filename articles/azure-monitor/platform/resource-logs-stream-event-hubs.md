@@ -3,17 +3,16 @@ title: Trasmettere i log della piattaforma Azure a un hub eventi
 description: Informazioni su come trasmettere i log delle risorse di Azure a un hub eventi per inviare i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750347"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658915"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Trasmettere i log della piattaforma Azure a hub eventi di Azure
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono.  Questo articolo descrive i log della piattaforma di streaming per gli hub eventi per inviare i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics.
@@ -26,7 +25,7 @@ Trasmettere i log della piattaforma in Azure a hub eventi per fornire le funzion
   
 * **Creare una piattaforma di registrazione e telemetria personalizzata** : la natura di pubblicazione-sottoscrizione altamente scalabile degli hub eventi consente di inserire in modo flessibile i log della piattaforma in una piattaforma teletry personalizzata. Per informazioni dettagliate, vedere [progettazione e dimensionamento di una piattaforma di telemetria su scala globale in hub eventi di Azure](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
 
-* Consente **di visualizzare l'integrità del servizio tramite lo streaming dei dati in Power bi** : usare hub eventi, analisi di flusso e Power BI per trasformare i dati di diagnostica in informazioni quasi in tempo reale sui servizi di Azure. Per informazioni dettagliate su questa soluzione, vedere [analisi di flusso e Power bi: un dashboard di analisi in tempo reale per il flusso di dati](../../stream-analytics/stream-analytics-power-bi-dashboard.md) .
+* Consente **di visualizzare l'integrità del servizio tramite lo streaming dei dati in Power bi** : usare hub eventi, analisi di flusso e Power BI per trasformare i dati di diagnostica in informazioni quasi in tempo reale sui servizi di Azure. Vedere [analisi di flusso e Power BI: Un dashboard di analisi in tempo reale per il flusso di dati](../../stream-analytics/stream-analytics-power-bi-dashboard.md) per informazioni dettagliate su questa soluzione.
 
     Il codice SQL seguente è una query di esempio di Analisi di flusso che è possibile usare per analizzare tutti i dati di log in una tabella di Power BI:
     
@@ -57,15 +56,15 @@ Le impostazioni di diagnostica raccolgono i log delle risorse per le risorse di 
 ## <a name="consuming-log-data-from-event-hubs"></a>Utilizzo dei dati di log da Hub eventi
 I log di piattaforma degli hub eventi vengono utilizzati in formato JSON con gli elementi nella tabella seguente.
 
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
-| record |Matrice di tutti gli eventi di log nel payload. |
+| records |Matrice di tutti gli eventi di log nel payload. |
 | time |Ora in cui si è verificato l'evento. |
 | category |Categoria di log per l'evento. |
 | resourceId |ID risorsa della risorsa che ha generato l'evento. |
 | operationName |Nome dell'operazione. |
-| level |Facoltativa. Indica il livello dell'evento di log. |
-| properties |Proprietà dell'evento. Questi possono variare per ogni servizio di Azure, come descritto in [](). |
+| livello |facoltativo. Indica il livello dell'evento di log. |
+| proprietà |Proprietà dell'evento. Questi possono variare per ogni servizio di Azure, come descritto in [](). |
 
 
 Di seguito sono riportati i dati di output di esempio di hub eventi per un log delle risorse:

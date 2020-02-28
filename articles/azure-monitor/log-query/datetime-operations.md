@@ -1,18 +1,17 @@
 ---
 title: Uso dei valori di data e ora nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: Descrive come usare i valori di data e ora nelle query di log di Monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365343"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655379"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Uso dei valori di data e ora nelle query di log di Monitoraggio di Azure
 
@@ -32,7 +31,7 @@ I valori timespan sono espressi come numero decimale seguito da un'unità di tem
 |sintassi abbreviata   | unità di tempo    |
 |:---|:---|
 |d           | day          |
-|h           | ora         |
+|h           | hour         |
 |m           | minute       |
 |s           | second       |
 |ms          | millisecondo  |
@@ -85,7 +84,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-Nella colonna `timeAgo` sono contenuti valori come: "00:09:31.5118992", vale a dire che sono formattati come HH: mm: SS. fffffff. Se si vogliono formattare questi valori con il valore `numver` di minuti dall'ora di inizio, dividere tale valore per "1 minuto":
+La colonna `timeAgo` contiene valori come "00:09:31.5118992", che indica l'applicazione del formato hh:mm:ss.fffffff. Se si vogliono formattare questi valori con il valore `numver` di minuti dall'ora di inizio, dividere tale valore per "1 minuto":
 
 ```Kusto
 Event
@@ -151,7 +150,7 @@ Event
 |:---|:---|
 | Convertire tipi di dati | [ToDateTime](/azure/kusto/query/todatetimefunction)  [ToTimeSpan](/azure/kusto/query/totimespanfunction)  |
 | Arrotondare il valore alle dimensioni del contenitore | [bin](/azure/kusto/query/binfunction) |
-| Ottenere una data o un'ora specifica | [](/azure/kusto/query/agofunction) [ora](/azure/kusto/query/nowfunction) fa   |
+| Ottenere una data o un'ora specifica | [fa](/azure/kusto/query/agofunction) [ora](/azure/kusto/query/nowfunction)   |
 | Ottenere parte di un valore | [datetime_part](/azure/kusto/query/datetime-partfunction) [getMonth](/azure/kusto/query/getmonthfunction) [MonthOfYear](/azure/kusto/query/monthofyearfunction) [getYear](/azure/kusto/query/getyearfunction) [DayOfMonth](/azure/kusto/query/dayofmonthfunction) [DayOfWeek](/azure/kusto/query/dayofweekfunction) [DayOfYear](/azure/kusto/query/dayofyearfunction) [WeekOfYear](/azure/kusto/query/weekofyearfunction) |
 | Ottenere un valore di data relativo  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [EndOfMonth](/azure/kusto/query/endofmonthfunction) [ENDOFYEAR](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startOfWeek](/azure/kusto/query/startofweekfunction) [STARTOFMONTH](/azure/kusto/query/startofmonthfunction) [STARTOFYEAR](/azure/kusto/query/startofyearfunction) |
 
