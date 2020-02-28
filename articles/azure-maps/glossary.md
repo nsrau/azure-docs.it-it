@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198242"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657045"
 ---
 # <a name="glossary"></a>Glossario
 
 L'elenco seguente descrive le parole comuni usate con i servizi di Azure maps.
 
-## <a name="a"></a>Una
+## <a name="a"></a>A
 
 <a name="address-validation"></a>**Convalida degli indirizzi**: processo di verifica dell'esistenza di un indirizzo.
 
@@ -47,9 +47,9 @@ L'elenco seguente descrive le parole comuni usate con i servizi di Azure maps.
 
 <a name="asynchronous-request"></a>**Richiesta asincrona**: una richiesta HTTP che apre una connessione ed effettua una richiesta al server che restituisce un identificatore per la richiesta asincrona, quindi chiude la connessione. Il server continua a elaborare la richiesta e l'utente può controllare lo stato usando l'identificatore. Al termine dell'elaborazione della richiesta, l'utente può scaricare la risposta. Questo tipo di richiesta viene usato per i processi a esecuzione prolungata.
 
-<a name="autocomplete"></a>**Completamento automatico**: una funzionalità di un'applicazione consente di stimare il resto di una parola che un utente sta digitando. 
+<a name="autocomplete"></a>**Completamento automatico**: una funzionalità di un'applicazione che consente di stimare il resto di una parola che un utente sta digitando. 
 
-<a name="autosuggest"></a>**Suggerimenti**automatici: una funzionalità di un'applicazione consente di stimare le possibilità logiche per la digitazione dell'utente.
+<a name="autosuggest"></a>**Suggerimenti**automatici: una funzionalità di un'applicazione che consente di stimare le possibilità logiche per la digitazione dell'utente.
 
 <a name="azure-location-based-services-lbs"></a>**Servizi location based di Azure (lbs)** : il nome precedente di Azure Maps quando era in anteprima.
 
@@ -57,7 +57,7 @@ L'elenco seguente descrive le parole comuni usate con i servizi di Azure maps.
 
 <a name="azure-maps-key"></a>**Azure Maps Key**: vedere [autenticazione con chiave condivisa](#shared-key-authentication).
 
-## <a name="b"></a>b
+## <a name="b"></a>B
 
 <a name="base-map"></a>**Mappa di base**: parte di un'applicazione mappa che visualizza informazioni di riferimento in background, ad esempio strade, punti di interesse e confini politici.
 
@@ -303,7 +303,7 @@ L'elenco seguente descrive le parole comuni usate con i servizi di Azure maps.
 
 <a name="queries-per-second-qps"></a>**Query al secondo (query al secondo)** : numero di query o richieste che possono essere effettuate a un servizio o a una piattaforma entro un secondo. 
 
-## <a name="r"></a>R
+## <a name="r"></a>V
 
 <a name="radial-search"></a>**Ricerca radiale**: una query spaziale che esegue la ricerca di una distanza di linea retta fissa (come il corvo vola) da un punto. 
 
@@ -353,7 +353,7 @@ L'elenco seguente descrive le parole comuni usate con i servizi di Azure maps.
 
 <a name="synchronous-request"></a>**Richiesta sincrona**: una richiesta http apre una connessione e attende una risposta. I browser limitano il numero di richieste HTTP simultanee che possono essere inviate da una pagina. Se più richieste sincrone a esecuzione prolungata vengono eseguite contemporaneamente, questo limite può essere raggiunto. Le richieste verranno posticipate fino al completamento di una delle altre richieste.
 
-## <a name="t"></a>T
+## <a name="t"></a>Elemento
 
 <a name="telematics"></a>**Telematica**: invio, ricezione e archiviazione di informazioni tramite dispositivi di telecomunicazione insieme all'effetto del controllo sugli oggetti remoti. 
 

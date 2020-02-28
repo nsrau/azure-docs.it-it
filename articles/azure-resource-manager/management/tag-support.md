@@ -2,13 +2,13 @@
 title: Supporto dei tag per le risorse
 description: Informazioni sui tipi di risorse di Azure che supportano i tag. Include informazioni dettagliate per tutti i servizi di Azure.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 6100c667c7df0b3e1740777565d260af9fa818a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207928"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657574"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](tag-resources.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi. È possibile visualizzare i costi in base ai tag nell' [analisi dei costi di gestione costi](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e la [fattura e i dati di utilizzo giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -116,8 +116,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. migrate](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
 > - [Microsoft. NetApp](#microsoftnetapp)
-> - [Microsoft. Notebooks](#microsoftnotebooks)
 > - [Microsoft. Network](#microsoftnetwork)
+> - [Microsoft. Notebooks](#microsoftnotebooks)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft. ObjectStore](#microsoftobjectstore)
 > - [Microsoft. OffAzure](#microsoftoffazure)
@@ -136,7 +136,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft. SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
@@ -292,6 +291,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | automationAccounts | Sì | Sì |
 > | automationAccounts/configurazioni | Sì | Sì |
 > | automationAccounts/processi | No | No |
+> | automationAccounts/privateEndpointConnectionProxies | No | No |
+> | automationAccounts/privateEndpointConnections | No | No |
+> | automationAccounts/privateLinkResources | No | No |
 > | automationAccounts/manuali operativi | Sì | Sì |
 > | automationAccounts/softwareUpdateConfigurations | No | No |
 > | automationAccounts/webhook | No | No |
@@ -711,6 +713,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | registri/importImage | No | No |
 > | registri/privateEndpointConnectionProxies | No | No |
 > | registri/privateEndpointConnectionProxies/convalida | No | No |
+> | registri/privateEndpointConnections | No | No |
 > | registri/privateLinkResources | No | No |
 > | registri/queueBuild | No | No |
 > | registri/regenerateCredential | No | No |
@@ -1052,6 +1055,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | partnerNamespaces/eventChannels | No | No |
 > | partnerRegistrations | Sì | Sì |
 > | partnerTopics | Sì | Sì |
+> | partnerTopics/eventSubscriptions | No | No |
 > | systemTopics | Sì | Sì |
 > | systemTopics/eventSubscriptions | No | No |
 > | argomenti | Sì | Sì |
@@ -1288,6 +1292,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- | ----------- |
 > | getEntities | No | No |
 > | managementGroups | No | No |
+> | managementGroups/impostazioni | No | No |
 > | risorse | No | No |
 > | startTenantBackfill | No | No |
 > | tenantBackfillStatus | No | No |
@@ -1395,15 +1400,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | netAppAccounts | Sì | No |
 > | netAppAccounts / capacityPools | Sì | No |
 > | netAppAccounts/capacityPools/volumi | Sì | No |
-> | netAppAccounts/capacityPools/Volumes/mountTargets | Sì | No |
-> | netAppAccounts/capacityPools/volumi/snapshot | Sì | No |
-
-## <a name="microsoftnotebooks"></a>Microsoft. Notebooks
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
-> | ------------- | ----------- | ----------- |
-> | NotebookProxies | No | No |
+> | netAppAccounts/capacityPools/volumi/snapshot | No | No |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -1495,6 +1492,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Per il servizio front-end di Azure, è possibile applicare tag quando si crea la risorsa, ma non è attualmente supportata l'aggiornamento o l'aggiunta di tag.
 
 
+## <a name="microsoftnotebooks"></a>Microsoft. Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | No | No |
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1556,6 +1560,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | legacyPeerings | No | No |
 > | peerAsns | No | No |
 > | peering | Sì | Sì |
+> | peeringServiceCountries | No | No |
 > | peeringServiceProviders | No | No |
 > | peeringServices | Sì | Sì |
 
@@ -1680,13 +1685,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- | ----------- |
 > | applicazioni | Sì | Sì |
 > | saasresources | No | No |
-
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
-> | ------------- | ----------- | ----------- |
-> | jobcollections | Sì | Sì |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2026,6 +2024,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | devices | Sì | Sì |
+> | registeredSubscriptions | No | No |
 > | fornitori | No | No |
 > | fornitori/SKU | No | No |
 > | fornitori/vnfs | No | No |

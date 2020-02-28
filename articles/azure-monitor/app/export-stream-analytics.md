@@ -1,18 +1,14 @@
 ---
 title: Esportare da Azure Application Insights usando l'analisi di flusso | Documentazione Microsoft
 description: L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
-ms.openlocfilehash: 3be1a643cbe942c0b740ae8ebcc2c7f2dda24854
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677941"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664015"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -205,7 +201,7 @@ Aprire Power BI con l’account aziendale o dell’istituto di istruzione e sele
 
 ![In Power BI selezionare il set di dati e i campi.](./media/export-stream-analytics/210.png)
 
-## <a name="no-data"></a>Dati non disponibili?
+## <a name="no-data"></a>Dati non visualizzati
 * Verificare di aver [impostato il formato di data](#set-path-prefix-pattern) correttamente su AAAA-MM-GG (con i trattini).
 
 ## <a name="video"></a>Video

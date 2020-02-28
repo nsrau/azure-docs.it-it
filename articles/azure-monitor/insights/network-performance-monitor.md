@@ -1,18 +1,17 @@
 ---
 title: Soluzione Monitoraggio prestazioni rete in Azure | Microsoft Docs
 description: Monitoraggio prestazioni rete di Azure consente di monitorare le prestazioni delle reti, quasi in tempo reale, per rilevare e trovare i colli di bottiglia delle prestazioni di rete.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 396652e3f8a0a8d9e18effb94a48a362054dde96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb906f6b3cf333e3fb3a24a934e5d9f11fc10cda
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403154"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654478"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -136,7 +135,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
     
 Il monitoraggio di questi circuiti e peering è inizialmente in stato disabilitato. Selezionare tutte le risorse che si desidera monitorare e configurare il monitoraggio per tali risorse dalla visualizzazione dettagli a destra. Selezionare **Salva** per salvare la configurazione. Per altre informazioni, vedere l'articolo "Configurare Monitoraggio di ExpressRoute". 
 
-Dopo aver completato la configurazione, il popolamento dei dati richiede da 30 minuti a un'ora. Mentre la soluzione aggrega i dati dalla rete, nel riquadro **Panoramica** di Monitoraggio prestazioni rete viene visualizzato il messaggio *La soluzione richiede una configurazione aggiuntiva*. Al termine della raccolta e dell'indicizzazione dei dati, il riquadro **Panoramica** cambia e mostra un riepilogo dell'integrità della rete. È quindi possibile modificare il monitoraggio dei nodi in cui sono installati gli agenti di Log Analytics, nonché delle subnet individuate dall'ambiente.
+Dopo aver completato la configurazione, il popolamento dei dati richiede da 30 minuti a un'ora. Mentre la soluzione aggrega i dati dalla rete, nel riquadro *Panoramica* di Monitoraggio prestazioni rete viene visualizzato il messaggio **La soluzione richiede una configurazione aggiuntiva**. Al termine della raccolta e dell'indicizzazione dei dati, il riquadro **Panoramica** cambia e mostra un riepilogo dell'integrità della rete. È quindi possibile modificare il monitoraggio dei nodi in cui sono installati gli agenti di Log Analytics, nonché delle subnet individuate dall'ambiente.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Modificare le impostazioni di monitoraggio per le subnet e i nodi 
 
@@ -171,9 +170,9 @@ Per raccogliere informazioni su perdita e latenza, Monitoraggio prestazioni rete
 
 Nella tabella seguente vengono illustrati i metodi di raccolta dei dati e altri dettagli sulla modalità di raccolta dei dati per il monitoraggio delle prestazioni di rete.
 
-| Piattaforma | Agente diretto | Agente di System Center Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
+| Platform | Agente diretto | Agente di System Center Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza di raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows | &#8226; | &#8226; |  |  |  |Handshake TCP/messaggi ICMP ECHO ogni 5 secondi, dati inviati ogni 3 minuti |
+| WINDOWS | &#8226; | &#8226; |  |  |  |Handshake TCP/messaggi ICMP ECHO ogni 5 secondi, dati inviati ogni 3 minuti |
  
 
  
@@ -276,11 +275,11 @@ Ogni volta che si crea un avviso, NPM crea una regola di avviso log basata su qu
 Le notifiche vengono addebitate separatamente in base ai [prezzi per le notifiche riportati nella pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
 Le informazioni sui prezzi sono disponibili [online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti 
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti 
 
 * **UserVoice**: è possibile pubblicare le proprie idee sulle funzionalità di Monitoraggio prestazioni rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

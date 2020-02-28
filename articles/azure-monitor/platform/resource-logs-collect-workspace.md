@@ -3,17 +3,16 @@ title: Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytic
 description: Informazioni su come trasmettere i log delle risorse di Azure a un'area di lavoro Log Analytics in monitoraggio di Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750374"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659000"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccolta dei log della piattaforma Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo descrive come raccogliere i log delle risorse in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di monitoraggio raccolti nei log di monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio gli avvisi e Visualizzazioni. 
@@ -55,7 +54,7 @@ Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono ra
 
 La tabella AzureDiagnostics sarà simile alla seguente:  
 
-| ResourceProvider    | Categoria     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -72,7 +71,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
  
 - Tabella *Service1AuditLogs* come segue:
 
-    | Provider di risorse | Categoria | A | B | C |
+    | Provider di risorse | Category | A | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | z1 |
     | Service1 | AuditLogs | X5 | Y5 | z5 |
@@ -80,7 +79,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
 - Tabella *Service1ErrorLogs* come segue:  
 
-    | Provider di risorse | Categoria | D | E | F |
+    | Provider di risorse | Category | D | E | F |
     | -- | -- | -- | -- | -- | 
     | Service1 | ErrorLogs |  q1 | W1 | E1 |
     | Service1 | ErrorLogs |  q2 | W2 | E2 |
@@ -88,7 +87,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
 - Tabella *Service2AuditLogs* come segue:  
 
-    | Provider di risorse | Categoria | G | H | I |
+    | Provider di risorse | Category | G | H | I |
     | -- | -- | -- | -- | -- |
     | Service2 | AuditLogs | j1 | k1 | L1|
     | Service2 | AuditLogs | j3 | k3 | L3|

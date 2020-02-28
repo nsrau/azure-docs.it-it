@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: fc1f81c616dc6ee664bb5be924f2a1586646d16d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 90ff59bb76bceaacc7b0528ed0461b76832dc7fd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279166"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662128"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnostica
 
@@ -23,9 +23,9 @@ Usando la funzionalità di diagnostica di Azure Spring cloud, è possibile anali
 
 Scegliere la categoria di log e la categoria metrica che si vuole monitorare.
 
-## <a name="logs"></a>Log
+## <a name="logs"></a>Registri
 
-|Log | Description |
+|File di log | Descrizione |
 |----|----|
 | **ApplicationConsole** | Log della console di tutte le applicazioni dei clienti. | 
 | **SystemLogs** | Attualmente, solo i log di [Spring cloud config server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) in questa categoria. |
@@ -59,13 +59,13 @@ Sono disponibili diversi metodi per visualizzare i log e le metriche, come descr
 1. Nel portale di Azure passare all'istanza di Azure Spring cloud.
 1. Per aprire il riquadro **Ricerca log** , selezionare **log**.
 1. Nella casella di ricerca **log**
-   * Per visualizzare i log, immettere una semplice query, ad esempio:
+   * per visualizzare i log, immettere una semplice query, ad esempio:
 
     ```sql
     AppPlatformLogsforSpring
     | limit 50
     ```
-   * Per visualizzare le metriche, immettere una semplice query, ad esempio:
+   * per visualizzare le metriche, immettere una semplice query, ad esempio:
 
     ```sql
     AzureMetrics
@@ -79,13 +79,13 @@ Sono disponibili diversi metodi per visualizzare i log e le metriche, come descr
 1. Selezionare l'area di lavoro Log Analytics scelta quando sono state aggiunte le impostazioni di diagnostica.
 1. Per aprire il riquadro **Ricerca log** , selezionare **log**.
 1. Nella casella di ricerca **log** ,
-   * Per visualizzare i log, immettere una semplice query, ad esempio:
+   * per visualizzare i log, immettere una semplice query, ad esempio:
 
     ```sql
     AppPlatformLogsforSpring
     | limit 50
     ```
-    * Per visualizzare le metriche, immettere una semplice query, ad esempio:
+    * per visualizzare le metriche, immettere una semplice query, ad esempio:
 
     ```sql
     AzureMetrics
@@ -114,7 +114,7 @@ Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere qu
 1. Per esaminare i log dell'applicazione, cercare un contenitore denominato **Insights-logs-applicationconsole**.
 1. Per esaminare le metriche dell'applicazione, cercare un contenitore denominato **Insights-Metrics-PT1M**.
 
-Per ulteriori informazioni sull'invio di informazioni di diagnostica a un account di archiviazione, vedere [archiviare e visualizzare i dati di diagnostica in archiviazione di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage).
+Per ulteriori informazioni sull'invio di informazioni di diagnostica a un account di archiviazione, vedere [archiviare e visualizzare i dati di diagnostica in archiviazione di Azure](../storage/common/storage-introduction.md).
 
 ### <a name="use-your-event-hub"></a>Usare l'hub eventi
 

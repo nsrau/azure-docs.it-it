@@ -1,18 +1,17 @@
 ---
 title: Abilitare Monitoraggio di Azure per le macchine virtuali usando criteri di Azure | Microsoft Docs
 description: Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per più macchine virtuali di Azure o set di scalabilità di macchine virtuali usando criteri di Azure.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 267072b06d936822eae7e7257d62566a020471bb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365819"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656229"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) usando criteri di Azure
 
@@ -51,7 +50,7 @@ Questa opzione non è correlata ad alcuna azione del criterio. È disponibile pe
 
 La tabella seguente fornisce una suddivisione delle informazioni presentate nella pagina relativa alla copertura dei criteri e come interpretarla.
 
-| Funzione | Description | 
+| Funzione | Descrizione | 
 |----------|-------------| 
 | **Ambito** | Gruppo di gestione e sottoscrizioni a cui è stato o ereditato l'accesso con la possibilità di eseguire il drill-down attraverso la gerarchia del gruppo di gestione.|
 | **Ruolo** | Ruolo per l'ambito, che può essere Reader, Owner o collaboratore. In alcuni casi, potrebbe sembrare vuoto per indicare che è possibile accedere alla sottoscrizione ma non al gruppo di gestione a cui appartiene. Le informazioni in altre colonne variano a seconda del ruolo. Il ruolo è fondamentale per determinare i dati che è possibile visualizzare e le azioni che è possibile eseguire in termini di assegnazione di criteri o iniziative (proprietario), modifica o visualizzazione della conformità. |
@@ -77,35 +76,35 @@ Per altre informazioni sull'assegnazione di Criteri di Azure, vedere [Panoramica
 
 Le definizioni dei criteri per una macchina virtuale di Azure sono elencate nella tabella seguente.
 
-|Nome |Description |Tipo |
+|Name |Descrizione |Type |
 |-----|------------|-----|
 |\[Anteprima\]: Abilita Monitoraggio di Azure per le macchine virtuali |Abilitare monitoraggio di Azure per le macchine virtuali nell'ambito specificato (gruppo di gestione, sottoscrizione o gruppo di risorse). Accetta l'area di lavoro Log Analytics come parametro. |Iniziativa |
-|\[Preview\]: audit Dependency Agent Deployment-VM Image (OS) Unlisted |Segnala le macchine virtuali come non conformi se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[Preview\]: Audit Log Analytics Agent Deployment-VM Image (OS) Unlisted |Segnala le macchine virtuali come non conformi se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[\]Preview: distribuire l'agente di dipendenza per le macchine virtuali Linux |Distribuire Dependency Agent per macchine virtuali Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[\]Preview: distribuire l'agente di dipendenza per le macchine virtuali Windows |Distribuire Dependency Agent per VM Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Criterio |
-|\]di \[Preview: distribuire l'agente di Log Analytics per le macchine virtuali Linux |Distribuire Log Analytics Agent per VM Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[anteprima\]: distribuire l'agente di Log Analytics per le macchine virtuali Windows |Distribuire Log Analytics Agent per VM Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Criterio |
+|\[Preview\]: audit Dependency Agent Deployment-VM Image (OS) Unlisted |Segnala le macchine virtuali come non conformi se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |Policy |
+|\[Preview\]: Audit Log Analytics Agent Deployment-VM Image (OS) Unlisted |Segnala le macchine virtuali come non conformi se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |Policy |
+|\[\]Preview: distribuire l'agente di dipendenza per le macchine virtuali Linux |Distribuire Dependency Agent per macchine virtuali Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Policy |
+|\[\]Preview: distribuire l'agente di dipendenza per le macchine virtuali Windows |Distribuire Dependency Agent per VM Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Policy |
+|\]di \[Preview: distribuire l'agente di Log Analytics per le macchine virtuali Linux |Distribuire Log Analytics Agent per VM Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Policy |
+|\[anteprima\]: distribuire l'agente di Log Analytics per le macchine virtuali Windows |Distribuire Log Analytics Agent per VM Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Policy |
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Criteri per i set di scalabilità di macchine virtuali di Azure
 
 Le definizioni dei criteri per un set di scalabilità di macchine virtuali di Azure sono elencate nella tabella seguente.
 
-|Nome |Description |Tipo |
+|Name |Descrizione |Type |
 |-----|------------|-----|
 |\[anteprima\]: abilitare monitoraggio di Azure per i set di scalabilità di macchine virtuali |Abilitare monitoraggio di Azure per i set di scalabilità di macchine virtuali nell'ambito specificato (gruppo di gestione, sottoscrizione o gruppo di risorse). Accetta l'area di lavoro Log Analytics come parametro. Nota: se i criteri di aggiornamento del set di scalabilità sono impostati su manuale, applicare l'estensione a tutte le macchine virtuali nel set chiamando l'aggiornamento su di essi. Nell'interfaccia della riga di comando è `az vmss update-instances`. |Iniziativa |
-|\[Preview\]: controllare la distribuzione dell'agente di dipendenza nei set di scalabilità di macchine virtuali-immagine VM (sistema operativo) non in elenco |Segnala il set di scalabilità di macchine virtuali come non conforme se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[Preview\]: controllare la distribuzione dell'agente Log Analytics nei set di scalabilità di macchine virtuali-immagine VM (sistema operativo) non in elenco |Segnala il set di scalabilità di macchine virtuali come non conforme se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[anteprima\]: distribuire l'agente di dipendenza per i set di scalabilità di macchine virtuali Linux |Distribuire Dependency Agent per i set di scalabilità di macchine virtuali Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[anteprima\]: distribuire l'agente di dipendenza per i set di scalabilità di macchine virtuali Windows |Distribuire Dependency Agent per i set di scalabilità di macchine virtuali Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[Preview\]: distribuire Log Analytics Agent per i set di scalabilità di macchine virtuali Linux |Distribuire Log Analytics Agent per i set di scalabilità di macchine virtuali Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Criterio |
-|\[Preview\]: distribuire Log Analytics Agent per i set di scalabilità di macchine virtuali Windows |Distribuire Log Analytics Agent per i set di scalabilità di macchine virtuali Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Criterio |
+|\[Preview\]: controllare la distribuzione dell'agente di dipendenza nei set di scalabilità di macchine virtuali-immagine VM (sistema operativo) non in elenco |Segnala il set di scalabilità di macchine virtuali come non conforme se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |Policy |
+|\[Preview\]: controllare la distribuzione dell'agente Log Analytics nei set di scalabilità di macchine virtuali-immagine VM (sistema operativo) non in elenco |Segnala il set di scalabilità di macchine virtuali come non conforme se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |Policy |
+|\[anteprima\]: distribuire l'agente di dipendenza per i set di scalabilità di macchine virtuali Linux |Distribuire Dependency Agent per i set di scalabilità di macchine virtuali Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Policy |
+|\[anteprima\]: distribuire l'agente di dipendenza per i set di scalabilità di macchine virtuali Windows |Distribuire Dependency Agent per i set di scalabilità di macchine virtuali Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Policy |
+|\[Preview\]: distribuire Log Analytics Agent per i set di scalabilità di macchine virtuali Linux |Distribuire Log Analytics Agent per i set di scalabilità di macchine virtuali Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Policy |
+|\[Preview\]: distribuire Log Analytics Agent per i set di scalabilità di macchine virtuali Windows |Distribuire Log Analytics Agent per i set di scalabilità di macchine virtuali Windows se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |Policy |
 
 Il criterio autonomo (non incluso nell'iniziativa) è descritto qui:
 
-|Nome |Description |Tipo |
+|Name |Descrizione |Type |
 |-----|------------|-----|
-|\[Preview\]: Audit Log Analytics area di lavoro per macchina virtuale-segnala mancata corrispondenza |Segnala le macchine virtuali come non conformi se non eseguono la registrazione nell'area di lavoro Log Analytics specificata nell'assegnazione di criteri o di iniziativa. |Criterio |
+|\[Preview\]: Audit Log Analytics area di lavoro per macchina virtuale-segnala mancata corrispondenza |Segnala le macchine virtuali come non conformi se non eseguono la registrazione nell'area di lavoro Log Analytics specificata nell'assegnazione di criteri o di iniziativa. |Policy |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>Assegnare l'iniziativa di Monitoraggio di Azure
 
@@ -143,7 +142,7 @@ Dopo aver creato l'assegnazione, la pagina **code coverage di monitoraggio di Az
 
 Nella matrice seguente viene eseguito il mapping di ogni possibile stato di conformità per l'iniziativa.  
 
-| Stato di conformità | Description | 
+| Stato di conformità | Descrizione | 
 |------------------|-------------|
 | **Conforme** | A tutte le macchine virtuali nell'ambito sono distribuiti gli agenti di Log Analytics e dipendenza.|
 | **Non conforme** | Non tutte le macchine virtuali nell'ambito dispongono della Log Analytics e degli agenti di dipendenza distribuiti e potrebbero richiedere la correzione.|
@@ -155,7 +154,7 @@ Nella matrice seguente viene eseguito il mapping di ogni possibile stato di conf
 
 Nella tabella seguente viene eseguito il mapping di ogni possibile stato di assegnazione per l'iniziativa.
 
-| Stato di assegnazione | Description | 
+| Stato di assegnazione | Descrizione | 
 |------------------|-------------|
 | **Success** | A tutte le macchine virtuali nell'ambito sono distribuiti gli agenti di Log Analytics e dipendenza.|
 | **Warning** | La sottoscrizione non è inclusa in un gruppo di gestione.|
@@ -195,7 +194,7 @@ In base ai risultati dei criteri inclusi nell'iniziativa, le macchine virtuali v
 In qualsiasi momento dopo l'assegnazione di un'iniziativa a un gruppo di gestione o una sottoscrizione, è possibile modificarla per modificare le proprietà seguenti:
 
 - Nome assegnazione
-- Description
+- Descrizione
 - Assegnato da
 - Area di lavoro Log Analytics
 - Eccezioni

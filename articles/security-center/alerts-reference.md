@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623963"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661960"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Avvisi di sicurezza-Guida di riferimento
 
@@ -399,8 +399,8 @@ Le finalità della catena di Kill per il Centro sicurezza sono basate su [Mitre 
 
 |Finalità|Descrizione|
 |------|-------|
-|**Sondaggio**|Il sondaggio potrebbe essere un tentativo di accedere a una determinata risorsa, indipendentemente da una finalità dannosa, oppure un tentativo non riuscito di ottenere l'accesso a un sistema di destinazione per raccogliere le informazioni prima dell'exploit. Questo passaggio viene in genere rilevato come tentativo, proveniente dall'esterno della rete, per analizzare il sistema di destinazione e identificare un punto di ingresso.|
-|**Sfruttamento**|L'exploit è la fase in cui un utente malintenzionato riesce a ottenere un appiglio sulla risorsa attaccata. Questa fase è pertinente per gli host e le risorse di calcolo, ad esempio account utente, certificati e così via. Gli attori minacciati spesso potranno controllare la risorsa dopo questa fase.|
+|**Preattacco**</br>(sostituisce il sondaggio)|Il preattacco potrebbe essere un tentativo di accedere a una determinata risorsa, indipendentemente da una finalità dannosa, oppure un tentativo non riuscito di ottenere l'accesso a un sistema di destinazione per raccogliere le informazioni prima dell'utilizzo. Questo passaggio viene in genere rilevato come tentativo, proveniente dall'esterno della rete, per analizzare il sistema di destinazione e identificare un punto di ingresso.</br>Ulteriori informazioni sulla fase di preattacco possono essere lette nella [pagina di Mitre](https://attack.mitre.org/matrices/pre/).|
+|**InitialAccess**</br>(sostituisce l'exploit)|InitialAccess è la fase in cui un utente malintenzionato riesce a ottenere un appiglio sulla risorsa attaccata. Questa fase è pertinente per gli host e le risorse di calcolo, ad esempio account utente, certificati e così via. Gli attori minacciati spesso potranno controllare la risorsa dopo questa fase.|
 |**Persistenza**|La persistenza è qualsiasi modifica di accesso, azione o configurazione a un sistema che assegna a un attore minaccia una presenza persistente nel sistema. Gli attori minacciati spesso dovranno mantenere l'accesso ai sistemi tramite interruzioni, ad esempio riavvii del sistema, perdita di credenziali o altri errori che richiederebbero uno strumento di accesso remoto per riavviare o fornire un backdoor alternativo per poter riottenere l'accesso.|
 |**PrivilegeEscalation**|L'escalation dei privilegi è il risultato di azioni che consentono a un antagonista di ottenere un livello più elevato di autorizzazioni in un sistema o in una rete. Alcuni strumenti o azioni richiedono un livello di privilegio più elevato per il funzionamento e probabilmente sono necessari in molti punti durante un'operazione. Gli account utente con le autorizzazioni per accedere a sistemi specifici o per eseguire funzioni specifiche necessarie per gli avversari per raggiungere l'obiettivo possono anche essere considerati un'escalation dei privilegi.|
 |**DefenseEvasion**|L'evasione della difesa è costituita da tecniche che possono essere usate da un antagonista per eludere il rilevamento o evitare altre difese. A volte queste azioni sono le stesse delle tecniche (o varianti di) di altre categorie che hanno il vantaggio aggiuntivo di sottovertere una particolare difesa o mitigazione.|

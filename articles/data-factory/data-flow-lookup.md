@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/03/2019
-ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 02/26/2020
+ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930326"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655065"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione ricerca flusso di dati mapping Azure Data Factory
 
@@ -36,9 +36,19 @@ Dopo aver utilizzato la trasformazione ricerca, è possibile aggiungere una sudd
 
 ## <a name="first-or-last-value"></a>Primo o ultimo valore
 
-Quando si dispone di più corrispondenze dalla ricerca, è possibile ridurre le più righe corrispondenti selezionando la prima o l'ultima corrispondenza. A tale scopo, è possibile utilizzare una trasformazione aggregazione dopo la ricerca.
+La trasformazione ricerca viene implementata come left outer join. Quando si dispone di più corrispondenze dalla ricerca, può essere utile ridurre le più righe corrispondenti selezionando la prima riga corrispondente, l'ultima corrispondenza o qualsiasi riga casuale.
 
-In questo caso, viene usata una trasformazione aggregazione denominata ```PickFirst``` per selezionare il primo valore dalle corrispondenze di ricerca.
+### <a name="option-1"></a>Opzione 1
+
+![Ricerca su riga singola](media/data-flow/singlerowlookup.png "Ricerca su riga singola")
+
+* Corrisponde a più righe: lasciare vuoto per restituire una corrispondenza con riga singola
+* Corrispondenza in: selezionare prima, ultima o qualsiasi corrispondenza
+* Condizioni di ordinamento: se si seleziona primo o ultimo, ADF richiede che i dati siano ordinati in modo che sia presente la logica alla base della prima e dell'ultima
+
+### <a name="option-2"></a>Opzione 2
+
+Questa operazione può essere eseguita anche utilizzando una trasformazione aggregazione dopo la ricerca. In questo caso, viene usata una trasformazione aggregazione denominata ```PickFirst``` per selezionare il primo valore dalle corrispondenze di ricerca.
 
 ![Aggregazione ricerca](media/data-flow/lookup333.png "Aggregazione ricerca")
 

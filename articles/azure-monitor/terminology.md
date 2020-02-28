@@ -1,18 +1,17 @@
 ---
 title: Aggiornamenti della terminologia di Monitoraggio di Azure | Microsoft Docs
 description: Descrive le modifiche alla terminologia recentemente apportate ai servizi di monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 01d4c8b3b803c5fce4fe24a5c96e649212fc4dca
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894360"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657844"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Modifiche di denominazione e terminologia in Monitoraggio di Azure
 Di recente sono state apportate modifiche significative a Monitoraggio di Azure, con diversi servizi consolidati per semplificare il servizio di monitoraggio da parte dei clienti di Azure. Questo articolo descrive le recenti modifiche apportate alla terminologia e ai nomi all'interno della documentazione di Monitoraggio di Azure.
@@ -50,7 +49,7 @@ Operations Management Suite (OMS) era un bundle dei servizi di gestione di Azure
 - Automazione di Azure
 - Backup di Azure
 - Log Analytics
-- Ripristino sito
+- Site Recovery
 
 [Per questi servizi è stato introdotto un nuovo piano tariffario](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) e il bundle OMS non è più disponibile per i nuovi clienti. Nessuno dei servizi che facevano parte di OMS è stato modificato, fatta eccezione per il consolidamento in Monitoraggio di Azure descritto in precedenza. 
 

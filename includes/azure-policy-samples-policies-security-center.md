@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 786075b4641675f7b36df427fff69f33c9cfc2c5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 27b453c4e20c2ae3ccb6ddda5a00e42ba4e522f6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495551"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780797"
 ---
 |Nome |Descrizione |Effetto/i |Versione |Source (Sorgente) |
-|---|---|---|---|
+|---|---|---|---|---|
 |[\[Anteprima\] La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Monitora le vulnerabilità rilevate da Valutazione della vulnerabilità del Centro sicurezza di Azure nelle macchine virtuali |AuditIfNotExists, Disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json)
 |[\[Anteprima\]: Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e246bcf-5f6f-4f87-bc6f-775d4712c7ea) |Limita l'accesso all'API Gestione dei servizi Kubernetes concedendo l'accesso all'API solo agli indirizzi IP in intervalli specifici. È consigliabile limitare l'accesso agli intervalli IP autorizzati per garantire che solo le applicazioni provenienti da reti autorizzate possano accedere al cluster. |Audit, Disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableIpRanges_KubernetesService_Audit.json)
 |[\[Anteprima\]: L'inoltro IP nella macchina virtuale deve essere disabilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd352bd5-2853-4985-bf0d-73806b4a5744) |L'abilitazione dell'inoltro IP sulla scheda di rete di una macchina virtuale consente alla macchina virtuale di ricevere traffico indirizzato ad altre destinazioni. L'inoltro IP è richiesto raramente, ad esempio, quando si usa la macchina virtuale come appliance virtuale di rete, di conseguenza l'abilitazione di questa impostazione deve essere verificata dal team di sicurezza della rete. |AuditIfNotExists, Disabled |1.0.0-preview |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_IPForwardingOnVirtualMachines_Audit.json)

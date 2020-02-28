@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 4ca8c18d448297cc2d2e2249a1dbbe04ecccd092
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019418"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656926"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
@@ -137,7 +137,7 @@ Possibilità di monitorare le metriche a livello di istanza. In [Come monitorare
 * Aumentare il limite di quota per le risorse locali.
 
 Per altre informazioni, vedere i documenti seguenti:
-* [Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure](cloud-services-dotnet-diagnostics-storage.md)
+* [Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure](/azure/storage/common/storage-introduction)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/) (I log di IIS non vengono più scritti nel servizio cloud)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Come si abilita la registrazione di Diagnostica di Microsoft Azure per Servizi cloud?
@@ -183,7 +183,7 @@ Per configurare un indirizzo IP statico, è necessario creare un IP riservato. Q
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Quali sono le caratteristiche e le funzionalità fornite dai sistemi di base di rilevamento e prevenzione delle intrusioni e di prevenzione degli attacchi DDoS di Azure?
 Azure offre sistemi di rilevamento e prevenzione delle intrusioni nei server fisici dei data center per consentire la difesa dalle minacce. I clienti possono anche distribuire soluzioni di sicurezza di terze parti, ad esempio web application firewall, firewall di rete, antimalware, sistemi di rilevamento delle intrusioni, sistemi di prevenzione e altro ancora. Per altre informazioni, vedere [Protect your data and assets and comply with global security standards](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity) (Proteggere dati e asset e rispettare gli standard di sicurezza globali).
 
-Microsoft monitora costantemente server, reti e applicazioni per rilevare i rischi. L'approccio di gestione delle minacce su più fronti adottato in Azure prevede l'uso di funzionalità di rilevamento delle intrusioni, prevenzione contro attacchi Distributed Denial of Service (DDoS), test di penetrazione, analisi comportamentali, rilevamento di anomalie e apprendimento automatico al fine di rafforzare continuamente le difese e ridurre i rischi. Microsoft Antimalware per Azure protegge i servizi cloud e le macchine virtuali di Azure. In aggiunta è possibile distribuire soluzioni di terze parti, come web application firewall, firewall di rete, antimalware, sistemi di rilevamento e prevenzione delle intrusioni e altro ancora.
+Microsoft esegue un monitoraggio continuo di server, reti e applicazioni per rilevare le minacce. L'approccio di gestione delle minacce su più fronti adottato in Azure prevede l'uso di funzionalità di rilevamento delle intrusioni, prevenzione contro attacchi Distributed Denial of Service (DDoS), test di penetrazione, analisi comportamentali, rilevamento di anomalie e apprendimento automatico al fine di rafforzare continuamente le difese e ridurre i rischi. Microsoft Antimalware per Azure protegge i servizi cloud e le macchine virtuali di Azure. In aggiunta è possibile distribuire soluzioni di terze parti, come web application firewall, firewall di rete, antimalware, sistemi di rilevamento e prevenzione delle intrusioni e altro ancora.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Come è possibile abilitare HTTP/2 nella macchina virtuale di Servizi cloud di Microsoft Azure?
 
@@ -196,7 +196,7 @@ Windows 10 e Windows Server 2016 includono il supporto per HTTP/2 sia sul lato c
 5. Riavviare il server.
 6. Passare al **sito Web predefinito** e in **Associazioni** creare una nuova associazione TLS con il certificato autofirmato appena creato. 
 
-Per scoprire di più, vedi:
+Per altre informazioni, vedere:
 
 - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS)
 - [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88) (Video: HTTP/2 in Windows 10: Browser, app e server Web)
@@ -226,7 +226,7 @@ Microsoft segue un processo rigoroso che non consente ai tecnici interni di usar
 
 ### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Non è possibile usare desktop remoto con la macchina virtuale del servizio cloud tramite il file RDP. Viene visualizzato l'errore seguente: Si è verificato un errore di autenticazione (codice: 0x80004005)
 
-Questo errore può verificarsi se si usa il file RDP da un computer aggiunto ad Azure Active Directory. Per risolvere il problema, seguire questa procedura:
+Questo errore può verificarsi se si usa il file RDP da un computer aggiunto ad Azure Active Directory. Per risolvere questo problema, effettuare le operazioni seguenti:
 
 1. Fare clic con il pulsante destro del mouse sul file RDP scaricato e quindi scegliere **Modifica**.
 2. Aggiungere "&#92;" come prefisso prima del nome utente. Ad esempio, usare **.\nomeutente** invece di **nomeutente**.

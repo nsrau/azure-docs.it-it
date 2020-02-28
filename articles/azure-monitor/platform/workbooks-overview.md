@@ -1,20 +1,19 @@
 ---
-title: Panoramica di cartelle di lavoro di monitoraggio di Azure
+title: Panoramica di Cartelle di lavoro di Monitoraggio di Azure
 description: Semplificare la creazione di report complessi con cartelle di lavoro con parametri predefinite e personalizzate
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
-ms.service: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872860"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658235"
 ---
 # <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di monitoraggio di Azure
 
@@ -43,13 +42,13 @@ Le cartelle di lavoro di offrono un set completo di funzionalità per la visuali
 * [Text](workbooks-visualizations.md#text)
 * [Grafici](workbooks-visualizations.md#charts)
 * [Griglie](workbooks-visualizations.md#grids)
-* [Riquadri](workbooks-visualizations.md#tiles)
+* [Titoli](workbooks-visualizations.md#tiles)
 * [Alberi](workbooks-visualizations.md#trees)
 * [Grafici](workbooks-visualizations.md#graphs)
 
 ![Visualizzazioni di cartelle di lavoro di esempio](./media/workbooks-overview/visualizations.png)
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 Per esplorare l'esperienza delle cartelle di lavoro, passare prima al servizio monitoraggio di Azure. Questa operazione può essere eseguita digitando **monitoraggio** nella casella cerca della portale di Azure.
 

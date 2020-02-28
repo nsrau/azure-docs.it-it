@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights per le applicazioni console | Microsoft Docs
 description: Monitorare la disponibilità, le prestazioni e l'utilizzo delle applicazioni Web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: c8c71fa3798b7c56550b742a8b19c83336bb6ddf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889142"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655430"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights per le applicazioni console .NET
 
@@ -24,9 +20,9 @@ ms.locfileid: "74889142"
 > [!NOTE]
 > È disponibile un nuovo Application Insights SDK denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md). Questo pacchetto è destinato [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), quindi può essere usato in .net core 2,0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
-* Nel [portale di Azure](https://portal.azure.com) [creare una risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md). Per il tipo di applicazione, scegliere **Generale**.
+* Nel [portale di Azure](https://portal.azure.com)[creare una risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md). Per il tipo di applicazione, scegliere **Generale**.
 * Eseguire una copia della chiave di strumentazione. Trovare la chiave nell'elenco a discesa **Informazioni di base** della nuova risorsa creata.
 * Installare la versione più recente del pacchetto [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights).
 * Impostare la chiave di strumentazione nel codice prima di tenere traccia dei dati di telemetria oppure impostare la variabile di ambiente APPINSIGHTS_INSTRUMENTATIONKEY. A questo punto si dovrebbe essere in grado di tenere traccia dei dati di telemetria manualmente e visualizzarli nel portale di Azure.

@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 21f4e4234025ab4b9bb14a1e1338aa4b748ef1a6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f9a5a4c86404b6df36f3bb6988451e8dcae046fd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495088"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780204"
 ---
 |Nome |Descrizione |Effetto/i |Versione |Source (Sorgente) |
-|---|---|---|---|
+|---|---|---|---|---|
 |[Aggiungi un tag ai gruppi di risorse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |Aggiunge il tag e il valore specificati quando viene creato o aggiornato un gruppo di risorse in cui manca questo tag. È possibile correggere i gruppi di risorse esistenti attivando un'attività di correzione. Se il tag esiste con un valore diverso, non verrà modificato. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json)
 |[Aggiungi un tag alle risorse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f9dc7db-30c1-420c-b61a-e1d640128d26) |Aggiunge il tag e il valore specificati quando viene creata o aggiornata una risorsa in cui manca questo tag. È possibile correggere le risorse esistenti attivando un'attività di correzione. Se il tag esiste con un valore diverso, non verrà modificato. Questa operazione non modifica i tag nei gruppi di risorse. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Modify.json)
 |[Aggiungi o sostituisci un tag nei gruppi di risorse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd157c373-a6c4-483d-aaad-570756956268) |Aggiunge o sostituisce il tag e il valore specificati quando viene creato o aggiornato un gruppo di risorse. È possibile correggere i gruppi di risorse esistenti attivando un'attività di correzione. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddOrReplaceTag_ResourceGroup_Modify.json)

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: dc2086223dea9bff311aac9e7d4771b5273f0e91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: a5b0eb0c8bd56a28889945480e95b6413dc9b4dd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493553"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660020"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Dimensioni delle VM High Performance Computing (HPC)
 
@@ -87,7 +87,7 @@ In alcune distribuzioni di istanze A8 e A9 l'estensione HpcVmDrivers viene aggiu
   Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
   ```
 
-  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale](/extensions/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È anche possibile usare estensioni delle macchine virtuali nel [modello di distribuzione classico](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale](./extensions/overview.md). È anche possibile usare estensioni delle macchine virtuali nel [modello di distribuzione classico](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **Spazio degli indirizzi della rete RDMA** : la rete RDMA in Azure riserva lo spazio degli indirizzi 172.16.0.0/16. Per eseguire applicazioni MPI in istanze distribuite in una rete virtuale di Azure, assicurarsi che lo spazio degli indirizzi di rete virtuale non si sovrapponga alla rete RDMA.
 

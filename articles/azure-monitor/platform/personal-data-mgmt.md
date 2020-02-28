@@ -1,18 +1,17 @@
 ---
 title: Materiale sussidiario per i dati personali archiviati in Azure Log Analytics | Microsoft Docs
 description: Questo articolo descrive come gestire i dati personali archiviati in Azure Log Analytics e i metodi per identificarli e rimuoverli.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7f8b40094b30a01e4189bcf04d4c194e5b0b4285
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75394760"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659231"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -52,7 +51,7 @@ Log Analytics è un archivio flessibile che, pur definendo uno schema per i dati
 * *Dati personalizzati*: Log Analytics consente la raccolta con diversi metodi: log personalizzati e campi personalizzati, l'[API di raccolta dati HTTP](../../azure-monitor/platform/data-collector-api.md) e dati personali raccolti come parte dei log eventi di sistema. Tutti questi elementi potrebbero contenere dati privati e devono essere esaminati per verificare la presenza di dati di questo tipo.
 * *Dati acquisiti dalle soluzioni*: dato che il meccanismo delle soluzioni è aperto, è consigliabile esaminare tutte le tabelle generate dalle soluzioni per garantire la conformità.
 
-### <a name="application-data"></a>Dati dell'applicazione
+### <a name="application-data"></a>Dati applicazione
 
 * *Indirizzi IP*: mentre Application Insights offuscherà per impostazione predefinita tutti i campi degli indirizzi IP su "0.0.0.0", si tratta di un modello comune per eseguire l'override di questo valore con l'indirizzo IP effettivo dell'utente mantenere le informazioni della sessione. Per trovare qualsiasi tabella che contenga i valori nella colonna dell'indirizzo IP diverso da "0.0.0.0" nelle ultime 24 ore, è possibile usare la seguente query di Analytics:
     ```
@@ -84,7 +83,7 @@ Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzar
 > [!IMPORTANT]
 >  Anche se la maggior parte delle operazioni di ripulitura può essere completata molto più rapidamente rispetto al contratto di manutenzione, **il contratto di lavoro formale per il completamento delle operazioni di ripulitura viene impostato su 30 giorni** , a causa del forte effetto sulla piattaforma dati utilizzata. Si tratta di un processo automatizzato; non è possibile richiedere che un'operazione venga gestita più velocemente.
 
-### <a name="delete"></a>Elimina
+### <a name="delete"></a>Delete
 
 > [!WARNING]
 > Le operazioni di eliminazione in Log Analytics sono distruttive e non reversibili. Prestare la massima attenzione durante l'esecuzione.
@@ -103,7 +102,7 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
 #### <a name="log-data"></a>Dati di log
 
 * [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - accetta un oggetto che specifica i parametri dei dati da eliminare e restituisce un GUID di riferimento 
-* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio:
+* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio,
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -112,10 +111,10 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
 > [!IMPORTANT]
 >  Anche se è probabile che la maggior parte delle operazioni di ripulitura venga completata molto più rapidamente rispetto al Contratto di servizio, a causa dell'impatto elevato sulla piattaforma dati usata da Log Analytics, **il Contratto di servizio formale per il completamento delle operazioni di pulitura è impostato su 30 giorni**. 
 
-#### <a name="application-data"></a>Dati dell'applicazione
+#### <a name="application-data"></a>Dati applicazione
 
 * [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - accetta un oggetto che specifica i parametri dei dati da eliminare e restituisce un GUID di riferimento
-* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio:
+* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio,
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

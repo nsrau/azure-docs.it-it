@@ -3,16 +3,15 @@ title: Opzioni di conversione di Progettazione viste di monitoraggio di Azure in
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: f04ebc1a4a53825709479ca3f1dc7ce1245fc67f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171553"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658711"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opzioni di conversione di Progettazione viste di monitoraggio di Azure in cartelle di lavoro
 [Progettazione](view-designer.md) viste è una funzionalità di monitoraggio di Azure che consente di creare visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro log Analytics, con grafici, elenchi e sequenze temporali. Vengono eliminati e sostituiti con cartelle di lavoro che forniscono funzionalità aggiuntive. In questo articolo vengono confrontati i concetti fondamentali tra le due opzioni e per la conversione delle visualizzazioni in cartelle di lavoro.
@@ -31,7 +30,7 @@ della [cartella di lavoro verticale](view-designer-conversion-examples.md#vertic
 ## <a name="tile-conversion"></a>Conversione di sezioni
 Progettazione viste usa la funzionalità Panoramica del riquadro per rappresentare e riepilogare lo stato generale. Questi sono rappresentati in sette riquadri, che variano da numeri a grafici. Nelle cartelle di lavoro, gli utenti possono creare visualizzazioni simili e aggiungerle allo stile originale dei riquadri di panoramica. 
 
-![Gallery](media/view-designer-conversion-options/overview.png)
+![Raccolta](media/view-designer-conversion-options/overview.png)
 
 
 ## <a name="view-dashboard-conversion"></a>Visualizza la conversione del dashboard

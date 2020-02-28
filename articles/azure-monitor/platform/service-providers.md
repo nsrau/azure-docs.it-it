@@ -1,18 +1,17 @@
 ---
 title: Log di monitoraggio di Azure per i provider di servizi | Microsoft Docs
 description: I log di monitoraggio di Azure possono aiutare i provider di servizi gestiti (MSPs), le grandi aziende, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura locale o cloud del cliente.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 1b5c181569ea569ecc4808284683501cb20f7bf5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117052"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658881"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Log di monitoraggio di Azure per i provider di servizi
 

@@ -1,18 +1,14 @@
 ---
 title: Monitorare le prestazioni dei servizi app di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Tempo di caricamento e di risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/11/2019
-ms.openlocfilehash: 3ca9cbf2e282e3f67af3c5da470a3d81e6055f98
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 03d332af182f8f40ede634fbd563f7b064751f32
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189577"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655801"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -39,7 +35,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 
 ## <a name="enable-agent-based-monitoring"></a>Abilita monitoraggio basato su agenti
 
-# <a name="nettabnet"></a>[.NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > La combinazione di APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression non è supportata. Per ulteriori informazioni, vedere la spiegazione nella [sezione risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -75,7 +71,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 
     * Per l'elenco delle impostazioni del processore di telemetria del campionamento adattivo supportato, è possibile consultare il [codice](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) e la [documentazione associata](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Sono supportate le versioni seguenti di .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0
 
@@ -96,15 +92,15 @@ La definizione del Framework completo da .NET Core, la distribuzione autonoma e 
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Nell'app Web del servizio app in **impostazioni** > **selezionare Application Insights** > **Abilita**. Il monitoraggio basato sull'agente node. js è attualmente in anteprima.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Le applicazioni Web basate sul servizio app Java non supportano attualmente il monitoraggio automatico degli agenti e delle estensioni. Per abilitare il monitoraggio per l'applicazione Java, è necessario [instrumentare manualmente l'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Le applicazioni Web basate sul servizio app Python non supportano attualmente il monitoraggio automatico di agenti/estensioni. Per abilitare il monitoraggio per l'applicazione Python, è necessario [instrumentare manualmente l'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
@@ -112,7 +108,7 @@ Le applicazioni Web basate sul servizio app Python non supportano attualmente il
 
 ## <a name="enable-client-side-monitoring"></a>Abilita monitoraggio lato client
 
-# <a name="nettabnet"></a>[.NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare il monitoraggio lato client:
 
@@ -129,7 +125,7 @@ Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare 
 
 Per disabilitare il monitoraggio lato client, rimuovere la coppia chiave/valore associata dalle impostazioni dell'applicazione oppure impostare il valore su false.
 
-# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Il monitoraggio lato client è **abilitato per impostazione predefinita** per le app .NET Core con la **raccolta consigliata**, indipendentemente dal fatto che sia presente l'impostazione dell'app ' APPINSIGHTS_JAVASCRIPT_ENABLED '.
 
@@ -146,15 +142,15 @@ Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
 
 ![Screenshot dell'interfaccia utente delle impostazioni dell'applicazione](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Per abilitare il monitoraggio lato client per l'applicazione Node. js, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Per abilitare il monitoraggio lato client per l'applicazione Java, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Per abilitare il monitoraggio lato client per l'applicazione Python, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
@@ -168,7 +164,7 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | valore |
+|Nome impostazione app |  Definizione | Valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
@@ -351,7 +347,7 @@ A partire dalla versione 2.8.9 viene utilizzata l'estensione del sito preinstall
 
 Se l'aggiornamento viene eseguito da una versione precedente alla 2.5.1, verificare che le DLL di ApplicationInsigths vengano rimosse dalla cartella bin dell'applicazione, [vedere la procedura di risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per il monitoraggio di estensioni/agenti per le applicazioni .NET e .NET Core in esecuzione in app Azure Services.
 
@@ -379,7 +375,7 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
 
 La tabella seguente fornisce una spiegazione più dettagliata del significato di questi valori, delle cause sottostanti e delle correzioni consigliate:
 
-|Valore problema|Spiegazione|Fix
+|Valore problema|Spiegazione|Correzione
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e che verrà eseguito il backup. Può essere dovuto a un riferimento a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`o `Microsoft.ApplicationInsights`  | Rimuovere i riferimenti. Alcuni di questi riferimenti vengono aggiunti per impostazione predefinita da determinati modelli di Visual Studio e le versioni precedenti di Visual Studio possono aggiungere riferimenti a `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Se l'applicazione è destinata a .NET Core 2,1 o 2,2 e si riferisce al metapacchetto [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) , la porta Application Insights e l'estensione verrà riattivata. | Per i clienti di .NET Core 2.1, 2.2 è [consigliabile](https://github.com/aspnet/Announcements/issues/287) usare invece il meta pacchetto Microsoft. AspNetCore. app.|

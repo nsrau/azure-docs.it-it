@@ -1,18 +1,14 @@
 ---
 title: Application Insights per i servizi cloud di Azure | Microsoft Docs
 description: Monitorare i ruoli Web e di lavoro in modo efficace con Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: f915764deaa70117b96a42c5e7310b691125d731
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979843"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655838"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] possibile monitorare le [app del servizio cloud di Azure](https://azure.microsoft.com/services/cloud-services/) per disponibilità, prestazioni, errori e utilizzo combinando i dati di Application Insights SDK con [diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) i dati dei servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -26,7 +22,7 @@ Prima di iniziare, è necessario disporre di quanto segue:
 * Strumenti di Microsoft Azure 2.9 o versione successiva.
 * Developer Analytics Tools 7.10 o versione successiva.
 
-## <a name="get-started-quickly"></a>Inizia rapidamente
+## <a name="get-started-quickly"></a>Operatività immediata
 Il modo più rapido e semplice per monitorare il servizio cloud con Application Insights è scegliere questa opzione quando si pubblica il servizio in Azure.
 
 ![Pagina Impostazioni di diagnostica di esempio](./media/cloudservices/azure-cloud-application-insights.png)

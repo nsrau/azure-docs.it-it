@@ -1,18 +1,17 @@
 ---
 title: Struttura dei log di monitoraggio di Azure | Microsoft Docs
 description: È necessaria una query di log per recuperare i dati di log da Monitoraggio di Azure.  Questo articolo descrive come vengono usate le nuove query di log in Monitoraggio di Azure e illustra i concetti con cui avere familiarità prima di crearne una.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893638"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662077"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struttura dei log di monitoraggio di Azure
 La possibilità di ottenere rapidamente informazioni dettagliate sui dati tramite una query di [log](log-query-overview.md) è una funzionalità potente di monitoraggio di Azure. Per creare query efficienti e utili, è necessario comprendere alcuni concetti di base, ad esempio dove si trovano i dati desiderati e come sono strutturati. Questo articolo fornisce i concetti di base necessari per iniziare.
@@ -46,14 +45,14 @@ union withsource = table *
 Per informazioni dettagliate sulle tabelle create, vedere la documentazione per ogni origine dati. Gli esempi includono articoli per le [origini dati di Agent, i](../platform/agent-data-sources.md) [log delle risorse](../platform/diagnostic-logs-schema.md)e le [soluzioni di monitoraggio](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Autorizzazioni per l'area di lavoro
-Vedere [progettazione di una distribuzione di log di monitoraggio di Azure](../platform/design-logs-deployment.md) per comprendere la strategia di controllo degli accessi e i consigli per fornire l'accesso ai dati in un'area di lavoro. Oltre a concedere l'accesso all'area di lavoro stessa, è possibile limitare l'accesso a singole tabelle utilizzando il [controllo degli accessi in base al ruolo](../platform/manage-access.md#table-level-rbac).
+Vedere [progettazione di una distribuzione di log di monitoraggio di Azure](../platform/design-logs-deployment.md) per comprendere la strategia di controllo degli accessi e i consigli per fornire l'accesso ai dati in un'area di lavoro. Oltre a concedere l'accesso all'area di lavoro stessa, è possibile limitare l'accesso a singole tabelle [utilizzando il](../platform/manage-access.md#table-level-rbac)controllo degli accessi in base al ruolo.
 
 ## <a name="application-insights-application"></a>Applicazione Application Insights
 Quando si crea un'applicazione in Application Insights, viene creata automaticamente un'applicazione corrispondente nei log di monitoraggio di Azure. Non è necessaria alcuna configurazione per la raccolta dei dati e l'applicazione scriverà automaticamente i dati di monitoraggio, ad esempio le visualizzazioni di pagina, le richieste e le eccezioni.
 
 A differenza di un'area di lavoro Log Analytics, un'applicazione Application Insights dispone di un set fisso di tabelle. Non è possibile configurare altre origini dati da scrivere nell'applicazione in modo da non creare altre tabelle. 
 
-| Table | Description | 
+| Tabella | Descrizione | 
 |:---|:---|
 | availabilityResults | Riepilogare i dati dei test di disponibilità. |
 | browserTimings      | Dati sulle prestazioni del client, ad esempio il tempo impiegato per elaborare i dati in ingresso. |
@@ -63,7 +62,7 @@ A differenza di un'area di lavoro Log Analytics, un'applicazione Application Ins
 | eccezioni          | Eccezioni generate dal runtime dell'applicazione. |
 | pageViews           | Dati relativi a ogni visualizzazione del sito Web con le informazioni del browser. |
 | performanceCounters | Misurazioni delle prestazioni dalle risorse di calcolo che supportano l'applicazione. |
-| requests            | Dettagli di ogni richiesta dell'applicazione.  |
+| richieste            | Dettagli di ogni richiesta dell'applicazione.  |
 | traces              | Risultati dalla traccia distribuita. |
 
 È possibile visualizzare lo schema per ogni tabella nella scheda **schema** log Analytics per l'applicazione.
@@ -73,7 +72,7 @@ A differenza di un'area di lavoro Log Analytics, un'applicazione Application Ins
 ## <a name="standard-properties"></a>Proprietà standard
 Mentre ogni tabella nei log di monitoraggio di Azure ha un proprio schema, sono presenti proprietà standard condivise da tutte le tabelle. Per informazioni dettagliate, vedere [proprietà standard nei log di monitoraggio di Azure](../platform/log-standard-properties.md) .
 
-| Area di lavoro Log Analytics | Applicazione Application Insights | Description |
+| Area di lavoro Log Analytics | Applicazione Application Insights | Descrizione |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | Data e ora di creazione del record. |
 | Type          | itemType   | Nome della tabella da cui è stato recuperato il record. |

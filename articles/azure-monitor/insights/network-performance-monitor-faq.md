@@ -1,18 +1,17 @@
 ---
 title: Domande frequenti - Soluzione Monitoraggio prestazioni rete in Azure | Microsoft Docs
 description: Questo articolo acquisisce le domande frequenti su Monitoraggio prestazioni rete in Azure. Monitoraggio prestazioni rete (NPM) consente di monitorare le prestazioni delle reti quasi in tempo reale e rilevare e individuare i colli di bottiglia delle prestazioni di rete.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538198"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654434"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -69,7 +68,7 @@ Lo script configura Windows Firewall solo in locale. Se sono definite regole del
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Qual è il numero massimo di agenti che è possibile usare o viene visualizzato l'errore ".... è stato raggiunto il limite di configurazione?
 NPM limita il numero di indirizzi IP a 5000 IP per ogni area di lavoro. Se un nodo dispone sia di indirizzi IPv4 che IPv6, questo vale come 2 indirizzi IP per tale nodo. Di conseguenza, il limite di 5000 IP stabilisce il limite massimo del numero di agenti. È possibile eliminare gli agenti inattivi dalla scheda Nodi in NPM >> Configura. NPM gestisce anche la cronologia di tutti gli indirizzi IP che sono stati assegnati alla macchina virtuale che ospita l'agente e ognuno viene conteggiato come IP separato, contribuendo a tale limite superiore di 5000 IP. Per liberare gli IP per l'area di lavoro, è possibile usare la pagina nodi per eliminare gli IP non in uso.
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
 ### <a name="how-are-loss-and-latency-calculated"></a>Come vengono calcolate la perdita e la latenza?
 Gli agenti di origine inviano richieste SYN TCP (se è selezionato TCP come protocollo per il monitoraggio) o ECHO ICMP (se invece è selezionato ICMP) all'indirizzo IP di destinazione a intervalli regolari per verificare che tutti i percorsi per la combinazione di IP di origine e destinazione siano coperti. Per calcolare la perdita e la latenza di ogni percorso viene misurata la percentuale di pacchetti ricevuti e di tempo di round trip dei pacchetti. I dati vengono aggregati per l'intervallo di polling e per tutti i percorsi in modo da ottenere i valori complessivi di perdita e latenza per la combinazione di IP per lo specifico intervallo di polling.
@@ -173,7 +172,7 @@ Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qua
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm).
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
 Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono al traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non tenta di individuare più hop.
@@ -210,7 +209,7 @@ Ad esempio: hop-A, B, C. AvgHopLatency-10, 15, 20. Ciò significa che l'origine 
 Questa situazione può verificarsi se il firewall dell'host o il firewall intermedio (firewall di rete o gruppo di sicurezza di rete di Azure) blocca le comunicazioni tra l'agente di origine e la destinazione attraverso la porta usata da Monitoraggio prestazioni rete per il monitoraggio. Per impostazione predefinita, viene usata la porta 8084, a meno che il cliente non abbia modificato l'impostazione.
 
 * Per verificare che il firewall dell'host non blocchi le comunicazioni sulla porta richiesta, visualizzare lo stato di integrità dei nodi di origine e di destinazione dalla visualizzazione seguente: Monitoraggio prestazioni rete -> Configurazione -> Nodi. 
-  Se i nodi non sono integri, visualizzare le istruzioni e adottare le misure correttive. Se i nodi sono integri, proseguire con il passaggio b desiderato.
+  Se i nodi non sono integri, visualizzare le istruzioni e adottare le misure correttive. Se i nodi sono integri, proseguire con il passaggio b più avanti.
 * Per verificare che un firewall di rete intermedio o un gruppo di sicurezza di rete di Azure non blocchi le comunicazioni sulla porta richiesta, eseguire l'utilità PsPing di terze parti usando le istruzioni seguenti:
   * L'utilità PsPing è disponibile [qui](https://technet.microsoft.com/sysinternals/psping.aspx) per il download. 
   * Eseguire il comando seguente dal nodo di origine.

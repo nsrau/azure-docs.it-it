@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983096"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656739"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Restrizioni e limitazioni degli URI di reindirizzamento/URL di risposta
 
@@ -30,7 +30,7 @@ Un URI di reindirizzamento o un URL di risposta è il percorso a cui il server d
 
 La tabella seguente illustra il numero massimo di URI di reindirizzamento che è possibile aggiungere quando si registra l'app.
 
-| Account che hanno eseguito l'accesso | Numero massimo di URI di Reindirizzamento | Description |
+| Account che hanno eseguito l'accesso | Numero massimo di URI di Reindirizzamento | Descrizione |
 |--------------------------|---------------------------------|-------------|
 | Account Microsoft aziendali o dell'Istituto di istruzione nel tenant Azure Active Directory (Azure AD) di qualsiasi organizzazione | 256 | `signInAudience` campo nel manifesto dell'applicazione è impostato su *AzureADMyOrg* o *AzureADMultipleOrgs* |
 | Account Microsoft personali e account aziendali e dell'Istituto di istruzione | 100 | `signInAudience` campo nel manifesto dell'applicazione è impostato su *AzureADandPersonalMicrosoftAccount* |
@@ -54,7 +54,7 @@ Il modello di applicazione Azure AD non supporta gli URI con caratteri jolly per
 > [!NOTE]
 > La nuova esperienza [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) non consente agli sviluppatori di aggiungere URI con caratteri jolly nell'interfaccia utente. L'aggiunta dell'URI carattere jolly per le app che registrano account aziendali o dell'Istituto di istruzione è supportata solo tramite l'editor del manifesto dell'applicazione. In futuro, le nuove app non saranno in grado di usare i caratteri jolly nell'URI di reindirizzamento. Tuttavia, le app precedenti che contengono caratteri jolly negli URI di reindirizzamento continueranno a funzionare.
 
-Se lo scenario richiede più URI di reindirizzamento rispetto al limite massimo consentito, anziché aggiungere un URI di reindirizzamento con caratteri jolly, prendere in considerazione uno degli approcci seguenti.
+Se lo scenario richiede più URI di reindirizzamento rispetto al limite massimo consentito, anziché aggiungere un URI di reindirizzamento con caratteri jolly, prendere in considerazione l'approccio seguente.
 
 ### <a name="use-a-state-parameter"></a>Usare un parametro di stato
 
@@ -70,10 +70,6 @@ In questo approccio:
 
 > [!NOTE]
 > Questo approccio consente a un client compromesso di modificare i parametri aggiuntivi inviati nel parametro di stato, in modo da reindirizzare l'utente a un URL diverso, ovvero la [minaccia del redirector aperto](https://tools.ietf.org/html/rfc6819#section-4.2.4) descritta nella specifica RFC 6819. Pertanto, il client deve proteggere questi parametri crittografando lo stato o verificando altri metodi, ad esempio la convalida del nome di dominio nell'URI di reindirizzamento rispetto al token.
-
-### <a name="add-redirect-uris-to-service-principals"></a>Aggiungere gli URI di reindirizzamento alle entità servizio
-
-Un altro approccio consiste nell'aggiungere gli URI di reindirizzamento alle [entità servizio](app-objects-and-service-principals.md#application-and-service-principal-relationship) che rappresentano la registrazione dell'app in qualsiasi tenant Azure ad. È possibile usare questo approccio quando non è possibile usare un parametro di stato o lo scenario richiede di aggiungere nuovi URI di reindirizzamento alla registrazione dell'app per ogni nuovo tenant supportato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

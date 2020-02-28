@@ -3,17 +3,16 @@ title: Trasmettere i dati di monitoraggio di Azure all'hub eventi
 description: Informazioni su come trasmettere i dati di monitoraggio di Azure a un hub eventi per ottenere i dati in uno strumento SIEM o Analytics del partner.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6a474bdceffa07b18530250a02a9ef94159a8e35
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b22f779d616751ebaa3dad853d5aa23ec4969f23
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750327"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658864"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi
 Monitoraggio di Azure offre una soluzione completa per il monitoraggio completo dello stack per applicazioni e servizi in Azure, in altri cloud e in locale. Oltre a usare monitoraggio di Azure per analizzare i dati e sfruttarli per diversi scenari di monitoraggio, potrebbe essere necessario inviarli ad altri strumenti di monitoraggio nell'ambiente in uso. Il metodo più efficace per trasmettere i dati di monitoraggio agli strumenti esterni nella maggior parte dei casi consiste nell'usare [Hub eventi di Azure](/azure/event-hubs/). Questo articolo fornisce una breve descrizione di come è possibile trasmettere i dati di monitoraggio da origini diverse a un hub eventi e collegamenti a istruzioni dettagliate.
@@ -33,7 +32,7 @@ Prima di configurare il flusso per qualsiasi origine dati, è necessario [creare
 ## <a name="monitoring-data-available"></a>Dati di monitoraggio disponibili
 Le [origini dei dati di monitoraggio per monitoraggio di Azure](data-sources.md) descrivono i diversi livelli di dati per le applicazioni Azure e i tipi di dati di monitoraggio disponibili per ognuno di essi. La tabella seguente elenca ognuno di questi livelli e una descrizione del modo in cui i dati possono essere trasmessi a un hub eventi. Per ulteriori dettagli, attenersi ai collegamenti disponibili.
 
-| Livello | Dati | Metodo |
+| Livello | Data | Metodo |
 |:---|:---|:---|
 | [Tenant di Azure](data-sources.md#azure-tenant) | Log di controllo Azure Active Directory | Configurare un'impostazione di diagnostica del tenant nel tenant di AAD. Per informazioni dettagliate, vedere [esercitazione: trasmettere i log Azure Active Directory a un hub eventi di Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) . |
 | [Sottoscrizione di Azure](data-sources.md#azure-subscription) | Azure Activity Log | Creare un profilo di log per esportare gli eventi del log attività in hub eventi.  Per informazioni dettagliate, vedere [esportare il log attività di Azure nell'archiviazione o hub eventi di Azure](activity-log-export.md) . |
@@ -49,7 +48,7 @@ Per i dati che non è possibile trasmettere direttamente a un hub eventi, è pos
 
 Il routing dei dati di monitoraggio a un hub eventi con monitoraggio di Azure consente di eseguire facilmente l'integrazione con gli strumenti esterni SIEM e di monitoraggio. Di seguito sono riportati alcuni esempi di strumenti con l'integrazione di monitoraggio di Azure:
 
-| Strumento | Ospitato in Azure | Description |
+| Strumento | Ospitato in Azure | Descrizione |
 |:---|:---| :---|
 |  IBM QRadar | No | Microsoft Azure DSM e Microsoft Azure Event Hub Protocol sono scaricabili dal [sito Web del supporto IBM](https://www.ibm.com/support). Altre informazioni sull'integrazione con Azure sono disponibili nella pagina relativa alla [configurazione di QRADAR DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
 | Splunk | No | [Il componente aggiuntivo monitoraggio di Azure per Splunk](https://splunkbase.splunk.com/app/3534/) è un progetto open source disponibile in splunkbase. La documentazione è disponibile nell' [addon di monitoraggio di Azure per Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Se non è possibile installare un componente aggiuntivo nell'istanza di Splunk, se ad esempio si usa un proxy o in esecuzione in Splunk cloud, è possibile inviare questi eventi all'agente di raccolta eventi HTTP Splunk usando la [funzione di Azure per Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), che viene attivata da nuovi messaggi nell'hub eventi. |
@@ -60,7 +59,7 @@ Il routing dei dati di monitoraggio a un hub eventi con monitoraggio di Azure co
 |Logz.io | Sì | Per altre informazioni, vedere [Introduzione al monitoraggio e alla registrazione con LOGZ.io per app Java in esecuzione in Azure](https://docs.microsoft.com/azure/java/java-get-started-with-logzio)
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Archiviare il log attività in un account di archiviazione](../../azure-monitor/platform/archive-activity-log.md)
 * [Leggere la panoramica del log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Configurare un avviso in base a un evento del log attività](../../azure-monitor/platform/alerts-log-webhook.md)

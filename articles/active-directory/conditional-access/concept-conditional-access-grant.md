@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d3df906936cc4e47ee1f43adb0fcbaa0e8c04b0f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585884"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656314"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -30,7 +30,7 @@ Block prende in considerazione le assegnazioni e impedisce l'accesso in base all
 
 Block è un potente controllo che deve essere dotato di una conoscenza adeguata. È necessario che gli amministratori usino la [modalità solo report](concept-conditional-access-report-only.md) per eseguire il test prima di abilitare.
 
-## <a name="grant-access"></a>Concedere l'accesso
+## <a name="grant-access"></a>Concedi accesso
 
 Gli amministratori possono scegliere di applicare uno o più controlli durante la concessione dell'accesso. Questi controlli includono le opzioni seguenti: 
 
@@ -55,7 +55,7 @@ Selezionando questa casella di controllo, gli utenti dovranno eseguire Multi-Fac
 
 Le organizzazioni che hanno distribuito Microsoft Intune possono usare le informazioni restituite dai dispositivi per identificare i dispositivi che soddisfano requisiti di conformità specifici. Le informazioni di conformità dei criteri vengono trasmesse da Intune a Azure AD dove l'accesso condizionale può prendere decisioni per concedere o bloccare l'accesso alle risorse. Per altre informazioni sui criteri di conformità, vedere l'articolo [impostare le regole sui dispositivi per consentire l'accesso alle risorse dell'organizzazione con Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
-Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi sistema operativo del dispositivo) o da un sistema MDM di terze parti per i dispositivi Windows 10. I sistemi MDM di terze parti per sistemi operativi per dispositivo diversi da Windows 10 non sono supportati.
+Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi sistema operativo del dispositivo) o da un sistema MDM di terze parti per i dispositivi Windows 10. JAMF Pro è l'unico sistema MDM di terze parti supportato. Altre informazioni sull'integrazione sono disponibili nell'articolo [integrare JAMF Pro con Intune per la conformità](/intune/protect/conditional-access-integrate-jamf).
 
 I dispositivi devono essere registrati in Azure AD prima che possano essere contrassegnati come conformi. Altre informazioni sulla registrazione del dispositivo sono disponibili nell'articolo, [che cos'è un'identità del dispositivo](../devices/overview.md).
 

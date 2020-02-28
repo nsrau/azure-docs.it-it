@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/09/2019
+ms.date: 02/26/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429788"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656617"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -47,7 +47,7 @@ Questo articolo fornisce una panoramica del report degli accessi.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Quale licenza di Azure AD è necessaria per visualizzare le attività di accesso?
 
-* Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium. Per l'aggiornamento dell'edizione Azure Active Directory, vedere [Introduzione a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) . Verranno visualizzati alcuni giorni prima che i dati vengano visualizzati nei report dopo l'aggiornamento a una licenza Premium senza attività di dati prima dell'aggiornamento.
+* Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium. vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso. Verranno visualizzati alcuni giorni prima che i dati vengano visualizzati nei report dopo l'aggiornamento a una licenza Premium senza attività di dati prima dell'aggiornamento.
 
 ## <a name="sign-ins-report"></a>Report sugli accessi
 
@@ -101,59 +101,90 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 ## <a name="filter-sign-in-activities"></a>Filtrare le attività di accesso
 
-Per prima cosa, limitare i dati segnalati a un livello che funziona per l'utente. In secondo luogo, filtrare i dati degli accessi usando il campo data come filtro predefinito. Azure AD offre un'ampia gamma di filtri aggiuntivi che è possibile impostare.
+Per prima cosa, limitare i dati segnalati a un livello che funziona per l'utente. In secondo luogo, filtrare i dati degli accessi usando il campo data come filtro predefinito. Azure AD offre un'ampia gamma di filtri aggiuntivi che è possibile impostare:
 
 ![Attività di accesso](./media/concept-sign-ins/04.png "Attività di accesso")
 
-Il filtro **Utente** permette di specificare il nome o il nome dell'entità utente (UPN) per l'utente richiesto.
+**ID richiesta** : l'ID della richiesta a cui si è interessati.
 
-Il filtro **Applicazione** permette di specificare il nome dell'applicazione richiesta.
+**Utente** : nome o nome dell'entità utente (UPN) dell'utente a cui si è interessati.
 
-Il filtro **Stato accesso** permette di selezionare:
+**Applicazione** : nome dell'applicazione di destinazione.
+ 
+**Stato** : lo stato di accesso a cui si è interessati:
 
-- Tutto
-- Operazione completata
+- Success
+
 - Operazioni non riuscite
 
-Il filtro **Accesso condizionale** consente di selezionare lo stato dei criteri di accesso condizionale per l'accesso:
+- Interrotto
 
-- Tutto
-- Non applicato
-- Operazione completata
+
+**Indirizzo IP** : indirizzo IP del dispositivo usato per la connessione al tenant.
+
+Il **percorso: il percorso da** cui è stata avviata la connessione:
+
+- Città
+
+- Stato/provincia
+
+- Country/Region
+
+
+**Resource** : il nome del servizio usato per l'accesso.
+
+
+**ID risorsa** : ID del servizio usato per l'accesso.
+
+
+**App client** : il tipo di app client usato per connettersi al tenant:
+
+![Filtro app client](./media/concept-sign-ins/client-app-filter.png)
+
+
+|Name|Autenticazione moderna|Descrizione|
+|---|:-:|---|
+|SMTP autenticato| |Usato dai client POP e IMAP per inviare messaggi di posta elettronica.|
+|Individuazione automatica| |Usato dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.|
+|Exchange ActiveSync| |Questo filtro Mostra tutti i tentativi di accesso in cui è stato tentato il protocollo EAS.|
+|Browser.|![Controlla](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano i Web browser|
+|Exchange ActiveSync| | Mostra tutti i tentativi di accesso da parte degli utenti con le app client che usano Exchange ActiceSync per connettersi a Exchange Online|
+|PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [connettersi a Exchange Online PowerShell usando l'autenticazione a più fattori](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Servizi Web Exchange| |Interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.|
+|IMAP4| |Un client di posta legacy che usa IMAP per recuperare la posta elettronica.|
+|MAPI su HTTP| |Usato da Outlook 2010 e versioni successive.|
+|App per dispositivi mobili e client desktop|![Controlla](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano app per dispositivi mobili e client desktop.|
+|Rubrica non in linea| |Copia delle raccolte di elenchi di indirizzi scaricate e utilizzate da Outlook.|
+|Outlook Anywhere (RPC su HTTP)| |Usato da Outlook 2016 e versioni precedenti.|
+|Servizio Outlook| |Usato dall'app mail e Calendar per Windows 10.|
+|POP3| |Un client di posta legacy che usa POP3 per recuperare la posta elettronica.|
+|Servizi Web di Reporting| |Utilizzato per recuperare i dati del report in Exchange Online.|
+|Altri client| |Mostra tutti i tentativi di accesso degli utenti in cui l'app client non è inclusa o sconosciuta.|
+
+
+
+**Sistema operativo** : il sistema operativo in esecuzione sul dispositivo ha usato l'accesso al tenant. 
+
+
+**Browser dispositivo** : se la connessione è stata avviata da un browser, questo campo consente di filtrare in base al nome del browser.
+
+
+**ID di correlazione** : l'ID di correlazione dell'attività.
+
+
+**Accesso condizionale** -lo stato delle regole di accesso condizionale applicate
+
+- Non applicato 
+
+- Success
+
 - Operazioni non riuscite
 
-Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
-I valori possibili sono:
 
-- Un mese
-- 7 giorni
-- 24 ore
-- Intervallo di tempo personalizzato
 
-Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
 
-Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi verranno aggiunti automaticamente all'elenco dei filtri. Ad esempio, se si aggiunge il campo **App client** all'elenco, si otterrà un'altra opzione di filtro che consente di impostare i filtri seguenti:  
-![Attività di accesso](./media/concept-sign-ins/12.png "Attività di accesso")
 
-- **Browser**  
-    Questo filtro Mostra tutti gli eventi in cui sono stati tentati tentativi di accesso usando i flussi del browser.
-- **Exchange ActiveSync (supportato)**  
-    Questo filtro Mostra tutti i tentativi di accesso in cui è stato effettuato il tentativo di eseguire il protocollo di Exchange ActiveSync (EAS) dalle piattaforme supportate come iOS, Android e Windows Phone.
-- **Exchange ActiveSync (non supportato)**  
-    Questo filtro Mostra tutti i tentativi di accesso in cui il protocollo EAS è stato provato da piattaforme non supportate come le distribuzioni Linux.
-- **App per dispositivi mobili e client desktop** Il filtro Mostra tutti i tentativi di accesso che non usavano i flussi del browser. Ad esempio, app per dispositivi mobili da qualsiasi piattaforma che usa qualsiasi protocollo o da app client desktop come Office in Windows o MacOS.
-  
-- **Altri client**
-    - **IMAP**  
-        Un client di posta legacy che usa IMAP per recuperare la posta elettronica.
-    - **MAPI**  
-        Office 2013, in cui ADAL è abilitato e utilizza MAPI.
-    - **Client Office precedenti**  
-        Office 2013 nella configurazione predefinita in cui ADAL non è abilitato ed è in uso MAPI oppure Office 2016 dove ADAL è stato disabilitato.
-    - **POP**  
-        Un client di posta legacy che usa POP3 per recuperare la posta elettronica.
-    - **SMTP**  
-        Un client di posta legacy che usa SMTP per inviare messaggi di posta elettronica.
+
 
 ## <a name="download-sign-in-activities"></a>Scaricare le attività di accesso
 
@@ -195,9 +226,9 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - Utente
 - Username
 - ID applicazione
-- Richiesta
+- Applicazione
 - Client
-- Percorso
+- Location
 - Indirizzo IP
 - Data
 - Autenticazione a più fattori obbligatoria
@@ -228,7 +259,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Creazione report")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

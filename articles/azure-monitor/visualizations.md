@@ -1,18 +1,17 @@
 ---
 title: Visualizzazione dei dati da Monitoraggio di Azure | Microsoft Docs
 description: Fornisce un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/24/2018
-ms.openlocfilehash: c350cb1f8e7343f6d8e7a416aa0bba71388eaa86
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597826"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657810"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -24,7 +23,7 @@ Visualizzazioni come grafici e grafi consentono di analizzare i dati di monitora
 ## <a name="azure-dashboards"></a>Dashboard di Azure
 I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecnologia principale per la gestione di dashboard per Azure. Sono particolarmente utili poiché forniscono un unico riquadro di monitoraggio dell'infrastruttura e dei servizi di Azure per identificare rapidamente i problemi importanti.
 
-![dashboard](media/visualizations/dashboard.png)
+![Dashboard](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Vantaggi
 - Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analytics e Application Insights.
@@ -48,7 +47,7 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 ## <a name="azure-monitor-views"></a>Visualizzazioni di Monitoraggio di Azure
 Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
 
-![Visualizza](media/visualizations/view.png)
+![Visualizzazione](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantaggi
 - Visualizzazioni avanzate per i dati di log.
@@ -127,7 +126,7 @@ Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti 
 - Massima flessibilità nell'interfaccia utente, visualizzazione, interattività e funzionalità.
 - Combinazione di metriche e dati di log con altre origini dati.
 
-### <a name="disadvantages"></a>Svantaggi:
+### <a name="disadvantages"></a>Svantaggi
 - Necessità di un notevole lavoro di progettazione.
 
 

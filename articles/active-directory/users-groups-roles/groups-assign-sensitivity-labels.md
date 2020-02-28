@@ -9,31 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07859299805c5f7be869350adbdbfa675775888c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 51b242a76e1daec7d401d797e8c9887821117246
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404815"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656943"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Assegnare etichette di riservatezza ai gruppi di Office 365 in Azure Active Directory (anteprima)
 
-Azure Active Directory (Azure AD) supporta l'applicazione di etichette di riservatezza pubblicate dal [centro di conformità Microsoft 365](https://sip.protection.office.com/homepage) ai gruppi di Office 365. Le etichette di riservatezza si applicano al gruppo tra servizi come Outlook, Microsoft teams e SharePoint. Questa funzionalità è attualmente in anteprima pubblica.
+Azure Active Directory (Azure AD) supporta l'applicazione di etichette di riservatezza pubblicate dal [centro di conformità Microsoft 365](https://sip.protection.office.com/homepage) ai gruppi di Office 365. Le etichette di riservatezza si applicano al gruppo tra servizi come Outlook, Microsoft teams e SharePoint. Questa funzionalità è attualmente in anteprima pubblica. Per ulteriori informazioni sul supporto delle app di Office 365, vedere [supporto di office 365 per le etichette di riservatezza](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
 
 > [!IMPORTANT]
-> L'uso di Azure AD etichette di riservatezza per i gruppi di Office 365 richiede una licenza Azure Active Directory Premium P1.
-
-## <a name="group-settings-controlled-by-labels"></a>Impostazioni di gruppo controllate da etichette
-
-Sono disponibili due impostazioni che possono essere associate a un'etichetta:
-
-- **Privacy**: gli amministratori possono associare un'impostazione della privacy all'etichetta per controllare se un gruppo è pubblico o privato.
-- **Accesso Guest**: gli amministratori possono applicare i criteri Guest per tutti i gruppi a cui è assegnata l'etichetta. Questo criterio specifica se i guest possono essere aggiunti come membri o meno. Se il criterio Guest è configurato per un'etichetta, tutti i gruppi a cui viene assegnata l'etichetta non consentiranno di modificare l'impostazione AllowToAddGuests.
+> Per configurare questa funzionalità, è necessario che sia presente almeno una licenza attiva Azure Active Directory Premium P1 nell'organizzazione Azure AD.
 
 ## <a name="enable-sensitivity-label-support-in-powershell"></a>Abilitare il supporto dell'etichetta di riservatezza in PowerShell
 
@@ -87,11 +80,11 @@ Per applicare le etichette pubblicate ai gruppi, è innanzitutto necessario abil
 
 1. Salvare le modifiche e selezionare **Crea**.
 
-Il gruppo viene creato e i criteri associati all'etichetta selezionata vengono quindi applicati automaticamente.
+Il gruppo viene creato e le impostazioni del sito e del gruppo associate all'etichetta selezionata vengono quindi applicate automaticamente.
 
 ## <a name="assign-a-label-to-an-existing-group-in-azure-portal"></a>Assegnare un'etichetta a un gruppo esistente in portale di Azure
 
-1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account amministratore globale o di gruppo gruppi o come proprietario del gruppo.
+1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account amministratore di gruppi o come proprietario del gruppo.
 1. Selezionare **Gruppi**.
 1. Nella pagina **tutti i gruppi** selezionare il gruppo che si desidera assegnare all'etichetta.
 1. Nella pagina del gruppo selezionato selezionare **Proprietà** e selezionare un'etichetta di riservatezza nell'elenco.
@@ -109,22 +102,9 @@ Il gruppo viene creato e i criteri associati all'etichetta selezionata vengono q
 1. Selezionare **Rimuovi**.
 1. Selezionare **Salva** per applicare le modifiche.
 
-## <a name="office-365-app-support-for-sensitivity-labels"></a>Supporto delle app di Office 365 per le etichette di riservatezza
-
-Le app e i servizi di Office 365 seguenti supportano le etichette di riservatezza in questa versione di anteprima:
-
-- Interfaccia di amministrazione di Azure AD
-- Centro conformità Microsoft 365
-- SharePoint
-- Outlook sul Web
-- Teams
-- Interfaccia di amministrazione di SharePoint
-
-Per ulteriori informazioni sul supporto delle app di Office 365, vedere [supporto di office 365 per le etichette di riservatezza](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
-
 ## <a name="using-classic-azure-ad-classifications"></a>Uso di classificazioni di Azure AD classiche
 
-Dopo aver abilitato questa funzionalità, Office 365 non supporta più le classificazioni "classiche" per i nuovi gruppi. Le classificazioni classiche sono le classificazioni precedenti configurate definendo i valori per l'impostazione di `ClassificationList` in Azure AD PowerShell. Quando questa funzionalità è abilitata, tali classificazioni non verranno applicate ai gruppi.
+Dopo aver abilitato questa funzionalità, le classificazioni "classiche" per i gruppi verranno visualizzate solo per i gruppi e i siti esistenti ed è consigliabile usarle per i nuovi gruppi solo se si creano gruppi nelle app che non supportano le etichette di riservatezza. Se necessario, l'amministratore può convertirli in etichette di riservatezza in un secondo momento. Le classificazioni classiche sono le classificazioni precedenti configurate definendo i valori per l'impostazione di `ClassificationList` in Azure AD PowerShell. Quando questa funzionalità è abilitata, tali classificazioni non verranno applicate ai gruppi.
 
 ## <a name="troubleshooting-issues"></a>Risoluzione dei problemi
 
@@ -136,9 +116,7 @@ L'opzione etichetta riservatezza viene visualizzata solo per i gruppi quando ven
 1. La funzionalità è abilitata, EnableMIPLabels è impostato su true in PowerShell.
 1. Il gruppo è un gruppo di Office 365.
 1. Il tenant dispone di una licenza attiva Azure Active Directory Premium P1.
-1. L'utente corrente che ha eseguito l'accesso ha accesso alle etichette pubblicate.
 1. L'utente corrente che ha eseguito l'accesso dispone di privilegi sufficienti per assegnare le etichette. È necessario che l'utente sia un amministratore globale, un amministratore del gruppo o il proprietario del gruppo.
-1. L'utente che ha eseguito l'accesso ha una licenza di Office 365 assegnata. Per altre informazioni sui requisiti di licenza, vedere [Label di riservatezza nelle app di Office](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-office-apps).
 
 Verificare che tutte le condizioni siano soddisfatte per poter assegnare etichette a un gruppo.
 
@@ -149,7 +127,7 @@ Se l'etichetta che si sta cercando non è presente nell'elenco, questo potrebbe 
 - L'etichetta potrebbe non essere pubblicata nel centro di conformità Microsoft 365. Questo può essere applicato anche alle etichette che non sono più pubblicate. Per ulteriori informazioni, rivolgersi all'amministratore.
 - L'etichetta può essere pubblicata, tuttavia, non è disponibile per l'utente che ha eseguito l'accesso. Per ulteriori informazioni su come ottenere l'accesso all'etichetta, rivolgersi all'amministratore.
 
-### <a name="how-can-i-change-the-label-on-a-group"></a>Come è possibile modificare l'etichetta in un gruppo?
+### <a name="how-to-change-the-label-on-a-group"></a>Come modificare l'etichetta in un gruppo
 
 Le etichette possono essere scambiate in qualsiasi momento usando gli stessi passaggi dell'assegnazione di un'etichetta a un gruppo esistente, come indicato di seguito:
 

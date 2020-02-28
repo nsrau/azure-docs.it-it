@@ -1,15 +1,14 @@
 ---
 title: Ottenere gli eventi di integrità per le risorse tramite l'API REST di Azure | Microsoft Docs
 description: Usare le API REST di Azure per ottenere gli eventi di integrità per le risorse di Azure.
-ms.custom: REST
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2017
-ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451383"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654002"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Ottenere Integrità risorse tramite l'API REST 
 
@@ -29,21 +28,21 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Description|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
-|*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
-|*Authorization:*|Obbligatorio. Impostare su un token di [accesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` valido. |  
+|*Content-Type:*|Obbligatoria. Impostare su `application/json`.|  
+|*Authorization:*|Obbligatoria. Impostare un `Bearer` [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |  
 
 ### <a name="uri-parameters"></a>Parametri URI
 
-| Nome | Description |
+| Name | Descrizione |
 | :--- | :---------- |
 | subscriptionId | ID sottoscrizione che identifica una sottoscrizione di Azure. Se sono disponibili più sottoscrizioni, vedere [Uso di più sottoscrizioni](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | Versione dell'API da usare per la richiesta.<br /><br /> Questo documento illustra la versione api-version `2015-04-01`, inclusa nell'URL precedente.  |
 | $filter | L'opzione filtro per ridurre il set di risultati restituiti. I modelli consentiti per questo parametro sono disponibili [nel riferimento per l'operazione Log attività](/rest/api/monitor/activitylogs/list#uri-parameters). Nell'esempio illustrato vengono acquisiti tutti gli eventi nell'intervallo di tempo compreso tra 2018-05-16 e 20-06-2018 |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Testo della richiesta
 
 Per questa operazione non è necessario alcun corpo della richiesta.
 

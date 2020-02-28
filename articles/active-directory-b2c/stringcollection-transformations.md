@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: e3ce7ff633f41ccfe6faa3cc1dba1020e74459aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982297"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656093"
 ---
 # <a name="stringcollection-claims-transformations"></a>Trasformazioni delle attestazioni StringCollection
 
@@ -26,13 +26,13 @@ Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazion
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Consente di aggiungere un'attestazione di stringa a una nuova attestazione stringCollection.
+Aggiunge un'attestazione stringa a una nuova attestazione StringCollection di valori univoci. 
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Il ClaimType da aggiungere all'attestazione di output. |
 | InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
-| OutputClaim | collection | stringCollection | Gli oggetti ClaimType generati dopo che l'oggetto ClaimsTransformation è stato richiamato. |
+| OutputClaim | collection | stringCollection | ClaimType generato dopo che è stata richiamata la trasformazione delle attestazioni, con il valore specificato nell'attestazione di input. |
 
 Usare questa trasformazione delle attestazioni per aggiungere una stringa a un oggetto stringCollection nuovo o esistente. Viene comunemente usato in un profilo tecnico **AAD-UserWriteUsingAlternativeSecurityId**. Prima che venga creato un nuovo account di social networking, la trasformazione di attestazioni **CreateOtherMailsFromEmail** legge il ClaimType e aggiunge il valore al ClaimType **otherMails**.
 
@@ -60,13 +60,13 @@ La trasformazione delle attestazioni seguente aggiunge il ClaimType del **messag
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Consente di aggiungere un parametro di stringa a una nuova attestazione stringCollection.
+Aggiunge un parametro di stringa a una nuova attestazione StringCollection di valori univoci.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
 | InputParameter | item | string | Il valore da aggiungere all'attestazione di output. |
-| OutputClaim | collection | stringCollection | I ClaimType generati dopo che ClaimsTransformation è stato richiamato. |
+| OutputClaim | collection | stringCollection | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione delle attestazioni per aggiungere un valore di stringa a un oggetto stringCollection nuovo o esistente. L'esempio seguente aggiunge un indirizzo di posta elettronica costante (admin@contoso.com) all'attestazione **otherMails**.
 

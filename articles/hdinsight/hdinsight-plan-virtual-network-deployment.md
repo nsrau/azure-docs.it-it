@@ -5,25 +5,25 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1e6a21e8bf9c284c83af09885aa66b612b52ad7c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.custom: hdinsightactive
+ms.date: 02/25/2020
+ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044718"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659867"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsight
 
-Questo articolo fornisce informazioni di base sull'uso delle [reti virtuali di Azure](../virtual-network/virtual-networks-overview.md) con Azure HDInsight. Vengono inoltre illustrate le decisioni di progettazione e implementazione che devono essere apportate prima di poter implementare una rete virtuale per il cluster HDInsight. Al termine della fase di pianificazione, è possibile procedere alla [creazione di reti virtuali per i cluster HDInsight di Azure](hdinsight-create-virtual-network.md). Per altre informazioni sugli indirizzi IP di gestione di HDInsight necessari per configurare correttamente i gruppi di sicurezza di rete e le route definite dall'utente, vedere [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md).
+Questo articolo fornisce informazioni di base sull'uso delle [reti virtuali di Azure](../virtual-network/virtual-networks-overview.md) (reti virtuali) con Azure HDInsight. Vengono inoltre illustrate le decisioni di progettazione e implementazione che devono essere apportate prima di poter implementare una rete virtuale per il cluster HDInsight. Al termine della fase di pianificazione, è possibile procedere alla [creazione di reti virtuali per i cluster HDInsight di Azure](hdinsight-create-virtual-network.md). Per altre informazioni sugli indirizzi IP di gestione di HDInsight necessari per configurare correttamente i gruppi di sicurezza di rete (gruppi) e le route definite dall'utente, vedere [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md).
 
 Il servizio Rete virtuale di Azure consente di implementare gli scenari seguenti:
 
 * Connessione a HDInsight direttamente da una rete locale.
 * Connessione di HDInsight ad archivi dati in una rete virtuale di Azure.
-* Accesso diretto ai servizi [Apache Hadoop](https://hadoop.apache.org/) che non sono disponibili pubblicamente su Internet, ad esempio le API [Apache Kafka](https://kafka.apache.org/) o l'API Java [Apache HBase](https://hbase.apache.org/).
+* Accesso diretto ai servizi Apache Hadoop che non sono disponibili pubblicamente su Internet. Ad esempio, Apache Kafka API o l'API Java Apache HBase.
 
 > [!IMPORTANT]
 > La creazione di un cluster HDInsight in una VNET creerà diverse risorse di rete, ad esempio nic e bilanciamento del carico. **Non** eliminare queste risorse di rete, perché sono necessarie per il corretto funzionamento del cluster con vnet.
@@ -64,19 +64,19 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
 2. Si usano gruppi di sicurezza di rete, route definite dall'utente o appliance di rete virtuali per limitare il traffico all'interno o all'esterno della rete virtuale?
 
     In qualità di servizio gestito, HDInsight richiede l'accesso senza restrizioni a vari indirizzi IP nel data center di Azure. Per consentire la comunicazione con questi indirizzi IP, aggiornare tutti i gruppi di sicurezza di rete o le route definite dall'utente esistenti.
-    
-    HDInsight ospita più servizi, che usano porte diverse. Non bloccare il traffico indirizzato a queste porte. Per un elenco di porte da abilitare attraverso i firewall dell'appliance virtuale, vedere la sezione Sicurezza.
-    
+
+    HDInsight ospita più servizi, che usano porte diverse. Non bloccare il traffico verso queste porte. Per un elenco di porte da abilitare attraverso i firewall dell'appliance virtuale, vedere la sezione Sicurezza.
+
     Per trovare la configurazione di sicurezza esistente, usare i comandi di Azure PowerShell o dell'interfaccia della riga di comando di Azure che seguono:
 
     * Gruppi di sicurezza di rete
 
         Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale, quindi immettere il comando:
-    
+
         ```powershell
         Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
         ```
-    
+
         ```azurecli
         az network nsg list --resource-group RESOURCEGROUP
         ```
@@ -125,7 +125,7 @@ Azure assicura la risoluzione dei nomi per i servizi di Azure che vengono instal
 
     Entrambi questi nodi possono comunicare direttamente tra loro e con altri nodi in HDInsight, usando i nomi DNS interni.
 
-La risoluzione dei nomi predefinita __non__ consente a HDInsight di risolvere i nomi di risorse in reti che sono aggiunte alla rete virtuale. È ad esempio pratica diffusa unire la rete locale alla rete virtuale. Con la semplice risoluzione dei nomi predefinita, HDInsight non può accedere alle risorse della rete locale in base al nome. È vero anche il contrario. Le risorse nella rete locale non possono accedere alle risorse della rete virtuale in base al nome.
+La risoluzione dei nomi predefinita __non__ consente a HDInsight di risolvere i nomi di risorse in reti che sono aggiunte alla rete virtuale. Ad esempio, è comune aggiungere la rete locale alla rete virtuale. Con la risoluzione dei nomi predefinita, HDInsight non può accedere alle risorse nella rete locale in base al nome. È anche vero il contrario, le risorse nella rete locale non possono accedere alle risorse nella rete virtuale in base al nome.
 
 > [!WARNING]  
 > È necessario creare il server DNS personalizzato e configurare la rete virtuale per il suo utilizzo prima di creare il cluster HDInsight.
@@ -141,7 +141,7 @@ Per abilitare la risoluzione dei nomi tra la rete virtuale e le risorse in reti 
 4. Configurare l'inoltro tra i server DNS. La configurazione dipende dal tipo di rete remota.
 
    * Se la rete remota è una rete locale, configurare il DNS come indicato di seguito:
-        
+
      * __DNS personalizzato__ (nella rete virtuale):
 
          * Inoltrare le richieste per il suffisso DNS della rete virtuale al sistema di risoluzione ricorsiva di Azure (168.63.129.16). Azure gestisce le richieste per le risorse nella rete virtuale
@@ -235,12 +235,12 @@ Per altre informazioni sul controllo del traffico in uscita dai cluster HDInsigh
 
 #### <a name="forced-tunneling-to-on-premises"></a>Tunneling forzato in locale
 
-Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight non __supporta il__ tunneling forzato del traffico verso le reti locali. 
+Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight non __supporta il__ tunneling forzato del traffico verso le reti locali.
 
 ## <a id="hdinsight-ip"></a> Indirizzi IP richiesti
 
 Se si usano gruppi di sicurezza di rete o route definite dall'utente per controllare il traffico, vedere [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md).
-    
+
 ## <a id="hdinsight-ports"></a> Porte richieste
 
 Se si intende usare un **firewall** e accedere al cluster dall'esterno su determinate porte, potrebbe essere necessario consentire il traffico sulle porte necessarie per lo scenario. Per impostazione predefinita, non è necessario definire uno speciale elenco delle porte consentite, purché al traffico di gestione di Azure illustrato nella sezione precedente venga consentito di raggiungere il cluster sulla porta 443.
@@ -251,13 +251,16 @@ Per altre informazioni sulle regole del firewall per le appliance virtuali, vede
 
 ## <a name="load-balancing"></a>Bilanciamento del carico
 
-Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciamento del carico. Il tipo di questo servizio di bilanciamento del carico è a [livello di SKU Basic](../load-balancer/concepts-limitations.md#skus) con determinati vincoli. Uno di questi vincoli è che se si hanno due reti virtuali in aree diverse, non è possibile connettersi ai bilanciamenti del carico di base. Per ulteriori informazioni, vedere [domande frequenti sulle reti virtuali: vincoli sul peering VNET globale](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciamento del carico. Il tipo di questo servizio di bilanciamento del carico è a [livello di SKU Basic](../load-balancer/concepts-limitations.md#skus), che presenta determinati vincoli. Uno di questi vincoli è che se si hanno due reti virtuali in aree diverse, non è possibile connettersi ai bilanciamenti del carico di base. Per ulteriori informazioni, vedere [domande frequenti sulle reti virtuali: vincoli sul peering VNET globale](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="transport-layer-security"></a>Transport Layer Security
 
 Le connessioni al cluster tramite l'endpoint del cluster pubblico `https://<clustername>.azurehdinsight.net` vengono inviate tramite proxy tramite nodi del gateway del cluster. Queste connessioni sono protette usando un protocollo denominato TLS. L'applicazione di versioni superiori di TLS nei gateway migliora la sicurezza per queste connessioni. Per ulteriori informazioni sui motivi per cui è consigliabile utilizzare le versioni più recenti di TLS, vedere la pagina relativa [alla risoluzione del problema tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 
-È possibile controllare la versione o le versioni minime di TLS supportate nei nodi del gateway per il cluster HDInsight usando la proprietà *minSupportedTlsVersion* in un modello di Resource Manager in fase di distribuzione. Per un modello di esempio, vedere il [modello di avvio rapido di TLS 1,2 di HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Questa proprietà supporta tre valori: "1,0", "1,1" e "1,2", che corrispondono rispettivamente a TLS 1.0 +, TLS 1.1 + e TLS 1.2 +. Per impostazione predefinita, senza specificare questa proprietà, i cluster Azure HDInsight accettano le connessioni TLS 1,2 sugli endpoint HTTPS pubblici, oltre alle versioni precedenti per la compatibilità con le versioni precedenti. Infine, HDInsight imporrà TLS 1,2 o versioni successive su tutte le connessioni del nodo del gateway.
+Per impostazione predefinita, i cluster Azure HDInsight accettano le connessioni TLS 1,2 sugli endpoint HTTPS pubblici, nonché le versioni precedenti per la compatibilità con le versioni precedenti. È possibile controllare la versione minima di TLS supportata nei nodi del gateway durante la creazione del cluster usando il portale di Azure o un modello di Resource Manager. Per il portale, selezionare la versione TLS dalla scheda **sicurezza e rete** durante la creazione del cluster. Per un modello di Resource Manager in fase di distribuzione, usare la proprietà **minSupportedTlsVersion** . Per un modello di esempio, vedere il [modello di avvio rapido di TLS 1,2 di HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Questa proprietà supporta tre valori: "1,0", "1,1" e "1,2", che corrispondono rispettivamente a TLS 1.0 +, TLS 1.1 + e TLS 1.2 +.
+
+> [!IMPORTANT]
+> A partire dal 30 giugno 2020, Azure HDInsight imporrà TLS 1,2 o versioni successive per tutte le connessioni HTTPS. Ti consigliamo di assicurarti che tutti i client siano pronti per gestire TLS 1.2 o versioni successive. Per altre informazioni, vedere [Azure HDINSIGHT TLS 1,2 imposizione](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420610"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654665"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -29,15 +29,10 @@ Questo articolo:
 
 ## <a name="manage-device-identities"></a>Gestire le identità dei dispositivi
 
-Il portale di Azure AD offre una posizione centralizzata per la gestione delle identità dei dispositivi. È possibile accedere a questa posizione usando un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o eseguendo la procedura manuale seguente:
+Il portale di Azure AD offre una posizione centralizzata per la gestione delle identità dei dispositivi. Per ottenere questa posizione, è possibile usare un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-
-2. Cercare e selezionare **Azure Active Directory** o selezionarlo dalla **Home** page.
-
-3. Nella sezione **Gestisci** fare clic su **Dispositivi**.
-
-   ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/74.png)
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare a **Azure Active Directory** > **dispositivi**.
 
 La pagina **Dispositivi** consente di:
 
@@ -50,9 +45,7 @@ La pagina **Dispositivi** consente di:
 
 Per gestire le identità del dispositivo tramite il portale di Azure AD, è necessario che i dispositivi siano [registrati o aggiunti](overview.md) a Azure ad. Un amministratore può ottimizzare il processo di registrazione e aggiunta dei dispositivi configurando le relative impostazioni.
 
-![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/22.png)
-
-La pagina delle impostazioni dei dispositivi consente di configurare:
+La pagina Impostazioni dispositivo consente di configurare le impostazioni relative alle identità dei dispositivi:
 
 ![Gestire un dispositivo Intune](./media/device-management-azure-portal/21.png)
 
@@ -81,12 +74,7 @@ Questa opzione è una funzionalità Premium disponibile tramite prodotti come Az
 Sono disponibili due opzioni per individuare i dispositivi registrati e aggiunti:
 
 - **Tutti i dispositivi** nella sezione **Gestisci** della pagina **Dispositivi**  
-
-   ![Tutti i dispositivi](./media/device-management-azure-portal/41.png)
-
 - **Dispositivi** nella sezione **Gestisci** di una pagina **Utente**
-
-   ![Tutti i dispositivi](./media/device-management-azure-portal/43.png)
 
 Con entrambe le opzioni, è possibile ottenere una vista che:
 
@@ -131,7 +119,7 @@ Per abilitare o disabilitare un dispositivo, le opzioni disponibili sono due:
 
    ![Gestire un dispositivo Intune](./media/device-management-azure-portal/32.png)
 
-**Osservazioni:**
+**Note:**
 
 - Per abilitare o disabilitare un dispositivo, è necessario essere un amministratore globale o un amministratore di dispositivi cloud in Azure AD. 
 - La disabilitazione di un dispositivo impedisce l'autenticazione del dispositivo con Azure AD, impedendo così al dispositivo di accedere alle risorse Azure AD sorvegliate dalla CA del dispositivo o usando le credenziali di WH4B.
@@ -149,7 +137,7 @@ Per eliminare un dispositivo, le opzioni disponibili sono due:
 
    ![Eliminare un dispositivo](./media/device-management-azure-portal/34.png)
 
-**Osservazioni:**
+**Note:**
 
 - Per eliminare un dispositivo, è necessario essere un amministratore globale o un amministratore di Intune in Azure AD.
 - L'eliminazione di un dispositivo comporta quanto segue:
@@ -193,9 +181,7 @@ Le attività del dispositivo sono disponibili tramite i log attività. Questi lo
 
 Il punto di ingresso ai dati di controllo è **Log di controllo** nella sezione **Attività** della pagina **Dispositivi**.
 
-![Log di controllo](./media/device-management-azure-portal/61.png)
-
-Un log di controllo è una visualizzazione elenco predefinita che include:
+Il log di controllo ha una visualizzazione elenco predefinita che mostra:
 
 - Data e ora dell'occorrenza
 - Destinazioni
@@ -210,7 +196,7 @@ Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella bar
 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di controllo usando i campi seguenti:
 
-- Categoria
+- Category
 - Activity resource type (Tipo di risorsa dell'attività)
 - Attività
 - Intervallo di date

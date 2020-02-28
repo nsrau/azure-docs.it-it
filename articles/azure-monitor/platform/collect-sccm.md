@@ -1,18 +1,17 @@
 ---
 title: Connettersi Configuration Manager a monitoraggio di Azure | Microsoft Docs
 description: Questo articolo illustra i passaggi per connettere Configuration Manager all'area di lavoro in monitoraggio di Azure e iniziare ad analizzare i dati.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 5b5af034b116ec1cdcefc811630683c9f560c840
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513660"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655257"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
 È possibile connettere l'ambiente Microsoft endpoint Configuration Manager a monitoraggio di Azure per sincronizzare i dati della raccolta dispositivi e fare riferimento a tali raccolte in monitoraggio di Azure e automazione di Azure.  
@@ -22,7 +21,7 @@ ms.locfileid: "76513660"
 Monitoraggio di Azure supporta Configuration Manager Current Branch, versione 1606 e successive.
 
 >[!NOTE]
->La funzionalità per la connessione Configuration Manager con un'area di lavoro Log Analytics è facoltativa e non è abilitata per impostazione predefinita. Pertanto sarà necessario abilitarla prima di poterla usare. Per altre informazioni, vedere [Enable optional features from updates](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options) (Abilitare le funzioni facoltative dagli aggiornamenti).
+>La funzionalità per la connessione Configuration Manager con un'area di lavoro Log Analytics è facoltativa e non è abilitata per impostazione predefinita. È necessario abilitare questa funzionalità prima di utilizzarla. Per altre informazioni, vedere [abilitare le funzionalità facoltative dagli aggiornamenti](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
 
 ## <a name="configuration-overview"></a>Panoramica della configurazione
 
@@ -80,8 +79,8 @@ Vedere l'articolo [connettere computer Windows a monitoraggio di Azure in Azure]
 
 4. Nella pagina servizi di Azure della procedura guidata per i servizi di Azure:
 
-    1. Specificare un **Nome** per l'oggetto in Configuration Manager.
-    2. Specificare un parametro facoltativo **Descrizione** per identificare il servizio.
+    1. Specificare un **nome** per l'oggetto in Configuration Manager.
+    2. Specificare una **Descrizione** facoltativa che consenta di identificare il servizio.
     3. Selezionare il **connettore OMS**per i servizi di Azure.
 
     >[!NOTE]

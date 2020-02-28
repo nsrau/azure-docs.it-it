@@ -5,24 +5,23 @@ services: azure-monitor
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 368da2baaea1be41331d77f4dae1bdd9567b8cc5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872894"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658372"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
 
 Le cartelle di lavoro sono compatibili con un numero elevato di origini dati. In questo articolo vengono illustrate le origini dati attualmente disponibili per le cartelle di lavoro di monitoraggio di Azure.
 
-## <a name="logs"></a>Log
+## <a name="logs"></a>Registri
 
 Le cartelle di lavoro consentono di eseguire query sui log dalle origini seguenti:
 
@@ -43,7 +42,7 @@ Le risorse di Azure emettono [metriche](data-platform-metrics.md) a cui è possi
 
 ![Screenshot dell'interfaccia della metrica cartella di lavoro](./media/workbooks-overview/metrics.png)
 
-## <a name="azure-resource-graph"></a>Diagramma risorse di Azure 
+## <a name="azure-resource-graph"></a>Diagramma delle risorse di Azure 
 
 Le cartelle di lavoro supportano l'esecuzione di query per le risorse e i relativi metadati tramite Azure Resource Graph (ARG). Questa funzionalità viene utilizzata principalmente per creare ambiti di query personalizzati per i report. L'ambito della risorsa viene espresso tramite un subset di KQL supportato da ARG, che è spesso sufficiente per i casi d'uso comuni.
 

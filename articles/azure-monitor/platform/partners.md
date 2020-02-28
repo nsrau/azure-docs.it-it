@@ -1,18 +1,15 @@
 ---
 title: Partner che si integrano con monitoraggio di Azure
 description: Informazioni sui partner del monitoraggio di Azure e sulle modalità di accesso alla documentazione per l'integrazione.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: e111bcdde9381e8e418e7027d8294aa7dad7e39d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40ba4c4f0a90d5bca03afea67302a5dbb77de027
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023872"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659459"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -89,7 +86,7 @@ Dynatrace OneAgent si integra con Servizi app e con le VM di Azure per mezzo dei
 
 [Passare alla documentazione.][dynatrace-doc]
 
-## <a name="elastic"></a>Elasticità
+## <a name="elastic"></a>Elastic
 
 ![Logo elastico](./media/partners/elastic.png)
 
@@ -140,7 +137,7 @@ Microfocus **ArcSight** dispone di uno Smart Connector per hub eventi di monitor
 
 Il **Bridge per operazioni** con Microfocus monitora automaticamente tutte le risorse IT ibride, ovvero qualsiasi dispositivo, sistema operativo, database, applicazione o servizio, indipendentemente da dove viene eseguito e applica AIOps a tutti i tipi di dati, ovvero eventi, metriche, log e dipendenze. Offre una combinazione univoca di monitoraggio di qualità del servizio, associata a analisi approfondite dell'integrità delle applicazioni e include il monitoraggio completo delle prestazioni e della disponibilità dei servizi Microsoft Azure. Operations Bridge consente ai clienti di fornire un unico riquadro di vetro, disponibile su qualsiasi dispositivo con un browser, in modo che sia le aziende che gli stakeholder IT possano comprendere.
 
-Altre informazioni.
+Altre informazioni
 - [Panoramica di OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Scaricare](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope è un componente di Operations Bridge suite.

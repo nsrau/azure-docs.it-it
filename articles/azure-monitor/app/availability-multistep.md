@@ -1,26 +1,22 @@
 ---
 title: Monitoraggio con test Web in più passaggi-applicazione Azure Insights
 description: Configurare test Web in più passaggi per monitorare le applicazioni Web con applicazione Azure Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928959"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655941"
 ---
-# <a name="multi-step-web-tests"></a>Test Web in più passi
+# <a name="multi-step-web-tests"></a>Test Web in più passaggi
 
 È possibile monitorare una sequenza registrata di URL e interazioni con un sito Web tramite test Web in più passaggi. In questo articolo viene illustrato il processo di creazione di un test Web in più passaggi con Visual Studio Enterprise.
 
 > [!NOTE]
-> I test Web in più passaggi dipendono dai file di test Web di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con funzionalità di test Web. È importante comprendere che, sebbene non vengano aggiunte nuove funzionalità, la funzionalità di test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a essere supportata durante il ciclo di vita del supporto del prodotto. Il team del prodotto monitoraggio di Azure ha risolto le domande relative al futuro dei test di [disponibilità in più passaggi](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
+> I test Web in più passaggi dipendono dai file di test Web di Visual Studio. È stato [annunciato](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) che Visual Studio 2019 sarà l'ultima versione con funzionalità di test Web. È importante comprendere che, sebbene non vengano aggiunte nuove funzionalità, la funzionalità di test Web in Visual Studio 2019 è ancora attualmente supportata e continuerà a essere supportata durante il ciclo di vita del supporto del prodotto. Il team del prodotto monitoraggio di Azure ha risolto le domande relative al futuro [dei test di](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)disponibilità in più passaggi.  
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
@@ -54,7 +50,7 @@ Per istruzioni sulla creazione di test Web di Visual Studio, vedere la [document
 |**Frequenza test**| impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza predefinita di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.|
 |**Percorsi test**| Sono le posizioni da cui i server inviano richieste Web all'URL. **Il numero minimo di posizioni di test consigliate è cinque** per garantire che sia possibile distinguere i problemi nel sito Web dai problemi di rete. È possibile selezionare fino a 16 località.
 
-### <a name="success-criteria"></a>Criteri di superamento
+### <a name="success-criteria"></a>Criteri di installazione riuscita
 
 |Impostazione| Spiegazione
 |----|----|----|
@@ -74,7 +70,7 @@ Per istruzioni sulla creazione di test Web di Visual Studio, vedere la [document
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Inserimento di tempi e numeri casuali nel test
 
-Si supponga di voler testare uno strumento che riceva dati dipendenti dal tempo, come ad esempio valori di scorte da un feed esterno. Quando si registra il test Web, è necessario usare tempi specifici impostandoli come parametri del test, StartTime e EndTime.
+Si supponga di voler testare uno strumento che riceva dati dipendenti dal tempo, come ad esempio valori di scorte da un feed esterno. Quando si registra il test Web, è necessario usare orari specifici, ma questi vengono impostati come parametri del test, ovvero StartTime ed EndTime.
 
 ![Schermata My Awesome Stock app](./media/availability-multistep/app-insights-72webtest-parameters.png)
 
@@ -82,21 +78,21 @@ Quando si esegue il test, si vuole che EndTime sia sempre l'ora corrente e Start
 
 Il plug-in data e ora del test Web consente di gestire i parametrizzazioni.
 
-1. Aggiungere un plug-in del test Web per ciascun valore di parametro desiderato. Nella barra degli strumenti del test Web scegliere **Aggiungi plug-in test Web**.
+1. Aggiungere un plug-in test Web per ogni valore di parametro variabile desiderato. Nella barra degli strumenti del test Web scegliere **Aggiungi plug-in test Web**.
     
     ![Aggiungi plug-in test Web](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
     
     In questo esempio vengono usate due istanze di Plug-in data e ora, una per "15 minuti fa" e l'altra per "ora".
 
-2. Aprire le proprietà di ciascun plug-in. Assegnare un nome al plug-in e impostarlo in modo che usi l'ora corrente. Per uno di essi, impostare Aggiungi minuti = -15.
+2. Aprire le proprietà di ogni plug-in. Assegnare un nome al plug-in e impostarlo per l'uso dell'ora corrente. Per uno di essi, impostare Aggiungi minuti = -15.
 
     ![Parametri di contesto](./media/availability-multistep/app-insights-72webtest-plugin-parameters.png)
 
-3. Nei parametri del test Web, usare {{nome plug-in}} per fare riferimento a un nome di plug-in.
+3. Nei parametri del test Web usare {{nome plug-in}} per fare riferimento al nome di un plug-in.
 
     ![StartTime](./media/availability-multistep/app-insights-72webtest-plugins.png)
 
-Caricare quindi il test nel portale. Userà i valori dinamici ogni volta che verrà eseguito.
+Caricare quindi il test nel portale. Verranno usati i valori dinamici a ogni esecuzione del test.
 
 ### <a name="dealing-with-sign-in"></a>Gestione degli accessi
 
@@ -108,7 +104,7 @@ In tutti i casi è consigliabile creare un account nell'applicazione solo a scop
 
 **Autenticazione SAML**
 
-|Nome proprietà| Description|
+|Nome proprietà| Descrizione|
 |----|-----|
 | URI del gruppo di destinatari | URI del destinatario per il token SAML.  Si tratta dell'URI per il servizio di controllo di accesso (ACS), inclusi lo spazio dei nomi ACS e il nome host. |
 | Password certificato | Password del certificato client che consentirà l'accesso alla chiave privata incorporata. |
@@ -141,7 +137,7 @@ Mettendo a confronto le diverse sessioni, identificare il token restituito dal s
 Registrare un test Web usando Visual Studio.
 Impostare i parametri dei token quando questi vengono restituiti dall'autenticatore e usarli per l'esecuzione di query nel sito. Visual Studio prova a impostare i parametri del test, ma non imposta correttamente i parametri dei token.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Articolo dedicato alla [risoluzione dei problemi](troubleshoot-availability.md).
 

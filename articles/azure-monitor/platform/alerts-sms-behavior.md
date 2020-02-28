@@ -2,21 +2,21 @@
 title: Comportamento degli avvisi SMS nei gruppi di azioni
 description: Formato di messaggio SMS e risposta a messaggi SMS per l'annullamento e la riesecuzione della sottoscrizione o la richiesta di assistenza.
 author: dkamstra
+ms.author: dukek
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/16/2018
-ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60346298"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665307"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento degli avvisi SMS nei gruppi di azione
-## <a name="overview"></a>Panoramica ##
+
+## <a name="overview"></a>Panoramica 
 I gruppi di azioni consentono di configurare un elenco di azioni. Questi gruppi si usano quando si definiscono avvisi, per assicurarsi che un determinato gruppo di azioni riceva una notifica quando viene generato l'avviso. Una delle azioni supportate è costituita dagli SMS; le notifiche via SMS supportano la comunicazione bidirezionale. Un utente può rispondere a un SMS per:
 
 - **Annullare la sottoscrizione agli avvisi:** un utente può annullare la sottoscrizione a tutti gli avvisi via SMS per tutti i gruppi di azioni o per un singolo gruppo di azioni.
@@ -35,13 +35,13 @@ Un ricevitore di SMS configurato come parte di un gruppo di azioni riceverà un 
 | DISABLE `<Action Group Short name>` | Disabilita gli SMS dal gruppo di azioni |
 | ENABLE `<Action Group Short name>` | Abilita di nuovo gli SMS dal gruppo di azioni |
 | STOP | Disabilita gli SMS da tutti i gruppi di azioni |
-| START | Abilita di nuovo gli SMS da tutti i gruppi di azioni |
-| HELP | Viene inviata una risposta all'utente con un collegamento a questo articolo. |
+| AVVIO | Abilita di nuovo gli SMS da tutti i gruppi di azioni |
+| ? | Viene inviata una risposta all'utente con un collegamento a questo articolo. |
 
 >[!NOTE]
 >Se un utente ha annullato la sottoscrizione agli avvisi SMS e viene in seguito aggiunto a un nuovo gruppo di azioni, l'utente riceve gli avvisi SMS del nuovo gruppo di azioni mantenendo l'annullamento della sottoscrizione a tutti i gruppi di azioni precedenti.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Ottenere una [panoramica degli avvisi del log attività](alerts-overview.md) e informazioni sulla ricezione degli avvisi  
 Altre informazioni sulla [limitazione della frequenza degli SMS](alerts-rate-limiting.md)  
 Altre informazioni sui [gruppi di azioni](../../azure-monitor/platform/action-groups.md)

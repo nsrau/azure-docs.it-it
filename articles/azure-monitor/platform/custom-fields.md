@@ -1,18 +1,17 @@
 ---
 title: Campi personalizzati in monitoraggio di Azure (anteprima) | Microsoft Docs
 description: La funzionalità campi personalizzati di monitoraggio di Azure consente di creare campi ricercabili personalizzati dai record in un'area di lavoro Log Analytics che aggiungono le proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396874"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655362"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure (anteprima)
 
@@ -21,7 +20,7 @@ ms.locfileid: "75396874"
 
 La funzionalità **campi personalizzati** di monitoraggio di Azure consente di estendere i record esistenti nell'area di lavoro log Analytics aggiungendo i propri campi ricercabili.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
 
-![Overview](media/custom-fields/overview.png)
+![Panoramica](media/custom-fields/overview.png)
 
 Il record di esempio riportato di seguito contiene dati utili nascosti nella descrizione dell'evento. L'estrazione di questi dati in una proprietà distinta lo rende disponibile per azioni quali l'ordinamento e il filtro.
 
@@ -74,7 +73,7 @@ Dopo aver eseguito l'estrazione iniziale, Log Analytics ne visualizza i risultat
 ## <a name="removing-a-custom-field"></a>Rimozione di un campo personalizzato
 Per rimuovere un campo personalizzato è possibile procedere in due modi.  Il primo consiste nel selezionare l'opzione **Remove** per ogni campo quando si visualizza l'elenco completo, come descritto in precedenza.  Il secondo metodo consiste nel recuperare un record e fare clic sul pulsante a sinistra del campo.  Sarà disponibile un'opzione di menu per rimuovere il campo personalizzato.
 
-## <a name="sample-walkthrough"></a>Procedura dettagliata di esempio
+## <a name="sample-walkthrough"></a>Scenario di esempio
 La sezione seguente descrive un esempio completo di creazione di un campo personalizzato.  L'esempio estrae il nome del servizio dagli eventi Windows che indicano la modifica dello stato di un servizio.  Questo comportamento si basa sugli eventi creati da Gestione controllo servizi durante l'avvio del sistema nei computer Windows.  Per seguire questo esempio, è necessario eseguire la [raccolta di eventi informativi per il registro di sistema](data-sources-windows-events.md).
 
 Immettere la query seguente per restituire tutti gli eventi di Gestione controllo servizi con ID evento 7036, ovvero l'evento che indica l'avvio o l'arresto di un servizio.
@@ -91,7 +90,7 @@ Per definire campi personalizzati, fare clic sull'ellisse accanto alla propriet�
 
 Si aprirà l'**estrazione guidata campi** e verranno selezionati i campi **EventLog** ed **EventID** nella colonna **Esempio principale**.  Questo indica che il campo personalizzato verrà definito per gli eventi del registro di sistema con ID evento 7036.  Ciò è sufficiente e non è necessario selezionare altri campi.
 
-![Main example](media/custom-fields/main-example.png)
+![Esempio principale](media/custom-fields/main-example.png)
 
 Evidenziare il nome del servizio nella proprietà **RenderedDescription** e usare **Service** per identificare il nome del servizio.  Il campo personalizzato sarà denominato **Service_CF**. Il tipo di campo in questo caso è una stringa, quindi è possibile lasciare invariato.
 
@@ -99,19 +98,19 @@ Evidenziare il nome del servizio nella proprietà **RenderedDescription** e usar
 
 Si noti che il nome del servizio viene identificato in modo corretto per alcuni record ma non per altri.   I **risultati della ricerca** mostrano che parte del nome di **Scheda delle prestazioni WMI** non è stato selezionato.  Il **Riepilogo** Mostra un **programma di installazione dei moduli** identificato al posto del programma di installazione dei moduli di **Windows**.  
 
-![Risultati della ricerca](media/custom-fields/search-results-01.png)
+![Risultati ricerca](media/custom-fields/search-results-01.png)
 
 Iniziare dal record della **scheda delle prestazioni WMI** .  Fare clic sulla relativa icona di modifica e quindi su **Modify this highlight**.  
 
-![Modificare l'evidenziazione](media/custom-fields/modify-highlight.png)
+![Modify highlight](media/custom-fields/modify-highlight.png)
 
 Espandere l'evidenziazione per includere la parola **WMI** e quindi eseguire di nuovo l'estrazione.  
 
-![Altro esempio](media/custom-fields/additional-example-01.png)
+![Additional examples](media/custom-fields/additional-example-01.png)
 
 Ora le voci relative a **Scheda delle prestazioni WMI** risultano corrette e Log Analytics ha anche usato tali informazioni per correggere i record relativi a **Programma di installazione dei moduli di Windows**.
 
-![Risultati della ricerca](media/custom-fields/search-results-02.png)
+![Risultati ricerca](media/custom-fields/search-results-02.png)
 
 È ora possibile eseguire una query per verificare che **Service_CF** venga creato, ma non è ancora stato aggiunto ad alcun record. Questo perché il campo personalizzato non funziona con i record esistenti, quindi è necessario attendere che vengano raccolti nuovi record.
 
@@ -123,7 +122,7 @@ Dopo un periodo di tempo in cui vengono raccolti nuovi eventi, il campo **Servic
 
 Ora il campo personalizzato può essere usato come le altre proprietà del record.  Per illustrare questo concetto, viene creata una query che raggruppa in base al nuovo campo **Service_CF** per verificare quali sono i servizi più attivi.
 
-![Raggruppa per query](media/custom-fields/query-group.png)
+![Query Group by](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [query di log](../log-query/log-query-overview.md) per compilare query usando campi personalizzati per i criteri.

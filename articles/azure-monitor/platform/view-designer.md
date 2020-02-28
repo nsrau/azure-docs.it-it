@@ -1,18 +1,17 @@
 ---
 title: Creare visualizzazioni per analizzare i dati di log in monitoraggio di Azure | Microsoft Docs
 description: Usando Progettazione viste in monitoraggio di Azure, è possibile creare visualizzazioni personalizzate che vengono visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro Log Analytics. Questo articolo include una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: e5d707200d1e1eab9becbb30181649525f3a5a7b
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166470"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658490"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creare visualizzazioni personalizzate usando Progettazione viste in monitoraggio di Azure
 Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
@@ -53,14 +52,14 @@ Le opzioni sono descritte nella tabella seguente:
 | Opzione | Descrizione |
 |:--|:--|
 | Aggiorna   | Aggiorna la visualizzazione con i dati più recenti. | 
-| Log      | Apre il [log Analytics](../log-query/portals.md) per analizzare i dati con le query di log. |
-| Modifica       | Apre la visualizzazione in Progettazione visualizzazioni per modificarne il contenuto e la configurazione.  |
+| Registri      | Apre il [log Analytics](../log-query/portals.md) per analizzare i dati con le query di log. |
+| Edit       | Apre la visualizzazione in Progettazione visualizzazioni per modificarne il contenuto e la configurazione.  |
 | Clone      | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
 | Intervallo di date | Impostare l'intervallo di tempo e di date per i dati inclusi nella vista. Questo intervallo di date viene applicato prima di eventuali intervalli di date impostati nelle query nella vista.  |
 | +          | Definire un filtro personalizzato che viene definito per la vista. |
 
 
-## <a name="create-a-new-view"></a>Creazione di una nuova vista
+## <a name="create-a-new-view"></a>Crea nuova visualizzazione
 È possibile creare una nuova vista in Progettazione visualizzazioni selezionando **Progettazione visualizzazioni** nel menu dell'area di lavoro Log Analytics.
 
 ![Riquadro Progettazione viste](media/view-designer/view-designer-tile.png)
@@ -74,7 +73,7 @@ Progettazione visualizzazioni presenta tre sezioni:
 * **Controlli**: contiene le parti e i riquadri aggiunti alla sezione **Progettazione**. 
 * **Proprietà**: mostra le proprietà dei riquadri o delle parti selezionate.
 
-![Progettazione viste](media/view-designer/view-designer-screenshot.png)
+![Progettazione visualizzazioni](media/view-designer/view-designer-screenshot.png)
 
 ### <a name="configure-the-view-tile"></a>Configurare il riquadro della visualizzazione
 Una vista personalizzata può avere solo un singolo riquadro. Per visualizzare il riquadro corrente o selezionarne uno alternativo, selezionare la scheda **Riquadro** nella sezione **Controllo**. La sezione **Proprietà** mostra le proprietà del riquadro corrente. 
@@ -98,11 +97,11 @@ Le opzioni per l'uso delle visualizzazioni in modalità di modifica sono descrit
 
 | Opzione | Descrizione |
 |:--|:--|
-| Salvare        | Salva le modifiche e chiude la visualizzazione. |
+| Salva        | Salva le modifiche e chiude la visualizzazione. |
 | Annulla      | Annulla le modifiche e chiude la visualizzazione. |
-| Eliminare la visualizzazione | Elimina la visualizzazione. |
-| Esportazione      | Esporta la visualizzazione in un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) da importare in un'altra area di lavoro. Il nome del file corrisponde al nome della visualizzazione e ha estensione *omsview*. |
-| Importa      | Importa il file *omsview* esportato da un'altra area di lavoro. Questa azione sovrascrive la configurazione della visualizzazione esistente. |
+| Elimina vista | Elimina la visualizzazione. |
+| Export      | Esporta la visualizzazione in un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) da importare in un'altra area di lavoro. Il nome del file corrisponde al nome della visualizzazione e ha estensione *omsview*. |
+| Import      | Importa il file *omsview* esportato da un'altra area di lavoro. Questa azione sovrascrive la configurazione della visualizzazione esistente. |
 | Clone       | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
 
 ## <a name="next-steps"></a>Passaggi successivi

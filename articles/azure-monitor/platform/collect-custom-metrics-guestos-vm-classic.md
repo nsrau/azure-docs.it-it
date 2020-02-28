@@ -3,17 +3,16 @@ title: Inviare metriche di macchine virtuali Windows classiche al database di me
 description: Inviare le metriche del sistema operativo guest all'archivio dati di Monitoraggio di Azure per una macchina virtuale Windows (versione classica)
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977630"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655816"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Inviare metriche del sistema operativo guest al database di metriche di monitoraggio di Azure per una macchina virtuale Windows (classico)
 

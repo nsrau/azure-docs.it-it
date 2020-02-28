@@ -1,24 +1,20 @@
 ---
 title: Raccolta di indirizzi IP di applicazione Azure Insights | Microsoft Docs
 description: Informazioni su come gestire gli indirizzi IP e la georilevazione con applicazione Azure Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 969061ec89ddd0f13caa675bc324207c6c5d8843
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432612"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656518"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Georilevazione e gestione degli indirizzi IP
 
 Questo articolo illustra il modo in cui viene eseguita la ricerca georilevazione e la gestione degli indirizzi IP in Application Insights insieme a come modificare il comportamento predefinito.
 
-## <a name="default-behavior"></a>Comportamento predefinito
+## <a name="default-behavior"></a>Funzionamento predefinito
 
 Per impostazione predefinita, gli indirizzi IP vengono raccolti temporaneamente, ma non archiviati in Application Insights. Il processo di base è il seguente:
 
@@ -59,13 +55,13 @@ Per abilitare la raccolta e l'archiviazione IP, è necessario impostare la propr
 }
 ```
 
-### <a name="portal"></a>Portale 
+### <a name="portal"></a>Portal 
 
 Se è necessario modificare solo il comportamento per una singola risorsa Application Insights il modo più semplice per eseguire questa operazione è tramite la portale di Azure.  
 
 1. Passare alle **Impostazioni** del > di risorse Application Insights > **Esporta modello** 
 
-    ![Export Template](media/ip-collection/export-template.png)
+    ![Esporta modello](media/ip-collection/export-template.png)
 
 2. Selezionare **Distribuisci**
 
@@ -73,7 +69,7 @@ Se è necessario modificare solo il comportamento per una singola risorsa Applic
 
 3. Selezionare **modifica modello**. Se il modello contiene proprietà o risorse aggiuntive che non sono presenti in questo modello di esempio, procedere con cautela per assicurarsi che tutte le risorse accettino la distribuzione del modello come modifica/aggiornamento incrementale.
 
-    ![Modificare il modello](media/ip-collection/edit-template.png)
+    ![Modifica modello](media/ip-collection/edit-template.png)
 
 4. Apportare le modifiche seguenti al codice JSON per la risorsa e quindi fare clic su **Salva**:
 
@@ -84,7 +80,7 @@ Se è necessario modificare solo il comportamento per una singola risorsa Applic
 
 5. Selezionare **accetto** > **acquisto**. 
 
-    ![Modificare il modello](media/ip-collection/purchase.png)
+    ![Modifica modello](media/ip-collection/purchase.png)
 
     In questo caso non è in corso l'acquisto di nuovi elementi, si sta semplicemente aggiornando la configurazione della risorsa Application Insights esistente.
 
@@ -101,7 +97,7 @@ Se è necessario modificare solo il comportamento per una singola risorsa Applic
     
     Verrà restituito un elenco di proprietà di conseguenza. Una delle proprietà deve leggere `DisableIpMasking: true`. Se si esegue PowerShell prima di distribuire la nuova proprietà con Azure Resource Manager, la proprietà non sarà presente.
 
-### <a name="rest-api"></a>API REST
+### <a name="rest-api"></a>API Rest
 
 Il payload dell' [API REST](https://docs.microsoft.com/rest/api/azure/) per apportare le stesse modifiche è il seguente:
 
@@ -235,7 +231,7 @@ requests
 
 Nella colonna `customDimensions_client-ip` verranno visualizzati gli indirizzi IP appena raccolti. Per la colonna `client-ip` predefinita, tutti i 4 ottetti verranno azzerati o verranno visualizzati solo i primi tre ottetti a seconda di come è stata configurata la raccolta di indirizzi IP a livello di componente. Se si esegue il test in locale dopo l'implementazione dell'inizializzatore di telemetria e il valore visualizzato per `customDimensions_client-ip` è `::1` questo comportamento previsto. `::1` rappresenta l'indirizzo di loopback in IPv6. Equivale a `127.0.01` in IPv4 ed è il risultato che verrà visualizzato durante il test da localhost.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * Scopri di più sulla [raccolta di dati personali](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) in Application Insights.
 

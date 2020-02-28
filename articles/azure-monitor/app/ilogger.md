@@ -1,19 +1,15 @@
 ---
 title: Esplorare i log di traccia .NET con ILogger-applicazione Azure Insights
 description: Esempi di uso del provider ILogger di applicazione Azure Insights con ASP.NET Core e applicazioni console.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b538196467ba1d69e679a111ca313f922738b048
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e2b306670c43722279327301b15630f96da50ea5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716033"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659935"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider per i log ILogger di .NET Core
 
@@ -396,7 +392,7 @@ Se si verifica una doppia registrazione quando si esegue il debug da Visual Stud
  }
 ```
 
-### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Ho aggiornato a [Microsoft. ApplicationInsights. AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versione 2.7.1 e i log da ILogger vengono acquisiti automaticamente. Ricerca per categorie disattivare completamente questa funzionalità?
+### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdk-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Ho aggiornato a [Microsoft. ApplicationInsights. AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versione 2.7.1 e i log da ILogger vengono acquisiti automaticamente. Ricerca per categorie disattivare completamente questa funzionalità?
 
 Vedere la sezione [controllo del livello di registrazione](../../azure-monitor/app/ilogger.md#control-logging-level) per vedere come filtrare i log in generale. Per disattivare ApplicationInsightsLoggerProvider, usare `LogLevel.None`:
 

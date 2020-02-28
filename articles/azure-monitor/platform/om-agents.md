@@ -1,18 +1,17 @@
 ---
 title: Connettersi Operations Manager a monitoraggio di Azure | Microsoft Docs
 description: Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363660"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659408"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connetti Operations Manager a monitoraggio di Azure
 
@@ -70,7 +69,7 @@ Prima di iniziare, esaminare i requisiti seguenti.
 
 Nelle informazioni riportate di seguito sono elencate le informazioni di configurazione del proxy e del firewall necessarie per la comunicazione tra il Operations Manager Agent, i server di gestione e la console operatore con monitoraggio di Azure. Il traffico da ogni componente è in uscita dalla rete a monitoraggio di Azure.
 
-|Gruppi | Numero della porta| Ignorare l'analisi HTTPS|  
+|Resource | Numero della porta| Ignorare l'analisi HTTPS|  
 |---------|------|-----------------------|  
 |**Agent**|||  
 |\*.ods.opinsights.azure.com| 443 |Sì|  
@@ -134,7 +133,7 @@ Dopo aver completato i passaggi seguenti per l'integrazione con monitoraggio di 
 
 Dopo aver configurato l'integrazione con l'area di lavoro Log Analytics, viene stabilita solo una connessione con il servizio, ma nessun dato viene raccolto dagli agenti che fanno riferimento al gruppo di gestione. Questo problema non si verificherà solo dopo aver configurato i computer gestiti tramite agenti specifici che raccolgono i dati di log per monitoraggio di Azure. È possibile selezionare gli oggetti computer singolarmente o selezionare un gruppo contenente gli oggetti computer Windows. Non è possibile selezionare un gruppo contenente istanze di un'altra classe, ad esempio dischi logici o database SQL.
 
-1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
+1. Aprire la console di Operations Manager e selezionare l'area di lavoro **Amministrazione**.
 1. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
 1. Fare clic sul collegamento **Aggiungi computer/gruppo** nell'intestazione Azioni sul lato destro del riquadro.
 1. Nella finestra di dialogo **Ricerca computer** è possibile cercare i computer o i gruppi monitorati da Operations Manager. Selezionare i computer o i gruppi che includono il server di gestione di Operations Manager da caricare in monitoraggio di Azure, fare clic su **Aggiungi**e quindi su **OK**.
@@ -145,17 +144,17 @@ Dopo aver configurato l'integrazione con l'area di lavoro Log Analytics, viene s
 
 Se un server proxy interno si trova tra il gruppo di gestione e monitoraggio di Azure, seguire questa procedura. Queste impostazioni sono gestite centralmente dal gruppo di gestione e vengono distribuite ai sistemi gestiti tramite agenti inclusi nell'ambito per raccogliere i dati di log per monitoraggio di Azure.  Questo è un vantaggio nel caso di alcune soluzioni che ignorano il server di gestione e inviano i dati direttamente al servizio.
 
-1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
+1. Aprire la console di Operations Manager e selezionare l'area di lavoro **Amministrazione**.
 1. Espandere Operations Management Suite e quindi fare clic su **Connessioni**.
 1. Nella visualizzazione OMS Connection (Connessione OMS), fare clic su **Configure Proxy Server**(Configura server proxy).
 1. Nella pagina **Configurazione guidata impostazioni di Operations Management Suite: Server proxy** selezionare **Usa un server proxy per accedere a Operations Management Suite** e immettere l'URL con il numero di porta, ad esempio http://corpproxy:80, quindi fare clic su **Fine**.
 
 Se il server proxy richiede l'autenticazione, seguire questa procedura per configurare le credenziali e le impostazioni che devono essere propagate ai computer gestiti che inviano report a monitoraggio di Azure nel gruppo di gestione.
 
-1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
-1. In **Configurazione RunAs** selezionare **Profili**.
+1. Aprire la console di Operations Manager e selezionare l'area di lavoro **Amministrazione**.
+1. In **RunAs Configuration** selezionare **Profiles**.
 1. Aprire il profilo **Proxy del profilo RunAs di System Center Advisor** .
-1. In Creazione guidata profilo RunAs fare clic su Aggiungi per usare un account RunAs. È possibile creare un [account RunAs](https://technet.microsoft.com/library/hh321655.aspx) oppure usare un account esistente. L'account deve avere autorizzazioni sufficienti per passare attraverso il server proxy.
+1. In Creazione guidata profilo RunAs, fare clic su Aggiungi per usare un account RunAs. È possibile creare un [account RunAs](https://technet.microsoft.com/library/hh321655.aspx) oppure usare un account esistente. L'account deve avere autorizzazioni sufficienti per passare attraverso il server proxy.
 1. Per impostare l'account da gestire, scegliere **Classe, gruppo o oggetto selezionato**, fare clic su **Seleziona...** e su **Gruppo...** per aprire la finestra **Ricerca gruppi**.
 1. Cercare e quindi selezionare **Gruppo di server di monitoraggio di Microsoft System Center Advisor**. Fare clic su **OK** dopo avere selezionato il gruppo per chiudere la finestra **Ricerca gruppi**.
 1. Fare clic su **OK** per chiudere la finestra **Aggiungi account RunAs**.
@@ -207,7 +206,7 @@ Esistono diversi modi in cui è possibile verificare che monitoraggio di Azure p
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Per verificare l'integrazione dalla console operatore
 
-1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
+1. Aprire la console di Operations Manager e selezionare l'area di lavoro **Amministrazione**.
 1. Selezionare **Management Pack** e nella casella di testo **Cerca** digitare **Advisor** o **Intelligence**.
 1. A seconda delle soluzioni abilitate, nei risultati della ricerca viene elencato un Management Pack corrispondente.  Se, ad esempio, è stata abilitata la soluzione Gestione avvisi, nell'elenco sarà presente il Management Pack Gestione avvisi di Microsoft System Center Advisor.
 1. Dalla visualizzazione **Monitoraggio** passare alla visualizzazione **Operations Management Suite\Stato di integrità**.  Selezionare un server di gestione nel riquadro **Management Server State** (Stato server di gestione) e nel riquadro **Visualizzazione Dettagli** confermare che il valore per la proprietà **Authentication service URI** (URI servizio di autenticazione) corrisponda all'ID area di lavoro Log Analytics.

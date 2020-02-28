@@ -1,18 +1,15 @@
 ---
 title: Esempi di avvio rapido dell'interfaccia della riga di comando di Monitoraggio di Azure
 description: Comandi dell'interfaccia della riga di comando di esempio per le funzionalità di Monitoraggio di Azure. Monitoraggio di Azure è un servizio di Microsoft Azure che permette di inviare notifiche di avviso, chiamare URL Web in base ai valori dei dati di telemetria configurati e ridimensionare automaticamente servizi cloud, macchine virtuali e app Web.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 05/16/2018
-ms.openlocfilehash: 0def528e0c432ecbc706622f0b8c29c2d610c663
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 69687cee8b8a907b82f2c848242ac64d54dedb87
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893536"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663505"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Esempi di avvio rapido dell'interfaccia della riga di comando di Monitoraggio di Azure
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
@@ -184,7 +181,7 @@ az monitor diagnostic-settings delete --name <diagnostic name> \
     --resource <target resource ID>
 ```
 
-## <a name="autoscale"></a>Scalabilità automatica
+## <a name="autoscale"></a>Autoscale
 
 Usare le informazioni di questa sezione per lavorare con le impostazioni di scalabilità automatica. È necessario modificare questi esempi.
 

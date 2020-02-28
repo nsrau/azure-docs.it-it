@@ -1,18 +1,14 @@
 ---
 title: Monitoraggio continuo della pipeline di rilascio di DevOps con Azure Pipelines e applicazione Azure Insights | Microsoft Docs
 description: Vengono fornite istruzioni per configurare rapidamente il monitoraggio continuo con Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/16/2019
-ms.openlocfilehash: c891cc7564a60dfd665d84d569e266332d255fa9
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677525"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655396"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Aggiungere un monitoraggio continuo alla pipeline di versione
 
@@ -24,7 +20,7 @@ Con il monitoraggio continuo, le pipeline di versione possono incorporare i dati
 
 1. In [Azure DevOps](https://dev.azure.com)selezionare un'organizzazione e un progetto.
    
-1. Nel menu a sinistra della pagina del progetto selezionare **pipeline**  > **versioni**. 
+1. Nel menu a sinistra della pagina del progetto selezionare **pipeline** > **versioni**. 
    
 1. A discesa della freccia accanto a **nuovo** e selezionare **nuova pipeline di rilascio**. In alternativa, se non è ancora disponibile una pipeline, selezionare **nuova pipeline** nella pagina visualizzata.
    
@@ -38,7 +34,7 @@ Con il monitoraggio continuo, le pipeline di versione possono incorporare i dati
 
 1. Nel riquadro configurazione **fase 1** completare i campi seguenti: 
 
-    | Parametro        | Value |
+    | Parametro        | Valore |
    | ------------- |:-----|
    | **Nome fase**      | Specificare un nome per la fase o lasciarlo nella **fase 1**. |
    | **Sottoscrizione di Azure** | Elenco a discesa e selezionare la sottoscrizione di Azure collegata che si vuole usare.|

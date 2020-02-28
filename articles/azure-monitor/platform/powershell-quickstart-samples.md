@@ -1,18 +1,15 @@
 ---
 title: Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
 description: Usare PowerShell per accedere alle funzionalità di Monitoraggio di Azure, ad esempio scalabilità automatica, avvisi, webhook e ricerca nei log attività.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 2/14/2018
-ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551846"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659299"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
 Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamente alle funzionalità di Monitoraggio di Azure.
@@ -149,14 +146,14 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 
 La tabella seguente descrive i parametri e valori usati per creare un avviso tramite una metrica.
 
-| parametro | value |
+| parameter | value |
 | --- | --- |
-| name |simpletestdiskwrite |
-| Posizione di questa regola di avviso |Stati Uniti Orientali |
+| Name |simpletestdiskwrite |
+| Posizione di questa regola di avviso |Stati Uniti orientali |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName dell'avviso creato |\PhysicalDisk(_Total)\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` per il recupero dei nomi esatti delle metriche |
-| operator |GreaterThan |
+| operatore |GreaterThan |
 | Valore soglia (conteggio al secondo per questa metrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
 | aggregatore (statistica della metrica che usa il numero medio, in questo caso) |Media |

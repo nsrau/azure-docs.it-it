@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a727cd57e470f248321011d505f8037808f64298
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984949"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656875"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
@@ -63,7 +63,7 @@ I passaggi seguenti permettono di creare le impostazioni a livello di directory,
    ```
    Questa chiamata del cmdlet restituirà tutti i modelli disponibili:
   
-   ```powershell
+   ``` PowerShell
    Id                                   DisplayName         Description
    --                                   -----------         -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -77,7 +77,7 @@ I passaggi seguenti permettono di creare le impostazioni a livello di directory,
   
    ```powershell
    $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
-   $Template = Get-AzureADDirectorySettingTemplate -Id $TemplateId
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ
    ```
 3. Successivamente, creare un nuovo oggetto impostazioni sulla base del modello:
   
@@ -171,7 +171,7 @@ Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.
    ```
 2. Per impostare i criteri Guest per i gruppi a livello di directory, è necessario il modello Group. Unified
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "62375ab9-6b52-47ed-826b-58e47e0e304b" -EQ
    ```
 3. Successivamente, creare un nuovo oggetto impostazioni sulla base del modello:
   
@@ -262,7 +262,7 @@ Questo passaggio consente di rimuovere le impostazioni a livello di directory, c
    ```
 2. Recuperare l'oggetto modello per il modello Groups.Unified.Guest:
    ```powershell
-   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "08d542b9-071f-4e16-94b0-74abb372e3d9" -EQ
    ```
 3. Creare un nuovo oggetto Settings dal modello:
    ```powershell

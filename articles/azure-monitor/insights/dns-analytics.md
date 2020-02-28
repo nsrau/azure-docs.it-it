@@ -1,18 +1,17 @@
 ---
 title: Soluzione Analisi DNS in Monitoraggio di Azure | Microsoft Docs
 description: Configurare e usare la soluzione Analisi DNS in Monitoraggio di Azure per raccogliere informazioni dettagliate nell'infrastruttura DNS relative a sicurezza, prestazioni e operazioni.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: bca77db3452aecb31852c4c50e7754c7777fc458
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971269"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657334"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -180,7 +179,7 @@ Passaggi comuni per la risoluzione dei problemi:
 
 1. Dati delle ricerche DNS mancanti: per risolvere il problema, provare a reimpostare la configurazione o a caricare la pagina di configurazione una sola volta nel portale. Per la reimpostazione, è sufficiente modificare un'impostazione in un altro valore, quindi riportarla nel valore originale e salvare la configurazione.
 
-## <a name="feedback"></a>Commenti
+## <a name="feedback"></a>Commenti e suggerimenti
 
 Per fornire commenti e suggerimenti, visitare la [pagina log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) per pubblicare idee per il funzionamento di analisi DNS funzionalità. 
 
