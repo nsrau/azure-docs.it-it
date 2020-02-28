@@ -203,10 +203,14 @@
           href: app-service-web-restore-snapshots.md
         - name: Clonare un'app
           href: app-service-web-app-cloning.md
-        - name: Spostare le risorse
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
         - name: Ripristinare un servizio app eliminato
           href: app-service-undelete.md
+    - name: Spostare app
+      items:
+        - name: Spostamento tra aree
+          href: manage-move-across-regions.md
+        - name: Spostare sottoscrizioni
+          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: Eseguire attività in background
       items:
         - name: Creare processi Web
@@ -217,7 +221,7 @@
           href: webjobs-sdk-get-started.md
         - name: Usare WebJobs SDK
           href: webjobs-sdk-how-to.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/appservice
@@ -255,7 +259,7 @@
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: Script di distribuzione
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       items:
         - name: Risolvere i problemi con Visual Studio
           href: troubleshoot-dotnet-visual-studio.md

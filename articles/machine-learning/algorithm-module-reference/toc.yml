@@ -46,6 +46,8 @@
       href: select-columns-transform.md
     - name: Select Columns in Dataset
       href: select-columns-in-dataset.md
+    - name: Dividere dati
+      href: split-data.md
 - name: Selezione delle funzionalità
   items:
     - name: Filter Based Feature Selection
@@ -142,5 +144,11 @@
       href: score-svd-recommender.md
     - name: Train SVD Recommender
       href: train-svd-recommender.md
+- name: Rilevamento anomalie
+  items:
+    - name: Rilevamento anomalie basato su PCA
+      href: pca-based-anomaly-detection.md
+    - name: Eseguire il training del modello di rilevamento anomalie
+      href: train-anomaly-detection-model.md
 - name: Errori e risoluzione dei problemi dei moduli
   href: designer-error-codes.md

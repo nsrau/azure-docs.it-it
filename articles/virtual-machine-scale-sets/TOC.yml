@@ -247,11 +247,11 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Aggiornamenti automatici del sistema operativo
           href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Protezione delle istanze (anteprima)
+        - name: Protezione delle istanze
           href: virtual-machine-scale-sets-instance-protection.md
-        - name: Criteri per la riduzione del numero di istanze (anteprima)
+        - name: Criteri di riduzione
           href: virtual-machine-scale-sets-scale-in-policy.md
-        - name: Notifica di termine all'eliminazione (anteprima)
+        - name: Notifica di termine all'eliminazione
           href: virtual-machine-scale-sets-terminate-notification.md
         - name: Raccolte di immagini condivise
           items:
@@ -286,7 +286,7 @@
         - name: Ridimensionare automaticamente un set di scalabilità
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview

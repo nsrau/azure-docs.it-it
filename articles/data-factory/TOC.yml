@@ -515,6 +515,8 @@
           href: data-flow-unpivot.md
         - name: Finestra
           href: data-flow-window.md
+        - name: Flatten
+          href: data-flow-flatten.md
     - name: Impostare parametri
       items:
         - name: Impostazione dei parametri per i servizi collegati

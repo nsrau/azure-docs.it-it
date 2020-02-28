@@ -6,22 +6,18 @@
       href: private-link-overview.md
 - name: Avvi rapidi
   items:
-    - name: Creare un endpoint privato
-      items:
-        - name: Portale di Azure
-          href: create-private-endpoint-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: create-private-endpoint-cli.md
-        - name: Azure PowerShell
-          href: create-private-endpoint-powershell.md
-    - name: Creare un servizio Collegamento privato
-      items:
-        - name: Portale di Azure
-          href: create-private-link-service-portal.md
-        - name: Azure PowerShell
-          href: create-private-link-service-powershell.md
-        - name: Interfaccia della riga di comando di Azure
-          href: create-private-link-service-cli.md
+    - name: Creare un endpoint privato - Portale
+      href: create-private-endpoint-portal.md
+    - name: Creare un endpoint privato - PowerShell
+      href: create-private-endpoint-powershell.md
+    - name: Creare un endpoint privato - Interfaccia della riga di comando di Azure
+      href: create-private-endpoint-cli.md
+    - name: Creare un servizio Collegamento privato - Portale
+      href: create-private-link-service-portal.md
+    - name: Creare un servizio Collegamento privato - PowerShell
+      href: create-private-link-service-powershell.md
+    - name: Creare un servizio Collegamento privato - Interfaccia della riga di comando di Azure
+      href: create-private-link-service-cli.md
 - name: Concetti
   items:
     - name: Endpoint privato

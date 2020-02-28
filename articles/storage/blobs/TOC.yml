@@ -669,12 +669,18 @@
                   href: ../common/storage-solution-periodic-data-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Concorrenza
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Accesso multi-protocollo
-          href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Compatibilità
+          items:
+            - name: Accesso multi-protocollo
+              href: data-lake-storage-multi-protocol-access.md
+            - name: Funzionalità di archiviazione BLOB supportate
+              href: data-lake-storage-supported-blob-storage-features.md
+            - name: Servizi di Azure supportati
+              href: data-lake-storage-supported-azure-services.md
+            - name: Piattaforme open source supportate
+              href: data-lake-storage-supported-open-source-platforms.md
         - name: Elaborazione di Big Data
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Integrazione con i servizi di Azure
-          href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Driver del file system di BLOB di Azure per Hadoop
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: URI del file system di BLOB di Azure

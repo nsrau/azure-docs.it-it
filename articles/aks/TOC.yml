@@ -105,8 +105,8 @@
               href: developer-best-practices-pod-security.md
     - name: Quote e limiti a livello di area
       href: quotas-skus-regions.md
-    - name: Eseguire la migrazione dal servizio Azure Container ad servizio Azure Kubernetes
-      href: acs-aks-migration.md
+    - name: Eseguire la migrazione al servizio Azure Kubernetes
+      href: aks-migration.md
     - name: Versione di Kubernetes supportata
       href: supported-kubernetes-versions.md
     - name: Protezione avanzata nel sistema operativo host

@@ -49,7 +49,7 @@
           href: azure-container-registry-integration.md
         - name: Integrazione con il servizio Azure Kubernetes
           href: azure-kubernetes-service-integration.md
-    - name: Avvisi ed eventi di rilevamento delle minacce
+    - name: Protezione dalle minacce e avvisi di sicurezza
       items:
         - name: Panoramica sugli avvisi di sicurezza
           href: security-center-alerts-overview.md
@@ -59,16 +59,8 @@
           href: security-center-managing-and-responding-alerts.md
         - name: Gestire gli eventi imprevisti della sicurezza
           href: security-center-incident.md
-        - name: Rilevamento delle minacce per macchine virtuali e server
-          href: security-center-alerts-iaas.md
-        - name: Rilevamento delle minacce per le app e i contenitori cloud
-          href: security-center-alerts-compute.md
-        - name: Rilevamento delle minacce per i servizi dati
-          href: security-center-alerts-data-services.md
-        - name: Rilevamento delle minacce per livelli di servizi di Azure
-          href: security-center-alerts-service-layer.md
-        - name: Rilevamento delle minacce per Azure WAF e protezione DDoS di Azure
-          href: security-center-alerts-integration.md
+        - name: Protezione dalle minacce nel Centro sicurezza di Azure
+          href: threat-protection.md
         - name: Correlazione tra avvisi intelligenti cloud (incidenti)
           href: security-center-alerts-cloud-smart.md
         - name: Mappa degli avvisi di sicurezza e intelligence per le minacce
