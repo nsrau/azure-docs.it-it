@@ -1,18 +1,14 @@
 ---
 title: Monitorare i servizi Node.js con Azure Application Insights | Microsoft Docs
 description: Monitorare le prestazioni e diagnosticare i problemi dei servizi Node.js con Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820716"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670016"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
@@ -24,7 +20,7 @@ Node.js SDK può monitorare automaticamente le richieste HTTP in ingresso e in u
 
 È possibile usare l'API TelemetryClient per instrumentare e monitorare manualmente altri aspetti dell'app e del sistema. L'API TelemetryClient viene descritta in modo più dettagliato più avanti nell'articolo.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 Completare le attività seguenti per configurare il monitoraggio per un'app o un servizio.
 
@@ -88,7 +84,7 @@ Per altre informazioni sull'app e per risolvere i problemi, nella sezione **RICE
 
 ![Sezione Analisi](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>Dati non disponibili?
+#### <a name="no-data"></a>Dati non visualizzati
 
 Dato che l'SDK esegue l'invio dei dati in batch, potrebbe verificarsi un ritardo nella visualizzazione degli elementi nel portale. Se i dati non sono visibili nella risorsa, provare alcune delle correzioni seguenti:
 

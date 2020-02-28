@@ -1,19 +1,17 @@
 ---
 title: Traccia distribuita in Azure Application Insights | Microsoft Docs
 description: Vengono fornite informazioni sul supporto di Microsoft per la traccia distribuita tramite l'utilità di inoltro locale e la collaborazione al progetto OpenCensus
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5c07fac0590b833aa19909849271c59d65d42ad6
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 49e61a7677007c52d1a584c4b49ccaadc3a02df3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242449"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669591"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
 
@@ -56,6 +54,6 @@ Il sito Web OpenCensus include la documentazione di riferimento delle API per [P
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida all'utilizzo di OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
+* [Guida all'utilizzo di Python con OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)

@@ -2,21 +2,20 @@
 title: Azioni webhook per gli avvisi del log in avvisi di Azure
 description: Questo articolo descrive come creare una regola di avviso del log usando l'area di lavoro Log Analytics o Application Insights, il modo in cui l'avviso inserisce i dati come un webhook HTTP e i dettagli delle diverse personalizzazioni possibili.
 author: yanivlavi
+ms.author: yalavi
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838577"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667704"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
-Quando [viene creato un avviso del log in Azure](alerts-log.md), è possibile configurarlo [usando i gruppi di azioni](action-groups.md) per eseguire una o più azioni. Questo articolo descrive le diverse azioni webhook disponibili e Mostra come configurare un webhook basato su JSON personalizzato.
+Quando [viene creato un avviso del log in Azure](alerts-log.md), è possibile [configurarlo usando i gruppi di azioni](action-groups.md) per eseguire una o più azioni. Questo articolo descrive le diverse azioni webhook disponibili e Mostra come configurare un webhook basato su JSON personalizzato.
 
 > [!NOTE]
 > È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs) per le integrazioni del webhook. Lo schema di avviso comune offre il vantaggio di avere un singolo payload di avvisi estendibile e unificato in tutti i servizi Alert di monitoraggio di Azure. si noti che lo schema di avviso comune non rispetta l'opzione JSON personalizzata per gli avvisi del log. Viene rinviato il payload dello schema di avviso comune se selezionato indipendentemente dalla personalizzazione che è possibile eseguire a livello di regola di avviso. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
@@ -33,12 +32,12 @@ Le azioni webhook includono le proprietà elencate nella tabella seguente.
 | **Payload JSON personalizzato** |Payload personalizzato da inviare con il webhook quando si sceglie questa opzione durante la creazione dell'avviso. Per altre informazioni, vedere [gestire gli avvisi del log](alerts-log.md).|
 
 > [!NOTE]
-> Il pulsante **Visualizza webhook** insieme all'opzione **Includi payload JSON personalizzato per** il webhook per l'avviso di log Visualizza il payload del webhook di esempio per la personalizzazione fornita. Non contiene dati effettivi, ma è rappresentativo dello schema JSON usato per gli avvisi del log. 
+> Il pulsante **Visualizza webhook** insieme all'opzione **Includi payload JSON personalizzato per il webhook** per l'avviso di log Visualizza il payload del webhook di esempio per la personalizzazione fornita. Non contiene dati effettivi, ma è rappresentativo dello schema JSON usato per gli avvisi del log. 
 
 I webhook includono un URL e un payload formattato in JSON che i dati sono stati inviati al servizio esterno. Per impostazione predefinita, il payload include i valori riportati nella tabella seguente. È possibile scegliere di sostituire questo payload con un payload personalizzato. In tal caso, usare le variabili nella tabella per ognuno dei parametri per includere i relativi valori nel payload personalizzato.
 
 
-| Parametro | Variabile | Descrizione |
+| Parametro | Variable | Descrizione |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Nome della regola di avviso. |
 | *Severity* |#severity |Livello di gravità impostato per l'avviso di log attivato. |
@@ -53,7 +52,7 @@ I webhook includono un URL e un payload formattato in JSON che i dati sono stati
 | *SearchResults* |"IncludeSearchResults": true|Record restituiti dalla query come tabella JSON, limitati ai primi 1.000 record, se "IncludeSearchResults": true viene aggiunto in una definizione personalizzata del webhook JSON come proprietà di primo livello. |
 | *Tipo di avviso*| #alerttype | Tipo di regola di avviso del log configurata come [misurazione metrica](alerts-unified-log.md#metric-measurement-alert-rules) o [numero di risultati](alerts-unified-log.md#number-of-results-alert-rules).|
 | *WorkspaceID* |#workspaceid |ID dell'area di lavoro Log Analytics. |
-| *ID dell'applicazione* |#applicationid |ID dell'app Application Insights. |
+| *ID applicazione* |#applicationid |ID dell'app Application Insights. |
 | *ID sottoscrizione* |#subscriptionid |ID della sottoscrizione di Azure usata. 
 
 > [!NOTE]

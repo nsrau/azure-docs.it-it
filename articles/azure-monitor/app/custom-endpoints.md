@@ -1,18 +1,14 @@
 ---
 title: applicazione Azure Insights sostituisce gli endpoint SDK predefiniti
 description: Modificare gli endpoint di Azure Application Insights SDK predefiniti per le aree come Azure per enti pubblici.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3aa18a6b96458533c3dc53f3f420ed264b298a3e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432584"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671988"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights l'override degli endpoint predefiniti
 
@@ -195,22 +191,22 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 Attualmente le uniche aree che richiedono modifiche all'endpoint sono [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e [Azure Cina](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Area |  Nome endpoint | Valore |
+|Region |  Nome endpoint | Valore |
 |-----------------|:------------|:-------------|
 | Azure Cina | Canale di telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure Cina | QuickPulse (metriche attive) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
 | Azure Cina | Query del profilo |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
-| Azure per enti pubblici | Canale di telemetria |`https://dc.applicationinsights.us/v2/track` |
-| Azure per enti pubblici | QuickPulse (metriche attive) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
-| Azure per enti pubblici | Query del profilo |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+| Azure Government | Canale di telemetria |`https://dc.applicationinsights.us/v2/track` |
+| Azure Government | QuickPulse (metriche attive) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure Government | Query del profilo |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
 Se attualmente si usa l' [API REST di Application Insights](https://dev.applicationinsights.io/
 ) , a cui si accede in genere tramite "API.applicationinsights.io", sarà necessario usare un endpoint locale per l'area:
 
-|Area |  Nome endpoint | Valore |
+|Region |  Nome endpoint | Valore |
 |-----------------|:------------|:-------------|
 | Azure Cina | API REST | `api.applicationinsights.azure.cn` |
-| Azure per enti pubblici | API REST | `api.applicationinsights.us`|
+| Azure Government | API REST | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Il monitoraggio di agenti/estensioni senza codice per i servizi di app Azure **non è attualmente supportato** in queste aree. Non appena questa funzionalità diventa disponibile, questo articolo verrà aggiornato.

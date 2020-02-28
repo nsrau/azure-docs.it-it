@@ -1,18 +1,17 @@
 ---
 title: Panoramica sull'estensione Diagnostica di Azure
 description: Usare Diagnostica di Azure per debug, valutazione delle prestazioni, monitoraggio e analisi del traffico dei servizi cloud, delle macchine virtuali e di Service Fabric.
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: d9db4b4c8e6d82f29d227b9f8afe528e000c651e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467998"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672379"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Panoramica sull'estensione Diagnostica di Azure
 Diagnostica di Azure estensione è un [agente di monitoraggio di Azure](agents-overview.md) che raccoglie i dati di monitoraggio dal sistema operativo guest delle risorse di calcolo di Azure, incluse le macchine virtuali. Questo articolo fornisce una panoramica dell'estensione Diagnostica di Azure, incluse funzionalità specifiche che supporta e opzioni per l'installazione e la configurazione. 
@@ -86,7 +85,7 @@ LAD scrive i dati nelle tabelle in archiviazione di Azure. Supporta i sink nella
 
 
 ## <a name="installation-and-configuration"></a>Installazione e configurazione
-L'estensione di diagnostica viene implementata come [estensione della macchina virtuale](/virtual-machines/extensions/overview) in Azure, pertanto supporta le stesse opzioni di installazione usando modelli di gestione risorse, PowerShell e l'interfaccia della riga di comando. Per informazioni generali sull'installazione e la gestione delle estensioni delle macchine virtuali, vedere [estensioni e funzionalità delle macchine virtuali per Windows](/virtual-machines/extensions/features-windows) e le [estensioni e le funzionalità delle macchine virtuali per Linux](/virtual-machines/extensions/features-linux) .
+L'estensione di diagnostica viene implementata come [estensione della macchina virtuale](../../virtual-machines/extensions/overview.md) in Azure, pertanto supporta le stesse opzioni di installazione usando modelli di gestione risorse, PowerShell e l'interfaccia della riga di comando. Per informazioni generali sull'installazione e la gestione delle estensioni delle macchine virtuali, vedere [estensioni e funzionalità delle macchine virtuali per Windows](../../virtual-machines/extensions/features-windows.md) e le [estensioni e le funzionalità delle macchine virtuali per Linux](../../virtual-machines/extensions/features-linux.md) .
 
 È anche possibile installare e configurare l'estensione di diagnostica Windows e Linux nel portale di Azure in **impostazioni di diagnostica** nella sezione **monitoraggio** del menu della macchina virtuale.
 

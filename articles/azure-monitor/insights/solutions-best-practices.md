@@ -1,18 +1,17 @@
 ---
 title: Procedure consigliate per soluzioni di gestione in Azure | Microsoft Docs
 description: ''
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 28ae01fe28b1b2d6af95567e529c7c9ae17920e4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 837fb87d73698961ec1550b122840563d1707f8a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553942"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663199"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Procedure consigliate per la creazione di soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -32,7 +31,7 @@ Questo articolo riporta le procedure consigliate per la [creazione di una soluzi
 - Includere nella soluzione il [modulo IngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) che dovrà essere usato da runbook per la scrittura dei dati nel repository di Log Analytics.  Configurare la soluzione in modo che [faccia riferimento](solutions-solution-file.md#solution-resource) a questa risorsa affinché rimanga se la soluzione viene rimossa.  In questo modo più soluzioni possono condividere il modulo.
 - Utilizzare le [variabili di automazione](../../automation/automation-schedules.md) per fornire valori alla soluzione che gli utenti potranno modificare in seguito.  Anche se la soluzione è configurata per contenere la variabile, il suo valore può comunque essere modificato.
 
-## <a name="views"></a>Visualizzazioni
+## <a name="views"></a>Viste
 - Tutte le soluzioni devono includere una singola vista che viene mostrata nel portale dell'utente.  Questa vista può contenere più [parti della visualizzazione](../../azure-monitor/platform/view-designer-parts.md) per illustrare i diversi set di dati.
 - Aggiungere un messaggio di [verifica del flusso di dati](../../azure-monitor/platform/view-designer-tiles.md) alle viste della soluzione per indicare all'utente le origini dati che devono essere configurate per la raccolta dei dati richiesti.
 - Configurare la soluzione in modo che [contenga](solutions-solution-file.md#solution-resource) la vista, affinché venga rimossa se la soluzione viene rimossa.

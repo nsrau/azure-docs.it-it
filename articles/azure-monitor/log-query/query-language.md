@@ -1,25 +1,24 @@
 ---
 title: Query di log di Monitoraggio di Azure | Microsoft Docs
 description: Riferimenti alle risorse per l'apprendimento su come scrivere query di log in Monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 7c6530416f0eb6b822b6f5f3eb53f59aeae05d53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894342"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669388"
 ---
 # <a name="azure-monitor-log-queries"></a>Query di log di Monitoraggio di Azure
 I log di Monitoraggio di Azure si basano su Esplora dati, mentre le query di log di Monitoraggio di Azure usano una versione dello stesso linguaggio di query Kusto. La [documentazione del linguaggio di query Kusto](/azure/kusto/query) contiene tutti i dettagli del linguaggio e deve essere la risorsa principale per la scrittura di query di log di Monitoraggio di Azure. Questa pagina fornisce collegamenti ad altre risorse per apprendere come scrivere le query e sulle differenze con l'implementazione del linguaggio di Monitoraggio di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 - [Introduzione a monitoraggio di Azure log Analytics](get-started-portal.md) è una lezione per la scrittura di query e l'uso dei risultati nel portale di Azure.
 - [Introduzione alle query di log in Monitoraggio di Azure](get-started-queries.md) è una lezione per la scrittura di query e l'uso con i dati di log di Monitoraggio di Azure.
@@ -36,7 +35,7 @@ I log di Monitoraggio di Azure si basano su Esplora dati, mentre le query di log
 - [Eseguire ricerche incrociate nelle query di log di più risorse con Monitoraggio di Azure](../../azure-monitor/log-query/cross-workspace-query.md) illustra come scrivere query di log che usino dati provenienti da più aree di lavoro di Log Analytics e da applicazioni di Application Insights.
 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 - [Esempi di query di log in Monitoraggio di Azure](examples.md) fornisce query di esempio usando i dati di log di Monitoraggio di Azure.
 

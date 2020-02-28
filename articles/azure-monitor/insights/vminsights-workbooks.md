@@ -1,18 +1,17 @@
 ---
 title: Creare report interattivi Monitoraggio di Azure per le macchine virtuali con cartelle di lavoro | Microsoft Docs
 description: Semplifica la creazione di report complessi con cartelle di lavoro predefinite e personalizzate con parametri per Monitoraggio di Azure per le macchine virtuali.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: b89e61f0c268df0ed6dd69ae1c6d97f00678fc32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ec24f1eca0b2cf1d5ea2c171573f7c5e47319af
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365921"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670679"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creazione di report interattivi Monitoraggio di Azure per le macchine virtuali con cartelle di lavoro
 
@@ -27,18 +26,18 @@ Le cartelle di lavoro sono utili per scenari come:
 
 Monitoraggio di Azure per le macchine virtuali include diverse cartelle di lavoro per iniziare e la tabella seguente le riepiloga.
 
-| Cartella di lavoro | Description | Ambito |
+| Cartella di lavoro | Descrizione | Ambito |
 |----------|-------------|-------|
-| Performance | Fornisce una versione personalizzabile della visualizzazione Top N list e Charts in una singola cartella di lavoro che utilizza tutti i contatori delle prestazioni Log Analytics abilitati.| Su larga scala |
+| Prestazioni | Fornisce una versione personalizzabile della visualizzazione Top N list e Charts in una singola cartella di lavoro che utilizza tutti i contatori delle prestazioni Log Analytics abilitati.| Su larga scala |
 | Contatori delle prestazioni | Visualizzazione del grafico Top N in un'ampia gamma di contatori delle prestazioni. | Su larga scala |
 | Connessioni | Connessioni fornisce una visualizzazione approfondita delle connessioni in ingresso e in uscita dalle macchine virtuali monitorate. | Su larga scala |
 | Porte attive | Fornisce un elenco dei processi associati alle porte nelle VM monitorate e le relative attività nell'intervallo di tempo scelto. | Su larga scala |
 | Open Ports (Porte aperte) | Fornisce il numero di porte aperte sulle VM monitorate e i dettagli sulle porte aperte. | Su larga scala |
 | Connessioni non riuscite | Visualizzare il numero di connessioni non riuscite nelle VM monitorate, la tendenza dell'errore e se la percentuale di errori aumenta nel tempo. | Su larga scala |
-| Security and Audit | Un'analisi del traffico TCP/IP che segnala le connessioni globali, le connessioni dannose, in cui gli endpoint IP si trovano a livello globale.  Per abilitare tutte le funzionalità, è necessario abilitare il rilevamento della sicurezza. | Su larga scala |
+| Protezione e controllo | Un'analisi del traffico TCP/IP che segnala le connessioni globali, le connessioni dannose, in cui gli endpoint IP si trovano a livello globale.  Per abilitare tutte le funzionalità, è necessario abilitare il rilevamento della sicurezza. | Su larga scala |
 | Traffico TCP | Un report classificato per le macchine virtuali monitorate e il traffico di rete inviato, ricevuto e totale in una griglia e visualizzato come linea di tendenza. | Su larga scala |
 | Confronto traffico | Questa cartella di lavoro consente di confrontare le tendenze del traffico di rete per un singolo computer o un gruppo di computer. | Su larga scala |
-| Performance | Fornisce una versione personalizzabile della vista prestazioni che sfrutta tutti i contatori delle prestazioni Log Analytics abilitati. | Macchina virtuale singola | 
+| Prestazioni | Fornisce una versione personalizzabile della vista prestazioni che sfrutta tutti i contatori delle prestazioni Log Analytics abilitati. | Macchina virtuale singola | 
 | Connessioni | Connections (connessioni) fornisce una visualizzazione approfondita delle connessioni in ingresso e in uscita dalla macchina virtuale. | Macchina virtuale singola |
  
 ## <a name="starting-with-a-template-or-saved-workbook"></a>Iniziare da un modello o da una cartella di lavoro salvata

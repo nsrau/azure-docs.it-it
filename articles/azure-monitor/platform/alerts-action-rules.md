@@ -1,18 +1,15 @@
 ---
 title: Regole di azione per gli avvisi di monitoraggio di Azure
 description: Informazioni sulle regole di azione in monitoraggio di Azure e su come configurarle e gestirle.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.subservice: alerts
+ms.openlocfilehash: 42f8d9cd30caa48376cda049f6404aa897a6866c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767688"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668469"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -54,7 +51,7 @@ A questo punto verrà visualizzata la pagina flusso per la creazione di regole d
 
 ![Nuovo flusso di creazione della regola azione](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Ambito
 
 Scegliere prima di tutto l'ambito (sottoscrizione di Azure, gruppo di risorse o risorsa di destinazione). È anche possibile selezionare una combinazione di ambiti all'interno di una singola sottoscrizione.
 
@@ -82,7 +79,7 @@ Questi filtri vengono applicati insieme tra loro. Se ad esempio si imposta il **
 
 Configurare quindi la regola di azione per il supporto dell'eliminazione avvisi o del gruppo di azioni. Non è possibile scegliere entrambi. La configurazione agisce su tutte le istanze di avviso che corrispondono all'ambito e ai filtri definiti in precedenza.
 
-#### <a name="suppression"></a>Soppressione
+#### <a name="suppression"></a>Eliminazione
 
 Se si seleziona l' **eliminazione**, configurare la durata per l'eliminazione di azioni e notifiche. Scegliere una delle opzioni seguenti:
 * **Da Now (always)** : Disattiva tutte le notifiche a tempo indefinito.
@@ -103,9 +100,9 @@ Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di 
 ### <a name="action-rule-details"></a>Dettagli regola azione
 
 Infine, configurare i dettagli seguenti per la regola di azione:
-* name
+* Name
 * Gruppo di risorse in cui viene salvato
-* Description 
+* Descrizione 
 
 ## <a name="example-scenarios"></a>Scenari di esempio
 
@@ -115,7 +112,7 @@ Contoso vuole escludere le notifiche per tutti gli avvisi Sev4 su tutte le macch
 
 **Soluzione:** Creare una regola di azione con:
 * Ambito = **ContosoSub**
-* Filtri
+* Filtri.
     * Gravità = **Sev4**
     * Tipo di risorsa = **macchine virtuali**
 * Eliminazione con ricorrenza impostata su settimanale, **sabato** e **domenica** controllati
@@ -126,7 +123,7 @@ Contoso desidera disattivare le notifiche per tutti gli avvisi del log generati 
 
 **Soluzione:** Creare una regola di azione con:
 * Ambito = **ContosoSub**
-* Filtri
+* Filtri.
     * Servizio di monitoraggio = **log Analytics**
     * Il contesto dell'avviso (payload) contiene **computer-01**
 * Eliminazione impostata su **da ora (sempre)**
@@ -161,7 +158,7 @@ Per usare al meglio gli avvisi del log con le regole di azione, creare gli avvis
 
 ![Regole di azione e avvisi del log (numero di risultati)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 ### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Durante la configurazione di una regola di azione, desidero visualizzare tutte le possibili regole di azione sovrapposte, in modo da evitare notifiche duplicate. È possibile eseguire questa operazione?
 

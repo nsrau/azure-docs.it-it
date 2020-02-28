@@ -1,22 +1,20 @@
 ---
 title: Creare, visualizzare e gestire gli avvisi del log attività in monitoraggio di Azure
 description: Creare avvisi del log attività usando il portale di Azure, un modello di Azure Resource Manager e Azure PowerShell.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 4835f1034149a015963569a0b1fc5f9195e3cfca
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9791ebaadeb1ee724692a9e1a0d61aff5cbae6a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969532"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668486"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività tramite monitoraggio di Azure  
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
+
 Gli avvisi del log attività vengono attivati quando si verifica un nuovo evento del log attività che corrisponde alle condizioni specificate nell'avviso.
 
 Questi avvisi sono per le risorse di Azure e possono essere creati usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In genere, si creano avvisi del log attività per ricevere notifiche quando si verificano modifiche specifiche alle risorse nella sottoscrizione di Azure. Gli avvisi sono spesso limitati a risorse o gruppi di risorse specifici. Ad esempio, potrebbe essere necessario ricevere una notifica quando viene eliminata una macchina virtuale nel gruppo di risorse di esempio **myProductionResourceGroup** . In alternativa, potrebbe essere necessario ricevere una notifica se vengono assegnati nuovi ruoli a un utente nella sottoscrizione.
@@ -31,14 +29,13 @@ Quando si creano regole di avviso, verificare quanto segue:
 - Non esiste alcuna condizione "anyOf" o condizioni annidate nel file JSON di configurazione dell'avviso. Fondamentalmente, è consentita una sola condizione "allOf" senza ulteriori condizioni "allOf" o "anyOf".
 - Quando la categoria è "amministrativa", è necessario specificare almeno uno dei criteri precedenti nell'avviso. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
 
-
 ## <a name="azure-portal"></a>Portale di Azure
 
 È possibile usare la portale di Azure per creare e modificare le regole di avviso del log attività. L'esperienza è integrata con un log attività di Azure per garantire la creazione di avvisi senza problemi per eventi specifici di interesse.
 
 ### <a name="create-with-the-azure-portal"></a>Creare con la portale di Azure
 
-Usare la procedura seguente.
+Utilizzare la procedura riportata di seguito.
 
 1. Nella portale di Azure selezionare **monitoraggio** > **avvisi**.
 2. Selezionare **nuova regola di avviso** nell'angolo superiore sinistro della finestra **avvisi** .

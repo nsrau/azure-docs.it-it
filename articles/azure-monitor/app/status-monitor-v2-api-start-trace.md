@@ -1,24 +1,22 @@
 ---
 title: Informazioni di riferimento sull'API dell'agente applicazione Azure Insights
 description: Informazioni di riferimento sull'API dell'agente Application Insights. Start-Trace. Raccogliere i log ETW da Status Monitor e Application Insights SDK.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c97315b3a215f10e5b8f9533bf09fa5ac30ee16f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b9680101f1a22dd6d9c1617c8afc13a10ad1c594
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899661"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671223"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>API dell'agente di Application Insights: Start-ApplicationInsightsMonitoringTrace
 
 Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrizione
 
 Raccoglie [gli eventi ETW](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) dal runtime di associazione non codificabile. Questo cmdlet rappresenta un'alternativa all'esecuzione di [PerfView](https://github.com/microsoft/perfview).
 
@@ -29,7 +27,7 @@ Questo cmdlet verrà eseguito fino a quando non raggiungerà la durata del timeo
 > [!IMPORTANT] 
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ### <a name="how-to-collect-events"></a>Come raccogliere gli eventi
 
@@ -47,26 +45,26 @@ Per raccogliere questi eventi:
 ### <a name="what-events-to-collect"></a>Eventi da raccogliere
 
 Sono disponibili tre opzioni per la raccolta di eventi:
-1. Usare l'opzione `-CollectSdkEvents` per raccogliere gli eventi emessi da Application Insights SDK.
+1. Usare l'opzione `-CollectSdkEvents` per raccogliere gli eventi generati da Application Insights SDK.
 2. Usare l'opzione `-CollectRedfieldEvents` per raccogliere gli eventi generati da Status Monitor e dal runtime di Redfield. Questi log sono utili per la diagnosi di IIS e l'avvio dell'applicazione.
 3. Usare entrambe le opzioni per raccogliere entrambi i tipi di evento.
 4. Per impostazione predefinita, se non viene specificata alcuna opzione, verranno raccolti entrambi i tipi di evento.
 
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
 ### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Facoltativo.** Utilizzare questo parametro per impostare per quanto tempo lo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
+**Facoltativa.** Utilizzare questo parametro per impostare per quanto tempo lo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
 
 ### <a name="-logdirectory"></a>-LogDirectory
-**Facoltativo.** Usare questa opzione per impostare la directory di output del file ETL. Per impostazione predefinita, questo file verrà creato nella directory dei moduli di PowerShell. Il percorso completo verrà visualizzato durante l'esecuzione dello script.
+**Facoltativa.** Usare questa opzione per impostare la directory di output del file ETL. Per impostazione predefinita, questo file verrà creato nella directory dei moduli di PowerShell. Il percorso completo verrà visualizzato durante l'esecuzione dello script.
 
 
 ### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Facoltativo.** Usare questa opzione per raccogliere gli eventi di Application Insights SDK.
+**Facoltativa.** Usare questa opzione per raccogliere gli eventi di Application Insights SDK.
 
 ### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Facoltativo.** Usare questa opzione per raccogliere gli eventi da Status Monitor e dal runtime di Redfield.
+**Facoltativa.** Usare questa opzione per raccogliere gli eventi da Status Monitor e dal runtime di Redfield.
 
 ### <a name="-verbose"></a>-Verbose
 **Parametro comune.** Usare questa opzione per restituire i log dettagliati.

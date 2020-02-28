@@ -1,18 +1,15 @@
 ---
 title: Monitorare applicazioni e servizi di Azure con Grafana
 description: Indirizzare dati di Monitoraggio di Azure e Application Insights i modo da poterli vedere in Grafana.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 11/06/2017
-ms.openlocfilehash: f5464710d5c7908eeec5dd917bfeff4756ff4e80
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552091"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672209"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
 Ora è possibile monitorare i servizi e le applicazioni di Azure da [Grafana](https://grafana.com/) usando il [plug-in dell'origine dati di Monitoraggio di Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Il plug-in raccoglie i dati sulle prestazioni dell'applicazione ottenuti da Monitoraggio di Azure, tra cui diversi log e metriche. È quindi possibile visualizzare questi dati nel dashboard di Grafana.
@@ -94,7 +91,7 @@ Una volta eseguito l'accesso, si dovrebbe vedere che il plug-di origine dati di 
 4. Selezionare l'origine dati di Monitoraggio di Azure configurata.
    * Raccolta di metriche di Monitoraggio di Azure: selezionare **Monitoraggio di Azure** nell'elenco a discesa Service (Servizio). Viene visualizzato un elenco di selettori, in cui è possibile selezionare le risorse e la metrica da monitorare in questo grafico. Per raccogliere metriche da una macchina virtuale, usare lo spazio dei nomi **Microsoft.Compute/VirtualMachines**. Dopo aver selezionato le macchine virtuali e le metriche, è possibile iniziare a visualizzare i dati nel dashboard.
      ![Configurazione del grafico di Grafana per Monitoraggio di Azure](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Raccolta dei dati del log di monitoraggio di Azure: selezionare **log Analytics di Azure** nell'elenco a discesa servizio. Selezionare l'area di lavoro di cui si vuole eseguire una query e impostare il testo della query. È possibile copiare qui qualsiasi query di log già disponibile o crearne una nuova. Mentre si digita la query, IntelliSense visualizzerà e suggerirà le opzioni di completamento automatico. Selezionare il tipo di visualizzazione, **Time series** (Serie temporali) **Table** (Tabella) ed eseguire la query.
+   * Raccolta dei dati del log di monitoraggio di Azure: selezionare **log Analytics di Azure** nell'elenco a discesa servizio. Selezionare l'area di lavoro di cui si vuole eseguire una query e impostare il testo della query. È possibile copiare qui qualsiasi query di log già disponibile o crearne una nuova. Mentre si digita la query, IntelliSense visualizzerà e suggerirà le opzioni di completamento automatico. Selezionare il tipo di visualizzazione, la **tabella**delle **serie temporali** ed eseguire la query.
     
      > [!NOTE]
      >

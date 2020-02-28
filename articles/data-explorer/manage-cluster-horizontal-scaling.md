@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560457"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664134"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gestire la scalabilità orizzontale del cluster (scale out) in Azure Esplora dati per soddisfare la richiesta di modifica
 
@@ -59,13 +59,14 @@ Quando il cluster si avvicina a uno stato di sovrautilizzo, applicare la scalabi
 * Il numero di istanze del cluster è inferiore al numero massimo di istanze definite dall'utente.
 * L'utilizzo della cache è elevato per più di un'ora.
 * La CPU è elevata per più di un'ora.
+* L'utilizzo dell'inserimento è elevato per più di un'ora.
 
 > [!NOTE]
 > La logica di scalabilità orizzontale non considera attualmente la metrica di utilizzo dell'inserimento. Se questa metrica è importante per il caso d'uso, usare la [scalabilità automatica personalizzata](#custom-autoscale).
 
 **Ridimensiona in**
 
-Quando il cluster si avvicina a uno stato di sottoutilizzo, applicare la scalabilità a costi ridotti ma mantenere le prestazioni. Vengono usate più metriche per verificare la scalabilità sicura del cluster. Le regole seguenti vengono valutate giornalmente per 7 giorni prima che venga eseguita la scalabilità in:
+Quando il cluster si avvicina a uno stato di sottoutilizzo, applicare la scalabilità a costi ridotti ma mantenere le prestazioni. Vengono usate più metriche per verificare la scalabilità sicura del cluster. Le regole seguenti vengono valutate ogni ora per 6 ore prima che venga eseguita la scalabilità in:
 * Il numero di istanze è superiore a 2 e superiore al numero minimo di istanze definite.
 * Per assicurarsi che non vi sia alcun sovraccarico delle risorse, è necessario verificare le metriche seguenti prima di eseguire la scalabilità in: 
     * L'utilizzo della cache non è elevato
@@ -114,7 +115,7 @@ Con la scalabilità automatica personalizzata è possibile ridimensionare il clu
     | **Disattiva regole dopo (minuti)** | Scegliere un intervallo di tempo appropriato per l'attesa tra le operazioni di ridimensionamento. Iniziare con il valore predefinito di cinque minuti. |
     |  |  |
 
-5. Selezionare **Aggiungi**.
+5. Fare clic su **Aggiungi**.
 
 6. Nella sezione **limiti dell'istanza** a sinistra immettere i valori per ogni impostazione.
 

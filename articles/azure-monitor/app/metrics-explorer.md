@@ -1,18 +1,14 @@
 ---
 title: Esaminare le metriche in Azure Application Insights | Microsoft Docs
 description: Come interpretare i grafici in Esplora metriche e come personalizzare i pannelli di Esplora metriche.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/22/2019
-ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820783"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670169"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Esaminare le metriche in Application Insights
 Le metriche in [Application Insights][start] sono valori misurati e conteggi degli eventi inviati nei dati di telemetria dall'applicazione. Consentono di rilevare problemi di prestazioni e osservare le tendenze nella modalità di uso dell'applicazione. Esiste una vasta gamma di metriche standard ed è anche possibile creare metriche ed eventi personalizzati.
@@ -165,7 +161,7 @@ Se si modifica un pannello ma poi si vuole tornare a quello salvato in origine, 
 
 Per una visualizzazione molto più immediata dei dati di telemetria, aprire [flusso live](live-stream.md). La visualizzazione della maggior parte delle metriche richiede alcuni minuti, a causa del processo di aggregazione. Al contrario, le metriche attive sono ottimizzate per bassa latenza. 
 
-## <a name="set-alerts"></a>Impostare avvisi
+## <a name="set-alerts"></a>Impostazione di avvisi
 Per ricevere tramite posta elettronica una notifica relativa a valori insoliti di una metrica, aggiungere un avviso. È possibile scegliere di inviare il messaggio di posta elettronica agli amministratori di account o a indirizzi di posta elettronica specifici.
 
 ![In Esplora metriche scegliere Regole di avviso, Aggiungi avviso](./media/metrics-explorer/appinsights-413setMetricAlert.png)
@@ -184,7 +180,7 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
 Da un grafico di metriche è possibile fare clic sull'icona di Analytics per passare direttamente alla query di Analytics equivalente.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 *All'interno del grafico non vengono visualizzati dati.*
 
 * I filtri si applicano a tutti i grafici del pannello. Assicurarsi che, mentre ci si concentra su un grafico, non sia stato impostato un filtro che escluda tutti i dati di un altro grafico.

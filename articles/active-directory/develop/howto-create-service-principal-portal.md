@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591575"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656391"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -85,7 +85,7 @@ Le applicazioni daemon possono usare due forme di credenziali per eseguire l'aut
 
 ### <a name="upload-a-certificate"></a>Caricamento di un certificato
 
-Se si dispone di un certificato, è possibile utilizzarne uno esistente.  Facoltativamente, è possibile creare un certificato autofirmato a scopo di test. Aprire PowerShell ed eseguire [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con i parametri seguenti per creare un certificato autofirmato nell'archivio certificati utente del computer: 
+Se si dispone di un certificato, è possibile utilizzarne uno esistente.  Facoltativamente, è possibile creare un certificato autofirmato *solo a scopo di test*. Aprire PowerShell ed eseguire [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con i parametri seguenti per creare un certificato autofirmato nell'archivio certificati utente del computer: 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -93,14 +93,24 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Esportare questo certificato in un file usando lo snap-in MMC [Gestione certificati utente](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) accessibile dal pannello di controllo di Windows.
 
+1. Selezionare **Esegui** dal menu **Start** , quindi immettere **certmgr. msc**.
+
+   Viene visualizzato lo strumento Gestione certificati per l'utente corrente.
+
+1. Per visualizzare i certificati, in **certificati-utente corrente** nel riquadro sinistro, espandere la directory **personale** .
+1. Fare clic con il pulsante destro del mouse sul certificato creato, selezionare **tutte le attività-> Esporta**.
+1. Seguire l'esportazione guidata certificati.  Esportare la chiave privata, specificare una password per il file di certificato ed eseguire l'esportazione in un file.
+
 Per caricare il certificato:
 
+1. Selezionare **Azure Active Directory**.
+1. Da **Registrazioni app** in Azure AD selezionare l'applicazione.
 1. Selezionare **Certificati e segreti**.
 1. Selezionare **Carica certificato** e selezionare il certificato (un certificato esistente o il certificato autofirmato esportato).
 
     ![Selezionare Carica certificato e selezionare quello che si desidera aggiungere](./media/howto-create-service-principal-portal/upload-cert.png)
 
-1. Selezionare **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
 Dopo aver registrato il certificato con l'applicazione nel portale di registrazione delle applicazioni, è necessario abilitare il codice dell'applicazione client per l'uso del certificato.
 
@@ -146,15 +156,21 @@ Nella sottoscrizione di Azure, l'account deve avere `Microsoft.Authorization/*/W
 
 Per controllare le proprie autorizzazioni di sottoscrizione:
 
-1. Selezionare l'account nell'angolo in alto a destra e selezionare **...-> autorizzazioni personali**.
+1. Cercare e selezionare le **sottoscrizioni**oppure selezionare **sottoscrizioni** nella **Home** page.
 
-   ![Selezionare l'account e le autorizzazioni utente](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Ricerca](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. Nell'elenco a discesa selezionare la sottoscrizione in cui si vuole creare l'entità servizio. Selezionare quindi **Fare clic qui per visualizzare i dettagli di accesso completi per questa compilazione**.
+1. Selezionare la sottoscrizione in cui si desidera creare l'entità servizio.
+
+   ![Selezionare la sottoscrizione per l'assegnazione](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   Se la sottoscrizione che si sta cercando non viene visualizzata, selezionare il **filtro per le sottoscrizioni globali**. Assicurarsi che la sottoscrizione desiderata sia selezionata per il portale.
+
+1. Selezionare **Autorizzazioni personali**. Selezionare quindi **Fare clic qui per visualizzare i dettagli di accesso completi per questa compilazione**.
 
    ![Selezionare la sottoscrizione in cui si vuole creare l'entità servizio](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Selezionare **assegnazioni di ruolo** per visualizzare i ruoli assegnati e determinare se si dispone di autorizzazioni adeguate per assegnare un ruolo a un'app ad. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nell'immagine seguente all'utente viene assegnato il ruolo proprietario, il che significa che l'utente dispone di autorizzazioni appropriate.
+1. Selezionare **Visualizza** nelle **assegnazioni di ruolo** per visualizzare i ruoli assegnati e determinare se si dispone delle autorizzazioni appropriate per assegnare un ruolo a un'app ad. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nell'immagine seguente all'utente viene assegnato il ruolo proprietario, il che significa che l'utente dispone di autorizzazioni appropriate.
 
    ![Questo esempio mostra che all'utente è assegnato il ruolo di proprietario](./media/howto-create-service-principal-portal/view-user-role.png)
 

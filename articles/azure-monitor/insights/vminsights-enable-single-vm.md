@@ -1,18 +1,17 @@
 ---
 title: Abilita Monitoraggio di Azure per le macchine virtuali (anteprima) per la valutazione | Microsoft Docs
 description: Informazioni su come valutare Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale di Azure o in un set di scalabilità di macchine virtuali.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: c77fabf0220ecfcb889ce7cb71fa075fde27226f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b79eaeed420426fe79b2b6caf19ba1d1be61939
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400586"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664612"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Abilita Monitoraggio di Azure per le macchine virtuali (anteprima) per la valutazione
 

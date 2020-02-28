@@ -1,18 +1,14 @@
 ---
 title: Monitorare le applicazioni Docker in Azure Application Insights | Microsoft Docs
 description: I contatori delle prestazioni, gli eventi e le eccezioni di Docker possono essere visualizzati in Application Insights, insieme ai dati di telemetria dalle app nei contenitori.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 66a2481d25c863bbdbf4d72c4683a309918776db
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677932"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669608"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorare le applicazioni Docker in Application Insights (deprecato)
 
@@ -85,7 +81,7 @@ Per analizzare i singoli eventi, fare clic su [Cerca](../../azure-monitor/app/di
 ### <a name="docker-context-added-to-app-telemetry"></a>Contesto Docker aggiunto ai dati di telemetria dell’app
 I dati di telemetria sulle richieste inviati dall'applicazione instrumentata con AI SDK sono arricchiti con informazioni di contesto Docker.
 
-## <a name="q--a"></a>Domande frequenti
+## <a name="q--a"></a>Domande e risposte
 *Quali sono i vantaggi di Application Insights rispetto a Docker?*
 
 * Suddivisione dettagliata dei contatori delle prestazioni in base al contenitore e all'immagine.

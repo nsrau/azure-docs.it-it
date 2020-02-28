@@ -1,19 +1,15 @@
 ---
 title: Server d'OpenCensus locale di applicazione Azure Insights (anteprima)
 description: Inoltrare intervalli e tracce distribuite OpenCensus da linguaggi come Python e Go in Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.openlocfilehash: 25c6c82fa1179a9173f42c3a5a4e95a371dd49c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bcf7ba495897eb1c9b40c78f00825e863390b5d1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406601"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669965"
 ---
 # <a name="local-forwarder-preview"></a>Server d'invio locale (anteprima)
 
@@ -23,7 +19,7 @@ Il servizio d'inoltro locale è un agente che raccoglie dati di telemetria di Ap
 
 Il servizio d'inoltro locale è un [progetto open source su GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Esistono diversi modi per eseguire il servizio d'inoltro locale su più piattaforme.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 #### <a name="windows-service"></a>Servizio Windows
 

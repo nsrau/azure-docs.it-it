@@ -1,18 +1,14 @@
 ---
 title: Filtrare i dati di telemetria applicazione Azure Insights nell'app Web Java
 description: Ridurre il traffico di telemetria escludendo gli eventi che non è necessario monitorare.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 3/14/2019
-ms.openlocfilehash: dd47ef68726f3f804dabbc9751e9c86dfe846559
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927290"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659918"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrare i dati di telemetria nell'App Web Java
 
@@ -264,7 +260,7 @@ public TelemetryProcessor successFilter() {
 È necessario creare parametri di filtro personalizzati in `application.properties` e sfruttare il Framework di configurazione esternalizzato di Spring boot per passare tali parametri al filtro personalizzato. 
 
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 *Il filtro non funziona.*
 

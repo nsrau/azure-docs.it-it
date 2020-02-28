@@ -1,19 +1,15 @@
 ---
 title: Tenere traccia delle operazioni personalizzate con applicazione Azure .NET SDK di Insights
 description: Verifica delle operazioni personalizzate con Azure Application Insights .NET SDK
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 7b92a386d691e15975f18de169d7924b82ec5c5f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951344"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671818"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -128,7 +124,7 @@ Sebbene esistano il [contesto di traccia W3C](https://www.w3.org/TR/trace-contex
 
 ### <a name="service-bus-queue"></a>Coda del bus di servizio
 Application Insights tiene traccia delle chiamate di messaggistica del bus di servizio con il nuovo [client del bus di servizio di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versione 3.0.0 e successive.
-Se per elaborare i messaggi si usa il [criterio con gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), non ci sono altre operazioni da eseguire: tutte le chiamate al bus di servizio eseguite dal servizio vengono automaticamente verificate e correlate con altri elementi di telemetria. Se i messaggi vengono elaborati manualmente, vedere [Service Bus client tracing with Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) (Traccia del client del bus di servizio con Microsoft Application Insights).
+Se per elaborare i messaggi si usa il [criterio del gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), non ci sono altre operazioni da eseguire. Tutte le chiamate al bus di servizio eseguite dal servizio vengono automaticamente verificate e correlate con altri elementi di telemetria. Se i messaggi vengono elaborati manualmente, vedere [Service Bus client tracing with Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) (Traccia del client del bus di servizio con Microsoft Application Insights).
 
 Se si usa il pacchetto [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/), continuare a leggere. Gli esempi seguenti illustrano come verificare e correlare le chiamate al bus di servizio dal momento che la coda del bus di servizio usa il protocollo AMQP mentre Application Insights non tiene traccia automaticamente delle operazioni nella coda.
 Gli identificatori di correlazione vengono passati nelle proprietà del messaggio.
@@ -173,7 +169,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Processo
+#### <a name="process"></a>Process
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -217,7 +213,7 @@ Inoltre è possibile correlare l'ID operazione di Application Insights con l'ID 
 #### <a name="enqueue"></a>Accodare
 Poiché le code di archiviazione di Azure supportano l'API HTTP, tutte le operazioni con la coda vengono automaticamente registrate da Application Insights. In molti casi, questa strumentazione dovrebbe essere sufficiente. Per correlare le tracce sul lato consumer con le tracce del producer, è necessario passare parte del contesto di correlazione in modo simile a quanto avviene nel protocollo HTTP per la correlazione. 
 
-Questo esempio illustra come tenere traccia dell'operazione `Enqueue`. Puoi:
+Questo esempio illustra come tenere traccia dell'operazione `Enqueue`. È possibile:
 
  - **Correlare gli eventuali tentativi**, che hanno tutti un'operazione padre comune, ovvero `Enqueue`. In caso contrario, vengono registrati come elementi figlio della richiesta in ingresso. Se sono presenti più richieste logiche per la coda, potrebbe risultare difficile trovare la chiamata che ha restituito i tentativi.
  - **Correlare i log di archiviazione (se e quando necessario)** con i dati di telemetria di Application Insights.
@@ -304,7 +300,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Processo
+#### <a name="process"></a>Process
 
 Nell'esempio seguente un messaggio in arrivo viene verificato in maniera simile a quanto avviene per una richiesta HTTP in ingresso:
 
@@ -429,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 L'eliminazione provoca l'interruzione dell'operazione, quindi è possibile procedere in questo modo anziché chiamare `StopOperation`.
 
-*Avviso*: in alcuni casi un'eccezione non gestita può [impedire](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) che venga chiamato `finally` rendendo impossibile la verifica delle operazioni.
+*Avviso*: in alcuni casi l'eccezione non gestita può [impedire](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) la chiamata di `finally`, quindi le operazioni potrebbero non essere rilevate.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Elaborazione e verifica di operazioni parallele
 

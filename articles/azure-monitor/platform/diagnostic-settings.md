@@ -3,17 +3,16 @@ title: Creare un'impostazione di diagnostica per raccogliere log e metriche in A
 description: Creare le impostazioni di diagnostica per l'invio dei log della piattaforma Azure ai log di monitoraggio di Azure, archiviazione di Azure o hub eventi di Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751079"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672413"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare i log della piattaforma a destinazioni diverse.
@@ -23,10 +22,10 @@ I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log att
 
 Ogni risorsa di Azure richiede una propria impostazione di diagnostica, che definisce quanto segue:
 
-- Categorie di log e dati di metriche inviati alle destinazioni definite nell'impostazione. Le categorie disponibili variano per i diversi tipi di risorsa.
-- Una o più destinazioni per inviare i log. Le destinazioni correnti includono l'area di lavoro di Log Analytics, Hub eventi e Archiviazione di Azure.
+- Categorie di log e dati di metrica inviati alle destinazioni definite nell'impostazione. Le categorie disponibili variano a seconda del tipo di risorsa.
+- una o più destinazioni a cui inviare i log. Le destinazioni correnti includono Log Analytics area di lavoro, Hub eventi e archiviazione di Azure.
  
-Una singola impostazione di diagnostica può definire non più di una delle destinazioni. Se si vogliono inviare dati a più tipi specifici di destinazione (ad esempio, due diverse aree di lavoro di Log Analytics), creare più impostazioni. Ogni risorsa può avere al massimo 5 impostazioni di diagnostica.
+Una singola impostazione di diagnostica può definire non più di una delle destinazioni. Se si desidera inviare dati a più di un tipo di destinazione specifico, ad esempio due aree di lavoro Log Analytics diverse, creare più impostazioni. Ogni risorsa può avere fino a 5 impostazioni di diagnostica.
 
 
 > [!NOTE]
@@ -35,7 +34,7 @@ Una singola impostazione di diagnostica può definire non più di una delle dest
 ## <a name="destinations"></a>Destinations 
 I log della piattaforma possono essere inviati alle destinazioni nella tabella seguente. La configurazione per ogni destinazione viene eseguita usando lo stesso processo per la creazione di impostazioni di diagnostica descritte in questo articolo. Per informazioni dettagliate sull'invio di dati a tale destinazione, seguire ogni collegamento nella tabella seguente.
 
-| Destinazione | Description |
+| Destination | Descrizione |
 |:---|:---|
 | [area di lavoro Log Analytics](resource-logs-collect-workspace.md) | La raccolta di log in un'area di lavoro di Log Analytics consente di analizzarli con altri dati di monitoraggio raccolti da monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio avvisi e visualizzazioni. |
 | [Hub eventi](resource-logs-stream-event-hubs.md) | L'invio di log a hub eventi consente di trasmettere i dati a sistemi esterni, ad esempio SIEM di terze parti e altre soluzioni di log Analytics. |
@@ -69,7 +68,7 @@ I log della piattaforma possono essere inviati alle destinazioni nella tabella s
 3. Assegnare un nome all'impostazione se non ne è già presente uno.
 4. Selezionare la casella per ogni destinazione per inviare i log. Fare clic su **Configura** per specificare le impostazioni come descritto nella tabella seguente.
 
-    | Impostazione | Description |
+    | Impostazione | Descrizione |
     |:---|:---|
     | Area di lavoro Log Analytics | Nome dell'area di lavoro. |
     | Account di archiviazione | Nome dell'account di archiviazione. |
@@ -86,7 +85,7 @@ I log della piattaforma possono essere inviati alle destinazioni nella tabella s
    >
    > *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
 
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Si noti che potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e il momento in cui viene [visualizzato in un'area di lavoro log Analytics](data-ingestion-time.md).
 

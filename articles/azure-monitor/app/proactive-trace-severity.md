@@ -1,18 +1,14 @@
 ---
 title: Riduzione delle prestazioni nel rapporto gravità della traccia-applicazione Azure Insights
 description: Monitora le tracce dell'applicazione con applicazione Azure Insights per modelli insoliti nella telemetria delle tracce con rilevamento intelligente.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/27/2017
-ms.openlocfilehash: b51cb66b59589c9b58d9115dfa6cefce0a20f3c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30bdd30ac9c49bb79a3c48bae8149ec761756dd4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432425"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671682"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradazione del rapporto tra i livelli di gravità delle tracce (anteprima)
 
@@ -26,7 +22,7 @@ Questo tipo di notifica può essere visualizzato se il rapporto tra le tracce "v
 ## <a name="does-my-app-definitely-have-a-problem"></a>Verifica di eventuali problemi dell'app
 Una notifica non significa che l'app ha sicuramente un problema. Sebbene un deterioramento del rapporto tra le tracce "positive" e "negative" può indicare una problema a livello applicativo, questa modifica nel rapporto potrebbe essere benigna. Ad esempio, l'aumento potrebbe essere dovuto a un nuovo flusso nell'applicazione che emette più tracce "negative" rispetto ai flussi esistenti.
 
-## <a name="how-do-i-fix-it"></a>Risoluzione
+## <a name="how-do-i-fix-it"></a>Com'è possibile risolvere il problema?
 Le notifiche includono informazioni di diagnostica a supporto del processo di diagnostica:
 1. **Valutazione.** La notifica mostra il numero di operazioni interessate. Ciò consente di assegnare una priorità al problema.
 2. **Ambito.** Il problema interessa solo alcune operazioni o tutto il traffico? Queste informazioni si possono ricavare dalla notifica.

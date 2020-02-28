@@ -1,18 +1,14 @@
 ---
 title: 'Monitorare le prestazioni delle app Web in Linux: Azure | Documentazione Microsoft'
 description: Monitoraggio esteso delle prestazioni delle applicazioni del sito Web Java con il plug-in CollectD per Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 47e5e9dd81174b79e149ba29eec725c8c17eb1a6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 687f97c305bffdfb408feb314ccded4f93ac574a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176398"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660734"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: metriche delle prestazioni Linux in Application Insights
 
@@ -98,7 +94,7 @@ Per escludere dati da plug-in specifici oppure origini dati specifiche:
 * Modificare il file di configurazione. 
 * In `<Plugin ApplicationInsightsWriter>`aggiungere righe di direttive analoghe alle seguenti:
 
-| Direttiva | Effetto |
+| Directive | Effetto |
 | --- | --- |
 | `Exclude disk` |Esclusione di tutti i dati raccolti dal plug-in `disk` . |
 | `Exclude disk:read,write` |Esclusione delle origini denominate `read` e `write` dal plug-in `disk`. |

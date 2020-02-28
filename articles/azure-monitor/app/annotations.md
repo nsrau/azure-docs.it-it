@@ -1,18 +1,14 @@
 ---
 title: Annotazioni sulla versione per Application Insights | Documentazione Microsoft
 description: Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/01/2019
-ms.openlocfilehash: f9ab1f1ef2b64c07a3b0c8ddf93d6ef4293517db
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e0e2a106b276110e13b3c68889e4d1d349ba73a4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668105"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666514"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
@@ -77,7 +73,7 @@ Creare una chiave API separata per ogni modello di versione di Azure Pipelines.
    
 1. Selezionare **Save (Salva** ) nella finestra principale modello di rilascio per salvare il modello.
 
-## <a name="view-annotations"></a>Visualizzare le annotazioni
+## <a name="view-annotations"></a>Visualizzare annotazioni
 A questo punto, ogni volta che si usa il modello di versione per distribuire una nuova versione, viene inviata un'annotazione a Application Insights. Le annotazioni vengono visualizzate nei grafici in **Esplora metriche**.
 
 Selezionare un marcatore di annotazione (freccia grigia chiara) per aprire i dettagli della versione, inclusi il richiedente, il ramo di controllo del codice sorgente, la pipeline di rilascio e l'ambiente.

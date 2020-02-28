@@ -1,19 +1,18 @@
 ---
 title: Creare una soluzione di gestione in Azure | Microsoft Docs
 description: Le soluzioni di gestione includono scenari di gestione in pacchetto in Azure che i clienti possono aggiungere alla propria area di lavoro Log Analytics.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f1605597c7716ba6a896c7ecdae968f07d66027b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969690"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663216"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Progettare e creare una soluzione di gestione in Azure (anteprima)
 > [!NOTE]
@@ -28,7 +27,7 @@ Le soluzioni di gestione contengono risorse Azure che interagiscono per raggiung
 La strategia di base consiste nell'avviare la soluzione di gestione compilando i singoli componenti nell'ambiente Azure.  Dopo che la funzionalità opera correttamente, è possibile avviare la creazione del pacchetto in un [file di soluzione di gestione]( solutions-solution-file.md). 
 
 
-## <a name="design-your-solution"></a>Progetta la tua soluzione
+## <a name="design-your-solution"></a>Progettare la soluzione
 Nel diagramma seguente è illustrato il modello più comune per una soluzione di gestione.  I diversi componenti in questo modello vengono descritti di seguito.
 
 ![Panoramica della soluzione di gestione](media/solutions-creating/solution-overview.png)
@@ -53,7 +52,7 @@ Se il problema può essere risolto potenzialmente con un processo automatizzato,
 
 Se la soluzione richiede funzionalità esterne in risposta a un avviso, è possibile usare una [risposta di webhook](../../azure-monitor/platform/alerts-metric.md).  Ciò consente di chiamare un servizio Web esterno che invia informazioni dall'avviso.
 
-### <a name="views"></a>Visualizzazioni
+### <a name="views"></a>Viste
 Le visualizzazioni in Log Analytics vengono usate per visualizzare i dati dal repository di Log Analytics.  Ogni soluzione conterrà in genere una singola visualizzazione con un [riquadro](../../azure-monitor/platform/view-designer-tiles.md) che viene visualizzato nel dashboard principale dell'utente.  La visualizzazione può contenere un numero qualsiasi di [parti di visualizzazione](../../azure-monitor/platform/view-designer-parts.md) per fornire visualizzazioni differenti dei dati raccolti per l'utente.
 
 [Creare visualizzazioni personalizzate usando Progettazione viste](../../azure-monitor/platform/view-designer.md) che è possibile esportare in un secondo momento per l'inclusione nel file della soluzione.  

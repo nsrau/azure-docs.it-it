@@ -1,18 +1,17 @@
 ---
 title: Cosa viene monitorato da monitoraggio di Azure
 description: Informazioni di riferimento su tutti i servizi e altre risorse monitorate da monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 055ba8b5050aef639bbe6527292a18c8b405065a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620265"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669115"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da monitoraggio di Azure?
 Questo articolo descrive i diversi servizi e applicazioni monitorati da monitoraggio di Azure. 
@@ -53,11 +52,11 @@ La tabella seguente elenca i servizi di Azure e i dati raccolti in monitoraggio 
 - Log: il servizio supporta le impostazioni di diagnostica che consentono di raccogliere i log e le metriche della piattaforma nei log di monitoraggio di Azure.
 - Informazioni dettagliate: sono disponibili informazioni dettagliate per il servizio, che offre un'esperienza di monitoraggio personalizzata per il servizio.
 
-| Service | Metriche | Log | Informazioni dettagliate | Note |
+| Service | Metriche | Registri | Informazioni dettagliate | Note |
 |:---|:---|:---|:---|:---|
 |Active Directory | No | Sì | [Sì](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | No | No | No |  |
-|Active Directory Domain Services | No | Sì | No |  |
+|Servizi di dominio Active Directory | No | Sì | No |  |
 |Log attività | No | Sì | No | |
 |Advanced Threat Protection | No | No | No |  |
 |Advisor | No | No | No |  |
@@ -129,8 +128,8 @@ La tabella seguente elenca i servizi di Azure e i dati raccolti in monitoraggio 
 |Microsoft PowerApps | No | No | No |  |
 |Microsoft Social Engagement | No | No | No |  |
 |Microsoft Stream | Sì | Sì | No |  |
-|Migrazione | No | No | No |  |
-|Multi-Factor Authentication | No | Sì | No |  |
+|Esegui migrazione | No | No | No |  |
+|Autenticazione a più fattori | No | Sì | No |  |
 |Network Watcher | Sì | Sì | No |  |
 |Hub di notifica | Sì | No | No |  |
 |Set di dati Open | No | No | No |  |
@@ -188,7 +187,7 @@ I servizi e le soluzioni nella tabella seguente archiviano i dati in un'area di 
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Raccogliere i dati dagli agenti Operations Manager connettendo il gruppo di gestione a monitoraggio di Azure. Vedere [connettere Operations Manager a monitoraggio di Azure](platform/om-agents.md)<br> Valutare il rischio e l'integrità del gruppo di gestione di System Center Operations Manager con la soluzione [Operations Manager Assessment](insights/scom-assessment.md) . |
 | [Chat di Microsoft Teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gestione end-to-end integrata dei dispositivi Microsoft teams room. |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Creare, testare e distribuire applicazioni e monitorarne lo stato e l'utilizzo. Vedere [avviare l'analisi dell'app per dispositivi mobili con App Center e Application Insights](learn/mobile-center-quickstart.md). |
-| Windows | [Conformità Windows Update](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) : valutare gli aggiornamenti del desktop di Windows.<br>[Desktop Analytics](https://docs.microsoft.com/configmgr/desktop-analytics/overview) -si integra con Configuration Manager per fornire informazioni e informazioni dettagliate per prendere decisioni più informate sulla preparazione degli aggiornamenti dei client Windows. |
+| WINDOWS | [Conformità Windows Update](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) : valutare gli aggiornamenti del desktop di Windows.<br>[Desktop Analytics](https://docs.microsoft.com/configmgr/desktop-analytics/overview) -si integra con Configuration Manager per fornire informazioni e informazioni dettagliate per prendere decisioni più informate sulla preparazione degli aggiornamenti dei client Windows. |
 
 
 
@@ -218,9 +217,9 @@ Sono disponibili altre soluzioni per il monitoraggio di applicazioni e servizi d
 ## <a name="resources-outside-of-azure"></a>Risorse esterne ad Azure
 Monitoraggio di Azure può raccogliere dati da risorse esterne ad Azure usando i metodi elencati nella tabella seguente.
 
-| Risorsa | Metodo |
+| Resource | Metodo |
 |:---|:---|
-| APPLICAZIONI | Monitorare le applicazioni Web all'esterno di Azure usando Application Insights. Vedere informazioni su [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). |
+| Applicazioni | Monitorare le applicazioni Web all'esterno di Azure usando Application Insights. Vedere informazioni su [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). |
 | Macchine virtuali | Usare l'agente di Log Analytics per raccogliere dati dal sistema operativo guest di macchine virtuali in altri ambienti cloud o in locale. Vedere [raccogliere dati di log con l'agente di log Analytics](platform/log-analytics-agent.md). |
 | Client API REST | Sono disponibili API separate per la scrittura di dati in log e metriche di monitoraggio di Azure da qualsiasi client API REST. Vedere [inviare i dati di log a monitoraggio di Azure con l'API dell'agente di raccolta dati http](platform/data-collector-api.md) per i log e [inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di monitoraggio di Azure usando un'API REST per le](platform/metrics-store-custom-rest-api.md) metriche. |
 

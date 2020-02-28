@@ -1,19 +1,17 @@
 ---
 title: Creare un avviso per metriche classiche in Azure con un modello di Resource Manager
 description: Informazioni su come usare un modello di Resource Manager per creare un avviso per metriche classiche in modo da ricevere notifiche tramite posta elettronica o webhook.
-author: johnkemnetz
-services: azure-monitor
-ms.service: azure-monitor
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
 ms.date: 4/27/2018
-ms.author: johnkem
-ms.subservice: metrics
-ms.openlocfilehash: 7c1cdf912f9a1e4e8ae92baa4381e9705702136f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.subservice: alerts
+ms.openlocfilehash: c25886308b4f9560b336982b87bd4b38b306bcb2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977597"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668044"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creare un avviso di metrica classico con un modello di Resource Manager
 Questo articolo mostra come usare un [modello di Resource Manager di Azure](../../azure-resource-manager/templates/template-syntax.md) per configurare gli avvisi sulle metriche in Azure. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
@@ -401,7 +399,7 @@ In genere, un avviso in un modello di Resource Manager è più utile quando si c
 }
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sugli avvisi](alerts-overview.md)
 * [Aggiungere impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-settings-template.md) al modello di Resource Manager
 * Per la sintassi e le proprietà JSON, vedere le informazioni di riferimento sul modello [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).

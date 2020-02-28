@@ -2,17 +2,16 @@
 title: Raccogliere log attività di Azure con le impostazioni di diagnostica (anteprima)-monitoraggio di Azure | Microsoft Docs
 description: Usare le impostazioni di diagnostica per inviare i log attività di Azure ai log di monitoraggio di Azure, archiviazione di Azure o hub eventi di Azure.
 author: bwren
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fcf7eef269c9fa8b62217fb64ed792aece1fce4e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016256"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670339"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Eseguire l'aggiornamento alla raccolta e all'esportazione di log attività di Azure
 Il [log attività di Azure](platform-logs-overview.md) è un [log di piattaforma](platform-logs-overview.md) che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Il metodo per inviare le voci del log attività a [un hub eventi o](activity-log-export.md) a un account di archiviazione o a un' [area di lavoro log Analytics](activity-log-collect.md) è stato modificato per usare [le impostazioni di diagnostica](diagnostic-settings.md). Questo articolo descrive la differenza tra i metodi e come cancellare le impostazioni legacy in preparazione per passare alle impostazioni di diagnostica.

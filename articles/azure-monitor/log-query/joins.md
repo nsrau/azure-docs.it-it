@@ -1,18 +1,17 @@
 ---
 title: Join nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo include una lezione sull'utilizzo dei join nelle query di log di Monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397818"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670203"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Join nelle query di log di Monitoraggio di Azure
 
@@ -80,10 +79,10 @@ SecurityEvent
 ## <a name="join-kinds"></a>Tipi di join
 Specificare il tipo di join con l'argomento _kind_. Ogni tipo esegue una diversa corrispondenza tra i record di determinate tabelle, come descritto nella tabella seguente.
 
-| Tipo di join | Description |
+| Tipo di join | Descrizione |
 |:---|:---|
 | innerunique | Questa è la modalità di join predefinita. Prima vengono trovati i valori della colonna corrispondente nella tabella di sinistra e vengono rimossi i valori duplicati  e dopo il set di valori univoci viene confrontato con la tabella di destra. |
-| interno | Nei risultati vengono inclusi solo i record corrispondenti in entrambe le tabelle. |
+| interna | Nei risultati vengono inclusi solo i record corrispondenti in entrambe le tabelle. |
 | leftouter | Nei risultati vengono inclusi tutti i record nella tabella di sinistra e i record corrispondenti nella tabella di destra. Le proprietà di output senza corrispondenza contengono valori null.  |
 | leftanti | Nei risultati vengono inclusi i record nella tabella di sinistra che non hanno corrispondenze con quella di destra. La tabella dei risultati include solo le colonne della tabella di sinistra. |
 | leftsemi | Nei risultati vengono inclusi i record nella tabella di sinistra che hanno corrispondenze con quella di destra. La tabella dei risultati include solo le colonne della tabella di sinistra. |

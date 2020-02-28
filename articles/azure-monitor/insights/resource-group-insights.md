@@ -1,19 +1,18 @@
 ---
 title: Informazioni dettagliate sul gruppo di risorse di Monitoraggio di Azure | Microsoft Docs
 description: Informazioni sull'integrità e le prestazioni delle applicazioni e dei servizi distribuiti a livello di gruppo di risorse con Monitoraggio di Azure
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: fba94a5e723bfbc2719b3b4cf5cd130eda382276
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553982"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663539"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 
@@ -106,7 +105,7 @@ In questo caso, se si seleziona l'opzione di modifica si noterà che questo set 
 
  ![Screenshot della vista delle prestazioni con Metriche di Azure](./media/resource-group-insights/0012-performance-metrics.png)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="enabling-access-to-alerts"></a>Abilitazione dell'accesso agli avvisi
 

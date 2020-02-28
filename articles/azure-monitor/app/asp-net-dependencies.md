@@ -1,18 +1,14 @@
 ---
 title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft Docs
 description: Monitorare le chiamate alle dipendenze dall'applicazione Web locale o Microsoft Azure con Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/25/2019
-ms.openlocfilehash: 5b37ce1ba3d8a9d56cb2204c9db89d0e47d9996e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8fb1550a3f1d4b3336384139b049b60e23e648d7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277689"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666242"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rilevamento delle dipendenze in applicazione Azure Insights 
 
@@ -96,12 +92,12 @@ Per ASP.NET Core applicazioni, non sono necessari passaggi aggiuntivi per ottene
 
 Per le applicazioni ASP.NET, la query SQL completa viene raccolta con l'ausilio della strumentazione del codice byte, che richiede il motore di strumentazione. Sono necessari passaggi aggiuntivi specifici della piattaforma, come descritto di seguito.
 
-| Piattaforma | Passaggi necessari per ottenere la query SQL completa |
+| Platform | Passaggi necessari per ottenere la query SQL completa |
 | --- | --- |
 | App Web di Azure |Nel pannello di controllo dell'app Web [aprire il pannello Application Insights](../../azure-monitor/app/azure-web-apps.md) e abilitare i comandi SQL in .NET |
 | Server IIS (VM di Azure, locale e così via) | Usare il modulo Status Monitor PowerShell per [installare il motore di strumentazione](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) e riavviare IIS. |
 | Servizio cloud di Azure | Aggiungere un' [attività di avvio per installare StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> L'app deve essere caricata in ApplicationInsights SDK in fase di compilazione installando pacchetti NuGet per applicazioni [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
-| IIS Express | Supporto non disponibile
+| IIS Express | Non supportate
 
 Nei casi precedenti, il modo corretto per convalidare il motore di strumentazione è installato correttamente consiste nel convalidare che la versione dell'SDK raccolta `DependencyTelemetry` è' rddp '. ' rdddsd ' o ' rddf ' indica che le dipendenze vengono raccolte tramite callback DiagnosticSource o EventSource e pertanto la query SQL completa non verrà acquisita.
 

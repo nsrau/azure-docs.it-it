@@ -1,53 +1,52 @@
 ---
-title: Funzionalità avanzate di Esplora metriche di Azure
-description: Informazioni sulle funzionalità avanzate di Esplora metriche di monitoraggio di Azure
+title: Funzionalità avanzate di Azure Esplora metriche
+description: Informazioni sulle funzionalità avanzate di monitoraggio di Azure Esplora metriche
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c754f33ab5f4346413b6603ca2cd404acac5443f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60256845"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662401"
 ---
-# <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Azure Esplora metriche
 
 > [!NOTE]
-> Questo articolo presuppone che abbia familiarità con le funzionalità di base di Esplora metriche. Se si è un nuovo utente e si vuole imparare a creare il primo grafico delle metriche, vedere [Introduzione a Esplora metriche di Azure](metrics-getting-started.md).
+> Questo articolo presuppone che l'utente abbia familiarità con le funzionalità di base di Esplora metriche. Se si è un nuovo utente e si vuole imparare a creare il primo grafico delle metriche, vedere [Introduzione ad Azure Esplora metriche](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Metriche in Azure
 
-[In Monitoraggio di Azure le metriche](data-platform-metrics.md) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni che usano il [API di Application Insights per metriche ed eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [estensione diagnostica di Azure di Windows (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), o da [Azure Monitorare l'API REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[In Monitoraggio di Azure le metriche](data-platform-metrics.md) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni usando l' [api Application Insights per gli eventi e le metriche personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), l' [estensione di Windows diagnostica di Azure (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)o l' [API REST di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-views-with-multiple-metrics-and-charts"></a>Creare visualizzazioni con più metriche e questi grafici
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Creare visualizzazioni con più metriche e grafici
 
-È possibile creare grafici che tracciare più righe di metriche o mostrano più grafici delle metriche in una sola volta. Questa funzionalità consente di:
+È possibile creare grafici che tracciano più righe di metriche o visualizzano più grafici delle metriche contemporaneamente. Questa funzionalità consente di:
 
-- correlare le metriche correlate nel grafico per vedere come un valore stesso sono correlata a un'altra
-- visualizzare le metriche con unità di misura in stretta vicinanza diverse
-- aggregare e confrontare le metriche da più risorse visivamente
+- correlare le metriche correlate nello stesso grafico per vedere come un valore è correlato a un altro
+- visualizzare le metriche con unità di misura diverse in prossimità
+- aggregare e confrontare visivamente le metriche da più risorse
 
-Ad esempio, se hai 5 account di archiviazione e si desidera conoscere la quantità di spazio totale viene consumato tra di essi, è possibile creare un grafico ad area (in pila) che mostra i singoli e la somma di tutti i valori in determinati punti nel tempo.
+Se, ad esempio, si dispone di 5 account di archiviazione e si desidera conoscere la quantità di spazio totale utilizzata tra di essi, è possibile creare un grafico ad area (in pila) che mostri il singolo e la somma di tutti i valori in momenti specifici.
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Più metriche nello stesso grafico
 
-Prima di tutto [creare un nuovo grafico](metrics-getting-started.md#create-your-first-metric-chart). Fare clic su **Aggiungi metrica** e ripetere i passaggi per aggiungere un'altra metrica nello stesso grafico.
+Per prima cosa, [creare un nuovo grafico](metrics-getting-started.md#create-your-first-metric-chart). Fare clic su **Aggiungi metrica** e ripetere i passaggi per aggiungere un'altra metrica nello stesso grafico.
 
    > [!NOTE]
    > È preferibile in genere non avere nello stesso grafico metriche con unità di misura diverse (ad esempio "millisecondi" e "KB") o con proporzioni molto diverse. Si può in questo caso considerare di usare più grafici. Fare clic sul pulsante Aggiungi grafico per creare più grafici in Esplora metriche.
 
 ### <a name="multiple-charts"></a>Più grafici
 
-Scegliere il **Aggiungi grafico** e creare un altro grafico con una metrica diversa.
+Fare clic sul **grafico Aggiungi** e creare un altro grafico con una metrica diversa.
 
 ### <a name="order-or-delete-multiple-charts"></a>Ordinare o eliminare più grafici
 
-Per ordinare o eliminare più grafici, fare clic sui puntini di sospensione ( **...**  ) per aprire il menu di grafico e scegliere la voce di menu appropriata del simbolo **spostare verso l'alto**, **Sposta giù**, o **eliminare**.
+Per ordinare o eliminare più grafici, fare clic sul simbolo dei puntini di sospensione ( **..** .) per aprire il menu grafico e scegliere la voce di menu appropriata di **Sposta su**, **Sposta giù**o **Elimina**.
 
 ## <a name="apply-filters-to-charts"></a>Applicare filtri ai grafici
 
@@ -73,7 +72,7 @@ Per ordinare o eliminare più grafici, fare clic sui puntini di sospensione ( **
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Applicare la suddivisione in un grafico
+## <a name="apply-splitting-to-a-chart"></a>Applicare la suddivisione a un grafico
 
 È possibile suddividere una metrica per dimensione in modo da confrontare visivamente i diversi segmenti e identificare i segmenti esterni di una dimensione.
 
@@ -82,7 +81,7 @@ Per ordinare o eliminare più grafici, fare clic sui puntini di sospensione ( **
 1. Fare clic su **Applicare separazione** sopra il grafico.
  
    > [!NOTE]
-   > La divisione non è utilizzabile con i grafici con più metriche. Inoltre, è possibile avere più filtri ma solo una dimensione di suddivisione applicato a ogni singolo grafico.
+   > Impossibile utilizzare la suddivisione con grafici con più metriche. Inoltre, è possibile disporre di più filtri, ma solo di una dimensione di suddivisione applicata a un singolo grafico.
 
 2. Scegliere una dimensione in cui si desidera segmentare il grafico:
 
@@ -136,7 +135,7 @@ Si verrà reindirizzati al riquadro di creazione della regola di avviso con le d
 
 Per altre informazioni sulla configurazione di avvisi delle metriche, vedere questo [articolo](alerts-metric.md).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 *All'interno del grafico non vengono visualizzati dati.*
 

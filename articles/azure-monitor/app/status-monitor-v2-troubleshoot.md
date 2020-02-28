@@ -1,18 +1,16 @@
 ---
 title: Risoluzione dei problemi dell'agente applicazione Azure Insights e problemi noti | Microsoft Docs
 description: Problemi noti relativi all'agente Application Insights e agli esempi di risoluzione dei problemi. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 30172bf65be52ba1ddd2b9127c3e2b5a284d48dc
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899582"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671155"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Risoluzione dei problemi relativi a Application Insights Agent (denominato in precedenza Status Monitor v2)
 
@@ -26,9 +24,9 @@ Se si riscontra un problema non elencato qui, è possibile contattarci su [GitHu
 
 Se una di queste dll è presente nella directory bin, il monitoraggio potrebbe non riuscire:
 
-- Microsoft. ApplicationInsights. dll
-- Microsoft. AspNet. TelemetryCorrelation. dll
-- System. Diagnostics. DiagnosticSource. dll
+- Microsoft.ApplicationInsights.dll
+- Microsoft.AspNet.TelemetryCorrelation.dll
+- System.Diagnostics.DiagnosticSource.dll
 
 Alcune di queste dll sono incluse nei modelli di app predefinite di Visual Studio, anche se l'app non le USA.
 Per visualizzare il comportamento sintomatico, è possibile usare gli strumenti di risoluzione dei problemi:
@@ -83,7 +81,7 @@ Questo problema è stato monitorato [qui](https://github.com/microsoft/Applicati
 
     
     
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
     
 ### <a name="troubleshooting-powershell"></a>Risoluzione dei problemi relativi a PowerShell
 
@@ -126,14 +124,14 @@ Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazi
 È possibile esaminare i processi nel computer instrumentato per determinare se tutte le dll sono state caricate.
 Se il monitoraggio è funzionante, è necessario caricare almeno 12 dll.
 
-Usare il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess` per controllare le dll.
+Usare il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess` per verificare le dll.
 
 Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazioni di [riferimento sulle API](status-monitor-v2-api-get-status.md) .
 
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Raccogliere i log ETW usando PerfView
 
-#### <a name="setup"></a>Configurazione
+#### <a name="setup"></a>Programma di installazione
 
 1. Scaricare PerfView. exe e PerfView64. exe da [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Avviare PerfView64. exe.

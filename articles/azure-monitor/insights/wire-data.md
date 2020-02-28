@@ -1,18 +1,17 @@
 ---
 title: Soluzione Wire data in monitoraggio di Azure | Microsoft Docs
 description: I dati in transito sono dati di prestazioni e di rete consolidati provenienti da computer con agenti Log Analytics. I dati di rete vengono combinati con i dati dei log per poter correlare i dati.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/03/2018
-ms.openlocfilehash: 031a09203ab2ab2bcfcdf4352e975c1374446c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365802"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670645"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure
 
@@ -54,7 +53,7 @@ Wire Data ottiene i dati da Microsoft Dependency Agent. Il Dependency Agent dipe
 
 | **Origine connessa** | **Supportato** | **Descrizione** |
 | --- | --- | --- |
-| Agenti Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre all'[agente di Log Analytics per Windows](../platform/agent-windows.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems). |
+| Agenti di Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre all'[agente di Log Analytics per Windows](../platform/agent-windows.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems). |
 | Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre all'[agente di Log Analytics per Linux](../learn/quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](vminsights-enable-overview.md#supported-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | Sì | Wire Data analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) connesso. <br><br> È necessaria una connessione diretta dal computer agente System Center Operations Manager a monitoraggio di Azure. |
 | Account di archiviazione di Azure | No | Wire Data raccoglie i dati dai computer agente, quindi non devono essere raccolti dati da Archiviazione di Azure. |
@@ -90,14 +89,14 @@ Nelle sezioni seguenti sono elencati i sistemi operativi supportati per Dependen
 - Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
-#### <a name="windows-desktop"></a>Desktop Windows
+#### <a name="windows-desktop"></a>Desktop di Windows
 
 - Windows 10 1803
-- Windows 10
+- Windows 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -154,9 +153,9 @@ Le sezioni seguenti elencano i sistemi operativi supportati per Dependency Agent
 
 ### <a name="dependency-agent-downloads"></a>Download di Dependency Agent
 
-| File | Sistema operativo | Versione | SHA-256 |
+| File | OS | Versione | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | WINDOWS | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 
@@ -256,7 +255,7 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sh InstallDependencyAgent-Linux64.bin -s
 ```
 
-### <a name="desired-state-configuration"></a>Configurazione dello stato desiderato
+### <a name="desired-state-configuration"></a>Desired State Configuration
 
 Per distribuire Dependency Agent tramite desired state Configuration, è possibile usare il modulo xPSDesiredStateConfiguration e un frammento di codice simile al seguente:
 
@@ -382,7 +381,7 @@ Wire Data raccoglie i metadati sul traffico di rete tramite gli agenti abilitati
 
 Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I record WireData includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |---|---|
 | Computer | Nome del computer in cui sono stati raccolti i dati |
 | TimeGenerated | Ora del record |
@@ -391,9 +390,9 @@ Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I reco
 | ReceivedBytes | Quantità di byte ricevuta |
 | ProtocolName | Nome del protocollo di rete usato |
 | IPVersion | Versione IP |
-| Direction | In ingresso o in uscita |
+| Direzione | In ingresso o in uscita |
 | MaliciousIP | Indirizzo IP di un'origine dannosa nota |
-| Gravità | Gravità del software dannoso sospetto |
+| Severity | Gravità del software dannoso sospetto |
 | RemoteIPCountry | Paese/area geografica dell'indirizzo IP remoto |
 | ManagementGroupName | Nome del gruppo di gestione di Operations Manager |
 | SourceSystem | Origine in cui sono stati raccolti i dati |

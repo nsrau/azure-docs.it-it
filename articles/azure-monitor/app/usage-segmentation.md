@@ -1,19 +1,17 @@
 ---
 title: Analisi di utenti, sessioni ed eventi in applicazione Azure Insights
 description: Analisi demografica degli utenti dell'app Web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: dbda6debe2412f1756bc707cf3b587c77f466fdc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432311"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670985"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analisi di utenti, sessioni ed eventi in Application Insights
 
@@ -21,7 +19,7 @@ Scoprire quando le persone usano l'app Web, a quali pagine sono più interessati
 
 ![Screenshot della pagina Utenti di Application Insights](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 Se nei pannelli degli utenti, delle sessioni e degli eventi nel portale di Application Insights non vengono ancora visualizzati i dati, leggere le [informazioni su come iniziare a usare gli strumenti d'uso](usage-overview.md).
 

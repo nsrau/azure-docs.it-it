@@ -1,18 +1,17 @@
 ---
 title: Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima) | Microsoft Docs
 description: Monitoraggio di Azure per le macchine virtuali soluzione raccoglie le metriche e i dati di log in e in questo articolo vengono descritti i record e sono incluse le query di esempio.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 690c7ba04cf849d973295a6ec27eaa38f9b807c3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399326"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670713"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima)
 
@@ -48,11 +47,11 @@ I campi e le convenzioni seguenti si applicano sia a VMConnection che a VMBoundP
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
-|Direction |Direzione della connessione. Il valore è *inbound* o *outbound* |
+|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Computer |FQDN del computer |
-|Processo |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
+|Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
 |DestinationIp |Indirizzo IP della destinazione |
 |DestinationPort |Numero di porta della destinazione |
@@ -60,7 +59,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 |LinksEstablished |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
 |LinksTerminated |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
@@ -71,7 +70,7 @@ Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record s
 
 Oltre alle metriche relative al numero di connessioni, nelle proprietà del record seguenti vengono fornite anche informazioni sul volume dei dati inviati e ricevuti in una determinata connessione logica o porta di rete:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 |BytesSent |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 |BytesReceived |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
@@ -99,7 +98,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 *VMConnection* include anche informazioni di georilevazione per l'estremità remota di ogni record di connessione nelle proprietà del record seguenti: 
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 |RemoteCountry |Nome del paese/area geografica che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
 |RemoteLatitude |Latitudine della georilevazione. Ad esempio, *47.68* |
@@ -109,14 +108,14 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 |MaliciousIp |Indirizzo RemoteIp |
 |IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|Description |Descrizione della minaccia osservata. |
+|Descrizione |Descrizione della minaccia osservata. |
 |TLPLevel |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
-|Attendibilità |I valori sono *0 - 100*. |
-|Gravità |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
+|Confidence |I valori sono *0 - 100*. |
+|Severity |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
 |FirstReportedDateTime |La prima volta che il provider ha segnalato l'indicatore. |
 |LastReportedDateTime |L'ultima volta in cui l'indicatore è stato visualizzato da Interflow. |
 |IsActive |Indica che gli indicatori vengono disattivati con il valore *True* o *False*. |
@@ -129,9 +128,9 @@ Le porte in un computer che accettano attivamente il traffico in ingresso o che 
 
 Ogni record in VMBoundPort è identificato dai campi seguenti: 
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
-|Processo | Identità del processo o dei gruppi di processi a cui è associata la porta.|
+|Process | Identità del processo o dei gruppi di processi a cui è associata la porta.|
 |Ip | Indirizzo IP porta (può essere un IP con caratteri jolly, *0.0.0.0*) |
 |Porta |Numero di porta |
 |Protocollo | Protocollo.  Ad esempio *TCP* o *UDP* (attualmente è supportato solo *TCP* ).|
@@ -157,7 +156,7 @@ Ecco alcuni punti importanti da considerare:
 
 I record con un tipo di *VMComputer* includono dati di inventario per i server con Dependency Agent. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 |TenantId | Identificatore univoco per l'area di lavoro |
 |SourceSystem | *Insights* | 
@@ -169,7 +168,7 @@ I record con un tipo di *VMComputer* includono dati di inventario per i server c
 |FullDisplayName | Nome visualizzato completo | 
 |HostName | Nome del computer senza nome di dominio |
 |BootTime | Ora di avvio del computer (UTC) |
-|Fuso orario | Fuso orario normalizzato |
+|TimeZone | Fuso orario normalizzato |
 |VirtualizationState | *virtuale*, *hypervisor*, *fisico* |
 |Ipv4Addresses | Matrice di indirizzi IPv4 | 
 |Ipv4SubnetMasks | Matrice di subnet mask IPv4 (nello stesso ordine di Ipv4Addresses). |
@@ -219,7 +218,7 @@ I record con un tipo di *VMComputer* includono dati di inventario per i server c
 
 I record con un tipo di *VMProcess* includono dati di inventario per i processi connessi con TCP nei server con Dependency Agent. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 |TenantId | Identificatore univoco per l'area di lavoro |
 |SourceSystem | *Insights* | 
@@ -227,14 +226,14 @@ I record con un tipo di *VMProcess* includono dati di inventario per i processi 
 |Computer | FQDN del computer | 
 |AgentId | ID univoco dell'agente di Log Analytics |
 |Computer | Nome della risorsa Azure Resource Manager per il computer esposto da ServiceMap. Il formato è *m-{GUID}* , dove *GUID* è lo stesso GUID di AgentId. | 
-|Processo | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}* . 
+|Process | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}* . 
 |Eseguibile | Nome dell'eseguibile del processo | 
 |DisplayName | Nome visualizzato del processo |
-|Ruolo | Ruolo del processo: *webserver*, *appServer*, *databaseserver*, *ldapServer*, *smbServer* |
+|Role | Ruolo del processo: *webserver*, *appServer*, *databaseserver*, *ldapServer*, *smbServer* |
 |Gruppo | Nome del gruppo di processi. I processi nello stesso gruppo sono correlati logicamente, ad esempio, parte dello stesso prodotto o componente di sistema. |
 |StartTime | Ora di inizio del pool del processo |
 |FirstPid | Primo PID nel pool del processo |
-|Description | Descrizione del processo |
+|Descrizione | Descrizione del processo |
 |CompanyName | Nome dell'azienda |
 |InternalName | Nome interno |
 |ProductName | Nome del prodotto |

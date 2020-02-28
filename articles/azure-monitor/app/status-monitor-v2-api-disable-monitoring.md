@@ -1,24 +1,22 @@
 ---
 title: Informazioni di riferimento sull'API dell'agente applicazione Azure Insights
 description: Informazioni di riferimento sull'API dell'agente Application Insights. Disable-ApplicationInsightsMonitoring. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: e30b9757600bbc4a9baf3db00534e3457a6574a5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0678186012678a68fa80a23685f8b346c8c5b859
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899782"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671291"
 ---
 # <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>API dell'agente di Application Insights: Disable-ApplicationInsightsMonitoring
 
 Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrizione
 
 Disabilita il monitoraggio nel computer di destinazione.
 Questo cmdlet consente di rimuovere le modifiche al file applicationHost. config di IIS e di rimuovere le chiavi del registro di sistema.
@@ -26,13 +24,13 @@ Questo cmdlet consente di rimuovere le modifiche al file applicationHost. config
 > [!IMPORTANT] 
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ```powershell
 PS C:\> Disable-ApplicationInsightsMonitoring
 ```
 
-## <a name="parameters"></a>parameters 
+## <a name="parameters"></a>Parametri 
 
 ### <a name="-verbose"></a>-Verbose
 **Parametro comune.** Usare questa opzione per visualizzare i log dettagliati.

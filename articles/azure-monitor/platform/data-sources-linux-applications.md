@@ -1,18 +1,17 @@
 ---
 title: Raccogliere le prestazioni per applicazioni Linux in Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo offre informazioni dettagliate per configurare l'agente di Log Analytics per Linux in modo che raccolga i contatori delle prestazioni per il server HTTP Apache e MySQL.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 75fd0453534e3a656bb1d8e2940b716dadfdf869
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395842"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670560"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Monitoraggio di Azure 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -42,11 +41,11 @@ Di seguito è riportato il formato per il file di autenticazione di OMI MySQL
 
 Nella tabella seguente sono descritte le voci presenti nel file di autenticazione.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 | Porta | Rappresenta la porta corrente su cui è in ascolto l'istanza di MySQL. La porta 0 indica che per l'istanza predefinita vengono usate le proprietà seguenti. |
 | Bind-address| Valore bind-address corrente di MySQL. |
-| username| Utente di MySQL usato per monitorare l'istanza del server MySQL. |
+| nomeutente| Utente di MySQL usato per monitorare l'istanza del server MySQL. |
 | Password con codifica Base64| Password dell'utente di monitoraggio di MySQL con codifica Base64. |
 | AutoUpdate| Specifica se ripetere la ricerca di modifiche nel file my.cnf e se sovrascrivere il file di autenticazione di OMI MySQL quando viene aggiornato il provider OMI MySQL. |
 
@@ -55,7 +54,7 @@ Il file di autenticazione di OMI MySQL può definire un numero di porta e un'ist
 
 Nella tabella seguente sono riportate impostazioni di un'istanza di esempio 
 
-| Description | File |
+| Descrizione | File |
 |:--|:--|
 | Istanza predefinita e istanza con porta 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | Istanza predefinita e istanza con porta 3308 e nome e password diversi. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -71,7 +70,7 @@ Con l'installazione del provider OMI MySQL viene fornito un programma per il fil
 
 La tabella seguente fornisce informazioni dettagliate sulla sintassi per l'utilizzo di mycimprovauth.
 
-| Operazione | Esempio | Description
+| Operazione | Esempio | Descrizione
 |:--|:--|:--|
 | aggiornamento automatico *vero o falso* | mycimprovauth autoupdate false | Specifica se il file di autenticazione verrà aggiornato automaticamente in caso di riavvio o aggiornamento. |
 | default *bind-address nome utente password* | mycimprovauth default 127.0.0.1 root pwd | Imposta l'istanza predefinita nel file di autenticazione di OMI MySQL.<br>Nel campo della password deve essere immesso un valore in testo normale: la password nel file di autenticazione di OMI MySQL verrà codificata in Base 64. |
@@ -112,24 +111,24 @@ Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a 
 
 | Nome oggetto | Nome contatore |
 |:--|:--|
-| Database MySQL | Disk Space in Bytes |
-| Database MySQL | Tabelle |
-| Server MySQL | Aborted Connection Pct |
-| Server MySQL | Connection Use Pct |
-| Server MySQL | Disk Space Use in Bytes |
-| Server MySQL | Full Table Scan Pct |
-| Server MySQL | InnoDB Buffer Pool Hit Pct |
-| Server MySQL | InnoDB Buffer Pool Use Pct |
-| Server MySQL | InnoDB Buffer Pool Use Pct |
-| Server MySQL | Key Cache Hit Pct |
-| Server MySQL | Key Cache Use Pct |
-| Server MySQL | Key Cache Write Pct |
-| Server MySQL | Query Cache Hit Pct |
-| Server MySQL | Query Cache Prunes Pct |
-| Server MySQL | Query Cache Use Pct |
-| Server MySQL | Table Cache Hit Pct |
-| Server MySQL | Table Cache Use Pct |
-| Server MySQL | Table Lock Contention Pct |
+| MySQL Database | Disk Space in Bytes |
+| MySQL Database | Tabelle |
+| MySQL Server | Aborted Connection Pct |
+| MySQL Server | Connection Use Pct |
+| MySQL Server | Disk Space Use in Bytes |
+| MySQL Server | Full Table Scan Pct |
+| MySQL Server | InnoDB Buffer Pool Hit Pct |
+| MySQL Server | InnoDB Buffer Pool Use Pct |
+| MySQL Server | InnoDB Buffer Pool Use Pct |
+| MySQL Server | Key Cache Hit Pct |
+| MySQL Server | Key Cache Use Pct |
+| MySQL Server | Key Cache Write Pct |
+| MySQL Server | Query Cache Hit Pct |
+| MySQL Server | Query Cache Prunes Pct |
+| MySQL Server | Query Cache Use Pct |
+| MySQL Server | Table Cache Hit Pct |
+| MySQL Server | Table Cache Use Pct |
+| MySQL Server | Table Lock Contention Pct |
 
 ## <a name="apache-http-server"></a>Apache HTTP Server 
 Se viene rilevato un server HTTP Apache nel computer in cui è installata l'aggregazione omsagent, viene automaticamente installato un provider di monitoraggio delle prestazioni per il server HTTP Apache. Questo provider si basa su un modulo Apache che deve essere caricato nel server HTTP Apache per poter accedere ai dati sulle prestazioni. È possibile caricare il modulo con il comando seguente:

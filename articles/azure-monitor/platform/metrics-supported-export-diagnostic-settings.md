@@ -2,18 +2,15 @@
 title: Metriche della piattaforma di monitoraggio di Azure esportabili tramite le impostazioni di diagnostica
 description: Elenco delle metriche disponibili per ogni tipo di risorsa con il monitoraggio di Azure.
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 02/10/2020
-author: rboucher
-ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: e530663ef4ebfbef9371c48f4c70578b14a63605
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7a75655d1707dd2491065974ed8addc4c2da1a6a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368229"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661363"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metriche della piattaforma di monitoraggio di Azure esportabili tramite le impostazioni di diagnostica
 
@@ -76,7 +73,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  MemoryLimitLow  |  Memoria: limite memoria minimo  |  Byte  |  Media | 
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  MemoryLimitVertiPaq  |  Memoria: limite memoria VertiPaq  |  Byte  |  Media | 
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  MemoryUsage  |  Memoria: utilizzo memoria  |  Byte  |  Media | 
-| **Sì**  | No |  Microsoft.AnalysisServices/servers  |  private_bytes_metric  |  Private Bytes  |  Byte  |  Media | 
+| **Sì**  | No |  Microsoft.AnalysisServices/servers  |  private_bytes_metric  |  Byte privati  |  Byte  |  Media | 
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  ProcessingPoolBusyIOJobThreads  |  Thread: thread di processi di I/O occupati nel pool di elaborazione  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  ProcessingPoolBusyNonIOThreads  |  Thread: Thread non di I/O occupati nel pool di elaborazione  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  ProcessingPoolIdleIOJobThreads  |  Thread: thread di processi di I/O inattivi nel pool di elaborazione  |  Conteggio  |  Media | 
@@ -100,10 +97,10 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  TotalConnectionRequests  |  Numero totale di richieste di connessione  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  VertiPaqNonpaged  |  Memoria: VertiPaq non di paging  |  Byte  |  Media | 
 | **Sì**  | No |  Microsoft.AnalysisServices/servers  |  VertiPaqPaged  |  Memoria: VertiPaq di paging  |  Byte  |  Media | 
-| **Sì**  | No |  Microsoft.AnalysisServices/servers  |  virtual_bytes_metric  |  Virtual Bytes  |  Byte  |  Media | 
+| **Sì**  | No |  Microsoft.AnalysisServices/servers  |  virtual_bytes_metric  |  Byte virtuali  |  Byte  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  BackendDuration  |  Durata delle richieste back-end  |  Millisecondi  |  Media | 
 | **Sì**  | No |  Microsoft.ApiManagement/service  |  Capacity  |  Capacity  |  Percentuale  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  Duration  |  Durata complessiva delle richieste del gateway  |  Millisecondi  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  Durata  |  Durata complessiva delle richieste del gateway  |  Millisecondi  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  EventHubDroppedEvents  |  Eventi EventHub eliminati  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  EventHubRejectedEvents  |  Eventi EventHub rifiutati  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  EventHubSuccessfulEvents  |  Eventi EventHub riusciti  |  Conteggio  |  Totale | 
@@ -114,7 +111,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  EventHubTotalFailedEvents  |  Eventi EventHub non riusciti  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  FailedRequests  |  Richieste gateway non riuscite (deprecate)  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  OtherRequests  |  Altre richieste del gateway (deprecate)  |  Conteggio  |  Totale | 
-| **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  Requests  |  Requests  |  Conteggio  |  Totale | 
+| **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  Richieste  |  Richieste  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  SuccessfulRequests  |  Richieste gateway riuscite (deprecate)  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  TotalRequests  |  Totale richieste Gateway (deprecato)  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.ApiManagement/service  |  UnauthorizedRequests  |  Richieste del gateway non autorizzate (deprecate)  |  Conteggio  |  Totale | 
@@ -198,7 +195,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft. blockchain/blockchainMembers  |  IOReadBytes  |  Byte lettura IO  |  Byte  |  Totale | 
 | **Sì**  | No |  Microsoft. blockchain/blockchainMembers  |  IOWriteBytes  |  Byte scritti IO  |  Byte  |  Totale | 
 | **Sì**  | No |  Microsoft. blockchain/blockchainMembers  |  MemoryLimit  |  Limite di memoria  |  Byte  |  Media | 
-| **Sì**  | No |  Microsoft. blockchain/blockchainMembers  |  MemoryUsage  |  Utilizzo della memoria  |  Byte  |  Media | 
+| **Sì**  | No |  Microsoft. blockchain/blockchainMembers  |  MemoryUsage  |  Utilizzo memoria  |  Byte  |  Media | 
 | **Sì**  | No |  Microsoft. blockchain/blockchainMembers  |  MemoryUsagePercentageInDouble  |  Percentuale di utilizzo della memoria  |  Percentuale  |  Media | 
 | **Sì**  | No |  Microsoft. blockchain/blockchainMembers  |  PendingTransactions  |  Transazioni in sospeso  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft. blockchain/blockchainMembers  |  ProcessedBlocks  |  Blocchi elaborati  |  Conteggio  |  Totale | 
@@ -262,7 +259,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.Cache/redis  |  connectedclients7  |  Client connessi (partizione 7)  |  Conteggio  |  Massimo | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  connectedclients8  |  Client connessi (partizione 8)  |  Conteggio  |  Massimo | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  connectedclients9  |  Client connessi (partizione 9)  |  Conteggio  |  Massimo | 
-| **Sì**  | No |  Microsoft.Cache/redis  |  errori  |  Errors  |  Conteggio  |  Massimo | 
+| **Sì**  | No |  Microsoft.Cache/redis  |  errori  |  Errori  |  Conteggio  |  Massimo | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  evictedkeys  |  Chiavi rimosse  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  evictedkeys0  |  Chiavi rimosse (partizione 0)  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  evictedkeys1  |  Chiavi rimosse (partizione 1)  |  Conteggio  |  Totale | 
@@ -285,7 +282,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.Cache/redis  |  expiredkeys7  |  Chiavi scadute (partizione 7)  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  expiredkeys8  |  Chiavi scadute (partizione 8)  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  expiredkeys9  |  Chiavi scadute (partizione 9)  |  Conteggio  |  Totale | 
-| **Sì**  | No |  Microsoft.Cache/redis  |  getcommands  |  Operazioni Get  |  Conteggio  |  Totale | 
+| **Sì**  | No |  Microsoft.Cache/redis  |  getcommands  |  Ottiene  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  getcommands0  |  Operazioni Get (partizione 0)  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  getcommands1  |  Operazioni Get (partizione 1)  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  getcommands2  |  Operazioni Get (partizione 2)  |  Conteggio  |  Totale | 
@@ -362,7 +359,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.Cache/redis  |  totalkeys7  |  Totale chiavi (partizione 7)  |  Conteggio  |  Massimo | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  totalkeys8  |  Totale chiavi (partizione 8)  |  Conteggio  |  Massimo | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  totalkeys9  |  Totale chiavi (partizione 9)  |  Conteggio  |  Massimo | 
-| **Sì**  | No |  Microsoft.Cache/redis  |  usedmemory  |  Memoria utilizzata  |  Byte  |  Massimo | 
+| **Sì**  | No |  Microsoft.Cache/redis  |  usedmemory  |  Used Memory  |  Byte  |  Massimo | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  usedmemory0  |  Memoria usata (partizione 0)  |  Byte  |  Massimo | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  usedmemory1  |  Memoria usata (partizione 1)  |  Byte  |  Massimo | 
 | **Sì**  | No |  Microsoft.Cache/redis  |  usedmemory2  |  Memoria usata (partizione 2)  |  Byte  |  Massimo | 
@@ -577,8 +574,8 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Lettura della cache del disco dati Premium  |  Lettura della cache del disco dati Premium (anteprima)  |  Percentuale  |  Media | 
 | **Sì**  | No |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Hit lettura cache del disco del sistema operativo Premium  |  Hit lettura cache del disco del sistema operativo Premium (anteprima)  |  Percentuale  |  Media | 
 | **Sì**  | No |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Cache del disco del sistema operativo Premium Read Miss  |  Cache del disco del sistema operativo Premium lettura mancata (anteprima)  |  Percentuale  |  Media | 
-| **Sì**  | No |  Microsoft.ContainerInstance/containerGroups  |  CpuUsage  |  Utilizzo di CPU  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.ContainerInstance/containerGroups  |  MemoryUsage  |  Utilizzo della memoria  |  Byte  |  Media | 
+| **Sì**  | No |  Microsoft.ContainerInstance/containerGroups  |  CpuUsage  |  Utilizzo CPU  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.ContainerInstance/containerGroups  |  MemoryUsage  |  Utilizzo memoria  |  Byte  |  Media | 
 | **Sì**  | No |  Microsoft.ContainerInstance/containerGroups  |  NetworkBytesReceivedPerSecond  |  Byte di rete ricevuti al secondo  |  Byte  |  Media | 
 | **Sì**  | No |  Microsoft.ContainerInstance/containerGroups  |  NetworkBytesTransmittedPerSecond  |  Byte di rete trasmessi al secondo  |  Byte  |  Media | 
 | **Sì**  | No |  Microsoft.ContainerRegistry/registries  |  RunDuration  |  Durata esecuzione  |  Millisecondi  |  Totale | 
@@ -756,7 +753,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.Devices/provisioningServices  |  AttestationAttempts  |  Tentativi di attestazione  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Devices/provisioningServices  |  DeviceAssignments  |  Dispositivi assegnati  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Devices/provisioningServices  |  RegistrationAttempts  |  Tentativi di registrazione  |  Conteggio  |  Totale | 
-| No  | No |  Microsoft.DocumentDB/databaseAccounts  |  AvailableStorage  |  Spazio di archiviazione disponibile  |  Byte  |  Totale | 
+| No  | No |  Microsoft.DocumentDB/databaseAccounts  |  AvailableStorage  |  Archiviazione disponibile  |  Byte  |  Totale | 
 | No  | No |  Microsoft.DocumentDB/databaseAccounts  |  CassandraConnectionClosures  |  Chiusure di connessione Cassandra  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.DocumentDB/databaseAccounts  |  CassandraRequestCharges  |  Addebiti richieste Cassandra  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.DocumentDB/databaseAccounts  |  CassandraRequests  |  Richieste di Cassandra  |  Conteggio  |  Conteggio | 
@@ -775,7 +772,7 @@ La tabella contiene le seguenti colonne.
 | No  | No |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsUpdate  |  Frequenza di richieste di aggiornamento Mongo  |  Conteggio al secondo  |  Media | 
 | No  | No |  Microsoft.DocumentDB/databaseAccounts  |  ProvisionedThroughput  |  Velocità effettiva sottoposta a provisioning  |  Conteggio  |  Massimo | 
 | **Sì**  | No |  Microsoft.DocumentDB/databaseAccounts  |  ReplicationLatency  |  Latenza di replica P99  |  Millisecondi  |  Media | 
-| No  | No |  Microsoft.DocumentDB/databaseAccounts  |  ServiceAvailability  |  Disponibilità del servizio  |  Percentuale  |  Media | 
+| No  | No |  Microsoft.DocumentDB/databaseAccounts  |  ServiceAvailability  |  Disponibilità dei servizi  |  Percentuale  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.DocumentDB/databaseAccounts  |  TotalRequests  |  Totale richieste  |  Conteggio  |  Conteggio | 
 | **Sì**  | **Sì** |  Microsoft.DocumentDB/databaseAccounts  |  TotalRequestUnits  |  Total Request Units (Unità richiesta totali)  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft. EnterpriseKnowledgeGraph/Services  |  FailureCount  |  Conteggio errori  |  Conteggio  |  Conteggio | 
@@ -819,7 +816,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.EventHub/clusters  |  OutgoingBytes  |  Byte in uscita.  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.EventHub/clusters  |  OutgoingMessages  |  Messaggi in uscita  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.EventHub/clusters  |  QuotaExceededErrors  |  Errori di superamento quota.  |  Conteggio  |  Totale | 
-| No  | No |  Microsoft.EventHub/clusters  |  ServerErrors  |  Errori server.  |  Conteggio  |  Totale | 
+| No  | No |  Microsoft.EventHub/clusters  |  ServerErrors  |  Errori del server  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.EventHub/clusters  |  SuccessfulRequests  |  Richieste riuscite  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.EventHub/clusters  |  ThrottledRequests  |  Richieste limitate.  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.EventHub/clusters  |  UserErrors  |  Errori utente.  |  Conteggio  |  Totale | 
@@ -850,7 +847,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.EventHub/namespaces  |  OutgoingMessages  |  Messaggi in uscita  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.EventHub/namespaces  |  OUTMSGS  |  Messaggi in uscita (obsoleti) (deprecato)  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.EventHub/namespaces  |  QuotaExceededErrors  |  Errori di superamento quota.  |  Conteggio  |  Totale | 
-| No  | No |  Microsoft.EventHub/namespaces  |  ServerErrors  |  Errori server.  |  Conteggio  |  Totale | 
+| No  | No |  Microsoft.EventHub/namespaces  |  ServerErrors  |  Errori del server  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.EventHub/namespaces  |  Dimensione  |  Dimensione  |  Byte  |  Media | 
 | No  | No |  Microsoft.EventHub/namespaces  |  SuccessfulRequests  |  Richieste riuscite  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.EventHub/namespaces  |  SUCCREQ  |  Richieste riuscite (deprecate)  |  Conteggio  |  Totale | 
@@ -1007,7 +1004,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.MachineLearningServices/workspaces  |  Core inutilizzabili  |  Core inutilizzabili  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.MachineLearningServices/workspaces  |  Nodi inutilizzabili  |  Nodi inutilizzabili  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.Maps/accounts  |  Disponibilità  |  Disponibilità  |  Percentuale  |  Media | 
-| No  | No |  Microsoft.Maps/accounts  |  Uso  |  Uso  |  Conteggio  |  Conteggio | 
+| No  | No |  Microsoft.Maps/accounts  |  Utilizzo  |  Utilizzo  |  Conteggio  |  Conteggio | 
 | **Sì**  | No |  Microsoft. Media/MediaServices  |  AssetCount  |  Conteggio asset  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft. Media/MediaServices  |  AssetQuota  |  Quota asset  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft. Media/MediaServices  |  AssetQuotaUsedPercentage  |  Percentuale di utilizzo della quota di asset  |  Percentuale  |  Media | 
@@ -1018,7 +1015,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft. Media/MediaServices  |  StreamingPolicyQuota  |  Quota dei criteri di streaming  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft. Media/MediaServices  |  StreamingPolicyQuotaUsedPercentage  |  Percentuale di utilizzo della quota dei criteri di flusso  |  Percentuale  |  Media | 
 | **Sì**  | No |  Microsoft. Media/MediaServices/le entità streamingendpoint  |  Egress  |  Egress  |  Byte  |  Totale | 
-| **Sì**  | No |  Microsoft. Media/MediaServices/le entità streamingendpoint  |  Requests  |  Requests  |  Conteggio  |  Totale | 
+| **Sì**  | No |  Microsoft. Media/MediaServices/le entità streamingendpoint  |  Richieste  |  Richieste  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft. Media/MediaServices/le entità streamingendpoint  |  SuccessE2ELatency  |  Latenza end-to-end riuscita  |  Millisecondi  |  Media | 
 | **Sì**  | No |  Microsoft. Microservices4Spring/appClusters  |  GCPauseTotalCount  |  Conteggio delle pause GC  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft. Microservices4Spring/appClusters  |  GCPauseTotalTime  |  Tempo totale pausa GC  |  Millisecondi  |  Totale | 
@@ -1065,7 +1062,7 @@ La tabella contiene le seguenti colonne.
 | No  | No |  Microsoft.Network/applicationGateways  |  CapacityUnits  |  Unità di capacità correnti  |  Conteggio  |  Media | 
 | No  | No |  Microsoft.Network/applicationGateways  |  ClientRtt  |  RTT client  |  Millisecondi  |  Media | 
 | No  | No |  Microsoft.Network/applicationGateways  |  ComputeUnits  |  Unità di calcolo correnti  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.Network/applicationGateways  |  CurrentConnections  |  Current Connections (Connessioni correnti)  |  Conteggio  |  Totale | 
+| **Sì**  | No |  Microsoft.Network/applicationGateways  |  CurrentConnections  |  Connessioni correnti  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Network/applicationGateways  |  FailedRequests  |  Richieste non riuscite  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.Network/applicationGateways  |  HealthyHostCount  |  Healthy Host Count (Numero di host integri)  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.Network/applicationGateways  |  MatchedCount  |  Distribuzione della regola totale del firewall applicazione Web  |  Conteggio  |  Totale | 
@@ -1234,15 +1231,15 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Committed Bytes In Use  |  % byte vincolati in uso  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% DPC Time  |  % DPC Time  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Free Inodes  |  % Free Inodes  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Free Space  |  % Free Space  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Free Space  |  % Free Space  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Idle Time  |  % Idle Time  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Free Space  |  % di spazio libero  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Free Space  |  % di spazio libero  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Idle Time  |  % Tempo inattività  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Interrupt Time  |  % Interrupt Time  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% IO Wait Time  |  % IO Wait Time  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Nice Time  |  % Nice Time  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Privileged Time  |  % Privileged Time  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Processor Time  |  % di tempo processore  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Processor Time  |  % di tempo processore  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Processor Time  |  % di tempo del processore  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Processor Time  |  % di tempo del processore  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Used Inodes  |  % Used Inodes  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Used Memory  |  % Used Memory  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_% Used Space  |  % Used Space  |  Conteggio  |  Media | 
@@ -1251,31 +1248,31 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Available MBytes  |  MByte disponibili  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Available MBytes Memory  |  Available MBytes Memory  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Available MBytes Swap  |  Available MBytes Swap  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disk sec/Read  |  Media letture disco/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disk sec/Read  |  Media letture disco/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disk sec/Transfer  |  Media sec/trasferimento disco  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disk sec/Write  |  Media scritture disco/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. Disk sec/Write  |  Media scritture disco/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. letture disco/sec  |  Media letture disco/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. letture disco/sec  |  Media letture disco/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. trasferimenti disco/sec disco fisico  |  Media sec/trasferimento disco  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. scritture disco/sec. disco fisico  |  Media scritture disco/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. scritture disco/sec. disco fisico  |  Media scritture disco/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes Received/sec  |  Byte ricevuti/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes Sent/sec  |  Byte inviati/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes Total/sec  |  Totale byte/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Current Disk Queue Length  |  Lunghezza corrente coda del disco  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Current Disk Queue Length  |  Lunghezza coda del disco attuale  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Read Bytes/sec  |  Byte letti da disco/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Reads/sec  |  Letture disco/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Reads/sec  |  Letture disco/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Reads/sec  |  Letture da disco/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Reads/sec  |  Letture da disco/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Transfers/sec  |  Disk Transfers/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Transfers/sec  |  Disk Transfers/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Write Bytes/sec  |  Byte scritti su disco/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Writes/sec  |  Scritture disco/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Writes/sec  |  Scritture disco/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Writes/sec  |  Disk Writes/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Disk Writes/sec  |  Disk Writes/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Free Megabytes  |  Free Megabytes  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Free Megabytes  |  Free Megabytes  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Free Physical Memory  |  Free Physical Memory  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Free Space in Paging Files  |  Free Space in Paging Files  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Free Virtual Memory  |  Free Virtual Memory  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Logical Disk Bytes/sec  |  Logical Disk Bytes/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Page Reads/sec  |  Page Reads/sec  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Page Writes/sec  |  Page Writes/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Page Reads/sec  |  Letture pagina/sec  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Page Writes/sec  |  Scritture pagina/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Pages/sec  |  Pages/sec  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Pct Privileged Time  |  Pct Privileged Time  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Pct User Time  |  Pct User Time  |  Conteggio  |  Media | 
@@ -1283,7 +1280,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Processes  |  Processi  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Processor Queue Length  |  Lunghezza coda processore  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Size Stored In Paging Files  |  Size Stored In Paging Files  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Total Bytes  |  Total Bytes  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Total Bytes  |  Totale byte  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Total Bytes Received  |  Total Bytes Received  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Total Bytes Transmitted  |  Total Bytes Transmitted  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Total Collisions  |  Total Collisions  |  Conteggio  |  Media | 
@@ -1291,13 +1288,13 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Total Packets Transmitted  |  Total Packets Transmitted  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Total Rx Errors  |  Total Rx Errors  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Total Tx Errors  |  Total Tx Errors  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Uptime  |  Uptime  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Uptime  |  Tempo di attività  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Used MBytes Swap Space  |  Used MBytes Swap Space  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Used Memory kBytes  |  Used Memory kBytes  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Used Memory MBytes  |  Used Memory MBytes  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Users  |  Utenti  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Average_Virtual Shared Memory  |  Virtual Shared Memory  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Event  |  Event  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Evento  |  Evento  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.OperationalInsights/workspaces  |  Heartbeat  |  Heartbeat  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.OperationalInsights/workspaces  |  Aggiornamento  |  Aggiornamento  |  Conteggio  |  Media | 
 | **Sì**  | No |  Microsoft.PowerBIDedicated/capacities  |  memory_metric  |  Memoria  |  Byte  |  Media | 
@@ -1329,12 +1326,12 @@ La tabella contiene le seguenti colonne.
 | No  | No |  Microsoft.ServiceBus/namespaces  |  DeadletteredMessages  |  Numero di messaggi non recapitabili in una coda o in un argomento.  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.ServiceBus/namespaces  |  IncomingMessages  |  Messaggi in ingresso  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.ServiceBus/namespaces  |  IncomingRequests  |  Richieste in ingresso  |  Conteggio  |  Totale | 
-| No  | No |  Microsoft.ServiceBus/namespaces  |  Messaggi  |  Numero di messaggi contenuti in una coda o in un argomento.  |  Conteggio  |  Media | 
+| No  | No |  Microsoft.ServiceBus/namespaces  |  Messages  |  Numero di messaggi contenuti in una coda o in un argomento.  |  Conteggio  |  Media | 
 | No  | No |  Microsoft.ServiceBus/namespaces  |  NamespaceCpuUsage  |  CPU  |  Percentuale  |  Massimo | 
-| No  | No |  Microsoft.ServiceBus/namespaces  |  NamespaceMemoryUsage  |  Utilizzo della memoria  |  Percentuale  |  Massimo | 
+| No  | No |  Microsoft.ServiceBus/namespaces  |  NamespaceMemoryUsage  |  Utilizzo memoria  |  Percentuale  |  Massimo | 
 | **Sì**  | **Sì** |  Microsoft.ServiceBus/namespaces  |  OutgoingMessages  |  Messaggi in uscita  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.ServiceBus/namespaces  |  ScheduledMessages  |  Numero di messaggi pianificati in una coda o un argomento.  |  Conteggio  |  Media | 
-| No  | No |  Microsoft.ServiceBus/namespaces  |  ServerErrors  |  Errori server.  |  Conteggio  |  Totale | 
+| No  | No |  Microsoft.ServiceBus/namespaces  |  ServerErrors  |  Errori del server  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.ServiceBus/namespaces  |  Dimensione  |  Dimensione  |  Byte  |  Media | 
 | No  | No |  Microsoft.ServiceBus/namespaces  |  SuccessfulRequests  |  Richieste riuscite  |  Conteggio  |  Totale | 
 | No  | No |  Microsoft.ServiceBus/namespaces  |  ThrottledRequests  |  Richieste limitate.  |  Conteggio  |  Totale | 
@@ -1499,7 +1496,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft. StorageCache/Caches  |  StorageTargetTotalReadThroughput  |  StorageTarget totale velocità effettiva di lettura  |  Byte al secondo  |  Media | 
 | **Sì**  | No |  Microsoft. StorageCache/Caches  |  StorageTargetTotalWriteThroughput  |  Velocità effettiva di scrittura totale StorageTarget  |  Byte al secondo  |  Media | 
 | **Sì**  | No |  Microsoft. StorageCache/Caches  |  StorageTargetWriteIOPS  |  IOPS scrittura StorageTarget  |  Conteggio  |  Media | 
-| **Sì**  | No |  Microsoft. StorageCache/Caches  |  Uptime  |  Uptime  |  Conteggio  |  Media | 
+| **Sì**  | No |  Microsoft. StorageCache/Caches  |  Tempo di attività  |  Tempo di attività  |  Conteggio  |  Media | 
 | **Sì**  | No |  microsoft.storagesync/storageSyncServices  |  ServerSyncSessionResult  |  Risultato della sessione di sincronizzazione  |  Conteggio  |  Media | 
 | **Sì**  | No |  microsoft.storagesync/storageSyncServices  |  StorageSyncBatchTransferredFileBytes  |  Byte sincronizzati  |  Byte  |  Totale | 
 | **Sì**  | No |  microsoft.storagesync/storageSyncServices  |  StorageSyncRecalledNetworkBytesByApplication  |  Dimensioni del richiamo di suddivisione in livelli nel cloud per applicazione  |  Byte  |  Totale | 
@@ -1524,7 +1521,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | No |  Microsoft.StreamAnalytics/streamingjobs  |  DeserializationError  |  Errori di deserializzazione dell'input  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.StreamAnalytics/streamingjobs  |  DroppedOrAdjustedEvents  |  Eventi non in ordine  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.StreamAnalytics/streamingjobs  |  EarlyInputEvents  |  Eventi di input anticipati  |  Conteggio  |  Totale | 
-| **Sì**  | No |  Microsoft.StreamAnalytics/streamingjobs  |  Errors  |  Errori di runtime  |  Conteggio  |  Totale | 
+| **Sì**  | No |  Microsoft.StreamAnalytics/streamingjobs  |  Errori  |  Errori di runtime  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.StreamAnalytics/streamingjobs  |  InputEventBytes  |  Byte evento di input  |  Byte  |  Totale | 
 | **Sì**  | No |  Microsoft.StreamAnalytics/streamingjobs  |  InputEvents  |  Eventi di input  |  Conteggio  |  Totale | 
 | **Sì**  | No |  Microsoft.StreamAnalytics/streamingjobs  |  InputEventsSourcesBacklogged  |  Eventi di input con backlog  |  Conteggio  |  Massimo | 
@@ -1557,7 +1554,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  BytesReceived  |  Dati in entrata  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  BytesSent  |  Dati in uscita  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  CpuPercentage  |  Percentuale CPU  |  Percentuale  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  DiskQueueLength  |  Lunghezza coda disco  |  Conteggio  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  DiskQueueLength  |  Lunghezza coda del disco  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  Http101  |  Http 101  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  Http2xx  |  Http 2xx  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  Http3xx  |  Http 3xx  |  Conteggio  |  Totale | 
@@ -1571,7 +1568,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  LargeAppServicePlanInstances  |  Ruoli di lavoro piano di servizio app Large  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  MediumAppServicePlanInstances  |  Ruoli di lavoro piano di servizio app Medium  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  MemoryPercentage  |  Percentuale memoria  |  Percentuale  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  Requests  |  Requests  |  Conteggio  |  Totale | 
+| **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  Richieste  |  Richieste  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  SmallAppServicePlanInstances  |  Ruoli di lavoro piano di servizio app Small  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  TotalFrontEnds  |  Front end totali  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/hostingEnvironments/workerPools  |  CpuPercentage  |  Percentuale CPU  |  Percentuale  |  Media | 
@@ -1582,7 +1579,7 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.Web/serverfarms  |  BytesReceived  |  Dati in entrata  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/serverfarms  |  BytesSent  |  Dati in uscita  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/serverfarms  |  CpuPercentage  |  Percentuale CPU  |  Percentuale  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/serverfarms  |  DiskQueueLength  |  Lunghezza coda disco  |  Conteggio  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/serverfarms  |  DiskQueueLength  |  Lunghezza coda del disco  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/serverfarms  |  HttpQueueLength  |  Lunghezza coda HTTP  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/serverfarms  |  MemoryPercentage  |  Percentuale memoria  |  Percentuale  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/serverfarms  |  TcpCloseWait  |  Attesa chiusura TCP  |  Conteggio  |  Media | 
@@ -1600,13 +1597,13 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  BytesReceived  |  Dati in entrata  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  BytesSent  |  Dati in uscita  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  CpuTime  |  Tempo CPU  |  Secondi  |  Totale | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites  |  CurrentAssemblies  |  Assembly attuali  |  Conteggio  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites  |  CurrentAssemblies  |  Assembly correnti  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  FunctionExecutionCount  |  Conteggio delle esecuzioni della funzione  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  FunctionExecutionUnits  |  Unità di esecuzione della funzione  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  Gen0Collections  |  Garbage Collection di generazione 0  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  Gen1Collections  |  Garbage Collection di generazione 1  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  Gen2Collections  |  Garbage Collection di generazione 2  |  Conteggio  |  Totale | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites  |  Selettori  |  Numero di handle  |  Conteggio  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites  |  Selettori  |  Numero degli handle  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  HealthCheckStatus  |  Stato controllo integrità  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  Http101  |  Http 101  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  Http2xx  |  Http 2xx  |  Conteggio  |  Totale | 
@@ -1625,10 +1622,10 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  IoWriteBytesPerSecond  |  I/O - Byte in scrittura al secondo  |  Byte al secondo  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  IoWriteOperationsPerSecond  |  I/O - Operazioni di scrittura al secondo  |  Byte al secondo  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  MemoryWorkingSet  |  Working set della memoria  |  Byte  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites  |  PrivateBytes  |  Private Bytes  |  Byte  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites  |  Requests  |  Requests  |  Conteggio  |  Totale | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites  |  PrivateBytes  |  Byte privati  |  Byte  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites  |  Richieste  |  Richieste  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  RequestsInApplicationQueue  |  Richieste nella coda dell'applicazione  |  Conteggio  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites  |  Threads  |  Thread Count  |  Conteggio  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites  |  Thread  |  Numero dei thread  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  TotalAppDomains  |  Totale di domini app  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites  |  TotalAppDomainsUnloaded  |  Totale di domini app scaricati  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  AppConnections  |  Connessioni  |  Conteggio  |  Media | 
@@ -1637,13 +1634,13 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  BytesReceived  |  Dati in entrata  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  BytesSent  |  Dati in uscita  |  Byte  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  CpuTime  |  Tempo CPU  |  Secondi  |  Totale | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  CurrentAssemblies  |  Assembly attuali  |  Conteggio  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  CurrentAssemblies  |  Assembly correnti  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  FunctionExecutionCount  |  Conteggio delle esecuzioni della funzione  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  FunctionExecutionUnits  |  Unità di esecuzione della funzione  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Gen0Collections  |  Garbage Collection di generazione 0  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Gen1Collections  |  Garbage Collection di generazione 1  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Gen2Collections  |  Garbage Collection di generazione 2  |  Conteggio  |  Totale | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Selettori  |  Numero di handle  |  Conteggio  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Selettori  |  Numero degli handle  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  HealthCheckStatus  |  Stato controllo integrità  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Http101  |  Http 101  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Http2xx  |  Http 2xx  |  Conteggio  |  Totale | 
@@ -1662,9 +1659,9 @@ La tabella contiene le seguenti colonne.
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  IoWriteBytesPerSecond  |  I/O - Byte in scrittura al secondo  |  Byte al secondo  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  IoWriteOperationsPerSecond  |  I/O - Operazioni di scrittura al secondo  |  Byte al secondo  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  MemoryWorkingSet  |  Working set della memoria  |  Byte  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  PrivateBytes  |  Private Bytes  |  Byte  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Requests  |  Requests  |  Conteggio  |  Totale | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  PrivateBytes  |  Byte privati  |  Byte  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Richieste  |  Richieste  |  Conteggio  |  Totale | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  RequestsInApplicationQueue  |  Richieste nella coda dell'applicazione  |  Conteggio  |  Media | 
-| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Threads  |  Thread Count  |  Conteggio  |  Media | 
+| **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  Thread  |  Numero dei thread  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  TotalAppDomains  |  Totale di domini app  |  Conteggio  |  Media | 
 | **Sì**  | **Sì** |  Microsoft.Web/sites/slots  |  TotalAppDomainsUnloaded  |  Totale di domini app scaricati  |  Conteggio  |  Media | 

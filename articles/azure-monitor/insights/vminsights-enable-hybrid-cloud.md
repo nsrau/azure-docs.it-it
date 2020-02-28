@@ -1,18 +1,17 @@
 ---
 title: Abilitare monitoraggio di Azure (anteprima) per un ambiente ibrido | Microsoft Docs
 description: Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per un ambiente cloud ibrido che contiene una o più macchine virtuali.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969672"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669625"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) per un ambiente ibrido
 
@@ -20,7 +19,7 @@ ms.locfileid: "75969672"
 
 Questo articolo illustra come abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) per le macchine virtuali o i computer fisici ospitati nel Data Center o in un altro ambiente cloud. Al termine di questo processo, è stato avviato il monitoraggio delle macchine virtuali nell'ambiente in uso e viene illustrato se si verificano problemi di prestazioni o di disponibilità.
 
-Prima di iniziare, assicurarsi di esaminare i [prerequisiti](vminsights-enable-overview.md) e verificare che la sottoscrizione e le risorse soddisfino i requisiti. Esaminare i requisiti e i metodi di distribuzione per l'[agente di Log Analytics per Linux e Windows](../../log-analytics/log-analytics-agent-overview.md).
+Prima di iniziare, esaminare i [prerequisiti](vminsights-enable-overview.md) e verificare che la sottoscrizione e le risorse soddisfino i requisiti. Esaminare i requisiti e i metodi di distribuzione per l'[agente di Log Analytics per Linux e Windows](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -49,7 +48,7 @@ Dependency Agent può essere installato manualmente nei computer Windows eseguen
 
 La tabella seguente illustra i parametri supportati dal programma di installazione per l'agente dalla riga di comando.
 
-| Parametro | Description |
+| Parametro | Descrizione |
 |:--|:--|
 | /? | Restituisce un elenco delle opzioni della riga di comando. |
 | /S | Esegue un'installazione invisibile all'utente, senza interazione da parte dell'utente. |
@@ -66,10 +65,10 @@ Dependency Agent viene installato nei server Linux con *InstallDependencyAgent-L
 > Per installare o configurare l'agente è necessario l'accesso alla radice.
 >
 
-| Parametro | Description |
+| Parametro | Descrizione |
 |:--|:--|
 | -help | Ottenere un elenco delle opzioni della riga di comando. |
-| -S | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
+| -s | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
 | --check | Controllare le autorizzazioni e il sistema operativo senza installare l'agente. |
 
 Ad esempio, per eseguire il programma di installazione con il parametro `-help`, immettere **installdependencyagent-linux64. bin-Help**.
@@ -80,7 +79,7 @@ Se Dependency Agent non si avvia, controllare i log per vedere le informazioni d
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 
-| File | Percorso |
+| Files | Location |
 |:--|:--|
 | File core | /opt/microsoft/dependency-agent |
 | File di log | /var/opt/microsoft/dependency-agent/log |
@@ -107,7 +106,7 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
-## <a name="desired-state-configuration"></a>Configurazione dello stato desiderato
+## <a name="desired-state-configuration"></a>Desired State Configuration
 
 Per distribuire Dependency Agent tramite Desired State Configuration (DSC), è possibile usare il modulo xPSDesiredStateConfiguration con il codice di esempio seguente:
 

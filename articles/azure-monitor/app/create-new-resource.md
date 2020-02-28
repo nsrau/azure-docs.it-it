@@ -1,24 +1,20 @@
 ---
 title: Creare una nuova risorsa di Azure Application Insights | Microsoft Docs
 description: Impostare manualmente il monitoraggio di Application Insights per una nuova applicazione live.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/02/2019
-ms.openlocfilehash: 1ba6d6e1774db4e9c95b107e1482a0c6ce532bb5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432623"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672039"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
 Application Insights di Azure visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa quindi parte della [configurazione di Application Insights per il monitoraggio di una nuova applicazione][start]. Dopo aver creato la nuova risorsa, è possibile ottenere la relativa chiave di strumentazione e usarla per configurare il Application Insights SDK. La chiave di strumentazione collega i dati di telemetria alla risorsa.
 
-## <a name="sign-in-to-microsoft-azure"></a>Accedi a Microsoft Azure
+## <a name="sign-in-to-microsoft-azure"></a>Accedi per Microsoft Azure
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -28,7 +24,7 @@ Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa App
 
 ![Fare clic sul segno "+" nell'angolo superiore sinistro. Selezionare Strumenti di sviluppo seguito da Application Insights](./media/create-new-resource/new-app-insights.png)
 
-   | Impostazioni        |  Valore           | Description  |
+   | Impostazioni        |  Valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco | Nome che identifica l'app che si sta monitorando. |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del gruppo di risorse nuovo o esistente per ospitare i dati di App Insights. |

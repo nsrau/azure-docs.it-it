@@ -1,18 +1,14 @@
 ---
 title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Microsoft Docs
 description: Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. È possibile usare questa funzionalità con app Web ASP.NET ospitate in locale o con macchine virtuali.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: ac238ae5715e09b2e64737801a862d89852ec9d9
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820763"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670050"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
@@ -41,16 +37,16 @@ Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in II
 
 Ecco un riepilogo di ciò che offrono i singoli modi:
 
-|  | Fase di compilazione | Fase di esecuzione |
+|  | Fase di compilazione | Fase di runtime |
 | --- | --- | --- |
-| Richieste ed eccezioni |SÌ |SÌ |
-| [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |SÌ |
+| Richieste ed eccezioni |Sì |Sì |
+| [Eccezioni più dettagliate](../../azure-monitor/app/asp-net-exceptions.md) | |Sì |
 | [Diagnostica delle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
-| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |SÌ |SÌ |
-| [API per la telemetria personalizzata][api] |SÌ |No |
-| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |SÌ |No |
-| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |SÌ |No |
-| Ricompilazione del codice necessaria |SÌ | No |
+| [Contatori delle prestazioni di sistema](../../azure-monitor/app/performance-counters.md) |Sì |Sì |
+| [API per la telemetria personalizzata][api] |Sì |No |
+| [Integrazione log di traccia](../../azure-monitor/app/asp-net-trace-logs.md) |Sì |No |
+| [Visualizzazione pagina e dati utente](../../azure-monitor/app/javascript.md) |Sì |No |
+| Ricompilazione del codice necessaria |Sì | No |
 
 
 
@@ -80,7 +76,7 @@ L'abilitazione di Application Insights aggiunge DLL e il file ApplicationInsight
 
 Prima di pubblicare nuovamente l'app, è consigliabile [aggiungere Application Insights al codice in Visual Studio][greenbrown]. Questo approccio consente di ottenere dati di telemetria più dettagliati e di scrivere dati di telemetria personalizzati.
 
-Per ripetere la pubblicazione senza aggiungere Application Insights al codice, si noti che il processo di distribuzione potrebbe eliminare i file DLL e il file ApplicationInsights.config dal sito Web pubblicato. Di conseguenza:
+Per ripetere la pubblicazione senza aggiungere Application Insights al codice, si noti che il processo di distribuzione potrebbe eliminare i file DLL e il file ApplicationInsights.config dal sito Web pubblicato. Pertanto:
 
 1. Se sono state apportate modifiche al file ApplicationInsights.config, copiarlo prima di ripubblicare l'app.
 2. Pubblicare di nuovo l'app.
@@ -291,7 +287,7 @@ Se si seleziona l'opzione "Elimina file esistenti" nel processo di pubblicazione
 
 Per le applicazioni che vengono instrumentate solo in fase di esecuzione tramite Status Monitor:
 
-* Richieste HTTP
+* richieste HTTP
 * Chiamate alle dipendenze
 * Eccezioni
 * Contatori delle prestazioni
@@ -302,7 +298,7 @@ Per le applicazioni già instrumentate in fase di compilazione:
  * Chiamate alle dipendenze (.NET 4.5) e valori restituiti nelle chiamate alle dipendenze (.NET 4.6)
  * Valori di analisi dello stack delle eccezioni
 
-[Ulteriori informazioni](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Altre informazioni](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Video
 

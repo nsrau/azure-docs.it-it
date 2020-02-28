@@ -1,18 +1,15 @@
 ---
 title: Come integrare lo schema di avviso comune con le app per la logica
 description: Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: ananthradhakrishnan
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9042ed8ddbb698192e638fa7538f74561574c262
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555660"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668231"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Come integrare lo schema di avviso comune con le app per la logica
 
@@ -112,7 +109,7 @@ In questo articolo si presuppone che il lettore abbia familiarità con
         }
     ```
 
-1. Selezionare **+** **Nuovo passaggio** e quindi selezionare **Aggiungi un'azione**.
+1. Selezionare **+** **nuovo passaggio** , quindi scegliere **Aggiungi un'azione**.
 
     ![Aggiungi un'azione](media/action-groups-logic-app/add-action.png "Aggiungere un'azione")
 

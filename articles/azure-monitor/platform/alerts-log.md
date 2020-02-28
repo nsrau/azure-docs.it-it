@@ -2,22 +2,20 @@
 title: Creare, visualizzare e gestire gli avvisi di log con monitoraggio di Azure | Microsoft Docs
 description: Usare monitoraggio di Azure per creare, visualizzare e gestire le regole di avviso del log in Azure.
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 525e8d2ffcd673f47cf30699de2572b35fc3b314
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 96b1bd86576f8cf34428eb60e2d3f476312311c1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290276"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667857"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questo articolo illustra come configurare gli avvisi del log tramite l'interfaccia degli avvisi nel portale di Azure. La definizione di una regola di avviso è costituita da tre parti:
 - Destinazione: risorsa specifica di Azure da monitorare
 - Criteri: condizione specifica o logica che, se rilevata nel segnale, deve attivare l'azione
@@ -36,7 +34,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
 1. Nel [portale](https://portal.azure.com/)selezionare **Monitoraggio** e nella sezione MONITORAGGIO scegliere **Avvisi**.
 
-    ![Monitorare](media/alerts-log/AlertsPreviewMenu.png)
+    ![Monitoraggio](media/alerts-log/AlertsPreviewMenu.png)
 
 1. Selezionare il pulsante **Nuova regola di avviso** per creare un nuovo avviso in Azure.
 

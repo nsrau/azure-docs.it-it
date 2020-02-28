@@ -1,19 +1,15 @@
 ---
 title: Monitoraggio dell'integrità e dell'utilizzo di un'app con Application Insights
 description: Introduzione a Application Insights. Analizzare l'uso, la disponibilità e le prestazioni delle applicazioni locali o Microsoft Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899291"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670900"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorare le prestazioni di applicazioni Web
 
@@ -57,7 +53,7 @@ Le richieste HTTP includono tutte le richieste GET o POST di pagine, dati e imma
 
 Fare clic sul riquadro per visualizzare i conteggi per URL specifici.
 
-### <a name="average-response-time"></a>Tempo medio di risposta
+### <a name="average-response-time"></a>Tempo di risposta medio
 Misura il tempo intercorso tra la ricezione di una richiesta Web da parte dell'applicazione e la risposta restituita.
 
 I punti mostrano una media mobile. Se le richieste sono numerose, alcune di queste potrebbero deviare dalla media senza mostrare un picco o un calo evidente nel grafico.
@@ -89,7 +85,7 @@ Per sapere quali altri metriche è possibile visualizzare, fare clic su un grafi
 
 La selezione di una metrica disabilita le altre metriche che non possono essere visualizzate nello stesso grafico.
 
-## <a name="set-alerts"></a>Impostare avvisi
+## <a name="set-alerts"></a>Impostazione di avvisi
 Per ricevere tramite posta elettronica una notifica relativa a valori insoliti di una metrica, aggiungere un avviso. È possibile scegliere di inviare il messaggio di posta elettronica agli amministratori di account o a indirizzi di posta elettronica specifici.
 
 ![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)

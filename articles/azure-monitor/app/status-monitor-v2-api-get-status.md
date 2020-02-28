@@ -1,24 +1,22 @@
 ---
 title: Informazioni di riferimento sull'API dell'agente applicazione Azure Insights
 description: Informazioni di riferimento sull'API dell'agente Application Insights. Get-ApplicationInsightsMonitoringStatus. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9b1010404cb876ed818dd54cf527987c6cf0ffe0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 159dab4a228c822ef62c45c9ccceff638a9bea45
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899683"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671257"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>API dell'agente di Application Insights: Get-ApplicationInsightsMonitoringStatus
 
 Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrizione
 
 Questo cmdlet fornisce informazioni sulla risoluzione dei problemi relativi a Status Monitor.
 Usare questo cmdlet per esaminare lo stato del monitoraggio, la versione del modulo di PowerShell e per esaminare il processo in esecuzione.
@@ -27,7 +25,7 @@ Questo cmdlet consente di segnalare le informazioni sulla versione e le informaz
 > [!IMPORTANT] 
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ### <a name="example-application-status"></a>Esempio: stato dell'applicazione
 
@@ -167,7 +165,7 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
 ### <a name="no-parameters"></a>(Nessun parametro)
 
@@ -187,7 +185,7 @@ Verranno inoltre scaricati gli strumenti esterni per determinare se le DLL neces
 
 
 Se il processo ha esito negativo per qualsiasi motivo, è possibile eseguire questi comandi manualmente:
-- iisreset. exe/status
+- iisreset.exe /status
 - [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
 - [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
 

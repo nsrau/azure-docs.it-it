@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: b13e5e0000cdd8e33f459400cc4c24d107ccaba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604785"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661840"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Domande frequenti-domande generali sul centro sicurezza di Azure
 
@@ -38,16 +38,17 @@ Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
 * Macchine virtuali (VM) (inclusi i [Servizi cloud](../cloud-services/cloud-services-choose-me.md))
 * set di scalabilità di macchine virtuali
 * Reti virtuali di Azure
+* Contenitori
 * Servizio di SQL Azure
 * Account di archiviazione di Azure
 * App Web di Azure in un [ambiente del servizio app](../app-service/environment/intro.md)
 * Soluzioni partner integrate con la sottoscrizione di Azure, ad esempio un Web application firewall, nelle VM e nell'ambiente del servizio app
 
-Inoltre, i computer non Azure (inclusi quelli locali) possono essere monitorati anche dal centro sicurezza di Azure (sono supportati sia computer [Windows](./quick-onboard-windows-computer.md) che [computer Linux](./quick-onboard-linux-computer.md) )
+Inoltre, i computer non Azure (inclusi quelli locali) possono essere monitorati anche dal centro sicurezza di Azure. Sono supportati sia computer [Windows](./quick-onboard-windows-computer.md) che [computer Linux](./quick-onboard-linux-computer.md) .
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Come è possibile visualizzare lo stato di sicurezza corrente delle risorse Azure?
-La pagina **Panoramica del Centro sicurezza** Mostra il comportamento di sicurezza complessivo dell'ambiente suddiviso per calcolo, rete, archiviazione & dati e applicazioni. Ciascun tipo di risorsa presenta un indicatore che visualizza l'eventuale rilevamento di potenziali vulnerabilità di sicurezza. Facendo clic su ogni sezione viene visualizzato un elenco di problemi di sicurezza identificati dal Centro sicurezza, insieme a un inventario delle risorse nella sottoscrizione.
+La pagina **Panoramica del Centro sicurezza** Mostra il comportamento di sicurezza complessivo dell'ambiente suddiviso per calcolo, rete, archiviazione & dati e applicazioni. Ogni tipo di risorsa ha un indicatore che mostra le vulnerabilità di sicurezza identificate. Facendo clic su ogni sezione viene visualizzato un elenco di problemi di sicurezza identificati dal Centro sicurezza, insieme a un inventario delle risorse nella sottoscrizione.
 
 
 

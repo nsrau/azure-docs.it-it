@@ -1,18 +1,16 @@
 ---
 title: 'Guida introduttiva: analisi di app Web Java con applicazione Azure Insights'
 description: 'Application Performance Monitoring per app Web Java con Application Insights. '
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: abc16f8e1fdc6b81634b926eeb287e5d03efdc40
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963683"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670084"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guida introduttiva: Introduzione a Application Insights in un progetto Web Java
 
@@ -22,7 +20,7 @@ Application Insights è un servizio di analisi estendibile per sviluppatori Web 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un account Azure con una sottoscrizione attiva. [Crea gratuitamente un account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Un'applicazione Java funzionante.
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Ottenere una chiave di strumentazione di Application Insights
@@ -38,7 +36,7 @@ Application Insights è un servizio di analisi estendibile per sviluppatori Web 
 
 *Scegliere il tipo di progetto.*
 
-# <a name="maventabmaven"></a>[Maven](#tab/maven)
+# <a name="maven"></a>[Maven](#tab/maven)
 
 Se il progetto è già configurato per usare Maven per la compilazione, unire il codice seguente al file *POM. XML* .
 
@@ -56,7 +54,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     </dependencies>
 ```
 
-# <a name="gradletabgradle"></a>[Gradle](#tab/gradle)
+# <a name="gradle"></a>[Gradle](#tab/gradle)
 
 Se il progetto è già configurato per usare Gradle per la compilazione, unire il codice seguente al file *Build. Gradle* .
 
@@ -70,13 +68,13 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     }
 ```
 
-# <a name="other-typestabother"></a>[Altri tipi](#tab/other)
+# <a name="other-types"></a>[Altri tipi](#tab/other)
 
 Scaricare la [versione più recente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) e copiare i file necessari nel progetto, sostituendo tutte le versioni precedenti.
 
 ---
 
-### <a name="questions"></a>Domande?
+### <a name="questions"></a>Domande
 * *Qual è la relazione tra i componenti `-web-auto`, `-web` e `-core`?*
   * `applicationinsights-web-auto` fornisce metriche che tengono traccia dei conteggi delle richieste di servlet HTTP e dei tempi di risposta, registrando automaticamente il filtro del servlet Application Insights in fase di esecuzione.
   * `applicationinsights-web` fornisce anche le metriche per tenere traccia dei conteggi delle richieste di servlet HTTP e dei tempi di risposta, ma richiede la registrazione manuale del filtro Application Insights servlet nell'applicazione.
@@ -297,7 +295,7 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 * [Tenere traccia di eventi e metriche personalizzati][api] per informazioni sulle operazioni svolte dagli utenti con l'applicazione.
 * [Cercare eventi e log][diagnostic] per facilitare la diagnosi dei problemi.
 
-## <a name="availability-web-tests"></a>Test Web della disponibilità
+## <a name="availability-web-tests"></a>Test Web di disponibilità
 Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente.
 
 [Altre informazioni su come configurare i test Web di disponibilità.][availability]

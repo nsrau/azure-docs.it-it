@@ -1,18 +1,17 @@
 ---
 title: Uso di stringhe nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo fornisce un'esercitazione per l'uso di monitoraggio di Azure Log Analytics nel portale di Azure per eseguire query e analizzare i dati di log in monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365309"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670152"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Uso di JSON e strutture dei dati nelle query di log di Monitoraggio di Azure
 

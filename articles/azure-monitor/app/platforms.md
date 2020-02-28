@@ -1,19 +1,15 @@
 ---
 title: 'Application Insights: linguaggi, piattaforme e integrazioni | Microsoft Docs'
 description: Linguaggi, piattaforme e integrazioni disponibili per Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 01cebc3a86808d549f1a7dc3adfd2883bc289076
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d87b1d0aa74263f249db2030f2366b93b8c2b421
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061441"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669829"
 ---
 # <a name="supported-languages"></a>Lingue supportate
 
@@ -27,7 +23,7 @@ ms.locfileid: "73061441"
 
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Strumentazione per applicazioni già distribuite (senza codice, basate su agenti)
 * [VM di Azure e set di scalabilità di macchine virtuali di Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [Informazioni sul servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
+* [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - per app già attive](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md), inclusi i ruoli Web e di lavoro
 * [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)

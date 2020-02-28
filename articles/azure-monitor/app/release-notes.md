@@ -1,24 +1,20 @@
 ---
 title: Note sulla versione per Azure Application Insights | Documentazione Microsoft
 description: Aggiornamenti più recenti per gli SDK di Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/17/2017
-ms.openlocfilehash: 02c4d6ff9000e9f9e1f427144fed237d609a463d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fcd20e1d14cebb9a5f5cc8ff2f7ae3f16fa594cb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841677"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671512"
 ---
 # <a name="sdk-release-notes---application-insights"></a>Note sulla versione - Application Insights SDK
 Queste sono note sulla versione dettagliate e istruzioni aggiornate relative agli SDK:
 
 
-* SDK di .NET
+* SDK .NET
     - Per la versione 2,12 e successive: [SDK .NET (inclusi ASP.NET, ASP.NET Core e adattatori di registrazione)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
     - Per le versioni precedenti:
       - [ASP.NET Web Server SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)

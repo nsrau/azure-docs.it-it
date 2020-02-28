@@ -1,24 +1,22 @@
 ---
 title: Profilare i servizi cloud di Azure attivi con Application Insights | Microsoft Docs
 description: Abilitare Application Insights Profiler per i servizi cloud.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 682711d7681e3646ae14686b01542bc5d7432179
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820506"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671665"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilare i servizi cloud di Azure attivi con Application Insights
 
 È anche possibile distribuire Application Insights Profiler in questi servizi:
-* [Informazioni sul servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Applicazioni Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -39,7 +37,7 @@ Application Insights Profiler viene installato con l'estensione Diagnostica di M
 
 1. Configurare l'estensione Diagnostica di Azure per abilitare Profiler:
 
-    a. Individuare il file di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* per il ruolo dell'applicazione, come illustrato di seguito:  
+    a. Individuare il file [diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *Diagnostics. wadcfgx* per il ruolo applicazione, come illustrato di seguito:  
 
       ![Percorso del file di configurazione di diagnostica](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 

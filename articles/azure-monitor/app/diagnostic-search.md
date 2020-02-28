@@ -1,18 +1,14 @@
 ---
 title: Utilizzo della funzionalità Ricerca in Azure Application Insights | Microsoft Docs
 description: Ricercare e filtrare elementi di telemetria non elaborata inviata da App Web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/30/2019
-ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678017"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669676"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 
@@ -26,7 +22,7 @@ Per le query più complesse sui dati, utilizzare [Analytics](../../azure-monitor
 
 È possibile aprire la ricerca diagnostica dalla scheda Panoramica Application Insights dell'applicazione (che si trova nella barra superiore) o in analisi a sinistra.
 
-![Scheda Cerca](./media/diagnostic-search/view-custom-events.png)
+![Scheda Search (Ricerca)](./media/diagnostic-search/view-custom-events.png)
 
 Passare al menu a discesa tipi di evento per visualizzare un elenco di elementi di telemetria: richieste server, visualizzazioni pagina, eventi personalizzati codificati e così via. Nella parte superiore dell'elenco dei risultati, è un grafico di riepilogo che mostra i conteggi degli eventi nel tempo.
 
@@ -70,7 +66,7 @@ I tipi di eventi sono i seguenti:
 
 ## <a name="filter-on-property-values"></a>Filtrare in base ai valori delle proprietà
 
-È possibile filtrare gli eventi in base ai valori delle relative proprietà. Le proprietà disponibili dipendono dai tipi di eventi selezionati. Fare clic sull'icona del filtro ![Icona filtro](./media/diagnostic-search/filter-icon.png) per iniziare.
+È possibile filtrare gli eventi in base ai valori delle relative proprietà. Le proprietà disponibili dipendono dai tipi di eventi selezionati. Fare clic sull'icona del filtro ![Icona Filtro](./media/diagnostic-search/filter-icon.png) per iniziare.
 
 La mancata scelta dei valori di una determinata proprietà ha lo stesso effetto della scelta di tutti i valori. Viene disattivata l'applicazione dei filtri per quella proprietà.
 
@@ -96,7 +92,7 @@ Per trovare tutti gli elementi con lo stesso valore della proprietà, digitarli 
 
 Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiudere i caratteri speciali.
 
-| Stringa | *Non* trovato | Trovato |
+| String | *Non* trovato | Trovato |
 | --- | --- | --- |
 | ControllerHome.Info |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Stati Uniti|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -114,7 +110,7 @@ Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiu
 
 Se l'app genera una grande quantità di dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta vengono selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati.
 
-[Informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
+[Informazioni sul campionamento](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Creare un elemento di lavoro
 
@@ -152,4 +148,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 * [Scrivere query complesse in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Inviare log e dati di telemetria personalizzati ad Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configurare i test di disponibilità e velocità di risposta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)
+* [Risoluzione dei problemi](../../azure-monitor/app/troubleshoot-faq.md)

@@ -1,18 +1,14 @@
 ---
 title: Incremento anomalo del volume di eccezioni applicazione Azure informazioni dettagliate
 description: Monitora le eccezioni dell'applicazione con rilevamento intelligente in applicazione Azure Insights per modelli insoliti nel volume delle eccezioni.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/08/2017
-ms.openlocfilehash: b524000f78741b2ff8cf442d2daaef0c7945799a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432429"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671767"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anomalo nel volume delle eccezioni (anteprima)
 
@@ -27,7 +23,7 @@ Vengono utilizzati algoritmi di Machine Learning per rilevare l'aumento del nume
 ## <a name="does-my-app-definitely-have-a-problem"></a>Verifica di eventuali problemi dell'app
 Una notifica non significa che l'app ha sicuramente un problema. Anche se un numero eccessivo di eccezioni indica in genere problemi nell'applicazione, le eccezioni potrebbero essere innocue e gestite correttamente dall'applicazione.
 
-## <a name="how-do-i-fix-it"></a>Risoluzione
+## <a name="how-do-i-fix-it"></a>Com'è possibile risolvere il problema?
 Le notifiche includono informazioni di diagnostica a supporto del processo di diagnostica:
 1. **Valutazione.** La notifica mostra il numero di utenti o di richieste interessate. Ciò consente di assegnare una priorità al problema.
 2. **Ambito.** Il problema interessa solo alcune operazioni o tutto il traffico? Queste informazioni si possono ricavare dalla notifica.

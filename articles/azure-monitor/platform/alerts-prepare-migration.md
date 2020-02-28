@@ -1,18 +1,17 @@
 ---
 title: Preparare la migrazione degli avvisi classici di monitoraggio di Azure aggiornando le app per la logica e manuali operativi
-author: yanivlavi
 description: Informazioni su come modificare i webhook, le app per la logica e manuali operativi per prepararsi alla migrazione volontaria.
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705565"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665593"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
 
@@ -31,7 +30,7 @@ La tabella seguente è un riferimento alle interfacce programmatiche per gli avv
 
 |         |Avvisi classici  |Nuovi avvisi delle metriche |
 |---------|---------|---------|
-|API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|API REST     | [Microsoft. Insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Interfaccia della riga di comando di Azure     | [avviso AZ monitor](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ monitor Metrics-avviso](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Riferimento](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modello di Azure Resource Manager | [Per gli avvisi classici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Per i nuovi avvisi delle metriche](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
@@ -44,26 +43,26 @@ Usare la tabella seguente per eseguire il mapping dei campi di payload del webho
 
 |  |Avvisi classici  |Nuovi avvisi delle metriche |
 |---------|---------|---------|
-|L'avviso è stato attivato o risolto?    | **Stato**       | **data.status** |
-|Informazioni contestuali sull'avviso     | **context**        | **data.context**        |
-|Timestamp in cui l'avviso è stato attivato o risolto     | **context.timestamp**       | **data.context.timestamp**        |
+|L'avviso è stato attivato o risolto?    | **Stato**       | **Data. stato** |
+|Informazioni contestuali sull'avviso     | **context**        | **Data. Context**        |
+|Timestamp in cui l'avviso è stato attivato o risolto     | **context. timestamp**       | **Data. Context. timestamp**        |
 | ID regola di avviso | **context.id** | **data.context.id** |
 | Nome regola di avviso | **context.name** | **data.context.name** |
-| Descrizione della regola di avviso | **context.description** | **data.context.description** |
-| Condizione della regola di avviso | **context.condition** | **data.context.condition** |
-| Nome metrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Descrizione della regola di avviso | **context. Description** | **Data. Context. Description** |
+| Condizione della regola di avviso | **context. Condition** | **Data. Context. Condition** |
+| Nome della metrica | **context. Condition. metricaname** | **Data. Context. Condition. allOf [0]. metricname** |
 | Aggregazione temporale (modalità di aggregazione della metrica sulla finestra di valutazione)| **context. Condition. timeAggregation** | **context. Condition. timeAggregation** |
-| Periodo di valutazione | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| Operatore (come il valore della metrica aggregata viene confrontato con la soglia) | **context.condition.operator** | **data.context.condition.operator** |
-| Soglia | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |
-| Valore metrica | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| ID sottoscrizione | **context.subscriptionId** | **data.context.subscriptionId** |
-| Gruppo di risorse della risorsa interessata | **context.resourceGroup** | **data.context.resourceGroup** |
-| Nome della risorsa interessata | **context.resourceName** | **data.context.resourceName** |
-| Tipo di risorsa interessata | **context.resourceType** | **data.context.resourceType** |
-| ID risorsa della risorsa interessata | **context.resourceId** | **data.context.resourceId** |
-| Collegamento diretto alla pagina di riepilogo delle risorse del portale | **context.portalLink** | **data.context.portalLink** |
-| Campi di payload personalizzati da passare al webhook o all'app per la logica | **properties** | **data.properties** |
+| Periodo di valutazione | **context. Condition. windowSize** | **Data. Context. Condition. windowSize** |
+| Operatore (come il valore della metrica aggregata viene confrontato con la soglia) | **context. Condition. operator** | **Data. Context. Condition. operator** |
+| destinazione | **context. Condition. Threshold** | **Data. Context. Condition. allOf [0]. Threshold** |
+| Valore metrica | **context. Condition. metricValue** | **Data. Context. Condition. allOf [0]. metricValue** |
+| ID sottoscrizione | **context. subscriptionId** | **Data. Context. subscriptionId** |
+| Gruppo di risorse della risorsa interessata | **context. resourceGroup** | **Data. Context. resourceGroup** |
+| Nome della risorsa interessata | **context. ResourceName** | **Data. Context. ResourceName** |
+| Tipo di risorsa interessata | **context. resourceType** | **Data. Context. resourceType** |
+| ID risorsa della risorsa interessata | **context. resourceId** | **Data. Context. resourceId** |
+| Collegamento diretto alla pagina di riepilogo delle risorse del portale | **context. portalLink** | **Data. Context. portalLink** |
+| Campi di payload personalizzati da passare al webhook o all'app per la logica | **properties** | **Data. Properties** |
 
 I payload sono simili, come si può vedere. La sezione seguente offre:
 
@@ -72,7 +71,7 @@ I payload sono simili, come si può vedere. La sezione seguente offre:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso per la metrica
 
-Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. A tale scopo, seguire questa procedura:
+Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Esegui questi passaggi:
 
 1. Creare una nuova app per la logica.
 

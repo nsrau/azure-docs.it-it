@@ -1,18 +1,17 @@
 ---
 title: Esperienza dei log semplici in monitoraggio di Azure (anteprima) | Microsoft Docs
 description: La semplice esperienza dei log consente di creare query di base in monitoraggio di Azure senza interagire direttamente con KQL.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 0b8b23d5d355614bf74b1b22c6a8443b9a2f9391
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932978"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660258"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Esperienza dei log semplici in monitoraggio di Azure (anteprima)
 Monitoraggio di Azure offre un' [esperienza avanzata](get-started-portal.md) per la creazione di [query di log](log-query-overview.md) con il linguaggio KQL. È possibile che non sia necessaria tutta la potenza di KQL, ma è preferibile un'esperienza semplificata per i requisiti di query di base. La semplice esperienza dei log consente di creare query di base senza interagire direttamente con KQL. È anche possibile usare i log semplici come strumento di apprendimento per KQL, in quanto sono necessarie query più sofisticate.
@@ -21,7 +20,7 @@ Monitoraggio di Azure offre un' [esperienza avanzata](get-started-portal.md) per
 > I log semplici vengono attualmente implementati come test solo per Cosmos DB e Key Vault. Condividi la tua esperienza con Microsoft tramite [User Voice](https://feedback.azure.com/forums/913690-azure-monitor) per aiutarci a determinare se la funzionalità verrà espansa e rilasciata.
 
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Ambito
 L'esperienza dei log semplici recupera i dati dalla tabella *AzureDiagnostics*, *AzureMetrics*e *AzureActivity* per la risorsa selezionata. 
 
 ## <a name="using-simple-logs"></a>Uso di log semplici

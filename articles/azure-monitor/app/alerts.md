@@ -1,21 +1,19 @@
 ---
-title: Impostare gli avvisi in Application Insights di Azure | Microsoft Docs
+title: Impostare gli avvisi in applicazione Azure Insights
 description: Ricevere notifiche su tempi di risposta più lenti, eccezioni e altre prestazioni o modifiche nell'uso delle app Web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/23/2019
 ms.reviewer: lagayhar
-ms.openlocfilehash: a21e2676d1b03472c58e2f95095a1a59d00b16be
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.subservice: alerts
+ms.openlocfilehash: 80759c94d7cc5b60b6e38a34b85fb64c3c18fd2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678398"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666718"
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
+
 [Applicazione Azure Insights][start] può avvertire l'utente delle modifiche apportate alle metriche delle prestazioni o dell'utilizzo nell'app Web. 
 
 Application Insights monitora l'app attiva in un' [ampia gamma di piattaforme][platforms] per semplificare la diagnosi dei problemi di prestazioni e comprendere i modelli di utilizzo.
@@ -28,6 +26,7 @@ Sono disponibili più tipi di avvisi:
 * Gli avvisi della [**diagnostica proattiva**](../../azure-monitor/app/proactive-diagnostics.md) vengono configurati automaticamente per informare su schemi di prestazioni insoliti.
 
 ## <a name="set-a-metric-alert"></a>Impostare un avviso metrica
+
 Aprire la scheda regole di avviso e quindi usare il pulsante Aggiungi.
 
 ![Nella scheda regole di avviso scegliere Aggiungi avviso. Impostare l'app come la risorsa da misurare, specificare un nome per l'avviso e scegliere una metrica.](./media/alerts/01-set-metric.png)
@@ -62,7 +61,7 @@ La cronologia delle modifiche di stato si trova nel Log attività:
 
 ![Nella scheda Panoramica fare clic su impostazioni, log di controllo](./media/alerts/09-alerts.png)
 
-## <a name="how-alerts-work"></a>Funzionamento degli avvisi
+## <a name="how-alerts-work"></a>Come funzionano gli avvisi
 * Un avviso può avere tre stati: "Mai attivato", "Attivato" e "Risolto". Lo stato Attivato indica che la condizione specificata aveva valore true al momento dell'ultima valutazione.
 * Quando lo stato di un avviso viene modificato, viene generata una notifica. Se la condizione dell'avviso era già impostata su true durante la creazione dell'avviso, è possibile che non si riceva alcuna notifica finché la condizione non viene impostata su false.
 * Ogni notifica genera un messaggio di posta elettronica se è stata selezionata la casella dei messaggi di posta elettronica o sono stati specificati indirizzi di posta elettronica. È anche possibile esaminare l'elenco di riepilogo a discesa Notifiche.
@@ -175,7 +174,7 @@ Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera i
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
 * [Usare webhook per automatizzare la risposta agli avvisi](../../azure-monitor/platform/alerts-webhooks.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
 * [Diagnostica proattiva](../../azure-monitor/app/proactive-diagnostics.md) 

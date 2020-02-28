@@ -1,18 +1,14 @@
 ---
 title: Usare PowerShell per impostare gli avvisi in Application Insights | Microsoft Docs
 description: Automatizzare la configurazione di Application Insights per ricevere messaggi di posta elettronica sulle modifiche delle metriche.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928574"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669846"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usare PowerShell per impostare gli avvisi in Application Insights
 
@@ -26,7 +22,7 @@ ms.locfileid: "73928574"
 > Se si vuole creare risorse e avvisi allo stesso tempo, considerare l'[uso di un modello di Azure Resource Manager](powershell.md).
 
 ## <a name="one-time-setup"></a>Installazione singola
-Se non si è utilizzato prima PowerShell con la sottoscrizione di Azure:
+Se non si è mai usato PowerShell con la sottoscrizione di Azure:
 
 Installare il modulo Azure Powershell nel computer in cui verranno eseguiti gli script.
 
@@ -45,7 +41,7 @@ Avviare Azure PowerShell e [connettersi alla sottoscrizione](/powershell/azure/o
 ## <a name="get-alerts"></a>Ottenere gli avvisi
     Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## <a name="add-alert"></a>Aggiungi avviso
+## <a name="add-alert"></a>Aggiungere un avviso
     Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -93,7 +89,7 @@ Ho un'applicazione in cui uso [TrackMetric()](../../azure-monitor/app/api-custom
 La stessa regola può essere utilizzata per la metrica riportata utilizzando il [parametro misura](../../azure-monitor/app/api-custom-events-metrics.md#properties) di un altra chiamata di rilevamento come ad esempio TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nomi delle metriche
-| Nome metrica | Nome schermata | DESCRIZIONE |
+| Nome della metrica | Nome schermata | Descrizione |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Eccezioni del browser |Conteggio delle eccezioni non rilevate generate nel browser. |
 | `basicExceptionServer.count` |Eccezioni del server |Conteggio delle eccezioni non gestite generate dall'applicazione |
@@ -122,7 +118,7 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 
 | Gruppo metrica | Modulo dell'agente di raccolta |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript browser](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>visualizzazione |[JavaScript browser](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Prestazioni](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dipendenza](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Richiesta server](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |

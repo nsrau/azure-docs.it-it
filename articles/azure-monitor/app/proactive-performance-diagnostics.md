@@ -1,19 +1,15 @@
 ---
 title: Rilevamento intelligente - prestazioni anomale | Microsoft Docs
 description: Application Insights esegue un'analisi intelligente dei dati di telemetria dell'app e segnala potenziali problemi. Questa funzionalità non richiede alcuna configurazione.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: b9a95bb2ee6ab137e974b46e24738ca5194f3bd2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820560"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671733"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -36,9 +32,9 @@ Il rilevamento intelligente richiede almeno 8 giorni di dati di telemetria in un
 
 Una notifica non significa che l'app ha sicuramente un problema. Invita semplicemente a controllare con attenzione un determinato componente.
 
-## <a name="how-do-i-fix-it"></a>Risoluzione
+## <a name="how-do-i-fix-it"></a>Com'è possibile risolvere il problema?
 
-Le notifiche includono informazioni di diagnostica. Ecco un esempio:
+Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 
 ![Di seguito è riportato un esempio di rilevamento della riduzione del tempo di risposta del server](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -61,7 +57,7 @@ Le notifiche di rilevamento intelligente sono abilitate per impostazione predefi
 
 I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti intelligenti sono limitati a un messaggio di posta elettronica al giorno per ogni risorsa di Application Insights. Il messaggio di posta elettronica verrà inviato solo se è presente almeno un nuovo problema rilevato per quella giornata. senza alcuna ripetizione dello stesso messaggio. 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 * *È vero che il personale Microsoft ha accesso ai dati personali?*
   * No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).

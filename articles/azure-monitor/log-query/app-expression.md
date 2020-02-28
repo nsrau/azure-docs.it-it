@@ -1,18 +1,17 @@
 ---
 title: Espressione app() nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: L'espressione app viene usata in una query di log di monitoraggio di Azure per recuperare i dati da un'app Application Insights specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
-ms.openlocfilehash: ffef73f88c8679d0b0be81222b1b61c4eaef5098
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933090"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670257"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Espressione app() in una query di Monitoraggio di Azure
 
@@ -29,12 +28,12 @@ L'espressione `app` viene usata in una query di Monitoraggio di Azure per recupe
 
 - *Identificatore*: identifica l'app usando uno dei formati indicati nella tabella seguente.
 
-| Identificatore | Description | Esempio
+| Identificatore | Descrizione | Esempio
 |:---|:---|:---|
-| Nome risorsa | Nome leggibile dell'app (anche noto come "nome componente") | app("fabrikamapp") |
-| Nome completo | Nome completo dell'app nel formato: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
+| Nome della risorsa | Nome leggibile dell'app (anche noto come "nome componente") | app("fabrikamapp") |
+| Qualified Name | Nome completo dell'app nel formato: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
 | ID | GUID dell'app | app("988ba129-363e-4415-8fe7-8cbab5447518") |
-| ID risorssa di Azure | Identificatore della risorsa di Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
+| ID risorsa di Azure | Identificatore della risorsa di Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
 ## <a name="notes"></a>Note
@@ -44,7 +43,7 @@ L'espressione `app` viene usata in una query di Monitoraggio di Azure per recupe
 * Usare l'espressione correlata [area di lavoro](workspace-expression.md) per eseguire query tra aree di lavoro di Log Analytics.
 * L'espressione app() non è attualmente supportata in query di ricerca quando si usa il portale di Azure per creare una [regola di avviso per i log personalizzata](../platform/alerts-log.md), a meno che non venga usata un'applicazione di Application Insights come risorsa per la regola di avviso.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ```Kusto
 app("fabrikamapp").requests | count
@@ -73,5 +72,5 @@ union
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere l'[espressione workspace](workspace-expression.md) per fare riferimento a un'area di lavoro Log Analytics.
-- Accedere alle informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+- Vedere altre informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
 - Accedere alla documentazione completa relativa al [linguaggio di query Kusto](/azure/kusto/query/).

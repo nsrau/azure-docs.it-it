@@ -1,18 +1,17 @@
 ---
 title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: Questo articolo fornisce una panoramica di Connettore di Gestione dei servizi IT e informazioni su come usare questa soluzione per monitorare e gestire da una posizione centrale gli elementi di lavoro di Gestione dei servizi IT in Azure Log Analytics e risolvere rapidamente eventuali problemi.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 68aff01ea541a24be1f8d526fecbb6a9d2c30086
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990675"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672226"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -152,7 +151,7 @@ Il dashboard fornisce anche informazioni sullo stato del connettore, che è poss
 
 È anche possibile visualizzare gli eventi imprevisti sincronizzati in relazione ai computer interessati, all'interno della soluzione Mapping dei servizi.
 
-Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../../azure-monitor/insights/service-map.md)
+Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../../azure-monitor/insights/service-map.md).
 
 Se si usa anche la soluzione Mapping dei servizi, è possibile visualizzare gli elementi del service desk creati nelle soluzioni di Gestione dei servizi IT, come illustrato nell'esempio seguente:
 
@@ -179,20 +178,20 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - ID Service Desk
-- Statale
+- Stato
 - Urgenza
 - Impatto
 - Priorità
 - Riassegnazione
-- Created By (Creato da)
-- Resolved By (Risolto da)
-- Closed By (Chiuso da)
+- Creato da
+- Risolto da
+- Chiuso da
 - Origine
-- Assegnato a
-- Categoria
+- Assigned To
+- Category
 - Titolo
-- Description
-- Data di creazione
+- Descrizione
+- Data creazione
 - Data di chiusura
 - Data di risoluzione
 - Data ultima modifica
@@ -206,22 +205,22 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 **Fields**
 - ServiceDeskConnectionName
 - ID Service Desk
-- Created By (Creato da)
-- Closed By (Chiuso da)
+- Creato da
+- Chiuso da
 - Origine
-- Assegnato a
+- Assigned To
 - Titolo
-- Tipo
-- Categoria
-- Statale
+- Type
+- Category
+- Stato
 - Riassegnazione
 - Conflict Status (Stato di conflitto)
 - Urgenza
 - Priorità
 - Rischio
 - Impatto
-- Assegnato a
-- Data di creazione
+- Assigned To
+- Data creazione
 - Data di chiusura
 - Data ultima modifica
 - Data richiesta
@@ -229,54 +228,54 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Planned End Date (Data di fine pianificata)
 - Work Start Date (Data di inizio lavoro)
 - Work End Date (Data di fine pianificata)
-- Description
+- Descrizione
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dati di output per un evento imprevisto ServiceNow
 
 | Campo Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Numero |
-| IncidentState_s | Statale |
+| ServiceDeskId_s| Number |
+| IncidentState_s | Stato |
 | Urgency_s |Urgenza |
 | Impact_s |Impatto|
 | Priority_s | Priorità |
 | CreatedBy_s | Aperto da |
 | ResolvedBy_s | Risolto da|
 | ClosedBy_s  | Chiuso da |
-| Source_s| Tipo di contatto |
+| Source_s| Tipo contatto |
 | AssignedTo_s | Assegnato a  |
-| Category_s | Categoria |
+| Category_s | Category |
 | Title_s|  Breve descrizione |
 | Description_s|  Note |
 | CreatedDate_t|  Aperto |
 | ClosedDate_t| closed|
-| ResolvedDate_t|Risolto|
+| ResolvedDate_t|Risolte|
 | Computer  | Elemento di configurazione |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dati di output per una richiesta di modifica ServiceNow
 
 | Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Numero |
-| CreatedBy_s | Richiesto da |
+| ServiceDeskId_s| Number |
+| CreatedBy_s | Autore richiesta |
 | ClosedBy_s | Chiuso da |
 | AssignedTo_s | Assegnato a  |
 | Title_s|  Breve descrizione |
-| Type_s|  Tipo |
-| Category_s|  Categoria |
-| CRState_s|  Statale|
+| Type_s|  Type |
+| Category_s|  Category |
+| CRState_s|  Stato|
 | Urgency_s|  Urgenza |
 | Priority_s| Priorità|
 | Risk_s| Rischio|
 | Impact_s| Impatto|
 | RequestedDate_t  | Data richiesta |
-| ClosedDate_t | Data di chiusura |
+| ClosedDate_t | Data chiusura |
 | PlannedStartDate_t  |     Data di inizio pianificata |
 | PlannedEndDate_t  |   Data di fine pianificata |
 | WorkStartDate_t  | Data di inizio effettiva |
 | WorkEndDate_t | Data di fine effettiva|
-| Description_s | Description |
+| Description_s | Descrizione |
 | Computer  | Elemento di configurazione |
 
 
@@ -299,7 +298,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, assicurarsi che il provider di risorse richiesto sia registrato nella sottoscrizione. Qualora non fosse registrato, creare manualmente lo spazio dei nomi di inoltro del bus di servizio dal portale di Azure. È inoltre possibile crearlo durante [la creazione della connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) dal portale di Azure.
 
 
-## <a name="contact-us"></a>Contattaci
+## <a name="contact-us"></a>Contatti
 
 Per eventuali domande o commenti e suggerimenti su IT Service Management Connector, è possibile contattare [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 

@@ -1,19 +1,17 @@
 ---
 title: Correlazione di dati di Azure Application Insights Telemetry | Microsoft Docs
 description: Correlazione di dati di Application Insights Telemetry
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bc73dfb1c4dc77abe0bd135ecf572fa05ddf6322
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951327"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672056"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -267,7 +265,7 @@ Il campo `id` è nel formato `<trace-id>.<span-id>`, in cui il `trace-id` viene 
 
 Il campo `operation_ParentId` è nel formato `<trace-id>.<parent-id>`, in cui sia il `trace-id` che il `parent-id` vengono ricavati dall'intestazione di traccia passata nella richiesta.
 
-### <a name="log-correlation"></a>Correlazione dei registri
+### <a name="log-correlation"></a>Correlazione log
 
 OpenCensus Python consente di correlare i log aggiungendo un ID traccia, un ID span e un flag di campionamento ai record di log. Per aggiungere questi attributi, installare OpenCensus [Logging Integration](https://pypi.org/project/opencensus-ext-logging/). Gli attributi seguenti verranno aggiunti agli oggetti Python `LogRecord`: `traceId`, `spanId`e `traceSampled`. Si noti che questa operazione ha effetto solo per i logger creati dopo l'integrazione.
 

@@ -1,18 +1,15 @@
 ---
 title: Informazioni sul funzionamento del processo di migrazione automatica per gli avvisi classici di monitoraggio di Azure
 description: Informazioni sul funzionamento del processo di migrazione automatica.
-author: snehithm
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: e0ac349554fa580c4ac88b26e76d0bea1ecf738b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8df83439d6754440648688ac1cc36ff66556a4e4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932717"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668248"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Informazioni sul processo di migrazione automatica per le regole di avviso classiche
 

@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c715b2328f66c58fa744235c8762b31fd0b30d1f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923608"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669490"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gestire le risorse di calcolo in Azure SQL Data Warehouse
 Informazioni sulla gestione delle risorse di calcolo in Azure SQL Data Warehouse. Ridurre i costi sospendendo il data warehouse o ridimensionare il data warehouse per soddisfare le esigenze in termini di prestazioni. 
@@ -31,7 +31,7 @@ Per le procedure per la scalabilità orizzontale, vedere le guide introduttive a
 
 Per eseguire un'operazione di ridimensionamento, SQL Data Warehouse interrompe prima tutte le query in ingresso e quindi esegue il rollback delle transazioni per garantire uno stato coerente. Il ridimensionamento ha effetto solo quando il rollback della transazione è completato. Per un'operazione di ridimensionamento, il sistema disconnette il livello di archiviazione dai nodi di calcolo, aggiunge nodi di calcolo e quindi ricollega il livello di archiviazione a quello di calcolo. Ogni data warehouse viene archiviato come 60 distribuzioni, uniformemente distribuite ai nodi di calcolo. L'aggiunta di più nodi di calcolo determina un aumento della potenza di calcolo. Con l'aumento del numero di nodi di calcolo si riduce il numero di distribuzioni per ogni nodo di calcolo, con un conseguente incremento della potenza di calcolo per le query. In modo analogo, la diminuzione delle unità di data warehouse riduce il numero di nodi di calcolo e di conseguenza le risorse di calcolo per le query.
 
-La tabella seguente illustra come il numero di distribuzioni per nodo di calcolo si modifica in base alla modifica delle unità di data warehouse.  DWU6000 fornisce 60 nodi di calcolo e consente di ottenere prestazioni delle query molto più elevate di DWU100. 
+La tabella seguente illustra come il numero di distribuzioni per nodo di calcolo si modifica in base alla modifica delle unità di data warehouse.  DW30000c fornisce 60 nodi di calcolo e ottiene prestazioni di query molto più elevate rispetto a DW100c. 
 
 | Unità di data warehouse  | \# di nodi di calcolo | \# di distribuzioni per nodo |
 | -------- | ---------------- | -------------------------- |
@@ -114,7 +114,7 @@ Ogni operazione di scalabilità orizzontale, sospensione e ripresa può richiede
 Per verificare lo stato del data warehouse, vedere le guide introduttive a [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) oppure a [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). È anche possibile verificare lo stato del data warehouse con un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor), in particolare Microsoft.Sql/servers/databases/action.
 

@@ -1,18 +1,15 @@
 ---
 title: Schema di avviso comune per gli avvisi di monitoraggio di Azure
 description: Informazioni sullo schema di avviso comune, perché è consigliabile usarlo e come abilitarlo
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: ff5c0d96bd4bc87f36a69ca7e8014e118ac7b7bf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552464"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668180"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
@@ -36,8 +33,8 @@ Lo schema di avviso comune si manifesterà principalmente nelle notifiche di avv
 
 | Azione | Miglioramenti|
 |:---|:---|
-| SMS | Un modello SMS coerente per tutti i tipi di avviso. |
-| Indirizzo di posta elettronica | Un modello di posta elettronica coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti profondi incorporati all'istanza di avviso nel portale e la risorsa interessata assicurano che sia possibile passare rapidamente al processo di correzione. |
+| sms | Un modello SMS coerente per tutti i tipi di avviso. |
+| Email | Un modello di posta elettronica coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti profondi incorporati all'istanza di avviso nel portale e la risorsa interessata assicurano che sia possibile passare rapidamente al processo di correzione. |
 | Webhook/app per la logica/funzione di Azure/Runbook di automazione | Struttura JSON coerente per tutti i tipi di avviso, che consente di creare facilmente integrazioni tra i diversi tipi di avviso. |
 
 Il nuovo schema consentirà inoltre un'esperienza di utilizzo più approfondita degli avvisi sia nel portale di Azure che nel app per dispositivi mobili di Azure nel futuro immediato. 

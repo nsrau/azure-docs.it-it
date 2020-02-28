@@ -1,18 +1,17 @@
 ---
 title: Raccogliere dati da CollectD in Monitoraggio di Azure | Microsoft Docs
 description: CollectD è un daemon Linux open source che, a intervalli regolari, raccoglie dati dalle applicazioni e informazioni a livello di sistema.  Questo articolo fornisce informazioni sulla raccolta di dati da CollectD in Monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 277e6c9736266b64fd717b719dc740525047ae88
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395880"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670611"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Raccogliere dati da CollectD su agenti Linux in Monitoraggio di Azure
 [CollectD](https://collectd.org/) è un daemon Linux open source che, a intervalli regolari, raccoglie metriche sulle prestazioni dalle applicazioni e informazioni a livello di sistema. Applicazioni di esempio includono Java Virtual Machine (JVM), MySQL Server e Nginx. Questo articolo fornisce informazioni sulla raccolta di dati sulle prestazioni da CollectD in Monitoraggio di Azure.
@@ -109,12 +108,12 @@ Per mantenere un modello comune tra le metriche dell'infrastruttura già raccolt
 | Campo metrica CollectD | Campo di Monitoraggio di Azure |
 |:--|:--|
 | `host` | Computer |
-| `plugin` | Nessuno |
-| `plugin_instance` | Nome dell'istanza<br>Se **plugin_instance** è *null*, InstanceName=" *_Total*" |
+| `plugin` | None |
+| `plugin_instance` | Nome istanza<br>Se **plugin_instance** è *null*, InstanceName=" *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Se **type_instance** è *null*, CounterName=**blank** |
 | `dsnames[]` | CounterName |
-| `dstypes` | Nessuno |
+| `dstypes` | None |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Passaggi successivi

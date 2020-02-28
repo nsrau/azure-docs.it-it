@@ -1,18 +1,17 @@
 ---
 title: Soluzione Gestione di Office 365 in Azure | Microsoft Docs
 description: In questo articolo vengono fornite informazioni dettagliate sulla configurazione e l'uso della soluzione Office 365 in Azure.  Include una descrizione dettagliata dei record di Office 365 creati in Monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: 96d0124941f9f2daa1e1b2d1d254b0b767ffb395
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 0018ae55ab74e691577a34a397c15355587e0fac
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111558"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663258"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -274,7 +273,7 @@ Le proprietà seguenti sono comuni a tutti i record di Office 365.
 | ResultStatus | Indica se l'azione (specificata nella proprietà Operation) è andata a buon fine o meno. I possibili valori sono Succeeded, PartiallySucceded o Failed. Per le attività dell'amministratore di Exchange, il valore è True o False. |
 | UserId | Il nome UPN (User Principal Name) dell'utente che ha eseguito l'azione ha generato la registrazione del record, ad esempio my_name@my_domain_name. Si noti che sono inclusi anche i record per l'attività eseguita dall'account di sistema (ad esempio SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un ID alternativo per l'utente identificato con la proprietà UserId.  Ad esempio, questa proprietà viene popolata con l'ID univoco passport (PUID) per gli eventi eseguiti dagli utenti in SharePoint, OneDrive for Business ed Exchange. Questa proprietà può inoltre specificare lo stesso valore della proprietà UserID per gli eventi che si verificano in altri servizi ed eventi eseguiti dall'account di sistema|
-| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministrativi<br>Applicazione<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>Sistema |
+| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministrativi<br>Applicazione<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Base di Azure Active Directory
@@ -312,7 +311,7 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte agli 
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AADTarget | L'utente su cui è stata eseguita l'azione (identificato dalla proprietà Operation). |
-| Attore | Utente o entità servizio che ha eseguito l'azione. |
+| Actor | Utente o entità servizio che ha eseguito l'azione. |
 | ActorContextId | Il GUID dell'organizzazione a cui appartiene l'attore. |
 | ActorIpAddress | Indirizzo IP dell'attore in formato di indirizzo IPv4 o IPv6. |
 | InterSystemsId | GUID che rileva le azioni nei vari componenti all'interno del servizio di Office 365. |
@@ -365,7 +364,7 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte alle 
 | ClientMachineName | Nome del computer che ospita il client di Outlook. |
 | ClientProcessName | Il client di posta elettronica usato per accedere alla cassetta postale. |
 | ClientVersion | Versione del client di posta elettronica. |
-| InternalLogonType | Riservato per utilizzo interno. |
+| InternalLogonType | Riservato a un uso interno. |
 | Logon_Type | Indica il tipo di utente che ha eseguito l'accesso alla cassetta postale e ha compiuto l'operazione che è stata registrata. |
 | LogonUserDisplayName |    Il nome descrittivo dell'utente che ha eseguito l'operazione. |
 | LogonUserSid | L'ID di sicurezza dell'utente che ha eseguito l'operazione. |
@@ -405,8 +404,8 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte ai gr
 | DestMailboxOwnerSid | Impostare solo se il parametro CrossMailboxOperations è True. Specifica l'ID di sicurezza della cassetta postale di destinazione. |
 | DestMailboxOwnerUPN | Impostare solo se il parametro CrossMailboxOperations è True. Specifica il nome UPN del proprietario della cassetta postale di destinazione. |
 | DestFolder | La cartella di destinazione per operazioni quali Sposta. |
-| Cartella | La cartella in cui si trova un gruppo di elementi. |
-| Cartelle |     Informazioni sulle cartelle di origine coinvolte in un'operazione; ad esempio, se le cartelle vengono selezionate e quindi eliminate. |
+| Folder | La cartella in cui si trova un gruppo di elementi. |
+| Folders |     Informazioni sulle cartelle di origine coinvolte in un'operazione; ad esempio, se le cartelle vengono selezionate e quindi eliminate. |
 
 
 ### <a name="sharepoint-base"></a>Base SharePoint

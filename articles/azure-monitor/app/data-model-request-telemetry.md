@@ -1,19 +1,15 @@
 ---
 title: Modello di dati per la telemetria delle richieste-applicazione Azure Insights
 description: Modello di dati di Application Insights per la telemetria delle richieste
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: b253a95a39f118efe82e36ac7261a4d6c62a99d6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928845"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671903"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria delle richieste: modello di dati di Application Insights
 
@@ -21,7 +17,7 @@ In [Application Insights](../../azure-monitor/app/app-insights-overview.md), un 
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
-## <a name="name"></a>name
+## <a name="name"></a>Name
 
 Il nome della richiesta rappresenta il percorso di codice intrapreso per elaborare la richiesta. Un valore di cardinalità basso consente di raggruppare meglio le richieste. Per le richieste HTTP, rappresenta il metodo HTTP e un modello di percorso URL, ad esempio `GET /values/{id}`, senza il valore di `id` effettivo.
 
@@ -35,19 +31,19 @@ Identificatore dell'istanza di una chiamata di richiesta. Usato per la correlazi
 
 Lunghezza massima: 128 caratteri
 
-## <a name="url"></a>Url
+## <a name="url"></a>URL
 
 URL della richiesta con tutti i parametri di stringa di query.
 
 Lunghezza massima: 2048 caratteri
 
-## <a name="source"></a>Source (Sorgente)
+## <a name="source"></a>Origine
 
 Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 
 Lunghezza massima: 1024 caratteri
 
-## <a name="duration"></a>Duration
+## <a name="duration"></a>Durata
 
 Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere un valore positivo e inferiore a `1000` giorni. Questo campo è obbligatorio in quanto la telemetria delle richieste rappresenta l'operazione con un inizio e una fine.
 

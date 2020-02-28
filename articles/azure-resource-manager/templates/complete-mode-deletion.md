@@ -2,13 +2,13 @@
 title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 80d2ee356e3bc15a178862c453bf7f1ab8d66c77
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207809"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664407"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -141,7 +141,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft. SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
@@ -297,6 +296,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | automationAccounts | Sì |
 > | automationAccounts/configurazioni | Sì |
 > | automationAccounts/processi | No |
+> | automationAccounts/privateEndpointConnectionProxies | No |
+> | automationAccounts/privateEndpointConnections | No |
+> | automationAccounts/privateLinkResources | No |
 > | automationAccounts/manuali operativi | Sì |
 > | automationAccounts/softwareUpdateConfigurations | No |
 > | automationAccounts/webhook | No |
@@ -716,6 +718,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | registri/importImage | No |
 > | registri/privateEndpointConnectionProxies | No |
 > | registri/privateEndpointConnectionProxies/convalida | No |
+> | registri/privateEndpointConnections | No |
 > | registri/privateLinkResources | No |
 > | registri/queueBuild | No |
 > | registri/regenerateCredential | No |
@@ -1057,6 +1060,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | partnerNamespaces/eventChannels | No |
 > | partnerRegistrations | Sì |
 > | partnerTopics | Sì |
+> | partnerTopics/eventSubscriptions | No |
 > | systemTopics | Sì |
 > | systemTopics/eventSubscriptions | No |
 > | argomenti | Sì |
@@ -1293,6 +1297,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | getEntities | No |
 > | managementGroups | No |
+> | managementGroups/impostazioni | No |
 > | risorse | No |
 > | startTenantBackfill | No |
 > | tenantBackfillStatus | No |
@@ -1554,6 +1559,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | legacyPeerings | No |
 > | peerAsns | No |
 > | peering | Sì |
+> | peeringServiceCountries | No |
 > | peeringServiceProviders | No |
 > | peeringServices | Sì |
 
@@ -1678,13 +1684,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- |
 > | applicazioni | Sì |
 > | saasresources | No |
-
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Eliminazione in modalità completa |
-> | ------------- | ----------- |
-> | jobcollections | Sì |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2015,6 +2014,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | devices | Sì |
+> | registeredSubscriptions | No |
 > | fornitori | No |
 > | fornitori/SKU | No |
 > | fornitori/vnfs | No |

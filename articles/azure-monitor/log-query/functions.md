@@ -1,18 +1,17 @@
 ---
 title: Funzioni nelle query di log di Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo descrive come usare le funzioni per chiamare una query da un'altra query di log in Monitoraggio di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
-ms.openlocfilehash: 8d8473b88327d3d17346a0351d0a9fc510152cd8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7d94e53abbe8f4d2953729aa2363c3906ce94f74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894183"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670220"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso delle funzioni nelle query di log di Monitoraggio di Azure
 
@@ -22,12 +21,12 @@ Per usare una query di log con un'altra query è possibile salvarla come funzion
 
 Per creare una funzione con Log Analytics nel portale di Azure, fare clic su **Salva** e quindi fornire le informazioni riportate nella tabella seguente.
 
-| Impostazione | Description |
+| Impostazione | Descrizione |
 |:---|:---|
-| name           | Nome visualizzato della query in **Esplora Query**. |
+| Name           | Nome visualizzato della query in **Esplora Query**. |
 | Salva con nome        | Funzione |
 | Alias della funzione | Nome breve per usare la funzione in altre query. Non può contenere spazi e deve essere univoco. |
-| Categoria       | Una categoria per organizzare le funzioni e le query salvate in **Esplora Query**. |
+| Category       | Una categoria per organizzare le funzioni e le query salvate in **Esplora Query**. |
 
 > [!NOTE]
 > Una funzione in Monitoraggio di Azure non può contenere un'altra funzione.

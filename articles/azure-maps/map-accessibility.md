@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209784"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672464"
 ---
 # <a name="building-an-accessible-application"></a>Compilazione di un'applicazione accessibile
 
@@ -32,9 +32,11 @@ Azure Maps Web SDK è precompilato con numerose funzionalità di accessibilità,
 I dettagli completi sulla conformità dell'accessibilità per tutti i prodotti Microsoft sono disponibili [qui](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Cercare "Azure Maps web" per trovare il documento specifico per Azure Maps Web SDK. 
 
 ## <a name="navigating-the-map"></a>Esplorazione della mappa
+
 Esistono diversi modi in cui è possibile eseguire lo zoom, la panoramica, la rotazione e il pitch della mappa. Di seguito vengono descritti in dettaglio tutti i modi per esplorare la mappa.
 
 **Zoom della mappa**
+
 - Utilizzando un mouse, fare doppio clic sulla mappa per ingrandire un livello.
 - Utilizzando un mouse, scorrere la rotellina per ingrandire la mappa.
 - Utilizzando un touch screen, toccare la mappa con due dita e pizzicare insieme per eseguire lo zoom indietro o dividere le dita per eseguire lo zoom avanti.
@@ -45,23 +47,46 @@ Esistono diversi modi in cui è possibile eseguire lo zoom, la panoramica, la ro
 - Premere e tenere premuto il pulsante `Shift` e premere il pulsante sinistro del mouse sulla mappa e trascinare per creare un'area in cui ingrandire la mappa.
 
 **Panoramica della mappa**
+
 - Con il mouse, premere il pulsante sinistro del mouse sulla mappa e trascinare in qualsiasi direzione.
 - Utilizzando un touchscreen, toccare la mappa e trascinarla in qualsiasi direzione.
 - Con lo stato attivo della mappa, utilizzare i tasti di direzione per spostare la mappa.
 
 **Ruotare la mappa**
+
 - Con il mouse, premere il pulsante destro del mouse sulla mappa e trascinare verso sinistra o verso destra. 
 - Utilizzando un touchscreen, toccare la mappa con due dita e ruotare.
 - Con lo stato attivo della mappa, utilizzare il tasto MAIUSC e i tasti freccia sinistra o destra.
 - Uso del controllo di rotazione con i tasti di scelta del mouse, di tocco o di tastiera/invio.
 
 **Pitch mappa**
+
 - Usando il mouse, premere il pulsante destro del mouse sulla mappa e trascinare verso l'alto o verso il basso. 
 - Utilizzando un touchscreen, toccare la mappa con due dita e trascinarle insieme.
 - Con lo stato attivo della mappa, utilizzare il tasto MAIUSC più i tasti freccia su o giù. 
 - Utilizzando il controllo pitch con un mouse, un tocco o una scheda tastiera/invio.
 
-**Modificare lo stile della mappa** Non tutti gli sviluppatori desiderano che tutti gli stili della mappa siano disponibili nell'applicazione. Lo sviluppatore può impostare e modificare a livello di codice lo stile della mappa. Se lo sviluppatore Visualizza il controllo selezione stile della mappa, l'utente può modificare lo stile della mappa utilizzando il mouse, un tocco o la tastiera con la scheda o il tasto INVIO. Lo sviluppatore può specificare gli stili della mappa che si desidera rendere disponibili nel controllo selezione stile mappa. 
+## <a name="change-the-map-style"></a>Modificare lo stile della mappa
+
+Non tutti gli sviluppatori desiderano che tutti gli stili della mappa siano disponibili nell'applicazione. Se lo sviluppatore Visualizza il controllo selezione stile della mappa, l'utente può modificare lo stile della mappa utilizzando il mouse, un tocco o la tastiera con la scheda o il tasto INVIO. Lo sviluppatore può specificare gli stili della mappa che si desidera rendere disponibili nel controllo selezione stile mappa. Inoltre, lo sviluppatore può impostare e modificare a livello di codice lo stile della mappa.
+
+**Usa contrasto elevato**
+
+- Quando il controllo mappa viene caricato, verifica se è abilitato un contrasto elevato e il browser lo supporta.
+- Il controllo mappa non monitora la modalità a contrasto elevato del dispositivo. Se la modalità del dispositivo viene modificata, la mappa non lo è. L'utente dovrà quindi ricaricare la mappa aggiornando la pagina.
+- Quando viene rilevato un contrasto elevato, lo stile della mappa passa automaticamente al contrasto elevato e tutti i controlli predefiniti utilizzeranno uno stile a contrasto elevato. Ad esempio, ZoomControl, PitchControl, CompassControl, StyleControl e altri controlli predefiniti utilizzeranno uno stile a contrasto elevato.
+- Ci sono due tipi di contrasto elevato, chiaro e scuro. Se il tipo di contrasto elevato può essere rilevato dai controlli della mappa, il comportamento della mappa viene modificato di conseguenza. Se chiaro, viene caricato lo stile della mappa grayscale_light. Se il tipo non può essere rilevato o è scuro, lo stile del high_contrast_dark verrà caricato.
+- Se si creano controlli personalizzati, è utile verificare se i controlli incorporati utilizzano uno stile a contrasto elevato. Gli sviluppatori possono aggiungere una classe CSS sul div del contenitore della mappa da controllare. Le classi CSS da aggiungere sono `high-contrast-dark` e `high-contrast-light`. Per controllare l'uso di JavaScript, usare:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-dark")
+```
+
+in alternativa, usare:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-light")
+```
 
 ## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida
 

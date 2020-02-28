@@ -1,23 +1,21 @@
 ---
 title: Abilitare Snapshot Debugger per le app .NET in Azure Service Fabric, servizio cloud e macchine virtuali | Microsoft Docs
 description: Abilitare Snapshot Debugger per le app .NET in Azure Service Fabric, servizio cloud e macchine virtuali
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 98ceeeb8efb11e2caeffadeb48270c419cc7e430
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899804"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671343"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Abilitare Snapshot Debugger per le app .NET in Azure Service Fabric, servizio cloud e macchine virtuali
 
-Se l'applicazione ASP.NET o ASP.NET Core viene eseguita nel servizio app Azure, è consigliabile [abilitare snapshot debugger tramite la pagina del portale di Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Tuttavia, se l'applicazione richiede una configurazione di Snapshot Debugger personalizzata o una versione di anteprima di .NET Core, questa istruzione deve essere seguita ***oltre*** alle istruzioni per l' [Abilitazione tramite il portale di Application Insights pagina](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Se l'applicazione ASP.NET o ASP.NET Core viene eseguita nel servizio app Azure, è consigliabile [abilitare snapshot debugger tramite la pagina del portale di Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Tuttavia, se l'applicazione richiede una configurazione di Snapshot Debugger personalizzata o una versione di anteprima di .NET Core, questa istruzione deve essere seguita ***oltre*** alle istruzioni per l' [Abilitazione tramite la pagina del portale di Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 Se l'applicazione è in esecuzione in Service Fabric di Azure, in un servizio cloud, in macchine virtuali o in computer locali, è necessario usare le istruzioni seguenti. 
     

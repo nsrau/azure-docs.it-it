@@ -1,18 +1,16 @@
 ---
 title: Usare Application Insights per monitorare il servizio Azure Kubernetes (AKS) o altre applicazioni ospitate in Kubernetes-monitoraggio di Azure | Microsoft Docs
 description: Monitoraggio di Azure usa la tecnologia mesh di servizi, Istio, nel cluster Kubernetes per fornire il monitoraggio delle applicazioni per qualsiasi applicazione ospitata in Kubernetes. In questo modo è possibile raccogliere Application Insights la telemetria relativa alle richieste in ingresso e in uscita verso e da Pod in esecuzione nel cluster.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15c75d4add9615df6c42aa6121557659e54354d0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432516"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666787"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Monitoraggio dell'applicazione con zero strumentazione per applicazioni ospitate in Kubernetes
 
@@ -129,7 +127,7 @@ Di seguito è riportato il flusso di risoluzione dei problemi da usare quando i 
    ```
    Cercare eventuali errori, in particolare per quanto riguarda le comunicazioni con l'adattatore *applicationinsightsadapter* .
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 Per le informazioni più aggiornate per lo stato di avanzamento del progetto, visitare il [Application Insights Adapter per il progetto Istio mixer per GitHub](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
