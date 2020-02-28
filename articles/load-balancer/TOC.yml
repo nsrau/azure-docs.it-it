@@ -150,7 +150,7 @@
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn
-      href: /learn/browse/?products=azure-virtual-machines
+      href: /learn/browse/?products=azure-load-balancer
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Feedback su Azure Load Balancer

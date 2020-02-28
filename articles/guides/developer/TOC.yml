@@ -3,7 +3,7 @@
     - name: Guida per sviluppatori
       href: azure-developer-guide.md
     - name: SDK e strumenti
-      href: 'https://docs.microsoft.com/azure/index#pivot=sdkstools'
+      href: 'https://aka.ms/azsdkpackages'
 - name: Guida introduttiva
   items:
     - name: App Web
@@ -160,7 +160,7 @@
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss'
         - name: Ridimensionare una macchina virtuale Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss'
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/'
