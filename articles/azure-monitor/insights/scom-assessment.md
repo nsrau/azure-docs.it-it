@@ -1,18 +1,17 @@
 ---
 title: Ottimizzare l'ambiente System Center Operations Manager con Azure Log Analytics |Microsoft Docs
 description: È possibile usare la soluzione Controllo integrità System Center Operations Manager per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8add2acb8f263c54f6014699f792380d256d9b0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402858"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663471"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -58,7 +57,7 @@ La soluzione Controllo integrità di System Center Operations Manager raccoglie 
 * Registro
 * Strumentazione gestione Windows (WMI, Windows Management Instrumentation)
 * Registro eventi
-* Dati dei file
+* Dati di file
 * Direttamente da Operations Manager usando PowerShell e le query SQL, da un server di gestione specificato.  
 
 I dati vengono raccolti nel server di gestione e inoltrati a Log Analytics ogni sette giorni.  
@@ -180,9 +179,9 @@ A ogni raccomandazione generata viene assegnato un valore di ponderazione che id
 
 Le ponderazioni sono valori aggregati che si basano su tre fattori chiave:
 
-- La *probabilità* che un problema identificato causi inconvenienti. Una probabilità più elevata equivale a un punteggio complessivamente maggiore per la raccomandazione.
-- L' *impatto* del problema per l'organizzazione se causa effettivamente un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
-- Il *lavoro* richiesto per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
+- *Probabilità* che un problema identificato sia causa di problemi. Una probabilità più elevata equivale a un punteggio complessivamente maggiore per la raccomandazione.
+- *Impatto* del problema per l'organizzazione se è effettivamente causa di un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
+- *Lavoro richiesto* per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
 
 La ponderazione per ogni raccomandazione è espressa come percentuale del punteggio totale disponibile per ogni area di interesse. Se ad esempio una raccomandazione nell'area di interesse Disponibilità e continuità aziendale ha un punteggio pari al 5%, l'implementazione della raccomandazione aumenterà del 5% il punteggio complessivo di quell'area.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a65f20e04603403a1d3a180e364626d5b4440661
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208285"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664508"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -52,7 +52,7 @@ Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte alle immagini del satellite e aeree.
 
-![stile mappa satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
+![stile mappa satellite_road_labels](./media/supported-map-styles/satellite-road-labels.png)
 
 **API idonee:**
 * Controllo mappa Web SDK
@@ -61,7 +61,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ## <a name="grayscale_dark"></a>grayscale_dark
 **gradazioni di grigio scuro** è una versione scura dello stile della mappa stradale.
 
-![stile mappa gray_scale](./media/supported-map-styles/grayscale_dark.png)
+![stile mappa gray_scale](./media/supported-map-styles/grayscale-dark.png)
 
 **API idonee:**
 * [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ## <a name="grayscale_light"></a>grayscale_light
 la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 
-![stile mappa chiaro in scala di grigi](./media/supported-map-styles/grayscale_light.png)
+![stile mappa chiaro in scala di grigi](./media/supported-map-styles/grayscale-light.png)
 
 **API idonee:**
 * Controllo mappa Web SDK
@@ -99,6 +99,14 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 * Controllo mappa Web SDK
 * Controllo mappa Android
 
+## <a name="high_contrast_dark"></a>high_contrast_dark
+
+**high_contrast_dark** è uno stile di mappa scuro con un contrasto maggiore rispetto agli altri stili.
+
+![stile mappa scura a contrasto elevato](./media/supported-map-styles/high-contrast-dark.png)
+
+**API idonee:**
+* Controllo mappa Web SDK
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,18 +1,17 @@
 ---
 title: Inventario delle soluzioni di monitoraggio in Azure | Microsoft Docs
 description: Le soluzioni di monitoraggio in Monitoraggio di Azure sono una raccolta di regole logiche, di visualizzazione e di acquisizione dei dati che forniscono metriche relative a un'area problematica specifica.  Questo articolo fornisce un elenco delle soluzioni di monitoraggio disponibili in Microsoft e i dettagli relativi al metodo e alla frequenza della raccolta dei dati.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 9b0140b843d7da1b892463bff7d6014a3f9584ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402013"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663131"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Dettagli sull'inventario e sulla raccolta dei dati per le soluzioni di monitoraggio in Azure
 Le [soluzioni di monitoraggio](solutions.md) sfruttano i servizi in Azure per fornire informazioni aggiuntive sul funzionamento di un'applicazione o un servizio specifico. Le soluzioni di monitoraggio raccolgono in genere log di dati e offrono query e visualizzazioni per l'analisi dei dati raccolti. È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili gratuitamente, ma la raccolta dati potrebbe implicare addebiti per l'utilizzo.
@@ -39,36 +38,36 @@ L'elenco seguente include le spiegazioni per le colonne:
 | **Soluzione di monitoraggio** | **Piattaforma** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente di Operations Manager inviati tramite il gruppo di gestione** | **Frequenza di raccolta** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Analisi log attività](../platform/activity-log-collect.md) | Azure | | | | | | su notifica |
-| [Valutazione di AD](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 giorni |
-| [Stato della replica di AD](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 giorni |
+| [Valutazione di AD](ad-assessment.md) |WINDOWS |&#8226; |&#8226; | | |&#8226; |7 giorni |
+| [Stato della replica di AD](ad-replication-status.md) |WINDOWS |&#8226; |&#8226; | | |&#8226; |5 giorni |
 | [Integrità agente](solution-agenthealth.md) | Windows e Linux | &#8226; | &#8226; | | | &#8226; | 1 minuto |
 | [Alert Management](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |all'arrivo |
 | [Alert Management](../platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
-| [Gestione avvisi](../platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minuti |
-| [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | N/D |
+| [Gestione avvisi](../platform/alert-management-solution.md) (Operations Manager) |WINDOWS | |&#8226; | |&#8226; |&#8226; |3 minuti |
+| [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/d |
 | [Connettore di Application Insights (Deprecato)](../platform/app-insights-connector.md) | Azure | | | |  |  | su notifica |
-| [Ruolo di lavoro ibrido per runbook di Automazione](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | N/D |
+| [Ruolo di lavoro ibrido per runbook di Automazione](../../automation/automation-hybrid-runbook-worker.md) | WINDOWS | &#8226; | &#8226; |  |  |  | n/d |
 | [Analisi dei gateway applicazione di Azure](azure-networking-analytics.md) | Azure |  |  |  |  |  | su notifica |
 | **Soluzione di monitoraggio** | **Piattaforma** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente di Operations Manager inviati tramite il gruppo di gestione** | **Frequenza di raccolta** |
 | [Analisi gruppo di sicurezza di rete di Azure](azure-networking-analytics.md) | Azure |  |  |  |  |  | su notifica |
-| [Azure SQL Analytics (Anteprima)](azure-sql.md) | Windows | | | | | | 1 minuto |
+| [Azure SQL Analytics (Anteprima)](azure-sql.md) | WINDOWS | | | | | | 1 minuto |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | su notifica |
-| [Capacità e prestazioni (anteprima)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |all'arrivo |
-| [Rilevamento delle modifiche](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [Capacità e prestazioni (anteprima)](capacity-performance.md) |WINDOWS |&#8226; |&#8226; | | |&#8226; |all'arrivo |
+| [Rilevamento delle modifiche](../../automation/change-tracking.md) |WINDOWS |&#8226; |&#8226; | | |&#8226; |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [Rilevamento delle modifiche](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [Contenitori](containers.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 3 minuti |
-| [Analisi dell'insieme di credenziali delle chiavi](azure-key-vault.md) |Windows | | | | | |su notifica |
-| [Valutazione di malware](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |Ogni ora |
-| [Monitoraggio delle prestazioni di rete](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP esegue handshake ogni 5 secondi e i dati vengono inviati ogni 3 minuti |
-| [Analisi Office 365 (anteprima)](solution-office-365.md) |Windows | | | | | |su notifica |
+| [Analisi dell'insieme di credenziali delle chiavi](azure-key-vault.md) |WINDOWS | | | | | |su notifica |
+| [Valutazione di malware](../../security-center/security-center-install-endpoint-protection.md) |WINDOWS |&#8226; |&#8226; | | |&#8226; |Ogni ora |
+| [Monitoraggio delle prestazioni di rete](network-performance-monitor.md) | WINDOWS | &#8226; | &#8226; |  |  |  | TCP esegue handshake ogni 5 secondi e i dati vengono inviati ogni 3 minuti |
+| [Analisi Office 365 (anteprima)](solution-office-365.md) |WINDOWS | | | | | |su notifica |
 | **Soluzione di monitoraggio** | **Piattaforma** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente di Operations Manager inviati tramite il gruppo di gestione** | **Frequenza di raccolta** |
-| [Analisi di Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuti |
+| [Analisi di Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |WINDOWS | | |&#8226; | | |5 minuti |
 | [Elenco dei servizi](service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 5 secondi |
-| [SQL Assessment](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 giorni |
-| [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |all'arrivo |
-| [Valutazione System Center Operations Manager (anteprima)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7 giorni |
-| [Gestione degli aggiornamenti](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |almeno 2 volte al giorno e 15 minuti dopo l'installazione di un aggiornamento |
-| [Preparazione dell'aggiornamento](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 giorni |
+| [SQL Assessment](sql-assessment.md) |WINDOWS |&#8226; |&#8226; | | |&#8226; |7 giorni |
+| [SurfaceHub](surface-hubs.md) |WINDOWS |&#8226; | | | | |all'arrivo |
+| [Valutazione System Center Operations Manager (anteprima)](scom-assessment.md) | WINDOWS | &#8226; | &#8226; |  |  | &#8226; | 7 giorni |
+| [Gestione degli aggiornamenti](../../automation/automation-update-management.md) | WINDOWS |&#8226; |&#8226; | | |&#8226; |almeno 2 volte al giorno e 15 minuti dopo l'installazione di un aggiornamento |
+| [Preparazione dell'aggiornamento](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | WINDOWS | &#8226; |  |  |  |  | 2 giorni |
 | [Monitoraggio VMware (deprecato)](vmware.md) | Linux | &#8226; |  |  |  |  | 3 minuti |
 | [Wire Data 2.0 (anteprima)](wire-data.md) |Windows (2012 R2/8.1 o versioni successive) |&#8226; |&#8226; | | | | 1 minuto |
 

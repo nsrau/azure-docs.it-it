@@ -1,18 +1,14 @@
 ---
 title: Esportare in SQL da Azure Application Insights | Documentazione Microsoft
 description: Eseguire l'esportazione continua dei dati Application Insights in SQL tramite l'analisi di flusso.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2017
-ms.openlocfilehash: 41efcbc7b70395302858638a9f44f3cbba27bf9a
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678275"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663676"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [applicazione Azure Insights][start] in un database SQL di Azure usando l' [esportazione continua][export] e [analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -25,8 +21,8 @@ Si inizierà dal presupposto che si abbia già l'app che si vuole monitorare.
 
 In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma gli stessi criteri possono essere estesi facilmente ad altri tipi di dati, ad esempio eccezioni ed eventi personalizzati. 
 
-## <a name="add-application-insights-to-your-application"></a>Aggiunta di Application Insights all'applicazione
-Per iniziare:
+## <a name="add-application-insights-to-your-application"></a>Aggiungere Application Insights all'applicazione
+Attività iniziali
 
 1. [Installare Application Insights per le pagine Web](../../azure-monitor/app/javascript.md). 
    

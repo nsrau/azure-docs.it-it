@@ -1,18 +1,17 @@
 ---
 title: Raccogliere e analizzare i contatori delle prestazioni in Monitoraggio di Azure| Microsoft Docs
 description: I contatori delle prestazioni vengono raccolti da Monitoraggio di Azure per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nell'area di lavoro, e come analizzarli nel portale di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363830"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670543"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
 I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagliate sulle prestazioni di componenti hardware, sistemi operativi e applicazioni.  Monitoraggio di Azure può raccogliere i contatori delle prestazioni a intervalli frequenti per l'analisi NRT (Near Real Time) e l'aggregazione di dati sulle prestazioni per l'analisi e la creazione di report a più lungo termine.
@@ -26,7 +25,7 @@ Quando si configurano per la prima volta i contatori delle prestazioni di Window
 
 Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza specifica per ogni contatore delle prestazioni. Per i contatori delle prestazioni di Linux, l'istanza di ogni contatore scelto viene applicata a tutti i contatori figlio del contatore padre. La tabella seguente illustra le istanze comuni disponibili ai contatori delle prestazioni di Linux e Windows.
 
-| Nome dell'istanza | Description |
+| Nome istanza | Descrizione |
 | --- | --- |
 | \_Totale |Totale di tutte le istanze |
 | \* |Tutte le istanze |
@@ -61,7 +60,7 @@ Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Lin
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurare i contatori delle prestazioni di Linux nel file di configurazione
 Anziché usare il portale di Azure per configurare i contatori delle prestazioni di Linux, è possibile modificare i file di configurazione direttamente nell'agente di Linux.  Le metriche delle prestazioni da raccogliere sono controllate dalla configurazione in **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
 
-Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve essere definito nel file di configurazione come singolo elemento `<source>` . La sintassi segue il modello seguente.
+Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve essere definito nel file di configurazione come singolo elemento `<source>` . La sintassi segue lo schema riportato di seguito.
 
     <source>
       type oms_omi  
@@ -74,7 +73,7 @@ Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve es
 
 I parametri di questo elemento sono descritti nella tabella seguente.
 
-| Parametri | Description |
+| Parametri | Descrizione |
 |:--|:--|
 | object\_name | Nome dell'oggetto per la raccolta. |
 | instance\_regex |  *Espressione regolare* che definisce le istanze da raccogliere. Il valore `.*` specifica tutte le istanze. Per raccogliere le metriche del processore solo per l'istanza \_Total, è possibile specificare `_Total`. Per raccogliere le metriche del processore solo per le istanze crond o sshd, è possibile specificare `(crond\|sshd)`. |
@@ -86,59 +85,59 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 
 | Nome oggetto | Nome contatore |
 |:--|:--|
-| Logical Disk | % Free Inodes |
-| Logical Disk | % Free Space |
-| Logical Disk | % Used Inodes |
-| Logical Disk | % Used Space |
-| Logical Disk | Byte letti da disco/sec |
-| Logical Disk | Letture disco/sec |
-| Logical Disk | Disk Transfers/sec |
-| Logical Disk | Byte scritti su disco/sec |
-| Logical Disk | Scritture disco/sec |
-| Logical Disk | Free Megabytes |
-| Logical Disk | Logical Disk Bytes/sec |
+| Disco logico | % Free Inodes |
+| Disco logico | % di spazio libero |
+| Disco logico | % Used Inodes |
+| Disco logico | % Used Space |
+| Disco logico | Byte letti da disco/sec |
+| Disco logico | Letture da disco/sec |
+| Disco logico | Disk Transfers/sec |
+| Disco logico | Byte scritti su disco/sec |
+| Disco logico | Disk Writes/sec |
+| Disco logico | Free Megabytes |
+| Disco logico | Logical Disk Bytes/sec |
 | Memoria | % Available Memory |
 | Memoria | % Available Swap Space |
 | Memoria | % Used Memory |
 | Memoria | % Used Swap Space |
 | Memoria | Available MBytes Memory |
 | Memoria | Available MBytes Swap |
-| Memoria | Page Reads/sec |
-| Memoria | Page Writes/sec |
+| Memoria | Letture pagina/sec |
+| Memoria | Scritture pagina/sec |
 | Memoria | Pages/sec |
 | Memoria | Used MBytes Swap Space |
 | Memoria | Used Memory MBytes |
 | Rete | Total Bytes Transmitted |
 | Rete | Total Bytes Received |
-| Rete | Total Bytes |
+| Rete | Totale byte |
 | Rete | Total Packets Transmitted |
 | Rete | Total Packets Received |
 | Rete | Total Rx Errors |
 | Rete | Total Tx Errors |
 | Rete | Total Collisions |
-| Physical Disk | Media letture disco/sec |
-| Physical Disk | Media sec/trasferimento disco |
-| Physical Disk | Media scritture disco/sec |
-| Physical Disk | Physical Disk Bytes/sec |
-| Processo | Pct Privileged Time |
-| Processo | Pct User Time |
-| Processo | Used Memory kBytes |
-| Processo | Virtual Shared Memory |
+| Disco fisico | Media letture disco/sec |
+| Disco fisico | Media sec/trasferimento disco |
+| Disco fisico | Media scritture disco/sec |
+| Disco fisico | Physical Disk Bytes/sec |
+| Process | Pct Privileged Time |
+| Process | Pct User Time |
+| Process | Used Memory kBytes |
+| Process | Virtual Shared Memory |
 | Processore | % DPC Time |
-| Processore | % Idle Time |
+| Processore | % Tempo inattività |
 | Processore | % Interrupt Time |
 | Processore | % IO Wait Time |
 | Processore | % Nice Time |
 | Processore | % Privileged Time |
-| Processore | % di tempo processore |
+| Processore | % di tempo del processore |
 | Processore | % User Time |
-| Sistema | Free Physical Memory |
-| Sistema | Free Space in Paging Files |
-| Sistema | Free Virtual Memory |
-| Sistema | Procedure |
-| Sistema | Size Stored In Paging Files |
-| Sistema | Uptime |
-| Sistema | Utenti |
+| System | Free Physical Memory |
+| System | Free Space in Paging Files |
+| System | Free Virtual Memory |
+| System | Processi |
+| System | Size Stored In Paging Files |
+| System | Tempo di attività |
+| System | Utenti |
 
 
 Di seguito è illustrata la configurazione predefinita per le metriche delle prestazioni.
@@ -181,7 +180,7 @@ Monitoraggio di Azure raccoglierà tutti i contatori delle prestazioni specifica
 ## <a name="performance-record-properties"></a>Proprietà dei record delle prestazioni
 Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate nella tabella seguente.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | Computer |Computer da cui è stato raccolto l'evento. |
 | CounterName |Nome del contatore delle prestazioni. |
@@ -200,7 +199,7 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 ## <a name="log-queries-with-performance-records"></a>Query di log con record delle prestazioni
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record delle prestazioni.
 
-| Query | Description |
+| Query | Descrizione |
 |:--- |:--- |
 | Perf |Tutti i dati sulle prestazioni |
 | Perf &#124; where Computer == "MyComputer" |Tutti i dati sulle prestazioni da un computer specifico |

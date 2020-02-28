@@ -1,18 +1,14 @@
 ---
 title: Dashboard panoramica di Azure Application Insights| Microsoft Docs
 description: Monitorare le applicazioni con la funzionalità Dashboard panoramica di Azure Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/03/2019
-ms.openlocfilehash: 45c04cc32733873061bd6ff44b2e5484b106a893
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406647"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669897"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -28,7 +24,7 @@ Il nuovo dashboard panoramica ora avvia per impostazione predefinita:
 
 La selezione dell'intervallo di tempo è stata semplificata in una semplice interfaccia con un solo clic.
 
-![Intervallo di ore](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
+![Intervallo di tempo](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Le prestazioni complessive sono state notevolmente migliorate. È disponibile l'accesso con un clic a funzionalità comuni, ad esempio **Ricerca** e **Analitica**. Ciascun riquadro KPI con aggiornamento dinamico predefinito fornisce informazioni dettagliate sulle funzionalità Application Insights corrispondenti. Per altre informazioni sulle richieste non riuscite, selezionare **Errori** sotto l'intestazione **Analisi**:
 
@@ -40,11 +36,11 @@ Il dashboard delle applicazioni sfrutta la tecnologia del dashboard esistente in
 
 Per accedere al dashboard predefinito selezionare _Dashboard dell'applicazione_ nell'angolo superiore sinistro.
 
-![Visualizzazione dashboard](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Vista dashboard](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Se è la prima volta che si accede al dashboard, verrà avviata una visualizzazione predefinita:
 
-![Visualizzazione dashboard](./media/overview-dashboard/0001-dashboard.png)
+![Vista dashboard](./media/overview-dashboard/0001-dashboard.png)
 
 Se si desidera, è possibile mantenere la visualizzazione predefinita. Oppure è anche possibile aggiungerla ed eliminare dal dashboard per soddisfare al meglio le esigenze del team.
 

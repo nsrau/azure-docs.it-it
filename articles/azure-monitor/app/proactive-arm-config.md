@@ -1,19 +1,17 @@
 ---
 title: Impostazioni delle regole di rilevamento intelligente-applicazione Azure Insights
 description: Automatizzare la gestione e configurazione delle regole di rilevamento intelligente di Azure Application Insights con modelli di Azure Resource Manager
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 3c028a97c2fb554b13035026025437d5331104c2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749046"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669710"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -191,7 +189,7 @@ Di seguito è riportata una tabella dei nomi delle regole di rilevamento intelli
 | Potenziale problema di sicurezza rilevato (anteprima) | extension_securityextensionspackage |
 | Incremento anomalo nel volume giornaliero di dati (anteprima) | extension_billingdatavolumedailyspikeextension |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul rilevamento automatico:
 

@@ -1,18 +1,14 @@
 ---
 title: Contatori di eventi in Application Insights | Microsoft Docs
 description: Monitorare il sistema e i EventCounters .NET/.NET Core personalizzati in Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 5a47f5c2f9c9d4e22e8205853d85214997a2bea7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2094c012e86131073fc66be4f2ac2fb2e81ef4c1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406954"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663590"
 ---
 # <a name="eventcounters-introduction"></a>Introduzione a EventCounters
 
@@ -28,7 +24,7 @@ Application Insights supporta la raccolta `EventCounters` con la relativa `Event
 
 Per le app in esecuzione in .NET Core 3,0, i contatori seguenti vengono raccolti automaticamente dall'SDK. Il nome del contatore avrà il formato "Category | Contatore ".
 
-|Categoria | Contatore|
+|Category | Contatore|
 |---------------|-------|
 |`System.Runtime` | `cpu-usage` |
 |`System.Runtime` | `working-set` |

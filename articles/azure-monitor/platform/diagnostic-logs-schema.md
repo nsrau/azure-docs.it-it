@@ -1,18 +1,15 @@
 ---
 title: Servizi e schemi supportati nei log delle risorse di Azure
 description: Informazioni sui servizi e sullo schema di eventi supportati per i log delle risorse di Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-author: rboucher
-ms.author: robb
-ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120146"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670390"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servizi, schemi e categorie supportati per i log delle risorse di Azure
 
@@ -25,32 +22,32 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 
 ## <a name="top-level-resource-logs-schema"></a>Schema dei log delle risorse di livello superiore
 
-| Nome | Obbligatorio/Facoltativo | Description |
+| Name | Obbligatoria/Facoltativa | Descrizione |
 |---|---|---|
-| time | Obbligatorio | Il timestamp dell’evento (fuso UTC). |
-| resourceId | Obbligatorio | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
+| time | Obbligatoria | Il timestamp dell’evento (fuso UTC). |
+| resourceId | Obbligatoria | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
 | TenantId | Obbligatorio per i log di tenant | L'ID tenant del tenant di Active Directory associato a questo evento. Questa proprietà viene utilizzata solo per i log a livello di tenant, non viene visualizzata nei log a livello di risorsa. |
-| operationName | Obbligatorio | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC, si tratta del nome di operazione RBAC (ad es. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Facoltativo | La versione api associata all'operazione, se operationName è stato eseguito utilizzando un'API (ad es. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se non esiste un'API corrispondente a questa operazione, la versione rappresenta la versione di tale operazione nel caso in cui le proprietà associate all'operazione cambino in futuro. |
-| category | Obbligatorio | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Tipiche categorie di log sono "Controllo" "Operativo" "Esecuzione" e "Richiesta". |
-| resultType | Facoltativo | Lo stato dell'evento. I valori tipici includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
-| resultSignature | Facoltativo | Lo stato secondario dell'evento. Se questa operazione corrisponde a una chiamata API REST, questo è il codice di stato HTTP della chiamata REST corrispondente. |
-| resultDescription | Facoltativo | Il testo statico che descrive questa operazione, ad es. "Recupera file di archiviazione". |
-| durationMs | Facoltativo | La durata dell'operazione in millisecondi. |
-| callerIpAddress | Facoltativo | L'indirizzo IP del chiamante, se l'operazione corrisponde a una chiamata API proveniente da un'entità con un indirizzo IP accessibile al pubblico. |
-| correlationId | Facoltativo | Un GUID utilizzato per raggruppare un set di eventi correlati. In genere, se due eventi hanno lo stesso operationName ma due diversi stati (ad es. "Started" e "Succeeded"), condividono lo stesso ID di correlazione. Ciò può anche rappresentare altre relazioni tra gli eventi. |
-| identità | Facoltativo | Un blob JSON che descrive l'identità dell'utente o dell'applicazione che ha eseguito l'operazione. In genere includerà l'autorizzazione e le attestazioni / token JWT da Active Directory. |
-| Livello | Facoltativo | Il livello di gravità dell'evento. Deve essere di tipo Informativo, Avviso, Errore o Critico. |
-| posizione | Facoltativo | L'area della risorsa che emette l'evento, ad es. "Stati Uniti orientali" o "Francia meridionale" |
-| properties | Facoltativo | Eventuali proprietà estese relative a questa particolare categoria di eventi. Tutte le proprietà personali/uniche devono essere inserite all'interno di questa "Parte B" dello schema. |
+| operationName | Obbligatoria | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC, si tratta del nome di operazione RBAC (ad es. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationVersion | Facoltativa | La versione api associata all'operazione, se operationName è stato eseguito utilizzando un'API (ad es. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se non esiste un'API corrispondente a questa operazione, la versione rappresenta la versione di tale operazione nel caso in cui le proprietà associate all'operazione cambino in futuro. |
+| category | Obbligatoria | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Tipiche categorie di log sono "Controllo" "Operativo" "Esecuzione" e "Richiesta". |
+| resultType | Facoltativa | Lo stato dell'evento. I valori tipici includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
+| resultSignature | Facoltativa | Lo stato secondario dell'evento. Se questa operazione corrisponde a una chiamata API REST, questo è il codice di stato HTTP della chiamata REST corrispondente. |
+| resultDescription | Facoltativa | Il testo statico che descrive questa operazione, ad es. "Recupera file di archiviazione". |
+| durationMs | Facoltativa | La durata dell'operazione in millisecondi. |
+| callerIpAddress | Facoltativa | L'indirizzo IP del chiamante, se l'operazione corrisponde a una chiamata API proveniente da un'entità con un indirizzo IP accessibile al pubblico. |
+| correlationId | Facoltativa | Un GUID utilizzato per raggruppare un set di eventi correlati. In genere, se due eventi hanno lo stesso operationName ma due diversi stati (ad es. "Started" e "Succeeded"), condividono lo stesso ID di correlazione. Ciò può anche rappresentare altre relazioni tra gli eventi. |
+| identity | Facoltativa | Un blob JSON che descrive l'identità dell'utente o dell'applicazione che ha eseguito l'operazione. In genere includerà l'autorizzazione e le attestazioni / token JWT da Active Directory. |
+| Level | Facoltativa | Il livello di gravità dell'evento. Deve essere di tipo Informativo, Avviso, Errore o Critico. |
+| posizione | Facoltativa | L'area della risorsa che emette l'evento, ad es. "Stati Uniti orientali" o "Francia meridionale" |
+| connessione | Facoltativa | Eventuali proprietà estese relative a questa particolare categoria di eventi. Tutte le proprietà personali/uniche devono essere inserite all'interno di questa "Parte B" dello schema. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>Schemi specifici del servizio per i log delle risorse
 Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e della categoria di log. Questo elenco Mostra tutti i servizi che rendono disponibili i log delle risorse e i collegamenti al servizio e allo schema specifico di categoria, se disponibili.
 
-| Servizio | Schema e documenti |
+| Service | Schema e documenti |
 | --- | --- |
 | Azure Active Directory | [Panoramica](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), schema del [Registro di controllo](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [schema degli accessi](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Servizi di analisi | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
+| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | Gestione API | [Log delle risorse di gestione API](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Gateway applicazione |[Registrazione per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md) |
 | Automazione di Azure |[Analisi dei log per Automazione di Azure](../../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -60,24 +57,24 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | Esplora dati di Azure | [Log di Azure Esplora dati](../../data-explorer/using-diagnostic-logs.md) |
 | Servizi cognitivi | [Registrazione per servizi cognitivi di Azure](../../cognitive-services/diagnostic-logging.md) |
 | Registro Container | [Registrazione per Container Registry di Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
-| Rete per la distribuzione di contenuti | [Log di Azure per la rete CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
+| Rete per la distribuzione di contenuti (CDN) | [Log di Azure per la rete CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | Cosmos DB | [Registrazione di Azure Cosmos DB](../../cosmos-db/logging.md) |
-| Data factory | [Monitorare le data factory con Monitoraggio di Azure](../../data-factory/monitor-using-azure-monitor.md) |
+| Data Factory | [Monitorare le data factory con Monitoraggio di Azure](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accesso ai log per Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accesso ai log per Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Hub eventi |[Log di hub eventi di Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
-| ExpressRoute | Lo schema non è disponibile. |
+| Express Route | Lo schema non è disponibile. |
 | Firewall di Azure | Lo schema non è disponibile. |
 | Hub IoT | [Operazioni dell'hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-logging.md) |
 | Kubernetes Service |[Registrazione di Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
-| Bilanciamento del carico |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protezione DDoS | [Gestire la protezione DDoS di Azure Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI dedicato | [Registrazione per Power BI Embedded in Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Servizi di ripristino | [Modello di dati per Backup di Microsoft Azure](../../backup/backup-azure-reports-data-model.md)|
-| Cerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
+| Ricerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
 | Bus di servizio |[Log del bus di servizio di Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione del database SQL di Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Analisi di flusso |[Log del processo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
@@ -89,7 +86,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 
 Alcune categorie possono essere supportate solo per tipi specifici di risorse. Si tratta di un elenco di tutti i moduli disponibili in qualche formato.  Ad esempio, le categorie Microsoft. SQL/Servers/databases non sono disponibili per tutti i tipi di database. Per ulteriori informazioni, vedere [informazioni sulla registrazione diagnostica del database SQL](../../sql-database/sql-database-metrics-diag-logging.md). 
 
-|Tipo di risorsa|Categoria|Nome visualizzato della categoria|
+|Tipo di risorsa|Category|Nome visualizzato della categoria|
 |---|---|---|
 |Microsoft. AAD/domainServices|SystemSecurity|SystemSecurity|
 |Microsoft. AAD/domainServices|AccountManagement|AccountManagement|
@@ -102,7 +99,7 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |Microsoft. AAD/domainServices|AccountLogon|AccountLogon|
 |microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Motore|Motore|
-|Microsoft.AnalysisServices/servers|Servizio|Servizio|
+|Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Log correlati ad ApiManagement Gateway|
 |Microsoft. AppPlatform/Spring|ApplicationConsole|Console applicazione|
 |Microsoft.Automation/automationAccounts|JobLogs|Log del processo|
@@ -126,12 +123,12 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |Microsoft.ContainerService/managedClusters|Kube-audit|Controllo Kubernetes|
 |Microsoft.ContainerService/managedClusters|cluster-autoscaler|Ridimensionamento automatico del cluster Kubernetes|
 |Microsoft. databricks/area di lavoro|dBFS|File system di Databricks|
-|Microsoft. databricks/area di lavoro|clusters|Cluster databricks|
+|Microsoft. databricks/area di lavoro|cluster|Cluster databricks|
 |Microsoft. databricks/area di lavoro|account|Account databricks|
-|Microsoft. databricks/area di lavoro|jobs|Processi Databricks|
+|Microsoft. databricks/area di lavoro|processi|Processi di databricks|
 |Microsoft. databricks/area di lavoro|notebook|Notebook di Databricks|
 |Microsoft. databricks/area di lavoro|ssh|SSH di databricks|
-|Microsoft. databricks/area di lavoro|area di lavoro|Area di lavoro di Databricks|
+|Microsoft. databricks/area di lavoro|area di lavoro|Area di lavoro databricks|
 |Microsoft. databricks/area di lavoro|chiavi private|Segreti di databricks|
 |Microsoft. databricks/area di lavoro|sqlPermissions|Sqlpermissions di databricks|
 |Microsoft. databricks/area di lavoro|instancePools|Pool di istanze|
@@ -155,14 +152,14 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |Microsoft.DBforPostgreSQL/serversv2|PostgreSQLLogs|Log del server PostgreSQL|
 |Microsoft.DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|Statistiche di runtime Query Store PostgreSQL|
 |Microsoft.DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|Statistiche attesa Query Store PostgreSQL|
-|Microsoft. DesktopVirtualization/Workspaces|Checkpoint|Checkpoint|
+|Microsoft. DesktopVirtualization/Workspaces|Punto di controllo|Punto di controllo|
 |Microsoft. DesktopVirtualization/Workspaces|Errore|Errore|
 |Microsoft. DesktopVirtualization/Workspaces|Gestione|Gestione|
 |Microsoft. DesktopVirtualization/Workspaces|Feed|Feed|
-|Microsoft. DesktopVirtualization/applicationGroups|Checkpoint|Checkpoint|
+|Microsoft. DesktopVirtualization/applicationGroups|Punto di controllo|Punto di controllo|
 |Microsoft. DesktopVirtualization/applicationGroups|Errore|Errore|
 |Microsoft. DesktopVirtualization/applicationGroups|Gestione|Gestione|
-|Microsoft. DesktopVirtualization/hostPools|Checkpoint|Checkpoint|
+|Microsoft. DesktopVirtualization/hostPools|Punto di controllo|Punto di controllo|
 |Microsoft. DesktopVirtualization/hostPools|Errore|Errore|
 |Microsoft. DesktopVirtualization/hostPools|Gestione|Gestione|
 |Microsoft. DesktopVirtualization/hostPools|Connessione|Connessione|
@@ -182,7 +179,7 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |Microsoft.Devices/IotHubs|Configurazioni|Configurazioni|
 |Microsoft.Devices/IotHubs|DeviceStreams|Flussi del dispositivo (anteprima)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operazioni del dispositivo|
-|Microsoft.Devices/provisioningServices|ServiceOperations|Operazioni di servizio|
+|Microsoft.Devices/provisioningServices|ServiceOperations|Operazioni del servizio|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
@@ -201,11 +198,11 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |Microsoft. HealthcareApis/Services|AuditLogs|Log di controllo|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Valutazioni sulla scalabilità automatica|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Azioni di ridimensionamento per la scalabilità automatica|
-|Microsoft.IoTSpaces/Graph|Trace|Trace|
+|Microsoft.IoTSpaces/Graph|Traccia|Traccia|
 |Microsoft.IoTSpaces/Graph|Operativo|Operativo|
 |Microsoft.IoTSpaces/Graph|Audit|Audit|
 |Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
-|Microsoft.IoTSpaces/Graph|Ingresso|Ingresso|
+|Microsoft.IoTSpaces/Graph|Dati in ingresso|Dati in ingresso|
 |Microsoft.IoTSpaces/Graph|Egress|Egress|
 |Microsoft.KeyVault/vaults|AuditEvent|Log di controllo|
 |Microsoft.Kusto/Clusters|SucceededIngestion|Operazioni di inserimento riuscite|
@@ -262,16 +259,16 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Punti di ripristino di Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Velocità di caricamento dei dati di replica di Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Varianza dei dati del disco protetti di Azure Site Recovery|
-|Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
+|Microsoft.Search/searchServices|OperationLogs|Registri operazioni|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Log operativi|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|AutomaticTuning|Ottimizzazione automatica|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Statistiche di runtime di Query Store|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Statistiche relative alle attese di Query Store|
-|Microsoft.Sql/servers/databases|Errors|Errors|
+|Microsoft.Sql/servers/databases|Errori|Errori|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Statistiche relative alle attese del database|
 |Microsoft.Sql/servers/databases|Timeout|Timeout|
-|Microsoft.Sql/servers/databases|Blocchi|Blocchi|
+|Microsoft.Sql/servers/databases|Blocks|Blocks|
 |Microsoft.Sql/servers/databases|Deadlock|Deadlock|
 |Microsoft.Sql/servers/databases|Audit|Log di controllo|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento di controllo di sicurezza SQL|
@@ -285,7 +282,7 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |Microsoft.Sql/managedInstances/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Statistiche di runtime di Query Store|
 |Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Statistiche relative alle attese di Query Store|
-|Microsoft.Sql/managedInstances/databases|Errors|Errors|
+|Microsoft.Sql/managedInstances/databases|Errori|Errori|
 |Microsoft.Storage/storageAccounts/tableServices|StorageRead|StorageRead|
 |Microsoft.Storage/storageAccounts/tableServices|StorageWrite|StorageWrite|
 |Microsoft.Storage/storageAccounts/tableServices|StorageDelete|StorageDelete|
@@ -299,7 +296,7 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |Microsoft.Storage/storageAccounts/queueServices|StorageWrite|StorageWrite|
 |Microsoft.Storage/storageAccounts/queueServices|StorageDelete|StorageDelete|
 |Microsoft.StreamAnalytics/streamingjobs|Esecuzione|Esecuzione|
-|Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|
+|Microsoft.StreamAnalytics/streamingjobs|Creazione e modifica|Creazione e modifica|
 |Microsoft. Web/hostingenvironments|AppServiceEnvironmentPlatformLogs|Log della piattaforma ambiente del servizio app|
 |microsoft.web/sites|FunctionAppLogs|Log dell'applicazione per le funzioni|
 |microsoft.web/sites|AppServiceHTTPLogs|Log HTTP|
@@ -310,11 +307,11 @@ Alcune categorie possono essere supportate solo per tipi specifici di risorse. S
 |microsoft.web/sites/slots|FunctionAppLogs|Log dell'applicazione per le funzioni|
 |microsoft.web/sites/slots|AppServiceHTTPLogs|Log HTTP|
 |microsoft.web/sites/slots|AppServiceConsoleLogs|Log della console|
-|microsoft.web/sites/slots|AppServiceAppLogs|Log applicazioni|
+|microsoft.web/sites/slots|AppServiceAppLogs|Registri applicazioni|
 |microsoft.web/sites/slots|AppServiceFileAuditLogs|Log di controllo delle modifiche al contenuto del sito|
 |microsoft.web/sites/slots|AppServiceAuditLogs|Accedi ai log di controllo|
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni sui log delle risorse](../../azure-monitor/platform/platform-logs-overview.md)
 * [Trasmettere i log delle risorse delle risorse a **Hub eventi**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)

@@ -1,18 +1,14 @@
 ---
 title: Esportazione continua dei dati di telemetria da Application Insights | Microsoft Docs
 description: Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/25/2019
-ms.openlocfilehash: 6504661c2df66bda81af03a6364703b4b10f7485
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 33158919980514b70c3b0e438691427a34eed834
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819544"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663914"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere il codice necessario per elaborarlo.  
@@ -99,7 +95,7 @@ Di seguito è riportato il formato del percorso:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Where
+Percorso
 
 * `blobCreationTimeUtc` è l'ora di creazione del BLOB nell'archivio di gestione temporanea interno
 * `blobDeliveryTimeUtc` è l'ora in cui il BLOB viene copiato nell'archivio di destinazione dell'esportazione
@@ -120,7 +116,7 @@ Gli intervalli di tempo sono espressi in tick, dove 10.000 tick = 1 ms. Questi v
 [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Elaborazione dei dati
-Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in un foglio di calcolo e così via. ad esempio:
+Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in un foglio di calcolo e così via. Ad esempio,
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -147,7 +143,7 @@ Se necessario, l'utente è responsabile della gestione della capacità di archiv
 ## <a name="if-you-regenerate-your-storage-key"></a>Se si rigenera la chiave di archiviazione...
 Se si modifica la chiave per l'archiviazione, l'esportazione continua non funzionerà più. Verrà visualizzata una notifica nell'account Azure.
 
-Aprire la scheda esportazione continua e modificare l'esportazione. Modificare la destinazione di esportazione, ma lasciare selezionata la stessa risorsa di archiviazione. Fare clic su OK per confermare.
+Aprire la scheda esportazione continua e modificare l'esportazione. Modificare la destinazione di esportazione, ma lasciare selezionata la stessa risorsa di archiviazione. Per confermare scegliere OK.
 
 L'esportazione continua verrà riavviata.
 
@@ -158,7 +154,7 @@ L'esportazione continua verrà riavviata.
 
 Su scala più estesa considerare la possibilità di usare cluster [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop nel cloud. HDInsight offre un'ampia gamma di tecnologie per la gestione e analisi dei Big Data e può essere usato per elaborare i dati esportati da Application Insights.
 
-## <a name="q--a"></a>Domande frequenti
+## <a name="q--a"></a>Domande e risposte
 * *Si intende scaricare semplicemente un grafico.*  
 
     Questa operazione è consentita. Nella parte superiore della scheda fare clic su **Esporta dati**.

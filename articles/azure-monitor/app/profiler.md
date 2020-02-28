@@ -1,19 +1,17 @@
 ---
 title: Profilare le app di Servizio app di Azure attive con Application Insights | Microsoft Docs
 description: Profilare le app attive in Servizio app di Azure con Application Insights Profiler.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d463732fc8e8f488851a57fe520f138b101eb6cf
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899952"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671543"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilare le app di Servizio app di Azure attive con Application Insights
 
@@ -45,11 +43,11 @@ Application Insights Profiler è preinstallato come parte del runtime di servizi
 Application Insights Profiler possibile abilitare la creazione di impostazioni dell'app per il servizio app Azure. La pagina con le opzioni illustrate in precedenza crea automaticamente le impostazioni dell'app. Tuttavia, è possibile automatizzare la creazione di queste impostazioni usando un modello o altri metodi. Queste impostazioni funzioneranno anche se la risorsa Application Insights si trova in una sottoscrizione diversa dal servizio app Azure.
 Di seguito sono riportate le impostazioni necessarie per abilitare il profiler:
 
-|Impostazione app    | Value    |
+|Impostazione app    | Valore    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey per la risorsa Application Insights    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-|DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+|DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
 È possibile impostare questi valori usando [modelli di Azure Resource Manager](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp)e l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
@@ -71,7 +69,7 @@ Per arrestare o riavviare Profiler per una singola istanza dell'app, in **Proces
 
 È consigliabile abilitare Profiler su tutte le app per individuare il prima possibile eventuali problemi di prestazioni.
 
-I file del profiler possono essere eliminati quando si usa WebDeploy per distribuire le modifiche nell'applicazione Web. È possibile evitare l'eliminazione escludendo la cartella App_Data da eliminare durante la distribuzione. 
+I file del profiler possono essere eliminati quando si usa WebDeploy per distribuire le modifiche nell'applicazione Web. È possibile impedire l'eliminazione escludendo la App_Data cartella da eliminare durante la distribuzione. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

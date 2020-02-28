@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: caa80443a189874bfd699dba412fb749c8711556
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 03e8baa5f0286652ee500a06382c0a45e6f0ec52
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493397"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655668"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -33,7 +33,7 @@ Acceleratore di scrittura: [supportato](https://docs.microsoft.com/azure/virtual
 | Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8/32000 |
 | Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8/32000 |
 
-<sup>1</sup> le macchine virtuali della serie Mv2 sono solo di generazione 2. Se si usa Linux, per istruzioni su come trovare e selezionare un'immagine, vedere [supporto per le macchine virtuali di seconda generazione in Azure](/linux/generation-2.md) .
+<sup>1</sup> le macchine virtuali della serie Mv2 sono solo di generazione 2. Se si usa Linux, per istruzioni su come trovare e selezionare un'immagine, vedere [supporto per le macchine virtuali di seconda generazione in Azure](./linux/generation-2.md) .
 
 <sup>2</sup> per le dimensioni M416ms_v2 e M416s_v2, si noti che è disponibile il supporto iniziale solo per l'immagine seguente: "GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 per le applicazioni SAP".
 

@@ -1,18 +1,17 @@
 ---
 title: Panoramica delle informazioni dettagliate in monitoraggio di Azure | Microsoft Docs
 description: Le informazioni dettagliate forniscono un'esperienza di monitoraggio personalizzata in monitoraggio di Azure per applicazioni e servizi specifici. Questo articolo fornisce una breve descrizione di tutte le informazioni attualmente disponibili.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: d1b53267daa2d47baf9976727bbaf3fa56172432
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 15ea7698c9e90fa8b0dfa20f71b552a2b0e9c7d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832101"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657249"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Panoramica delle informazioni dettagliate in monitoraggio di Azure
 Le informazioni dettagliate forniscono un'esperienza di monitoraggio personalizzata per applicazioni e servizi specifici. Archiviano i dati nella [piattaforma dati di monitoraggio di Azure](../platform/data-platform.md) e sfruttano altre funzionalità di monitoraggio di Azure per l'analisi e l'invio di avvisi, ma possono raccogliere dati aggiuntivi e fornire un'esperienza utente univoca nel portale di Azure. Accedere a Insights dalla sezione **Insights** del menu di monitoraggio di Azure nel portale di Azure.
@@ -26,12 +25,12 @@ Vedere informazioni su [Application Insights](../app/app-insights-overview.md).
 
 ![Application Insights](media/insights-overview/app-insights.png)
 
-## <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per i contenitori
+## <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
 Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di lavoro dei contenitori distribuiti in Istanze di Azure Container o in cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes. Il monitoraggio dei contenitori ha un'importanza critica, soprattutto quando si gestisce un cluster di produzione su larga scala con più applicazioni.
 
 Vedere [Panoramica di monitoraggio di Azure per i contenitori](../insights/container-insights-overview.md).
 
-![Monitoraggio di Azure per i contenitori](media/insights-overview/container-insights.png)
+![Monitoraggio di Azure per contenitori](media/insights-overview/container-insights.png)
 
 ## <a name="azure-monitor-for-resource-groups-preview"></a>Monitoraggio di Azure per i gruppi di risorse (anteprima)
 Monitoraggio di Azure per i gruppi di risorse consente di valutare e diagnosticare eventuali problemi riscontrati dalle singole risorse, offrendo al contempo un contesto per l'integrità e le prestazioni del gruppo di risorse nel suo complesso.
@@ -45,7 +44,7 @@ Monitoraggio di Azure per le macchine virtuali consente di monitorare le macchin
 
 Vedere [che cos'è monitoraggio di Azure per le macchine virtuali?](vminsights-overview.md)
 
-![Monitoraggio di Azure per VM](media/insights-overview/vm-insights.png)
+![Monitoraggio di Azure per le macchine virtuali](media/insights-overview/vm-insights.png)
 
 ## <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per le reti (anteprima)
 [Monitoraggio di Azure per le reti](network-insights-overview.md) offre una panoramica completa dell'integrità e delle metriche per tutte le risorse di rete. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, abilitando scenari come l'identificazione di risorse che ospitano il sito Web, semplicemente cercando il nome del sito Web.

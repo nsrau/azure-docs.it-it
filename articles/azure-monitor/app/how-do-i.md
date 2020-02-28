@@ -1,18 +1,14 @@
 ---
 title: Cosa fare in Azure Application Insights | Microsoft Docs
 description: Domande frequenti in Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928409"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663858"
 ---
 # <a name="how-do-i--in-application-insights"></a>Cosa fare in Application Insights?
 ## <a name="get-an-email-when-"></a>Per ricevere un messaggio di posta elettronica quando...
@@ -91,7 +87,7 @@ Alcune informazioni da considerare:
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Dashboard con dati provenienti da altre fonti e Application Insights
 * [Esportare dati di telemetria in Power BI](../../azure-monitor/app/export-power-bi.md ).
 
-oppure
+Oppure
 
 * Usare SharePoint come dashboard, dove i dati vengono visualizzati in Web part di SharePoint. [Usare l'esportazione continua e l'analisi dei flussi per eseguire l'esportazione in SQL](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  Usare PowerView per esaminare il database e creare una Web part di SharePoint per PowerView.
 
@@ -100,7 +96,7 @@ oppure
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrare gli utenti anonimi o autenticati
 Se gli utenti effettuano l'accesso, è possibile impostare l' [ID utente autenticato](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). Questa operazione non viene eseguita automaticamente.
 
-È quindi possibile:
+Sarà quindi possibile:
 
 * Cerca in ID utente specifici
 

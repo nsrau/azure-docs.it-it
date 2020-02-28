@@ -1,18 +1,17 @@
 ---
 title: Come aggiornare l'agente di dipendenza Monitoraggio di Azure per le macchine virtuali | Microsoft Docs
 description: In questo articolo viene descritto come aggiornare il Monitoraggio di Azure per le macchine virtuali Dependency Agent utilizzando la riga di comando, l'installazione guidata e altri metodi.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 28b7a2b95e8ad23226f92f2b6fba085cc0fa1bfd
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: c98c48a4494ac37ef4868c44d4a7adacfd0d48da
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565554"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662434"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Come aggiornare l'agente di dipendenza Monitoraggio di Azure per le macchine virtuali
 
@@ -22,7 +21,7 @@ Dopo la distribuzione iniziale di Monitoraggio di Azure per le macchine virtuali
 
 Dependency Agent per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente in base allo scenario di distribuzione e all'ambiente in cui è in esecuzione il computer. Per aggiornare l'agente, è possibile utilizzare i metodi seguenti.
 
-|Environment |Metodo di installazione |Metodo di aggiornamento |
+|Ambiente |Metodo di installazione |Metodo di aggiornamento |
 |------------|--------------------|---------------|
 |Macchina virtuale di Azure | Estensione della macchina virtuale dell'agente di dipendenza per [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Per impostazione predefinita, Agent viene aggiornato automaticamente a meno che non sia stato configurato il modello di Azure Resource Manager per rifiutare esplicitamente l'impostazione della proprietà *autoUpgradeMinorVersion* su **false**. Aggiornamento per la versione secondaria in cui l'aggiornamento automatico è disabilitato e un aggiornamento della versione principale segue lo stesso metodo: disinstallare e reinstallare l'estensione. |
 | Immagini personalizzate di VM di Azure | Installazione manuale di Dependency Agent per Windows/Linux | L'aggiornamento delle macchine virtuali alla versione più recente dell'agente deve essere eseguito dalla riga di comando che esegue il pacchetto di Windows Installer o il bundle di script di Shell autoestraente e installabile di Linux.|

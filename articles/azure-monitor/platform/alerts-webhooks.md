@@ -2,20 +2,19 @@
 title: Chiamare un webhook con un avviso di metrica classico in monitoraggio di Azure
 description: Informazioni su come reindirizzare gli avvisi delle metriche di Azure ad altri sistemi non Azure.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705514"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665069"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chiamare un webhook con un avviso di metrica classico in monitoraggio di Azure
+
 È possibile usare i webhook per instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite chat o servizi di messaggistica oppure per varie altre azioni. 
 
 Questo articolo descrive come impostare un webhook per un avviso di metrica di Azure. L'articolo illustra anche le caratteristiche del payload per un'operazione HTTP POST a un webhook. Per informazioni sulla configurazione e lo schema per un avviso del log attività di Azure (avviso per eventi), vedere [Chiamare un webhook negli avvisi dei log attività di Azure](alerts-log-webhook.md).
@@ -71,12 +70,12 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 
 | Campo | Obbligatorio | Set di valori fisso | Note |
 |:--- |:--- |:--- |:--- |
-| status |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
-| contesto |S | |Contesto dell'avviso. |
+| stato |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
+| context |S | |Contesto dell'avviso. |
 | timestamp |S | |Ora in cui è stato attivato l'avviso. |
 | id |S | |Ogni regola di avviso ha un ID univoco. |
 | name |S | |Nome dell'avviso. |
-| description |S | |Descrizione dell'avviso. |
+| description |S | |Una descrizione dell'avviso |
 | conditionType |S |Metric, Event |Sono supportati due tipi di avviso: metrica ed evento. Gli avvisi di metrica sono basati su una condizione di metrica. Gli avvisi di eventi sono basati su un evento nel log attività. Usare questo valore per controllare se l'avviso è basato su una metrica o su un evento. |
 | condizione |S | |Campi specifici da controllare in base al valore di **conditionType**. |
 | metricName |Per avvisi di metrica | |Nome della metrica che definisce l'oggetto monitorato dalla regola. |
@@ -85,7 +84,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 | threshold |Per avvisi di metrica | |Valore soglia al quale viene attivato l'avviso. |
 | windowSize |Per avvisi di metrica | |Periodo di tempo usato per monitorare l'attività degli avvisi in base alla soglia. Il valore deve essere compreso tra 5 minuti e 1 giorno. Il valore deve essere nel formato di durata ISO 8601. |
 | timeAggregation |Per avvisi di metrica |Average, Last, Maximum, Minimum, None, Total |Definisce come i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". Vedere i [valori consentiti](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| operator |Per avvisi di metrica | |Operatore usato per confrontare i dati di metrica attuali con la soglia impostata. |
+| operatore |Per avvisi di metrica | |Operatore usato per confrontare i dati di metrica attuali con la soglia impostata. |
 | subscriptionId |S | |ID sottoscrizione di Azure. |
 | resourceGroupName |S | |Nome del gruppo di risorse per la risorsa interessata. |
 | resourceName |S | |Nome della risorsa interessata. |
@@ -93,7 +92,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 | resourceId |S | |ID della risorsa interessata. |
 | resourceRegion |S | |Area o posizione della risorsa interessata. |
 | portalLink |S | |Collegamento diretto alla pagina di riepilogo delle risorse del portale. |
-| properties |N |Facoltativo |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio: `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
+| connessione |N |Facoltativa |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio: `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
 
 > [!NOTE]
 > È possibile impostare il campo delle **proprietà** solo tramite le [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).

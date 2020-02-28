@@ -3,17 +3,16 @@ title: Metriche personalizzate in Monitoraggio di Azure
 description: Informazioni sulle metriche personalizzate in Monitoraggio di Azure e sul modo in cui vengono modellate.
 author: ancav
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669171"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662349"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Metriche personalizzate in Monitoraggio di Azure
 
@@ -38,7 +37,7 @@ Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'appl
 > [!NOTE]  
 > Quando si richiede che un token di Azure AD generi metriche personalizzate, assicurarsi che il destinatario o la risorsa per cui è richiesto il token sia https://monitoring.azure.com/. Assicurarsi di includere la barra finale (/).
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Oggetto
 Questa proprietà consente di acquisire l'ID risorsa di Azure per cui viene indicata la metrica personalizzata. L'informazione viene codificata nell'URL della chiamata API eseguita. Ogni API può inviare solo i valori delle metriche per una singola risorsa di Azure.
 
 > [!NOTE]  
@@ -63,7 +62,7 @@ Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usa
 ### <a name="name"></a>Name
 **Nome** è il nome della metrica che viene segnalata. In genere, il nome è sufficientemente descrittivo per aiutare a identificare l'elemento misurato. Un esempio è una metrica che misura il numero di byte di memoria utilizzati su una determinata macchina virtuale. Potrebbe avere un nome di metrica come ad esempio **Byte di memoria In uso**.
 
-### <a name="dimension-keys"></a>Chiavi di dimensione
+### <a name="dimension-keys"></a>Chiavi dimensione
 Una dimensione è una coppia chiave o valore che consente di descrivere caratteristiche aggiuntive sulla metrica raccolta. Usando le caratteristiche aggiuntive, è possibile raccogliere altri dati sulla metrica, così da ottenere informazioni più dettagliate. Alla metrica **Byte di memoria in uso**, ad esempio, può essere associata una chiave di dimensione denominata **Processo** che acquisisce il numero di byte di memoria usati da ogni processo in una macchina virtuale. Usando tale chiave, è possibile filtrare la metrica per visualizzare la quantità di memoria usata da processi specifici o per identificare i primi 5 processi per uso della memoria.
 Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni. Una metrica personalizzata può avere fino a 10 dimensioni.
 
@@ -189,7 +188,7 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 |India centrale | https:\//centralindia.monitoring.azure.com
 |Australia orientale | https:\//australiaeast.monitoring.azure.com
 |Giappone orientale | https:\//japaneast.monitoring.azure.com
-|Asia sudorientale  | https:\//southeastasia.monitoring.azure.com |
+|Asia sud-orientale  | https:\//southeastasia.monitoring.azure.com |
 |Asia orientale | https:\//eastasia.monitoring.azure.com
 |Corea centrale   | https:\//koreacentral.monitoring.azure.com
 
@@ -197,7 +196,7 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 ## <a name="quotas-and-limits"></a>Quote e limiti
 Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle metriche personalizzate:
 
-|Categoria|Limite|
+|Category|Limite|
 |---|---|
 |Serie temporale attiva/sottoscrizioni/area|50.000|
 |Chiavi di dimensione per metrica|10|
@@ -211,6 +210,6 @@ Usare le metriche personalizzate da servizi diversi:
  - [Set di scalabilità di macchine virtuali](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Macchine virtuali di Azure (classico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Macchina virtuale Linux con agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Servizi cloud classici](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

@@ -2,18 +2,16 @@
 title: Avvisi del log in Monitoraggio di Azure
 description: Attivare messaggi di posta elettronica e notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni di query di analisi specificate per Avvisi di Azure.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: b8cae9f7c43098b713d0d5d8f74e46cb0386600c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396488"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665222"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 
@@ -134,7 +132,7 @@ Questo comportamento viene ora visualizzato con un esempio pratico. Si supponga 
 A ogni intervallo riportato di seguito, il sistema di avvisi di Azure valuta la condizione per *Contoso-Log-Alert*.
 
 
-| Durata    | Numero di record restituiti dalla query di ricerca nei log | Condizione del log valutazione | Risultato 
+| Tempo    | Numero di record restituiti dalla query di ricerca nei log | Condizione del log valutazione | Risultato 
 | ------- | ----------| ----------| ------- 
 | 1:05 PM | 0 record | 0 non è > 0, quindi FALSE |  L'avviso non viene attivato. Non è stata chiamata alcuna azione.
 | 1:10 PM | 2 record | 2 > 0, quindi TRUE  | Avvisi attivati e gruppi di azioni chiamati. Stato dell'avviso attivo.

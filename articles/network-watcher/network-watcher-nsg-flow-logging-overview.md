@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f231a5339b9c696b2a427b0713118d4b46e30277
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a7f30a5a70f71ff958d9b222d2a9e21d03d85e06
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840996"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670764"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -33,11 +33,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 È possibile analizzare i log dei flussi e ottenere informazioni approfondite del traffico di rete usando l'[analisi del traffico](traffic-analytics.md).
 
-Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. È possibile impostare i criteri di conservazione dei log da 1 giorno a 365 giorni. Se i criteri di conservazione non sono impostati, i log vengono conservati per sempre.
-
-> [!NOTE] 
-> L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0.
-
+Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. È possibile impostare i criteri di conservazione dei log da 1 giorno a 365 giorni. Se non viene impostato alcun criterio di conservazione, i log vengono conservati per sempre.
 
 ## <a name="log-file"></a>File di registro
 

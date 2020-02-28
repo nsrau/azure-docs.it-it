@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 70b13b16e6aca6b0bdb0858a32a219defef6cca3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: dce01cb8ed6043193878551207eeca3d573f9d4d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162039"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672481"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -58,8 +58,9 @@ Le macchine virtuali di seconda generazione supportano le seguenti immagini del 
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16,04, 18,04, 19,04, 19,10 
-* RHEL 8,0, 7,6, 7,5, 7,4, 7,0
-* Centesimo sistema operativo 8,0
+* RHEL 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 7,0
+* Centesimo sistema operativo 8,0, 7,7, 7,6, 7,5, 7,4
+* Oracle Linux 7,7, 7,7-CI
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Macchine virtuali in locale e Azure di seconda generazione
 
@@ -77,7 +78,7 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funzionalità di generazione 1 e generazione 2
 
-| Funzionalità | Prima generazione | Generazione 2 |
+| Caratteristica | Prima generazione | Generazione 2 |
 |---------|--------------|--------------|
 | Avvio             | PCAT         | UEFI |
 | Controller del disco | IDE          | SCSI |

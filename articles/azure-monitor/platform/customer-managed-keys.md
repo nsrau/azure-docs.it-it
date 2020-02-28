@@ -1,18 +1,17 @@
 ---
 title: Configurazione della chiave gestita dal cliente di monitoraggio di Azure
 description: Informazioni e procedure per configurare la chiave gestita dal cliente (CMK) per crittografare i dati nelle aree di lavoro Log Analytics usando una chiave di Azure Key Vault.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 2ea77be0a7aabefaf8f6ed9a5bd841ea1fdda263
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 6a999df6daf2fde5133143fe9b22a65d628ecfb2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620318"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663948"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configurazione della chiave gestita dal cliente di monitoraggio di Azure 
 
@@ -95,7 +94,7 @@ La procedura non è attualmente supportata nell'interfaccia utente e il processo
 > [!IMPORTANT]
 > Qualsiasi richiesta API deve includere un token di autorizzazione di porta nell'intestazione della richiesta.
 
-Ad esempio:
+Ad esempio,
 
 ```rst
 GET
@@ -461,7 +460,7 @@ Se si aggiorna la chiave in Key Vault e non si aggiornano i nuovi dettagli dell'
 
   **Risposta**
 
-  200 - OK
+  200 OK
 
 
 ## <a name="appendix"></a>Appendice

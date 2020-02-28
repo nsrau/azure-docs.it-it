@@ -2,24 +2,22 @@
 title: Query per avvisi del log in Monitoraggio di Azure | Microsoft Docs
 description: Indicazioni sulla scrittura di query efficienti per gli avvisi del log negli aggiornamenti di Monitoraggio di Azure e su un processo per la conversione delle query esistenti.
 author: yossi-y
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995968"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667789"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Query per avvisi del log in Monitoraggio di Azure
 Le [regole di avviso basate sui log di Monitoraggio di Azure](alerts-unified-log.md) vengono eseguite a intervalli regolari, pertanto è necessario assicurarsi che siano scritte in modo da ridurre al minimo il sovraccarico e la latenza. Questo articolo include consigli per la scrittura di query efficienti per gli avvisi del log e un processo per la conversione delle query esistenti. 
 
 ## <a name="types-of-log-queries"></a>Tipi di query di log
-[Le query di log in Monitoraggio di Azure](../log-query/log-query-overview.md) iniziare con una tabella o una [search](/azure/kusto/query/searchoperator) oppure [union](/azure/kusto/query/unionoperator) operatore.
+Le [query di log in monitoraggio di Azure](../log-query/log-query-overview.md) iniziano con una tabella o un operatore di [ricerca](/azure/kusto/query/searchoperator) o di [Unione](/azure/kusto/query/unionoperator) .
 
 Ad esempio, la query seguente ha come ambito la tabella _SecurityEvent_ e cerca un ID evento specifico. Questa è l'unica tabella che deve elaborare la query.
 

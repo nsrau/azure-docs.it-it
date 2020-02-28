@@ -3,12 +3,12 @@ title: Ripristinare file e cartelle dal backup delle macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare file e cartelle da un punto di ripristino della macchina virtuale di Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: d80fb1060eca766305ecbfffe151d975472f8b3c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114329"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660921"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -206,7 +206,7 @@ Se si esegue lo script in un computer con accesso limitato, verificare che sia d
   - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (per Azure Cina 21Vianet)
   - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Per Azure US Gov)
   - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Per Azure Germania)
-- porta in uscita 3260
+- Porte in uscita 53 (DNS), 443, 3260
 
 > [!NOTE]
 >

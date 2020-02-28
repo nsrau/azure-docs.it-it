@@ -1,18 +1,17 @@
 ---
 title: Filtri nelle viste di monitoraggio di Azure | Microsoft Docs
 description: Un filtro in una vista di monitoraggio di Azure consente agli utenti di filtrare i dati nella vista in base al valore di una proprietà specifica senza modificare la vista stessa.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 03950c7c87f659c5d1c032b5d3c1f74d136697c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931975"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658575"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtri nelle viste di monitoraggio di Azure
 Un **filtro** in una [vista di monitoraggio di Azure](view-designer.md) consente agli utenti di filtrare i dati nella vista in base al valore di una proprietà specifica senza modificare la vista stessa.  È ad esempio possibile consentire agli utenti della vista di filtrare solo i dati di un computer o un set di computer specifico.  È possibile creare più filtri in una singola vista per consentire agli utenti di filtrare in base a più proprietà.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
@@ -34,21 +33,21 @@ Se si rimuovono tutti i valori per un filtro, il filtro non verrà più applicat
 
 Creare un filtro dalla scheda **Filtri** quando si [modifica una vista](view-designer.md).  Il filtro è globale per la vista e si applica a tutte le parti della vista.  
 
-![Impostazioni dei filtri](media/view-designer-filters/filters-settings.png)
+![Filtrare impostazioni](media/view-designer-filters/filters-settings.png)
 
 La tabella seguente descrive le impostazioni per un filtro.
 
-| Impostazione | Description |
+| Impostazione | Descrizione |
 |:---|:---|
-| Nome campo | Nome del campo usato per filtrare.  Questo campo deve corrispondere al campo riepiloga nella **query per i valori**. |
+| Nome del campo | Nome del campo usato per filtrare.  Questo campo deve corrispondere al campo riepiloga nella **query per i valori**. |
 | Esegui query per valori | Query da eseguire per popolare l'elenco a discesa relativo al filtro per l'utente.  Questa query deve usare [riepiloga](/azure/kusto/query/summarizeoperator) o [Distinct](/azure/kusto/query/distinctoperator) per fornire valori univoci per un determinato campo e deve corrispondere al **nome del campo**.  È possibile usare l'opzione [sort](/azure/kusto/query/sortoperator) per ordinare i valori visualizzati dall'utente. |
 | Tag | Nome del campo usato nelle query che supportano il filtro e visualizzato dall'utente. |
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 La tabella seguente include alcuni esempi di filtri comuni.  
 
-| Nome campo | Esegui query per valori | Tag |
+| Nome del campo | Esegui query per valori | Tag |
 |:--|:--|:--|
 | Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Computer |
 | EventLevelName | Event &#124; distinct EventLevelName | Severity |

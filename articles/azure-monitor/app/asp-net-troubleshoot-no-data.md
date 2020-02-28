@@ -1,18 +1,14 @@
 ---
 title: Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 description: I dati non vengono visualizzati in Azure Application Insights Risposte ai problemi più comuni.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: a1e299f195a148ebd1bdbda91e5a56e297f34d31
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2627fde55f4177798d04aab02db169f3117d32dd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889176"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665902"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Risoluzione dei problemi senza dati-Application Insights per .NET/.NET Core
 
@@ -114,7 +110,7 @@ La chiave di strumentazione in ApplicationInsights.config determina dove vengono
 
 Correzione:
 
-* Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere Application Insights, Configura Application Insights. Nella finestra di dialogo è possibile scegliere di inviare i dati di telemetria a una risorsa esistente o crearne una nuova. In alternativa:
+* Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere Application Insights, Configura Application Insights. Nella finestra di dialogo è possibile scegliere di inviare i dati di telemetria a una risorsa esistente o crearne una nuova. Oppure:
 * Aprire direttamente la risorsa. Accedere al [portale di Azure](https://portal.azure.com), fare clic su Application Insights nella barra di spostamento a sinistra e quindi selezionare l'app.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Dove è possibile trovare i dati di telemetria?

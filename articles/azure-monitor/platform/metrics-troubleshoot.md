@@ -3,17 +3,16 @@ title: Risoluzione dei problemi relativi ai grafici delle metriche di monitoragg
 description: Risolvere i problemi relativi alla creazione, personalizzazione o interpretazione di grafici delle metriche
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974861"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659663"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi relativi ai grafici delle metriche
 
@@ -29,7 +28,7 @@ Quando si fa clic sul pulsante **Selezionare una risorsa**, la risorsa non viene
 
 1. Assicurarsi di aver selezionato il gruppo di risorse corretto.
     > [!WARNING]
-    > Per ottenere prestazioni ottimali, quando si apre per la prima volta Esplora metriche, l'elenco a discesa del **gruppo di risorse** non contiene gruppi di risorse preselezionati. È necessario selezionare almeno un gruppo prima di poter visualizzare tutte le risorse.
+    > Per prestazioni ottimali, quando si apre Esplora metriche, l'elenco a discesa **Gruppo di risorse** non dispone di nessun gruppo di risorse pre-selezionate. È necessario selezionare almeno un gruppo prima di poter visualizzare tutte le risorse.
 
 ## <a name="chart-shows-no-data"></a>Il grafico non Mostra dati
 

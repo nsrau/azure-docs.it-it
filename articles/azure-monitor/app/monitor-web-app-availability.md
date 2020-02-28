@@ -1,19 +1,15 @@
 ---
 title: Monitorare la disponibilità e la velocità di risposta dei siti Web | Microsoft Docs
 description: Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 074b5c175305131cd67cc6660d13756a83386c11
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819289"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670033"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorare la disponibilità di qualsiasi sito Web
 
@@ -60,7 +56,7 @@ Per creare la prima richiesta di disponibilità, aprire il riquadro di disponibi
 > [!NOTE]
 > Si consiglia vivamente di eseguire test da più posizioni con **un minimo di cinque posizioni**. Questo serve a evitare falsi allarmi che possono essere dovuti a problemi temporanei di una località specifica. È stato inoltre rilevato che la configurazione ottimale prevede che il **numero di percorsi di test sia uguale alla soglia della posizione di avviso + 2**.
 
-### <a name="success-criteria"></a>Criteri di esito positivo
+### <a name="success-criteria"></a>Criteri di installazione riuscita
 
 |Impostazione| Spiegazione
 |----|----|----|
@@ -74,7 +70,7 @@ Per creare la prima richiesta di disponibilità, aprire il riquadro di disponibi
 |----|----|----|
 |**Quasi in tempo reale (anteprima)** | Si consiglia di usare gli avvisi near-realtime. La configurazione di questo tipo di avviso viene eseguita dopo la creazione del test di disponibilità.  |
 |**Classico** | Non è più consigliabile usare gli avvisi classici per i nuovi test di disponibilità.|
-|**Soglia posizione avviso**|Si consiglia un minimo di 3-5 posizioni. La relazione ottimale tra la soglia della posizione di avviso e il numero di percorsi di test è la **soglia di posizione degli avvisi**  = **numero di percorsi di test-2, con almeno cinque posizioni di test.**|
+|**Soglia posizione avviso**|Si consiglia un minimo di 3-5 posizioni. La relazione ottimale tra la soglia della posizione di avviso e il numero di percorsi di test è la **soglia di posizione degli avvisi** = **numero di percorsi di test-2, con almeno cinque posizioni di test.**|
 
 ## <a name="see-your-availability-test-results"></a>Visualizzare i risultati del test di disponibilità
 
@@ -82,11 +78,11 @@ I risultati del test di disponibilità possono essere visualizzati con visualizz
 
 Dopo alcuni minuti, fare clic su **Aggiorna** per visualizzare i risultati del test.
 
-![Visualizzazione linea](./media/monitor-web-app-availability/availability-refresh-002.png)
+![visualizzazione Riga](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 La vista scatterplot Mostra esempi dei risultati del test con i dettagli del passo del test diagnostici. Il motore di test archivia i dettagli diagnostici per i test che hanno restituito errori. Per i test riusciti, vengono archiviati i dettagli diagnostici per un subset delle esecuzioni. Passare il mouse su uno dei punti verdi/rossi per visualizzare il test, il nome del test e la posizione.
 
-![Visualizzazione linea](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
+![visualizzazione Riga](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
 
 Selezionare una posizione o un test specifico oppure ridurre il periodo di tempo per visualizzare più risultati riguardo all'intervallo desiderato. Usare Esplora ricerche per visualizzare i risultati di tutte le esecuzioni oppure usare query di analisi per eseguire report personalizzati per i dati.
 
@@ -127,7 +123,7 @@ Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche d
 * [Usare script di PowerShell per configurare un test di disponibilità](../../azure-monitor/app/powershell.md#add-an-availability-test) automaticamente.
 * Configurare un [webhook](../../azure-monitor/platform/alerts-webhooks.md) che verrà chiamato quando viene generato un avviso.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Articolo dedicato alla [risoluzione dei problemi](troubleshoot-availability.md).
 

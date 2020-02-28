@@ -1,18 +1,17 @@
 ---
 title: Visualizza i dati delle app Azure Application Insights | Microsoft Docs
 description: È possibile usare la soluzione Connettore di Application Insights per diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di Application Insights.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396558"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665154"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -43,7 +42,7 @@ Quando si usa la soluzione, è possibile:
 
 A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per Connettore di Application Insights non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | Description |
+| Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
 | [Agenti Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
@@ -61,7 +60,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
 2. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
 3. In **Sottoscrizioni** selezionare una sottoscrizione che contenga risorse di Application Insights e quindi in **Nome** selezionare una o più applicazioni.
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application Insights verrà aggiornato con alcuni dati, come nell'immagine seguente:
 
@@ -175,9 +174,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="generic-fields"></a>Campi generici
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
-| Tipo | ApplicationInsights |
+| Type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Ora del record |
 | ApplicationId | Chiave di strumentazione dell'app Application Insights |
@@ -201,7 +200,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="availability-specific-fields"></a>Campi specifici di disponibilità
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | TelemetryType | Disponibilità |
 | AvailabilityTestName | Nome del test Web |
@@ -226,7 +225,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="exception-specific-fields"></a>Campi specifici di eccezione
 
-| Tipo | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Eccezione |
 | ExceptionType | Tipo di eccezione |
@@ -243,9 +242,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="request-specific-fields"></a>Campi specifici di richiesta
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
-| Tipo | ApplicationInsights |
+| Type | ApplicationInsights |
 | TelemetryType | Richiesta |
 | ResponseCode | Risposta HTTP inviata al client |
 | RequestSuccess | Indica l'esito positivo o negativo. True o false. |

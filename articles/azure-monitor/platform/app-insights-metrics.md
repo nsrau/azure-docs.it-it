@@ -3,17 +3,16 @@ title: Metriche basate su log di applicazione Azure Insights | Microsoft Docs
 description: Questo articolo elenca applicazione Azure metriche di Insights con le aggregazioni e le dimensioni supportate. Le informazioni dettagliate sulle metriche basate su log includono le istruzioni di query kusto sottostanti.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887260"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664916"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
 
@@ -80,7 +79,7 @@ La metrica dei *test di disponibilità* riflette il conteggio delle esecuzioni d
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|---|---|---|
-|Numero|Numero|Percorso di esecuzione, nome del test, risultato del test|
+|Conteggio|Conteggio|Percorso di esecuzione, nome del test, risultato del test|
 
 ```Kusto
 availabilityResults
@@ -99,7 +98,7 @@ Le metriche del browser vengono raccolte dal Application Insights JavaScript SDK
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuna|
+|Millisecondi|Media, min, max|None|
 
 ```Kusto
 browserTimings
@@ -115,7 +114,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuna|
+|Millisecondi|Media, min, max|None|
 
 ```Kusto
 browserTimings
@@ -131,7 +130,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuna|
+|Millisecondi|Media, min, max|None|
 
 ```Kusto
 browserTimings
@@ -147,7 +146,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuna|
+|Millisecondi|Media, min, max|None|
 
 ```Kusto
 browserTimings
@@ -163,7 +162,7 @@ browserTimings
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuna|
+|Millisecondi|Media, min, max|None|
 
 ```Kusto
 browserTimings
@@ -185,7 +184,7 @@ Questa metrica riflette il numero di eccezioni generate dal codice dell'applicaz
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Numero|Numero|Nessuna|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|None|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions
@@ -200,7 +199,7 @@ Numero di chiamate di dipendenza non riuscite.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Numero|Numero|Nessuna|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|None|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 dependencies
@@ -215,7 +214,7 @@ Ogni volta che si registra un'eccezione a Application Insights, viene [rilevata 
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Numero|Numero|Nome del ruolo Cloud, istanza del ruolo Cloud, tipo di dispositivo|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|Nome del ruolo Cloud, istanza del ruolo Cloud, tipo di dispositivo|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions
@@ -229,7 +228,7 @@ Conteggio delle richieste del server rilevate contrassegnate come *non riuscite*
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Numero|Numero|Istanza del ruolo Cloud, nome del ruolo Cloud, traffico reale o sintetico, prestazioni delle richieste, codice di risposta|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|Istanza del ruolo Cloud, nome del ruolo Cloud, traffico reale o sintetico, prestazioni delle richieste, codice di risposta|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 requests
@@ -244,7 +243,7 @@ Questa metrica indica il numero di eccezioni del server.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
-|Numero|Numero|Nome del ruolo Cloud, istanza del ruolo Cloud|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|Nome del ruolo Cloud, istanza del ruolo Cloud|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
 
 ```Kusto
 exceptions

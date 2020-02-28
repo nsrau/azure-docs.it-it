@@ -1,20 +1,18 @@
 ---
 title: Gruppi intelligenti
 description: I gruppi intelligenti sono aggregazioni di avvisi che consentono di ridurre la frequenza degli avvisi
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: 83ea68ad92a6c78ccf56483e1f0c2cbcbcd7d22a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552357"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665494"
 ---
 # <a name="smart-groups"></a>Gruppi intelligenti
+
 Un problema comune insito nella gestione degli avvisi è estrarre le informazioni per capirne l'effettiva importanza. I gruppi intelligenti sono destinati a essere la soluzione a questo problema.  
 
 I gruppi intelligenti vengono creati automaticamente tramite algoritmi di apprendimento automatico per combinare gli avvisi associati che rappresentano un singolo problema.  Quando viene creato un avviso, l'algoritmo lo aggiunge a un gruppo intelligente nuovo o esistente in base a informazioni come i modelli cronologici e la somiglianza delle proprietà e della struttura. Se, ad esempio, le percentuali della CPU in varie macchine virtuali in una sottoscrizione presentano simultaneamente un picco che porta a numerosi avvisi singoli e se questi avvisi si sono verificati contemporaneamente in qualsiasi momento nel passato, verranno probabilmente raggruppati in un unico gruppo intelligente, suggerendo una possibile causa radice comune. Ciò significa che, per un utente che sta effettuando la risoluzione dei problemi degli avvisi, i gruppi intelligenti non solo consentono di ridurre la frequenza degli avvisi gestendo gli avvisi correlati come una singola unità aggregata ma forniscono una guida per individuare possibili cause radice comuni per gli avvisi.
@@ -24,13 +22,14 @@ Attualmente, l'algoritmo considera solo gli avvisi dello stesso servizio di moni
 È possibile visualizzare i dettagli dei gruppi intelligenti e impostarne lo stato in modo simile agli avvisi. Ogni avviso appartiene a un unico gruppo intelligente. 
 
 ## <a name="smart-group-state"></a>Stato del gruppo intelligente
+
 Lo stato del gruppo intelligente è un concetto simile allo stato degli avvisi, che consente di gestire il processo di risoluzione a livello di un gruppo intelligente. Analogamente allo stato degli avvisi, quando si crea un gruppo intelligente, questo ha lo stato **Nuovo**, che può essere modificato in **Confermato** oppure **Chiuso**.
 
 Sono supportati i seguenti stati di gruppo intelligente.
 
-| Statale | Description |
+| Stato | Descrizione |
 |:---|:---|
-| Novità | Il problema è appena stato rilevato e non è ancora stato esaminato. |
+| Nuovo | Il problema è appena stato rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato il gruppo intelligente e ha iniziato a lavorare su di esso. |
 | Chiuso | Il problema è stato risolto. Dopo che un gruppo intelligente è stato chiuso, è possibile riaprirlo modificandone lo stato. |
 
@@ -48,7 +47,7 @@ La pagina dei dettagli del gruppo intelligente viene visualizzata quando si sele
 
 La pagina dei dettagli del gruppo intelligente include le sezioni seguenti.
 
-| Sezione | Description |
+| Sezione | Descrizione |
 |:---|:---|
 | Avvisi | Elenca i singoli avvisi inclusi nel gruppo intelligente. Selezionare un avviso per aprire la pagina dei dettagli corrispondente. |
 | Cronologia | Elenca tutte le azioni eseguite dal gruppo intelligente e le modifiche apportate a quest'ultimo. Questa opzione è attualmente limitata alle modifiche di stato e a quelle di appartenenza degli avvisi. |

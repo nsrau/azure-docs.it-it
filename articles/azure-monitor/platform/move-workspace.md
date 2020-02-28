@@ -1,18 +1,17 @@
 ---
 title: Spostare un'area di lavoro Log Analytics in monitoraggio di Azure | Microsoft Docs
 description: Informazioni su come spostare l'area di lavoro di Log Analytics in un'altra sottoscrizione o in un altro gruppo di risorse.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980093"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659493"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
@@ -34,8 +33,8 @@ Le soluzioni gestite installate nell'area di lavoro verranno spostate con l'oper
 
 Soluzioni che devono essere rimosse prima di poter scollegare l'account di automazione:
 
-- Gestione degli aggiornamenti
-- Change Tracking
+- Gestione aggiornamenti
+- Rilevamento delle modifiche
 - Avviare/arrestare VM durante gli orari di minore attività
 
 
@@ -46,7 +45,7 @@ Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azur
 2. Selezionare le soluzioni da rimuovere.
 3. Fare clic su **Elimina risorse** e confermare le risorse da rimuovere facendo clic su **Elimina**.
 
-![Eliminare soluzioni](media/move-workspace/delete-solutions.png)
+![Elimina soluzioni](media/move-workspace/delete-solutions.png)
 
 ### <a name="delete-using-powershell"></a>Eliminare con PowerShell
 
@@ -91,7 +90,7 @@ Usare la procedura seguente per spostare l'area di lavoro usando il portale di A
 4. Selezionare una **sottoscrizione** di destinazione e un **gruppo di risorse**. Se si sta migrando l'area di lavoro a un altro gruppo di risorse nella stessa sottoscrizione, non verrà visualizzata l'opzione di **sottoscrizione** .
 5. Fare clic su **OK** per spostare l'area di lavoro e le risorse selezionate.
 
-    ![Portale](media/move-workspace/portal.png)
+    ![Portal](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Per spostare l'area di lavoro usando PowerShell, usare il comando [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) come nell'esempio seguente:

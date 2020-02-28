@@ -1,22 +1,21 @@
 ---
 title: Uso del Mapping dei servizi in Azure | Microsoft Docs
 description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168184"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663624"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
-Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping della comunicazione fra i servizi. Con Mapping dei servizi puoi visualizzare i server nel modo in cui pensi a essi, ovvero come sistemi interconnessi che forniscono servizi essenziali. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
+Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
 Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei servizi. Per informazioni sulla configurazione dei prerequisiti per questa soluzione, vedere [Enable the monitoraggio di Azure per le macchine virtuali Overview](vminsights-enable-overview.md#prerequisites). Per riepilogare, sono necessari gli elementi seguenti:
 
@@ -29,7 +28,7 @@ Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei 
 >[!NOTE]
 >Se il Mapping dei servizi è già stato distribuito, è possibile visualizzare il mapping anche in Monitoraggio di Azure per le macchine virtuali, che include le funzionalità aggiuntive per monitorare le prestazioni e l'integrità delle VM. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md). Per informazioni sulle differenze tra la soluzione Mapping dei servizi e la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali, vedere le [domande frequenti](../faq.md#azure-monitor-for-vms-preview)riportate di seguito.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
@@ -54,7 +53,7 @@ Mapping dei servizi consente di eliminare i tentativi di isolamento del problema
 
 L'uso di Mapping dei servizi consente di pianificare in modo efficace, accelerare e convalidare le migrazioni di Azure, garantendo che non venga tralasciato nulla e non si verifichino interruzioni impreviste. È possibile individuare tutti i sistemi interdipendenti di cui è necessario eseguire la migrazione insieme, valutare la configurazione e la capacità del sistema e determinare se un sistema in esecuzione è ancora utile agli utenti oppure è un candidato alla rimozione delle autorizzazioni anziché alla migrazione. Dopo aver eseguito lo spostamento, è possibile verificare il caricamento e l'identità dei client per assicurarsi che i sistemi di test e i clienti siano connessi. Se ci sono problemi nella pianificazione delle subnet e nelle definizioni dei firewall, le connessioni non riuscite nelle mappe di Mapping dei servizi indicano i sistemi che necessitano di connettività.
 
-### <a name="business-continuity"></a>Business continuity
+### <a name="business-continuity"></a>Continuità aziendale
 
 Se si usa Azure Site Recovery e si necessita di aiuto per definire la sequenza di ripristino dell'ambiente delle applicazioni, Mapping dei servizi visualizza automaticamente le dipendenze reciproche tra i sistemi, consentendo di verificare l'affidabilità del proprio piano di ripristino. Scegliendo un server o un gruppo critico e visualizzandone i client è possibile identificare i sistemi front-end che devono essere ripristinati soltanto dopo aver ripristinato e reso disponibile il server critico. Al contrario, osservando le dipendenze back-end di un server critico è possibile identificare i sistemi che devono essere ripristinati prima di ripristinare il sistema critico.
 
@@ -98,7 +97,7 @@ Gli utenti possono selezionare tutti i server che appartengono a un gruppo e sce
 
 Per creare un gruppo, selezionare il computer o i computer che si desidera aggiungere all'elenco dei computer e fare clic su **Add to group** (Aggiungi al gruppo).
 
-![Creare un gruppo](media/service-map/machine-groups-create.png)
+![Crea gruppo](media/service-map/machine-groups-create.png)
 
 È possibile quindi scegliere **Crea nuovo** e assegnare un nome al gruppo.
 
@@ -155,7 +154,7 @@ Fare clic sui puntini di sospensione accanto al nome del gruppo nell'elenco del 
 
 Alcuni processi svolgono ruoli particolari nei computer: server Web, server applicazioni, database e così via. Mapping dei servizi annota le caselle relative a processi e computer con icone di ruolo, per consentire di identificare rapidamente il ruolo di un processo o un server.
 
-| Icona del ruolo | Description |
+| Icona per il ruolo | Descrizione |
 |:--|:--|
 | ![Server Web](media/service-map/role-web-server.png) | Server Web |
 | ![Server app](media/service-map/role-application-server.png) | Server applicazioni |
@@ -327,7 +326,7 @@ I record in queste tabelle vengono generati dai dati segnalati da Dependency Age
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 | `Direction` |Direzione della connessione. Il valore è *inbound* o *outbound* |
 | `Machine` |FQDN del computer |
@@ -339,7 +338,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 | `LinksEstablished` |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
 | `LinksTerminated` |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
@@ -350,7 +349,7 @@ Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record s
 
 Oltre alle metriche relative al numero di connessioni, nelle proprietà del record seguenti vengono fornite anche informazioni sul volume dei dati inviati e ricevuti in una determinata connessione logica o porta di rete:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 | `BytesSent` |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 | `BytesReceived` |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
@@ -378,7 +377,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 *VMConnection* include anche informazioni di georilevazione per l'estremità remota di ogni record di connessione nelle proprietà del record seguenti: 
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 | `RemoteCountry` |Nome del paese/area geografica che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
 | `RemoteLatitude` |Latitudine della georilevazione.  Ad esempio, *47.68* |
@@ -388,7 +387,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 | `MaliciousIp` |Indirizzo RemoteIp |
 | `IndicatorThreadType` |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -406,7 +405,7 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 
 I record che contengono il tipo *ServiceMapComputer_CL* includono dati di inventario relativi ai server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -432,7 +431,7 @@ I record che contengono il tipo *ServiceMapComputer_CL* includono dati di invent
 
 I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi ai processi con connessione TCP eseguiti sui server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -572,7 +571,7 @@ Potrebbe essere utile installare prima le [librerie di runtime più recenti](htt
 
 La tabella seguente elenca i codici e le risoluzioni consigliate.
 
-| Codice | Description | Risoluzione |
+| Codice | Descrizione | Risoluzione |
 |:--|:--|:--|
 | 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente.<br><br>Se un riferimento a `Windows8.1-KB2999226-x64.msu` è seguito da una riga `Error 0x80240017: Failed to execute MSU package,` non si dispone dei prerequisiti per l'installazione di KB2999226. Seguire le istruzioni riportate nella sezione prerequisiti dell'articolo [runtime di Universal C in Windows](https://support.microsoft.com/kb/2999226) . Potrebbe essere necessario eseguire Windows Update e riavviare più volte per installare i prerequisiti.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
 
@@ -601,6 +600,6 @@ Se il computer viene visualizzato in Mapping dei servizi, ma non contiene dati d
 
 Controllare la `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) o `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). Le ultime righe del file dovrebbero indicare il motivo per cui il kernel non è stato caricato. Ad esempio, il kernel potrebbe non essere supportato in Linux se è stato aggiornato.
 
-## <a name="feedback"></a>Commenti
+## <a name="feedback"></a>Commenti e suggerimenti
 
 Per inviare commenti su Mapping dei servizi e sulla relativa documentazione,  Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.

@@ -1,18 +1,14 @@
 ---
 title: Esportare dati in Power BI da Azure Application Insights | Microsoft Docs
 description: Le query di Analisi possono essere visualizzate in Power BI.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668019"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663998"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -123,7 +119,7 @@ Con questo metodo si crea un dashboard di dati di telemetria completo per l'uten
 
 ### <a name="get-the-adapter"></a>Scaricare l'adattatore
 1. Accedere a [Power BI](https://app.powerbi.com/).
-2. Aprire **Recupera dati** ![Screenshot dell'icona Recupera dati nell'angolo inferiore sinistro](./media/export-power-bi/001.png), **Servizi**.
+2. Aprire **Get Data** ![screenshot of GetData Icon nell'angolo in basso a sinistra](./media/export-power-bi/001.png), **Services**.
 
     ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/export-power-bi/002.png)
 

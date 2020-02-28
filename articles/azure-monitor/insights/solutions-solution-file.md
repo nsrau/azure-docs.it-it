@@ -1,19 +1,18 @@
 ---
 title: Creazione di un file per soluzioni di gestione in Azure | Microsoft Docs
 description: Le soluzioni di gestione offrono scenari di gestione in pacchetto che i clienti possono aggiungere al proprio ambiente di Azure.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977685"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662538"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -62,7 +61,7 @@ Di seguito è illustrato un parametro di esempio.
 
 La tabella seguente descrive gli attributi di un parametro.
 
-| Attributo | Description |
+| Attributo | Descrizione |
 |:--- |:--- |
 | type |Tipo di dati per il parametro. Il controllo di input visualizzato per l'utente dipende dal tipo di dati.<br><br>bool - Casella di riepilogo a discesa<br>string - Casella di testo<br>int - Casella di testo<br>securestring - Campo della password<br> |
 | category |Categoria facoltativa per il parametro.  I parametri della stessa categoria vengono raggruppati insieme. |
@@ -77,7 +76,7 @@ La tabella seguente elenca i parametri standard per tutte le soluzioni di gestio
 >
 >
 
-| Parametro | Tipo | Description |
+| Parametro | Type | Descrizione |
 |:--- |:--- |:--- |
 | accountName |string |Nome dell'account di Automazione di Azure. |
 | pricingTier |string |Piano tariffario dell'area di lavoro Log Analytics e dell'account di Automazione di Azure. |
@@ -205,7 +204,7 @@ La risorsa soluzione deve avere una [dipendenza](../../azure-resource-manager/te
 ### <a name="properties"></a>Proprietà
 La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  Sono incluse le risorse cui viene fatto riferimento dalla soluzione e incluse nella soluzione che definisce come viene gestita la risorsa dopo l'installazione della soluzione.  Ogni risorsa nella soluzione deve essere presente nella proprietà **referencedResources** o **containedResources**.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | workspaceResourceId |ID dell'area di lavoro Log Analytics nel formato *\<ID del gruppo di risorse > il nome dell'area di lavoro/providers/Microsoft.OperationalInsights/workspaces/\<\>* . |
 | referencedResources |Elenco delle risorse nella soluzione che non devono essere rimosse quando la soluzione viene rimossa. |
@@ -213,14 +212,14 @@ La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  S
 
 L'esempio precedente si riferisce a una soluzione con un runbook, una pianificazione e una vista.  Poiché sono presenti *riferimenti* ad essi nell'elemento **properties**, la pianificazione e il runbook non vengono rimossi quando la soluzione viene rimossa.  La vista che è invece *contenuta* viene rimossa quando la soluzione viene rimossa.
 
-### <a name="plan"></a>Pianificare
+### <a name="plan"></a>Piano
 L'entità **plan** della risorsa soluzione ha le proprietà descritte nella tabella seguente.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | name |Nome della soluzione. |
 | version |Versione della soluzione determinata dall'autore. |
-| product |Stringa univoca che identifica la soluzione. |
+| prodotto |Stringa univoca che identifica la soluzione. |
 | publisher |Autore della soluzione. |
 
 

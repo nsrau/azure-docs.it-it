@@ -1,18 +1,17 @@
 ---
 title: Viste nelle soluzioni di gestione | Microsoft Docs
 description: 'Le soluzioni di gestione includono in genere una o più viste per visualizzare i dati.  Questo articolo descrive come esportare una vista creata da Progettazione viste e includerla in una soluzione di gestione. '
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553908"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663046"
 ---
 # <a name="views-in-management-solutions-preview"></a>Viste nelle soluzioni di gestione (anteprima)
 > [!NOTE]

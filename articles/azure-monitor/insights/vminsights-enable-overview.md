@@ -1,18 +1,17 @@
 ---
 title: Panoramica su Abilita Monitoraggio di Azure per le macchine virtuali (anteprima) | Microsoft Docs
 description: Informazioni su come distribuire e configurare Monitoraggio di Azure per le macchine virtuali. Individuare i requisiti di sistema.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400627"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669574"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Panoramica di Enable Monitoraggio di Azure per le macchine virtuali (Preview)
 
@@ -53,7 +52,7 @@ Monitoraggio di Azure per le macchine virtuali supporta un'area di lavoro Log An
 - India centrale
 - Giappone orientale
 - Australia orientale
-- Australia sudorientale
+- Australia sud-orientale
 
 >[!NOTE]
 >È possibile distribuire macchine virtuali di Azure da qualsiasi area. Queste macchine virtuali non sono limitate alle aree supportate dall'area di lavoro Log Analytics.
@@ -81,12 +80,12 @@ Per configurare l'area di lavoro per lo scenario in scala, usare uno dei metodi 
 
 Nella tabella seguente sono elencati i sistemi operativi Windows e Linux supportati da Monitoraggio di Azure per le macchine virtuali. Più avanti in questa sezione è presente un elenco completo che descrive in dettaglio la versione principale e secondaria del sistema operativo Linux e le versioni del kernel supportate.
 
-|Versione del sistema operativo |Performance |Mappe |
+|Versione del sistema operativo |Prestazioni |Mappe |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
 |Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
+|Windows Server 2012 R2 | X | X |
 |Windows Server 2012 | X | X |
 |Windows Server 2008 R2 | X | X|
 |Windows 10 1803 | X | X |
@@ -166,20 +165,20 @@ In un ambiente ibrido è possibile scaricare e installare l'agente di dipendenza
 
 La tabella seguente descrive le origini connesse supportate dalla funzionalità di mappa in un ambiente ibrido.
 
-| Origine connessa | Supportato | Description |
+| Origine connessa | Supportato | Descrizione |
 |:--|:--|:--|
-| Agenti Windows | Sì | Insieme all' [agente log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](#supported-operating-systems). |
+| Agenti di Windows | Sì | Insieme all' [agente log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](#supported-operating-systems). |
 | Agenti Linux | Sì | Insieme all' [agente log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](#supported-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | No | |
 
 È possibile scaricare Dependency Agent da questi percorsi:
 
-| File | Sistema operativo | Versione | SHA-256 |
+| File | OS | Versione | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | WINDOWS | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
-## <a name="role-based-access-control"></a>Controllo degli accessi basato sul ruolo
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
 Per abilitare e accedere alle funzionalità di Monitoraggio di Azure per le macchine virtuali, è necessario avere il ruolo di *collaboratore log Analytics* . Per visualizzare le prestazioni, l'integrità e la mappa dei dati, è necessario avere il ruolo di *lettore di monitoraggio* per la macchina virtuale di Azure. L'area di lavoro Log Analytics deve essere configurata per Monitoraggio di Azure per le macchine virtuali.
 
@@ -189,7 +188,7 @@ Per altre informazioni su come controllare l'accesso a un'area di lavoro Log Ana
 
 Abilitare Monitoraggio di Azure per le macchine virtuali usando uno dei metodi descritti in questa tabella:
 
-| Stato distribuzione | Metodo | Description |
+| Stato distribuzione | Metodo | Descrizione |
 |------------------|--------|-------------|
 | Singola VM di Azure o set di scalabilità di macchine virtuali | [Abilita dalla macchina virtuale](vminsights-enable-single-vm.md) | È possibile abilitare una singola macchina virtuale di Azure selezionando **Insights (anteprima)** direttamente dalla VM o dal set di scalabilità di macchine virtuali. |
 | Più macchine virtuali di Azure o set di scalabilità di macchine virtuali | [Abilita tramite criteri di Azure](vminsights-enable-at-scale-policy.md) | È possibile abilitare più macchine virtuali di Azure usando i criteri di Azure e le definizioni dei criteri disponibili. |
@@ -205,40 +204,40 @@ Monitoraggio di Azure per le macchine virtuali configura un'area di lavoro Log A
 
 ### <a name="windows-performance-counters"></a>Contatori delle prestazioni di Windows
 
-|Nome dell'oggetto |Nome contatore |
+|Nome oggetto |Nome contatore |
 |------------|-------------|
-|LogicalDisk |% Free Space |
+|LogicalDisk |% di spazio libero |
 |LogicalDisk |Media letture disco/sec |
 |LogicalDisk |Media sec/trasferimento disco |
 |LogicalDisk |Media scritture disco/sec |
-|LogicalDisk |Byte da/a disco/sec |
+|LogicalDisk |Byte disco/sec |
 |LogicalDisk |Byte letti da disco/sec |
-|LogicalDisk |Letture disco/sec |
+|LogicalDisk |Letture da disco/sec |
 |LogicalDisk |Disk Transfers/sec |
 |LogicalDisk |Byte scritti su disco/sec |
-|LogicalDisk |Scritture disco/sec |
+|LogicalDisk |Disk Writes/sec |
 |LogicalDisk |Free Megabytes |
 |Memoria |MByte disponibili |
 |Scheda di rete |Byte ricevuti/sec |
 |Scheda di rete |Byte inviati/sec |
-|Processore |% di tempo processore |
+|Processore |% di tempo del processore |
 
 ### <a name="linux-performance-counters"></a>Contatori delle prestazioni di Linux
 
-|Nome dell'oggetto |Nome contatore |
+|Nome oggetto |Nome contatore |
 |------------|-------------|
-|Logical Disk |% Used Space |
-|Logical Disk |Byte letti da disco/sec |
-|Logical Disk |Letture disco/sec |
-|Logical Disk |Disk Transfers/sec |
-|Logical Disk |Byte scritti su disco/sec |
-|Logical Disk |Scritture disco/sec |
-|Logical Disk |Free Megabytes |
-|Logical Disk |Logical Disk Bytes/sec |
+|Disco logico |% Used Space |
+|Disco logico |Byte letti da disco/sec |
+|Disco logico |Letture da disco/sec |
+|Disco logico |Disk Transfers/sec |
+|Disco logico |Byte scritti su disco/sec |
+|Disco logico |Disk Writes/sec |
+|Disco logico |Free Megabytes |
+|Disco logico |Logical Disk Bytes/sec |
 |Memoria |Available MBytes Memory |
 |Rete |Total Bytes Received |
 |Rete |Total Bytes Transmitted |
-|Processore |% di tempo processore |
+|Processore |% di tempo del processore |
 
 ## <a name="management-packs"></a>Management Pack
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 01/07/2020
+ms.date: 02/25/2020
 ms.author: juliako
-ms.openlocfilehash: b1c094689c7669f03d5355be7a77b1836c90974c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750863"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665750"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
 
@@ -32,7 +32,7 @@ Servizi multimediali genera i tipi di evento correlati al **processo** descritti
 
 ### <a name="monitoring-job-state-changes"></a>Monitoraggio delle modifiche dello stato del processo
 
-| Tipo di evento | Description |
+| Tipo evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| Ottiene un evento per tutte le modifiche dello stato del processo. |
 | Microsoft.Media.JobScheduled| Ottiene un evento quando il processo passa allo stato pianificato. |
@@ -52,7 +52,7 @@ Ogni **processo** avrà un livello superiore rispetto a **JobOutput**, quindi gl
 
 I messaggi di errore in `JobFinished`, `JobCanceled``JobError` output dei risultati aggregati per ogni output del processo, al termine di tutti. Mentre gli eventi di output del processo vengono attivati al termine di ogni attività. Se, ad esempio, si dispone di un output di codifica, seguito da un output di analisi video, si ottengono due eventi che vengono generati come eventi di output del processo prima che venga generato l'evento JobFinished finale con i dati aggregati.
 
-| Tipo di evento | Description |
+| Tipo evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| Ottiene un evento per tutte le modifiche dello stato di output del processo. |
 | Microsoft.Media.JobOutputScheduled| Ottiene un evento quando l'output del processo passa allo stato pianificato. |
@@ -66,7 +66,7 @@ Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 
 ### <a name="monitoring-job-output-progress"></a>Monitoraggio dello stato dell'output del processo
 
-| Tipo di evento | Description |
+| Tipo evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| Questo evento indica lo stato di avanzamento dell'elaborazione del processo, da 0% a 100%. Il servizio cerca di inviare un evento se il valore dello stato di avanzamento è aumentato del 5% o più oppure se sono passati più di 30 secondi dall'ultimo evento (heartbeat). Il valore dello stato di avanzamento non parte necessariamente dallo 0% né raggiunge necessariamente il 100% e non vi è garanzia di un aumento a una velocità costante nel tempo. Non usare questo evento per determinare se l'elaborazione è stata completata. A tale scopo, usare gli eventi di modifica dello stato.|
 
@@ -80,7 +80,7 @@ Servizi multimediali genera anche i tipi di evento **live** descritti di seguito
 
 Gli eventi a livello di flusso vengono generati per singolo flusso o connessione. Ogni evento ha un parametro `StreamId` che identifica la connessione o il flusso. Ogni flusso o connessione dispone di una o più tracce di tipi diversi. Ad esempio, una connessione da un codificatore può avere una traccia audio e quattro tracce video. I tipi di evento di flusso sono i seguenti:
 
-| Tipo di evento | Description |
+| Tipo evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | Il tentativo di connessione del codificatore viene rifiutato. |
 | Microsoft.Media.LiveEventEncoderConnected | Il codificatore stabilisce una connessione con l'evento live. |
@@ -97,7 +97,7 @@ Gli eventi a livello di traccia vengono generati per singola traccia.
 
 I tipi di evento a livello di traccia sono:
 
-| Tipo di evento | Description |
+| Tipo evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Il server dei contenuti multimediali elimina il blocco di dati perché è troppo tardi o presenta un timestamp sovrapposto. Il timestamp del nuovo blocco di dati è minore rispetto all'ora di fine del blocco di dati precedente. |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Il server dei contenuti multimediali riceve il primo blocco di dati per ogni traccia nel flusso o nella connessione. |
@@ -134,7 +134,7 @@ L'esempio seguente illustra lo schema dell'evento **JobStateChange**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | previousState | string | Stato del processo prima dell'evento. |
 | state | string | Nuovo stato del processo notificato in questo evento. Ad esempio, "pianificato: il processo è pronto per l'avvio" o "completato: il processo è terminato".|
@@ -204,9 +204,9 @@ Per ogni cambiamento finale dello stato del processo (ad esempio, JobFinished, J
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| outputs | Array | Ottiene gli output del processo.|
+| output | Array | Ottiene gli output del processo.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
@@ -320,7 +320,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventConnectionRejected*
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |  
@@ -328,18 +328,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
 | resultCode | string | Motivo per cui la connessione è stata rifiutata. I codici di risultato sono elencati nella tabella seguente. |
 
-I codici di risultato sono:
-
-| Codice risultato | Description |
-| ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | L'URL di inserimento non è corretto. |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | L'indirizzo IP del codificatore non è presente nell'elenco di indirizzi IP consentiti configurato. |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | Il codificatore non invia i metadati relativi al flusso. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | Il codec specificato non è supportato. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | Il frammento è stato ricevuto prima della ricezione e dell'intestazione per il flusso. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | Il numero di qualità specificato supera il limite massimo consentito. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | La velocità in bit aggregata supera il limite massimo consentito. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Il timestamp dal codificatore RTMP per FLVTag audio o video non è valido. |
+È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](live-event-error-codes.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -367,7 +356,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventEncoderConnected**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile della specifica di questo ID nell'URL di inserimento. |
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |
@@ -401,7 +390,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventEncoderDisconnected
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |  
@@ -409,18 +398,11 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
 | resultCode | string | Motivo di disconnessione del codificatore. La causa può essere una disconnessione normale o causata da un errore. I codici di risultato sono elencati nella tabella seguente. |
 
-I codici di risultato sono:
-
-| Codice risultato | Description |
-| ----------- | ----------- |
-| MPE_RTMP_SESSION_IDLE_TIMEOUT | La sessione RTMP è scaduta dopo un periodo di inattività per il limite di tempo consentito. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Il timestamp dal codificatore RTMP per FLVTag audio o video non è valido. |
-| MPE_CAPACITY_LIMIT_REACHED | Il codificatore invia i dati troppo velocemente. |
-| Codici di errore sconosciuti | Questi codici di errore possono variare da errori di memoria a voci duplicate nella mappa di hash. |
+È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](live-event-error-codes.md).
 
 I codici di risultato della disconnessione normale sono:
 
-| Codice risultato | Description |
+| Codice risultato | Descrizione |
 | ----------- | ----------- |
 | S_OK | Il codificatore si è disconnesso correttamente. |
 | MPE_CLIENT_TERMINATED_SESSION | Codificatore disconnesso (RTMP). |
@@ -458,7 +440,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingDataChunkDr
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia. |
@@ -498,7 +480,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingStreamRecei
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
@@ -537,7 +519,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingStreamsOutO
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | minLastTimestamp | string | Numero minimo dei timestamp più recenti tra le tracce (audio o video). |
 | typeOfTrackWithMinLastTimestamp | string | Tipo di traccia (audio o video) con numero minimo di timestamp più recenti. |
@@ -573,7 +555,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingVideoStream
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | firstTimestamp | string | Timestamp ricevuto per uno dei livelli di traccia/qualità del tipo di video. |
 | firstDuration | string | Durata del blocco di dati con il primo timestamp. |
@@ -615,7 +597,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIngestHeartbeat**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
@@ -659,7 +641,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventTrackDiscontinuityD
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
@@ -673,14 +655,14 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | argomento | string | Argomento EventGrid. Questa proprietà include l'ID risorsa per l'account di Servizi multimediali. |
 | subject | string | Il percorso della risorsa per il canale di Servizi multimediali nell'account di Servizi multimediali. La concatenazione dell'argomento e del soggetto fornisce l'ID risorsa per il processo. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. Ad esempio, "Microsoft.Media.JobStateChange". |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
-| data | object | Dati dell'evento di Servizi multimediali. |
+| dati | object | Dati dell'evento di Servizi multimediali. |
 | dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
@@ -688,7 +670,8 @@ Un evento presenta i seguenti dati di primo livello:
 
 [Register for job state change events](job-state-events-cli-how-to.md) (Eseguire la registrazione agli eventi di modifica dello stato del processo)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [Codici di errore dell'evento Live](live-event-error-codes.md)

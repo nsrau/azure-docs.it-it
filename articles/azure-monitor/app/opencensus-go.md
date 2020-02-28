@@ -1,18 +1,14 @@
 ---
 title: Tracce di OpenCensus Go con Azure Application Insights | Microsoft Docs
 description: Fornisce istruzioni su come integrare tracce di OpenCensus Go con il servizio di inoltro locale e Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ddb8dfbf14f2c75e4d16693076e56a711d8861ad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432552"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669982"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Raccogliere tracce distribuite da Go (anteprima)
 
@@ -43,7 +39,7 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
 
    Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
 
-   | Impostazioni        | Valore           | Description  |
+   | Impostazioni        | Valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |

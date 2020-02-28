@@ -1,19 +1,17 @@
 ---
 title: Configurare gli avvisi di disponibilità con applicazione Azure Insights | Microsoft Docs
 description: Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a1637ac82c33c2a541bcec9f2848a248c29d56ca
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872673"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654954"
 ---
 # <a name="availability-alerts"></a>Avvisi di disponibilità
 
@@ -26,7 +24,7 @@ Gli avvisi vengono ora abilitati automaticamente per impostazione predefinita, m
 ![Esperienza di creazione](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  con i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la gravità delle regole di avviso e le preferenze di notifica con [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **devono essere** configurate nell'esperienza degli avvisi. Se non si esegue la procedura seguente, non si riceveranno notifiche all'interno del portale.
+>  Con i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la gravità della regola di avviso e le preferenze di notifica con i [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **devono essere** configurati nell'esperienza avvisi. Se non si esegue la procedura seguente, non si riceveranno notifiche all'interno del portale.
 
 1. Dopo il salvataggio del test di disponibilità, nella scheda Dettagli fare clic sui puntini di sospensione accanto al test appena creato. Fare clic su "Modifica avviso".
 
@@ -66,7 +64,7 @@ Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-an
 
 Per automatizzare questo processo con i modelli di Azure Resource Manager, vedere la documentazione [creare un avviso di metrica con gestione risorse modello](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) .
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Articolo dedicato alla [risoluzione dei problemi](troubleshoot-availability.md).
 

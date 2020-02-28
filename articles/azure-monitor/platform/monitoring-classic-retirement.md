@@ -3,17 +3,16 @@ title: Aggiornamento di avvisi classici & monitoraggio in monitoraggio di Azure
 description: Descrizione del ritiro dei servizi e delle funzionalità di monitoraggio classici, illustrati in precedenza in portale di Azure in avvisi (versione classica).
 author: yanivlavi
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307097"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659476"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
@@ -76,9 +75,9 @@ Questo articolo verrà continuamente aggiornato con collegamenti e informazioni 
 
 ## <a name="pricing-for-migrated-alert-rules"></a>Prezzi per le regole di avviso migrate
 
-Viene implementato uno strumento di migrazione che consente di eseguire la migrazione degli [avvisi classici](../../azure-monitor/platform/alerts-classic.overview.md) di monitoraggio di Azure alla nuova esperienza degli avvisi. Per le regole di avviso sottoposte a migrazione e i gruppi di azioni corrispondenti sottoposti a migrazione (messaggi di posta elettronica, webhook o app per la logica) non verranno applicati addebiti. Le funzionalità disponibili con gli avvisi classici, tra cui la possibilità di modificare la soglia, il tipo di aggregazione e la granularità dell'aggregazione, continueranno a essere disponibili gratuitamente con le regole di avviso sottoposte a migrazione. Se tuttavia modifichi la regola di avviso sottoposta a migrazione in modo da usare le funzionalità, le notifiche o i tipi di azioni della nuova piattaforma per avvisi, verrà applicato un addebito corrispondente. Per altre informazioni sui prezzi per le regole di avviso e le notifiche, vedere [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
+Viene implementato uno strumento di migrazione che consente di eseguire la migrazione degli [avvisi classici](../../azure-monitor/platform/alerts-classic.overview.md) di monitoraggio di Azure alla nuova esperienza degli avvisi. Le regole di avviso migrate e i corrispondenti gruppi di azioni migrati (email, webhook o LogicApp) rimarranno gratuiti. La funzionalità con gli avvisi classici, inclusa la possibilità di modificare la soglia, il tipo di aggregazione e la granularità di aggregazione continuerà a essere disponibile gratuitamente con la regola di avviso migrata. Tuttavia, se si modifica la regola di avviso migrata in modo da usare una delle nuove funzionalità della piattaforma avvisi, le notifiche o i tipi di azione, viene applicato un addebito corrispondente. Per altre informazioni sui prezzi per le regole di avviso e le notifiche, vedere [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
-Di seguito sono riportati esempi di casi in cui verranno applicati addebiti per la regola di avviso:
+Di seguito sono riportati alcuni esempi di casi in cui verrà addebitato un addebito per la regola di avviso:
 
 - Tutte le regole di avviso nuove (non sottoposte a migrazione) create oltre le unità gratuite, nella nuova piattaforma di Monitoraggio di Azure
 - Tutti i dati inseriti e conservati oltre le unità gratuite incluse in Monitoraggio di Azure

@@ -1,18 +1,17 @@
 ---
 title: Ottimizzare l'ambiente di SQL Server con monitoraggio di Azure | Microsoft Docs
 description: Con monitoraggio di Azure è possibile usare la soluzione controllo integrità SQL per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168886"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662485"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente SQL con la soluzione controllo integrità SQL Server in monitoraggio di Azure
 
@@ -79,14 +78,14 @@ Usare le informazioni seguenti per impostare l'account RunAs di Operations Manag
 
 1. In Operations Manager aprire la console operatore e quindi fare clic su **Administration**.
 2. In **Run As Configuration** (Configurazione RunAs) fare clic su **Profiles** (Profili) e aprir **SQL Assessment Run As Profile** (Profilo RunAs di Valutazione SQL).
-3. Nella pagina **Esegui come account** fare clic su **Aggiungi**.
+3. Nella pagina **Run As Account** fare clic su **Add**.
 4. Selezionare un account RunAs Windows che contiene le credenziali necessarie per SQL Server oppure fare clic su **New** per crearne uno.
 
    > [!NOTE]
    > Il tipo dell'account RunAs deve essere Windows. L'account RunAs deve appartenere anche al gruppo Local Administrators in tutti i server Windows che ospitano istanze di SQL Server.
    >
    >
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 6. Modificare ed eseguire l'esempio T-SQL seguente in ogni istanza di SQL Server per concedere le autorizzazioni minime richieste dall'account RunAs per eseguire il controllo integrità. Non è tuttavia necessario farlo se l'account RunAs fa già parte del ruolo del server sysadmin nelle istanze di SQL Server.
 
 ```
@@ -126,9 +125,9 @@ A ogni raccomandazione generata viene assegnato un valore di ponderazione che id
 ### <a name="how-weights-are-calculated"></a>Come vengono calcolate le ponderazioni
 Le ponderazioni sono valori aggregati che si basano su tre fattori chiave:
 
-* La *probabilità* che un problema identificato causi inconvenienti. Una probabilità più elevata equivale a un punteggio complessivamente maggiore per la raccomandazione.
-* L' *impatto* del problema per l'organizzazione se causa effettivamente un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
-* Il *lavoro* richiesto per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
+* *Probabilità* che un problema identificato sia causa di problemi. Una probabilità più elevata equivale a un punteggio complessivamente maggiore per la raccomandazione.
+* *Impatto* del problema per l'organizzazione se è effettivamente causa di un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
+* *Lavoro richiesto* per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
 
 La ponderazione per ogni raccomandazione è espressa come percentuale del punteggio totale disponibile per ogni area di interesse. Ad esempio, se una raccomandazione nell'area di interesse relativa a sicurezza e conformità ha un punteggio pari al 5%, l'implementazione della raccomandazione aumenterà del 5% il punteggio complessivo di quell'area.
 
@@ -199,7 +198,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Mo
 
 *Quali controlli vengono eseguiti dalla soluzione Valutazione SQL?*
 
-* La query seguente illustra una descrizione di tutti i controlli attualmente eseguiti:
+* La query seguente mostra una descrizione di tutti i controlli attualmente eseguiti:
 
 ```Kusto
 SQLAssessmentRecommendation
@@ -215,7 +214,7 @@ I risultati possono quindi essere esportati in Excel per analizzarli più attent
 
 *È possibile configurare la frequenza di esecuzione del controllo?*
 
-* Non attualmente.
+* Attualmente non è possibile.
 
 *Se viene rilevato un altro server dopo l'aggiunta della soluzione Controllo integrità SQL, il server verrà controllato?*
 
@@ -243,7 +242,7 @@ I risultati possono quindi essere esportati in Excel per analizzarli più attent
 
 *È possibile definire l'orario per la raccolta di dati?*
 
-* Non attualmente.
+* Attualmente non è possibile.
 
 *Perché è necessario configurare un account RunAs?*
 

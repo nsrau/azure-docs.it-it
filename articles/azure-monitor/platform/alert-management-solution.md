@@ -1,18 +1,17 @@
 ---
 title: Soluzione Gestione avvisi in Azure Log Analytics | Microsoft Azure
 description: La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nell'ambiente.  Oltre a consolidare gli avvisi generati in Log Analytics, importa gli avvisi dai gruppi di gestione di System Center Operations Manager connessi in Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: fe484d8b5a06946b844acb5e506ec4dcc99ebc23
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 48a825f31a1c5f2eab2fbb71b6f030b8acb5617d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932722"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668384"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
@@ -40,20 +39,20 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 
 * Alert Management di Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
-Per altre informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
+Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
 
-## <a name="data-collection"></a>Raccolta dei dati
+## <a name="data-collection"></a>Raccolta dati
 ### <a name="agents"></a>Agenti
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione.
 
-| Origine connessa | Supporto | Description |
+| Origine connessa | Supporto | Descrizione |
 |:--- |:--- |:--- |
-| [Agenti di Windows](agent-windows.md) | No |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
+| [Agenti Windows](agent-windows.md) | No |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No |Gli agenti di Linux diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Linux.  Gli avvisi di Nagios e Zabbix vengono raccolti da quei server che richiedono l'agente Linux. |
-| [Gruppo di gestione di System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |SÌ |Gli avvisi che sono generati con gli agenti di Operation Manager vengono distribuiti al gruppo di gestione e quindi inoltrati a Log Analytics.<br><br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli avvisi vengono inoltrati dal gruppo di gestione al repository di Log Analytics. |
+| [Gruppo di gestione di System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Sì |Gli avvisi che sono generati con gli agenti di Operation Manager vengono distribuiti al gruppo di gestione e quindi inoltrati a Log Analytics.<br><br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli avvisi vengono inoltrati dal gruppo di gestione al repository di Log Analytics. |
 
 
-### <a name="collection-frequency"></a>Frequenza della raccolta
+### <a name="collection-frequency"></a>Frequenza di raccolta
 - I record degli avvisi sono disponibili per la soluzione appena vengono archiviati nel repository.
 - I dati degli avvisi vengono inviati dal gruppo di gestione di Operation Manager a Log Analytics ogni tre minuti.  
 
@@ -64,10 +63,10 @@ Quando si aggiunge la soluzione Gestione avvisi all'area di lavoro Log Analytics
 
 Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboard.  Il dashboard include le colonne nella tabella seguente.  Ogni colonna elenca i primi 10 avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati.  È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su **Visualizza tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
 
-| Colonna | Description |
+| Colonna | Descrizione |
 |:--- |:--- |
 | Avvisi critici |Tutti gli avvisi con un livello di gravità Critico raggruppati per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
-| Warning Alerts |Tutti gli avvisi con una gravità Avviso per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
+| Avvertenze |Tutti gli avvisi con una gravità Avviso per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
 | Avvisi attivi System Center Operations Manager |Tutti gli avvisi raccolti da Operations Manager con uno stato diverso da *Chiuso* raggruppati per origine che ha generato l'avviso. |
 | All Active Alerts |Tutti gli avvisi con qualsiasi gravità raggruppati per nome dell'avviso. Include solo gli avvisi Operations Manager con qualsiasi stato diverso da *Chiuso*. |
 
@@ -81,7 +80,7 @@ La soluzione Alert Management consente di analizzare qualsiasi record con un tip
 
 La soluzione non importa avvisi da Operations Manager e crea un record corrispondente per ciascuno di essi con un tipo di **Avviso** e un SourceSystem di **OpsManager**.  Questi record includono le proprietà elencate nella tabella seguente:  
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | `Type` |*Avviso* |
 | `SourceSystem` |*OpsManager* |
@@ -107,7 +106,7 @@ La soluzione non importa avvisi da Operations Manager e crea un record corrispon
 ## <a name="sample-log-searches"></a>Ricerche di log di esempio
 La tabella seguente fornisce ricerche di log di esempio per i record degli avvisi raccolti da questa soluzione. 
 
-| Query | Description |
+| Query | Descrizione |
 |:---|:---|
 | Avviso &#124; dove SourceSystem == "OpsManager" e AlertSeverity == "error" e TimeRaised > ago(24h) |Avvisi critici generati durante le ultime 24 ore |
 | Avviso &#124; dove AlertSeverity == "warning" e TimeRaised > ago(24h) |Avvertenze generate durante le ultime 24 ore |

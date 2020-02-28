@@ -1,19 +1,17 @@
 ---
 title: Usare il riquadro delle impostazioni di Azure Application Insights Profiler | Microsoft Docs
 description: Visualizzare lo stato del Profiler e avviare sessioni di profilatura
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b383ef8c92325b0ad6561bee9b654c78e4054338
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820480"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671631"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
@@ -54,7 +52,7 @@ Facendo clic sul pulsante trigger sulla barra dei menu si apre la casella impost
 |-|-|
 Pulsante attiva/disattiva | On: Profiler può essere avviato da questo trigger. Disattivato: il profiler non verrà avviato da questo trigger.
 Soglia memoria | Quando questa percentuale di memoria è in uso, il Profiler verrà avviato.
-Duration | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
+Durata | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
 Cooldown | Imposta il tempo di attesa del profiler prima di verificare l'utilizzo della memoria o della CPU dopo che è stato attivato.
 
 ## <a name="recent-profiling-sessions"></a>Sessioni di profilatura recenti

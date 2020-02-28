@@ -1,24 +1,22 @@
 ---
 title: Informazioni di riferimento sull'API dell'agente applicazione Azure Insights
 description: Informazioni di riferimento sull'API dell'agente Application Insights. Enable-ApplicationInsightsMonitoring. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dccd7e617174bef4a85cb6293cbcc459542310f9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899698"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671308"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>API dell'agente di Application Insights: Enable-ApplicationInsightsMonitoring
 
 Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrizione
 
 Consente il monitoraggio di associazione non codificato delle app IIS in un computer di destinazione.
 
@@ -37,7 +35,7 @@ Dopo aver abilitato il monitoraggio, è consigliabile usare le [metriche in temp
 > [!IMPORTANT] 
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore e un criterio di esecuzione con privilegi elevati. Per altre informazioni, vedere [eseguire PowerShell come amministratore con criteri di esecuzione elevati](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazione
 In questo esempio, a tutte le app nel computer corrente viene assegnata una sola chiave di strumentazione.
@@ -52,7 +50,7 @@ In questo esempio:
 - `AppFilter='WebAppExclude'` fornisce una chiave di strumentazione `null`. L'app specificata non verrà instrumentata.
 - `AppFilter='WebAppOne'` assegna all'app specificata una chiave di strumentazione univoca.
 - `AppFilter='WebAppTwo'` assegna all'app specificata una chiave di strumentazione univoca.
-- Infine, `AppFilter` USA anche il carattere jolly `'.*'` per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
+- Infine, `AppFilter` usa anche il carattere jolly `'.*'` per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
 - Gli spazi vengono aggiunti per migliorare la leggibilità.
 
 ```powershell
@@ -65,19 +63,19 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Obbligatorio.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
-È possibile creare un singolo script di installazione per più computer impostando `MachineFilter`.
+È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter`.
 
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
 
-#### <a name="schema"></a>SCHEMA
+#### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** è un'espressione C# regolare obbligatoria del nome del computer o della macchina virtuale.
@@ -91,12 +89,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 
 ### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Facoltativo.** Usare questa opzione per consentire al motore di strumentazione di raccogliere gli eventi e i messaggi relativi a ciò che accade durante l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici di risultato di dipendenza, verbi HTTP e testo del comando SQL.
+**Facoltativa.** Usare questa opzione per consentire al motore di strumentazione di raccogliere gli eventi e i messaggi relativi a ciò che accade durante l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici di risultato di dipendenza, verbi HTTP e testo del comando SQL.
 
 Il motore di strumentazione aggiunge un sovraccarico ed è disattivato per impostazione predefinita.
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
+**Facoltativa.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 ### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 Quando si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).

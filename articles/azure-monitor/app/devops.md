@@ -1,18 +1,14 @@
 ---
 title: Monitoraggio delle prestazioni delle app Web-applicazione Azure Insights
 description: Funzione di Application Insights nel ciclo devOps
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/21/2018
-ms.openlocfilehash: 1396bc86971941fdf8c6559df71a4c47f58a899c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928812"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669693"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights
@@ -51,7 +47,7 @@ Alcune domande da chiedersi durante lo sviluppo di un sistema Web:
 * Qual è la causa radice? L'errore si è verificato al livello di un componente o di una dipendenza? Si tratta di un problema di comunicazione?
 * Quanti sono gli utenti interessati? Se i più problemi da affrontare sono più di uno, qual è il più importante?
 
-## <a name="what-is-application-insights"></a>Che cos'è Application Insights?
+## <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
 ![Flusso di lavoro di base di Application Insights](./media/devops/020.png)
 
 1. Application Insights consente di instrumentare l'app, inviandone i dati di telemetria durante l'esecuzione. È possibile compilare l'SDK di Application Insights direttamente nell'applicazione oppure applicare la strumentazione in fase di runtime. Il primo metodo è più flessibile, perché consente di aggiungere i propri dati di telemetria ai normali moduli.
@@ -89,7 +85,7 @@ Per consultare i propri dati di telemetria, il Real Madrid usa il modulo PowerBI
 ![Visualizzazione di Power BI per Application Insights Telemetry](./media/devops/080.png)
 
 ## <a name="smart-detection"></a>Rilevamento intelligente
-La [diagnostica proattiva](../../azure-monitor/app/proactive-diagnostics.md) è una funzionalità recente. Senza richiedere configurazioni particolari da parte dell'utente, Application Insights rileva automaticamente gli aumenti atipici nella frequenza degli errori dell'app e fornisce avvisi a tale riguardo. È intelligente al punto tale da ignorare gli errori occasionali, come anche l'incremento degli errori semplicemente riconducibile a un aumento delle richieste. Ad esempio, se si verifica un errore in uno dei servizi da cui dipende l'utente o se una nuova build appena distribuita non funziona bene, l'utente lo saprà semplicemente controllando la posta elettronica. Saranno inoltre disponibili webhook che consentiranno di attivare altre app.
+[diagnostica proattiva](../../azure-monitor/app/proactive-diagnostics.md) è una funzionalità recente. Senza richiedere configurazioni particolari da parte dell'utente, Application Insights rileva automaticamente gli aumenti atipici nella frequenza degli errori dell'app e fornisce avvisi a tale riguardo. È intelligente al punto tale da ignorare gli errori occasionali, come anche l'incremento degli errori semplicemente riconducibile a un aumento delle richieste. Ad esempio, se si verifica un errore in uno dei servizi da cui dipende l'utente o se una nuova build appena distribuita non funziona bene, l'utente lo saprà semplicemente controllando la posta elettronica. Saranno inoltre disponibili webhook che consentiranno di attivare altre app.
 
 Un altro aspetto di questa funzionalità è che consente di eseguire un'approfondita analisi giornaliera dei dati di telemetria, finalizzata a individuare schemi delle prestazioni atipici altrimenti difficili da rilevare, come un rallentamento delle prestazioni associato a una particolare area geografica oppure a una determinata versione di un browser.
 

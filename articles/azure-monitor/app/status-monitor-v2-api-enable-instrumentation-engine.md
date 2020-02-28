@@ -1,24 +1,22 @@
 ---
 title: Informazioni di riferimento sull'API dell'agente applicazione Azure Insights
 description: Informazioni di riferimento sull'API dell'agente Application Insights. Enable-InstrumentationEngine. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 796c2cc669e238499223d233cf4ddcf740af7c95
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899730"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671357"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>API dell'agente di Application Insights: Enable-InstrumentationEngine
 
 Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrizione
 
 Abilita il motore di strumentazione impostando alcune chiavi del registro di sistema.
 Riavviare IIS per rendere effettive le modifiche.
@@ -37,16 +35,16 @@ Abilitare il motore di strumentazione se:
 > - Questo cmdlet richiede la revisione e l'accettazione delle condizioni di licenza e informativa sulla privacy.
 > - Il motore di strumentazione aggiunge ulteriore overhead ed è disattivato per impostazione predefinita.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ```powershell
 PS C:\> Enable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
+**Facoltativa.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 ### <a name="-verbose"></a>-Verbose
 **Parametro comune.** Usare questa opzione per restituire i log dettagliati.

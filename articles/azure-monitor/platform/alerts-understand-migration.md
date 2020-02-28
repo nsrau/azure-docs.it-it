@@ -1,18 +1,17 @@
 ---
 title: Informazioni sul funzionamento dello strumento di migrazione volontaria per gli avvisi di monitoraggio di Azure
 description: Informazioni sul funzionamento dello strumento di migrazione degli avvisi e sulla risoluzione dei problemi.
-author: yalavi
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
+author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 8cc77d13567910797cd519ac193b848f3ea434da
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680682"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665273"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informazioni sul funzionamento dello strumento di migrazione
 
@@ -73,13 +72,13 @@ Le regole di avviso classiche in AnonymousThrottlingError, SASThrottlingError e 
 
 È possibile eseguire la migrazione di tutti gli avvisi classici sulle metriche di Cosmos DB, eccetto gli avvisi relativi a queste metriche:
 
-- Media di richieste al secondo
+- Media richieste al secondo
 - Livello di coerenza
 - Http 2xx
 - Http 3xx
 - Http 400
 - Http 401
-- Internal Server Error
+- Errore interno del server
 - Numero massimo di RUPM utilizzati al minuto
 - Numero massimo di ur al secondo
 - Numero di richieste non riuscite di Mongo
@@ -92,7 +91,7 @@ Le regole di avviso classiche in AnonymousThrottlingError, SASThrottlingError e 
 - Richieste di aggiornamento Mongo non riuscite
 - Latenza di lettura osservata
 - Latenza di scrittura osservata
-- Disponibilità del servizio
+- Disponibilità dei servizi
 - Capacità di archiviazione
 - Richieste limitate
 - Totale richieste
@@ -135,7 +134,7 @@ Nelle sezioni seguenti vengono illustrate in dettaglio le metriche con una metri
 
 Per i servizi dell'account di archiviazione come BLOB, tabelle, file e code, le metriche seguenti sono mappate alle metriche equivalenti, come illustrato di seguito:
 
-| Metrica negli avvisi classici | Metrica equivalente nei nuovi avvisi | Commenti|
+| Metrica negli avvisi classici | Metrica equivalente nei nuovi avvisi | Comments|
 |--------------------------|---------------------------------|---------|
 | AnonymousAuthorizationError| Metrica transazioni con dimensioni "ResponseType" = "AuthorizationError" e "autenticazione" = "anonima"| |
 | AnonymousClientOtherError | Metrica transazioni con dimensioni "ResponseType" = "ClientOtherError" e "autenticazione" = "anonima" | |
@@ -147,7 +146,7 @@ Per i servizi dell'account di archiviazione come BLOB, tabelle, file e code, le 
 | AuthorizationError | Metrica transazioni con dimensioni "ResponseType" = "AuthorizationError" | |
 | AverageE2ELatency | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
-| Capacità | BlobCapacity | Usare `aggregationType`' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
+| Capacity | BlobCapacity | Usare `aggregationType`' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
 | ClientOtherError | Metrica transazioni con dimensioni "ResponseType" = "ClientOtherError"  | |
 | ClientTimeoutError | Metrica transazioni con dimensioni "ResponseType" = "ClientTimeOutError" | |
 | ContainerCount | ContainerCount | Usare `aggregationType`' Average ' invece di ' Last '. La metrica si applica solo ai servizi BLOB |
@@ -162,17 +161,17 @@ Per i servizi dell'account di archiviazione come BLOB, tabelle, file e code, le 
 | SASSuccess | Metrica Transactions con Dimensions "ResponseType" = "success" e "Authentication" = "SAS" | |
 | ServerOtherError | Metrica transazioni con dimensioni "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Metrica transazioni con dimensioni "ResponseType" = "ServerTimeOutError"  | |
-| Operazione completata | Metrica transazioni con dimensioni "ResponseType" = "operazione riuscita" | |
+| Success | Metrica transazioni con dimensioni "ResponseType" = "operazione riuscita" | |
 | TotalBillableRequests| Transazioni | |
 | TotalEgress | Egress | |
-| TotalIngress | Ingresso | |
+| TotalIngress | Dati in ingresso | |
 | TotalRequests | Transazioni | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft. Insights/Components
 
 Per Application Insights, le metriche equivalenti sono illustrate di seguito:
 
-| Metrica negli avvisi classici | Metrica equivalente nei nuovi avvisi | Commenti|
+| Metrica negli avvisi classici | Metrica equivalente nei nuovi avvisi | Comments|
 |--------------------------|---------------------------------|---------|
 | availability.availabilityMetric.value | availabilityResults/availabilityPercentage|   |
 | availability.durationMetric.value | availabilityResults/duration| Moltiplica la soglia originale di 1000 come unità per la metrica classica sono in secondi e per una nuova sono in milliSecondi.  |
@@ -202,7 +201,7 @@ Per Application Insights, le metriche equivalenti sono illustrate di seguito:
 
 Per Cosmos DB, le metriche equivalenti sono illustrate di seguito:
 
-| Metrica negli avvisi classici | Metrica equivalente nei nuovi avvisi | Commenti|
+| Metrica negli avvisi classici | Metrica equivalente nei nuovi avvisi | Comments|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
 | Dimensioni dei dati | DataUsage| |

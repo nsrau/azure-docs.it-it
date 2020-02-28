@@ -1,18 +1,17 @@
 ---
 title: Connettere i computer tramite il gateway Log Analytics | Microsoft Docs
 description: Connettere i dispositivi e i computer monitorati da Operations Manager usando il gateway Log Analytics per inviare i dati al servizio automazione di Azure e Log Analytics quando non hanno accesso a Internet.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6c5325a21ffa74f5679a74b991f1c814eadc64ff
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773281"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672294"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -73,7 +72,7 @@ Il gateway Log Analytics è disponibile nelle lingue seguenti:
 - Cinese (tradizionale)
 - Ceco
 - Olandese
-- Italiano
+- Inglese
 - Francese
 - Tedesco
 - Ungherese
@@ -115,7 +114,7 @@ Per ottenere il gateway Log Analytics dal portale di Azure, seguire questa proce
  
    ![Screenshot dei passaggi per scaricare il gateway Log Analytics](./media/gateway/download-gateway.png)
 
-Oppure 
+o 
 
 1. Nel pannello dell'area di lavoro in **Impostazioni** selezionare **Impostazioni avanzate**.
 1. Passare a **origini connesse** > **server Windows** e selezionare **Scarica log Analytics gateway**.
@@ -137,7 +136,7 @@ Per installare un gateway usando l'installazione guidata, seguire questa procedu
 
    b. Se il server in cui è installato il gateway deve comunicare tramite un proxy, immettere l'indirizzo proxy a cui il gateway deve connettersi. Immettere ad esempio `http://myorgname.corp.contoso.com:80`.  Se si lascia vuoto questo campo, il gateway tenterà di connettersi direttamente a Internet.  Se il server proxy richiede l'autenticazione, immettere un nome utente e una password.
 
-   c. Selezionare **Avanti**.
+   c. Fare clic su **Avanti**.
 
    ![Screenshot della configurazione per il proxy del gateway](./media/gateway/gateway-wizard02.png)
 
@@ -159,7 +158,7 @@ Nella tabella seguente vengono evidenziati i parametri supportati dal programma 
 |NumeroPorta | Numero di porta TCP su cui è in ascolto il gateway |
 |PROXY | Indirizzo IP del server proxy |
 |INSTALLDIR | Percorso completo per specificare la directory di installazione dei file software del gateway |
-|USERNAME | ID utente da autenticare con il server proxy |
+|NOME UTENTE | ID utente da autenticare con il server proxy |
 |PASSWORD | Password dell'ID utente da autenticare con il proxy |
 |LicenseAccepted | Specificare il valore **1** per verificare l'accettazione del contratto di licenza |
 |HASAUTH | Specificare il valore **1** quando si specificano i parametri di nome utente/password |
@@ -202,7 +201,7 @@ Per informazioni su come progettare e distribuire un cluster di bilanciamento de
 
     ![Gestione del bilanciamento del carico di rete – Aggiungi host al cluster: Connetti](./media/gateway/nlb03.png) 
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
+### <a name="azure-load-balancer"></a>Bilanciamento del carico di Azure
 
 Per informazioni su come progettare e distribuire un Azure Load Balancer, vedere [che cos'è Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Per distribuire un servizio di bilanciamento del carico di base, seguire i passaggi illustrati in questa [Guida introduttiva](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , esclusi i passaggi descritti nella sezione **creare server back-end**.   
 
@@ -249,7 +248,7 @@ Per usare il gateway OMS per supportare Operations Manager, è necessario dispor
 
 Se il gruppo di gestione Operations Manager viene registrato con un'area di lavoro di Log Analytics per la prima volta, non verrà visualizzata l'opzione per specificare la configurazione proxy per il gruppo di gestione nella console operatore. Questa opzione è disponibile solo se il gruppo di gestione è stato registrato con il servizio.  
 
-Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. A tale scopo, seguire questa procedura:
+Per configurare l'integrazione, aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema in cui viene eseguita la console operatore e in tutti i server di gestione del gruppo di gestione. Esegui questi passaggi:
 
 1. Aprire un prompt dei comandi con privilegi elevati:
 
@@ -271,7 +270,7 @@ Dopo aver completato l'integrazione con Log Analytics, rimuovere la modifica ese
 
    ![Screenshot di Operations Manager, che mostra l'indirizzo del server proxy](./media/gateway/scom02.png)
 
-1. Selezionare **Fine**. Il gruppo di gestione di Operations Manager è ora configurato per comunicare tramite il server gateway con il servizio Log Analytics.
+1. Fare clic su **Fine**. Il gruppo di gestione di Operations Manager è ora configurato per comunicare tramite il server gateway con il servizio Log Analytics.
 
 ### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>Configurare Operations Manager, dove gli agenti specifici usano un server proxy
 
@@ -286,7 +285,7 @@ Per configurare server o gruppi specifici per l'utilizzo del server gateway Log 
 1. Aprire la console di Operations Manager e selezionare l'area di lavoro **Creazione**.  
 1. Nell'area di lavoro Creazione selezionare **Regole**. 
 1. Sulla barra degli strumenti Operations Manager selezionare il pulsante **ambito** . Se questo pulsante non è disponibile, assicurarsi di aver selezionato un oggetto, non una cartella, nel riquadro **monitoraggio** . La finestra di dialogo **Crea ambito oggetti Management Pack** visualizza un elenco di classi, gruppi o oggetti di destinazione comuni. 
-1. Nel campo **Cerca** immettere **servizio integrità** e selezionarlo dall'elenco. Selezionare **OK**.  
+1. Nel campo **Cerca** immettere **servizio integrità** e selezionarlo dall'elenco. Scegliere **OK**.  
 1. Cercare la **regola di impostazione proxy di Advisor**. 
 1. Sulla barra degli strumenti Operations Manager selezionare **sostituzioni** , quindi scegliere **Sostituisci Rule\For un oggetto specifico della classe: servizio integrità** e selezionare un oggetto dall'elenco.  In alternativa, creare un gruppo personalizzato che contenga l'oggetto servizio integrità dei server a cui si desidera applicare la sostituzione. Applicare quindi la sostituzione al gruppo personalizzato.
 1. Nella finestra di dialogo **proprietà di sostituzione** aggiungere un segno di spunta nella colonna **sostituzione** accanto al parametro **WebProxyAddress** .  Nel campo **valore di sostituzione** immettere l'URL del server gateway log Analytics. Prestare attenzione per iniziare con il prefisso `http://`.  
