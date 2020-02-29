@@ -2,20 +2,20 @@
 title: Panoramica dei token-Azure Active Directory B2C
 description: Informazioni sui token usati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 543a3558333933e9d8d6262c76c1e6e9419be877
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848187"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186489"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Panoramica dei token in Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Le attestazioni nei token ID non vengono restituite in un ordine particolare. Le
 
 Nella tabella seguente sono elencate le attestazioni che è possibile prevedere in token ID e token di accesso emessi da Azure AD B2C.
 
-| Nome | Attestazione | Valore di esempio | Description |
+| Nome | Attestazione | Valore di esempio | Descrizione |
 | ---- | ----- | ------------- | ----------- |
 | Destinatari | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica il destinatario del token. Per Azure AD B2C, il destinatario è l'ID applicazione. L'applicazione deve convalidare questo valore e rifiutare il token se non corrisponde. Audience equivale a risorsa. |
 | Issuer | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Identifica inoltre la directory in cui l'utente è stato autenticato. L'applicazione deve convalidare l'attestazione dell'autorità emittente per verificare che il token provenga dall'endpoint appropriato. |
@@ -61,11 +61,11 @@ Nella tabella seguente sono elencate le attestazioni che è possibile prevedere 
 | Hash del codice | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hash di codice incluso in un token ID solo quando il token viene emesso insieme a un codice di autorizzazione OAuth 2,0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Per ulteriori informazioni su come eseguire questa convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash del token di accesso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hash del token di accesso incluso in un token ID solo quando il token viene emesso insieme a un token di accesso OAuth 2,0. Può essere usato per convalidare l'autenticità di un token di accesso. Per ulteriori informazioni su come eseguire questa convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | Strategia per ridurre gli attacchi di riproduzione dei token. L'applicazione può specificare un parametro nonce in una richiesta di autorizzazione usando il `nonce` parametro di query. Il valore fornito nella richiesta viene generato senza modifiche nell'attestazione `nonce` di un token ID. Questa attestazione consente all'applicazione di verificare il valore rispetto al valore specificato nella richiesta. L'applicazione deve eseguire la convalida durante il processo di convalida del token ID. |
-| Argomento | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'applicazione. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Per impostazione predefinita, l'attestazione dell'oggetto viene popolata con l'ID oggetto dell'utente nella directory. |
+| Oggetto | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'applicazione. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Per impostazione predefinita, l'attestazione dell'oggetto viene popolata con l'ID oggetto dell'utente nella directory. |
 | Riferimento alla classe contesto di autenticazione | `acr` | Non applicabile | Utilizzato solo con i criteri precedenti. |
 | Criteri del framework di attendibilità | `tfp` | `b2c_1_signupsignin1` | Nome del criterio utilizzato per acquisire il token ID. |
 | Ora di autenticazione | `auth_time` | `1438535543` | Ora in cui un utente ha immesso le credenziali per l'ultima volta, rappresentate in Epoch Time. Non esiste alcuna distinzione tra l'autenticazione che rappresenta un accesso aggiornato, una sessione di Single Sign-On (SSO) o un altro tipo di accesso. Il `auth_time` è l'ultima volta che l'applicazione (o l'utente) ha avviato un tentativo di autenticazione rispetto a Azure AD B2C. Il metodo usato per l'autenticazione non è differenziato. |
-| Ambito | `scp` | `Read`| Autorizzazioni concesse alla risorsa per un token di accesso. Più autorizzazioni concesse sono separate da uno spazio. |
+| Scope | `scp` | `Read`| Autorizzazioni concesse alla risorsa per un token di accesso. Più autorizzazioni concesse sono separate da uno spazio. |
 | Entità autorizzati | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | L'**ID applicazione** dell'applicazione client che ha avviato la richiesta. |
 
 ## <a name="configuration"></a>Configurazione

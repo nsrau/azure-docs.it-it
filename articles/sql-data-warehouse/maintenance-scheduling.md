@@ -1,6 +1,6 @@
 ---
-title: Pianificazioni di manutenzione di Azure
-description: La pianificazione della manutenzione consente ai clienti di programmare tutti gli eventi di manutenzione pianificata necessari usati da Azure SQL Data Warehouse per distribuire nuovi aggiornamenti, patch e funzionalità.
+title: Pianificazioni di manutenzione per il pool SQL sinapsi
+description: La pianificazione della manutenzione consente ai clienti di pianificare gli eventi di manutenzione pianificati necessari usati da Azure sinapsi Analytics per implementare nuove funzionalità, aggiornamenti e patch.
 services: sql-data-warehouse
 author: antvgski
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: design
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 418fbd0c1262de889e0c5f318ef8ce7fe519599f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471789"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193287"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Usare le pianificazioni della manutenzione per gestire gli aggiornamenti e la manutenzione dei servizi
 
-La funzionalità pianificazione della manutenzione integra le notifiche di manutenzione pianificata per l'integrità dei servizi, il monitoraggio Integrità risorse controllo e il servizio di pianificazione Azure SQL Data Warehouse manutenzione.
+La funzionalità pianificazione della manutenzione integra le notifiche di manutenzione pianificata per l'integrità dei servizi, il monitoraggio Integrità risorse controllo e il servizio di pianificazione della manutenzione per il pool SQL sinapsi (data warehouse) in Azure sinapsi Analytics. 
 
 È consigliabile usare la pianificazione della manutenzione per scegliere un intervallo di tempo quando è consigliabile ricevere nuove funzionalità, aggiornamenti e patch. È necessario scegliere una finestra di manutenzione primaria e secondaria entro un periodo di sette giorni, ogni finestra deve essere compresa in intervalli di giorni distinti.
 
-È ad esempio possibile pianificare una finestra primaria da sabato 22:00 a domenica 01:00, quindi pianificare una finestra secondaria di mercoledì 19:00 a 22:00. Se SQL Data Warehouse non riesce a eseguire operazioni di manutenzione durante la finestra di manutenzione primaria, cercherà di effettuare tale operazione nell'ambito della finestra di manutenzione secondaria. La manutenzione del servizio può avvenire occasionalmente durante le finestre primarie e secondarie. Per garantire il completamento rapido di tutte le operazioni di manutenzione, DW400c e livelli di data warehouse inferiori possono completare la manutenzione al di fuori di una finestra di manutenzione designata.
+È ad esempio possibile pianificare una finestra primaria da sabato 22:00 a domenica 01:00, quindi pianificare una finestra secondaria di mercoledì 19:00 a 22:00. Se non è possibile eseguire la manutenzione durante la finestra di manutenzione primaria, la manutenzione verrà ritentata durante la finestra di manutenzione secondaria. La manutenzione del servizio può avvenire occasionalmente durante le finestre primarie e secondarie. Per garantire il completamento rapido di tutte le operazioni di manutenzione, DW400c e livelli di data warehouse inferiori possono completare la manutenzione al di fuori di una finestra di manutenzione designata.
 
-Tutte le istanze di Azure SQL Data Warehouse appena create avranno una pianificazione di manutenzione definita dal sistema applicata durante la distribuzione. È possibile modificare la pianificazione non appena la distribuzione viene completata.
+Per tutte le istanze di data warehouse appena create viene applicata una pianificazione di manutenzione definita dal sistema durante la distribuzione. È possibile modificare la pianificazione non appena la distribuzione viene completata.
 
 Anche se una finestra di manutenzione può essere compresa tra tre e otto ore, questo non significa che il data warehouse sarà offline per la durata. La manutenzione può essere eseguita in qualsiasi momento all'interno di tale finestra ed è necessario aspettarsi una singola disconnessione durante tale periodo che dura ~ 5 -6 minuti perché il servizio distribuisce nuovo codice nel data warehouse. DW400c e Lower possono riscontrare più brevi perdite di connettività in momenti diversi durante la finestra di manutenzione. Quando viene avviata la manutenzione, tutte le sessioni attive verranno annullate e verrà eseguito il rollback delle transazioni di cui non è stato eseguito il commit. Per ridurre al minimo i tempi di inattività delle istanze, assicurarsi che non siano presenti transazioni con esecuzione prolungata nel data warehouse prima del periodo di manutenzione scelto.
 
@@ -34,45 +34,43 @@ Tutte le operazioni di manutenzione devono terminare entro le finestre di manute
 ## <a name="alerts-and-monitoring"></a>Avvisi e monitoraggio
 
 L'integrazione con le notifiche sull'integrità dei servizi e il monitoraggio per il controllo dell'integrità delle risorse consente ai clienti di essere aggiornati sulle attività di manutenzione imminenti. Questa automazione sfrutta i vantaggi di monitoraggio di Azure. È possibile decidere come si vuole ricevere una notifica degli eventi di manutenzione imminenti. Inoltre, è possibile scegliere i flussi automatizzati che consentiranno di gestire i tempi di inattività e ridurre al minimo l'effetto operativo.
+
 Una notifica di anticipo di 24 ore precede tutti gli eventi di manutenzione che non sono relativi al DWC400c e ai livelli inferiori.
 
 > [!NOTE]
 > Nel caso in cui sia necessario distribuire un aggiornamento critico del tempo, i tempi di notifica avanzati possono essere notevolmente ridotti.
 
-Se si riceve un preavviso prima dell'esecuzione della manutenzione, ma SQL Data Warehouse non riesce a eseguire la manutenzione nell'orario prestabilito, si riceverà una notifica di annullamento. La manutenzione verrà quindi ripresa durante il successivo periodo di manutenzione pianificato.
+Se è stata ricevuta una notifica di avanzamento, la manutenzione avrà luogo, ma non sarà possibile eseguire la manutenzione durante il periodo di tempo della notifica, si riceverà una notifica di annullamento. La manutenzione verrà quindi ripresa durante il successivo periodo di manutenzione pianificato.
 
 Tutti gli eventi di manutenzione attivi verranno visualizzati nella sezione **Integrità dei servizi - Manutenzione pianificata**. La cronologia dell'integrità dei servizi include un record completo degli eventi precedenti. La manutenzione può essere monitorata tramite il dashboard del portale di controllo dell'integrità dei servizi di Azure durante un evento attivo.
 
 ### <a name="maintenance-schedule-availability"></a>Disponibilità della pianificazione della manutenzione
 
-Anche se la pianificazione della manutenzione non è disponibile nell'area selezionata, è possibile visualizzare e modificare la pianificazione di manutenzione in qualsiasi momento. Quando la pianificazione della manutenzione sarà disponibile nella propria area, la pianificazione identificata diventerà immediatamente attiva nel data warehouse.
+Anche se la pianificazione della manutenzione non è disponibile nell'area selezionata, è possibile visualizzare e modificare la pianificazione di manutenzione in qualsiasi momento. Quando la pianificazione della manutenzione diventa disponibile nella propria area geografica, la pianificazione identificata diventerà immediatamente attiva nel pool SQL sinapsi.
 
 ## <a name="view-a-maintenance-schedule"></a>Visualizzare una pianificazione della manutenzione 
 
-### <a name="portal"></a>Portal
+Per impostazione predefinita, tutte le istanze di data warehouse appena create hanno una finestra di manutenzione primaria e secondaria di otto ore applicata durante la distribuzione. Come indicato in precedenza, è possibile modificare le finestre non appena la distribuzione è completa. Nessuna manutenzione verrà eseguita al di fuori delle finestre di manutenzione specificate senza preavviso.
 
-Per impostazione predefinita, a tutte le istanze di Azure SQL Data Warehouse create di recente viene applicata una finestra di manutenzione primaria e secondaria di otto ore durante la distribuzione. Come indicato in precedenza, è possibile modificare le finestre non appena la distribuzione è completa. Nessuna manutenzione verrà eseguita al di fuori delle finestre di manutenzione specificate senza preavviso.
-
-Per visualizzare la pianificazione della manutenzione applicata al data warehouse, completare i passaggi seguenti:
+Per visualizzare la pianificazione di manutenzione applicata al pool SQL sinapsi, completare i passaggi seguenti:
 
 1.  Accedere al [portale di Azure](https://portal.azure.com/).
-2.  Selezionare il data warehouse che si vuole visualizzare. 
-3.  Il data warehouse selezionato verrà aperto nel pannello Panoramica. La pianificazione di manutenzione applicata al data warehouse viene visualizzata sotto la **pianificazione della manutenzione**.
+2.  Selezionare il pool di sinapsi SQL che si vuole visualizzare. 
+3.  Il pool SQL sinapsi selezionato verrà aperto nel pannello panoramica. La pianificazione di manutenzione applicata al data warehouse viene visualizzata sotto la **pianificazione della manutenzione**.
 
 ![Pannello Panoramica](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 
 ## <a name="change-a-maintenance-schedule"></a>Modificare una pianificazione della manutenzione 
 
-### <a name="portal"></a>Portal
-Una pianificazione della manutenzione può essere aggiornata o modificata in qualsiasi momento. Se per l'istanza selezionata è in corso un ciclo di manutenzione attivo, le impostazioni verranno salvate. Diventeranno attive durante il successivo periodo di manutenzione identificato. [Altre informazioni](https://docs.microsoft.com/azure/service-health/resource-health-overview) sul monitoraggio del data warehouse durante un evento di manutenzione attiva. 
+Una pianificazione della manutenzione può essere aggiornata o modificata in qualsiasi momento. Se per l'istanza selezionata è in corso un ciclo di manutenzione attivo, le impostazioni verranno salvate. Diventeranno attive durante il successivo periodo di manutenzione identificato. [Altre informazioni](../service-health/resource-health-overview.md) sul monitoraggio del data warehouse durante un evento di manutenzione attiva. 
 
-### <a name="identifying-the-primary-and-secondary-windows"></a>Identificazione delle finestre primarie e secondarie
+## <a name="identifying-the-primary-and-secondary-windows"></a>Identificazione delle finestre primarie e secondarie
 
 Le finestre primarie e secondarie devono avere intervalli di giorni separati. Un esempio è una finestra primaria da martedì a giovedì e una finestra secondaria da sabato a domenica.
 
-Per modificare la pianificazione della manutenzione per il data warehouse, completare i passaggi seguenti:
+Per modificare la pianificazione di manutenzione per il pool SQL sinapsi, completare i passaggi seguenti:
 1.  Accedere al [portale di Azure](https://portal.azure.com/).
-2.  Selezionare il data warehouse che si vuole aggiornare. La pagina viene aperta nel pannello Panoramica. 
+2.  Selezionare il pool di sinapsi SQL che si vuole aggiornare. La pagina viene aperta nel pannello Panoramica. 
 3.  Aprire la pagina per le impostazioni della pianificazione di manutenzione selezionando il collegamento **Riepilogo pianificazione manutenzione** nel pannello panoramica. In alternativa, selezionare l'opzione **Pianificazione della manutenzione** nel menu delle risorse a sinistra.  
 
     ![Opzioni del pannello Panoramica](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
@@ -92,10 +90,10 @@ Per modificare la pianificazione della manutenzione per il data warehouse, compl
 
    Se si salva una pianificazione in un'area che non supporta la pianificazione della manutenzione, viene visualizzato il seguente messaggio. Le impostazioni vengono salvate e diventeranno attive quando la funzione sarà disponibile nell'area selezionata.    
 
-   ![Messaggio sulla disponibilità in base all'area geografica](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
+   ![Messaggio sulla disponibilità in base all'area geografica](media/sql-data-warehouse-maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Altre informazioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sulla creazione, visualizzazione e gestione degli avvisi con Monitoraggio di Azure.
-- [Altre informazioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sulle azioni webhook per le regole di avviso relative ai log.
-- [Altre informazioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) Creazione e gestione di gruppi di azioni.
-- [Altre informazioni](https://docs.microsoft.com/azure/service-health/service-health-overview) sull'integrità dei servizi di Azure.
+- [Altre informazioni](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) sulla creazione, visualizzazione e gestione degli avvisi con Monitoraggio di Azure.
+- [Altre informazioni](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md) sulle azioni webhook per le regole di avviso relative ai log.
+- [Altre informazioni](../monitoring-and-diagnostics/monitoring-action-groups.md) Creazione e gestione di gruppi di azioni.
+- [Altre informazioni](../service-health/service-health-overview.md) sull'integrità dei servizi di Azure.

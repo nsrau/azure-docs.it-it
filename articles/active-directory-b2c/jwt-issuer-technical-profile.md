@@ -3,20 +3,20 @@ title: Definire un profilo tecnico per un'autorità emittente JWT in un criterio
 titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico per un'autorità emittente JWT (JSON Web Token) in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f0adbac14c2ae886bc002ae56ab0784b608d1e5d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fa6da347289a12867a2416dea16631ba4758832f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841983"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187475"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un'autorità di certificazione del token JWT nei criteri personalizzati di Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Sì | L'attestazione da usare come attestazione dell'identità dell'utente all'interno dei codici di autorizzazione OAuth2 e dei token di aggiornamento. Per impostazione predefinita, è necessario impostare su `objectId`, a meno che non si specifichi un tipo di attestazione SubjectNamingInfo diverso. |
 | SendTokenResponseBodyWithJsonNumbers | No | Sempre impostato su `true`. Per il formato legacy in cui i valori numerici vengono forniti sotto forma di stringhe anziché di numeri JSON, impostare su `false`. Questo attributo è necessario per i client che hanno acquisito una dipendenza su un'implementazione precedente che ha restituito tali proprietà sotto forma di stringhe. |
@@ -61,7 +61,7 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 
 L'elemento CryptographicKeys contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | issuer_secret | Sì | Il certificato X509 (set di chiavi RSA) da usare per firmare il token JWT. Questa è la chiave `B2C_1A_TokenSigningKeyContainer` configurata in [Introduzione ai criteri personalizzati](custom-policy-get-started.md). |
 | issuer_refresh_token_key | Sì | Il certificato X509 (set di chiavi RSA) da usare per crittografare il token di aggiornamento. È stata configurata la chiave `B2C_1A_TokenEncryptionKeyContainer` in [Introduzione ai criteri personalizzati](custom-policy-get-started.md) |

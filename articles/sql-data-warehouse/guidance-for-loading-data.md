@@ -1,26 +1,26 @@
 ---
-title: Procedure consigliate per il caricamento dei dati
-description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in Azure SQL Data Warehouse.
+title: Procedure consigliate per il caricamento di dati
+description: Suggerimenti e ottimizzazioni delle prestazioni per il caricamento di dati in analisi SQL
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 01bb53488bf63f32d2bae804e4844400a7fd2d31
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d59a66b25b55572865f297436331971434d831c3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686091"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199887"
 ---
-# <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedure consigliate per il caricamento dei dati in Azure SQL Data Warehouse
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Procedure consigliate per il caricamento dei dati per il data warehousing
 
-Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in Azure SQL Data Warehouse.
+Suggerimenti e ottimizzazioni delle prestazioni per il caricamento di dati
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparazione dei dati in Archiviazione di Azure
 
@@ -36,9 +36,9 @@ Suddividere i file compressi di grandi dimensioni in file compressi di dimension
 
 ## <a name="running-loads-with-enough-compute"></a>Esecuzione di carichi con risorse di calcolo sufficienti
 
-Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, è consigliabile aumentare prima le prestazioni del data warehouse.
+Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL prima del caricamento.
 
-Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente addetto al caricamento a una specifica classe di risorse. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
+Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
 
 ### <a name="example-of-creating-a-loading-user"></a>Esempio di creazione di un utente addetto al caricamento
 
@@ -89,7 +89,7 @@ Gli indici columnstore richiedono una grande quantità di memoria per la compres
 - Caricare un numero di righe sufficiente a riempire completamente i nuovi rowgroup. Durante un caricamento bulk, ogni gruppo di 1.048.576 righe viene compresso direttamente nel columnstore come rowgroup completo. In caso di caricamenti con meno di 102.400 righe, le righe vengono inviate nell'archivio differenziale, in cui vengono mantenute in un indice albero B. Se si carica un numero troppo basso di righe, le righe potrebbero essere inserite tutte nell'archivio differenziale e non essere immediatamente compresse nel formato columnstore.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si usa l'API SQLBulkCopy o BCP
-Come indicato in precedenza, il caricamento con polibase fornirà la massima velocità effettiva con SQL Data Warehouse. Se non è possibile usare la polibase per caricare e deve usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva. 
+Come indicato in precedenza, il caricamento con polibase fornirà la massima velocità effettiva con SQL Data Warehouse. Se non è possibile usare la modalità polibase per caricare e usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva. una regola empirica ottimale è una dimensione del batch compresa tra 100.000 e 1 milione di righe.
 
 ## <a name="handling-loading-failures"></a>Gestione degli errori di caricamento
 

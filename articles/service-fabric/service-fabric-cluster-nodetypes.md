@@ -5,16 +5,18 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: e751b3dd9108d364c900bbd059dc89c1eb3770c4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722340"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199717"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
 
-I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets) sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura un set di scalabilità separato. Il runtime di Service Fabric viene installato in ogni macchina virtuale nel set di scalabilità dall'estensione della macchina virtuale *Microsoft. Azure. ServiceFabric* . È possibile aumentare o ridurre in modo indipendente ogni nodo, cambiare lo SKU del sistema operativo in esecuzione in ogni nodo del cluster, avere diversi set di porte aperte e usare metriche per la capacità diverse.
+I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets) sono una risorsa di calcolo di Azure. I set di scalabilità possono essere usati per distribuire e gestire una raccolta di macchine virtuali come un set. Ogni tipo di nodo definito in un cluster di Azure Service Fabric configura esattamente un set di scalabilità: non è possibile eseguire il backup di più tipi di nodo dallo stesso set di scalabilità e un tipo di nodo (nella maggior parte dei casi) deve essere supportato da più set di scalabilità. Un'eccezione a questo problema è la rara situazione di [scalabilità verticale](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) di un tipo di nodo, quando si dispone temporaneamente di due set di scalabilità con lo stesso valore di `nodeTypeRef` mentre le repliche vengono migrate dall'originale al set di scalabilità aggiornato.
+
+Il runtime di Service Fabric viene installato in ogni macchina virtuale nel set di scalabilità dall'estensione della macchina virtuale *Microsoft. Azure. ServiceFabric* . È possibile aumentare o ridurre in modo indipendente ogni nodo, cambiare lo SKU del sistema operativo in esecuzione in ogni nodo del cluster, avere diversi set di porte aperte e usare metriche per la capacità diverse.
 
 La figura seguente illustra un cluster con due tipi di nodo *, denominato front* - *end e back-end*. Ogni tipo di nodo ha cinque nodi.
 
@@ -72,13 +74,13 @@ Di seguito sono riportate le descrizioni delle proprietà:
 
 | **Nome** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-| name | string | nome univoco per l'estensione |
+| name | string | Nome univoco per l'estensione |
 | type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | Identifica Service Fabric del sistema operativo per il bootstrap |
 | autoUpgradeMinorVersion | true o false | Abilita l'aggiornamento automatico delle versioni secondarie di runtime SF |
 | publisher | Microsoft.Azure.ServiceFabric | Nome del server di pubblicazione dell'estensione Service Fabric |
 | clusterEndpont | string | URI: porta per l'endpoint di gestione |
-| nodeTypeRef | string | nome di nodeType |
-| durabilityLevel | bronze, silver, gold, platinum | tempo consentito per sospendere un'infrastruttura di Azure non modificabile |
+| nodeTypeRef | string | Nome di nodeType |
+| durabilityLevel | bronze, silver, gold, platinum | Tempo consentito per sospendere un'infrastruttura di Azure non modificabile |
 | enableParallelJobs | true o false | Abilitare ParallelJobs di calcolo, ad esempio rimuovere una macchina virtuale e riavviare la macchina virtuale nello stesso set di scalabilità in parallelo |
 | nicPrefixOverride | string | Prefisso della subnet, ad esempio "10.0.0.0/24" |
 | commonNames | string[] | Nomi comuni dei certificati del cluster installati |

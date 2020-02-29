@@ -1,6 +1,6 @@
 ---
 title: PowerShell per gli endpoint e le regole VNet per database singoli e in pool
-description: Vengono forniti script di PowerShell per la creazione e la gestione di endpoint del servizio virtuale per i database SQL di Azure e di SQL Data Warehouse.
+description: Fornisce gli script di PowerShell per creare e gestire gli endpoint di servizio virtuale per il database SQL di Azure e la sinapsi di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 76c4ea6c3fc5f415316e2b5cfcdf80c0681cc3f6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+tags: azure-synapse
+ms.openlocfilehash: f61403ef50af209fdc6e811191d31ccc83f8da73
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422502"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191861"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Creare un endpoint del servizio virtuale e una regola di rete virtuale per SQL
 
-Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza firewall che consente di definire se il server di database per i database singoli e il pool elastico nel [database SQL](sql-database-technical-overview.md) di Azure o per i database in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali.
+*Le regole della rete virtuale* sono una funzionalità di sicurezza del firewall che controlla se il server di database per i singoli database e il pool elastico nel [database SQL](sql-database-technical-overview.md) di Azure o per i database in [sinapsi di Azure](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da specifiche subnet nelle reti virtuali.
 
 > [!IMPORTANT]
-> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. Le informazioni di questo articolo *non* sono valide per la distribuzione di un'**istanza gestita** nel database SQL di Azure perché non ha un endpoint di servizio associato.
+> Questo articolo si applica al server SQL di Azure e al database SQL e data warehouse in sinapsi di Azure create nel server SQL di Azure. Per semplicità, il database SQL viene usato quando si fa riferimento sia al database SQL che alla sinapsi di Azure. Le informazioni di questo articolo *non* sono valide per la distribuzione di un'**istanza gestita** nel database SQL di Azure perché non ha un endpoint di servizio associato.
 
 Questo articolo fornisce e descrive uno script di PowerShell che esegue le azioni seguenti:
 

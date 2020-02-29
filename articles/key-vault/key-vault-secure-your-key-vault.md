@@ -6,15 +6,16 @@ author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: d22231541a7fe29d4517985742d4bf88dc4c3fa7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eac3850cfa0684bd1751cf7b88b4ff8e92667293
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980447"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197437"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -30,7 +31,7 @@ Per accedere a un insieme di credenziali delle chiavi in uno dei piani, tutti i 
 
 Entrambi i piani usano Azure Active Directory (Azure AD) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo, mentre il piano dati usa i criteri di accesso dell'insieme di credenziali delle chiavi.
 
-## <a name="active-directory-authentication"></a>Autenticazione di Active Directory
+## <a name="active-directory-authentication"></a>Autenticazione di Azure Active Directory
 
 Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Tutti i chiamanti in entrambi i piani devono essere registrati in questo tenant ed eseguire l'autenticazione per accedere all'insieme di credenziali delle chiavi. In entrambi i casi, le applicazioni possono accedere a un insieme di credenziali delle chiavi in due modi:
 
@@ -53,8 +54,8 @@ La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 
 | Piano di&nbsp;accesso | Endpoint di accesso | Operazioni | Meccanismo di controllo&nbsp;di accesso |
 | --- | --- | --- | --- |
-| Piano di gestione | **Globale:**<br> management.azure.com:443<br><br> **21Vianet per Azure Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 | Creare, leggere, aggiornare ed eliminare insiemi di credenziali delle chiavi<br><br>Impostare i criteri di accesso dell'insieme di credenziali delle chiavi<br><br>Impostare tag per l'insieme di credenziali delle chiavi | Controllo degli accessi in base al ruolo di Azure Resource Manager |
-| Piano dati | **Globale:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.net:443<br><br> **21Vianet per Azure Cina:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> &lt;nome-insiemecredenziali&gt;.vault.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> &lt;nome-insiemecredenziali&gt;.vault.microsoftazure.de:443 | Chiavi: decrittografare, crittografare,<br> annullare il wrapping, eseguire il wrapping, verificare, firmare,<br> ottenere, elencare, aggiornare, creare,<br> importare, eliminare, eseguire il backup, ripristinare<br><br> Segreti: ottenere, elencare, impostare, eliminare | Criteri di accesso dell'insieme di credenziali delle chiavi |
+| Piano di gestione | **Globale:**<br> management.azure.com:443<br><br> **21Vianet per Azure Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 | Creare, leggere, aggiornare ed eliminare insiemi di credenziali delle chiavi<br><br>Impostare i criteri di accesso dell'insieme di credenziali delle chiavi<br><br>Impostare tag per l'insieme di credenziali delle chiavi | Controllo degli accessi in base al ruolo di Azure Resource Manager |
+| Piano dati | **Globale:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.net:443<br><br> **21Vianet per Azure Cina:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.cn:443<br><br> **Azure US Gov:**<br> &lt;nome-insiemecredenziali&gt;.vault.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> &lt;nome-insiemecredenziali&gt;.vault.microsoftazure.de:443 | Chiavi: decrittografare, crittografare,<br> annullare il wrapping, eseguire il wrapping, verificare, firmare,<br> ottenere, elencare, aggiornare, creare,<br> importare, eliminare, eseguire il backup, ripristinare<br><br> Segreti: ottenere, elencare, impostare, eliminare | Criteri di accesso dell'insieme di credenziali delle chiavi |
 
 ## <a name="management-plane-and-rbac"></a>Piano di gestione e controllo degli accessi in base al ruolo
 
@@ -126,9 +127,9 @@ Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli
 | Ruolo | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati |
 | --- | --- | --- |
 | Team responsabile della sicurezza | Collaboratore di Key Vault | Chiavi: backup, create, delete, get, import, list, restore<br>Segreti: tutte le operazioni |
-| Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | Nessuno |
-| Revisori | Nessuno | Chiavi: list<br>Segreti: list<br><br> **Nota**: questa autorizzazione consente ai revisori di controllare gli attributi (tag, date di attivazione, date di scadenza) per le chiavi e i segreti non emessi nei log. |
-| Richiesta | Nessuno | Chiavi: sign<br>Segreti: get |
+| Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno |
+| Revisori | nessuno | Chiavi: list<br>Segreti: list<br><br> **Nota**: questa autorizzazione consente ai revisori di controllare gli attributi (tag, date di attivazione, date di scadenza) per le chiavi e i segreti non emessi nei log. |
+| Applicazione | nessuno | Chiavi: sign<br>Segreti: get |
 
 Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità App Web di Servizio app di Azure), sviluppatori e operatori necessitano dell'accesso `Contributor` a tali tipi di risorse. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.
 

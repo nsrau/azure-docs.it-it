@@ -2,20 +2,20 @@
 title: Riferimenti - Framework attendibilità in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sui criteri personalizzati e sul framework dell'esperienza di gestione delle identità di Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ffa25eec9c4b668f428d8e8b5a780a5fe4625a2c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849162"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188886"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definizione dei framework attendibilità basati sul Framework dell'esperienza di gestione delle identità di Azure AD B2C
 
@@ -36,9 +36,9 @@ Per rispondere a tutte queste domande, i criteri personalizzati di Azure AD B2C 
 
 Il framework attendibilità è una specifica scritta dei criteri di identità, sicurezza, privacy e protezione dei dati a cui i membri di una community di interesse devono conformarsi.
 
-L'identità federata rappresenta la base per ottenere la verifica delle identità degli utenti finali a livello di Internet. Se si delega la gestione delle identità a terze parti, una singola identità digitale per un utente finale può essere usata con più relying party.  
+L'identità federata rappresenta la base per ottenere la verifica delle identità degli utenti finali a livello di Internet. Se si delega la gestione delle identità a terze parti, una singola identità digitale per un utente finale può essere usata con più relying party.
 
-La verifica delle identità richiede che i provider di identità (IdP) e i provider di attributi aderiscano a procedure e criteri operativi, di privacy e sicurezza specifici.  Se non possono eseguire ispezioni dirette, le relying party (RP) devono sviluppare relazioni di trust con i provider di identità e i provider di attributi con i quali scelgono di lavorare.  
+La verifica delle identità richiede che i provider di identità (IdP) e i provider di attributi aderiscano a procedure e criteri operativi, di privacy e sicurezza specifici.  Se non possono eseguire ispezioni dirette, le relying party (RP) devono sviluppare relazioni di trust con i provider di identità e i provider di attributi con i quali scelgono di lavorare.
 
 Con l'aumento del numero di consumer e di provider di informazioni di identità digitali, diventa difficile proseguire la gestione pairwise di queste relazioni di trust o anche lo scambio pairwise dei metadati tecnici necessari per la connettività di rete.  Gli hub di federazione hanno risolto questi problemi solo in parte.
 
@@ -65,13 +65,13 @@ I framework attendibilità rappresentano il cardine del modello di Open Identity
 
 Una specifica di framework attendibilità determina quindi la modalità di scambio delle informazioni di identità tra i membri della community di interesse: relying party, provider di identità e di attributi e verificatori di attributi.
 
-Una specifica di framework attendibilità è organizzata in uno o più documenti che fungono da riferimento per la governance della community di interesse, regolando l'asserzione e l'uso di informazioni su identità digitali all'interno della community. Ciò implica una serie documentata di criteri e procedure, progettati per stabilire l'attendibilità nelle identità digitali usate per le transazioni online tra i membri di una community di interesse.  
+Una specifica di framework attendibilità è organizzata in uno o più documenti che fungono da riferimento per la governance della community di interesse, regolando l'asserzione e l'uso di informazioni su identità digitali all'interno della community. Ciò implica una serie documentata di criteri e procedure, progettati per stabilire l'attendibilità nelle identità digitali usate per le transazioni online tra i membri di una community di interesse.
 
 Una specifica di framework attendibilità definisce quindi le regole per la creazione di un ecosistema di identità federate valido per una community.
 
 Il vantaggio di questo approccio è oggi ampiamente riconosciuto. Senza dubbio le specifiche di framework attendibilità semplificano lo sviluppo di ecosistemi di identità digitali con caratteristiche verificabili di sicurezza, verifica e privacy che ne consentono il riutilizzo in più community di interesse.
 
-Per questo motivo, i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità usano la specifica come base della rappresentazione dei dati per un framework attendibilità per semplificare l'interoperabilità.  
+Per questo motivo, i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità usano la specifica come base della rappresentazione dei dati per un framework attendibilità per semplificare l'interoperabilità.
 
 I criteri personalizzati di Azure Active Directory B2C che si basano sul Framework dell'esperienza di gestione delle identità rappresentano una specifica di framework attendibilità come una combinazione di dati leggibili da computer e da risorse umane. Alcune sezioni di questo modello (in genere le sezioni più orientate alla governance) vengono rappresentate come riferimenti a documentazione pubblicata sui criteri di sicurezza e privacy insieme alle procedure correlate (se presenti). Altre sezioni descrivono in dettaglio le regole di runtime e i metadati di configurazione che facilitano l'automazione operativa.
 
@@ -106,21 +106,21 @@ In termini di implementazione, la specifica di framework attendibilità è costi
 ### <a name="understand-claims"></a>Attestazioni
 
 > [!NOTE]
-> Sono definiti "attestazioni" tutti i possibili tipi di informazioni di identità che possono essere scambiati come "attestazioni": attestazioni sulle credenziali di autenticazione di un utente finale, controllo delle identità, dispositivo di comunicazione, posizione fisica, attributi di identificazione personale e così via.  
+> Sono definiti "attestazioni" tutti i possibili tipi di informazioni di identità che possono essere scambiati come "attestazioni": attestazioni sulle credenziali di autenticazione di un utente finale, controllo delle identità, dispositivo di comunicazione, posizione fisica, attributi di identificazione personale e così via.
 >
-> Si usa il termine "attestazioni" anziché "attributi" perché nelle transazioni online questi elementi dati non possono essere verificati direttamente dalla relying party. Si tratta piuttosto di asserzioni o attestazioni su fatti verso cui la relying party deve sviluppare una fiducia sufficiente a garantire la transazione richiesta dell'utente finale.  
+> Si usa il termine "attestazioni" anziché "attributi" perché nelle transazioni online questi elementi dati non possono essere verificati direttamente dalla relying party. Si tratta piuttosto di asserzioni o attestazioni su fatti verso cui la relying party deve sviluppare una fiducia sufficiente a garantire la transazione richiesta dell'utente finale.
 >
-> Si usa il termine "attestazioni" anche perché i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità sono progettati per semplificare lo scambio di tutti i tipi di informazioni di identità digitale in modo coerente, indipendentemente dal fatto che il protocollo sottostante sia definito per l'autenticazione utente o il recupero di attributi.  Si usa analogamente il termine "provider di attestazioni" per fare riferimento ai provider di identità, i provider di attributi e i verificatori di attributi, quando non si intende distinguerli in base alle funzioni specifiche.   
+> Si usa il termine "attestazioni" anche perché i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità sono progettati per semplificare lo scambio di tutti i tipi di informazioni di identità digitale in modo coerente, indipendentemente dal fatto che il protocollo sottostante sia definito per l'autenticazione utente o il recupero di attributi.  Si usa analogamente il termine "provider di attestazioni" per fare riferimento ai provider di identità, i provider di attributi e i verificatori di attributi, quando non si intende distinguerli in base alle funzioni specifiche.
 
 Questi determinano la modalità di scambio delle informazioni di identità tra una relying party, i provider di identità e di attributi e i verificatori di attributi. Stabiliscono i provider di identità e di attributi necessari per l'autenticazione di una relying party. Devono essere considerati un linguaggio specifico di dominio, ovvero un linguaggio di programmazione specializzato per un determinato dominio dell'applicazione con ereditarietà, istruzioni *if* e polimorfismo.
 
-Questi criteri costituiscono la parte leggibile dal computer del costrutto TF nei criteri personalizzati di Azure Active Directory B2C basati sul Framework dell'esperienza di gestione delle identità. Includono tutti i dettagli operativi, inclusi i metadati e i profili tecnici dei provider di attestazioni, le definizioni dello schema di attestazioni, le funzioni di trasformazione di attestazioni e i percorsi utente che vengono compilati per facilitare l'automazione e l'orchestrazione operative.  
+Questi criteri costituiscono la parte leggibile dal computer del costrutto TF nei criteri personalizzati di Azure Active Directory B2C basati sul Framework dell'esperienza di gestione delle identità. Includono tutti i dettagli operativi, inclusi i metadati e i profili tecnici dei provider di attestazioni, le definizioni dello schema di attestazioni, le funzioni di trasformazione di attestazioni e i percorsi utente che vengono compilati per facilitare l'automazione e l'orchestrazione operative.
 
-Questi sono considerati *documenti in continua modifica* perché è probabile che il relativo contenuto verrà cambiato nel tempo relativamente ai membri attivi dichiarati nei criteri. È possibile che cambino anche le condizioni per diventare membri.  
+Questi sono considerati *documenti in continua modifica* perché è probabile che il relativo contenuto verrà cambiato nel tempo relativamente ai membri attivi dichiarati nei criteri. È possibile che cambino anche le condizioni per diventare membri.
 
 La configurazione e la manutenzione della federazione risultano notevolmente semplificate schermando le relying party da continue riconfigurazioni di attendibilità e connettività quando diversi provider di attestazioni/verificatori entrano o escono dalla community rappresentata dal set di criteri.
 
-L'interoperabilità è un'altra sfida importante. È necessario integrare altri provider di attestazioni/verificatori, perché è improbabile che le relying party supportino tutti i protocolli necessari. I criteri personalizzati di Azure AD B2C risolvono questo problema supportando protocolli standard del settore e applicando percorsi utente specifici per trasporre le richieste quando le relying party e i provider di attributi non supportano lo stesso protocollo.  
+L'interoperabilità è un'altra sfida importante. È necessario integrare altri provider di attestazioni/verificatori, perché è improbabile che le relying party supportino tutti i protocolli necessari. I criteri personalizzati di Azure AD B2C risolvono questo problema supportando protocolli standard del settore e applicando percorsi utente specifici per trasporre le richieste quando le relying party e i provider di attributi non supportano lo stesso protocollo.
 
 I percorsi utente includono profili di protocolli e metadati che vengono usati per ottimizzare l'interoperabilità "in transito" tra la relying party e altri membri. Sono anche disponibili regole di runtime operative che vengono applicate ai messaggi di richiesta/risposta per lo scambio di informazioni di identità ai fini della conformità con i criteri pubblicati nell'ambito della specifica di framework attendibilità. Il concetto di percorso utente è fondamentale per la personalizzazione dell'esperienza del cliente. Chiarisce anche il funzionamento del sistema a livello di protocollo.
 

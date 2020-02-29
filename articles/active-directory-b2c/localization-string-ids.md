@@ -2,20 +2,20 @@
 title: ID della stringa di localizzazione - Azure Active Directory B2C | Microsoft Docs
 description: Specificare gli ID per una definizione del contenuto con un ID api.signuporsignin nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd5e543a6d5dc2b59847a78bd925be68f8cdde25
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3af62a75228959478a80c2628307fff2b47c3c4a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982858"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187492"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -41,14 +41,14 @@ Gli ID seguenti vengono usati per una definizione del contenuto con un ID `api.s
 | **requiredField_password** | Immettere la password |
 | **invalid_password** | Il formato della password immessa non è quello previsto. |
 | **forgotpassword_link** | Password dimenticata? |
-| **createaccount_intro** | Non hai ancora un account? |
-| **createaccount_link** | Iscriviti ora |
-| **divider_title** | OPPURE |
+| **createaccount_intro** | Non si dispone di un account? |
+| **createaccount_link** | Effettua l'iscrizione ora |
+| **divider_title** | o |
 | **cancel_message** | L'utente ha dimenticato la password |
-| **button_signin** | Accedi |
+| **button_signin** | Accesso |
 | **social_intro** | Accedere con l'account di social networking |
   **remember_me** |Mantenere l'accesso|
-| **unknown_error** | Si è verificato un errore durante l'accesso. Riprova più tardi. |
+| **unknown_error** | Si è verificato un errore durante l'accesso. Riprovare più tardi. |
 
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina per l'iscrizione o l'accesso:
 
@@ -104,18 +104,18 @@ Di seguito sono riportati gli ID per una definizione del contenuto con ID `api.l
 | **ver_but_send** | Inviare il codice di verifica |
 | **alert_yes** | Sì |
 | **error_fieldIncorrect** | Uno o più campi sono stati compilati in modo non corretto. Verificare le immissioni e riprovare. |
-| **year** | Anno |
+| **year** | Year |
 | **verifying_blurb** | Attendere mentre vengono elaborate le informazioni. |
 | **button_cancel** | Annulla |
-| **ver_fail_no_retry** | Sono stati effettuati troppi tentativi non validi. Riprova più tardi. |
-| **month** | Mese |
+| **ver_fail_no_retry** | Sono stati effettuati troppi tentativi non validi. Riprovare più tardi. |
+| **month** | Month |
 | **ver_success_msg** | Indirizzo di posta elettronica verificato. È ora possibile continuare. |
 | **months** | Gennaio, febbraio, marzo, aprile, maggio, giugno, luglio, agosto, settembre, ottobre, novembre, dicembre |
 | **ver_fail_server** | Si sono verificati problemi nella verifica dell'indirizzo di posta elettronica. Immettere un indirizzo di posta elettronica valido e riprovare. |
 | **error_requiredFieldMissing** | Manca un campo obbligatorio. Compilare tutti i campi obbligatori e riprovare. |
 | **initial_intro** | Specificare i dettagli seguenti. |
 | **ver_but_resend** | Inviare un nuovo codice |
-| **button_continue** | Creazione |
+| **button_continue** | Create |
 | **error_passwordEntryMismatch** | I campi di immissione della password non corrispondono. Immettere la stessa password in entrambi i campi e riprovare. |
 | **ver_incorrect_format** | Il formato non è corretto. |
 | **ver_but_edit** | Cambiare l'indirizzo di posta elettronica |
@@ -125,7 +125,7 @@ Di seguito sono riportati gli ID per una definizione del contenuto con ID `api.l
 | **day** | Giorno |
 | **ver_fail_throttled** | Sono state effettuate troppe richieste di verifica di questo indirizzo di posta elettronica. Attendere qualche minuto e riprovare. |
 | **helplink_text** | Che cos'è? |
-| **ver_fail_retry** | Il codice non è corretto. Riprovare in seguito. |
+| **ver_fail_retry** | Il codice non è corretto. Riprovare. |
 | **alert_title** | Annullare l'immissione dei dettagli personali |
 | **required_field** | Informazione obbligatoria. |
 | **alert_message** | Annullare l'immissione dei dettagli personali? |
@@ -160,7 +160,7 @@ I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`.
 | ID | Valore predefinito |
 | -- | ------------- |
 | **button_verify** | Chiama |
-| **country_code_label** | Indicativo paese |
+| **country_code_label** | Prefisso internazionale |
 | **cancel_message** | L'utente ha annullato l'autenticazione a più fattori |
 | **text_button_send_second_code** | Inviare un nuovo codice |
 | **code_pattern** | \\d{6} |

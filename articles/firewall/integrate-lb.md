@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167068"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196713"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrare Firewall di Azure con Azure Load Balancer Standard
 
@@ -28,7 +28,7 @@ Un servizio di bilanciamento del carico pubblico viene distribuito con un indiri
 
 ### <a name="asymmetric-routing"></a>Routing asimmetrico
 
-Nel routing asimmetrico un pacchetto segue un percorso fino alla destinazione e un altro per tornare all'origine. Questo problema si verifica quando una subnet ha una route predefinita all'indirizzo IP privato del firewall e si usa un servizio di bilanciamento del carico pubblico. In questo caso, il traffico del servizio di bilanciamento del carico in ingresso viene ricevuto tramite l'indirizzo IP pubblico, ma il percorso di ritorno passa attraverso l'indirizzo IP privato del firewall. Poiché il firewall è con stato, elimina il pacchetto di ritorno perché il firewall non è a conoscenza che è stata stabilita tale sessione.
+Nel routing asimmetrico un pacchetto segue un percorso fino alla destinazione e un altro per tornare all'origine. Questo problema si verifica quando una subnet ha una route predefinita all'indirizzo IP privato del firewall e si usa un servizio di bilanciamento del carico pubblico. In questo caso, il traffico del servizio di bilanciamento del carico in ingresso viene ricevuto tramite l'indirizzo IP pubblico, ma il percorso di ritorno passa attraverso l'indirizzo IP privato del firewall. Poiché il firewall è con stato, Elimina il pacchetto restituito perché il firewall non è a conoscenza di tale sessione stabilita.
 
 ### <a name="fix-the-routing-issue"></a>Risolvere il problema di routing
 
@@ -39,9 +39,23 @@ Per evitare questo problema, creare una route host aggiuntiva per l'indirizzo IP
 
 ![Routing asimmetrico](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-Le route seguenti, ad esempio, sono per un firewall all'indirizzo IP pubblico 13.86.122.41 e all'indirizzo IP privato 10.3.1.4.
+### <a name="route-table-example"></a>Esempio di tabella di route
 
-![Tabella di route](media/integrate-lb/route-table.png)
+Ad esempio, le route seguenti sono per un firewall all'indirizzo IP pubblico 20.185.97.136 e l'indirizzo IP privato 10.0.1.4.
+
+> [!div class="mx-imgBorder"]
+> ![Tabella di route](media/integrate-lb/route-table.png)
+
+### <a name="nat-rule-example"></a>Esempio di regola NAT
+
+Nell'esempio seguente una regola NAT converte il traffico RDP nel firewall in 20.185.97.136 al servizio di bilanciamento del carico in 20.42.98.220:
+
+> [!div class="mx-imgBorder"]
+> ![regola NAT](media/integrate-lb/nat-rule-02.png)
+
+### <a name="health-probes"></a>Probe di integrità
+
+Tenere presente che è necessario disporre di un servizio Web in esecuzione negli host nel pool di bilanciamento del carico se si usano Probe di integrità TCP per la porta 80 o Probe HTTP/HTTPS.
 
 ## <a name="internal-load-balancer"></a>Servizio di bilanciamento del carico interno
 
@@ -56,6 +70,8 @@ Questo scenario non presenta problemi di routing asimmetrico. I pacchetti in ing
 Per migliorare ulteriormente la sicurezza dello scenario con bilanciamento del carico, è possibile usare i gruppi di sicurezza di rete (NSG).
 
 È ad esempio possibile creare un gruppo di sicurezza di rete nella subnet back-end in cui si trovano le macchine virtuali con bilanciamento del carico. Consentire il traffico in ingresso proveniente dall'indirizzo IP o dalla porta del firewall.
+
+![Gruppo di sicurezza di rete](media/integrate-lb/nsg-01.png)
 
 Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza](../virtual-network/security-overview.md).
 

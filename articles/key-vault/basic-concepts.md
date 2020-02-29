@@ -1,20 +1,21 @@
 ---
-title: Che cos'è Azure Key Vault? | Microsoft Docs
+title: Informazioni sull'insieme di credenziali delle chiavi di Azure | Microsoft Docs
 description: Informazioni su come Azure Key Vault protegge le chiavi crittografiche e i segreti usati dalle applicazioni e dai servizi cloud.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7f32664f4bb9407d915b7909f9ecdeebe96bd551
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 03ad504258dd9448753f37402067a0da3e0a2c00
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771939"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197641"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault concetti di base
 
@@ -42,7 +43,7 @@ Ecco altri termini importanti:
 
     ![Diagramma del funzionamento delle identità gestite per le risorse di Azure](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Per eseguire qualsiasi operazione con Key Vault, è prima necessario eseguire l'autenticazione. Esistono tre modi per eseguire l'autenticazione a Key Vault:
 
 - [Identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md): quando si distribuisce un'app in una macchina virtuale in Azure, è possibile assegnare un'identità alla macchina virtuale che ha accesso a Key Vault. È anche possibile assegnare identità ad [altre risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Il vantaggio di questo approccio è che l'app o il servizio non gestisce la rotazione del primo segreto. Azure ruota automaticamente l'identità. Questo approccio è consigliato come procedura consigliata. 

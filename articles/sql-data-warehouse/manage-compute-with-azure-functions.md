@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: gestire le risorse di calcolo con funzioni di Azure'
-description: Come usare Funzioni di Azure per gestire il calcolo di un data warehouse.
+description: Come usare funzioni di Azure per gestire il calcolo del pool SQL in Azure sinapsi Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a08c2c3c0167f0d82fe901e19b02db22b0ad56c5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693013"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193174"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Usare Funzioni di Azure per gestire le risorse di calcolo in Azure SQL Data Warehouse
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure sinapsi Analytics
 
-In questa esercitazione si usa Funzioni di Azure per gestire le risorse di calcolo per un data warehouse in Azure SQL Data Warehouse.
+Questa esercitazione usa funzioni di Azure per gestire le risorse di calcolo per un pool SQL in Azure sinapsi Analytics.
 
-Per usare app per le funzioni di Azure con SQL Data Warehouse, è necessario creare un [account dell'entità servizio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) con accesso come collaboratore nella stessa sottoscrizione dell'istanza di Data Warehouse. 
+Per usare app per le funzioni di Azure con il pool SQL, è necessario creare un [account dell'entità servizio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) con accesso come collaboratore nella stessa sottoscrizione dell'istanza del pool SQL. 
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuire il ridimensionamento basato su timer con un modello di Azure Resource Manager
 
 Per distribuire il modello sono necessarie le informazioni seguenti:
 
-- Nome del gruppo di risorse in cui si trova l'istanza di SQL Data Warehouse
-- Nome del server logico in cui si trova l'istanza di SQL Data Warehouse
-- Nome dell'istanza di SQL Data Warehouse
+- Nome del gruppo di risorse in cui si trova l'istanza del pool SQL
+- Nome del server logico in cui si trova l'istanza del pool SQL
+- Nome dell'istanza del pool SQL
 - ID tenant (ID directory) di Azure Active Directory
 - ID sottoscrizione 
 - ID applicazione dell'entità servizio
@@ -119,17 +119,17 @@ Attualmente, nel modello sono incluse solo due funzioni di ridimensionamento. Co
 5. Impostare la variabile operation sul comportamento desiderato come illustrato di seguito:
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -150,7 +150,7 @@ Eseguire ogni giorno l'aumento delle prestazioni a DW600 alle ore 8 e la riduzio
 | Funzione 1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Funzione 2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
-### <a name="example-2"></a>Esempio 2 
+### <a name="example-2"></a>Esempio 2: 
 
 Eseguire ogni giorno l'aumento delle prestazioni a DW1000 alle ore 8 e la riduzione delle prestazioni a DW600 alle ore 16 e a DW200 alle ore 22.
 
@@ -177,7 +177,7 @@ Eseguire nei giorni feriali l'aumento delle prestazioni a DW1000 alle ore 8 e la
 
 Altre informazioni sulle funzioni di Azure [attivate da un timer](../azure-functions/functions-create-scheduled-function.md).
 
-Vedere il [repository degli esempi](https://github.com/Microsoft/sql-data-warehouse-samples) per SQL Data Warehouse.
+Checkout the SQL pool [Samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
 
 
 

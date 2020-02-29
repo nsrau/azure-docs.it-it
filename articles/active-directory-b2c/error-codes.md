@@ -3,26 +3,26 @@ title: Informazioni di riferimento per i codici di errore
 titleSuffix: Azure AD B2C
 description: Elenco dei codici di errore che possono essere restituiti dal servizio Azure Active Directory B2C.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c48f7bdd51c9b8c173ee0ebed72ed8c7f4fb51fc
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 5b09b3c19ab1c5b23e56e25afc1d9631cd1caa68
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75735079"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188665"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Codici di errore: Azure Active Directory B2C
 
 Il servizio Azure Active Directory B2C può restituire gli errori seguenti.
 
-| Codice di errore | Messaggio |
+| Codice di errore | Message |
 | ---------- | ------- |
 | `AADB2C90002` | La risorsa CORS '{0}' ha restituito un 404 non trovato. |
 | `AADB2C90006` | L'URI di reindirizzamento '{0}' specificato nella richiesta non è registrato per l'ID client '{1}'. |
@@ -58,10 +58,10 @@ Il servizio Azure Active Directory B2C può restituire gli errori seguenti.
 | `AADB2C90052` | Nome utente o password non validi. |
 | `AADB2C90053` | Impossibile trovare un utente con le credenziali specificate. |
 | `AADB2C90054` | Nome utente o password non validi. |
-| `AADB2C90055` | L'ambito '{0}' specificato nella richiesta deve specificare una risorsa, ad esempio 'https://example.com/calendar.read '. |
+| `AADB2C90055` | L'ambito '{0}' specificato nella richiesta deve specificare una risorsa, ad esempio 'https://example.com/calendar.read'. |
 | `AADB2C90057` | L'applicazione specificata non è configurata per consentire il flusso implicito OAuth. |
 | `AADB2C90058` | L'applicazione specificata non è configurata per consentire i client pubblici. |
-| `AADB2C90067` | Il formato dell'URI di reindirizzamento dopo la disconnessione '{0}' non è valido. Specificare un URL basato su HTTPS, ad esempio 'https://example.com/return ', oppure per i client nativi usare l'URI IETF Native Client ' urn: IETF: WG: OAuth: 2.0: OOB '. |
+| `AADB2C90067` | Il formato dell'URI di reindirizzamento dopo la disconnessione '{0}' non è valido. Specificare un URL basato su HTTPS, ad esempio 'https://example.com/return', oppure per i client nativi usare l'URI IETF Native Client ' urn: IETF: WG: OAuth: 2.0: OOB '. |
 | `AADB2C90068` | L'applicazione specificata con ID '{0}' non è valida per questo servizio. Usare un'applicazione creata tramite il portale B2C e riprovare. |
 | `AADB2C90075` | Lo scambio di attestazioni '{0}' specificato nel passaggio '{1}' ha restituito la risposta di errore HTTP con il codice '{2}' e il motivo '{3}'. |
 | `AADB2C90077` | L'utente non dispone di una sessione esistente e il parametro del prompt della richiesta ha un valore '{0}'. |
@@ -142,7 +142,7 @@ Il servizio Azure Active Directory B2C può restituire gli errori seguenti.
 | `AADB2C90284` | All'applicazione con identificatore '{0}' non è stato concesso il consenso e non è possibile utilizzarla per gli account locali. |
 | `AADB2C90285` | L'applicazione con identificatore '{0}' non è stata trovata. |
 | `AADB2C90288` | UserJourney con ID '{0}' a cui viene fatto riferimento nel TechnicalProfile '{1}' per il riscatto del token di aggiornamento per il tenant '{2}' non esiste nei criteri '{3}' o uno dei criteri di base. |
-| `AADB2C90289` | Si è verificato un errore durante la connessione al provider di identità. Riprova più tardi. |
+| `AADB2C90289` | Si è verificato un errore durante la connessione al provider di identità. Riprovare più tardi. |
 | `AADB2C90296` | L'applicazione non è stata configurata correttamente. Contattare l'amministratore del sito a cui si sta tentando di accedere. |
 | `AADB2C99005` | La richiesta contiene un parametro di ambito non valido che include un carattere non valido '{0}'. |
 | `AADB2C99006` | Azure AD B2C non è possibile trovare l'app estensioni con ID app '{0}'. Per ulteriori informazioni, visitare https://go.microsoft.com/fwlink/?linkid=851224. |

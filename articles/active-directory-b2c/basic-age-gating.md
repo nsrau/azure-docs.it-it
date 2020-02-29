@@ -2,20 +2,20 @@
 title: Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come identificare i minori che utilizzano l'applicazione.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1fc63b222fd2f08bb4b5596d58f825c8f6b1910e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836237"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189974"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C
 
@@ -33,24 +33,24 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 
 | Paese/Area geografica | Nome del paese/area geografica | Minore età per cui richiedere il consenso | Minore età |
 | -------------- | ------------------- | ----------------- | --------- |
-| Predefinito | Nessuno | Nessuno | 18 |
-| AE | Emirati Arabi Uniti | Nessuno | 21 |
+| Predefinito | nessuno | nessuno | 18 |
+| AE | Emirati Arabi Uniti | nessuno | 21 |
 | AT | Austria | 14 | 18 |
 | BE | Belgio | 14 | 18 |
 | BG | Bulgaria | 16 | 18 |
-| BH | Bahrain | Nessuno | 21 |
-| CM | Camerun | Nessuno | 21 |
+| BH | Bahrain | nessuno | 21 |
+| CM | Camerun | nessuno | 21 |
 | CY | Cipro | 16 | 18 |
-| CZ | Repubblica Ceca | 16 | 18 |
+| CZ | Repubblica ceca | 16 | 18 |
 | DE | Germania | 16 | 18 |
 | DK | Danimarca | 16 | 18 |
 | EE | Estonia | 16 | 18 |
-| EG | Egitto | Nessuno | 21 |
+| EG | Egitto | nessuno | 21 |
 | ES | Spagna | 13 | 18 |
 | VF | Francia | 16 | 18 |
 | GB | Regno Unito | 13 | 18 |
 | GR | Grecia | 16 | 18 |
-| Risorse umane | Croazia | 16 | 18 |
+| HR | Croazia | 16 | 18 |
 | HU | Ungheria | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
 | IT | Italia | 16 | 18 |
@@ -59,18 +59,18 @@ Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un 
 | LU | Lussemburgo | 16 | 18 |
 | LV | Lettonia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| ND | Namibia | Nessuno | 21 |
+| ND | Namibia | nessuno | 21 |
 | NL | Paesi Bassi | 16 | 18 |
 | PL | Polonia | 13 | 18 |
 | PT | Portogallo | 16 | 18 |
 | RO | Romania | 16 | 18 |
 | SE | Svezia | 13 | 18 |
-| SG | Singapore | Nessuno | 21 |
+| SG | Singapore | nessuno | 21 |
 | SI | Slovenia | 16 | 18 |
 | SK | Slovacchia | 16 | 18 |
-| TD | Chad | Nessuno | 21 |
-| TH | Tailandia | Nessuno | 20 |
-| TW | Taiwan | Nessuno | 20 |
+| TD | Chad | nessuno | 21 |
+| TH | Thailandia | nessuno | 20 |
+| TW | Taiwan | nessuno | 20 |
 | Stati Uniti | Stati Uniti | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Opzioni di controllo dell'accesso in base all'età

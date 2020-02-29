@@ -1,6 +1,6 @@
 ---
-title: Latenza LiveEvent in Servizi multimediali di Azure | Microsoft Docs
-description: Panoramica della latenza LiveEvent e procedura per l'impostazione di una bassa latenza.
+title: Impostazioni Live a bassa latenza in servizi multimediali di Azure | Microsoft Docs
+description: Questo argomento offre una panoramica delle impostazioni di Live bassa latenza e Mostra come impostare una bassa latenza.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702797"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199649"
 ---
-# <a name="live-event-latency-in-media-services"></a>Latenza degli eventi live in Servizi multimediali
+# <a name="live-event-low-latency-settings"></a>Impostazioni di bassa latenza eventi Live
 
 Questo articolo illustra come impostare una bassa latenza in un [evento live](https://docs.microsoft.com/rest/api/media/liveevents). Esamina anche alcuni risultati tipici visualizzati quando si usano le impostazioni di bassa latenza in diversi lettori. I risultati variano a seconda della rete CDN e della latenza di rete.
 

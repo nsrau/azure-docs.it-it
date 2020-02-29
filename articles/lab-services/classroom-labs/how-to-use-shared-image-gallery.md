@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 79aea7d8a4a969e0ccd42ef94d77a9aa396ab91c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591320"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190450"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usare una raccolta di immagini condivise in Azure Lab Services
 Questo articolo illustra in che modo i docenti e gli amministratori del Lab possono salvare un'immagine di macchina virtuale modello affinché venga riutilizzata da altri. Queste immagini vengono salvate in una [raccolta di immagini condivise](../../virtual-machines/windows/shared-image-galleries.md)di Azure. Come primo passaggio, l'amministratore del Lab connette una raccolta di immagini condivise esistente all'account Lab. Una volta collegata la raccolta di immagini condivise, i Lab creati nell'account Lab possono salvare le immagini nella raccolta di immagini condivise. Altri docenti possono selezionare questa immagine dalla raccolta di immagini condivise per creare un modello per le classi. 
 
 > [!NOTE]
-> Attualmente, Azure Lab Services supporta la creazione di macchine virtuali basate solo su immagini di VM **generalizzate** (non immagini specializzate) in una raccolta di immagini condivise. 
+> Attualmente, Azure Lab Services supporta la creazione di VM modello basate solo su immagini di VM **generalizzate** (non immagini specializzate) in una raccolta di immagini condivise. 
 
 ## <a name="prerequisites"></a>Prerequisites
 - Creare una raccolta di immagini condivise usando [Azure PowerShell](../../virtual-machines/windows/shared-images.md) o l' [interfaccia](../../virtual-machines/linux/shared-images.md)della riga di comando di Azure.

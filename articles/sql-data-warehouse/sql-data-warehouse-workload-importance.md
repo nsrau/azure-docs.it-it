@@ -1,28 +1,28 @@
 ---
 title: Priorità del carico di lavoro
-description: Linee guida per l'impostazione dell'importanza per le query in Azure SQL Data Warehouse.
+description: Linee guida per l'impostazione dell'importanza per le query di analisi SQL in Azure sinapsi Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 76a77c1833ae1827f2a6a9b577b3cca51b35a344
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: azure-synapse
+ms.openlocfilehash: de7bb28770bc356514c392c3478fd0e33658f878
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351433"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191771"
 ---
-# <a name="azure-sql-data-warehouse-workload-importance"></a>Importanza del carico di lavoro Azure SQL Data Warehouse
+# <a name="azure-synapse-analytics-workload-importance"></a>Importanza del carico di lavoro di analisi sinapsi di Azure
 
-Questo articolo illustra in che modo l'importanza del carico di lavoro può influenzare l'ordine di esecuzione per le richieste di SQL Data Warehouse.
+Questo articolo illustra in che modo l'importanza del carico di lavoro può influenzare l'ordine di esecuzione per le richieste di analisi SQL in sinapsi di Azure.
 
-## <a name="importance"></a>priorità
+## <a name="importance"></a>Priorità
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
@@ -38,7 +38,7 @@ Oltre agli scenari di importanza fondamentale descritti in precedenza con le ven
 
 ### <a name="locking"></a>Blocco
 
-L'accesso ai blocchi per l'attività di lettura e scrittura è un'area di contesa naturale. Attività quali il [cambio di partizione](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o l' [oggetto di ridenominazione](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) richiedono blocchi con privilegi elevati.  Senza importanza del carico di lavoro, SQL Data Warehouse ottimizza la velocità effettiva. L'ottimizzazione per la velocità effettiva significa che quando le richieste in esecuzione e in coda hanno le stesse esigenze di blocco e sono disponibili risorse, le richieste in coda possono ignorare le richieste con esigenze di blocco più elevate che arrivano prima nella coda di richieste. Una volta applicata l'importanza del carico di lavoro alle richieste con esigenze di blocco più elevate. La richiesta con maggiore importanza verrà eseguita prima della richiesta con priorità più bassa.
+L'accesso ai blocchi per l'attività di lettura e scrittura è un'area di contesa naturale. Attività quali il [cambio di partizione](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o l' [oggetto di ridenominazione](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) richiedono blocchi con privilegi elevati.  Senza importanza del carico di lavoro, analisi SQL in Azure sinapsi ottimizza la velocità effettiva. L'ottimizzazione per la velocità effettiva significa che quando le richieste in esecuzione e in coda hanno le stesse esigenze di blocco e sono disponibili risorse, le richieste in coda possono ignorare le richieste con esigenze di blocco più elevate che arrivano prima nella coda di richieste. Una volta applicata l'importanza del carico di lavoro alle richieste con esigenze di blocco più elevate. La richiesta con maggiore importanza verrà eseguita prima della richiesta con priorità più bassa.
 
 Prendere in considerazione gli esempi seguenti:
 
@@ -50,7 +50,7 @@ Se Q2 e Q3 hanno la stessa importanza e il Q1 è ancora in esecuzione, verrà av
 
 ### <a name="non-uniform-requests"></a>Richieste non uniformi
 
-Un altro scenario in cui l'importanza può essere utile per soddisfare le richieste di query è quando vengono inviate richieste con classi di risorse diverse.  Come indicato in precedenza, con la stessa importanza SQL Data Warehouse ottimizza la velocità effettiva. Quando vengono accodate richieste di dimensioni miste, ad esempio smallrc o mediumrc, SQL Data Warehouse sceglierà la prima richiesta in arrivo che rientra nelle risorse disponibili. Se viene applicata l'importanza del carico di lavoro, la richiesta di importanza più elevata viene pianificata successivamente.
+Un altro scenario in cui l'importanza può essere utile per soddisfare le richieste di query è quando vengono inviate richieste con classi di risorse diverse.  Come indicato in precedenza, con la stessa importanza, SQL Analytics in Azure sinapsi ottimizza la velocità effettiva. Quando vengono accodate richieste di dimensioni miste, ad esempio smallrc o mediumrc, SQL Analytics sceglierà la prima richiesta in arrivo che rientra nelle risorse disponibili. Se viene applicata l'importanza del carico di lavoro, la richiesta di importanza più elevata viene pianificata successivamente.
   
 Si consideri l'esempio seguente in DW500c:
 
@@ -63,7 +63,7 @@ Poiché Q5 è mediumrc, richiede due slot di concorrenza. Q5 deve attendere il c
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per ulteriori informazioni sulla creazione di un classificatore, vedere la pagina relativa alla creazione di un [classificatore del carico di lavoro (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Per ulteriori informazioni sulla classificazione del carico di lavoro SQL Data Warehouse, vedere [classificazione dei carichi di lavoro](sql-data-warehouse-workload-classification.md).  
+- Per ulteriori informazioni sulla classificazione del carico di lavoro, vedere [classificazione dei carichi di lavoro](sql-data-warehouse-workload-classification.md).  
 - Per informazioni su come creare un classificatore del carico di lavoro, vedere la Guida introduttiva [creare un classificatore](quickstart-create-a-workload-classifier-tsql.md) . 
 - Vedere gli articoli sulle procedure per [configurare la priorità del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md) e per [gestire e monitorare la priorità del carico di lavoro](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) per visualizzare le query e la loro priorità.

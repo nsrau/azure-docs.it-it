@@ -3,12 +3,12 @@ title: Configurare Azure Active Directory per l'autenticazione client
 description: Informazioni su come configurare Azure Active Directory (Azure AD) per autenticare i client per i cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 2a6ffdb1c1fdc447545477286a6d131be2449cdb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843821"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193382"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurare Azure Active Directory per l'autenticazione client
 
@@ -26,7 +26,7 @@ Un cluster di Service Fabric offre diversi punti di accesso alle proprie funzion
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 In questo articolo si presuppone che sia già stato creato un tenant. In caso contrario, vedere prima di tutto [Come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
 
 Per semplificare alcuni dei passaggi richiesti per la configurazione di Azure AD con un cluster di Service Fabric è stato creato un set di script di Windows PowerShell.
@@ -104,7 +104,7 @@ Quando si prova a eseguire l'accesso ad Azure AD in Service Fabric Explorer, la 
 L'applicazione cluster (Web) che rappresenta Service Fabric Explorer prova a eseguire l'autenticazione per Azure AD e come parte della richiesta indica l'URL di reindirizzamento restituito. L'URL non è presente nell'elenco degli **URL DI RISPOSTA** dell'applicazione Azure AD.
 
 #### <a name="solution"></a>Soluzione
-Nella pagina Azure AD selezionare **registrazioni app**, selezionare l'applicazione cluster, quindi selezionare **URL di risposta**. Nel riquadro **URL di risposta** aggiungere l'URL del Service Fabric Explorer all'elenco oppure sostituire uno degli elementi dell'elenco. Salvare la modifica.
+Nella pagina di registrazione dell'app Azure AD per il cluster, selezionare **autenticazione**e nella sezione **URI di reindirizzamento** aggiungere l'URL del Service Fabric Explorer all'elenco. Salvare la modifica.
 
 ![URL di risposta dell'applicazione Web][web-application-reply-url]
 

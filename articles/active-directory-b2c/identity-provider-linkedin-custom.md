@@ -3,20 +3,20 @@ title: Configurare l'accesso con un account LinkedIn usando criteri personalizza
 titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un account LinkedIn in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4ad74104d34e7e2c3f4d6aafc05b36574f8e287
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 80bd1b65d04ea49fc742033e1850d95a85021c9f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847433"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188172"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account LinkedIn usando criteri personalizzati in Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847433"
 
 Questo articolo illustra come abilitare l'accesso per gli utenti da un account LinkedIn usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 - Account LinkedIn: se non ne è già stato creato uno, [creare un account](https://www.linkedin.com/start/join).
@@ -77,7 +77,7 @@ Per consentire agli utenti di accedere con un account LinkedIn, è necessario de
 
 Definire un account LinkedIn come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri.
 
-1. Aprire il file *SocialAndLocalAccounts/ **TrustFrameworkExtensions. XML*** nell'editor. Questo file si trova nello [Starter Pack dei criteri personalizzati][starter-pack] scaricato come parte di uno dei prerequisiti.
+1. Aprire il file *SocialAndLocalAccounts/* * TrustFrameworkExtensions. XML** * nell'editor. Questo file si trova nello [Starter Pack dei criteri personalizzati][starter-pack] scaricato come parte di uno dei prerequisiti.
 1. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
 1. Aggiungere un nuovo **ClaimsProvider** come illustrato di seguito:
 

@@ -1,25 +1,26 @@
 ---
 title: Maschera dati dinamica
-description: La maschera dati dinamica limita l'esposizione dei dati sensibili mediante la maschera a utenti senza privilegi per il database SQL e data warehouse
+description: La maschera dati dinamica limita l'esposizione dei dati sensibili mediante la maschera a utenti senza privilegi per il database SQL e la sinapsi di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/04/2019
-ms.openlocfilehash: 149c42829762920583948958da8252a01e35ef1f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/06/2020
+tags: azure-synpase
+ms.openlocfilehash: e5b281d59245d8fbd32b18f4ac5fe577fc7ff309
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721915"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192915"
 ---
-# <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Maschera dati dinamica per il database SQL di Azure e data warehouse
+# <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Maschera dati dinamica per il database SQL di Azure e Azure sinapsi Analytics
 
 La funzione Maschera dati dinamica del database SQL limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi. 
 
@@ -29,7 +30,7 @@ Ad esempio, un addetto all'assistenza in un call center può identificare i chia
 
 ## <a name="dynamic-data-masking-basics"></a>Nozioni di base sulla maschera dati dinamica
 
-Per impostare un criterio di maschera dati dinamica del database SQL nel portale di Azure, selezionare l'operazione Maschera dati dinamica nel pannello di configurazione o delle impostazioni del database SQL. Questa funzionalità non può essere impostata tramite il portale per SQL DW (usare PowerShell o l'API REST)
+Per impostare un criterio di maschera dati dinamica del database SQL nel portale di Azure, selezionare l'operazione Maschera dati dinamica nel pannello di configurazione o delle impostazioni del database SQL. Questa funzionalità non può essere impostata tramite il portale per le sinapsi di Azure (usare PowerShell o l'API REST)
 
 ### <a name="dynamic-data-masking-permissions"></a>Autorizzazioni per il mascheramento dei dati dinamici
 

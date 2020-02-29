@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d35241850d60e82b79bba0384f60c40e3ecd6427
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075894"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192524"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regole in uscita di Load Balancer
 
@@ -34,7 +34,7 @@ Le regole in uscita consentono di controllare:
 - La modalità di allocazione delle [porte SNAT in uscita](load-balancer-outbound-connections.md#snat).
 - Per quali protocolli implementare la conversione in uscita.
 - Quale durata usare per il timeout di inattività delle connessioni in uscita (4-120 minuti).
-- Se inviare un TCP Reset per il timeout di inattività (anteprima pubblica). 
+- indica se inviare una reimpostazione TCP al timeout di inattività
 
 Le regole in uscite estendono lo [scenario 2](load-balancer-outbound-connections.md#lb) descritto nell'articolo dedicato alle [connessioni in uscita](load-balancer-outbound-connections.md) senza variazioni per l'ordine di precedenza degli scenari.
 
@@ -95,7 +95,7 @@ Per impostare il timeout di inattività in uscita su 1 ora, usare il parametro s
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a> <a name="tcpreset"></a> Abilitare TCP Reset in caso di timeout di inattività (anteprima)
+### <a name="tcprst"></a><a name="tcpreset"></a> Abilitare la reimpostazione TCP al timeout di inattività
 
 Il comportamento predefinito di Load Balancer prevede l'eliminazione automatica del flusso quando viene raggiunto il timeout di inattività in uscita.  Con il parametro enableTCPReset, è possibile abilitare un comportamento dell'applicazione più prevedibile e stabilire se inviare un TCP Reset bidirezionale (TCP RST) quando si verifica il timeout di inattività in uscita. 
 
@@ -103,7 +103,7 @@ Per abilitare TCP Reset per una regola in uscita, usare il parametro seguente:
 
            "enableTcpReset": true
 
-Vedere [TCP Reset in caso di timeout di inattività (anteprima)](https://aka.ms/lbtcpreset) per informazioni dettagliate, inclusa la disponibilità a livello di area.
+Esaminare [il timeout di inattività](https://aka.ms/lbtcpreset) per i dettagli, inclusa la disponibilità dell'area.
 
 ### <a name="proto"></a> Supportare sia TCP che UDP come protocolli di trasporto con una singola regola
 

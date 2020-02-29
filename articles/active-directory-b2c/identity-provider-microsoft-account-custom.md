@@ -3,20 +3,20 @@ title: Configurare l'accesso con un account Microsoft usando criteri personalizz
 titleSuffix: Azure AD B2C
 description: Come usare i criteri personalizzati per abilitare l'account Microsoft (MSA) come provider di identità usando il protocollo OpenID Connect (OIDC).
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483279"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188118"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Microsoft usando criteri personalizzati in Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "77483279"
 
 Questo articolo illustra come abilitare l'accesso per gli utenti da un account Microsoft usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 - Se non si ha già un account Microsoft, crearne uno all'indirizzo [https://www.live.com/](https://www.live.com/).
@@ -58,7 +58,7 @@ Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD
 1. Selezionare **Aggiungi attestazione facoltativa**.
 1. Selezionare il tipo di token che si desidera configurare.
 1. Selezionare le attestazioni facoltative da aggiungere.
-1. Fare clic su **Aggiungi**.
+1. Fare clic su **Add**.
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 

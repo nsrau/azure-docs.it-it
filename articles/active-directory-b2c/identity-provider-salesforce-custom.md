@@ -3,20 +3,20 @@ title: Configurare l'accesso con un provider SAML Salesforce usando criteri pers
 titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0b03846a274abee5def57008fe3db4130b4350d0
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 67fe9ef4ad2b025d11f88976973658c9cd8ae693
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916303"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187951"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati in Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "77916303"
 
 Questo articolo illustra come abilitare l'accesso per gli utenti di un'organizzazione Salesforce usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C). È possibile abilitare l'accesso aggiungendo [un profilo tecnico SAML](saml-technical-profile.md) a un criterio personalizzato.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 - Se non è già stato fatto, iscriversi per ottenere un [account Developer Edition gratuito](https://developer.salesforce.com/signup). Questo articolo usa [Salesforce Lightning Experience](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
@@ -36,7 +36,7 @@ Questo articolo illustra come abilitare l'accesso per gli utenti di un'organizza
 2. Nel menu a sinistra espandere **Identity** (Identità) in **Settings** (Impostazioni) e quindi selezionare **Identity Provider** (Provider di identità).
 3. Selezionare **Enable Identity Provider** (Abilita provider di identità).
 4. In **Select the certificate** (Selezionare il certificato) selezionare il certificato che si desidera venga usato da Salesforce per comunicare con Azure AD B2C. È possibile usare il certificato predefinito.
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Creare un'app connessa in Salesforce
 

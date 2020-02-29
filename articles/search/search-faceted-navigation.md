@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 927f57ae3ca90f5701791022b68c4bf0d91d4e7d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112074"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190654"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Come implementare l'esplorazione in base a facet in Azure ricerca cognitiva
 
@@ -34,9 +34,9 @@ Nello sviluppo di applicazioni la scrittura di codice che crea query costituisce
 ## <a name="sample-code-and-demo"></a>Demo e codice di esempio
 Questo articolo usa un portale di ricerca dei processi come esempio. L'esempio viene implementato come applicazione MVC ASP.NET.
 
--   Vedere e testare la demo di lavoro online in [Azure ricerca cognitiva Job Portal demo](https://azjobsdemo.azurewebsites.net/).
+- Vedere e testare la demo di lavoro online in [Azure ricerca cognitiva Job Portal demo](http://azjobsdemo.azurewebsites.net/).
 
--   Scaricare il codice dal [repository di esempi di Azure su GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+- Scaricare il codice dal [repository di esempi di Azure su GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
 ## <a name="get-started"></a>Introduzione
 Se non si ha familiarità con lo sviluppo di funzionalità di ricerca, per comprendere l'esplorazione in base a facet, tenere presente che mostra le diverse possibilità di ricerca autodeterminata. Si tratta di un tipo di esperienza di ricerca drill-down, basata su filtri predefiniti usati per limitare rapidamente i risultati di ricerca tramite semplici azioni in un solo clic. 

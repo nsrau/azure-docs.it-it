@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/26/2020
+ms.openlocfilehash: a88682cd2217850e336afc2f9ef5af84c0d8cb82
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064632"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192644"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -33,8 +33,8 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 |---|---|
 |[PowerShell AZ](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -clustername \<nome cluster >-TargetInstanceCount \<NewSize >|
 |[AzureRM di PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -clustername \<nome cluster >-TargetInstanceCount \<NewSize >|
-|[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ HDInsight Resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --Resource-Group \<gruppo di risorse >--Name \<nome cluster >--Target-Instance-count \<NewSize >|
-|[Interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)|ridimensionamento del cluster di Azure HDInsight \<clustername > il numero di istanze di destinazione \<> |
+|[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ HDInsight Resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --Resource-Group \<gruppo di risorse >--Name \<nome cluster >--workernode-count \<NewSize >|
+|[Interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md)|ridimensionamento del cluster di Azure HDInsight \<clustername > il numero di istanze di destinazione \<> |
 |[Azure portal](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
 ![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)

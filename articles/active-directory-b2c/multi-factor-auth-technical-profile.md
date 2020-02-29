@@ -3,20 +3,20 @@ title: Profili tecnici dell'autenticazione a più fattori di Azure nei criteri p
 titleSuffix: Azure AD B2C
 description: Informazioni di riferimento sui criteri personalizzati per i profili tecnici di Azure Multi-Factor Authentication (AMF) in Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8aaea6b2afb4d89e6e667edba0eeba2f4ddcca8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 05851dba9de06b5dfba2da4f455fbaf5e9376d08
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480216"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184282"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico dell'autenticazione a più fattori di Azure in un Azure AD B2C criteri personalizzati
 
@@ -53,7 +53,7 @@ La prima modalità di questo profilo tecnico consiste nel generare un codice e i
 
 L'elemento **InputClaims** contiene un elenco di attestazioni da inviare all'autenticazione a più fattori di Azure. È anche possibile mappare il nome dell'attestazione al nome definito nel profilo tecnico dell'autenticazione a più fattori.
 
-| ClaimReferenceId | Obbligatorio | Description |
+| ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | userPrincipalName | Sì | Identificatore dell'utente a cui appartiene il numero di telefono. |
 | phoneNumber | Sì | Numero di telefono a cui inviare un codice SMS. |
@@ -70,7 +70,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 ### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Operazione | Sì | Deve essere **OneWaySMS**.  |
 | UserMessageIfInvalidFormat | No | Messaggio di errore personalizzato se il numero di telefono specificato non è un numero di telefono valido |
@@ -115,7 +115,7 @@ La seconda modalità di questo profilo tecnico consiste nel verificare un codice
 
 L'elemento **InputClaims** contiene un elenco di attestazioni da inviare all'autenticazione a più fattori di Azure. È anche possibile mappare il nome dell'attestazione al nome definito nel profilo tecnico dell'autenticazione a più fattori.
 
-| ClaimReferenceId | Obbligatorio | Description |
+| ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| Sì | Lo stesso numero di telefono usato in precedenza per inviare un codice. Viene anche usato per individuare una sessione di verifica telefonica. |
 | verificationCode  | Sì | Codice di verifica fornito dall'utente da verificare |
@@ -130,7 +130,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Operazione | Sì | Deve essere **Verify** |
 | UserMessageIfInvalidFormat | No | Messaggio di errore personalizzato se il numero di telefono specificato non è un numero di telefono valido |

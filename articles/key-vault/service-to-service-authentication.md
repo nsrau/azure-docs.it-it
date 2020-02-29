@@ -9,22 +9,23 @@ ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 6996a5965454dfd5997f0c0404e0c348c68b626f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.subservice: general
+ms.openlocfilehash: 6377edf72651c9cddf570d0c6db9d5ceb40409f4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177461"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200720"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
 Per eseguire l'autenticazione in Azure Key Vault, è necessario disporre di una credenziale di Azure Active Directory (Azure AD), ovvero un segreto condiviso o un certificato.
 
-La gestione di tali credenziali può essere difficile. Si tenta di aggregare le credenziali in un'app, inserendole nei file di origine o di configurazione. `Microsoft.Azure.Services.AppAuthentication` per la raccolta .NET semplifica questo aspetto. Usa le credenziali per lo sviluppatore per eseguire l'autenticazione durante lo sviluppo locale. Quando in un secondo momento la soluzione viene distribuita in Azure, la libreria passa automaticamente alle credenziali dell'applicazione. L'uso delle credenziali dello sviluppatore durante lo sviluppo locale è più sicuro perché non è necessario creare credenziali di Azure AD o condividere le credenziali tra gli sviluppatori.
+La gestione di tali credenziali può essere difficile. Si tenta di aggregare le credenziali in un'app, inserendole nei file di origine o di configurazione. `Microsoft.Azure.Services.AppAuthentication` per la libreria .NET semplifica questo aspetto. Usa le credenziali per lo sviluppatore per eseguire l'autenticazione durante lo sviluppo locale. Quando in un secondo momento la soluzione viene distribuita in Azure, la libreria passa automaticamente alle credenziali dell'applicazione. L'uso delle credenziali dello sviluppatore durante lo sviluppo locale è più sicuro perché non è necessario creare credenziali di Azure AD o condividere le credenziali tra gli sviluppatori.
 
 La libreria `Microsoft.Azure.Services.AppAuthentication` gestisce automaticamente l'autenticazione, che a sua volta consente di concentrarsi sulla soluzione, anziché sulle credenziali. Supporta lo sviluppo locale con Microsoft Visual Studio, l'interfaccia della riga di comando di Azure o Azure AD l'autenticazione integrata. Quando viene distribuita in una risorsa di Azure che supporta un'identità gestita, la libreria usa automaticamente le [identità gestite per le risorse di Azure](../active-directory/msi-overview.md). Non sono necessarie modifiche di codice o di configurazione. La libreria supporta anche l'uso diretto delle [credenziali client](../azure-resource-manager/resource-group-authenticate-service-principal.md) di Azure ad quando un'identità gestita non è disponibile o quando il contesto di sicurezza dello sviluppatore non può essere determinato durante lo sviluppo locale.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual studio 2019](https://www.visualstudio.com/downloads/) o [Visual Studio 2017 v 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
@@ -61,9 +62,9 @@ Per lo sviluppo locale, esistono due scenari di autenticazione principali: auten
 
 ### <a name="authenticating-to-azure-services"></a>Autenticazione ai servizi di Azure
 
-I computer locali non supportano le identità gestite per le risorse di Azure. Di conseguenza, la raccolta `Microsoft.Azure.Services.AppAuthentication` usa le credenziali per lo sviluppatore per l'esecuzione nell'ambiente di sviluppo locale. Quando la soluzione viene distribuita in Azure, la libreria usa l'autenticazione del servizio gestito per passare a un flusso di concessione delle credenziali client di OAuth 2.0. Questo approccio significa che è possibile testare lo stesso codice in locale e in remoto senza preoccuparsi.
+I computer locali non supportano le identità gestite per le risorse di Azure. Di conseguenza, la libreria `Microsoft.Azure.Services.AppAuthentication` usa le credenziali per lo sviluppatore per l'esecuzione nell'ambiente di sviluppo locale. Quando la soluzione viene distribuita in Azure, la libreria usa l'autenticazione del servizio gestito per passare a un flusso di concessione delle credenziali client di OAuth 2.0. Questo approccio significa che è possibile testare lo stesso codice in locale e in remoto senza preoccuparsi.
 
-Per lo sviluppo locale, `AzureServiceTokenProvider` recupera i token usando **Visual Studio**, l'**interfaccia della riga di comando di Azure** o l'**autenticazione integrata di Azure AD**. Ogni opzione viene provata in sequenza e la libreria usa la prima opzione con esito positivo. Se l'opzione non funziona, viene generata un'eccezione `AzureServiceTokenProviderException` con informazioni dettagliate.
+Per lo sviluppo locale, `AzureServiceTokenProvider` recupera i token usando **Visual Studio**, l'**interfaccia della riga di comando di Azure** o l'**autenticazione integrata di Azure AD**. Ogni opzione viene provata in sequenza e la libreria usa la prima opzione con esito positivo. Se nessuna opzione funziona, viene generata un'eccezione `AzureServiceTokenProviderException` con informazioni dettagliate.
 
 #### <a name="authenticating-with-visual-studio"></a>Autenticazione con Visual Studio
 

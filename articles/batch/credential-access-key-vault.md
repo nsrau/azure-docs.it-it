@@ -9,14 +9,14 @@ ms.workload: big-compute
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
-ms.openlocfilehash: 14cbacf43e83dc768e9a85620df131533b746671
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463102"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192303"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>Accedi in modo sicuro Key Vault con batch
+# <a name="securely-access-key-vault-with-batch"></a>Accedere in modo sicuro a Key Vault con Batch
 
 Questo articolo illustra come configurare i nodi batch per accedere in modo sicuro alle credenziali archiviate in Azure Key Vault. Non è possibile inserire le credenziali di amministratore in Key Vault, quindi le credenziali di hardcoded per accedere Key Vault da uno script. La soluzione consiste nell'usare un certificato che conceda ai nodi di batch l'accesso a Key Vault. Con pochi passaggi è possibile implementare l'archiviazione delle chiavi sicure per batch.
 
@@ -40,7 +40,7 @@ cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 Usare quindi lo strumento `makecert` per creare file di certificato autofirmati, denominati `batchcertificate.cer` e `batchcertificate.pvk`. Il nome comune (CN) usato non è importante per questa applicazione, ma è utile per fare in modo che indichi l'uso del certificato.
 
 ```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
+makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
 Batch richiede un file di `.pfx`. Usare lo strumento [Pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) per convertire i file di `.cer` e `.pvk` creati da `makecert` in un singolo file `.pfx`.

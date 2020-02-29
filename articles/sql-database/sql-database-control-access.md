@@ -1,30 +1,30 @@
 ---
 title: Concessione dell'accesso
-description: Informazioni sulla concessione dell'accesso al database SQL di Microsoft Azure e ad Azure SQL Data Warehouse.
+description: Informazioni sulla concessione dell'accesso a database SQL di Microsoft Azure e a sinapsi di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: sql-data-warehouse, seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 05/08/2019
-ms.openlocfilehash: 05a949bbd99a36c41143190d216116f78c433951
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+ms.openlocfilehash: 5142cc941b37cfef7be79e5129b6df7094bfd00e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826603"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197845"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Controllo di accesso per il database SQL di Azure e SQL Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-access-control"></a>Database SQL di Azure e controllo di accesso di Azure sinapsi
 
-Per garantire la sicurezza, il [database SQL](sql-database-technical-overview.md) di Azure e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) controllano l'accesso con regole del firewall che limitano la connettività in base all'indirizzo IP, meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e meccanismi di autorizzazione che consentono agli utenti di usufruire solo di azioni e dati specifici. 
+Per garantire la sicurezza, il [database SQL](sql-database-technical-overview.md) di Azure e le [sinapsi di Azure](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) controllano l'accesso con regole del firewall che limitano la connettività in base all'indirizzo IP, meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e meccanismi di autorizzazione che limitano gli utenti a azioni e dati specifici 
 
 > [!IMPORTANT]
-> Per una panoramica delle funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md). Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md). Per una panoramica delle funzionalità di sicurezza di SQL Data Warehouse, vedere [Informazioni generali sulla sicurezza di SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
+> Per una panoramica delle funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md). Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md). Per una panoramica delle funzionalità di sicurezza di SQL Analytics in sinapsi di Azure, vedere [Panoramica della sicurezza di Azure sinapsi](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## <a name="firewall-and-firewall-rules"></a>Firewall e regole del firewall
 
@@ -34,7 +34,7 @@ Il servizio Database SQL di Azure è disponibile solo tramite la porta TCP 1433.
 
 Come parte del processo di connessione, le connessioni da macchine virtuali di Azure vengono reindirizzate a un indirizzo IP diverso e a una porta, univoca per ogni ruolo di lavoro. Il numero di porta è compreso nell'intervallo che va da 11000 a 11999. Per altre informazioni sulle porte TCP, vedere [Porte superiori a 1433 per ADO.NET 4.5 e il database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Il database SQL supporta due tipi di autenticazione:
 
@@ -45,7 +45,7 @@ Il database SQL supporta due tipi di autenticazione:
 
   Questo metodo di autenticazione usa identità gestite da Azure Active Directory ed è supportato per domini gestiti e integrati. Se si desidera utilizzare l'autenticazione di Azure Active Directory, è necessario creare un altro amministratore del server denominato "admin Azure AD," che è autorizzato ad amministrare utenti e gruppi di Azure AD. Questo amministratore può inoltre eseguire tutte le operazioni che un amministratore del server regolare può fare. Vedere [Connessione al Database SQL utilizzando l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) per una procedura dettagliata di come creare un amministratore di Azure AD per abilitare l'autenticazione di Azure Active Directory.
 
-Il motore di Database chiude le connessioni che rimangono inattive per più di 30 minuti. La connessione deve accedere nuovamente prima di poter essere utilizzata. Per le connessioni al database SQL attive in modo continuo è necessaria la riautorizzazione (eseguita dal motore di database) almeno ogni 10 ore. Il motore di database tenta la riautorizzazione usando la password inviata originariamente e non è necessario alcun input dell'utente. Per motivi di prestazioni, quando si reimposta una password nel database SQL, la connessione non viene autenticata di nuovo, anche se viene reimpostata a causa del pool di connessioni. Ciò differisce dal comportamento del Server SQL locale. Se la password è stata modificata poichè la connessione è stata inizialmente autorizzata, è necessario terminare la connessione e effettuarne una nuova utilizzando la nuova password. Un utente con autorizzazione `KILL DATABASE CONNECTION` può terminare in modo esplicito una connessione al database SQL usando il comando [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
+Il motore di Database chiude le connessioni che rimangono inattive per più di 30 minuti. La connessione deve accedere nuovamente prima di poter essere utilizzata. Per le connessioni al database SQL attive in modo continuo è necessaria la riautorizzazione (eseguita dal motore di database) almeno ogni 10 ore. Il motore di database tenta la riautorizzazione usando la password inviata originariamente e non è necessario alcun input dell'utente. Per motivi di prestazioni, quando si reimposta una password nel database SQL, la connessione non viene autenticata di nuovo, anche se viene reimpostata a causa del pool di connessioni. Questo comportamento è diverso da quello dell'istanza locale di SQL Server. Se la password è stata cambiata dopo l'autorizzazione iniziale della connessione, è necessario terminare la connessione e stabilirne una nuova usando la nuova password. Un utente con autorizzazione `KILL DATABASE CONNECTION` può terminare in modo esplicito una connessione al database SQL usando il comando [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
 
 È possibile creare gli account utente nel database master e concedere le relative autorizzazioni in tutti i database sul server oppure creare gli account nel database stesso (utenti indipendenti). Per informazioni sulla creazione e sulla gestione, vedere l'articolo su come [gestire gli account di accesso](sql-database-manage-logins.md). Usare database indipendenti per migliorare la portabilità e la scalabilità. Per altre informazioni sugli utenti indipendenti, vedere [Utenti di database indipendente: rendere portabile un database](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) e [Database indipendenti](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases).
 

@@ -3,20 +3,20 @@ title: Esempi di trasformazione di attestazioni booleane per criteri personalizz
 titleSuffix: Azure AD B2C
 description: Esempi di trasformazione di attestazioni booleane per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 65f5b9bc09bb74ccbc63a457ba8e5681de8eefab
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620845"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189942"
 ---
 # <a name="boolean-claims-transformations"></a>Trasformazioni delle attestazioni booleane
 
@@ -116,7 +116,7 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Verifica che il valore booleano di un'attestazione sia uguale a `true` o `false`e restituisce il risultato della compressione. 
+Verifica che il valore booleano di un'attestazione sia uguale a `true` o `false`e restituisce il risultato della compressione.
 
 | Elemento | TransformationClaimType  | Tipo di dati  | Note |
 | ---- | ------------------------ | ---------- | ----- |
@@ -148,7 +148,7 @@ La trasformazione delle attestazioni seguente mostra come controllare il valore 
 - Parametri di input:
     - **valueToCompareTo**: true
 - Attestazioni di output:
-    - **CompareResult**: false 
+    - **CompareResult**: false
 
 
 

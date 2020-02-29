@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/04/2019
+ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 7847e76c8f0354e3a17c7df5f3ce9227dcf0e6ce
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: azure-synapse
+ms.openlocfilehash: a225c375d877ae44c2b21ea8e79e31f17db36878
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526417"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198185"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limiti di capacità di Azure sinapsi Analytics (precedentemente SQL DW)
 
@@ -30,16 +31,18 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 | Connessione del database |Numero massimo di sessioni aperte simultanee |1024<br/><br/>Il numero di sessioni aperte simultanee può variare in base al DWU selezionato. DWU600c e versioni successive supportano un massimo di 1024 sessioni aperte. DWU500c e versioni precedenti supportano un limite massimo di sessioni aperte simultanee pari a 512. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
 | Connessione del database |Memoria massima per le istruzioni preparate |20 MB |
 | [Gestione dei carichi di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |128<br/><br/>  Verrà eseguito un massimo di 128 query simultanee e le query rimanenti verranno accodate.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti vengono assegnati a classi di risorse superiori o quando l'impostazione dell' [unità data warehouse](memory-concurrency-limits.md) è ridotta. Per alcune query, come le query DMV, l'esecuzione è sempre consentita e non influisce sul limite di query simultanee. Per altre informazioni sull'esecuzione di query simultanee, vedere l'articolo sui [valori massimi di concorrenza](memory-concurrency-limits.md). |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100. Pertanto a DWU1000, tempdb ha le dimensioni di 3,99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100c. In DWU1000c, tempdb viene quindi ridimensionato a 3,99 TB. |
+||||
 
 ## <a name="database-objects"></a>Oggetti di database
+
 | Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
-| Database |Dimensioni massime | Prima generazione: 240 TB compressi su disco. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti.  La compressione stimata per columnstore cluster è 5X.  Questa compressione consente al database di crescere fino a circa 1 PB quando tutte le tabelle sono columnstore cluster (tipo di tabella predefinito). <br/><br/> Seconda generazione: 240 TB per rowstore e archiviazione illimitata per le tabelle columnstore |
-| Tabella |Dimensioni massime | Per le tabelle columnstore non esiste alcun limite di uppper. <br/><br/>Per le tabelle dell'archivio righe, 60 TB compressi su disco |
+| Database |Dimensioni massime | Prima generazione: 240 TB compressi su disco. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti.  La compressione stimata per columnstore cluster è 5X.  Questa compressione consente al database di crescere fino a circa 1 PB quando tutte le tabelle sono columnstore cluster (tipo di tabella predefinito). <br/><br/> Gen2: archiviazione illimitata per le tabelle columnstore.  La parte rowstore del database è ancora limitata a 240 TB compressi sul disco. |
+| Tabella |Dimensioni massime |Dimensioni illimitate per le tabelle columnstore. <br>60 TB per le tabelle rowstore compresse su disco. |
 | Tabella |Tabelle per ogni database | 100,000 |
 | Tabella |Colonne per ogni tabella |1024 colonne |
-| Tabella |Byte per colonna |Dipende dalla colonna [tipo di dati](sql-data-warehouse-tables-data-types.md). Il limite è 8000 per i tipi di dati char, 4000 per nvarchar o 2 GB per i tipi di dati MAX. |
+| Tabella |Byte per colonna |Dipende dalla colonna [tipo di dati](sql-data-warehouse-tables-data-types.md). Per i tipi di dati character, il limite massimo può archiviare fino a 2 GB di spazio di archiviazione fuori pagina (overflow della riga).  I caratteri non Unicode come il limite di tipo char o varchar sono 8000 in una pagina di dati. i caratteri Unicode come il limite nchar o nvarchar sono 4000 in una pagina di dati.  Usare le dimensioni di archiviazione delle pagine di dati per migliorare le prestazioni. |
 | Tabella |Byte per riga, dimensioni definite |8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina. Come SQL Server, è supportata l'archiviazione di overflow della riga, che consente di eseguire il push delle **colonne a lunghezza variabile** all'esterno di righe. Quando le righe di lunghezza variabile vengono inviate all'esterno delle righe, viene archiviata nel record principale solo una radice 24 byte. Per altre informazioni, vedere [Dati di overflow della riga che superano 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabella |Partizioni per tabella |15.000<br/><br/>Per prestazioni elevate, è consigliabile ridurre al minimo il numero di partizioni necessarie garantendo al tempo stesso il supporto dei requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano. |
 | Tabella |Caratteri per valore limite della partizione. |4000 |
@@ -52,13 +55,17 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 | Statistiche |Statistiche create per le colonne per tabella. |30.000 |
 | Stored procedure |Livello massimo di annidamento. |8 |
 | Visualizza |Colonne per ogni vista |1\.024 |
+||||
 
 ## <a name="loads"></a>Operazioni di caricamento
+
 | Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | Operazioni di caricamento di PolyBase |MB per riga |1<br/><br/>La polibase carica righe di dimensioni inferiori a 1 MB. Il caricamento di tipi di dati LOB in tabelle con un indice columnstore cluster (CCI) non è supportato.<br/><br/> |
+||||
 
 ## <a name="queries"></a>Query
+
 | Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | Query |Query in coda nelle tabelle utente |1000 |
@@ -73,8 +80,10 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 | SELECT |Byte per le colonne ORDER BY |8060 byte<br/><br/>Le colonne presenti nella clausola ORDER BY possono avere un massimo di 8060 byte. |
 | Identificatori per istruzione |Numero di identificatori di riferimento |65.535<br/><br/> Il numero di identificatori che possono essere contenuti in una singola espressione di una query è limitato. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere la pagina relativa al messaggio [Errore interno: è stato raggiunto un limite per i servizi di gestione delle espressioni](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Valori letterali stringa | Numero di valori letterali stringa in un'istruzione | 20.000 <br/><br/>Il numero di costanti stringa in una singola espressione di una query è limitato. Il superamento di questo numero genera un errore 8632 di SQL Server.|
+||||
 
 ## <a name="metadata"></a>Metadati
+
 | Vista di sistema | Numero massimo di righe |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10,000 |
@@ -86,6 +95,8 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 | sys.dm_pdw_request_steps |Numero totale di passaggi per le 1000 richieste SQL più recenti archiviate in sys.dm_pdw_exec_requests. |
 | sys.dm_pdw_os_event_logs |10,000 |
 | sys.dm_pdw_sql_requests |Le 1000 richieste SQL più recenti archiviate in sys.dm_pdw_exec_requests. |
+|||
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per consigli sull'uso di sinapsi di Azure, vedere il [foglio](cheat-sheet.md)informativo.

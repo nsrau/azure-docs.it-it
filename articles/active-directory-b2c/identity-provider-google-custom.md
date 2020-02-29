@@ -3,20 +3,20 @@ title: Configurare l'accesso con un account Google usando criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un account LinkedIn in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed11fcb24f06eae1b2baa6975a3cd8016042813e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8d02c86a1ff330aa4003299e1494a164089d8470
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847459"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188223"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Google usando criteri personalizzati in Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Per consentire l'accesso agli utenti da un account Google, è necessario creare 
 5. Selezionare o specificare un **indirizzo di posta elettronica**, inserire il **nome del prodotto** visualizzato agli utenti, immettere `b2clogin.com` in **Domini autorizzati** e quindi fare clic su **Salva**.
 6. In **Tipo di applicazione** selezionare **Applicazione Web**.
 7. Immettere un **nome** per l'applicazione.
-8. Immettere `https://your-tenant-name.b2clogin.com` in **Origini JavaScript autorizzate** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **URI di reindirizzamento autorizzati**. Sostituire your-tenant-name con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
+8. Immettere **in**Origini JavaScript autorizzate`https://your-tenant-name.b2clogin.com` e **in**URI di reindirizzamento autorizzati`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Sostituire your-tenant-name con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
 8. Fare clic su **Crea**.
 9. Copiare i valori **ID client** e **Segreto client**. Sono necessari entrambi per configurare Google come provider di identità nel tenant. Il segreto client è una credenziale di sicurezza importante.
 

@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Specificare l'elemento TrustFrameworkPolicy di un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/31/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b49c873112358db4fec2992ef3d2d61161e8b373
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982416"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186387"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,7 +38,7 @@ Un criterio personalizzato è rappresentato come uno o più file in formato XML 
 
 L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
 | TenantObjectId | No | Identificatore di oggetto univoco del tenant di Azure Active Directory B2C (Azure AD B2C). |
@@ -88,7 +88,7 @@ Per ereditare un criterio da un altro criterio, un elemento **BasePolicy** deve 
 
 L'elemento **BasePolicy** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Identificatore del tenant di Azure AD B2C. |
 | PolicyId | 1:1 | Identificatore del criterio padre. |

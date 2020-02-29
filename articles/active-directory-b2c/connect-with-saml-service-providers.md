@@ -3,21 +3,21 @@ title: Configurare Azure AD B2C come IdP SAML per le applicazioni
 title-suffix: Azure AD B2C
 description: Come configurare Azure AD B2C per fornire asserzioni di protocollo SAML alle applicazioni (provider di servizi). Azure AD B2C fungerà da provider di identità singolo (IdP) per l'applicazione SAML.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: be7d798d96e61d1d753e130c5e4ad6a479f391fc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912241"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189651"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -63,7 +63,7 @@ Se non si dispone ancora di un provider di servizi SAML e di un endpoint di meta
 
 ## <a name="1-set-up-certificates"></a>1. impostare i certificati
 
-Per creare una relazione di trust tra il provider di servizi e Azure AD B2C, è necessario fornire i certificati X509 e le relative chiavi private.
+Per creare una relazione di trust tra il provider di servizi e Azure AD B2C, è necessario fornire i certificati X509 dell'app Web.
 
 * **Certificati del provider di servizi**
   * Certificato con una chiave privata archiviata nell'app Web. Questo certificato viene usato dal provider di servizi per firmare la richiesta SAML inviata a Azure AD B2C. Azure AD B2C legge la chiave pubblica dai metadati del provider di servizi per convalidare la firma.

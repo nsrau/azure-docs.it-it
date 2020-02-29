@@ -3,12 +3,12 @@ title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco nei progetti di Azure per proteggere le risorse quando si assegna un progetto.
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919873"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199700"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -83,6 +83,9 @@ Il corpo della richiesta dell'assegnazione del progetto ha un aspetto simile al 
 ```
 
 La differenza principale tra questo corpo della richiesta e l'altra da assegnare a una sottoscrizione è la proprietà `properties.scope`. Questa proprietà obbligatoria deve essere impostata sulla sottoscrizione a cui si applica l'assegnazione del progetto. La sottoscrizione deve essere un figlio diretto della gerarchia del gruppo di gestione in cui è archiviata l'assegnazione del progetto.
+
+> [!NOTE]
+> Un progetto assegnato all'ambito del gruppo di gestione funziona ancora come assegnazione di progetto a livello di sottoscrizione. L'unica differenza è rappresentata dalla posizione in cui viene archiviata l'assegnazione del progetto per impedire ai proprietari della sottoscrizione di rimuovere l'assegnazione e i blocchi associati.
 
 ## <a name="removing-locking-states"></a>Eliminazione degli stati di blocco
 

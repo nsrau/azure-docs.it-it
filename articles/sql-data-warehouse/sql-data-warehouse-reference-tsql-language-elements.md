@@ -1,6 +1,6 @@
 ---
 title: Elementi del linguaggio T-SQL
-description: Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL Data Warehouse.
+description: Collegamenti alla documentazione per le istruzioni T-SQL supportate in analisi SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: edd77d711654a7f2793eb3c08b93e85fc0a89e8f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692517"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198423"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementi del linguaggio T-SQL supportati in Azure SQL Data Warehouse
-Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportati in Azure SQL Data Warehouse.
+# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>Elementi del linguaggio T-SQL supportati in SQL Analytics
+Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportati in analisi SQL.
 
 ## <a name="core-elements"></a>Elementi principali
 * [convenzioni della sintassi](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
@@ -48,16 +48,16 @@ Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportat
 * [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operatori
-* [+ (Addizione)](https://msdn.microsoft.com/library/ms178565.aspx)
+* [+ (addizione)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Concatenazione di stringhe)](https://msdn.microsoft.com/library/ms177561.aspx)
-* [- (Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
-* [- (Sottrazione)](https://msdn.microsoft.com/library/ms189518.aspx)
+* [- (negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
+* [- (sottrazione)](https://msdn.microsoft.com/library/ms189518.aspx)
 * [* (Moltiplicazione)](https://msdn.microsoft.com/library/ms176019.aspx)
-* [/ (Divisione)](https://msdn.microsoft.com/library/ms175009.aspx)
+* [/ (divisione)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Caratteri jolly con cui trovare una corrispondenza
-* [= (Uguale a)](https://msdn.microsoft.com/library/ms175118.aspx)
+* [= (uguale a)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Maggiore di)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Minore di)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [&gt;= (Maggiore o uguale a)](https://msdn.microsoft.com/library/ms181567.aspx)
@@ -78,7 +78,7 @@ Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportat
 * [| (OR bit per bit)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (OR esclusivo bit per bit)](https://msdn.microsoft.com/library/ms190277.aspx)
 * [~ (NOT bit per bit)](https://msdn.microsoft.com/library/ms173468.aspx)
-* [^= (OR EQUALS esclusivo bit per bit)](https://msdn.microsoft.com/library/cc627413.aspx)
+* [^= (OR esclusivo bit per bit EQUALS)](https://msdn.microsoft.com/library/cc627413.aspx)
 * [|= (OR EQUALS bit per bit)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&amp;= (AND EQUALS bit per bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
@@ -232,7 +232,7 @@ Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportat
 ## <a name="diagnostic-sessions"></a>Sessioni di diagnostica
 * [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
-## <a name="procedures"></a>Procedures
+## <a name="procedures"></a>Procedure
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -255,7 +255,7 @@ Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportat
 * [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
-## <a name="set-statements"></a>Istruzioni SET
+## <a name="set-statements"></a>istruzioni SET
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -278,5 +278,5 @@ Collegamenti alla documentazione per gli elementi del linguaggio T-SQL supportat
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni, vedere [Istruzioni T-SQL in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md) e [Viste di sistema in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Per altre informazioni di riferimento, vedere [istruzioni T-SQL in analisi SQL](sql-data-warehouse-reference-tsql-statements.md)e [viste di sistema in analisi SQL](sql-data-warehouse-reference-tsql-system-views.md).
 

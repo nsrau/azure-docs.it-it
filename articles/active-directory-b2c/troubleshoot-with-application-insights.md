@@ -3,20 +3,20 @@ title: Risolvere i problemi relativi ai criteri personalizzati con Application I
 titleSuffix: Azure AD B2C
 description: Come configurare Application Insights per tracciare l'esecuzione dei criteri personalizzati.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848148"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186268"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Raccogliere i log di Azure Active Directory B2C con Application Insights
 
@@ -93,7 +93,7 @@ Si verifica un breve ritardo, in genere meno di cinque minuti, prima che sia pos
 
 Di seguito è riportato un elenco di query che è possibile usare per visualizzare i log:
 
-| Query | Description |
+| Query | Descrizione |
 |---------------------|--------------------|
 `traces` | Consente di visualizzare tutti i log generati da Azure AD B2C |
 `traces | where timestamp > ago(1d)` | Consente di visualizzare tutti i log generati da Azure AD B2C nell'ultimo giorno

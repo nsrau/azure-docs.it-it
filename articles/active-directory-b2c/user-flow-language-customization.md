@@ -2,20 +2,20 @@
 title: Personalizzazione della lingua in Azure AD B2C
 description: Informazioni su come personalizzare l'esperienza del linguaggio nei flussi utente.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ab34c1c34c2d2a67b5e3fdd6a5e84f0663455e20
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5b3af812b2b78c276b5345b9b19226e6e1dba80b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847914"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185761"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
@@ -201,7 +201,7 @@ Chrome e Firefox richiedono entrambi la relativa lingua preimpostata. Se è supp
 
 Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi utente sono fornite da Azure AD B2C. I linguaggi di notifica dell'autenticazione a più fattori sono forniti da [Azure](../active-directory/authentication/concept-mfa-howitworks.md)multi-factor authentication.
 
-| Lingua              | Codice lingua | Flussi degli utenti         | Notifiche multi-factor authentication  |
+| Linguaggio              | Codice lingua | Flussi degli utenti         | Notifiche multi-factor authentication  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
 | Arabo                | ar            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Bulgaro             | BG            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
@@ -211,7 +211,7 @@ Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi ut
 | Danese                | da            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Tedesco                | de            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Greco                 | el            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
-| Italiano               | en            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Inglese               | en            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Spagnolo               | es            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Estone              | et            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Basco                | UE            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |

@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 37055d9b59d49091261109e3553f99bcc03d8e14
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 48c28831d1fbbfc4fe78ebe12e5a158a8259cf44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164578"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190297"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app su Android tramite ADAL
 
@@ -60,7 +60,7 @@ Se nel dispositivo è installato un broker compatibile, ad esempio l'applicazion
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Modalità con cui Microsoft assicura la validità dell'applicazione
 
-La necessità di verificare l'identità di una chiamata di applicazione al broker è fondamentale per la sicurezza garantita con l'accesso assistito da broker. I sistemi iOS e Android non applicano identificatori univoci che sono validi solo per una determinata applicazione, pertanto le applicazioni dannose possono effettuare lo "spoofing" di un identificatore dell'applicazione legittimo e ricevere i token per l'applicazione legittima. Per garantire che Microsoft comunichi sempre con l'applicazione giusta in fase di esecuzione, lo sviluppatore deve specificare un URI di reindirizzamento personalizzato quando registra la propria applicazione con Microsoft. **Le modalità di creazione dell'URI di reindirizzamento da parte degli sviluppatori vengono trattate in dettaglio di seguito.** Questo URI di reindirizzamento personalizzato contiene l'identificazione personale del certificato dell'applicazione e Google Play Store ne garantisce l'univocità per l'applicazione. Quando un'applicazione chiama il broker, questo richiede al sistema operativo Android per fornire l'identificazione personale del certificato che ha chiamato il broker. Il broker invia questa identificazione personale del certificato a Microsoft nella chiamata al sistema di identità. Se l'identificazione personale del certificato dell'applicazione non corrisponde all'identificazione personale del certificato specificata dallo sviluppatore durante la registrazione, verrà negato l'accesso ai token per la risorsa richiesta dall'applicazione. Questo controllo garantisce che solo l'applicazione registrata dallo sviluppatore riceva i token.
+La necessità di garantire che l'identità di un'applicazione che chiama il broker sia fondamentale per la sicurezza fornita negli accessi assistiti da broker. I sistemi iOS e Android non applicano identificatori univoci che sono validi solo per una determinata applicazione, pertanto le applicazioni dannose possono effettuare lo "spoofing" di un identificatore dell'applicazione legittimo e ricevere i token per l'applicazione legittima. Per garantire che Microsoft comunichi sempre con l'applicazione giusta in fase di esecuzione, lo sviluppatore deve specificare un URI di reindirizzamento personalizzato quando registra la propria applicazione con Microsoft. **Le modalità di creazione dell'URI di reindirizzamento da parte degli sviluppatori vengono trattate in dettaglio di seguito.** Questo URI di reindirizzamento personalizzato contiene l'identificazione personale del certificato dell'applicazione e Google Play Store ne garantisce l'univocità per l'applicazione. Quando un'applicazione chiama il broker, questo richiede al sistema operativo Android per fornire l'identificazione personale del certificato che ha chiamato il broker. Il broker invia questa identificazione personale del certificato a Microsoft nella chiamata al sistema di identità. Se l'identificazione personale del certificato dell'applicazione non corrisponde all'identificazione personale del certificato specificata dallo sviluppatore durante la registrazione, verrà negato l'accesso ai token per la risorsa richiesta dall'applicazione. Questo controllo garantisce che solo l'applicazione registrata dallo sviluppatore riceva i token.
 
 Gli accessi SSO con broker offrono i vantaggi seguenti:
 

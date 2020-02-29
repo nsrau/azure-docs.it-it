@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 75317f73ad724b4ce8ad7a894890b2269bd8c5d0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 36a4871339401629300eedd77b6441aed10aabf3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837506"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199836"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornire Key Vault autenticazione con un'identità gestita
 
@@ -25,16 +26,16 @@ Questo articolo illustra come creare un'identità gestita per un'applicazione de
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 Per completare questa guida, è necessario disporre delle risorse riportate di seguito. 
 
-- Insieme di credenziali delle chiavi. È possibile usare un insieme di credenziali delle chiavi esistente o crearne uno nuovo attenendosi alla procedura descritta in una delle guide introduttive seguenti:
-   - [Creare un Key Vault con l'interfaccia della riga di comando di Azure](quick-create-cli.md)
+- Un insieme di credenziali delle chiavi. È possibile usare un insieme di credenziali delle chiavi esistente o crearne uno nuovo seguendo le procedure illustrate in una di queste guide di avvio rapido:
+   - [Creare un insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure](quick-create-cli.md)
    - [Creare un insieme di credenziali delle chiavi con Azure PowerShell](quick-create-powershell.md)
-   - [Creare un insieme di credenziali delle chiavi con l'portale di Azure](quick-create-portal.md).
+   - [Creare un insieme di credenziali delle chiavi con il portale di Azure](quick-create-portal.md).
 - Un'applicazione del servizio app esistente a cui concedere l'accesso all'insieme di credenziali delle chiavi. È possibile crearne rapidamente uno attenendosi alla procedura descritta nella [documentazione del servizio app](../app-service/overview.md).
-- [Interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o [Azure PowerShell](/powershell/azure/overview). In alternativa, è possibile usare la [portale di Azure](https://portal.azure.com).
+- [Interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure o [Azure PowerShell](/powershell/azure/overview). In alternativa, è possibile usare il [portale di Azure](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Aggiunta di un'identità assegnata dal sistema 
@@ -49,7 +50,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 1. Selezionare **Identità gestita**. 
 
-1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Save**. 
+1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**. 
 
     ![](./media/managed-identity-system-assigned.png)
 
@@ -114,6 +115,6 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 - [Sicurezza Azure Key Vault: gestione delle identità e degli accessi](overview-security.md#identity-and-access-management)
 - [Fornire Key Vault autenticazione con un criterio di controllo di accesso](key-vault-group-permissions-for-apps.md)
 - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
-- [Proteggere l'](key-vault-secure-your-key-vault.md)insieme di credenziali delle chiavi.
-- [Guida per gli sviluppatori di Azure Key Vault](key-vault-developers-guide.md)
+- [Proteggere l'insieme di credenziali delle chiavi](key-vault-secure-your-key-vault.md).
+- [Guida per gli sviluppatori per Azure Key Vault](key-vault-developers-guide.md)
 - Esaminare le [procedure consigliate per Azure Key Vault](key-vault-best-practices.md)

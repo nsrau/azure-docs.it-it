@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi di connettività
-description: Risoluzione dei problemi di connettività in Azure SQL Data Warehouse.
+description: Risoluzione dei problemi di connettività in SQL Analytics.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,55 +10,55 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d1139032176b3b44c58471b87cabd10ffeaa3d20
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 003366a6d88e018090475b6fb22d9042a97af823
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692415"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192252"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Risoluzione dei problemi di connettività
 
-In questo articolo vengono elencate le tecniche comuni per la risoluzione dei problemi relativi alla connessione al SQL Data Warehouse.
+Questo articolo elenca le tecniche di risoluzione dei problemi comuni per la connessione al database di analisi SQL.
 - [Controllare la disponibilità del servizio](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Verifica l'operazione di sospensione o ridimensionamento](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Controllare le impostazioni del firewall](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Controllare le impostazioni dell'endpoint di VNet/servizio](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Verifica i driver più recenti](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Controllare la stringa di connessione](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
+- [Verificare l'eventuale presenza di operazioni di scalabilità o in pausa](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
+- [Verificare le impostazioni del firewall](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
+- [Verificare le impostazioni dell'endpoint di servizio/rete virtuale](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
+- [Controllare se sono presenti i driver più recenti](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
+- [Verificare la stringa di connessione](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
 - [Problemi di connessione intermittenti](./sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
 - [Messaggi di errore comuni](./sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
 ## <a name="check-service-availability"></a>Controllare la disponibilità del servizio
 
-Verificare se il servizio è disponibile. Nella portale di Azure passare al SQL Data Warehouse si sta provando a connettersi. Nel riquadro a sinistra fare clic su **diagnostica e risoluzione dei problemi**.
+Verificare se il servizio è disponibile. Nel portale di Azure passare al database di analisi SQL che si sta tentando di connettere. Nel riquadro a sinistra fare clic su **diagnostica e risoluzione dei problemi**.
 
 ![Seleziona integrità risorse](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Lo stato del SQL Data Warehouse verrà visualizzato qui. Se il servizio non viene visualizzato come **disponibile**, verificare i passaggi successivi.
+Lo stato di SQL Analytics verrà visualizzato qui. Se il servizio non viene visualizzato come **disponibile**, verificare i passaggi successivi.
 
 ![Servizio disponibile](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se l'integrità delle risorse Mostra che il data warehouse è in pausa o in scala, seguire le indicazioni per riprendere il data warehouse.
+Se l'integrità delle risorse indica che l'istanza di SQL Analytics è sospesa o ridimensionata, seguire le indicazioni per riprendere l'istanza.
 
 il servizio ![è stato sospeso](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) informazioni aggiuntive sui Integrità risorse sono disponibili qui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verifica l'operazione di sospensione o ridimensionamento
 
-Controllare il portale per verificare se il SQL Data Warehouse è in pausa o in scala.
+Controllare il portale per verificare se l'istanza di SQL Analytics è in pausa o in scala.
 
 ![Servizio sospeso](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se il servizio è in pausa o in scala, verificare che non sia durante la pianificazione della manutenzione. Nel portale per la *Panoramica*di SQL data warehouse verrà visualizzata la pianificazione di manutenzione eletta.
+Se il servizio è in pausa o in scala, verificare che non sia durante la pianificazione della manutenzione. Nel portale per la *Panoramica*di SQL Analytics verrà visualizzata la pianificazione di manutenzione eletta.
 
 ![Panoramica della pianificazione di manutenzione](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-In caso contrario, rivolgersi all'amministratore IT per verificare che la manutenzione non sia un evento pianificato. Per riprendere la SQL Data Warehouse, attenersi alla procedura descritta di [seguito](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+In caso contrario, rivolgersi all'amministratore IT per verificare che la manutenzione non sia un evento pianificato. Per riprendere l'istanza di SQL Analytics, seguire i passaggi descritti [qui](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## <a name="check-your-firewall-settings"></a>Controllare le impostazioni del firewall
 
-SQL Data Warehouse comunica attraverso la porta 1433.   Se si sta provando a connettersi dall'interno di una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In tal caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Altre informazioni sulle configurazioni del firewall sono disponibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
+Il database di analisi SQL comunica sulla porta 1433.   Se si sta provando a connettersi dall'interno di una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Altre informazioni sulle configurazioni del firewall sono disponibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Controllare le impostazioni dell'endpoint di VNet/servizio
 
@@ -68,7 +68,7 @@ Se vengono ricevuti gli errori 40914 e 40615, vedere la [Descrizione e la risolu
 
 ### <a name="software"></a>Software
 
-Assicurarsi di usare gli strumenti più recenti per connettersi alla SQL Data Warehouse:
+Assicurarsi di usare gli strumenti più recenti per connettersi al database di analisi SQL:
 
 * SSMS
 * Azure Data Studio
@@ -85,7 +85,7 @@ Assicurarsi di usare le versioni più recenti del driver.  L'utilizzo di una v
 
 ## <a name="check-your-connection-string"></a>Controllare la stringa di connessione
 
-Verificare che le stringhe di connessione siano impostate correttamente.  Di seguito sono riportati alcuni esempi.  Qui è possibile trovare informazioni aggiuntive sulle [stringhe di connessione](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
+Accertarsi che le stringhe di connessione siano impostate in modo appropriato.  Di seguito sono riportati alcuni esempi.  È possibile trovare informazioni aggiuntive sulle [stringhe di connessione qui](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings).
 
 Stringa di connessione ADO.NET
 
@@ -113,7 +113,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemi di connessione intermittenti
 
-Verificare se si sta verificando un carico eccessivo sul server con un numero elevato di richieste in coda. Potrebbe essere necessario aumentare le dimensioni del data warehouse per le risorse aggiuntive.
+Verificare se il server abbia un carico eccessivo e se sia elevato il numero delle richieste in coda. Potrebbe essere necessario aumentare le prestazioni dell'istanza di SQL Analytics per altre risorse.
 
 ## <a name="common-error-messages"></a>Messaggi di errore comuni
 

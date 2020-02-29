@@ -2,13 +2,13 @@
 title: Configurare e gestire Azure Notebooks anteprima
 description: Informazioni su come gestire i metadati del progetto, i file di progetto, l'ambiente del progetto e i passaggi di configurazione tramite l'interfaccia utente di Azure Notebooks e l'accesso diretto al terminale.
 ms.topic: how-to
-ms.date: 05/13/2019
-ms.openlocfilehash: 5c97372133315e6f0bcd3b854793b6b4746b5ba5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/28/2020
+ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646263"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197692"
 ---
 # <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> gestire e configurare i progetti in Azure Notebooks anteprima
 
@@ -37,7 +37,7 @@ Per impostazione predefinita, i progetti vengono eseguiti nel livello di **calco
 
 Nel dashboard del progetto selezionare **Project Settings** (Impostazioni progetto) e quindi selezionare la scheda **Information** (Informazioni), che contiene i metadati del progetto come descritto nella tabella seguente. È possibile modificare i metadati del progetto in qualsiasi momento.
 
-| Impostazione | Description |
+| Impostazione | Descrizione |
 | --- | --- |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. Ad esempio: "Hello World in Python". |
 | ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto. Questo ID può utilizzare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un [ID di progetto riservato](create-clone-jupyter-notebooks.md#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
@@ -56,7 +56,7 @@ Il dashboard del progetto illustra i contenuti del sistema di cartelle del proge
 
 Il comando **+ New** (Nuovo) (tasto di scelta rapida: n) consente di creare nuovi file o cartelle. Quando si usa questo comando, selezionare prima il tipo di elemento da creare:
 
-| Tipo elemento | Description | Comportamento del comando |
+| Tipo elemento | Descrizione | Comportamento del comando |
 | --- | --- | --- |
 | **Notebook** | Un notebook di Jupyter | Visualizza una finestra popup in cui devono essere specificati il nome file e la lingua del notebook. |
 | **Cartella** | Una sottocartella | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome della cartella. |
@@ -75,14 +75,14 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 
 | Comando | Tasto di scelta rapida | Azione |
 | --- | --- | --- |
-| Esecuzione | r (o clic) | Esegue un file di notebook. Altri tipi di file sono aperti per la visualizzazione.  |
+| Esegui | r (o clic) | Esegue un file di notebook. Altri tipi di file sono aperti per la visualizzazione.  |
 | Copy Link (Copia collegamento) | y | Copia un collegamento al file negli Appunti. |
 | Run in Jupyter Lab (Esegui in JupyterLab) | j | Esegue un notebook in JupyterLab, un'interfaccia più orientata agli sviluppatori rispetto a quella normalmente associata a Jupyter. |
 | Anteprima | p | Apre un'anteprima HTML del file; per i notebook, l'anteprima è un rendering di sola lettura del notebook. Per altre informazioni, vedere la sezione [Anteprima](#preview). |
 | Edit file (Modifica file) | i | Apre il file per la modifica. |
 | Download | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
-| Rinomina | a | Richiede un nuovo nome per il file o la cartella. |
-| Elimina | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
+| Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
+| Delete | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
 | Spostamento | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
 #### <a name="preview"></a>Anteprima
@@ -93,9 +93,9 @@ La pagina di anteprima supporta vari comandi della barra degli strumenti con tas
 
 | Comando | Tasto di scelta rapida | Azione |
 | --- | --- | --- |
-| Condivisione | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
-| Clona | c  | Consente di clonare il notebook nel proprio account. |
-| Esecuzione | r | Consente di eseguire il notebook, se si è autorizzati a eseguire questa operazione. |
+| Condividi | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
+| Clone | c  | Consente di clonare il notebook nel proprio account. |
+| Esegui | r | Consente di eseguire il notebook, se si è autorizzati a eseguire questa operazione. |
 | Download | d | Scarica una copia del notebook. |
 
 ## <a name="configure-the-project-environment"></a>Configurare l'ambiente del progetto
@@ -131,6 +131,9 @@ Le informazioni che verranno visualizzate dipendono dal tipo di operazione scelt
 - **Script della shell**: nel secondo elenco a discesa selezionare uno script della shell bash nel progetto (in genere un file con estensione *sh* ) che contiene i comandi che si desidera eseguire per inizializzare l'ambiente.
 
 - **Environment. yml**: nel secondo elenco a discesa selezionare un file *environments. yml* per i progetti python usando un ambiente conda.
+
+   > [!WARNING]
+   > Poiché si tratta di un servizio in anteprima in fase di sviluppo, esiste attualmente un problema noto in cui l'impostazione `Environment.yml` non viene applicata al progetto come previsto. Il progetto e i notebook di Jupyter all'interno di non caricano attualmente il file dell'ambiente specificato.
 
 Dopo aver aggiunto tutti i passaggi necessari, selezionare **Save** (Salva).
 

@@ -5,21 +5,22 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/22/2019
-ms.openlocfilehash: dda65c94671044f3c5a569a3f9753951de9eee3a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/05/2020
+tags: azure-synapse
+ms.openlocfilehash: e22205e81178ac0caff4b71462ece776238900f6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717674"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191946"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificazione & individuazione dati del database SQL di Azure e SQL Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-data-discovery--classification"></a>Individuazione dati & classificazione del database SQL di Azure e di analisi delle sinapsi di Azure
 
 Individuazione dati & classificazione offre funzionalità avanzate incorporate nel database SQL di **Azure per l'individuazione,** la **classificazione**, l' **assegnazione di etichette** & la **creazione di report** sui dati sensibili nei database.
 
@@ -32,7 +33,7 @@ L'individuazione e la classificazione dei dati più sensibili (dati commerciali,
 L'individuazione dei dati & classificazione fa parte dell'offerta [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), che è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. È possibile accedere e gestire Individuazione dati e classificazione tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
 
 > [!NOTE]
-> Questo documento è correlato al database SQL di Azure e Azure SQL Data Warehouse. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. Per SQL Server (in locale), vedere [individuazione e classificazione dei dati SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> Questo documento è correlato al database SQL di Azure e alla sinapsi di Azure. Per semplicità, il database SQL viene usato quando si fa riferimento sia al database SQL che alla sinapsi di Azure. Per SQL Server (in locale), vedere [individuazione e classificazione dei dati SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Informazioni su Individuazione dati e classificazione
 
@@ -138,7 +139,7 @@ Scopri di più su [RBAC per le risorse di Azure](https://docs.microsoft.com/azur
 
 ## <a id="subheading-5"></a>Gestire le classificazioni
 
-# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
+# <a name="t-sql"></a>[T-SQL](#tab/azure-t-sql)
 È possibile utilizzare T-SQL per aggiungere o rimuovere le classificazioni di colonna, nonché recuperare tutte le classificazioni per l'intero database.
 
 > [!NOTE]
@@ -148,7 +149,7 @@ Scopri di più su [RBAC per le risorse di Azure](https://docs.microsoft.com/azur
 - Rimuovere la classificazione da una o più colonne: [ELIMINA CLASSIFICAZIONE DI RISERVATEZZA](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visualizzare tutte le classificazioni sul database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-# <a name="rest-apistabazure-rest-api"></a>[API REST](#tab/azure-rest-api)
+# <a name="rest-apis"></a>[API REST](#tab/azure-rest-api)
 È possibile usare le API REST per gestire le classificazioni e le raccomandazioni a livello di codice. Le API REST pubblicate supportano le operazioni seguenti:
 
 - [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crea o aggiorna l'etichetta di riservatezza di una determinata colonna
@@ -159,7 +160,7 @@ Scopri di più su [RBAC per le risorse di Azure](https://docs.microsoft.com/azur
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - (Elenca elementi correnti per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
 - [Elenco consigliato per database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : ottiene le etichette di riservatezza consigliate di un determinato database
 
-# <a name="powershell-cmdlettabazure-powelshell"></a>[Cmdlet di PowerShell](#tab/azure-powelshell)
+# <a name="powershell-cmdlet"></a>[Cmdlet di PowerShell](#tab/azure-powelshell)
 È possibile usare PowerShell per gestire le classificazioni e i consigli per il database SQL di Azure e Istanza gestita.
 
 ### <a name="powershell-cmdlet-for-azure-sql-database"></a>Cmdlet di PowerShell per il database SQL di Azure

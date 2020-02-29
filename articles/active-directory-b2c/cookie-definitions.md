@@ -3,20 +3,20 @@ title: Definizioni dei cookie
 titleSuffix: Azure AD B2C
 description: Fornisce le definizioni per i cookie utilizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c6e48a663e4d1702851e11bc5124e56c52309d08
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b984b75b3a12606aa0d82c7e7b399d5dce59df33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908871"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189515"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Definizioni dei cookie per Azure AD B2C
 
@@ -30,7 +30,7 @@ Per salvaguardare l'accesso ai siti, i Web browser introdurranno un nuovo modell
 
 Gli sviluppatori devono usare la nuova impostazione del cookie, `SameSite=None`, per designare i cookie per l'accesso tra siti. Quando è presente l'attributo `SameSite=None`, è necessario usare un attributo `Secure` aggiuntivo, in modo che i cookie tra siti possano essere accessibili solo tramite connessioni HTTPS. Convalidare e testare tutte le applicazioni, incluse le applicazioni che usano Azure AD B2C.
 
-Per scoprire di più, vedi:
+Per altre informazioni, vedere:
 
 * [Gestire le modifiche ai cookie navigava sullostesso sito nel browser Chrome](../active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser.md)
 * [Effetti sui siti Web dei clienti e sui prodotti e servizi Microsoft in Chrome versione 80 o successiva](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome)
@@ -39,7 +39,7 @@ Per scoprire di più, vedi:
 
 Nella tabella seguente sono elencati i cookie utilizzati in Azure AD B2C.
 
-| Nome | Dominio | Scadenza | Finalità |
+| Nome | Dominio | Scadenza | Scopo |
 | ----------- | ------ | -------------------------- | --------- |
 | `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | Fine della [sessione del browser](session-behavior.md) | Include i dati di appartenenza degli utenti tra i tenant. I tenant di cui un utente è membro e il livello di appartenenza (amministratore o utente). |
 | `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, dominio con personalizzazione | Fine della [sessione del browser](session-behavior.md) | Utilizzato per indirizzare le richieste all'istanza di produzione appropriata. |

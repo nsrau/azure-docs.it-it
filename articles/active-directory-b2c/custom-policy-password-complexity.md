@@ -3,20 +3,20 @@ title: Configurare la complessità delle password usando criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Come configurare i requisiti di complessità delle password usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d0caa029bd33da499db23f218b2392344c4585ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2de1130e28b5071913e4cf3632c3fe4407597a98
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849071"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189141"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76849071"
 
 In Azure Active Directory B2C (Azure AD B2C), è possibile configurare i requisiti di complessità per le password fornite da un utente durante la creazione di un account. Per impostazione predefinita, Azure AD B2C usa password di complessità **Alta**. Questo articolo illustra come configurare la complessità delle password usando [criteri personalizzati](custom-policy-overview.md). È anche possibile configurare la complessità delle password usando [flussi utente](user-flow-password-complexity.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 

@@ -2,26 +2,26 @@
 title: Configurare i token-Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come configurare le impostazioni di compatibilità e durata dei token in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6b18596082df6f1cfbe2a47627712b8b69cb355
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836610"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189618"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurare i token in Azure Active Directory B2C
 
 Questo articolo illustra come configurare la [durata e la compatibilità di un token](tokens-overview.md) in Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [Creare un flusso utente](tutorial-create-user-flows.md) per consentire agli utenti di iscriversi e accedere all'applicazione.
 

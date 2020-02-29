@@ -3,20 +3,20 @@ title: Monitorare Azure AD B2C con monitoraggio di Azure
 titleSuffix: Azure AD B2C
 description: Informazioni su come registrare eventi di Azure AD B2C con monitoraggio di Azure usando la gestione delle risorse delegata.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 6f7f0252a6377397ccaccdc44c9c8561da7c9d29
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121389"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190059"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -30,7 +30,7 @@ Usare monitoraggio di Azure per indirizzare l'accesso Azure Active Directory B2C
 
 ![Monitoraggio di Azure](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare i passaggi descritti in questo articolo, è possibile distribuire un modello di Azure Resource Manager usando il modulo di Azure PowerShell.
 

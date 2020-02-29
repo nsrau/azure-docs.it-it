@@ -1,24 +1,24 @@
 ---
 title: Isolamento dei carichi di lavoro
-description: Linee guida per l'impostazione dell'isolamento del carico di lavoro con i gruppi del carico Azure SQL Data Warehouse di lavoro
+description: Linee guida per l'impostazione dell'isolamento del carico di lavoro con gruppi di carico di lavoro in Azure sinapsi Analytics
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/23/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 86390132be0440b197b680803e5b6032670a7d1c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 6b3047eb600c3d5808993c3646f718ca25824962
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721031"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192677"
 ---
-# <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Isolamento del gruppo di carico di lavoro SQL Data Warehouse (anteprima)
+# <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Isolamento del gruppo di carico di lavoro di analisi delle sinapsi di Azure (anteprima)
 
 Questo articolo illustra come usare i gruppi del carico di lavoro per configurare l'isolamento del carico di lavoro, contenere le risorse e applicare le regole di runtime per l'esecuzione delle query.
 

@@ -3,12 +3,12 @@ title: Guida di riferimento per gli sviluppatori Python per Funzioni di Azure
 description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8ee13b59812e6a212fbafcf4ea6bfc171e735dc3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921786"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190705"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -22,25 +22,9 @@ Funzioni di Azure prevede che una funzione sia un metodo senza stato nello scrip
 
 I dati dei trigger e delle associazioni vengono associati alla funzione tramite gli attributi del metodo usando la proprietà `name` definita nel file *Function. JSON* . Il file _Function. JSON_ seguente, ad esempio, descrive una semplice funzione attivata da una richiesta HTTP denominata `req`:
 
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "direction": "in",
-      "type": "httpTrigger",
-      "authLevel": "anonymous"
-    },
-    {
-      "name": "$return",
-      "direction": "out",
-      "type": "http"
-    }
-  ]
-}
-```
+:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-Il file `__init__.py` contiene il codice funzione seguente:
+In base a questa definizione, il file `__init__.py` che contiene il codice della funzione potrebbe essere simile all'esempio seguente:
 
 ```python
 def main(req):
@@ -48,7 +32,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-è anche possibile dichiarare in modo esplicito i tipi di attributo e il tipo restituito nella funzione usando le annotazioni di tipo Python. Questo consente di usare le funzionalità di IntelliSense e di completamento automatico fornite da molti editor di codice Python.
+È anche possibile dichiarare in modo esplicito i tipi di attributo e il tipo restituito nella funzione usando le annotazioni di tipo Python. Questo consente di usare le funzionalità di IntelliSense e di completamento automatico fornite da molti editor di codice Python.
 
 ```python
 import azure.functions
@@ -236,7 +220,7 @@ def main(req):
 
 Sono disponibili altri metodi di registrazione che consentono di scrivere nella console a livelli di traccia diversi:
 
-| Metodo                 | Description                                |
+| Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Scrive un messaggio con livello critico nel logger radice.  |
 | **`error(_message_)`**   | Scrive un messaggio con livello errore nel logger radice.    |
@@ -384,7 +368,7 @@ Per lo sviluppo locale, le impostazioni dell'applicazione vengono [mantenute nel
 
 Attualmente, funzioni di Azure supporta sia Python 3.6. x che 3.7. x (distribuzioni CPython ufficiali). Quando viene eseguito localmente, il runtime usa la versione di Python disponibile. Per richiedere una versione specifica di Python quando si crea l'app per le funzioni in Azure, usare l'opzione `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) . La modifica della versione è consentita solo per la creazione app per le funzioni.  
 
-## <a name="package-management"></a>Gestione pacchetti
+## <a name="package-management"></a>Gestione dei pacchetti
 
 Quando si sviluppa in locale usando Azure Functions Core Tools oppure Visual Studio Code, aggiungere i nomi e le versioni dei pacchetti necessari al file `requirements.txt` e installarli con `pip`. 
 

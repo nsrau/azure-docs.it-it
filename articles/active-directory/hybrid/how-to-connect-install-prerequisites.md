@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250d4593c8dac8007590245e1b774b95d8fa786
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: bc76f8edc8520ca50cd4c9527b037d99d24ce63c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767943"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190501"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -86,8 +86,8 @@ Per altre informazioni, vedere:
 
 ### <a name="accounts"></a>Account
 * Un account amministratore globale di Azure AD per il tenant di Azure AD con cui si vuole eseguire l'integrazione. Questo account deve essere un **account aziendale o dell'istituto di istruzione** e non un **account Microsoft**.
-* Se si usano le impostazioni rapide o si esegue l'aggiornamento da DirSync, è necessario disporre di un account di amministratore dell'organizzazione per il servizio Active Directory locale.
-* [Account in Active Directory](reference-connect-accounts-permissions.md) se si usa il percorso di installazione delle impostazioni personalizzate o un account di amministratore dell'organizzazione per il servizio Active Directory locale.
+* Se si usano [le impostazioni rapide](reference-connect-accounts-permissions.md#express-settings-installation) o si esegue l'aggiornamento da dirsync, è necessario disporre di un account amministratore dell'organizzazione per la Active Directory locale.
+* Se si usa il percorso di installazione delle impostazioni personalizzate, sono disponibili altre opzioni per visualizzare gli [account in Active Directory](reference-connect-accounts-permissions.md#custom-installation-settings)
 
 ### <a name="connectivity"></a>Connettività
 * Il server Azure AD Connect necessita della risoluzione DNS per Intranet e Internet. Il server DNS deve essere in grado di risolvere i nomi per gli endpoint locali di Active Directory e per gli endpoint di Azure AD.
@@ -129,7 +129,7 @@ Per altre informazioni, vedere:
 Per altre informazioni vedere MSDN sull'[elemento proxy predefinito](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 * Facoltativo: un account utente di prova per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti
@@ -137,7 +137,7 @@ Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i
 Azure AD Connect si basa su Microsoft PowerShell e .NET Framework 4.5.1. Nel server deve essere installata questa versione o una versione successiva. In base alla versione di Windows Server, seguire questa procedura:
 
 * Windows Server 2012 R2
-  * Microsoft PowerShell viene installato per impostazione predefinita, Non è necessaria alcuna azione.
+  * Microsoft PowerShell viene installato per impostazione predefinita, Non è richiesta alcuna azione.
   * .NET Framework 4.5.1 e versioni successive sono disponibili tramite Windows Update. Assicurarsi di aver installato gli aggiornamenti più recenti per Windows Server nel Pannello di controllo.
 * Windows Server 2012
   * La versione più recente di Microsoft PowerShell è disponibile in **Windows Management Framework 4.0**nell' [Area download Microsoft](https://www.microsoft.com/downloads).

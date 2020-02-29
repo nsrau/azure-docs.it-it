@@ -7,24 +7,24 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fd9bd846beba718cb305907d4d0c5a613d2ef816
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.custom: azure-synapse
+ms.openlocfilehash: 69a200d4fda940f072960da9224f84a22db51647
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029937"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193799"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Analisi delle sinapsi di Azure-monitoraggio portale di gestione del carico di lavoro (anteprima)
-Questo articolo illustra come monitorare l'utilizzo delle risorse e l'attività di query del [gruppo di carico di lavoro](sql-data-warehouse-workload-isolation.md#workload-groups) . Per informazioni dettagliate su come configurare il Esplora metriche di Azure, vedere l'articolo [Introduzione ad azure Esplora metriche](../azure-monitor/platform/metrics-getting-started.md) .  Per informazioni dettagliate su come monitorare l'utilizzo delle risorse di sistema, vedere la sezione relativa all' [utilizzo delle risorse](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) nella documentazione di Azure SQL data warehouse Monitoring.
+Questo articolo illustra come monitorare l'utilizzo delle risorse e l'attività di query del [gruppo di carico di lavoro](sql-data-warehouse-workload-isolation.md#workload-groups) . Per informazioni dettagliate su come configurare il Esplora metriche di Azure, vedere l'articolo [Introduzione ad azure Esplora metriche](../azure-monitor/platform/metrics-getting-started.md) .  Per informazioni dettagliate su come monitorare l'utilizzo delle risorse di sistema, vedere la sezione relativa all' [utilizzo delle risorse](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) nella documentazione di monitoraggio di Azure sinapsi Analytics.
 Sono disponibili due categorie diverse di metriche del gruppo di carico di lavoro per il monitoraggio della gestione del carico di lavoro: allocazione delle risorse e attività di query.  Queste metriche possono essere suddivise e filtrate in base al gruppo del carico di lavoro.  Le metriche possono essere suddivise e filtrate in base a se sono definite dal sistema (gruppi del carico di lavoro della classe di risorse) o definite dall'utente (create dall'utente con la sintassi di [creazione del gruppo del carico di lavoro](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) ).
 
 ## <a name="workload-management-metric-definitions"></a>Definizioni delle metriche di gestione del carico di lavoro
 
-|Nome misurazione                    |Description  |Tipo di aggregazione |
+|Nome misurazione                    |Descrizione  |Tipo di aggregazione |
 |-------------------------------|-------------|-----------------|
 |Percentuale di risorse limite effettivo | La percentuale *effettiva delle* risorse limite è un limite rigido per la percentuale di risorse accessibili dal gruppo di carico di lavoro, prendendo in considerazione la *percentuale di risorse min valida* allocata per altri gruppi di carico di lavoro. La metrica di *percentuale effettiva della risorsa Cap* viene configurata utilizzando il parametro `CAP_PERCENTAGE_RESOURCE` nella sintassi di [creazione del gruppo del carico di lavoro](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  Il valore effettivo è descritto qui.<br><br>Se, ad esempio, viene creato un gruppo di carico di lavoro `DataLoads` con `CAP_PERCENTAGE_RESOURCE` = 100 e viene creato un altro gruppo di carico di lavoro con una percentuale di risorse minima valida del 25%, la percentuale di *risorse limite effettivo* per il gruppo di carico di lavoro `DataLoads` è 75%.<br><br>La *percentuale effettiva della risorsa Cap* determina il limite superiore della concorrenza (e quindi una potenziale velocità effettiva) che un gruppo di carico di lavoro può raggiungere.  Se è necessaria una velocità effettiva aggiuntiva superiore a quella attualmente segnalata dalla metrica *effettiva di percentuale delle risorse CAP* , aumentare la `CAP_PERCENTAGE_RESOURCE`, ridurre la `MIN_PERCENTAGE_RESOURCE` di altri gruppi di carico di lavoro o aumentare le prestazioni dell'istanza per aggiungere altre risorse.  La riduzione del `REQUEST_MIN_RESOURCE_GRANT_PERCENT` può aumentare la concorrenza, ma potrebbe non aumentare la velocità effettiva complessiva.| Min, AVG, max |
 |Percentuale effettiva risorse min |Percentuale di risorse *min effettive* è la percentuale minima di risorse riservate e isolate per il gruppo di carico di lavoro che prende in considerazione il livello di servizio minimo.  La metrica valida per la percentuale di risorse min viene configurata utilizzando il parametro `MIN_PERCENTAGE_RESOURCE` nella sintassi [Crea gruppo del carico di lavoro](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  Il valore effettivo è descritto [qui](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values).<br><br>Utilizzare il tipo di aggregazione Sum quando questa metrica non è filtrata e viene divisa per monitorare l'isolamento totale del carico di lavoro configurato nel sistema.<br><br>La *percentuale effettiva minima delle risorse* determina il limite inferiore della concorrenza garantita (e quindi della velocità effettiva garantita) che un gruppo di carico di lavoro può raggiungere.  Se sono necessarie risorse garantite aggiuntive oltre a quelle attualmente segnalate dalla metrica *effettiva di percentuale minima delle risorse* , aumentare il `MIN_PERCENTAGE_RESOURCE` parametro configurato per il gruppo del carico di lavoro.  La riduzione del `REQUEST_MIN_RESOURCE_GRANT_PERCENT` può aumentare la concorrenza, ma potrebbe non aumentare la velocità effettiva complessiva. |Min, AVG, max|

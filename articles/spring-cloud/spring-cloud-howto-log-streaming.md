@@ -1,25 +1,28 @@
 ---
-title: Trasmetti i log delle app di Azure Spring cloud in tempo reale
+title: Trasmettere i log dell'app Azure Spring Cloud in tempo reale
 description: Come usare lo streaming dei log per visualizzare immediatamente i registri applicazioni
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
-ms.openlocfilehash: 27978d367ded7a31d73949cd675ae9e6f8cb887c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: fc208a3542528fb4554a365a02e13c2da3055cf2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264000"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192201"
 ---
-# <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Trasmetti i log delle app di Azure Spring cloud in tempo reale
+# <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Trasmettere i log dell'app Azure Spring Cloud in tempo reale
 Azure Spring cloud consente lo streaming di log nell'interfaccia della riga di comando di Azure per ottenere i log della console applicazione in tempo reale per la risoluzione dei problemi È anche possibile [analizzare i log e le metriche con le impostazioni di diagnostica](./diagnostic-services.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Installare l' [estensione dell'interfaccia](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) della riga di comando di Azure per Spring cloud, versione minima 0.2.0.
 * Un'istanza del **cloud Spring di Azure** con un'applicazione in esecuzione, ad esempio [Spring cloud app](./spring-cloud-quickstart-launch-app-cli.md).
+
+> [!NOTE]
+>  L'estensione dell'interfaccia della riga di comando ASC viene aggiornata dalla versione 0.2.0 a 0.2.1. Questa modifica influiscono sulla sintassi del comando per lo streaming di log: `az spring-cloud app log tail`, che viene sostituito da: `az spring-cloud app logs`. Il comando: `az spring-cloud app log tail` verrà deprecato in una versione futura. Se è stata usata la versione 0.2.0, è possibile eseguire l'aggiornamento a 0.2.1. Rimuovere prima di tutto la versione precedente con il comando: `az extension remove -n spring-cloud`.  Quindi, installare 0.2.1 tramite il comando: `az extension add -n spring-cloud`.
 
 ## <a name="use-cli-to-tail-logs"></a>Usare l'interfaccia della riga di comando per la coda
 
@@ -33,7 +36,7 @@ Negli esempi seguenti, il gruppo di risorse e il nome del servizio verranno omes
 ### <a name="tail-log-for-app-with-single-instance"></a>Log della parte finale per l'app con una singola istanza
 Se un'app denominata auth-Service ha solo un'istanza, è possibile visualizzare il log dell'istanza dell'app con il comando seguente:
 ```
-az spring-cloud app log tail -n auth-service
+az spring-cloud app logs -n auth-service
 ```
 Questo restituirà i log:
 ```
@@ -66,7 +69,7 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 Quindi, è possibile eseguire lo streaming dei log di un'istanza dell'app con l'opzione `-i/--instance` opzione:
 
 ```
-az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
+az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
 È anche possibile ottenere i dettagli delle istanze dell'app dal portale di Azure.  Dopo aver selezionato le **app** nel riquadro di spostamento a sinistra del servizio cloud di Azure Spring, selezionare **istanze dell'app**.
@@ -75,11 +78,11 @@ az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577
 Per impostazione predefinita, `az spring-cloud ap log tail` stampa solo i log esistenti trasmessi alla console dell'app e quindi viene chiuso. Se si vuole eseguire lo streaming di nuovi log, aggiungere-f (--follow):  
 
 ```
-az spring-cloud app log tail -n auth-service -f
+az spring-cloud app logs -n auth-service -f
 ``` 
 Per controllare tutte le opzioni di registrazione supportate:
 ``` 
-az spring-cloud app log tail -h 
+az spring-cloud app logs -h 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

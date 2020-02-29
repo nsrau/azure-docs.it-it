@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 0b15b35f6fc83097e94f7d69815a163a0e98a228
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 559c9ee237f95f9d175aaefb487131466700e899
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523272"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190790"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -463,7 +463,7 @@ Il Azure Functions Core Tools supporta due tipi di distribuzione: la distribuzio
 
 Una cartella di progetto può contenere file e directory specifici della lingua che non devono essere pubblicati. Gli elementi esclusi vengono elencati in un file con estensione funcignore nella cartella radice del progetto.     
 
-### <a name="project-file-deployment"></a>Distribuzione (file di progetto)
+### <a name="project-file-deployment"></a>Distribuire i file di progetto
 
 Per pubblicare il codice locale in un'app per le funzioni in Azure, usare il comando `publish`:
 
@@ -500,7 +500,7 @@ Le opzioni di pubblicazione seguenti sono supportate solo nella versione 2.x:
 | **`--no-build`** | Non compilare funzioni della libreria di classi .NET. |
 | **`--dotnet-cli-params`** | Quando si pubblicano funzioni C# compilate (con estensione csproj), Core Tools chiama "dotnet build --output bin/publish". Tutti i parametri passati a questa opzione verranno aggiunti alla riga di comando. |
 
-### <a name="deployment-custom-container"></a>Distribuzione (contenitore personalizzato)
+### <a name="deploy-custom-container"></a>Distribuire un contenitore personalizzato
 
 Funzioni di Azure consente di distribuire il progetto di funzione in un [contenitore Docker personalizzato](functions-deployment-technologies.md#docker-container). Per altre informazioni, consultare [Creare una funzione in Linux tramite un'immagine personalizzata (anteprima)](functions-create-function-linux-custom-image.md). I contenitori personalizzati devono disporre di un Dockerfile. Per creare un'app con un Dockerfile, usare l'opzione--Dockerfile in `func init`.
 

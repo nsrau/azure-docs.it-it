@@ -3,20 +3,20 @@ title: Integrare scambi di attestazioni API REST in un percorso utente
 titleSuffix: Azure AD B2C
 description: Integrare scambi di attestazioni API REST nel percorso utente Azure AD B2C come convalida dell'input dell'utente.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 780d575bd7f035673510d5b1e62cff4dfd6ede16
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5976b6ef747b27a5a04c755d47ae4383fc4b2447
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848759"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187356"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 
@@ -57,7 +57,7 @@ Panoramica:
 * Restituire un numero di fedeltà
 * Aggiungere il numero di fedeltà a un token JSON Web (JWT)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
 

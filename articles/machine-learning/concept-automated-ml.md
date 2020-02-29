@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 11/04/2019
-ms.openlocfilehash: 2ef3cbc83cd67647709a53fee2c32b444c5d86f4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/28/2020
+ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526128"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190348"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -150,6 +150,14 @@ Considerando il modello **a**, si verifica un malinteso comune che se l'accurate
 Quando si confrontano i modelli **a** e **B**, Model **a** è un modello migliore perché ha una maggiore precisione del test e anche se l'accuratezza del test è leggermente inferiore al 95%, non si tratta di una differenza significativa che suggerisce che l'overfitting è presente. Non è possibile scegliere il modello **B** semplicemente perché le precisioni di training e test sono più vicine.
 
 Il modello **C** rappresenta un caso chiaro di overfitting; l'accuratezza del training è molto elevata, ma l'accuratezza dei test non è quasi così elevata. Questa distinzione è soggettiva, ma deriva dalla conoscenza del problema e dei dati e dalle grandezze di errore accettabili. 
+
+## <a name="classification--regression"></a>Regressione & di classificazione
+
+Classificazione e regressione sono i tipi più comuni di attività di machine learning. Entrambi sono tipi di apprendimento supervisionato in cui i modelli imparano a usare i dati di training e applicano tali informazioni ai nuovi dati. Azure Machine Learning offre featurizations in modo specifico per queste attività, ad esempio featurizers del testo Deep Neural Network per la classificazione. Altre informazioni sulle [Opzioni di conteggi](how-to-create-portal-experiments.md#featurization). 
+
+L'obiettivo principale dei modelli di classificazione è quello di stimare le categorie a cui rientreranno i nuovi dati in base alle informazioni sui dati di training. Esempi di classificazione comuni includono rilevamento delle frodi, riconoscimento della grafia e rilevamento degli oggetti.  Scopri di più e Vedi un esempio di [classificazione con Machine Learning automatizzato](tutorial-train-models-with-aml.md).
+
+Diversa dalla classificazione in cui i valori di output stimati sono categorici, i modelli di regressione stimano i valori di output numerici in base a predittori indipendenti. Nella regressione l'obiettivo è di stabilire la relazione tra le variabili del predittore indipendenti stimando il modo in cui una variabile influisca sulle altre. Ad esempio, il prezzo dell'automobile in base a funzionalità come, chilometraggio dei gas, classificazione di sicurezza e così via. Scopri di più e Vedi un esempio di [regressione con Machine Learning automatizzato](tutorial-auto-train-models.md).
 
 ## <a name="time-series-forecasting"></a>Previsione delle serie temporali
 

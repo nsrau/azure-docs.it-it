@@ -2,20 +2,20 @@
 title: Configurare l'accesso diretto tramite Active Directory B2C | Microsoft Docs
 description: Informazioni su come precompilare il nome di accesso o eseguire l'accesso diretto a un provider di identità di social networking.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0f3d8f3f49001e1326688ccc794e19d1148e5d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9a02ad3ea43ae9d91489417bc314e3c23d54a958
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846898"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188767"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configurare l'accesso diretto tramite Active Directory B2C
 
@@ -25,7 +25,7 @@ Quando si configura l'accesso per l'applicazione tramite Azure Active Directory 
 
 Durante una procedura di accesso utente, un'applicazione relying party può avere come destinazione un nome utente o un nome di dominio specifico. Quando ha un utente come destinazione, un'applicazione può specificare, nella richiesta di autorizzazione, il parametro di query `login_hint` con il nome di accesso utente. Azure AD B2C inserisce automaticamente il nome di accesso, mentre l'utente deve solo immettere la password.
 
-![Pagina di accesso all'iscrizione con il parametro di query login_hint evidenziato nell'URL](./media/direct-signin/login-hint.png)
+![Pagina di accesso all'iscrizione con login_hint parametro di query evidenziato nell'URL](./media/direct-signin/login-hint.png)
 
 L'utente può modificare il valore nella casella di testo di accesso.
 
@@ -49,7 +49,7 @@ Se si usa un criterio personalizzato, eseguire l'override del profilo tecnico `S
 
 Se la procedura di accesso per l'applicazione è stata configurata per includere gli account di social networking, ad esempio Facebook, LinkedIn o Google, è possibile specificare il parametro `domain_hint`. Questo parametro di query fornisce un hint ad Azure AD B2C sul provider di identità di social networking che deve essere usato per l'accesso. Se ad esempio l'applicazione specifica `domain_hint=facebook.com`, l'accesso rimanda direttamente alla pagina di accesso di Facebook.
 
-![Pagina di accesso all'iscrizione con il parametro di query domain_hint evidenziato nell'URL](./media/direct-signin/domain-hint.png)
+![Pagina di accesso all'iscrizione con domain_hint parametro di query evidenziato nell'URL](./media/direct-signin/domain-hint.png)
 
 Se si usa un criterio personalizzato, è possibile configurare il nome di dominio usando l'elemento XML `<Domain>domain name</Domain>` di qualsiasi `<ClaimsProvider>`.
 

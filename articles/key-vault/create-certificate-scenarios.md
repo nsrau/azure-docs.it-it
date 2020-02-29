@@ -6,20 +6,21 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9f88af7027f6c907b5b55eb9aac545d98e2fbb7a
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b9ff80275cc89dde0db215856c2e134c4b273020
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880843"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199734"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorare e gestire la creazione di certificati
 Si applica a: Azure
 
-Vedere di seguito 
+La ricerca è stata eseguita 
 
 In questo articolo sono illustrati gli scenari e le operazioni seguenti:
 
@@ -39,7 +40,7 @@ In questo articolo sono illustrati gli scenari e le operazioni seguenti:
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 Per gli esempi seguenti è necessario che sia già disponibile un oggetto denominato "mydigicert" nell'insieme di credenziali delle chiavi, con DigiCert come provider autorità di certificazione. L'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.
 
@@ -87,7 +88,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 ### <a name="request"></a>Richiesta
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-Oppure
+o
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -122,7 +123,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-Oppure
+o
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -154,7 +155,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-Oppure
+o
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -193,7 +194,7 @@ Un oggetto in sospeso può essere eliminato o sovrascritto da un'operazione di c
 ### <a name="request"></a>Richiesta
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-Oppure
+o
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -226,7 +227,7 @@ Per risolvere un conflitto:
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 
@@ -263,7 +264,7 @@ Se la richiesta di creazione del certificato x509 ha esito negativo o viene annu
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 
@@ -297,7 +298,7 @@ Un annullamento può solo essere richiesto. Una richiesta può essere annullata 
 ### <a name="request"></a>Richiesta
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-Oppure
+o
 
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -332,12 +333,12 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|Elimina|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-Oppure
+o
 
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -362,7 +363,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 
@@ -402,7 +403,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Metodo|URI della richiesta|
 |------------|-----------------|
-|INSERISCI|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
 ### <a name="request"></a>Richiesta
 
@@ -413,7 +414,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|Nome dell'elemento|Obbligatoria|Type|Versione|DESCRIZIONE|
+|Nome dell'elemento|Obbligatoria|Type|Versione|Descrizione|
 |------------------|--------------|----------|-------------|-----------------|
 |x5c|Sì|array|\<versione di introduzione>|Catena di certificati X509 sotto forma di matrice di stringhe Base 64.|
 

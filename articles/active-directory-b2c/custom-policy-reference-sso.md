@@ -3,20 +3,20 @@ title: Gestione delle sessioni Single Sign-on con criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Informazioni sulla gestione delle sessioni SSO tramite criteri personalizzati in Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b905591266b90e5bba83e7c74b27e7f6b3cab610
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a64af5d2b19b05ec9a5eda97c43e278cdfb8b4ff
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912546"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189107"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestione delle sessioni Single Sign-On in Azure Active Directory B2C
 
@@ -39,11 +39,11 @@ Le classi di gestione SSO vengono specificate usando l'elemento `<UseTechnicalPr
 
 ## <a name="input-claims"></a>Attestazioni di input
 
-L'elemento `InputClaims` è vuoto o assente. 
+L'elemento `InputClaims` è vuoto o assente.
 
 ## <a name="persisted-claims"></a>Attestazioni rese permanente
 
-Le attestazioni che devono essere restituite all'applicazione o usate dalle precondizioni nei passaggi successivi devono essere archiviate nella sessione o potenziate da una lettura dal profilo dell'utente nella directory. L'uso di attestazioni salvate in modo permanente garantisce che i percorsi di autenticazione non abbiano esito negativo sulle attestazioni mancanti Per aggiungere attestazioni alla sessione, usare l'elemento `<PersistedClaims>` del profilo tecnico. Quando il provider viene usato per ripopolare la sessione, le attestazioni persistenti vengono aggiunte all'elenco delle attestazioni. 
+Le attestazioni che devono essere restituite all'applicazione o usate dalle precondizioni nei passaggi successivi devono essere archiviate nella sessione o potenziate da una lettura dal profilo dell'utente nella directory. L'uso di attestazioni salvate in modo permanente garantisce che i percorsi di autenticazione non abbiano esito negativo sulle attestazioni mancanti Per aggiungere attestazioni alla sessione, usare l'elemento `<PersistedClaims>` del profilo tecnico. Quando il provider viene usato per ripopolare la sessione, le attestazioni persistenti vengono aggiunte all'elenco delle attestazioni.
 
 ## <a name="output-claims"></a>Attestazioni di output
 
@@ -53,7 +53,7 @@ Il `<OutputClaims>` viene usato per recuperare le attestazioni dalla sessione.
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-Come indica il nome, questo provider non esegue alcuna operazione. Può essere usato per eliminare il comportamento SSO per un profilo tecnico specifico. Il seguente `SM-Noop` profilo tecnico è incluso nello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack).  
+Come indica il nome, questo provider non esegue alcuna operazione. Può essere usato per eliminare il comportamento SSO per un profilo tecnico specifico. Il seguente `SM-Noop` profilo tecnico è incluso nello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -64,7 +64,7 @@ Come indica il nome, questo provider non esegue alcuna operazione. Può essere u
 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-È possibile usare questo provider per archiviare le attestazioni in una sessione. Un riferimento a questo provider è in genere incluso in un profilo tecnico usato per gestire account locali. Il seguente `SM-AAD` profilo tecnico è incluso nello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack). 
+È possibile usare questo provider per archiviare le attestazioni in una sessione. Un riferimento a questo provider è in genere incluso in un profilo tecnico usato per gestire account locali. Il seguente `SM-AAD` profilo tecnico è incluso nello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -84,7 +84,7 @@ Come indica il nome, questo provider non esegue alcuna operazione. Può essere u
 </TechnicalProfile>
 ```
 
-Il `SM-MFA` profilo tecnico seguente è incluso nell'`SocialAndLocalAccountsWithMfa`dello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack) . Questo profilo tecnico gestisce la sessione di autenticazione a più fattori. 
+Il `SM-MFA` profilo tecnico seguente è incluso nell'`SocialAndLocalAccountsWithMfa`dello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack) . Questo profilo tecnico gestisce la sessione di autenticazione a più fattori.
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -117,7 +117,7 @@ Questo provider viene usato per disattivare la schermata "Choose Identity Provid
 ```
 
 #### <a name="metadata"></a>Metadati
-        
+
 | Attributo | Obbligatoria | Descrizione|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | No | Non attualmente in uso, può essere ignorato. |
@@ -138,7 +138,7 @@ Questo provider viene usato per gestire le sessioni SAML Azure AD B2C tra un'app
 ```
 
 Quando si usa il provider per archiviare la sessione SAML B2C, il `IncludeSessionIndex` e il `RegisterServiceProviders` devono impostare su `true`. Per completare la disconnessione dalla sessione SAML sono necessari `SessionIndex` e `NameID`.
- 
+
 Il profilo tecnico dell' [autorità emittente SAML](connect-with-saml-service-providers.md) usa il seguente `SM-Saml-idp` profilo tecnico
 
 ```XML
@@ -148,7 +148,7 @@ Il profilo tecnico dell' [autorità emittente SAML](connect-with-saml-service-pr
 </TechnicalProfile>
 ```
 #### <a name="metadata"></a>Metadati
-        
+
 | Attributo | Obbligatoria | Descrizione|
 | --- | --- | --- |
 | IncludeSessionIndex | No | Indica al provider che l'indice della sessione deve essere archiviato. I valori possibili sono: `true` (impostazione predefinita) o `false`.|

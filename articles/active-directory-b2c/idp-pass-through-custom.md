@@ -3,20 +3,20 @@ title: Passare un token di accesso tramite un criterio personalizzato all'app
 titleSuffix: Azure AD B2C
 description: Informazioni su come è possibile passare un token di accesso per i provider di identità OAuth 2,0 come attestazione tramite un criterio personalizzato all'applicazione in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76839092"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187793"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un criterio personalizzato all'applicazione in Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Un [criterio personalizzato](custom-policy-get-started.md) in Azure Active Direc
 
 Azure AD B2C supporta il passaggio del token di accesso dei provider di identità [OAuth 2.0](authorization-code-flow.md) e [OpenID Connect](openid-connect.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * I criteri personalizzati sono configurati con un provider di identità OAuth 2.0 o OpenID Connect.
 
