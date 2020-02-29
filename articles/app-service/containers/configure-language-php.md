@@ -4,12 +4,12 @@ description: Informazioni su come configurare un contenitore PHP predefinito per
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: a3de4769193d95a3ef483924c4d65c4fa1cc9f8d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e805487075499bd4e461a21fffb4c44156ce192b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671845"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913872"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurare un'app PHP Linux per il servizio app Azure
 
@@ -39,56 +39,30 @@ Eseguire il comando seguente nella [cloud Shell](https://shell.azure.com) per im
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
-## <a name="run-composer"></a>Esegui Composer
+## <a name="customize-build-automation"></a>Personalizzare l'automazione della compilazione
 
-Per impostazione predefinita, Kudu non esegue [Composer](https://getcomposer.org/). Per abilitare l'automazione Composer durante la distribuzione di Kudu, è necessario fornire uno [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+Se si distribuisce l'app usando i pacchetti git o zip con l'automazione della compilazione attivata, l'automazione della compilazione del servizio app esegue la sequenza seguente:
 
-Da una finestra del terminale locale passare alla directory radice del repository. Seguire i [passaggi di installazione da riga di comando](https://getcomposer.org/download/) per scaricare *Composer. phar*.
+1. Eseguire uno script personalizzato se specificato da `PRE_BUILD_SCRIPT_PATH`.
+1. Eseguire `php composer.phar install`.
+1. Eseguire uno script personalizzato se specificato da `POST_BUILD_SCRIPT_PATH`.
 
-Eseguire i comandi seguenti:
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` sono variabili di ambiente vuote per impostazione predefinita. Per eseguire i comandi di pre-compilazione, definire `PRE_BUILD_COMMAND`. Per eseguire i comandi post-compilazione, definire `POST_BUILD_COMMAND`.
 
-```bash
-npm install kuduscript -g
-kuduscript --php --scriptType bash --suppressPrompt
+Nell'esempio seguente vengono specificate le due variabili a una serie di comandi, separate da virgole.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-La radice del repository dispone ora di due nuovi file oltre a *Composer. phar*: *. Deployment* e *deploy.sh*. Questi file funzionano sia per le versioni Windows e Linux del servizio app.
+Per altre variabili di ambiente per personalizzare l'automazione della compilazione, vedere [configurazione di Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-Aprire *deploy.sh* e trovare la sezione `Deployment`. Sostituire l'intera sezione con il codice seguente:
-
-```bash
-##################################################################################################################################
-# Deployment
-# ----------
-
-echo PHP deployment
-
-# 1. KuduSync
-if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
-  exitWithMessageOnError "Kudu Sync failed"
-fi
-
-# 3. Initialize Composer Config
-initializeDeploymentConfig
-
-# 4. Use composer
-echo "$DEPLOYMENT_TARGET"
-if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
-  echo "Found composer.json"
-  pushd "$DEPLOYMENT_TARGET"
-  php composer.phar install $COMPOSER_ARGS
-  exitWithMessageOnError "Composer install failed"
-  popd
-fi
-##################################################################################################################################
-```
-
-Eseguire il commit di tutte le modifiche e distribuire di nuovo il codice. Composer dovrebbe ora essere eseguito come parte dell'automazione della distribuzione.
+Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di app PHP in Linux, vedere [la documentazione di Oryx: come vengono rilevate e compilate le app php](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/php.md).
 
 ## <a name="customize-start-up"></a>Personalizzare l’avvio
 
-Per impostazione predefinita, il contenitore PHP predefinito esegue il server Apache. All'avvio, viene eseguito `apache2ctl -D FOREGROUND"`. Se si desidera, è possibile eseguire un comando diverso all'avvio, eseguendo il comando seguente nella [cloud Shell](https://shell.azure.com):
+Per impostazione predefinita, il contenitore PHP incorporato esegue il server Apache. All'avvio, viene eseguito `apache2ctl -D FOREGROUND"`. Se si desidera, è possibile eseguire un comando diverso all'avvio, eseguendo il comando seguente nella [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -128,7 +102,7 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 }
 ```
 
-I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. In [CodeIgniter](https://codeigniter.com/) [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) controlla il valore di `X_FORWARDED_PROTO` per impostazione predefinita.
+I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. In [CodeIgniter](https://codeigniter.com/)[is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) controlla il valore di `X_FORWARDED_PROTO` per impostazione predefinita.
 
 ## <a name="customize-phpini-settings"></a>Personalizzare le impostazioni di php. ini
 
@@ -142,7 +116,7 @@ Se è necessario apportare modifiche all'installazione di PHP, è possibile modi
 
 Per personalizzare le direttive PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (vedere [direttive php. ini](https://www.php.net/manual/ini.list.php)), aggiungere un file con *estensione htaccess* alla directory radice dell'app.
 
-Nel file con *estensione htaccess* aggiungere le direttive usando la sintassi del `php_value <directive-name> <value>`. ad esempio:
+Nel file con *estensione htaccess* aggiungere le direttive usando la sintassi del `php_value <directive-name> <value>`. Ad esempio:
 
 ```
 php_value upload_max_filesize 1000M
@@ -224,7 +198,7 @@ Per rendere effettive le modifiche, riavviare l'app.
 Quando un'app PHP funzionante si comporta in modo diverso nel servizio app o presenta degli errori, provare a eseguire le operazioni seguenti:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. ad esempio:
+- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. Ad esempio:
     - A seconda del file *Composer. JSON*, è possibile installare pacchetti diversi per la modalità di produzione (`require` e `require-dev`).
     - Alcuni framework Web possono distribuire i file statici in modo diverso in modalità di produzione.
     - Alcuni framework Web possono usare script di avvio personalizzati durante l'esecuzione in modalità di produzione.

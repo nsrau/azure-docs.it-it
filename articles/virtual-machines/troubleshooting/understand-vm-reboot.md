@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749876"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919414"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Informazioni sul riavvio del sistema della macchina virtuale di Azure
 
@@ -30,10 +30,7 @@ Il modo migliore per proteggere un'applicazione in esecuzione in Azure dalle con
 
 Per garantire questo livello di ridondanza dell'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Questa configurazione assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-Per altre informazioni sui set di disponibilità, vedere gli articoli seguenti:
-
-- [Gestire la disponibilità delle macchine virtuali](../windows/manage-availability.md)
-- [Configurare la disponibilità delle macchine virtuali](../windows/classic/configure-availability.md)
+Per altre informazioni sui set di disponibilità, vedere [gestire la disponibilità delle macchine virtuali](../windows/manage-availability.md)
 
 ## <a name="resource-health-information"></a>Informazioni su Integrità risorse
 

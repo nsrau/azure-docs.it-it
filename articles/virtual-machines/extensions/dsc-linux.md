@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969940"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921522"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -38,7 +38,7 @@ L'estensione DSCForLinux è pubblicata e supportata da Microsoft. L'estensione i
 
  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -290,6 +290,9 @@ Per ulteriori informazioni sul modello di Azure Resource Manager, vedere [author
 Prima di distribuire l'estensione DSCForLinux, configurare il `public.json` e `protected.json` in base ai diversi scenari descritti nella sezione 3.
 
 #### <a name="classic"></a>Classico
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 La modalità di distribuzione classica è detta anche modalità di gestione dei servizi di Azure. Per passare a questa modalità, eseguire:
 ```
 $ azure config mode asm
@@ -306,7 +309,7 @@ Per conoscere la versione più recente dell'estensione, eseguire:
 $ azure vm extension list
 ```
 
-#### <a name="resource-manager"></a>Azure Resource Manager
+#### <a name="resource-manager"></a>Gestione risorse
 È possibile passare alla modalità Azure Resource Manager eseguendo:
 ```
 $ azure config mode arm
@@ -363,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="resource-manager"></a>Azure Resource Manager
+#### <a name="resource-manager"></a>Gestione risorse
 
 È possibile accedere al proprio account Azure in modalità Azure Resource Manager eseguendo:
 
@@ -407,7 +410,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati dal portale di Azure e usando l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente usando l'interfaccia della riga di comando di Azure.
 

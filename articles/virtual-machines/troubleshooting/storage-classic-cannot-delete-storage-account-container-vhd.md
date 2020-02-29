@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926237"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915038"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione della versione classica
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi quando si verifica uno degli errori seguenti durante il tentativo di eliminare un account o un contenitore di archiviazione oppure un file BLOB di pagine *.vhd della versione classica di Azure. 
@@ -30,6 +30,10 @@ Una risorsa "disco" viene usata per montare un file BLOB di pagine *.vhd in una 
 
 
 ## <a name="steps-while-deleting-a-classic-virtual-machine"></a>Procedura di eliminazione di una macchina virtuale classica 
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 1. Eliminare la macchina virtuale classica.
 2. Se è selezionata la casella di controllo "Dischi", il **lease del disco** (illustrato nell'immagine precedente) associato al BLOB di pagine *.vhd viene interrotto. Il file *.vhd BLOB di pagine effettivo rimarrà comunque nell'account di archiviazione.
 ![Screenshot del portale, con il riquadro di errore di "eliminazione" (versione classica) della macchina virtuale aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
@@ -61,7 +65,7 @@ L'utente tenta di eliminare un account di archiviazione che non viene più usato
 
 > <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
 > 
-> <span style="color:red">Remove-AzureStorageAccount : BadRequest: L'account di archiviazione myclassicaccount presenta alcune immagini e/o dischi attivi, ad esempio  
+> <span style="color:red">Remove-AzureStorageAccount: richiesta non valida: l'account di archiviazione myclassicaccount ha alcune immagini e/o dischi attivi, ad esempio  
 > myclassicaccount. Assicurarsi di rimuovere tali immagini e/o dischi prima di eliminare l'account di archiviazione.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>Impossibilità di eliminare il contenitore di archiviazione
@@ -79,7 +83,7 @@ Se l'utente sceglie di effettuare l'eliminazione tramite PowerShell, si verifich
 
 > <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
 > 
-> <span style="color:red">Remove-AzureStorageContainer: Il server remoto ha restituito un errore: (412) Sul contenitore è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta. Codice stato HTTP: 412 - Messaggio di errore HTTP: Sul contenitore è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.</span>
+> <span style="color:red">Remove-AzureStorageContainer: il server remoto ha restituito un errore: (412) attualmente esiste un lease nel contenitore e non è stato specificato alcun ID lease nella richiesta. Codice di stato HTTP: 412-messaggio di errore HTTP: attualmente esiste un lease nel contenitore e non è stato specificato alcun ID lease nella richiesta.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>Impossibilità di eliminare un disco rigido virtuale 
 
@@ -101,7 +105,7 @@ Se l'utente sceglie di effettuare l'eliminazione tramite PowerShell, si verifich
 
 > <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
-> <span style="color:red">Remove-AzureStorageBlob : Il server remoto ha restituito un errore: (412) Sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta. Codice stato HTTP: 412 - Messaggio di errore HTTP: Sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.</span>
+> <span style="color:red">Remove-AzureStorageBlob: il server remoto ha restituito un errore: (412) attualmente esiste un lease nel BLOB e nella richiesta non è stato specificato alcun ID lease. Codice di stato HTTP: 412-messaggio di errore HTTP: attualmente esiste un lease nel BLOB e non è stato specificato alcun ID lease nella richiesta.</span>
 
 
 ## <a name="resolution-steps"></a>Procedura per la risoluzione
@@ -110,7 +114,7 @@ Se l'utente sceglie di effettuare l'eliminazione tramite PowerShell, si verifich
 Seguire questa procedura nel portale di Azure:
 1.  Passare al [portale di Azure](https://portal.azure.com).
 2.  Passare ai dischi (versione classica). 
-3.  Fare clic sulla scheda Dischi. ![Screenshot del portale, con il riquadro "elenco" dei BLOB contenitori aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Fare clic sulla scheda dischi. ![screenshot del portale, con il riquadro "elenco" del blob contenitore aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Selezionare il disco dati, quindi fare clic su Elimina disco.
  ![Screenshot del portale, con il riquadro "elenco" dei BLOB contenitori aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)

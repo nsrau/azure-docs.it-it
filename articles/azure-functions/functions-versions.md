@@ -3,18 +3,18 @@ title: Panoramica delle versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni sulle differenze tra le versioni e su come scegliere quella più adatta alle proprie esigenze.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539502"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919754"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
 Le versioni principali del runtime di funzioni di Azure sono correlate alla versione di .NET su cui si basa il Runtime. La tabella seguente indica la versione corrente del runtime, il livello di rilascio e la versione .NET correlata. 
 
-| Versione runtime | Livello di versione<sup>1</sup> | Versione di .NET | 
+| Versione del runtime | Livello di versione<sup>1</sup> | Versione di .NET | 
 | --------------- | ------------- | ------------ |
 | 3.x | GA | .NET Core 3,1 | 
 | 2.x | GA | .NET Core 2.2 |
@@ -26,7 +26,7 @@ Le versioni principali del runtime di funzioni di Azure sono correlate alla vers
 
 Questo articolo descrive in dettaglio alcune delle differenze tra le diverse versioni, come è possibile creare ogni versione e come modificare le versioni.
 
-## <a name="languages"></a>Linguaggi
+## <a name="languages"></a>Languages
 
 A partire dalla versione 2. x, il runtime usa un modello di estendibilità del linguaggio e tutte le funzioni in un'app per le funzioni devono condividere la stessa lingua. Il linguaggio delle funzioni in un'app per le funzioni viene scelto durante la creazione dell'app e viene mantenuto nelle [funzioni\_impostazione di RUNTIME\_di lavoro](functions-app-settings.md#functions_worker_runtime) . 
 
@@ -58,7 +58,7 @@ Alcune funzionalità sono state rimosse, aggiornate o sostituite dopo la version
 
 Nella versione 2.x sono state apportate le modifiche seguenti:
 
-* Le chiavi per chiamare gli endpoint HTTP vengono sempre archiviate con crittografia in Archiviazione BLOB di Azure. Nella versione 1.x le chiavi vengono archiviate nell'archiviazione file di Azure per impostazione predefinita. Quando si aggiorna un'app dalla versione 1.x alla versione 2.x, i segreti esistenti nell'archiviazione file vengono reimpostati.
+* Le chiavi per chiamare gli endpoint HTTP vengono sempre archiviate con crittografia in Archiviazione BLOB di Azure. Nella versione 1. x, le chiavi sono state archiviate in archiviazione file di Azure per impostazione predefinita. Quando si aggiorna un'app dalla versione 1.x alla versione 2.x, i segreti esistenti nell'archiviazione file vengono reimpostati.
 
 * La versione 2.x del runtime non include supporto incorporato per i provider di webhook. Questa modifica è stata apportata per migliorare le prestazioni. È comunque possibile usare i trigger HTTP come endpoint per i webhook.
 
@@ -104,7 +104,7 @@ Di seguito sono riportate le modifiche da tenere presenti prima di aggiornare un
 
 La versione del runtime di Funzioni usata dalle app pubblicate in Azure è determinata dall'impostazione dell'applicazione [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Sono supportati i valori di versione di runtime principali seguenti:
 
-| Valore | Destinazione Runtime |
+| valore | Destinazione Runtime |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2.x |
@@ -202,7 +202,7 @@ Nella tabella seguente sono indicati i binding supportati in ogni versione del r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le seguenti risorse:
 
 * [Scrivere codici per Funzioni di Azure e testarle in locale](functions-run-local.md)
 * [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md)

@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: ade659637f1be6cc58cebae760c5e1b753f3830f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670781"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920213"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -65,7 +65,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 
 Tutti gli esempi di criteri di Azure sono disponibili in [esempi di criteri di Azure](../samples/index.md).
 
-## <a name="mode"></a>Modalità
+## <a name="mode"></a>Mode
 
 La **modalità** viene configurata in base al fatto che i criteri siano destinati a una proprietà Azure Resource Manager o a una proprietà del provider di risorse.
 
@@ -159,19 +159,19 @@ Questo esempio fa riferimento al parametro **allowedLocations** illustrato nella
 
 ### <a name="strongtype"></a>strongType
 
-Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. I valori consentiti per **strongType** attualmente includono:
+Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **StrongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+
+Sono supportati alcuni _tipi di risorse_ non restituiti da **Get-AzResourceProvider** . Sono:
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+I valori non consentiti per il _tipo di risorsa_ per **strongType** sono:
 
 - `location`
 - `resourceTypes`
 - `storageSkus`
 - `vmSKUs`
 - `existingResourceGroups`
-- `omsWorkspace`
-- `Microsoft.EventHub/Namespaces/EventHubs`
-- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
-- `Microsoft.EventHub/Namespaces/AuthorizationRules`
-- `Microsoft.RecoveryServices/vaults`
-- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## <a name="definition-location"></a>Posizione della definizione
 
@@ -265,7 +265,7 @@ Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare
 
 In un **\[\*\]** valore del campo della matrice di alias, ogni elemento della matrice viene valutato singolarmente con gli elementi Logical **e** between. Per ulteriori informazioni, vedere [valutazione della \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-### <a name="fields"></a>Fields
+### <a name="fields"></a>Campi
 
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
 
@@ -322,7 +322,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>Valore
+### <a name="value"></a>valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
@@ -678,7 +678,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio,
+Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 7d078fb93f933320d13bfeb768b27923748b1262
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623944"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921641"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protezione dalle minacce nel centro sicurezza di Azure
 
@@ -113,7 +113,7 @@ Il Centro sicurezza offre protezione dalle minacce a diversi livelli:
     Per informazioni più dettagliate sulla sicurezza dell'ambiente in contenitori, l'agente monitora le analisi specifiche del contenitore. Attiverà gli avvisi per eventi quali la creazione di contenitori con privilegi, l'accesso sospetto ai server API e i server Secure Shell (SSH) in esecuzione all'interno di un contenitore docker.
 
     >[!IMPORTANT]
-    > Se si sceglie di non installare gli agenti negli host, si riceverà solo un subset dei vantaggi e degli avvisi di rilevamento delle minacce. Verranno comunque ricevuti gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
+    > Se si sceglie di non installare gli agenti negli host, si riceverà solo un subset dei vantaggi della protezione dalle minacce e degli avvisi di sicurezza. Verranno comunque ricevuti gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
 
     Per un elenco degli avvisi a livello di host, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-containerhost).
 
@@ -240,7 +240,7 @@ Per un elenco degli avvisi di Azure Resource Manager (anteprima), vedere la [tab
 
 
 >[!NOTE]
-> Alcune delle analisi precedenti sono basate su Microsoft Cloud App Security. Per trarre vantaggio da queste analisi, è necessario attivare una licenza Cloud App Security. Se si dispone di una licenza di Cloud App Security, questi avvisi sono abilitati per impostazione predefinita. Per disabilitarli:
+> Alcune delle analisi precedenti sono basate su Microsoft Cloud App Security. Per trarre vantaggio da queste analisi, è necessario attivare una licenza Cloud App Security. Se si dispone di una licenza di Cloud App Security, questi avvisi sono abilitati per impostazione predefinita. Per disabilitare gli avvisi:
 >
 > 1. Nel pannello **Centro sicurezza** selezionare criteri di **sicurezza**. Per la sottoscrizione che si vuole modificare, selezionare **Modifica impostazioni**.
 > 2. Selezionare **rilevamento minacce**.

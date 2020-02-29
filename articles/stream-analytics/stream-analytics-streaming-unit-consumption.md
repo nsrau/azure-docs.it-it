@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/27/2020
+ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201493"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921148"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -32,7 +32,7 @@ La metrica di utilizzo in percentuale delle unità di streaming, da 0% a 100%, d
     ![Configurazione del processo di Analisi di flusso nel portale di Azure][img.stream.analytics.preview.portal.settings.scale]
     
 4. Usare il dispositivo di scorrimento per impostare le unità di streaming per il processo. Si noti che è possibile definire solo impostazioni specifiche delle unità di streaming. 
-5. È possibile modificare il numero di unità di streaming assegnate al processo anche quando è in esecuzione. Questa operazione non è possibile se il processo usa un [output non partizionato](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) o presenta [una query in più passaggi con diversi valori di partizionamento](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Per modificare questa impostazione quando il processo è in esecuzione, è necessario che il processo disponga anche di almeno 6 unità di streaming. Quando il processo è in esecuzione, è possibile scegliere da un set di valori SU. 
+5. È possibile modificare il numero di unità di streaming assegnate al processo anche quando è in esecuzione. Questa operazione non è possibile se il processo usa un [output non partizionato](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) o presenta [una query in più passaggi con diversi valori di partizionamento](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Quando il processo è in esecuzione, è possibile scegliere da un set di valori SU. 
 
 ## <a name="monitor-job-performance"></a>Monitorare le prestazioni del processo
 Nel portale di Azure è possibile rilevare la velocità effettiva di un processo:

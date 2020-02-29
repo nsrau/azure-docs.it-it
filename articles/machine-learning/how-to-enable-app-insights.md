@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 6498717f5d542be228483b9c323dbd8f3ca2ff00
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 621188b3901bdea1a7ae50ac49c0e6f625a3e79a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251924"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915776"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere i dati dagli endpoint del servizio Web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Questo articolo illustra come raccogliere e monitorare i modelli distribuiti neg
 [Altre informazioni su applicazione Azure Insights](../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree) oggi stesso
 
@@ -43,39 +43,6 @@ Questo articolo illustra come raccogliere e monitorare i modelli distribuiti neg
 
 I metadati e la risposta al servizio, corrispondenti ai metadati del servizio Web e alle stime del modello, vengono registrati nelle tracce di applicazione Azure Insights nel `"model_data_collection"`del messaggio. È possibile eseguire query direttamente in applicazione Azure Insights per accedere a questi dati oppure configurare un' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) in un account di archiviazione per un periodo di conservazione più lungo o un'ulteriore elaborazione. È quindi possibile usare i dati del modello nella Azure Machine Learning per configurare l'assegnazione di etichette, la ripetizione del training, la spiegazione, l'analisi dei dati o altro uso. 
 
-## <a name="use-the-azure-portal-to-configure"></a>Usare il portale di Azure per configurare
-
-È possibile abilitare e disabilitare applicazione Azure Insights nel portale di Azure. 
-
-1. Nella [portale di Azure](https://portal.azure.com)aprire l'area di lavoro
-
-1. Nella scheda **distribuzioni** selezionare il servizio in cui si vuole abilitare applicazione Azure Insights
-
-   [![Elenco dei servizi nella scheda Distribuzioni](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. Selezionare **modifica**
-
-   [![Pulsante Modifica](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. In **Impostazioni avanzate**selezionare la casella di controllo **Abilita diagnostica AppInsights**
-
-   [![Casella di controllo selezionata per l'abilitazione della diagnostica](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Per applicare le modifiche, selezionare **Aggiorna** nella parte inferiore della schermata
-
-### <a name="disable"></a>Disabilita
-
-1. Nella [portale di Azure](https://portal.azure.com)aprire l'area di lavoro
-1. Selezionare **distribuzioni**, selezionare il servizio, quindi fare clic su **modifica** .
-
-   [![Usare il pulsante di modifica](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. In **Impostazioni avanzate**deselezionare la casella di controllo **Abilita diagnostica AppInsights**
-
-   [![Casella di controllo deselezionata per l'abilitazione della diagnostica](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Per applicare le modifiche, selezionare **Aggiorna** nella parte inferiore della schermata
- 
 ## <a name="use-python-sdk-to-configure"></a>Usare Python SDK per configurare 
 
 ### <a name="update-a-deployed-service"></a>Aggiornare un servizio distribuito

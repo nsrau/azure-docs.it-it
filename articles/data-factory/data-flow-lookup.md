@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/26/2020
-ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655065"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164679"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione ricerca flusso di dati mapping Azure Data Factory
 
@@ -45,6 +45,9 @@ La trasformazione ricerca viene implementata come left outer join. Quando si dis
 * Corrisponde a più righe: lasciare vuoto per restituire una corrispondenza con riga singola
 * Corrispondenza in: selezionare prima, ultima o qualsiasi corrispondenza
 * Condizioni di ordinamento: se si seleziona primo o ultimo, ADF richiede che i dati siano ordinati in modo che sia presente la logica alla base della prima e dell'ultima
+
+> [!NOTE]
+> Usare la prima o l'ultima opzione nel selettore di riga singola se è necessario controllare il valore da restituire dalla ricerca. L'utilizzo di ricerche "any" o più righe sarà più rapido.
 
 ### <a name="option-2"></a>Opzione 2
 

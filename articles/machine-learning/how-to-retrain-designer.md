@@ -1,23 +1,23 @@
 ---
-title: Ripetere il training di modelli con Azure Machine Learning Designer
+title: Ripetere il training di modelli con Azure Machine Learning Designer (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come ripetere il training dei modelli con le pipeline pubblicate in Azure Machine Learning Designer.
+description: Informazioni su come ripetere il training dei modelli con le pipeline pubblicate in Azure Machine Learning Designer (anteprima).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
-ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
+ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311870"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921598"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Ripetere il training dei modelli con Azure Machine Learning Designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ripetere il training dei modelli con Azure Machine Learning Designer (anteprima)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In questa procedura si apprenderà come usare Azure Machine Learning Designer per ripetere il training di un modello di machine learning. Informazioni su come usare le pipeline pubblicate per automatizzare i flussi di lavoro di machine learning per la ripetizione del training.
 
@@ -29,7 +29,7 @@ In questo articolo viene spiegato come:
 > * Pubblicare la pipeline di training.
 > * Ripetere il training del modello.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree).
 
@@ -69,11 +69,11 @@ La finestra di progettazione Salva tutti gli output della pipeline, inclusi i mo
 
 1. Selezionare il modulo **Train Model**.
 
-1. Nel riquadro Impostazioni selezionare **output**.
+1. Nel riquadro Impostazioni selezionare **output + log**.
 
-1. Selezionare **Trained_model** per scaricare il modello.
+1. Fare clic sull'icona **Visualizza output** e seguire le istruzioni nella finestra popup per individuare il modello sottoposto a training.
 
-![Screenshot che illustra come scaricare il modello sottoposto a training](./media/how-to-retrain-designer/download-model.png)
+![Screenshot che illustra come scaricare il modello sottoposto a training](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="create-a-pipeline-parameter"></a>Creare un parametro della pipeline
 

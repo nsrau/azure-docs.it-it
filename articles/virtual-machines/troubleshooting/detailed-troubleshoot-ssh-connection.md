@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3807f713065d16d4c6743c65f6a770d158ac7191
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058493"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920128"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Procedura dettagliata di risoluzione dei problemi di connessione SSH a una macchina virtuale Linux in Azure
 Se il client SSH non riesce a raggiungere il servizio SSH nella VM, i motivi possono essere molti. Se è stata eseguita la [procedura generica di risoluzione dei problemi SSH](troubleshoot-ssh-connection.md), per risolvere il problema di connessione è necessario ricorrere una procedura dettagliata. Questo articolo descrive i passaggi dettagliati per individuare e risolvere gli eventuali errori della connessione SSH.
@@ -54,7 +54,7 @@ L'impossibilità per il client SSH nel computer in uso di connettersi al servizi
 * [Gruppi di sicurezza di rete](#source-4-network-security-groups)
 * [VM di Azure basata su Linux](#source-5-linux-based-azure-virtual-machine)
 
-## <a name="source-1-ssh-client-computer"></a>Origine 1: Computer client SSH
+## <a name="source-1-ssh-client-computer"></a>Origine 1: computer client SSH
 Per escludere il computer in uso come origine dell'errore, verificare che sia in grado di stabilire connessioni SSH a un altro computer locale basato su Linux.
 
 ![Diagramma che evidenzia i componenti del computer client SSH](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
@@ -75,8 +75,8 @@ Se si usa l'autenticazione del certificato, verificare la presenza delle seguent
 * Chmod 600 ~/.ssh/id_rsa (o qualsiasi altro file in cui siano archiviate le chiavi private)
 * Chmod 644 ~/.ssh/known_hosts (contiene gli host con i quali è stabilita una connessione SSH)
 
-## <a name="source-2-organization-edge-device"></a>Origine 2: Dispositivo periferico dell'organizzazione
-Per escludere il dispositivo periferico dell'organizzazione come origine dell'errore, verificare che un computer connesso direttamente a Internet sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure. Se si accede alla macchina virtuale tramite una VPN da sito a sito o una connessione Azure ExpressRoute, passare all' [origine 4: Gruppi](#nsg)di sicurezza di rete.
+## <a name="source-2-organization-edge-device"></a>Origine 2: dispositivo periferico dell'organizzazione
+Per escludere il dispositivo periferico dell'organizzazione come origine dell'errore, verificare che un computer connesso direttamente a Internet sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure. Se si accede alla VM tramite una connessione Azure ExpressRoute o VPN da sito a sito, passare al paragrafo [Origine 4: gruppi di sicurezza di rete](#nsg).
 
 ![Diagramma che evidenzia il dispositivo periferico dell'organizzazione](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
@@ -90,9 +90,12 @@ Se è possibile creare una connessione SSH con un computer connesso direttamente
 
 Rivolgersi all'amministratore di rete per correggere le impostazioni dei dispositivi periferici dell'organizzazione in modo da consentire traffico SSH con Internet.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Origine 3: Endpoint del servizio cloud e ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Origine 3: endpoint del servizio cloud e ACL
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 > [!NOTE]
-> Questa origine si applica solo alle VM create con il modello di distribuzione classica. Per le VM create con gestione risorse, passare all' [origine 4: Gruppi](#nsg)di sicurezza di rete.
+> Questa origine si applica solo alle VM create con il modello di distribuzione classica. Per le VM create con Resource Manager, passare a [Origine 4: gruppi di sicurezza di rete](#nsg).
 
 Per escludere l'endpoint servizio cloud e l'elenco di controllo di accesso (ACL) come possibili origini dell'errore, verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di connettersi tramite SSH.
 
@@ -115,7 +118,7 @@ Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](..
 
 È anche possibile usare la funzione di verifica IP per convalidare la configurazione del gruppo di sicurezza di rete. Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
-## <a name="source-5-linux-based-azure-virtual-machine"></a>Origine 5: Macchina virtuale di Azure basata su Linux
+## <a name="source-5-linux-based-azure-virtual-machine"></a>Origine 5: macchina virtuale di Azure basata su Linux
 L'ultima origine di possibili problemi corrisponde alla stessa macchina virtuale di Azure.
 
 ![Diagramma che evidenzia la macchina virtuale di Azure basata su Linux](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
@@ -130,4 +133,4 @@ Provare nuovamente la connessione dal computer. Se ancora non riesce, alcuni dei
 * Un software per il rilevamento di intrusioni o il monitoraggio della rete in esecuzione sulla macchina virtuale di Azure impedisce le connessioni SSH.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-Per ulteriori informazioni sulla risoluzione dei problemi di accesso dell'applicazione, vedere [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](../linux/troubleshoot-app-connection.md)
+Per altre informazioni sulla risoluzione dei problemi di accesso dell'applicazione, vedere [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](../linux/troubleshoot-app-connection.md)

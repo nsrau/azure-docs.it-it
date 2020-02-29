@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615674"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161568"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -109,29 +109,30 @@ Di seguito sono elencate le aree attualmente supportate per ogni sistema operati
 |Australia centrale 2| ✔<sup>1</sup> | |
 |Australia orientale| ✔ | ✔<sup>1</sup> |
 |Australia sud-orientale | ✔ | ✔<sup>1</sup> |
-|Brasile meridionale| ✔<sup>2</sup> |  |
+|Brasile meridionale| ✔<sup>2</sup> | ✔<sup>1</sup> |
 |Canada centrale| ✔ | ✔<sup>1</sup> |
-|Stati Uniti centrali| ✔ |  |
-|Asia orientale| ✔ |  |
+|Stati Uniti centrali| ✔ | ✔<sup>1</sup> |
+|Asia orientale| ✔ | ✔<sup>1</sup> |
 |Stati Uniti orientali | ✔ | ✔<sup>1</sup> |
 |Stati Uniti orientali 2| ✔ | ✔<sup>1</sup> |
-|Francia centrale| ✔ |  |
+|Francia centrale| ✔ | ✔<sup>1</sup> |
 |Germania centro-occidentale| ✔ | |
 |Giappone orientale| ✔ | ✔<sup>1</sup> |
 |Giappone occidentale| ✔ | ✔<sup>1</sup> |
 |Corea centrale| ✔ | ✔<sup>1</sup> |
-|Stati Uniti centro-settentrionali| ✔ |  |
+|Stati Uniti centro-settentrionali| ✔ | ✔<sup>1</sup> |
 |Europa settentrionale| ✔ | ✔<sup>1</sup> |
+|Norvegia orientale| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |Stati Uniti centro-meridionali| ✔ | ✔<sup>1</sup> |
 |India meridionale | ✔ | |
 |Asia sud-orientale| ✔ | ✔<sup>1</sup> |
 |Regno Unito meridionale| ✔ | ✔<sup>1</sup> |
-|Regno Unito occidentale| ✔ |  |
+|Regno Unito occidentale| ✔ | ✔<sup>1</sup> |
 |Europa occidentale| ✔ | ✔<sup>1</sup> |
-|India occidentale| ✔ |  |
-|Stati Uniti centro-occidentali| | ✔<sup>1</sup> |
+|India occidentale| ✔ | ✔<sup>1</sup> |
+|Stati Uniti centro-occidentali| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |Stati Uniti occidentali| ✔ | ✔<sup>1</sup> |
-|Stati Uniti occidentali 2| ✔ |  |
+|Stati Uniti occidentali 2| ✔ | ✔<sup>1</sup> |
 
 <sup>1</sup> Scalabilità orizzontale massima limitata a 20 istanze.  
 <sup>2</sup> Scalabilità orizzontale massima limitata a 60 istanze.

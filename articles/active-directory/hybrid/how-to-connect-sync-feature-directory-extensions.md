@@ -16,15 +16,16 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 138ca9bf3352c46b8ac495b58a2fd6d7bafeb658
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889833"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917914"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Servizio di sincronizzazione Azure AD Connect: estensioni della directory
-È possibile usare le estensioni della directory per estendere lo schema in Azure Active Directory (Azure AD) con attributi personalizzati dall'istanza di Active Directory locale. Questa funzionalità consente di compilare app line-of-business che utilizzano attributi che continuano a essere gestiti in locale. Questi attributi possono essere utilizzati tramite le [estensioni della directory API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://developer.microsoft.com/graph/). È possibile visualizzare gli attributi disponibili usando rispettivamente lo strumento [Graph Explorer di Azure AD](https://graphexplorer.azurewebsites.net/) e lo strumento [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). È anche possibile usare questa funzionalità per creare gruppi dinamici in Azure AD.
+È possibile usare le estensioni della directory per estendere lo schema in Azure Active Directory (Azure AD) con attributi personalizzati dall'istanza di Active Directory locale. Questa funzionalità consente di compilare app line-of-business che utilizzano attributi che continuano a essere gestiti in locale. Questi attributi possono essere utilizzati tramite le [estensioni](https://docs.microsoft.com/graph/extensibility-overview
+). È possibile visualizzare gli attributi disponibili usando [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). È anche possibile usare questa funzionalità per creare gruppi dinamici in Azure AD.
 
 Attualmente nessun carico di lavoro di Office 365 utilizza questi attributi.
 
@@ -61,16 +62,12 @@ Assicurarsi di selezionare **tutte le applicazioni** per visualizzare questa app
 
 Gli attributi sono preceduti dall' **estensione \_{ApplicationId}\_** . ApplicationId ha lo stesso valore per tutti gli attributi nel tenant del Azure AD. Questo valore sarà necessario per tutti gli altri scenari in questo argomento.
 
-## <a name="viewing-attributes-using-graph"></a>Visualizzazione degli attributi tramite Graph
+## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Visualizzazione degli attributi tramite l'API Microsoft Graph
 
-Questi attributi ora sono disponibili tramite l'API Graph di Azure AD. È possibile eseguire query su questi attributi usando lo strumento [Graph Explorer di Azure AD](https://graphexplorer.azurewebsites.net/).
-
-![Graph Explorer di Azure AD](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
-
-In alternativa è possibile eseguire una query sugli attributi tramite l'API Microsoft Graph, usando [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
+Questi attributi sono ora disponibili tramite l'API di Microsoft Graph, usando [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> In Microsoft Graph è necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi seguenti: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID extension_9d98ed114c4840d298fad781915f27e4_division.
+> Nell'API Microsoft Graph è necessario richiedere gli attributi da restituire. Selezionare in modo esplicito gli attributi seguenti: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
 > Per altre informazioni, vedere [Microsoft Graph: Usare parametri di query](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
@@ -99,4 +96,4 @@ Uno degli scenari più utili consiste nell'usare questi attributi nei gruppi di 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](how-to-connect-sync-whatis.md).
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: lahugh
-ms.openlocfilehash: 7b739e8a282fdd462ee6b465371bc04a9172ab46
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 6654506a1e53165ef0891ba0de32a7937c21c904
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493072"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164815"
 ---
 # <a name="h-series"></a>Serie H
 
@@ -23,6 +23,10 @@ ACU: 290-300
 Archiviazione Premium: non supportata
 
 Memorizzazione nella cache Archiviazione Premium: non supportata
+
+Live Migration: non supportato
+
+Aggiornamenti con mantenimento della memoria: non supportato
 
 | Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | NIC Ethernet max |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

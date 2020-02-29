@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: e5625ad7c9997c172aef6ead41b7cfa9ede652dd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438631"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918938"
 ---
-# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Domande frequenti
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: domande frequenti
 
 La soluzione cloud Microsoft Azure Data Box Disk consente di inviare terabyte di dati ad Azure in modo veloce, conveniente e affidabile. Queste domande frequenti includono domande che possono sorgere durante l'uso dei dischi di Data Box nel portale di Azure e relative risposte. 
 
@@ -57,7 +57,7 @@ R.  Per visualizzare dove sono attualmente disponibili i dischi di Data Box, ved
 R. Azure Data Box Disk è supportato per tutte le aree degli Stati Uniti, del Canada, dell'Australia, dell'Europa occidentale e settentrionale, della Corea e del Giappone. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
 
 ### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>Q. Data Box Disk può essere spedito oltre i confini nazionali?
-R. Data Box Disk viene spedito all'interno dello stesso paese e non può superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europea (UE), in cui i dischi possono essere spediti da e verso i paesi dell'Unione Europea.
+R. Data Box Disk viene spedito all'interno dello stesso paese e non può superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europa (UE), in cui i dischi possono essere spediti da e verso i paesi dell'Unione Europa.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. A chi ci si può rivolgere in caso di problemi con i dischi di Data Box?
 R. Se si verificano problemi con i dischi di Data Box, [contattare il supporto tecnico Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -127,7 +127,7 @@ R.  Usare uno strumento di copia SMB, ad esempio Robocopy, Diskboss o anche Espl
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>Q. Ci sono suggerimenti per velocizzare la copia dei dati?
 R.  Per velocizzare il processo di copia:
 
-- Usare più flussi di copia dei dati. Con Robocopy, ad esempio, usare l'opzione a thread multipli. Per altre informazioni sul comando esatto da usare, vedere [Esercitazione: copiare i dati in Azure Data Box Disk ed eseguire la verifica](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
+- Usare più flussi di copia dei dati. Con Robocopy, ad esempio, usare l'opzione a thread multipli. Per altre informazioni sul comando esatto da usare, vedere [Esercitazione: Copiare i dati nei dischi di Azure Data Box ed eseguire la verifica](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Usare più sessioni.
 - Invece di eseguire la copia tramite una condivisione di rete (operazione che potrebbe essere limitata dalle velocità di rete) assicurarsi di avere a disposizione i dati in locale nel computer a cui sono collegati i dischi.
 - Assicurarsi di usare USB 3.0 o versione successiva nel corso del processo di copia. Scaricare e usare lo [strumento USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) per identificare i controller USB e i dispositivi USB connessi al computer.
@@ -145,16 +145,16 @@ R.  No. Con i dischi di Data Box è attualmente supportato un solo account di ar
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>Q. Qual è il set di strumenti disponibile per i dati con i Data Box Disk?
 R. Il set di strumenti disponibile con il Data Box Disk contiene tre strumenti:
- - **Strumento di sblocco di Data Box Disk**: usare questo strumento per sbloccare i dischi crittografati forniti da Microsoft. Quando si sbloccano i dischi che usano lo strumento, è necessario fornire una passkey disponibile nell'ordine Data Box Disk nel portale di Azure. 
- - **Strumento di convalida di Data Box Disk**: usare questo strumento per convalidare le dimensioni, il formato e i nomi dei BLOB in base alle convenzioni di denominazione di Azure. Genera anche i checksum per i dati copiati che vengono quindi usati per verificare i dati caricati in Azure.
- - **Strumento di divisione della copia di Data Box Disk**: Usare questo strumento quando si usano più dischi e si ha un set di dati di grandi dimensioni che deve essere suddiviso e copiato tra tutti i dischi. Questo strumento è attualmente disponibile per Windows. Questo strumento non è supportato con dischi gestiti. Lo strumento inoltre esegue la convalida durante la copia dei dati, di conseguenza è possibile ignorare il passaggio di convalida quando lo si usa.
+ - **Strumento di sblocco data box disk**: usare questo strumento per sbloccare i dischi crittografati forniti da Microsoft. Quando si sbloccano i dischi che usano lo strumento, è necessario fornire una passkey disponibile nell'ordine Data Box Disk nel portale di Azure. 
+ - **Strumento di convalida data box disk**: usare questo strumento per convalidare i nomi di dimensioni, formato e BLOB in base alle convenzioni di denominazione di Azure. Genera anche i checksum per i dati copiati che vengono quindi usati per verificare i dati caricati in Azure.
+ - **Data Box Disk strumento copia divisa**: usare questo strumento quando si usano più dischi e si dispone di un set di dati di grandi dimensioni che deve essere suddiviso e copiato in tutti i dischi. Questo strumento è attualmente disponibile per Windows. Questo strumento non è supportato con dischi gestiti. Lo strumento inoltre esegue la convalida durante la copia dei dati, di conseguenza è possibile ignorare il passaggio di convalida quando lo si usa.
 
 Il set di strumenti è disponibile per Windows e Linux. È possibile scaricare il set di strumenti qui:
 - [Scaricare il set di strumenti di Data Box Disk per Windows](https://aka.ms/databoxdisktoolswin) 
 - [Scaricare il set di strumenti di Data Box Disk per Linux](https://aka.ms/databoxdisktoolslinux)
  
 ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. È possibile usare Data Box Disk per trasferire i dati in File di Azure e quindi usare i dati con Sincronizzazione file di Azure? 
-R. I file di Azure sono supportati con Data Box Disk ma non funzionano bene con Sincronizzazione file di Azure. I metadati non vengono conservati se i dati dei file vengono usati con Sincronizzazione file di Azure.
+R. File di Azure sono supportati con Data Box Disk ma non funzioneranno correttamente con Sincronizzazione file di Azure. I metadati non vengono conservati se i dati del file vengono utilizzati con Sincronizzazione file di Azure.
 
 
 ## <a name="verify-and-upload"></a>Verifica e caricamento

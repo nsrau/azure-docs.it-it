@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 47488403a10a6b955e15b0048d455cc17016f009
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 7f5f75385374b6949ee3ef5e5ef298b8d54cc36e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526247"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163251"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureCosmosDB** | Azure Cosmos DB. | In uscita | Sì | Sì |
 | **AzureDatabricks** | Azure Databricks. | Entrambe | No | No |
 | **AzureDataExplorerManagement** | Gestione Esplora dati di Azure. | In ingresso | No | No |
-| **AzureDataLake** | Azure Data Lake. | In uscita | No | Sì |
+| **AzureDataLake** | Azure Data Lake Storage Gen1. | In uscita | No | Sì |
 | **AzureEventGrid** | Griglia di eventi di Azure. <br/><br/>*Nota:* Questo tag riguarda gli endpoint di griglia di eventi di Azure negli Stati Uniti centro-meridionali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali 2 e Stati Uniti centrali. | Entrambe | No | No |
 | **AzureFrontDoor** | Sportello anteriore di Azure. | Entrambe | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* Questo tag presenta una dipendenza dai tag **AzureActiveDirectory** e **AzureFrontDoor. frontend** . Inserire anche gli indirizzi IP seguenti (la dipendenza verrà rimossa a breve): 13.107.6.181 & 13.107.9.181. | In uscita | No | No |

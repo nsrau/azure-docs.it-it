@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/28/2020
 tags: connectors
-ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647654"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161875"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -31,7 +31,28 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
 
 ## <a name="limits"></a>Limiti
 
-* Per impostazione predefinita, le azioni SFTP-SSH possono leggere o scrivere file di *1 GB o di dimensioni inferiori* , ma solo in blocchi di *15 MB* alla volta. Per gestire file di dimensioni superiori a 15 MB, le azioni SFTP-SSH supportano la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md), ad eccezione dell'azione copia file, che può gestire solo 15 MB di file. L'azione **Ottieni contenuto file** USA in modo implicito la suddivisione in blocchi dei messaggi.
+* Le azioni SFTP-SSH che supportano la [suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md) possono gestire file fino a 1 GB, mentre le azioni SFTP-SSH che non supportano la suddivisione in blocchi possono gestire file fino a 50 MB. Sebbene le dimensioni predefinite del blocco siano pari a 15 MB, questa dimensione può variare in modo dinamico, a partire da 5 MB e aumentando gradualmente fino al valore massimo di 50 MB, in base a fattori quali la latenza di rete, il tempo di risposta del server e così via.
+
+  > [!NOTE]
+  > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+
+  Le dimensioni del blocco sono associate a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
+
+  | Azione | Supporto per la suddivisione in blocchi |
+  |--------|------------------|
+  | **Copia file** | No |
+  | **Crea file** | Sì |
+  | **Crea cartella** | Non applicabile |
+  | **Elimina file** | Non applicabile |
+  | **Estrai archivio nella cartella** | Non applicabile |
+  | **Ottieni contenuto file** | Sì |
+  | **Ottieni contenuto file in base al percorso** | Sì |
+  | **Ottieni metadati file** | Non applicabile |
+  | **Ottieni metadati file in base al percorso** | Non applicabile |
+  | **Elenca file nella cartella** | Non applicabile |
+  | **Rinomina file** | Non applicabile |
+  | **Aggiorna file** | No |
+  |||
 
 * I trigger SFTP-SSH non supportano la suddivisione in blocchi. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 15 MB o inferiori. Per ottenere file di dimensioni superiori a 15 MB, seguire invece questo modello:
 
@@ -46,10 +67,6 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
 Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e il connettore SFTP. SFTP-SSH offre queste funzionalità:
 
 * Usa la [libreria SSH.NET](https://github.com/sshnet/SSH.NET), una libreria SSH (open source Secure Shell) che supporta .NET.
-
-* Per impostazione predefinita, le azioni SFTP-SSH possono leggere o scrivere file di *1 GB o di dimensioni inferiori* , ma solo in blocchi di *15 MB* alla volta.
-
-  Per gestire file di dimensioni superiori a 15 MB, le azioni SFTP-SSH possono usare la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, l'azione copia file supporta solo file da 15 MB perché tale azione non supporta la suddivisione in blocchi dei messaggi. I trigger SFTP-SSH non supportano la suddivisione in blocchi. Per caricare file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura per la cartella radice sul server SFTP.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 

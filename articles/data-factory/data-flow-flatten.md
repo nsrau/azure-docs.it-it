@@ -1,17 +1,17 @@
 ---
 title: Trasformazione Flat flusso di dati mapping
-description: Trasformazione flat del flusso di dati di Azure data factory mapping
+description: Trasformazione appiattimento del flusso di dati Azure Data Factory mapping
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 435d2469be8eb572caa02e381d84ae4e9ac32f4b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 415a093fd8a8fbe27e1d240b061548e18f2ca6b6
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77674844"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164730"
 ---
 # <a name="azure-data-factory-flatten-transformation"></a>Trasformazione Flat Azure Data Factory
 
@@ -29,7 +29,7 @@ Prima di tutto, scegliere la colonna di matrice di cui si desidera eseguire l'un
 
 ## <a name="unroll-root"></a>Unroll radice
 
-Per impostazione predefinita, ADF rende flat la struttura in corrispondenza dell'array di cui si è scelto di eseguire il rollback. In alternativa, è possibile scegliere una parte diversa della gerarchia da cui eseguire l'unroll.
+Per impostazione predefinita, ADF rende flat la struttura in corrispondenza dell'array di cui si è scelto di eseguire il rollback. In alternativa, è possibile scegliere una parte diversa della gerarchia da cui eseguire l'unroll. "Unroll root" è un'impostazione facoltativa.
 
 ## <a name="input-columns"></a>Colonne di input
 

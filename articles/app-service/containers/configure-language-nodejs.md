@@ -4,12 +4,12 @@ description: Informazioni su come configurare un contenitore node. js predefinit
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 6cf60472307a378d2fd4258a9777152344a11ded
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 45d7d141bc2ab85ab33be455fc3da5570b0e7f51
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670279"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920026"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurare un'app node. js Linux per il servizio app Azure
 
@@ -44,6 +44,32 @@ Questa impostazione specifica la versione di node. js da usare, sia in fase di e
 > [!NOTE]
 > È necessario impostare la versione di node. js nel `package.json`del progetto. Il motore di distribuzione viene eseguito in un contenitore separato che contiene tutte le versioni di node. js supportate.
 
+## <a name="customize-build-automation"></a>Personalizzare l'automazione della compilazione
+
+Se si distribuisce l'app usando i pacchetti git o zip con l'automazione della compilazione attivata, l'automazione della compilazione del servizio app esegue la sequenza seguente:
+
+1. Eseguire uno script personalizzato se specificato da `PRE_BUILD_SCRIPT_PATH`.
+1. Eseguire `npm install` senza flag, che include gli script NPM `preinstall` e `postinstall` e installa `devDependencies`.
+1. Eseguire `npm run build` se nel file *Package. JSON*viene specificato uno script di compilazione.
+1. Eseguire `npm run build:azure` se nel file *Package. JSON*è specificata una build: script di Azure.
+1. Eseguire uno script personalizzato se specificato da `POST_BUILD_SCRIPT_PATH`.
+
+> [!NOTE]
+> Come descritto in [NPM docs](https://docs.npmjs.com/misc/scripts), gli script denominati `prebuild` e `postbuild` eseguire prima e dopo `build`, rispettivamente, se specificato. `preinstall` e `postinstall` eseguire rispettivamente prima e dopo `install`.
+
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` sono variabili di ambiente vuote per impostazione predefinita. Per eseguire i comandi di pre-compilazione, definire `PRE_BUILD_COMMAND`. Per eseguire i comandi post-compilazione, definire `POST_BUILD_COMMAND`.
+
+Nell'esempio seguente vengono specificate le due variabili a una serie di comandi, separate da virgole.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Per altre variabili di ambiente per personalizzare l'automazione della compilazione, vedere [configurazione di Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di app node. js in Linux, vedere [la documentazione di Oryx: come vengono rilevate e compilate le app node. js](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
+
 ## <a name="configure-nodejs-server"></a>Configurare il server node. js
 
 I contenitori node. js sono dotati di [PM2](https://pm2.keymetrics.io/), un gestore di processi di produzione. È possibile configurare l'app per iniziare a usare PM2 o con NPM oppure con un comando personalizzato.
@@ -62,7 +88,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Esegui NPM Start
 
-Per avviare l'app con `npm start`, è sufficiente assicurarsi che nel file *Package. JSON* sia presente uno script di `start`. ad esempio:
+Per avviare l'app con `npm start`, è sufficiente assicurarsi che nel file *Package. JSON* sia presente uno script di `start`. Ad esempio:
 
 ```json
 {
@@ -110,7 +136,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 È possibile eseguire il debug dell'app node. js in modalità remota in [Visual Studio Code](https://code.visualstudio.com/) se viene configurata per l' [esecuzione con PM2](#run-with-pm2), tranne quando viene eseguita con *. config. js, *. yml o *. YAML*.
 
-Nella maggior parte dei casi, non è necessaria alcuna configurazione aggiuntiva per l'app. Se l'app viene eseguita con un file *Process. JSON* (predefinito o personalizzato), deve avere una proprietà `script` nella radice JSON. ad esempio:
+Nella maggior parte dei casi, non è necessaria alcuna configurazione aggiuntiva per l'app. Se l'app viene eseguita con un file *Process. JSON* (predefinito o personalizzato), deve avere una proprietà `script` nella radice JSON. Ad esempio:
 
 ```json
 {
@@ -138,7 +164,7 @@ process.env.NODE_ENV
 
 Per impostazione predefinita, Kudu viene eseguito `npm install --production` quando viene riconosciuta un'app node. js distribuita. Se l'app richiede uno degli strumenti di automazione più diffusi, ad esempio grugnito, Bower o Gulp, è necessario fornire uno [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) per eseguirlo.
 
-Per abilitare il repository per l'esecuzione di questi strumenti, è necessario aggiungerli alle dipendenze in *Package. JSON.* ad esempio:
+Per abilitare il repository per l'esecuzione di questi strumenti, è necessario aggiungerli alle dipendenze in *Package. JSON.* Ad esempio:
 
 ```json
 "dependencies": {
@@ -217,7 +243,7 @@ fi
 
 Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve controllare se le richieste degli utenti sono crittografate o meno, esaminare l'intestazione `X-Forwarded-Proto`.
 
-I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. In [Express](https://expressjs.com/)è possibile usare i [proxy di attendibilità](https://expressjs.com/guide/behind-proxies.html). ad esempio:
+I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. In [Express](https://expressjs.com/)è possibile usare i [proxy di attendibilità](https://expressjs.com/guide/behind-proxies.html). Ad esempio:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -240,7 +266,7 @@ if (req.secure) {
 Quando un'app node. js funzionante si comporta in modo diverso nel servizio app o presenta errori, provare a eseguire le operazioni seguenti:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. ad esempio:
+- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. Ad esempio:
     - A seconda del file *Package. JSON*, è possibile installare pacchetti diversi per la modalità di produzione (`dependencies` rispetto a `devDependencies`).
     - Alcuni framework Web possono distribuire i file statici in modo diverso in modalità di produzione.
     - Alcuni framework Web possono usare script di avvio personalizzati durante l'esecuzione in modalità di produzione.

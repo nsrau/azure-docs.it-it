@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: df6f8ce22e8215a0727db7f69e0f6e5c3f5fc9e0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840265"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917391"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
@@ -24,19 +24,9 @@ ms.locfileid: "76840265"
 
 In Azure Active Directory B2C (Azure AD B2C), il flusso di credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione OAuth standard. In questo flusso, un'applicazione, nota anche come relying party, scambia credenziali valide con token. Le credenziali includono un ID utente e una password. I token restituiti sono un token ID, un token di accesso e un token di aggiornamento.
 
-Nel flusso ROPC sono supportate le opzioni seguenti:
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-- **Client nativo**: l'interazione dell'utente durante l'autenticazione avviene quando il codice viene eseguito in un dispositivo lato utente.
-- **Flusso client pubblico**: nella chiamata API vengono inviate solo le credenziali utente raccolte da un'applicazione. Le credenziali dell'applicazione non vengono inviate.
-- **Aggiunta di nuove attestazioni** - Il contenuto del token ID può essere modificato per aggiungere nuove attestazioni.
-
-I flussi seguenti non sono supportati:
-
-- **Da server a server**: il sistema di protezione delle identità richiede un indirizzo IP affidabile raccolto dal chiamante (il client nativo) come parte dell'interazione. In una chiamata API lato server viene usato solo l'indirizzo IP del server. In caso di un numero eccessivo di accessi non riusciti, il sistema di protezione delle identità potrebbe considerare un indirizzo IP ripetuto come un utente malintenzionato.
-- **Applicazione a pagina singola**: un'applicazione front-end scritta principalmente in JavaScript. Spesso l'applicazione viene scritta usando un framework come AngularJS, Ember.js o Durandal.
-- **Flusso client riservato**: l'ID client dell'applicazione viene convalidato, ma non viene convalidato il segreto dell'applicazione.
-
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -261,7 +251,7 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 - Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C.
 - Sostituire `B2C_1A_ROPC_Auth` con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | ----- |
 | username | `user-account` |
 | password | `password1` |
@@ -306,7 +296,7 @@ Costruire una chiamata POST come l'esempio seguente. Usare le informazioni ripor
 - Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C.
 - Sostituire `B2C_1A_ROPC_Auth` con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

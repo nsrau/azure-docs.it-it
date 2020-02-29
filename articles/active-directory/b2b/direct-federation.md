@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 02/27/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a6187fa9f274c6d00c1c9872a1b27268ac91295e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888897"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161487"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con AD FS e provider di terze parti per utenti Guest (anteprima)
 |     |
@@ -64,6 +64,10 @@ Se si specifica l'URL dei metadati nelle impostazioni del provider di identità,
 
 ### <a name="limit-on-federation-relationships"></a>Limite per le relazioni di Federazione
 Attualmente è supportato un massimo di 1.000 relazioni di Federazione. Questo limite include sia [federazioni interne](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) che federazioni dirette.
+
+### <a name="limit-on-multiple-domains"></a>Limite per più domini
+Attualmente non è supportata la Federazione diretta con più domini dallo stesso tenant.
+
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>È possibile configurare la Federazione diretta con un dominio per il quale esiste un tenant non gestito (verificato tramite posta elettronica)? 
 Sì. Se il dominio non è stato verificato e il tenant non ha subito un' [acquisizione dell'amministratore](../users-groups-roles/domains-admin-takeover.md), è possibile configurare la Federazione diretta con tale dominio. I tenant non gestiti o verificati tramite posta elettronica vengono creati quando un utente Riscatta un invito B2B o esegue un'iscrizione self-service per Azure AD usando un dominio attualmente non esistente. È possibile configurare la Federazione diretta con questi domini. Se si tenta di configurare la Federazione diretta con un dominio verificato da DNS, nel portale di Azure o tramite PowerShell, verrà visualizzato un errore.
@@ -90,7 +94,7 @@ Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specific
 
 Attributi obbligatori per la risposta SAML 2,0 da IdP:
 
-|Attributo  |Valore  |
+|Attributo  |valore  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Destinatari     |`urn:federation:MicrosoftOnline`         |
@@ -99,7 +103,7 @@ Attributi obbligatori per la risposta SAML 2,0 da IdP:
 
 Attestazioni necessarie per il token SAML 2,0 emesso da IdP:
 
-|Attributo  |Valore  |
+|Attributo  |valore  |
 |---------|---------|
 |Formato NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,7 +120,7 @@ Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specific
 
 Attributi obbligatori nel messaggio WS-Fed dall'IdP:
  
-|Attributo  |Valore  |
+|Attributo  |valore  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Destinatari     |`urn:federation:MicrosoftOnline`         |
@@ -124,7 +128,7 @@ Attributi obbligatori nel messaggio WS-Fed dall'IdP:
 
 Attestazioni necessarie per il token WS-Fed emesso da IdP:
 
-|Attributo  |Valore  |
+|Attributo  |valore  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

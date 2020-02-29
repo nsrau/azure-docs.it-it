@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: f2f2e02cdb5698d7569e5be177d54ca4dcb0ae02
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 27048a8464fc7380a5c11ab6bbb543e35c089774
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086543"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919601"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -409,6 +409,8 @@ Tuttavia, se si vuole usare il gateway applicazione V2 con solo IP privato, è p
 
 Configurazione di NSG di esempio per accesso solo IP privato: ![la configurazione del gateway applicazione V2 NSG solo per l'accesso IP privato](./media/application-gateway-faq/appgw-privip-nsg.png)
 
+### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Il cookie di affinità del gateway applicazione supporta l'attributo navigava sullostesso sito?
+Sì, l' [aggiornamento V80](https://chromiumdash.appspot.com/schedule) del [browser Chromium](https://www.chromium.org/Home) ha introdotto un mandato su cookie HTTP senza l'attributo navigava sullostesso sito da considerare come navigava sullostesso sito = LAX. Ciò significa che il cookie di affinità del gateway applicazione non verrà inviato dal browser in un contesto di terze entità. Per supportare questo scenario, il gateway applicazione inserisce un altro cookie denominato *ApplicationGatewayAffinityCORS* oltre al cookie *ApplicationGatewayAffinity* esistente.  Questi cookie sono simili, ma al cookie *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi: *navigava sullostesso sito = None; Sicurezza*. Questi attributi gestiscono sessioni permanenti anche per le richieste tra origini. Per ulteriori informazioni, vedere la [sezione affinità basata su cookie](configuration-overview.md#cookie-based-affinity) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613336"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917340"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure AD Domain Services
 
@@ -105,12 +105,12 @@ Un [gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-
 
 Le seguenti regole del gruppo di sicurezza di rete sono necessarie per Azure AD DS per fornire servizi di autenticazione e di gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito di Azure AD DS.
 
-| Numero della porta | Protocollo | Origine                             | Destination | Azione | Obbligatoria | Scopo |
+| Numero della porta | Protocollo | Source (Sorgente)                             | Destination | Azione | Obbligatoria | Scopo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Consenti  | Sì      | Sincronizzazione con il tenant del Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Any         | Consenti  | Sì      | Gestione del dominio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Consenti  | Sì      | Gestione del dominio. |
-| 636         | TCP      | Any                                | Any         | Consenti  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPs). |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Sincronizzazione con il tenant del Azure AD. |
+| 3389        | TCP      | CorpNetSaw                         | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualsiasi         | Allow  | Sì      | Gestione del dominio. |
+| 636         | TCP      | Qualsiasi                                | Qualsiasi         | Allow  | No       | Abilitato solo quando si configura LDAP sicuro (LDAPs). |
 
 > [!WARNING]
 > Non modificare manualmente le configurazioni e le risorse di rete. Quando si associa un gruppo di sicurezza di rete configurato in modo non configurato o una tabella di route definita dall'utente con la subnet in cui viene distribuito Azure AD DS, è possibile che si verifichino problemi di gestione e gestione del dominio da parte di Microsoft. Viene anche interrotta la sincronizzazione tra il tenant di Azure AD e il dominio gestito di Azure AD DS.
@@ -143,6 +143,11 @@ Le seguenti regole del gruppo di sicurezza di rete sono necessarie per Azure AD 
 * Senza l'accesso a questa porta, il dominio gestito di Azure AD DS non può essere aggiornato, configurato, sottoposto a backup o monitorato.
 * Per i domini gestiti Azure AD DS che usano una rete virtuale basata su Gestione risorse, è possibile limitare l'accesso in ingresso a questa porta al tag del servizio *AzureActiveDirectoryDomainServices* .
     * Per i domini gestiti legacy Azure AD DS che usano una rete virtuale basata su classica, è possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*e *104.40.87.209*.
+
+    > [!NOTE]
+    > In 2017 Azure AD Domain Services è diventato disponibile per ospitare in una rete Azure Resource Manager. Da allora, siamo riusciti a creare un servizio più sicuro usando le funzionalità moderne del Azure Resource Manager. Poiché le distribuzioni di Azure Resource Manager sostituiscono completamente le distribuzioni classiche, le distribuzioni di rete virtuale di Azure AD DS classico verranno ritirate il 1 ° marzo 2023.
+    >
+    > Per ulteriori informazioni, vedere l' [avviso ufficiale di deprecazione](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="user-defined-routes"></a>Route definite dall'utente
 

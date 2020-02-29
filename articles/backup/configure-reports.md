@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report per backup di Azure con Log Analytics e cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582705"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161202"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -47,6 +47,9 @@ Nella sezione monitoraggio dell'insieme di credenziali di servizi di ripristino 
 
 Backup di Azure fornisce anche un criterio predefinito di Azure, che consente di automatizzare la configurazione delle impostazioni di diagnostica per tutti gli insiemi di credenziali in un ambito specifico. Vedere l'articolo seguente per informazioni su come usare questo criterio: [configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
+> [!NOTE]
+> Una volta configurata la diagnostica, potrebbero essere necessarie fino a 24 ore per il completamento del push di dati iniziale. Una volta che i dati iniziano a scorrere nell'area di lavoro di LA, potrebbe non essere possibile visualizzare immediatamente i dati nei report, poiché i dati per il giorno parziale corrente non vengono visualizzati nei report (altri dettagli [qui](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)). È quindi consigliabile iniziare a visualizzare i report 2 giorni dopo la configurazione degli insiemi di credenziali per l'invio di dati a Log Analytics.
+
 3. **Visualizzare i report nel portale di Azure:**
 
 Dopo aver configurato gli insiemi di credenziali per l'invio di dati a LA, visualizzare i report di backup passando al pannello qualsiasi insieme di credenziali e facendo clic sulla voce di menu **backup Reports** . 
@@ -56,7 +59,8 @@ Dopo aver configurato gli insiemi di credenziali per l'invio di dati a LA, visua
 Facendo clic su questo collegamento viene aperta la cartella di lavoro report di backup.
 
 > [!NOTE]
-> Attualmente, il carico iniziale del report può richiedere fino a 1 minuto.
+> * Attualmente, il carico iniziale del report può richiedere fino a 1 minuto.
+> * L'insieme di credenziali di servizi di ripristino è semplicemente un punto di ingresso per i report di backup. Una volta aperta la cartella di lavoro report di backup dal pannello di un insieme di credenziali, sarà possibile visualizzare i dati aggregati in tutti gli insiemi di credenziali (selezionando il set appropriato di aree di lavoro di LA).
 
 Di seguito è riportata una descrizione delle varie schede incluse nel report:
 

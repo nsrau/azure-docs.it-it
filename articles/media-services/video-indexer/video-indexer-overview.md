@@ -1,5 +1,5 @@
 ---
-title: Che cos'è Video Indexer?
+title: Informazioni su Video Indexer
 titleSuffix: Azure Media Services
 description: Questo articolo offre una panoramica del servizio Video Indexer di servizi multimediali di Azure.
 services: media-services
@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/02/2020
 ms.author: juliako
-ms.openlocfilehash: aee4390d9b892eddbd7dc59887f5268e4c35d3f7
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989791"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163591"
 ---
-# <a name="what-is-video-indexer"></a>Che cos'è Video Indexer?
+# <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
 Video Indexer (VI) è la soluzione di intelligenza artificiale di servizi multimediali di Azure e fa parte del marchio Servizi cognitivi di Azure. Video Indexer offre la possibilità di estrarre informazioni approfondite (senza necessità di analisi dei dati o competenze di codifica) usando modelli di apprendimento automatico basati su più canali (voce, vocals, Visual). È possibile personalizzare ulteriormente ed eseguire il training dei modelli. Il servizio consente la ricerca approfondita, riduce i costi operativi, Abilita nuove opportunità di monetizzazione e crea nuove esperienze utente su archivi di video di grandi dimensioni (con barriere di immissione minime).
 
@@ -27,9 +27,14 @@ Il diagramma seguente è un'illustrazione e non una spiegazione tecnica del funz
 
 ![Diagramma di flusso Video Indexer di servizi multimediali di Azure](./media/video-indexer-overview/model-chart.png)
 
+
 ## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
- 
-Come promemoria importante, è necessario rispettare tutte le leggi applicabili nell'utilizzo di Video Indexer e non è possibile utilizzare Video Indexer o altri servizi di Azure in modo da violare i diritti di altri utenti o potrebbero essere dannosi ad altri utenti. Prima di caricare tutti i video, inclusi i dati biometrici, nel servizio Video Indexer per l'elaborazione e l'archiviazione, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati, dai singoli nel video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, le [condizioni per servizi cognitivi](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)Microsoft. Per gli obblighi sulla privacy e la gestione dei dati di Microsoft, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online](https://www.microsoft.com/licensing/product-licensing/products) ("Ost") e l'appendice per l' [elaborazione dei dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Informazioni aggiuntive sulla privacy, tra cui la conservazione dei dati, l'eliminazione o la distruzione, sono disponibili nella OST e [qui](faq.md). Utilizzando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di servizi cognitivi, OST, DPA e informativa sulla privacy.
+
+Come promemoria importante, è necessario rispettare tutte le leggi applicabili nell'utilizzo di Video Indexer e non è possibile utilizzare Video Indexer o un servizio di Azure in modo da violare i diritti di altri utenti o che potrebbero essere dannosi per altri.
+
+Prima di caricare qualsiasi video/immagine in Video Indexer, è necessario disporre di tutti i diritti appropriati per l'uso del video/immagine, incluso, ove richiesto dalla legge, tutti i consensi necessari da parte degli utenti (se presenti) nel video o nell'immagine, per l'uso, l'elaborazione e l'archiviazione dei dati in Video Indexer e Azure. Alcune giurisdizioni possono imporre particolari requisiti legali per la raccolta, l'elaborazione online e l'archiviazione di determinate categorie di dati, ad esempio i dati biometrici. Prima di usare Video Indexer e Azure per l'elaborazione e l'archiviazione di tutti i dati soggetti a requisiti legali speciali, è necessario garantire la conformità ai requisiti legali che possono essere applicati all'utente.
+
+Per informazioni su conformità, privacy e sicurezza in Video Indexer visitare il [centro](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx)protezione Microsoft. Per gli obblighi sulla privacy di Microsoft, la gestione dei dati e le procedure di conservazione, inclusa la modalità di eliminazione dei dati, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("Ost") e l'Addendum per l' [elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Utilizzando Video Indexer, l'utente accetta di essere vincolato dalle OST, DPA e dall'Informativa sulla privacy.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>Quali operazioni si possono eseguire con Video Indexer?
 
@@ -42,7 +47,7 @@ Le informazioni dettagliate di Video Indexer possono essere applicate a molti sc
 * *Moderazione del contenuto*: usare i modelli di moderazione del contenuto visivo e testuale per proteggere gli utenti dal contenuto inappropriato e verificare che i contenuti pubblicati corrispondano ai valori dell'organizzazione. È possibile bloccare automaticamente determinati video o avvisare gli utenti sul contenuto.
 * *Suggerimenti*: le informazioni dettagliate sul video possono essere usate per migliorare il coinvolgimento degli utenti evidenziando i momenti video pertinenti agli utenti. Contrassegnando ogni video con metadati aggiuntivi, è possibile consigliare agli utenti i video più rilevanti ed evidenziare le parti del video che soddisfano le proprie esigenze.
 
-## <a name="features"></a>database elastico
+## <a name="features"></a>Funzionalità
 
 L'elenco seguente mostra le informazioni che è possibile recuperare dai video usando Video Indexer modelli video e audio:
 

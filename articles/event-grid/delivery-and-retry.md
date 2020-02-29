@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 02/27/2020
 ms.author: spelluru
-ms.openlocfilehash: 483b8251bf17eaa5fe7aa7cbd86299575535725d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170063"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921063"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -26,12 +26,33 @@ Per impostazione predefinita, griglia di eventi invia ogni singolo evento ai sot
 
 Il recapito in batch ha due impostazioni:
 
-* Il numero massimo di **eventi per batch** è il numero massimo di eventi che griglia di eventi verrà recapitato per batch. Questo numero non verrà mai superato, tuttavia è possibile recapitare un numero minore di eventi se non sono disponibili altri eventi al momento della pubblicazione. Griglia di eventi non ritarda gli eventi per creare un batch se sono disponibili meno eventi. Deve essere compreso tra 1 e 5.000.
-* **Dimensioni batch preferite in kilobyte** è il limite di destinazione per le dimensioni del batch, in kilobyte. Analogamente agli eventi Max, le dimensioni del batch possono essere minori se al momento della pubblicazione non sono disponibili più eventi. *Se* un singolo evento è più grande della dimensione preferita, è possibile che un batch superi le dimensioni del batch preferite. Se, ad esempio, la dimensione preferita è 4 KB e viene effettuato il push di un evento da 10 KB a griglia di eventi, l'evento di 10 KB verrà comunque recapitato nel proprio batch anziché essere eliminato.
+* Numero massimo di **eventi per batch** : numero massimo di eventi che griglia di eventi recapita per batch. Questo numero non verrà mai superato, tuttavia è possibile recapitare un numero minore di eventi se non sono disponibili altri eventi al momento della pubblicazione. Griglia di eventi non ritarda gli eventi per creare un batch se sono disponibili meno eventi. Deve essere compreso tra 1 e 5.000.
+* **Dimensioni batch preferite in kilobyte** : limite massimo di destinazione per le dimensioni del batch, in kilobyte. Analogamente agli eventi Max, le dimensioni del batch possono essere minori se al momento della pubblicazione non sono disponibili più eventi. *Se* un singolo evento è più grande della dimensione preferita, è possibile che un batch superi le dimensioni del batch preferite. Se, ad esempio, la dimensione preferita è 4 KB e viene effettuato il push di un evento da 10 KB a griglia di eventi, l'evento di 10 KB verrà comunque recapitato nel proprio batch anziché essere eliminato.
 
 Il recapito in batch viene configurato in base a una sottoscrizione per ogni evento tramite il portale, l'interfaccia della riga di comando, PowerShell o gli SDK.
 
+### <a name="azure-portal"></a>Portale di Azure: 
 ![Impostazioni di recapito batch](./media/delivery-and-retry/batch-settings.png)
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+Quando si crea una sottoscrizione di eventi, usare i parametri seguenti: 
+
+- **Max-Events-per-batch** -numero massimo di eventi in un batch. Deve essere un numero compreso tra 1 e 5000.
+- **preferenza-batch-dimensioni-in-kilobyte** -dimensioni batch preferite, in kilobyte. Deve essere un numero compreso tra 1 e 1024.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con griglia di eventi, vedere [indirizzare eventi di archiviazione ad endpoint Web con l'interfaccia della riga](../storage/blobs/storage-blob-event-quickstart.md)
 
 ## <a name="retry-schedule-and-duration"></a>Pianificazione e durata della ripetizione
 
