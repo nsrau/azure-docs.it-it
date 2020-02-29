@@ -3,7 +3,7 @@ title: Dimensioni delle macchine virtuali di Azure-archiviazione | Microsoft Doc
 description: Elenca le diverse dimensioni ottimizzate per l'archiviazione disponibili per le macchine virtuali in Azure. Elenca le informazioni sul numero di vCPU, dischi dati e NIC, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda di rete per le dimensioni di questa serie.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: sasha-melamed
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 17cceb04d3d6e559cd6f2b49674f6d408a0650a4
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 5a611dc288fc18a14f6000689f9f9b49d4b3feb8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492994"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913337"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per l'archiviazione
 

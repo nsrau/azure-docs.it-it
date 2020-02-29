@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 075216cf7d67aa4d5a04f34a7ae3444a078b4c62
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/22/2020
+ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313910"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920799"
 ---
 # <a name="train-svd-recommender"></a>Train SVD Recommender
 
-Questo articolo descrive come usare il modulo Train SVD Recommender in Azure Machine Learning Designer. Utilizzare questo modulo per eseguire il training di un modello di raccomandazione basato sull'algoritmo SVD (Single value Decomposition).  
+Questo articolo descrive come usare il modulo Train SVD Recommender in Azure Machine Learning Designer (Preview). Utilizzare questo modulo per eseguire il training di un modello di raccomandazione basato sull'algoritmo SVD (Single value Decomposition).  
 
 Il modulo Train SVD Recommender legge un set di dati di triple utente-elemento-classificazione. Restituisce una raccomandazione SVD sottoposta a training. È quindi possibile usare il modello sottoposto a training per stimare le classificazioni o generare raccomandazioni usando il modulo [Score SVD Recommender](score-svd-recommender.md) .  
 
@@ -48,16 +48,13 @@ Prima di usare il modulo, i dati di input devono essere nel formato previsto dal
 + La seconda colonna contiene gli identificatori di elemento.
 + La terza colonna contiene la classificazione per la coppia utente-elemento. I valori di classificazione devono essere di tipo numerico.  
 
-Il set di dati delle **classificazioni dei ristoranti** in Azure Machine Learning Designer (selezionare i set di dati **salvati** e quindi gli **esempi**) illustra il formato previsto:
+Il set di dati **classificazioni film** in Azure Machine Learning Designer **(Select** DataSets, **Samples**) Mostra il formato previsto:
 
-|userID|placeID|rating|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![Classificazioni film](media/module/movie-ratings-dataset.png)
 
-Da questo esempio è possibile notare che un singolo utente ha valutato due ristoranti distinti. 
+Da questo esempio è possibile notare che un singolo utente ha valutato diversi film. 
 
-### <a name="train-the-model"></a>Training del modello
+### <a name="train-the-model"></a>Eseguire il training del modello
 
 1.  Aggiungere il modulo Train SVD Recommender alla pipeline nella finestra di progettazione e connetterlo ai dati di training.  
    

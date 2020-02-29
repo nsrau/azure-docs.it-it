@@ -1,14 +1,14 @@
 ---
-title: Domande frequenti-eseguire il backup di database SAP HANA nelle VM di Azure
+title: Domande frequenti - Backup di database SAP HANA in VM di Azure
 description: In questo articolo vengono fornite le risposte alle domande più comuni sul backup dei database di SAP HANA con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e5684024668103ccbe13be4af3d7a9336651df77
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: d9d10e38885ba814045d8476b83671153feb7b8c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287840"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919686"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Domande frequenti: eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -43,17 +43,17 @@ Un database rinominato viene considerato come un nuovo database. Il servizio con
 
 ### <a name="what-are-the-prerequisites-to-back-up-sap-hana-databases-on-an-azure-vm"></a>Quali sono i prerequisiti per eseguire il backup dei database SAP HANA in una macchina virtuale di Azure?
 
-Vedere le sezioni [prerequisiti](tutorial-backup-sap-hana-db.md#prerequisites) e [impostazione delle autorizzazioni](tutorial-backup-sap-hana-db.md#setting-up-permissions) .
+Per informazioni sui [prerequisiti](tutorial-backup-sap-hana-db.md#prerequisites) e [sullo script di pre-registrazione](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) , vedere le sezioni.
 
 ### <a name="what-permissions-should-be-set-for-azure-to-be-able-to-back-up-sap-hana-databases"></a>Quali autorizzazioni devono essere impostate per consentire ad Azure di eseguire il backup SAP HANA database?
 
-L'esecuzione dello script di pre-registrazione consente di impostare le autorizzazioni necessarie per consentire ad Azure di eseguire il backup dei database SAP HANA. Altre informazioni sulle autorizzazioni sono disponibili [qui](tutorial-backup-sap-hana-db.md#setting-up-permissions).
+L'esecuzione dello script di pre-registrazione consente di impostare le autorizzazioni necessarie per consentire ad Azure di eseguire il backup dei database SAP HANA. Per altre informazioni, [vedere lo script](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)di pre-registrazione.
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Il backup del lavoro viene eseguito dopo la migrazione SAP HANA da 1,0 a 2,0?
 
 Fare riferimento a [questa sezione](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) della Guida alla risoluzione dei problemi.
 
-## <a name="restore"></a>Ripristino
+## <a name="restore"></a>Restore
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>Perché non è possibile visualizzare il sistema HANA a cui si vuole ripristinare il database?
 

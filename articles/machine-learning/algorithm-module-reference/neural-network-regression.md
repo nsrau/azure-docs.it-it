@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 97095e4802373a1dd3f7b795c2fe567b778d2d5e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153826"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920383"
 ---
 # <a name="neural-network-regression-module"></a>Modulo di regressione della rete neurale
 
@@ -56,7 +56,9 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
   
 2. Indicare come si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: scegliere questa opzione se si conosce già il modo in cui si vuole configurare il modello.  
+    -   **Singolo parametro**: scegliere questa opzione se si conosce già il modo in cui si vuole configurare il modello.
+
+    -   **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.   
 
 3.  In **specifica livello nascosto**selezionare **case con connessione completa**. Questa opzione consente di creare un modello utilizzando l'architettura di rete neurale predefinita, per un modello di regressione della rete neurale, con questi attributi:  
   
@@ -72,7 +74,6 @@ Usare questo modulo per creare un modello di regressione usando un algoritmo di 
 
 6.  Per **numero di iterazioni di apprendimento**specificare il numero massimo di volte in cui l'algoritmo elabora i case di training.
 
-7.  Per * * il diametro iniziale dei pesi di apprendimento, digitare un valore che determina i pesi del nodo all'inizio del processo di apprendimento.
 
 8.  Per **il momento**, digitare un valore da applicare durante l'apprendimento come peso nei nodi delle iterazioni precedenti.
 

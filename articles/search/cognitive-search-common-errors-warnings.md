@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838548"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913481"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione di errori e avvisi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -32,7 +32,7 @@ Gli avvisi non interrompono l'indicizzazione, ma indicano condizioni che potrebb
 
 A partire dalla versione dell'API `2019-05-06`, gli errori e gli avvisi dell'indicizzatore a livello di elemento sono strutturati per fornire maggiore chiarezza sulle cause e sui passaggi successivi. Sono incluse le proprietà seguenti:
 
-| Proprietà | Description | Esempio |
+| Proprietà | Descrizione | Esempio |
 | --- | --- | --- |
 | Key | ID del documento interessato dall'errore o dall'avviso. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | Nome dell'operazione che descrive la posizione in cui si è verificato l'errore o l'avviso. Questa operazione viene generata dalla struttura seguente: [Category]. [Subcategory]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName arricchimento. WebApiSkill. My SkillName Projection. SearchIndex. OutputFieldMapping. myOutputFieldName Projection. SearchIndex. MergeOrUpload. Setindexname Projection. KnowledgeStore. Table. MyTableName |
@@ -74,7 +74,7 @@ L'indicizzatore ha letto il documento dall'origine dati, ma si è verificato un 
 | Manca la chiave del documento | La chiave del documento non può essere mancante o vuota | Verificare che tutti i documenti dispongano di chiavi di documento valide |
 | La chiave del documento non è valida | La chiave del documento non può contenere più di 1024 caratteri | Modificare la chiave del documento per soddisfare i requisiti di convalida. |
 | Non è stato possibile applicare il mapping dei campi a un campo | Non è stato possibile applicare la funzione di mapping `'functionName'` al campo `'fieldName'`. La matrice non può essere null. Nome parametro: bytes | Controllare i [mapping dei campi](search-indexer-field-mappings.md) definiti nell'indicizzatore e confrontarli con i dati del campo specificato del documento non riuscito. Potrebbe essere necessario modificare i mapping dei campi o i dati del documento. |
-| Impossibile leggere il valore del campo | Impossibile leggere il valore della colonna `'fieldName'` in corrispondenza dell'indice `'fieldIndex'`. si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: provider TCP, errore: 0-una connessione esistente è stata chiusa forzatamente dall'host remoto.) | Questi errori sono in genere causati da problemi di connettività imprevisti con il servizio sottostante dell'origine dati. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
+| Impossibile leggere il valore del campo | Impossibile leggere il valore della colonna `'fieldName'` in corrispondenza dell'indice `'fieldIndex'`. si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: Provider TCP, errore: 0 - Connessione in corso interrotta forzatamente dall'host remoto). | Questi errori sono in genere causati da problemi di connettività imprevisti con il servizio sottostante dell'origine dati. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 
 <a name="could-not-execute-skill"/>
 
@@ -83,7 +83,7 @@ L'indicizzatore non è stato in grado di eseguire una competenza nel grado di co
 
 | Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
-| Problemi di connettività temporanei | Si è verificato un errore temporaneo. Riprova più tardi. | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
+| Problemi di connettività temporanei | Si è verificato un errore temporaneo. Riprovare più tardi. | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 | Potenziale bug del prodotto | Si è verificato un errore imprevisto. | Indica una classe di errore sconosciuta e può indicare la presenza di un bug del prodotto. Inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) per ottenere assistenza. |
 | Si è verificato un errore durante l'esecuzione | (Da Merge skill) Uno o più valori di offset non sono validi e non possono essere analizzati. Gli elementi sono stati inseriti alla fine del testo | Utilizzare le informazioni contenute nel messaggio di errore per risolvere il problema. Questo tipo di errore richiederà un'azione da risolvere. |
 
@@ -152,9 +152,9 @@ Il documento è stato letto ed elaborato, ma l'indicizzatore non è stato in gra
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
 
-## <a name="error-could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Errore: Impossibile indicizzare il documento perché i dati dell'indicizzatore da indicizzare non sono validi
+## <a name="error-could-not-index-document-because-some-of-the-documents-data-was-not-valid"></a>Errore: Impossibile indicizzare il documento perché alcuni dati del documento non sono validi
 
-Il documento è stato letto ed elaborato, ma a causa di una mancata corrispondenza tra la configurazione dei campi dell'indice e la natura dei dati estratti dall'indicizzatore, non è stato possibile aggiungerlo all'indice di ricerca. Questo problema può verificarsi a causa di:
+Il documento è stato letto ed elaborato dall'indicizzatore, ma a causa di una mancata corrispondenza tra la configurazione dei campi dell'indice e i dati estratti ed elaborati dall'indicizzatore, non è stato possibile aggiungerli all'indice di ricerca. Questo problema può verificarsi a causa di:
 
 | Motivo | Dettagli/esempio
 | --- | ---
@@ -166,12 +166,11 @@ Il documento è stato letto ed elaborato, ma a causa di una mancata corrisponden
 
 In tutti questi casi, fare riferimento ai [tipi di dati supportati](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e al mapping dei tipi di [dati per gli indicizzatori](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) per assicurarsi di compilare correttamente lo schema dell'indice e di aver configurato i mapping appropriati dei [campi dell'indicizzatore](search-indexer-field-mappings.md). Il messaggio di errore includerà i dettagli che consentono di tenere traccia dell'origine della mancata corrispondenza.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
-
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Errore: non è possibile usare i criteri di rilevamento delle modifiche integrati perché la tabella contiene una chiave primaria composta
 
 Questo vale per le tabelle SQL e in genere si verifica quando la chiave è definita come chiave composta o, quando la tabella definisce un indice cluster univoco (come in un indice SQL, non un indice di ricerca di Azure). Il motivo principale è che l'attributo chiave viene modificato come chiave primaria composita nel caso di un [indice cluster univoco](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). In tal caso, assicurarsi che la tabella SQL non disponga di un indice cluster univoco o che il campo chiave sia mappato a un campo che non contenga valori duplicati.
 
+<a name="could-not-process-document-within-indexer-max-run-time"/>
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Errore: non è stato possibile elaborare il documento entro il tempo di esecuzione massimo dell'indicizzatore
 

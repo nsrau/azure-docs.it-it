@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 69959418c52eb7324efe19ca41481e426b822ab4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 717336e0ddfe99c96afda4861f4de1239ee949bf
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842359"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913209"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configurare l'app del servizio app per usare Azure AD account di accesso
 
@@ -25,6 +25,9 @@ Seguire queste procedure consigliate durante la configurazione dell'app e dell'a
 - Evitare la condivisione delle autorizzazioni tra ambienti usando registrazioni di app separate per slot di distribuzione distinti. Quando si esegue il test di un nuovo codice, questa procedura consente di evitare problemi che interessano l'app di produzione.
 
 ## <a name="express"> </a>Configurare con le impostazioni rapide
+
+> [!NOTE]
+> L'opzione **Express** non è disponibile per i cloud governativi. 
 
 1. Nella [Azure portal]cercare e selezionare **Servizi app**e quindi selezionare l'app.
 2. Nel percorso di spostamento a sinistra selezionare **autenticazione/autorizzazione** > **attiva**.
@@ -90,7 +93,7 @@ Eseguire la procedura seguente:
 1. In **Provider di autenticazione** fare clic su **Azure Active Directory**.
 1. In **modalità di gestione**selezionare **Avanzate** e configurare l'autenticazione del servizio app in base alla tabella seguente:
 
-    |Campo|Description|
+    |Campo|Descrizione|
     |-|-|
     |ID client| Usare l' **ID applicazione (client)** della registrazione dell'app. |
     |ID autorità emittente| Usare `https://login.microsoftonline.com/<tenant-id>`e sostituire *\<tenant-id >* con l' **ID di directory (tenant)** della registrazione dell'app. |

@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: fd31528325ddbe913333bc228fc3847242abcd24
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083744"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913005"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Rilevare i movimenti con Analisi servizi multimediali di Azure
+
+> [!NOTE]
+> Il processore di contenuti multimediali **Azure Media Motion Detector** verrà ritirato. Per la data di ritiro, vedere l'argomento [componenti legacy](legacy-components.md) .
  
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Il processore di contenuti multimediali **Rilevatore multimediale di movimento Azure** consente di identificare in modo efficace le sezioni interessanti all'interno di un video altrimenti lungo e privo di eventi. Il rilevamento di movimento può essere usato nei filmati statici della videocamera per individuare le sezioni del video in cui si verificano movimenti. Viene generato un file JSON contenente i metadati con i timestamp e l'area di delimitazione in cui si è verificato l'evento.
 
@@ -39,10 +42,10 @@ File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
 ## <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Azure Media Motion Detector**è necessario specificare un set di impostazioni di configurazione. 
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>Parametri
 È possibile usare i parametri seguenti:
 
-| Nome | Opzioni | DESCRIZIONE | Default |
+| Nome | Opzioni | Descrizione | Predefinito |
 | --- | --- | --- | --- |
 | sensitivityLevel |Stringa:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificarla per ridurre il numero di falsi positivi. |'medium' |
 | frameSamplingValue |Intero positivo |Imposta la frequenza di esecuzione dell'algoritmo. 1 indica a ogni fotogramma, 2 a un fotogramma su due e così via. |1 |
@@ -95,7 +98,7 @@ L'API Rilevatore di movimento fornisce indicatori se sono presenti oggetti in mo
 
 La tabella seguente illustra gli elementi del file di output JSON.
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | --- | --- |
 | version |Indica la versione dell'API Video. La versione corrente è 2. |
 | timescale |"Scatti" al secondo del video. |
@@ -105,7 +108,7 @@ La tabella seguente illustra gli elementi del file di output JSON.
 | start |Il timestamp di inizio in "scatti". |
 | duration |La lunghezza dell'evento in "scatti". |
 | interval |L'intervallo di ogni voce dell'evento in "scatti". |
-| events |Ogni frammento di evento contiene i movimenti rilevati nella durata specificata. |
+| eventi |Ogni frammento di evento contiene i movimenti rilevati nella durata specificata. |
 | type |Nella versione corrente questo valore è sempre "2" per il movimento generico. Questa etichetta offre alle API Video la flessibilità necessaria per classificare i movimenti nelle versioni future. |
 | regionId |Come spiegato in precedenza, in questa versione questo valore è sempre 0. Questa etichetta offre alle API Video la flessibilità necessaria per individuare i movimenti in varie aree nelle versioni future. |
 | regions |Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/> Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY in alto a sinistra nell'area in una scala normalizzata da 0,0 a 1,0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/> |
@@ -378,7 +381,7 @@ namespace VideoMotionDetection
 }
 ```
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti

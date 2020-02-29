@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c1e14db9dafc8b03acbeb1c6b97e5ac0e27cb0fd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718740"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163049"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -24,12 +24,15 @@ Ogni area di Azure è associata a un'altra area con la stessa ubicazione geograf
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
+> [!NOTE]
+> Le coppie di aree di Azure assegnate non possono essere modificate.
+
 Figura 1: coppie di aree di Azure
 
 | Area geografica | Aree abbinate |  |
 |:--- |:--- |:--- |
-| Asia |Asia orientale |Asia sudorientale |
-| Australia |Australia orientale |Australia sudorientale |
+| Asia |Asia orientale |Asia sud-orientale |
+| Australia |Australia orientale |Australia sud-orientale |
 | Australia |Australia centrale |Australia centrale 2 |
 | Brasile |Brasile meridionale |Stati Uniti centro-meridionali |
 | Canada |Canada centrale |Canada orientale |
@@ -49,10 +52,10 @@ Figura 1: coppie di aree di Azure
 | Sud Africa | Sudafrica settentrionale | Sudafrica occidentale
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
 | Emirati Arabi Uniti | Emirati Arabi Uniti settentrionali | Emirati Arabi Uniti centrali
-| Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |US DoD (area centrale) |
-| US Gov |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
-| US Gov |US Gov Iowa |Governo degli Stati Uniti - Virginia |
-| US Gov |Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Texas |
+| Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) |US DoD (area centrale) |
+| US Gov |US Gov Arizona |US Gov Texas |
+| US Gov |US Gov Iowa |US Gov Virginia |
+| US Gov |US Gov Virginia |US Gov Texas |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
@@ -75,13 +78,13 @@ Figura 2: ipotetica coppia di aree di Azure
 ## <a name="cross-region-activities"></a>Attività tra aree
 Come indicato nella figura 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Calcolo di Azure (IaaS)** : è necessario eseguire anticipatamente il provisioning di risorse di calcolo aggiuntive per assicurare che siano disponibili in un'altra area in caso di emergenza. Per altre informazioni, vedere [Indicazioni tecniche sulla resilienza di Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **calcolo di Azure (IaaS)** : è necessario effettuare il provisioning di risorse di calcolo aggiuntive in anticipo per garantire che le risorse siano disponibili in un'altra area durante un'emergenza. Per altre informazioni, vedere [Informazioni tecniche sulla resilienza di Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md).
 
 Archiviazione ![](./media/best-practices-availability-paired-regions/2Green.png) **archiviazione di Azure** : se si usano dischi gestiti, è possibile ottenere informazioni sui [backup tra più aree](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) con backup di Azure e [replicare le macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) da un'area a un'altra con Azure Site Recovery. Se si usano gli account di archiviazione, l'archiviazione con ridondanza geografica (GRS) viene configurata per impostazione predefinita quando viene creato un account di archiviazione di Azure. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte nell'area abbinata. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](storage/common/storage-redundancy.md).
 
-![SQL di Azure](./media/best-practices-availability-paired-regions/3Green.png) **Database SQL di Azure**: con la replica geografica del database SQL di Azure è possibile configurare la replica asincrona delle transazioni per tutte le aree del mondo. È tuttavia consigliabile distribuire queste risorse in un'area abbinata per la maggior parte degli scenari di ripristino di emergenza. Per altre informazioni, vedere l'articolo relativo alla [replica geografica nel database SQL di Azure](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **database SQL** di Azure: con la replica geografica del database SQL di Azure, è possibile configurare la replica asincrona delle transazioni in qualsiasi area del mondo; Tuttavia, è consigliabile distribuire queste risorse in un'area abbinata per la maggior parte degli scenari di ripristino di emergenza. Per altre informazioni, vedere l'articolo relativo alla [replica geografica nel database SQL di Azure](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager**: Resource Manager fornisce implicitamente l'isolamento logico dei componenti tra le aree. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
+![Gestione risorse](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -gestione risorse intrinsecamente fornisce l'isolamento logico dei componenti tra le aree. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
 
 ## <a name="benefits-of-paired-regions"></a>Vantaggi delle aree abbinate
 Come indicato nella figura 2.  
@@ -99,4 +102,4 @@ Come indicato nella figura 2.
 **Aggiornamenti sequenziali**: gli aggiornamenti di sistema di Azure pianificati vengono implementati nelle aree abbinate in modo sequenziale (non contemporaneamente) per ridurre al minimo i tempi di inattività, l'effetto dei bug e gli errori logici nel raro caso di un aggiornamento non valido.
 
 ![Dati](./media/best-practices-availability-paired-regions/9Orange.png)
- **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
+**Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.

@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 0b321f3548910a2bc79e4473609de30eda8c8622
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/10/2020
+ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314352"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920349"
 ---
 # <a name="score-svd-recommender"></a>Score SVD Recommender
 
-Questo articolo descrive come usare il modulo Score SVD Recommender in Azure Machine Learning Designer. Utilizzare questo modulo per creare stime utilizzando un modello di raccomandazione con training basato sull'algoritmo SVD (Single value Decomposition).
+Questo articolo descrive come usare il modulo Score SVD Recommender in Azure Machine Learning Designer (Preview). Utilizzare questo modulo per creare stime utilizzando un modello di raccomandazione con training basato sull'algoritmo SVD (Single value Decomposition).
 
 SVD Recommender può generare due tipi diversi di stime:
 
@@ -91,7 +91,7 @@ Per consigliare gli elementi per gli utenti, è necessario fornire un elenco di 
 
 5. **Numero massimo di elementi da consigliare a un utente**: immettere il numero di elementi da restituire per ogni utente. Per impostazione predefinita, il modulo consiglia cinque elementi.
 
-6. **Dimensioni minime del pool di raccomandazioni per utente**: immettere un valore che indichi il numero di raccomandazioni precedenti richieste. Per impostazione predefinita, questo parametro è impostato su **2**, ovvero almeno altri due utenti hanno raccomandato l'elemento.
+6. **Dimensioni minime del pool di raccomandazioni per utente**: immettere un valore che indichi il numero di raccomandazioni precedenti richieste. Per impostazione predefinita, questo parametro è impostato su 2, ovvero almeno altri due utenti hanno raccomandato l'elemento.
 
    Usare questa opzione solo se si esegue il punteggio in modalità di valutazione. L'opzione non è disponibile se si seleziona **da tutti gli elementi** o **da elementi non classificati (per suggerire nuovi elementi agli utenti)** .
 
@@ -116,7 +116,7 @@ Il set di dati con punteggio restituito da Score SVD Recommender elenca gli elem
 
 Se si dispone di una pipeline con il SVD Recommender e si sposta il modello nell'ambiente di produzione, tenere presente che esistono differenze principali tra l'uso del raccomandazione in modalità di valutazione e l'uso in modalità di produzione.
 
-La valutazione, per definizione, richiede stime che possono essere verificate rispetto alla *verità di base* in un set di test. Quando si valuta il sistema di raccomandazione, è necessario stimare solo gli elementi che sono stati classificati nel set di test. In questo modo si limitano i valori possibili stimati.
+La valutazione, per definizione, richiede stime che possono essere verificate rispetto a *dati verificati* in un set di test. Quando si valuta il sistema di raccomandazione, è necessario stimare solo gli elementi che sono stati classificati nel set di test. In questo modo si limitano i valori possibili stimati.
 
 Quando si rendere operativo il modello, in genere si modifica la modalità di stima per creare consigli in base a tutti i possibili elementi, in modo da ottenere le stime migliori. Per molte di queste stime, non esiste una verità di base corrispondente. Pertanto, l'accuratezza della raccomandazione non può essere verificata nello stesso modo in cui avviene durante le operazioni della pipeline.
 

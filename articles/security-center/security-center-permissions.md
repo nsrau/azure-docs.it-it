@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: f52d518d2ed1dfb62eed72cf9c0b839a37b7f856
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201652"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921318"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -29,8 +29,8 @@ Centro sicurezza consente di valutare la configurazione delle risorse per identi
 
 Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
-* **Ruolo con autorizzazioni di lettura per la sicurezza**: un utente che appartiene a questo ruolo ha i diritti di visualizzazione nel Centro sicurezza. L'utente può visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non può apportare modifiche.
-* **Amministratore della sicurezza**: un utente che appartiene a questo ruolo ha gli stessi diritti del Ruolo con autorizzazioni di lettura per la sicurezza e può anche aggiornare i criteri di sicurezza e rimuovere gli avvisi e le raccomandazioni.
+* **Ruolo con autorizzazioni di lettura per la sicurezza**: un utente che appartiene a questo ruolo dispone dei diritti di visualizzazione nel Centro sicurezza. L'utente può visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non può apportare modifiche.
+* **Amministratore della protezione**: un utente che appartiene a questo ruolo ha gli stessi diritti del Ruolo con autorizzazioni di lettura per la sicurezza e può anche aggiornare i criteri di sicurezza e rimuovere gli avvisi e le raccomandazioni.
 
 > [!NOTE]
 > I ruoli di sicurezza, Ruolo con autorizzazioni di lettura per la sicurezza e Amministratore della protezione, hanno accesso solo al Centro sicurezza. I ruoli di sicurezza non hanno accesso ad altre aree del servizio di Azure come Archiviazione, Web e dispositivi mobili o Internet delle cose.
@@ -39,17 +39,17 @@ Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
 ## <a name="roles-and-allowed-actions"></a>Ruoli e azioni consentite
 
-La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza. Un simbolo X indica che l'azione è consentita per il ruolo.
+La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 
-| Role | Modificare i criteri di sicurezza | Applicare i suggerimenti per la sicurezza per una risorsa | Ignorare gli avvisi e le raccomandazioni | Visualizzare gli avvisi e le raccomandazioni |
+| Ruolo | Modificare i criteri di sicurezza | Applicare i suggerimenti per la sicurezza per una risorsa</br> (incluso con ' correzione rapida!') | Ignorare gli avvisi e le raccomandazioni | Visualizzare gli avvisi e le raccomandazioni |
 |:--- |:---:|:---:|:---:|:---:|
-| Proprietario della sottoscrizione | x | X | X | x |
-| Collaboratore alla sottoscrizione | -- | x | X | x |
-| Proprietario del gruppo di risorse | -- | x | -- | x |
-| Collaboratore del gruppo di risorse | -- | x | -- | x |
-| Lettore | -- | -- | -- | x |
-| Amministratore della protezione | x | -- | X | x |
-| Ruolo con autorizzazioni di lettura per la sicurezza | -- | -- | -- | x |
+| Proprietario della sottoscrizione | ✔ | ✔ | ✔ | ✔ |
+| Collaboratore alla sottoscrizione | -- | ✔ | ✔ | ✔ |
+| Proprietario del gruppo di risorse | -- | ✔ | -- | ✔ |
+| Collaboratore del gruppo di risorse | -- | ✔ | -- | ✔ |
+| Reader | -- | -- | -- | ✔ |
+| Amministratore della sicurezza | ✔ | -- | ✔ | ✔ |
+| Ruolo con autorizzazioni di lettura per la sicurezza | -- | -- | -- | ✔ |
 
 > [!NOTE]
 > È consigliabile assegnare il ruolo con il minor numero di autorizzazioni che permetta agli utenti di completare le attività. Assegnare ad esempio il ruolo di lettore agli utenti che devono visualizzare solo le informazioni sull'integrità della sicurezza di una risorsa, ma non eseguono alcuna azione, come l'applicazione di consigli e la modifica di criteri.

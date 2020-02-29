@@ -11,11 +11,11 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1717897261404a2ab8df723c280c9be6a2dacea4
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: b45277c89193c51f70836bcef8a21636fc9c7973
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 02/28/2020
 ms.locfileid: "77196134"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitazioni di Collaborazione B2B di Azure AD
@@ -32,22 +32,6 @@ Azure AD B2B è soggetta ai limiti del servizio directory di Azure AD. Per infor
 
 ## <a name="national-clouds"></a>Cloud nazionali
 I [cloud nazionali](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) sono istanze fisicamente isolate di Azure. La collaborazione B2B non è supportata nei limiti del cloud nazionale. Ad esempio, se il tenant di Azure si trova in un cloud globale pubblico, non è possibile invitare un utente il cui account si trova in un cloud nazionale. Per collaborare con l'utente, richiedere un altro indirizzo di posta elettronica o creare un account utente membro nella directory.
-
-## <a name="azure-us-government-clouds"></a>Cloud del governo degli Stati Uniti di Azure
-Nel cloud del governo degli Stati Uniti di Azure, la collaborazione B2B è attualmente supportata solo tra i tenant che si trovano nel Cloud Azure per enti pubblici statunitensi e che supportano la collaborazione B2B. Se si invita un utente in un tenant che non fa parte del cloud del governo degli Stati Uniti di Azure o che non supporta ancora la collaborazione B2B, l'invito non riuscirà o l'utente non sarà in grado di riscattare l'invito. Per informazioni dettagliate su altre limitazioni, vedere [Azure Active Directory Premium le varianti P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
-
-### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Come è possibile stabilire se la collaborazione B2B è disponibile nel tenant di Azure per il governo degli Stati Uniti?
-Per sapere se il tenant cloud del governo degli Stati Uniti di Azure supporta la collaborazione B2B, seguire questa procedura:
-
-1. In un browser passare all'URL seguente, sostituendo il nome del tenant per *&lt;tenantname&gt;* :
-
-   `https://login.microsoftonline.com/<tenantname>/v2.0/.well-known/openid-configuration`
-
-2. Trovare `"tenant_region_scope"` nella risposta JSON:
-
-   - Se `"tenant_region_scope":"USGOV”` viene visualizzato, B2B è supportato.
-   - Se `"tenant_region_scope":"USG"` viene visualizzato, B2B non è supportato.
- 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

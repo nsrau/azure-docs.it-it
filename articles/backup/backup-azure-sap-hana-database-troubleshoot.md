@@ -3,12 +3,12 @@ title: Risolvere gli errori di backup SAP HANA database
 description: Viene descritto come risolvere gli errori comuni che possono verificarsi quando si usa backup di Azure per eseguire il backup di SAP HANA database.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 8872cfe87df9b8d0553d777f72fe7102d08dea4d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664599"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916864"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi di backup di database SAP HANA in Azure
 
@@ -16,9 +16,16 @@ Questo articolo fornisce informazioni sulla risoluzione dei problemi per il back
 
 ## <a name="prerequisites-and-permissions"></a>Prerequisiti e autorizzazioni
 
-Vedere le sezioni [prerequisiti](tutorial-backup-sap-hana-db.md#prerequisites) e [impostazione delle autorizzazioni](tutorial-backup-sap-hana-db.md#setting-up-permissions) prima di configurare i backup.
+Per informazioni sui [prerequisiti](tutorial-backup-sap-hana-db.md#prerequisites) e [sullo script di pre-registrazione](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) , vedere le sezioni precedenti alla configurazione dei backup.
 
 ## <a name="common-user-errors"></a>Errori utente comuni
+
+### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
+
+| **Messaggio di errore**      | <span style="font-weight:normal">Backup di Azure non dispone dei privilegi di ruolo necessari per eseguire il backup</span>    |
+| ---------------------- | ------------------------------------------------------------ |
+| **Possibili cause**    | È possibile che il ruolo sia stato sovrascritto.                          |
+| **Azione consigliata** | Per risolvere il problema, eseguire lo script dal riquadro **Discover DB** o scaricarlo [qui](https://aka.ms/scriptforpermsonhana). In alternativa, aggiungere il ruolo "SAP_INTERNAL_HANA_SUPPORT" all'utente di backup del carico di lavoro (AZUREWLBACKUPHANAUSER). |
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 

@@ -2,19 +2,19 @@
 title: Serie EV3 e serie Esv3-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali serie EV3 e Esv3.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 41b3997a9271a113a8d89f47d3a79d93bc13f92c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: aad4610a44c59ed95cf1ad9777329097886c5bed
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493748"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164373"
 ---
-# <a name="ev3-and-esv3-series"></a>Serie EV3 e Esv3
+# <a name="ev3-and-esv3-series"></a>Serie Ev3 e Esv3
 
 Le serie EV3 e Esv3 includono il processore Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) in una configurazione con Hyper-Threading, offrendo una proposta di valore migliore per la maggior parte dei carichi di lavoro per uso generico e portando la EV3 per l'allineamento con le VM per utilizzo generico della maggior parte degli altri cloud.  La memoria è stata estesa (da 7 GiB/vCPU a 8 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading. La serie Ev3 rappresenta un passo avanti rispetto alle dimensioni delle macchine virtuali con memoria elevata delle famiglie D/Dv2.
 
@@ -31,6 +31,10 @@ Unità di calcolo di Azure: 160-190
 Archiviazione Premium: non supportata
 
 Caching archiviazione Premium: non supportato
+
+Live Migration: supportato
+
+Aggiornamenti con mantenimento della memoria: supportati
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Larghezza di banda della rete/scheda NIC max |
 |---|---|---|---|---|---|---|
@@ -59,6 +63,10 @@ Unità di calcolo di Azure: 160-190
 Archiviazione Premium: supportata
 
 Caching archiviazione Premium: supportato
+
+Live Migration: supportato
+
+Aggiornamenti con mantenimento della memoria: supportati
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|

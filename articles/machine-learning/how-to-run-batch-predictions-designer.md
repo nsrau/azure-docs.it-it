@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: peterlu
 author: peterclu
-ms.date: 01/13/2020
+ms.date: 02/24/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 95a3c1b892cacd802f359fdc03de74fa60a1e118
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: fdda35d3a617a30169748f4f6b42c8726e7e3512
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138114"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920689"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning (anteprima)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Questo articolo illustra come usare la finestra di progettazione per creare una pipeline di stima batch. La stima in batch consente di assegnare in modo continuo un punteggio di set di caratteri di grandi dimensioni su richiesta usando un servizio Web che può essere attivato da qualsiasi libreria HTTP.
 
@@ -31,7 +31,7 @@ In questa procedura viene illustrato come eseguire le attività seguenti:
 
 Per informazioni su come configurare i servizi di assegnazione dei punteggi in batch usando l'SDK, vedere le [procedure](how-to-run-batch-predictions.md)associate.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 In questa procedura si presuppone che sia già presente una pipeline di training. Per un'introduzione guidata alla finestra di progettazione, completare la [prima parte dell'esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md). 
 

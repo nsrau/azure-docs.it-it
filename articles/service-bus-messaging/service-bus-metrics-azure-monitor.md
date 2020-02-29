@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 329b930c950ea7c58bdac798fce51af152aa8ff3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773539"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920604"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in monitoraggio di Azure
 
@@ -60,7 +60,7 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 Conta il numero di richieste di operazioni di dati e gestione.
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 | Richieste in ingresso| Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Richieste riuscite|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
@@ -78,7 +78,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 ## <a name="message-metrics"></a>Metriche per i messaggi
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 |Messaggi in ingresso|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Messaggi in uscita|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
@@ -87,9 +87,16 @@ I due tipi di errori seguenti sono classificati come errori utente:
 | Messaggi non recapitabili| Numero di messaggi non recapitabili in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/>Dimensione: EntityName |
 | Messaggi pianificati| Numero di messaggi pianificati in una coda o un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media  <br/> Dimensione: EntityName |
 
+> [!NOTE]
+> I valori per le metriche seguenti sono valori temporizzati. I messaggi in arrivo utilizzati immediatamente dopo tale temporizzazione potrebbero non essere riportati in queste metriche. 
+> - Messaggi
+> - Messaggi attivi 
+> - Messaggi non recapitabili 
+> - Messaggi pianificati 
+
 ## <a name="connection-metrics"></a>Metriche di connessione
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 |ActiveConnections|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 
@@ -98,7 +105,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 > [!NOTE] 
 > Le metriche seguenti sono disponibili solo con il livello **Premium**. 
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 |Uso della CPU per spazio dei nomi|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: percentuale <br/> Tipo di aggregazione: massimo <br/> Dimensione: EntityName|
 |Uso delle dimensioni della memoria per spazio dei nomi|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: percentuale <br/> Tipo di aggregazione: massimo <br/> Dimensione: EntityName|
@@ -107,7 +114,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono le dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
 
-|Nome della dimensione|Description|
+|Nome della dimensione|Descrizione|
 | ------------------- | ----------------- |
 |EntityName| Il bus di servizio supporta le entità di messaggistica nello spazio dei nomi.|
 

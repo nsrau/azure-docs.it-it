@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485081"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913260"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -256,14 +256,14 @@ Applicazione Azure gateway usa i cookie gestiti del gateway per gestire le sessi
 
 Questa funzionalità è utile quando si desidera conservare una sessione utente sullo stesso server e quando lo stato della sessione viene salvato localmente nel server per una sessione utente. Se l'applicazione non è in grado di gestire l'affinità basata su cookie, non è possibile usare questa funzionalità. Per usarlo, assicurarsi che i client supportino i cookie.
 
-A partire dal **17 febbraio 2020**, l'aggiornamento di [Chromium](https://www.chromium.org/Home) [V80](https://chromiumdash.appspot.com/schedule) fornisce un mandato in cui i cookie HTTP senza attributo navigava sullostesso sito devono essere considerati navigava sullostesso sito = LAX. Se il cookie deve essere inviato in un contesto di terze parti, in caso di richieste di condivisione risorse tra le origini (CORS), deve usare "navigava sullostesso sito = None; Proteggere gli attributi e deve essere inviati solo tramite HTTPS. In caso contrario, in uno scenario solo HTTP, il browser non invierà i cookie nel contesto di terze parti. L'obiettivo di questo aggiornamento di Chrome è quello di migliorare la sicurezza ed evitare attacchi di richiesta intersito falsa (CSRF). 
+L' [aggiornamento V80](https://chromiumdash.appspot.com/schedule) del [browser Chromium](https://www.chromium.org/Home) ha introdotto un mandato in cui i cookie HTTP senza attributo [navigava sullostesso sito](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) devono essere considerati navigava sullostesso sito = LAX. Se il cookie deve essere inviato in un contesto di terze parti, nel caso di richieste di condivisione risorse tra le origini (CORS), deve usare *navigava sullostesso sito = None; Proteggere* gli attributi e deve essere inviati solo tramite HTTPS. In caso contrario, in uno scenario solo HTTP, il browser non invia i cookie nel contesto di terze parti. L'obiettivo di questo aggiornamento di Chrome è quello di migliorare la sicurezza ed evitare attacchi di richiesta intersito falsa (CSRF). 
 
-Per supportare questa modifica, il gateway applicazione (tutti i tipi di SKU) inserirà un altro cookie identico denominato **ApplicationGatewayAffinityCORS** , oltre al cookie **ApplicationGatewayAffinity** esistente, che è simile, ma il cookie avrà ora altri due attributi **"navigava sullostesso sito = None; Sicurezza "** aggiunta in modo che la sessione appiccicosa possa essere mantenuta anche per le richieste tra origini.
+Per supportare questa modifica, a partire dal 17 febbraio 2020, il gateway applicazione (tutti i tipi di SKU) inserirà un altro cookie denominato *ApplicationGatewayAffinityCORS* oltre al cookie *ApplicationGatewayAffinity* esistente. Al cookie *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi ( *"navigava sullostesso sito = None; Secure "* ) in modo che la sessione appiccicosa venga mantenuta anche per le richieste tra origini.
 
-Si noti che il nome del cookie di affinità predefinito è **ApplicationGatewayAffinity** e può essere modificato dagli utenti. Se si usa un nome di cookie di affinità personalizzato, verrà aggiunto un cookie aggiuntivo con CORS come suffisso, ad esempio **CustomCookieNameCORS**.
+Si noti che il nome del cookie di affinità predefinito è *ApplicationGatewayAffinity* ed è possibile modificarlo. Se si usa un nome di cookie di affinità personalizzato, viene aggiunto un cookie aggiuntivo con CORS come suffisso. Ad esempio, *CustomCookieNameCORS*.
 
 > [!NOTE]
-> È obbligatorio che se l'attributo **navigava sullostesso sito = None** è impostato, il cookie deve contenere anche il flag **Secure** e deve essere inviato tramite **https**. Quindi, se è necessaria l'affinità di sessione su CORS, è necessario eseguire la migrazione del carico di lavoro a HTTPS. Per un gateway applicazione, vedere l'articolo relativo all'offload SSL e alla documentazione SSL end-to-end per il gateway applicazione: [Panoramica](ssl-overview.md), [procedure per la configurazione dell'offload SSL](create-ssl-portal.md), [procedure per la configurazione di SSL end-to-end](end-to-end-ssl-portal.md).
+> Se l'attributo *navigava sullostesso sito = None* è impostato, è obbligatorio che il cookie contenga anche il flag *Secure* e che sia necessario inviarlo tramite HTTPS.  Se è necessaria l'affinità di sessione su CORS, è necessario eseguire la migrazione del carico di lavoro a HTTPS. Per un gateway applicazione, vedere l'articolo relativo all'offload SSL e alla documentazione SSL end-to-end per il gateway applicazione: [Panoramica](ssl-overview.md), [procedure per la configurazione dell'offload SSL](create-ssl-portal.md), [procedure per la configurazione di SSL end-to-end](end-to-end-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Esaurimento delle connessioni
 

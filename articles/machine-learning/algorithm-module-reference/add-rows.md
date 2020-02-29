@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 71f15d959bf9d42e67cd7c35ca91d6cd2caa718d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 7787a765bf48adc15f4675c6c03ff3d04fa388c6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152466"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918496"
 ---
 # <a name="add-rows-module"></a>Modulo Aggiungi righe
 
@@ -32,7 +32,7 @@ La concatenazione delle righe è utile in scenari come quelli seguenti:
 
 Per concatenare le righe di due set di impostazioni, è necessario che le righe includano esattamente lo stesso schema. Ciò significa che lo stesso numero di colonne e lo stesso tipo di dati nelle colonne.
 
-1.  Trascinare il modulo **Aggiungi righe** nella pipeline, che può essere trovato in **trasformazione dati**nella categoria **modifica** .
+1.  Trascinare il modulo **Aggiungi righe** nella pipeline, che può essere trovato in **trasformazione dati**.
 
 2. Collegare i set di dati alle due porte di input. Il set di dati che si desidera aggiungere deve essere collegato alla seconda porta (destra). 
   

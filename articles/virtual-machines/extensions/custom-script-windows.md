@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 80b13cb9a926837604e2a10fed75b976ba3393b6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bf4c7e9fc623ad7dc74b6da943232d5c558d43a4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934910"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920264"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -23,7 +23,7 @@ L'estensione script personalizzata scarica ed esegue script sulle macchine virtu
 
 Questo documento descrive come usare l'estensione di script personalizzata con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 > [!NOTE]  
 > Non usare l'estensione script personalizzata per eseguire Update-AzVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
@@ -42,7 +42,7 @@ Se è necessario scaricare uno script esternamente, ad esempio da GitHub o da ar
 
 Se lo script si trova in un server locale, potrebbe essere necessario aprire altre porte del gruppo di sicurezza di rete e del firewall.
 
-### <a name="tips-and-tricks"></a>suggerimenti e consigli
+### <a name="tips-and-tricks"></a>Suggerimenti e consigli
 
 * Il tasso di errore più elevato per questa estensione è dovuto a errori di sintassi nello script, testare l'esecuzione dello script senza errori e anche inserire altre attività di accesso nello script per semplificare la ricerca della posizione in cui si è verificato l'errore.
 * Scrivere script idempotente. In questo modo si garantisce che, in caso di esecuzione accidentale, non provocherà modifiche al sistema.
@@ -115,7 +115,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | apiVersion | 2015-06-15 | Data |
 | publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
-| typeHandlerVersion | 1,10 | int |
+| typeHandlerVersion | 1,10 | INT |
 | fileUris (es.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp  (esempio) | 123456789 | Intero a 32 bit |
 | commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
@@ -274,6 +274,8 @@ Per distribuire l'estensione di script personalizzato in un set di scalabilità,
 
 ## <a name="classic-vms"></a>Macchine virtuali classiche
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Per distribuire l'estensione di script personalizzati nelle VM classiche, è possibile usare i cmdlet di portale di Azure o i Azure PowerShell classici.
 
 ### <a name="azure-portal"></a>Portale di Azure
@@ -304,7 +306,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente:
 

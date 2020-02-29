@@ -2,17 +2,17 @@
 title: Serie NVv3-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie NVv3.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: a353abe8cdedb01138c8b633750b90bd9870e5d2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 42c11ed41ca4d84f1acf137bbb681a2dbe24dfe2
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666880"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161908"
 ---
 # <a name="nvv3-series"></a>Serie NVv3
 
@@ -21,6 +21,10 @@ Le macchine virtuali della serie NVv3 sono basate su GPU [NVIDIA Tesla M60](http
 Ogni GPU nelle istanze di NVv3 viene fornita con una licenza GRID. Questa licenza consente di usare un'istanza NV come workstation virtuale per un singolo utente oppure consente a 25 utenti simultanei di connettersi a una macchina virtuale per uno scenario di applicazione virtuale.
 
 Caching archiviazione Premium: supportato
+
+Live Migration: non supportato
+
+Aggiornamenti con mantenimento della memoria: non supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max | Workstation virtuali | Applicazioni virtuali |
 |---|---|---|---|---|---|---|---|---|---|---|

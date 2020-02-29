@@ -8,20 +8,28 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77068436"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912572"
 ---
+## <a name="what-is-the-time-required-for-migration"></a>Qual è il tempo necessario per la migrazione?
+
+La pianificazione e l'esecuzione della migrazione variano notevolmente a seconda della complessità dell'architettura e possono richiedere un paio di mesi.  
+
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Qual è la definizione di un nuovo cliente in macchine virtuali IaaS (classico)?
+
+I clienti che non hanno macchine virtuali IaaS (classico) nelle sottoscrizioni del mese di febbraio 2020 (un mese prima dell'avvio della deprecazione) vengono considerati nuovi clienti. 
+
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Il piano di migrazione influisce sui servizi o sulle applicazioni esistenti in esecuzione nelle macchine virtuali di Azure? 
 
-No. Le VM (classiche) sono servizi completamente supportati con disponibilità generale. È possibile continuare a usare queste risorse per sfruttare meglio la presenza su Microsoft Azure.
+Non fino al 1 ° marzo 2023 per le macchine virtuali IaaS (classico). Le macchine virtuali IaaS (classiche) sono servizi completamente supportati in disponibilità generale. È possibile continuare a usare queste risorse per sfruttare meglio la presenza su Microsoft Azure. Il 1 ° marzo 2023 queste VM verranno ritirate completamente e tutte le macchine virtuali attive o allocate verranno arrestate & deallocate. Non vi sarà alcun effetto sulle altre risorse classiche come servizi cloud (versione classica), account di archiviazione (classico) e così via.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Che cosa accade alle macchine virtuali se non è prevista la migrazione a breve? 
 
-Le API classiche e il modello di risorse classico non saranno deprecati. L'obiettivo è quello di semplificare la migrazione, tenendo conto delle funzionalità avanzate disponibili nel modello di distribuzione di Resource Manager. È quindi consigliabile esaminare [alcuni dei miglioramenti](../articles/azure-resource-manager/management/deployment-models.md) apportati come parte di IaaS in Resource Manager.
+Il 1 ° marzo 2023, le VM IaaS (classico) verranno ritirate completamente e tutte le macchine virtuali attive o allocate verranno arrestate & deallocate. Per evitare un impatto aziendale, si consiglia vivamente di iniziare a pianificare la migrazione oggi e completarla prima del 1 ° marzo 2023. Non sono state deprecate le API classiche, i servizi cloud e il modello di risorse esistenti. L'obiettivo è quello di semplificare la migrazione, tenendo conto delle funzionalità avanzate disponibili nel modello di distribuzione di Resource Manager. Si consiglia di iniziare a pianificare la migrazione di queste risorse in Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>Qual è l'impatto di questo piano di migrazione per gli strumenti esistenti? 
 
@@ -37,7 +45,7 @@ Dipende dal numero di risorse sottoposte a migrazione. Per le distribuzioni di d
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>È possibile eseguire il rollback della migrazione in caso di esito negativo dell'operazione di commit? 
 
-Non è possibile interrompere la migrazione in caso di esito negativo dell'operazione di commit. Tutte le operazioni di migrazione, inclusa l'operazione Commit, sono idempotenti. È quindi consigliabile provare a ripetere l'operazione dopo breve tempo. Se il problema persiste, creare un ticket di supporto o creare un post del forum su [Microsoft Q & a](https://docs.microsoft.com/answers/index.html).
+Non è possibile interrompere la migrazione in caso di esito negativo dell'operazione di commit. Tutte le operazioni di migrazione, inclusa l'operazione Commit, sono idempotenti. È quindi consigliabile provare a ripetere l'operazione dopo breve tempo. Se si riscontra ancora un errore, creare un ticket di supporto.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>In caso si debba usare le risorse IaaS in Resource Manager, è necessario acquistare un altro circuito ExpressRoute? 
 
@@ -52,7 +60,7 @@ Durante la migrazione le risorse si trasformano dal modello di distribuzione cla
 Quando si sposta una macchina virtuale dalla modalità classica a quella Gestione risorse, i backup eseguiti prima della migrazione non vengono migrati alla macchina virtuale di Gestione risorse appena migrata. Tuttavia, se si vogliono conservare i backup delle macchine virtuali classiche, seguire questi passaggi prima della migrazione. 
 
 1. Nell'insieme di credenziali di Servizi di ripristino passare alla scheda **Elementi protetti** e selezionare la macchina virtuale. 
-2. Fare clic su Arresta protezione dati. Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
+2. Fare clic su Arresta protezione. Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
 
 > [!NOTE]
 > I costi dell'istanza di backup verranno addebitati finché si conserveranno i dati. Le copie di backup saranno eliminate in base all'intervallo di conservazione. Tuttavia, l'ultima copia di backup viene sempre mantenuta finché non si eliminano in modo esplicito i dati di backup. È consigliabile controllare l'intervallo di conservazione della macchina virtuale e attivare "Eliminare i dati di backup" sull'elemento protetto nell'insieme di credenziali al termine del periodo di conservazione. 

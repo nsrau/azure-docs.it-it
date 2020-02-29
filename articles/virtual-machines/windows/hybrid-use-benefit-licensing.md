@@ -13,28 +13,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461167"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911789"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Server consente di usare le licenze di Windows Server locali e di eseguire macchine virtuali di Windows in Azure a costi ridotti. È possibile usare il vantaggio Azure Hybrid per Windows Server per distribuire nuove macchine virtuali con il sistema operativo Windows. Questo articolo illustra la procedura necessaria per distribuire nuove macchine virtuali con il vantaggio Azure Hybrid per Windows Server e per aggiornare le macchine virtuali in esecuzione esistenti. Per altre informazioni sulle licenze e i risparmi associati al vantaggio Azure Hybrid per Windows Server, vedere la pagina sulle [licenze disponibili per il vantaggio Azure Hybrid per Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-> [!Important]
-> Ogni licenza con due processori oppure ogni set di licenze con 16 core ha diritto a due istanze di un massimo di 8 core o a un'istanza di un massimo di 16 core. Il vantaggio Azure Hybrid per le licenze per l'edizione Standard può essere usato solo una volta in locale o in Azure. I vantaggi dell'edizione Datacenter permettono l'utilizzo simultaneo in locale e in Azure.
->
+Ogni licenza con due processori oppure ogni set di licenze con 16 core ha diritto a due istanze di un massimo di 8 core o a un'istanza di un massimo di 16 core. Il vantaggio Azure Hybrid per le licenze per l'edizione Standard può essere usato solo una volta in locale o in Azure. I vantaggi dell'edizione Datacenter permettono l'utilizzo simultaneo in locale e in Azure.
 
-> [!Important]
-> L'utilizzo del vantaggio Azure Hybrid per Windows Server con qualsiasi macchina virtuale che esegue il sistema operativo Windows Server è ora supportato in tutte le regioni, incluse le macchine virtuali con software aggiuntivo come SQL Server o un software di terze parti del marketplace. 
->
+L'utilizzo del vantaggio Azure Hybrid per Windows Server con qualsiasi macchina virtuale che esegue il sistema operativo Windows Server è ora supportato in tutte le regioni, incluse le macchine virtuali con software aggiuntivo come SQL Server o un software di terze parti del marketplace. 
 
-> [!NOTE]
-> Per le macchine virtuali classiche, è supportata solo la distribuzione di una nuova macchina virtuale da immagini locali personalizzate. Per usufruire delle funzionalità illustrate in questo articolo, è necessario prima eseguire la migrazione delle macchine virtuali classiche al modello Resource Manager.
->
 
+## <a name="classic-vms"></a>Macchine virtuali classiche
+
+Per le macchine virtuali classiche, è supportata solo la distribuzione di una nuova macchina virtuale da immagini locali personalizzate. Per usufruire delle funzionalità illustrate in questo articolo, è necessario prima eseguire la migrazione delle macchine virtuali classiche al modello Resource Manager.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Modalità di utilizzo del vantaggio Azure Hybrid per Windows Server
@@ -64,7 +62,7 @@ New-AzVm `
     -LicenseType "Windows_Server"
 ```
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
@@ -110,7 +108,7 @@ Nel pannello della macchina virtuale del portale è possibile aggiornare la macc
     Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 - Convertire una macchina virtuale Windows Server esistente affinché usi il vantaggio Azure Hybrid per Windows Server
 
     ```azurecli
@@ -143,7 +141,7 @@ Location                 : westus
 LicenseType              :
 ```
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Windows_Server']" -o table
 ```
@@ -164,7 +162,7 @@ $vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 ```azurecli
 az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```

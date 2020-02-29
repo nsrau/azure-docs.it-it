@@ -5,21 +5,21 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
-ms.translationtype: HT
+ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147921"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911815"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usare il portale di Azure per amministrare Azure Data Box
 
 Le esercitazioni in questo articolo si applicano a Microsoft Azure Data Box Disk in anteprima. Questo articolo illustra alcuni flussi di lavoro e attività di gestione complessi che è possibile eseguire in Data Box Disk. 
 
-È possibile gestire Data Box Disk tramite il portale di Azure. Questo articolo è incentrato sulle attività che è possibile eseguire usando il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire i dischi e tenere traccia dello stato dell'ordine mano a mano che procede verso il completamento.
+È possibile gestire Data Box Disk tramite il portale di Azure. Questo articolo è incentrato sulle attività che è possibile eseguire con il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire i dischi e tenere traccia dello stato dell'ordine mano a mano che procede verso il completamento.
 
 ## <a name="cancel-an-order"></a>Annullare un ordine
 
@@ -119,16 +119,16 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 
 ## <a name="view-order-status"></a>Visualizzare lo stato dell'ordine
 
-|Stato dell'ordine |DESCRIZIONE |
+|Stato dell'ordine |Descrizione |
 |---------|---------|
-|Ordinato     | L'ordine è stato effettuato. <br> Se i dischi non sono disponibili, viene inviata una notifica. <br>Se i dischi sono disponibili, Microsoft identifica un disco per la spedizione e prepara l'imballaggio del disco.        |
-|Elaborato     | L'elaborazione dell'ordine è stata completata. <br> Durante l'elaborazione dell'ordine si verificano le azioni seguenti:<li>I dischi vengono crittografati usando la crittografia BitLocker AES-128. </li> <li>Data Box Disk viene bloccato per impedire eventuali accessi non autorizzati.</li><li>Durante questo processo viene generata la passkey che sblocca i dischi.</li>        |
+|Ordinato     | L'ordine è stato effettuato. <br> Se i dischi non sono disponibili, si riceverà una notifica. <br>Se i dischi sono disponibili, Microsoft identifica un disco per la spedizione e prepara l'imballaggio del disco.        |
+|Elaborato     | L'elaborazione dell'ordine è stata completata. <br> Durante l'elaborazione dell'ordine si verificano le azioni seguenti:<li>I dischi vengono crittografati con crittografia BitLocker AES-128. </li> <li>Data Box Disk viene bloccato per impedire eventuali accessi non autorizzati.</li><li>Durante questo processo viene generata la passkey che sblocca i dischi.</li>        |
 |Spedito     | L'ordine è stato spedito. Si dovrebbe ricevere l'ordine in 1-2 giorni.        |
 |Recapitato     | L'ordine è stato recapitato all'indirizzo specificato.        |
 |Ritirato     |La spedizione di ritorno è stata ritirata. <br> Dopo che la spedizione è stata ricevuta dal data center di Azure, i dati vengono caricati automaticamente in Azure.         |
 |Ricevuto     | I dischi sono stati ricevuti nel data center di Azure. La copia dei dati inizierà a breve.        |
 |Dati copiati     |La copia dei dati è in corso.<br> Attendere il completamento della copia dei dati.         |
-|Completed       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
+|Completi       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
 |Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori. <br> Esaminare i log degli errori per il caricamento usando il percorso specificato nella **Panoramica**. Per altre informazioni, passare a [Scaricare i log di errori di caricamento](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine.     |
 

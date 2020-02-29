@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.date: 02/24/2020
+ms.openlocfilehash: a665ee97f923620bb484243d5cd4904a647969e4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137539"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917434"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -25,7 +25,8 @@ Utilizzare questo modulo per misurare l'accuratezza di un modello sottoposto a t
  Le metriche restituite dal **modello di valutazione** dipendono dal tipo di modello che si sta valutando:  
   
 -   **Modelli di classificazione**    
--   **Modelli di regressione**    
+-   **Modelli di regressione**  
+-   **Modelli di clustering**  
 
 
 > [!TIP]
@@ -72,7 +73,7 @@ Il modello o i dati collegati alla porta sinistra vengono presentati per primi n
 
 Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due modelli di clustering basati sugli stessi dati, ma con parametri diversi.  
 
-![Comparing2Models&#95;AML](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![Comparing2Models](media/module/evaluate-2-models.png)  
 
 Poiché si tratta di un modello di clustering, i risultati della valutazione sono diversi rispetto a quelli di due modelli di regressione oppure a confrontati due modelli di classificazione. Tuttavia, la presentazione complessiva è la stessa. 
 
@@ -82,10 +83,11 @@ In questa sezione vengono descritte le metriche restituite per i tipi specifici 
 
 + [modelli di classificazione](#metrics-for-classification-models)
 + [modelli di regressione](#metrics-for-regression-models)
++ [modelli di clustering](#metrics-for-clustering-models)
 
 ### <a name="metrics-for-classification-models"></a>Metriche per i modelli di classificazione
 
-Quando si valutano i modelli di classificazione, vengono restituite le metriche seguenti. Se si confrontano i modelli, vengono classificati in base alla metrica selezionata per la valutazione.  
+Quando si valutano i modelli di classificazione, vengono restituite le metriche seguenti.
   
 -   L' **accuratezza** misura la bontà di un modello di classificazione come la percentuale di risultati reali al numero totale di case.  
   
@@ -105,7 +107,7 @@ Quando si valutano i modelli di classificazione, vengono restituite le metriche 
  
 Le metriche restituite per i modelli di regressione sono progettate per stimare la quantità di errori.  Un modello viene considerato adatto ai dati anche se la differenza tra i valori osservati e quelli stimati è ridotta. Tuttavia, l'analisi del modello dei residui (la differenza tra un punto stimato e il valore effettivo corrispondente) può indicare una grande quantità di potenziali distorsioni nel modello.  
   
- Per la valutazione dei modelli di regressione vengono restituite le metriche seguenti. Quando si confrontano i modelli, vengono classificati in base alla metrica selezionata per la valutazione.  
+ Per la valutazione dei modelli di regressione vengono restituite le metriche seguenti.
   
 - **Errore assoluto medio (Mae)** consente di misurare la distanza tra le stime e i risultati effettivi; un punteggio più basso è quindi migliore.  
   
@@ -118,6 +120,30 @@ Le metriche restituite per i modelli di regressione sono progettate per stimare 
 
   
 - Il **coefficiente di determinazione**, spesso definito R<sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile usare l'attenzione per interpretare i valori di R<sup>2</sup> , in quanto i valori bassi possono essere completamente normali e i valori elevati possono essere sospetti.
+
+###  <a name="metrics-for-clustering-models"></a>Metriche per i modelli di clustering
+
+Poiché i modelli di clustering differiscono significativamente dai modelli di classificazione e regressione in molti aspetti, [Evaluate Model](evaluate-model.md) restituisce anche un set di statistiche diverso per i modelli di clustering.  
+  
+ Le statistiche restituite per un modello di clustering descrivono il numero di punti dati assegnati a ogni cluster, la quantità di separazione tra i cluster e il modo in cui i punti dati vengono raggruppati all'interno di ogni cluster.  
+  
+ Le statistiche per il modello di clustering vengono calcolate in base all'intero set di dati, con righe aggiuntive contenenti le statistiche per ogni cluster.  
+  
+Per la valutazione dei modelli di clustering vengono restituite le metriche seguenti.
+    
+-   I punteggi nella colonna, la **distanza media da un altro centro**, rappresentano la chiusura, in media, di ogni punto del cluster verso il centroidi di tutti gli altri cluster.   
+
+-   I punteggi della colonna, ovvero la **distanza media dal centro cluster**, rappresentano la chiusura di tutti i punti di un cluster al centro del cluster.  
+  
+-   Nella colonna **numero di punti** è indicato il numero di punti dati assegnati a ogni cluster, insieme al numero complessivo totale di punti dati in qualsiasi cluster.  
+  
+     Se il numero di punti dati assegnati ai cluster è inferiore al numero totale di punti dati disponibili, significa che non è stato possibile assegnare i punti dati a un cluster.  
+  
+-   I punteggi nella colonna, **distanza massima da cluster Center**, rappresentano la somma delle distanze tra ogni punto e il baricentro del cluster del punto.  
+  
+     Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. È consigliabile esaminare questa statistica insieme alla **distanza media da cluster Center** per determinare la distribuzione del cluster.   
+
+-   Il Punteggio di **valutazione combinato** nella parte inferiore di ogni sezione dei risultati elenca i punteggi medi per i cluster creati in quel particolare modello.  
   
 
 ## <a name="next-steps"></a>Passaggi successivi

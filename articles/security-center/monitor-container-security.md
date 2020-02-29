@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
-ms.openlocfilehash: d208629ee29bb9102f16fcb1d541677bd4a4d5fa
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431566"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919533"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Monitoraggio della sicurezza dei contenitori
 
@@ -29,7 +29,7 @@ Il Centro sicurezza di Azure illustra i tre aspetti seguenti della sicurezza del
 
 - Protezione **avanzata dei cluster di servizi Kubernetes di Azure** : il Centro sicurezza fornisce consigli quando rileva vulnerabilità nella configurazione dei cluster di servizi Kubernetes di Azure. Per informazioni dettagliate sulle raccomandazioni specifiche che possono essere visualizzate, vedere le raccomandazioni per il [servizio Kubernetes](recommendations-reference.md#recs-containers).
 
-- **Protezione in fase di esecuzione** : se si usa il piano tariffario standard del Centro sicurezza, si otterrà il rilevamento delle minacce in tempo reale per gli ambienti in contenitori. Il Centro sicurezza genera avvisi per le attività sospette a livello di host e del cluster AKS. Per informazioni dettagliate sugli avvisi di sicurezza pertinenti che potrebbero essere visualizzati, vedere gli avvisi [per i cluster del servizio Kubernetes di Azure](alerts-reference.md#alerts-akscluster) e gli [avvisi per i contenitori-](alerts-reference.md#alerts-containerhost) sezioni a livello di host della tabella di riferimento degli avvisi.
+- **Protezione in fase di esecuzione** : se si usa il piano tariffario standard del Centro sicurezza, si otterrà la protezione dalle minacce in tempo reale per gli ambienti in contenitori. Il Centro sicurezza genera avvisi per le attività sospette a livello di host e del cluster AKS. Per informazioni dettagliate sugli avvisi di sicurezza pertinenti che potrebbero essere visualizzati, vedere gli avvisi [per i cluster del servizio Kubernetes di Azure](alerts-reference.md#alerts-akscluster) e gli [avvisi per i contenitori-](alerts-reference.md#alerts-containerhost) sezioni a livello di host della tabella di riferimento degli avvisi.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Analisi dei registri di contenitori basati su ARM per le vulnerabilità 
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f6286f0a9c15b8089ff5ce9d6f3879b40aceaef
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 631266f983886e3ca34d609b425f8a71b808b39f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033151"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919397"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU NVIDIA sulle macchine virtuali serie N eseguite in Windows 
 
@@ -47,13 +47,13 @@ Si noti che il pannello di controllo NVIDIA è accessibile solo con l'installazi
 
 ![Proprietà del driver GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Per controllare lo stato del dispositivo GPU, eseguire l'utilità della riga di comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installata con il driver.
+Per eseguire una query sullo stato del dispositivo GPU, eseguire l'utilità della riga di comando [smi nvidia](https://developer.nvidia.com/nvidia-system-management-interface) installata con il driver.
 
 1. Aprire un prompt dei comandi e passare alla directory **C:\Programmi\NVIDIA Corporation\NVSMI**.
 
 2. Eseguire `nvidia-smi`. Se il driver è installato, l'output sarà simile al seguente. **GPU-Util** mostra **0%** a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro di GPU. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
 
-![Stato dei dispositivi NVIDIA](./media/n-series-driver-setup/smi.png)  
+![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>Connettività di rete RDMA
 
@@ -63,7 +63,7 @@ Per installare l'ultima versione 1.1 dell'estensione HpcVMDrivers in una VM esis
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale per Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale per Windows](extensions-features.md).
 
 La rete RDMA supporta il traffico Message Passing Interface (MPI) per le applicazioni in esecuzione con [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) o Intel MPI 5. x. 
 

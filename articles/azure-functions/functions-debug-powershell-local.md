@@ -6,18 +6,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 36d15858e1fb535189891303a89b00021027f1e8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227032"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163761"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Eseguire il debug di funzioni di Azure PowerShell in locale
 
 Funzioni di Azure consente di sviluppare funzioni come script di PowerShell.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 È possibile eseguire il debug delle funzioni di PowerShell in locale come tutti gli script di PowerShell usando gli strumenti di sviluppo standard seguenti:
 
@@ -120,7 +118,7 @@ Verificare che `Wait-Debugger` sia impostato nella funzione in cui si desidera a
 
 Scegliere il riquadro **debug** e quindi **connettersi alla funzione PowerShell**.
 
-![Debugger](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
+![debugger](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
 
 È anche possibile premere il tasto F5 per avviare il debug.
 

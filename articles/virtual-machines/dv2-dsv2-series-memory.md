@@ -2,17 +2,17 @@
 title: VM con ottimizzazione per la memoria dv2 e serie DSv2-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali serie dv2 e DSv2.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 1ba13733fdf5cf8aa83cbf71a23d013bf4ae90d4
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 66e415070e60676df5602078aff50c7b68920f1e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493787"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914042"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Dv2 con ottimizzazione per la memoria e serie Dsv2
 

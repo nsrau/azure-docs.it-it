@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 89772bea818a0ebb57135990b3a04fcb559e2716
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b99827ff9fd01c7179a25fafd05bfc8e4ef8ae63
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664933"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921097"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
@@ -20,7 +20,7 @@ L'inserimento di flussi è destinato a scenari che richiedono una bassa latenza 
 
 Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la quantità di dati aumenta fino a un massimo di 1 MB al secondo per tabella. Per ulteriori informazioni sui vari metodi di inserimento, vedere [Cenni preliminari](/azure/data-explorer/ingest-data-overview) sull'inserimento di dati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Accedere all' [interfaccia utente Web](https://dataexplorer.azure.com/).
@@ -80,7 +80,7 @@ Sono disponibili due tipi di inserimento di flussi supportati:
 
 L'inserimento di flussi non supporta le funzionalità seguenti:
 * [Cursori del database](/azure/kusto/management/databasecursor).
-* [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/tables#create-ingestion-mapping) . 
+* [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/create-ingestion-mapping-command) . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

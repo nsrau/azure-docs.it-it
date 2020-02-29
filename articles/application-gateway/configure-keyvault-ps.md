@@ -6,18 +6,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 746e9f08a75ece18199d5a72bb532873be787f50
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2f7eafc6fc1533bd837fae60dd3b9673f6f97aa8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592273"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913022"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurare la terminazione SSL con Key Vault certificati utilizzando Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere i segreti, le chiavi e i certificati SSL. Applicazione Azure gateway supporta l'integrazione con Key Vault (in anteprima pubblica) per i certificati del server collegati ai listener abilitati per HTTPS. Questo supporto è limitato allo SKU V2 del gateway applicazione.
+[Azure Key Vault](../key-vault/key-vault-overview.md) è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere i segreti, le chiavi e i certificati SSL. Applicazione Azure gateway supporta l'integrazione con Key Vault per i certificati del server collegati ai listener abilitati per HTTPS. Questo supporto è limitato allo SKU del gateway applicazione V2.
 
 Per ulteriori informazioni, vedere [terminazione SSL con Key Vault Certificates](key-vault-certs.md).
 

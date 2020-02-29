@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 02/06/2020
-ms.openlocfilehash: 5f9e15b83c36c6c19fbe93c5f1df365f6f763c81
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/28/2020
+ms.openlocfilehash: 701e279e349bdc3b92d5b5c2dc50e23199f9d766
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187676"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160812"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurare un runtime di integrazione self-hosted come proxy per un Azure-SSIS IR in Azure Data Factory
 
@@ -165,7 +165,7 @@ La seconda attività di gestione temporanea eseguita nel Azure-SSIS IR non viene
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Attualmente sono supportate solo le attività flusso di dati con Open Database Connectivity (ODBC), OLEDB o le gestioni connessioni file flat e ODBC, OLEDB e origini file flat o la destinazione OLEDB. 
+- Attualmente sono supportate solo le attività flusso di dati con Open Database Connectivity (ODBC), OLEDB o le gestioni connessioni file flat e ODBC, OLEDB o origini file flat. 
 - Attualmente sono supportati solo i servizi collegati di archiviazione BLOB di Azure configurati con la *chiave dell'account*, *l'URI della firma di accesso condiviso*o l'autenticazione dell' *entità servizio* .
 
 ## <a name="next-steps"></a>Passaggi successivi

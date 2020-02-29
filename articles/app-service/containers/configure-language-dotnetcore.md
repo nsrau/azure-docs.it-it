@@ -4,12 +4,12 @@ description: Informazioni su come configurare un contenitore ASP.NET Core predef
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: cab99b9d20ce8a3190eb9aa59650dab32fca324d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 30cd6ad1b5516eb3bc7e858ae364a88ace1b93b3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768419"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917631"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurare un'app Linux ASP.NET Core per app Azure servizio
 
@@ -38,6 +38,28 @@ Eseguire il comando seguente nella [cloud Shell](https://shell.azure.com) per im
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
+
+## <a name="customize-build-automation"></a>Personalizzare l'automazione della compilazione
+
+Se si distribuisce l'app usando i pacchetti git o zip con l'automazione della compilazione attivata, l'automazione della compilazione del servizio app esegue la sequenza seguente:
+
+1. Eseguire uno script personalizzato se specificato da `PRE_BUILD_SCRIPT_PATH`.
+1. Eseguire `dotnet restore` per ripristinare le dipendenze NuGet.
+1. Eseguire `dotnet publish` per compilare un file binario per la produzione.
+1. Eseguire uno script personalizzato se specificato da `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` sono variabili di ambiente vuote per impostazione predefinita. Per eseguire i comandi di pre-compilazione, definire `PRE_BUILD_COMMAND`. Per eseguire i comandi post-compilazione, definire `POST_BUILD_COMMAND`.
+
+Nell'esempio seguente vengono specificate le due variabili a una serie di comandi, separate da virgole.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Per altre variabili di ambiente per personalizzare l'automazione della compilazione, vedere [configurazione di Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di app ASP.NET Core in Linux, vedere [la documentazione di Oryx: come vengono rilevate e compilate le app .NET Core](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
@@ -82,7 +104,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve essere in grado di verificare se le richieste utente sono crittografate o meno, configurare il middleware delle intestazioni in *Startup.cs*:
 
-- Configurare il middleware con [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) per l'inoltro delle intestazioni `X-Forwarded-For` e `X-Forwarded-Proto` in `Startup.ConfigureServices`.
+- Configurare il middleware con [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) per l'invio delle intestazioni `X-Forwarded-For` e `X-Forwarded-Proto` in `Startup.ConfigureServices`.
 - Aggiungere gli intervalli di indirizzi IP privati alle reti note, in modo che il middleware possa considerare attendibile il servizio di bilanciamento del carico del servizio app.
 - Richiamare il metodo [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) in `Startup.Configure` prima di chiamare altri middleware.
 
@@ -113,7 +135,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Per altre informazioni, vedere [Configurare ASP.NET Core per l'utilizzo di server proxy e servizi di bilanciamento del carico](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+Per altre informazioni, vedere [configurare ASP.NET Core per lavorare con i server proxy e i bilanciamenti del carico](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ## <a name="deploy-multi-project-solutions"></a>Distribuire soluzioni per più progetti
 

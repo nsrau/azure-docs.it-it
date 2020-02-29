@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2baa82bda1f92fe81bb0db69b84e6865b2709e42
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058043"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921412"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
@@ -31,7 +31,7 @@ Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli es
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Il cluster non supporta le dimensioni della VM richieste
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Ripetere la richiesta usando una VM di dimensioni inferiori.
 - Se le dimensioni della VM richieste non possono essere modificate:
     - Arrestare tutte le VM nel set di disponibilità. Fare clic su **Gruppi di risorse** > il proprio gruppo di risorse > **Risorse** > il proprio set di disponibilità > **Macchine virtuali** > la propria macchina virtuale > **Arresta**.
@@ -40,7 +40,7 @@ Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli es
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Il cluster non ha risorse disponibili
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Ripetere la richiesta più tardi.
 - Se la nuova VM può far parte di un set di disponibilità diverso
     - Creare una VM in un altro set di disponibilità nella stessa area.
@@ -88,7 +88,7 @@ I driver per le macchine virtuali basate su Windows si trovano [qui](../windows/
 
 Per usufruire delle funzionalità GPU delle VM serie N di Azure che eseguono Windows Server 2016 o Windows Server 2012 R2, è necessario installare i driver della scheda grafica NVIDIA in ciascuna VM dopo la distribuzione. Le informazioni di configurazione dei driver sono disponibili anche per le [VM Windows](../windows/n-series-driver-setup.md) e le [VM Linux](../linux/n-series-driver-setup.md).
 
-## <a name="is-n-series-vms-available-in-my-region"></a>Le VM serie N sono disponibili nell'area di appartenenza?
+## <a name="is-n-series-vms-available-in-my-region"></a>Le VM Serie N sono disponibili nella mia area?
 
 È possibile controllare la disponibilità nella tabella [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services) e verificare i prezzi [qui](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 
@@ -106,6 +106,8 @@ In questo [articolo](../windows/client-images.md) sono descritti i requisiti di 
 Quando una VM è in esecuzione, viene distribuita su un server fisico. I server fisici nelle aree di Azure sono raggruppati in cluster di hardware fisico comune. Il ridimensionamento di una VM che ne richiede lo spostamento in un cluster hardware diverso varia a seconda del modello usato per la distribuzione della VM.
 
 - Nel caso delle VM distribuite con il modello di distribuzione classica è necessario rimuovere e ripetere la distribuzione del servizio cloud per impostare le VM su dimensioni appartenenti a un'altra famiglia di dimensioni.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 - Nel caso delle VM distribuite con il modello di distribuzione di Gestione risorse, prima di modificare le dimensioni di una VM è necessario arrestare tutte le VM del set di disponibilità.
 

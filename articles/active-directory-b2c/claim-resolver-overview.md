@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 97e51331657c62094996f79483148f2f441e6a44
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425647"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161602"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
 | {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1033 |
-| {Culture:RegionName} | Codice ISO di due lettere per la regione. | US |
+| {Culture:RegionName} | Codice ISO di due lettere per la regione. | Stati Uniti |
 | {Culture:RFC5646} | Codice RFC5646 della lingua. | it-IT |
 
 ### <a name="policy"></a>Policy
@@ -70,11 +70,12 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {OIDC:ClientId} |Parametro di stringa di query `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametro di stringa di query `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  Parametro di stringa di query `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | Lo `max_age`. | N/D |
+| {OIDC:MaxAge} | `max_age`. | N/D |
 | {OIDC:Nonce} |Parametro di stringa di query `Nonce`. | defaultNonce |
 | {OIDC:Prompt} | Parametro di stringa di query `prompt`. | login |
 | {OIDC:Resource} |Parametro di stringa di query `resource`. | N/D |
 | {OIDC:scope} |Parametro di stringa di query `scope`. | openid |
+| {OIDC: RedirectUri} |Parametro di stringa di query `redirect_uri`. | https://jwt.ms |
 
 ### <a name="context"></a>Context
 
@@ -85,7 +86,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Context:DateTimeInUtc} |Data e ora in formato UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |Modalità di distribuzione dei criteri.  | Produzione |
 | {Context:IPAddress} | Indirizzo IP utente. | 11.111.111.11 |
-
+| {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  true |
 
 ### <a name="non-protocol-parameters"></a>Parametri non di protocollo
 

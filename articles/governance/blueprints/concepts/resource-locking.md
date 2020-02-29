@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco nei progetti di Azure per proteggere le risorse quando si assegna un progetto.
-ms.date: 04/24/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057346"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919873"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -33,6 +33,56 @@ Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati
 È in genere possibile che a un utente con [controllo degli accessi in base al ruolo](../../../role-based-access-control/overview.md) (RBAC) appropriato per la sottoscrizione, ad esempio il ruolo "Proprietario", sia consentito di modificare o eliminare qualsiasi risorsa. Questo tipo di accesso non è appropriato quando si applica il blocco ai progetti come parte di un'assegnazione distribuita. Se l'assegnazione è stata impostata con l'opzione **Sola lettura**  o **Non eliminare**, nemmeno il proprietario della sottoscrizione può eseguire l'azione bloccata sulla risorsa protetta.
 
 Questa misura di sicurezza salvaguarda la coerenza del progetto definito e l'ambiente che è stato progettato per creare a partire da eliminazioni accidentali o programmatiche.
+
+### <a name="assign-at-management-group"></a>Assegna al gruppo di gestione
+
+Un'opzione aggiuntiva per impedire ai proprietari della sottoscrizione di rimuovere l'assegnazione di un progetto consiste nell'assegnare il progetto a un gruppo di gestione. In questo scenario solo i **proprietari** del gruppo di gestione dispongono delle autorizzazioni necessarie per rimuovere l'assegnazione del progetto.
+
+Per assegnare il progetto a un gruppo di gestione invece che a una sottoscrizione, la chiamata dell'API REST cambia per essere simile alla seguente:
+
+```http
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
+```
+
+Il gruppo di gestione definito da `{assignmentMG}` deve trovarsi all'interno della gerarchia del gruppo di gestione o essere lo stesso gruppo di gestione in cui viene salvata la definizione del progetto.
+
+Il corpo della richiesta dell'assegnazione del progetto ha un aspetto simile al seguente:
+
+```json
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "location": "eastus",
+    "properties": {
+        "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+        "blueprintId": "/providers/Microsoft.Management/managementGroups/{blueprintMG}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+        "scope": "/subscriptions/{targetSubscriptionId}",
+        "parameters": {
+            "storageAccountType": {
+                "value": "Standard_LRS"
+            },
+            "costCenter": {
+                "value": "Contoso/Online/Shopping/Production"
+            },
+            "owners": {
+                "value": [
+                    "johnDoe@contoso.com",
+                    "johnsteam@contoso.com"
+                ]
+            }
+        },
+        "resourceGroups": {
+            "storageRG": {
+                "name": "defaultRG",
+                "location": "eastus"
+            }
+        }
+    }
+}
+```
+
+La differenza principale tra questo corpo della richiesta e l'altra da assegnare a una sottoscrizione è la proprietà `properties.scope`. Questa proprietà obbligatoria deve essere impostata sulla sottoscrizione a cui si applica l'assegnazione del progetto. La sottoscrizione deve essere un figlio diretto della gerarchia del gruppo di gestione in cui è archiviata l'assegnazione del progetto.
 
 ## <a name="removing-locking-states"></a>Eliminazione degli stati di blocco
 
@@ -61,7 +111,7 @@ Le [proprietà di assegnazione Deny](../../../role-based-access-control/deny-ass
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Escludere un'entità da un'assegnazione di negazione
 
-In alcuni scenari di progettazione o di sicurezza, potrebbe essere necessario escludere un'entità dall' [assegnazione di negazione](../../../role-based-access-control/deny-assignments.md) creata dall'assegnazione del progetto. Questa operazione viene eseguita nell'API REST aggiungendo fino a cinque valori alla matrice **excludedPrincipals** nella proprietà **Locks** durante la [creazione dell'assegnazione](/rest/api/blueprints/assignments/createorupdate). Questo è un esempio di corpo della richiesta che include **excludedPrincipals**:
+In alcuni scenari di progettazione o di sicurezza, potrebbe essere necessario escludere un'entità dall' [assegnazione di negazione](../../../role-based-access-control/deny-assignments.md) creata dall'assegnazione del progetto. Questo passaggio viene eseguito nell'API REST aggiungendo fino a cinque valori alla matrice **excludedPrincipals** nella proprietà **Locks** durante la [creazione dell'assegnazione](/rest/api/blueprints/assignments/createorupdate). La definizione di assegnazione seguente è un esempio di corpo della richiesta che include **excludedPrincipals**:
 
 ```json
 {

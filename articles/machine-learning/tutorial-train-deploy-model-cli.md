@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 36d6b0cac0321c989fecbc5751d71c744cd83292
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087033"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920944"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: eseguire il training e distribuire un modello dall'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Si apprenderà a eseguire le operazioni seguenti:
 > * Distribuire il modello come servizio Web
 > * Assegnare punteggi ai dati tramite il servizio Web
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -68,7 +68,7 @@ La directory `examples/cli-train-deploy` dal progetto contiene i file seguenti, 
 Il repository contiene i file seguenti, che vengono usati per distribuire il modello sottoposto a training come servizio Web:
 
 * `aciDeploymentConfig.yml`: un file di __configurazione della distribuzione__ . Questo file definisce l'ambiente di hosting necessario per il modello.
-* `inferenceConfig.yml`: configuration__ un file di inferenza. Questo file definisce l'ambiente software utilizzato dal servizio per assegnare un punteggio ai dati con il modello.
+* `inferenceConfig.yml`: un file di __configurazione dell'inferenza__ . Questo file definisce l'ambiente software utilizzato dal servizio per assegnare un punteggio ai dati con il modello.
 * `score.py`: uno script Python che accetta i dati in ingresso, li assegna un punteggio utilizzando il modello e quindi restituisce una risposta.
 * `scoring-env.yml`: dipendenze conda necessarie per eseguire il modello e `score.py` script.
 * `testdata.json`: un file di dati che può essere usato per testare il servizio Web distribuito.
@@ -128,7 +128,7 @@ La risposta da questo comando è simile al codice JSON seguente:
 
 Per ulteriori informazioni sull'utilizzo dei gruppi di risorse, vedere [AZ Group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
 
-## <a name="create-a-workspace"></a>Crea area di lavoro
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
 Per creare una nuova area di lavoro, usare il comando seguente. Sostituire `<workspace-name>` con il nome che si desidera utilizzare per questa area di lavoro. Sostituire `<resource-group-name>` con il nome del gruppo di risorse:
 

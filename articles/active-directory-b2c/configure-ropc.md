@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 03ff564848298d31c8bf92169d9e5f66d024d711
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 1d17f9af5700df5458cc4373dfc5cd8fb7774f91
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949185"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912401"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -24,16 +24,7 @@ Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-In Azure Active Directory B2C (Azure AD B2C) sono supportate le opzioni seguenti:
-
-- **Client nativo**: l'interazione dell'utente durante l'autenticazione avviene quando il codice viene eseguito in un dispositivo lato utente. Il dispositivo può essere un'applicazione mobile in esecuzione in un sistema operativo nativo, ad esempio Android e iOS.
-- **Flusso client pubblico**: nella chiamata API vengono inviate solo le credenziali utente, raccolte da un'applicazione. Le credenziali dell'applicazione non vengono inviate.
-- **Aggiunta di nuove attestazioni**: il contenuto del token ID può essere modificato per aggiungere nuove attestazioni.
-
-I flussi seguenti non sono supportati:
-
-- **Da server a server**: il sistema di protezione delle identità richiede un indirizzo IP affidabile raccolto dal chiamante (il client nativo) come parte dell'interazione. In una chiamata API lato server viene usato solo l'indirizzo IP del server. Se viene superata una soglia dinamica di autenticazioni non riuscite, il sistema di protezione delle identità può identificare un indirizzo IP ripetuto come un utente malintenzionato.
-- **Flusso client riservato**: l'ID client dell'applicazione viene convalidato, ma non viene convalidato il segreto dell'applicazione.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Creare un flusso utente per il proprietario della risorsa
 
@@ -65,9 +56,9 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chiave | Value |
+| Chiave | valore |
 | --- | ----- |
-| Nome utente | leadiocl@outlook.com |
+| username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
@@ -105,7 +96,7 @@ Costruire una chiamata POST simile a quella indicata qui con le informazioni rip
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chiave | Value |
+| Chiave | valore |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

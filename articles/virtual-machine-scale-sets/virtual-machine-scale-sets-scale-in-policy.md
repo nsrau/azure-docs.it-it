@@ -1,32 +1,32 @@
 ---
 title: Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure che usano la configurazione di scalabilità automatica per gestire il numero di istanze
-author: avverma
+services: virtual-machine-scale-sets
+author: avirishuv
+manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271771"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919839"
 ---
-# <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Anteprima: usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
+# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
 
 Una distribuzione del set di scalabilità di macchine virtuali può essere scalata orizzontalmente o ridimensionata in base a una matrice di metriche, incluse le metriche personalizzate definite dall'utente e della piattaforma. Mentre una scalabilità orizzontale crea nuove macchine virtuali in base al modello del set di scalabilità, una riduzione influiscono sulle macchine virtuali in esecuzione che possono avere configurazioni e/o funzioni diverse durante l'evoluzione del carico di lavoro del set di scalabilità. 
 
-La funzionalità per i criteri di scalabilità consente agli utenti di configurare l'ordine di ridimensionamento delle macchine virtuali. L'anteprima introduce tre configurazioni con scalabilità orizzontale: 
+La funzionalità per i criteri di scalabilità consente agli utenti di configurare l'ordine in cui le macchine virtuali vengono ridimensionate in base a tre configurazioni con scalabilità orizzontale: 
 
 1. Predefinito
 2. NewestVM
 3. OldestVM
-
-***Questa funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione.***
 
 ### <a name="default-scale-in-policy"></a>Criteri di ridimensionamento predefiniti
 
@@ -54,6 +54,17 @@ Un criterio di ridimensionamento viene definito nel modello del set di scalabili
 
 Un criterio di scalabilità orizzontale può essere definito nel modello di set di scalabilità di macchine virtuali nei modi seguenti:
 
+### <a name="azure-portal"></a>Portale di Azure
+ 
+I passaggi seguenti definiscono i criteri di scalabilità quando si crea un nuovo set di scalabilità. 
+ 
+1. Passare a **set di scalabilità di macchine virtuali**.
+1. Selezionare **+ Aggiungi** per creare un nuovo set di scalabilità.
+1. Passare alla scheda **scalabilità** . 
+1. Individuare la sezione dei **criteri di ridimensionamento** .
+1. Selezionare un criterio di ridimensionamento nell'elenco a discesa.
+1. Al termine della creazione del nuovo set di scalabilità, selezionare il pulsante **Verifica + crea** .
+
 ### <a name="using-api"></a>Uso dell'API
 
 Eseguire un'istruzione PUT sul set di scalabilità di macchine virtuali usando l'API 2019-03-01:
@@ -70,6 +81,33 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 } 
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Creare un gruppo di risorse, quindi creare un nuovo set di scalabilità con i criteri di scalabilità impostati come *OldestVM*.
+
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "<VMSS location>" `
+  -VMScaleSetName "myScaleSet" `
+  -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+
+Nell'esempio seguente viene aggiunto un criterio di scalabilità in durante la creazione di un nuovo set di scalabilità. Creare prima di tutto un gruppo di risorse, quindi creare un nuovo set di scalabilità con i criteri di scalabilità in *OldestVM*. 
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --scale-in-policy OldestVM
 ```
 
 ### <a name="using-template"></a>Uso del modello
@@ -94,6 +132,15 @@ Lo stesso processo si applica quando si usa ' NewestVM ' nei criteri di scalabil
 
 La modifica dei criteri di ridimensionamento segue lo stesso processo di applicazione dei criteri di scalabilità. Se, ad esempio, nell'esempio precedente si desidera modificare il criterio da' OldestVM ' a' NewestVM ', è possibile eseguire questa operazione in base a quanto segue:
 
+### <a name="azure-portal"></a>Portale di Azure
+
+È possibile modificare i criteri di scalabilità di un set di scalabilità esistente tramite il portale di Azure. 
+ 
+1. In un set di scalabilità di macchine virtuali esistente selezionare **scalabilità** dal menu a sinistra.
+1. Selezionare la scheda **criteri di ridimensionamento** .
+1. Selezionare un criterio di ridimensionamento nell'elenco a discesa.
+1. Al termine, selezionare **Salva**. 
+
 ### <a name="using-api"></a>Uso dell'API
 
 Eseguire un'istruzione PUT sul set di scalabilità di macchine virtuali usando l'API 2019-03-01:
@@ -110,6 +157,27 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 }
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Aggiornare i criteri di scalabilità di un set di scalabilità esistente:
+
+```azurepowershell-interactive
+Update-AzVmss `
+ -ResourceGroupName "myResourceGroup" `
+ -VMScaleSetName "myScaleSet" `
+ -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+
+Di seguito è riportato un esempio per l'aggiornamento dei criteri di scalabilità di un set di scalabilità esistente: 
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --scale-in-policy OldestVM
 ```
 
 ### <a name="using-template"></a>Uso del modello
@@ -141,7 +209,7 @@ Gli esempi seguenti illustrano come un set di scalabilità di macchine virtuali 
 
 ### <a name="oldestvm-scale-in-policy"></a>Criteri di ridimensionamento OldestVM
 
-| Evento                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
+| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Ridimensionamento              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Scegliere tra Zona 1 e 2, anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM2 da Zona 2 perché si tratta della macchina virtuale meno recente in tale zona.   |
@@ -155,7 +223,7 @@ Per i set di scalabilità di macchine virtuali non di zona, il criterio selezion
 
 ### <a name="newestvm-scale-in-policy"></a>Criteri di ridimensionamento NewestVM
 
-| Evento                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
+| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Ridimensionamento              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Scegliere tra Zona 1 e 2. Eliminare da VM11 da Zona 2 perché è la macchina virtuale più recente tra le due zone.                                |
@@ -167,9 +235,9 @@ Per i set di scalabilità di macchine virtuali non di zona, il criterio selezion
 
 Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale più recente nel set di scalabilità per l'eliminazione. Eventuali macchine virtuali "protette" verranno ignorate per l'eliminazione. 
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
-1. Errore di abilitazione di scaleInPolicy se viene visualizzato un errore ' richiesta non valida ' con un messaggio di errore che indica che "non è stato possibile trovare il membro ' scaleInPolicy ' nell'oggetto di tipo ' Properties '", quindi controllare la versione dell'API usata per il set di scalabilità di macchine virtuali. Per questa anteprima è richiesta l'API versione 2019-03-01 o successiva.
+1. Errore di abilitazione di scaleInPolicy se viene visualizzato un errore ' richiesta non valida ' con un messaggio di errore che indica che "non è stato possibile trovare il membro ' scaleInPolicy ' nell'oggetto di tipo ' Properties '", quindi controllare la versione dell'API usata per il set di scalabilità di macchine virtuali. Per questa funzionalità è necessaria l'API versione 2019-03-01 o successiva.
 
 2. Selezione errata delle VM per la scalabilità. vedere gli esempi precedenti. Se il set di scalabilità di macchine virtuali è una distribuzione di zona, i criteri di riduzione delle prestazioni vengono applicati per primi alle zone sbilanciate e quindi al set di scalabilità quando viene bilanciato con la zona. Se l'ordine di ridimensionamento non è coerente con gli esempi precedenti, generare una query con il team del set di scalabilità di macchine virtuali per la risoluzione dei problemi.
 

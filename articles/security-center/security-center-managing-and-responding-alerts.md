@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 834a097eb77cc7de2d0a3643bf1499ff7517ddb0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615994"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912274"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestire e rispondere agli avvisi di sicurezza nel centro sicurezza di Azure
 
@@ -67,7 +67,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 
 1. Le fasi di correzione suggerite dal centro sicurezza variano in base all'avviso di sicurezza. Seguirli per ogni avviso. 
 
-    In alcuni casi, per mitigare un avviso di rilevamento delle minacce, potrebbe essere necessario usare altri controlli o servizi di Azure per implementare la correzione consigliata. 
+    In alcuni casi, per mitigare un avviso di sicurezza, potrebbe essere necessario usare altri controlli o servizi di Azure per implementare la correzione consigliata. 
 
     Gli argomenti seguenti illustrano i diversi avvisi in base ai tipi di risorse:
     

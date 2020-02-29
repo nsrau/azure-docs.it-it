@@ -14,34 +14,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: c04b27ab4a8ea53e09ca3a133d6aef6457fe1526
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d2bfe4576a9350e905fc10f3d7617619e6284a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073040"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915487"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale Network Watcher Agent per Linux
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 [Azure Network Watcher](/azure/network-watcher/) è un servizio di monitoraggio delle prestazioni di rete, diagnostica e analisi che consente di monitorare le reti di Azure. L'estensione della macchina virtuale dell'agente Network Watcher è un requisito per alcune funzioni di Network Watcher nelle macchine virtuali di Azure, come l'acquisizione del traffico di rete su richiesta e altre funzionalità avanzate.
 
 Questo articolo descrive in dettaglio le piattaforme e le opzioni di distribuzione supportate per l'estensione macchina virtuale dell'agente Network Watcher per Linux. L'installazione dell'agente non causa l'interruzione, né richiede il riavvio della macchina virtuale. È possibile distribuire l'estensione in macchine virtuali da distribuire. Se la macchina virtuale viene distribuita da un servizio di Azure, vedere la documentazione relativa al servizio per determinare se consente l'installazione di estensioni nella macchina virtuale.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operativo
 
 L'estensione agente Network Watcher può essere configurata nelle distribuzioni di Linux seguenti:
 
-| Distribuzione | Version |
+| Distribuzione | Versione |
 |---|---|
 | Ubuntu | 12+ |
 | Debian | 7 e 8 |
 | Red Hat | 6 e 7 |
 | Oracle Linux | 6.8+ e 7 |
-| SUSE Linux Enterprise Server | 11 e 12 |
+| SuSE Linux Enterprise Server | 11 e 12 |
 | OpenSUSE Leap | 42.3+ |
 | CentOS | 6.5+ e 7 |
 | CoreOS | 899.17.0+ |
@@ -88,6 +88,8 @@ Lo schema JSON seguente illustra lo schema dell'estensione Network Watcher Agent
 
 ## <a name="azure-classic-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando classica di Azure
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 L'esempio seguente consente di distribuire l'estensione macchina virtuale dell'agente Network Watcher in una macchina virtuale esistente distribuita tramite il modello di distribuzione classico:
 
 ```azurecli
@@ -105,21 +107,9 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 ## <a name="troubleshooting-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshooting"></a>Risoluzione dei problemi
+### <a name="troubleshooting"></a>risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati dal portale di Azure o con l'interfaccia della riga di comando di Azure.
-
-L'esempio seguente illustra lo stato della distribuzione delle estensioni per una macchina virtuale distribuita tramite il modello di distribuzione classica, usando l'interfaccia della riga di comando classica di Azure:
-
-```azurecli
-azure config mode asm
-azure vm extension get myVM1
-```
-L'output dell'esecuzione dell'estensione viene registrato nei file presenti nella directory seguente:
-
-```
-/var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-```
 
 L'esempio seguente mostra lo stato di distribuzione dell'estensione NetworkWatcherAgentLinux per una macchina virtuale distribuita attraverso Gestione risorse, usando l'interfaccia della riga di comando di Azure:
 

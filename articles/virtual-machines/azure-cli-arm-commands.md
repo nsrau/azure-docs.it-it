@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 899f453ef67fd094578e946c1cdd9ca4d427bf79
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122446"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919771"
 ---
 # <a name="azure-classic-cli-commands"></a>Comandi CLI di Azure classico 
 
-> [!IMPORTANT]
-> Questo argomento illustra come installare l'interfaccia della riga di comando classica di Azure. L'interfaccia della riga di comando classica è deprecata e deve essere usata solo con il modello di distribuzione classica.
-> Per tutte le altre distribuzioni, usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/).
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
+
+Questo argomento illustra come installare l'interfaccia della riga di comando classica di Azure. L'interfaccia della riga di comando classica è deprecata e deve essere usata solo con il modello di distribuzione classica. Per tutte le altre distribuzioni, usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/).
 
 Questo articolo fornisce la sintassi e le opzioni per i comandi dell'interfaccia della riga di comando di Azure classico usati comunemente per creare e gestire le risorse di Azure. Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. 
 
@@ -306,7 +306,7 @@ Opzioni dei parametri:
 
     insights logs list [options]
 
-## <a name="locations"></a>Posizioni 
+## <a name="locations"></a>Percorsi 
 **Elencare le posizioni disponibili**
 
     location list [options]

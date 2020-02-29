@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775862"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155403"
 ---
 I dischi del sistema operativo temporaneo vengono creati nell'archivio della macchina virtuale (VM) locale e non vengono salvati nell'archiviazione di Azure remota. I dischi del sistema operativo temporaneo funzionano bene per i carichi di lavoro senza stato, in cui le applicazioni sono a tolleranza di singoli errori delle macchine virtuali, ma sono più interessate dal tempo di distribuzione delle VM o dalla ricreazione dell'immagine delle singole istanze Con il disco del sistema operativo temporaneo si ottiene una latenza di lettura/scrittura più bassa per il disco del sistema operativo e una ricreazione più veloce della macchina virtuale 
  
@@ -36,7 +36,7 @@ Differenze principali tra dischi del sistema operativo permanenti e temporanei:
 | Dimensioni delle macchine virtuali supportate          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | Supporto del tipo di disco           | Disco del sistema operativo gestito e non gestito                                                                | Solo disco del sistema operativo gestito                                                               |
 | Supporto di area              | Tutte le aree                                                                                  | Tutte le aree                              |
-| Persistenza dei dati            | I dati del disco del sistema operativo scritti nel disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti nel disco del sistema operativo vengono archiviati nella risorsa di archiviazione locale della macchina virtuale e non vengono salvati in modo permanente in archiviazione di Azure. |
+| Salvataggio permanente dei dati            | I dati del disco del sistema operativo scritti nel disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti nel disco del sistema operativo vengono archiviati nella risorsa di archiviazione locale della macchina virtuale e non vengono salvati in modo permanente in archiviazione di Azure. |
 | Arresta-stato deallocato      | Le macchine virtuali e le istanze del set di scalabilità possono essere arrestate e riavviate dallo stato stop-deallocato | Non è possibile arrestare la deallocazione delle VM e delle istanze del set di scalabilità                                  |
 | Supporto del disco del sistema operativo specializzato | Sì                                                                                          | No                                                                                 |
 | Ridimensionamento del disco del sistema operativo              | Supportato durante la creazione della macchina virtuale e dopo la deallocazione della macchina virtuale                                | Supportato solo durante la creazione della macchina virtuale                                                  |
@@ -44,28 +44,28 @@ Differenze principali tra dischi del sistema operativo permanenti e temporanei:
 
 ## <a name="size-requirements"></a>Requisiti di dimensione
 
-È possibile distribuire le immagini di macchine virtuali e istanze fino alla dimensione della cache VM. Ad esempio, le immagini standard di Windows Server del Marketplace sono circa 127 GiB, il che significa che è necessario disporre di una dimensione della macchina virtuale con una cache maggiore di 127 GiB. In questo caso, il [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) ha una dimensione della cache di 86 GIB, che non è sufficientemente grande. Il Standard_DS3_v2 ha una dimensione della cache di 172 GiB, che è sufficientemente grande. In questo caso, Standard_DS3_v2 è la dimensione più piccola nella serie DSv2 che è possibile usare con questa immagine. Le immagini Linux di base nel Marketplace e le immagini di Windows Server che sono indicate `[smallsize]` da tendono a essere circa 30 GiB e possono usare la maggior parte delle dimensioni disponibili per le macchine virtuali.
+È possibile distribuire le immagini di macchine virtuali e istanze fino alla dimensione della cache VM. Ad esempio, le immagini standard di Windows Server del Marketplace sono circa 127 GiB, il che significa che è necessario disporre di una dimensione della macchina virtuale con una cache maggiore di 127 GiB. In questo caso, il [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) ha una dimensione della cache di 86 GIB, che non è sufficientemente grande. Il Standard_DS3_v2 ha una dimensione della cache di 172 GiB, che è sufficientemente grande. In questo caso, il Standard_DS3_v2 è la dimensione minima della serie DSv2 che è possibile usare con questa immagine. Le immagini Linux di base nel Marketplace e le immagini di Windows Server indicate da `[smallsize]` tendono a essere circa 30 GiB e possono usare la maggior parte delle dimensioni disponibili per le macchine virtuali.
 
-I dischi temporanei richiedono anche che le dimensioni della VM supportino l'archiviazione Premium. Le dimensioni in genere (ma non sempre) hanno `s` un nel nome, ad esempio DSv2 e EsV3. Per altre informazioni, vedere [dimensioni delle VM di Azure](../articles/virtual-machines/linux/sizes.md) per informazioni dettagliate su quali dimensioni supportano archiviazione Premium.
+I dischi temporanei richiedono anche che le dimensioni della VM supportino l'archiviazione Premium. Le dimensioni in genere (ma non sempre) hanno un `s` nel nome, ad esempio DSv2 e EsV3. Per altre informazioni, vedere [dimensioni delle VM di Azure](../articles/virtual-machines/linux/sizes.md) per informazioni dettagliate su quali dimensioni supportano archiviazione Premium.
 
 ## <a name="powershell"></a>PowerShell
 
-Per usare un disco temporaneo per una distribuzione di VM PowerShell, usare [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) nella configurazione della macchina virtuale. `-DiffDiskSetting` Impostare su `Local` e su`-Caching` . `ReadOnly`     
+Per usare un disco temporaneo per una distribuzione di VM PowerShell, usare [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) nella configurazione della macchina virtuale. Impostare il `-DiffDiskSetting` su `Local` e `-Caching` su `ReadOnly`.     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-Per le distribuzioni di set di scalabilità, usare il cmdlet [set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) nella configurazione. `-DiffDiskSetting` Impostare su `Local` e su`-Caching` . `ReadOnly`
+Per le distribuzioni di set di scalabilità, usare il cmdlet [set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) nella configurazione. Impostare il `-DiffDiskSetting` su `Local` e `-Caching` su `ReadOnly`.
 
 
 ```powershell
 Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 ```
 
-## <a name="cli"></a>Interfaccia della riga di comando
+## <a name="cli"></a>CLI
 
-Per usare un disco temporaneo per una distribuzione di VM CLI, impostare il `--ephemeral-os-disk` parametro in [AZ VM create](/cli/azure/vm#az-vm-create) su `true` e il `--os-disk-caching` parametro su `ReadOnly`.
+Per usare un disco temporaneo per una distribuzione di VM CLI, impostare il parametro `--ephemeral-os-disk` in [AZ VM create](/cli/azure/vm#az-vm-create) su `true` e il parametro `--os-disk-caching` per `ReadOnly`.
 
 ```azurecli-interactive
 az vm create \
@@ -78,7 +78,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Per i set di scalabilità si usa `--ephemeral-os-disk true` lo stesso parametro per [AZ-vmss-create](/cli/azure/vmss#az-vmss-create) e `--os-disk-caching` si imposta `ReadOnly`il parametro su.
+Per i set di scalabilità si usa lo stesso parametro `--ephemeral-os-disk true` per [AZ-vmss-create](/cli/azure/vmss#az-vmss-create) e si imposta il parametro `--os-disk-caching` su `ReadOnly`.
 
 ## <a name="portal"></a>Portale   
 
@@ -93,7 +93,7 @@ Se l'opzione per l'uso di un disco temporaneo è disattivata, è possibile che s
 ![Screenshot che mostra il pulsante di opzione per scegliere di usare un disco del sistema operativo temporaneo per il set di scalabilità](./media/virtual-machines-common-ephemeral/scale-set.png)
 
 ## <a name="scale-set-template-deployment"></a>Distribuzione del modello del set di scalabilità  
-Il processo per creare un set di scalabilità che usa un disco del sistema operativo temporaneo consiste `diffDiskSettings` nell'aggiungere la `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` proprietà al tipo di risorsa nel modello. Inoltre, i criteri di memorizzazione nella cache devono essere `ReadOnly` impostati su per il disco del sistema operativo temporaneo. 
+Il processo per creare un set di scalabilità che usa un disco del sistema operativo temporaneo consiste nell'aggiungere la proprietà `diffDiskSettings` al tipo di risorsa `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` nel modello. Inoltre, i criteri di memorizzazione nella cache devono essere impostati su `ReadOnly` per il disco del sistema operativo temporaneo. 
 
 
 ```json
@@ -137,7 +137,7 @@ Il processo per creare un set di scalabilità che usa un disco del sistema opera
 ```
 
 ## <a name="vm-template-deployment"></a>Distribuzione modello di macchina virtuale 
-È possibile distribuire una macchina virtuale con un disco del sistema operativo temporaneo usando un modello. Il processo di creazione di una VM che usa dischi del sistema operativo temporanei consiste `diffDiskSettings` nell'aggiungere la proprietà al tipo di risorsa Microsoft. Compute/virtualMachines nel modello. Inoltre, i criteri di memorizzazione nella cache devono essere `ReadOnly` impostati su per il disco del sistema operativo temporaneo. 
+È possibile distribuire una macchina virtuale con un disco del sistema operativo temporaneo usando un modello. Il processo di creazione di una VM che usa dischi del sistema operativo temporanei consiste nell'aggiungere la proprietà `diffDiskSettings` al tipo di risorsa Microsoft. Compute/virtualMachines nel modello. Inoltre, i criteri di memorizzazione nella cache devono essere impostati su `ReadOnly` per il disco del sistema operativo temporaneo. 
 
 ```json
 { 
@@ -184,40 +184,40 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
  
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-**D: Qual è la dimensione dei dischi del sistema operativo locale?**
+**D: qual è la dimensione dei dischi del sistema operativo locale?**
 
-R: Sono supportate le piattaforme e le immagini personalizzate, fino alla dimensione della cache della VM, in cui tutte le operazioni di lettura/scrittura nel disco del sistema operativo saranno locali nello stesso nodo della macchina virtuale. 
+R: sono supportate le piattaforme e le immagini personalizzate, fino alla dimensione della cache della VM, in cui tutte le operazioni di lettura/scrittura nel disco del sistema operativo saranno locali nello stesso nodo della macchina virtuale. 
 
-**D: È possibile ridimensionare il disco del sistema operativo temporaneo?**
+**D: è possibile ridimensionare il disco del sistema operativo temporaneo?**
 
 R: No, una volta eseguito il provisioning del disco del sistema operativo temporaneo, il disco del sistema operativo non può essere ridimensionato. 
 
-**D: È possibile aggiungere una Managed Disks a una VM temporanea?**
+**D: è possibile aggiungere una Managed Disks a una VM temporanea?**
 
 R: Sì, è possibile aggiungere un disco dati gestito a una macchina virtuale che usa un disco del sistema operativo temporaneo. 
 
-**D: Tutte le dimensioni delle macchine virtuali saranno supportate per i dischi del sistema operativo temporaneo?**
+**D: tutte le dimensioni delle VM sono supportate per i dischi del sistema operativo temporaneo?**
 
-R: No, sono supportate tutte le dimensioni delle macchine virtuali di archiviazione Premium (DS, ES, FS, GS e M) ad eccezione delle dimensioni serie B, serie N e H.  
+R: No, sono supportate tutte le dimensioni delle macchine virtuali di archiviazione Premium (DS, ES, FS, GS e M) ad eccezione delle dimensioni della serie B, della serie N e della serie H.  
  
-**D: È possibile applicare il disco del sistema operativo temporaneo alle macchine virtuali esistenti e ai set di scalabilità?**
+**D: è possibile applicare il disco del sistema operativo temporaneo alle macchine virtuali esistenti e ai set di scalabilità?**
 
 R: No, il disco del sistema operativo temporaneo può essere usato solo durante la creazione della macchina virtuale e del set di scalabilità. 
 
-**D: È possibile combinare dischi del sistema operativo temporanei e normali in un set di scalabilità?**
+**D: è possibile combinare dischi del sistema operativo temporanei e normali in un set di scalabilità?**
 
 R: No, non è possibile avere una combinazione di istanze del disco del sistema operativo effimere e persistenti nello stesso set di scalabilità. 
 
-**D: È possibile creare il disco del sistema operativo temporaneo usando PowerShell o l'interfaccia della riga di comando?**
+**D: è possibile creare il disco del sistema operativo temporaneo usando PowerShell o l'interfaccia della riga di comando?**
 
 R: Sì, è possibile creare macchine virtuali con disco del sistema operativo temporaneo usando REST, modelli, PowerShell e l'interfaccia della riga di comando.
 
-**D: Quali funzionalità non sono supportate con il disco del sistema operativo temporaneo?**
+**D: quali funzionalità non sono supportate con il disco del sistema operativo temporaneo?**
 
-R: I dischi temporanei non supportano:
+R: i dischi temporanei non supportano:
 - Acquisizione di immagini di VM
 - Snapshot dei dischi 
-- Crittografia dischi di Azure 
+- Azure Disk Encryption 
 - Backup di Azure
 - Azure Site Recovery  
 - Scambio del disco del sistema operativo 

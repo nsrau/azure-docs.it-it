@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: labrenne
-ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: bdf0b3bfc955d8a2e2ce1b363c8699ca719b957c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023039"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919006"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montare un file system virtuale in un pool di batch
 
@@ -89,9 +89,6 @@ Un'altra opzione consiste nell'usare l'archiviazione BLOB di Azure tramite [blob
 
 Oltre alla guida alla risoluzione dei problemi, i problemi di GitHub nel repository blobfuse sono un modo utile per verificare i problemi e le risoluzioni correnti di blobfuse. Per ulteriori informazioni, vedere [blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues).
 
-> [!NOTE]
-> Blobfuse non è attualmente supportato in Debian. Per ulteriori informazioni, vedere [SKU supportati](#supported-skus) .
-
 ```csharp
 new PoolAddParameter
 {
@@ -114,7 +111,7 @@ new PoolAddParameter
 }
 ```
 
-### <a name="network-file-system"></a>File System di rete
+### <a name="network-file-system"></a>NFS (Network File System)
 
 È anche possibile montare i file System di rete (NFS) nei nodi del pool, in modo da consentire l'accesso ai file System tradizionali tramite nodi Azure Batch. Potrebbe trattarsi di un singolo server NFS distribuito nel cloud o di un server NFS locale a cui si accede tramite una rete virtuale. In alternativa, è possibile sfruttare la soluzione per la cache in memoria distribuita [vFXT](../avere-vfxt/avere-vfxt-overview.md) , che offre una connettività senza problemi all'archiviazione locale, alla lettura dei dati su richiesta nella propria cache e offre prestazioni elevate e scalabilità ai nodi di calcolo basati sul cloud.
 
@@ -172,9 +169,10 @@ Per ottenere i file di log per il debug, usare [OutputFiles](batch-task-output-f
 
 | Editore | Offerta | SKU | Condivisione File di Azure | Blobfuse | Montaggio NFS | Montaggio CIFS |
 |---|---|---|---|---|---|---|
-| batch | rendering-centos73 | rendering | :heavy_check_mark: <br>Nota: compatibile con CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| o batch | rendering-centos73 | rendering | :heavy_check_mark: <br>Nota: compatibile con CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16,04-LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Nota: compatibile con CentOS 7,4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>Nota: supporta A_8 o 9 archiviazione</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6faab5bffaddbbd5d8deb9c3834bf3d8fe3e3445
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: becbf88aeda164f7d916cbc1f1ace89262cc1a3f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058653"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921624"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Reimpostare una password di Windows locale per una VM di Azure offline
 È possibile reimpostare la password di Windows locale di una VM in Azure tramite il [portale di Azure o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a condizione che l'agente guest di Azure sia installato. Questo è il metodo principale per reimpostare una password per una VM di Azure. In mancanza di risposta da parte dell'agente guest di Azure, o in caso di errore di installazione dopo il caricamento di un'immagine personalizzata, è possibile reimpostare la password di Windows manualmente. Questo articolo illustra come reimpostare la password di un account locale collegando il disco virtuale del sistema operativo di origine a un'altra VM. I passaggi descritti in questo articolo non si applicano ai controller di dominio Windows. 
@@ -102,6 +102,8 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
 
 ## <a name="detailed-steps-for-classic-vm"></a>Procedura dettagliata per la macchina virtuale classica
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 > [!NOTE]
 > I passaggi non si applicano ai controller di dominio Windows. Si applicano solo a un server autonomo o a un server membro di un dominio.
 
@@ -117,7 +119,7 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
    
    1. Selezionare la VM per la risoluzione dei problemi nel portale di Azure. Fare clic su *Dischi* | *Collega esistente*:
      
-      ![Collega un disco esistente](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
+      ![Collegare un disco esistente](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
    2. Selezionare *File VHD*, quindi scegliere l'account di archiviazione contenente la VM di origine:
      
@@ -135,7 +137,7 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
 
    5. Fare clic su OK per alleghi il disco
 
-      ![Collega un disco esistente](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
+      ![Collegare un disco esistente](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
 
 3. Connettersi alla VM per la risoluzione dei problemi tramite Desktop remoto e assicurarsi che il disco del sistema operativo della VM di origine sia visibile:
 
@@ -147,10 +149,10 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
      
       ![Visualizzare il disco dati collegato](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png)
 
-4. Creare `gpt.ini` in `\Windows\System32\GroupPolicy` nell'unità della VM di origine ( `gpt.ini.bak`se `gpt.ini` esistente, rinominare in):
+4. Creare `gpt.ini` in `\Windows\System32\GroupPolicy` nell'unità della VM di origine (se `gpt.ini` esiste, rinominare in `gpt.ini.bak`):
    
    > [!WARNING]
-   > Assicurarsi di non creare accidentalmente i file seguenti in `C:\Windows`, l'unità del sistema operativo per la macchina virtuale per la risoluzione dei problemi. Creare i seguenti file nell'unità del sistema operativo per la VM di origine collegata come disco dati.
+   > Assicurarsi di non creare accidentalmente i seguenti file in `C:\Windows`, l'unità del sistema operativo per la macchina virtuale per la risoluzione dei problemi. Creare i seguenti file nell'unità del sistema operativo per la VM di origine collegata come disco dati.
    
    * Aggiungere le righe seguenti al file `gpt.ini` creato:
      
@@ -193,9 +195,9 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
    
    2. Selezionare il disco dati collegato nel passaggio 2, fare clic su **Disconnetti**, quindi fare clic su **OK**.
 
-     ![Scollega disco](./media/reset-local-password-without-agent/data-disks-classic.png)
+     ![Scollegare il disco](./media/reset-local-password-without-agent/data-disks-classic.png)
      
-     ![Scollega disco](./media/reset-local-password-without-agent/detach-disk-classic.png)
+     ![Scollegare il disco](./media/reset-local-password-without-agent/detach-disk-classic.png)
 
 8. Creare una VM dal disco del sistema operativo della VM di origine:
    
@@ -211,12 +213,12 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
 
 2. Dalla sessione remota per la nuova VM, rimuovere i file seguenti per pulire l'ambiente:
     
-    * Da`%windir%\System32`
-      * rimuovere`FixAzureVM.cmd`
-    * Da`%windir%\System32\GroupPolicy\Machine\Scripts`
-      * rimuovere`scripts.ini`
-    * Da`%windir%\System32\GroupPolicy`
-      * rimuovere `gpt.ini` (se `gpt.ini` presente in precedenza ed è stato rinominato in `gpt.ini.bak`, rinominare il `.bak` file in `gpt.ini`)
+    * Dai `%windir%\System32`
+      * Rimuovi `FixAzureVM.cmd`
+    * Dai `%windir%\System32\GroupPolicy\Machine\Scripts`
+      * Rimuovi `scripts.ini`
+    * Dai `%windir%\System32\GroupPolicy`
+      * rimuovere `gpt.ini` (se `gpt.ini` esisteva prima di e rinominarla in `gpt.ini.bak`, rinominare il file di `.bak` con `gpt.ini`)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è ancora possibile connettersi tramite Desktop remoto, vedere la [guida alla risoluzione dei problemi di RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). La [guida alla risoluzione dei problemi di RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) esamina i metodi di risoluzione dei problemi anziché i passaggi specifici. È anche possibile [aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/options/) per ricevere un supporto pratico.

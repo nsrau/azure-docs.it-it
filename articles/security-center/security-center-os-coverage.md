@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 39e2deead1affd750d9a5e68985b02ebfe8e0efd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603758"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921301"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -126,4 +126,4 @@ Per altre informazioni sulle funzionalità supportate per l'elenco precedente di
 - Informazioni su come il [Centro sicurezza gestisce e protegge i dati](security-center-data-security.md).
 - Leggere le informazioni su come [pianificare e progettare l'adozione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
 - Informazioni sulle [funzionalità disponibili per i diversi ambienti cloud](security-center-services.md).
-- Altre informazioni sul [rilevamento delle minacce per le macchine virtuali & Server nel centro sicurezza di Azure](security-center-alerts-iaas.md).
+- Scopri di più sulla [protezione dalle minacce per i computer Windows e Linux nel centro sicurezza di Azure](threat-protection.md#windows-machines).

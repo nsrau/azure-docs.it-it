@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561035"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913651"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Migliorare la sintesi con la creazione di contenuto audio
 
@@ -43,7 +43,7 @@ Questo diagramma illustra i passaggi necessari per ottimizzare ed esportare outp
 
 Attenersi alla procedura seguente per creare una risorsa vocale e connetterla con speech studio.
 
-1. Seguire queste istruzioni per [iscriversi per ottenere un account Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) e [creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verificare che il piano tariffario sia impostato su **S0**. Se si usa una delle voci neurali, assicurarsi di creare la risorsa in un' [area supportata](regions.md#standard-and-neural-voices).
+1. Seguire queste istruzioni per [iscriversi per ottenere un account Azure](get-started.md#new-resource) e [creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verificare che il piano tariffario sia impostato su **S0**. Se si usa una delle voci neurali, assicurarsi di creare la risorsa in un' [area supportata](regions.md#standard-and-neural-voices).
 2. Accedere alla [creazione del contenuto audio](https://aka.ms/audiocontentcreation).
 3. Selezionare un progetto esistente oppure fare clic su **Crea nuovo**.
 4. È possibile modificare la sottoscrizione in qualsiasi momento con l'opzione **Impostazioni** , situata nella parte superiore del NAV.

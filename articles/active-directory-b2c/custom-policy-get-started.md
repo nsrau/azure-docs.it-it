@@ -1,5 +1,6 @@
 ---
-title: Introduzione ai criteri personalizzati-Azure Active Directory B2C
+title: Introduzione ai criteri personalizzati
+titleSuffix: Azure AD B2C
 description: Informazioni su come iniziare a usare i criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 02/28/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0e5846dd541e4997c271aee180b3790efa16e9
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 04978b561e3b0057318d08146f344411dec55ee4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114038"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161670"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -23,11 +24,11 @@ ms.locfileid: "77114038"
 
 I [criteri personalizzati](custom-policy-overview.md) sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory B2C (Azure ad B2C). In questo articolo viene creato un criterio personalizzato che supporta l'iscrizione o l'accesso all'account locale tramite un indirizzo di posta elettronica e una password. È inoltre necessario preparare l'ambiente per l'aggiunta di provider di identità.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Se non è già stato fatto, [creare un tenant Azure ad B2C](tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
 - [Registrare l'applicazione](tutorial-register-applications.md) nel tenant creato in modo che possa comunicare con Azure ad B2C.
-- Completare i passaggi descritti in configurare l' [iscrizione e l'accesso con un account Facebook](identity-provider-facebook.md) per configurare un'applicazione Facebook.
+- Completare i passaggi descritti in configurare l' [iscrizione e l'accesso con un account Facebook](identity-provider-facebook.md) per configurare un'applicazione Facebook. Sebbene un'applicazione Facebook non sia necessaria per l'uso di criteri personalizzati, viene usata in questa procedura dettagliata per dimostrare l'abilitazione dell'accesso di social networking in un criterio personalizzato.
 
 ## <a name="add-signing-and-encryption-keys"></a>Aggiungere le chiavi di firma e di crittografia
 
@@ -43,7 +44,7 @@ I [criteri personalizzati](custom-policy-overview.md) sono file di configurazion
 1. In **Nome** immettere `TokenSigningKeyContainer`. È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
 1. Per **Tipo di chiave** selezionare **RSA**.
 1. Per **Uso chiave** selezionare **Firma**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="create-the-encryption-key"></a>Creazione della chiave di crittografia
 
@@ -52,7 +53,7 @@ I [criteri personalizzati](custom-policy-overview.md) sono file di configurazion
 1. In **Nome** immettere `TokenEncryptionKeyContainer`. È possibile che il prefisso `B2C_1A`_ venga aggiunto automaticamente.
 1. Per **Tipo di chiave** selezionare **RSA**.
 1. In **Uso chiave**selezionare **Crittografia**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="create-the-facebook-key"></a>Creazione della chiave Facebook
 
@@ -63,7 +64,7 @@ Aggiungere il [segreto dell'app](identity-provider-facebook.md) di Facebook come
 1. Per **Nome** immettere `FacebookSecret`. È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
 1. In **segreto**immettere il *segreto dell'app* di Facebook da Developers.Facebook.com. Questo valore è il segreto, non l'ID applicazione.
 1. Per **Uso chiave** selezionare **Firma**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrare le applicazioni del framework dell'esperienza di gestione delle identità
 
@@ -75,7 +76,7 @@ Azure AD B2C richiede di registrare due applicazioni che usa per iscriversi e ac
 
 Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **registrazioni app (legacy)** o la nuova esperienza di registrazioni app unificata **(anteprima)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
@@ -84,9 +85,9 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 1. Per **Nome** immettere `IdentityExperienceFramework`.
 1. Per **Tipo di applicazione** scegliere **App Web/API**.
 1. Per **URL di accesso** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il nome di dominio del tenant di Azure AD B2C. Tutti gli URL dovrebbero ora usare [b2clogin.com](b2clogin.md).
-1. Selezionare **Crea**. Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
+1. Selezionare **Create** (Crea). Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
 1. Per **Nome** immettere `IdentityExperienceFramework`.
@@ -110,19 +111,19 @@ Esporre quindi l'API aggiungendo un ambito:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrare l'applicazione ProxyIdentityExperienceFramework
 
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. In **registrazioni app (legacy)** selezionare **registrazione nuova applicazione**.
 1. Per **Nome** immettere `ProxyIdentityExperienceFramework`.
 1. Per **Tipo di applicazione** scegliere **Nativo**.
 1. Per **URI di reindirizzamento** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il tenant di Azure AD B2C.
-1. Selezionare **Crea**. Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
+1. Selezionare **Create** (Crea). Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
 1. Selezionare **Impostazioni**, quindi fare clic su **autorizzazioni necessarie**e quindi selezionare **Aggiungi**.
 1. Scegliere **selezionare un'API**, cercare e selezionare **IdentityExperienceFramework**e quindi fare clic su **Seleziona**.
 1. Selezionare la casella di controllo accanto a **Accesso a IdentityExperienceFramework**, fare clic su **Seleziona** e quindi su **Operazione completata**.
 1. Selezionare **Concedi autorizzazioni**e quindi confermare selezionando **Sì**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
 1. Per **Nome** immettere `ProxyIdentityExperienceFramework`.
@@ -221,6 +222,8 @@ Quando si caricano i file, Azure aggiunge il prefisso `B2C_1A_` a ognuno di essi
 1. Accedere con lo stesso account per verificare che la configurazione sia corretta.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Aggiungere Facebook come provider di identità
+
+Come indicato nei [prerequisiti](#prerequisites), Facebook *non* è necessario per l'uso di criteri personalizzati, ma viene usato qui per dimostrare come è possibile abilitare l'accesso di social networking federato in un criterio personalizzato.
 
 1. Nel file di **`TrustFrameworkExtensions.xml`** `SocialAndLocalAccounts/`sostituire il valore di `client_id` con l'ID dell'applicazione Facebook:
 

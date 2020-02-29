@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f3cb583a3594b14266249ef80f8c49633c1df1de
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152194"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912790"
 ---
 # <a name="linear-regression-module"></a>Modulo di regressione lineare
 Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
@@ -51,17 +51,15 @@ Per gli statistici degli anni sono stati sviluppati metodi sempre più avanzati 
 
 Questo modulo supporta due metodi per adattare un modello di regressione, con diverse opzioni:
 
-+ [Creare un modello di regressione usando la discesa sfumatura online](#bkmk_GradientDescent)
++ [Adattare un modello di regressione usando i quadrati minimi normali](#create-a-regression-model-using-ordinary-least-squares)
+
+    Per i set di impostazioni di piccole dimensioni, è preferibile selezionare i quadrati minimi. Questa operazione dovrebbe dare risultati simili a Excel.
+    
++ [Creare un modello di regressione usando la discesa sfumatura online](#create-a-regression-model-using-online-gradient-descent)
 
     Il metodo dei valori descent con sfumatura rappresenta una funzione di perdita migliore per i modelli più complessi o per i quali sono disponibili pochi dati di training, considerato il numero di variabili.
 
-
-
-+ [Adattare un modello di regressione usando i quadrati minimi normali](#bkmk_OrdinaryLeastSquares)
-
-    Per i set di impostazioni di piccole dimensioni, è preferibile selezionare i quadrati minimi. Questa operazione dovrebbe dare risultati simili a Excel.
-
-## <a name="bkmk_OrdinaryLeastSquares"></a>Creare un modello di regressione usando i quadrati minimi normali
+### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Creare un modello di regressione usando i quadrati minimi normali
 
 1. Aggiungere il modulo **modello di regressione lineare** alla pipeline nella finestra di progettazione.
 
@@ -86,7 +84,7 @@ Questo modulo supporta due metodi per adattare un modello di regressione, con di
 
 8. Eseguire la pipeline.
 
-## <a name="results-for-ordinary-least-squares-model"></a>Risultati per il modello di tipo minimo comune
+### <a name="results-for-ordinary-least-squares-model"></a>Risultati per il modello di tipo minimo comune
 
 Al termine del training:
 
@@ -94,7 +92,7 @@ Al termine del training:
 + Per eseguire stime, connettere il modello sottoposto a training al modulo [Score Model](./score-model.md) , insieme a un set di dati con nuovi valori. 
 
 
-## <a name="bkmk_GradientDescent"></a>Creare un modello di regressione usando la discesa sfumatura online
+### <a name="create-a-regression-model-using-online-gradient-descent"></a>Creare un modello di regressione usando la discesa sfumatura online
 
 1. Aggiungere il modulo **modello di regressione lineare** alla pipeline nella finestra di progettazione.
 
@@ -105,6 +103,8 @@ Al termine del training:
 3. Per la **modalità di creazione**di un trainer, indicare se si desidera eseguire il training del modello con un set di parametri predefinito oppure se si desidera ottimizzare il modello utilizzando uno sweep di parametri.
 
     + **Singolo parametro**: se si sa come si vuole configurare la rete di regressione lineare, è possibile fornire un set di valori specifico come argomenti.
+    
+    + **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
 
    
 4. Per la **velocità di apprendimento**specificare la velocità di apprendimento iniziale per l'utilità di ottimizzazione per la discesa con gradienti stocastici.
@@ -133,7 +133,7 @@ Al termine del training:
 
 13. Eseguire la pipeline.
 
-## <a name="results-for-online-gradient-descent"></a>Risultati per la discesa sfumatura online
+### <a name="results-for-online-gradient-descent"></a>Risultati per la discesa sfumatura online
 
 Al termine del training:
 

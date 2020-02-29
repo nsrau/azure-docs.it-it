@@ -3,12 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Trovare le risposte ad alcune domande comuni sul servizio Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 8586ff1ae22bf188af3705434ed90e064ff33c0f
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1531308a8d0bd5a09952d8ad8ccd03c92f2f99eb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595672"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914603"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -184,7 +184,6 @@ Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è s
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
@@ -203,7 +202,7 @@ Nessun AKS è un servizio gestito e la manipolazione delle risorse IaaS non è s
 [availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
-
+[aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent

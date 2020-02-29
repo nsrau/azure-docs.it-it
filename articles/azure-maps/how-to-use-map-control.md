@@ -8,52 +8,53 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6701d777fb9aa16d3012baba082415bf9858e46f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9bcb0fd26710b5f44ca9e3e3715c40cb32b3c40d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209818"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913941"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di mappe di Azure
 
-La libreria JavaScript lato client del controllo mappa consente di eseguire il rendering delle mappe e delle funzionalità incorporate di Mappe di Azure nelle applicazioni Web e per dispositivi mobili.
+La controllo mappa libreria JavaScript lato client consente di eseguire il rendering delle mappe e della funzionalità embedded di Azure Maps nell'applicazione Web o per dispositivi mobili.
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Creare una nuova mappa in una pagina Web
 
-È possibile incorporare una mappa in una pagina Web usando la libreria JavaScript lato client del controllo mappa.
+È possibile incorporare una mappa in una pagina Web usando la libreria JavaScript lato client controllo mappa.
 
 1. Creare un nuovo file HTML.
 
 2. Caricare Azure Maps Web SDK. È possibile scegliere una delle due opzioni seguenti:
 
-a. Usare la versione CDN di Azure Maps Web SDK ospitata a livello globale aggiungendo gli endpoint dell'URL al foglio di stile e i riferimenti a script nell'elemento `<head>` del file:
+   1. Usare la versione CDN di Azure Maps Web SDK ospitata a livello globale aggiungendo gli endpoint dell'URL al foglio di stile e i riferimenti a script nell'elemento `<head>` del file:
 
-```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-```
+      ```HTML
+       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      ```
 
-b. Caricare il codice sorgente di Azure Maps Web SDK in locale usando il pacchetto NPM di [Azure-Maps-Control](https://www.npmjs.com/package/azure-maps-control) e ospitarlo con l'app. Questo pacchetto include anche le definizioni TypeScript.
+   1. Caricare il codice sorgente di Azure Maps Web SDK in locale usando il pacchetto NPM di [Azure-Maps-Control](https://www.npmjs.com/package/azure-maps-control) e ospitarlo con l'app. Questo pacchetto include anche le definizioni TypeScript.
 
-> **NPM installare Azure-Maps-Control**
+      > **NPM installare Azure-Maps-Control**
 
-Aggiungere quindi i riferimenti alle origini del foglio di stile e dello script di Mappe di Azure all'elemento `<head>` del file:
+   Aggiungere quindi i riferimenti alle origini del foglio di stile e dello script di Mappe di Azure all'elemento `<head>` del file:
 
-```HTML
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
-    <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
-```
+      ```HTML
+       <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+       <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
+      ```
 
-    >[!Note]
-    > Typescript definitions can be imported into your application by adding the following code:
+    > [!Note]
+    > È possibile importare le definizioni typescript nell'applicazione aggiungendo il codice seguente:
+    >
     > ```Javascript
     > import * as atlas from 'azure-maps-control';
     > ```
 
 3. Per eseguire il rendering della mappa in modo che riempia l'intero corpo della pagina, aggiungere l'elemento `<style>` seguente all'elemento `<head>`.
 
-```HTML
+   ```HTML
     <style>
         html, body {
             margin: 0;
@@ -64,23 +65,23 @@ Aggiungere quindi i riferimenti alle origini del foglio di stile e dello script 
             width: 100vw;
         }
     </style>
-```
+   ```
 
 4. Nel corpo della pagina aggiungere un elemento `<div>` e assegnargli un `id`**myMap**.
 
-```HTML
+   ```HTML
     <body>
         <div id="myMap"></div>
     </body>
-```
+   ```
 
 5. Per inizializzare il controllo mappa, definire un nuovo tag script nel corpo HTML. Passare il `id` della `<div>` della mappa o un `HTMLElement` (ad esempio, `document.getElementById('myMap')`) come primo parametro durante la creazione di un'istanza della classe `Map`. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
 
-Se è necessario creare un account o trovare la chiave, seguire le istruzioni in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e [ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
+   Se è necessario creare un account o trovare la chiave, seguire le istruzioni in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e [ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
 
-L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per ulteriori informazioni sulle lingue supportate, vedere [linguaggi supportati](supported-languages.md). Se si utilizza una chiave di sottoscrizione per l'autenticazione, utilizzare quanto segue:
+   L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per ulteriori informazioni sulle lingue supportate, vedere [linguaggi supportati](supported-languages.md). Se si utilizza una chiave di sottoscrizione per l'autenticazione, utilizzare quanto segue:
 
-```HTML
+   ```HTML
     <script type="text/javascript">
         var map = new atlas.Map('myMap', {
             center: [-122.33, 47.6],
@@ -92,11 +93,11 @@ L'opzione **language** specifica la lingua da usare per le etichette e i control
             }
         });
     </script>
- ```
+    ```
 
-Se si usa Azure Active Directory (AAD) per l'autenticazione, usare quanto segue:
+   Se si usa Azure Active Directory (AAD) per l'autenticazione, usare quanto segue:
 
-```HTML
+   ```HTML
     <script type="text/javascript">
         var map = new atlas.Map('myMap', {
             center: [-122.33, 47.6],
@@ -110,25 +111,25 @@ Se si usa Azure Active Directory (AAD) per l'autenticazione, usare quanto segue:
             }
         });
     </script>
-```
+   ```
 
-Un elenco di esempi che illustrano come integrare Azure Active Directory (AAD) con mappe di Azure è disponibile [qui](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
+   Un elenco di esempi che illustrano come integrare Azure Active Directory (AAD) con mappe di Azure è disponibile [qui](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
     
-Per altre informazioni, vedere il documento relativo all' [autenticazione con mappe di Azure](azure-maps-authentication.md) ed [esempi di autenticazione di Azure Maps Azure ad](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
+   Per altre informazioni, vedere il documento relativo all' [autenticazione con mappe di Azure](azure-maps-authentication.md) ed [esempi di autenticazione di Azure Maps Azure ad](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
 
-6. Facoltativamente, è possibile aggiungere gli elementi meta tag seguenti all'inizio della pagina, utile:
+6. Facoltativamente, può risultare utile aggiungere gli elementi di tag meta seguenti all'inizio della pagina:
 
-```HTML
+   ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
     <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
     <!-- Ensures the web page looks good on all screen sizes. -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-```
+   ```
 
-7. riunendola, il file HTML dovrebbe avere un aspetto simile al codice seguente:
+7. L'inserimento di tutti i file HTML dovrebbe avere un aspetto simile al codice seguente:
 
-```HTML
+   ```HTML
     <!DOCTYPE html>
     <html>
     <head>
@@ -174,13 +175,13 @@ Per altre informazioni, vedere il documento relativo all' [autenticazione con ma
         </script>
     </body>
     </html>
- ```
+    ```
 
 8. Aprire il file nel Web browser e visualizzare la mappa di cui è stato eseguito il rendering. Dovrebbe essere simile all'immagine seguente:
 
-![Immagine mappa che mostra il risultato del rendering](./media/how-to-use-map-control/map-of-seattle.png)
+   ![Immagine mappa che mostra il risultato del rendering](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>Localizzare la mappa
+## <a name="localizing-the-map"></a>Localizzazione della mappa
 
 Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione regionale per la mappa di cui è stato eseguito il rendering. La prima opzione consiste nell'aggiungere queste informazioni allo spazio dei nomi `atlas` globale, che determinerà l'impostazione predefinita di tutte le istanze del controllo mappa nell'app. Il codice seguente imposta la lingua in francese ("fr-FR") e la vista regionale su "auto":
 

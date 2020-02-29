@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: 236f79c9060a0d6fdcb0f558373d02f32eba7abb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2b590e623062d5d5ae39261b3b5fa5a37a39122
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905614"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919221"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identità gestite in Azure HDInsight
 
@@ -21,7 +21,7 @@ Un'identità gestita è un'identità registrata in Azure Active Directory (Azure
 
 Le identità gestite vengono usate in Azure HDInsight per accedere ai servizi di Azure AD dominio o ai file di accesso in Azure Data Lake Storage Gen2 quando necessario.
 
-Esistono due tipi di identità gestite: assegnato dall'utente e assegnato dal sistema. Azure HDInsight Usa identità gestite assegnate dall'utente. Un'identità gestita assegnata dall'utente viene creata come risorsa di Azure autonoma, che può quindi essere assegnata a una o più istanze del servizio di Azure. Al contrario, viene creata un'identità gestita assegnata dal sistema in Azure AD e quindi abilitata direttamente in una specifica istanza del servizio di Azure. Il ciclo di vita dell'identità gestita assegnata dal sistema viene quindi associato alla durata dell'istanza del servizio su cui è abilitata.
+Esistono due tipi di identità gestite: assegnato dall'utente e assegnato dal sistema. Azure HDInsight supporta solo le identità gestite assegnate dall'utente. HDInsight non supporta identità gestite assegnate dal sistema. Un'identità gestita assegnata dall'utente viene creata come risorsa di Azure autonoma, che può quindi essere assegnata a una o più istanze del servizio di Azure. Al contrario, viene creata un'identità gestita assegnata dal sistema in Azure AD e quindi abilitata direttamente in una specifica istanza del servizio di Azure. Il ciclo di vita dell'identità gestita assegnata dal sistema viene quindi associato alla durata dell'istanza del servizio su cui è abilitata.
 
 ## <a name="hdinsight-managed-identity-implementation"></a>Implementazione dell'identità gestita di HDInsight
 
@@ -46,7 +46,7 @@ Le identità gestite vengono usate in HDInsight di Azure in più scenari. Per is
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Bring Your Own Key Kafka (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>Cosa accade se si elimina l'identità gestita dopo la creazione del cluster?
 Si verificano problemi nel cluster quando l'identità gestita è necessaria. Attualmente non è possibile aggiornare o modificare l'identità di gestione dopo la creazione del cluster. Si consiglia pertanto di verificare che l'identità gestita non venga eliminata durante il runtime del cluster. In alternativa, è possibile ricreare il cluster e assegnare una nuova identità gestita.
 

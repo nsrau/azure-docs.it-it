@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: HT
+ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203817"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911728"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Sicurezza e protezione dei dati di Azure Data Box
 
@@ -84,7 +84,7 @@ Azure Data Box raccoglie e visualizza informazioni personali nei principali casi
   - Indirizzo
   - city
   - CAP
-  - Stato
+  - State
   - Paese/provincia/area geografica
   - Numero di account del vettore
   - Numero di tracciabilità della spedizione
@@ -100,7 +100,7 @@ Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Ce
 
 In Data Box sono implementate le seguenti linee guida sulla sicurezza: 
 
-|Linee guida   |DESCRIZIONE   |
+|Linee guida   |Descrizione   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | Per la protezione da acqua e polvere         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Per la resistenza a condizioni di trasporto avverse          |

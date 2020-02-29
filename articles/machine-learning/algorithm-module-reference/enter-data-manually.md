@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 61c3dde49d4cd298fb3a0f19dc1d8c00e54977af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152347"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917476"
 ---
 # <a name="enter-data-manually-module"></a>Immettere manualmente i dati del modulo
 
@@ -36,13 +36,13 @@ Questo modulo può essere utile in scenari come i seguenti:
   
 2.  Per **DataFormat**, selezionare una delle opzioni seguenti. Queste opzioni determinano la modalità di analisi dei dati forniti. Poiché i requisiti per ogni formato sono molto diversi, assicurarsi di leggere gli argomenti correlati.  
   
-    -   **ARFF**. Formato di file di relazione tra attributi, utilizzato da weka.   
+    -   **ARFF**: formato del file di relazione tra attributi, utilizzato da weka.   
   
-    -   **CSV**. Formato con valori delimitati da virgole. Per altre informazioni, vedere [Convert to CSV (Converti in CSV](./convert-to-csv.md)).  
+    -   **CSV**: formato con valori delimitati da virgole. Per altre informazioni, vedere [Convert to CSV (Converti in CSV](./convert-to-csv.md)).  
   
-    -   **SVMLight**. Formato usato da Vowpal Wabbit e altri Framework di machine learning.  
+    -   **SVMLight**: formato usato da Vowpal Wabbit e altri Framework di machine learning.  
   
-    -   **TSV**. Formato con valori delimitati da tabulazioni.
+    -   **TSV**: formato con valori delimitati da tabulazioni.
 
      Se si sceglie un formato e non si forniscono dati che soddisfano le specifiche di formato, si verificherà un errore di run-time.
   

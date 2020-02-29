@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5fb54e812e72b9393ffdf632085d0f32ab8b1988
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980113"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918360"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -76,7 +76,7 @@ Il transito del gateway tra le reti virtuali create tramite modelli di distribuz
 
 Quando si esegue il peering di reti virtuali che condividono una singola connessione Azure ExpressRoute, il traffico tra di essi passa attraverso la relazione di peering. Il traffico USA la rete backbone di Azure. È comunque possibile continuare a usare i gateway locali in ogni rete virtuale per connettersi al circuito locale. In caso contrario, è possibile usare un gateway condiviso e configurare il transito per la connettività locale.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Per verificare che sia stato utilizzato il peering delle reti virtuali, è possibile verificare le route valide. Controllare le route per un'interfaccia di rete in qualsiasi subnet in una rete virtuale. Se esiste un peering di rete virtuale, tutte le subnet all'interno della rete virtuale hanno route con tipo di hop successivo *Peering reti virtuali* per ogni spazio degli indirizzi di ogni rete virtuale con peering. Per ulteriori informazioni, vedere [diagnosticare un problema di routing di una macchina virtuale](diagnose-network-routing-problem.md).
 
@@ -101,16 +101,16 @@ Per informazioni sulle autorizzazioni necessarie per creare un peering di rete v
 
 È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione di peering di rete virtuale. Per altre informazioni, vedere [prezzi di rete virtuale](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Il transito del gateway è una proprietà di peering che consente a una rete virtuale di usare un gateway VPN/ExpressRoute in una rete virtuale con peering. Il transito del gateway funziona sia per la connettività tra più sedi locali che per quella di rete. Il traffico verso il gateway (in ingresso o in uscita) nella rete virtuale con peering comporta addebiti per il peering di rete virtuale. Per altre informazioni, vedere [prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) del gateway VPN per i costi del gateway VPN e prezzi del gateway ExpressRoute per i costi del gateway ExpressRoute.
+Il transito del gateway è una proprietà di peering che consente a una rete virtuale di usare un gateway VPN/ExpressRoute in una rete virtuale con peering. Il transito del gateway funziona sia per la connettività tra più sedi locali che per quella di rete. Il traffico verso il gateway (in ingresso o in uscita) nella rete virtuale con peering comporta addebiti per il peering di rete virtuale su spoke VNet (o non-gateway VNet). Per altre informazioni, vedere [prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) del gateway VPN per i costi del gateway VPN e prezzi del gateway ExpressRoute per i costi del gateway ExpressRoute.
 
 >[!NOTE]
-> Una versione precedente di questo documento ha indicato che gli addebiti per il peering di rete virtuale non si applicano al transito del gateway. Ora riflette i prezzi accurati per la pagina dei prezzi.
+> Una versione precedente di questo documento ha dichiarato che gli addebiti per il peering di rete virtuale non si applicano ai VNet di spoke (o VNet non gateway) con transito del gateway. Ora riflette i prezzi accurati per la pagina dei prezzi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * È possibile creare un peering tra due reti virtuali. Le reti possono appartenere alla stessa sottoscrizione, a modelli di distribuzione diversi nella stessa sottoscrizione o a sottoscrizioni diverse. Completare un'esercitazione per uno degli scenari seguenti:
 
-    |Modello di distribuzione di Azure             | Sottoscrizione  |
+    |Modello di distribuzione di Azure             | Subscription  |
     |---------                          |---------|
     |Entrambi Resource Manager              |[Uguale](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diversa](create-peering-different-subscriptions.md)|

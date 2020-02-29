@@ -16,12 +16,12 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499032"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162267"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funzionalità di gestione per i ruoli di Azure AD in Privileged Identity Management
 
@@ -62,7 +62,7 @@ Abbiamo provato il nostro meglio per raggiungere tutti i clienti che usano l'API
 
 ## <a name="powershell-change"></a>Modifica di PowerShell
 
-Per i clienti che usano il modulo Privileged Identity Management PowerShell per Azure AD ruoli, PowerShell smetterà di funzionare con l'aggiornamento. Al posto dei cmdlet precedenti è necessario usare i cmdlet di Privileged Identity Management all'interno del modulo PowerShell di Azure AD Preview. Installare il modulo Azure AD PowerShell dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). I cmdlet sono basati su API Graph.
+Per i clienti che usano il modulo Privileged Identity Management PowerShell per Azure AD ruoli, PowerShell smetterà di funzionare con l'aggiornamento. Al posto dei cmdlet precedenti è necessario usare i cmdlet di Privileged Identity Management all'interno del modulo PowerShell di Azure AD Preview. Installare il modulo Azure AD PowerShell dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). È ora possibile [leggere la documentazione e gli esempi per le operazioni PIM in questo modulo di PowerShell](powershell-for-azure-ad-roles.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

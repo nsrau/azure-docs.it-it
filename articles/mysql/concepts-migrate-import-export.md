@@ -5,24 +5,24 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 8cf0b88ddc24bfc6bc293dd62416417f1eec3a06
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770952"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163727"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrare il database MySQL mediante l'importazione ed esportazione
 In questo articolo vengono illustrati due approcci comuni per importare ed esportare i dati in un database di Azure per il server MySQL con MySQL Workbench. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Per proseguire con questa guida è necessario:
+Per proseguire con questa guida, si richiedono:
 - Un database di Azure per il server MySQL, seguendo la procedura descritta in [Creare un database di Azure per il server MySQL tramite il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md).
-- MySQL Workbench [scaricato](https://dev.mysql.com/downloads/workbench/) o un altro strumento di MySQL per l'importazione e l'esportazione.
+- MySQL Workbench [MySQL Workbench download](https://dev.mysql.com/downloads/workbench/) o un altro strumento MySQL di terze parti per eseguire l'importazione/esportazione.
 
 ## <a name="use-common-tools"></a>Usare strumenti comuni
-Usare strumenti comuni, come ad esempio MySQL Workbench, Toad o Navicat per connettersi in modalità remota e importare o esportare dati nel database di Azure per MySQL. 
+Usare utilità e strumenti comuni, come MySQL Workbench o mysqldump, per connettersi in modalità remota e importare o esportare dati in database di Azure per MySQL. 
 
 Usare tali strumenti sul computer client con una connessione Internet per connettersi al database di Azure per MySQL. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate, come descritto in [Configurare la connettività SSL nel database di Azure per MySQL](concepts-ssl-connection-security.md).
 
@@ -83,7 +83,7 @@ L'esempio seguente illustra l'esportazione di una tabella in un file CSV:
 L'esempio seguente illustra l'importazione di una tabella da un file CSV:
 1. Fare clic con il pulsante destro del mouse sulla tabella del database da importare. 
 2. Individuare e selezionare il file CSV da importare e quindi fare clic su **Avanti**. 
-3. Selezionare la tabella di destinazione (nuova o esistente) e selezionare o deselezionare la casella di controllo **Truncate table before import** (Tronca tabella prima dell'importazione). Fare clic su **Next** (Avanti).
+3. Selezionare la tabella di destinazione (nuova o esistente) e selezionare o deselezionare la casella di controllo **Truncate table before import** (Tronca tabella prima dell'importazione). Fare clic su **Avanti**.
 4. Selezionare la codifica e le colonne da importare e quindi fare clic su **Avanti**. 
 5. Fare clic su **Avanti** nella pagina **Importa dati**. La procedura guidata importa i dati di conseguenza.
 

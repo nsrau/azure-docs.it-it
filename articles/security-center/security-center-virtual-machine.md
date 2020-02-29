@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: ed2c1f874bd61e846cbdf1f68181a8f374c89524
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 69062e42a5d572cf7b73bec3932613d39be9b92f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603370"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921505"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Centro sicurezza di Azure e macchine virtuali di Azure
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -33,7 +33,7 @@ Il Centro sicurezza consente di proteggere i dati delle macchine virtuali di Azu
 * Consigli per la protezione degli endpoint
 * Convalida della crittografia del disco
 * Valutazione della vulnerabilità e correzioni
-* Introduzione al rilevamento delle minacce
+* Avvisi di sicurezza dalle funzionalità di protezione dalle minacce
 
 Oltre a proteggere le macchine virtuali di Azure, il Centro sicurezza offre funzionalità per il monitoraggio e la gestione dei servizi cloud, dei servizi app, delle reti virtuali e molto altro. 
 

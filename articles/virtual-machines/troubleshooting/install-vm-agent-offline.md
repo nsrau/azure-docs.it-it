@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 438143d3253f1cab1afb958a90f427dcba59a98e
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059242"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920859"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installare l'agente di macchine virtuali di Azure in modalità offline 
 
@@ -66,7 +66,7 @@ Usare la procedura seguente per installare l'agente di macchine virtuali in moda
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  Usare i file esistenti nella macchina virtuale per la risoluzione dei problemi come repository per l'installazione dell'agente di macchine virtuali. Completare questi passaggi:
+8.  Usare i file esistenti nella macchina virtuale per la risoluzione dei problemi come repository per l'installazione dell'agente di macchine virtuali. Completare i passaggi seguenti:
 
     1. Dalla macchina virtuale per la risoluzione dei problemi esportare le sottochiavi seguenti nel formato del Registro di sistema (con estensione reg): 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
@@ -105,6 +105,8 @@ Usare la procedura seguente per installare l'agente di macchine virtuali in moda
 Se la macchina virtuale è stata creata tramite il modello di distribuzione di Resource Manager la procedura è completa.
 
 ### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Usare la proprietà ProvisionGuestAgent per le macchine virtuali classiche
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 Se la macchina virtuale è stata creata con il modello classico, usare il modulo di Azure PowerShell per aggiornare la proprietà **ProvisionGuestAgent**. La proprietà informa Azure che nella macchina virtuale è installato l'agente di macchine virtuali.
 

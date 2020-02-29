@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896007"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914331"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usare Azure Media Content Moderator per rilevare eventuali contenuti pornografici e per adulti 
+
+> [!NOTE]
+> Il processore di contenuti multimediali di **Azure media content moderator** verrà ritirato. Per la data di ritiro, vedere l'argomento [componenti legacy](legacy-components.md) .
 
 ## <a name="overview"></a>Panoramica
 Il processore di contenuti multimediali **Azure Content Moderator** consente di usare funzionalità di moderazione automatica per i video. Ad esempio, è possibile rilevare nei video contenuti pornografici e per adulti ed eseguire la revisione dei contenuti contrassegnati in modalità manuale.
@@ -44,7 +47,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="root-json-elements"></a>Elementi JSON radice
 
-| Elemento | Description |
+| Elemento | Descrizione |
 | --- | --- |
 | version |Versione di Content Moderator. |
 | timescale |"Scatti" al secondo del video. |
@@ -57,7 +60,7 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="fragments-json-elements"></a>Elementi JSON dei frammenti
 
-|Elemento|Description|
+|Elemento|Descrizione|
 |---|---|
 | start |Ora di inizio del primo evento in "tick". |
 | duration |Lunghezza del frammento in "tick". |
@@ -66,12 +69,12 @@ L'output JSON include gli elementi seguenti:
 
 ### <a name="events-json-elements"></a>Elementi JSON degli eventi
 
-|Elemento|Description|
+|Elemento|Descrizione|
 |---|---|
 | reviewRecommended | `true` o `false` a seconda che le soglie interne vengano superate da **adultScore** o **racyScore**. |
 | adultScore | Punteggio di attendibilità per eventuali contenuti per adulti, su una scala compresa tra 0,00 e 0,99. |
 | racyScore | Punteggio di attendibilità per eventuali contenuti pornografici, su una scala compresa tra 0,00 e 0,99. |
-| index | Indice del fotogramma su una scala dal primo all'ultimo indice di fotogramma. |
+| indice | Indice del fotogramma su una scala dal primo all'ultimo indice di fotogramma. |
 | timestamp | Percorso del fotogramma in "tick". |
 | shotIndex | Indice dello scatto padre. |
 
@@ -220,7 +223,7 @@ The following example of a Content Moderator JSON output was truncated.
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

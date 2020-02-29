@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604244"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919482"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestione tra tenant nel centro sicurezza
 
@@ -50,7 +50,7 @@ Le visualizzazioni e le azioni sono fondamentalmente le stesse. Di seguito sono 
 - **Correggere le raccomandazioni**: monitorare e correggere una [raccomandazione](security-center-recommendations.md) per molte risorse di diversi tenant contemporaneamente. È quindi possibile affrontare immediatamente le vulnerabilità che presentano il rischio più elevato in tutti i tenant.
 - **Gestire gli avvisi**: rilevare gli [avvisi](security-center-alerts-overview.md) in tutti i tenant. Intervenire sulle risorse non conformi alle procedure correttive per la [correzione](security-center-managing-and-responding-alerts.md).
 
-- **Gestisci le funzionalità avanzate di difesa del cloud e altro ancora**: Gestisci i diversi servizi di rilevamento e protezione delle minacce, ad esempio l' [accesso JIT (just-in-Time) alle macchine virtuali](security-center-just-in-time.md), la protezione avanzata della [rete adattiva](security-center-adaptive-network-hardening.md), i [controlli delle applicazioni adattivi](security-center-adaptive-application.md)e altro ancora.
+- **Gestisci le funzionalità avanzate di difesa del cloud e altro ancora**: Gestisci i vari servizi di protezione dalle minacce, ad esempio [l'accesso JIT (just-in-Time) alle VM](security-center-just-in-time.md), la protezione avanzata della [rete adattiva](security-center-adaptive-network-hardening.md), i [controlli delle applicazioni adattivi](security-center-adaptive-application.md)e altro ancora.
  
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo illustra il funzionamento della gestione tra tenant nel centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:

@@ -2,17 +2,17 @@
 title: Serie Eav4 e serie Easv4-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali serie Eav4 e Easv4.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 96cd7b4f4627e7c0335df9c745d8193a3dac7044
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e05a2b97a25ce4cab7d619f4b62d405765cb08db
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493774"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164390"
 ---
 # <a name="eav4-and-easv4-series"></a>Serie Eav4 e Easv4
 
@@ -25,6 +25,10 @@ ACU: 230-260
 Archiviazione Premium: non supportata
 
 Caching archiviazione Premium: non supportato
+
+Live Migration: supportato
+
+Aggiornamenti con mantenimento della memoria: supportati
 
 Le dimensioni della serie Eav4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz e usare l'unità SSD Premium. Le dimensioni della serie Eav4 sono ideali per applicazioni aziendali a uso intensivo di memoria. L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare l'unità SSD Premium, usare le dimensioni della serie Easv4. I prezzi e i contatori di fatturazione per le dimensioni Easv4 sono uguali a quelli della serie Eav3.
 
@@ -49,6 +53,10 @@ ACU: 230-260
 Archiviazione Premium: supportata
 
 Caching archiviazione Premium: supportato
+
+Live Migration: supportato
+
+Aggiornamenti con mantenimento della memoria: supportati
 
 Le dimensioni della serie Easv4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz e usare l'unità SSD Premium. Le dimensioni della serie Easv4 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 

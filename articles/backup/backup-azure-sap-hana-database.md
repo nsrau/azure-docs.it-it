@@ -3,12 +3,12 @@ title: Eseguire il backup di un database di SAP HANA in Azure con backup di Azur
 description: Questo articolo illustra come eseguire il backup di un database di SAP HANA in macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: dd4c6fc0e018f3fc8f2a2029ef8a90cdc305e2c2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a5fd09e0e487d103e8bd78964c11b572a62e28fa
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765522"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164611"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -28,9 +28,9 @@ In questo articolo verrà spiegato come:
 >L' **eliminazione temporanea per SQL Server nella macchina virtuale di Azure e l'eliminazione temporanea per SAP Hana nei carichi di lavoro delle macchine virtuali di Azure** sono ora disponibili in anteprima.<br>
 >Per iscriverti all'anteprima, scrivici all'indirizzo AskAzureBackupTeam@microsoft.com
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per configurare il database per il backup, vedere le sezioni [prerequisiti](tutorial-backup-sap-hana-db.md#prerequisites) e [impostazione delle autorizzazioni](tutorial-backup-sap-hana-db.md#setting-up-permissions) .
+Per configurare il database per il backup, fare riferimento ai [prerequisiti](tutorial-backup-sap-hana-db.md#prerequisites) e allo [script di pre-registrazione che esegue](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) le sezioni.
 
 ### <a name="set-up-network-connectivity"></a>Configurare la connettività di rete
 
@@ -89,23 +89,6 @@ Usare i tag del servizio del gruppo di sicurezza di rete | Gestione semplificata
 Usare i tag FQDN di Firewall di Azure | Gestione semplificata perché i FQDN necessari vengono gestiti automaticamente | Utilizzabile solo con Firewall di Azure
 Usare un proxy HTTP | Controllo granulare nel proxy URL di archiviazione <br/><br/> Singolo punto di accesso Internet alle VM <br/><br/> Nessun effetto in caso di modifiche degli indirizzi IP di Azure | Costi aggiuntivi per l'esecuzione di una VM con il software proxy
 
-## <a name="onboard-to-the-public-preview"></a>Eseguire l'onboarding nell'anteprima pubblica
-
-Eseguire l'onboarding nell'anteprima pubblica come segue:
-
-* Nel portale registrare l'ID sottoscrizione nel provider di Servizi di ripristino seguendo le istruzioni di [questo articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* Per il modulo ' AZ ' in PowerShell, eseguire questo cmdlet. Dovrebbe essere completato come "Registrato".
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-* Se si usa il modulo ' AzureRM ' in PowerShell, eseguire questo cmdlet. Dovrebbe essere completato come "Registrato".
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-    
-
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Individuare i database
@@ -130,7 +113,7 @@ A questo punto, abilitare il backup.
 
 1. Nel passaggio 2 fare clic su **Configura backup**.
 
-    ![Configurare il servizio Backup](./media/backup-azure-sap-hana-database/configure-backup.png)
+    ![Configurazione di backup](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. In **Seleziona elementi di cui eseguire il backup**selezionare tutti i database che si desidera proteggere > **OK**.
 
     ![Seleziona elementi per backup](./media/backup-azure-sap-hana-database/select-items.png)

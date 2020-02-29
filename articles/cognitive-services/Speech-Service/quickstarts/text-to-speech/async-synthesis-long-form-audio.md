@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: eef9a99e4c94fa45e21abfc9d19fcef1230ffe76
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: afa9437a00c6f30688c7942feea94f7db7ed490a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944688"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919346"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Guida introduttiva: sintesi asincrona per audio a lungo termine in Python (anteprima)
 
@@ -24,13 +24,13 @@ In questa Guida introduttiva si userà l'API Long audio per convertire in modo a
 > [!NOTE]
 > La sintesi asincrona per l'audio a lungo termine può essere usata solo con le [voci neurali personalizzate](../../how-to-custom-voice.md#custom-neural-voices).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa guida introduttiva richiede:
 
 * Python 2.7. x o 3. x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)o l'editor di testo preferito.
-* Una sottoscrizione di Azure e una chiave di sottoscrizione del servizio vocale. [Creare un account Azure](../../get-started.md#try-the-speech-service-using-a-new-azure-account) e [creare una risorsa vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) per ottenere la chiave. Quando si crea la risorsa di sintesi vocale, assicurarsi che il piano tariffario sia impostato su **S0**e che location sia impostato su un' [area supportata](../../regions.md#standard-and-neural-voices).
+* Una sottoscrizione di Azure e una chiave di sottoscrizione del servizio vocale. [Creare un account Azure](../../get-started.md#new-resource) e [creare una risorsa vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) per ottenere la chiave. Quando si crea la risorsa di sintesi vocale, assicurarsi che il piano tariffario sia impostato su **S0**e che location sia impostato su un' [area supportata](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 

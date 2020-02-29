@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: 4340ee4ed1edda8590726151e07eec45c0751ed6
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152262"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912206"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
 
@@ -111,7 +111,7 @@ Al termine dell'elaborazione, il modulo restituisce un set di dati trasformato i
 
 Dopo aver creato il set di dati trasformato, è possibile usarlo come input per il modulo Train Model.
  
-### <a name="best-practices"></a>Procedure consigliate
+## <a name="best-practices"></a>Procedure consigliate
 
 Le seguenti procedure consigliate consentono di sfruttare al meglio il modulo feature hashing:
 

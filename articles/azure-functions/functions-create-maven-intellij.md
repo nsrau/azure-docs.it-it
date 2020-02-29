@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1d3dd0f4f1da4d3815d4d879dd13ed5882f39e8f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230720"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913243"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creare la prima funzione di Azure con Java e IntelliJ
 
@@ -80,8 +80,6 @@ Maven crea i file di progetto in una nuova cartella a cui viene assegnato lo ste
 1. Selezionare **(+)** per aggiungere una **configurazione remota**.
 1. Compilare i campi _Name_ (Nome) e _Settings_ (Impostazioni) e quindi selezionare **OK** per salvare la configurazione.
 1. Al termine dell'installazione, selezionare **Debug <nome configurazione remota>** oppure premere MAIUSC+F9 sulla tastiera per avviare il debug.
-
-   ![Funzioni di debug in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. Al termine, arrestare il debugger e il processo in esecuzione. Può essere attivo e in esecuzione in locale un solo host di funzioni alla volta.
 

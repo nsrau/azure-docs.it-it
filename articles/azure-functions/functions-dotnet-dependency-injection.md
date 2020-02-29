@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260084"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915708"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in funzioni di Azure per .NET
 
@@ -21,11 +21,11 @@ Funzioni di Azure supporta il modello DI progettazione software per l'inseriment
 
 - Il supporto per l'inserimento delle dipendenze inizia con funzioni di Azure 2. x.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di poter usare l'inserimento di dipendenze, è necessario installare i pacchetti NuGet seguenti:
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Microsoft. NET. Sdk. Functions Package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) Version 1.0.28 o versioni successive
 
@@ -114,7 +114,7 @@ namespace MyNamespace
 }
 ```
 
-## <a name="service-lifetimes"></a>Durate dei servizi
+## <a name="service-lifetimes"></a>Durate del servizio
 
 Le app di funzioni di Azure forniscono le stesse durate dei servizi dell' [inserimento delle dipendenze ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Per un'app per le funzioni, le diverse durate del servizio si comportano nel modo seguente:
 
@@ -130,13 +130,13 @@ Se è necessario un provider di registrazione personalizzato, registrare un tipo
 
 > [!WARNING]
 > - Non aggiungere `AddApplicationInsightsTelemetry()` alla raccolta di servizi durante la registrazione dei servizi in conflitto con i servizi forniti dall'ambiente.
-> - Non registrare il proprio `TelemetryConfiguration` o `TelemetryClient` se si usa la funzionalità di Application Insights incorporata.
+> - Non registrare il proprio `TelemetryConfiguration` o `TelemetryClient` se si usa la funzionalità di Application Insights incorporata. Se è necessario configurare un'istanza di `TelemetryClient` personalizzata, crearne una tramite la `TelemetryConfiguration` inserita come illustrato in [monitorare funzioni di Azure](./functions-monitoring.md#version-2x-and-later-2).
 
 ## <a name="function-app-provided-services"></a>Servizi forniti dall'app per le funzioni
 
 L'host funzione registra molti servizi. I servizi seguenti possono essere considerati sicuri come una dipendenza nell'applicazione:
 
-|Tipo di servizio|Durata|Description|
+|Tipo di servizio|Durata|Descrizione|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Configurazione Runtime|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Responsabile per fornire l'ID dell'istanza host|

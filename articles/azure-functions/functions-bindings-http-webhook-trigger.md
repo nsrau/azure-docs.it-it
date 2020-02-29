@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: a2adf59a542f695b7845e1a871c0b297b0790fec
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672158"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162963"
 ---
 # <a name="azure-functions-http-trigger"></a>Trigger HTTP di funzioni di Azure
 
@@ -320,7 +320,7 @@ Questo esempio legge il corpo di una richiesta POST, come `String`, e lo usa per
 
 #### <a name="read-parameter-from-a-route"></a>Leggi parametro da una route
 
-Questo esempio legge un parametro obbligatorio, denominato `id`, e un parametro facoltativo `name` dal percorso della route e usa tali parametri per creare un documento JSON restituito al client, con tipo di contenuto `application/json`. Elemento
+Questo esempio legge un parametro obbligatorio, denominato `id`, e un parametro facoltativo `name` dal percorso della route e usa tali parametri per creare un documento JSON restituito al client, con tipo di contenuto `application/json`. T
 
 ```java
 @FunctionName("TriggerStringRoute")
@@ -749,7 +749,7 @@ L'utente autenticato è disponibile tramite [intestazioni HTTP](../app-service/a
 
 ## <a name="authorization-keys"></a>Chiavi di autorizzazione
 
-Funzioni consente di usare in fase di sviluppo le chiavi che rendono più difficile accedere agli endpoint di funzione HTTP.  Un trigger HTTP standard può richiedere nella richiesta sia presente una chiave API di questo tipo. 
+Funzioni consente di usare in fase di sviluppo le chiavi che rendono più difficile accedere agli endpoint di funzione HTTP.  A meno che il livello di autorizzazione HTTP in una funzione attivata tramite HTTP non sia impostato su `anonymous`, le richieste devono includere una chiave API nella richiesta. 
 
 > [!IMPORTANT]
 > Mentre le chiavi possono risultare per offuscare gli endpoint HTTP durante lo sviluppo, non sono progettate come un modo per proteggere un trigger HTTP nell'ambiente di produzione. Per altre informazioni, vedere [Proteggere un endpoint HTTP nell'ambiente di produzione](#secure-an-http-endpoint-in-production).
@@ -757,14 +757,19 @@ Funzioni consente di usare in fase di sviluppo le chiavi che rendono più diffic
 > [!NOTE]
 > Nel runtime 1.x di Funzioni i provider di webhook possono usare le chiavi per autorizzare le richieste in svariati modi, a seconda di ciò che il provider supporta. Questa procedura è illustrata in [Webhook e chiavi](#webhooks-and-keys). Il runtime di funzioni nella versione 2. x e versioni successive non include il supporto incorporato per i provider di webhook.
 
-Esistono due tipi di chiavi:
+#### <a name="authorization-scopes-function-level"></a>Ambiti di autorizzazione (a livello di funzione)
 
-* **Chiavi host**: queste chiavi vengono condivise da tutte le funzioni nell'app per le funzioni. Quando vengono usate come chiave API, consentono l'accesso a tutte le funzioni nell'app per le funzioni.
-* **Chiavi di funzione**: queste chiavi si applicano solo alle funzioni specifiche sotto le quali vengono definite. Quando vengono usate come chiave API, consentono l'accesso solo a tale funzione.
+Sono disponibili due ambiti di autorizzazione per le chiavi a livello di funzione:
+
+* **Funzione**: queste chiavi si applicano solo alle funzioni specifiche in cui sono definite. Quando vengono usate come chiave API, consentono l'accesso solo a tale funzione.
+
+* **Host**: le chiavi con un ambito host possono essere usate per accedere a tutte le funzioni all'interno dell'app per le funzioni. Quando vengono usate come chiave API, consentono l'accesso a tutte le funzioni nell'app per le funzioni. 
 
 Ogni chiave viene denominata per riferimento ed esiste una chiave predefinita (denominata "default") a livello di funzione e di host. Le chiavi di funzione hanno la precedenza sulle chiavi host. Se sono definite due chiavi con lo stesso nome, viene usata sempre la chiave di funzione.
 
-Ogni app per le funzioni ha anche una speciale **chiave master**. Questa chiave è una chiave host denominata `_master`, che fornisce l'accesso amministrativo alle API di runtime. Questa chiave non può essere revocata. Quando si imposta un livello di autorizzazione `admin`, le richieste devono usare la chiave master. Qualsiasi altra chiave provoca un errore di autorizzazione.
+#### <a name="master-key-admin-level"></a>Chiave master (a livello di amministratore) 
+
+Ogni app per le funzioni dispone anche di una chiave host a livello di amministratore denominata `_master`. Oltre a fornire l'accesso a livello di host a tutte le funzioni nell'app, la chiave master fornisce anche l'accesso amministrativo alle API REST di Runtime. Questa chiave non può essere revocata. Quando si imposta un livello di autorizzazione `admin`, le richieste devono usare la chiave master. Qualsiasi altra chiave provoca un errore di autorizzazione.
 
 > [!CAUTION]  
 > Date le autorizzazioni elevate concesse dalla chiave master nell'app per le funzioni, è consigliabile non condividere questa chiave con terze parti o distribuirla in applicazioni client native. Fare attenzione quando si sceglie il livello di autorizzazione di amministratore.

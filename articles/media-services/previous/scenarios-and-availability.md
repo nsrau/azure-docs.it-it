@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77564969"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920587"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -202,6 +202,9 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 ### <a name="analytics-media-processors"></a>Processori di contenuti multimediali di analisi
 
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai loro file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](media-services-analytics-overview.md).
+
+> [!NOTE]
+> Alcuni processori di contenuti multimediali di analisi verranno ritirati. Per le date di ritiro, vedere l'argomento [componenti legacy](legacy-components.md) .
 
 #### <a name="availability"></a>Disponibilità
 

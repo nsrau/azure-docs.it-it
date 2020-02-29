@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b905591266b90e5bba83e7c74b27e7f6b3cab610
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849084"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912546"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestione delle sessioni Single Sign-On in Azure Active Directory B2C
 
@@ -35,65 +35,124 @@ In Azure AD B2C sono stati definiti alcuni provider di sessione SSO che è possi
 * ExternalLoginSSOSessionProvider
 * SamlSSOSessionProvider
 
-Le classi di gestione SSO vengono specificate usando l'elemento `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />` di un profilo tecnico.
+Le classi di gestione SSO vengono specificate usando l'elemento `<UseTechnicalProfileForSessionManagement ReferenceId="{ID}" />` di un profilo tecnico.
 
-## <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
+## <a name="input-claims"></a>Attestazioni di input
 
-Come indica il nome, questo provider non esegue alcuna operazione. Può essere usato per eliminare il comportamento SSO per un profilo tecnico specifico.
+L'elemento `InputClaims` è vuoto o assente. 
 
-## <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
+## <a name="persisted-claims"></a>Attestazioni rese permanente
 
-È possibile usare questo provider per archiviare le attestazioni in una sessione. Un riferimento a questo provider è in genere incluso in un profilo tecnico usato per gestire account locali. Quando si usa DefaultSSOSessionProvider per archiviare attestazioni in una sessione, è necessario assicurarsi che qualsiasi attestazione che deve essere restituita all'applicazione o usata da pre-condizioni in passaggi successivi sia archiviata nella sessione o aumentata da una lettura dal profilo utente nella directory. Ciò garantisce che l'autenticazione non abbia esito negativo per mancanza di attestazioni.
+Le attestazioni che devono essere restituite all'applicazione o usate dalle precondizioni nei passaggi successivi devono essere archiviate nella sessione o potenziate da una lettura dal profilo dell'utente nella directory. L'uso di attestazioni salvate in modo permanente garantisce che i percorsi di autenticazione non abbiano esito negativo sulle attestazioni mancanti Per aggiungere attestazioni alla sessione, usare l'elemento `<PersistedClaims>` del profilo tecnico. Quando il provider viene usato per ripopolare la sessione, le attestazioni persistenti vengono aggiunte all'elenco delle attestazioni. 
+
+## <a name="output-claims"></a>Attestazioni di output
+
+Il `<OutputClaims>` viene usato per recuperare le attestazioni dalla sessione.
+
+## <a name="session-providers"></a>Provider di sessioni
+
+### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
+
+Come indica il nome, questo provider non esegue alcuna operazione. Può essere usato per eliminare il comportamento SSO per un profilo tecnico specifico. Il seguente `SM-Noop` profilo tecnico è incluso nello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack).  
+
+```XML
+<TechnicalProfile Id="SM-Noop">
+  <DisplayName>Noop Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.NoopSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+</TechnicalProfile>
+```
+
+### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
+
+È possibile usare questo provider per archiviare le attestazioni in una sessione. Un riferimento a questo provider è in genere incluso in un profilo tecnico usato per gestire account locali. Il seguente `SM-AAD` profilo tecnico è incluso nello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack). 
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
-    <DisplayName>Session Mananagement Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <PersistedClaims>
-        <PersistedClaim ClaimTypeReferenceId="objectId" />
-        <PersistedClaim ClaimTypeReferenceId="newUser" />
-        <PersistedClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" />
-    </PersistedClaims>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="objectIdFromSession" DefaultValue="true" />
-    </OutputClaims>
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="objectId" />
+    <PersistedClaim ClaimTypeReferenceId="signInName" />
+    <PersistedClaim ClaimTypeReferenceId="authenticationSource" />
+    <PersistedClaim ClaimTypeReferenceId="identityProvider" />
+    <PersistedClaim ClaimTypeReferenceId="newUser" />
+    <PersistedClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" />
+  </PersistedClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectIdFromSession" DefaultValue="true"/>
+  </OutputClaims>
 </TechnicalProfile>
 ```
 
-Per aggiungere attestazioni alla sessione, usare l'elemento `<PersistedClaims>` del profilo tecnico. Quando il provider viene usato per ripopolare la sessione, le attestazioni persistenti vengono aggiunte all'elenco delle attestazioni. `<OutputClaims>` viene usato per recuperare le attestazioni dalla sessione.
+Il `SM-MFA` profilo tecnico seguente è incluso nell'`SocialAndLocalAccountsWithMfa`dello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack) . Questo profilo tecnico gestisce la sessione di autenticazione a più fattori. 
 
-## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
+```XML
+<TechnicalProfile Id="SM-MFA">
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" />
+  </PersistedClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isActiveMFASession" DefaultValue="true"/>
+  </OutputClaims>
+</TechnicalProfile>
+```
 
-Questo provider viene usato per eliminare la schermata di selezione del provider di identità. Un riferimento a questo provider è in genere incluso in un profilo tecnico configurato per un provider di identità esterno, ad esempio Facebook.
+### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
+
+Questo provider viene usato per disattivare la schermata "Choose Identity Provider". Un riferimento a questo provider è in genere incluso in un profilo tecnico configurato per un provider di identità esterno, ad esempio Facebook. Il seguente `SM-SocialLogin` profilo tecnico è incluso nello [Starter Pack del criterio personalizzato](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
-    <DisplayName>Session Mananagement Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="AlwaysFetchClaimsFromProvider">true</Item>
+  </Metadata>
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="AlternativeSecurityId" />
+  </PersistedClaims>
 </TechnicalProfile>
 ```
 
-## <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
+#### <a name="metadata"></a>Metadati
+        
+| Attributo | Obbligatoria | Descrizione|
+| --- | --- | --- |
+| AlwaysFetchClaimsFromProvider | No | Non attualmente in uso, può essere ignorato. |
 
-Questo provider viene usato per gestire le sessioni SAML di Azure AD B2C tra le app, nonché i provider di identità SAML esterni.
+### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
+
+Questo provider viene usato per gestire le sessioni SAML Azure AD B2C tra un'applicazione relying party o un provider di identità SAML federato. Quando si usa il provider SSO per archiviare una sessione del provider di identità SAML, è necessario impostare il `IncludeSessionIndex` e il `RegisterServiceProviders` su `false`. Nel profilo tecnico [SAML](saml-technical-profile.md)viene utilizzato il seguente `SM-Saml-idp` profilo tecnico.
 
 ```XML
-<TechnicalProfile Id="SM-Reflector-SAML">
-    <DisplayName>Session Management Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="IncludeSessionIndex">false</Item>
-        <Item Key="RegisterServiceProviders">false</Item>
-    </Metadata>
+<TechnicalProfile Id="SM-Saml-idp">
+  <DisplayName>Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="IncludeSessionIndex">false</Item>
+    <Item Key="RegisterServiceProviders">false</Item>
+  </Metadata>
 </TechnicalProfile>
 ```
 
-Il profilo tecnico presenta due elementi di metadati:
+Quando si usa il provider per archiviare la sessione SAML B2C, il `IncludeSessionIndex` e il `RegisterServiceProviders` devono impostare su `true`. Per completare la disconnessione dalla sessione SAML sono necessari `SessionIndex` e `NameID`.
+ 
+Il profilo tecnico dell' [autorità emittente SAML](connect-with-saml-service-providers.md) usa il seguente `SM-Saml-idp` profilo tecnico
 
-| Elemento | Default Value | Valori possibili | Description
-| --- | --- | --- | --- |
-| IncludeSessionIndex | true | true/false | Indica al provider che l'indice della sessione deve essere archiviato. |
-| RegisterServiceProviders | true | true/false | Indica che il provider deve registrare tutti i provider di servizi SAML a cui sia stata rilasciata un'asserzione. |
+```XML
+<TechnicalProfile Id="SM-Saml-sp">
+  <DisplayName>Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+</TechnicalProfile>
+```
+#### <a name="metadata"></a>Metadati
+        
+| Attributo | Obbligatoria | Descrizione|
+| --- | --- | --- |
+| IncludeSessionIndex | No | Indica al provider che l'indice della sessione deve essere archiviato. I valori possibili sono: `true` (impostazione predefinita) o `false`.|
+| RegisterServiceProviders | No | Indica che il provider deve registrare tutti i provider di servizi SAML a cui sia stata rilasciata un'asserzione. I valori possibili sono: `true` (impostazione predefinita) o `false`.|
 
-Quando si usa il provider per archiviare la sessione di un provider di identità SAML, gli elementi sopra indicati devono avere entrambi il valore false. Quando si usa il provider per archiviare la sessione SAML B2C, gli elementi sopra indicati devono avere il valore true oppure devono essere omessi poiché i valori predefiniti sono true. Per completare la disconnessione dalla sessione SAML sono necessari `SessionIndex` e `NameID`.
+
 

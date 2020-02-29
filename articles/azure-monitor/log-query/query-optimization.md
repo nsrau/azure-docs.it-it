@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2019
-ms.openlocfilehash: 19b0ce154fc19015f7faa17e339c9df259206365
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 874fd0ccdd2fdf0a2e75412ae2da82abb736ff3f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670815"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164577"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -230,7 +230,7 @@ Perf
 ) on Computer
 ```
 
-Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio,
+Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio:
 
 ```Kusto
 Perf
@@ -258,8 +258,13 @@ by Computer
 ) on Computer
 ```
 
+La misura è sempre maggiore del tempo effettivo specificato. Se, ad esempio, il filtro della query è di 7 giorni, il sistema potrebbe analizzare 7,5 o 8,1 giorni. Questo perché il sistema suddivide i dati in blocchi in dimensioni variabili. Per assicurarsi che tutti i record rilevanti vengano analizzati, analizza l'intera partizione che può coprire diverse ore e persino più di un giorno.
+
+Esistono diversi casi in cui il sistema non è in grado di fornire una misurazione accurata dell'intervallo di tempo. Questa situazione si verifica nella maggior parte dei casi in cui l'intervallo della query è inferiore a un giorno o in query con più aree di lavoro.
+
+
 > [!IMPORTANT]
-> Questo indicatore non è disponibile per le query tra aree.
+> Questo indicatore presenta solo i dati elaborati nel cluster immediato. In una query in più aree, rappresenta solo una delle aree. In una query con più aree di lavoro potrebbe non includere tutte le aree di lavoro.
 
 ## <a name="age-of-processed-data"></a>Età dei dati elaborati
 Azure Esplora dati usa diversi livelli di archiviazione: in memoria, dischi SSD locali e BLOB di Azure più lenti. Più recenti sono i dati, maggiore è la probabilità che vengano archiviati in un livello più efficiente con latenza inferiore, riducendo la durata e la CPU della query. Oltre ai dati stessi, il sistema dispone anche di una cache per i metadati. Con i dati meno recenti, minore è la probabilità che i metadati si trovino nella cache.
@@ -284,7 +289,7 @@ Per l'esecuzione di query tra aree diverse è necessario che il sistema esegua l
 Se non esiste un motivo reale per analizzare tutte queste aree, è necessario modificare l'ambito in modo che ricopra un minor numero di aree. Se l'ambito della risorsa è ridotto a icona ma vengono utilizzate ancora molte aree, potrebbe verificarsi un errore di configurazione. Ad esempio, i log di controllo e le impostazioni di diagnostica vengono inviati a diverse aree di lavoro in aree diverse o sono presenti più configurazioni di impostazioni di diagnostica. 
 
 > [!IMPORTANT]
-> Questo indicatore non è disponibile per le query tra aree.
+> Quando una query viene eseguita in diverse aree, le misurazioni di CPU e dati non saranno accurate e rappresenteranno la misurazione solo in una delle aree.
 
 ## <a name="number-of-workspaces"></a>Numero di aree di lavoro
 Le aree di lavoro sono contenitori logici usati per separare e amministrare i dati dei log. Il back-end ottimizza i posizionamenti dell'area di lavoro nei cluster fisici all'interno dell'area selezionata.
@@ -300,7 +305,7 @@ L'esecuzione di query tra più aree e tra cluster richiede che il sistema esegua
 > In alcuni scenari con più aree di lavoro, le misurazioni di CPU e dati non saranno accurate e rappresenteranno la misurazione solo per alcune delle aree di lavoro.
 
 ## <a name="parallelism"></a>Parallelismo
-Log di monitoraggio di Azure usa cluster di grandi dimensioni di Azure Esplora dati per eseguire query e questi cluster variano in scala. Il sistema ridimensiona automaticamente i cluster in base alla logica e alla capacità di posizionamento dell'area di lavoro.
+I log di monitoraggio di Azure usano cluster di grandi dimensioni di Azure Esplora dati per eseguire query e questi cluster variano in scala, ottenendo potenzialmente fino a dozzine di nodi di calcolo. Il sistema ridimensiona automaticamente i cluster in base alla logica e alla capacità di posizionamento dell'area di lavoro.
 
 Per eseguire una query in modo efficiente, viene partizionata e distribuita ai nodi di calcolo in base ai dati necessari per l'elaborazione. In alcune situazioni il sistema non è in grado di eseguire questa operazione in modo efficiente. Questo può causare una lunga durata della query. 
 

@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5462502514a3e327913122fe99fd699856891216
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7b71611d43bc2d4de4c3e609462906c44fba0443
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083111"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919975"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Autorità di certificazione consentite per abilitare la funzionalità HTTPS personalizzata nella rete CDN di Azure
 
-Per un dominio personalizzato di una rete di distribuzione di contenuti (CDN) di Azure in un endpoint **Standard della rete CDN di Azure di Microsoft**, quando si [abilita la funzionalità HTTPS usando un certificato proprio](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates), è necessario usare un'autorità di certificazione (CA) consentita per creare il certificato SSL. In caso contrario, se si usa una CA non consentita o un certificato autofirmato, la richiesta verrà rifiutata.
+Quando si [Abilita la funzionalità HTTPS usando il proprio certificato](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) per un dominio personalizzato della rete per la distribuzione di contenuti (CDN) di Azure, è necessario soddisfare requisiti specifici del certificato. Il profilo della rete **CDN standard di Azure di Microsoft** richiede un certificato di una delle autorità di certificazione (CA) approvate nell'elenco seguente. Se viene usato un certificato da una CA non approvata o se viene usato un certificato autofirmato, la richiesta viene rifiutata. I profili della rete **CDN standard di Azure di Verizon** e **della rete CDN Premium di Azure da Verizon** accettano tutti i certificati validi da qualsiasi CA valida.
 
 > [!NOTE]
-> La possibilità di usare un certificato proprio per abilitare HTTPS personalizzato è disponibile solo con i profili **standard della rete CDN di Azure di Microsoft**. 
+> La possibilità di usare il proprio certificato per abilitare la funzionalità HTTPS del dominio personalizzato *non* è disponibile per la rete **CDN standard di Azure dai profili Akamai** . 
 >
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

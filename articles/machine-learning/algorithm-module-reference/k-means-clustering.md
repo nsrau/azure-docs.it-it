@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 6e2fa96584570e5837c4367c8be4701b7398fb0f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/19/2020
+ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152211"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921165"
 ---
 # <a name="module-k-means-clustering"></a>Modulo: clustering K-means
 
@@ -107,11 +107,11 @@ Quando elabora i dati di training, l'algoritmo K-means inizia con un set inizial
   
     -   Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, aggiungere un set di dati con tag ed eseguire il training del modello usando il modulo [Train clustering Model](train-clustering-model.md) .  
   
-### <a name="results"></a>Risultati
+## <a name="results"></a>Risultati
 
 Una volta completata la configurazione e il training del modello, si dispone di un modello che è possibile utilizzare per generare i punteggi. Tuttavia, esistono diversi modi per eseguire il training del modello e diversi modi per visualizzare e utilizzare i risultati: 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Acquisire uno snapshot del modello nell'area di lavoro
+### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Acquisire uno snapshot del modello nell'area di lavoro
 
 Se è stato usato il modulo [Train clustering Model](train-clustering-model.md) :
 
@@ -121,7 +121,7 @@ Se è stato usato il modulo [Train clustering Model](train-clustering-model.md) 
 
 Il modello salvato rappresenta i dati di training nel momento in cui è stato salvato il modello. Se successivamente si aggiornano i dati di training usati nella pipeline, il modello salvato non viene aggiornato. 
 
-#### <a name="see-the-clustering-result-dataset"></a>Vedere il set di dati dei risultati del clustering 
+### <a name="see-the-clustering-result-dataset"></a>Vedere il set di dati dei risultati del clustering 
 
 Se è stato usato il modulo [Train clustering Model](train-clustering-model.md) :
 
@@ -142,3 +142,7 @@ Se, ad esempio, il set di dati contiene molti outlier e viene scelto un outlier 
 -   Creazione di più modelli, variazione della metrica o iterazione.  
   
 In generale, con i modelli di clustering, è possibile che una determinata configurazione provochi un set di cluster ottimizzato localmente. In altre parole, il set di cluster restituito dal modello si adatta solo ai punti dati correnti e non è generalizzabile con altri dati. Se si usa una configurazione iniziale diversa, il metodo K-means potrebbe trovare una configurazione diversa, superiore. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 90ff59bb76bceaacc7b0528ed0461b76832dc7fd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662128"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920043"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnostica
 
@@ -23,7 +23,7 @@ Usando la funzionalità di diagnostica di Azure Spring cloud, è possibile anali
 
 Scegliere la categoria di log e la categoria metrica che si vuole monitorare.
 
-## <a name="logs"></a>Registri
+## <a name="logs"></a>Log
 
 |File di log | Descrizione |
 |----|----|
@@ -32,7 +32,7 @@ Scegliere la categoria di log e la categoria metrica che si vuole monitorare.
 
 ## <a name="metrics"></a>Metriche
 
-Per un elenco completo delle metriche, vedere la pagina relativa alle [metriche di Spring cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
+Per un elenco completo delle metriche, vedere la pagina relativa alle [metriche di Spring cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
 
 Per iniziare, abilitare uno di questi servizi per la ricezione dei dati. Per informazioni sulla configurazione di Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md). 
 

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f34c5d5069a158579864320d0fbf965de8936d9c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e3997fc215637175165402a926bffc6ac8d02771
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896118"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914859"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accesso a più protocolli su Azure Data Lake Storage
 
@@ -26,7 +26,11 @@ Con l'accesso a più protocolli su Data Lake Storage, è possibile utilizzare i 
 Le funzionalità di archiviazione BLOB come la [registrazione diagnostica](../common/storage-analytics-logging.md), i [livelli di accesso](storage-blob-storage-tiers.md)e i criteri di gestione del ciclo di vita dell' [archiviazione BLOB](storage-lifecycle-management-concepts.md) ora funzionano con gli account che hanno uno spazio dei nomi gerarchico. Pertanto, è possibile abilitare gli spazi dei nomi gerarchici negli account di archiviazione BLOB senza perdere l'accesso a queste funzionalità importanti. 
 
 > [!NOTE]
-> L'accesso a più protocolli su Data Lake Storage è disponibile a livello generale ed è disponibile in tutte le aree geografiche. Alcune funzionalità di archiviazione BLOB e servizi di Azure abilitate per l'accesso a più protocolli rimangono in anteprima. Per ulteriori informazioni, vedere le tabelle in ogni sezione di questo articolo. 
+> L'accesso a più protocolli su Data Lake Storage è disponibile a livello generale ed è disponibile in tutte le aree geografiche. Alcune funzionalità di archiviazione BLOB e servizi di Azure abilitate per l'accesso a più protocolli rimangono in anteprima.  Questi articoli riepilogano il supporto corrente per le funzionalità di archiviazione BLOB e le integrazioni dei servizi di Azure. 
+>
+> [Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+>
+>[Servizi di Azure che supportano Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 
 ## <a name="how-multi-protocol-access-on-data-lake-storage-works"></a>Funzionamento dell'accesso con più protocolli in data Lake storage
 
@@ -36,62 +40,12 @@ Le API BLOB e le API Data Lake Storage Gen2 possono operare sugli stessi dati ne
 
 Gli strumenti e le applicazioni esistenti che usano l'API blob ottengono automaticamente questi vantaggi. Gli sviluppatori non dovranno modificarli. Data Lake Storage Gen2 applica in modo coerente le directory e gli ACL a livello di file indipendentemente dal protocollo usato da strumenti e applicazioni per accedere ai dati. 
 
-## <a name="blob-storage-feature-support"></a>Supporto delle funzionalità di archiviazione BLOB
+## <a name="see-also"></a>Vedere anche
 
-L'accesso a più protocolli su Data Lake Storage consente di usare più funzionalità di archiviazione BLOB con le Data Lake Storage. Questa tabella elenca le funzionalità abilitate dall'accesso a più protocolli su Data Lake Storage. 
-
-Gli elementi visualizzati in questa tabella cambieranno nel tempo in quanto il supporto per le funzionalità di archiviazione BLOB continuerà ad espandersi. 
-
-> [!NOTE]
-> Anche se l'accesso a più protocolli su Data Lake Storage è disponibile a livello generale, il supporto per alcune di queste funzionalità rimane in anteprima. 
-
-|Funzionalità di archiviazione BLOB | Livello di supporto |
-|---|---|
-|[Livello accesso sporadico](storage-blob-storage-tiers.md)|Disponibile a livello generale|
-|API REST BLOB|Disponibile a livello generale|
-|SDK per BLOB |Disponibile a livello generale|
-|[PowerShell (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Disponibile a livello generale|
-|[INTERFACCIA della riga di comando (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Disponibile a livello generale|
-|[Notifiche tramite griglia di eventi di Azure](data-lake-storage-events.md)|Disponibile a livello generale|
-|SDK di BLOB con semantica di file system ([.net](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|Anteprima|
-|[PowerShell con semantica di file system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|Anteprima|
-|[INTERFACCIA della riga di comando con semantica di file system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|Anteprima|
-|[Log di diagnostica](../common/storage-analytics-logging.md)| Anteprima|
-|[Criteri di gestione del ciclo di vita](storage-lifecycle-management-concepts.md)| Anteprima|
-|[Livello di accesso archivio](storage-blob-storage-tiers.md)| Anteprima|
-|[blobfuse](storage-how-to-mount-container-linux.md)|Non ancora supportato|
-|[Archiviazione non modificabile](storage-blob-immutable-storage.md)|Non ancora supportato|
-|[Snapshot](storage-blob-snapshots.md)|Non ancora supportato|
-|[Eliminazione temporanea](storage-blob-soft-delete.md)|Non ancora supportato|
-|[Siti web statici](storage-blob-static-website.md)|Non ancora supportato|
-
-Per ulteriori informazioni sui problemi noti e sulle limitazioni generali con Azure Data Lake Storage Gen2, vedere [problemi noti](data-lake-storage-known-issues.md).
-
-## <a name="azure-ecosystem-support"></a>Supporto ecosistema di Azure
-
-L'accesso a più protocolli su Data Lake Storage consente anche di connettere più servizi di Azure con la Data Lake Storage. Questa tabella elenca i servizi abilitati per l'accesso a più protocolli su Data Lake Storage. 
-
-Analogamente all'elenco delle funzionalità di archiviazione BLOB supportate, gli elementi visualizzati in questa tabella cambiano nel tempo in quanto il supporto per i servizi di Azure continua ad espandersi. 
-
-> [!NOTE]
-> Anche se l'accesso a più protocolli su Data Lake Storage è disponibile a livello generale, il supporto per alcuni di questi servizi rimane in anteprima. 
-
-|Servizio di Azure | Livello di supporto |
-|---|---|
-|[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Disponibile a livello generale|
-|[Acquisizione di hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Disponibile a livello generale|
-|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponibile a livello generale|
-|[Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Disponibile a livello generale|
-|[App per la logica](https://azure.microsoft.com/services/logic-apps/)|Disponibile a livello generale|
-|[ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Anteprima|
-
-Per l'elenco completo del supporto ecosistema di Azure per Data Lake Storage Gen2, vedere [integrare Azure Data Lake storage con i servizi di Azure](data-lake-storage-integrate-with-azure-services.md).
-
-Per ulteriori informazioni sui problemi noti e sulle limitazioni generali con Azure Data Lake Storage Gen2, vedere [problemi noti](data-lake-storage-known-issues.md).
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Vedere i [problemi noti](data-lake-storage-known-issues.md)
+- [Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Servizi di Azure che supportano Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+- [Piattaforme open source che supportano Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
+- [Problemi noti relativi a Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 
 
 

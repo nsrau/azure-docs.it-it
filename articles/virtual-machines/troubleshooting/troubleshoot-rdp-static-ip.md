@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 7756d4c808e104b0de14e1cea4af5e843cff755c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981773"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918190"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Non è possibile stabilire una connessione Desktop remoto a Macchine virtuali di Azure a causa dell'indirizzo IP statico
 
 Questo articolo descrive un problema che impedisce di stabilire una connessione Desktop remoto a Macchine virtuali di Azure dopo la configurazione di un indirizzo IP statico nella macchina virtuale.
 
-> [!NOTE]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'utilizzo del modello di distribuzione Resource Manager, che Microsoft consiglia di usare per le nuove distribuzioni in sostituzione del modello di distribuzione classica.
 
 ## <a name="symptoms"></a>Sintomi
 

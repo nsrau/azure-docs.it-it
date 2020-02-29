@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 230319471dbf62bf64ee980d84c360807687ce17
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5a8a58a3935b7cd5efb8565f7e3278ccaae4f4de
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058221"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921437"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Linux in Azure
 
@@ -31,7 +31,7 @@ Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli es
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Il cluster non supporta le dimensioni della VM richieste
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Ripetere la richiesta usando una VM di dimensioni inferiori.
 - Se le dimensioni della VM richieste non possono essere modificate:
     - Arrestare tutte le VM nel set di disponibilità. Fare clic su **Gruppi di risorse** > il proprio gruppo di risorse > **Risorse** > il proprio set di disponibilità > **Macchine virtuali** > la propria macchina virtuale > **Arresta**.
@@ -40,7 +40,7 @@ Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli es
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Il cluster non ha risorse disponibili
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Ripetere la richiesta più tardi.
 - Se la nuova VM può far parte di un set di disponibilità diverso
     - Creare una VM in un altro set di disponibilità nella stessa area.
@@ -58,11 +58,11 @@ Attualmente, il supporto per GPU Linux è disponibile solo sulle macchine virtua
 
 I driver per le macchine virtuali basate su Linux si trovano [qui](../linux/n-series-driver-setup.md). 
 
-## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Non è possibile trovare un'istanza GPU nella VM serie N
+## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Nella VM Serie N non è disponibile un'istanza GPU
 
 Per usufruire delle funzionalità GPU delle VM serie N di Azure che eseguono Windows Server 2016 o Windows Server 2012 R2, è necessario installare i driver della scheda grafica NVIDIA in ciascuna VM dopo la distribuzione. Le informazioni di configurazione dei driver sono disponibili anche per le [VM Windows](../windows/n-series-driver-setup.md) e le [VM Linux](../linux/n-series-driver-setup.md).
 
-## <a name="is-n-series-vms-available-in-my-region"></a>Le VM serie N sono disponibili nell'area di appartenenza?
+## <a name="is-n-series-vms-available-in-my-region"></a>Le VM Serie N sono disponibili nella mia area?
 
 È possibile controllare la disponibilità nella tabella [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services) e verificare i prezzi [qui](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 
@@ -76,7 +76,7 @@ Quando una VM è in esecuzione, viene distribuita su un server fisico. I server 
 
 ## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>Le dimensioni della VM elencate non sono supportate durante la distribuzione nel set di disponibilità.
 
-Scegliere dimensioni supportate nel cluster del set di disponibilità. Quando si crea un set di disponibilità, è consigliabile scegliere per la VM le dimensioni massime che si prevede di usare e di usare la VM risultante come prima distribuzione nel set di disponibilità.
+Scegliere dimensioni supportate nel cluster del set di disponibilità. Quando si crea un set di disponibilità è consigliabile scegliere per la VM le dimensioni massime che si prevede di usare e impostare la VM risultante come prima distribuzione nel set di disponibilità.
 
 ## <a name="what-linux-distributionsversions-are-supported-on-azure"></a>Quali distribuzioni/versioni di Linux sono supportate in Azure?
 
@@ -86,6 +86,7 @@ Scegliere dimensioni supportate nel cluster del set di disponibilità. Quando si
 
 Sì. È possibile aggiungere una VM classica esistente a un set di disponibilità nuovo o esistente. Per altre informazioni, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/).

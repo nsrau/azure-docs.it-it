@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 006e1fb3fcef1ebcd0e09dffb79149e75eec622a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f099546ced64bd911916164879cd533329761c66
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713183"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914671"
 ---
-# <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Librerie client per la connessione ad Azure Analysis Services
+# <a name="client-libraries-for-connecting-to-analysis-services"></a>Librerie client per la connessione a Analysis Services
 
 Le librerie client sono necessarie per la connessione di applicazioni e strumenti client ai server di Analysis Services. Le applicazioni client Microsoft come Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e l'estensione di progetti Analysis Services per Visual Studio installano tutte e tre le librerie client e le aggiornano insieme a normali aggiornamenti delle applicazioni. In alcuni casi, potrebbe essere necessario installare versioni più recenti delle librerie client. Le applicazioni client personalizzate richiedono anche l'installazione delle librerie client.
 
@@ -58,7 +58,7 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
 
 ### <a name="amo"></a>AMO  
 
- AMO è una libreria client gestita utilizzata per l'amministrazione del server e la definizione dei dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `"data source=\<servername>"`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia Visual Studio che SSMS utilizzano AMO per connettersi a un'istanza di Analysis Services.  
+ AMO è una libreria client gestita usata per l'amministrazione di server e la definizione di dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `"data source=\<servername>"`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia Visual Studio che SSMS utilizzano AMO per connettersi a un'istanza di Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD

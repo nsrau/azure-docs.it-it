@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604258"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912361"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Informazioni sulle raccomandazioni per i contenitori nel Centro sicurezza di Azure
 
@@ -35,7 +35,7 @@ Il Centro sicurezza di Azure offre le funzionalità seguenti per consentire di p
 
     ![Scheda dei contenitori](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Rilevamento in tempo reale delle minacce per i contenitori**<br> Il Centro sicurezza offre una funzionalità di rilevamento in tempo reale delle minacce per i contenitori su macchine virtuali Linux con il componente AuditD. Gli avvisi identificano diverse attività sospette di Docker, ad esempio la creazione di un contenitore con privilegi nell'host, un'indicazione della presenza di un server SSH (Secure Shell) in esecuzione all'interno di un contenitore Docker o l'uso di cryptominer. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
+- **Protezione dalle minacce del contenitore in tempo reale**<br> Il Centro sicurezza offre protezione dalle minacce in tempo reale per i contenitori in computer Linux con componente controllato. Gli avvisi identificano diverse attività sospette di Docker, ad esempio la creazione di un contenitore con privilegi nell'host, un'indicazione della presenza di un server SSH (Secure Shell) in esecuzione all'interno di un contenitore Docker o l'uso di cryptominer. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
 
     ![Scheda dei contenitori](./media/security-center-container-recommendations/docker-threat-detection.png)
 

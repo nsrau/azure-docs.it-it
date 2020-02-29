@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f94427ddfbdc19836cd177fd642987aaaeedf1ee
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 653b12ddd54c5ec9e4e7dd23a323f34460daa962
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152092"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920417"
 ---
 # <a name="multiclass-neural-network-module"></a>Modulo di rete neurale multiclasse
 
@@ -46,7 +46,7 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
 
     - **Singolo parametro**: scegliere questa opzione se si conosce già il modo in cui si vuole configurare il modello.
 
-    
+    - **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
 
 3. **Specifica livello nascosto**: selezionare il tipo di architettura di rete da creare.
 
