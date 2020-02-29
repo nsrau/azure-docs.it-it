@@ -1,6 +1,6 @@
 ---
-title: Video
-description: Collegamenti a diverse playlist video per Azure SQL Data Warehouse.
+title: Videos
+description: Collegamenti a diverse playlist video per Azure sinapsi Analytics.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5d01ff2eb74844997eb1640123e4af59abe2340b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bc6d0aed017dea46a781ca2b1d8d238e9d761e1b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692431"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192167"
 ---
-# <a name="azure-sql-data-warehouse---videos"></a>Azure SQL Data Warehouse-video
+# <a name="azure-synapse-analytics---sql-pool-videos"></a>Azure sinapsi Analytics-video su pool SQL
 
-Per informazioni sulle nuove funzionalità e sui miglioramenti delle prestazioni, guardare i video più recenti Azure SQL Data Warehouse. 
+Per informazioni sulle nuove funzionalità e sui miglioramenti delle prestazioni, vedere i video più recenti sul pool di SQL sinapsi di Azure. 
 
-Per iniziare, selezionare il video di panoramica seguente per informazioni sui nuovi aggiornamenti da Azure SQL Data Warehouse. Inoltre, informazioni su come usare i modelli di data warehouse moderni per affrontare scenari reali, ad esempio il crimine informatico.
+Per iniziare, selezionare il video di panoramica seguente per informazioni sui nuovi aggiornamenti per il pool SQL di sinapsi di Azure. Inoltre, informazioni su come usare i modelli di data warehouse moderni per affrontare scenari reali, ad esempio il crimine informatico.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">

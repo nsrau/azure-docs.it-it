@@ -3,20 +3,20 @@ title: Resolver di attestazioni nei criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Informazioni su come usare i resolver di attestazioni in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/02/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 97e51331657c62094996f79483148f2f441e6a44
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161602"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189838"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -117,9 +117,9 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 | {SAML: ForceAuthn} | Il valore dell'attributo `ForceAuthN`, dall'elemento `AuthnRequest` della richiesta SAML. | True |
 | {SAML: ProviderName} | Il valore dell'attributo `ProviderName`, dall'elemento `AuthnRequest` della richiesta SAML.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>Uso di resolver di attestazioni 
+## <a name="using-claim-resolvers"></a>Uso di resolver di attestazioni
 
-È possibile usare i resolver di attestazioni con gli elementi seguenti: 
+È possibile usare i resolver di attestazioni con gli elementi seguenti:
 
 | Elemento | Elemento | Impostazioni |
 | ----- | ----------------------- | --------|
@@ -135,7 +135,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |Profilo tecnico [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
-Impostazioni: 
+Impostazioni:
 1. I metadati di `IncludeClaimResolvingInClaimsHandling` devono essere impostati su `true`.
 1. L'attributo Claims di input o output `AlwaysUseDefaultValue` deve essere impostato su `true`.
 
@@ -195,7 +195,7 @@ Di conseguenza, Azure AD B2C invia i parametri precedenti alla pagina contenuto 
 
 ### <a name="content-definition"></a>Definizione del contenuto
 
-In una `LoadUri`[ContentDefinition](contentdefinitions.md) è possibile inviare i resolver di attestazioni per eseguire il pull del contenuto da posizioni diverse in base ai parametri utilizzati. 
+In una `LoadUri`[ContentDefinition](contentdefinitions.md) è possibile inviare i resolver di attestazioni per eseguire il pull del contenuto da posizioni diverse in base ai parametri utilizzati.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -224,7 +224,7 @@ Con Azure Application Insights e i resolver di attestazioni è possibile ottener
 
 ### <a name="relying-party-policy"></a>Criteri della relying party
 
-In un profilo tecnico dei criteri della [relying party](relyingparty.md) , è possibile inviare l'ID tenant o l'ID di correlazione all'applicazione relying party all'interno di JWT. 
+In un profilo tecnico dei criteri della [relying party](relyingparty.md) , è possibile inviare l'ID tenant o l'ID di correlazione all'applicazione relying party all'interno di JWT.
 
 ```XML
 <RelyingParty>

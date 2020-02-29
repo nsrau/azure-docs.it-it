@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.openlocfilehash: 85fb709dfcca45b6ca8141c6d3de1941044f5ee5
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0c37f1ce2f173f4bf527e7cca30f010101b01720
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163201"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190688"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Esercitazione: usare C# e intelligenza artificiale per generare contenuto ricercabile da BLOB di Azure
 
 Se è presente un testo non strutturato o immagini nell'archiviazione BLOB di Azure, una [pipeline di arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) può estrarre informazioni e creare nuovo contenuto utile per gli scenari di ricerca full-text o di data mining. In questa C# esercitazione viene applicato il riconoscimento ottico dei caratteri (OCR) sulle immagini e viene eseguita l'elaborazione del linguaggio naturale per creare nuovi campi che è possibile utilizzare in query, facet e filtri.
 
-In questa esercitazione usare C# e [.NET SDK](https://aka.ms/search-sdk) per eseguire le attività seguenti:
+Questa esercitazione USA C# e [.NET SDK](https://aka.ms/search-sdk) per eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Iniziare a usare file e immagini dell'applicazione nell'archivio BLOB di Azure.
@@ -929,11 +929,11 @@ Ripetere l'operazione per altri campi: content, languageCode, keyPhrases e organ
 
 ## <a name="reset-and-rerun"></a>Reimpostare ed eseguire di nuovo
 
-Nelle prime fasi sperimentali di sviluppo l'approccio più pratico per le iterazioni di progettazione consiste nell'eliminare gli oggetti da Ricerca cognitiva di Azure e consentire al codice di ricompilarli. I nomi di risorsa sono univoci. L'eliminazione di un oggetto consente di ricrearlo usando lo stesso nome.
+Nelle prime fasi sperimentali dello sviluppo, l'approccio più pratico per l'iterazione della progettazione consiste nell'eliminare gli oggetti da Azure ricerca cognitiva e consentire al codice di ricompilarli. I nomi di risorsa sono univoci. L'eliminazione di un oggetto consente di ricrearlo usando lo stesso nome.
 
-In questa esercitazione sono stati cercati indicizzatori e indici esistenti al fine di eliminarli per poter rieseguire il codice.
+Il codice di esempio per questa esercitazione consente di verificare la presenza di oggetti esistenti ed eliminarli in modo da poter eseguire nuovamente il codice.
 
-È anche possibile usare il portale per eliminare indici, indicizzatori e set di competenze.
+È anche possibile usare il portale per eliminare indici, indicizzatori, origini dati e skillsets.
 
 ## <a name="takeaways"></a>Risultati
 
@@ -945,11 +945,13 @@ Infine, è stato descritto come testare i risultati e reimpostare il sistema per
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca cognitiva di Azure e il servizio BLOB di Azure. Supponendo che entrambi i servizi siano stati inseriti nello stesso gruppo, eliminare il gruppo di risorse a questo punto per eliminare definitivamente tutti gli elementi in esso contenuti, inclusi i servizi e qualsiasi contenuto archiviato creato per questa esercitazione. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica di ciascun servizio.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno rimuovere le risorse che non sono più necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+
+È possibile trovare e gestire le risorse nel portale usando il collegamento tutte le risorse o i gruppi di risorse nel riquadro di spostamento a sinistra.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Personalizzare o estendere la pipeline con competenze personalizzate. Creare una competenza personalizzata e aggiungerla a un set di competenze consente di caricare procedure di analisi del testo o delle immagini personalizzate.
+Ora che si ha familiarità con tutti gli oggetti in una pipeline di arricchimento di intelligenza artificiale, verranno esaminate in dettaglio le definizioni delle competenze e le singole competenze.
 
 > [!div class="nextstepaction"]
-> [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
+> [Come creare un oggetto di competenze](cognitive-search-defining-skillset.md)

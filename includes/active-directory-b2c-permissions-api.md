@@ -1,18 +1,18 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: ce49e9e26160017d64d745c9c7ad5402bc3ae2ca
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: mimart
+ms.openlocfilehash: 71a6654acd436c27bd2370646dede81778113860
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641570"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186143"
 ---
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. Selezionare **Applicazioni** e quindi l'applicazione Web che deve avere accesso all'API. Ad esempio, *webapp1*.
 1. Selezionare **Accesso all'API** e quindi **Aggiungi**.
@@ -20,7 +20,7 @@ ms.locfileid: "73641570"
 1. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti definiti in precedenza. Ad esempio, *demo.read* e *demo.write*.
 1. Selezionare **OK**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Selezionare **Registrazioni app (anteprima)** e quindi l'applicazione Web che deve avere accesso all'API. Ad esempio, *webapp1*.
 1. In **Gestisci** selezionare **Autorizzazioni API**.
@@ -32,4 +32,4 @@ ms.locfileid: "73641570"
 1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
 1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
 1. Selezionare **Accetto**.
-1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per..." sia visualizzato in **Stato** per entrambi gli ambiti. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
+1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per" sia visualizzato in **Stato** per entrambi gli ambiti. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.

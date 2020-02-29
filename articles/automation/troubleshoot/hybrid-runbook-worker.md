@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4d804499116631be6f922f67f8b8f6c7063a6d5c
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 137623e4c52d24061aec8ec11fca0fc02ca54c7f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030728"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190977"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
@@ -54,7 +54,7 @@ I computer che eseguono il ruolo di lavoro ibrido per Runbook devono soddisfare 
 
 Verificare che il computer in cui è in esecuzione la funzionalità Hybrid Runbook Workers soddisfi i requisiti hardware minimi. In caso affermativo, monitorare l'utilizzo di CPU e memoria per determinare eventuali correlazioni tra le prestazioni dei processi del ruolo di lavoro ibrido per runbook e Windows. Qualsiasi pressione della memoria o della CPU può indicare la necessità di aggiornare le risorse. È anche possibile selezionare una risorsa di calcolo diversa che supporti i requisiti minimi e la scalabilità quando le richieste di carico di lavoro indicano che è necessario un aumento.
 
-Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]* . La ragione di questo errore è che non è stata configurata l'autenticazione nella manuali operativi o sono state specificate le credenziali RunAs per il gruppo di lavoro ibrido. Verificare le [autorizzazioni di Runbook](../automation-hrw-run-runbooks.md#runbook-permissions) per verificare di avere configurato correttamente l'autenticazione per il manuali operativi.
+Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]* . La ragione di questo errore è che non è stata configurata l'autenticazione nella manuali operativi o sono state specificate le credenziali RunAs per il gruppo di lavoro ibrido per Runbook. Verificare le autorizzazioni di Runbook nell' [esecuzione di manuali operativi in un ruolo di lavoro ibrido per Runbook](../automation-hrw-run-runbooks.md) per verificare di avere configurato correttamente l'autenticazione per la manuali operativi.
 
 ### <a name="no-cert-found"></a>Scenario: non è stato trovato alcun certificato nell'archivio certificati del ruolo di lavoro ibrido per Runbook
 
@@ -147,7 +147,7 @@ Se viene visualizzato l'errore **, la classe specificata non esiste.** nel `/var
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a>WINDOWS
+## <a name="windows"></a>Windows
 
 Il ruolo di lavoro ibrido per Runbook di Windows dipende dall' [agente di log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md) per comunicare con l'account di automazione per registrare il ruolo di lavoro, ricevere i processi Runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore:
 

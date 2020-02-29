@@ -5,23 +5,23 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6acf66e01c4f7b4bd2735687f542a0dbf472cfb4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 34446f98bc593c8b78cfb4a9ceae2c5e6dc6aef3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500200"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191164"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 
-In automazione di Azure è consigliabile scrivere manuali operativi modulari riutilizzabili con una funzione discreta chiamata da altri manuali operativi. Un runbook padre chiama spesso uno o più runbook figlio per eseguire la funzionalità richiesta. Esistono due modi per chiamare un Runbook figlio e ci sono differenze che è necessario comprendere in modo da poter determinare quale sia la soluzione migliore per gli scenari.
+In automazione di Azure è consigliabile scrivere manuali operativi modulari riutilizzabili con una funzione discreta chiamata da altri manuali operativi. Un runbook padre chiama spesso uno o più runbook figlio per eseguire la funzionalità richiesta. Esistono due modi per chiamare un Runbook figlio e ci sono differenze distinte che è necessario comprendere per poter determinare quale sia la soluzione migliore per gli scenari.
 
 >[!NOTE]
 >Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo AZ sul ruolo di lavoro ibrido per Runbook, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando [come aggiornare i moduli Azure PowerShell in automazione di Azure](automation-update-azure-modules.md).
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>Richiamare un runbook figlio con esecuzione inline
 
-Per richiamare un runbook inline da un altro runbook, utilizzare il nome del runbook e fornire valori per i relativi parametri, esattamente come si farebbe per un'attività o un cmdlet.  Tutti i runbook nello stesso account di automazione sono disponibili a tutti gli altri per essere utilizzati come quanto segue. Il Runbook padre attende il completamento del Runbook figlio prima di procedere alla riga successiva e qualsiasi output viene restituito direttamente all'elemento padre.
+Per richiamare un Runbook inline da un altro Runbook, usare il nome del Runbook e fornire i valori per i relativi parametri, esattamente come si farebbe con un'attività o un cmdlet. Tutti i runbook nello stesso account di automazione sono disponibili a tutti gli altri per essere utilizzati come quanto segue. Il Runbook padre attende il completamento del Runbook figlio prima di procedere alla riga successiva e qualsiasi output viene restituito direttamente all'elemento padre.
 
 Quando si richiama un runbook inline, esso viene eseguito nello stesso processo del runbook padre. Non è presente alcuna indicazione nella cronologia processo del Runbook figlio. Eventuali eccezioni e tutti gli output del flusso dal Runbook figlio sono associati all'elemento padre. Questo comportamento comporta un minor numero di processi e ne semplifica la traccia e la risoluzione dei problemi.
 
@@ -41,7 +41,7 @@ Quando l'ordine di pubblicazione è importante?
 
 L'ordine di pubblicazione dei runbook è rilevante solo per i runbook del flusso di lavoro PowerShell e i runbook grafici del flusso di lavoro PowerShell.
 
-Quando il Runbook chiama un Runbook figlio grafico o del flusso di lavoro PowerShell usando l'esecuzione inline, usa il nome del Runbook. Il nome deve iniziare con ".\\"per specificare che lo script si trova nella directory locale.
+Quando il Runbook chiama un Runbook figlio grafico o del flusso di lavoro PowerShell usando l'esecuzione inline, usa il nome del Runbook. Il nome deve iniziare con **.\\** per specificare che lo script si trova nella directory locale.
 
 ### <a name="example"></a>Esempio
 
@@ -64,17 +64,17 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Se il Runbook richiama un Runbook figlio con il cmdlet **Start-AzAutomationRunbook** con il parametro *wait* e il Runbook figlio genera un risultato dell'oggetto, è possibile che si verifichi un errore nell'operazione. Per risolvere l'errore, vedere [manuali operativi figlio con l'output dell'oggetto](troubleshoot/runbooks.md#child-runbook-object) per informazioni su come implementare la logica per eseguire il polling dei risultati usando il cmdlet [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) .
 
-È possibile usare **Start-AzAutomationRunbook** per avviare un Runbook come descritto in [per avviare un runbook con Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Sono disponibili due modalità di utilizzo di questo cmdlet. In una modalità, il cmdlet restituisce l'ID processo quando viene creato il processo figlio per il Runbook figlio. In altre modalità, che lo script Abilita specificando il parametro *wait* , il cmdlet attende il completamento del processo figlio e restituisce l'output dal Runbook figlio.
+È possibile usare **Start-AzAutomationRunbook** per avviare un Runbook come descritto in [per avviare un runbook con Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Sono disponibili due modalità di utilizzo di questo cmdlet. In una modalità, il cmdlet restituisce l'ID processo quando viene creato il processo per il Runbook figlio. In altre modalità, che lo script Abilita specificando il parametro *wait* , il cmdlet attende il completamento del processo figlio e restituisce l'output dal Runbook figlio.
 
-Il processo da un Runbook figlio avviato con un cmdlet viene eseguito in un processo separato dal processo del Runbook padre. Questo comportamento comporta più processi rispetto all'avvio di Runbook inline e rende più difficile tenere traccia dei processi. L'elemento padre può avviare più di un Runbook figlio in modo asincrono senza attendere il completamento di ognuno di essi. Per questa esecuzione parallela che chiama il manuali operativi figlio inline, il Runbook padre deve usare la [parola chiave parallela](automation-powershell-workflow.md#parallel-processing).
+Il processo da un Runbook figlio avviato con un cmdlet viene eseguito separatamente dal processo del Runbook padre. Questo comportamento comporta più processi rispetto all'avvio di Runbook inline e rende più difficile tenere traccia dei processi. L'elemento padre può avviare più di un Runbook figlio in modo asincrono senza attendere il completamento di ognuno di essi. Per questa esecuzione parallela che chiama il manuali operativi figlio inline, il Runbook padre deve usare la [parola chiave parallela](automation-powershell-workflow.md#parallel-processing).
 
-L'output del Runbook figlio non viene restituito al Runbook padre in modo affidabile a causa di un intervallo di tempo. Inoltre, le variabili, ad esempio $VerbosePreference, $WarningPreference e altre, potrebbero non essere propagate al manuali operativi figlio. Per evitare questi problemi, è possibile avviare il manuali operativi figlio come processi di automazione distinti usando **Start-AzAutomationRunbook** con il parametro *wait* . Questa tecnica blocca il Runbook padre fino al completamento del Runbook figlio.
+L'output del Runbook figlio non restituisce in modo affidabile il Runbook padre a causa di un intervallo di tempo. Inoltre, le variabili, ad esempio *$VerbosePreference*, *$WarningPreference*e altre, potrebbero non essere propagate al manuali operativi figlio. Per evitare questi problemi, è possibile avviare il manuali operativi figlio come processi di automazione distinti usando **Start-AzAutomationRunbook** con il parametro *wait* . Questa tecnica blocca il Runbook padre fino al completamento del Runbook figlio.
 
 Se non si desidera che il Runbook padre venga bloccato in attesa, è possibile avviare il Runbook figlio utilizzando **Start-AzAutomationRunbook** senza il parametro *wait* . In questo caso, il Runbook deve usare [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) per attendere il completamento del processo. Per recuperare i risultati, è inoltre necessario utilizzare [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) e [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) .
 
 I parametri per un Runbook figlio avviato con un cmdlet vengono forniti come Hashtable, come descritto in [parametri di Runbook](start-runbooks.md#runbook-parameters). Possono essere utilizzati solo tipi di dati semplici. Se il runbook dispone di un parametro con un tipo di dati complessi, deve essere chiamato inline.
 
-Il contesto della sottoscrizione potrebbe andare perso quando si avviano i runbook figlio come processi separati. Affinché il Runbook figlio esegua i cmdlet AZ Module per una sottoscrizione di Azure specifica, il Runbook figlio deve eseguire l'autenticazione a questa sottoscrizione indipendentemente dal Runbook padre.
+Il contesto della sottoscrizione potrebbe andare perso quando si avviano i runbook figlio come processi separati. Affinché il Runbook figlio esegua i cmdlet AZ Module per una sottoscrizione di Azure specifica, l'elemento figlio deve eseguire l'autenticazione a questa sottoscrizione indipendentemente dal Runbook padre.
 
 Se i processi all'interno dello stesso account di automazione funzionano con più di una sottoscrizione, la selezione di una sottoscrizione in un processo può modificare il contesto di sottoscrizione attualmente selezionato per altri processi. Per evitare questa situazione, usare `Disable-AzContextAutosave –Scope Process` all'inizio di ogni Runbook. Questa azione salva solo il contesto dell'esecuzione del runbook.
 

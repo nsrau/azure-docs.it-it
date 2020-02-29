@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 20c93d214195f8fe389f4982e1d8b10998c7057d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587295"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192388"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Scegliere tra i modelli di acquisto vCore e DTU
 
@@ -142,6 +142,20 @@ I valori di input per questa formula possono essere ottenuti da [sys. dm_db_reso
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Carichi di lavoro che traggono vantaggio da un pool elastico di risorse
 
 I pool sono particolarmente adatti per i database con una media di utilizzo delle risorse bassa e picchi di utilizzo relativamente poco frequenti. Per ulteriori informazioni, vedere [quando considerare un pool elastico del database SQL](sql-database-elastic-pool.md).
+
+### <a name="hardware-generations-in-the-dtu-based-purchasing-model"></a>Generazioni hardware nel modello di acquisto basato su DTU
+
+Nel modello di acquisto basato su DTU i clienti non possono scegliere la generazione hardware utilizzata per i database. Mentre un determinato database in genere rimane in una determinata generazione hardware per un lungo periodo di tempo (in genere per più mesi), si verificano determinati eventi che possono causare lo spostamento di un database in un'altra generazione di hardware.
+
+Ad esempio, un database può essere spostato in una generazione hardware diversa se viene scalato verso l'alto o verso il basso a un obiettivo di servizio diverso oppure se l'infrastruttura corrente in un data center sta per raggiungere i limiti di capacità o se l'hardware attualmente utilizzato sta per essere le autorizzazioni sono state rimosse a causa del termine del ciclo di vita.
+
+Se un database viene spostato in un altro hardware, le prestazioni del carico di lavoro possono variare. Il modello DTU garantisce che la velocità effettiva e il tempo di risposta del carico di lavoro del [benchmark DTU](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) rimangano sostanzialmente identici poiché il database si sposta in una generazione hardware diversa, purché il relativo obiettivo di servizio (il numero di DTU) rimanga invariato. 
+
+Tuttavia, attraverso l'ampia gamma di carichi di lavoro dei clienti in esecuzione nel database SQL di Azure, l'effetto dell'uso di hardware diverso per lo stesso obiettivo di servizio può essere più pronunciato. Carichi di lavoro diversi trarranno vantaggio da diverse funzionalità e configurazioni hardware. Per i carichi di lavoro diversi dal benchmark DTU, pertanto, è possibile riscontrare differenze di prestazioni se il database si sposta da una generazione hardware a un'altra.
+
+Ad esempio, un'applicazione sensibile alla latenza di rete può ottenere prestazioni migliori nell'hardware quinta generazione rispetto a Gen4, a causa dell'uso della rete accelerata in quinta generazione, ma un'applicazione che usa l'i/o di lettura intensivo può ottenere prestazioni migliori nell'hardware Gen4 e quinta generazione a causa di percentuale di memoria superiore per core in Gen4.
+
+I clienti con carichi di lavoro sensibili alle modifiche hardware o ai clienti che desiderano controllare la scelta della generazione di hardware per il database possono utilizzare il modello [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) per scegliere la generazione di hardware preferita durante la creazione e la scalabilità del database. Nel modello vCore, i limiti delle risorse di ogni obiettivo di servizio in ogni generazione hardware sono documentati, sia per i [database singoli](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) che per i [pool elastici](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools). Per ulteriori informazioni sulle generazioni hardware nel modello vCore, vedere [generazioni di hardware](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 

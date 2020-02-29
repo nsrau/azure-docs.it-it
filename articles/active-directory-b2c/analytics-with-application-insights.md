@@ -3,20 +3,20 @@ title: Tenere traccia del comportamento degli utenti con Application Insights
 titleSuffix: Azure AD B2C
 description: Informazioni su come abilitare i registri eventi in Application Insights da Azure AD B2C percorsi utente usando criteri personalizzati.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 002221bc69659a3be6fee950319909c9fc63ea9c
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: f36b04113a753607b9242681cb62270e37bf7067
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136320"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190196"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Tenere traccia del comportamento degli utenti in Azure Active Directory B2C usando Application Insights
 
@@ -37,7 +37,7 @@ Un profilo tecnico usa questo provider per definire un evento da Azure AD B2C. I
 
 Application Insights può unificare gli eventi usando un ID di correlazione per registrare una sessione utente. Application Insights rende disponibili l'evento e la sessione entro pochi secondi e offre molti strumenti di visualizzazione, esportazione e analisi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md). Questo articolo presuppone che sia in uso lo starter pack per i criteri personalizzati, che tuttavia non è obbligatorio.
 

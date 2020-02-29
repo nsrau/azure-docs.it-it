@@ -3,20 +3,20 @@ title: Distribuire criteri personalizzati con Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Informazioni su come distribuire Azure AD B2C criteri personalizzati in una pipeline di integrazione continua/recapito continuo usando Azure Pipelines in Azure DevOps Services.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8649537a2992ba11a2b664a9b36207e06c8b1274
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: b23b60ae49a4973fa04e6fa5f795f99536e32e7f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498544"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188750"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuire criteri personalizzati con Azure Pipelines
 
@@ -31,7 +31,7 @@ Sono necessari tre passaggi principali per abilitare Azure Pipelines per gestire
 > [!IMPORTANT]
 > La gestione di Azure AD B2C criteri personalizzati con una pipeline di Azure usa attualmente le operazioni di **Anteprima** disponibili nell'Microsoft Graph API `/beta` endpoint. L'uso di queste API nelle applicazioni di produzione non è supportato. Per ulteriori informazioni, vedere il [riferimento all'endpoint dell'API REST di Microsoft Graph beta](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Azure ad B2C tenant](tutorial-create-tenant.md)e credenziali per un utente nella directory con il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
 * [Criteri personalizzati](custom-policy-get-started.md) caricati nel tenant
@@ -131,7 +131,7 @@ Con il repository inizializzato e popolato con i file dei criteri personalizzati
 1. Selezionare la scheda **variabili** .
 1. Aggiungere le variabili seguenti in **variabili pipeline** e impostare i relativi valori come specificato:
 
-    | Nome | valore |
+    | Name | Valore |
     | ---- | ----- |
     | `clientId` | **ID applicazione (client)** dell'applicazione registrata in precedenza. |
     | `clientSecret` | Valore del **segreto client** creato in precedenza. <br /> Modificare il tipo di variabile in **segreto** (selezionare l'icona di blocco). |

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435863"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196927"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 
@@ -55,11 +55,11 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
     |Proprietà |Valore |
     |---|---|
     |Nome criterio|Read-hivesampletable-all|
-    |Database hive|default|
+    |Database hive|predefiniti|
     |tabella|hivesampletable|
     |Colonna hive|*|
     |Seleziona utente|hiveuser1|
-    |Autorizzazioni|Proprietà|
+    |Autorizzazioni|select|
 
     ![Configurazione di HDInsight ESP Ranger hive Policy](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
@@ -73,19 +73,19 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
     |Proprietà |Valore |
     |---|---|
     |Nome criterio|Read-hivesampletable-devicemake|
-    |Database hive|default|
+    |Database hive|predefiniti|
     |tabella|hivesampletable|
     |Colonna hive|ClientID, devicemake|
     |Seleziona utente|hiveuser2|
-    |Autorizzazioni|Proprietà|
+    |Autorizzazioni|select|
 
 ## <a name="create-hive-odbc-data-source"></a>Creare un'origine dati Hive ODBC
 
 Le istruzioni sono disponibili in [Creare un'origine dati Hive ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Proprietà  |Description |
+ | Proprietà  |Descrizione |
  | --- | --- |
- | Data Source Name | Assegnare un nome all'origine dati |
+ | Nome origine dati | Assegnare un nome all'origine dati |
  | Host | Immettere CLUSTERNAME.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net |
  | Porta | Utilizzare **443**. Questa porta è passata da 563 a 443. |
  | Database | Usare l'**impostazione predefinita**. |
@@ -115,7 +115,7 @@ Nell'ultima sezione sono stati configurati due criteri.  hiveuser1 dispone dell'
 
 1. Selezionare **hivesampletable**e quindi fare clic su **Avanti**.
 
-1. Selezionare **Fine**.
+1. Fare clic su **Fine**.
 
 1. Nella finestra di dialogo **Importa dati** è possibile modificare o specificare la query. A tale scopo, selezionare **Proprietà**. Questa operazione potrebbe richiedere alcuni secondi.
 
@@ -152,7 +152,7 @@ Per il test del secondo criterio (read-hivesampletable-devicemake) creato nell'u
 
 * Per configurare un cluster HDInsight con Enterprise Security Package, vedere [Configurare i cluster HDInsight con ESP](apache-domain-joined-configure.md).
 * Per gestire un cluster HDInsight con ESP, vedere [Gestire i cluster HDInsight con ESP](apache-domain-joined-manage.md).
-* Per eseguire query Hive usando SSH nei cluster HDInsight con ESP, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Per eseguire query Hive usando SSH nei cluster HDInsight con ESP, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * Per connettere Hive usando Hive JDBC, vedere [Connettersi ad Apache Hive in Azure HDInsight con il driver Hive JDBC](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
 * Per connettere Excel a Hadoop usando ODBC, vedere [Connettere Excel ad Apache Hadoop mediante Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
 * Per connettere Excel a Hadoop usando Power Query, vedere [Connettere Excel ad Apache Hadoop mediante Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md)

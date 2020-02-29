@@ -12,29 +12,33 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2020
   ms.author: dapine
-  ms.openlocfilehash: b411ef91dd84916e9ace544f26ed88f3f316dc02
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 95cb9fdccac0955f29686ddfa27ca4431e2e3857
+  ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562889"
+  ms.lasthandoff: 02/29/2020
+  ms.locfileid: "78196910"
 landingContent:
-- title: Introduzione
+- title: Attività iniziali
   linkLists:
   - linkListType: overview
     links:
-    - text: Informazioni sugli assistenti vocali
+    - text: Soluzioni di Assistente vocale
       url: voice-assistants.md
+    - text: Informazioni sui comandi personalizzati
+      url: custom-commands.md
     - text: Informazioni sul discorso diretto sulla linea
       url: direct-line-speech.md
+  - linkListType: reference
+    links:
+    - text: Pricing
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Domande frequenti sugli assistenti vocali
+      url: faq-voice-assistants.md
+- title: Comandi personalizzati
+  linkLists:
   - linkListType: quickstart
     links:
-    - text: C# (piattatorma UWP)
-      url: quickstart-voice-assistant-csharp-uwp.md
-    - text: Java (Windows, macOS, Linux)
-      url: quickstart-voice-assistant-java-jre.md
-    - text: Java (Android)
-      url: quickstart-voice-assistant-java-android.md
     - text: Creare un comando personalizzato (anteprima)
       url: quickstart-custom-speech-commands-create-new.md
     - text: Creare un comando personalizzato con parametri (anteprima)
@@ -43,16 +47,8 @@ landingContent:
       url: quickstart-custom-speech-commands-select-custom-voice.md
     - text: Usare i comandi personalizzati con Speech SDK (anteprima)
       url: quickstart-custom-speech-commands-speech-sdk.md
-- title: Guide dettagliate
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Abilitare il bot per la voce con Speech SDK
-      url: tutorial-voice-enable-your-bot-speech-sdk.md
   - linkListType: how-to-guide
     links:
-    - text: Comandi personalizzati (anteprima)
-      url: custom-commands.md
     - text: Comandi personalizzati con l'SDK di riconoscimento vocale
       url: how-to-custom-speech-commands-fulfill-sdk.md
     - text: Completare i comandi personalizzati con Speech SDK
@@ -63,11 +59,17 @@ landingContent:
       url: how-to-custom-speech-commands-confirmations.md
     - text: Aggiungere una correzione in un passaggio a un comando personalizzato
       url: how-to-custom-speech-commands-one-step-correction.md
-- title: Riferimento
+- title: Direct Line Speech
   linkLists:
-  - linkListType: reference
+  - linkListType: quickstart
     links:
-    - text: Prezzi
-      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
-    - text: Domande frequenti sugli assistenti vocali
-      url: faq-voice-assistants.md
+    - text: C# (piattatorma UWP)
+      url: quickstart-voice-assistant-csharp-uwp.md
+    - text: Java (Windows, macOS, Linux)
+      url: quickstart-voice-assistant-java-jre.md
+    - text: Java (Android)
+      url: quickstart-voice-assistant-java-android.md
+  - linkListType: tutorial
+    links:
+    - text: Abilitare il bot per la voce con Speech SDK
+      url: tutorial-voice-enable-your-bot-speech-sdk.md

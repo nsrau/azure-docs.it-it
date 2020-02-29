@@ -1,26 +1,26 @@
 ---
 title: Classificazione del carico di lavoro
-description: Linee guida per l'uso della classificazione per gestire le risorse di concorrenza, importanza e calcolo per le query in Azure SQL Data Warehouse.
+description: Linee guida per l'uso della classificazione per gestire la concorrenza, l'importanza e le risorse di calcolo per le query in Azure sinapsi Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/27/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.custom: azure-synapse
+ms.openlocfilehash: f350885c2d25860c7dc83310534ca9d8c9d72555
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768838"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191764"
 ---
-# <a name="azure-sql-data-warehouse-workload-classification"></a>Classificazione del carico di lavoro Azure SQL Data Warehouse
+# <a name="azure-synapse-analytics-workload-classification"></a>Classificazione del carico di lavoro di Azure sinapsi Analytics
 
-Questo articolo illustra il processo di classificazione del carico di lavoro SQL Data Warehouse per l'assegnazione di una classe di risorse e l'importanza alle richieste in ingresso.
+Questo articolo illustra il processo di classificazione del carico di lavoro per l'assegnazione di un gruppo di carico di lavoro e l'importanza alle richieste in ingresso con analisi SQL in sinapsi di Azure.
 
 ## <a name="classification"></a>Classificazione
 
@@ -36,16 +36,16 @@ Non tutte le istruzioni sono classificate poiché non richiedono risorse o hanno
 
 ## <a name="classification-process"></a>Processo di classificazione
 
-La classificazione in SQL Data Warehouse viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Con questa sintassi, SQL Data Warehouse gli utenti possono assegnare importanza e la quantità di risorse di sistema assegnate a una richiesta tramite il parametro `workload_group`. 
+La classificazione per SQL Analytics in Azure sinapsi viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Con questa sintassi, gli utenti di analisi SQL possono assegnare importanza e la quantità di risorse di sistema assegnate a una richiesta tramite il parametro `workload_group`. 
 
 > [!NOTE]
 > La classificazione viene valutata in base alle singole richieste. Più richieste in una singola sessione possono essere classificate in modo diverso.
 
 ## <a name="classification-weighting"></a>Ponderazione della classificazione
 
-Come parte del processo di classificazione, è necessario ponderare per determinare quale gruppo di carico di lavoro è assegnato.  Il peso viene eseguito come segue:
+Come parte del processo di classificazione, è necessario ponderare per determinare quale gruppo di carico di lavoro è assegnato.  La ponderazione è basata sui criteri seguenti:
 
-|Parametro di classificazione |Peso   |
+|Parametro di classificatore |Spessore   |
 |---------------------|---------|
 |MEMBERNAME: UTENTE      |64       |
 |MEMBERNAME: RUOLO      |32       |

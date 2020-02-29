@@ -3,20 +3,20 @@ title: Passare un token di accesso tramite un flusso utente all'app
 titleSuffix: Azure AD B2C
 description: Informazioni su come passare un token di accesso per i provider di identità OAuth 2,0 come attestazione in un flusso utente in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25a8181d404091064c26407c98fe31465cd4f4b3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838956"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187784"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un flusso utente all'applicazione in Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Un [flusso utente](user-flow-overview.md) in Azure Active Directory B2C (Azure a
 
 Azure AD B2C attualmente supporta solo il passaggio di token di accesso del provider di identità [OAuth 2.0](authorization-code-flow.md), tra cui [Facebook](identity-provider-facebook.md) e [Google](identity-provider-google.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * L'applicazione deve usare un [flusso utente v2](user-flow-versions.md).
 * Il flusso utenti è configurato con un provider di identità OAuth 2.0.

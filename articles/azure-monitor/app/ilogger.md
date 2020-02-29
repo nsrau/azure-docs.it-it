@@ -4,12 +4,12 @@ description: Esempi di uso del provider ILogger di applicazione Azure Insights c
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: e2b306670c43722279327301b15630f96da50ea5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2c97c79229c6f136c154169253f2299b7756a105
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659935"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192473"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider per i log ILogger di .NET Core
 
@@ -104,7 +104,7 @@ public class ValuesController : ControllerBase
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>Acquisire log ILogger da Startup.cs e Program.cs in app ASP.NET Core
 
 > [!NOTE]
-> In ASP.NET Core 3,0 e versioni successive non è più possibile inserire `ILogger` in Startup.cs e in Program.cs. Per ulteriori informazioni, vedere https://github.com/aspnet/Announcements/issues/353.
+> In ASP.NET Core 3,0 e versioni successive non è più possibile inserire `ILogger` in Startup.cs e in Program.cs. Per informazioni dettagliate, vedere https://github.com/aspnet/Announcements/issues/353.
 
 Il nuovo ApplicationInsightsLoggerProvider può acquisire i log dall'inizio della pipeline di avvio dell'applicazione. Sebbene ApplicationInsightsLoggerProvider sia abilitato automaticamente in Application Insights (a partire dalla versione 2.7.1), non ha una chiave di strumentazione configurata fino a un momento successivo nella pipeline. Verranno acquisiti solo i log delle classi **controller**/altre. Per acquisire ogni log che inizia con **Program.cs** e **Startup.cs** , è necessario abilitare in modo esplicito una chiave di strumentazione per ApplicationInsightsLoggerProvider. Inoltre, *TelemetryConfiguration* non viene configurato completamente quando si esegue la registrazione da **Program.cs** o **Startup.cs** . Quindi, i log avranno una configurazione minima che usa InMemoryChannel, nessun campionamento né inizializzatori o processori di telemetria standard.
 
@@ -426,7 +426,7 @@ Quando si usa il pacchetto autonomo, `TelemetryClient` non viene inserito nel co
 ```csharp
 public class MyController : ApiController
 {
-   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   // This telemetryclient can be used to track additional telemetry using TrackXXX() api.
    private readonly TelemetryClient _telemetryClient;
    private readonly ILogger _logger;
 

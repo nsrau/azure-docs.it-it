@@ -1,22 +1,22 @@
 ---
 title: Transparent Data Encryption (Transparent Data Encryption) gestito dal cliente
-description: 'Supporto Bring Your Own Key (BYOK) per Transparent Data Encryption (TDE) con Azure Key Vault per database SQL e Azure SQL Data Warehouse. TDE con BYOK: panoramica, vantaggi, funzionamento, considerazioni ed elementi consigliati.'
+description: 'Supporto Bring Your Own Key (BYOK) per Transparent Data Encryption (Transparent Data Encryption) con Azure Key Vault per database SQL e sinapsi di Azure. TDE con BYOK: panoramica, vantaggi, funzionamento, considerazioni ed elementi consigliati.'
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/12/2020
-ms.openlocfilehash: 8e91bb9223f3e6ccd4c76614d75db8591dbed045
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: a29466ad5b261e1e2ce818d7b4a18260e35caaec
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201518"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192745"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption SQL di Azure con chiave gestita dal cliente
 
@@ -24,7 +24,7 @@ Transparent Data Encryption SQL di Azure (Transparent Data Management [)](https:
 
 In questo scenario, la chiave utilizzata per la crittografia della chiave di crittografia del database, denominata protezione Transparent Data Encryption, è una chiave asimmetrica gestita dal cliente, archiviata in un Azure Key Vault di proprietà del cliente e gestita dal cliente [(AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), un sistema di gestione delle chiavi esterne basato sul cloud. Key Vault è un'archiviazione sicura a disponibilità elevata e scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware convalidati per FIPS 140-2 Level 2 (HSM). Non consente l'accesso diretto a una chiave archiviata, ma fornisce servizi di crittografia/decrittografia usando la chiave per le entità autorizzate. La chiave può essere generata dall'insieme di credenziali delle chiavi, importato o trasferito nell'insieme di credenziali delle [chiavi da un dispositivo HSM](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)locale.
 
-Per il database SQL di Azure e Azure SQL Data Warehouse, la protezione Transparent Data Encryption è impostata a livello di server logico e viene ereditata da tutti i database crittografati associati a tale server. Per Istanza gestita SQL di Azure, la protezione Transparent Data Encryption è impostata a livello di istanza e viene ereditata da tutti i database crittografati in tale istanza. Il termine *Server* si riferisce sia al server logico del database SQL che all'istanza gestita in tutto il documento, a meno che non venga specificato diversamente.
+Per il database SQL di Azure e la sinapsi di Azure, la protezione Transparent Data Encryption è impostata a livello di server logico e viene ereditata da tutti i database crittografati associati a tale server. Per Istanza gestita SQL di Azure, la protezione Transparent Data Encryption è impostata a livello di istanza e viene ereditata da tutti i database crittografati in tale istanza. Il termine *Server* si riferisce sia al server logico del database SQL che all'istanza gestita in tutto il documento, a meno che non venga specificato diversamente.
 
 > [!IMPORTANT]
 > Per chi utilizza Transparent Data Encryption gestito dal servizio che desidera iniziare a utilizzare la crittografia transazionale gestita dal cliente, i dati rimangono crittografati durante il processo di trasferimento e non si verificano tempi di inattività e la nuova crittografia dei file di database. Il trasferimento da una chiave gestita dal servizio a una chiave gestita dal cliente richiede solo una nuova crittografia della chiave di crittografia, che è un'operazione veloce e online.
@@ -163,7 +163,7 @@ Se la chiave necessaria per il ripristino di un backup non è più disponibile p
 
 Per attenuarlo, eseguire il cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) per il server logico del database SQL di destinazione o [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) per l'istanza gestita di destinazione per restituire l'elenco delle chiavi disponibili e identificare quelle mancanti. Per assicurarsi che tutti i backup possano essere ripristinati, verificare che il server di destinazione per il ripristino abbia accesso a tutte le chiavi necessarie. Queste chiavi non devono essere contrassegnate come protezione Transparent Data Encryption.
 
-Per altre informazioni sul ripristino dei backup per il database SQL, vedere [Recuperare un database SQL di Azure](sql-database-recovery-using-backups.md). Per altre informazioni sul ripristino dei backup per SQL Data Warehouse, vedere [Recuperare un Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md). Per il backup/ripristino nativo di SQL Server con istanza gestita, vedere [Guida introduttiva: ripristinare un database a una istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
+Per altre informazioni sul ripristino dei backup per il database SQL, vedere [Recuperare un database SQL di Azure](sql-database-recovery-using-backups.md). Per ulteriori informazioni sul ripristino del backup per il pool SQL, vedere [ripristino di un pool SQL](../sql-data-warehouse/backup-and-restore.md). Per il backup/ripristino nativo di SQL Server con istanza gestita, vedere [Guida introduttiva: ripristinare un database a una istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Considerazioni aggiuntive per i file di log: i file di log di cui è stato eseguito il backup rimangono crittografati con la protezione Transparent Data Encryption originale, anche se è stata ruotata e il database ora usa una nuova protezione Transparent Data Encryption.  In fase di ripristino, per ripristinare il database saranno necessarie entrambe le chiavi.  Se il file di log utilizza una protezione Transparent Data Encryption archiviata in Azure Key Vault, questa chiave sarà necessaria in fase di ripristino, anche se il database è stato modificato per l'utilizzo di Transparent Service-Managed nel frattempo.
 

@@ -9,18 +9,18 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 405b2fb9d9b8ef3bce17a9370ac87592a3437026
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a3f7d7c9af807120457b119e0be047c7a342b961
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585952"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190535"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -136,10 +136,10 @@ Per supportare password temporanee in Azure AD per gli utenti sincronizzati, è 
 `Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> Per forzare l'utente a modificare la password all'accesso successivo è necessario modificare la password nello stesso momento.  AD Connect non preleverà il flag di modifica Force password da solo; è supplementare per la modifica della password rilevata che si verifica durante la sincronizzazione dell'hash delle password.
+> Per forzare l'utente a modificare la password all'accesso successivo è necessario modificare la password nello stesso momento.  Azure AD Connect non preleverà il flag di modifica Force password da solo; è supplementare per la modifica della password rilevata che si verifica durante la sincronizzazione dell'hash delle password.
 
 > [!CAUTION]
-> Se non si Abilita la reimpostazione della password self-service (SSPR) in Azure AD gli utenti avranno un'esperienza confusa quando reimpostano la password in Azure AD e quindi tenteranno di accedere Active Directory con la nuova password, perché la nuova password non è valida in Active Directory . È consigliabile usare questa funzionalità solo quando SSPR e il writeback delle password sono abilitati nel tenant.
+> Usare questa funzionalità solo quando SSPR e il writeback delle password sono abilitati nel tenant.  In questo modo, se un utente modifica la password tramite SSPR, verrà sincronizzato con Active Directory.
 
 > [!NOTE]
 > Questa funzionalità è disponibile in anteprima pubblica in questo momento.

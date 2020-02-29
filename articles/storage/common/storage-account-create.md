@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086957"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197726"
 ---
 # <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
@@ -24,15 +24,15 @@ In questo articolo sulle procedure viene illustrato come creare un account di ar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nessuno
+No.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per creare un account di archiviazione di Azure con PowerShell, verificare di aver installato Azure PowerShell modulo AZ versione 0,7 o successiva. Per ulteriori informazioni, vedere [Introduzione al Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
 
@@ -44,7 +44,7 @@ Get-InstalledModule -Name "Az"
 
 Per installare o aggiornare Azure PowerShell, vedere [install Azure PowerShell Module](/powershell/azure/install-Az-ps).
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È possibile accedere ad Azure ed eseguire i comandi dell'interfaccia della riga di comando di Azure in uno dei due modi seguenti:
 
@@ -65,19 +65,19 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire la p
 
 È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. Questo articolo illustra le procedure necessarie per eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
-# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+# <a name="template"></a>[Modello](#tab/template)
 
-Nessuno
+No.
 
 ---
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate per eseguire l'autenticazione.
 
@@ -85,7 +85,7 @@ Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e segui
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per avviare Azure Cloud Shell, accedere al [portale di Azure](https://portal.azure.com).
 
@@ -95,7 +95,7 @@ Per accedere all'installazione locale dell'interfaccia della riga di comando, es
 az login
 ```
 
-# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+# <a name="template"></a>[Modello](#tab/template)
 
 N/D
 
@@ -109,11 +109,11 @@ Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. 
 
 Un account di archiviazione **per utilizzo generico v2** consente l'accesso a tutti i servizi di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. I passaggi descritti di seguito consentono di creare un account di archiviazione per utilizzo generico V2, ma i passaggi per creare qualsiasi tipo di account di archiviazione sono simili.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare prima un nuovo gruppo di risorse con PowerShell usando il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
@@ -155,7 +155,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)    |Standard_GZRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) (anteprima)    |Standard_RAGZRS         |
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Creare prima un nuovo gruppo di risorse con l'interfaccia della riga di comando di Azure usando il comando [az group create](/cli/azure/group#az_group_create).
 
@@ -198,7 +198,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)    |Standard_GZRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) (anteprima)    |Standard_RAGZRS         |
 
-# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+# <a name="template"></a>[Modello](#tab/template)
 
 È possibile usare Azure Powershell o l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager per creare un account di archiviazione. Il modello usato in questo articolo sulle procedure è da [Azure Resource Manager modelli di avvio rapido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Per eseguire gli script, selezionare **Prova** per aprire Azure Cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.
 
@@ -219,7 +219,10 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-Per informazioni su come creare modelli, vedere:
+> [!NOTE]
+> Questo modello viene utilizzato solo come esempio. Sono presenti molte impostazioni dell'account di archiviazione che non sono configurate come parte di questo modello. Se ad esempio si desidera utilizzare [Azure Data Lake storage](https://azure.microsoft.com/services/storage/data-lake-storage/), modificare il modello impostando la proprietà `isHnsEnabledad` dell'oggetto `StorageAccountPropertiesCreateParameters` su `true`. 
+
+Per informazioni su come modificare il modello o crearne di nuovi, vedere:
 
 - [Documentazione di Azure Resource Manager](/azure/azure-resource-manager/).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions)(Riferimento sul modello di account di archiviazione).
@@ -233,12 +236,12 @@ Per altre informazioni sulle opzioni di replica disponibili, vedere [Opzioni di 
 
 L'eliminazione di un account di archiviazione consente di eliminare l'intero account, inclusi tutti i dati nell'account, e non può essere annullato.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com).
-1. Scegliere **Elimina**.
+1. Fare clic su **Elimina**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per eliminare l'account di archiviazione, usare il comando [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) :
 
@@ -246,7 +249,7 @@ Per eliminare l'account di archiviazione, usare il comando [Remove-AzStorageAcco
 Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-group>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per eliminare l'account di archiviazione, usare il comando [AZ storage account Delete](/cli/azure/storage/account#az-storage-account-delete) :
 
@@ -254,7 +257,7 @@ Per eliminare l'account di archiviazione, usare il comando [AZ storage account D
 az storage account delete --name <storage-account> --resource-group <resource-group>
 ```
 
-# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+# <a name="template"></a>[Modello](#tab/template)
 
 Per eliminare l'account di archiviazione, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -285,22 +288,22 @@ In alternativa, è possibile eliminare il gruppo di risorse, che elimina l'accou
 
 In questo articolo sulle procedure è stato creato un account di archiviazione standard per utilizzo generico V2. Per informazioni su come caricare e scaricare i BLOB da e verso l'account di archiviazione, continuare con una delle guide introduttive di archiviazione BLOB.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Usare i BLOB con il portale di Azure](../blobs/storage-quickstart-blobs-portal.md)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [Usare i BLOB con PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
 > [Usare i BLOB con l'interfaccia della riga di comando di Azure](../blobs/storage-quickstart-blobs-cli.md)
 
-# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+# <a name="template"></a>[Modello](#tab/template)
 
 > [!div class="nextstepaction"]
 > [Usare i BLOB con il portale di Azure](../blobs/storage-quickstart-blobs-portal.md)

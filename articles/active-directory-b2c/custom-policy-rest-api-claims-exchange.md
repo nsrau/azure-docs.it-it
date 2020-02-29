@@ -2,20 +2,20 @@
 title: Scambi di attestazioni API REST-Azure Active Directory B2C
 description: Aggiungere scambi di attestazioni API REST ai criteri personalizzati in Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1caf0b3f6396cc008e77bb96e686fe78f462850b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 351b41f45fb84384ec0193f8e3130347d0b19401
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849097"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189090"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere scambi di attestazioni API REST a criteri personalizzati in Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Lo scenario rappresentato in questo articolo include le azioni seguenti:
 2. Ottenere la città in cui tale utente è registrato.
 3. Restituire tale attributo all'applicazione come un'attestazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
 - Un endpoint API REST con il quale interagire. Questo articolo usa come esempio una semplice funzione di Azure. Per creare la funzione di Azure, vedere [creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).

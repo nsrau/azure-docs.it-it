@@ -2,20 +2,20 @@
 title: Esempi di trasformazione di attestazioni data per criteri personalizzati
 description: Esempi di trasformazione delle attestazioni data per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b831a3175e1dc8b19395d1c923b076ac9428690c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f3e5a7b90892f0ed0243d448ea1ac63fb56f277f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982909"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188835"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
 
@@ -91,7 +91,7 @@ Converte un ClaimType **Date** in un ClaimType **DateTime**. La trasformazione d
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | Data | ClaimType da convertire. |
+| InputClaim | inputClaim | date | ClaimType da convertire. |
 | OutputClaim | outputClaim | dateTime | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo di dati date) in un'altra attestazione `dateOfBirthWithTime` (tipo di dati dateTime).
@@ -114,14 +114,14 @@ L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo
 - Attestazioni di output:
     - **outputClaim**: 1559347200 (1 giugno 2019 12:00:00 AM)
 
-## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim 
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
 
 Converte un ClaimType **DateTime** in un ClaimType di **Data** . La trasformazione delle attestazioni rimuove il formato dell'ora dalla data.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | dateTime | ClaimType da convertire. |
-| OutputClaim | outputClaim | Data | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
+| OutputClaim | outputClaim | date | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Nell'esempio seguente viene illustrata la conversione del `systemDateTime` di attestazione (tipo di dati dateTime) in un'altra attestazione `systemDate` (tipo di dati date).
 
@@ -172,7 +172,7 @@ Determinare se un valore dateTime è successivo, precedente o uguale a un altro.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | Il primo valore dateTime da confrontare per verificare se è precedente o successivo al secondo valore dateTime. I valori Null generano un'eccezione. |
 | InputClaim | secondDateTime | dateTime | Il secondo valore dateTime da confrontare per verificare se è precedente o successivo al primo valore dateTime. Il valore Null viene considerato come il valore dateTime corrente. |
-| InputParameter | operator | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
+| InputParameter | operatore | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
 | InputParameter | timeSpanInSeconds | int | Aggiungere l'intervallo di tempo al primo valore datetime. |
 | OutputClaim | result | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 

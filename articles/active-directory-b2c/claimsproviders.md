@@ -2,20 +2,20 @@
 title: ClaimsProviders - Azure Active Directory B2C | Microsoft Docs
 description: Specificare l'elemento ClaimsProvider dei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/29/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0bda94344a22f39daf104e7b95e33723187c4aa1
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: dfb34085181e0b759d1d77485ff21b5bc59e0de3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983011"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189770"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -41,7 +41,7 @@ Un provider di attestazioni contiene un set di [profili tecnici](technicalprofil
 
 **ClaimsProviders** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | ClaimsProvider | 1:n | Provider di attestazioni accreditato che può essere sfruttato in vari percorsi utente. |
 
@@ -49,7 +49,7 @@ Un provider di attestazioni contiene un set di [profili tecnici](technicalprofil
 
 **ClaimsProvider** contiene gli elementi figlio seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ---------- | ----------- |
 | Dominio | 0:1 | Stringa contenente il nome di dominio per il provider di attestazioni. Se il provider di attestazioni include il profilo tecnico Facebook, ad esempio, il nome di dominio è Facebook.com. Questo nome di dominio viene usato per tutti i profili tecnici definiti nel provider di attestazioni a meno che il profilo tecnico non ne esegua l'override. Può essere fatto riferimento al nome di dominio anche in **domain_hint**. Per altre informazioni, vedere la sezione **Reindirizzare l'accesso a un provider di social networking** in [Configurare l'accesso diretto tramite Azure Active Directory B2C](direct-signin.md). |
 | DisplayName | 1:1 | Stringa che contiene il nome del provider di attestazioni. |

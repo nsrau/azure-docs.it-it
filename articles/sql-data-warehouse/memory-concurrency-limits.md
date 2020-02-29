@@ -1,25 +1,25 @@
 ---
 title: Limiti di memoria e concorrenza
-description: Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure SQL Data Warehouse.
+description: Visualizzare i limiti di memoria e concorrenza allocati ai vari livelli di prestazioni e classi di risorse in Azure sinapsi Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 73c7b756009035c8592c85bec3a6b7d85d93666c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851282"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200686"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limiti di memoria e concorrenza per Azure SQL Data Warehouse
-Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure SQL Data Warehouse.  
+# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limiti di memoria e concorrenza per Azure sinapsi Analytics
+Visualizzare i limiti di memoria e concorrenza allocati ai vari livelli di prestazioni e classi di risorse in Azure sinapsi Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Impostazioni di capacità di Data Warehouse
 Nelle tabelle seguenti viene illustrata la capacità massima per il data warehouse a diversi livelli di prestazioni. Per modificare il livello di prestazioni, vedere [Ridimensionare le risorse di calcolo: portale](quickstart-scale-compute-portal.md).
@@ -73,7 +73,7 @@ Con l'introduzione dei [gruppi del carico di lavoro](sql-data-warehouse-workload
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Valori massimi di concorrenza per le classi di risorse
-Affinché ogni query abbia risorse sufficienti per operare in modo efficace, SQL Data Warehouse tiene traccia dell'uso delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base agli slot di importanza e concorrenza. Le query attendono la coda fino a quando non sono disponibili slot di concorrenza sufficienti. Gli slot di [importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e di concorrenza determinano la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
+Per assicurarsi che ogni query disponga di risorse sufficienti per un'esecuzione efficiente, SQL Analytics in Azure sinapsi tiene traccia dell'utilizzo delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base agli slot di importanza e concorrenza. Le query attendono la coda fino a quando non sono disponibili slot di concorrenza sufficienti. Gli slot di [importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e di concorrenza determinano la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
 
 **Classi di risorse statiche**
 

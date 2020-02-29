@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c98a583e2aa8ac679842e16d1c0cc36811db90de
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422561"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190586"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visualizzare report e log in Azure AD gestione dei diritti
 
@@ -93,7 +93,7 @@ Quando Azure AD riceve una nuova richiesta, scrive un record di controllo, in cu
 
 Azure AD scriverà record di controllo aggiuntivi mentre è in corso la richiesta, tra cui:
 
-| Categoria | Attività | Stato della richiesta |
+| Category | Attività | Stato della richiesta |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | La richiesta non richiede l'approvazione |
 | `UserManagement` | `Create request approval` | La richiesta richiede l'approvazione |
@@ -109,5 +109,6 @@ Quando l'assegnazione del pacchetto di accesso dell'utente scade, viene annullat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Archiviare report e log](entitlement-management-logs-and-reporting.md)
 - [Risolvere i problemi di Azure AD gestione dei diritti](entitlement-management-troubleshoot.md)
 - [Scenari comuni](entitlement-management-scenarios.md)

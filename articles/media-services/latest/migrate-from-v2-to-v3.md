@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/02/2019
+ms.date: 02/28/2020
 ms.author: juliako
-ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 2a670c7bce113de8854b33e407c7de2236edd794
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505782"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197862"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -77,7 +77,26 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 * Gli output live iniziano al momento della creazione e terminano quando vengono eliminati. I programmi funzionano in modo diverso nelle API v2 e devono essere avviati dopo la creazione.
 * Per ottenere informazioni su un processo, è necessario conoscere il nome della trasformazione in cui è stato creato il processo. 
 * Nella versione V2, i file di metadati di [input](../previous/media-services-input-metadata-schema.md) e [output](../previous/media-services-output-metadata-schema.md) XML vengono generati come risultato di un processo di codifica. In V3, il formato dei metadati è stato modificato da XML a JSON. 
+* In servizi multimediali V2 è possibile specificare il vettore di inizializzazione (IV). In servizi multimediali V3 non è possibile specificare FairPlay IV. Anche se non ha alcun effetto sui clienti che usano servizi multimediali per la creazione di pacchetti e la distribuzione di licenze, può trattarsi di un problema quando si usa un sistema DRM di terze parti per distribuire le licenze FairPlay (modalità ibrida). In tal caso, è importante tenere presente che FairPlay IV è derivato dall'ID della chiave CBCS e può essere recuperato utilizzando questa formula:
 
+    ```
+    string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
+    ```
+
+    con
+
+    ``` 
+    public static byte[] HexStringToByteArray(string hex)
+    {
+        return Enumerable.Range(0, hex.Length)
+            .Where(x => x % 2 == 0)
+            .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+            .ToArray();
+    }
+    ```
+
+    Per altre informazioni, vedere il [codice di C# funzioni di Azure per servizi multimediali V3 in modalità ibrida per le operazioni Live e VOD](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3).
+ 
 > [!NOTE]
 > Esaminare le convenzioni di denominazione applicate alle [risorse di servizi multimediali V3](media-services-apis-overview.md#naming-conventions). Esaminare anche i [BLOB di denominazione](assets-concept.md#naming).
 

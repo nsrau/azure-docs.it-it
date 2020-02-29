@@ -3,20 +3,20 @@ title: Proteggere un servizio RESTful usando l'autenticazione di base HTTP
 titleSuffix: Azure AD B2C
 description: Proteggere gli scambi di attestazioni API REST personalizzati in Azure AD B2C tramite l'autenticazione HTTP di base.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 986ad1845fa2699bb3462dceb3865300a035cb71
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 505d92e33606dac327778cae179df44efbfdf853
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848538"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183857"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteggere i servizi RESTful tramite l'autenticazione di base HTTP
 
@@ -28,7 +28,7 @@ Questo articolo illustra come aggiungere l'autenticazione di base HTTP al serviz
 
 Per altre informazioni, vedere [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticazione di base nell'API Web ASP.NET).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Completare i passaggi nell'articolo [Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C](rest-api-claims-exchange-dotnet.md).
 

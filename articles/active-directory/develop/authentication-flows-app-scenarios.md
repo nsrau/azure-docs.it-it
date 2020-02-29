@@ -1,6 +1,6 @@
 ---
 title: Scenari di app e flussi di autenticazione per Microsoft Identity Platform | Azure
-description: Informazioni sui flussi di autenticazione e sugli scenari applicativi per Microsoft Identity Platform. Informazioni sui diversi tipi di applicazioni che possono autenticare identità, acquisire token e chiamare API protette.
+description: Informazioni sugli scenari delle applicazioni per la piattaforma di identità Microsoft, tra cui l'autenticazione delle identità, l'acquisizione di token e la chiamata di API protette.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,21 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/27/2019
+ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: bdcc93fe84d2fded914f21dfa2a29d9e2a2ab449
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 89bafeb077fc83f4f3165d591006831bf8287875
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161359"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190484"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flussi di autenticazione e scenari di applicazioni
 
-L'endpoint di Microsoft Identity Platform (v2.0) supporta l'autenticazione per diversi tipi di moderne architetture di applicazioni. Tutte le architetture sono basate sui protocolli standard [OAuth 2.0 e OpenID Connect](active-directory-v2-protocols.md).  Usando le [librerie di autenticazione](reference-v2-libraries.md) le applicazioni autenticano le identità e acquisiscono i token per accedere alle API protette.
+L'endpoint di Microsoft Identity Platform (v2.0) supporta l'autenticazione per diversi tipi di moderne architetture di applicazioni. Tutte le architetture sono basate sui protocolli standard [OAuth 2.0 e OpenID Connect](active-directory-v2-protocols.md).  Usando le [librerie di autenticazione della piattaforma Microsoft Identity](reference-v2-libraries.md), le applicazioni autenticano le identità e acquisiscono i token per accedere alle API protette.
 
-Questo articolo descrive i diversi flussi di autenticazione e gli scenari applicativi in cui vengono usati. Include anche elenchi di:
+Questo articolo descrive i flussi di autenticazione e gli scenari di applicazione in cui sono usati:
+
 - [Scenari applicativi e flussi di autenticazione supportati](#scenarios-and-supported-authentication-flows).
 - [Scenari applicativi e piattaforme e linguaggi supportati](#scenarios-and-supported-platforms-and-languages).
 
@@ -36,13 +37,13 @@ I token possono essere acquisiti da diversi tipi di applicazioni, tra cui:
 - App desktop
 - API Web
 
-Possono anche essere acquisiti dalle app in esecuzione in dispositivi privi di browser o eseguiti in IoT.
+I token possono anche essere acquisiti dalle app in esecuzione su dispositivi che non hanno un browser o sono in esecuzione su Internet.
 
 Le applicazioni possono essere categorizzate in base all'elenco seguente:
 
 - [Risorse protette rispetto alle applicazioni client](#protected-resources-vs-client-applications): alcuni scenari sono relativi alla protezione di risorse come app Web o API Web. Altri scenari si riferiscono all'acquisizione di un token di sicurezza per chiamare un'API Web protetta.
-- [Con gli utenti o senza utenti](#with-users-or-without-users): alcuni scenari coinvolgono un utente connesso, ma altri come gli scenari daemon non coinvolgono un utente.
-- [Applicazioni client a pagina singola, client pubblico e riservata](#single-page-public-client-and-confidential-client-applications): si tratta di tre grandi categorie di tipi di applicazioni. Ognuna viene usata in librerie e oggetti diversi.
+- [Con gli utenti o senza utenti](#with-users-or-without-users): alcuni scenari coinvolgono un utente connesso, ma altri, come gli scenari daemon, non coinvolgono un utente.
+- [Applicazioni client a pagina singola, client pubblico e riservata](#single-page-public-client-and-confidential-client-applications): questi tipi sono tre categorie di applicazioni di grandi dimensioni. Ognuna viene usata in librerie e oggetti diversi.
 - [Destinatari di accesso](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): i flussi di autenticazione disponibili variano a seconda dei destinatari di accesso. Alcuni flussi sono disponibili solo per gli account aziendali e dell'istituto di istruzione. Altri sono disponibili sia per questi account che per gli account Microsoft personali. I destinatari consentiti dipendono dai flussi di autenticazione.
 - [Flussi OAuth 2,0 supportati](#scenarios-and-supported-authentication-flows): i flussi di autenticazione vengono usati per implementare gli scenari di applicazione che richiedono token. Non esiste un mapping uno-a-uno tra scenari di applicazioni e flussi di autenticazione.
 - [Piattaforme supportate](#scenarios-and-supported-platforms-and-languages): non tutti gli scenari di applicazione sono disponibili per ogni piattaforma.
@@ -51,7 +52,7 @@ Le applicazioni possono essere categorizzate in base all'elenco seguente:
 
 Gli scenari di autenticazione coinvolgono due attività:
 
-- **Acquisizione dei token di sicurezza per un'API Web protetta**: Microsoft consiglia di usare le [librerie di autenticazione](reference-v2-libraries.md#microsoft-supported-client-libraries) per acquisire i token, in particolare la famiglia Microsoft Authentication Library (MSAL).
+- **Acquisizione dei token di sicurezza per un'API Web protetta**: è consigliabile usare le [librerie client supportate da Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) per acquisire i token, in particolare la famiglia Microsoft Authentication Library (MSAL).
 - **Protezione di un'API Web o di un'app Web**: una sfida per la protezione di un'API Web o di una risorsa dell'app Web è la convalida del token di sicurezza. In alcune piattaforme, Microsoft offre [librerie middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Con utenti o senza utenti
@@ -68,25 +69,25 @@ Esistono tuttavia anche scenari di app daemon in cui le applicazioni acquisiscon
 
 I token di sicurezza possono essere acquisiti da più tipi di applicazioni. Queste applicazioni tendono a essere suddivise in tre categorie:
 
-- **Applicazioni a singola pagina**: note anche come Spa, si tratta di app Web in cui i token vengono acquisiti da un'app JavaScript o typescript in esecuzione nel browser. Molte app moderne hanno un front-end di applicazione a pagina singola scritto principalmente in JavaScript. L'applicazione usa spesso un framework come Angular, React o Vue. MSAL.js è l'unica libreria di autenticazione Microsoft che supporta le applicazioni a pagina singola.
+- **Applicazioni a singola pagina**: note anche come Spa, queste app sono app Web in cui i token vengono acquisiti da un'app JavaScript o typescript in esecuzione nel browser. Molte app moderne hanno un front-end di applicazione a pagina singola scritto principalmente in JavaScript. L'applicazione usa spesso un framework come Angular, React o Vue. MSAL.js è l'unica libreria di autenticazione Microsoft che supporta le applicazioni a pagina singola.
 
 - **Applicazioni client pubbliche**: queste applicazioni hanno sempre accesso agli utenti:
   - App desktop che chiamano API Web per conto dell'utente che ha eseguito l'accesso
   - App per dispositivi mobili
   - App in esecuzione in dispositivi privi di browser, ad esempio quelli usati in IoT
 
-  Questa app sono rappresentate dalla classe MSAL [PublicClientApplication](msal-client-applications.md).
+  Questa app sono rappresentate dalla classe MSAL [PublicClientApplication](/dotnet/api/microsoft.identity.client.publicclientapplication). Per ulteriori informazioni, vedere [client pubblici e applicazioni client riservate](msal-client-applications.md).
 
 - **Applicazioni client riservate**:
   - App Web che chiamano un'API Web
   - API Web che chiamano un'API Web
   - App daemon, anche se implementate come un servizio console, ad esempio un daemon Linux o un servizio Windows
 
-  Questi tipi di app usano la classe [ConfidentialClientApplication](msal-client-applications.md).
+  Questi tipi di app usano la classe [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplication). Per ulteriori informazioni, vedere [client pubblici e applicazioni client riservate](msal-client-applications.md).
 
 ## <a name="application-scenarios"></a>Scenari applicativi
 
-L'endpoint di Microsoft Identity Platform supporta l'autenticazione per diversi tipi di architetture di app:
+L'endpoint della piattaforma Microsoft Identity supporta l'autenticazione per diverse architetture di app:
 
 - App a pagina singola
 - App Web
@@ -100,7 +101,9 @@ Le applicazioni usano flussi di autenticazione diversi per concedere l'accesso a
 
 ### <a name="a-single-page-application"></a>Applicazione a pagina singola
 
-Molte app Web moderne vengono create come applicazioni a pagina singola lato client, scritte con JavaScript o con un apposito framework come Angular, Vue.js e React.js. Queste applicazioni vengono eseguite in un Web browser. Le relative caratteristiche di autenticazione sono diverse da quelle delle tradizionali app Web lato server. Usando Microsoft Identity Platform, le applicazioni a pagina singola possono concedere l'accesso agli utenti e ottenere i token per l'accesso a servizi back-end o API Web.
+Molte app Web moderne sono compilate come applicazioni a singola pagina sul lato client. Queste applicazioni usano JavaScript o un Framework applicazione a pagina singola come angolari, VME. js e React. js. Queste applicazioni vengono eseguite in un Web browser.
+
+Le caratteristiche di autenticazione sono diverse dalle app Web tradizionali sul lato server. Usando Microsoft Identity Platform, le applicazioni a pagina singola possono concedere l'accesso agli utenti e ottenere i token per l'accesso a servizi back-end o API Web.
 
 ![Applicazione a pagina singola](media/scenarios/spa-app.svg)
 
@@ -134,17 +137,17 @@ Per chiamare un'API Web da un'applicazione desktop che concede l'accesso agli ut
 
 Esiste un'altra possibilità per le applicazioni ospitate in Windows in computer aggiunti a un dominio Windows o tramite Azure Active Directory (Azure AD). Queste applicazioni possono acquisire automaticamente un token tramite l'[autenticazione integrata di Windows](https://aka.ms/msal-net-iwa).
 
-Le applicazioni in esecuzione in un dispositivo privo di browser potranno comunque chiamare un'API per conto di un utente. Per eseguire l'autenticazione, l'utente dovrà eseguire l'accesso in un altro dispositivo che include un Web browser. Per questo scenario, è necessario usare il [flusso di codice del dispositivo](https://aka.ms/msal-net-device-code-flow).
+Le applicazioni in esecuzione in un dispositivo privo di browser potranno comunque chiamare un'API per conto di un utente. Per eseguire l'autenticazione, l'utente dovrà eseguire l'accesso in un altro dispositivo che include un Web browser. Per questo scenario è necessario usare il [flusso del codice del dispositivo](https://aka.ms/msal-net-device-code-flow).
 
 ![Flusso di codice del dispositivo](media/scenarios/device-code-flow-app.svg)
 
 Anche se non è consigliabile usarlo, il [flusso nome utente/password](https://aka.ms/msal-net-up) è disponibile nelle applicazioni client pubbliche. Questo flusso è ancora necessario in alcuni scenari, come DevOps.
 
-Ma l'uso di questo flusso impone vincoli alle applicazioni. Ad esempio, le applicazioni che lo usano non saranno in grado di concedere l'accesso a un utente che deve eseguire l'autenticazione a più fattori o l'accesso condizionale. Inoltre, le applicazioni non usufruiscono dell'accesso Single Sign-On.
+Tuttavia, l'uso di questo flusso vincola le applicazioni. Ad esempio, le applicazioni non possono accedere a un utente che deve usare l'autenticazione a più fattori o l'accesso condizionale. Inoltre, le applicazioni non usufruiscono dell'accesso Single Sign-On.
 
 L'autenticazione con il flusso nome utente/password è anche contraria ai principi dell'autenticazione moderna e viene fornita solo per motivi di compatibilità con le versioni precedenti.
 
-Nelle app desktop, se si vuole che la cache dei token sia persistente, è necessario [personalizzare la serializzazione della cache dei token](https://aka.ms/msal-net-token-cache-serialization). Implementando la [serializzazione doppia della cache dei token](https://aka.ms/msal-net-dual-cache-serialization), è anche possibile usare cache di token compatibili con le versioni precedenti e successive delle generazioni precedenti di librerie di autenticazione. Le specifiche librerie includono Azure AD Authentication Library per .NET (ADAL.NET) versioni 3 e 4.
+Nelle app desktop, se si vuole che la cache dei token venga mantenute, personalizzare la [serializzazione della cache del token](https://aka.ms/msal-net-token-cache-serialization). Implementando la [serializzazione a doppio token della cache](https://aka.ms/msal-net-dual-cache-serialization), è possibile usare le cache di token compatibili con le versioni precedenti e successive. Questi token supportano le generazioni precedenti di librerie di autenticazione. Le specifiche librerie includono Azure AD Authentication Library per .NET (ADAL.NET) versioni 3 e 4.
 
 Per altre informazioni, vedere [App desktop che chiama le API Web](scenario-desktop-overview.md).
 
@@ -156,16 +159,18 @@ In modo simile alle app desktop, per acquisire un token per chiamare un'API Web,
 
 In iOS e Android, MSAL usa il Web browser di sistema per impostazione predefinita, ma in alternativa è anche possibile specificare l'uso della visualizzazione Web incorporata. Esistono specifiche che dipendono dalla piattaforma mobile: piattaforma UWP (Universal Windows Platform) (UWP), iOS o Android.
 
-Per alcuni scenari, come quelli che comportano l'accesso condizionale correlato all'ID dispositivo o alla registrazione del dispositivo, è necessario installare un [broker](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) nel dispositivo. Gli esempi di broker includono il portale aziendale Microsoft in Android e Microsoft Authenticator in Android e iOS. Inoltre, MSAL può ora interagire con i broker.
-
-> [!NOTE]
-> Alle app per dispositivi mobili che usano MSAL.iOS, MSAL.Android o MSAL.NET in Xamarin possono essere applicati criteri di protezione. Ad esempio, i criteri potrebbero impedire all'utente di copiare testo protetto. L'app per dispositivi mobili [viene gestita da Intune](https://docs.microsoft.com/intune/app-sdk) ed è riconosciuta da Intune come app gestita. [Intune App SDK](https://docs.microsoft.com/intune/app-sdk-get-started) è separato dalle librerie MSAL e interagisce autonomamente con Azure AD.
+Alcuni scenari, ad esempio quelli che coinvolgono l'accesso condizionale correlato a un ID dispositivo o a una registrazione del dispositivo, richiedono l'installazione di un broker sul dispositivo. Gli esempi di broker includono il portale aziendale Microsoft in Android e Microsoft Authenticator in Android e iOS. MSAL è ora in grado di interagire con i broker. Per altre informazioni, vedere uso di [broker in Android e iOS](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS).
 
 Per altre informazioni, vedere [App per dispositivi mobili che chiama le API Web](scenario-mobile-overview.md).
 
+> [!NOTE]
+> Alle app per dispositivi mobili che usano MSAL.iOS, MSAL.Android o MSAL.NET in Xamarin possono essere applicati criteri di protezione. Ad esempio, i criteri potrebbero impedire all'utente di copiare testo protetto. L'app per dispositivi mobili viene gestita da Intune e riconosciuta da Intune come un'app gestita. Per altre informazioni, vedere [Panoramica di Microsoft Intune App SDK](https://docs.microsoft.com/intune/app-sdk).
+>
+> [Intune App SDK](https://docs.microsoft.com/intune/app-sdk-get-started) è separato dalle librerie MSAL e interagisce autonomamente con Azure AD.
+
 ### <a name="a-protected-web-api"></a>API Web protetta
 
-È possibile usare l'endpoint di Microsoft Identity Platform per proteggere i servizi Web, ad esempio l'API Web RESTful dell'app. Un'API Web protetta viene chiamata con un token di accesso per proteggere i relativi dati e per autenticare le richieste in ingresso. Il chiamante di un'API Web aggiunge un token di accesso nell'intestazione dell'autorizzazione di una richiesta HTTP.
+È possibile usare l'endpoint della piattaforma Microsoft Identity per proteggere i servizi Web, ad esempio l'API Web RESTful dell'app. Un'API Web protetta viene chiamata usando un token di accesso. Il token protegge i dati dell'API e per autenticare le richieste in ingresso. Il chiamante di un'API Web aggiunge un token di accesso nell'intestazione dell'autorizzazione di una richiesta HTTP.
 
 Se si vuole proteggere l'API Web ASP.NET o ASP.NET Core, è necessario convalidare il token di accesso. A questo scopo verrà usato il middleware JWT ASP.NET. La convalida viene eseguita dalla libreria delle [estensioni IdentityModel per .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) e non da MSAL.NET
 
@@ -173,7 +178,7 @@ Per altre informazioni, vedere [API Web protetta](scenario-protected-web-api-ove
 
 ### <a name="a-web-api-calling-another-web-api-on-behalf-of-a-user"></a>API Web che chiama un'altra API Web per conto di un utente
 
-Per fare in modo che l'API Web ASP.NET o ASP.NET Core protetta chiami un'altra API Web per conto di un utente, l'app deve acquisire un token per l'API Web downstream. A questo scopo chiama il metodo **AcquireTokenOnBehalfOf** della classe [ConfidentialClientApplication](https://aka.ms/msal-net-on-behalf-of). Queste chiamate sono anche note come chiamate da servizio a servizio. Le API Web che chiamano altre API Web devono fornire una serializzazione della cache personalizzata.
+Per fare in modo che l'API Web ASP.NET o ASP.NET Core protetta chiami un'altra API Web per conto di un utente, l'app deve acquisire un token per l'API Web downstream. Per acquisire un token, l'app chiama il metodo [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) della classe **ConfidentialClientApplication** . Tali chiamate sono denominate anche chiamate *da servizio a servizio* . Le API Web che chiamano altre API Web devono fornire una serializzazione della cache personalizzata.
 
   ![API Web che chiama un'altra API Web](media/scenarios/web-api.svg)
 
@@ -181,7 +186,7 @@ Per altre informazioni, vedere [API Web che chiama le API Web](scenario-web-api-
 
 ### <a name="a-daemon-app-calling-a-web-api-in-the-daemons-name"></a>App daemon che chiama un'API Web nel nome del daemon
 
-Anche le app che contengono processi a esecuzione prolungata o che non prevedono l'interazione con l'utente necessitano di un modo per accedere alle API Web protette. Queste app possono autenticarsi e ottenere i token usando l'identità dell'app, invece di un'identità delegata dell'utente. L'app dimostra la propria identità usando un segreto client o un certificato.
+Anche le app che contengono processi a esecuzione prolungata o che non prevedono l'interazione con l'utente necessitano di un modo per accedere alle API Web protette. Tale app può autenticarsi e ottenere i token usando l'identità dell'app. L'app dimostra la propria identità usando un segreto client o un certificato.
 
 È possibile scrivere tali app daemon che acquisiscono un token per l'app chiamante usando i metodi di acquisizione di **credenziali client** della classe MSAL [ConfidentialClientApplication](https://aka.ms/msal-net-client-credentials). Questi metodi richiedono che l'app chiamante abbia registrato un segreto in Azure AD. L'app quindi condivide il segreto con il daemon chiamato. Gli esempi di tali segreti includono le password delle applicazioni, l'asserzione di certificati o l'asserzione client.
 
@@ -191,7 +196,7 @@ Per altre informazioni, vedere [Applicazione daemon che chiama le API Web](scena
 
 ## <a name="scenarios-and-supported-authentication-flows"></a>Scenari e flussi di autenticazione supportati
 
-Gli scenari che comportano l'acquisizione di token corrispondono anche ai flussi di autenticazione OAuth 2.0, come descritto in [Protocolli di Microsoft Identity Platform](active-directory-v2-protocols.md).
+Gli scenari che prevedono l'acquisizione di token vengono inoltre mappati ai flussi di autenticazione OAuth 2,0. Per ulteriori informazioni, vedere [la pagina relativa ai protocolli OAuth 2,0 e OpenID Connect nella piattaforma di identità Microsoft](active-directory-v2-protocols.md).
 
 <table>
  <thead>
@@ -287,7 +292,10 @@ Le librerie Microsoft Authentication Library supportano più piattaforme:
 - Java
 - Python
 
-Per creare le applicazioni è anche possibile usare vari linguaggi. Alcuni tipi di applicazioni non sono disponibili in ogni piattaforma.
+Per creare le applicazioni è anche possibile usare vari linguaggi.
+
+> [!NOTE]
+> Alcuni tipi di applicazioni non sono disponibili in tutte le piattaforme.
 
 Nella colonna Windows della tabella seguente, ogni volta che viene menzionato .NET Core è anche possibile usare .NET Framework. Quest'ultima piattaforma viene omessa per evitare di creare confusione nella tabella.
 
@@ -301,7 +309,8 @@ Nella colonna Windows della tabella seguente, ogni volta che viene menzionato .N
 | [App daemon](scenario-daemon-overview.md) <br/> [![App daemon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [App Web che chiama le API Web](scenario-web-api-call-api-overview.md) <br/><br/> [![App Web che chiama le API Web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-Vedere anche [Librerie supportate da Microsoft per sistema operativo/linguaggio](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
+Per ulteriori informazioni, vedere la pagina relativa alle [librerie supportate da Microsoft per sistema operativo/linguaggio](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre informazioni sui [concetti di base dell'autenticazione](authentication-scenarios.md) e i [token di accesso](access-tokens.md).
+
+Altre informazioni sulle [nozioni di base sull'autenticazione](authentication-scenarios.md) e sui [token di accesso della piattaforma Microsoft Identity](access-tokens.md).

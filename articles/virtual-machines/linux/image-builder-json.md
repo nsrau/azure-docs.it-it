@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 4ac2c1266933716697a658b1ba88efd8c2f05d34
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905753"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191793"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: creare un modello di generatore di immagini di Azure 
 
@@ -55,7 +55,7 @@ Il `type` è il tipo di risorsa, che deve essere `"Microsoft.VirtualMachineImage
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Percorso
+## <a name="location"></a>Location
 
 Il percorso è l'area in cui verrà creata l'immagine personalizzata. Per l'anteprima di Image Builder sono supportate le aree seguenti:
 
@@ -102,7 +102,7 @@ Questa sezione facoltativa può essere usata per garantire che le dipendenze ven
 
 Per altre informazioni, vedere [definire le dipendenze delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
-## <a name="identity"></a>Identità
+## <a name="identity"></a>Identity
 Per impostazione predefinita, Image Builder supporta l'uso di script o la copia di file da più posizioni, ad esempio GitHub e archiviazione di Azure. Per usarli, devono essere accessibili pubblicamente.
 
 È anche possibile usare un'identità gestita assegnata dall'utente di Azure, definita dall'utente, per consentire a Generatore di immagini di accedere ad archiviazione di Azure, purché all'identità sia stato concesso un minimo di "lettore dati BLOB di archiviazione" nell'account di archiviazione di Azure. Ciò significa che non è necessario rendere i BLOB di archiviazione accessibili esternamente o configurare i token SAS.
@@ -301,7 +301,7 @@ Il verbi di riavvio consente di riavviare una macchina virtuale Windows e attend
 
             {
                 "type": "WindowsRestart",
-                "restartCommand": "shutdown /r /f /t 0 /c", 
+                "restartCommand": "shutdown /r /f /t 0", 
                 "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
                 "restartTimeout": "5m"
             }
