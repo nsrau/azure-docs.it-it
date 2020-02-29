@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 54c32a87b5afdf165be8187c7189a11c106bbd8f
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 1c2d6287a89c7816c30cf26978859c07dba0251d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562344"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197505"
 ---
 # <a name="azure-media-services-overview"></a>Panoramica di Servizi multimediali di Azure 
 
@@ -33,6 +33,15 @@ Servizi multimediali di Microsoft Azure è una piattaforma estensibile basata su
 
 È possibile creare flussi di lavoro end-to-end usando unicamente Servizi multimediali. È anche possibile usare componenti di terze parti per alcune parti del flusso di lavoro, ad esempio, la codifica con un codificatore di terze parti. Inoltre, sono possibili operazioni di caricamento, protezione, creazione di pacchetti e invio tramite Servizi multimediali. È possibile optare per lo streaming dei contenuti live o on demand. 
 
+
+## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
+
+Come promemoria importante, è necessario rispettare tutte le leggi applicabili all'uso di servizi multimediali di Azure e non è possibile usare servizi multimediali o qualsiasi servizio di Azure in modo da violare i diritti di altri utenti o che potrebbero essere dannosi per altri.
+
+Prima di caricare un video o un'immagine in servizi multimediali, è necessario disporre di tutti i diritti appropriati per l'uso del video o dell'immagine, ad esempio, dove richiesto dalla legge, tutti i consensi necessari per i singoli utenti (se presenti) nel video o nell'immagine, per l'uso, l'elaborazione e l'archiviazione dei dati in servizi multimediali e in Azure. Alcune giurisdizioni possono imporre particolari requisiti legali per la raccolta, l'elaborazione online e l'archiviazione di determinate categorie di dati, ad esempio i dati biometrici. Prima di usare servizi multimediali e Azure per l'elaborazione e l'archiviazione di dati soggetti a requisiti legali speciali, è necessario garantire la conformità ai requisiti legali che possono essere applicati all'utente.
+
+Per informazioni su conformità, privacy e sicurezza in servizi multimediali, visitare il [Centro protezione](https://www.microsoft.com/trust-center/?rtc=1)Microsoft. Per gli obblighi sulla privacy di Microsoft, la gestione dei dati e le procedure di conservazione, inclusa la modalità di eliminazione dei dati, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("Ost") e l'Addendum per l' [elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Usando servizi multimediali, l'utente accetta di essere vincolato dalle OST, DPA e dall'Informativa sulla privacy.
+ 
 ## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:

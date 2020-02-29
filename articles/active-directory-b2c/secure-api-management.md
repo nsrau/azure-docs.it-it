@@ -2,26 +2,26 @@
 title: Proteggere un'API di gestione API di Azure usando Azure Active Directory B2C
 description: Informazioni su come usare i token di accesso emessi da Azure Active Directory B2C per proteggere un endpoint API di gestione API di Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641628"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186931"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteggere un'API di gestione API di Azure con Azure AD B2C
 
 Informazioni su come limitare l'accesso all'API di gestione API di Azure (gestione API) ai client che hanno eseguito l'autenticazione con Azure Active Directory B2C (Azure AD B2C). Eseguire la procedura descritta in questo articolo per creare e testare un criterio in ingresso in gestione API che limita l'accesso solo alle richieste che includono un token di accesso Azure AD B2C emesso valido.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di continuare con i passaggi descritti in questo articolo, è necessario disporre delle risorse seguenti:
 
@@ -37,19 +37,19 @@ Quando si protegge un'API in gestione API di Azure con Azure AD B2C, sono necess
 
 Per ottenere l'ID applicazione, è possibile usare l'esperienza corrente delle **applicazioni** o la nuova esperienza Unified **registrazioni app (Preview)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. In **Gestisci**selezionare **applicazioni**.
 1. Registrare il valore nella colonna **ID applicazione** per *app Web 1* o un'altra applicazione creata in precedenza.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **registrazioni app (anteprima)** , quindi selezionare la scheda **applicazioni di proprietà** .
 1. Registrare il valore nella colonna **ID applicazione (client)** per *app Web 1* o un'altra applicazione creata in precedenza.
 
@@ -160,7 +160,7 @@ Con il token di accesso e la chiave di sottoscrizione gestione API registrati, �
 
 1. Aggiungere quindi le intestazioni seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     | --- | ----- |
     | `Authorization` | Valore del token codificato registrato in precedenza, con prefisso `Bearer ` (includere lo spazio dopo "Bearer") |
     | `Ocp-Apim-Subscription-Key` | Chiave di sottoscrizione gestione API registrata in precedenza |

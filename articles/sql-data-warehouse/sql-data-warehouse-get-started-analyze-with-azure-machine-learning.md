@@ -1,22 +1,23 @@
 ---
 title: Analizzare i dati con Azure Machine Learning
-description: Usare Azure Machine Learning per creare un modello predittivo di apprendimento automatico basato sui dati archiviati in Azure SQL Data Warehouse.
+description: Usare Azure Machine Learning per creare un modello di apprendimento automatico predittivo basato sui dati archiviati in sinapsi di Azure.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: integration
-ms.date: 03/22/2019
+ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 892d4642d700949d1d1169c69926021c751cef67
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+tag: azure-Synapse
+ms.openlocfilehash: f6765fdbb65f62bb790d1e8781512db572170b10
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721286"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195890"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizzare i dati con Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -28,16 +29,16 @@ ms.locfileid: "76721286"
 > 
 > 
 
-Questa esercitazione usa Azure Machine Learning per creare un modello predittivo di apprendimento automatico basato sui dati archiviati in Azure SQL Data Warehouse. Nello specifico, verrà compilata una campagna di marketing mirata di Adventure Works, il negozio di biciclette, per stimare la probabilità che un cliente acquisti una bicicletta o meno.
+Questa esercitazione USA Azure Machine Learning per creare un modello di apprendimento automatico predittivo basato sui dati archiviati in sinapsi di Azure. Nello specifico, verrà compilata una campagna di marketing mirata di Adventure Works, il negozio di biciclette, per stimare la probabilità che un cliente acquisti una bicicletta o meno.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per eseguire questa esercitazione, è necessario:
 
-* Un'istanza di SQL Data Warehouse in cui sia precaricato il database di esempio AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse](create-data-warehouse-portal.md) e scegliere di caricare i dati di esempio. Se si ha già un data warehouse ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio](sql-data-warehouse-load-sample-databases.md).
+* Un pool SQL pre-caricato con i dati di esempio AdventureWorksDW. Per eseguire il provisioning, vedere [creare un pool SQL](create-data-warehouse-portal.md) e scegliere di caricare i dati di esempio. Se si ha già un data warehouse ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio](sql-data-warehouse-load-sample-databases.md).
 
 ## <a name="1-get-the-data"></a>1. recuperare i dati
 I dati sono disponibili nella visualizzazione dbo.vTargetMail nel database AdventureWorksDW. Per leggere i dati:
@@ -46,7 +47,7 @@ I dati sono disponibili nella visualizzazione dbo.vTargetMail nel database Adven
 2. Fare clic su **+ nuovo** nella parte inferiore sinistra della schermata e selezionare **esperimento vuoto**.
 3. Immettere un nome per l'esperimento: Marketing mirato.
 4. Trascinare il modulo **Import Data** in **input e output dei dati** dal riquadro moduli nell'area di disegno.
-5. Nel riquadro Properties specificare i dettagli del database SQL Data Warehouse.
+5. Specificare i dettagli del pool SQL nel riquadro proprietà.
 6. Specificare la **query** di database per leggere i dati di interesse.
 
 ```sql
@@ -128,7 +129,7 @@ Verranno visualizzate altre due colonne aggiunte al set di dati di test.
 * Scored Probabilities: la probabilità che un cliente sia un acquirente di biciclette.
 * Scored Labels: la classificazione eseguita dal modello – acquirente di biciclette (1) o non acquirente (0). La soglia di probabilità per le etichette è impostata su 50% e può essere modificata.
 
-Confrontando la colonna BikeBuyer (effettivo) con Scored Labels (stima), è possibile vedere il livello di prestazioni del modello. Successivamente, è possibile utilizzare questo modello per eseguire stime per i nuovi clienti e pubblicare questo modello come servizio Web o scrivere i risultati in SQL Data Warehouse.
+Confrontando la colonna BikeBuyer (effettivo) con Scored Labels (stima), è possibile vedere il livello di prestazioni del modello. Successivamente, è possibile usare questo modello per eseguire stime per i nuovi clienti e pubblicare questo modello come servizio Web o scrivere i risultati in una sinapsi di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sulla creazione di modelli di apprendimento automatico predittivi, fare riferimento a [Introduzione a Machine Learning in Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

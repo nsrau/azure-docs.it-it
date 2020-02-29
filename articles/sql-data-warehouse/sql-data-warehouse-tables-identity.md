@@ -1,6 +1,6 @@
 ---
 title: Uso di IDENTITY per la creazione di chiavi surrogate
-description: Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in Azure SQL Data Warehouse.
+description: Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,25 +10,25 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: c29b83b3473b8a4224587195587feacf834f2d72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692480"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199428"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Uso di IDENTITY per la creazione di chiavi surrogate in Azure SQL Data Warehouse
+# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Uso di IDENTITY per la creazione di chiavi surrogate in SQL Analytics
 
-Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in Azure SQL Data Warehouse.
+Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in SQL Analytics.
 
 ## <a name="what-is-a-surrogate-key"></a>Che cos'è una chiave surrogata
 
-Una chiave surrogata in una tabella è una colonna con un identificatore univoco per ogni riga. La chiave non viene generata dai dati della tabella. I progettisti di modelli di dati preferiscono creare chiavi surrogate nelle tabelle durante la progettazione dei modelli per i data warehouse. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento.  
+Una chiave surrogata in una tabella è una colonna con un identificatore univoco per ogni riga. La chiave non viene generata dai dati della tabella. Modelli di dati come creare chiavi surrogate nelle tabelle durante la progettazione di modelli di analisi SQL. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creazione di una tabella con una colonna IDENTITY
 
-La proprietà IDENTITY è progettata per supportare la scalabilità orizzontale tra tutte le distribuzioni nel data warehouse senza influenzare le prestazioni di caricamento. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi.
+La proprietà IDENTITY è progettata per la scalabilità orizzontale di tutte le distribuzioni nel database di analisi SQL senza influire sulle prestazioni di caricamento. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi.
 
 È possibile definire una tabella con la proprietà IDENTITY al momento della creazione, usando una sintassi simile all'istruzione seguente:
 
@@ -50,7 +50,7 @@ La parte rimanente di questa sezione illustra le varie sfumature dell'implementa
 
 ### <a name="allocation-of-values"></a>Allocazione dei valori
 
-La proprietà IDENTITY non garantisce l'ordine di allocazione dei valori surrogati, in modo conforme al comportamento di SQL Server e del database SQL di Azure. Tuttavia, in Azure SQL Data Warehouse, l'assenza di una garanzia è più evidente.
+La proprietà IDENTITY non garantisce l'ordine di allocazione dei valori surrogati, in modo conforme al comportamento di SQL Server e del database SQL di Azure. Tuttavia, in analisi SQL, l'assenza di una garanzia è più evidente.
 
 L'esempio seguente è una dimostrazione:
 
@@ -88,11 +88,11 @@ L'intervallo di valori per il tipo di dati è distribuito uniformemente tra le d
 Quando una colonna IDENTITY esistente viene selezionata in una nuova tabella, la nuova colonna eredita la proprietà IDENTITY, a meno che non sia vera una delle condizioni seguenti:
 
 - L'istruzione SELECT contiene un join.
-- Più istruzioni SELECT sono unite in join tramite l'istruzione UNION.
+- Più istruzioni SELECT sono unite in join tramite l'operatore UNION.
 - La colonna IDENTITY è elencata più di una volta nell'elenco SELECT.
 - La colonna IDENTITY fa parte di un'espressione.
 
-Se una di queste condizioni è vera, la colonna viene creata come NOT NULL invece di ereditare la proprietà IDENTITY.
+Se una di queste condizioni risulta vera, la colonna viene creata come colonna NOT NULL, anziché ereditare la proprietà IDENTITY.
 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) ha lo stesso comportamento di SQL Server documenta
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserimento in modo esplicito di valori in una colonna IDENTITY
 
-SQL Data Warehouse supporta la sintassi `SET IDENTITY_INSERT <your table> ON|OFF`. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
+SQL Analytics supporta la sintassi `SET IDENTITY_INSERT <your table> ON|OFF`. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
 
 Molti progettisti di modelli di dati preferiscono usare valori negativi predefiniti per alcune righe nelle dimensioni. Un esempio è la riga -1 o "membro sconosciuto".
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Non è attualmente possibile usare `CREATE TABLE AS SELECT` per il caricamento di dati in una tabella con una colonna IDENTITY.
 >
 
-Per altre informazioni sul caricamento dei dati, vedere [Progettazione ELT (Extract, Load, Transform) per Azure SQL Data Warehouse](design-elt-data-loading.md) e [Procedure consigliate per il caricamento](guidance-for-loading-data.md).
+Per altre informazioni sul caricamento dei dati, vedere [progettazione di Extract, Load e Transform (ELT) per l'analisi SQL](design-elt-data-loading.md) e [caricamento delle procedure consigliate](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Viste di sistema
 
@@ -195,7 +195,7 @@ Non è possibile usare la proprietà IDENTITY:
 - Quando la colonna è anche la chiave di distribuzione
 - Quando la tabella è una tabella esterna
 
-Le funzioni correlate seguenti non sono supportate in SQL Data Warehouse:
+Le funzioni correlate seguenti non sono supportate in analisi SQL:
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

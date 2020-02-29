@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla sicurezza a livello di colonna per SQL Data Warehouse
+title: Che cos'è la sicurezza a livello di colonna per la sinapsi di Azure?
 description: La sicurezza a livello di colonna consente ai clienti di controllare l'accesso alle colonne della tabella di database in base al contesto di esecuzione dell'utente o all'appartenenza al gruppo, semplificando la progettazione e la codifica della sicurezza nell'applicazione e consentendo di implementare restrizioni per la colonna accesso.
 services: sql-data-warehouse
 author: julieMSFT
@@ -7,16 +7,17 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/02/2019
+ms.date: 02/05/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 344701989a753e17d8a026f6bb771a6030bdb71f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+tags: azure-synapse
+ms.openlocfilehash: aa9791f019436cc5c7effc9bce197d89131a6557
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513049"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199972"
 ---
 # <a name="column-level-security"></a>Sicurezza a livello di colonna
 
@@ -24,7 +25,7 @@ La sicurezza a livello di colonna consente ai clienti di controllare l'accesso a
 
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Poiché il video è stato pubblicato, la [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) è diventata disponibile per SQL data warehouse. 
+Poiché questo video è stato pubblicato, la [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) è diventata disponibile per le sinapsi di Azure. 
 
 La sicurezza a livello di colonna semplifica la progettazione e la codifica della sicurezza nell'applicazione, consentendo di limitare l'accesso alle colonne per proteggere i dati sensibili. Assicurando, ad esempio, che utenti specifici possano accedere solo determinate colonne di una tabella relative al loro reparto. La logica di restrizione dell'accesso si trova sul livello del database e non su un altro livello applicazione lontano dai dati. Il database applica le restrizioni di accesso ogni volta che si tenta di accedere ai dati da qualsiasi livello. Questa restrizione rende la sicurezza più affidabile e affidabile riducendo la superficie di attacco del sistema di sicurezza globale. Inoltre, la sicurezza a livello di colonna Elimina la necessità di introdurre viste per filtrare le colonne per l'imposizione delle restrizioni di accesso agli utenti.
 
@@ -80,7 +81,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
-## <a name="use-cases"></a>Casi d'uso
+## <a name="use-cases"></a>Modalità di utilizzo comuni
 
 Di seguito sono riportati alcuni esempi di come viene utilizzata la sicurezza a livello di colonna:
 

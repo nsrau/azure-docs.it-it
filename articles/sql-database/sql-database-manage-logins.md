@@ -1,6 +1,6 @@
 ---
 title: Account di accesso e utenti
-description: Informazioni sulla gestione della sicurezza del database SQL e di SQL Data Warehouse, in particolare la modalità di gestione dell'accesso al database e la sicurezza degli account di accesso tramite l'account delle entità di sicurezza a livello di server.
+description: Informazioni sul database SQL e sulla gestione della sicurezza di Azure sinapsi, in particolare su come gestire l'accesso ai database e la sicurezza degli accessi tramite l'account dell'entità di livello server.
 keywords: sicurezza del database sql, gestione della sicurezza del database, sicurezza degli account di accesso, sicurezza del database, accesso al database
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,21 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/26/2019
-ms.openlocfilehash: e9934f868fb62f9b1a19ef408dab69ab8a2c0e29
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 02/06/2020
+tags: azure-synapse
+ms.openlocfilehash: 79a31e5b8e3433af7879fcde8597173f25bf96b7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159139"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196961"
 ---
-# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controllo e concessione dell'accesso al database SQL e a SQL Data Warehouse
+# <a name="controlling-and-granting-database-access-to-sql-database-and-azure-synapse-analytics"></a>Controllo e concessione dell'accesso al database SQL e di Azure sinapsi Analytics
 
-Dopo aver configurato le regole del firewall, è possibile connettersi sia a un [database SQL](sql-database-technical-overview.md) che a [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) come uno degli account di amministratore, il proprietario del database o un utente del database nel database.  
+Dopo la configurazione delle regole del firewall, è possibile connettersi al [database SQL](sql-database-technical-overview.md) di Azure e alla [sinapsi di Azure](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) come uno degli account amministratore, come proprietario del database o come utente del database nel database.  
 
 > [!NOTE]  
-> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. 
+> Questo argomento si applica al server SQL di Azure e al database SQL e alla sinapsi di Azure creati nel server SQL di Azure. Per semplicità, il database SQL viene usato quando si fa riferimento sia al database SQL che alla sinapsi di Azure.
 > [!TIP]
 > Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md). Le informazioni di questa esercitazione non sono valide per **Istanza gestita di database SQL di Azure**.
 
@@ -43,7 +44,7 @@ Sono disponibili due account amministrativi, **Amministratore del server** e **A
 
 - **Amministratore di Azure Active Directory**
 
-  È possibile configurare come amministratore anche un account singolo o di gruppo di sicurezza di Azure Active Directory. La configurazione di un amministratore di Azure AD è facoltativa, ma **è necessaria** se si vuole usare gli account di Azure AD per la connessione al database SQL. Per altre informazioni sulla configurazione dell'accesso con Azure Active Directory, vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) e [Supporto di SSMS per l'autenticazione MFA di Azure AD con database SQL e SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+  È possibile configurare come amministratore anche un account singolo o di gruppo di sicurezza di Azure Active Directory. La configurazione di un amministratore di Azure AD è facoltativa, ma **è necessaria** se si vuole usare gli account di Azure AD per la connessione al database SQL. Per altre informazioni sulla configurazione dell'accesso Azure Active Directory, vedere [connessione al database SQL o alla sinapsi di Azure usando l'autenticazione Azure Active Directory](sql-database-aad-authentication.md) e il [supporto di SSMS per Azure ad multi-factor authentication con database SQL e sinapsi di Azure](sql-database-ssms-mfa-authentication.md).
 
 Gli account amministratore del **Server** e **amministratore Azure ad** hanno le seguenti caratteristiche:
 
@@ -84,7 +85,7 @@ Per una procedura dettagliata sulla creazione di un server, un database, regole 
 
 Oltre ai ruoli amministrativi a livello di server illustrati in precedenza, il database SQL offre due ruoli amministrativi con restrizioni nel database master, a cui è possibile aggiungere account utente che concedono autorizzazioni per la creazione di database o la gestione degli accessi.
 
-### <a name="database-creators"></a>Autori di database
+### <a name="database-creators"></a>Creatori di database
 
 Uno di questi ruoli amministrativi è il ruolo **dbmanager**. I membri di questo ruolo possono creare nuovi database. Per usare questo ruolo, creare un utente nel database `master` e quindi aggiungere l'utente al ruolo **dbmanager** del database. Per creare un database, l'utente deve essere basato su un account di accesso di SQL Server nel database `master` o essere un utente di database indipendente basato su un utente di Azure Active Directory.
 
@@ -96,7 +97,7 @@ Uno di questi ruoli amministrativi è il ruolo **dbmanager**. I membri di questo
    ```
 
    > [!NOTE]
-   > Quando si crea un account di accesso o un utente di database indipendente, usare una password complessa. Per ulteriori informazioni, vedere [Password complesse](https://msdn.microsoft.com/library/ms161962.aspx).
+   > Quando si crea un account di accesso o un utente di database indipendente, usare una password complessa. Per altre informazioni, vedere [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
 
    Per migliorare le prestazioni, gli account di accesso (entità a livello di server) vengono temporaneamente memorizzati nella cache a livello di database. Per aggiornare la cache di autenticazione, vedere [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
@@ -128,7 +129,7 @@ L'altro ruolo amministrativo è il ruolo di gestione degli account di accesso. I
 
 ## <a name="non-administrator-users"></a>Utenti non amministratori
 
-Per gli account non amministratore non è in genere necessario l'accesso al database master. Creare utenti di database indipendente a livello di database con l'istruzione [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . L'utente può essere un utente del database indipendente dall'autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione Azure AD) o un utente del database indipendente dall'autenticazione SQL Server oppure un utente di autenticazione SQL Server basato su un SQL Server account di accesso con autenticazione (creato nel passaggio precedente). Per altre informazioni, vedere [utenti di database indipendente: rendere](https://msdn.microsoft.com/library/ff929188.aspx)portabile un database. 
+Per gli account non amministratore non è in genere necessario l'accesso al database master. Creare utenti di database indipendente a livello di database con l'istruzione [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . L'utente può essere un utente del database indipendente dall'autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione Azure AD) o un utente del database indipendente dall'autenticazione SQL Server oppure un utente di autenticazione SQL Server basato su un account di accesso con autenticazione SQL Server (creato nel passaggio precedente). Per altre informazioni, vedere [utenti di database indipendente: rendere](https://msdn.microsoft.com/library/ff929188.aspx)portabile un database. 
 
 Per creare utenti, connettersi al database ed eseguire istruzioni simili ai seguenti esempi:
 
@@ -151,7 +152,7 @@ Nel database SQL di Azure usare l'istruzione `ALTER ROLE`.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-In Azure SQL Data Warehouse usare [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+In sinapsi di Azure usare [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
@@ -180,7 +181,7 @@ In una gestione efficiente degli accessi vengono usate autorizzazioni assegnate 
 
 I ruoli del database possono essere ruoli predefiniti come **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. Per concedere autorizzazioni complete a un numero limitato di utenti viene usato comunemente **db_owner**. Gli altri ruoli predefiniti del database sono utili per ottenere rapidamente un database semplice nello sviluppo, ma non sono consigliabili per la maggior parte dei database di produzione. Il ruolo predefinito del database **db_datareader**, ad esempio, concede l'accesso in lettura a tutte le tabelle del database, che in genere è più di quanto strettamente necessario. È preferibile usare l'istruzione [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) per creare ruoli del database definiti dall'utente e concedere con attenzione a ogni ruolo le autorizzazioni minime necessarie per le esigenze aziendali. Quando un utente è membro di più ruoli, vengono aggregate le autorizzazioni di tutti.
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Nel database SQL possono essere concesse o negate singolarmente oltre 100 autorizzazioni. Molte di queste autorizzazioni sono annidate. L'autorizzazione `UPDATE` per uno schema, ad esempio, include l'autorizzazione `UPDATE` per ogni tabella all'interno di tale schema. Come nella maggior parte dei sistemi di autorizzazioni, la negazione di un'autorizzazione determina l'override di una concessione. A causa dell'annidamento e del numero delle autorizzazioni, progettare un sistema di autorizzazioni appropriato per proteggere correttamente il database può richiedere un attento studio. Per iniziare, vedere l'elenco di autorizzazioni in [Autorizzazioni (Motore di database)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) e la [grafica in formato di poster](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) relativa alle autorizzazioni.
 
@@ -197,7 +198,7 @@ Quando si gestiscono gli accessi e gli utenti nel database SQL, prendere in cons
 - Per connettersi a un database utente è necessario specificare il nome del database nella stringa di connessione.
 - Soltanto gli utenti con accesso dell’entità di livello server e i membri del ruolo del database **loginmanager** nel database **master** sono autorizzati a eseguire le istruzioni `CREATE LOGIN`, `ALTER LOGIN` e `DROP LOGIN`.
 - Quando si esegue le istruzioni `CREATE/ALTER/DROP LOGIN` e `CREATE/ALTER/DROP DATABASE` in un'applicazione ADO.NET, non è consentito utilizzare i comandi con parametri. Per ulteriori informazioni, vedere [Comandi e parametri](https://msdn.microsoft.com/library/ms254953.aspx).
-- Quando si esegue le istruzioni `CREATE/ALTER/DROP DATABASE` e `CREATE/ALTER/DROP LOGIN`, ognuna di queste istruzioni deve essere l'unica istruzione in un batch Transact-SQL. In caso contrario, si verifica un errore. Ad esempio, il seguente Transact-SQL controlla se il database esiste. Se esiste, un’istruzione `DROP DATABASE` viene chiamata per rimuovere il database. Poiché l’istruzione `DROP DATABASE` non è l'unica istruzione nel batch, l'esecuzione della seguente istruzione Transact-SQL genera un errore.
+- Quando si esegue le istruzioni `CREATE/ALTER/DROP DATABASE` e `CREATE/ALTER/DROP LOGIN`, ognuna di queste istruzioni deve essere l'unica istruzione in un batch Transact-SQL. In caso contrario si verifica un errore. Ad esempio, il seguente Transact-SQL controlla se il database esiste. Se esiste, un’istruzione `DROP DATABASE` viene chiamata per rimuovere il database. Poiché l’istruzione `DROP DATABASE` non è l'unica istruzione nel batch, l'esecuzione della seguente istruzione Transact-SQL genera un errore.
 
   ```sql
   IF EXISTS (SELECT [name]

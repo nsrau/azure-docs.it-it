@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 6e1005e3d9c3769de3249f3244d65a656edc963e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec6f9592a4c149be382fab66cca27d929644d988
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891746"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194510"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Eseguire la migrazione a una chiave di creazione delle risorse di Azure
 
@@ -80,9 +80,9 @@ Al termine del processo di migrazione, tutte le app LUIS sono ora assegnate a un
 
 È possibile creare altre risorse di creazione e assegnazione dalla pagina **Gestisci-> risorse di Azure** nel _portale Luis_.
 
-È possibile aggiungere collaboratori alla risorsa di creazione dalla _portale di Azure_nella pagina **controllo di accesso (IAM)** per la risorsa. Per ulteriori informazioni, vedere [aggiungere l'accesso al collaboratore](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) .
+È possibile aggiungere collaboratori alla risorsa di creazione dalla _portale di Azure_nella pagina **controllo di accesso (IAM)** per la risorsa. Per altre informazioni, vedere [aggiungere l'accesso al collaboratore](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
 
-|di Microsoft Azure|Finalità|
+|Portale|Scopo|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* Creare le risorse di stima e creazione.<br>* Assegnare collaboratori.|
 |[LUIS](https://www.luis.ai)|* Eseguire la migrazione alle nuove risorse di creazione.<br>* Assegnare o annullare l'assegnazione delle risorse di stima e creazione alle app dalla pagina **Gestisci-> risorse di Azure** .|
@@ -104,12 +104,20 @@ Il proprietario dell'app deve [aggiungere la posta elettronica alla risorsa di c
 
 Dopo il processo di migrazione, le app di cui si è proprietari sono disponibili nella pagina **app personali** del portale Luis.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting-the-migration-process-for-luis-authoring"></a>Risoluzione dei problemi relativi al processo di migrazione per la creazione di LUIS
 
-* Le chiavi di authoring LUIS sono visibili solo nel portale LUIS al termine del processo di migrazione. Se si creano le chiavi di creazione, ad esempio con l'interfaccia della riga di comando LUIS, l'utente deve comunque completare il processo di migrazione.
+* Le chiavi di authoring LUIS sono visibili solo nel portale LUIS al termine del processo di migrazione. Se si creano le chiavi di creazione, ad esempio con l'interfaccia della riga di comando LUIS, l'utente deve comunque completare il processo di migrazione nel portale LUIS.
 * Se un utente migrato aggiunge un utente non migrato come collaboratore nella propria risorsa di Azure, l'utente non migrato non avrà accesso alle app a meno che non ne venga eseguita la migrazione.
 * Se un utente non migrato non è un proprietario di alcuna app, ma è un collaboratore ad altre app di proprietà di altri e i proprietari hanno subito il processo di migrazione, l'utente dovrà eseguire la migrazione per poter accedere alle app.
 * Se un utente non migrato ha aggiunto un altro utente migrato come collaboratore alla propria app, si verificherà un errore in quanto non sarà possibile aggiungere un utente migrato come collaboratore a un'app. L'utente non migrato dovrà quindi eseguire il processo di migrazione e creare una risorsa di Azure e aggiungere l'utente migrato come collaboratore a tale risorsa.
+
+Viene visualizzato un errore durante il processo di migrazione se:
+* La sottoscrizione non autorizza la creazione di risorse di servizi cognitivi
+* La migrazione influisce negativamente su qualsiasi runtime delle applicazioni. Quando si esegue la migrazione, tutti i collaboratori vengono rimossi dalle app e vengono rimossi come collaboratore da altre app. Questo processo indica che anche le chiavi assegnate vengono rimosse. La migrazione viene bloccata se sono state assegnate chiavi in altre app. Rimuovere la chiave assegnata in modo sicuro prima della migrazione. Se si è certi che la chiave assegnata non viene usata nel runtime, è necessario rimuoverla per poter progredire nella migrazione.
+
+Accedere all'elenco di risorse di Azure dell'app usando il formato di URL seguente:
+
+`https://www.luis.ai/applications/REPLACE-WITH-YOUR-APP-ID/versions/REPLACE-WITH-YOUR-VERSION-ID/manage/resources`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

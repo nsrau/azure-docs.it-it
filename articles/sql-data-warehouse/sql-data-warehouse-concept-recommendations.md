@@ -1,48 +1,46 @@
 ---
-title: Raccomandazioni SQL Data Warehouse
-description: Informazioni sui consigli di SQL Data Warehouse e su come vengono generati
+title: Suggerimenti per analisi SQL
+description: Informazioni sulle raccomandazioni di SQL Analytics e su come vengono generate
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/05/2018
+ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a93339b99c6591ee9ed615c032d0eac58a372fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: azure-synapse
+ms.openlocfilehash: 5471236c09737eeef2d4cb7542c245d3087e726c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827495"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195958"
 ---
-# <a name="sql-data-warehouse-recommendations"></a>Consigli di SQL Data Warehouse
+# <a name="sql-analytics-recommendations"></a>Suggerimenti per analisi SQL
 
-Questo articolo descrive i consigli offerti da SQL Data Warehouse tramite Azure Advisor.  
+Questo articolo descrive i consigli di analisi SQL serviti tramite Azure Advisor.  
 
-SQL Data Warehouse offre consigli in grado di garantire l'ottimizzazione costante delle prestazioni del data warehouse in uso. Gli elementi consigliati di data warehouse sono strettamente integrati con [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) per presentare le procedure consigliate direttamente all'interno del [portale di Azure](https://aka.ms/Azureadvisor). SQL Data Warehouse analizza lo stato corrente del data warehouse, raccoglie i dati di telemetria e visualizza consigli per il carico di lavoro attivo con frequenza giornaliera. Di seguito sono descritti gli scenari supportati per i consigli sul data warehouse dati supportati ed è anche descritto come mettere in pratica le azioni consigliate.
+Analisi SQL fornisce consigli per garantire che il carico di lavoro data warehouse sia costantemente ottimizzato per le prestazioni. Le raccomandazioni sono strettamente integrate con [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) per fornire le procedure consigliate direttamente nel [portale di Azure](https://aka.ms/Azureadvisor). SQL Analytics raccoglie i dati di telemetria e i consigli relativi alle superfici per il carico di lavoro attivo su cadenza giornaliera. Gli scenari di raccomandazione supportati sono descritti di seguito insieme a come applicare le azioni consigliate.
 
-In caso di feedback su Azure SQL Data Warehouse Advisor o se si riscontrano problemi, contattare[sqldwadvisor@service.microsoft.com](mailto:sqldwadvisor@service.microsoft.com).   
+Puoi [controllare subito le tue raccomandazioni](https://aka.ms/Azureadvisor) . Questa funzionalità è attualmente applicabile solo ai data warehouse di seconda generazione. 
 
-Fare clic [qui](https://aka.ms/Azureadvisor) per visualizzare subito i consigli. Questa funzionalità è attualmente applicabile solo ai data warehouse di seconda generazione. 
-
-## <a name="data-skew"></a>Asimmetria dei dati
+## <a name="data-skew"></a>Asimmetria dati
 
 Durante l'esecuzione del carico di lavoro, l'asimmetria dei dati può causare uno spostamento dati aggiuntivo o colli di bottiglia nelle risorse. La documentazione seguente descrive come identificare le asimmetrie dei dati e come evitarle selezionando una chiave di distribuzione ottimale.
 
 - [Identificare e rimuovere un'asimmetria](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice) 
 
-## <a name="no-or-outdated-statistics"></a>Statistiche mancanti o non aggiornate
+## <a name="no-or-outdated-statistics"></a>Statistiche No o obsolete
 
-Statistiche non ottimali possono influire notevolmente sulle prestazioni delle query, poiché possono indurre Query Optimizer di SQL Data Warehouse a generare piani di query non ottimali. La documentazione seguente descrive le procedure consigliate per la creazione e l'aggiornamento delle statistiche:
+La presenza di statistiche non ottimali può influire gravemente sulle prestazioni delle query in quanto può causare la generazione di piani di query non ottimali da parte di SQL Query Optimizer. La documentazione seguente descrive le procedure consigliate per la creazione e l'aggiornamento delle statistiche:
 
 - [Creazione e aggiornamento delle statistiche delle tabelle](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
 Per visualizzare l'elenco delle tabelle interessate da questi consigli, eseguire il comando [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables) seguente. Advisor esegue in modo continuo lo stesso script T-SQL per generare tali consigli.
 
-## <a name="replicate-tables"></a>Replicare le tabelle
+## <a name="replicate-tables"></a>Replicare tabelle
 
 Per consigli sulla tabella replicata, Advisor rileva candidati di tabella basati sulle caratteristiche fisiche seguenti:
 

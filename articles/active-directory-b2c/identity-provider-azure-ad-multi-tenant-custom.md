@@ -3,20 +3,20 @@ title: Configurare l'accesso per la Azure AD multi-tenant mediante criteri perso
 titleSuffix: Azure AD B2C
 description: Aggiungere un provider di identità di Azure AD multi-tenant usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111554"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188435"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso per Azure Active Directory multi-tenant usando criteri personalizzati in Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "77111554"
 
 Questo articolo illustra come consentire agli utenti l'accesso con l'endpoint multi-tenant per Azure Active Directory (Azure AD) usando [criteri personalizzati](custom-policy-overview.md) in Azure AD B2C. Questo consente agli utenti di più tenant Azure AD di accedere usando Azure AD B2C, senza dover configurare un provider di identità per ogni tenant. Tuttavia, i membri guest di questi tenant **non** saranno in grado di accedere. A tale scopo, è necessario [configurare singolarmente ogni tenant](identity-provider-azure-ad-single-tenant-custom.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -61,7 +61,7 @@ Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD
 1. Selezionare **Aggiungi attestazione facoltativa**.
 1. Selezionare il tipo di token che si desidera configurare.
 1. Selezionare le attestazioni facoltative da aggiungere.
-1. Fare clic su **Aggiungi**.
+1. Fare clic su **Add**.
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
@@ -75,7 +75,7 @@ Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `AADAppSecret`.  Il prefisso `B2C_1A_` viene aggiunto automaticamente al nome della chiave quando viene creato, quindi il riferimento nel codice XML nella sezione seguente consiste nel *B2C_1A_AADAppSecret*.
 1. In **Secret**immettere il segreto client registrato in precedenza.
 1. In **Uso chiave** selezionare `Signature`.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
@@ -147,7 +147,7 @@ Per consentire agli utenti di accedere con Azure AD, è necessario definire Azur
 
 È necessario aggiornare l'elenco delle autorità emittenti di token valide e limitare l'accesso a un elenco specifico di utenti dei tenant di Azure AD che potranno accedere.
 
-Per ottenere i valori, esaminare i metadati di individuazione di OpenID Connect per ognuno dei tenant di Azure AD a cui si vuole accedere gli utenti. Il formato dell'URL dei metadati è simile a `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, dove `your-tenant` è il nome del tenant Azure AD. Ad esempio:
+Per ottenere i valori, esaminare i metadati di individuazione di OpenID Connect per ognuno dei tenant di Azure AD a cui si vuole accedere gli utenti. Il formato dell'URL dei metadati è simile a `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, dove `your-tenant` è il nome del tenant Azure AD. Ad esempio,
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 

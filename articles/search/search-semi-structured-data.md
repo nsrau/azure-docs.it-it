@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: indicizzare i dati semi-strutured nei BLOB JSON'
+title: 'Esercitazione: indicizzare i dati semistrutturati nei BLOB JSON'
 titleSuffix: Azure Cognitive Search
 description: Informazioni su come indicizzare e cercare BLOB JSON semistrutturati di Azure con le API REST di Ricerca cognitiva di Azure e Postman.
 manager: nitinme
@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 0603ad1fbecf33e5880fd7f18d35af51795f8e39
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 02/28/2020
+ms.openlocfilehash: f025b3357943014a6d9c6e331c47f019fe94c5bf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251992"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196944"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Esercitazione REST: indicizzare e cercare dati semi-strutturati (BLOB JSON) in Azure ricerca cognitiva
+# <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Esercitazione: indicizzare i BLOB JSON da archiviazione di Azure con REST
 
 Ricerca cognitiva di Azure consente di indicizzare i documenti e le matrici JSON in archiviazione BLOB di Azure usando un [indicizzatore](search-indexer-overview.md) in grado di leggere dati semistrutturati. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati, Si differenziano dai dati non strutturati, che devono essere completamente indicizzati, e dai dati strutturati formalmente in base a un modello di dati, ad esempio uno schema di database relazionale, che può essere indicizzato campo per campo.
 
-In questa esercitazione usare le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/) e un client REST per eseguire le attività seguenti:
+Questa esercitazione usa il post e le [API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/) per eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Configurare un'origine dati di Ricerca cognitiva di Azure per un contenitore BLOB di Azure
@@ -27,15 +27,18 @@ In questa esercitazione usare le [API REST di Ricerca cognitiva di Azure](https:
 > * Configurare ed eseguire un indicizzatore per leggere il contenitore ed estrarre contenuto ricercabile da archiviazione BLOB di Azure
 > * Eseguire una ricerca nell'indice che appena creato
 
-## <a name="prerequisites"></a>Prerequisiti
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
+## <a name="prerequisites"></a>Prerequisites
 
-[Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione. 
++ [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [App desktop Postman](https://www.getpostman.com/)
++ [Crea](search-create-service-portal.md) o [trova un servizio di ricerca esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-[Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio.
+> [!Note]
+> Per questa esercitazione è possibile usare il servizio gratuito. Un servizio di ricerca gratuito limita a tre indici, tre indicizzatori e tre origini dati. Questa esercitazione crea un elemento per ogni tipo. Prima di iniziare, assicurarsi di disporre di spazio sul servizio per accettare le nuove risorse.
 
-[App desktop Postman](https://www.getpostman.com/) per inviare le richieste a Ricerca cognitiva di Azure.
+## <a name="download-files"></a>Scaricare i file
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contiene i dati usati in questa esercitazione. Scaricare e decomprimere il file nella propria cartella. I dati provengono da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) e sono stati convertiti in JSON per questa esercitazione.
 
@@ -283,13 +286,27 @@ Un esempio di query più complessa può essere `$filter=MinimumAge ge 30 and Max
 
 Il parametro `$filter` funziona solo con i metadati contrassegnati come filtrabili al momento della creazione dell'indice.
 
+## <a name="reset-and-rerun"></a>Reimpostare ed eseguire di nuovo
+
+Nelle prime fasi sperimentali dello sviluppo, l'approccio più pratico per l'iterazione della progettazione consiste nell'eliminare gli oggetti da Azure ricerca cognitiva e consentire al codice di ricompilarli. I nomi di risorsa sono univoci. L'eliminazione di un oggetto consente di ricrearlo usando lo stesso nome.
+
+È possibile usare il portale per eliminare indici, indicizzatori e origini dati. In alternativa, usare **Delete** e specificare gli URL per ogni oggetto. Il comando seguente elimina un indicizzatore.
+
+```http
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+```
+
+In caso di corretto completamento dell'eliminazione viene restituito il codice di stato 204.
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca cognitiva di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca cognitiva di Azure.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno rimuovere le risorse che non sono più necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+
+È possibile trovare e gestire le risorse nel portale usando il collegamento tutte le risorse o i gruppi di risorse nel riquadro di spostamento a sinistra.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esistono diversi approcci e più opzioni all'indicizzazione dei BLOB JSON. Nel passaggio successivo si esamineranno e testeranno le varie opzioni per determinare quale si adatta meglio al proprio scenario.
+Ora che si ha familiarità con le nozioni di base sull'indicizzazione BLOB di Azure, è possibile esaminare in dettaglio la configurazione dell'indicizzatore.
 
 > [!div class="nextstepaction"]
-> [Come indicizzare i BLOB JSON con l'indicizzatore BLOB di Ricerca cognitiva di Azure](search-howto-index-json-blobs.md)
+> [Configurare un indicizzatore di archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)

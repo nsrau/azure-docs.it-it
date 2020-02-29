@@ -1,16 +1,16 @@
 ---
-title: Connettere il computer di sviluppo a un cluster del servizio Azure Kubernetes
+title: Connettere il computer di sviluppo a un cluster del servizio Azure Kubernetes (anteprima)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Informazioni su come connettere il computer di sviluppo a un cluster AKS con Azure Dev Spaces
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori
-ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 13e6f16e66941be0ae463e8280827dc0b8183450
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770680"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196094"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Connettere il computer di sviluppo a un cluster del servizio Azure Kubernetes (anteprima)
 
@@ -35,7 +35,7 @@ Questa guida usa l' [applicazione di esempio Azure Dev Spaces bike sharing](http
 
 * Il protocollo UDP non è supportato in questo momento.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 * [L'interfaccia della riga di comando di Azure installata][azure-cli].

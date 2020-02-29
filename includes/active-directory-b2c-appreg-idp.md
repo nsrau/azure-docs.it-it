@@ -1,45 +1,45 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: dc75d78f2e73d1aa42f5fc84d39a8b22d6a121bb
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: mimart
+ms.openlocfilehash: 80e5166775b0cf5acbfce32e61d91c0889e3b086
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642630"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186361"
 ---
-Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza di **applicazioni** corrente o la nuova esperienza di **registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
+Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Applicazioni** e quindi **Aggiungi**.
 1. Immettere un nome per l'applicazione. Ad esempio, *testapp1*.
-1. Per **app Web/API Web**, selezionare **Sì**.
+1. Per **App Web/API Web** selezionare **Sì**.
 1. Per **URL di risposta**immettere `https://jwt.ms`
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene il tenant Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
-1. Selezionare **registrazioni app (anteprima)** , quindi selezionare **nuova registrazione**.
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio, *testapp1*.
 1. Selezionare **account in qualsiasi directory organizzativa o provider di identità**.
 1. In **URI di reindirizzamento**selezionare **Web**, quindi immettere `https://jwt.ms` nella casella di testo URL.
-1. In **autorizzazioni**selezionare la casella *di controllo Concedi il consenso dell'amministratore per le autorizzazioni OpenID e offline_access* .
+1. In **Autorizzazioni**, selezionare la casella di controllo *Concedere il consenso amministratore alle autorizzazioni OpenID e offline_access*.
 1. Selezionare **Registra**.
 
 Al termine della registrazione dell'applicazione, abilitare il flusso di concessione implicita:
 
-1. In **Gestisci**selezionare **autenticazione**.
-1. Selezionare **prova la nuova esperienza** (se visualizzata).
-1. In **concessione implicita**selezionare le caselle di controllo **token di accesso** e **token ID** .
+1. In **Gestisci** selezionare **Autenticazione**.
+1. Selezionare **Prova la nuova esperienza** (se visualizzato).
+1. In **Concessione implicita** selezionare entrambe le caselle di controllo **Token di accesso** e **ID token**.
 1. Selezionare **Salva**.

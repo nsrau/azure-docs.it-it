@@ -9,16 +9,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.custom: azure-synapse
+ms.openlocfilehash: 70f37c70f685ee139db4b417c1c498f9eefb8205
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212894"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184758"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
-Il controllo per il [database SQL](sql-database-technical-overview.md) di azure e [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tiene traccia degli eventi di database e li scrive in un log di controllo nell'account di archiviazione di Azure, log Analytics area di lavoro o hub eventi. Inoltre, il servizio di controllo:
+Il controllo del [database SQL](sql-database-technical-overview.md) di Azure e di [Azure sinapsi Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tiene traccia degli eventi di database e li scrive in un log di controllo nell'account di archiviazione di Azure, log Analytics area di lavoro o hub eventi. Inoltre, il servizio di controllo:
 
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
 
@@ -26,7 +27,7 @@ Il controllo per il [database SQL](sql-database-technical-overview.md) di azure 
 
 
 > [!NOTE] 
-> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
+> Questo argomento si applica al server SQL di Azure e ai database SQL e di analisi delle sinapsi di Azure creati nel server SQL di Azure. Per semplicità, il database SQL viene usato quando si fa riferimento sia al database SQL che alla sinapsi di Azure.
 
 ## <a id="subheading-1"></a>Panoramica del servizio di controllo del database SQL di Azure
 
@@ -80,15 +81,25 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![Riquadro di spostamento][3]
 
+5. **Nuovo** -sono ora disponibili più opzioni per la configurazione in cui verranno scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, in un'area di lavoro Log Analytics per l'uso da log di monitoraggio di Azure o nell'hub eventi per l'uso con hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
+  
+   > [!NOTE]
+   > Il cliente che desidera configurare un archivio di log non modificabile per gli eventi di controllo a livello di server o di database deve seguire le [istruzioni fornite da archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
+  
+   > [!WARNING]
+   > L'abilitazione del controllo per Log Analytics comporterà costi in base ai tassi di inserimento. Per conoscere i costi associati, usare questa [opzione](https://azure.microsoft.com/pricing/details/monitor/)oppure prendere in considerazione l'archiviazione dei log di controllo in un account di archiviazione di Azure.
+
+   ![opzioni di archiviazione](./media/sql-database-auditing-get-started/auditing-select-destination.png)
+   
 ### <a id="audit-storage-destination">Controllo nella destinazione di archiviazione</a>
 
-Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**, I log antecedenti al periodo di conservazione vengono eliminati.
+Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
 
    > [!IMPORTANT]
    > - Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
    > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo conservazione abilitata)
 
-   ![account di archiviazione](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+   ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 Per configurare un account di archiviazione in una rete virtuale o un firewall, è necessario un [Active Directory amministratore](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) sul server, abilitare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nell'account di archiviazione. Inoltre, è necessario disporre dell'autorizzazione ' Microsoft. Authorization/roleAssignments/Write ' per l'account di archiviazione selezionato.
 
@@ -105,9 +116,22 @@ Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analy
 
 ### <a id="audit-event-hub-destination">Controllare la destinazione dell'hub eventi</a>
 
+< < < < < < < HEAD < < < < < < < HEAD = = = = = = =
+>>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
+> [!IMPORTANT]
+> Non è possibile abilitare il controllo in un pool SQL sospeso. Per abilitarla, annullare la sospensione del pool SQL.
+
+> [!WARNING]
+> L'abilitazione del controllo in un server in cui è presente un pool SQL comporterà **il riavvio del pool SQL e la nuova sospensione, il** che potrebbe comportare addebiti per la fatturazione.
+< < < < < < < HEAD = = = = = = = = per configurare la scrittura dei log di controllo in un hub eventi, selezionare l' **Hub eventi (anteprima)** e aprire **i dettagli dell'hub**eventi. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
+
+   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+>>>>>>> <a name="bf6444e83361ab743aca04ae233c420e51ea1e03"></a>bf6444e83361ab743aca04ae233c420e51ea1e03
+=======
 Per configurare la scrittura dei log a un hub eventi, selezionare **Hub eventi (anteprima)** e aprire **i dettagli dell'Hub eventi**. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+>>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 
 ## <a id="subheading-3"></a>Analizzare i log di controllo e i report
 
