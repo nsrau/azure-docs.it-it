@@ -11,14 +11,15 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 26cdbb1fc2899d1b03fea6199074467623706c63
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+tags: azure-synapse
+ms.openlocfilehash: 89ec405a348e3ace851fd5f5e17283a8036692a5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153282"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199411"
 ---
-# <a name="secure-a-database-in-sql-data-warehouse"></a>Proteggere un database in SQL Data Warehouse
+# <a name="secure-a-database-in-azure-synapse"></a>Proteggere un database in una sinapsi di Azure
 > [!div class="op_single_selector"]
 > * [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
 > * [autenticazione](sql-data-warehouse-authentication.md)
@@ -40,14 +41,14 @@ Azure sinapsi Analytics usa le regole del firewall IP a livello di server. Non s
 
 Le connessioni al pool SQL sono crittografate per impostazione predefinita.  La modifica delle impostazioni di connessione per disabilitare la crittografia viene ignorata.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il pool SQL supporta attualmente l'autenticazione SQL Server con un nome utente e una password e con Azure Active Directory. 
 
 Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Con queste credenziali è possibile eseguire l'autenticazione in qualsiasi database di tale server come proprietario del database, o "dbo", tramite l'autenticazione di SQL Server.
 
 Tuttavia, come procedura consigliata, è opportuno che gli utenti dell'organizzazione usino un account diverso per l'autenticazione. Questo modo può possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. 
 
-Per creare un utente autenticato in SQL Server, connettersi al database **master** nel proprio server con l'account di accesso amministratore e creare un nuovo accesso al server.  È consigliabile creare anche un utente nel database master utenti di Azure sinapsi. La creazione di un utente nel database master consente all'utente di accedere tramite strumenti come SSMS senza specificare un nome di database.  Consente inoltre di usare Esplora oggetti per visualizzare tutti i database in SQL server.
+Per creare un utente autenticato in SQL Server, connettersi al database **master** nel proprio server con l'account di accesso amministratore e creare un nuovo accesso al server.  È consigliabile creare anche un utente nel database master. La creazione di un utente nel database master consente all'utente di accedere tramite strumenti come SSMS senza specificare un nome di database.  Consente inoltre di usare Esplora oggetti per visualizzare tutti i database in SQL server.
 
 ```sql
 -- Connect to master database and create a login
@@ -58,7 +59,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 Connettersi quindi al database del **pool SQL** con l'account di accesso amministratore del server e creare un utente del database in base all'account di accesso al server creato.
 
 ```sql
--- Connect to SQL DW database and create a database user
+-- Connect to the database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
@@ -76,7 +77,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 L'account di amministrazione del server a cui ci si sta connettendo è un membro del ruolo db_owner, che è autorizzato a eseguire qualsiasi operazione all'interno del database. Salvare questo account per la distribuzione degli aggiornamenti allo schema e altre operazioni di gestione. Utilizzare l'account "ApplicationUser" con autorizzazioni più limitate per la connessione dall'applicazione al database con i privilegi minimi richiesti dall'applicazione.
 
-Esistono modi per limitare ulteriormente le operazioni che un utente può eseguire in un data warehouse:
+Esistono modi per limitare ulteriormente le operazioni che un utente può eseguire nel database:
 
 * Le [autorizzazioni](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15) granulari consentono di controllare quali operazioni è possibile eseguire su singole colonne, tabelle, viste, schemi, procedure e altri oggetti nel database. Usare le autorizzazioni granulari per avere il massimo controllo e concedere solo le autorizzazioni necessarie. 
 * È possibile usare [ruoli del database](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) diversi da db_datareader e db_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti. I ruoli del database predefiniti incorporati sono una soluzione semplice per la concessione di autorizzazioni, ma possono concedere più autorizzazioni di quelle necessarie.

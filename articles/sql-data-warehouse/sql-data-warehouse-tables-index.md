@@ -1,6 +1,6 @@
 ---
 title: Indicizzazione di tabelle
-description: Raccomandazioni ed esempi per l'indicizzazione di tabelle in Azure SQL Data Warehouse.
+description: Suggerimenti ed esempi per l'indicizzazione di tabelle in SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 079891824bf71caf1ebfa575833de650a55ed5be
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 5167c897109f9e4f050ac6f7416ecabbbb28a4a9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685446"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196602"
 ---
-# <a name="indexing-tables-in-sql-data-warehouse"></a>Indicizzazione di tabelle in SQL Data Warehouse
+# <a name="indexing-tables-in-sql-analytics"></a>Indicizzazione di tabelle in SQL Analytics
 
-Raccomandazioni ed esempi per l'indicizzazione di tabelle in Azure SQL Data Warehouse.
+Suggerimenti ed esempi per l'indicizzazione di tabelle in SQL Analytics.
 
 ## <a name="index-types"></a>Tipi di indice
 
-SQL Data Warehouse offre diverse opzioni di indicizzazione, inclusi [indici columnstore cluster](/sql/relational-databases/indexes/columnstore-indexes-overview), [indici cluster e indici non cluster](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described) e un'opzione non di indice nota anche come [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+Analisi SQL offre diverse opzioni di indicizzazione, inclusi indici [columnstore cluster](/sql/relational-databases/indexes/columnstore-indexes-overview), [indici cluster e indici non cluster](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), e un'opzione non di indice nota anche come [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
-Per creare una tabella con un indice, vedere la documentazione su [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse).
+Per creare una tabella con un indice, vedere la documentazione di [Create Table (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) .
 
 ## <a name="clustered-columnstore-indexes"></a>Indici columnstore cluster
 
-Per impostazione predefinita, SQL Data Warehouse crea un indice columnstore cluster quando non vengono specificate opzioni di indice in una tabella. Le tabelle columnstore cluster offrono sia il livello massimo di compressione dei dati che le migliori prestazioni query generali.  Le tabelle columnstore cluster garantiscono in genere prestazioni migliori rispetto alle tabelle heap o con indice cluster e rappresentano la scelta migliore in caso di tabelle di grandi dimensioni.  Per questi motivi, l'indice columnstore cluster è il modo migliore per iniziare quando non si è certi di come indicizzare una tabella.  
+Per impostazione predefinita, SQL Analytics crea un indice columnstore cluster quando non vengono specificate opzioni di indice in una tabella. Le tabelle columnstore cluster offrono sia il livello massimo di compressione dei dati che le migliori prestazioni query generali.  Le tabelle columnstore cluster garantiscono in genere prestazioni migliori rispetto alle tabelle heap o con indice cluster e rappresentano la scelta migliore in caso di tabelle di grandi dimensioni.  Per questi motivi, l'indice columnstore cluster è il modo migliore per iniziare quando non si è certi di come indicizzare una tabella.  
 
 Per creare una tabella columnstore cluster è sufficiente specificare CLUSTERED COLUMNSTORE INDEX nella clausola WITH o lasciare la clausola WITH disabilitata:
 
@@ -52,7 +52,7 @@ In alcuni scenari l'indice columnstore cluster potrebbe non essere la scelta ide
 
 ## <a name="heap-tables"></a>Tabelle heap
 
-Quando si inseriscono temporaneamente i dati in SQL Data Warehouse, si può notare che l'utilizzo di una tabella heap rende più veloce il processo complessivo. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  
+Quando si inseriscono temporaneamente i dati in SQL Analytics, si può notare che l'uso di una tabella heap rende più veloce il processo complessivo. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  
 
 Per le tabelle di ricerca di piccole dimensioni inferiori a 60 milioni righe, spesso le tabelle heap hanno senso.  Le tabelle columnstore cluster iniziano a ottenere una compressione ottimale quando sono presenti più di 60 milioni righe.
 
@@ -190,7 +190,7 @@ I fattori seguenti possono far sì che un indice columnstore abbia un numero di 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Utilizzo elevato di memoria durante la compilazione dell'indice
 
-Il numero di righe per ogni gruppo di righe compresso è direttamente correlato alla larghezza della riga e alla quantità di memoria disponibile per l'elaborazione del gruppo di righe.  Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne.  La procedura consigliata consiste quindi nel fare in modo che la sessione che sta scrivendo nelle tabelle di indice columnstore abbia accesso alla maggiore quantità di memoria possibile.  Visto il compromesso necessario tra memoria e concorrenza, la giusta quantità di memoria da allocare dipende dalla quantità di dati in ogni riga della tabella, dalle unità di data warehouse assegnate al sistema e dal numero di slot di concorrenza che è possibile assegnare alla sessione che sta scrivendo i dati nella tabella.
+Il numero di righe per ogni gruppo di righe compresso è direttamente correlato alla larghezza della riga e alla quantità di memoria disponibile per l'elaborazione del gruppo di righe.  Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne.  La procedura consigliata consiste quindi nel fare in modo che la sessione che sta scrivendo nelle tabelle di indice columnstore abbia accesso alla maggiore quantità di memoria possibile.  Poiché esiste un compromesso tra memoria e concorrenza, le linee guida per l'allocazione di memoria corretta dipendono dai dati in ogni riga della tabella, dalle unità di analisi SQL allocate al sistema e dal numero di slot di concorrenza che è possibile assegnare alla sessione, ovvero scrittura dei dati nella tabella.
 
 ### <a name="high-volume-of-dml-operations"></a>Volume elevato di operazioni DML
 
@@ -204,13 +204,13 @@ Le operazioni di aggiornamento e inserimento in batch che superano la soglia in 
 
 ### <a name="small-or-trickle-load-operations"></a>Operazioni di caricamento di piccole dimensioni o con un flusso irregolare
 
-I caricamenti di piccole dimensioni in SQL Data Warehouse sono anche definiti flussi irregolari. In genere rappresentano un flusso quasi costante di dati inseriti nel sistema. Quando questo flusso è quasi continuo, tuttavia, il volume di righe non è particolarmente elevato. Molto spesso i dati sono notevolmente inferiori alla soglia necessaria per un caricamento diretto nel formato columnstore.
+Anche i piccoli carichi che fluiscono nei database di analisi SQL sono talvolta noti come caricamenti trickle. In genere rappresentano un flusso quasi costante di dati inseriti nel sistema. Quando questo flusso è quasi continuo, tuttavia, il volume di righe non è particolarmente elevato. Molto spesso i dati sono notevolmente inferiori alla soglia necessaria per un caricamento diretto nel formato columnstore.
 
 In queste situazioni è spesso preferibile inserire prima i dati nell'archivio BLOB di Azure e lasciarli accumulare prima di caricarli. Questa tecnica viene spesso definita come *micro invio in batch*.
 
 ### <a name="too-many-partitions"></a>Troppe partizioni
 
-Un altro fattore da considerare è l'impatto del partizionamento sulle tabelle columnstore cluster.  Prima di eseguire il partizionamento, SQL Data Warehouse divide già i dati in 60 database.  Il partizionamento, quindi, suddivide ulteriormente i dati.  Se si partizionano i dati, tenere presente che per poter sfruttare i vantaggi di un indice columnstore cluster **ogni** partizione deve contenere almeno 1 milione di righe.  Se la tabella viene partizionata in partizioni 100, la tabella deve avere almeno 6 miliardi righe per trarre vantaggio da un indice columnstore cluster (60 distribuzioni *100 partizioni* 1 milione righe). Se la tabella da 100 partizioni non contiene 6 miliardi di righe, occorre ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap.
+Un altro fattore da considerare è l'impatto del partizionamento sulle tabelle columnstore cluster.  Prima del partizionamento, SQL Analytics divide già i dati in database 60.  Il partizionamento, quindi, suddivide ulteriormente i dati.  Se si partizionano i dati, tenere presente che per poter sfruttare i vantaggi di un indice columnstore cluster **ogni** partizione deve contenere almeno 1 milione di righe.  Se la tabella viene partizionata in partizioni 100, la tabella deve avere almeno 6 miliardi righe per trarre vantaggio da un indice columnstore cluster (60 distribuzioni *100 partizioni* 1 milione righe). Se la tabella da 100 partizioni non contiene 6 miliardi di righe, occorre ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap.
 
 Dopo aver caricato alcuni dati nelle tabelle, seguire questa procedura per identificare e ricompilare le tabelle con indici columnstore cluster non ottimali.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La ricompilazione di un indice in SQL Data Warehouse è un'operazione offline.  Per altre informazioni sulla ricompilazione di indici, vedere la sezione ALTER INDEX REBUILD in [Deframmentazione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+La ricompilazione di un indice in SQL Analytics è un'operazione offline.  Per altre informazioni sulla ricompilazione di indici, vedere la sezione ALTER INDEX REBUILD in [Deframmentazione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Passaggio 3: Verificare che la qualità dei segmenti columnstore cluster sia migliorata
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Per informazioni dettagliate sulla ricreazione di partizioni tramite CTAS, vedere [Using partitions in SQL Data Warehouse](sql-data-warehouse-tables-partition.md) (Uso di partizioni in SQL Data Warehouse).
+Per altri dettagli sulla ricreazione di partizioni con CTAS, vedere [uso di partizioni in analisi SQL](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

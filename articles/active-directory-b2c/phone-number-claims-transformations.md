@@ -3,20 +3,20 @@ title: Trasformazioni di attestazioni numero di telefono nei criteri personalizz
 titleSuffix: Azure AD B2C
 description: Riferimento ai criteri personalizzati per le trasformazioni delle attestazioni con numero di telefono in Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/26/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34a6d15090cd13a775ad3faa694718ec58738471
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620638"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183933"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definire le trasformazioni delle attestazioni del numero di telefono in Azure AD B2C
 
@@ -107,7 +107,7 @@ Il profilo tecnico autocertificato che chiama il profilo tecnico di convalida ch
 
 - Attestazioni di input:
   - **phoneNumberString**: + 1 (123) 456-7890
-- Attestazioni di output: 
+- Attestazioni di output:
   - **outputClaim**: + 11234567890
 
 
@@ -118,7 +118,7 @@ Questa operazione estrae il codice paese e il numero nazionale dall'attestazione
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | string | Attestazione di stringa del numero di telefono. Il numero di telefono deve essere in formato internazionale, completo con una "+" e un codice paese iniziali. |
-| InputParameter | throwExceptionOnFailure | boolean | Opzionale Parametro che indica se viene generata un'eccezione quando il numero di telefono non è valido. Il valore predefinito è false. |
+| InputParameter | throwExceptionOnFailure | boolean | Opzionale Parametro che indica se viene generata un'eccezione quando il numero di telefono non è valido. Il valore predefinito è False. |
 | InputParameter | countryCodeType | string | Opzionale Parametro che indica il tipo di codice paese nell'attestazione di output. I valori disponibili sono **CallingCode** (il codice chiamante internazionale per un paese, ad esempio + 1) o **ISO3166** (il codice paese ISO-3166 a due lettere). |
 | OutputClaim | nationalNumber | string | Attestazione di stringa per il numero nazionale del numero di telefono. |
 | OutputClaim | countryCode | string | Attestazione di stringa per il codice paese del numero di telefono. |

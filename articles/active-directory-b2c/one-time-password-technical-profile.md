@@ -3,20 +3,20 @@ title: Abilitare la verifica della password monouso (OTP)
 titleSuffix: Azure AD B2C
 description: Informazioni su come configurare uno scenario OTP (One-time password) usando Azure AD B2C criteri personalizzati.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 701fb64dd85526bc79cab48bf36d4583da71ca76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114063"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184027"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico monouso per la password in un Azure AD B2C criteri personalizzati
 
@@ -53,7 +53,7 @@ L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'i
 
 | ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| identifier | Sì | Identificatore per identificare l'utente che deve verificare il codice in un secondo momento. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
+| identificatore | Sì | Identificatore per identificare l'utente che deve verificare il codice in un secondo momento. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 
 L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** usati per modificare le attestazioni di input o generarne di nuovi prima dell'invio al provider del protocollo password monouso.
 
@@ -77,7 +77,7 @@ Per configurare la generazione e la manutenzione del codice, è possibile usare 
 | CodeLength | No | Lunghezza del codice. Il valore predefinito è `6`. |
 | CharacterSet | No | Set di caratteri per il codice, formattato per essere utilizzato in un'espressione regolare. Ad esempio: `a-z0-9A-Z`. Il valore predefinito è `0-9`. Il set di caratteri deve includere almeno 10 caratteri diversi nel set specificato. |
 | NumRetryAttempts | No | Il numero di tentativi di verifica prima che il codice venga considerato non valido. Il valore predefinito è `5`. |
-| Operazione | Sì | Operazione da eseguire. Valori possibili: `GenerateCode`o `VerifyCode`. |
+| Operazione | Sì | L'operazione da eseguire. Valori possibili: `GenerateCode`o `VerifyCode`. |
 | ReuseSameCode | No | Indica se deve essere fornito un codice duplicato anziché generare un nuovo codice quando il codice specificato non è scaduto ed è ancora valido. Il valore predefinito è `false`. |
 
 ### <a name="returning-error-message"></a>Restituzione messaggio di errore
@@ -119,7 +119,7 @@ L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'i
 
 | ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| identifier | Sì | Identificatore per identificare l'utente che ha generato in precedenza un codice. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
+| identificatore | Sì | Identificatore per identificare l'utente che ha generato in precedenza un codice. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 | otpToVerify | Sì | Codice di verifica fornito dall'utente. |
 
 L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** usati per modificare le attestazioni di input o generarne di nuovi prima dell'invio al provider del protocollo password monouso.

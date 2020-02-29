@@ -3,20 +3,20 @@ title: "Esercitazione: registrare un'applicazione"
 titleSuffix: Azure AD B2C
 description: Informazioni su come registrare un'applicazione Web in Azure Active Directory B2C usando il portale di Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a688f5e75f7513d0ea4308b751f87f75a2c9510a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840112"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183092"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Esercitazione: registrare un'applicazione in Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Se non è ancora stato creato un [tenant Azure AD B2C](tutorial-create-tenant.md
 
 Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
@@ -57,7 +57,7 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 
 1. Selezionare **Crea** per completare la registrazione dell'applicazione.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
@@ -90,13 +90,13 @@ Al termine della registrazione dell'applicazione, abilitare il flusso di concess
 
 Se l'applicazione scambia un codice di autorizzazione per un token di accesso, è necessario creare un segreto dell'applicazione.
 
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. Nella pagina **Azure ad B2C-applicazioni** selezionare l'applicazione creata, ad esempio *app Web 1*.
 1. Selezionare **chiavi** e quindi selezionare **Genera chiave**.
 1. Selezionare **Salva** per visualizzare la chiave. Annotare il valore di **Chiave dell'app**. Usare questo valore come segreto dell'applicazione nel codice dell'applicazione.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Nella pagina **Azure ad B2C-registrazioni app (anteprima)** selezionare l'applicazione creata, ad esempio *app Web 1*.
 1. In **Gestisci**, selezionare **Certificati e segreti**.

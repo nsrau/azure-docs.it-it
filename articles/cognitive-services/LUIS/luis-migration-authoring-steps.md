@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 9c92a3ad2fc6a372b58aa651228a7bbccdf8ba0a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552024"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194640"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Passaggi per eseguire la migrazione alla risorsa di creazione di Azure
 
 Dal portale di Language Understanding (LUIS) eseguire la migrazione di tutte le app di cui si è proprietari per usare la risorsa di creazione di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * **Facoltativamente**, eseguire il backup delle app dall'elenco di app del portale Luis esportando ogni app o usando l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)di esportazione.
 * **Facoltativamente**, salvare l'elenco collaborator's di ogni app. Tutti i collaboratori possono inviare un messaggio di posta elettronica come parte del processo di migrazione.
@@ -32,7 +32,10 @@ Se non si ha una sottoscrizione di Azure, [iscriversi](https://azure.microsoft.c
 
 ## <a name="access-the-migration-process"></a>Accedere al processo di migrazione
 
-Con cadenza settimanale, viene richiesto di eseguire la migrazione delle app. È possibile annullare questa finestra senza eseguire la migrazione. Se si desidera eseguire la migrazione prima del successivo periodo pianificato, è possibile avviare il processo di migrazione dall'icona del **lucchetto** nella barra degli strumenti superiore del portale Luis.
+Con cadenza settimanale, viene richiesto di eseguire la migrazione delle app. È possibile annullare questa finestra senza eseguire la migrazione. Se si vuole eseguire la migrazione prima del successivo periodo pianificato, è possibile avviare il processo di migrazione dall'icona di **Azure** sulla barra degli strumenti superiore del portale Luis.
+
+> [!div class="mx-imgBorder"]
+> icona di migrazione ![](./media/migrate-authoring-key/migration-button.png)
 
 ## <a name="app-owner-begins-the-migration-process"></a>Il proprietario dell'app avvia il processo di migrazione
 

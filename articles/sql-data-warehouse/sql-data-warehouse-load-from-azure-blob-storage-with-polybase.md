@@ -1,5 +1,5 @@
 ---
-title: Caricare i dati di Contoso Retail
+title: Caricare i dati di Contoso retail in un data warehouse SQL Analytics
 description: Usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in Analisi SQL di Azure.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: af505d7614b527d6dc7e1ce54136578d67824cf9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4da4ea54de5517864567583cc6853df40b4370a9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721167"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197301"
 ---
 # <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Caricare i dati di Contoso retail in un data warehouse SQL Analytics
 
@@ -29,12 +29,15 @@ In questa esercitazione si apprenderà come:
 3. Una volta completato il caricamento, effettuare le ottimizzazioni.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
+
 Per eseguire questa esercitazione, è necessario un account Azure che disponga già di una data warehouse di analisi SQL. Se non si dispone di un data warehouse sottoposto a provisioning, vedere [creare una data warehouse e impostare la regola del firewall a livello di server](create-data-warehouse-portal.md).
 
-## <a name="1-configure-the-data-source"></a>1. configurare l'origine dati
+## <a name="configure-the-data-source"></a>Configurare l'origine dati
+
 PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate nel data warehouse SQL Analytics. I dati vengono archiviati esternamente.
 
-### <a name="11-create-a-credential"></a>1.1. Creare una credenziale
+## <a name="create-a-credential"></a>Creare una credenziale
+
 **Ignorare questo passaggio** se si stanno caricando i dati pubblici di contoso. Non è necessario l'accesso sicuro ai dati pubblici perché è già accessibile a chiunque.
 
 **Non ignorare questo passaggio** se si usa questa esercitazione come modello per caricare i propri dati. Per accedere ai dati tramite una credenziale, usare lo script seguente per creare una credenziale con ambito database. Utilizzarlo quindi quando si definisce il percorso dell'origine dati.
@@ -72,7 +75,8 @@ WITH (
 );
 ```
 
-### <a name="12-create-the-external-data-source"></a>1.2. Creare un'origine dati esterna.
+## <a name="create-the-external-data-source"></a>Creare un'origine dati esterna.
+
 Usare questo comando [Create External Data Source](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) per archiviare il percorso dei dati e il tipo di dati. 
 
 ```sql
@@ -87,9 +91,9 @@ WITH
 > [!IMPORTANT]
 > Se si sceglie di rendere pubblici i contenitori di archiviazione BLOB di Azure, tenere presente che i costi per l’uscita dei dati dal data center verranno addebitati al proprietario dei dati. 
 > 
-> 
 
-## <a name="2-configure-data-format"></a>2. configurare il formato dei dati
+## <a name="configure-the-data-format"></a>Configurare il formato dei dati
+
 I dati vengono archiviati in file di testo nell'archiviazione BLOB di Azure e ogni campo è separato con un delimitatore. In SSMS eseguire il comando CREATE EXTERNAL FILE FORMAT seguente per specificare il formato dei dati nei file di testo. I dati di Contoso sono delimitati da barre verticali e non sono compressi.
 
 ```sql
@@ -104,10 +108,10 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a>3. creare le tabelle esterne
+## <a name="create-the-external-tables"></a>Creare le tabelle esterne.
 Ora che è stata specificata l'origine dati e il formato di file, si è pronti per creare le tabelle esterne. 
 
-### <a name="31-create-a-schema-for-the-data"></a>3.1. Creare uno schema per i dati.
+## <a name="create-a-schema-for-the-data"></a>Creare uno schema per i dati
 Per creare un percorso in cui archiviare i dati di Contoso nel database, creare uno schema.
 
 ```sql
@@ -115,7 +119,8 @@ CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="32-create-the-external-tables"></a>3.2. Creare le tabelle esterne.
+## <a name="create-the-external-tables"></a>Creare le tabelle esterne.
+
 Eseguire lo script seguente per creare le tabelle esterne DimProduct e FactOnlineSales. In questo esempio vengono definiti i nomi delle colonne e i tipi di dati e il relativo binding al percorso e al formato dei file di archiviazione BLOB di Azure. La definizione viene archiviata nel data warehouse SQL Analytics e i dati sono ancora presenti nel BLOB del servizio di archiviazione di Azure.
 
 Il parametro **LOCATION** corrisponde alla cartella sotto la cartella radice nel BLOB di Archiviazione di Azure. Ogni tabella è in una cartella diversa.
@@ -202,10 +207,11 @@ WITH
 ;
 ```
 
-## <a name="4-load-the-data"></a>4. caricare i dati
+## <a name="load-the-data"></a>Caricare i dati
 Esistono diversi modi per accedere ai dati esterni.  È possibile eseguire query sui dati direttamente dalle tabelle esterne, caricare i dati nelle nuove tabelle del data warehouse o aggiungere dati esterni alle tabelle data warehouse esistenti.  
 
-### <a name="41-create-a-new-schema"></a>4.1. Crea un nuovo schema
+###  <a name="create-a-new-schema"></a>Crea un nuovo schema
+
 CTAS crea una nuova tabella contenente i dati.  Innanzitutto, creare uno schema per i dati di Contoso.
 
 ```sql
@@ -213,7 +219,8 @@ CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-the-data-into-new-tables"></a>4.2. Caricare i dati in nuove tabelle
+### <a name="load-the-data-into-new-tables"></a>Caricare i dati in nuove tabelle
+
 Per caricare i dati dall'archiviazione BLOB di Azure nella tabella data warehouse, usare l'istruzione [create table As Select (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) . Il caricamento con [CTAs](sql-data-warehouse-develop-ctas.md) sfrutta le tabelle esterne fortemente tipizzate create. Per caricare i dati in nuove tabelle, usare un'istruzione CTAS per tabella. 
  
 CTAS crea una nuova tabella e la popola con i risultati di un'istruzione SELECT. CTAS definisce la nuova tabella in modo che abbia le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Se si selezionano tutte le colonne da una tabella esterna, la nuova tabella sarà una replica delle colonne e dei tipi di dati della tabella esterna.
@@ -228,7 +235,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a>4.3. Monitorare l'avanzamento del caricamento
+### <a name="track-the-load-progress"></a>Tenere traccia dello stato di avanzamento del caricamento
+
 È possibile monitorare l'avanzamento del caricamento con le viste a gestione dinamica (DMV). 
 
 ```sql
@@ -264,7 +272,8 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a>5. ottimizzare la compressione columnstore
+## <a name="optimize-columnstore-compression"></a>Ottimizzare la compressione columnstore
+
 Per impostazione predefinita, l'analisi SQL data warehouse archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Esistono diversi motivi per cui questo può verificarsi. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
 
 Per ottimizzare le prestazioni delle query e la compressione columnstore dopo un'operazione di caricamento, ricompilare la tabella per forzare l'indice columnstore per comprimere tutte le righe. 
@@ -279,7 +288,8 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 
 Per altre informazioni sulla gestione degli indici columnstore, vedere [Indicizzazione di tabelle in SQL Data Warehouse](sql-data-warehouse-tables-index.md) .
 
-## <a name="6-optimize-statistics"></a>6. ottimizzare le statistiche
+## <a name="optimize-statistics"></a>Ottimizzare le statistiche
+
 È preferibile creare statistiche a colonna singola immediatamente dopo un caricamento. Se si è certi che alcune colonne non saranno presenti nei predicati di query, è possibile ignorare la creazione di statistiche per tali colonne. Se si creano statistiche a colonna singola su ogni colonna, la ricompilazione di tutte le statistiche potrebbe richiedere molto tempo. 
 
 Per creare statistiche a colonna singola su ogni colonna di ogni tabella, è possibile usare l'esempio di codice di stored procedure `prc_sqldw_create_stats` riportato nell'articolo relativo alle [statistiche](sql-data-warehouse-tables-statistics.md).
@@ -329,7 +339,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>Obiettivo raggiunto
-I dati pubblici sono stati caricati in un data warehouse di analisi SQL. Ottimo lavoro.
+I dati pubblici sono stati caricati nel data warehouse. Ottimo lavoro.
 
 È ora possibile iniziare a eseguire query sulle tabelle per esplorare i dati. Eseguire la query seguente per trovare le vendite totali per marchio:
 

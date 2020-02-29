@@ -1,6 +1,6 @@
 ---
 title: Ottimizzazione delle transazioni
-description: Informazioni su come ottimizzare le prestazioni del codice transazionale in Azure SQL Data Warehouse riducendo al contempo il rischio di rollback di lunga durata.
+description: Informazioni su come ottimizzare le prestazioni del codice transazionale in SQL Analytics riducendo al minimo i rischi per i rollback lunghi.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,21 +10,21 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 6f7005f1706e72ea1794f99c030a25fa533327b8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692870"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195839"
 ---
-# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Ottimizzazione delle transazioni in Azure SQL Data Warehouse
-Informazioni su come ottimizzare le prestazioni del codice transazionale in Azure SQL Data Warehouse riducendo al contempo il rischio di rollback di lunga durata.
+# <a name="optimizing-transactions-in-sql-analytics"></a>Ottimizzazione delle transazioni in SQL Analytics
+Informazioni su come ottimizzare le prestazioni del codice transazionale in SQL Analytics riducendo al minimo i rischi per i rollback lunghi.
 
 ## <a name="transactions-and-logging"></a>Transazioni e registrazione
-Le transazioni sono un componente importante in un motore di database relazionale. SQL Data Warehouse usa le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole INSERT, UPDATE e DELETE sono esempi di transazioni implicite. Le transazioni esplicite usano BEGIN TRAN, COMMIT TRAN o ROLLBACK TRAN. Le transazioni esplicite vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica. 
+Le transazioni sono un componente importante in un motore di database relazionale. SQL Analytics usa le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole INSERT, UPDATE e DELETE sono esempi di transazioni implicite. Le transazioni esplicite usano BEGIN TRAN, COMMIT TRAN o ROLLBACK TRAN. Le transazioni esplicite vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica. 
 
-Azure SQL Data Warehouse esegue il commit delle modifiche al database usando i log delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, se da un lato questo processo garantisce la scrittura dall'altro provoca un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
+Analisi SQL consente di eseguire il commit delle modifiche al database mediante i log delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, se da un lato questo processo garantisce la scrittura dall'altro provoca un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
 
 * Usare costrutti di registrazione minima, dove possibile
 * Elaborare i dati tramite batch con ambito per evitare singole transazioni a esecuzione prolungata.
@@ -71,14 +71,14 @@ CTAS e INSERT...SELECT sono entrambe operazioni di caricamento bulk. Tuttavia, e
 | Heap |Qualsiasi |**Minima** |
 | Indice cluster |Tabella di destinazione vuota |**Minima** |
 | Indice cluster |Le righe caricate non si sovrappongono alle pagine esistenti nella destinazione |**Minima** |
-| Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Completa |
+| Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Full |
 | Indice columnstore cluster |Dimensioni batch >= 102.400 per ogni distribuzione allineata alle partizioni |**Minima** |
-| Indice columnstore cluster |Dimensioni batch < 102.400 per ogni distribuzione allineata alle partizioni |Completa |
+| Indice columnstore cluster |Dimensioni batch < 102.400 per ogni distribuzione allineata alle partizioni |Full |
 
 Si noti che eventuali scritture di aggiornamento di indici secondari o non cluster saranno sempre operazioni con registrazione completa.
 
 > [!IMPORTANT]
-> SQL Data Warehouse ha 60 distribuzioni. Di conseguenza, supponendo che tutte le righe siano distribuite in modo uniforme e che vengano inserite in una singola partizione, il batch dovrà contenere almeno 6.144.000 di righe per la registrazione minima durante la scrittura un indice columnstore cluster. Se la tabella è partizionata e le righe da inserire si estendono oltre i limiti della partizione, saranno necessari 6.144.000 di righe per limite di partizione, supponendo una distribuzione uniforme dei dati. Per la registrazione minima dell'inserimento nella distribuzione, ogni partizione in ogni distribuzione deve superare singolarmente la soglia di 102.400 righe.
+> Un database di analisi SQL presenta 60 distribuzioni. Di conseguenza, supponendo che tutte le righe siano distribuite in modo uniforme e che vengano inserite in una singola partizione, il batch dovrà contenere almeno 6.144.000 di righe per la registrazione minima durante la scrittura un indice columnstore cluster. Se la tabella è partizionata e le righe da inserire si estendono oltre i limiti della partizione, saranno necessari 6.144.000 di righe per limite di partizione, supponendo una distribuzione uniforme dei dati. Per la registrazione minima dell'inserimento nella distribuzione, ogni partizione in ogni distribuzione deve superare singolarmente la soglia di 102.400 righe.
 > 
 > 
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Per creare nuovamente tabelle di grandi dimensioni è possibile sfruttare le funzionalità di gestione del carico di lavoro di SQL Data Warehouse. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).
+> Per ricreare tabelle di grandi dimensioni può essere utile utilizzare le funzionalità di gestione del carico di lavoro di SQL Analytics. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).
 > 
 > 
 
@@ -405,18 +405,18 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Linee guida per la sospensione e il ridimensionamento
-Azure SQL Data Warehouse permette di [sospendere, riprendere e ridimensionare](sql-data-warehouse-manage-compute-overview.md) il data warehouse su richiesta. Quando si sospende o si ridimensiona SQL Data Warehouse è importante sapere che le eventuali transazioni in corso vengono interrotte immediatamente, con il conseguente rollback delle transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questo può influire sul tempo necessario a sospendere o ridimensionare il database di Azure SQL Data Warehouse. 
+Analisi SQL consente di [sospendere, riprendere e ridimensionare](sql-data-warehouse-manage-compute-overview.md) il pool SQL su richiesta. Quando si sospende o si ridimensiona il pool SQL, è importante comprendere che le transazioni in corso vengono interrotte immediatamente. viene eseguito il rollback di tutte le transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questa operazione può influisca sul tempo necessario per sospendere o ridimensionare il pool SQL. 
 
 > [!IMPORTANT]
-> Sia `UPDATE` che `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti. 
+> `UPDATE` e `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti. 
 > 
 > 
 
-Lo scenario migliore sarebbe consentire il completamento delle transazioni di modifica dei dati in corso prima di sospendere o ridimensionare SQL Data Warehouse. Tuttavia, questo potrebbe non essere sempre possibile. Per ridurre il rischio di un rollback troppo lungo, prendere in considerazione una delle opzioni seguenti:
+Lo scenario migliore consiste nel lasciare le transazioni di modifica dei dati in volo prima di sospendere o ridimensionare il pool SQL. Tuttavia, questo potrebbe non essere sempre possibile. Per ridurre il rischio di un rollback troppo lungo, prendere in considerazione una delle opzioni seguenti:
 
 * Riscrivere le operazioni a esecuzione prolungata con [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Suddividere l'operazione in blocchi e lavorare su un subset delle righe
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Transazioni in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) per altre informazioni su limiti transazionali e livelli di isolamento.  Per una panoramica sulle procedure consigliate, vedere l'articolo [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Vedere [transazioni in SQL Analytics](sql-data-warehouse-develop-transactions.md) per ulteriori informazioni sui livelli di isolamento e sui limiti transazionali.  Per una panoramica delle altre procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

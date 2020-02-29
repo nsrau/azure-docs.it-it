@@ -1,6 +1,6 @@
 ---
 title: Istruzioni T-SQL
-description: Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL Data Warehouse.
+description: Collegamenti alla documentazione per le istruzioni T-SQL supportate in analisi SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 861675941693697a20da189edebe33d91918782c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d37e1b727829505940b77c7a82293f90050a87c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685528"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198355"
 ---
-# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Istruzioni T-SQL supportate in Azure SQL Data Warehouse
-Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL Data Warehouse.
+# <a name="t-sql-statements-supported-in-sql-analytics"></a>Istruzioni T-SQL supportate in SQL Analytics
+Collegamenti alla documentazione per le istruzioni T-SQL supportate in analisi SQL.
 
 ## <a name="data-definition-language-ddl-statements"></a>Istruzioni DDL (Data Definition Language)
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
@@ -64,13 +64,13 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 * [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
-## <a name="database-console-commands"></a>Comandi della console di database
+## <a name="database-console-commands"></a>Database Console Command
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (anteprima)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
 * [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
-* [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)
+* [PDW_SHOWMATERIALIZEDVIEWOVERHEAD DBCC](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)
 * [DBCC SHOWRESULTCACHESPACEUSED](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql) (anteprima)
 * [DBCC PDW_SHOWPARTITIONSTATS](https://msdn.microsoft.com/library/mt204013.aspx)
 * [DBCC PDW_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
@@ -120,4 +120,4 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in Azure SQL
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere [Elementi del linguaggio T-SQL in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md) e [Visualizzazioni di sistema in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Per altre informazioni di riferimento, vedere [elementi del linguaggio T-SQL in analisi SQL](sql-data-warehouse-reference-tsql-language-elements.md)e [viste di sistema in analisi SQL](sql-data-warehouse-reference-tsql-system-views.md).

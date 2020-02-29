@@ -3,20 +3,20 @@ title: Panoramica dei profili tecnici nei criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Informazioni sul modo in cui i profili tecnici vengono usati in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3b0e59912d740e30b0e29fb882542f1995ab6f54
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 48324d252e22ca898f923e1f0ad9b76df1c10861
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505661"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183653"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 - [Autocertificazione](self-asserted-technical-profile.md): interazione con l'utente, ad esempio per raccogliere le credenziali dell'utente per l'accesso, eseguire il rendering della pagina di iscrizione o reimpostare la password.
 - [Gestione delle sessioni](custom-policy-reference-sso.md): gestione di diversi tipi di sessioni.
 - [Application Insights](../azure-monitor/app/usage-overview.md)
-- [Password una sola volta](one-time-password-technical-profile.md) : fornisce il supporto per la gestione della generazione e della verifica di una password monouso. 
+- [Password una sola volta](one-time-password-technical-profile.md) : fornisce il supporto per la gestione della generazione e della verifica di una password monouso.
 
 ## <a name="technical-profile-flow"></a>Flusso dei profili tecnici
 
@@ -48,7 +48,7 @@ Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attes
 
 ![Diagramma che illustra il flusso del profilo tecnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **Gestione delle sessioni Single Sign-on (SSO)** : Ripristina lo stato della sessione del profilo tecnico, usando la [gestione delle sessioni SSO](custom-policy-reference-sso.md). 
+1. **Gestione delle sessioni Single Sign-on (SSO)** : Ripristina lo stato della sessione del profilo tecnico, usando la [gestione delle sessioni SSO](custom-policy-reference-sso.md).
 1. **Input Claims Transformation** : le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di input vengono prelevate dall'elenco delle attestazioni.  Le attestazioni di output di una trasformazione delle attestazioni di input possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di input.
 1. **Attestazioni di input** : le attestazioni vengono prelevate dall'elenco di attestazioni e vengono usate per il profilo tecnico. Un [profilo tecnico autocertificato](self-asserted-technical-profile.md), ad esempio, usa le attestazioni di input per prepopolare le attestazioni di output fornite dall'utente. Un profilo tecnico API REST usa le attestazioni di input per inviare i parametri di input all'endpoint API REST. Azure Active Directory usa l'attestazione di input come identificatore univoco per la lettura, l'aggiornamento o l'eliminazione di un account.
 1. **Esecuzione del profilo tecnico**: il profilo tecnico scambia le attestazioni con l'entità configurata. Ad esempio:
@@ -64,7 +64,7 @@ Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attes
 
 ## <a name="technical-profile-inclusion"></a>Inclusione profilo tecnico
 
-Un profilo tecnico può includere un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità.  L'elemento `IncludeTechnicalProfile` è un riferimento al profilo tecnico di base da cui deriva un profilo tecnico. Non sono previsti limiti per il numero di livelli. 
+Un profilo tecnico può includere un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità.  L'elemento `IncludeTechnicalProfile` è un riferimento al profilo tecnico di base da cui deriva un profilo tecnico. Non sono previsti limiti per il numero di livelli.
 
 Il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId-NoError**, ad esempio, include **AAD-UserReadUsingAlternativeSecurityId**. Questo profilo tecnico imposta l'elemento di metadati `RaiseErrorIfClaimsPrincipalDoesNotExist` su `true`e genera un errore se un account di social networking non esiste nella directory. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** esegue l'override di questo comportamento e Disabilita il messaggio di errore.
 

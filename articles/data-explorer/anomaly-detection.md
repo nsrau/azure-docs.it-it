@@ -1,5 +1,5 @@
 ---
-title: Rilevamento anomalie della serie temporale & previsioni-Azure Esplora dati
+title: Rilevamento anomalie della serie temporale & previsioni in Azure Esplora dati
 description: Informazioni su come analizzare i dati delle serie temporali per il rilevamento delle anomalie e la previsione con Azure Esplora dati.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 4a7463d6149a921a4a29b43eaebb78a01543323a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a482fef93d43f92257608b65c9c0e2ade535bcca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985826"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194158"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Rilevamento delle anomalie e previsioni in Azure Esplora dati
 
@@ -20,7 +20,7 @@ Azure Esplora dati esegue una raccolta in corso di dati di telemetria da servizi
 
 Questo articolo illustra in dettaglio le funzionalità di previsione e rilevamento delle anomalie della serie temporale di Azure Esplora dati. Le funzioni della serie temporale applicabili sono basate su un modello di scomposizione ben noto, in cui ogni serie temporale originale viene scomposta in componenti stagionali, di tendenza e residui. Le anomalie vengono rilevate dagli outlier sul componente residuo, mentre la previsione viene eseguita estrapolando i componenti stagionali e di tendenza. L'implementazione di Azure Esplora dati migliora significativamente il modello di scomposizione di base tramite il rilevamento automatico della stagionalità, l'analisi avanzata degli outlier e l'implementazione vettoriale per elaborare migliaia di serie temporali in pochi secondi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per una panoramica delle funzionalità della serie temporale, vedere [analisi delle serie temporali in Azure Esplora dati](/azure/data-explorer/time-series-analysis) .
 
@@ -125,7 +125,7 @@ demo_make_series2
 
 ![Scalabilità delle serie temporali](media/anomaly-detection/series-scalability.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Questo documento descrive in dettaglio le funzioni native di Azure Esplora dati per il rilevamento e la previsione di anomalie della serie temporale. Ogni serie temporale originale è scomposta in componenti stagionali, di tendenza e residui per il rilevamento di anomalie e/o previsioni. Queste funzionalità possono essere usate per scenari di monitoraggio quasi in tempo reale, ad esempio il rilevamento di errori, la manutenzione predittiva e la previsione del carico e della richiesta.
 

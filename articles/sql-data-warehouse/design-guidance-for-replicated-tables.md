@@ -1,6 +1,6 @@
 ---
 title: Linee guida per la progettazione di tabelle replicate
-description: Consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. 
+description: Suggerimenti per la progettazione di tabelle replicate in SQL Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,32 +10,32 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 18577cb729c9f17a112979cd1ebb763af38b9ca2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: ff141b0da0eb2fe68bbeccb7e39292a70b7305f0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693054"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194751"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse
-Questo articolo offre alcuni consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
+# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Linee guida di progettazione per l'uso di tabelle replicate in SQL Analytics
+Questo articolo fornisce consigli per la progettazione di tabelle replicate nello schema di analisi SQL. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Prerequisiti
-Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all' [architettura](massively-parallel-processing-mpp-architecture.md) . 
+## <a name="prerequisites"></a>Prerequisites
+Questo articolo presuppone che l'utente abbia familiarità con i concetti relativi alla distribuzione dei dati e allo spostamento dei dati in analisi SQL.  Per altre informazioni, vedere l'articolo relativo all' [architettura](massively-parallel-processing-mpp-architecture.md) . 
 
 Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare le domande seguenti:
 
 - Quali sono le dimensioni della tabella?   
 - Quanto spesso viene aggiornata la tabella?   
-- Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
+- Sono presenti tabelle dei fatti e delle dimensioni in un database di analisi SQL?   
 
 ## <a name="what-is-a-replicated-table"></a>Che cos'è una tabella replicata?
 Una tabella replicata include una copia completa della tabella accessibile in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Poiché la tabella ha più copie, le tabelle replicate funzionano meglio quando le dimensioni delle tabelle sono inferiori a 2 GB, già compresse.  2 GB non è un limite rigido.  Se i dati sono statici e non cambiano, è possibile replicare tabelle di dimensioni maggiori.
 
-Il diagramma seguente mostra una tabella replicata accessibile in ogni nodo di calcolo. In SQL Data Warehouse la tabella replicata viene interamente copiata in un database di distribuzione in ogni nodo di calcolo. 
+Il diagramma seguente mostra una tabella replicata accessibile in ogni nodo di calcolo. In SQL Analytics la tabella replicata viene copiata completamente in un database di distribuzione in ogni nodo di calcolo. 
 
 ![Tabella replicata](media/guidance-for-using-replicated-tables/replicated-table.png "Tabella replicata")  
 
@@ -49,8 +49,8 @@ Provare a usare una tabella replicata nei casi seguenti:
 Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
 
 - La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata. La ricompilazione spesso può causare un rallentamento delle prestazioni.
-- Il data warehouse viene ridimensionato spesso. Il ridimensionamento di un data warehouse modifica il numero di nodi di calcolo, che comporta la ricompilazione della tabella replicata.
-- La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, SQL Data Warehouse sposta solo i dati per le colonne richieste. 
+- Il database di analisi SQL viene ridimensionato di frequente. Il ridimensionamento di un database di analisi SQL consente di modificare il numero di nodi di calcolo, che comporta la ricompilazione della tabella replicata.
+- La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, SQL Analytics sposta solo i dati per le colonne richieste. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usare tabelle replicate con predicati di query semplici
 Prima di scegliere di distribuire o replicare una tabella, considerare i tipi di query che si prevede di eseguire sulla tabella. Se possibile:
@@ -118,11 +118,11 @@ WHERE d.FiscalYear = 2004
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerazioni sulle prestazioni per la modifica di tabelle replicate
-SQL Data Warehouse implementa una tabella replicata mantenendo una versione master della tabella. Il servizio copia la versione master in un database di distribuzione in ogni nodo di calcolo. Quando viene apportata una modifica, SQL Data Warehouse aggiorna prima la tabella master. Esegue quindi la ricompilazione delle tabelle in ogni nodo di calcolo. La ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la compilazione degli indici.  Ad esempio una tabella replicata su DW400 ha 5 copie di dati.  Una copia master e una copia completa in ogni nodo di calcolo.  Tutti i dati vengono archiviati nei database di distribuzione. SQL Data Warehouse usa questo modello per supportare istruzioni di modifica dei dati più veloci e operazioni di scalabilità flessibili. 
+SQL Analytics implementa una tabella replicata gestendo una versione master della tabella. Il servizio copia la versione master in un database di distribuzione in ogni nodo di calcolo. Quando viene apportata una modifica, SQL Analytics aggiorna prima di tutto la tabella master. Esegue quindi la ricompilazione delle tabelle in ogni nodo di calcolo. La ricompilazione di una tabella replicata include la copia della tabella in ogni nodo di calcolo e quindi la compilazione degli indici.  Ad esempio una tabella replicata su DW400 ha 5 copie di dati.  Una copia master e una copia completa in ogni nodo di calcolo.  Tutti i dati vengono archiviati nei database di distribuzione. SQL Analytics usa questo modello per supportare le istruzioni di modifica dei dati più veloci e le operazioni di ridimensionamento flessibili. 
 
 Le compilazioni sono necessarie dopo le operazioni seguenti:
 - Vengono caricati o modificati dati
-- Il data warehouse viene ridimensionato in base a un livello diverso
+- L'istanza di SQL Analytics viene ridimensionata a un livello diverso
 - Viene aggiornata la definizione di tabella
 
 Le ricompilazioni non sono necessarie dopo le operazioni seguenti:
@@ -132,7 +132,7 @@ Le ricompilazioni non sono necessarie dopo le operazioni seguenti:
 La ricompilazione non viene eseguita immediatamente dopo la modifica dei dati. Al contrario, la ricompilazione viene attivata la prima volta che una query esegue una selezione dalla tabella.  La query che ha attivato la ricompilazione esegue la lettura immediatamente dalla versione master della tabella, mentre i dati vengono copiati in modo asincrono in ogni nodo di calcolo. Fino al completamento della copia dei dati, le query successive continueranno a usare la versione master della tabella.  Se viene eseguita un'attività in base alla tabella replicata che forza un'altra ricompilazione, la copia dei dati viene invalidata e l'istruzione SELECT successiva attiverà di nuovo la copia dei dati. 
 
 ### <a name="use-indexes-conservatively"></a>Usare gli indici con moderazione
-Alle tabelle replicate si applicano le procedure di indicizzazione standard. SQL Data Warehouse ricompila ogni indice di tabella replicata come parte della ricompilazione. Usare gli indici solo quando le prestazioni sono più importanti del costo della ricompilazione degli indici.  
+Alle tabelle replicate si applicano le procedure di indicizzazione standard. Analisi SQL ricompila ogni indice di tabella replicata come parte della ricompilazione. Usare gli indici solo quando le prestazioni sono più importanti del costo della ricompilazione degli indici.  
  
 ### <a name="batch-data-loads"></a>Caricare in batch i dati
 Quando si caricano dati in tabelle replicate, provare a ridurre al minimo le ricompilazioni eseguendo i caricamenti in batch. Eseguire tutti i caricamenti in batch prima di eseguire istruzioni di selezione.
@@ -182,8 +182,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Passaggi successivi 
 Per creare una tabella replicata, usare una di queste istruzioni:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (analisi SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE come SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Per una panoramica delle tabelle distribuite, vedere [Tabelle distribuite](sql-data-warehouse-tables-distribute.md).
 

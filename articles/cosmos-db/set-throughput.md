@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 31ad7a9d1108adc9071812454419252a813cb93e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621937"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194870"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -63,7 +63,8 @@ Se il carico di lavoro in una partizione logica utilizza un livello di velocità
 I contenitori in un database con velocità effettiva condivisa condividono la velocità effettiva (UR/sec) allocata al database. È possibile avere fino a quattro contenitori con almeno 400 ur/sec nel database. Ogni nuovo contenitore dopo i primi quattro richiederà almeno 100 ur/sec. Se, ad esempio, si dispone di un database di velocità effettiva condivisa con otto contenitori, le UR/sec minime del database saranno 800 ur/sec.
 
 > [!NOTE]
-> In un database con velocità effettiva condivisa è possibile avere un massimo di 25 contenitori nel database. Se sono già presenti più di 25 contenitori in un database di velocità effettiva condivisa, non sarà possibile creare contenitori aggiuntivi fino a quando il numero di contenitori non è inferiore a 25.
+> Nel febbraio 2020 è stata introdotta una modifica che consente di avere un massimo di 25 contenitori in un database di velocità effettiva condivisa, che consente una migliore condivisione della velocità effettiva tra i contenitori. Dopo i primi 25 contenitori, è possibile aggiungere altri contenitori al database solo se ne viene effettuato il [provisioning con una velocità effettiva dedicata](#set-throughput-on-a-database-and-a-container), che è separata dalla velocità effettiva condivisa del database.<br>
+Se l'account Azure Cosmos DB contiene già un database di velocità effettiva condivisa con > = 25 contenitori, l'account e tutti gli altri account nella stessa sottoscrizione di Azure sono esenti da questa modifica. Per commenti o domande, [contattare il supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tecnico. 
 
 Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le raccolte in un database, è consigliabile eliminare il database vuoto e ricreare un nuovo database prima della creazione della raccolta. L'immagine seguente mostra in che modo una partizione fisica può ospitare una o più partizioni logiche che appartengono a contenitori diversi all'interno di un database:
 
@@ -106,7 +107,7 @@ Quando si usa .NET SDK, il metodo [DocumentClient. ReadOfferAsync](https://docs.
 |UR minime per contenitore|100|400|
 |UR massime|Illimitate, nel database.|Illimitate, nel contenitore.|
 |UR assegnate o disponibili per un contenitore specifico|Nessuna garanzia. Le UR assegnate a un determinato contenitore dipendono dalle proprietà. Le proprietà possono essere, a scelta, le chiavi di partizione dei contenitori che condividono la velocità effettiva, la distribuzione del carico di lavoro e il numero di contenitori. |Tutte le UR configurate nel contenitore sono riservate esclusivamente per il contenitore.|
-|Archiviazione massima per un contenitore|Illimitato.|Illimitato.|
+|Archiviazione massima per un contenitore|Senza limiti.|Senza limiti.|
 |Velocità effettiva massima per partizione logica di un contenitore|10.000 UR|10.000 UR|
 |Spazio di archiviazione massimo (data + indice) per partizione logica di un contenitore|20 GB|20 GB|
 

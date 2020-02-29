@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609843"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196980"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestire le applicazioni per più ambienti
 
@@ -42,7 +42,7 @@ Quando si creano istanze di un'applicazione denominata in Service Fabric, si ha 
 
   - In PowerShell il cmdlet [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) accetta i parametri delle applicazioni come tabella hash.
   - Se si usa sfctl, il comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) accetta i parametri come stringa JSON. Lo script install.sh usa sfctl.
-  - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri Questi file di parametri vengono utilizzati durante la pubblicazione da Visual Studio, usando i servizi di Azure DevOps o il Team Foundation Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
+  - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri Questi file di parametri vengono usati per la pubblicazione da Visual Studio, usando Azure DevOps Services o Azure DevOps Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli articoli seguenti illustrano come applicare alcuni dei concetti descritti in questo articolo:

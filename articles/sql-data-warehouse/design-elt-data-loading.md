@@ -1,32 +1,31 @@
 ---
 title: Anziché ETL, progettare ELT
-description: Invece di ETL, progettare un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform) per il caricamento di dati in Azure SQL Data Warehouse.
+description: Implementare strategie flessibili di caricamento dei dati per l'analisi SQL in Azure sinapsi Analytics
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 11/07/2019
+ms.date: 02/19/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 9220bf0cf94eaae6ddc945e83deac2a6041158d2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.custom: azure-synapse
+ms.openlocfilehash: bd356fba557d61f083e811c8763b4e7cf9805fbb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748518"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199938"
 ---
-# <a name="data-loading-strategies-for-azure-sql-data-warehouse"></a>Strategie di caricamento dei dati per Azure SQL Data Warehouse
+# <a name="data-loading-strategies-for-data-warehousing"></a>Strategie di caricamento dei dati per il data warehousing
 
-I data warehouse SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL) per il caricamento dei dati. Azure SQL Data Warehouse è un'architettura di elaborazione parallela massiva (MPP, Massively Parallel Processing) che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e archiviazione. Usando un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform), è possibile sfruttare i vantaggi dell'elaborazione MPP ed eliminare le risorse necessarie per trasformare i dati prima del caricamento. Sebbene SQL Data Warehouse supporti molti metodi di caricamento, incluse le opzioni di SQL Server più diffuse, ad esempio BCP e l'API BulkCopy SQL, il modo più rapido e scalabile per caricare i dati è tramite le tabelle esterne di base e l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (anteprima).  Con la polibase e l'istruzione COPY è possibile accedere ai dati esterni archiviati nell'archivio BLOB di Azure o Azure Data Lake Store tramite il linguaggio T-SQL. Per maggiore flessibilità durante il caricamento in SQL Data Warehouse, è consigliabile usare l'istruzione COPY. 
+I data warehouse SMP tradizionali usano un processo di estrazione, trasformazione e caricamento (ETL) per il caricamento dei dati. I pool SQL in Azure sinapsi Analytics hanno un'architettura MPP (Massive Parallel Processing) che sfrutta la scalabilità e la flessibilità delle risorse di calcolo e di archiviazione. Usando un processo di estrazione, caricamento e trasformazione (ELT, Extract, Load, Transform), è possibile sfruttare i vantaggi dell'elaborazione MPP ed eliminare le risorse necessarie per trasformare i dati prima del caricamento. Mentre i pool SQL supportano molti metodi di caricamento, tra cui le opzioni di SQL Server più diffuse, ad esempio BCP e l'API BulkCopy SQL, il modo più rapido e scalabile per caricare i dati è tramite le tabelle esterne di base e l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (anteprima). Con la polibase e l'istruzione COPY è possibile accedere ai dati esterni archiviati nell'archivio BLOB di Azure o Azure Data Lake Store tramite il linguaggio T-SQL. Per maggiore flessibilità durante il caricamento, è consigliabile usare l'istruzione COPY.
 
 > [!NOTE]  
-> L'istruzione COPY è attualmente disponibile in anteprima pubblica. Per fornire commenti e suggerimenti, inviare un messaggio di posta elettronica alla seguente lista di distribuzione: sqldwcopypreview@service.microsoft.com.
->
-        
- 
+> L'istruzione COPY è attualmente disponibile in versione di anteprima pubblica. Per fornire commenti e suggerimenti, inviare un messaggio di posta elettronica alla seguente lista di distribuzione: sqldwcopypreview@service.microsoft.com.
+
+
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 
@@ -34,17 +33,17 @@ I data warehouse SMP tradizionali usano un processo di estrazione, trasformazion
 
 Estrazione, caricamento e trasformazione (ELT) è un processo mediante il quale i dati vengono estratti da un sistema di origine, caricati in un data warehouse e quindi trasformati. 
 
-I passaggi di base per l'implementazione di ELT per SQL Data Warehouse sono:
+I passaggi di base per l'implementazione di ELT sono:
 
 1. Estrarre i dati di origine in file di testo.
 2. Trasferire i dati nell'archivio BLOB di Azure o in Azure Data Lake Store.
 3. Preparare i dati per il caricamento.
-4. Caricare i dati in SQL Data Warehouse tabelle di staging con il comando di copia o di base. 
+4. Caricare i dati nelle tabelle di staging con il comando di copia o di base. 
 5. Trasformare i dati.
 6. Inserire i dati in tabelle di produzione.
 
 
-Per un'esercitazione sul caricamento di base, vedere [usare la polibase per caricare dati dall'archivio BLOB di Azure a Azure SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+Per un'esercitazione sul caricamento di base, vedere [usare la polibase per caricare dati dall'archivio BLOB di Azure](load-data-from-azure-blob-storage-using-polybase.md).
 
 Per altre informazioni, vedere il [blog sui modelli di caricamento](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
@@ -65,12 +64,12 @@ Strumenti e servizi che è possibile usare per spostare i dati in Archiviazione 
 
 - Il servizio [Azure ExpressRoute](../expressroute/expressroute-introduction.md) migliora la velocità effettiva della rete, le prestazioni e la prevedibilità. ExpressRoute è un servizio che instrada i dati tramite una connessione privata dedicata ad Azure. Le connessioni ExpressRoute non instradano i dati attraverso la rete Internet pubblica. Queste connessioni offrono maggiore affidabilità, velocità più elevate, latenze minori e sicurezza superiore rispetto alle tipiche connessioni tramite la rete Internet pubblica.
 - L'[utilità AZCopy](../storage/common/storage-moving-data.md) sposta i dati in Archiviazione di Azure tramite la rete Internet pubblica. Si tratta di un'opzione appropriata se le dimensioni dei dati sono inferiori a 10 TB. Per eseguire regolarmente caricamenti con AZCopy, assicurasi che la velocità di rete sia accettabile. 
-- [Azure Data Factory (ADF)](../data-factory/introduction.md) include un gateway che è possibile installare nel server locale. È quindi possibile creare una pipeline per spostare i dati dal server locale ad Archiviazione di Azure. Per l'uso di Data Factory con SQL Data Warehouse, vedere [Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory](/azure/data-factory/load-azure-sql-data-warehouse).
+- [Azure Data Factory (ADF)](../data-factory/introduction.md) include un gateway che è possibile installare nel server locale. È quindi possibile creare una pipeline per spostare i dati dal server locale ad Archiviazione di Azure. Per usare Data Factory con analisi SQL, vedere [caricamento di dati per l'analisi SQL](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. preparare i dati per il caricamento
 
-Potrebbe essere necessario preparare e pulire i dati nell'account di archiviazione prima di caricarli in SQL Data Warehouse. La preparazione dei dati può essere eseguita nella posizione di origine dei dati, mentre si esportano i dati in file di testo o quando i dati raggiungono Archiviazione di Azure.  È più facile lavorare con i dati il prima possibile nel processo.  
+Potrebbe essere necessario preparare e pulire i dati nell'account di archiviazione prima del caricamento. La preparazione dei dati può essere eseguita nella posizione di origine dei dati, mentre si esportano i dati in file di testo o quando i dati raggiungono Archiviazione di Azure.  È più facile lavorare con i dati il prima possibile nel processo.  
 
 ### <a name="define-external-tables"></a>Definire tabelle esterne
 
@@ -81,32 +80,32 @@ La definizione di tabelle esterne include la specifica dell'origine dati, del fo
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest)
 
-Quando si carica parquet, il mapping dei tipi di dati con SQL DW è il seguente:
+Quando si carica parquet, il mapping dei tipi di dati SQL è:
 
-| **Tipo di dati parquet** |                      **Tipo di dati SQL**                       |
-| :-------------------: | :----------------------------------------------------------: |
-|        tinyint        |                           tinyint                            |
-|       smallint        |                           smallint                           |
-|          int          |                             int                              |
-|        bigint         |                            bigint                            |
-|        boolean        |                             bit                              |
-|        double         |                            float                             |
-|         float         |                             real                             |
-|        double         |                            money                             |
-|        double         |                          smallmoney                          |
-|        stringa         |                            nchar                             |
-|        stringa         |                           nvarchar                           |
-|        stringa         |                             char                             |
-|        stringa         |                           varchar                            |
-|        binary         |                            binary                            |
-|        binary         |                          varbinary                           |
-|       timestamp       |                             date                             |
-|       timestamp       |                        smalldatetime                         |
-|       timestamp       |                          datetime2                           |
-|       timestamp       |                           datetime                           |
-|       timestamp       |                             time                             |
-|       date            |                             date                             |
-|        Decimal        |                            Decimal                           |
+| **Tipo di dati parquet** | **Tipo di dati SQL** |
+| :-------------------: | :---------------: |
+|        TINYINT        |      TINYINT      |
+|       SMALLINT        |     SMALLINT      |
+|          INT          |        INT        |
+|        bigint         |      bigint       |
+|        boolean        |        bit        |
+|        double         |       float       |
+|         float         |       real        |
+|        double         |       money       |
+|        double         |    SMALLMONEY     |
+|        string         |       NCHAR       |
+|        string         |     NVARCHAR      |
+|        string         |       char        |
+|        string         |      varchar      |
+|        BINARY         |      BINARY       |
+|        BINARY         |     varbinary     |
+|       timestamp       |       Data        |
+|       timestamp       |   smalldatetime   |
+|       timestamp       |     datetime2     |
+|       timestamp       |     Datetime      |
+|       timestamp       |       time        |
+|         Data          |       Data        |
+|        decimal        |      decimal      |
 
 Per un esempio di creazione di oggetti esterni, vedere il passaggio [Creare una tabella esterna](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) nell'esercitazione per il caricamento.
 
@@ -116,13 +115,13 @@ Se si usa la polibase, gli oggetti esterni definiti devono allineare le righe de
 Per formattare i file di testo:
 
 - Se i dati provengono da un'origine non relazionale, è necessario trasformarli in righe e colonne. Sia che i dati provengano da un'origine relazionale o non relazionale, devono essere trasformati per allinearli alle definizioni di colonna per la tabella in cui si prevede di caricare i dati. 
-- Formattare i dati nel file di testo per allinearli alle colonne e ai tipi di dati nella tabella di destinazione di SQL Data Warehouse. In caso di non allineamento dei tipi di dati nei file di testo esterni e nella tabella del data warehouse, le righe verranno rifiutate durante il caricamento.
+- Formattare i dati nel file di testo per allinearli con le colonne e i tipi di dati nella tabella di destinazione. In caso di non allineamento dei tipi di dati nei file di testo esterni e nella tabella del data warehouse, le righe verranno rifiutate durante il caricamento.
 - Separare i campi nel file di testo con un carattere di terminazione.  Assicurarsi di usare un carattere o una sequenza di caratteri non inclusi nei dati di origine. Usare il carattere di terminazione specificato con [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
-## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase-or-the-copy-statement"></a>4. caricare i dati nelle tabelle di staging SQL Data Warehouse usando la codebase o l'istruzione COPY
+## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. caricare i dati utilizzando l'istruzione di copia o di base
 
-È consigliabile caricare i dati in una tabella di staging. Le tabelle di staging consentono di gestire gli errori senza interferire con le tabelle di produzione. Una tabella di staging offre anche l'opportunità di usare l'elaborazione MPP di SQL Data Warehouse per eseguire trasformazioni di dati prima di inserirli nelle tabelle di produzione. La tabella deve essere creata in precedenza durante il caricamento in una tabella di staging con COPY.
+È consigliabile caricare i dati in una tabella di staging. Le tabelle di staging consentono di gestire gli errori senza interferire con le tabelle di produzione. Una tabella di staging offre inoltre la possibilità di usare l'MPP del pool SQL per le trasformazioni dei dati prima di inserire i dati nelle tabelle di produzione. La tabella deve essere creata in precedenza durante il caricamento in una tabella di staging con COPY.
 
 ### <a name="options-for-loading-with-polybase-and-copy-statement"></a>Opzioni per il caricamento con l'istruzione di copia e di base
 
@@ -131,11 +130,11 @@ Per caricare i dati con PolyBase, è possibile usare una di queste opzioni di ca
 - [PolyBase con T-SQL](load-data-from-azure-blob-storage-using-polybase.md): ideale quando i dati sono nell'archivio BLOB di Azure o in Azure Data Lake Store. Questa opzione offre il massimo controllo sul processo di caricamento, ma richiede anche di definire oggetti dati esterni. Gli altri metodi definiscono questi oggetti dietro le quinte, man mano che si esegue il mapping di tabelle di origine e tabelle di destinazione.  Per orchestrare i caricamenti con T-SQL, è possibile usare Azure Data Factory, SSIS o funzioni di Azure. 
 - [PolyBase con SSIS](/sql/integration-services/load-data-to-sql-data-warehouse): ideale quando i dati di origine sono in SQL Server, in locale o nel cloud. SSIS definisce i mapping delle tabelle di origine e di destinazione, oltre a orchestrare il caricamento. Se sono già disponibili pacchetti SSIS, è possibile modificarli per utilizzare la nuova destinazione di data warehouse. 
 - L' [istruzione di base e di copia con Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) è un altro strumento di orchestrazione.  che definisce una pipeline e pianifica i processi. 
-- La [polibase con Azure Databricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) trasferisce i dati da una tabella di SQL data warehouse a un dataframe di databricks e/o scrive i dati da un dataframe di databricks in una tabella SQL data warehouse usando la polibase.
+- La [polibase con Azure Databricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) trasferisce i dati da una tabella a un frame di dati databricks e/o scrive i dati da un dataframe di databricks in una tabella usando la polibase.
 
 ### <a name="other-loading-options"></a>Altre opzioni di caricamento
 
-Oltre a polibase e all'istruzione COPY, è possibile usare [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest) o l' [API SqlBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp carica direttamente i dati in SQL Data Warehouse senza dover passare attraverso l'archivio BLOB di Azure ed è destinato esclusivamente a piccoli caricamenti. Si noti che le prestazioni di caricamento di queste opzioni sono più lente rispetto a polibase e all'istruzione COPY. 
+Oltre a polibase e all'istruzione COPY, è possibile usare [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest) o l' [API SqlBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP viene caricato direttamente nel database senza passare attraverso l'archiviazione BLOB di Azure ed è destinato solo a piccoli carichi. Si noti che le prestazioni di caricamento di queste opzioni sono più lente rispetto a polibase e all'istruzione COPY. 
 
 
 ## <a name="5-transform-the-data"></a>5. trasformare i dati
@@ -157,6 +156,4 @@ Molti partner Microsoft dispongono di soluzioni di caricamento. Per altre inform
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per linee guida relative al caricamento, vedere [Linee guida per il caricamento di dati](guidance-for-loading-data.md).
-
-
+Per linee guida relative al caricamento, vedere [Linee guida per il caricamento di dati ](guidance-for-loading-data.md).

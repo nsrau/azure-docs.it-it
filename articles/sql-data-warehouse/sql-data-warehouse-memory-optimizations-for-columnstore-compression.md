@@ -1,6 +1,6 @@
 ---
 title: Migliorare le prestazioni degli indici columnstore
-description: Azure SQL Data Warehouse ridurre i requisiti di memoria o aumentare la memoria disponibile per ottimizzare il numero di righe che un indice columnstore comprime in ogni rowgroup.
+description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per ottimizzare il numero di righe all'interno di ogni rowgroup.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,13 +10,13 @@ ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d5dba4e9a086502f638252a0ce2b16b4abeeb643
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 11c0a168e4b2e8eac03eaebd37b208446082d1b4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685649"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197199"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
 
@@ -34,13 +34,13 @@ Per ottimizzare le prestazioni delle query, l'obiettivo è accrescere al massimo
 
 Durante un caricamento bulk o la ricompilazione di un indice columnstore, talvolta non è disponibile memoria sufficiente per comprimere tutte le righe per ogni gruppo di righe. Quando la memoria disponibile è scarsa, gli indici columnstore riducono le dimensioni del gruppo di righe in modo da consentire la compressione nel columnstore. 
 
-Quando la memoria è insufficiente per la compressione di almeno 10.000 righe in ogni gruppo di righe, SQL Data Warehouse genera un errore.
+Quando la memoria disponibile non è sufficiente per comprimere almeno 10.000 righe in ogni rowgroup, viene generato un errore.
 
 Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indice columnstore cluster](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Come monitorare la qualità di un gruppo di righe
 
-La DMV sys. dm _pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm _db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contiene la definizione della vista che corrisponde al database SQL a SQL Data Warehouse) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio. Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
+La DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contiene la definizione di vista corrispondente al database SQL) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio. Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -82,14 +82,14 @@ La memoria massima necessaria per comprimere un gruppo di righe è circa
 
 - 72 MB +
 - \#righe \* \#colonne \* 8 byte +
-- \#righe \*\#colonne stringa breve \* 32 byte +
+- \#righe \* \#colonne di stringa breve \* 32 byte +
 - \#colonne stringa lunga \* 16 MB per il dizionario di compressione
 
 dove le colonne stringa breve usano tipi di dati stringa < = 32 byte e le colonne stringa lunga usano tipi di dati stringa > 32 byte.
 
 Le stringhe lunghe vengono compresse con un metodo di compressione progettato per la compressione del testo. Questo metodo di compressione usa un *dizionario* per archiviare i modelli di testo. La dimensione massima di un oggetto dictionary è 16 MB. Esiste un solo dizionario per ogni colonna stringa lunga nel gruppo di righe.
 
-Per un'analisi approfondita dei requisiti di memoria columnstore, vedere il video [Azure SQL Data Warehouse scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291) (Scalabilità di Azure SQL Data Warehouse: configurazione e linee guida).
+Per una descrizione approfondita dei requisiti di memoria columnstore, vedere la pagina relativa alla [configurazione e alle indicazioni del video SQL Analytics scaling](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Modi per ridurre i requisiti di memoria
 
@@ -109,7 +109,7 @@ Requisiti di memoria aggiuntivi per la compressione di stringhe:
 
 ### <a name="avoid-over-partitioning"></a>Evitare il partizionamento eccessivo
 
-Gli indici columnstore creano uno o più gruppi di righe per partizione. In SQL Data Warehouse il numero di partizioni aumenta rapidamente perché i dati vengono distribuiti e ogni distribuzione è partizionata. Se la tabella ha troppe partizioni, potrebbero esserci abbastanza righe per riempire i gruppi di righe. La mancanza di righe non crea richiesta di memoria durante la compressione, ma alcuni gruppi di righe soffriranno di scarse prestazioni delle query columnstore.
+Gli indici columnstore creano uno o più gruppi di righe per partizione. Per il data warehousing in Azure sinapsi Analytics, il numero di partizioni cresce rapidamente, perché i dati vengono distribuiti e ogni distribuzione è partizionata. Se la tabella ha troppe partizioni, potrebbero esserci abbastanza righe per riempire i gruppi di righe. La mancanza di righe non crea richiesta di memoria durante la compressione, ma alcuni gruppi di righe soffriranno di scarse prestazioni delle query columnstore.
 
 Un altro motivo per evitare l'eccessivo partizionamento è che il caricamento di righe in un indice columnstore in una tabella partizionata comporta un sovraccarico della memoria. Durante il caricamento molte partizioni potrebbero ricevere le righe in ingresso, che vengono mantenute in memoria finché ogni partizione dispone di un numero di righe sufficiente da comprimere. Con un numero eccessivo di partizioni vengono create richieste di memoria aggiuntive.
 
@@ -141,5 +141,4 @@ La dimensione delle DWU e la classe della risorsa utente insieme determinano la 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per trovare altri modi con cui migliorare le prestazioni in SQL Data Warehouse, vedere la sezione [Panoramica](sql-data-warehouse-overview-manage-user-queries.md) relativa alle prestazioni.
-
+Per altre informazioni su come migliorare le prestazioni per analisi SQL, vedere [Panoramica delle prestazioni](sql-data-warehouse-overview-manage-user-queries.md).

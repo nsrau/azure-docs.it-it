@@ -1,26 +1,26 @@
 ---
 title: Configurare la priorità del carico di lavoro
-description: Informazioni su come impostare l'importanza del livello di richiesta.
+description: Informazioni su come impostare l'importanza del livello di richiesta in Azure sinapsi Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 59ba4b936f6098b0d0b3f5e571f107af088206e0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 8b2a4333717938edf9f3039e29e8df88cece7cc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692699"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196798"
 ---
-# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>Configurare l'importanza del carico di lavoro in Azure SQL Data Warehouse
+# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configurare l'importanza del carico di lavoro in Azure sinapsi Analytics
 
-L'impostazione dell'importanza nella SQL Data Warehouse consente di influenzare la pianificazione delle query. Le query con priorità più elevata verranno pianificate per l'esecuzione prima di quelle con priorità più bassa. Per assegnare importanza alle query, è necessario creare un classificatore del carico di lavoro.
+L'impostazione dell'importanza in SQL Analytics per la sinapsi di Azure consente di influenzare la pianificazione delle query. Le query con priorità più elevata verranno pianificate per l'esecuzione prima di quelle con priorità più bassa. Per assegnare importanza alle query, è necessario creare un classificatore del carico di lavoro.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Creare un classificatore del carico di lavoro con importanza
 
@@ -35,8 +35,8 @@ Per creare un classificatore del carico di lavoro, per un utente con maggiore im
 ```sql
 CREATE WORKLOAD CLASSIFIER ExecReportsClassifier  
     WITH (WORKLOAD_GROUP = 'xlargerc'
-                   ,MEMBERNAME        = 'name'  
-                   ,IMPORTANCE        =  above_normal);  
+         ,MEMBERNAME     = 'name'  
+         ,IMPORTANCE     =  above_normal);  
 
 ```
 
@@ -45,8 +45,8 @@ Per creare un classificatore del carico di lavoro per un utente che esegue query
 ```sql
 CREATE WORKLOAD CLASSIFIER AdhocClassifier  
     WITH (WORKLOAD_GROUP = 'xlargerc'
-                   ,MEMBERNAME        = 'name'  
-                   ,IMPORTANCE        =  below_normal);  
+         ,MEMBERNAME     = 'name'  
+         ,IMPORTANCE     =  below_normal);  
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

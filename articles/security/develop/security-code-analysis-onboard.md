@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 108d116500454605f33de201caffc11ae263f74c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6132aab98cc8145cb99cf153c64f20fbac00131c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851503"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197006"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding e installazione
 
@@ -30,24 +30,29 @@ Prerequisiti per la Guida introduttiva all'analisi del codice di sicurezza Micro
 
 ## <a name="onboarding-the-microsoft-security-code-analysis-extension"></a>Onboarding dell'estensione di analisi del codice di sicurezza Microsoft
 
-- Se si dispone di una delle seguenti offerte di supporto, contattare il Technical Account Manager per acquistare o scambiare ore esistenti per ottenere l'accesso all'estensione:
-  - Livello avanzato supporto unificato
-  - Livello di prestazioni supporto unificato
-  - supporto tecnico Premier per gli sviluppatori
-  - supporto tecnico Premier per i partner
-  - supporto tecnico Premier per Enterprise
-- Se si dispone di uno dei servizi di supporto seguenti oppure non si dispone di un piano di supporto Microsoft, è necessario eseguire l'aggiornamento a un'offerta di supporto idonea:
-  - Supporto di Azure per i partner
-  - Supporto Basic di Azure
-  - supporto tecnico Developer di Azure
-  - supporto tecnico Standard di Azure
-  - Professional Direct di Azure
-  - Livello core supporto unificato
-- Per acquistare un'offerta di supporto idonea, passare alla [Home page dei servizi di supporto tecnico](https://www.microsoft.com/enterprise/services/support).
-- Al termine di un contratto di supporto, contattare il Technical Account Manager per iniziare a raccogliere tutti i dettagli necessari.
+### <a name="interested-in-purchasing-the-microsoft-security-code-analysis-extension"></a>Vuoi acquistare l'estensione Microsoft Security Code Analysis?
 
->[!NOTE]
->Se non si dispone di un contratto di supporto, si sta lavorando anche a un programma di acquisto di partner in cui è possibile utilizzare partner di terze parti per acquistare l'estensione senza dover acquistare il piano di supporto unificato. Inviarli con [un messaggio di posta elettronica](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding%20Request). per indicare che si è interessati a questa opzione. Si noterà l'interesse e si tornerà all'utente non appena questa opzione è disponibile.
+Se si dispone di una delle seguenti offerte di supporto, contattare il Technical Account Manager per acquistare o scambiare ore esistenti per ottenere l'accesso all'estensione:
+
+- Livello avanzato supporto unificato
+- Livello di prestazioni supporto unificato
+- supporto tecnico Premier per gli sviluppatori
+- supporto tecnico Premier per i partner
+- supporto tecnico Premier per Enterprise
+
+Se non si dispone di uno dei contratti di supporto indicati in precedenza, è possibile acquistare l'estensione da uno dei partner.
+
+**Passaggi successivi:**
+
+Contattare un partner dall'elenco seguente e chiedere di acquistare l'estensione per l'analisi del codice di sicurezza Microsoft.
+
+>**Partner**
+
+- Zone-dettagli contatto: cloudsupport@zones.com
+
+### <a name="become-a-partner"></a>Diventa un partner
+
+Il team di analisi del codice di sicurezza Microsoft sta cercando di eseguire l'onboarding dei partner con un contratto supporto tecnico Premier per partner. I partner aiuteranno i clienti di Azure DevOps a sviluppare in modo più sicuro vendendo l'estensione ai clienti che vogliono acquistarla, ma non hanno un contratto di supporto aziendale con Microsoft. I partner interessati possono registrarsi [qui](http://www.microsoftpartnersupport.com/msrd/opin).
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Installazione dell'estensione Microsoft Security Code Analysis
 
@@ -71,9 +76,9 @@ Dopo aver installato l'estensione, le attività di compilazione di sviluppo sicu
    - Nuova pipeline: selezionare **nuovo** e seguire i passaggi descritti in dettaglio per creare una nuova pipeline.
    - Modifica pipeline: selezionare una pipeline esistente e quindi fare clic su **modifica** per iniziare a modificare la pipeline.
 1. Selezionare **+** e passare al riquadro **Aggiungi attività** .
-1. Dall'elenco o usando la casella di ricerca, trovare l'attività di compilazione che si vuole aggiungere. Selezionare **Aggiungi**.
+1. Dall'elenco o usando la casella di ricerca, trovare l'attività di compilazione che si vuole aggiungere. Fare clic su **Aggiungi**.
 1. Specificare i parametri necessari per l'attività.
-1. Inserire in coda una nuova compilazione.
+1. Accodare una nuova compilazione.
    >[!NOTE]
    >I percorsi di file e cartelle sono relativi alla radice del repository di origine. Se si specificano i file e le cartelle di output come parametri, questi vengono sostituiti con il percorso comune definito nell'agente di compilazione.
 

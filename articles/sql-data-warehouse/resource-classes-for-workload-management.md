@@ -1,30 +1,30 @@
 ---
 title: Classi di risorse per la gestione del carico di lavoro
-description: Materiale sussidiario per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Azure SQL Data Warehouse.
+description: Linee guida per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Azure sinapsi Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 30d3c67a815d05a256717fc4447ae3687adb8146
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.custom: azure-synapse
+ms.openlocfilehash: c94b2a755d85bdf425980574b63d8fd74a232b19
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548170"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195992"
 ---
-# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
+# <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestione del carico di lavoro con le classi di risorse in Azure sinapsi Analytics
 
-Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query in Azure SQL Data Warehouse.  
+Linee guida per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query di analisi SQL in sinapsi di Azure.  
 
 ## <a name="what-are-resource-classes"></a>Che cosa sono le classi di risorse
 
-La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti delle risorse predeterminati in Azure SQL Data Warehouse che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse consentono di configurare le risorse per le query impostando limiti sul numero di query eseguite contemporaneamente e sulle risorse di calcolo assegnate a ogni query.  C'è un compromesso tra memoria e concorrenza.
+La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti di risorse prestabiliti in analisi SQL che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse consentono di configurare le risorse per le query impostando limiti sul numero di query eseguite contemporaneamente e sulle risorse di calcolo assegnate a ogni query.  C'è un compromesso tra memoria e concorrenza.
 
 - Le classi di risorse di piccole dimensioni riducono la memoria massima per ogni query, ma aumentano la concorrenza.
 - Le classi di risorse più grandi aumentano la quantità massima di memoria per query, ma riducono la concorrenza.
@@ -82,7 +82,7 @@ L'allocazione di memoria per ogni classe di risorse è la seguente.
 
 Per impostazione predefinita, ogni utente è membro della classe di risorse dinamica **smallrc**.
 
-La classe di risorse dell'amministratore del servizio è fissa su smallrc e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.  L'amministratore del servizio in questo contesto è l'account di accesso specificato per l'"accesso amministratore server" durante la creazione di una nuova istanza di SQL Data Warehouse con un nuovo server.
+La classe di risorse dell'amministratore del servizio è fissa su smallrc e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.  L'amministratore del servizio in questo contesto è l'account di accesso specificato per "account di accesso amministratore server" quando si crea una nuova istanza di SQL Analytics con un nuovo server.
 
 > [!NOTE]
 > Gli utenti o gruppi definiti come amministratori di Active Directory sono anche amministratori del servizio.
@@ -143,7 +143,7 @@ Removed as these two are not confirmed / supported under SQL DW
 
 ## <a name="concurrency-slots"></a>Slot di concorrenza
 
-Gli slot di concorrenza sono un modo pratico per verificare le risorse disponibili per l'esecuzione di query. Hanno la stessa utilità dei biglietti per i concerti, che riservano i posti a sedere perché limitati. Il numero totale di slot concorrenza per ogni data warehouse è determinato dal livello di servizio. Per poter procedere con l'avvio dell'esecuzione, una query deve essere in grado di riservare slot di concorrenza sufficienti. Al termine dell'esecuzione, la query, rilascia i relativi slot di concorrenza.  
+Gli slot di concorrenza sono un modo pratico per verificare le risorse disponibili per l'esecuzione di query. Hanno la stessa utilità dei biglietti per i concerti, che riservano i posti a sedere perché limitati. Il numero totale di slot concorrenza per ogni data warehouse è determinato dal livello di servizio. Per poter procedere con l'avvio dell'esecuzione, una query deve essere in grado di riservare slot di concorrenza sufficienti. Quando una query viene completata, rilascia gli slot di concorrenza.  
 
 - Una query in esecuzione con 10 slot di concorrenza può accedere a un numero di risorse di calcolo 5 volte maggiore di una query in esecuzione con 2 slot di concorrenza.
 - Se ogni query richiede 10 slot di concorrenza e sono disponibili 40 slot di concorrenza, solo 4 query possono essere eseguite contemporaneamente.
@@ -240,7 +240,7 @@ Ecco lo scopo della stored procedure:
 >
 >Ad esempio, in DW100c, la concessione di memoria massima disponibile è 1 GB e se lo schema della tabella è sufficientemente ampio per superare il requisito di 1 GB.
 
-### <a name="usage-example"></a>Esempio di uso
+### <a name="usage-example"></a>Esempio di utilizzo
 
 Sintassi:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
@@ -594,5 +594,5 @@ GO
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse](./sql-data-warehouse-overview-manage-security.md). Per altre informazioni su come le classi di risorse più grandi possono migliorare la qualità degli indici columnstore cluster, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [proteggere un database in SQL Analytics](./sql-data-warehouse-overview-manage-security.md). Per altre informazioni su come le classi di risorse più grandi possono migliorare la qualità degli indici columnstore cluster, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

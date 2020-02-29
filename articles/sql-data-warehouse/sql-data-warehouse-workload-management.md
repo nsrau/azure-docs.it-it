@@ -1,22 +1,22 @@
 ---
 title: Gestione dei carichi di lavoro
-description: Linee guida per l'implementazione della gestione del carico di lavoro in Azure SQL Data Warehouse.
+description: Linee guida per l'implementazione della gestione del carico di lavoro in Azure sinapsi Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: azure-synapse
+ms.openlocfilehash: 14ea742a40afff8105560f1003655004687c7c9e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935403"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197658"
 ---
 # <a name="what-is-workload-management"></a>Definizione di gestione del carico di lavoro
 
@@ -36,11 +36,11 @@ La capacità a livello di prestazioni di un data warehouse è determinata dalle 
 
 
 ## <a name="workload-management-concepts"></a>Concetti relativi alla gestione del carico di lavoro
-In passato, le prestazioni delle query venivano gestite in SQL Data Warehouse tramite [le classi di risorse](resource-classes-for-workload-management.md).  Classi di risorse consentite per l'assegnazione di memoria a una query basata sull'appartenenza ai ruoli.  La sfida principale con le classi di risorse è che, una volta configurata, non era possibile controllare il carico di lavoro.  
+In passato, per l'analisi SQL in sinapsi di Azure si gestivano le prestazioni delle query tramite [le classi di risorse](resource-classes-for-workload-management.md).  Classi di risorse consentite per l'assegnazione di memoria a una query basata sull'appartenenza ai ruoli.  La sfida principale con le classi di risorse è che, una volta configurata, non era possibile controllare il carico di lavoro.  
 
 Ad esempio, la concessione di un'appartenenza a un ruolo utente ad hoc a smallrc consentiva all'utente di utilizzare il 100% della memoria nel sistema.  Con le classi di risorse, non è possibile riservare e verificare che le risorse siano disponibili per i carichi di lavoro critici.
 
-La gestione del carico di lavoro su SQL Data Warehouse è costituita da tre concetti di alto livello: [classificazione del carico](sql-data-warehouse-workload-classification.md)di lavoro, [importanza del carico](sql-data-warehouse-workload-importance.md) di lavoro e [isolamento](sql-data-warehouse-workload-isolation.md)  Queste funzionalità offrono un maggiore controllo sulle modalità di utilizzo delle risorse di sistema da un carico di lavoro.
+Gestione del carico di lavoro di analisi SQL in sinapsi di Azure è costituito da tre concetti generali: [classificazione del carico](sql-data-warehouse-workload-classification.md)di lavoro, [importanza del carico](sql-data-warehouse-workload-importance.md) di lavoro e isolamento del [carico](sql-data-warehouse-workload-isolation.md)  Queste funzionalità offrono un maggiore controllo sulle modalità di utilizzo delle risorse di sistema da un carico di lavoro.
 
 La classificazione del carico di lavoro è il concetto di assegnazione di una richiesta a un gruppo di carico di lavoro e impostazione dei livelli di importanza.  Storicamente, questa assegnazione è stata eseguita tramite l'appartenenza ai ruoli usando [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  Questa operazione può essere eseguita tramite il [classificazione di creazione del carico di lavoro](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  La funzionalità di classificazione offre un set più completo di opzioni quali etichetta, sessione e tempo per classificare le richieste.
 

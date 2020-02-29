@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2019
-ms.openlocfilehash: 874fd0ccdd2fdf0a2e75412ae2da82abb736ff3f
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 02/28/2019
+ms.openlocfilehash: 4fad7d1e3359264c647ffc2d5f67dc547c87a13a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164577"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196655"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -230,7 +230,7 @@ Perf
 ) on Computer
 ```
 
-Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio:
+Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio,
 
 ```Kusto
 Perf
@@ -256,6 +256,34 @@ Perf
     | summarize arg_max(TimeGenerated, *), min(TimeGenerated)   
 by Computer
 ) on Computer
+```
+
+Un altro esempio di questo errore è quando si esegue il filtro dell'ambito temporale subito dopo un' [Unione](/azure/kusto/query/unionoperator?pivots=azuremonitor) su più tabelle. Quando si esegue l'Unione, è necessario definire l'ambito di ogni sottoquery. È possibile utilizzare l'istruzione [Let](/azure/kusto/query/letstatement) per garantire la coerenza dell'ambito.
+
+Ad esempio, la query seguente analizzerà tutti i dati nelle tabelle *heartbeat* e *Perf* , non solo nell'ultimo giorno:
+
+```Kusto
+Heartbeat 
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| where TimeGenerated > ago(1d)
+| summarize min(TimeGenerated) by Computer
+```
+
+Questa query deve essere corretta nel modo seguente:
+
+```Kusto
+let MinTime = ago(1d);
+Heartbeat 
+| where TimeGenerated > MinTime
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | where TimeGenerated > MinTime
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| summarize min(TimeGenerated) by Computer
 ```
 
 La misura è sempre maggiore del tempo effettivo specificato. Se, ad esempio, il filtro della query è di 7 giorni, il sistema potrebbe analizzare 7,5 o 8,1 giorni. Questo perché il sistema suddivide i dati in blocchi in dimensioni variabili. Per assicurarsi che tutti i record rilevanti vengano analizzati, analizza l'intera partizione che può coprire diverse ore e persino più di un giorno.

@@ -2,21 +2,21 @@
 title: Accesso Web con OpenID Connect-Azure Active Directory B2C
 description: Creare applicazioni Web usando il protocollo di autenticazione OpenID Connect in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f601fc2e415e22bdbb9e0a4d4d2072a0a33ac22e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6640ab1660e6499a97a8c990a0001d5fbae4e997
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848824"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183993"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Accesso Web con OpenID Connect in Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| Parametro | Obbligatorio | Description |
+| Parametro | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up`o `b2c_1_edit_profile`. |
@@ -71,7 +71,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | id_token | Token ID richiesto dall'applicazione. È possibile usare il token ID per verificare l'identità dell'utente e avviare una sessione con l'utente. |
 | codice | Il codice di autorizzazione richiesto dall'applicazione, se è stato usato `response_type=code+id_token`. L'applicazione può usare il codice di autorizzazione per richiedere un token di accesso per una risorsa di destinazione. I codici di autorizzazione scadono in genere dopo circa 10 minuti. |
@@ -86,7 +86,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | error | Codice che può essere usato per classificare i tipi di errori che si verificano. |
 | error_description | Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -144,7 +144,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parametro | Obbligatorio | Description |
+| Parametro | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente usato per acquisire il codice di autorizzazione. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
@@ -168,7 +168,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | not_before | Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type | Valore del tipo di token. `Bearer` è l'unico tipo supportato. |
@@ -186,7 +186,7 @@ Le risposte di errore si presentano nel modo seguente:
 }
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | error | Codice che può essere usato per classificare i tipi di errori che si verificano. |
 | error_description | Messaggio che consente di identificare la causa principale di un errore di autenticazione. |
@@ -213,7 +213,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parametro | Obbligatorio | Description |
+| Parametro | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente usato per acquisire il token di aggiornamento originale. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
@@ -237,7 +237,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | not_before | Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type | Valore del tipo di token. `Bearer` è l'unico tipo supportato. |
@@ -255,7 +255,7 @@ Le risposte di errore si presentano nel modo seguente:
 }
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | error | Codice che può essere usato per classificare i tipi di errori che si verificano. |
 | error_description | Messaggio che consente di identificare la causa principale di un errore di autenticazione. |
@@ -270,7 +270,7 @@ Per disconnettere l'utente, reindirizzare l'utente all'endpoint `end_session` el
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
 ```
 
-| Parametro | Obbligatorio | Description |
+| Parametro | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente da usare per disconnettere l'utente dall'applicazione. |

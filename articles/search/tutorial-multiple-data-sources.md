@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: aac5dc300009ec682ef1599ad654415f5c4ad190
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/28/2020
+ms.openlocfilehash: 6408689deec7de365ede86665a0eaeb0bd0de64b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495096"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196570"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>C#Esercitazione: combinare i dati di più origini dati in un indice ricerca cognitiva di Azure
+# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Esercitazione: indicizzare i dati di più origini dati inC#
 
 Ricerca cognitiva di Azure consente di importare, analizzare e indicizzare i dati di più origini dati in un singolo indice di ricerca combinato. Questa funzionalità supporta situazioni in cui i dati strutturati vengono aggregati in dati meno strutturati o anche in testo normale di altre origini, come documenti di testo, HTML o JSON.
 
 Questa esercitazione descrive come indicizzare i dati di hotel provenienti da un'origine dati di Azure Cosmos DB e come unirli ai dettagli delle camere ricavati da documenti di Archiviazione BLOB di Azure. Il risultato sarà un indice di ricerca combinato degli hotel contenente tipi di dati complessi.
 
-In questa esercitazione si usano C#, .NET SDK per Ricerca cognitiva di Azure e il portale di Azure per eseguire le attività seguenti:
+Questa esercitazione USA C# e [.NET SDK](https://aka.ms/search-sdk) per eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Caricare dati di esempio e creare le origini dati
@@ -30,19 +30,19 @@ In questa esercitazione si usano C#, .NET SDK per Ricerca cognitiva di Azure e i
 > * Indicizzare i dati dell'hotel da Azure Cosmos DB
 > * Unire i dati delle camere provenienti da Archiviazione BLOB
 
-## <a name="prerequisites"></a>Prerequisiti
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
+## <a name="prerequisites"></a>Prerequisites
 
-- [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
++ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
++ [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Visual Studio 2019](https://visualstudio.microsoft.com/)
++ [Crea](search-create-service-portal.md) o [trova un servizio di ricerca esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
-- [Creare un account di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) per l'archiviazione dei dati di esempio dell'hotel.
+> [!Note]
+> Per questa esercitazione è possibile usare il servizio gratuito. Un servizio di ricerca gratuito limita a tre indici, tre indicizzatori e tre origini dati. Questa esercitazione crea un elemento per ogni tipo. Prima di iniziare, assicurarsi di disporre di spazio sul servizio per accettare le nuove risorse.
 
-- [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per archiviare i dati della stanza di esempio.
-
-- [Installare Visual Studio 2019](https://visualstudio.microsoft.com/) per usarlo come IDE.
-
-### <a name="install-the-project-from-github"></a>Installare il progetto da GitHub
+## <a name="download-files"></a>Scaricare i file
 
 1. Individuare il repository di esempi in GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Selezionare **Clone or download** (Clona o scarica) e creare una copia privata locale del repository.
@@ -340,13 +340,23 @@ Nel portale di Azure aprire la pagina **Panoramica** del servizio di ricerca e i
 
 Fare clic sull'indice hotel-rooms-sample nell'elenco. Verrà visualizzata un'interfaccia di Esplora ricerche per l'indice. Immettere una query per un termine tipo "Luxury". I risultati dovrebbero contenere almeno un documento, che dovrebbe mostrare un elenco di oggetti camera nella matrice di camere.
 
+## <a name="reset-and-rerun"></a>Reimpostare ed eseguire di nuovo
+
+Nelle prime fasi sperimentali dello sviluppo, l'approccio più pratico per l'iterazione della progettazione consiste nell'eliminare gli oggetti da Azure ricerca cognitiva e consentire al codice di ricompilarli. I nomi di risorsa sono univoci. L'eliminazione di un oggetto consente di ricrearlo usando lo stesso nome.
+
+Il codice di esempio per questa esercitazione consente di verificare la presenza di oggetti esistenti ed eliminarli in modo da poter eseguire nuovamente il codice.
+
+È anche possibile usare il portale per eliminare indici, indicizzatori e origini dati.
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca cognitiva di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca cognitiva di Azure.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno rimuovere le risorse che non sono più necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+
+È possibile trovare e gestire le risorse nel portale usando il collegamento tutte le risorse o i gruppi di risorse nel riquadro di spostamento a sinistra.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esistono diversi approcci e più opzioni all'indicizzazione dei BLOB JSON. Se l'origine dati include contenuto JSON, è possibile esaminare queste opzioni per verificare quali sono ottimali per lo scenario.
+Ora che si ha familiarità con il concetto di inserimento di dati da più origini, è opportuno esaminare più in dettaglio la configurazione dell'indicizzatore, a partire da Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Come indicizzare i BLOB JSON con l'indicizzatore BLOB di Ricerca cognitiva di Azure](search-howto-index-json-blobs.md)
+> [Configurare un indicizzatore di Azure Cosmos DB](search-howto-index-cosmosdb.md)

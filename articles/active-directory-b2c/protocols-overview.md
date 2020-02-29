@@ -2,20 +2,20 @@
 title: Protocolli di autenticazione in Azure Active Directory B2C | Microsoft Docs
 description: Come compilare app direttamente usando i protocolli supportati da Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7d5ff0fa22f3ded559a5c6cd726e7ae5e12dd92c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848785"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183906"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>AD B2C Azure: protocolli di autenticazione
 Azure Active Directory B2C (Azure AD B2C) fornisce l'identità come servizio per le app grazie al supporto di due protocolli standard del settore, OpenID Connect e OAuth 2.0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli.
@@ -57,7 +57,7 @@ Per poter configurare le attività di gestione delle identità più comuni, il p
 
 I criteri e i flussi utente non sono una funzionalità standard di OAuth 2.0 e OpenID Connect, è quindi consigliabile cercare di approfondirli. Per altre informazioni, vedere la [guida di riferimento dei flussi utente di Azure AD B2C](user-flow-overview.md).
 
-## <a name="tokens"></a>Token
+## <a name="tokens"></a>Tokens
 L'implementazione di OAuth 2.0 e OpenID Connect in Azure AD B2C fa un uso intensivo dei token di connessione, inclusi quelli rappresentati come token Web JSON (JWT). Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta.
 
 Per "portatore" si intende qualsiasi parte che possa presentare il token. Per poter ricevere un token di connessione, Azure AD deve prima autenticare una parte. Se non vengono adottate le misure necessarie per proteggere il token durante la trasmissione e l'archiviazione, potrebbe essere intercettato e usato da parti non autorizzate.

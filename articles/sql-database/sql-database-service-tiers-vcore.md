@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e53fb46b7c13e1feb0cc24663fb0782b4de06f2b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650300"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198032"
 ---
 # <a name="vcore-model-overview"></a>Panoramica del modello vCore
 
@@ -98,10 +98,11 @@ Per abilitare l'hardware della serie M per una sottoscrizione e un'area, è nece
 |Generazione dell'hardware  |Calcolo  |Memoria  |
 |:---------|:---------|:---------|
 |Gen4     |-Processori Intel E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
-|Quinta generazione     |**Calcolo con provisioning**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake)<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake)<br>-Scalabilità automatica fino a 16 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 48 GB max|
+|Quinta generazione     |**Calcolo con provisioning**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake) *<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake) *<br>-Scalabilità automatica fino a 16 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 48 GB max|
 |Serie Fsv2     |-Processori Intel Xeon Platinum 8168 (SkyLake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Provisioning di 136 GB|
 |Serie M     |-Processori Intel Xeon E7-8890 V3 2,5 GHz<br>-Provisioning 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Provisioning 3,7 TB|
 
+\* nella vista a gestione dinamica [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) , la generazione hardware per i database quinta generazione con processori Intel SP-8160 (Skylake) viene visualizzata come Gen6. I limiti delle risorse per tutti i database quinta generazione sono gli stessi indipendentemente dal tipo di processore (Broadwell o Skylake).
 
 Per altre informazioni sui limiti delle risorse, vedere [limiti delle risorse per i database singoli (vCore)](sql-database-vcore-resource-limits-single-databases.md)o [limiti delle risorse per i pool elastici (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 

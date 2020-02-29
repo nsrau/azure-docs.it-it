@@ -6,22 +6,23 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 74dac926ea67b9f6a31993a72dc6331aa48155b7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3cc5cb68f430ac8e5070b9c8c4a1aa0c28639311
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981561"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197777"
 ---
 # <a name="azure-key-vault-security"></a>Sicurezza Azure Key Vault
 
 È necessario proteggere le chiavi di crittografia e i segreti, ad esempio certificati, stringhe di connessione e password nel cloud, in modo da usare Azure Key Vault. Poiché si archiviano dati sensibili e aziendali critici, è necessario eseguire le operazioni necessarie per ottimizzare la sicurezza degli insiemi di credenziali e i dati archiviati in essi. In questo articolo verranno illustrati alcuni dei concetti che è opportuno considerare quando si progetta la sicurezza del Azure Key Vault.
 
-## <a name="identity-and-access-management"></a>Gestione degli accessi e delle identità
+## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
 Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Chiunque tenti di gestire o recuperare il contenuto da un insieme di credenziali deve essere autenticato da Azure AD.
 
@@ -76,7 +77,7 @@ Dopo aver applicato le regole del firewall, gli utenti possono leggere i dati so
 
 Per ulteriori informazioni sugli [endpoint del servizio rete virtuale](key-vault-overview-vnet-service-endpoints.md) Azure Key Vault verifica indirizzo di rete per Azure Key Vault
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
 Key Vault registrazione salva le informazioni sulle attività eseguite nell'insieme di credenziali. Log Key Vault:
 
@@ -94,7 +95,7 @@ Key Vault registrazione salva le informazioni sulle attività eseguite nell'insi
 
 Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Guida alla sicurezza di archiviazione di Azure](../storage/blobs/security-recommendations.md)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Endpoint del servizio rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
 - [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md)

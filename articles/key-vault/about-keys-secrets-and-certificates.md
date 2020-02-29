@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: affa182145645b9a91801a9c6b38e682e6bd77ec
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720062"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196111"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -27,7 +28,7 @@ Azure Key Vault consente agli utenti e alle applicazioni di Microsoft Azure di a
 
 Per altre informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
-## <a name="azure-key-vault"></a>Azure Key Vault
+## <a name="azure-key-vault"></a>Insieme di credenziali chiave di Azure
 
 Le sezioni seguenti forniscono informazioni generali applicabili all'intera implementazione del servizio Key Vault.
 
@@ -312,7 +313,7 @@ Sono supportati due tipi di chiave *RSA* oppure *RSA HSM* con certificati. La po
 
 Oltre ai metadati del certificato, a una chiave e a un segreto indirizzabili, un certificato di Key Vault contiene anche attributi e tag.  
 
-#### <a name="attributes"></a>Attributi
+#### <a name="attributes"></a>Attributes
 
 Gli attributi di certificato si riflettono negli attributi della chiave e del segreto indirizzabile creati quando viene creato KV certificato.  
 

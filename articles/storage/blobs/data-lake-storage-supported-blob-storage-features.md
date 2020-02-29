@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: debc674184e6846128b0b8cff857c75a805e365a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925696"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196009"
 ---
-# <a name="blobstoragefeaturesavailableinazuredatalakestoragegen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
+# <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
 
-Le funzionalità di archiviazione BLOB come la [registrazione diagnostica](../common/storage-analytics-logging.md), i [livelli di accesso](storage-blob-storage-tiers.md)e i criteri di gestione del ciclo di vita dell' [archiviazione BLOB](storage-lifecycle-management-concepts.md) ora funzionano con gli account che hanno uno spazio dei nomi gerarchico. Pertanto, è possibile abilitare gli spazi dei nomi gerarchici negli account di archiviazione BLOB senza perdere l'accesso a queste funzionalità.
+Le funzionalità di archiviazione BLOB come la [registrazione diagnostica](../common/storage-analytics-logging.md), i [livelli di accesso](storage-blob-storage-tiers.md)e i criteri di gestione del ciclo di vita dell' [archiviazione BLOB](storage-lifecycle-management-concepts.md) ora funzionano con gli account che hanno uno spazio dei nomi gerarchico. Pertanto, è possibile abilitare gli spazi dei nomi gerarchici negli account di archiviazione BLOB senza perdere l'accesso a queste funzionalità.
 
 Questa tabella elenca le funzionalità di archiviazione BLOB che è possibile usare con Azure Data Lake Storage Gen2. Gli elementi visualizzati in queste tabelle verranno modificati nel corso del tempo poiché il supporto continua ad espandersi.
 
-## <a name="supportedblobstoragefeatures"></a>Funzionalità di archiviazione BLOB supportate
+## <a name="supported-blob-storage-features"></a>Funzionalità di archiviazione BLOB supportate
 
 > [!NOTE]
 > Il livello di supporto si riferisce solo al modo in cui la funzionalità è supportata con Data Lake Storage Gen2.
 
-|Funzionalità di archiviazione BLOB |Livello di supporto |Articoli correlati |
+|Funzionalità di archiviazione BLOB |Livello di supporto |Articoli correlati |
 |---------------|-------------------|---|
-|Livello di accesso frequente |Disponibile a livello generale|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
-|Livello di accesso sporadico |Disponibile a livello generale|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
+|Livello di accesso frequente|Disponibile a livello generale|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
+|Livello di accesso sporadico|Disponibile a livello generale|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
 |Eventi|Disponibile a livello generale|[Reazione agli eventi di archiviazione BLOB](storage-blob-event-overview.md)|
 |Metriche (versione classica)|Disponibile a livello generale|[Metriche di analisi archiviazione di Azure (versione classica)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Metriche in Monitoraggio di Azure|Disponibile a livello generale|[Metriche di Archiviazione di Azure in Monitoraggio di Azure](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

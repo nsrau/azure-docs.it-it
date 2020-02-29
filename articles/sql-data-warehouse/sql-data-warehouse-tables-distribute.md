@@ -1,6 +1,6 @@
 ---
 title: Linee guida per la progettazione di tabelle distribuite
-description: Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in Azure SQL Data Warehouse.
+description: Suggerimenti per la progettazione di tabelle distribuite con distribuzione hash e Round Robin in analisi SQL.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.custom: azure-synapse
+ms.openlocfilehash: 3a07dd6ccd5d0bf3440df21b2af4e67cbcf663c9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049122"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199445"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Linee guida per la progettazione di tabelle distribuite in Azure SQL Data Warehouse
-Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in Azure SQL Data Warehouse.
+# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Linee guida per la progettazione di tabelle distribuite in SQL Analytics
+Suggerimenti per la progettazione di tabelle distribuite con distribuzione hash e Round Robin in analisi SQL.
 
-Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per ulteriori informazioni, [Azure SQL data warehouse vedere Architettura MPP (Massive Parallel Processing)](massively-parallel-processing-mpp-architecture.md). 
+Questo articolo presuppone che l'utente abbia familiarità con i concetti relativi alla distribuzione dei dati e allo spostamento dei dati in analisi SQL.  Per ulteriori informazioni, vedere [Architettura MPP (Massive Parallel Processing) di analisi SQL](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
 Una tabella distribuita viene visualizzata come una singola tabella, ma le righe al suo interno, in realtà, sono archiviate in 60 distribuzioni. Le righe, inoltre, vengono distribuite con un algoritmo hash o round robin.  
@@ -34,7 +34,7 @@ Come parte della progettazione di tabelle, è necessario comprendere quanto più
 
 - Quali sono le dimensioni della tabella?   
 - Quanto spesso viene aggiornata la tabella?   
-- Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
+- Sono presenti tabelle dei fatti e delle dimensioni in un database di analisi SQL?   
 
 
 ### <a name="hash-distributed"></a>Tabelle con distribuzione hash
@@ -42,7 +42,7 @@ Una tabella con distribuzione hash distribuisce le righe della tabella nei vari 
 
 ![Tabella distribuita](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Tabella distribuita")  
 
-Poiché valori identici eseguono sempre l'hash nella stessa distribuzione, nel data warehouse sono integrate informazioni sulla posizione delle righe. SQL Data Warehouse usa queste informazioni per ridurre al minimo lo spostamento dei dati durante le query e, di conseguenza, migliorare le prestazioni complessive delle query. 
+Poiché i valori identici vengono sempre sottoposti a hashing nella stessa distribuzione, analisi SQL include informazioni predefinite sui percorsi delle righe. SQL Analytics usa queste informazioni per ridurre al minimo lo spostamento dei dati durante le query, migliorando così le prestazioni delle query. 
 
 Le tabelle con distribuzione hash sono particolarmente indicate per le tabelle dei fatti di grandi dimensioni in uno schema star. Possono contenere un numero molto elevato di righe e conseguire comunque prestazioni elevate. È necessario, ovviamente, considerare anche alcuni aspetti di progettazione per ottenere le prestazioni che il sistema distribuito è in grado di offrire. Uno di questi riguarda la scelta di una colonna di distribuzione appropriata, illustrata in questo articolo. 
 
@@ -62,10 +62,10 @@ Valutare l'opportunità di usare la distribuzione round robin per una tabella ne
 - Se non è presente una chiave di join ovvia.
 - Se non è presente alcuna colonna candidata corretta per la distribuzione di hash della tabella
 - Se la tabella non condivide una chiave di join comune con altre tabelle.
-- Se il join è meno significativo di altri join nella query
+- Se il join è meno significativo di altri join nella query.
 - Quando si tratta di una tabella di staging temporaneo.
 
-L'esercitazione relativa al [caricamento dei dati relativi ai taxi di New York in Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) illustra un esempio di caricamento dei dati in una tabella di staging con distribuzione round robin.
+L'esercitazione [caricare i dati sui taxi di New York](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornisce un esempio di caricamento dei dati in una tabella di staging Round Robin in SQL Analytics.
 
 
 ## <a name="choosing-a-distribution-column"></a>Scelta di una colonna di distribuzione
@@ -109,7 +109,7 @@ Per bilanciare l'elaborazione parallela, selezionare una colonna di distribuzion
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Scegliere una colonna di distribuzione che riduca al minimo lo spostamento dei dati
 
-Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. Scegliere una colonna di distribuzione che contribuisca a ridurre lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni di SQL Data Warehouse.
+Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. La scelta di una colonna di distribuzione che consente di ridurre al minimo lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni del database di analisi SQL.
 
 Per ridurre al minimo lo spostamento dei dati, selezionare una colonna di distribuzione che:
 
@@ -137,7 +137,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 Per identificare quali tabelle presentano un'asimmetria dei dati superiore al 10%:
 
 1. Creare la visualizzazione dbo.vTableSizes illustrata nell'articolo di [panoramica delle tabelle](sql-data-warehouse-tables-overview.md#table-size-queries).  
-2. Eseguire questa query:
+2. Eseguire la query riportata di seguito:
 
 ```sql
 select *
@@ -217,7 +217,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Per creare una tabella distribuita, usare una di queste istruzioni:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (analisi SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE come SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

@@ -10,22 +10,22 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a4fbfa87756914f169bb20387702cac69d8736d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: f7cac849caf478850707eb0a71b2369dcfa49520
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759483"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197182"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW)
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 Q. Che cos'è Azure Synapse?
 
-R. La sinapsi di Azure è un servizio di analisi senza limiti che riunisce data warehousing e analisi di Big Data. Consente di eseguire query sui dati in base alle proprie esigenze, usando risorse su richiesta senza server o con provisioning, su larga scala. Azure Synapse offre questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la distribuzione dei dati per esigenze immediate di business intelligence e Machine Learning. Per altre informazioni, vedere [che cos'è Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
+R. La sinapsi di Azure è un servizio di analisi senza limiti che riunisce data warehousing e analisi di Big Data. Consente di eseguire query sui dati in base alle proprie esigenze, usando risorse su richiesta senza server o con provisioning, su larga scala. Le sinapsi di Azure offrono questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la gestione dei dati per esigenze immediate di BI e machine learning. Per altre informazioni, vedere [che cos'è Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. Che cosa è successo ad Azure SQL Data Warehouse?
+Q. Che cosa è successo a Azure SQL Data Warehouse?
 
 R. La sinapsi di Azure è Azure SQL Data Warehouse (SQL DW) è stata sviluppata. Abbiamo adottato lo stesso data warehouse leader di settore per un nuovo livello di prestazioni e funzionalità. È possibile continuare a eseguire i carichi di lavoro di data warehouse esistenti in produzione con la sinapsi di Azure e trarre automaticamente vantaggio dalle nuove funzionalità disponibili in anteprima. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
@@ -108,7 +108,7 @@ R: No, polibase interagisce solo con i componenti di archiviazione.
 
 D: È possibile connettersi ad HDI?
 
-R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello HDFS, è possibile caricare i dati in SQL DW. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
+R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello di HDFS, è possibile caricare i dati in un data warehouse di analisi SQL. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'intera sinapsi di Azure, vedere la pagina [Panoramica](sql-data-warehouse-overview-faq.md) .

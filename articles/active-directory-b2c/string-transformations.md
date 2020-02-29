@@ -3,20 +3,20 @@ title: Esempi di trasformazione di attestazioni di stringa per criteri personali
 titleSuffix: Azure AD B2C
 description: Esempi di trasformazione delle attestazioni di stringa per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585731"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183704"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -363,7 +363,7 @@ Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con
 - Attestazioni di output:
     - **outputClaim**: Joe Fernando
 
-## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
 Copia le stringhe localizzate in attestazioni.
 
@@ -428,9 +428,9 @@ La trasformazione delle attestazioni imposta il valore dell' *oggetto* del tipo 
 
 - Attestazioni di output:
   - **oggetto**: codice di verifica della posta elettronica dell'account contoso
-  - **messaggio**: Grazie per aver verificato l'account. 
-  - **codeintro**: il codice è 
-  - **firma**: cordiali saluti  
+  - **messaggio**: Grazie per aver verificato l'account.
+  - **codeintro**: il codice è
+  - **firma**: cordiali saluti
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -618,7 +618,7 @@ Verifica che un'attestazione di stringa `claimToMatch` e `matchTo` parametro di 
 | OutputClaim | outputClaim | string | Se l'espressione regolare corrisponde, l'attestazione di output contiene il valore del parametro di input `outputClaimIfMatched`. O null, se non è presente alcuna corrispondenza. |
 | OutputClaim | regexCompareResultClaim | boolean | Il tipo di attestazione di output del risultato della corrispondenza di espressione regolare, che deve essere impostato come `true` o `false` in base al risultato della corrispondenza. |
 
-Ad esempio, controlla se il numero di telefono fornito è valido, in base al modello di espressione regolare del numero di telefono.  
+Ad esempio, controlla se il numero di telefono fornito è valido, in base al modello di espressione regolare del numero di telefono.
 
 ```XML
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
@@ -755,7 +755,7 @@ Determinare se una sottostringa specificata si trova all'interno dell'attestazio
 Usare questa trasformazione delle attestazioni per verificare se un tipo di attestazione stringa contiene una sottostringa. Nell'esempio seguente viene verificato se il tipo di attestazione stringa `roles` contiene il valore **admin**.
 
 ```XML
-<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
   </InputClaims>
@@ -765,7 +765,7 @@ Usare questa trasformazione delle attestazioni per verificare se un tipo di atte
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -777,7 +777,7 @@ Usare questa trasformazione delle attestazioni per verificare se un tipo di atte
     - **contiene**: "admin"
     - **ignoreCase**: true
 - Attestazioni di output:
-    - **outputClaim**: true 
+    - **outputClaim**: true
 
 ## <a name="stringsubstring"></a>Substring
 
@@ -790,7 +790,7 @@ Estrae parti di un tipo di attestazione stringa, a partire dal carattere in corr
 | InputParameter | length | INT | Numero di caratteri nella sottostringa. |
 | OutputClaim | outputClaim | boolean | Stringa equivalente alla sottostringa di lunghezza che inizia in corrispondenza di startIndex in questa istanza oppure Empty se startIndex è uguale alla lunghezza di questa istanza e la lunghezza è zero. |
 
-Ad esempio, ottenere il prefisso del paese del numero di telefono.  
+Ad esempio, ottenere il prefisso del paese del numero di telefono.
 
 
 ```XML
@@ -828,7 +828,7 @@ Cerca un valore specificato in una stringa di tipo di attestazione e restituisce
 | InputParameter | newValue | string | Stringa per sostituire tutte le occorrenze di `oldValue` |
 | OutputClaim | outputClaim | boolean | Stringa equivalente alla stringa corrente, ad eccezione del fatto che tutte le istanze di oldValue vengono sostituite con newValue. Se oldValue non viene trovato nell'istanza corrente, il metodo restituisce l'istanza corrente invariata. |
 
-Ad esempio, normalizzare un numero di telefono rimuovendo i caratteri `-`  
+Ad esempio, normalizzare un numero di telefono rimuovendo i caratteri `-`
 
 
 ```XML
@@ -864,7 +864,7 @@ Concatena gli elementi di un tipo di attestazione della raccolta di stringhe spe
 | InputClaim | inputClaim | stringCollection | Raccolta che contiene le stringhe da concatenare. |
 | InputParameter | delimiter | string | Stringa da utilizzare come separatore, ad esempio `,`virgola. |
 | OutputClaim | outputClaim | string | Stringa costituita dai membri della raccolta di stringhe `inputClaim`, delimitata dal parametro di input di `delimiter`. |
-  
+
 L'esempio seguente accetta una raccolta di stringhe di ruoli utente e la converte in una stringa delimitatore virgola. È possibile utilizzare questo metodo per archiviare una raccolta di stringhe in Azure AD account utente. In seguito, quando l'account viene letto dalla directory, utilizzare il `StringSplit` per convertire la stringa delimitatore della virgola nella raccolta di stringhe.
 
 ```XML
@@ -900,7 +900,7 @@ Restituisce una matrice di stringhe che contiene le sottostringhe in questa ista
 | InputClaim | inputClaim | string | Tipo di attestazione stringa che contiene le sottostringhe da dividere. |
 | InputParameter | delimiter | string | Stringa da utilizzare come separatore, ad esempio `,`virgola. |
 | OutputClaim | outputClaim | stringCollection | Raccolta di stringhe i cui elementi contengono le sottostringhe in questa stringa delimitate dal parametro di input `delimiter`. |
-  
+
 Nell'esempio seguente viene accettata una stringa delimitatore virgola di ruoli utente e viene convertita in una raccolta di stringhe.
 
 ```XML
@@ -925,7 +925,7 @@ Nell'esempio seguente viene accettata una stringa delimitatore virgola di ruoli 
   - **delimitatore**: ","
 - Attestazioni di output:
   - **outputClaim**: ["admin", "Author", "Reader"]
-  
+
 ## <a name="string-claim-transformations-expressions"></a>Espressioni di trasformazioni di attestazione stringa
 Le espressioni di trasformazioni delle attestazioni in Azure AD B2C criteri personalizzati forniscono informazioni di contesto sull'ID tenant e sull'ID profilo tecnico.
 
