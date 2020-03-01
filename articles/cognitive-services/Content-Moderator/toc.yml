@@ -1,11 +1,12 @@
 - name: Documentazione di Content Moderator
   href: index.yml
 - name: Panoramica
+  expanded: true
   items:
     - name: Informazioni su Content Moderator
       href: overview.md
       expanded: true
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Provare Content Moderator sul Web
       href: quick-start.md
@@ -37,7 +38,7 @@
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: 'Revisioni, flussi di lavoro e processi'
       href: review-api.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Moderare i contenuti
       items:
@@ -85,7 +86,7 @@
       href: Review-Tool-User-Guide/Configure.md
     - name: Esportare o eliminare i dati dell'account
       href: ./export-delete-data.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Content Moderator
       href: api-reference.md
@@ -123,11 +124,11 @@
       href: 'https://cognitive.uservoice.com/forums/559960-content-moderator'
     - name: Knowledge Base
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
-    - name: Supporto per le lingue
+    - name: Lingue supportate
       href: language-support.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

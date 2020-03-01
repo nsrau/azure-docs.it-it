@@ -6,17 +6,17 @@ metadata:
   description: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e i dati dei campi senza assegnazione manuale di etichette dati o scrittura di codice. È anche possibile scegliere l'apprendimento supervisionato con dati etichettati manualmente. I modelli sottoposti a training con dati etichettati possono offrire prestazioni migliori e garantire un corretto funzionamento con documenti più complessi.
   services: cognitive-services
   ms.service: cognitive-services
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 1fe0aee8967a0072a7ae01abc5791e7a3fd0834d
-  ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+  ms.openlocfilehash: de869fd9beb66a4122c1204648d17cff480e4b7f
+  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/13/2020
-  ms.locfileid: "75921480"
+  ms.lasthandoff: 03/01/2020
+  ms.locfileid: "78206487"
 landingContent:
 - title: Informazioni su Riconoscimento modulo
   linkLists:
@@ -92,7 +92,7 @@ landingContent:
     links:
     - text: Usare istanze di contenitore
       url: deploy-form-recognizer-on-container-instances.md
-- title: Riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
     links:

@@ -1,9 +1,12 @@
 - name: Documentazione del Servizio visione artificiale personalizzato
   href: index.yml
 - name: Panoramica
+  expanded: true
   items:
     - name: Informazioni su Visione personalizzata
       href: home.md
+    - name: Novità
+      href: whats-new.md
 - name: Avvi rapidi
   items:
     - name: Uso del portale Web

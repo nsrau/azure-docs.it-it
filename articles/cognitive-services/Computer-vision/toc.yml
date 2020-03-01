@@ -5,6 +5,8 @@
   items:
     - name: Informazioni sulla Visione artificiale
       href: Home.md
+    - name: Novità
+      href: whats-new.md
 - name: Avvi rapidi
   items:
     - name: Uso dell'SDK client
