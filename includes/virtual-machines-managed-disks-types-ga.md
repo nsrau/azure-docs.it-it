@@ -5,23 +5,23 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a355307eef9f5ce1f833cfd7924f5efa234a0cd7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e145cf481dd165144b188e6205e4b78cc61359fd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523113"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202492"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
 I dischi SSD Premium di Azure offrono prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) con carichi di lavoro con I/O intensivo. È possibile migrare i dischi delle VM esistenti in SSD Premium per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi. I dischi SSD Premium sono idonei per applicazioni di produzione cruciali. Le unità SSD Premium possono essere usate solo con le serie di VM che sono compatibili con archiviazione Premium.
 
-Per altre informazioni sui singoli tipi e dimensioni delle macchine virtuali in Azure per Windows, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni delle macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md). Per altre informazioni sui singoli tipi e dimensioni delle macchine virtuali in Azure per Linux, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni delle macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md).
+Per altre informazioni sui singoli tipi e dimensioni delle macchine virtuali in Azure per Windows, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni delle macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md). Per altre informazioni sui singoli tipi e dimensioni delle macchine virtuali in Azure per Linux, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni delle macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md). Da uno di questi articoli è necessario controllare ogni singolo articolo sulle dimensioni della VM per determinare se è compatibile con archiviazione Premium.
 
-### <a name="disk-size"></a>Dimensione disco
+### <a name="disk-size"></a>Dimensioni disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 Quando si effettua il provisioning di un disco di archiviazione Premium, a differenza di Archiviazione Standard, vengono garantiti livelli di capacità, IOPS e velocità effettiva del disco. Se ad esempio si crea un disco P50, Azure effettua il provisioning di 4.095 GB di capacità di archiviazione, 7.500 IOPS e 250 MB/s di velocità effettiva per tale disco. L'applicazione può usare la totalità o una della capacità e delle prestazioni. I dischi SSD Premium sono progettati per fornire latenze di millisecondi a singola cifra e la velocità effettiva e la velocità effettiva di destinazione descritti nella tabella precedente 99,9% del tempo.
@@ -40,7 +40,7 @@ Per le unità SSD Premium, ogni operazione di I/O inferiore o uguale a 256 KiB d
 
 Le unità SSD Standard di Azure sono un'opzione di archiviazione conveniente, ottimizzata per carichi di lavoro che richiedono prestazioni coerenti a livelli più bassi di I/O al secondo. Le unità SSD Standard offrono una buona esperienza iniziale per coloro che vogliono passare al cloud, soprattutto se riscontrano problemi di varianza dei carichi di lavoro in esecuzione nelle soluzioni HDD locali. Rispetto agli HDD standard, le unità SSD standard offrono disponibilità, coerenza, affidabilità e latenza migliori. Le unità SSD Standard sono idonee per server Web, server applicazioni con un numero ridotto di operazioni di I/O al secondo, applicazioni aziendali con un utilizzo non intensivo e carichi di lavoro di sviluppo/test. Analogamente agli HDD standard, le unità SSD standard sono disponibili in tutte le macchine virtuali di Azure.
 
-### <a name="disk-size"></a>Dimensione disco
+### <a name="disk-size"></a>Dimensioni disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
 Le unità SSD standard sono progettate per fornire latenze di millisecondi a una sola cifra e i valori di IOPS e velocità effettiva fino ai limiti descritti nella tabella precedente 99% del tempo. Gli IOPS e la velocità effettiva possono variare a seconda dei modelli di traffico. Le unità SSD Standard offrono prestazioni più coerenti rispetto ai dischi HDD con latenza più bassa.
@@ -53,7 +53,7 @@ Per le unità SSD standard, ogni operazione di I/O inferiore o uguale a 256 KiB 
 
 Le unità HDD Standard di Azure offrono un supporto dei dischi affidabile e a basso costo per le VM che eseguono carichi di lavoro non sensibili alla latenza. Con l'archiviazione standard, i dati vengono archiviati in unità disco rigido (HDD). Latenza, IOPS e velocità effettiva dei dischi HDD Standard possono variare in modo più ampio rispetto ai dischi basati su unità SSD. HDD Standard dischi sono progettati per fornire latenze di scrittura in 10 ms e le latenze di lettura in 20ms per la maggior parte delle operazioni di i/o, tuttavia le prestazioni effettive possono variare a seconda delle dimensioni di i/o e del carico Quando si lavora con le macchine virtuali, è possibile usare dischi HDD standard per scenari di sviluppo/test e carichi di lavoro meno critici. I dischi rigidi standard sono disponibili in tutte le aree di Azure e possono essere usati con tutte le macchine virtuali di Azure.
 
-### <a name="disk-size"></a>Dimensione disco
+### <a name="disk-size"></a>Dimensioni disco
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
 ### <a name="transactions"></a>Transazioni
