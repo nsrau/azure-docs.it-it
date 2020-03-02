@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 052e1bc4e9a14b34e21b0bfeb4193fbd0b2b1a22
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
-ms.translationtype: MT
+ms.openlocfilehash: 84ba68c97f69872e39121915a6edf23aa029fa75
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848902"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161687"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 
@@ -27,159 +27,85 @@ Gli utenti dovrebbero evitare di abilitare questa funzione su un computer pubbli
 
 ![Pagina di accesso di esempio che mostra una casella di controllo Mantieni l'accesso](./media/custom-policy-keep-me-signed-in/kmsi.PNG)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Un tenant di Azure AD B2C configurato per consentire l'accesso all'account locale. KMSI non è supportato per gli account del provider di identità esterno.
+- Un tenant di Azure AD B2C configurato per consentire l'accesso all'account locale. KMSI non è supportato per gli account del provider di identità esterno.
+- Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
 
-Se non si dispone di un tenant, è possibile crearne uno seguendo la procedura descritta in [Esercitazione: Creare un tenant di Active Directory B2C di Azure](tutorial-create-tenant.md).
+## <a name="configure-the-page-identifier"></a>Configurare l'identificatore di pagina 
 
-## <a name="add-a-content-definition-element"></a>Aggiungere un elemento di definizione del contenuto
+Per abilitare KMSI, impostare la definizione del contenuto `DataUri` elemento su [identificatore di pagina](contentdefinitions.md#datauri) `unifiedssp` e la [pagina](page-layout.md) *1.1.0* o successiva.
 
-Sotto l'elemento **BuildingBlocks** del file di estensione, aggiungere un elemento **ContentDefinitions**.
+1. Aprire il file di estensione dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em> . Questo file di estensione è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
+1. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
+1. Aggiungere l'elemento **ContentDefinitions** all'elemento **BuildingBlocks** del criterio.
 
-1. Sotto l'elemento **ContentDefinitions**, aggiungere un elemento **ContentDefinition** con un identificatore di `api.signuporsigninwithkmsi`.
-2. Sotto l'elemento **ContentDefinition**, aggiungere gli elementi **LoadUri**, **RecoveryUri** e **DataUri**. Il valore `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` dell'elemento **Datauri** è un identificatore comprensibile di macchina che visualizza una casella di controllo KMSI nelle pagine di accesso. Questo valore non deve essere modificato.
+    Il criterio personalizzato dovrebbe essere simile al frammento di codice seguente:
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ContentDefinitions>
-        <ContentDefinition Id="api.signuporsigninwithkmsi">
-          <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <ContentDefinition Id="api.signuporsignin">
           <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
-          <Metadata>
-            <Item Key="DisplayName">Signin and Signup</Item>
-          </Metadata>
         </ContentDefinition>
       </ContentDefinitions>
     </BuildingBlocks>
     ```
+    
+1. Salvare il file delle estensioni.
 
-## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Aggiungere un provider di attestazioni di accesso per l'account locale
 
-È possibile definire un accesso all'account locale (Local Account SignIn) come provider di attestazioni usando l'elemento **ClaimsProvider** nel file di estensione dei criteri:
 
-1. Aprire il file *TrustFrameworkExtensions.xml* dalla directory di lavoro.
-2. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice. Lo [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) include un provider di attestazioni di accesso all'account locale.
-3. Aggiungere un elemento **ClaimsProvider** con **DisplayName** e **TechnicalProfile** come illustrato nell'esempio seguente:
-
-    ```XML
-    <ClaimsProviders>
-      <ClaimsProvider>
-        <DisplayName>Local Account SignIn</DisplayName>
-        <TechnicalProfiles>
-          <TechnicalProfile Id="login-NonInteractive">
-            <Metadata>
-              <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
-              <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
-            </Metadata>
-            <InputClaims>
-              <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
-              <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
-            </InputClaims>
-          </TechnicalProfile>
-        </TechnicalProfiles>
-      </ClaimsProvider>
-    </ClaimsProviders>
-    ```
-
-### <a name="add-the-application-identifiers-to-your-custom-policy"></a>Aggiungere gli identificatori dell'applicazione al criterio personalizzato
-
-Aggiungere gli identificatori dell'applicazione per il file *trustframeworkextensions. XML*.
-
-1. Nel file *trustframeworkextensions. XML*, trovare l'elemento **TechnicalProfile** con l'identificatore di `login-NonInteractive` e l'elemento **TechnicalProfile** con un identificatore di `login-NonInteractive-PasswordChange` e sostituire tutti i valori di `IdentityExperienceFrameworkAppId` con l'identificatore di applicazione dell'applicazione Framework dell'esperienza di gestione delle identità come descritto in [Introduzione](custom-policy-get-started.md).
-
-    ```XML
-    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
-    ```
-
-2. Sostituire tutti valori di `ProxyIdentityExperienceFrameworkAppId` con l'identificatore dell'applicazione Framework dell'esperienza di gestione delle identità proxy, come descritto in [Introduzione](custom-policy-get-started.md).
-3. Salvare il file delle estensioni.
-
-## <a name="create-a-kmsi-enabled-user-journey"></a>Creare un percorso utente abilitato KMSI
-
-Aggiungere il provider di attestazioni di accesso per un account locale al percorso utente.
-
-1. Aprire il file di base dei criteri, ad esempio *TrustFrameworkBase.xml*.
-2. Trovare l'elemento **UserJourneys** e copiare l'intero contenuto dell'elemento **UserJourney** che usa l'identificatore di `SignUpOrSignIn`.
-3. Aprire il file di estensione. Ad esempio, aprire il file di estensione *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
-4. Incollare l'intero elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
-5. Modificare il valore dell'identificatore per il nuovo percorso utente. Ad esempio: `SignUpOrSignInWithKmsi`.
-6. Infine, nel primo passaggio di orchestrazione modificare il valore di **ContentDefinitionReferenceId** a `api.signuporsigninwithkmsi`. L'impostazione di questo valore abilita la casella di controllo nel percorso utente.
-7. Salvare e caricare il file di estensione e verificare che tutte le convalide abbiano esito positivo.
-
-    ```XML
-    <UserJourneys>
-      <UserJourney Id="SignUpOrSignInWithKmsi">
-        <OrchestrationSteps>
-          <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
-            <ClaimsProviderSelections>
-              <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-            </ClaimsProviderSelections>
-            <ClaimsExchanges>
-              <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-            </ClaimsExchanges>
-          </OrchestrationStep>
-          <OrchestrationStep Order="2" Type="ClaimsExchange">
-            <Preconditions>
-              <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-                <Value>objectId</Value>
-                <Action>SkipThisOrchestrationStep</Action>
-              </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-              <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-            </ClaimsExchanges>
-          </OrchestrationStep>
-          <!-- This step reads any user attributes that we may not have received when in the token. -->
-          <OrchestrationStep Order="3" Type="ClaimsExchange">
-            <ClaimsExchanges>
-              <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-            </ClaimsExchanges>
-          </OrchestrationStep>
-          <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-        </OrchestrationSteps>
-        <ClientDefinition ReferenceId="DefaultWeb" />
-      </UserJourney>
-    </UserJourneys>
-    ```
-
-## <a name="create-a-relying-party-file"></a>Creare un file relying party
+## <a name="configure-a-relying-party-file"></a>Configurare un file di relying party
 
 Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
 
-1. Creare una copia del file *SignUpOrSignIn.xml* nella directory di lavoro, quindi rinominarla. Ad esempio, *SignUpOrSignInWithKmsi.xml*.
-2. Aprire il nuovo file e aggiornare l'attributo **PolicyId** per il **TrustFrameworkPolicy** con un valore univoco. Questo è il nome dei criteri. Ad esempio: `SignUpOrSignInWithKmsi`.
-3. Modificare l'attributo **ReferenceId** per l'elemento **DefaultUserJourney** per corrispondere all'identificatore del nuovo percorso utente creato. Ad esempio: `SignUpOrSignInWithKmsi`.
-
-    Il server di gestione delle chiavi è configurato usando l'elemento **UserJourneyBehaviors** con **SingleSignOn**, **SessionExpiryType** e **SessionExpiryInSeconds** come suoi primi elementi figlio. L'attributo **KeepAliveInDays** consente di controllare per quanto tempo l'utente rimane connesso. Nell'esempio seguente la sessione KMSI scade automaticamente dopo `7` giorni, indipendentemente dalla frequenza con cui l'utente esegue l'autenticazione automatica. Impostare il valore **KeepAliveInDays** a `0` disattiva la funzionalità KMSI. Per impostazione predefinita, questo valore è `0`. Se il valore di **SessionExpiryType** è `Rolling`, la sessione KMSI viene estesa di `7` giorni ogni volta che l'utente esegue l'autenticazione automatica.  Se `Rolling` è selezionato, è consigliabile mantenere il numero di giorni al minimo.
-
-    Il valore di **SessionExpiryInSeconds** rappresenta l'ora di scadenza di una sessione SSO. Questo viene usato internamente da Azure Active Directory B2C per verificare se la sessione KMSI è scaduta oppure no. Il valore di **KeepAliveInDays** determina il valore di scadenza/validità massima del cookie SSO nel browser Web. A differenza di **SessionExpiryInSeconds**, **KeepAliveInDays** viene usato per impedire che il browser cancelli i cookie quando viene chiuso. Un utente può accedere automaticamente solo se il cookie di sessione SSO esiste (verificato da **KeepAliveInDays**) e non è scaduto (verificato da **SessionExpiryInSeconds**).
-
-    Se l'utente non abilita **Mantieni l'accesso** nella pagina di iscrizione e di accesso, la sessione scade dopo che è trascorso il tempo indicato da **SessionExpiryInSeconds** o dopo la chiusura del browser. Se l'utente abilita **Mantieni l'accesso**, il valore di **KeepAliveInDays** sostituisce il valore di **SessionExpiryInSeconds** e determina la scadenza della sessione. Se chiude il browser e lo riapre, l'utente può ancora eseguire l'accesso entro l'intervallo di tempo indicato da **KeepAliveInDays**. È consigliabile impostare il valore di **SessionExpiryInSeconds** su un periodo breve (1200 secondi), mentre il valore di **KeepAliveInDays** può essere impostato su un periodo relativamente lungo (7 giorni), come illustrato nell'esempio seguente:
+1. Aprire il file dei criteri personalizzati. Ad esempio, *SignUpOrSignin.xml*.
+1. Se non esiste già, aggiungere un `<UserJourneyBehaviors>` nodo figlio al nodo `<RelyingParty>`. Deve trovarsi immediatamente dopo `<DefaultUserJourney ReferenceId="User journey Id" />`, ad esempio: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.
+1. Aggiungere il nodo seguente come figlio dell'elemento `<UserJourneyBehaviors>`.
 
     ```XML
-    <RelyingParty>
-      <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
-      <UserJourneyBehaviors>
-        <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
-        <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
-      </UserJourneyBehaviors>
-      <TechnicalProfile Id="PolicyProfile">
-        <DisplayName>PolicyProfile</DisplayName>
-        <Protocol Name="OpenIdConnect" />
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName" />
-          <OutputClaim ClaimTypeReferenceId="givenName" />
-          <OutputClaim ClaimTypeReferenceId="surname" />
-          <OutputClaim ClaimTypeReferenceId="email" />
-          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        </OutputClaims>
-        <SubjectNamingInfo ClaimType="sub" />
-      </TechnicalProfile>
-    </RelyingParty>
+    <UserJourneyBehaviors>
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
+      <SessionExpiryType>Absolute</SessionExpiryType>
+      <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
+    </UserJourneyBehaviors>
     ```
+
+    - **SessionExpiryType** : indica il modo in cui la sessione viene estesa in base al tempo specificato in `SessionExpiryInSeconds` e `KeepAliveInDays`. Il valore `Rolling` (impostazione predefinita) indica che la sessione viene estesa ogni volta che l'utente esegue l'autenticazione. Il valore `Absolute` indica che l'utente è obbligato a eseguire nuovamente l'autenticazione dopo il periodo di tempo specificato.
+ 
+    - **SessionExpiryInSeconds** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* non è abilitata o se un utente non seleziona *Mantieni l'accesso*. La sessione scade dopo che `SessionExpiryInSeconds` è stata superata oppure il browser è chiuso.
+ 
+    - **KeepAliveInDays** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* è abilitata e l'utente seleziona *Mantieni l'accesso*.  Il valore di `KeepAliveInDays` ha la precedenza sul valore `SessionExpiryInSeconds` e determina l'ora di scadenza della sessione. Se un utente chiude il browser e lo riapre in un secondo momento, potrà comunque accedere automaticamente, purché sia entro il periodo di KeepAliveInDays.
+    
+    Per altre informazioni, vedere [comportamenti dei percorsi utente](relyingparty.md#userjourneybehaviors).
+ 
+È consigliabile impostare il valore di SessionExpiryInSeconds su un periodo breve (1200 secondi), mentre il valore di KeepAliveInDays può essere impostato su un periodo di tempo relativamente lungo (30 giorni), come illustrato nell'esempio seguente:
+
+```XML
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <UserJourneyBehaviors>
+    <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
+    <SessionExpiryType>Absolute</SessionExpiryType>
+    <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
+  </UserJourneyBehaviors>
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
 
 4. Salvare le modifiche e caricare il file.
 5. Per testare i criteri personalizzati caricati, nel portale di Azure passare alla pagina dei criteri e quindi selezionare **Esegui ora**.
