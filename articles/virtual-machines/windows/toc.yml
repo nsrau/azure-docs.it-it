@@ -205,28 +205,26 @@
               href: ../lsv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Ottimizzare le prestazioni
               href: storage-performance.md
-        - name: Calcolo accelerato
+        - name: GPU - calcolo con accelerazione
           items:
-            - name: Ottimizzate per la GPU
-              items:
-                - name: Panoramica
-                  href: sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                - name: Serie NC
-                  href: ../nc-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                - name: Serie NCv2
-                  href: ../ncv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                - name: Serie NCv3
-                  href: ../ncv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                - name: Serie ND
-                  href: ../nd-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                - name: Serie NDv2
-                  href: ../ndv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                - name: Serie NV
-                  href: ../nv-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                - name: Serie NVv3
-                  href: ../nvv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                - name: Serie NVv4
-                  href: ../nvv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Panoramica
+              href: sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie NC
+              href: ../nc-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie NCv2
+              href: ../ncv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie NCv3
+              href: ../ncv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie ND
+              href: ../nd-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie NDv2
+              href: ../ndv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie NV
+              href: ../nv-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie NVv3
+              href: ../nvv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie NVv4
+              href: ../nvv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Configurare i driver GPU
               href: n-series-driver-setup.md
             - name: Configurare i driver per la GPU AMD
@@ -248,6 +246,8 @@
           items:
             - name: Pagare in anticipo le VM
               href: prepay-reserved-vm-instances.md
+            - name: Pagare in anticipo gli host dedicati
+              href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Cosa sono le prenotazioni di Azure?
               href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Flessibilità delle dimensioni istanza di VM
@@ -309,7 +309,7 @@
       items:
         - name: Sicurezza e criteri
           href: security-policy.md
-        - name: Azure Disk Encryption
+        - name: Crittografia dischi di Azure
           href: disk-encryption-overview.md
         - name: Criteri di sicurezza integrati
           href: virtual-machines-windows-security-controls.md
@@ -392,7 +392,7 @@
           href: ../../security-center/security-center-just-in-time.md
         - name: Encrypt
           items:
-            - name: Scenari di crittografia dei dischi per Windows
+            - name: Scenari di crittografia dischi per Windows
               href: disk-encryption-windows.md
             - name: Crittografia di VM con l'interfaccia della riga di comando di Azure
               href: disk-encryption-cli-quickstart.md
@@ -402,11 +402,11 @@
               href: disk-encryption-portal-quickstart.md
             - name: Key Vault per Crittografia dischi di Azure
               href: disk-encryption-key-vault.md
-            - name: Script di esempio per la crittografia dei dischi
+            - name: Script di esempio per la crittografia dischi
               href: disk-encryption-sample-scripts.md
-            - name: Risoluzione dei problemi di crittografia dei dischi
+            - name: Risoluzione dei problemi di crittografia dischi
               href: disk-encryption-troubleshooting.md
-            - name: Domande frequenti sulla crittografia del disco
+            - name: Domande frequenti sulla crittografia dischi
               href: disk-encryption-faq.md
             - name: Crittografia dischi - versione precedente (AAD)
               items:
@@ -414,7 +414,7 @@
                   href: disk-encryption-overview-aad.md
                 - name: Key Vault per Crittografia dischi di Azure
                   href: disk-encryption-key-vault-aad.md
-                - name: Scenari di crittografia dei dischi per Windows
+                - name: Scenari di crittografia dischi per Windows
                   href: disk-encryption-windows-aad.md
         - name: Usare WinRM
           href: winrm.md

@@ -19,7 +19,7 @@
   items:
     - name: Punteggio di sicurezza delle identità
       href: identity-secure-score.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Abilitare MFA
           href: concept-fundamentals-mfa-get-started.md
@@ -43,6 +43,8 @@
       href: active-directory-data-storage-australia-newzealand.md
     - name: Novità di Microsoft 365 Government
       href: whats-new-microsoft-365-government.md
+    - name: Confrontare Azure AD con AD DS
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Informazioni di riferimento sulle operazioni di Azure AD
       items:
         - name: Introduzione

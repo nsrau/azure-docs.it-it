@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentazione di Esplora dati di Azure
 metadata:
-  title: 'Guide di avvio rapido, esercitazioni e documentazione su linguaggio/API - Esplora dati di Azure'
+  title: 'Guide di avvio rapido, esercitazioni e documentazione su linguaggio/API per Esplora dati di Azure'
   description: Esplora dati di Azure è una piattaforma cloud per l'analisi dei log ottimizzata per query ad hoc su Big Data.
   author: orspod
   ms.author: orspodek

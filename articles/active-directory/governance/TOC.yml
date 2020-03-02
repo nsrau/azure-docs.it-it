@@ -31,14 +31,14 @@
           href: manage-user-access-with-access-reviews.md
         - name: Gestire gli utenti esclusi dall'accesso condizionale
           href: conditional-access-exclusion.md
-- name: Guide alle procedure
+- name: Guide pratiche
   expanded: true
   items:
     - name: Gestione entitlement
       items:
         - name: Scenari comuni
           href: entitlement-management-scenarios.md
-        - name: Administrators
+        - name: Amministratori
           items:
             - name: Delega agli autori di cataloghi
               href: entitlement-management-delegate-catalog.md
@@ -48,6 +48,8 @@
               href: entitlement-management-external-users.md
             - name: Visualizzare report e log
               href: entitlement-management-reports.md
+            - name: Archiviare log e report
+              href: entitlement-management-logs-and-reporting.md
             - name: Risolvere problemi
               href: entitlement-management-troubleshoot.md
         - name: Proprietari di cataloghi

@@ -126,9 +126,9 @@ Dopo aver abilitato e configurato la reimpostazione della password self-service,
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-In un'esercitazione successiva di questa serie viene configurato il writeback delle password. Questa funzionalità consente di eseguire il writeback delle modifiche delle password dalla reimpostazione della password self-service di Azure AD a un ambiente Active Directory locale. Se si intente continuare con questa serie di esercitazioni per configurare il writeback delle password, non disabilitare la reimpostazione della password self-service adesso.
+In un'esercitazione successiva di questa serie viene configurato il writeback delle password. Questa funzionalità consente di eseguire il writeback delle modifiche delle password dalla reimpostazione della password self-service di Azure AD a un ambiente Active Directory locale. Se si intende continuare con questa serie di esercitazioni per configurare il writeback delle password, non disabilitare la reimpostazione della password self-service adesso.
 
-Se non si intente usare più la funzionalità di reimpostazione della password self-service configurata come parte di questa esercitazione, impostare lo stato della reimpostazione della password self-service su **Nessuna** con la procedura seguente:
+Se non si intende usare più la funzionalità di reimpostazione della password self-service configurata come parte di questa esercitazione, impostare lo stato della reimpostazione della password self-service su **Nessuna** con la procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare e selezionare **Azure Active Directory**, quindi scegliere **Reimpostazione password** dal menu a sinistra.

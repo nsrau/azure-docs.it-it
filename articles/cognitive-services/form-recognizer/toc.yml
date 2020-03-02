@@ -1,6 +1,7 @@
 - name: Documentazione di Riconoscimento modulo
   href: index.yml
 - name: Panoramica
+  expanded: true
   items:
     - name: Informazioni su Riconoscimento modulo
       href: overview.md
@@ -45,6 +46,8 @@
   items:
     - name: Creare un set di dati di training
       href: build-training-data-set.md
+    - name: Distribuire lo strumento di etichettatura di esempio
+      href: deploy-label-tool.md
     - name: Usare i contenitori
       items:
         - name: Installare ed eseguire i contenitori

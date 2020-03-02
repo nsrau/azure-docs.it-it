@@ -181,6 +181,8 @@
           href: display-feature-information-android.md
         - name: Aggiungere un livello per i riquadri
           href: how-to-add-tile-layer-android-map.md
+        - name: Visualizzare i dati sul traffico
+          href: how-to-show-traffic-android.md
     - name: Inviare commenti e suggerimenti sui dati
       href: how-to-use-feedback-tool.md
 - name: Informazioni di riferimento

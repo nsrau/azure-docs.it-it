@@ -504,6 +504,8 @@
           href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
     - name: Esercitazioni
       items:
+        - name: Creare un cluster Apache Kafka - Interfaccia della riga di comando di Azure
+          href: ./kafka/tutorial-cli-rest-proxy.md
         - name: Usare l'API Apache Kafka per producer e consumer
           href: ./kafka/apache-kafka-producer-consumer-api.md
         - name: Sviluppare app con l'API Apache Kafka Streams
@@ -548,8 +550,6 @@
               href: ./kafka/apache-kafka-mirroring.md
             - name: Analizzare i log di Apache Kafka
               href: ./kafka/apache-kafka-log-analytics-operations-management.md
-            - name: Bring Your Own Key
-              href: ./kafka/apache-kafka-byok.md
             - name: Autenticazione e crittografia SSL
               href: ./kafka/apache-kafka-ssl-encryption-authentication.md
         - name: Risolvere problemi
@@ -824,7 +824,7 @@
           href: ./hdinsight-management-ip-addresses.md
         - name: Tag di servizio per Firewall di Azure
           href: ./hdinsight-service-tags.md
-        - name: Crittografia del disco con chiavi gestite dal cliente
+        - name: Crittografia dischi con chiavi gestite dal cliente
           href: ./disk-encryption.md
         - name: Sincronizzazione LDAP in Ranger e Apache Ambari
           href: ./domain-joined/ldap-sync.md
