@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 635a66f0275d4df4f858bff61be80900dc58c6fb
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 2e5b01a271eb290229904fc98d1268760e01620d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164475"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208883"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari nel database di Azure per PostgreSQL-server singolo
 
@@ -48,7 +48,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Tipo di archiviazione | Archiviazione di base | Archiviazione per utilizzo generico | Archiviazione per utilizzo generico |
 | Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | da 5 GB a 16 TB | da 5 GB a 16 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
+| IOPS | Variable |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!NOTE]
 > Lo spazio di archiviazione fino a 16TB e 20.000 IOPS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale , Corea meridionale, Australia orientale, Australia sud-orientale.
@@ -67,7 +67,7 @@ Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo.
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 
-I server con meno di 10 GB di spazio di archiviazione di cui è stato effettuato il provisioning sono contrassegnati come di sola lettura se lo spazio di archiviazione disponibile è inferiore a 512 MB delle dimensioni di archiviazione con provisioning. I server con una risorsa di archiviazione con provisioning inferiore a 100 GB sono contrassegnati come di sola lettura se lo spazio di archiviazione disponibile è inferiore al 5% delle dimensioni di archiviazione di cui è stato effettuato il provisioning. I server con più di 100 GB di spazio di archiviazione con provisioning sono contrassegnati come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 5 GB.
+I server con una risorsa di archiviazione con provisioning inferiore a 100 GB sono contrassegnati come di sola lettura se lo spazio di archiviazione disponibile è inferiore a 512 MB o 5% delle dimensioni di archiviazione con provisioning. I server con più di 100 GB di spazio di archiviazione con provisioning sono contrassegnati come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 5 GB.
 
 Se, ad esempio, è stato effettuato il provisioning di 110 GB di spazio di archiviazione e l'utilizzo effettivo supera 105 GB, il server è contrassegnato come di sola lettura. In alternativa, se è stato effettuato il provisioning di 5 GB di spazio di archiviazione, il server è contrassegnato come di sola lettura quando lo spazio di archiviazione disponibile è inferiore a 512 MB.
 
@@ -100,7 +100,7 @@ Quando si modifica il numero di vCore, la generazione dell'hardware o il piano t
 
 Il ridimensionamento dello spazio di archiviazione e la modifica del periodo di conservazione dei backup sono realmente operazioni online. Non si registrano tempi di inattività e l'applicazione non viene influenzata. Le operazioni di I/O al secondo vengono ridimensionate in funzione dello spazio di archiviazione sottoposto a provisioning, quindi è possibile aumentare le operazioni di I/O al secondo disponibili per il server aumentando lo spazio di archiviazione.
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
 Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/PostgreSQL/). Per informazioni sui costi della configurazione desiderata, consultare la scheda [Piano tariffario](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) del **portale di Azure** che illustra il costo mensile in base alle opzioni selezionate. Se non è disponibile una sottoscrizione di Azure, è possibile usare il calcolatore dei prezzi di Azure per ottenere una stima. Passare al sito Web del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/), selezionare **Aggiungi elementi**, espandere la categoria **Database** e scegliere **Database di Azure per PostgreSQL** per personalizzare le opzioni.
 

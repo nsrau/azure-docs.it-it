@@ -28,7 +28,7 @@ In questa guida introduttiva si apprende come:
 - Scaricare i dati dell'analisi dei costi
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 L'analisi dei costi supporta diversi tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Per visualizzare i dati relativi ai costi, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
 
@@ -62,7 +62,7 @@ La visualizzazione dell'analisi dei costi iniziale include le aree seguenti.
 
 ### <a name="understand-forecast"></a>Informazioni sulle previsioni
 
-La previsione dei costi mostra una proiezione dei costi stimati per il periodo di tempo selezionato. Il modello è basato su un modello di regressione della serie temporale. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per un dato periodo di tempo, il modello di previsione richiede le stesse parti dei dati di training per il periodo di previsione. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
+La previsione dei costi mostra una proiezione dei costi stimati per il periodo di tempo selezionato. Il modello è basato su un modello di regressione della serie temporale. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per poter eleborare un modello di previsione per un determinato periodo di tempo, è necessario disporre di dati di training relativi a un periodo di tempo della stessa durata. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
 
 Il modello usa un massimo di sei mesi di dati di training per proiettare i costi per un anno. Ha bisogno di almeno sette giorni di dati di training per modificare la stima. La stima è basata su modifiche notevoli, come picchi e flessioni, nei modelli di costo e utilizzo. La previsione non genera singole proiezioni per ogni elemento nelle proprietà **Raggruppa per**. Fornisce solo una previsione per i costi totali accumulati. Se si usano più valute, il modello fornisce previsioni per i costi solo in USD.
 
@@ -71,7 +71,7 @@ Il modello usa un massimo di sei mesi di dati di training per proiettare i costi
 
 Per l'analisi dei costi sono disponibili quattro visualizzazioni predefinite, ottimizzate per gli obiettivi più comuni:
 
-Visualizza | Risponde a domande di questo tipo
+Visualizzazione | Risponde a domande di questo tipo
 --- | ---
 Costi accumulati | Quali sono state finora le spese in questo mese? Il budget verrà rispettato?
 Costi giornalieri | Si sono verificati aumenti dei costi giornalieri negli ultimi 30 giorni?

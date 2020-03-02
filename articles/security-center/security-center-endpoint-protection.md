@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552934"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208543"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valutazione e raccomandazioni di Endpoint Protection nel centro sicurezza di Azure
 
-Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni [supportate](security-center-services.md#supported-endpoint-protection-solutions-) delle soluzioni di Endpoint Protection. Questo articolo illustra gli scenari in cui il Centro sicurezza genera le due raccomandazioni seguenti:
+Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni [supportate](security-center-services.md#endpoint-supported) delle soluzioni di Endpoint Protection. Questo articolo illustra gli scenari in cui il Centro sicurezza genera le due raccomandazioni seguenti:
 
 * **Installare soluzioni Endpoint Protection nella macchina virtuale**
 * **Risolvere i problemi di integrità di Endpoint Protection nei computer**
@@ -79,7 +79,7 @@ Il Centro sicurezza di Azure fornisce valutazioni dell'integrità delle versioni
     
             **AntivirusSignatureAge**
 
-## <a name="trend-micro"></a>Trend Micro
+## <a name="trend-micro"></a>Tendenza Micro
 
 * Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nella macchina virtuale"** quando uno dei seguenti controlli non viene soddisfatto:
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent** esiste
@@ -92,13 +92,13 @@ Il Centro sicurezza consiglia **di "installare soluzioni Endpoint Protection nel
 
 * **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Oppure
 
 * **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoint Protection nei computer"** quando uno dei seguenti controlli non viene soddisfatto:
 
@@ -175,7 +175,7 @@ Il Centro sicurezza consiglia **di "risolvere i problemi di integrità di Endpoi
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risoluzione dei problemi
 
 I log dell'estensione Microsoft antimalware sono disponibili all'indirizzo: **%SystemDrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (o PaaSAntimalware) \1.5.5.x (versione #) \CommandExecution.log**
 

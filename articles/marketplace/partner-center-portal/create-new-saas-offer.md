@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/22/2020
-ms.openlocfilehash: 4cac2fcd16f779a6b31e36ca175801eedaa31d5d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.date: 02/28/2020
+ms.openlocfilehash: 9d06b34b459bf1d48aa293a889af57fb6192015d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705820"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208866"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -44,7 +44,7 @@ Esempio: test-offer-1
 
 <br>Esempio: offerta di test 1&#8482;
 
-Selezionare **Create** (Crea).  Viene creata una pagina di **Panoramica dell'offerta** per questa offerta.  
+Selezionare **Crea**.  Viene creata una pagina di **Panoramica dell'offerta** per questa offerta.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -119,7 +119,7 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure AD per automatizzare la creazione di account nell'app. Gli account Microsoft (MSA) non sono supportati per l'autenticazione con questo token.
 
-##### <a name="contact-me"></a>Contattami
+##### <a name="contact-me"></a>Contact me (Contattami)
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Elenco di offerte del Marketplace di esempio
@@ -134,16 +134,7 @@ Un test drive è un ottimo modo per presentare l'offerta ai potenziali clienti o
 
 Abilitando test drive, verrà richiesto di configurare un ambiente dimostrativo per consentire ai clienti di provare l'offerta per un periodo di tempo fisso. 
 
-### <a name="type-of-test-drive"></a>Tipo di test drive
-
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : modello di distribuzione che contiene tutte le risorse di Azure che costituiscono la soluzione. I prodotti che soddisfano questo scenario usano solo le risorse di Azure.
-- **[Dynamics 365 for business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft ospita e gestisce il servizio di test drive (inclusi il provisioning e la distribuzione) per un sistema di pianificazione delle risorse aziendali centrale (finanza, operazioni, supply chain, CRM e così via).  
-- **[Dynamics 365 per il coinvolgimento dei clienti](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft ospita e gestisce il servizio test drive (inclusi il provisioning e la distribuzione) per un sistema di engagement dei clienti (vendite, servizio, servizio del progetto, servizio campo e così via).  
-- **[Dynamics 365 per le operazioni](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft ospita e gestisce il servizio test drive (inclusi il provisioning e la distribuzione) per un sistema di pianificazione delle risorse aziendali finanziarie e operative (finanza, operazioni, produzione, supply chain e così via). 
-- **[App](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** per la logica: modello di distribuzione che comprende tutte le architetture di soluzioni complesse. Tutti i prodotti personalizzati devono usare questo tipo di test drive.
-- **[Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : un collegamento incorporato a un dashboard personalizzato. I prodotti che vogliono dimostrare un oggetto visivo Power BI interattivo devono usare questo tipo di test drive. È sufficiente caricare l'URL di Power BI incorporato qui.
-
-#### <a name="additional-test-drive-resources"></a>Risorse test drive aggiuntive
+#### <a name="test-drive-resources"></a>Risorse di test drive
 - [Procedure consigliate tecniche di test drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Procedure consigliate di marketing di test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Panoramica di test drive un cercapersone](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
@@ -165,7 +156,7 @@ La scheda **Proprietà** richiede di definire le categorie e i settori usati per
 
 Selezionare **Salva** dopo aver completato questi campi.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare almeno uno (1) e un massimo di tre (3) categorie utilizzate per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Come l'offerta supporta queste categorie nella descrizione dell'offerta.
 
@@ -212,7 +203,7 @@ Per gli editori di Marketplace commerciali sono disponibili due tipi di modifich
 - **ID tenant** (obbligatorio): ogni modifica personalizzata può essere destinata a un massimo di 20 ID tenant. Se si aggiunge una rettifica personalizzata, è necessario specificare almeno un ID tenant. L'ID tenant identifica il cliente in Azure. È possibile chiedere al cliente questo ID e trovarlo passando a portal.azure.com > Azure Active Directory > Proprietà. Il valore di ID directory è l'ID tenant (ad esempio, 50c464d3-4930-494c-963C-1e951d15360e). È anche possibile cercare l'ID tenant dell'organizzazione del cliente usando l'URL del nome di dominio in cui [si trova il Microsoft Azure e l'ID tenant di Office 365?](https://www.whatismytenantid.com).
 - **Descrizione** (facoltativo): specificare facoltativamente una descrizione per l'ID tenant che consente di identificare il cliente di destinazione con la modifica.
 
-#### <a name="terms-and-conditions"></a>Condizioni
+#### <a name="terms-and-conditions"></a>Termini e condizioni
 
 Se si desidera fornire termini e condizioni personalizzati, è possibile scegliere di immetterli nel campo termini e condizioni. In questo campo è possibile immettere fino a 10.000 caratteri di testo. Se i termini e le condizioni richiedono una descrizione più lunga, immettere un solo collegamento URL in questo campo in cui è possibile trovare i termini e le condizioni. Verrà visualizzato come collegamento attivo ai clienti.
 
@@ -234,7 +225,7 @@ Fornire i dettagli da visualizzare nel Marketplace, incluse le descrizioni dell'
 - **Nome** (obbligatorio): il nome definito qui verrà visualizzato come titolo dell'inserzione dell'offerta nei Marketplace scelti. Il nome viene prepopolato in base alla **nuova** voce dell'offerta precedente. Il nome può essere marchiato. Non può contenere Emoji (a meno che non siano il marchio e i simboli di copyright) e deve essere limitato a 50 caratteri.
 - **Riepilogo** (obbligatorio): fornire una breve descrizione dell'offerta da usare nei risultati della ricerca nell'elenco dei Marketplace. In questo campo è possibile immettere fino a 100 caratteri di testo.
 - **Descrizione** (obbligatoria): fornire una descrizione dell'offerta da visualizzare nella panoramica degli annunci del Marketplace. Si consiglia di includere una proposta di valore, i vantaggi principali, le associazioni di categoria o di settore, le opportunità di acquisto in-app, le divulgazioni richieste e un collegamento per ottenere ulteriori informazioni.
-In questo campo è possibile immettere fino a 3.000 caratteri di testo. Per altri suggerimenti, vedere l'articolo [scrivere un'ottima descrizione dell'app](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+In questo campo è possibile immettere fino a 3.000 caratteri di testo, incluso il markup. Per altri suggerimenti, vedere l'articolo [scrivere un'ottima descrizione dell'app](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Parole chiave di ricerca**: immettere fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta nel Marketplace.
 - **Istruzioni introduttive** (obbligatorio): spiegare come configurare e iniziare a usare l'app per i potenziali clienti.  Questa Guida introduttiva può contenere collegamenti a documentazione online più dettagliata. In questo campo è possibile immettere fino a 3.000 caratteri di testo.
 
@@ -277,7 +268,7 @@ Utilizzare le istruzioni seguenti per utilizzare l'editor di testo RTF:
 - **Materiali di marketing del programma CSP** (facoltativo): fornire un collegamento ai materiali di marketing se si sceglie di estendere l'offerta al programma [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP estende l'offerta a una gamma più ampia di clienti qualificati, permettendo ai partner CSP di aggregare, commercializzare e rivendere l'offerta. Questi rivenditori dovranno avere accesso ai materiali per il marketing dell'offerta. Per ulteriori informazioni, vedere la pagina relativa ai [Servizi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
 - **Collegamenti utili** (facoltativo): documenti online supplementari facoltativi sull'app o sui servizi correlati elencati fornendo un **titolo** e un **URL**. Aggiungere altri collegamenti utili facendo clic su **+ Aggiungi URL**.
 
-#### <a name="contact-information"></a>Informazioni di contatto
+#### <a name="contact-information"></a>Informazioni contatto
 
 - **Contatti**: per ogni contatto del cliente, fornire un **nome**di dipendente, un **numero di telefono**e un indirizzo di **posta elettronica** .  (Questi *non verranno* visualizzati pubblicamente). Per il gruppo di **contatti di supporto** è necessario anche un **URL di supporto** .  (Queste informazioni *verranno* visualizzate pubblicamente).
 
@@ -290,7 +281,7 @@ Utilizzare le istruzioni seguenti per utilizzare l'editor di testo RTF:
 #### <a name="files-and-images"></a>File e immagini
 
 - **Documenti** (obbligatorio): aggiungere i documenti di marketing correlati per l'offerta in formato PDF, specificando almeno uno (1) e un massimo di tre (3) documenti per ogni offerta.
-- **Immagini** (facoltativo): sono presenti più posizioni in cui le immagini del logo dell'offerta possono apparire in tutti i Marketplace, richiedendo le dimensioni seguenti: dimensioni ridotte: 48 x 48 pixel _(obbligatorio),_ medio: 90 x 90 pixel, grandi: 216 x 216 pixel _(obbligatorio),_ Wide: 255 x 115 pixel e Hero: 815 x 290 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
+- **Immagini** (facoltativo): sono presenti più posizioni in cui le immagini del logo dell'offerta possono essere visualizzate in tutti i Marketplace, richiedendo le dimensioni seguenti: Small: 48 x 48 pixel _(obbligatorio),_ Medium: 90 x 90 pixel _(obbligatorio)_ , large: 216 x 216 pixel _(obbligatorio),_ Wide: 255 x 115 pixel e Hero: 815 x 290 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
 - **Screenshot** (obbligatorio): aggiungere screenshot che dimostrano l'offerta. È possibile aggiungere un massimo di cinque (5) schermate e dimensionarle a 1280 x 720 pixel. Tutte le immagini devono essere presenti in. Formato PNG.
 - **Video** (facoltativo): aggiungere collegamenti a video che illustrano l'offerta. È possibile usare collegamenti a video di YouTube e/o Vimeo che vengono visualizzati insieme all'offerta ai clienti. Sarà inoltre necessario immettere un'immagine di anteprima del video, ridimensionata a 1280 x 720 pixel in formato PNG. È possibile visualizzare un massimo di quattro video per ogni offerta.
 
@@ -389,7 +380,7 @@ Ogni piano deve essere disponibile in almeno un mercato. Selezionare la casella 
 
 Se sono già stati impostati i prezzi per il piano in Stati Uniti dollari (USD) e si aggiunge un altro percorso di mercato, il prezzo del nuovo mercato verrà calcolato in base ai tassi di cambio correnti. Prima di pubblicare il prezzo di ogni mercato, è sempre necessario esaminarlo. I prezzi possono essere esaminati tramite il collegamento "Esporta prezzi (xlsx)" dopo aver salvato le modifiche.
 
-#### <a name="pricing"></a>Prezzi
+#### <a name="pricing"></a>Pricing
 
 - **Modello di determinazione prezzi**: tariffa fissa o basata su postazione
 
@@ -406,7 +397,7 @@ Selezionare la frequenza con cui i clienti devono pagare il prezzo elencato. È 
 - **Prezzo**: USD al mese o USD all'anno
 
 I prezzi impostati nella valuta locale (USD = Stati Uniti dollaro) vengono convertiti nella valuta locale di tutti i mercati selezionati usando i tassi di cambio correnti disponibili durante l'installazione. Convalidare questi prezzi prima della pubblicazione esportando il foglio di calcolo dei prezzi e esaminando il prezzo in ogni mercato. Se si desidera impostare prezzi personalizzati in un singolo mercato, modificare e importare il foglio di calcolo dei prezzi. L'utente è responsabile della convalida dei prezzi ed è proprietario di queste impostazioni.
-*\*È innanzitutto necessario salvare le modifiche ai prezzi per consentire l'esportazione dei dati dei prezzi.*
+*\*è necessario prima salvare le modifiche ai prezzi per consentire l'esportazione dei dati sui prezzi.*
 
 Esaminare attentamente i prezzi prima della pubblicazione, in quanto esistono alcune restrizioni su cosa può cambiare dopo la pubblicazione di un piano:
 

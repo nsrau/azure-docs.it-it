@@ -5,23 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 12/13/2019
+ms.date: 02/27/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a0ecb4f5fe54e9895898156893c1e686c6cc24e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e02de4ee9c36f9c3f0c27bc02ee1c37ce3e4057c
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392383"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78208219"
 ---
-La tabella seguente descrive i limiti predefiniti per gli account di archiviazione BLOB V1, V2 e per utilizzo generico di Azure. Il limite di *ingresso* si riferisce a tutti i dati delle richieste inviate a un account di archiviazione. Il limite in *uscita* fa riferimento a tutti i dati delle risposte ricevute da un account di archiviazione.
+La tabella seguente descrive i limiti predefiniti per gli account di archiviazione BLOB V1, V2 e per utilizzo generico di Azure. Il limite di *ingresso* si riferisce a tutti i dati inviati a un account di archiviazione. Il limite di *uscita* si riferisce a tutti i dati ricevuti da un account di archiviazione.
 
-| Gruppi | Limite predefinito |
+| Resource | Limite predefinito |
 | --- | --- |
 | Numero di account di archiviazione per ogni area per ogni sottoscrizione, inclusi gli account sia Standard che Premium | 250 |
-| Capacità massima dell'account di archiviazione | 2 PiB per Stati Uniti ed Europa e 500 TiB per tutte le altre aree (incluso il Regno Unito)<sup>1</sup>|
-| Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione | Senza limiti |
+| Capacità massima dell'account di archiviazione | 5 PiB <sup>1</sup>|
+| Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione | Nessun limite |
 | Frequenza massima di richieste<sup>1</sup> per account di archiviazione | 20.000 richieste al secondo |
 | Ingresso massimo<sup>1</sup> per account di archiviazione (aree Stati Uniti, Europa) | 25 Gbps |
 | Ingresso massimo<sup>1</sup> per account di archiviazione (aree diverse da Stati Uniti ed Europa) | 5 Gbps se RA-GRS/GRS è abilitata, 10 Gbps per con ridondanza locale/ZRS<sup>2</sup> |
@@ -31,7 +31,7 @@ La tabella seguente descrive i limiti predefiniti per gli account di archiviazio
 | Numero massimo di regole di rete virtuale per account di archiviazione | 200 |
 | Numero massimo di regole di indirizzi IP per account di archiviazione | 200 |
 
-<sup>1</sup> Gli account standard di archiviazione di Azure supportano limiti di capacità superiori e limiti più elevati per il traffico in ingresso per richiesta. Per richiedere un incremento dei limiti di archiviazione per il traffico in ingresso, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Per altre informazioni, vedere [Annuncio di account di archiviazione di dimensioni maggiori a scalabilità più elevata](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+<sup>1</sup> Gli account standard di archiviazione di Azure supportano limiti di capacità superiori e limiti più elevati per il traffico in ingresso per richiesta. Per richiedere un incremento dei limiti di archiviazione per il traffico in ingresso, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> se per l'account di archiviazione è abilitato l'accesso in lettura con archiviazione con ridondanza geografica (RA-GRS) o archiviazione con ridondanza della zona geografica (RA-GZRS), le destinazioni in uscita per la posizione secondaria sono identiche a quelle della posizione primaria. Le opzioni di [replica di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) includono:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 6a999df6daf2fde5133143fe9b22a65d628ecfb2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b3e110766b2e131330f3108b7938e9e5e01e48a4
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663948"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208560"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configurazione della chiave gestita dal cliente di monitoraggio di Azure 
 
@@ -184,7 +184,7 @@ Authorization: Bearer <token>
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principal-Id"
+    "principalId": "principal-id"
     },
   "properties": {
     "provisioningState": "Succeeded",
@@ -198,10 +198,10 @@ Authorization: Bearer <token>
   }
 ```
 
-"principalId" è un GUID generato dal servizio di gestione delle identità gestito per la risorsa *cluster* .
+"Principal-ID" è un GUID generato dal servizio di gestione delle identità gestito per la risorsa *cluster* .
 
 > [!IMPORTANT]
-> Copiare e salvare il valore "cluster-ID" poiché sarà necessario nei passaggi successivi.
+> Copiare e salvare il valore "Principal-ID" poiché sarà necessario nei passaggi successivi.
 
 
 ### <a name="grant-key-vault-permissions"></a>concedere autorizzazioni Key Vault
@@ -213,7 +213,7 @@ Aggiornare la Key Vault con i nuovi criteri di accesso che concedono le autorizz
 Aprire il Key Vault in portale di Azure e fare clic su "criteri di accesso" e quindi su "+ Aggiungi criteri di accesso" per creare un nuovo criterio con le impostazioni seguenti:
 
 - Autorizzazioni per le chiavi: selezionare le autorizzazioni "Get", "wrap Key" e "Unwrap Key".
-- Seleziona entità: immettere il valore di ID cluster restituito nella risposta nel passaggio precedente.
+- Seleziona entità: immettere il valore dell'ID entità restituito nella risposta nel passaggio precedente.
 
 ![concedere autorizzazioni Key Vault](media/customer-managed-keys/grant-key-vault-permissions.png)
 
@@ -528,10 +528,10 @@ L'identità viene assegnata alla risorsa *cluster* al momento della creazione.
   "location": "region-name"
 }
 ```
-"principalId" è un GUID generato dal servizio di gestione delle identità gestito.
+"ID-principio" è un GUID generato dal servizio di gestione delle identità gestito.
 
 > [!IMPORTANT]
-> Copiare e salvare il valore "cluster-ID" poiché sarà necessario nei passaggi successivi.
+> Copiare e mantenerne il valore perché sarà necessario nei passaggi successivi.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associare un componente a una risorsa *cluster* usando i [componenti-crea o aggiorna](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 

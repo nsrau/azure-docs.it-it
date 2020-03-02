@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare i metodi di autenticazione e le opzioni di registrazione
 > * Testare il processo di reimpostazione della password self-service come utente
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 

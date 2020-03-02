@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 39e2deead1affd750d9a5e68985b02ebfe8e0efd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921301"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208819"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -36,7 +36,6 @@ Per un ambiente Azure attivato in una sottoscrizione di Azure, il Centro sicurez
 > [!NOTE]
 > Per ricevere il set completo di funzionalità di sicurezza, è necessario che l' [agente di log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), usato dal centro sicurezza di Azure, sia installato e [configurato correttamente per l'invio di dati al centro sicurezza di Azure](security-center-enable-data-collection.md#manual-agent).
 
-
 Le sezioni seguenti elencano i sistemi operativi server supportati in cui è possibile eseguire l' [agente di log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), usato dal centro sicurezza di Azure.
 
 ### Sistemi operativi Windows Server<a name="os-windows"></a>
@@ -45,7 +44,7 @@ Le sezioni seguenti elencano i sistemi operativi server supportati in cui è pos
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
-|Windows Server 2012 R2|✔|✔|
+|Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
 Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Windows, elencate in precedenza, vedere [funzionalità supportate di macchine virtuali/server](security-center-services.md#vm-server-features).
@@ -85,38 +84,6 @@ Anche le macchine virtuali vengono create in una sottoscrizione cliente come par
 ### Servizi cloud<a name="cloud-services"></a>
 
 Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
-
-## Servizi PaaS<a name="paas-services"></a>
-
-Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
-
-* SQL
-* PostGreSQL
-* MySQL
-* Cosmos DB
-* Account di archiviazione
-* Servizio app
-* Funzione
-* Servizio cloud
-* VNet
-* Subnet
-* NIC
-* NSG
-* Account Batch
-* Account di Service Fabric
-* Account di Automazione
-* Bilanciamento del carico
-* Ricerca
-* Spazio dei nomi del bus di servizio
-* Analisi dei flussi
-* Spazio dei nomi dell'hub eventi
-* App per la logica
-* Redis
-* Data Lake Analytics
-* Data Lake Store
-* Insieme di credenziali delle chiavi
-
-Per altre informazioni sulle funzionalità supportate per l'elenco precedente di risorse PaaS, vedere [funzionalità supportate di PaaS Services](security-center-services.md#paas-services).
 
 È supportata anche la protezione per le macchine virtuali che risiedono in Azure Stack. Per ulteriori informazioni sull'integrazione del Centro sicurezza con Azure Stack, vedere [onboarding the Azure stack Virtual Machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 

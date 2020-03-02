@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 870d6f8441bf395ba0c02dccf8f3d1c6434410c6
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013931"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78208228"
 ---
 ## <a name="limitations"></a>Limitazioni
 
@@ -89,7 +89,7 @@ Per ulteriori informazioni, vedere la pagina relativa alle [quote vCPU per le ma
 
 La versione di valutazione gratuita e gli abbonamenti MSDN non hanno una quota per gli host dedicati di Azure.
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
 Gli utenti vengono addebitati in base all'host dedicato, indipendentemente dal numero di macchine virtuali distribuite. Nell'istruzione mensile viene visualizzato un nuovo tipo di risorsa fatturabile degli host. Le macchine virtuali in un host dedicato verranno comunque visualizzate nell'istruzione, ma con un prezzo pari a 0.
 
@@ -98,6 +98,8 @@ Il prezzo dell'host viene impostato in base alla famiglia di VM, al tipo (hardwa
 L'utilizzo di licenze software, archiviazione e rete viene fatturato separatamente dall'host e dalle macchine virtuali. Non sono state apportate modifiche a tali elementi fatturabili.
 
 Per altre informazioni, vedere [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing).
+
+È anche possibile risparmiare sui costi con un'istanza riservata di host dedicati di Azure] (.. /articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
 ## <a name="vm-families-and-hardware-generations"></a>Gruppi di macchine virtuali e generazioni hardware
 
@@ -115,7 +117,7 @@ Gli host dedicati supportano i SKU\types host seguenti: DSv3_Type1 e ESv3_Type1
 
 Azure monitora e gestisce lo stato di integrità degli host. Quando si esegue una query sull'host, verranno restituiti gli Stati seguenti:
 
-| Stato di integrità   | Description       |
+| Stato di integrità   | Descrizione       |
 |----------|----------------|
 | Host disponibile     | Nessun problema noto con l'host.   |
 | Host sottoposto a indagine  | Si sono verificati problemi con l'host che si sta cercando. Si tratta di uno stato di transizione necessario per consentire ad Azure di provare e identificare l'ambito e la causa radice del problema identificato. Le macchine virtuali in esecuzione nell'host potrebbero essere interessate. |
