@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 6ad583fdb880e36e6ac9c2dfda56bb68378ea598
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314003"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206708"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
@@ -27,7 +27,7 @@ Informazioni su come usare le azioni script per aggiungere altri *account* di ar
 * Nome e chiave dell'account di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-keys-manage.md).
 * Se si usa PowerShell, è necessario il modulo AZ.  Vedere [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Durante l'elaborazione, lo script esegue le azioni seguenti:
 
@@ -44,9 +44,9 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 > [!WARNING]  
 > L'uso di un account di archiviazione in una località diversa rispetto al cluster HDInsight non è supportato.
 
-## <a name="add-storage-account"></a>Aggiungere l’account di archiviazione
+## <a name="add-storage-account"></a>Aggiunta di un account di archiviazione
 
-Usare l' [azione script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) per applicare le modifiche con le considerazioni seguenti:
+Usare l' [azione script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) per applicare le modifiche con le considerazioni seguenti:
 
 |Proprietà | Valore |
 |---|---|

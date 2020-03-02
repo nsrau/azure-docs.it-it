@@ -1,15 +1,15 @@
 ---
-title: Aggiornare le proprietà di configurazione dell'insieme di credenziali di servizi di ripristino usando l'API
+title: Aggiornare la configurazione dell'insieme di credenziali di servizi di ripristino con API REST
 description: Questo articolo illustra come aggiornare la configurazione dell'insieme di credenziali tramite l'API REST.
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390547"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204498"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aggiornare le configurazioni dell'insieme di credenziali di servizi di ripristino di Azure usando l'API
 
@@ -43,9 +43,9 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 La risposta corretta per l'operazione ' GET ' è illustrata di seguito:
 
-|Nome  |Tipo  |Description  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
-|200 - OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Risposta di esempio
 
@@ -83,11 +83,11 @@ Per creare un corpo della richiesta vengono usate le seguenti definizioni comuni
 
 Per altri dettagli, vedere [la documentazione dell'API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
 
-|Nome  |Obbligatorio  |Tipo  |Description  |
+|Name  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
-|eTag     |         |   string      |  eTag facoltativo       |
-|posizione     |  true       |string         |   Posizione risorsa      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
+|eTag     |         |   String      |  eTag facoltativo       |
+|posizione     |  true       |String         |   Posizione risorsa      |
+|connessione     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |tags     |         | Oggetto        |     Tag delle risorse    |
 
 #### <a name="example-request-body"></a>Esempio di corpo della richiesta
@@ -107,9 +107,9 @@ L'esempio seguente viene usato per aggiornare lo stato di eliminazione temporane
 
 La risposta corretta per l'operazione ' PATCH ' è illustrata di seguito:
 
-|Nome  |Tipo  |Description  |
+|Name  |Type  |Descrizione  |
 |---------|---------|---------|
-|200 - OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Risposta di esempio
 

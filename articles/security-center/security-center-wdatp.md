@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: e735495038f0e5c28af31aa79a45c71225502b3c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918156"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206266"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -109,7 +109,7 @@ Per generare un avviso di test di Microsoft Defender ATP benigno:
 
 3. Se il comando ha esito positivo, verrà visualizzato un nuovo avviso nel dashboard del Centro sicurezza di Azure e nel portale di Microsoft Defender ATP. Possono trascorrere alcuni minuti prima che l'avviso venga visualizzato.
 
-4. Per esaminare l'avviso nel Centro sicurezza, passare a **Avvisi di sicurezza** > **Suspicious Powershell CommandLine** (Riga di comando PowerShell sospetta).
+4. Per esaminare l'avviso nel centro sicurezza, passare a **avvisi di sicurezza** > riga di comando di **PowerShell sospetta**.
 
 5. Nella finestra di analisi selezionare il collegamento per passare al portale di Microsoft Defender ATP.
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77132ae9a10eda7170ac56f2b7c65a3ebcde8d6d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499002"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205025"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -107,7 +107,7 @@ Usare il dispositivo di scorrimento **Durata massima dell'attivazione** per impo
 
 ## <a name="require-approval-to-activate"></a>Richiedere l'approvazione per l'attivazione
 
-Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa procedura.
+Se si imposta più responsabili approvazione, l'approvazione viene completata non appena uno di essi approva o nega. Non è possibile richiedere l'approvazione da almeno due utenti. Per richiedere l'approvazione per l'attivazione di un ruolo, attenersi alla seguente procedura.
 
 1. Selezionare la casella di controllo **Richiedi l'approvazione per l'attivazione**.
 
@@ -163,7 +163,7 @@ Per ulteriori informazioni, vedere [notifiche tramite posta elettronica in Privi
 
 Usare l' **opzione** per richiedere agli amministratori idonei di includere un numero di ticket quando attivano il proprio ruolo. Questa procedura può rendere più efficienti i controlli di accesso ai ruoli.
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 
 Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. È necessario verificarne l'identità una sola volta per ogni sessione, non ogni volta che viene attivato un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1a1b9907cd931716949d92d948a7d541fd2d5057
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420721"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206946"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura
 
@@ -35,7 +35,7 @@ La funzionalità di scalabilità in lettura è abilitata per impostazione predef
 Se si desidera assicurarsi che l'applicazione si connetta alla replica primaria indipendentemente dall'impostazione di `ApplicationIntent` nella stringa di connessione SQL, è necessario disabilitare in modo esplicito la scalabilità in lettura durante la creazione del database o quando si modifica la configurazione. Ad esempio, se si aggiorna il database dal livello standard o per utilizzo generico al livello Premium, business critical o iperscalabile e si vuole assicurarsi che tutte le connessioni continuino a passare alla replica primaria, disabilitare la scalabilità in lettura. Per informazioni dettagliate su come disabilitarlo, vedere [abilitare e disabilitare la scalabilità in lettura](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> Query Data Store, gli eventi estesi, SQL Profiler e le funzionalità di controllo non sono supportati nelle repliche di sola lettura.
+> Query Data Store, gli eventi estesi e le funzionalità di SQL Profiler non sono supportati nelle repliche di sola lettura.
 
 ## <a name="data-consistency"></a>Coerenza dei dati
 
@@ -89,7 +89,7 @@ La scalabilità in lettura è abilitata per impostazione predefinita nei livelli
 > [!NOTE]
 > Per la compatibilità con le versioni precedenti, è disponibile la possibilità di disabilitare la scalabilità in lettura.
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 È possibile gestire l'impostazione di scalabilità in lettura nel pannello **Configura** database.
 

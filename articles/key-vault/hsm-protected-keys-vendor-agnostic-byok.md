@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 9b8f1065660ea8331853f8804e709134fe682ba7
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566115"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207031"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importare chiavi con protezione HSM in Key Vault (anteprima)
 
@@ -45,7 +45,7 @@ Ecco una panoramica del processo. I passaggi specifici da completare sono descri
 * KEK deve trovarsi nello stesso insieme di credenziali delle chiavi in cui verrà importata la chiave di destinazione.
 * Quando il file BYOK viene caricato in Key Vault, un modulo di protezione hardware Key Vault usa la chiave privata KEK per decrittografare il materiale della chiave di destinazione e importarlo come chiave del modulo di protezione hardware. Questa operazione viene eseguita interamente all'interno di un modulo di protezione hardware Key Vault. La chiave di destinazione rimane sempre nel limite di protezione HSM.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 
@@ -90,6 +90,9 @@ La chiave KEK deve essere:
 - generato nello stesso insieme di credenziali delle chiavi in cui si intende importare la chiave di destinazione
 - Creato con operazioni chiave consentite impostate su `import`
 
+> [!NOTE]
+> La chiave KEK deve avere ' Import ' come unica operazione di chiave consentita. ' Import ' si escludono a vicenda con tutte le altre operazioni chiave.
+
 Usare il comando [AZ Key Vault Key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) per creare un KEK con operazioni chiave impostate su `import`. Registrare l'identificatore di chiave (`kid`) restituito dal comando seguente. Il valore `kid` sarà utilizzato nel [passaggio 3](#step-3-generate-and-prepare-your-key-for-transfer).
 
 ```azurecli
@@ -115,7 +118,7 @@ Trasferire il file BYOK nel computer connesso.
 > [!NOTE] 
 > L'importazione di chiavi RSA a 1.024 bit non è supportata. Attualmente, l'importazione di una chiave a curva ellittica (EC) non è supportata.
 > 
-> **Problema noto**: l'importazione di una chiave di destinazione RSA 4K da SafeNet Luna HSM ha esito negativo. Quando il problema viene risolto, questo articolo verrà aggiornato.
+> **Problema noto**: l'importazione di una chiave di destinazione RSA 4K da SafeNet Luna HSM è supportata solo con il firmware 7.4.0 o versione successiva.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Passaggio 4: trasferire la chiave a Azure Key Vault
 

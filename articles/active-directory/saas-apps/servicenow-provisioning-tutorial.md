@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e954de97e6573e330c42915b44bbc0c40abc54d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063246"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205104"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Esercitazione: configurare ServiceNow per il provisioning utenti automatico
 
@@ -35,7 +35,7 @@ Questa esercitazione descrive i passaggi da eseguire sia in ServiceNow che in Az
 > * Effettuare il provisioning di gruppi e appartenenze a gruppi in ServiceNow
 > * [Single Sign-on](servicenow-tutorial.md) per ServiceNow (scelta consigliata)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -142,7 +142,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * **EntryJoiningPropertyValueIsMissing:** Esaminare i [mapping degli attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) per identificare l'attributo corrispondente. Questo valore deve essere presente nell'utente o gruppo di cui si sta tentando di effettuare il provisioning. 
 * Esaminare l' [API SOAP ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) per comprendere eventuali requisiti o limitazioni (ad esempio, formattare per specificare il codice paese per un utente)
 * Per alcune distribuzioni di ServiceNow è necessario consentire gli intervalli IP per il servizio di provisioning Azure AD. Gli intervalli IP riservati per il servizio di provisioning Azure AD sono disponibili [qui](https://www.microsoft.com/download/details.aspx?id=56519) in "AzureActiveDirectoryDomainServices".
-* Il provisioning degli utenti nel cloud per enti pubblici ServiceNow non è attualmente supportato.
+* Per impostazione predefinita, le richieste di provisioning vengono inviate a https://{nome-istanza}. servizio-ora. com/{nome-tabella}. Se è necessario un URL tenant personalizzato, è possibile specificare l'intero URL nel campo nome istanza.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

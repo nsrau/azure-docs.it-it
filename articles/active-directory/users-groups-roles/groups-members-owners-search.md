@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d11f5a9f2de8683365d663e85c275c3729ebf8a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901503"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206113"
 ---
-# <a name="search-groups--and-members-preview-in-azure-active-directory"></a>Cerca in gruppi e membri (anteprima) in Azure Active Directory
+# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Cerca in gruppi e membri (anteprima) in Azure Active Directory
 
 Questo articolo illustra come cercare i membri e i proprietari di un gruppo e come usare i filtri di ricerca come parte dell'anteprima del miglioramento dei gruppi nel portale Azure Active Directory (Azure AD). Sono stati apportati numerosi miglioramenti all'esperienza dei gruppi che consentono di gestire i gruppi, inclusi i membri e i proprietari, in modo rapido e semplice. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -45,7 +45,7 @@ Se si verificano problemi, è possibile tornare all'esperienza legacy selezionan
 
 ## <a name="group-search-and-sorting"></a>Ricerca e ordinamento di gruppi
 
-La ricerca nell'elenco dei gruppi è stata migliorata in modo che, quando è possibile immettere una stringa di ricerca `startswith` , eseguire automaticamente la ricerca di una sottostringa e un elenco di nomi di gruppi. La ricerca della sottostringa viene eseguita solo su parole intere e non include caratteri speciali.
+La ricerca nell'elenco dei gruppi è stata migliorata in modo che, quando è possibile immettere una stringa di ricerca, la ricerca esegua automaticamente un `startswith` e una sottostringa di ricerca nell'elenco di nomi di gruppo. La ricerca della sottostringa viene eseguita solo su parole intere e non include caratteri speciali. La ricerca di sottostringhe distingue tra maiuscole e minuscole.
 
 ![nuove ricerche di sottostringhe nella pagina tutti i gruppi](./media/groups-members-owners-search/groups-search-preview.png)
 

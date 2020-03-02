@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530936"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206980"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Domande frequenti su Apache Kafka in Azure HDInsight
 
@@ -50,7 +50,7 @@ Usando [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>I dati sono crittografati? Posso usare le mie chiavi?
 
-Tutti i messaggi Kafka nei dischi gestiti vengono crittografati con [Azure crittografia del servizio di archiviazione (SSE)](../../storage/common/storage-service-encryption.md). I dati in transito (ad esempio, i dati trasmessi dai client ai broker e viceversa) non sono crittografati per impostazione predefinita. È possibile crittografare tale traffico [configurando SSL autonomamente](./apache-kafka-ssl-encryption-authentication.md). HDInsight consente inoltre di gestire le proprie chiavi per crittografare i dati inattivi. Per altre informazioni, vedere [Bring your own key per Apache Kafka in Azure HDInsight](apache-kafka-byok.md).
+Tutti i messaggi Kafka nei dischi gestiti vengono crittografati con [Azure crittografia del servizio di archiviazione (SSE)](../../storage/common/storage-service-encryption.md). I dati in transito (ad esempio, i dati trasmessi dai client ai broker e viceversa) non sono crittografati per impostazione predefinita. È possibile crittografare tale traffico [configurando SSL autonomamente](./apache-kafka-ssl-encryption-authentication.md). HDInsight consente inoltre di gestire le proprie chiavi per crittografare i dati inattivi. Per ulteriori informazioni, vedere [crittografia del disco della chiave gestita dal cliente](../disk-encryption.md).
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>Ricerca per categorie connettere i client al cluster?
 

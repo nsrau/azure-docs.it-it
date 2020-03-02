@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure crittografate
 description: Viene descritto come eseguire il backup e il ripristino di VM di Azure crittografate con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 3719f26211677a1b726d3c3dc1d217fb58db1fb2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a3976cc83f749b1abe00cef3f5bf867ffbc30ab6
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583175"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206691"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e il ripristino di VM di Azure crittografate
 
@@ -30,7 +30,7 @@ Backup di Azure può eseguire il backup e il ripristino di macchine virtuali di 
 **Gestito** | Sì | Sì
 **Gestito**  | Sì | Sì
 
-- Scopri di più su [Ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)e [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek/).
+- Scopri di più su [Ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)e [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Leggere le [domande frequenti](../security/azure-security-disk-encryption-faq.md) sulla crittografia del disco della macchina virtuale di Azure.
 
 ### <a name="limitations"></a>Limitazioni
@@ -66,7 +66,7 @@ Inoltre, in alcune circostanze potrebbe essere necessario eseguire alcune operaz
 
       ![Pannello Scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. In **criteri di backup** > **scegliere criteri di backup**, selezionare il criterio che si vuole associare all'insieme di credenziali. Fare quindi clic su **OK**.
+5. In **criteri di backup** > **scegliere criteri di backup**, selezionare il criterio che si vuole associare all'insieme di credenziali. Fare quindi clic su **OK**,
     - Un criterio di backup specifica quando vengono eseguiti i backup e per quanto tempo vengono archiviati.
     - I dettagli dei criteri predefiniti vengono elencati nel menu a discesa.
 
@@ -98,7 +98,7 @@ Il backup iniziale viene eseguito in base alla pianificazione, ma è possibile e
 2. In **elementi di backup**fare clic su **macchina virtuale di Azure**.
 3. Nell'elenco elementi di backup fare clic sui **puntini** di sospensione (...).
 4. Fare clic su **Esegui backup ora**.
-5. In **backup ora**usare il controllo calendario per selezionare l'ultimo giorno in cui deve essere mantenuto il punto di ripristino. Fare quindi clic su **OK**.
+5. In **backup ora**usare il controllo calendario per selezionare l'ultimo giorno in cui deve essere mantenuto il punto di ripristino. Fare quindi clic su **OK**,
 6. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 ## <a name="provide-permissions"></a>Fornire le autorizzazioni

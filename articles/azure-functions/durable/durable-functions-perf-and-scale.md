@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486261"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204515"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -220,7 +220,7 @@ Le sezioni successive illustrano gli effetti specifici delle sessioni estese sul
 
 ### <a name="orchestrator-function-replay"></a>Riproduzione delle funzioni dell'agente di orchestrazione
 
-Come accennato in precedenza, le funzioni dell'agente di orchestrazione vengono riprodotte tramite il contenuto della tabella **Cronologia**. Per impostazione predefinita, il codice della funzione dell'agente di orchestrazione viene riprodotto ogni volta che un batch di messaggi viene rimosso da un coda di controllo. Quando sono abilitate le sessioni estese, le istanze della funzione dell'agente di orchestrazione vengono mantenute in memoria più a lungo e i nuovi messaggi possono essere elaborati senza una riproduzione completa
+Come accennato in precedenza, le funzioni dell'agente di orchestrazione vengono riprodotte tramite il contenuto della tabella **Cronologia**. Per impostazione predefinita, il codice della funzione dell'agente di orchestrazione viene riprodotto ogni volta che un batch di messaggi viene rimosso da un coda di controllo. Anche se si usa il fan-out, il modello di fan-in ed è in attesa del completamento di tutte le attività (ad esempio, l'uso di `Task.WhenAll` in .NET o `context.df.Task.all` in JavaScript), saranno presenti Riproduci che si verificano quando i batch delle risposte delle attività vengono elaborati nel tempo. Quando sono abilitate le sessioni estese, le istanze della funzione dell'agente di orchestrazione vengono mantenute in memoria più a lungo e i nuovi messaggi possono essere elaborati senza una riproduzione completa
 
 Il miglioramento delle prestazioni delle sessioni estese è spesso osservato nelle situazioni seguenti:
 

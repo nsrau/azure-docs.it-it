@@ -3,14 +3,14 @@ title: Configurare l'autenticazione di Twitter
 description: Informazioni su come configurare l'autenticazione di Twitter come provider di identità per l'app del servizio app.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 02/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: b5ec17c18cec8053f0732366c0cc5d0c5003e4de
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 794f671b36b5aeb9f19cf5d80e488500cedb1098
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670805"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207141"
 ---
 # <a name="configure-your-app-service-app-to-use-twitter-login"></a>Configurare l'app del servizio app per usare l'account di accesso di Twitter
 
@@ -20,29 +20,28 @@ Questo articolo illustra come configurare app Azure servizio per usare Twitter c
 
 Per completare la procedura descritta in questo articolo, è necessario un account Twitter con un indirizzo di posta elettronica verificato e un numero di telefono. Per creare un nuovo account Twitter, visitare il sito Web all'indirizzo [twitter.com].
 
-## <a name="register"></a>Registrare l'applicazione con Twitter
+## <a name="register"> </a>Registrare l'applicazione con Twitter
 
 1. Accedere al [Azure portal] e passare all'applicazione. Copiare l' **URL**. Verrà usato per configurare l'app Twitter.
-1. Visitare il sito Web degli [sviluppatori Twitter] , accedere con le credenziali dell'account Twitter e selezionare **Crea nuova app**.
-1. Immettere un **nome** e una **Descrizione** per la nuova app. Incollare l' **URL** dell'applicazione nel campo **sito Web** . Nel campo **URL callback** immettere l'URL dell'app del servizio app e aggiungere il percorso `/.auth/login/aad/callback`. Ad esempio `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assicurarsi di usare lo schema HTTPS.
-1. Nella parte inferiore della pagina leggere e accettare le condizioni. Selezionare **crea l'applicazione Twitter**. Verranno visualizzati i dettagli dell'applicazione.
-1. Selezionare la scheda **Impostazioni** , selezionare **Consenti l'uso dell'applicazione per accedere con Twitter**e quindi selezionare **Aggiorna impostazioni**.
+1. Visitare il sito Web degli [sviluppatori Twitter] , accedere con le credenziali dell'account Twitter e selezionare **Crea un'app**.
+1. Immettere il **nome dell'app** e la **Descrizione dell'applicazione** per la nuova app. Incollare l' **URL** dell'applicazione nel campo **URL del sito Web** . Nella sezione **URL di callback** immettere l'URL HTTPS dell'app del servizio app e aggiungere il percorso `/.auth/login/twitter/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Nella parte inferiore della pagina digitare almeno 100 caratteri in **indicare come verrà usata questa app**, quindi selezionare **Crea**. Fare di nuovo clic su **Crea** nella finestra popup. Verranno visualizzati i dettagli dell'applicazione.
 1. Selezionare la scheda **Keys and Access Tokens** .
 
    Prendere nota di questi valori:
-   - Chiave utente (chiave API)
-   - Segreto utente (segreto API)
+   - Chiave API
+   - Chiave privata API
 
    > [!NOTE]
-   > Il segreto consumer è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app.
+   > La chiave privata API è una credenziale di sicurezza importante. Non condividere questo valore con altri né distribuirlo con l'app.
 
-## <a name="secrets"></a>Aggiungere informazioni di Twitter all'applicazione
+## <a name="secrets"> </a>Aggiungere le informazioni di Twitter all'applicazione
 
 1. Passare all'applicazione nella [Azure portal].
 1. Selezionare **impostazioni** > **autenticazione/autorizzazione**e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.
 1. Selezionare **Twitter**.
-1. Incollare i valori `API Key` e `API Secret` ottenuti in precedenza.
-1. Selezionare **OK**.
+1. Incollare i valori `API key` e `API secret key` ottenuti in precedenza.
+1. Scegliere **OK**.
 
    ![Screenshot delle impostazioni di Twitter per app per dispositivi mobili][1]
 

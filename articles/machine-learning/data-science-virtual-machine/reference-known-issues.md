@@ -9,16 +9,16 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
-ms.openlocfilehash: d022b1124146a1e506401e6cee257805e3a38fd3
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526549"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206521"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Problemi noti e risoluzione dei problemi relativi alla Data Science Virtual Machine di Azure
 
-Questo articolo consente di individuare e correggere gli errori o gli errori riscontrati durante l'uso di Azure Data Science Virtual Machine.
+Questo articolo consente di individuare e correggere gli errori o gli errori che potrebbero verificarsi quando si usa il Data Science Virtual Machine di Azure.
 
 ## <a name="python-package-installation-issues"></a>Problemi di installazione dei pacchetti Python
 
@@ -26,17 +26,22 @@ Questo articolo consente di individuare e correggere gli errori o gli errori ris
 
 Utilizzare `sudo pip install` anziché `pip install` quando si installano i pacchetti.
 
-## <a name="disk-encryption-issues"></a>Problemi di crittografia del disco
+## <a name="disk-encryption-issues"></a>Problemi di crittografia dischi
 
 ### <a name="disk-encryption-fails-on-the-ubuntu-dsvm"></a>La crittografia del disco non riesce in Ubuntu DSVM
 
-Crittografia dischi di Azure (ADE) non è attualmente supportata nella DSVM Ubuntu. Come soluzione alternativa, prendere in considerazione la configurazione della [crittografia di archiviazione di Azure con chiavi gestite dal cliente](../../storage/common/storage-encryption-keys-portal.md).
+Crittografia dischi di Azure (ADE) non è attualmente supportata nella DSVM Ubuntu. Come soluzione alternativa, è consigliabile configurare [la crittografia lato server di Azure Managed disks](../../virtual-machines/windows/disk-encryption.md).
 
 ## <a name="tool-appears-disabled"></a>Lo strumento appare disabilitato
 
 ### <a name="hyper-v-does-not-work-on-the-windows-dsvm"></a>Hyper-V non funziona in Windows DSVM
 
-Si tratta di un comportamento previsto, come per le prestazioni di avvio. alcuni servizi sono stati disabilitati. Per abilitare nuovamente, aprire la barra di ricerca in Windows DSVM, digitare "Services", quindi impostare tutti i servizi Hyper-V su "Manual" e impostare "Hyper-V Virtual Machine Management" su "Automatic".
+Hyper-V inizialmente non funziona in Windows è il comportamento previsto. Per le prestazioni di avvio, i servizi sono stati disabilitati. Per abilitare Hyper-V:
+
+1. Aprire la barra di ricerca in Windows DSVM
+1. Digitare "Services",
+1. Impostare tutti i servizi Hyper-V su "Manual"
+1. Impostare "gestione macchine virtuali Hyper-V" su "automatico"
 
 La schermata finale dovrebbe essere simile alla seguente:
 
