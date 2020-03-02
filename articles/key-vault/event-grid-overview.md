@@ -1,21 +1,21 @@
 ---
-title: 'Esercitazione: Monitoraggio di Key Vault con Griglia di eventi di Azure'
-description: 'Esercitazione: Usare Griglia di eventi di Azure per sottoscrivere eventi di Key Vault.'
-services: media-services
+title: Monitoraggio di Key Vault con Griglia di eventi di Azure
+description: Usare Griglia di eventi di Azure per sottoscrivere eventi di Key Vault.
+services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5771af365b763d2152eea4ef4f662e08769b378c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2424fbac3c95c1c60e6ef61cba53e481f4bb478a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133356"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650742"
 ---
-# <a name="tutorial-monitoring-key-vault-with-azure-event-grid-preview"></a>Esercitazione: Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)
+# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)
 
 L'integrazione di Key Vault con Griglia di eventi è attualmente in fase di anteprima. Consente agli utenti di ricevere una notifica quando lo stato di un segreto archiviato nell'insieme di credenziali delle chiavi cambia. Una modifica dello stato è relativa a un segreto che sta per scadere (entro 30 giorni dalla scadenza), un segreto scaduto o un segreto di cui è disponibile una nuova versione. Sono supportate le notifiche per tutti e tre i tipi di segreto (chiave, certificato e segreto).
 
@@ -27,10 +27,10 @@ Griglia di eventi usa le [sottoscrizioni di eventi](../event-grid/concepts.md#ev
 
 Per altre informazioni, vedere [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../event-grid/event-schema-key-vault.md).
 
-> [!NOTE]
-> Gli eventi vengono attivati solo per le versioni dei segreti (tutti e tre i tipi) create dopo l'impostazione della sottoscrizione.
->
-> Per i segreti esistenti è necessario generare nuove versioni.
+> [!WARNING]
+> Gli eventi di notifica vengono attivati solo per le nuove versioni di segreti, chiavi e certificati ed è prima necessario sottoscrivere l'evento nell'insieme di credenziali delle chiavi per ricevere queste notifiche.
+> 
+> Gli eventi di notifica per i certificati verranno ricevuti solo quando il certificato viene automaticamente rinnovato in base ai criteri specificati per il certificato.
 
 ## <a name="practices-for-consuming-events"></a>Procedure consigliate per l'utilizzo di eventi
 

@@ -4,12 +4,12 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: dff01f8bc4a4cf58d1ed503b69a29dadc367fecb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9e601c72395b4910850714460321a83a3113e69
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248823"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649543"
 ---
 ## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>Come il server proxy APIM risponde con certificati SSL nell'handshake TLS
 
@@ -20,7 +20,7 @@ Se il cliente ha uno o più domini personalizzati configurati per il proxy, APIM
 Se il cliente usa invece un client, che non invia l'intestazione [SNI](https://tools.ietf.org/html/rfc6066#section-3), APIM crea le risposte in base alla logica seguente:
 
 * Se il servizio ha un solo dominio personalizzato configurato per il proxy, il certificato predefinito è quello emesso per il dominio personalizzato del proxy.
-* Se il servizio ha più domini personalizzati configurati per il proxy (scenario supportato solo nel livello **Premium**), il cliente può scegliere quale deve essere il certificato predefinito. Per impostare il certificato predefinito, la proprietà [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/createorupdate#hostnameconfiguration) deve essere impostata su true ("defaultSslBinding":"true"). Se il cliente non imposta questa proprietà, il certificato predefinito è quello emesso per il dominio predefinito del proxy ospitato in *.azure-api.net.
+* Se nel servizio sono configurati più domini personalizzati per il proxy (scenario supportato solo nei livelli **Developer** e **Premium**), il cliente può scegliere quale deve essere il certificato predefinito. Per impostare il certificato predefinito, la proprietà [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/createorupdate#hostnameconfiguration) deve essere impostata su true ("defaultSslBinding":"true"). Se il cliente non imposta questa proprietà, il certificato predefinito è quello emesso per il dominio predefinito del proxy ospitato in *.azure-api.net.
 
 ## <a name="support-for-putpost-request-with-large-payload"></a>Supporto per una richiesta PUT/POST con payload di grandi dimensioni
 

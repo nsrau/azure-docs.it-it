@@ -1,18 +1,17 @@
 ---
-title: Esempi di interfaccia della riga di comando di Azure - Configurazione app di Azure | Microsoft Docs
-description: Vengono fornite informazioni sugli script di esempio disponibili per Configurazione app di Azure
+title: Esempi di interfaccia della riga di comando di Azure - Configurazione app di Azure
+description: Informazioni sugli script di esempio disponibili per Configurazione app di Azure
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 02/24/2019
-ms.custom: mvc
-ms.openlocfilehash: 0e559b3aa5d04cfdc2ab1152ae11bd80b9f89415
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/19/2020
+ms.openlocfilehash: a255db3fbce2c111a0a629c01b86cc891d71e803
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899655"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523748"
 ---
 # <a name="azure-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Azure
 

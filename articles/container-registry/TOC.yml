@@ -19,6 +19,8 @@
           href: container-registry-get-started-powershell.md
         - name: Inviare eventi a Griglia di eventi - Interfaccia della riga di comando
           href: container-registry-event-grid-quickstart.md
+        - name: Compilare immagini Java ed eseguirne il push - Interfaccia della riga di comando
+          href: container-registry-java-quickstart.md
     - name: Esercitazioni
       expanded: false
       items:
@@ -149,9 +151,9 @@
               href: container-registry-tutorial-build-task.md
             - name: 2b - Attività in più passaggi in caso di commit del codice
               href: container-registry-tutorial-multistep-task.md
-            - name: 3a- Compilare in caso di aggiornamento dell'immagine di base
+            - name: 3a - Compilare in caso di aggiornamento dell'immagine di base
               href: container-registry-tutorial-base-image-update.md
-            - name: 3b- Compilare in caso di aggiornamento dell'immagine di base privata
+            - name: 3b - Compilare in caso di aggiornamento dell'immagine di base privata
               href: container-registry-tutorial-private-base-image-update.md
             - name: 4 - Compilare in base a una pianificazione
               href: container-registry-tasks-scheduled.md

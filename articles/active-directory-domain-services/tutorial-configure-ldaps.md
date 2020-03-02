@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: a711303b95eb4acb9c226ce052466bf65d15a038
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549449"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612779"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -63,16 +63,16 @@ Il certificato richiesto o creato deve soddisfare i requisiti seguenti. Il domin
 
 * **Autorità di certificazione attendibile** : il certificato deve essere emesso da un'autorità ritenuta attendibile dai computer connessi al dominio gestito tramite accesso LDAP sicuro. Questa autorità può essere un'autorità di certificazione pubblica o globale (enterprise) considerata attendibile da questi computer.
 * **Durata** : il certificato deve essere valido almeno per i 3-6 mesi successivi. L'accesso LDAP sicuro al dominio gestito viene interrotto allo scadere del certificato.
-* **Nome soggetto** : il nome del soggetto nel certificato deve includere il dominio gestito. Ad esempio, se il dominio è denominato *aadds.contoso.com*, il nome del soggetto nel certificato deve essere * *.aadds.contoso.com*.
+* **Nome soggetto** : il nome del soggetto nel certificato deve includere il dominio gestito. Ad esempio, se il dominio è denominato *aaddscontoso.com*, il nome soggetto del certificato deve essere * *.aaddscontoso.com*.
     * Il nome DNS o il nome alternativo del soggetto del certificato deve essere un certificato con caratteri jolly per garantire che il protocollo LDAP sicuro funzioni correttamente con Azure AD Domain Services. I controller di dominio usano nomi casuali e possono essere rimossi o aggiunti per assicurarsi che il servizio rimanga disponibile.
 * **Utilizzo di chiavi**: il certificato deve essere configurato per le *firme digitali* e la *crittografia a chiave*.
 * **Scopo del certificato** : il certificato deve essere valido per l'autenticazione server SSL.
 
-In questa esercitazione verrà creato un certificato autofirmato per LDAP sicuro tramite il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Aprire una finestra di PowerShell come **amministratore** e immettere i comandi seguenti. Sostituire la variabile *$dnsName* con il nome DNS usato dal dominio gestito, ad esempio *aadds.contoso.com*:
+In questa esercitazione verrà creato un certificato autofirmato per LDAP sicuro tramite il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Aprire una finestra di PowerShell come **amministratore** e immettere i comandi seguenti. Sostituire la variabile *$dnsName* con il nome DNS usato dal dominio gestito, ad esempio *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
-$dnsName="aadds.contoso.com"
+$dnsName="aaddscontoso.com"
 
 # Get the current date to set a one-year expiration
 $lifetime=Get-Date
@@ -94,7 +94,7 @@ PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
 
 Thumbprint                                Subject
 ----------                                -------
-959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=aadds.contoso.com
+959BD1531A1E674EB09E13BD8534B2C76A45B3E6  CN=aaddscontoso.com
 ```
 
 ## <a name="understand-and-export-required-certificates"></a>Identificare ed esportare i certificati richiesti
@@ -125,7 +125,7 @@ Per poter usare il certificato digitale creato nel passaggio precedente con il d
 
     ![Aprire l'archivio certificati personale in Microsoft Management Console](./media/tutorial-configure-ldaps/open-personal-store.png)
 
-1. Viene visualizzato il certificato autofirmato creato nel passaggio precedente, ad esempio *aadds.contoso.com*. Fare clic con il pulsante destro del mouse su questo certificato, quindi scegliere **Tutte le attività > Esporta**.
+1. Viene visualizzato il certificato autofirmato creato nel passaggio precedente, ad esempio *aaddscontoso.com*. Fare clic con il pulsante destro del mouse su questo certificato, quindi scegliere **Tutte le attività > Esporta**.
 
     ![Esportare il certificato in Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
 
@@ -150,7 +150,7 @@ Per poter usare il certificato digitale creato nel passaggio precedente con il d
 
 I computer client devono considerare attendibile l'autorità emittente del certificato LDAP sicuro per stabilire una connessione con il dominio gestito tramite LDAPS. I computer client necessitano di un certificato per crittografare correttamente i dati decrittografati da Azure AD DS. Se si usa una CA pubblica, il computer deve considerare automaticamente attendibili tali autorità di certificazione e avere un certificato corrispondente. In questa esercitazione viene usato un certificato autofirmato e viene generato un certificato che include la chiave privata del passaggio precedente. A questo punto esportare e quindi installare il certificato autofirmato nell'archivio certificati attendibili del computer client:
 
-1. Tornare nella console MMC per l'archivio *Certificati (computer locale) > Personale > Certificati*. Viene visualizzato il certificato autofirmato creato in un passaggio precedente, ad esempio *aadds.contoso.com*. Fare clic con il pulsante destro del mouse su questo certificato, quindi scegliere **Tutte le attività > Esporta**.
+1. Tornare nella console MMC per l'archivio *Certificati (computer locale) > Personale > Certificati*. Viene visualizzato il certificato autofirmato creato nel passaggio precedente, ad esempio *aaddscontoso.com*. Fare clic con il pulsante destro del mouse su questo certificato, quindi scegliere **Tutte le attività > Esporta**.
 1. Nella **Esportazione guidata certificati** fare clic su **Avanti**.
 1. Poiché per i client la chiave privata non è necessaria, nella pagina **Esporta chiave privata** scegliere **No, non esportare la chiave privata** e quindi fare clic su **Avanti**.
 1. Nella pagina **Formato file di esportazione** selezionare **Codificato Base 64 X.509 (.CER)** come formato di file per il certificato esportato:
@@ -180,7 +180,7 @@ Con un certificato digitale creato ed esportato che include la chiave privata e 
 
     ![Cercare e selezionare il dominio gestito di Azure AD DS nel portale di Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
-1. Scegliere il dominio gestito, ad esempio *aadds.contoso.com*.
+1. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Sul lato sinistro della finestra di Azure AD DS scegliere **LDAP sicuro.**
 1. Per impostazione predefinita, l'accesso LDAP sicuro al dominio gestito è disabilitato. Impostare **LDAP sicuro** su **Abilita**.
 1. Per impostazione predefinita, l'accesso LDAP sicuro al dominio gestito su Internet è disabilitato. Quando si abilita l'accesso LDAP sicuro tramite Internet, il dominio è soggetto ad attacchi di forza bruta sulle password tramite Internet. Nel passaggio successivo, viene configurato un gruppo di sicurezza di rete per bloccare l'accesso consentendolo solo agli intervalli di indirizzi IP di origine necessari.
@@ -235,10 +235,10 @@ Dopo aver abilitato l'accesso LDAP sicuro tramite Internet, aggiornare la zona D
 
 Configurare il provider DNS esterno per creare un record host, ad esempio *ldaps*, da risolvere in questo indirizzo IP esterno. Per eseguire prima il test in locale nel computer, è possibile creare una voce nel file hosts di Windows. Per modificare correttamente il file hosts nel computer locale, aprire il *Blocco note* come amministratore, quindi aprire il file *C:\Windows\System32\drivers\etc*
 
-La voce DNS di esempio seguente, con il provider DNS esterno o nel file hosts locale, risolve il traffico per *ldaps.aadds.contoso.com* nell'indirizzo IP esterno *40.121.19.239*:
+La voce DNS di esempio seguente, con il provider DNS esterno o nel file hosts locale, risolve il traffico per *ldaps.aaddscontoso.com* nell'indirizzo IP esterno *40.121.19.239*:
 
 ```
-40.121.19.239    ldaps.aadds.contoso.com
+40.121.19.239    ldaps.aaddscontoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testare le query sul dominio gestito
@@ -246,13 +246,13 @@ La voce DNS di esempio seguente, con il provider DNS esterno o nel file hosts lo
 Per eseguire la connessione e il binding al dominio gestito di Azure Active Directory Domain Services e svolgere ricerche tramite LDAP, si usa lo strumento *LDP.exe*. Questo strumento è incluso nel pacchetto di Strumenti di amministrazione remota del server. Per altre informazioni, vedere [Installare Strumenti di amministrazione remota del server][rsat].
 
 1. Aprire *LDP.exe* e connettersi al dominio gestito. Selezionare **Connessione **e quindi scegliere** Connetti**.
-1. Immettere il nome di dominio DNS LDAP sicuro del dominio gestito creato nel passaggio precedente, ad esempio *ldaps.aadds.contoso.com.* Per usare LDAP sicuro, impostare **Porta** su *636*, quindi selezionare la casella **SSL**.
+1. Immettere il nome di dominio DNS LDAP sicuro del dominio gestito creato nel passaggio precedente, ad esempio *ldaps.aaddscontoso.com*. Per usare LDAP sicuro, impostare **Porta** su *636*, quindi selezionare la casella **SSL**.
 1. Fare clic su **OK** per connettersi al dominio gestito.
 
 Eseguire quindi il binding al dominio gestito di Azure AD DS. Gli utenti e gli account del servizio non possono eseguire binding LDAP semplici se la sincronizzazione degli hash delle password NTLM è stata disabilitata nell'istanza di Azure AD DS. Per altre informazioni sulla disabilitazione della sincronizzazione degli hash delle password NTLM, vedere [Proteggere il dominio gestito di Azure AD DS][secure-domain].
 
 1. Selezionare l'opzione di menu **Connessione**, quindi scegliere **Associa**.
-1. Fornire le credenziali di un account utente appartenente al gruppo *Amministratori di AAD DC*, ad esempio *contosoadmin*. Immettere la password dell'account utente, quindi immettere il dominio, ad esempio *aadds.contoso.com*.
+1. Fornire le credenziali di un account utente appartenente al gruppo *Amministratori di AAD DC*, ad esempio *contosoadmin*. Immettere la password dell'account utente, quindi immettere il dominio, ad esempio *aaddscontoso.com*.
 1. Per **Tipo di binding** scegliere l'opzione *Binding con credenziali*.
 1. Selezionare **OK** per eseguire il binding al dominio gestito di Azure AD DS.
 
@@ -265,7 +265,7 @@ Per visualizzare gli oggetti archiviati nel dominio gestito di Azure AD DS:
 
     ![Cercare gli oggetti nel dominio gestito di Azure AD DS tramite LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
-Per eseguire direttamente una query su un contenitore specifico, nel menu **Visualizza > Albero** è possibile specificare un oggetto **BaseDN**, ad esempio*OU=AADDC Users,DC=CONTOSO,DC=COM* o *OU=AADDC Computers,DC=CONTOSO,DC=COM*. Per altre informazioni su come formattare e creare query, vedere [Nozioni di base sulle query LDAP][ldap-query-basics].
+Per eseguire direttamente una query su un contenitore specifico, nel menu **Visualizza > Albero** è possibile specificare un oggetto **BaseDN**, ad esempio *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* o *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Per altre informazioni su come formattare e creare query, vedere [Nozioni di base sulle query LDAP][ldap-query-basics].
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -273,7 +273,7 @@ Se è stata aggiunta una voce DNS al file hosts locale del computer per testare 
 
 1. Nel computer locale aprire il *Blocco note* come amministratore
 1. Individuare e aprire il file *C:\Windows\System32\drivers\etc*
-1. Eliminare la riga per il record aggiunto, ad esempio `40.121.19.239    ldaps.aadds.contoso.com`
+1. Eliminare la riga per il record aggiunto, ad esempio `40.121.19.239    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

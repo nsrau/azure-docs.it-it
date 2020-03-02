@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: e50d0772eaf706772aa89418a1ad25bf406945b5
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134152"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592221"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -72,7 +72,7 @@ In questo passaggio viene creato un lab per le classi in Azure.
     4. **Arrestare** la macchina virtuale modello.  
 
 ## <a name="publish-the-template-vm"></a>Pubblicare la macchina virtuale modello
-In questo passaggio verrà pubblicata la VM modello. Il processo di pubblicazione crea macchine virtuali del lab che sono essenzialmente copie della macchina virtuale modello. 
+In questo passaggio verrà pubblicata la VM modello. Quando si pubblica la macchina virtuale modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Tutte le macchine virtuali hanno la stessa configurazione del modello.
 
 1. Sulla barra degli strumenti della pagina **Modello** selezionare **Pubblica**. 
 
@@ -89,6 +89,9 @@ In questo passaggio verrà pubblicata la VM modello. Il processo di pubblicazion
 4. Attendere il completamento della pubblicazione e quindi passare alla pagina **Pool di macchine virtuali** scegliendo **Macchine virtuali** dal menu sinistro oppure selezionando il riquadro **Macchine virtuali**. Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
 
     ![Macchine virtuali nello stato arrestato](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)   
+
+    > [!NOTE]
+    > Quando un docente accende una macchina virtuale per studenti, la quota per lo studente rimane invariata. La quota per un utente specifica il numero di ore lab disponibili per l'utente al di fuori dell'orario delle lezioni pianificato. Per altre informazioni sulle quote, vedere [Impostare quote per gli utenti](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="set-a-schedule-for-the-lab"></a>Impostare una pianificazione per il lab
 Creare un evento pianificato per il lab in modo che le VM al suo interno vengano automaticamente avviate/arrestate in specifici orari. La quota utente (per impostazione predefinita 10 ore) specificata in precedenza corrisponde al tempo aggiuntivo assegnato a ogni utente al di fuori di questo tempo pianificato. 

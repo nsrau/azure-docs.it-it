@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per copiare dati nel dispositivo Azure Data Box Heavy tramite il servizio di copia dati | Microsoft Docs
+title: 'Esercitazione: Copiare i dati in Azure Data Box Heavy tramite il servizio di copia dei dati'
 description: In questa esercitazione si apprenderà come copiare i dati nel dispositivo Azure Data Box Heavy tramite il servizio di copia dei dati
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc28ea5f74ad16d4387d246ef73618a53ea26e1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595820"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560221"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Esercitazione: Usare il servizio di copia dei dati per copiare i dati in Azure Data Box Heavy (anteprima)
 
@@ -24,12 +24,12 @@ Usare il servizio di copia dei dati:
 - Negli ambienti NAS in cui gli host intermedi potrebbero non essere disponibili.
 - Con file di piccole dimensioni che richiedono settimane per l'inserimento e il caricamento dei dati. Il servizio di copia dei dati migliora significativamente i tempi di inserimento e caricamento di file di piccole dimensioni.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Copiare i dati in Data Box Heavy
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 
@@ -55,7 +55,7 @@ Per copiare i dati usando il servizio di copia dei dati è necessario creare un 
 
 3. Nella finestra di dialogo **Configura processo e inizia** compilare i campi seguenti:
     
-    |Campo                          |Valore    |
+    |Campo                          |valore    |
     |-------------------------------|---------|
     |**Nome processo**                       |Nome univoco contenente meno di 230 caratteri per il processo. Nel nome del processo non sono consentiti i caratteri seguenti: \<, \>, \|, \?, \*, \\, \:, \/ e \\\.         |
     |**Percorso di origine**                |Specificare il percorso SMB dell'origine dati nel formato `\\<ServerIPAddress>\<ShareName>` o `\\<ServerName>\<ShareName>`.        |
@@ -67,7 +67,7 @@ Per copiare i dati usando il servizio di copia dei dati è necessario creare un 
     |**Modello di corrispondenza file per la copia**    | È possibile immettere il modello di corrispondenza dei nomi file nei due modi seguenti:<ul><li>**Usare espressioni jolly:** nelle espressioni jolly sono supportati solo `*` e `?`. L'espressione `*.vhd`, ad esempio, corrisponde a tutti i file con estensione `.vhd`. Allo stesso modo, `*.dl?` corrisponde a tutti i file con estensione `.dl` o che iniziano con `.dl`, ad esempio `.dll`. `*foo` corrisponde a tutti i file il cui nome termina con `foo`.<br>È possibile immettere direttamente l'espressione jolly nel campo. Per impostazione predefinita, il valore immesso nel campo è considerato un'espressione jolly.</li><li>**Usare espressioni regolari:** sono supportate espressioni regolari basate su POSIX. L'espressione regolare `.*\.vhd`, ad esempio, corrisponderà a tutti i file con estensione `.vhd`. Per le espressioni regolari specificare `<pattern>` direttamente come `regex(<pattern>)`. Per altre informazioni sulle espressioni regolari, vedere [Linguaggio di espressioni regolari - Riferimento rapido](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Ottimizzazione dei file**              |Quando questa funzione è abilitata, i file di dimensioni inferiori a 1 MB vengono compressi durante l'inserimento. Questa compressione consente di velocizzare la copia dei dati per i file di piccole dimensioni. Consente anche un notevole risparmio di tempo quando il numero di file supera di gran lunga il numero di directory.        |
  
-4. Selezionare **Avvia**. Gli input verranno convalidati. Se la convalida ha esito positivo, il processo verrà avviato. L'avvio del processo potrebbe richiedere alcuni minuti.
+4. Selezionare **Start**. Gli input verranno convalidati. Se la convalida ha esito positivo, il processo verrà avviato. L'avvio del processo potrebbe richiedere alcuni minuti.
 
     ![Avviare un processo dalla finestra di dialogo "Configura processo e inizia"](media/data-box-deploy-copy-data-via-copy-service/configure-and-start.png)
 
@@ -111,7 +111,7 @@ Per copiare i dati usando il servizio di copia dei dati è necessario creare un 
 
 6. Mentre il processo è in corso, nella pagina **Copia dati**:
 
-    - Nella colonna **Stato** viene visualizzato lo stato del processo di copia. Lo stato può essere:
+    - Nella colonna **Stato** viene visualizzato lo stato del processo di copia. I possibili valori sono i seguenti.
         - **Running**
         - **Non riuscito**
         - **Completato**

@@ -47,6 +47,8 @@
       items:
         - name: Aggiornamento delle funzionalità
           href: azure-ad-roles-features.md
+        - name: PowerShell per ruoli di Azure AD
+          href: powershell-for-azure-ad-roles.md
         - name: Assegnare ruoli
           href: pim-how-to-add-role-to-user.md
         - name: Approvare le richieste

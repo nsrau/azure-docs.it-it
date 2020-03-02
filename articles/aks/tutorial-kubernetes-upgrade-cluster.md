@@ -2,18 +2,15 @@
 title: Esercitazione su Kubernetes in Azure - Aggiornare un cluster
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come aggiornare un cluster servizio Azure Kubernetes esistente alla versione più recente disponibile di Kubernetes.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.author: mlearned
+ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 9fe02c9b563259abb51a1a768c7facdf1bf601f7
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4d9ef061904fb1a0fff25506eedb82158971bed5
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898829"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622023"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Esercitazione: Aggiornare Kubernetes nel servizio Azure Kubernetes
 
@@ -40,12 +37,12 @@ Prima di aggiornare un cluster, usare il comando [az servizio Azure Kubernetes g
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-In questo esempio la versione corrente è *1.13.10* e le versioni disponibili sono indicate nella colonna *Upgrades*.
+In questo esempio la versione corrente è *1.14.8* e le versioni disponibili sono indicate nella colonna *Upgrades*.
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 -------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.13.10          1.13.10            1.14.5, 1.14.6
+default  myResourceGroup  1.14.8           1.14.8             1.15.5, 1.15.7
 ```
 
 ## <a name="upgrade-a-cluster"></a>Aggiornare un cluster
@@ -61,13 +58,13 @@ Per ridurre al minimo le interruzioni nelle applicazioni in esecuzione, i nodi d
 Usare il comando [az servizio Azure Kubernetes upgrade][] per aggiornare il cluster servizio Azure Kubernetes. Nell'esempio seguente il cluster viene aggiornato alla versione *1.14.6* di Kubernetes.
 
 > [!NOTE]
-> È possibile aggiornare solo una versione secondaria per volta. È ad esempio possibile eseguire l'aggiornamento da *1.12.x* a *1.13.x*, ma non da *1.12.x* direttamente a *1.14.x*. Per eseguire l'aggiornamento da *1.12* a *1.14.x*, eseguirlo prima da *1.12* a *1.13.x*, quindi eseguire un altro aggiornamento da *1.13.x* a *1.14.x*.
+> È possibile aggiornare solo una versione secondaria per volta. È ad esempio possibile eseguire l'aggiornamento dalla versione *1.14.x* alla versione *1.15.x*, ma non dalla versione *1.14.x* direttamente alla versione *1.16.x*. Per eseguire l'aggiornamento dalla versione *1.14* alla versione *1.16.x*, procedere prima con l'aggiornamento dalla versione *1.14* alla versione *1.15.x*, quindi eseguire un altro aggiornamento dalla versione *1.15.x* alla versione *1.16.x*.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.14.6
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.15.5
 ```
 
-Nell'esempio sintetico di output seguente il valore di *kubernetesVersion* è ora *1.14.6*:
+L'output di esempio sintetico seguente mostra che il valore di *kubernetesVersion* è ora *1.15.5*:
 
 ```json
 {
@@ -85,7 +82,7 @@ Nell'esempio sintetico di output seguente il valore di *kubernetesVersion* è or
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.14.6",
+  "kubernetesVersion": "1.15.5",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -100,12 +97,12 @@ Verificare che l'aggiornamento sia stato completato correttamente usando il coma
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-L'output di esempio seguente illustra il cluster del servizio Azure Kubernetes che esegue *KubernetesVersion 1.14.6*:
+L'output di esempio seguente mostra che il cluster del servizio Azure Kubernetes esegue *KubernetesVersion 1.15.5*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.14.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.15.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster

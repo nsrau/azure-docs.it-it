@@ -1,26 +1,20 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire l'importazione in un archivio di Configurazione app
 titleSuffix: Azure App Configuration
-description: Questo articolo fornisce informazioni e script di esempio per l'importazione in un archivio di Configurazione app di Azure
+description: Usare lo script dell'interfaccia della riga di comando di Azure per importare la configurazione in Configurazione app di Azure
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 02/24/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: b0704c6262451cef615355e871ce7f26005b3132
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 71d6aafa82f647b9c6164ee9a06b43ed7e9a66af
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467671"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523617"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importare in un archivio di Configurazione app di Azure
 

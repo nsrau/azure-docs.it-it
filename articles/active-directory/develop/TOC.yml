@@ -29,9 +29,9 @@
           href: quickstart-v2-javascript.md
     - name: App Web
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: ASP .NET Core
+        - name: ASP.NET Core
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
@@ -42,9 +42,9 @@
           href: quickstart-v2-python-webapp.md
     - name: API Web
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
-        - name: ASP .NET Core
+        - name: ASP.NET Core
           href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
     - name: App per dispositivi mobili e desktop
       items:
@@ -70,7 +70,7 @@
           href: tutorial-v2-javascript-spa.md
     - name: App Web
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
     - name: App per dispositivi mobili e desktop
       items:
@@ -242,13 +242,15 @@
           href: brokered-auth.md
         - name: Migrazione
           items:
+            - name: Panoramica
+              href: msal-migration.md
             - name: Eseguire la migrazione a MSAL.NET
               href: msal-net-migration.md
             - name: Eseguire la migrazione a MSAL.js
               href: msal-compare-msal-js-and-adal-js.md
             - name: Eseguire la migrazione a MSAL.Android
               href: migrate-android-adal-msal.md
-            - name: Eseguire la migrazione a MSAL.iOS/MacOS
+            - name: Eseguire la migrazione a MSAL.iOS/macOS
               href: migrate-objc-adal-msal.md
             - name: Eseguire la migrazione a MSAL Python
               href: migrate-python-adal-msal.md
@@ -403,6 +405,8 @@
           href: v2-admin-consent.md
         - name: Esperienze di consenso per le applicazioni
           href: application-consent-experience.md
+    - name: Accesso condizionale
+      href: v2-conditional-access-dev-guide.md
     - name: Cloud nazionali
       items:
         - name: Panoramica

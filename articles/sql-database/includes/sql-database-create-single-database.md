@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: mathoma
 ms.reviewer: vanto
-ms.openlocfilehash: 3e2c8a424c9a3744bfb91d03632965c15613a424
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: d800d273cce995c618422a3a9d0934b2657e6ef5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252134"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194300"
 ---
 In questo passaggio si creerà un database singolo di Database SQL di Azure. 
 
@@ -20,7 +20,7 @@ In questo passaggio si creerà un database singolo di Database SQL di Azure.
 >
 > Per informazioni, vedere [Creare una regola del firewall a livello di database](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) oppure [Creare una regola del firewall a livello di server](../sql-database-server-level-firewall-rule.md) per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il computer in uso.  
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
@@ -56,7 +56,7 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
      ![Dettagli del database SQL](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Selezionare **Provisioning effettuato**.
+   - Selezionare **Provisioning effettuato**.  In alternativa, selezionare **Serverless** per creare un database serverless.
 
      ![Gen4 con provisioning](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
@@ -81,7 +81,7 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
 11. Nel modulo **Database SQL** selezionare **Crea** per distribuire il gruppo di risorse, il server e il database ed effettuarne il provisioning.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -156,70 +156,36 @@ In questa parte dell'articolo si usano i cmdlet di PowerShell seguenti:
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crea una regola del firewall per un server logico. | 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea un nuovo database singolo di Database SQL di Azure. | 
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Creare il gruppo di risorse e il database singolo usando l'interfaccia della riga di comando AZ.
 
    ```azurecli-interactive
    #!/bin/bash
-   # Set variables
-   subscriptionID=<SubscriptionID>
-   resourceGroupName=myResourceGroup-$RANDOM
-   location=SouthCentralUS
-   adminLogin=azureuser
-   password="PWD27!"+`openssl rand -base64 18`
-   serverName=mysqlserver-$RANDOM
-   databaseName=mySampleDatabase
-   drLocation=NorthEurope
-   drServerName=mysqlsecondary-$RANDOM
-   failoverGroupName=failovergrouptutorial-$RANDOM
+   # set variables
+   $subscription = "<subscriptionID>"
+   $randomIdentifier = $(Get-Random)
 
-   # The ip address range that you want to allow to access your DB. 
-   # Leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB
-   startip=0.0.0.0
-   endip=0.0.0.0
+   $resourceGroup = "resource-$randomIdentifier"
+   $location = "East US"
+   
+   $login = "sampleLogin"
+   $password = "samplePassword123!"
+
+   $server = "server-$randomIdentifier"
+   $database = "database-$randomIdentifier"
   
-   # Connect to Azure
-   az login
+   az login # connect to Azure
+   az account set -s $subscription # set subscription context for the Azure account
 
-   # Set the subscription context for the Azure account
-   az account set -s $subscriptionID
-
-   # Create a resource group
    echo "Creating resource group..."
-   az group create \
-      --name $resourceGroupName \
-      --location $location \
-      --tags Owner[=SQLDB-Samples]
+   az group create --name $resourceGroup --location $location
 
-   # Create a logical server in the resource group
    echo "Creating primary logical server..."
-   az sql server create \
-      --name $serverName \
-      --resource-group $resourceGroupName \
-      --location $location  \
-      --admin-user $adminLogin \
-      --admin-password $password
+   az sql server create --name $server --resource-group $resourceGroup --location $location --admin-user $login --admin-password $password
 
-   # Configure a firewall rule for the server
-   echo "Configuring firewall..."
-   az sql server firewall-rule create \
-      --resource-group $resourceGroupName \
-      --server $serverName \
-      -n AllowYourIp \
-      --start-ip-address $startip \
-      --end-ip-address $endip
-
-   # Create a gen5 1vCore database in the server 
    echo "Creating a gen5 2 vCore database..."
-   az sql db create \
-      --resource-group $resourceGroupName \
-      --server $serverName \
-      --name $databaseName \
-      --sample-name AdventureWorksLT \
-      --edition GeneralPurpose \
-      --family Gen5 \
-      --capacity 2
+   az sql db create --resource-group $resourceGroup --server $server --name $database --sample-name AdventureWorksLT --edition GeneralPurpose --family Gen5 --capacity 2
    ```
 
 Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.

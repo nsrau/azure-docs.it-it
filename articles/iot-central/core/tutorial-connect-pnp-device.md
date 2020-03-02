@@ -8,16 +8,21 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: ca2ac62892d1c8d438cc37bffcbfede14058bc23
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 84db3996b49a95d1ef6a9f1e80299605cc31d669
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026374"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602602"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Esercitazione: Usare un modello di funzionalità di dispositivo per creare un dispositivo Plug and Play IoT (anteprima) e connetterlo all'applicazione IoT Central
 
 Un _modello di funzionalità di dispositivo_ descrive le funzionalità di un dispositivo [Plug and Play IoT (anteprima)](../../iot-pnp/overview-iot-plug-and-play.md). IoT Central può usare un modello di funzionalità di dispositivo per creare un modello e le visualizzazioni per un dispositivo alla prima connessione del dispositivo.
+
+Il supporto per [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md) è in anteprima ed è disponibile solo in alcune aree selezionate.
+
+> [!NOTE]
+> Per creare un'applicazione in anteprima con il supporto per i dispositivi Plug and Play IoT, contattare il supporto tecnico.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -80,7 +85,7 @@ In questa esercitazione si userà lo strumento di gestione librerie [Vcpkg](http
 
 Per connettere un dispositivo a un'applicazione Azure IoT Central, è necessaria una chiave del dispositivo. Per generare una chiave del dispositivo:
 
-1. Accedere all'applicazione IoT Central creata con il modello **App personalizzata > Anteprima applicazione** nell'argomento di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md).
+1. Accedere all'applicazione IoT Central creata con il modello **Applicazione personalizzata** nella guida di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md).
 
 1. Passare alla pagina **Amministrazione** e selezionare **Connessione del dispositivo**.
 

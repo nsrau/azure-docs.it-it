@@ -8,12 +8,12 @@ ms.date: 2/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5f576d28d30907f3834600d0a6a5c152025cf912
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133474"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650759"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Esercitazione: Eseguire il training e distribuire un modello di Azure Machine Learning
 
@@ -83,7 +83,7 @@ Esaminare i file caricati nel progetto di Azure Notebooks. Le attività in quest
 * **01-turbofan\_regression.ipynb:** Questo notebook usa l'area di lavoro del servizio Machine Learning per creare ed eseguire un esperimento di Machine Learning. In generale, il notebook esegue queste operazioni:
 
   1. Scarica i dati dall'account di archiviazione di Azure generato dall'harness del dispositivo.
-  1. Esplora e prepara i dati per il training e il modello di annuncio del classificatore.
+  1. Esplora e prepara i dati, quindi usa i dati per eseguire il training del modello di classificatore.
   1. Valuta il modello dell'esperimento usando un set di dati di test (Test\_FD003.txt).
   1. Pubblica il modello di classificatore migliore nell'area di lavoro del servizio Machine Learning.
 

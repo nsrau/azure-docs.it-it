@@ -77,6 +77,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Esempi end-to-end di MLOps
       href: 'https://github.com/microsoft/MLOps'
+    - name: Set di dati di esempio della finestra di progettazione
+      href: designer-sample-datasets.md
 - name: Concetti
   items:
     - name: Area di lavoro
@@ -270,7 +272,7 @@
     - name: Automatizzare l'apprendimento automatico
       displayName: 'automl, auto ml'
       items:
-        - name: Usare la Machine Learning automatizzata (Python)
+        - name: Usare ML automatizzato (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
         - name: Usare ML automatizzato (interfaccia)

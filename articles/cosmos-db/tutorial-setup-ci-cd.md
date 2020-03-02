@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 4b05b4b44df53846a4880249785c6a5deda62f8a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0a705ad81925491fe054d846143472c6e4432b69
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846533"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561903"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
@@ -73,7 +73,7 @@ In questa esercitazione si aggiungerà l'attività all'inizio per fare in modo c
 
 A questo punto, è possibile configurare i test per usare l'emulatore. L'attività di compilazione dell'emulatore esporta una variabile di ambiente, "CosmosDbEmulator.Endpoint", a cui qualsiasi attività nella pipeline di compilazione può inviare richieste. 
 
-In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). Il codice di esempio completo dell'applicazione Todo da usare in questo documento è disponibile su [Github](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). Il codice di esempio completo dell'applicazione Todo da usare in questo documento è disponibile in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
 Di seguito è riportato un esempio di un file con estensione **runsettings** che definisce i parametri da passare agli unit test di un'applicazione. Si noti che la variabile `authKey` usata è la [chiave nota](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) per l'emulatore. `authKey` è la chiave prevista dall'attività di compilazione dell'emulatore e deve essere definita nel file con estensione **runsettings**.
 

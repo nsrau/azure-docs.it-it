@@ -3,12 +3,12 @@ title: Uso del plug-in Azure Dev Spaces per Jenkins con il servizio Azure Kubern
 description: Informazioni su come usare il plug-in Azure Dev Spaces nella pipeline di integrazione continua.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 9dba0307db8ebbf07422fd770ea336b2abc031bd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10dfbdb7d89d6f3870ec3b9dbd87d4d315360815
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209677"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619989"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Esercitazione: Uso del plug-in Azure Dev Spaces per Jenkins con il servizio Azure Kubernetes 
 
@@ -26,7 +26,7 @@ In questa esercitazione si completeranno le attività seguenti:
 
 Questa esercitazione presuppone una conoscenza di livello intermedio dei principali servizi di Azure, ossia servizio Azure Kubernetes, Registro Azure Container, Azure Dev Spaces, [pipeline](https://jenkins.io/doc/book/pipeline/) e plug-in Jenkins e GitHub. È utile avere una familiarità di base con gli strumenti di supporto come kubectl e Helm.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un account Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -409,16 +409,5 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato descritto come usare il plug-in Azure Dev Spaces per Jenkins e il plug-in Registro Azure Container per compilare codice e distribuirlo in un'istanza di Dev Spaces.
-
-Le risorse riportate nell'elenco seguente contengono altre informazioni su Azure Dev Spaces, Attività del Registro Azure Container e CI/CD con Jenkins.
-
-Azure Dev Spaces:
-* [Funzionamento e configurazione di Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)
-
-Attività del Registro Azure Container:
-* [Automate OS and framework patching with ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) (Automatizzare la correzione di sistema operativo e framework con le attività di Registro Azure Container)
-* [Creazione automatica in caso di commit del codice](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-
-CI/CD con Jenkins in Azure:
-* [Distribuzione continua di Jenkins](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
+> [!div class="nextstepaction"]
+> [CI/CD con Jenkins in Azure](jenkins-continuous-deployment.md)

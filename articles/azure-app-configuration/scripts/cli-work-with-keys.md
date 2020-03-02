@@ -1,36 +1,34 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Usare coppie chiave-valore in un archivio di Configurazione app
 titleSuffix: Azure App Configuration
-description: Fornisce informazioni sull'uso di coppie chiave-valore in un archivio di Configurazione app di Azure
+description: Usare lo script dell'interfaccia della riga di comando di Azure per creare, visualizzare, aggiornare ed eliminare coppie chiave-valore dall'archivio di Configurazione app
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 11/08/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468151"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523650"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Usare coppie chiave-valore in un archivio di Configurazione app di Azure
 
-Questo script di esempio crea un nuova coppia chiave-valore in un archivio di Configurazione app di Azure, elenca tutte le coppie chiave-valore esistenti, aggiorna il valore della chiave appena creata e infine la elimina.
+Questo script di esempio mostra come:
+* Crea una nuova coppia chiave-valore
+* Elencare tutte le coppie chiave-valore esistenti
+* Aggiornare il valore di una chiave appena creata
+* Eliminare la nuova coppia chiave-valore
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -81,7 +79,7 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script usa i comandi seguenti per eseguire operazioni sulle coppie chiave-valore in un archivio di Configurazione app. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questa tabella elenca i comandi usati nello script di esempio. 
 
 | Comando | Note |
 |---|---|

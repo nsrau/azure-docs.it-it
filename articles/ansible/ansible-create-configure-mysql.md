@@ -4,12 +4,12 @@ description: Informazioni su come usare Ansible per la creazione e la configuraz
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d8c8fd361f37a9cb961012807fe40b905c10c047
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156521"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603118"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Esercitazione: Configurare i database in Database di Azure per MySQL tramite Ansible
 
@@ -23,12 +23,12 @@ ms.locfileid: "74156521"
 >
 > * Creare un server MySQL
 > * Creare un database MySQL
-> * Configurare una regola del firewall in modo che un'app esterna possa connettersi al server
+> * Configurare una regola del firewall per consentire a un'app esterna di connettersi al server
 > * Connettersi al server MySql da Azure Cloud Shell
 > * Eseguire una query sui server MySQL disponibili
 > * Elencare tutti i database nei server connessi
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

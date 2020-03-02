@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 5e969ed4f525d0b3d17339b9f9a6111ad81b0125
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e3f09d4e2500b98a7ce68139cd97a04c0d60d73e
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931622"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612545"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services con opzioni di configurazione avanzate
 
@@ -69,17 +69,17 @@ Quando si crea un'istanza di Azure AD DS, si specifica un nome DNS. Di seguito s
 * **Suffissi di dominio non instradabili:** è in genere consigliabile evitare un suffisso del nome di dominio non instradabile, ad esempio *contoso.local*. Il suffisso *.local* non è instradabile e può causare problemi con la risoluzione DNS.
 
 > [!TIP]
-> Se si crea un nome di dominio personalizzato, prestare attenzione agli spazi dei nomi DNS esistenti. È consigliabile includere un prefisso univoco per il nome di dominio. Se, ad esempio, il nome radice DNS è *contoso.com*, creare un dominio gestito Azure Active Directory Domain Services con il nome di dominio personalizzato *corp.contoso.com* o *ds.contoso.com*. In un ambiente ibrido con un ambiente Active Directory Domain Services locale, questi prefissi potrebbero essere già in uso. Usare un prefisso univoco per Azure Active Directory Domain Services.
+> Se si crea un nome di dominio personalizzato, prestare attenzione agli spazi dei nomi DNS esistenti. È consigliabile usare un nome di dominio separato da uno spazio dei nomi DNS locale o di Azure esistente.
 >
-> È possibile usare il nome DNS radice per il dominio gestito di Azure Active Directory Domain Services, ma potrebbe essere necessario creare alcuni record DNS aggiuntivi per altri servizi nell'ambiente in uso. Ad esempio, se si esegue un server Web che ospita un sito con il nome DNS radice, possono essere presenti conflitti di denominazione che richiedono voci DNS aggiuntive.
+> Se, ad esempio, lo spazio dei nomi DNS esistente è *contoso.com*, creare un dominio gestito di Azure Active Directory Domain Services con il nome di dominio personalizzato *aaddscontoso.com*. Se occorre usare il protocollo LDAP sicuro, è necessario eseguire la registrazione ed essere il proprietario del nome di dominio personalizzato per generare i certificati necessari.
 >
-> In queste esercitazioni e articoli sulle procedure come esempio breve viene usato il dominio personalizzato *aadds.contoso.com*. In tutti i comandi specificare il proprio nome di dominio, che può includere un prefisso univoco.
+> Potrebbe essere necessario creare alcuni record DNS aggiuntivi per altri servizi nell'ambiente in uso o server di inoltro DNS condizionali tra gli spazi dei nomi DNS esistenti nell'ambiente corrente. Ad esempio, se si esegue un server Web che ospita un sito con il nome DNS radice, possono essere presenti conflitti di denominazione che richiedono voci DNS aggiuntive.
 >
-> Per altre informazioni, vedere [Selezione di un prefisso di denominazione per il dominio][naming-prefix].
+> In queste esercitazioni e guide pratiche viene usato il dominio personalizzato *aadds.contoso.com* a titolo di esempio. In tutti i comandi specificare il proprio nome di dominio.
 
 Si applicano anche le seguenti restrizioni relative ai nomi DNS:
 
-* **Limitazioni dei prefissi di dominio:** non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri. Il prefisso del nome di dominio specificato (ad esempio, *contoso* nel nome di dominio *contoso.com*) può essere composto da un massimo di 15 caratteri.
+* **Limitazioni dei prefissi di dominio:** non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri. Il prefisso del nome di dominio specificato (ad esempio, *aaddscontoso* nel nome di dominio *aaddscontoso.com*) deve contenere un massimo di 15 caratteri.
 * **Conflitti nei nomi di rete:** il nome di dominio DNS per il dominio gestito non deve essere già presente nella rete virtuale. In particolare, verificare i seguenti scenari che potrebbero causare un conflitto di nomi:
     * È già presente un dominio di Active Directory con lo stesso nome di dominio DNS nella rete virtuale.
     * La rete virtuale in cui si intende abilitare il dominio gestito ha una connessione VPN alla rete locale. In questo caso, verificare che non sia presente un dominio con lo stesso nome di dominio DNS nella rete locale.
@@ -170,7 +170,7 @@ Nella pagina **Riepilogo** della procedura guidata controllare le impostazioni d
 
     ![Notifica nel portale di Azure sulla distribuzione in corso](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi scegliere l'istanza di Azure Active Directory Domain Services dall'elenco di risorse di Azure, ad esempio *aadds.contoso.com*. La scheda **Panoramica** indica che il dominio gestito è attualmente in fase di *Distribuzione*. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning.
+1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi scegliere l'istanza di Azure Active Directory Domain Services dall'elenco di risorse di Azure, ad esempio *aaddscontoso.com*. La scheda **Panoramica** indica che il dominio gestito è attualmente in fase di *Distribuzione*. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning.
 
     ![Stato di Domain Services durante lo stato di provisioning](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 

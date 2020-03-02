@@ -116,7 +116,7 @@ Nell'esempio dell'esercitazione si aggiunge un record CNAME per il sottodominio 
 
 Aggiungere un record CNAME per eseguire il mapping di un sottodominio al nome di dominio predefinito dell'app (`<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app).
 
-Per l'esempio di dominio `www.contoso.com`, aggiungere un record CNAME che esegue il mapping del nome `www` a `<app_name>.azurewebsites.net`.
+Per l'esempio di dominio `www.contoso.com`, aggiungere un record CNAME che esegua il mapping del nome `www` a `<app_name>.azurewebsites.net`.
 
 Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esempio seguente:
 

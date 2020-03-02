@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Data Box Heavy per eseguire la migrazione del contenuto di una condivisione file in SharePoint Online| Microsoft Docs
+title: Usare Azure Data Box Heavy per spostare il contenuto di una condivisione file in SharePoint Online
 description: Usare questa esercitazione per apprendere come eseguire la migrazione del contenuto di una condivisione file in Share Point Online usando Azure Data Box Heavy
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4955b28dff3193a95950912562cc3b6ec789479d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f97ea17551d4415f7ed6371853172cfde30fe4b6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325279"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560049"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Usare Azure Data Box Heavy per eseguire la migrazione del contenuto di una condivisione file in SharePoint Online
 

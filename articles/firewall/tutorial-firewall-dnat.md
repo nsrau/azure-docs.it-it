@@ -1,25 +1,25 @@
 ---
-title: Filtrare il traffico in ingresso con DNAT di Firewall di Azure tramite il portale
+title: Filtrare il traffico Internet in ingresso con DNAT di Firewall di Azure tramite il portale
 description: Questa esercitazione mostra come distribuire e configurare DNAT di Firewall di Azure tramite il portale di Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/26/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2f390f3ad540a2a25055dfcc97cc3af1f22c2b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1528087ced54ddcab2e3dd44b65fb3411cae3004
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195729"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621794"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico in ingresso con DNAT di Firewall di Azure tramite il portale di Azure
+# <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico Internet in ingresso con DNAT di Firewall di Azure tramite il portale di Azure
 
-È possibile configurare la modalità DNAT (Destination Network Address Translation) di Firewall di Azure per convertire e filtrare il traffico in ingresso nelle subnet. Quando si configura la modalità DNAT, l'azione di raccolta delle regole NAT è impostata su **Dnat**. Ogni regola nella raccolta regole NAT può quindi essere usata per convertire la porta e l'indirizzo IP pubblici del firewall in porta e indirizzo IP privati. Le regole DNAT aggiungono in modo implicito una regola di rete corrispondente per consentire il traffico convertito. È possibile sostituire questo comportamento aggiungendo in modo esplicito una raccolta regole di rete con regole di negazione corrispondenti al traffico convertito. Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).
+È possibile configurare la modalità DNAT (Destination Network Address Translation) di Firewall di Azure per convertire e filtrare il traffico Internet in ingresso nelle subnet. Quando si configura la modalità DNAT, l'azione di raccolta delle regole NAT è impostata su **Dnat**. Ogni regola nella raccolta regole NAT può quindi essere usata per convertire la porta e l'indirizzo IP pubblici del firewall in porta e indirizzo IP privati. Le regole DNAT aggiungono in modo implicito una regola di rete corrispondente per consentire il traffico convertito. È possibile sostituire questo comportamento aggiungendo in modo esplicito una raccolta regole di rete con regole di negazione corrispondenti al traffico convertito. Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare un ambiente di rete di test
@@ -42,7 +42,7 @@ Per questa esercitazione vengono create due reti virtuali con peering:
 3. In **Nome del gruppo di risorse** digitare **RG-DNAT-Test**.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
 5. In **Località del gruppo di risorse** selezionare una località. Tutte le successive risorse create devono trovarsi nella stessa località.
-6. Fare clic su **Create**(Crea).
+6. Fare clic su **Crea**.
 
 ## <a name="set-up-the-network-environment"></a>Configurare l'ambiente di rete
 
@@ -52,7 +52,7 @@ Creare innanzitutto le reti virtuali e quindi eseguire il peering.
 
 1. Nella home page del portale di Azure fare clic su **Tutti i servizi**.
 2. In **Rete** fare clic su **Reti virtuali**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. In **Nome** digitare **VN-Hub**.
 5. In **Spazio degli indirizzi** immettere **10.0.0.0/16**.
 6. In **Sottoscrizione** selezionare la propria sottoscrizione.
@@ -71,7 +71,7 @@ Creare innanzitutto le reti virtuali e quindi eseguire il peering.
 
 1. Nella home page del portale di Azure fare clic su **Tutti i servizi**.
 2. In **Rete** fare clic su **Reti virtuali**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. In **Nome** digitare **VN-Spoke**.
 5. In **Spazio degli indirizzi** digitare **192.168.0.0/16**.
 6. In **Sottoscrizione** selezionare la propria sottoscrizione.
@@ -91,7 +91,7 @@ Ora è il momento di eseguire il peering delle due reti virtuali.
 
 1. Fare clic sulla rete virtuale **VN-Hub**.
 2. In **Impostazioni** fare clic su **Peering**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. Digitare **Peer-HubSpoke** per il nome.
 5. Selezionare **VN-Spoke** per la rete virtuale.
 6. Fare clic su **OK**.
@@ -100,7 +100,7 @@ Ora è il momento di eseguire il peering delle due reti virtuali.
 
 1. Fare clic sulla rete virtuale **VN-Spoke**.
 2. In **Impostazioni** fare clic su **Peering**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. Digitare **Peer-SpokeHub** per il nome.
 5. Selezionare **VN-Hub** per la rete virtuale.
 6. Fare clic su **Consenti traffico inoltrato**.
@@ -149,9 +149,9 @@ Al termine della distribuzione, prendere nota dell'indirizzo IP privato della ma
 3. Fare clic su **Firewall** e quindi su **Crea**. 
 4. Nella pagina **Crea un firewall** usare la tabella seguente per configurare il firewall:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
-   |NOME     |FW-DNAT-test|
+   |Nome     |FW-DNAT-test|
    |Subscription     |\<sottoscrizione in uso\>|
    |Resource group     |**Use existing** (Usa esistente): RG-DNAT-Test |
    |Location     |Selezionare la stessa località usata in precedenza|
@@ -171,12 +171,12 @@ Per la subnet **SN-Workload** configurare la route predefinita in uscita per pas
 
 1. Nella home page del portale di Azure fare clic su **Tutti i servizi**.
 2. In **Rete** fare clic su **Tabelle route**.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 4. In **Nome** digitare **RT-FWroute**.
 5. In **Sottoscrizione** selezionare la propria sottoscrizione.
 6. In **Gruppo di risorse** selezionare **Usa esistente** e selezionare **RG-DNAT-Test**.
 7. In **Località** selezionare la stessa località usata in precedenza.
-8. Fare clic su **Create**(Crea).
+8. Fare clic su **Crea**.
 9. Fare clic su **Aggiorna** e quindi fare clic sulla tabella di route **RT-FWroute**.
 10. Fare clic su **Subnet** e quindi su **Associa**.
 11. Fare clic su **Rete virtuale** e quindi selezionare **VN-Spoke**.
@@ -205,7 +205,7 @@ Per la subnet **SN-Workload** configurare la route predefinita in uscita per pas
 10. Per **Porte di destinazione** digitare **3389**. 
 11. Per **Indirizzo convertito** digitare l'indirizzo IP privato per la macchina virtuale Srv-Workload. 
 12. Per **Porta tradotta** digitare **3389**. 
-13. Fare clic su **Aggiungi**. 
+13. Scegliere **Aggiungi**. 
 
 ## <a name="test-the-firewall"></a>Testare il firewall
 
@@ -218,7 +218,7 @@ Per la subnet **SN-Workload** configurare la route predefinita in uscita per pas
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare un ambiente di rete di test

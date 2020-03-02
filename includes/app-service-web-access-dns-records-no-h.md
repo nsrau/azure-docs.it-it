@@ -29,4 +29,4 @@ La schermata seguente è un esempio di pagina di record DNS:
 Nello screenshot di esempio si seleziona **Aggiungi** per creare un record. Per alcuni provider esistono collegamenti diversi per aggiungere tipi di record diversi. Anche in questo caso, vedere la documentazione del provider.
 
 > [!NOTE]
-> Per alcuni provider, ad esempio GoDaddy, le modifiche ai record DNS vengono applicate solo dopo la selezione di un collegamento separato di tipo **Salva modifiche**. 
+> Per alcuni provider, ad esempio GoDaddy, le modifiche ai record DNS vengono applicate solo dopo la selezione di un collegamento **Salva modifiche** separato. 

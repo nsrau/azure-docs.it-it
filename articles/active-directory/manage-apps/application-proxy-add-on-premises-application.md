@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b00fff9c979fe6bd2c52f67801a94cb50b1c660
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 29ab39c10686066599a23d12c4fd8e66caae732e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970347"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586071"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -103,7 +103,7 @@ Consentire l'accesso agli URL seguenti:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure usa questi URL per verificare i certificati. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | Il connettore usa questi URL durante il processo di registrazione. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Il connettore usa questi URL durante il processo di registrazione. |
 
 È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 
@@ -175,7 +175,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
 4. Nella sezione **Applicazioni locali** selezionare **Aggiungi un'applicazione locale**.
 5. Nella sezione **Aggiungi applicazione locale personalizzata** fornire le informazioni seguenti sull'applicazione:
 
-    | Campo | DESCRIZIONE |
+    | Campo | Descrizione |
     | :---- | :---------- |
     | **Nome** | Il nome dell'applicazione che verrà visualizzato nel pannello di accesso e nel portale di Azure. |
     | **URL interno** | URL per accedere all'applicazione dall'interno della rete privata. È possibile indicare un percorso specifico nel server back-end per la pubblicazione, mentre il resto del server non è pubblicato. In questo modo, si possono pubblicare siti diversi nello stesso server come app differenti, assegnando a ognuno un nome e regole di accesso specifici.<br><br>Se si pubblica un percorso, verificare che includa tutte le immagini, gli script e i fogli di stile necessari per l'applicazione. Se l'app si trova in https:\//yourapp/app e usa immagini che si trovano in https:/\/yourapp/media, si dovrà pubblicare come percorso https:/\/yourapp/. Questo URL interno non deve necessariamente corrispondere alla pagina di destinazione visualizzata dagli utenti. Per altre informazioni, vedere [Impostare una home page personalizzata per le app pubblicate tramite il proxy applicazione di Azure AD](application-proxy-configure-custom-home-page.md). |
@@ -185,7 +185,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
 
 6. Se necessario, configurare le **impostazioni aggiuntive**. Per la maggior parte delle applicazioni, è consigliabile mantenere queste impostazioni nei rispettivi stati predefiniti. 
 
-    | Campo | DESCRIZIONE |
+    | Campo | Descrizione |
     | :---- | :---------- |
     | **Timeout applicazione back-end** | Impostare questo valore su **Lungo** solo se l'applicazione è lenta nell'autenticazione e nella connessione. Per impostazione predefinita, il timeout dell'applicazione back-end ha una durata di 85 secondi. Se viene impostato su Lungo, il timeout del back-end viene aumentato a 180 secondi. |
     | **Usa cookie solo HTTP** | Impostare questo valore su **Sì** per includere nei cookie del proxy di applicazione il flag HTTPOnly nell'intestazione della risposta HTTP. Se si usa Servizi Desktop remoto, impostare questo valore su **No**.|

@@ -5,17 +5,17 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/06/2020
-ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 02/16/2020
+ms.openlocfilehash: 1d0264a0b7ac4e97d9a2811ba61ab64fcedd6fb9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460536"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587550"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Esercitazioni video sul flusso di dati di mapping
 
-Di seguito è riportato un elenco di esercitazioni video sul flusso di dati per mapping create dal team di Azure Data Factory.
+Di seguito è riportato un elenco di esercitazioni video sul flusso di dati per mapping create dal team di Azure Data Factory. 
 
 Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche presentano funzionalità aggiuntive o diverse nell'esperienza utente corrente di Azure Data Factory.
 
@@ -32,6 +32,8 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 [Azioni rapide di anteprima dei dati](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
 [Monitorare e gestire le prestazioni dei flussi di dati per mapping](https://www.youtube.com/watch?v=fktIWdJiqTk)
+
+[Intervalli di benchmark](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 ## <a name="transformation-overviews"></a>Panoramica delle trasformazioni
 
@@ -101,6 +103,8 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Prestazioni di database SQL DB](https://youtu.be/iyZT5CY3V_4)
 
+[Registrazione e controllo](https://www.youtube.com/watch?v=UC__LOyuf8M)
+
 ## <a name="mapping-data-flow-scenarios"></a>Scenari di flussi di dati per mapping
 
 [Ricerche fuzzy](http://youtu.be/7gdwExjHBbw)
@@ -115,7 +119,7 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Dimensioni a modifica lenta di tipo 1: sovrascrittura](http://youtu.be/Rz2zx5GRbrA)
 
-[Dimensioni a modifica lenta di tipo 2: cronologia](http://youtu.be/123CptslKvU)
+[Dimensioni a modifica lenta di tipo 1: cronologia](http://youtu.be/123CptslKvU)
 
 [Caricamento della tabella dei fatti](http://youtu.be/ABG3X9pgFPQ)
 

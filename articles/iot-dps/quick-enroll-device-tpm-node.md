@@ -9,26 +9,26 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 82e78801225659a1d79829a5d26741a885931919
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e21aaa20edf6d3a2f690bf9f77e8c9973a7b1c52
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974751"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604936"
 ---
-# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Node.js Service SDK
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Avvio rapido: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Node.js Service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
+Questa guida di avvio rapido descrive come creare una registrazione singola a livello di codice per un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure usando Node.js Service SDK e un'applicazione Node.js di esempio. È anche possibile registrare un dispositivo TPM simulato nel servizio di provisioning usando questa voce di registrazione singola.
 
-Questi passaggi illustrano come creare una registrazione singola a livello di codice per un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure usando [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) e un'applicazione Node.js di esempio. È anche possibile registrare un dispositivo TPM simulato nel servizio di provisioning usando questa voce di registrazione singola. Anche se questi passaggi funzionano su computer sia Windows che Linux, questo articolo usa un computer di sviluppo Windows.
+## <a name="prerequisites"></a>Prerequisites
 
-## <a name="prerequisites"></a>Prerequisiti
+- Completamento dell'esercitazione [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+- Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Node.js v4.0 o versioni successive](https://nodejs.org). Questa guida di avvio rapido installa [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node).
+- Chiave di verifica dell'autenticità (facoltativa). Seguire la procedura descritta in [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) fino a quando non si ottiene la chiave. Non creare una registrazione singola usando il portale di Azure.
 
-- Assicurarsi di completare la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
--  Verificare che [Node.js v4.0 o versione successiva](https://nodejs.org) sia installato nel computer.
-- Se si vuole registrare un dispositivo simulato al termine di questo argomento di avvio rapido, seguire la procedura descritta in [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) fino al passaggio in cui si ottiene una chiave di verifica dell'autenticità per il dispositivo. Annotare la chiave di verifica dell'autenticità perché sarà necessaria più avanti in questo argomento di avvio rapido. **Non seguire i passaggi per la creazione di una registrazione singola nel portale di Azure.**
- 
 ## <a name="create-the-individual-enrollment-sample"></a>Creare l'esempio di registrazione singola 
 
  
@@ -76,7 +76,7 @@ Questi passaggi illustrano come creare una registrazione singola a livello di co
        ![Ottenere la stringa di connessione del servizio di provisioning dal portale](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
 
-2. È anche necessaria la chiave di verifica dell'autenticità per il dispositivo. Se è stata seguita la procedura descritta nella guida introduttiva [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) per creare un dispositivo TPM simulato, usare la chiave creata per il dispositivo. In caso contrario, per creare una registrazione singola di esempio è possibile usare la chiave di verifica dell'autenticità seguente fornita con l'SDK:
+2. È anche necessaria la chiave di verifica dell'autenticità per il dispositivo. Se è stata seguita la procedura descritta nella guida introduttiva [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) per creare un dispositivo TPM simulato, usare la chiave creata per il dispositivo. In caso contrario, per creare una registrazione singola di esempio è possibile usare la chiave di verifica dell'autenticità seguente fornita con [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node):
 
     ```
     AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUScTk1UjuioeTlfGYZrrimExB+bScH75adUMRIi2UOMxG1kw4y+9RW/IVoMl4e620VxZad0ARX2gUqVjYO7KPVt3dyKhZS3dkcvfBisBhP1XH9B33VqHG9SHnbnQXdBUaCgKAfxome8UmBKfe+naTsE5fkvjb/do3/dD6l4sGBwFCnKRdln4XpM03zLpoHFao8zOwt8l/uP3qUIxmCYv9A7m69Ms+5/pCkTu/rK4mRDsfhZ0QLfbzVI6zQFOKF/rwsfBtFeWlWtcuJMKlXdD8TXWElTzgh7JS4qhFzreL0c1mI0GCj+Aws0usZh7dLIVPnlgZcBhgy1SSDQMQ==

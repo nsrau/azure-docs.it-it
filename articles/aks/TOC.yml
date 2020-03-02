@@ -56,7 +56,7 @@
       href: tutorial-kubernetes-scale.md
     - name: '6: Aggiornare l''applicazione'
       href: tutorial-kubernetes-app-update.md
-    - name: 7 - Aggiornare il cluster
+    - name: '7: Aggiornare il cluster'
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concetti
   items:
@@ -64,7 +64,7 @@
       href: concepts-clusters-workloads.md
     - name: Accesso e identità
       href: concepts-identity.md
-    - name: Security
+    - name: Sicurezza
       href: concepts-security.md
       items: null
     - name: Rete
@@ -375,6 +375,8 @@
           href: kube-advisor-tool.md
         - name: Accesso SSH ai nodi
           href: ssh.md
+        - name: Strumenti per le prestazioni Linux
+          href: troubleshoot-linux.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

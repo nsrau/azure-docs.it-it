@@ -7,16 +7,19 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 9/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8a8b36f61b967af2109e8c897d632b192d208017
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: f7807a4c2024e16f563adbcb46a5c60e5c542dda
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71274968"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524564"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-mongodb-api"></a>Esempi dell'interfaccia della riga di comando di Azure per l'API MongoDB di Azure Cosmos DB
 
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per l'API MongoDB di Azure Cosmos DB. Per tutti i comandi dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili pagine di riferimento in [Informazioni di riferimento sull'interfaccia della riga di comando di Azure](/cli/azure/cosmosdb). Tutti gli esempi di script dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili nel [repository GitHub dell'interfaccia della riga di comando di Azure Cosmos DB](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+
+> [!NOTE]
+> Attualmente è possibile creare solo la versione 3.2 (account che usano l'endpoint nel formato `*.documents.azure.com`) degli account API di Azure Cosmos DB per MongoDB usando PowerShell, l'interfaccia della riga di comando e i modelli di Resource Manager. Per creare la versione 3.6 degli account, è necessario usare il portale di Azure.
 
 | |  |
 |---|---|

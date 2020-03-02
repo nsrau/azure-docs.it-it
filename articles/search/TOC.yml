@@ -35,7 +35,7 @@
       href: search-get-started-python.md
 - name: Esercitazioni
   items:
-    - name: 'Creare la prima app C#'
+    - name: 'Creare un''app C#'
       items:
         - name: 1 - Pagina di ricerca di base
           href: tutorial-csharp-create-first-app.md
@@ -47,13 +47,15 @@
           href: tutorial-csharp-facets.md
         - name: 5 - Aggiungere l'ordinamento dei risultati
           href: tutorial-csharp-orders.md
-    - name: Indicizzare un database SQL di Azure
-      href: search-indexer-tutorial.md
-    - name: Indicizzare BLOB JSON di Azure
-      href: search-semi-structured-data.md
-    - name: Indicizzare più origini dati di Azure
-      href: tutorial-multiple-data-sources.md
-    - name: Arricchirsi con l'intelligenza artificiale (ricerca cognitiva)
+    - name: Indicizzare i dati di Azure
+      items:
+        - name: Indicizzare un database SQL di Azure
+          href: search-indexer-tutorial.md
+        - name: Indicizzare BLOB JSON di Azure
+          href: search-semi-structured-data.md
+        - name: Indicizzare più origini dati di Azure
+          href: tutorial-multiple-data-sources.md
+    - name: Usare l'intelligenza artificiale per creare contenuto
       items:
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md

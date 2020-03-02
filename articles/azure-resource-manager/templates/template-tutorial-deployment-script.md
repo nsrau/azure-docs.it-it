@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5454d2f80d1febccb0c57ecf2e80d930bb5cb761
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988805"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561460"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato (anteprima)
 
@@ -266,13 +266,13 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
     * **timeout**: specificare il tempo di esecuzione dello script massimo consentito nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
     * **arguments**: Specificare i valori del parametro. I valori sono separati da uno spazio.
     * **scriptContent**: specificare il contenuto dello script. Per eseguire uno script esterno, usare **primaryScriptURI**. Per altre informazioni, vedere [Usare uno script esterno](./deployment-script-template.md#use-external-scripts).
-        La dichiarazione di **$DeploymentScriptOutputs** è necessaria solo quando si esegue il test dello script in un computer locale. La dichiarazione della variabile consente di eseguire lo script in un computer locale e in una risorsa deploymentScript senza dover apportare modifiche. Il valore assegnato a $DeploymentScriptOutputs è disponibile come output nelle distribuzioni. Per altre informazioni, vedere [Usare gli output degli script di distribuzione](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+        La dichiarazione di **$DeploymentScriptOutputs** è necessaria solo quando si esegue il test dello script in un computer locale. La dichiarazione della variabile consente di eseguire lo script in un computer locale e in una risorsa deploymentScript senza dover apportare modifiche. Il valore assegnato a $DeploymentScriptOutputs è disponibile come output nelle distribuzioni. Per altre informazioni, vedere [Usare gli output degli script di distribuzione di PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Usare gli output degli script di distribuzione dell'interfaccia della riga di comando](./deployment-script-template.md#work-with-outputs-from-cli-script).
     * **cleanupPreference**: specificare la preferenza che determina quando eliminare le risorse dello script di distribuzione.  Il valore predefinito è **Always**, che significa che le risorse dello script di distribuzione vengono eliminate nonostante lo stato finale (Succeeded, Failed, Canceled). In questa esercitazione viene usato **OnSuccess** in modo da potere visualizzare i risultati dell'esecuzione dello script.
     * **retentionInterval**: specificare l'intervallo per cui il servizio mantiene le risorse dello script dopo il raggiungimento di uno stato finale. Le risorse verranno eliminate alla scadenza di tale durata. La durata è basata sul modello ISO 8601. Questa esercitazione usa P1D, che significa un giorno.  Questa proprietà viene usata quando l'opzione **cleanupPreference** è impostata su **OnExpiration**. Tale proprietà non è attualmente abilitata.
 
     Lo script di distribuzione accetta tre parametri: il nome dell'insieme di credenziali delle chiavi, il nome del certificato e il nome del soggetto.  Crea un certificato e quindi aggiunge il certificato all'insieme di credenziali delle chiavi.
 
-    **$DeploymentScriptOutputs** viene usato per archiviare il valore di output.  Per altre informazioni, vedere [Usare gli output degli script di distribuzione](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+    **$DeploymentScriptOutputs** viene usato per archiviare il valore di output.  Per altre informazioni, vedere [Usare gli output degli script di distribuzione di PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) o [Usare gli output degli script di distribuzione dell'interfaccia della riga di comando](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
     Il modello completato è disponibile [qui](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 

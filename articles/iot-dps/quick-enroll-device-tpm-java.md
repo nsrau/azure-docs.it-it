@@ -9,21 +9,27 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: df18e721a7400a1e45b7f1fcd74fdafdbfdf026c
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: c199d5be4c103c80a6fcc126af70f48367909f64
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462259"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605379"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Avvio rapido: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Java Service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
+Questa guida di avvio rapido descrive come creare una registrazione singola a livello di codice per un dispositivo TPM simulato nel servizio Device Provisioning in hub IoT di Azure usando Java Service SDK e un'applicazione Java di esempio.
 
-Questi passaggi illustrano come creare una registrazione singola a livello di codice per un dispositivo TPM simulato nel servizio Device Provisioning in hub IoT di Azure usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) e un'applicazione Java di esempio. Anche se Java Service SDK funziona su computer sia Windows che Linux, questo articolo usa un computer di sviluppo Windows per illustrare il processo di registrazione.
+## <a name="prerequisites"></a>Prerequisites
 
-Assicurarsi di [configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) e di [simulare un dispositivo TPM](quick-create-simulated-device.md#simulatetpm) prima di continuare.
+- Completamento dell'esercitazione [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+- Completamento dell'esercitazione [Leggere le chiavi di crittografia dal dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
+- Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Questa guida di avvio rapido installa [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/). Funziona sia in Windows che in Linux. Questa guida di avvio rapido usa Windows.
+- [Maven 3](https://maven.apache.org/download.cgi).
+- [Git](https://git-scm.com/download/).
 
 <a id="setupdevbox"></a>
 
@@ -56,7 +62,7 @@ Assicurarsi di [configurare il servizio Device Provisioning in hub IoT con il po
 
 Questa sezione illustra come aggiungere i dettagli del provisioning del dispositivo TPM al codice di esempio. 
 
-1. Aprire un prompt dei comandi. Clonare il repository GitHub per l'esempio di codice di registrazione del dispositivo usando Java Service SDK:
+1. Aprire un prompt dei comandi. Clonare il repository GitHub per l'esempio di codice di registrazione del dispositivo usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -124,7 +130,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
     mvn install -DskipTests
     ```
 
-   Questo comando scarica il pacchetto Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) nel computer. Questo pacchetto include i file binari per Java Service SDK, necessari al codice di esempio per la compilazione. 
+   Questo comando scarica il pacchetto Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) nel computer. Questo pacchetto include i file binari per [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/), necessari al codice di esempio per la compilazione. 
 
 3. Eseguire l'esempio usando questi comandi nella finestra di comando:
 

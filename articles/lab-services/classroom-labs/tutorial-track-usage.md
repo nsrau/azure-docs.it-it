@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 55c7e2f30324fe7878e38f1129c63c6e0c51a75f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a1a3e62646fedd468a02eac7b1a48d0b2d00fd74
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134851"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591983"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Esercitazione: Tenere traccia dell'utilizzo di un lab in Azure Lab Services
 Questa esercitazione spiega in che modo il creatore/proprietario di un lab può tenere traccia dell'utilizzo del lab.
@@ -41,7 +41,7 @@ In questa esercitazione vengono completate le azioni seguenti:
 
     ![Utenti registrati](../media/tutorial-track-usage/registered-users.png)
 
-    Per informazioni dettagliate sull'aggiunta e la gestione degli utenti per il lab, vedere [Aggiungere e gestire gli utenti del lab](how-to-configure-student-usage.md).
+    Per altre informazioni su come aggiungere e gestire gli utenti per il lab, vedere [Aggiungere e gestire gli utenti del lab](how-to-configure-student-usage.md).
 
 ## <a name="view-the-usage-of-vms"></a>Visualizzare l'utilizzo di VM
 
@@ -53,9 +53,12 @@ In questa esercitazione vengono completate le azioni seguenti:
 ## <a name="manage-student-vms"></a>Gestire le macchine virtuali degli studenti 
 In questa pagina è possibile avviare, arrestare o reimpostare le macchine virtuali degli studenti usando i controlli nella colonna **Stato** o sulla barra degli strumenti.
 
-![Controlli della macchina virtuale](../media/tutorial-track-usage/vm-controls.png)
+![Azioni delle macchine virtuali](../media/tutorial-track-usage/vm-controls.png)
 
-Per informazioni dettagliate sulla gestione del pool di macchine virtuali per il lab, vedere [Configurare e gestire il pool di macchine virtuali](how-to-set-virtual-machine-passwords.md).
+Per altre informazioni su come gestire il pool di macchine virtuali per il lab, vedere [Configurare e gestire il pool di macchine virtuali](how-to-set-virtual-machine-passwords.md).
+
+> [!NOTE]
+> Quando un docente accende una macchina virtuale per studenti, la quota per lo studente rimane invariata. La quota per un utente specifica il numero di ore lab disponibili per l'utente al di fuori dell'orario delle lezioni pianificato. Per altre informazioni sulle quote, vedere [Impostare quote per gli utenti](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui lab per le classi, vedere gli articoli nella sezione [Guide alle procedure](how-to-manage-lab-accounts.md).

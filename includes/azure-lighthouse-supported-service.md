@@ -16,4 +16,4 @@ ms.lasthandoff: 01/29/2020
 ms.locfileid: "76846021"
 ---
 > [!NOTE]
-> Questo servizio supporta la [gestione delle risorse delegata di Azure](../articles/lighthouse/concepts/azure-delegated-resource-management.md), che consente ai provider di servizi accedere al proprio tenant per gestire le sottoscrizioni e i gruppi di risorse che i clienti hanno delegato loro. Per altre informazioni, vedere [Azure Lighthouse](../articles/lighthouse/overview.md).
+> Questo servizio supporta la [gestione delle risorse delegata di Azure](../articles/lighthouse/concepts/azure-delegated-resource-management.md), che consente ai provider di servizi di accedere al proprio tenant per gestire le sottoscrizioni e i gruppi di risorse che i clienti hanno delegato loro. Per altre informazioni, vedere [Azure Lighthouse](../articles/lighthouse/overview.md).

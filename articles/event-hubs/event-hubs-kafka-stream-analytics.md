@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/20/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: b0b48fea308b385fd8c66bf87d708b1c51f7f495
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d7b060a2b35ca41bf87b69be706284174d7b1012
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977359"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587159"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Esercitazione: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -42,34 +42,10 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi con supporto per Kafka
+Quando si crea uno spazio dei nomi di Hub eventi di livello **Standard**, l'endpoint Kafka per lo spazio dei nomi viene abilitato automaticamente. È possibile trasmettere eventi dalle applicazioni che usano il protocollo Kafka in Hub eventi di livello Standard. Seguire le istruzioni dettagliate illustrate in [Creare un hub eventi usando il portale di Azure](event-hubs-create.md) per creare uno spazio dei nomi di Hub eventi di livello **Standard**. 
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Crea una risorsa** nella parte superiore sinistra della schermata.
-2. Eseguire la ricerca degli **Hub eventi** e selezionare le opzioni illustrate di seguito:
-    
-    ![Cercare Hub eventi nel portale](./media/event-hubs-kafka-stream-analytics/select-event-hubs.png) 
-3. Nella pagina **Hub eventi** selezionare **Crea**.
-4. Nella pagina **Crea spazio dei nomi** eseguire queste azioni: 
-    1. Specificare un **nome** univoco per lo spazio dei nomi. 
-    2. Selezionare un **piano tariffario**. 
-    3. Selezionare **Abilita Kafka**. Questo è un passaggio **importante**. 
-    4. Selezionare la **sottoscrizione** in cui si vuole creare lo spazio dei nomi dell'hub eventi. 
-    5. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente. 
-    6. Selezionare una **posizione**. 
-    7. Fare clic su **Crea**.
-    
-        ![Creare uno spazio dei nomi](./media/event-hubs-kafka-stream-analytics/create-event-hub-namespace-page.png) 
-4. Nel **messaggio di notifica** selezionare il **nome del gruppo di risorse**. 
-
-    ![Creare uno spazio dei nomi](./media/event-hubs-kafka-stream-analytics/creation-station-message.png)
-1. Selezionare lo **spazio dei nomi dell'hub eventi** nel gruppo di risorse. 
-2. Dopo avere creato lo spazio dei nomi, selezionare **Criteri di accesso condivisi** in **IMPOSTAZIONI**.
-
-    ![Fare clic su Criteri di accesso condivisi](./media/event-hubs-kafka-stream-analytics/shared-access-policies.png)
-5. È possibile scegliere il valore predefinito **RootManageSharedAccessKey**, oppure aggiungere un nuovo criterio. Fare clic sul nome dei criteri e copiare la **stringa di connessione**. Usare la stringa di connessione per configurare il client Kafka. 
-    
-    ![Selezionare un criterio](./media/event-hubs-kafka-stream-analytics/connection-string.png)  
-
-È ora possibile trasmettere gli eventi dalle applicazioni che usano il protocollo Kafka negli Hub eventi.
+> [!NOTE]
+> Hub eventi per Kafka è disponibile solo nei livelli **Standard** e **Dedicato**. Il livello **Basic** non supporta Kafka in Hub eventi.
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Inviare e ricevere messaggi con Kafka in Hub eventi
 

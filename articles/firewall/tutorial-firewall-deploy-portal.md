@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371346"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558887"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -60,8 +60,8 @@ Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
 2. Nel menu del portale di Azure selezionare **Gruppi di risorse** oppure cercare e selezionare *Gruppi di risorse* da qualsiasi pagina. Quindi selezionare **Aggiungi**.
 3. In **Nome del gruppo di risorse** immettere *Test-FW-RG*.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
-5. In **Località del gruppo di risorse** selezionare una località. Tutte le successive risorse create devono trovarsi nella stessa località.
-6. Selezionare **Crea**.
+5. In **Località del gruppo di risorse** selezionare una località. Tutte le altre risorse create devono risiedere nella stessa località.
+6. Selezionare **Create** (Crea).
 
 ### <a name="create-a-vnet"></a>Creare una rete virtuale
 
@@ -102,9 +102,9 @@ Creare ora le macchine virtuali per il jump server e il server del carico di lav
 2. Selezionare **Calcolo** e quindi selezionare **Windows Server 2016 Datacenter** nell'elenco In primo piano.
 3. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
-   |Gruppo di risorse     |**Test-FW-RG**|
+   |Resource group     |**Test-FW-RG**|
    |Nome macchina virtuale     |**Srv-Jump**|
    |Region     |Come precedente|
    |Nome utente amministratore     |**azureuser**|
@@ -123,7 +123,7 @@ Creare ora le macchine virtuali per il jump server e il server del carico di lav
 
 Usare le informazioni nella tabella seguente per configurare un'altra macchina virtuale denominata **Srv-Work**. Il resto della configurazione è uguale a quella della macchina virtuale Srv-Jump.
 
-|Impostazione  |Valore  |
+|Impostazione  |valore  |
 |---------|---------|
 |Subnet|**Workload-SN**|
 |IP pubblico|**Nessuno**|
@@ -138,13 +138,13 @@ Distribuire il firewall nella rete virtuale.
 3. Selezionare **Firewall**, quindi **Crea**.
 4. Nella pagina **Crea un firewall** usare la tabella seguente per configurare il firewall:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
-   |Sottoscrizione     |\<sottoscrizione in uso\>|
-   |Gruppo di risorse     |**Test-FW-RG** |
+   |Subscription     |\<sottoscrizione in uso\>|
+   |Resource group     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
-   |Località     |Selezionare la stessa località usata in precedenza|
-   |Scegliere una rete virtuale     |**Usa esistente**: **Test-FW-VN**|
+   |Location     |Selezionare la stessa località usata in precedenza|
+   |Scegliere una rete virtuale     |**Use existing** (Usa esistente): **Test-FW-VN**|
    |Indirizzo IP pubblico     |**Aggiungi nuovo**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 
 5. Selezionare **Rivedi e crea**.
@@ -193,10 +193,11 @@ Si tratta della regola di applicazione che consente l'accesso in uscita a www.go
 6. In **Priorità** immettere **200**.
 7. In **Azione** selezionare **Consenti**.
 8. In **Regole**, **FQDN di destinazione**, immettere **Allow-Google** in **Nome**.
-9. In **Indirizzi di origine** immettere **10.0.2.0/24**.
-10. In **Protocollo:Porta** immettere **http, https**.
-11. In **FQDN di destinazione** immettere **www.google.com**
-12. Selezionare **Aggiungi**.
+9. In **Tipo di origine** selezionare **Indirizzo IP**.
+10. In **Origine** digitare **10.0.2.0/24**.
+11. In **Protocollo:Porta** immettere **http, https**.
+12. In **FQDN di destinazione** immettere **www.google.com**
+13. Selezionare **Aggiungi**.
 
 Firewall di Azure include una raccolta di regole predefinite per i nomi di dominio completi dell'infrastruttura consentiti per impostazione predefinita. Questi nomi di dominio completi sono specifici per la piattaforma e non possono essere usati per altri scopi. Per altre informazioni, vedere [Infrastructure FQDNs](infrastructure-fqdns.md) (FQDN dell'infrastruttura).
 
@@ -209,10 +210,11 @@ Si tratta della regola di rete che consente l'accesso in uscita a due indirizzi 
 3. In **Nome** immettere **Net-Coll01**.
 4. In **Priorità** immettere **200**.
 5. In **Azione** selezionare **Consenti**.
-6. In **Regole** immettere **Allow-DNS** in **Nome**.
+6. In **Regole**, **Indirizzi IP** digitare **Allow-DNS** in **Nome**.
 7. In **Protocollo** selezionare **UDP**.
-8. In **Indirizzi di origine** immettere **10.0.2.0/24**.
-9. In Indirizzo di destinazione immettere **209.244.0.3,209.244.0.4**
+9. In **Tipo di origine** selezionare **Indirizzo IP**.
+1. In **Origine** digitare **10.0.2.0/24**.
+2. In **Indirizzo di destinazione** digitare **209.244.0.3,209.244.0.4**
 
    Si tratta di server DNS pubblici gestiti da CenturyLink.
 1. In **Porte di destinazione** immettere **53**.

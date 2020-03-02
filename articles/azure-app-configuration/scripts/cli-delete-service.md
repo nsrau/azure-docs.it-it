@@ -1,26 +1,20 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Eliminare un archivio di Configurazione app di Azure
 titleSuffix: Azure App Configuration
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Eliminare un archivio di Configurazione app di Azure
+description: Usare lo script dell'interfaccia della riga di comando di Azure per eliminare un archivio di Configurazione app di Azure
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 02/24/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 62628b611c7df7aa0515cbb2cc938b02977e510e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 7f73de459d8ce9f74e3925789af630b7c804d605
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467663"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523573"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Eliminare un archivio di Configurazione app di Azure
 
