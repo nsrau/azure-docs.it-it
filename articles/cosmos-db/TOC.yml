@@ -231,7 +231,7 @@
                     - name: Funzioni matematiche
                       displayName: 'mathematical, mathematical functions, system functions, built-in functions'
                       href: sql-query-mathematical-functions.md
-                    - name: abs
+                    - name: ABS
                       displayName: 'ABS, absolute value, built-in functions'
                       href: sql-query-abs.md
                     - name: ACOS
@@ -328,7 +328,7 @@
                     - name: Funzioni per i valori stringa
                       displayName: 'string functions, string, system functions, built-in functions'
                       href: sql-query-string-functions.md
-                    - name: CONCATENA
+                    - name: CONCAT
                       displayName: 'CONCAT, concatenate, built-in functions'
                       href: sql-query-concat.md
                     - name: CONTAINS
@@ -619,6 +619,7 @@
                   href: cassandra-spark-table-copy-ops.md
             - name: Gestire con i modelli di Resource Manager
               href: manage-cassandra-with-resource-manager.md
+              displayName: ARM
             - name: Gestire usando PowerShell
               href: powershell-samples-cassandra.md
             - name: Gestire con l'interfaccia della riga di comando di Azure
@@ -706,6 +707,7 @@
               displayName: custom commands
             - name: Gestire con i modelli di Resource Manager
               href: manage-mongodb-with-resource-manager.md
+              displayName: ARM
             - name: Gestire usando PowerShell
               href: powershell-samples-mongodb.md
             - name: Gestire con l'interfaccia della riga di comando di Azure
@@ -767,6 +769,7 @@
               href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
             - name: Gestire con i modelli di Resource Manager
               href: manage-gremlin-with-resource-manager.md
+              displayName: ARM
             - name: Gestire usando PowerShell
               href: powershell-samples-gremlin.md
             - name: Gestire con l'interfaccia della riga di comando di Azure
@@ -823,6 +826,7 @@
               href: table-storage-design-guide.md
             - name: Gestire con i modelli di Resource Manager
               href: manage-table-with-resource-manager.md
+              displayName: ARM
             - name: Gestire usando PowerShell
               href: powershell-samples-table.md
             - name: Gestire con l'interfaccia della riga di comando di Azure
@@ -859,6 +863,7 @@
           href: manage-with-cli.md
         - name: Uso dei modelli di Resource Manager
           href: manage-sql-with-resource-manager.md
+          displayName: ARM
     - name: Distribuzione globale
       items:
         - name: Configurare il supporto multimaster
@@ -1110,6 +1115,7 @@
       href: /rest/api/cosmos-db-resource-provider/
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.documentdb/allversions
+      displayName: ARM
     - name: Note sulla versione dell'emulatore
       href: local-emulator-release-notes.md
 - name: Risorse
