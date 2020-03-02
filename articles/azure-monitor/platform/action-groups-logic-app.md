@@ -3,23 +3,22 @@ title: Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 description: Informazioni su come creare un'azione dell'app per la logica per elaborare gli avvisi di Monitoraggio di Azure.
 author: dkamstra
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: ad196f52935af4ab4aa7af1b80183161065d4b4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: adc53ad1c75b3251c5672d9078062631b107cc87
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365023"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669132"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
 Questo articolo illustra come configurare e attivare un'app per la logica per creare una conversazione in Microsoft Teams quando viene generato un avviso.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Quando si attiva un avviso di Monitoraggio di Azure, viene chiamato un [gruppo di azioni](../../azure-monitor/platform/action-groups.md). I gruppi di azioni consentono di attivare una o più azioni per notificare un avviso agli utenti e correggere il problema.
 
 Il processo generale è il seguente:
