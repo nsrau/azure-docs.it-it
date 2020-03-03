@@ -2,20 +2,20 @@
 title: Mantieni l'accesso in Azure Active Directory B2C
 description: Informazioni su come configurare Mantieni l'accesso (KMSI) in Active Directory B2C di Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84ba68c97f69872e39121915a6edf23aa029fa75
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
-ms.translationtype: HT
+ms.openlocfilehash: 9a27487fa69888b02883c3d9a2151887f41afc45
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161687"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189379"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 
@@ -27,16 +27,16 @@ Gli utenti dovrebbero evitare di abilitare questa funzione su un computer pubbli
 
 ![Pagina di accesso di esempio che mostra una casella di controllo Mantieni l'accesso](./media/custom-policy-keep-me-signed-in/kmsi.PNG)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un tenant di Azure AD B2C configurato per consentire l'accesso all'account locale. KMSI non è supportato per gli account del provider di identità esterno.
 - Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
 
-## <a name="configure-the-page-identifier"></a>Configurare l'identificatore di pagina 
+## <a name="configure-the-page-identifier"></a>Configurare l'identificatore di pagina
 
 Per abilitare KMSI, impostare la definizione del contenuto `DataUri` elemento su [identificatore di pagina](contentdefinitions.md#datauri) `unifiedssp` e la [pagina](page-layout.md) *1.1.0* o successiva.
 
-1. Aprire il file di estensione dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em> . Questo file di estensione è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
+1. Aprire il file di estensione dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>  . Questo file di estensione è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
 1. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Aggiungere l'elemento **ContentDefinitions** all'elemento **BuildingBlocks** del criterio.
 
@@ -51,7 +51,7 @@ Per abilitare KMSI, impostare la definizione del contenuto `DataUri` elemento su
       </ContentDefinitions>
     </BuildingBlocks>
     ```
-    
+
 1. Salvare il file delle estensioni.
 
 
@@ -73,13 +73,13 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
     ```
 
     - **SessionExpiryType** : indica il modo in cui la sessione viene estesa in base al tempo specificato in `SessionExpiryInSeconds` e `KeepAliveInDays`. Il valore `Rolling` (impostazione predefinita) indica che la sessione viene estesa ogni volta che l'utente esegue l'autenticazione. Il valore `Absolute` indica che l'utente è obbligato a eseguire nuovamente l'autenticazione dopo il periodo di tempo specificato.
- 
+
     - **SessionExpiryInSeconds** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* non è abilitata o se un utente non seleziona *Mantieni l'accesso*. La sessione scade dopo che `SessionExpiryInSeconds` è stata superata oppure il browser è chiuso.
- 
+
     - **KeepAliveInDays** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* è abilitata e l'utente seleziona *Mantieni l'accesso*.  Il valore di `KeepAliveInDays` ha la precedenza sul valore `SessionExpiryInSeconds` e determina l'ora di scadenza della sessione. Se un utente chiude il browser e lo riapre in un secondo momento, potrà comunque accedere automaticamente, purché sia entro il periodo di KeepAliveInDays.
-    
+
     Per altre informazioni, vedere [comportamenti dei percorsi utente](relyingparty.md#userjourneybehaviors).
- 
+
 È consigliabile impostare il valore di SessionExpiryInSeconds su un periodo breve (1200 secondi), mentre il valore di KeepAliveInDays può essere impostato su un periodo di tempo relativamente lungo (30 giorni), come illustrato nell'esempio seguente:
 
 ```XML
