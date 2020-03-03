@@ -3,7 +3,7 @@ title: 'Esercitazione: Eseguire un playbook in Azure Sentinel'
 description: 'Esercitazione: Questo articolo descrive come eseguire un playbook in Azure Sentinel.'
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2019
-ms.author: rkarlin
-ms.openlocfilehash: 7e26e901fdee8cac79cfb55aa0999487e87b8a78
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/18/2019
+ms.author: yelevin
+ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113914"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585085"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Esercitazione: Configurare le risposte automatiche alle minacce in Azure Sentinel
 
@@ -64,7 +64,7 @@ Seguire questa procedura per creare un nuovo playbook di sicurezza in Azure Sent
 
    ![App per la logica](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. Nella pagina**Azure Sentinel - Playbook (anteprima)** fare clic sul pulsante **Aggiungi**.
+3. Nella pagina**Azure Sentinel - Playbook** fare clic sul pulsante **Aggiungi**.
 
    ![Creare l'app per la logica](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 

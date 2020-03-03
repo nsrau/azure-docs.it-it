@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757800"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605657"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componenti e limiti di Load Balancer
 Azure Load Balancer contiene diversi componenti chiave.  Questi componenti possono essere configurati nella sottoscrizione tramite il portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell.  
@@ -73,7 +73,9 @@ Per altre informazioni, vedere [Configurare la modalità di distribuzione per Az
 
 L'immagine seguente mostra la distribuzione basata su hash:
 
-  ![Distribuzione basata su hash](./media/load-balancer-overview/load-balancer-distribution.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-distribution.svg" width="512" title="Distribuzione basata su hash">
+</p>
 
   *Figura: Distribuzione basata su hash*
 
@@ -132,9 +134,11 @@ Un servizio Load Balancer pubblico esegue il mapping dell'indirizzo IP pubblico 
 
 La figura seguente mostra un endpoint con carico bilanciato per il traffico Web condiviso fra tre macchine virtuali per la porta TCP 80 pubblica. Queste tre macchine virtuali fanno parte di un set con bilanciamento del carico.
 
-![Esempio di servizio Load Balancer pubblico](./media/load-balancer-overview/IC727496.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-http.svg" width="256" title="Bilanciamento del carico pubblico">
+</p>
 
-*Figura: bilanciamento del traffico Web tramite un servizio Load Balancer pubblico*
+*Figura: Bilanciamento del traffico Web tramite un servizio Load Balancer pubblico*
 
 I client Internet inviano richieste di pagine Web all'indirizzo IP pubblico di un'app Web sulla porta TCP 80. Azure Load Balancer distribuisce le richieste tra le tre macchine virtuali del set con carico bilanciato. Per altre informazioni sugli algoritmi di Load Balancer, vedere [Concetti di Load Balancer](concepts-limitations.md#load-balancer-concepts).
 
@@ -151,7 +155,10 @@ Il servizio Load Balancer interno consente di bilanciare i tipi di carico seguen
 * **Per le applicazioni multilivello**: bilanciamento del carico per le applicazioni multilivello e con connessione a Internet in cui i livelli di back-end non sono esposti a Internet. I livelli di back-end richiedono il bilanciamento del carico per il traffico dal livello con connessione a Internet. Vedere la figura successiva.
 * **Per le applicazioni line-of-business**: bilanciamento del carico per le applicazioni line-of-business ospitate in Azure senza applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico. Questo scenario include server locali che si trovano nel set di computer con carico bilanciato del traffico.
 
-![Esempio di servizio Load Balancer interno](./media/load-balancer-overview/IC744147.png)
+
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="256" title="Bilanciamento del carico pubblico">
+</p>
 
 *Figura: bilanciamento del carico di applicazioni multilivello tramite il servizio Load Balancer sia pubblico che interno*
 

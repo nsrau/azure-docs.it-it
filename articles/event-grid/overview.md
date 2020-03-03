@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65fd9d06c8b25e0aff94429f8eb95bb922da330c
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437300"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505918"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -39,11 +39,15 @@ Per informazioni dettagliate complete sulle funzionalità di ogni origine, con a
 * [Argomenti personalizzati](event-sources.md#custom-topics)
 * [Hub eventi](event-sources.md#event-hubs)
 * [Hub IoT](event-sources.md#iot-hub)
+* [Key Vault (anteprima)](event-sources.md#key-vault-preview)
 * [Servizi multimediali](event-sources.md#media-services)
 * [Gruppi di risorse (operazioni di gestione)](event-sources.md#resource-groups)
 * [Bus di servizio](event-sources.md#service-bus)
 * [Archiviazione BLOB](event-sources.md#storage)
 * [Mappe di Azure](event-sources.md#maps)
+* [Configurazione app](event-sources.md#app-configuration)
+* [Signal R](event-sources.md#azure-signalr)
+* [Machine Learning](event-sources.md#azure-machine-learning)
 
 ## <a name="event-handlers"></a>Gestori eventi
 
@@ -55,8 +59,8 @@ Per informazioni dettagliate complete sulle funzionalità di ogni gestore, con a
 * [Connessioni ibride](event-handlers.md#hybrid-connections)
 * [App per la logica](event-handlers.md#logic-apps)
 * [Power Automate (noto in precedenza come Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Archiviazione code](event-handlers.md#queue-storage)
 * [Bus di servizio](event-handlers.md#service-bus)
+* [Archiviazione code](event-handlers.md#queue-storage)
 * [Webhook](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Concetti

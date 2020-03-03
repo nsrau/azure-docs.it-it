@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.openlocfilehash: 8edadbf946a28239ae4d28d56b3dccd77b451a71
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: b506fdcdec1ae3e98c1a4afe9c5124e284ed4d99
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277147"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589012"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Avvio rapido: Avviare l'applicazione Spring Cloud dal codice sorgente
 
@@ -62,10 +62,16 @@ az account list -o table
 az account set --subscription
 ```
 
-Aprire una finestra dell'interfaccia della riga di comando di Azure ed eseguire i comandi seguenti per effettuare il provisioning di un'istanza di Azure Spring Cloud. Si noti che qui viene anche indicato ad Azure Spring Cloud di assegnare un dominio pubblico.
+Creare un gruppo di risorse in cui includere il servizio Azure Spring Cloud. Per altre informazioni, vedere [Gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).
 
 ```azurecli
-    az spring-cloud create -n <resource name> -g <resource group name> --is-public true
+az group create --location eastus --name <resource group name>
+```
+
+Eseguire i comandi seguenti per effettuare il provisioning di un'istanza di Azure Spring Cloud. Preparare un nome per il servizio Azure Spring Cloud. Il nome deve essere composto da 4-32 caratteri e può contenere solo lettere in minuscolo, numeri e trattini. Il primo carattere del nome del servizio deve essere una lettera e l'ultimo deve essere una lettera o un numero.
+
+```azurecli
+az spring-cloud create -n <resource name> -g <resource group name>
 ```
 
 La distribuzione dell'istanza del servizio richiede circa cinque minuti.

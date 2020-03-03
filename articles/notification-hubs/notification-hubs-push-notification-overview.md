@@ -3,7 +3,7 @@ title: Informazioni su Hub di notifica
 description: Informazioni su come aggiungere le funzionalità di notifica push con Hub di notifica di Azure.
 author: sethmanheim
 manager: femila
-editor: jwargo
+editor: tjsomasundaram
 services: notification-hubs
 documentationcenter: ''
 ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/30/2019
+ms.date: 02/20/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: f92c9ac6942bfad8df57bb3887d1ba5b7c7190af
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: dad71d473ecb6107a5cf0d8f5953667f07bfce5c
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213115"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526774"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Informazioni su Hub di notifica
 
-Hub di notifica di Azure offre un motore di push di facile uso e con scalabilità orizzontale che consente di inviare notifiche a qualsiasi piattaforma (iOS, Android, Windows, Kindle, Baidu e così via) da qualsiasi back-end (cloud o locale). Hub di notifica funziona perfettamente per scenari aziendali e di consumo. Di seguito vengono forniti alcuni scenari di esempio:
+Hub di notifica di Azure offre un motore di push di facile uso e con scalabilità orizzontale che consente di inviare notifiche a qualsiasi piattaforma (iOS, Android, Windows e così via) da qualsiasi back-end (cloud o locale). Hub di notifica funziona perfettamente per scenari aziendali e di consumo. Di seguito vengono forniti alcuni scenari di esempio:
 
 - Invio di notifiche sulle ultime notizie a milioni di utenti con bassa latenza.
 - Invio di coupon in base alla posizione a segmenti di utenti interessati.
@@ -41,19 +41,22 @@ Le notifiche push sono una forma di comunicazione tra l'app e l'utente in cui gl
 
 Le notifiche push sono fondamentali per le app di consumo perché aumentano l'interesse e l'uso delle app, mentre per le app aziendali favoriscono la comunicazione di informazioni aziendali aggiornate. Sono la migliore forma di comunicazione tra app e utente perché consentono un notevole risparmio energetico per i dispositivi mobili, sono flessibili per i mittenti di notifiche e disponibili anche quando le applicazioni corrispondenti non sono attive.
 
+> [!NOTE]
+> Hub di notifica di Azure non supporta le notifiche push VoIP (Voice over Internet Protocol).
+
 Per altre informazioni sulle notifiche push per alcune piattaforme più comuni, vedere gli argomenti seguenti:
 
 - [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
 - [iOS](https://developer.apple.com/notifications/)
 - [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
-## <a name="how-push-notifications-work"></a>Funzionamento delle notifiche push
+## <a name="how-do-push-notifications-work"></a>Funzionamento delle notifiche push
 
-Le notifiche push vengono recapitate attraverso infrastrutture specifiche della piattaforma denominate *Platform Notification System* (PNS). Offrono funzionalità push essenziali per il recapito di un messaggio a un dispositivo con handle e non hanno un'interfaccia comune. Per inviare una notifica a tutti i clienti delle versioni di un'app per iOS, Android e Windows, lo sviluppatore deve usare il servizio APNS (Apple Push Notification Service), il servizio FCM (Firebase Cloud Messaging) e il servizio WNS (servizio di notifica Windows) separatamente.
+Le notifiche push vengono recapitate attraverso infrastrutture specifiche della piattaforma denominate *Platform Notification System* (PNS). Offrono funzionalità push essenziali per il recapito di un messaggio a un dispositivo con handle e non hanno un'interfaccia comune. Per inviare una notifica a tutti gli utenti delle versioni di un'app per iOS, Android e Windows, lo sviluppatore deve usare il servizio APNS (Apple Push Notification Service), il servizio FCM (Firebase Cloud Messaging) e il servizio WNS (servizio di notifica Windows) separatamente.
 
 In particolare, ecco come funziona un push:
 
-1. Un'applicazione decide di voler ricevere una notifica, quindi contatta Platform Notification System per la piattaforma di destinazione dove l'applicazione è in esecuzione e richiede un handle di esecuzione push univoco e temporaneo. Il tipo di handle dipende dal sistema, ad esempio WNS usa URI mentre per APNS usa i token.
+1. Un'applicazione decide di voler ricevere una notifica, quindi contatta il sistema PNS per la piattaforma di destinazione in cui l'app è in esecuzione e richiede un handle di push univoco e temporaneo. Il tipo di handle dipende dal sistema, ad esempio WNS usa URI mentre per APNS usa i token.
 2. L'app client archivia l'handle nel provider o nel back-end dell'app.
 3. Per inviare una notifica push, il back-end dell'app contatta il PNS usando l'handle per individuare una specifica app client.
 4. Il PNS inoltra quindi la notifica al dispositivo specificato dall'handle.
@@ -64,45 +67,45 @@ In particolare, ecco come funziona un push:
 
 I PNS sono potenti. Richiedono tuttavia un grande impegno da parte degli sviluppatori di app per implementare anche i più comuni scenari di notifica push, come la trasmissione di notifiche push a utenti segmentati.
 
-Il push delle notifiche richiede un'infrastruttura complessa che non è correlata alla logica di business principale dell'applicazione. Di seguito sono riportate alcune delle difficoltà infrastrutturali:
+L'invio di notifiche push richiede un'infrastruttura complessa che non è correlata alla logica di business principale dell'applicazione. Di seguito sono riportate alcune delle problematiche infrastrutturali:
 
 - **Dipendenza dalla piattaforma**
-  - Il back-end richiede una logica dipendente dalla piattaforma complessa e difficile da gestire per inviare notifiche a dispositivi su diverse piattaforme perché i PNS non sono unificati.
+  - Per inviare notifiche a dispositivi su diverse piattaforme, il back-end richiede una logica dipendente dalla piattaforma, complessa e difficile da gestire, perché i sistemi PNS non sono unificati.
 - **Ridimensionare**
   - In base alle linee guida dei sistemi PNS,è necessario aggiornare i token di dispositivo a ogni avvio dell'app. Il back-end si occupa di una grande quantità di traffico e dell'accesso al database solo per mantenere aggiornati i token. Se il numero di dispositivi cresce fino a raggiungere centinaia, migliaia o milioni di unità, i costi per la creazione e la gestione dell'infrastruttura diventano significativi.
   - La maggior parte dei sistemi PNS non supporta la trasmissione a più dispositivi. Una semplice trasmissione a un milione di dispositivi causa un milione di chiamate ai PNS. La scalabilità di questa quantità di traffico con latenza minima è molto complessa.
 - **Routing**
-  - Benché i PNS siano un modo per inviare messaggi ai dispositivi, la maggior parte delle notifiche app sono destinate a utenti o a gruppi di interesse. Il back-end deve mantenere un registro per associare i dispositivi ai gruppi, agli utenti, alle proprietà e così via. Questo aumento del carico di lavoro contribuisce inevitabilmente ad aumentare i tempi di produzione e i costi di manutenzione di un'app.
+  - Benché i sistemi PNS offrano un modo per inviare messaggi ai dispositivi, la maggior parte delle notifiche app sono destinate a utenti o a gruppi di interesse. Il back-end deve mantenere un registro per associare i dispositivi ai gruppi, agli utenti, alle proprietà e così via. Questo aumento del carico di lavoro contribuisce inevitabilmente ad aumentare i tempi di produzione e i costi di manutenzione di un'app.
 
 ## <a name="why-use-azure-notification-hubs"></a>Vantaggi di Hub di notifica di Azure
 
-Hub di notifica elimina tutte le complessità associate al push delle notifiche dal back-end dell'app. La sua infrastruttura di notifiche push multipiattaforma e con scalabilità orizzontale riduce la codifica correlata al push e semplifica il back-end. Con Hub di notifica, i dispositivi devono eseguire soltanto la registrazione dei propri handle PNS su un hub, mentre il back-end è responsabile dell'invio di messaggi a utenti o gruppi di interesse, come mostrato nella figura seguente:
+Hub di notifica elimina tutte le complessità associate all'invio manuale di notifiche push dal back-end dell'app. La sua infrastruttura di notifiche push multipiattaforma e con scalabilità orizzontale riduce la codifica correlata al push e semplifica il back-end. Con Hub di notifica, i dispositivi devono eseguire soltanto la registrazione dei propri handle PNS su un hub, mentre il back-end è responsabile dell'invio di messaggi a utenti o gruppi di interesse, come mostrato nella figura seguente:
 
 ![Diagramma di Hub di notifica](./media/notification-hubs-overview/notification-hub-diagram.png)
 
-Hub di notifica è un motore di push pronto all'uso e presenta i vantaggi seguenti:
+Hub di notifica è un motore di push pronto per l'uso che presenta i vantaggi seguenti:
 
 - **Multipiattaforma**
-  - Supporta tutte le principali piattaforme push tra cui iOS, Android, Window, Kindle e Baidu.
+  - Supporto per tutte le principali piattaforme push.
   - È dotato di un'interfaccia comune per effettuare il push a tutte le piattaforme in formati specifici o indipendenti dalla piattaforma senza un processo specifico per la piattaforma.
   - Consente di gestire l'handle di dispositivo in un solo posto.
 - **Multi back-end**
-  - Cloud o in locale
+  - Sul cloud o in locale.
   - .NET, Node.js, Java, Python e così via
 - **Insieme completo di modelli di recapito**
   - Trasmissione a una o più piattaforme: è possibile trasmettere immediatamente a milioni di dispositivi in più piattaforme con una singola chiamata API.
   - Push a dispositivo: è possibile inviare notifiche ai singoli dispositivi.
-  - Push a utente: le funzionalità di tag e modelli consentono di raggiungere tutti i dispositivi multipiattaforma di un utente.
-  - Push a segmento con tag dinamici: la funzionalità dei tag consente di segmentare i dispositivi e di inviarvi push in base alle esigenze, sia a un segmento o a un'espressione di segmenti (ad esempio active AND lives in Seattle NOT new user). Anziché essere limitati a pubblicazione-sottoscrizione, è possibile aggiornare i tag del dispositivo ovunque e in qualsiasi momento.
+  - Push a utente: i tag e i modelli consentono di raggiungere tutti i dispositivi multipiattaforma di un utente.
+  - Push a segmento con tag dinamici: la funzionalità dei tag consente di segmentare i dispositivi e di inviarvi notifiche push in base alle esigenze, sia a un segmento o a un'espressione di segmenti (ad esempio active AND lives in Seattle NOT new user). Invece di essere limitati a pubblicazione-sottoscrizione, è possibile aggiornare i tag del dispositivo ovunque e in qualsiasi momento.
   - Push localizzato: la funzionalità dei modelli consente di ottenere la localizzazione senza influire sul codice di back-end.
   - Push non interattivo: è possibile abilitare il modello push-to-pull inviando notifiche automatiche ai dispositivi, attivandoli in modo da completare determinati pull o azioni.
-  - Push pianificato: è possibile pianificare l'invio delle notifiche in qualsiasi momento.
+  - Push pianificato: è possibile pianificare le notifiche da inviare in qualsiasi momento.
   - Push diretto: è possibile ignorare la registrazione dei dispositivi nel servizio Hub di notifica ed eseguire direttamente push in batch per un elenco di handle di dispositivo.
   - Push personalizzato: le variabili push del dispositivo consentono di inviare notifiche push personalizzate specifiche per il dispositivo con coppie chiave-valore personalizzate.
 - **Telemetria avanzata**
   - Dati di telemetria generali di push, dispositivi, errori e operazioni sono disponibili nel portale di Azure e a livello di codice.
-  - La telemetria per messaggio tiene traccia di ogni push dalla chiamata della richiesta iniziale al corretto invio di push in batch da parte del servizio Hub di notifica.
-  - Il feedback di Platform Notification System comunica tutto il feedback di Platform Notification System per facilitare il debug.
+  - La telemetria per messaggio tiene traccia di ogni push dalla chiamata della richiesta iniziale al corretto invio di push da parte del servizio Hub di notifica.
+  - Platform Notification System comunica tutto il feedback dei sistemi PNS per facilitare il debug.
 - **Scalabilità**
   - Invia messaggi veloci a milioni di dispositivi senza riprogettazione o partizionamento orizzontale del dispositivo.
 - **Sicurezza**

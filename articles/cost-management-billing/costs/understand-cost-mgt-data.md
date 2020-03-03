@@ -4,17 +4,17 @@ description: Questo articolo fornisce informazioni sui dati inclusi in Gestione 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 39f2aab72491ffdf2b583879181a247d3653647f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199892"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560610"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -135,9 +135,9 @@ Ecco alcuni suggerimenti per l'uso dei tag:
 - Usare l'API Tag insieme a Query o UsageDetails per ottenere tutti i costi in base ai tag correnti.
 
 
-**Aggiornamento della versione di valutazione gratuita a Pagamento in base al consumo**
+## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Aggiornamento della versione di valutazione gratuita al pagamento in base al consumo
 
-I clienti che dispongono di una versione di valutazione gratuita (044P) per la conversione nell'offerta con pagamento in base al consumo (003P) possono visualizzarne l'utilizzo durante il periodo di valutazione gratuita. Tuttavia, perderanno visibilità per l'utilizzo della versione di valutazione gratuita dopo la conversione. Dopo la conversione, vengono visualizzati in Gestione costi solo l'utilizzo e i costi della versione con pagamento in base al consumo.
+Per informazioni sulla disponibilità di servizi di livello gratuito dopo l'aggiornamento ai prezzi con pagamento in base al consumo da una versione di valutazione gratuita, vedere le [domande frequenti sull'account Azure gratuito](https://azure.microsoft.com/free/free-account-faq/).
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Pianificazione dell'aggiornamento dei dati sull'utilizzo valutato
 
@@ -157,6 +157,17 @@ Sottoscrizioni con pagamento in base al consumo - Se il mese di fatturazione ter
 ### <a name="rerated-data"></a>Dati rivalutati
 
 Quando si usano le [API di gestione dei costi](../index.yml), PowerBI o il portale di Azure per recuperare i dati, prevedere una rivalutazione, e quindi una modifica, degli addebiti del periodo di fatturazione corrente, fino alla chiusura della fattura.
+
+## <a name="cost-rounding"></a>Arrotondamento dei costi
+
+I costi indicati in Gestione costi sono arrotondati. I costi restituiti dall'API di query non sono arrotondati. Ad esempio:
+
+- Analisi dei costi nel portale di Azure: gli addebiti vengono arrotondati con le regole standard, ossia se i valori sono maggiori di 0,5 vengono arrotondati per eccesso, altrimenti per difetto. L'arrotondamento viene applicato solo ai valori visualizzati. Non si verifica durante l'elaborazione e l'aggregazione dei dati. Ad esempio, con l'analisi i costi vengono aggregati come segue:
+  - Addebito 1: $ 0,004
+  - Addebito 2: $ 0,004
+  - Aggregazione degli addebiti: 0,004 + 0,004 = 0,008. L'addebito visualizzato è $ 0,01.
+- API di query: gli addebiti vengono visualizzati con otto cifre decimali senza arrotondamento.
+
 
 ## <a name="usage-data-update-frequency-varies"></a>Variazione della frequenza di aggiornamento dei dati sull'utilizzo
 

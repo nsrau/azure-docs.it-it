@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 02/25/2020
 ms.author: areddish
-ms.openlocfilehash: 2b3c6fc404e9a5fefc15aa7b7162ff5573c3be5a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: a0cfa49dfe247a71e5c2d546e2bb7e9d9b2efc18
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166132"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616335"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Avvio rapido: Creare un progetto di classificazione immagini con l'SDK di Visione personalizzata per Java
 
@@ -25,14 +25,14 @@ Questo articolo mostra come iniziare a usare Custom Vision SDK per Java per crea
 
 - Un ambiente di sviluppo Java a scelta
 - [JDK 7 o 8](https://aka.ms/azure-jdks) installato.
-- Maven installato
+- [Maven](https://maven.apache.org/) installato
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Ottenere Custom Vision SDK e il codice di esempio
 
 Per scrivere un'app Java che usa Visione personalizzata saranno necessari i pacchetti maven di Visione personalizzata. Questi pacchetti sono inclusi nel progetto di esempio che si scaricherà, ma è possibile accedervi singolarmente qui.
 
-È possibile installare Custom Vision SDK dal repository centrale Maven:
+È possibile trovare l'SDK di Visione personalizzata nel repository centrale Maven:
 
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
@@ -43,7 +43,10 @@ Questo progetto Java crea un nuovo progetto di classificazione immagini di Visio
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
-Il programma è configurato in modo da archiviare i dati chiave come variabili di ambiente. Impostare queste variabili passando alla cartella **Vision/CustomVision** in PowerShell. Quindi immettere i comandi:
+Il programma è configurato in modo da fare riferimento ai dati chiave come variabili di ambiente. Passare alla cartella **Vision/CustomVision** e immettere i comandi di PowerShell seguenti per impostare le variabili di ambiente. 
+
+> [!NOTE]
+> Se si usa un sistema operativo non Windows, vedere [Configurare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) per istruzioni.
 
 ```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
@@ -88,9 +91,9 @@ L'endpoint di stima, qui rappresentato dall'oggetto `predictor`, è il riferimen
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Per compilare ed eseguire la soluzione tramite maven, eseguire il comando seguente nella directory del progetto in PowerShell:
+Per compilare ed eseguire la soluzione con Maven, passare alla directory del progetto (**Vision/CustomVision**) in un prompt dei comandi ed eseguire il comando run:
 
-```powershell
+```bash
 mvn compile exec:java
 ```
 

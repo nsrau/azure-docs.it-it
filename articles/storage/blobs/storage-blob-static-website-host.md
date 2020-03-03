@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906624"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539604"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -32,7 +32,7 @@ In questa esercitazione verranno illustrate le procedure per:
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Assicurarsi di creare un account di archiviazione per utilizzo generico v2. I siti Web statici non sono disponibili in nessun altro tipo di account di archiviazione.
+> Assicurarsi di creare un account di archiviazione standard per utilizzo generico v2. I siti Web statici non sono disponibili in nessun altro tipo di account di archiviazione.
 
 Questa esercitazione usa [Visual Studio Code](https://code.visualstudio.com/download), uno strumento gratuito per i programmatori che permette di creare il sito Web statico e di distribuirlo in un account di archiviazione di Azure.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: a16ed6ac942dd4a9fa521cc813a92e6767a98328
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 71d595ecb3a6900da3df79651ee2dddda594b9de
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024127"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589412"
 ---
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
@@ -39,8 +39,12 @@ Per IoT Central, questo articolo descrive:
 - I processi non supportano i tipi complessi.
 - I tipi di schema della matrice non sono supportati.
 - Sono supportati solo l'SDK per dispositivi C e gli SDK per dispositivi e servizi Node.js.
-- È disponibile solo nelle località Stati Uniti e Europa.
+- È disponibile solo nelle località Stati Uniti, Europa, Asia Pacifico e Australia.
 - I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
+- Il supporto per [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md) è in anteprima ed è disponibile solo in alcune aree selezionate.
+
+    > [!NOTE]
+    > Per creare un'applicazione in anteprima con il supporto per i dispositivi Plug and Play IoT, contattare il supporto tecnico.
 
 ## <a name="personas"></a>Utenti tipo
 

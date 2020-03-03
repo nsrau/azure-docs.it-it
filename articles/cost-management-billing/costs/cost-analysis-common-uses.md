@@ -4,16 +4,16 @@ description: Questo articolo illustra come ottenere risultati per le attività d
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1d9a498185e76f9771ec98656b1cad914b0f3214
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199977"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562582"
 ---
 # <a name="common-cost-analysis-uses"></a>Utilizzi dell'analisi dei costi comune
 
@@ -83,6 +83,9 @@ Il file di report dei dettagli sull'utilizzo in formato CSV fornisce una riparti
 ## <a name="view-monthly-ea-cost-breakdown"></a>Visualizzare la ripartizione dei costi di EA mensile
 
 La registrazione EA accumula i costi per l'intera organizzazione. Conoscere il modo in cui i costi vengono accumulati e fatturati nel tempo consente di coinvolgere le parti interessate appropriate per garantire che i costi siano gestiti in modo responsabile.
+
+Vengono mostrati i costi solo per la registrazione attiva. Se una registrazione inattiva è stata trasferita in una attiva, i costi della registrazione precedente non vengono mostrati in Gestione costi.
+
 
 1. Nel portale di Azure passare a **Gestione dei costi e fatturazione** > **Panoramica**.
 1. Fare clic su **Ripartizione** per il mese corrente e visualizzare il burn-down dell'impegno monetario.  

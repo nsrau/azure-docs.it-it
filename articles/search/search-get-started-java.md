@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un indice di ricerca in Java con le API REST'
+title: 'Avvio rapido: Creare un indice di ricerca in Java con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido su Java illustra come creare un indice, caricare dati ed eseguire query con le API REST di Ricerca cognitiva di Azure.
 manager: nitinme
@@ -8,15 +8,15 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: 0b07e934625b09e7f6249dc00865465147f6f0ba
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406720"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624010"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Java con le API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in Java con le API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,13 +26,13 @@ ms.locfileid: "74406720"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Per creare un'applicazione console Java che crea, carica ed esegue query su un indice di Ricerca cognitiva di Azure, è possibile usare [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable) e l'[API REST di Ricerca cognitiva di Azure](/rest/api/searchservice/). Questo articolo fornisce le istruzioni dettagliate per creare l'applicazione. In alternativa, è possibile [scaricare ed eseguire l'applicazione completa](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Creare un'applicazione console Java che crea, carica ed esegue query su un indice di ricerca tramite [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable) e l'[API REST Ricerca cognitiva di Azure](/rest/api/searchservice/). Questo articolo include le istruzioni dettagliate per la creazione dell'applicazione. In alternativa, è possibile [scaricare ed eseguire l'applicazione completa](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per compilare e testare questo esempio sono stati usati il software e i servizi seguenti:
+Per creare e testare il contenuto di questo argomento di avvio rapido sono stati usati il software e i servizi seguenti:
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
@@ -56,7 +56,7 @@ Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per o
 
 Per ogni richiesta inviata al servizio è richiesta una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-## <a name="set-up-your-environment"></a>Configurazione dell'ambiente
+## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
 Per iniziare, aprire IntelliJ IDEA e configurare un nuovo progetto.
 

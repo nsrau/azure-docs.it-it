@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Geo Artificial Intelligence Data Science Virtual Machine
+title: Cos'è la Geo Artificial Intelligence Data Science Virtual Machine?
 titleSuffix: Azure Data Science Virtual Machine
 description: La Geo Artificial Intelligence Data Science Virtual Machine mette a disposizione le funzionalità di ArcGIS Pro per l'elaborazione dei dati geografici, oltre ai toolkit di data science, Python ed R per l'uso di Machine Learning e intelligenza artificiale.
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 7e2976596ca6b55ea57e00015e53b2721438e990
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: f5a094613b8722f96fccd1d1a6df359fa9b0ebd4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899912"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526062"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Cos'è la Geo Artificial Intelligence Data Science Virtual Machine?
 

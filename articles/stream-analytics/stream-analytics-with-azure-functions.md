@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
-ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772882"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589454"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Esercitazione: Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -191,11 +191,16 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 Se si verifica un errore durante l'invio di eventi a Funzioni di Azure, Analisi di flusso ritenta la maggior parte delle operazioni. Tutte le eccezioni HTTP vengono ritentate fino all'esito positivo, ad eccezione dell'errore HTTP 413 (entità troppo grande). Un errore di tipo entità troppo grande viene considerato un errore di dati soggetto al [criterio Riprova o Rimuovi](stream-analytics-output-error-policy.md).
 
+> [!NOTE]
+> Il timeout per le richieste HTTP da Analisi di flusso a Funzioni di Azure è impostato su 100 secondi. Se l'app Funzioni di Azure impiega più di 100 secondi per elaborare un batch, vengono restituiti errori in Analisi di flusso.
+
 ## <a name="known-issues"></a>Problemi noti
 
 Nel portale di Azure, quando si tenta di reimpostare il valore di Dimensioni massime batch/Numero massimo di batch su un valore vuoto (impostazione predefinita), al momento del salvataggio il valore viene reimpostato sul valore immesso in precedenza. In questo caso, immettere manualmente i valori predefiniti per questi campi.
 
-L'uso di [routing HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) in funzioni di Azure non è attualmente supportato da Analisi di flusso di Azure.
+L'uso del [routing HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) in Funzioni di Azure non è attualmente supportato da Analisi di flusso.
+
+Il supporto per la connessione a Funzioni di Azure ospitato in una rete virtuale non è abilitato.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -3,16 +3,16 @@ title: Istanze riservate di VM per Azure EA
 description: Questo articolo descrive come risparmiare sui costi della registrazione Enterprise con le prenotazioni di Azure di istanze riservate di VM.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3eceef9dc0bc29f7e105ac0b110bd2550413fa61
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 53af5e69a90eb376c28ef364e7d9c5b29287790c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200711"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560578"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
 
@@ -57,10 +57,12 @@ Dopo aver abilitato la registrazione di EA per l'aggiunta di istanze riservate, 
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Come è possibile modificare la sottoscrizione associata a un'istanza riservata o trasferire i vantaggi di un'istanza riservata a una sottoscrizione con lo stesso account?
 
-I vantaggi delle istanze riservate non possono essere conseguiti da più sottoscrizioni contemporaneamente. È possibile modificare la sottoscrizione che usufruisce dei vantaggi delle istanze riservate come segue:
+È possibile modificare la sottoscrizione che usufruisce dei vantaggi delle istanze riservate come segue:
 
 - Accedere al [portale di Azure](https://aka.ms/reservations).
-- Aggiornare l'ambito della sottoscrizione applicata associando una sottoscrizione diversa dello stesso account.
+- Aggiornare l'ambito della sottoscrizione applicato associando una sottoscrizione diversa dello stesso account.
+
+Per altre informazioni sulla modifica dell'ambito di una prenotazione, vedere [Cambiare l'ambito della prenotazione](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Come visualizzare i dettagli di utilizzo di un'istanza riservata
 

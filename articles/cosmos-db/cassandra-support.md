@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445632"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623425"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
@@ -96,7 +96,7 @@ API Cassandra di Azure Cosmos DB supporta i tipi di funzioni CQL seguenti:
 
 ## <a name="cassandra-api-limits"></a>Limiti dell'API Cassandra
 
-API Cassandra di Azure Cosmos DB non ha nessun limite sulle dimensioni dei dati archiviati in una tabella. Possono essere archiviati centinaia di terabyte o petabyte di dati, a patto che siano rispettati i limiti della chiave di partizione. In modo analogo, ogni entità o riga equivalente non prevede limiti per il numero di colonne. La dimensione totale dell'entità non deve tuttavia superare i 2 MB. I dati per chiave di partizione non possono superare i 10 GB, come in tutte le altre API.
+API Cassandra di Azure Cosmos DB non ha nessun limite sulle dimensioni dei dati archiviati in una tabella. Possono essere archiviati centinaia di terabyte o petabyte di dati, a patto che siano rispettati i limiti della chiave di partizione. In modo analogo, ogni entità o riga equivalente non prevede limiti per il numero di colonne. La dimensione totale dell'entità non deve tuttavia superare i 2 MB. I dati per chiave di partizione non possono superare i 20 GB, come in tutte le altre API.
 
 ## <a name="tools"></a>Strumenti 
 

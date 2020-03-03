@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un indice di ricerca in Node.js con le API REST'
+title: 'Avvio rapido: Creare un indice di ricerca in Node.js con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido su Node.js illustra come creare un indice, caricare i dati ed eseguire query in Ricerca cognitiva di Azure usando JavaScript e le API REST.
 author: HeidiSteen
@@ -8,15 +8,15 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: cbef6029b93f134f95ee54aa87ce0dd65bcdf50d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406924"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624003"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Node.js con le API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in Node.js con le API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -29,21 +29,26 @@ Creare un'applicazione Node.js che crea e carica un indice di Ricerca cognitiva 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti.
+Per creare e testare il contenuto di questo argomento di avvio rapido sono stati usati il software e i servizi seguenti:
 
-+ [Node.js](https://nodejs.org).
-+ [NPM](https://www.npmjs.com) deve essere installato da Node.js.
-+ Una struttura di indice di esempio e i documenti corrispondenti sono disponibili in questo articolo oppure nella [directory **quickstart** del repository](https://github.com/Azure-Samples/azure-search-javascript-samples/).
++ [Node.js](https://nodejs.org)
+
++ [NPM](https://www.npmjs.com) deve essere installato da Node.js
+
++ Una struttura di indice di esempio e i documenti corrispondenti sono disponibili in questo articolo oppure nella [directory **quickstart** del repository](https://github.com/Azure-Samples/azure-search-javascript-samples/)
+
 + [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
 
 Consigliato:
 
-* [Visual Studio Code](https://code.visualstudio.com).
+* [Visual Studio Code](https://code.visualstudio.com)
+
 * Estensioni [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) ed [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) per Visual Studio Code.
 
 <a name="get-service-info"></a>
+
 ## <a name="get-keys-and-urls"></a>Ottenere chiavi e URL
 
 Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se il servizio Ricerca cognitiva di Azure è stato aggiunto alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
@@ -58,7 +63,7 @@ Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per o
 
 Nell'intestazione di ogni richiesta inviata al servizio è necessario specificare una chiave API (api-key). La presenza di una chiave valida stabilisce una relazione di trust, in base a singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-## <a name="set-up-your-environment"></a>Configurazione dell'ambiente
+## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
 Per iniziare, aprire una console di PowerShell o un altro ambiente in cui è stato installato Node.js.
 
@@ -108,16 +113,17 @@ Per iniziare, aprire una console di PowerShell o un altro ambiente in cui è sta
       }
     }
     ```
-Creare un file **azure_search_config.json** in cui conservare i dati del servizio di ricerca:
 
-```json
-{
-    "serviceName" : "[SERVICE_NAME]",
-    "adminKey" : "[ADMIN_KEY]",
-    "queryKey" : "[QUERY_KEY]",
-    "indexName" : "hotels-quickstart"
-}
-```
+5. Creare un file **azure_search_config.json** in cui conservare i dati del servizio di ricerca:
+
+    ```json
+    {
+        "serviceName" : "[SEARCH_SERVICE_NAME]",
+        "adminKey" : "[ADMIN_KEY]",
+        "queryKey" : "[QUERY_KEY]",
+        "indexName" : "hotels-quickstart"
+    }
+    ```
 
 Sostituire il valore `[SERVICE_NAME]` con il nome del servizio di ricerca. Sostituire `[ADMIN_KEY]` e `[QUERY_KEY]` con i valori di chiavi registrati in precedenza. 
 
@@ -403,7 +409,7 @@ Il [pacchetto **nconf**](https://github.com/indexzero/nconf) consente di specifi
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
-    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME]' ) {
         throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
@@ -433,7 +439,7 @@ Infine, specificare e chiamare la funzione `run` asincrona principale. Questa fu
 const run = async () => {
     try {
         const cfg = getAzureConfiguration();
-        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName));
         
         const exists = await client.indexExistsAsync();
         await exists ? client.deleteIndexAsync() : Promise.resolve();

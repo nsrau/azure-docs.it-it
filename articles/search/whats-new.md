@@ -1,73 +1,73 @@
 ---
-title: Nuovi annunci di funzionalità
+title: Annunci di nuove funzionalità
 titleSuffix: Azure Cognitive Search
-description: Annunci di funzionalità nuove e migliorate, tra cui la ridenominazione di un servizio di ricerca di Azure in Azure ricerca cognitiva.
+description: Annunci di funzionalità nuove e migliorate, tra cui il servizio Ricerca di Azure rinominato in Ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/30/2020
-ms.openlocfilehash: d0e0e8a5aa3a3e43997e3f9512525be9f51d2018
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
-ms.translationtype: MT
+ms.openlocfilehash: 74f69f789ecb0d529e52054eeb1ac7ccb51bd6c2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934860"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588826"
 ---
-# <a name="whats-new-in-azure-cognitive-search"></a>Novità di Azure ricerca cognitiva
+# <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
-Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere aggiornati con il servizio.
+Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name"></a>Nome nuovo servizio
+## <a name="new-service-name"></a>Nuovo nome del servizio
 
-Ricerca di Azure è stato rinominato in **azure ricerca cognitiva** per riflettere l'uso espanso (ancora facoltativo) delle competenze cognitive e dell'elaborazione di intelligenza artificiale nelle operazioni principali. Le versioni API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono invariati. Le soluzioni di ricerca nuove e esistenti non sono interessate dalla modifica del nome del servizio.
+Il servizio Ricerca di Azure è stato rinominato in **Ricerca cognitiva di Azure** per riflettere l'uso più ampio (ancora facoltativo) delle competenze cognitive e dell'elaborazione di intelligenza artificiale nelle operazioni principali. Le versioni delle API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono rimasti invariati. Le soluzioni di ricerca nuove ed esistenti non sono interessate dalla modifica del nome del servizio.
 
 ## <a name="feature-announcements"></a>Annunci di funzionalità
 
-### <a name="february-2020"></a>2020 febbraio
+### <a name="february-2020"></a>Febbraio 2020
 
-+ Il rilevamento delle informazioni [personali (anteprima)](cognitive-search-skill-pii-detection.md) è una competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e offre la possibilità di mascherarle da tale testo in diversi modi.
++ Il [rilevamento di informazioni personali (anteprima)](cognitive-search-skill-pii-detection.md) è una competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e offre diverse opzioni per mascherarle.
 
-+ La [ricerca di entità personalizzata (anteprima)](cognitive-search-skill-custom-entity-lookup.md ) Cerca il testo da un elenco personalizzato di parole e frasi definito dall'utente. Utilizzando questo elenco, vengono etichettati tutti i documenti con le entità corrispondenti. L'abilità supporta inoltre un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non esatte. 
++ La [ricerca di entità personalizzate (anteprima)](cognitive-search-skill-custom-entity-lookup.md ) cerca il testo in un elenco personalizzato di parole e frasi definito dall'utente. Con questo elenco vengono etichettati tutti i documenti con entità corrispondenti. La competenza supporta anche un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non proprio esatte. 
 
 ### <a name="january-2020"></a>Gennaio 2020
 
-+ Le [chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) sono ora disponibili a livello generale. Se si usa REST, è possibile accedere alla funzionalità usando `api-version=2019-05-06`. Per il codice gestito, il pacchetto corretto è ancora [.NET SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md) anche se la funzionalità non è in anteprima. 
++ Le [chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) sono ora disponibili a livello generale. Se si usa REST, è possibile accedere alla funzionalità tramite `api-version=2019-05-06`. Per il codice gestito, il pacchetto corretto è ancora [.NET SDK versione 8.0-preview](search-dotnet-sdk-migration-version-9.md) anche se la funzionalità non è più in anteprima. 
 
 + L'accesso privato a un servizio di ricerca è disponibile tramite due meccanismi, attualmente in anteprima:
 
-  + È possibile limitare l'accesso a indirizzi IP specifici usando l'API REST di gestione `api-version=2019-10-01-Preview` per creare il servizio. L'API di anteprima include nuove proprietà **IpRule** e **NetworkRuleSet** nell' [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Questa funzionalità di anteprima è disponibile nelle aree selezionate. Per altre informazioni, vedere [come usare l'API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + È possibile limitare l'accesso a specifici indirizzi IP usando l'API REST di gestione `api-version=2019-10-01-Preview` per creare il servizio. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell'[API CreateOrUpdate ](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Questa funzionalità di anteprima è disponibile in specifiche aree. Per altre informazioni, vedere [Come usare l'API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-  + Attualmente disponibile tramite un'anteprima con accesso limitato, è possibile effettuare il provisioning di un servizio di ricerca di Azure che supporta l'endpoint privato di Azure per le connessioni dai client nella stessa rete virtuale. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un endpoint privato per una connessione protetta](service-create-private-endpoint.md).
+  + Con una funzionalità attualmente disponibile tramite un'anteprima con accesso limitato, è possibile effettuare il provisioning di un servizio di ricerca di Azure che supporta l'endpoint privato di Azure per le connessioni dei client nella stessa rete virtuale. Per altre informazioni, vedere [Creare un endpoint privato per una connessione sicura](service-create-private-endpoint.md).
 
 ### <a name="december-2019"></a>Dicembre 2019
 
-+ [Crea app (anteprima)](search-create-app-portal.md) è una nuova procedura guidata nel portale che genera un file HTML scaricabile. Il file include uno script incorporato che esegue il rendering di un'app Web di tipo "localhost" operativa, associata a un indice nel servizio di ricerca. Le pagine sono configurabili nella procedura guidata e possono contenere una barra di ricerca, l'area dei risultati, l'esplorazione dell'intestazione laterale e il supporto per le query typeahead. È possibile modificare il codice HTML offline per estendere o personalizzare il flusso di lavoro o l'aspetto.
++ [Crea un'app (anteprima)](search-create-app-portal.md) è una nuova procedura guidata del portale che genera un file HTML scaricabile. Il file include uno script incorporato che esegue il rendering di un'app Web operativa di tipo "localhost", associata a un indice nel servizio di ricerca. Le pagine sono configurabili nella procedura guidata e possono contenere una barra di ricerca, l'area dei risultati, una barra laterale di spostamento e il supporto per le query con completamento automatico. È possibile modificare il codice HTML offline per estendere o personalizzare il flusso di lavoro o l'aspetto.
 
-+ [Creare un endpoint privato per le connessioni sicure (anteprima)](service-create-private-endpoint.md) spiega come configurare un collegamento privato per proteggere le connessioni al servizio di ricerca. Questa funzionalità di anteprima è disponibile su richiesta e usa il [collegamento privato di Azure](../private-link/private-link-overview.md) e la [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) come parte della soluzione.
++ [Creare un endpoint privato per connessioni sicure (anteprima)](service-create-private-endpoint.md) spiega come configurare un collegamento privato per proteggere le connessioni al servizio di ricerca. Questa funzionalità di anteprima è disponibile su richiesta e usa [Collegamento privato di Azure](../private-link/private-link-overview.md) e la [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) come parte della soluzione.
 
-### <a name="november-2019---ignite-conference"></a>Novembre 2019-conferenza Ignite
+### <a name="november-2019---ignite-conference"></a>Novembre 2019 - Conferenza Ignite
 
-+ L' [arricchimento incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md) aggiunge la memorizzazione nella cache e statefullness a una pipeline di arricchimento, in modo da poter lavorare su fasi o fasi specifiche senza perdere contenuto già elaborato. In precedenza, tutte le modifiche apportate a una pipeline di arricchimento richiedevano una ricompilazione completa. Con l'arricchimento incrementale, viene mantenuto l'output dell'analisi costosa, in particolare l'analisi delle immagini.
++ L'[arricchimento incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md) aggiunge la memorizzazione nella cache e il supporto di più stati a una pipeline di arricchimento, consentendo di eseguire specifici passaggi o fasi senza perdere il contenuto già elaborato. In precedenza, tutte le modifiche apportate a una pipeline di arricchimento richiedevano una ricompilazione completa. Con l'arricchimento incrementale, l'output di analisi costose viene mantenuto, in particolare l'analisi delle immagini.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
 
-+ L' [estrazione dei documenti (anteprima)](cognitive-search-skill-document-extraction.md) è una competenza cognitiva usata durante l'indicizzazione che consente di estrarre il contenuto di un file dall'interno di un skillt. In precedenza, il cracking del documento si verificava solo prima dell'esecuzione di Skills. Con l'aggiunta di questa competenza, è anche possibile eseguire questa operazione all'interno dell'esecuzione di competenze.
++ L'[estrazione di documenti (anteprima)](cognitive-search-skill-document-extraction.md) è una competenza cognitiva usata durante l'indicizzazione che consente di estrarre contenuto da un file all'interno di un set di competenze. In precedenza, il cracking di documenti si verificava solo prima dell'esecuzione del set di competenze. Con l'aggiunta di questa competenza, è anche possibile eseguire questa operazione all'interno dell'esecuzione del set di competenze.
 
-+ La [traduzione del testo](cognitive-search-skill-text-translation.md) è una competenza cognitiva utilizzata durante l'indicizzazione che valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato.
++ [Traduzione testuale](cognitive-search-skill-text-translation.md) è una competenza cognitiva usata durante l'indicizzazione che valuta il testo e, per ogni record, lo restituisce convertito nella lingua di destinazione specificata.
 
-+ [Power bi modelli](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) possono avviare rapidamente le visualizzazioni e l'analisi di contenuto arricchito in un archivio informazioni in Power bi desktop. Questo modello è progettato per le proiezioni di tabelle di Azure create tramite la [procedura guidata Importa dati](knowledge-store-create-portal.md).
++ I [modelli di Power BI](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) possono velocizzare le visualizzazioni e le analisi di contenuto arricchito in un archivio conoscenze in Power BI Desktop. Questo modello è progettato per le proiezioni di tabelle di Azure create tramite l'[Importazione guidata dati](knowledge-store-create-portal.md).
 
-+ [Azure Data Lake storage Gen2 (anteprima)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB API Gremlin (anteprima)](search-howto-index-cosmosdb.md)e [Cosmos DB API Cassandra (anteprima)](search-howto-index-cosmosdb.md) sono ora supportate negli indicizzatori. È possibile iscriversi con [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Si riceverà un messaggio di posta elettronica di conferma una volta accettato il programma di anteprima.
++ Gli indicizzatori ora supportano [Azure Data Lake Storage Gen2 (anteprima)](search-howto-index-azure-data-lake-storage.md), l'[API Gremlin di Cosmos DB (anteprima)](search-howto-index-cosmosdb.md) e l'[API Cassandra di Cosmos DB (anteprima)](search-howto-index-cosmosdb.md). È possibile iscriversi usando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Quando si verrà accettati nel programma di anteprima, si riceverà un messaggio di posta elettronica di conferma.
 
 ### <a name="july-2019"></a>Luglio 2019
 
-+ Disponibile a livello generale nel [cloud di Azure per enti pubblici](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
++ Disponibile a livello generale in [Azure per enti pubblici](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
 
 ## <a name="service-updates"></a>Aggiornamenti del servizio
 
-Gli annunci relativi agli [aggiornamenti dei servizi](https://azure.microsoft.com/updates/?product=search&status=all) per Azure ricerca cognitiva sono disponibili nel sito Web di Azure.
+Gli [annunci sugli aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=search&status=all) per Ricerca cognitiva di Azure sono reperibili nel sito Web di Azure.

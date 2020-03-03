@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0029fcf8e9efdea529212a7cca49cc8660c623f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276956"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615483"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Esercitazione: Condividere Ancoraggi nello spazio di Azure tra sessioni e dispositivi
 
@@ -44,13 +44,13 @@ Si noti che in questa esercitazione si useranno Unity e l'app Web ASP.NET Core s
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Distribuire il servizio di condivisione degli ancoraggi
 
-## <a name="visual-studiotabvs"></a>[Visual Studio](#tab/VS)
+## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
 
 Aprire Visual Studio e il progetto nella cartella `Sharing\SharingServiceSample`.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="visual-studio-codetabvsc"></a>[Visual Studio Code](#tab/VSC)
+## <a name="visual-studio-code"></a>[Visual Studio Code](#tab/VSC)
 
 Prima di distribuire il servizio in VS Code, è necessario creare un gruppo di risorse e un piano di servizio app.
 
@@ -74,7 +74,7 @@ Accanto a **Piano di hosting** selezionare **Nuovo**.
 
 Nella finestra di dialogo **Configura piano di hosting** usare le impostazioni seguenti:
 
-| Impostazione | Valore consigliato | DESCRIZIONE |
+| Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
 |Piano di servizio app| MySharingServicePlan | Nome del piano di servizio app. |
 | Location | Stati Uniti occidentali | Data center in cui è ospitata l'app Web. |
@@ -89,6 +89,12 @@ Aprire Visual Studio Code e il progetto nella cartella `Sharing\SharingServiceSa
 ## <a name="deploy-the-sample-app"></a>Distribuire l'app di esempio
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+A causa di modifiche che causano un'interruzione, Unity 2019.3 non è attualmente supportato. Usare Unity 2019.1 o 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

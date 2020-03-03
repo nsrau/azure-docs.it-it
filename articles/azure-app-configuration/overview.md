@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/24/2019
-ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 02/19/2020
+ms.openlocfilehash: 1f1cec68813d33e7fa19a414a30adfc9a41df91f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467556"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523476"
 ---
 # <a name="what-is-azure-app-configuration"></a>Informazioni su Configurazione app di Azure
 
@@ -19,9 +19,9 @@ Configurazione app di Azure è un servizio per la gestione centralizzata delle i
 
 ## <a name="why-use-app-configuration"></a>Perché usare Configurazione app
 
-Le applicazioni basate sul cloud vengono spesso eseguite in più macchine virtuali o contenitori in più aree e usano più servizi esterni. Creare un'applicazione distribuita che sia robusta e scalabile è una sfida.
+Le applicazioni basate sul cloud vengono spesso eseguite in più macchine virtuali o contenitori in più aree e usano più servizi esterni. La creazione di un'applicazione affidabile e scalabile in un ambiente distribuito presenta una sfida significativa.
 
-Diverse metodologie di programmazione consentono agli sviluppatori di far fronte alla crescente complessità legata alla compilazione di queste applicazioni. Ad esempio, [Twelve-Factor App](https://12factor.net/) illustra molti modelli di architettura e procedure consigliate ben testati per l'uso con le applicazioni cloud. Un consiglio fondamentale di questa guida è quello di separare la configurazione dal codice. In questo caso, le impostazioni di configurazione di un'applicazione devono essere mantenute esterne al relativo eseguibile e lette dall'ambiente di runtime o da un'origine esterna.
+Diverse metodologie di programmazione consentono agli sviluppatori di far fronte alla crescente complessità legata alla compilazione di queste applicazioni. Ad esempio, [Twelve-Factor App](https://12factor.net/) illustra molti modelli di architettura e procedure consigliate ben testati per l'uso con le applicazioni cloud. Un consiglio fondamentale di questa guida è quello di separare la configurazione dal codice. Le impostazioni di configurazione di un'applicazione devono essere mantenute esterne al relativo eseguibile e lette dall'ambiente di runtime o da un'origine esterna.
 
 Di seguito sono riportati esempi dei tipi di applicazione che traggono vantaggio dall'uso di Configurazione app, che può comunque essere usato da qualsiasi applicazione:
 
@@ -38,7 +38,7 @@ Configurazione app offre i vantaggi seguenti:
 * Interfaccia utente dedicata per la gestione dei flag di funzionalità
 * Confronto di due set di configurazioni su dimensioni personalizzate
 * Sicurezza avanzata grazie alle identità gestite da Azure
-* Crittografia completa dei dati inattivi o in transito
+* Crittografia di informazioni riservate inattive e in transito
 * Integrazione nativa con i framework più diffusi
 
 Configurazione app completa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), che viene usato per archiviare i segreti dell'applicazione. Configurazione app rende più semplice implementare gli scenari seguenti:
@@ -49,7 +49,7 @@ Configurazione app completa [Azure Key Vault](https://azure.microsoft.com/servic
 
 ## <a name="use-app-configuration"></a>Usare Configurazione app
 
-Il modo più facile di aggiungere un archivio di Configurazione app alla propria applicazione consiste nell'usare una libreria client fornita da Microsoft. Di seguito sono indicati i migliori metodi a disposizione in base al linguaggio di programmazione e al framework in uso.
+Il modo più facile di aggiungere un archivio di Configurazione app alla propria applicazione consiste nell'usare una libreria client fornita da Microsoft. I seguenti metodi sono disponibili per connettersi con l'applicazione, a seconda della lingua e del framework scelti
 
 | Linguaggio di programmazione e framework | Come connettersi |
 |---|---|

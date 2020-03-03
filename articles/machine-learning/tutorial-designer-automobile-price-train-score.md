@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/30/2020
-ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982604"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623622"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -260,7 +260,7 @@ Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il puntegg
 
 ## <a name="run-the-pipeline"></a>Eseguire la pipeline
 
-Ora che la pipeline è completamente configurata, è possibile inviare un'esecuzione della pipeline.
+Ora che la pipeline è completamente configurata, è possibile inviare un'esecuzione della pipeline per eseguire il training del modello di Machine Learning. È possibile inviare un'esecuzione della pipeline in qualsiasi momento durante la creazione di pipeline nella finestra di progettazione. È possibile eseguire questa operazione per controllare il lavoro man mano che si procede e verificare le funzioni della pipeline come previsto.
 
 1. Nella parte superiore dell'area di disegno selezionare **Esegui**.
 

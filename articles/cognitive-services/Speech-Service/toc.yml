@@ -193,6 +193,10 @@
           items:
             - name: API REST di sintesi vocale
               href: rest-text-to-speech.md
+        - name: Impostare l'utilizzo del telefono
+          items:
+            - name: Impostare l'utilizzo del telefono con l'API Voce (SAPI)
+              href: sapi-phoneset-usage.md
     - name: Risorse
       items:
         - name: Domande frequenti sulla sintesi vocale

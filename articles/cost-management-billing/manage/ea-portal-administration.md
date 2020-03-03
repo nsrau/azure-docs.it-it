@@ -3,16 +3,16 @@ title: Amministrazione di Azure EA Portal
 description: Questo articolo illustra le attività comuni eseguite da un amministratore in Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 142ef421599cef4083efdf8b9ed700d2baa152b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199773"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598392"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -118,6 +118,8 @@ Al momento l'offerta Sviluppo/test non è applicabile ai clienti di Azure per en
 
 Un trasferimento di account sposta il proprietario dell'account da una registrazione a un'altra. Tutte le sottoscrizioni correlate del proprietario dell'account vengono spostate nella registrazione di destinazione. Questa operazione viene eseguita quando si hanno più registrazioni attive e si vogliono spostare solo determinati proprietari di account.
 
+Questa sezione è unicamente a scopo informativo perché l'azione non può essere eseguita da un amministratore dell'organizzazione. Per trasferire un account aziendale in una nuova registrazione, è necessaria una richiesta di supporto.
+
 Quando si trasferisce un account aziendale in una nuova registrazione, tenere presente quanto segue:
 
 - Vengono trasferiti solo gli account specificati nella richiesta. Se si selezionano tutti gli account, vengono trasferiti tutti.
@@ -147,6 +149,8 @@ Il trasferimento di una registrazione si prende in considerazione quando:
 - Il periodo di impegno di una registrazione corrente è terminato.
 - Una registrazione è nello stato di scadenza/estensione e viene negoziato un nuovo contratto.
 - Si hanno più registrazioni e si vogliono consolidare tutti gli account e la fatturazione in una sola registrazione.
+
+Questa sezione è unicamente a scopo informativo perché l'azione non può essere eseguita da un amministratore dell'organizzazione. Per trasferire una registrazione aziendale in una nuova, è necessaria una richiesta di supporto.
 
 Quando si richiede il trasferimento di un'intera registrazione EA in un'altra registrazione, si verificano le azioni seguenti:
 

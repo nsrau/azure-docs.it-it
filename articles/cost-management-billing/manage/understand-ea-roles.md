@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/26/2020
 ms.author: banders
-ms.openlocfilehash: 9fab4d8ba0cf2e6f684a1b9de177084f8ce31604
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: ef7a7a81ceeeca07e40fab8248889d7e997fbbe3
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462191"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647483"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure
 
@@ -22,9 +22,11 @@ Per gestire l'utilizzo e la spesa per la propria organizzazione, i clienti di Az
 - Amministratore dell'organizzazione (sola lettura)<sup>1</sup>
 - Amministratore del reparto
 - Amministratore del reparto (sola lettura)
-- Proprietario dell'account
+- Proprietario dell'account<sup>2</sup>
 
 <sup>1</sup> Il contatto per la fatturazione del contratto EA sarà incluso in questo ruolo.
+
+<sup>2</sup> Il contatto per la fatturazione non può essere aggiunto o cambiato in Azure EA Portal e verrà aggiunto alla registrazione EA in base all'utente configurato come contatto per la fatturazione a livello di contratto. Per cambiare il contatto per la fatturazione, è necessario effettuare una richiesta al Centro operativo regionale tramite un partner/software advisor.
 
 Questi ruoli sono specifici per la gestione del Contratto Enterprise di Azure e si aggiungono ai ruoli predefiniti disponibili in Azure per controllare l'accesso alle risorse. Per altre informazioni, vedere [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -38,9 +40,9 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 |Amministratore dell'organizzazione (sola lettura)|Nessuna limitazione|
 |Amministratore del reparto|Nessuna limitazione|
 |Amministratore del reparto (sola lettura)|Nessuna limitazione|
-|Proprietario dell'account|1 per account<sup>2</sup>|
+|Proprietario dell'account|1 per account<sup>3</sup>|
 
-<sup>2</sup> Ogni account richiede un account Microsoft univoco oppure un account aziendale o dell'istituto di istruzione.
+<sup>3</sup> Ogni account richiede un account Microsoft univoco oppure un account aziendale o dell'istituto di istruzione.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Struttura dell'organizzazione e autorizzazioni in base al ruolo
 
@@ -48,17 +50,17 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 |---|---|---|---|---|---|
 |Visualizzare gli amministratori dell'organizzazione|✔|✔|✘|✘|✘|
 |Aggiungere o rimuovere gli amministratori dell'organizzazione|✔|✘|✘|✘|✘|
-|Visualizzare i contatti per le notifiche<sup>3</sup> |✔|✔|✘|✘|✘|
-|Aggiungere o rimuovere i contatti per le notifiche<sup>3</sup> |✔|✘|✘|✘|✘|
+|Visualizzare i contatti per le notifiche<sup>4</sup> |✔|✔|✘|✘|✘|
+|Aggiungere o rimuovere i contatti per le notifiche<sup>4</sup> |✔|✘|✘|✘|✘|
 |Creare e gestire i reparti |✔|✘|✘|✘|✘|
 |Visualizzare gli amministratore di reparto|✔|✔|✔|✔|✘|
 |Aggiungere o rimuovere gli amministratori di reparto|✔|✘|✔|✘|✘|
-|Visualizzare gli account nella registrazione |✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✘|
-|Aggiungere gli account alla registrazione e cambiare il proprietario dell'account|✔|✘|✔<sup>4</sup>|✘|✘|
+|Visualizzare gli account nella registrazione |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|
+|Aggiungere gli account alla registrazione e cambiare il proprietario dell'account|✔|✘|✔<sup>5</sup>|✘|✘|
 |Creare e gestire le sottoscrizioni e le relative autorizzazioni|✘|✘|✘|✘|✔|
 
-- <sup>3</sup> Ai contatti per le notifiche vengono inviate comunicazioni sul contratto Enterprise di Azure tramite posta elettronica.
-- <sup>4</sup> L'attività è limitata agli account nel reparto.
+- <sup>4</sup> Ai contatti per le notifiche vengono inviate comunicazioni sul Contratto Enterprise di Azure tramite posta elettronica.
+- <sup>5</sup> L'attività è limitata agli account nel reparto.
 
 
 ## <a name="usage-and-costs-access-by-role"></a>Accesso all'utilizzo e ai costi per ruolo
@@ -69,11 +71,11 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 |Visualizzare le quote di spesa del reparto|✔|✔|✘|✘|✘|
 |Impostare le quote di spesa del reparto|✔|✘|✘|✘|✘|
 |Visualizzare l'elenco prezzi per il Contratto Enterprise dell'organizzazione|✔|✔|✘|✘|✘|
-|Visualizzare i dettagli relativi a utilizzo e costi|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✔<sup>6</sup>|
+|Visualizzare i dettagli relativi a utilizzo e costi|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|
 |Gestire le risorse nel portale di Azure|✘|✘|✘|✘|✔|
 
-- <sup>5</sup> È necessario che l'amministratore dell'organizzazione abiliti il criterio **DA view charges** (Visualizzazione addebiti per amministratori di reparto) nell'Enterprise Portal. L'amministratore del reparto potrà quindi visualizzare i dettagli dei costi per il reparto.
-- <sup>6</sup> È necessario che l'amministratore dell'organizzazione abiliti il criterio **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nell'Enterprise Portal. Il proprietario dell'account può quindi visualizzare i dettagli dei costi per l'account.
+- <sup>6</sup> È necessario che l'amministratore dell'organizzazione abiliti il criterio **DA view charges** (Visualizzazione addebiti per amministratori di reparto) nell'Enterprise Portal. L'amministratore del reparto potrà quindi visualizzare i dettagli dei costi per il reparto.
+- <sup>7</sup> È necessario che l'amministratore dell'organizzazione abiliti il criterio **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nell'Enterprise Portal. Il proprietario dell'account può quindi visualizzare i dettagli dei costi per l'account.
 
 
 ## <a name="pricing-in-azure-portal"></a>Prezzi nel portale di Azure

@@ -14,12 +14,12 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: dbe4cac64e324c1188ec5a01b4da3935a5d5b479
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: e0d42a3ce1dd9deb5e73500371c367134ca852e1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371284"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619954"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Specifiche hardware di Azure Kinect DK
 
@@ -71,7 +71,7 @@ Azure Kinect DK integra una fotocamera di profondità ToF (Time-of-Flight) da 1 
 | WFOV senza binning   | 1024x1024  | 120°x120° | 0, 5, 15           | 0,25 - 2,21 m      | 20,3 ms        |
 | IR passivo      | 1024x1024  | N/D       | 0, 5, 15, 30       | N/D              | 1,6 ms         |
 
-\*Riflettanza dal 15% al 95% a 850 nm, 2,2 μW/cm<sup>2</sup>/nm, deviazione standard errori casuali ≤ 17 mm, errore sistematico tipico < 11 mm + 0,1% della distanza senza interferenza multi-percorso. Profondità fornita all'esterno dell'intervallo indicato a seconda della riflettanza dell'oggetto.
+\*Riflettanza dal 15% al 95% a 850 nm, 2,2 μW/cm<sup>2</sup>/nm, deviazione standard errori casuali ≤ 17 mm, errore sistematico tipico < 11 mm + 0,1% della distanza senza interferenza multi-percorso. La profondità può essere specificata al di fuori dell'intervallo operativo indicato in precedenza. Dipende dalla riflettività di un oggetto.
 
 ## <a name="color-camera-supported-operating-modes"></a>Modalità operative supportate dalla fotocamera a colori
 
@@ -113,7 +113,7 @@ Di seguito è riportato il mapping dei valori di esposizione manuale accettabili
 
 ## <a name="depth-sensor-raw-timing"></a>Intervalli di base del sensore di profondità
 
-Modalità di profondità | Impulsi <br>IR | Durata <br>impulso  | Periodi <br>inattività| Tempo inattività | Tempo <br> esposizione
+Modalità di profondità | IR <br>IR | Durata <br>Larghezza  | Idle <br>inattività| Tempo inattività | Tempo <br> Tempo
 -|-|-|-|-|-
 NFOV senza binning <br>  NFOV 2xx con binning <br> WFOV 2x2 con binning | 9 | 125 us | 8 | 1450 us | 12,8 ms 
 WFOV senza binning                                            | 9 | 125 us | 8 | 2390 us | 20,3 ms

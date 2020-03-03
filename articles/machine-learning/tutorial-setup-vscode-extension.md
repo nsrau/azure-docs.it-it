@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Configurare l'estensione Azure Machine Learning per Visual Studio Code"
+title: "Esercitazione: Configurare l'estensione di Visual Studio Code"
 titleSuffix: Azure Machine Learning
 description: Informazioni su come configurare l'estensione Azure Machine Learning per Visual Studio Code.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/16/2019
-ms.openlocfilehash: 4000fcc80d507d3b1e871d7f3288fc3b77693c76
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 02/24/2020
+ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157462"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604827"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Configurare l'estensione Azure Machine Learning per Visual Studio Code
 
@@ -30,7 +30,8 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 ## <a name="prerequisites"></a>Prerequisites
 
 - Sottoscrizione di Azure. Se non se ne possiede una, iscriversi per provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
-- Installare [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), un editor di codice leggero multipiattaforma. 
+- Visual Studio Code. Se non è disponibile, [installarlo](https://code.visualstudio.com/docs/setup/setup-overview).
+- [Python 3](https://www.python.org/downloads/)
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 
@@ -38,6 +39,9 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 1. Per aprire la visualizzazione Estensioni, fare clic sull'icona **Estensioni** nella **Barra attività**.
 1. Nella visualizzazione Estensioni cercare "Azure Machine Learning".
 1. Selezionare **Installa**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Installare l'estensione Azure Machine Learning per VS Code](./media/tutorial-setup-vscode-extension/install-aml-vscode-extension.PNG)
 
 > [!NOTE]
 > In alternativa, è possibile installare l'estensione Azure Machine Learning tramite Visual Studio Marketplace [scaricando direttamente il programma di installazione](https://aka.ms/vscodetoolsforai). 
@@ -49,9 +53,9 @@ I passaggi successivi di questa esercitazione sono stati testati con la **versio
 Per effettuare il provisioning delle risorse ed eseguire i carichi di lavoro in Azure, è necessario eseguire l'accesso con le credenziali dell'account Azure. Per semplificare la gestione degli account, Azure Machine Learning installa automaticamente l'estensione Account Azure. Visitare il sito seguente per [altre informazioni sull'estensione Account Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 1. Per aprire il riquadro comandi selezionare **Visualizza > Riquadro comandi** nella barra dei menu. 
-1. Immettere il comando "Azure: Sign In" nella casella di testo per avviare il processo di accesso.
+1. Immettere il comando "Azure: Sign In" nel riquadro comandi per avviare il processo di accesso.
 
-## <a name="run-a-script-in-azure"></a>Eseguire uno script in Azure
+## <a name="run-a-machine-learning-model-training-script-in-azure"></a>Eseguire uno script di training del modello di Machine Learning in Azure
 
 Ora che è stato effettuato l'accesso ad Azure con le credenziali dell'account, seguire la procedura descritta in questa sezione per informazioni su come usare l'estensione per eseguire il training di un modello di Machine Learning.
 
@@ -79,16 +83,16 @@ Ora che è stato effettuato l'accesso ad Azure con le credenziali dell'account, 
 
     ```json
     {
-        "workspace": "WS12191742",
-        "resourceGroup": "WS12191742-rg2",
+        "workspace": "WS01311608",
+        "resourceGroup": "WS01311608-rg1",
         "location": "South Central US",
-        "experiment": "WS12191742-exp2",
+        "experiment": "WS01311608-exp1",
         "compute": {
-            "name": "WS12191742-com2",
+            "name": "WS01311608-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS12191742-com2-rc1",
+            "filename": "WS01311608-com1-rc1",
             "condaDependencies": [
                 "python=3.6.2",
                 "tensorflow=1.15.0"
@@ -100,8 +104,38 @@ Ora che è stato effettuato l'accesso ad Azure con le credenziali dell'account, 
     }
     ```
 
-1. Selezionare **Submit experiment** (Invia esperimento) per eseguire l'esperimento in Azure. Questa operazione consente di inviare il file `train.py` e il file di configurazione all'area di lavoro di Azure Machine Learning. Il processo di training viene quindi avviato in una risorsa di calcolo in Azure.
-1. Dopo alcuni minuti, nell'ambiente locale viene creata una directory denominata `output` che contiene un modello TensorFlow sottoposto a training.
+1. Al termine della configurazione, per inviare l'esperimento aprire il riquadro comandi e immettere il comando seguente:
+
+    ```text
+    Azure ML: Submit Experiment
+    ```
+
+    Questa operazione consente di inviare il file `train.py` e il file di configurazione all'area di lavoro di Azure Machine Learning. Il processo di training viene quindi avviato in una risorsa di calcolo in Azure.
+
+### <a name="track-the-progress-of-the-training-script"></a>Tenere traccia dello stato di avanzamento dello script di training
+
+L'esecuzione dello script può richiedere qualche minuto. Per tenere traccia dello stato di avanzamento:
+
+1. Selezionare l'icona di **Azure** nella barra attività.
+1. Espandere il nodo della sottoscrizione.
+1. Espandere il nodo dell'esperimento attualmente in esecuzione. Si trova all'interno del nodo `{workspace}/Experiments/{experiment}` in cui i valori per l'area di lavoro e l'esperimento sono gli stessi delle proprietà definite nel file di configurazione.
+1. Vengono elencate tutte le esecuzioni dell'esperimento, nonché il relativo stato. Per ottenere lo stato più recente, fare clic sull'icona di aggiornamento nella parte superiore della visualizzazione Azure Machine Learning.
+
+    > [!div class="mx-imgBorder"]
+    > ![Tenere traccia dello stato dell'esperimento](./media/tutorial-setup-vscode-extension/track-experiment-progress.PNG)
+
+### <a name="download-the-trained-model"></a>Scaricare il modello con training
+
+Al termine dell'esecuzione dell'esperimento, l'output è un modello con training. Per scaricare gli output in locale:
+
+1. Fare clic con il pulsante destro del mouse sull'esecuzione più recente e scegliere **Download Outputs** (Scarica output).
+
+    > [!div class="mx-imgBorder"]
+    > ![Scaricare un modello con training](./media/tutorial-setup-vscode-extension/download-trained-model.PNG)
+
+1. Selezionare un percorso in cui salvare gli output.
+1. Una cartella con il nome dell'esecuzione viene scaricata localmente. Passare ad essa.
+1. I file del modello si trovano all'interno della directory `outputs/outputs/model`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

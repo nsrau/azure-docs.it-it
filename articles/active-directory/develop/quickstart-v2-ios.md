@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: c9eb8b3d909313470ee9febdc5b1c37eea834b08
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f0b4d1f557006ba8a343a0497262cc5c8254e86c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484044"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561583"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
@@ -34,8 +34,8 @@ Questo avvio rapido si applica sia alle app iOS che alle app macOS. Alcuni passa
 > * macOS 10.12+
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app dell'avvio rapido
-> Per avviare l'applicazione dell'avvio rapido sono disponibili due opzioni:
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
+> Per avviare l'applicazione della guida introduttiva sono disponibili due opzioni:
 > * [Rapida] [Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice](#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)
 > * [Manuale] [Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
@@ -117,7 +117,7 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 > 1. Compilare ed eseguire l'app.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 > [!div renderon="docs"]
 >
 > 1. Estrarre il file con estensione zip e aprire il progetto in XCode.
@@ -155,7 +155,7 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 
 ## <a name="more-information"></a>Altre informazioni
 
-Leggere queste sezioni per altre informazioni su questo avvio rapido.
+Leggere queste sezioni per altre informazioni su questa guida introduttiva.
 
 ### <a name="get-msal"></a>Ottenere MSAL
 

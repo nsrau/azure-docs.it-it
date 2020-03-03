@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 2689bdeb003cec0050141374165142a62f9ea337
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200402"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587091"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Acquistare prenotazioni con pagamenti mensili
 
@@ -62,7 +62,7 @@ Analogamente ad altre prenotazioni, è possibile scambiare le prenotazioni acqui
 
 Quando si scambia una prenotazione con pagamento mensile, il costo di durata totale del nuovo acquisto deve essere superiore ai pagamenti rimanenti annullati per la prenotazione restituita. Non sono previsti altri limiti o tariffe per gli scambi. È possibile scambiare una prenotazione pagata in anticipo per acquistare una nuova prenotazione fatturata mensilmente. Il valore di durata della nuova prenotazione, tuttavia, deve essere maggiore del valore ripartito in modo proporzionale della prenotazione da restituire.
 
-Se si annulla una prenotazione che viene pagata mensilmente, Microsoft potrebbe applicare una tariffa di annullamento ai pagamenti impegnati futuri che vengono annullati. I pagamenti impegnati rimanenti vengono accumulati fino al raggiungimento del limite di rimborso di 50.000 USD.
+Se si annulla una prenotazione con pagamento mensile, Microsoft potrebbe applicare una penale del 12% ai pagamenti impegnati futuri annullati. Tuttavia, Microsoft attualmente non addebita la penale. I pagamenti impegnati annullati vengono accumulati fino al raggiungimento del limite di rimborso di 50.000 USD. Se viene addebitata, la penale di annullamento non influisce sul limite di rimborso.
 
 Per altre informazioni su scambi e rimborsi, vedere [Scambi e rimborsi in modalità self-service per le prenotazioni di Azure](exchange-and-refund-azure-reservations.md).
 

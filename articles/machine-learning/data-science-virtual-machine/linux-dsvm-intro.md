@@ -1,5 +1,6 @@
 ---
-title: 'Guida introduttiva: Creare una Data Science Virtual Machine CentOS'
+title: 'Avvio rapido: Creare una Data Science Virtual Machine CentOS'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una Data Science Virtual Machine per Linux (CentOS) per attività di analisi e Machine Learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,18 +8,18 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 1761673198b3d8ffc3740d64f525c9e70bda9e3e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73541b31125ee6e99dc2351e26f6a564a1603487
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204154"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526026"
 ---
-# <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Guida introduttiva: Configurare una Data Science Virtual Machine CentOS (Linux) in Azure
+# <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Avvio rapido: Configurare una Data Science Virtual Machine CentOS (Linux) in Azure
 
 Iniziare a usare una Data Science Virtual Machine basata su CentOS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per creare una Data Science Virtual Machine CentOS, è necessaria una **sottoscrizione di Azure**. [Creare una sottoscrizione gratuita](https://azure.com/free).
 
@@ -33,7 +34,7 @@ Di seguito è riportata la procedura per creare un'istanza della Data Science Vi
 
 1. Nella finestra successiva selezionare **Crea**.
 
-    [![](media/linux-dsvm-intro/create-centos.png "Pulsante per creare un computer CentOS")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
+    [![](media/linux-dsvm-intro/create-centos.png "Button to create a CentOS machine")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
 
 1. Si verrà reindirizzati al pannello "Crea macchina virtuale".
    
@@ -48,7 +49,7 @@ Di seguito è riportata la procedura per creare un'istanza della Data Science Vi
        * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
        * **Area**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Immagine**: Lasciare il valore predefinito.
-       * **Dimensione**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Linux in Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Linux in Azure](../../virtual-machines/linux/sizes.md).
        * **Tipo di autenticazione**: per velocizzare la configurazione, selezionare "Password". 
          
          > [!NOTE]
@@ -101,9 +102,9 @@ Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è po
      * **Host**: immettere l'indirizzo IP della VM, di cui si è preso nota in precedenza.
      * **Accesso**: immettere il nome utente nella VM Linux.
      * **Porta SSH**: lasciare il valore predefinito 22.
-     * **Session Type** (Tipo di sessione): modificare il valore in **XFCE**. Attualmente, la VM Linux supporta solo l'ambiente desktop XFCE.
+     * **Tipo di sessione**: modificare il valore in **XFCE**. Attualmente, la VM Linux supporta solo l'ambiente desktop XFCE.
    * **Scheda Supporti**: è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
-   * **Shared folders** (Cartelle condivise): se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
+   * **Cartelle condivise**: se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
 
    ![Configurazione di X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Selezionare **OK**.

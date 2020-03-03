@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939442"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604058"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -81,7 +81,7 @@ Uno degli strumenti più potenti offerti da Centro sicurezza per il monitoraggio
 
 ![Mappa della rete di Centro sicurezza](media/security-center-intro/sc-net-map.png)
 
-Centro sicurezza semplifica la mitigazione degli avvisi di sicurezza, grazie all'aggiunta di un **punteggio di sicurezza**. I punteggi di sicurezza sono associati a ogni raccomandazione ricevuta per consentire di comprendere quanto è importante ogni raccomandazione per il comportamento di sicurezza complessivo. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
+Centro sicurezza semplifica la mitigazione degli avvisi di sicurezza, grazie all'aggiunta di un **punteggio di sicurezza**. I punteggi di sicurezza sono associati a ogni raccomandazione ricevuta per consentire di comprenderne l'importanza per la postura di sicurezza generale. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
 
 ![Punteggio di sicurezza di Centro sicurezza](media/security-center-intro/sc-secure-score.png)
 
