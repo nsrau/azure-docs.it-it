@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31ced19e164d50030386064a81edf3322b12855d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c67fff32770446cac3adef8af50c9e5733077bc7
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191130"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226291"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
@@ -46,7 +46,7 @@ Anziché fare in modo che i Runbook forniscano l'autenticazione per le risorse l
 
 Il nome utente per le credenziali deve essere in uno dei formati seguenti:
 
-* dominio\nome utente
+* dominio\nomeutente
 * username@domain
 * nome utente (per gli account locali nel computer locale)
 
@@ -166,7 +166,7 @@ Per completare la preparazione dell'account RunAs:
 
 1. Salvare il Runbook **Export-RunAsCertificateToHybridWorker** nel computer con estensione **ps1** .
 2. Importarlo nell'account di automazione.
-3. Modificare il Runbook, modificando il valore della variabile *$password* con la propria password. 
+3. Modificare il Runbook, modificando il valore della variabile *password* o la propria password. 
 4. Pubblicare il Runbook.
 5. Eseguire Runbook, destinando il gruppo di lavoro ibrido per Runbook che esegue e autentica manuali operativi usando l'account RunAs. 
 6. Esaminare il flusso del processo per verificare che segnali il tentativo di importare il certificato nell'archivio del computer locale e che segua più righe. Questo comportamento dipende dal numero di account di automazione definiti nella sottoscrizione e dal grado di riuscita dell'autenticazione.

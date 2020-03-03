@@ -17,12 +17,12 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bfe668dc2eb4e0e00de34231f4c232f5240a82d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 650e5fb5d0b2c5522a70944991e9e49037c3b4fa
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700754"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226948"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per la piattaforma di identità Microsoft
 
@@ -99,7 +99,7 @@ Accept: application/json
 ...
 ```
 
-L'API Web usa il token di accesso per verificare l'identità del chiamante dell'API ed estrarre informazioni su quest'ultimo dalle attestazioni codificate nel token di accesso. Altre informazioni sui diversi tipi di token usati nell'endpoint della piattaforma Microsoft Identity sono disponibili nelle informazioni di riferimento sui [token di accesso](access-tokens.md) e [id_token](id-tokens.md)
+L'API Web usa il token di accesso per verificare l'identità del chiamante dell'API ed estrarre informazioni su quest'ultimo dalle attestazioni codificate nel token di accesso. Altre informazioni sui diversi tipi di token usati nell'endpoint della piattaforma Microsoft Identity sono disponibili nelle informazioni di riferimento sui [token di accesso](access-tokens.md) e [id_token](id-tokens.md) .
 
 Un'API Web può consentire agli utenti di fornire il consenso o rifiutare esplicitamente specifici dati o funzionalità esponendo le autorizzazioni, note anche come [ambiti](v2-permissions-and-consent.md). Per far sì che un'app chiamante acquisisca l'autorizzazione ad accedere a un ambito, l'utente deve fornire il consenso all'ambito durante un flusso. L'endpoint della piattaforma Microsoft Identity chiede all'utente l'autorizzazione e quindi registra le autorizzazioni in tutti i token di accesso ricevuti dall'API Web. L'API Web convalida i token di accesso ricevuti ad ogni chiamata ed esegue i controlli di autorizzazione appropriati.
 

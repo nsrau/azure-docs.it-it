@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/05/2020
-ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 03/01/2020
+ms.openlocfilehash: fddffee001266b96bc341738293bbdb42115a978
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162396"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228186"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usare Data Lake Storage Gen1 con i cluster Azure HDInsight
 
@@ -31,7 +31,7 @@ Questo articolo illustra come funziona Data Lake Storage Gen1 con i cluster HDIn
 
 ## <a name="availability-for-hdinsight-clusters"></a>Disponibilità per i cluster HDInsight
 
-Apache Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione del cluster HDInsight è possibile specificare un contenitore BLOB in Archiviazione di Azure come file system predefinito. In alternativa, con HDInsight 3.5 e versioni successive è possibile selezionare Archiviazione di Azure o Azure Data Lake Storage Gen1 come file system predefinito, con alcune eccezioni.
+Apache Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione del cluster HDInsight è possibile specificare un contenitore BLOB in Archiviazione di Azure come file system predefinito. In alternativa, con HDInsight 3.5 e versioni successive è possibile selezionare Archiviazione di Azure o Azure Data Lake Storage Gen1 come file system predefinito, con alcune eccezioni. Si noti che il cluster e l'account di archiviazione devono essere ospitati nella stessa area.
 
 I cluster HDInsight possono usare Data Lake Storage Gen1 in due modi:
 
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Usare Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva
 
-È possibile usare Data Lake Storage Gen1 anche come risorsa di archiviazione aggiuntiva per il cluster. In questi casi la risorsa di archiviazione predefinita del cluster può essere un BLOB del servizio di archiviazione di Azure o un account Data Lake Storage. Se si eseguono processi HDInsight sui dati archiviati in Data Lake Storage come risorsa di archiviazione aggiuntiva, è necessario usare il percorso completo dei file. Ad esempio:
+È possibile usare Data Lake Storage Gen1 anche come risorsa di archiviazione aggiuntiva per il cluster. In questi casi la risorsa di archiviazione predefinita del cluster può essere un BLOB del servizio di archiviazione di Azure o un account Data Lake Storage. Se si eseguono processi HDInsight sui dati archiviati in Data Lake Storage come risorsa di archiviazione aggiuntiva, è necessario usare il percorso completo dei file. Ad esempio,
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Si noti che al momento non esiste alcun **cluster_root_path** nell'URL. Questo perché Data Lake Storage non è un archivio predefinito in questo caso, quindi è sufficiente fornire il percorso dei file.
 
-Per poter usare Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, è necessario semplicemente concedere all'entità servizio l'accesso ai percorsi in cui sono archiviati i file.  Ad esempio:
+Per poter usare Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, è necessario semplicemente concedere all'entità servizio l'accesso ai percorsi in cui sono archiviati i file.  Ad esempio,
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

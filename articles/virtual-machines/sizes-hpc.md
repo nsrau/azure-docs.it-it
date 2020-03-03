@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: a5b0eb0c8bd56a28889945480e95b6413dc9b4dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660020"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226723"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Dimensioni delle VM High Performance Computing (HPC)
 
@@ -46,6 +46,10 @@ Le macchine virtuali (VM) della serie H di Azure sono progettate per offrire pre
   
 - **Rete virtuale**: non è necessaria una [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) di Azure per usare le istanze a elevato utilizzo di calcolo. Per molte distribuzioni è tuttavia necessaria almeno una rete virtuale di Azure basata sul cloud. Per l'accesso alle risorse locali, è necessaria anche una connessione da sito a sito. Quando è necessaria, creare una nuova rete virtuale per distribuire le istanze. L'aggiunta di una VM a elevato uso di calcolo a una rete virtuale in un gruppo di affinità non è supportata.
 - **Ridimensionamento**: a causa dell'hardware specializzato, è possibile ridimensionare solo le istanze a elevato uso di calcolo nella stessa famiglia di dimensioni (serie H o serie A a elevato uso di calcolo). Ad esempio, è possibile ridimensionare una VM della serie H solo da una dimensione della serie H a un'altra. Inoltre, non è supportato il ridimensionamento da una dimensione non a elevato uso di calcolo.  
+
+> [!NOTE]
+> Le macchine virtuali a8-A11 sono pianificate per il ritiro in 3/2021. Per ulteriori informazioni, vedere la [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+
 ## <a name="rdma-capable-instances"></a>Istanze con supporto per RDMA
 
 Un subset delle istanze a elevato utilizzo di calcolo (A8, A9, H16r, H16mr, HB e HC) è caratterizzato da un'interfaccia di rete per la connettività di accesso diretto a memoria remota (RDMA). Anche le dimensioni selezionate della serie N designate con ' r ', ad esempio le configurazioni NC24rs (NC24rs_v2 e NC24rs_v3), sono compatibili con RDMA. Questa interfaccia è un'aggiunta all'interfaccia di rete di Azure standard disponibile per gli altri formati di VM.
@@ -99,7 +103,7 @@ Azure offre varie opzioni per la creazione di cluster di macchine virtuali HPC W
 
 - **Set di scalabilità di macchine virtuali** : in un set di scalabilità di macchine virtuali, assicurarsi di limitare la distribuzione a un singolo gruppo di posizionamento. In un modello di Resource Manager, ad esempio, impostare la proprietà `singlePlacementGroup` su `true`. 
 
-- **MPI tra le macchine virtuali** : se è necessario comunicare MPI tra macchine virtuali (VM), verificare che le macchine virtuali si trovino nello stesso set di disponibilità o nello stesso set di scalabilità.
+- **MPI tra macchine virtuali** : se è richiesta la comunicazione MPI tra macchine virtuali (VM), assicurarsi che le VM si trovino nello stesso set di disponibilità o nello stesso set di scalabilità.
 
 - **Azure CycleCloud**: creare un cluster HPC in [Azure CycleCloud](/azure/cyclecloud/) per eseguire i processi MPI nei nodi Windows.
 

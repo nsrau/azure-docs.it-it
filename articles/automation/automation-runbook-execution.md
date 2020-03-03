@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4070b004ee791a433b5aeb9e3e0cdd9662fb0429
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6a51e57bd2411c19dfd5e7740f9e918d0bd09e27
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191147"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226465"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -152,11 +152,11 @@ Start-AzAutomationRunbook `
 
 Questa sezione descrive alcuni modi per gestire le eccezioni o i problemi intermittenti nei manuali operativi.
 
-#### <a name="erroractionpreference"></a>$ErrorActionPreference
+#### <a name="erroractionpreference"></a>ErrorActionPreference
 
-La variabile [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina il modo in cui PowerShell risponde a un errore non fatale. Gli errori di terminazione terminano sempre e non sono interessati da *$ErrorActionPreference*.
+La variabile [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina il modo in cui PowerShell risponde a un errore non fatale. Gli errori di terminazione terminano sempre e non sono interessati da *ErrorActionPreference*.
 
-Quando Runbook USA *$ErrorActionPreference*, un errore normalmente non fatale, ad esempio **PathNotFound** dal cmdlet **Get-ChildItem** , impedisce il completamento del Runbook. Nell'esempio seguente viene illustrato l'utilizzo di *$ErrorActionPreference*. Il comando **Write-Output** finale non viene mai eseguito, perché lo script viene arrestato.
+Quando Runbook USA *ErrorActionPreference*, un errore normalmente non fatale, ad esempio **PathNotFound** dal cmdlet **Get-ChildItem** , impedisce il completamento del Runbook. Nell'esempio seguente viene illustrato l'uso di *ErrorActionPreference*. Il comando **Write-Output** finale non viene mai eseguito, perché lo script viene arrestato.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -224,10 +224,10 @@ Nella tabella seguente vengono descritti gli stati possibili per un processo.
 
 | Stato | Descrizione |
 |:--- |:--- |
-| Completi |Il processo è stato completato. |
+| Operazione completata |Il processo è stato completato. |
 | Operazione non riuscita |Impossibile compilare un Runbook grafico o un flusso di lavoro PowerShell. Non è stato possibile avviare uno script di PowerShell Runbook oppure il processo ha restituito un'eccezione. Vedere [tipi di Runbook di automazione di Azure](automation-runbook-types.md).|
 | Failed, waiting for resources |Il processo non è riuscito perché ha raggiunto il limite di [condivisione equa](#fair-share) tre volte iniziando ogni volta dallo stesso checkpoint o dall'inizio del runbook. |
-| Queued |Il processo è in attesa che le risorse di un ruolo di lavoro di automazione diventino disponibili per poter essere avviate. |
+| Accodato |Il processo è in attesa che le risorse di un ruolo di lavoro di automazione diventino disponibili per poter essere avviate. |
 | Avvio in corso |Il processo è stato assegnato a un computer di lavoro e il sistema lo sta avviando. |
 | Resuming |Il sistema sta riprendendo il processo dopo che è stato sospeso. |
 | In esecuzione |Il processo è in esecuzione. |

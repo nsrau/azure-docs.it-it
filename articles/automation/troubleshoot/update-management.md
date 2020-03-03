@@ -4,16 +4,16 @@ description: Informazioni su come risolvere i problemi relativi alla soluzione G
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/31/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513270"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227450"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -24,6 +24,36 @@ Per l'agente di lavoro ibrido è disponibile uno strumento di risoluzione dei pr
 Se si verificano problemi durante il tentativo di caricare la soluzione in una macchina virtuale (VM), controllare il **Operations Manager** registro in **registri applicazioni e servizi** nel computer locale per gli eventi con ID evento 4502 e dettagli evento che contengono **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent**.
 
 Nella sezione seguente vengono evidenziati i messaggi di errore specifici e le possibili risoluzioni per ciascuno di essi. Per altri problemi di onboarding, vedere risolvere i problemi di caricamento della [soluzione](onboarding.md).
+
+## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scenario: aggiornamento sostituito indicato come mancante in Gestione aggiornamenti
+
+### <a name="issue"></a>Problema
+
+Gli aggiornamenti precedenti vengono visualizzati Gestione aggiornamenti nell'account Azure come mancanti anche se sono stati sostituiti. Un aggiornamento sostituito è uno che non deve essere installato perché è disponibile un aggiornamento successivo che corregge la stessa vulnerabilità. Gestione aggiornamenti ignora l'aggiornamento sostituito e lo rende non applicabile a favore dell'aggiornamento sostitutivo. Per informazioni su un problema correlato, vedere l' [aggiornamento è stato sostituito](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### <a name="cause"></a>Causa
+
+Gli aggiornamenti sostituiti non vengono indicati correttamente come rifiutati, in modo che possano essere considerati non applicabili.
+
+### <a name="resolution"></a>Risoluzione
+
+Quando un aggiornamento sostituito diventa il 100% non applicabile, è necessario modificare lo stato di approvazione di tale aggiornamento in **rifiutato**. Per eseguire questa operazione per tutti gli aggiornamenti:
+
+1. Nell'account di automazione selezionare **Gestione aggiornamenti** per visualizzare lo stato del computer. Vedere [visualizzare le valutazioni degli aggiornamenti](../manage-update-multi.md#view-an-update-assessment).
+
+2. Controllare l'aggiornamento sostituito per assicurarsi che sia il 100% non applicabile. 
+
+3. Contrassegnare l'aggiornamento come rifiutato, a meno che non si disponga di una domanda sull'aggiornamento. 
+
+4. Selezionare computer e nella colonna conformità forzare una ripetizione dell'analisi per la conformità. Vedere [gestire gli aggiornamenti per più computer](../manage-update-multi.md).
+
+5. Ripetere i passaggi precedenti per gli altri aggiornamenti sostituiti.
+
+6. Eseguire la pulizia guidata per eliminare i file dagli aggiornamenti rifiutati. 
+
+7. Per WSUS, pulire manualmente tutti gli aggiornamenti sostituiti per aggiornare l'infrastruttura.
+
+8. Ripetere questa procedura regolarmente per correggere il problema di visualizzazione e ridurre al minimo la quantità di spazio su disco utilizzata per la gestione degli aggiornamenti.
 
 ## <a name="nologs"></a>Scenario: i computer non vengono visualizzati nel portale in Gestione aggiornamenti
 
@@ -220,7 +250,7 @@ Per ulteriori informazioni, vedere [configurazione di aggiornamenti automatici](
 
 ### <a name="issue"></a>Problema
 
-Viene visualizzato il messaggio di errore seguente:
+Viene visualizzato il messaggio seguente:
 
 ```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
@@ -311,7 +341,7 @@ L'agente di aggiornamento (agente Windows Update in Windows; Gestione pacchetti 
 
 Provare a eseguire gli aggiornamenti localmente nel computer. In caso contrario, significa che si è verificato un errore di configurazione con l'agente di aggiornamento.
 
-Questo problema è spesso causato da problemi di configurazione di rete e firewall. Attenersi alla procedura seguente:
+Questo problema è spesso causato da problemi di configurazione di rete e firewall. Provare le operazioni seguenti:
 
 * Per Linux, consultare la documentazione appropriata per assicurarsi che sia possibile raggiungere l'endpoint di rete del repository del pacchetto.
 * Per Windows, verificare che la configurazione dell'agente come elencato negli [aggiornamenti non venga scaricata dall'endpoint Intranet (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).

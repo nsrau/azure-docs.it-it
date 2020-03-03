@@ -1,5 +1,5 @@
 ---
-title: Eseguire il training di una rete neurale con TensorFlow
+title: Eseguire il training e distribuire un modello TensorFlow
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire gli script di training di TensorFlow su larga scala usando Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1c3e1948d53a168ce9a3e99cd932fa04e2fafc4
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 2bbd81f3858aa78b9e0e2d610c0fdb0a67816c8e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114380"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228301"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Creazione di un modello di apprendimento avanzato TensorFlow su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -305,11 +305,11 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## <a name="deployment"></a>Distribuzione
+## <a name="deploy-a-tensorflow-model"></a>Distribuire un modello TensorFlow
 
 Il modello appena registrato può essere distribuito esattamente come qualsiasi altro modello registrato in Azure Machine Learning, indipendentemente dallo strumento di stima utilizzato per il training. La procedura di distribuzione contiene una sezione sulla registrazione dei modelli, ma è possibile passare direttamente alla [creazione di una destinazione di calcolo](how-to-deploy-and-where.md#choose-a-compute-target) per la distribuzione, poiché si dispone già di un modello registrato.
 
-### <a name="preview-no-code-model-deployment"></a>Anteprima Distribuzione del modello senza codice
+## <a name="preview-no-code-model-deployment"></a>Anteprima Distribuzione del modello senza codice
 
 Anziché la route di distribuzione tradizionale, è anche possibile usare la funzionalità di distribuzione senza codice (anteprima) per Tensorflow. Registrando il modello come illustrato in precedenza con i parametri `model_framework`, `model_framework_version`e `resource_configuration`, è possibile usare semplicemente la funzione statica `deploy()` per distribuire il modello.
 

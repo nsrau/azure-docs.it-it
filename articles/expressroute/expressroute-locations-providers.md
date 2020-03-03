@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: a46bdb47ee92a422d10aad5b41487530d23d1ec9
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 45c7fd5fd3737c21a03700b2e560944921a2558d
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484690"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228174"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -169,7 +169,7 @@ I cloud nazionali di Azure sono isolati tra loro e da Azure commerciale globale.
 
 Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn/home/features/expressroute/)
 
-### <a name="germany"></a>Germania
+### <a name="germany"></a>Germany
 | **Posizione** | **Provider di servizi** |
 | --- | --- |
 | **Berlino** |e-shelter, Megaport+, T-Systems |
@@ -203,7 +203,7 @@ Se si è in modalità remota e non si dispone di connettività Fiber o si deside
 ## <a name="c1partners"></a>Connettività tramite provider di servizi aggiuntivi
 | **Posizione** | **Exchange** | **Provider di connettività** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Interxion, livello 3 comunicazioni | BICS, CloudXpress, EuroFiber, Fastweb S. p. A, Gulf Bridge International, Kalaam Telecom Bahrain B. S. C, MainOne, Nianet, POST Telecom Luxembourg, vicinal, TDC erhverv, Telecom Italia Spark, Telekom Deutschland GmbH, Telia |
+| **Amsterdam** | Equinix, Interxion, livello 3 comunicazioni | BICS, CloudXpress, EuroFiber, Fastweb S. p. A, Gulf Bridge International, Kalaam Telecom Bahrain B. S. C, MainOne, Nianet, POST Telecom Luxembourg, Immediateus, RETN, TDC erhverv, Telecom Italia Spark, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Castello corona
 | **Città del Capo** | Teraco | MTN |
 | **Chicago** | Equinix| Castello corona, Spectrum Enterprise, Windstream |

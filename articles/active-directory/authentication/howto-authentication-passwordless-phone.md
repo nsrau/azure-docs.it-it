@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848477"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227074"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -90,9 +90,13 @@ Se un utente dispone di una verifica di accesso tramite telefono senza password 
 
 Gli utenti finali abilitati per l'autenticazione a più fattori tramite il server Azure multi-factor authentication locale di un'organizzazione possono comunque creare e usare una sola credenziale di accesso con telefono senza password. Se l'utente tenta di aggiornare più installazioni (più di 5) di Microsoft Authenticator con le credenziali create, questa modifica può determinare un errore.  
 
-### <a name="device-registration"></a>Registrazione del dispositivo
+### <a name="device-registration"></a>Registrazione dispositivo
 
 Uno dei prerequisiti per creare la nuova credenziale avanzata è che il dispositivo, in cui è installata l'app Microsoft Authenticator, deve essere registrato anche all'interno del tenant di Azure AD a un singolo utente. A causa delle restrizioni di registrazione del dispositivo correnti, un dispositivo può essere registrato solo in un singolo tenant. A causa di questa limitazione, nell'app Microsoft Authenticator può essere abilitato per l'accesso tramite telefono un solo account aziendale o dell'istituto di istruzione.
+
+### <a name="intune-mobile-application-management"></a>Gestione di applicazioni per dispositivi mobili Intune 
+
+Gli utenti finali soggetti a criteri che richiedono la gestione di applicazioni mobili (MAM) non possono registrare le credenziali password nell'app Microsoft Authenticator. 
 
 > [!NOTE]
 > La registrazione del dispositivo non è identica alla gestione dei dispositivi o alla "MDM". Associa solo un ID dispositivo e un ID utente insieme nella directory Azure AD.  

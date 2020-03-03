@@ -2,19 +2,17 @@
 title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/02/2020
+ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117048"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228100"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creazione di risorse a livello di gruppo di gestione
 
 In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare risorse a livello di gruppo di gestione. Si utilizzano le distribuzioni a livello di gruppo di gestione per eseguire azioni che hanno senso a tale livello, ad esempio l'assegnazione del [controllo degli accessi in base al ruolo o l'](../../role-based-access-control/overview.md) applicazione di [criteri](../../governance/policy/overview.md).
-
-Attualmente, per distribuire i modelli a livello di gruppo di gestione, è necessario usare l'API REST.
 
 ## <a name="supported-resources"></a>Risorse supportate
 
@@ -45,7 +43,16 @@ https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeployment
 
 ## <a name="deployment-commands"></a>Comandi di distribuzione
 
-Il comando per le distribuzioni di gruppi di gestione è diverso dal comando per le distribuzioni di gruppi di risorse.
+I comandi per le distribuzioni di gruppi di gestione sono diversi da quelli per le distribuzioni di gruppi di risorse.
+
+Per Azure PowerShell, usare [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment). 
+
+```azurepowershell-interactive
+New-AzManagementGroupDeployment `
+  -ManagementGroupId "myMG" `
+  -Location "West US" `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+```
 
 Per l'API REST, usare [distribuzioni-crea nell'ambito del gruppo di gestione](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
 
@@ -150,7 +157,7 @@ Nell'esempio seguente viene assegnata una definizione dei criteri esistente al g
 
 ## <a name="template-sample"></a>Esempio di modello
 
-* Creare un gruppo di risorse, un criterio e un'assegnazione di criteri.  Vedere [qui](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+* [Creare un gruppo di risorse, un criterio e un'assegnazione di criteri](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

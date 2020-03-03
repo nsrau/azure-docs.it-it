@@ -1,14 +1,14 @@
 ---
 title: Tipi di risorse Gestione risorse supportati
 description: Fornire un elenco dei tipi di risorse Gestione risorse supportati da Azure Resource Graph e la cronologia delle modifiche.
-ms.date: 02/25/2020
+ms.date: 03/02/2020
 ms.topic: reference
-ms.openlocfilehash: dc08c4a33ec9e0c20b865ffa4d7c6ff9d5248e90
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 3d6ba89cbf5c35c2a06a214029971341c4184b41
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602566"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227339"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Riferimento al tipo di risorsa e alla tabella del grafico delle risorse di Azure
 
@@ -34,7 +34,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. resources/Subscriptions
 - Microsoft. resources/subscriptions/ResourceGroups
 
-## <a name="resources"></a>resources
+## <a name="resources"></a>risorse
 
 - 84codes. cloudamqp/server
 - Citrix. Services/xenappessentials
@@ -210,6 +210,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. Insights/metricalerts
 - Microsoft. Insights/notificationgroups
 - Microsoft. Insights/notificationrules
+- Microsoft. Insights/privatelinkscopes
 - Microsoft. Insights/scheduledqueryrules
 - Microsoft. Insights/test Web
 - Microsoft. Insights/cartelle di lavoro

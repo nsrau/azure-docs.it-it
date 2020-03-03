@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: danis
-ms.openlocfilehash: e3a09a0d8412af711bfb6c539dc9d2829b1f0898
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0309d9a794a978c736ffc4689c46565ee8fb5b00
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964584"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226689"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>supporto di cloud-init per le macchine virtuali in Azure
 Questo articolo illustra il supporto esistente per [cloud-init](https://cloudinit.readthedocs.io) per configurare una macchina virtuale (VM) o set di scalabilità di macchine virtuali in fase di provisioning in Azure. Queste configurazioni cloud-init vengono eseguite al primo avvio dopo il provisioning delle risorse da parte di Azure.  
@@ -34,7 +34,7 @@ Azure supporta due agenti di provisioning [cloud-init](https://cloudinit.readthe
 
 cloud-init funziona anche tra le distribuzioni. Ad esempio, non si usa **apt-get install** o **yum install** per installare un pacchetto. In alternativa, è possibile definire un elenco di pacchetti da installare. cloud-init usa automaticamente lo strumento di gestione dei pacchetti nativi per la distribuzione selezionata.
 
-Microsoft sta collaborando attivamente con i partner di distribuzione Linux approvati per offrire immagini abilitate per cloud-init in Azure Marketplace. Queste immagini permettono il funzionamento uniforme di distribuzioni e configurazioni di cloud-init con macchine virtuali e set di scalabilità di macchine virtuali. Inizialmente collaboriamo con i partner di distro Linux approvati e upstream per garantire le funzioni cloud-init con il sistema operativo in Azure, quindi i pacchetti vengono aggiornati e resi disponibili pubblicamente nei repository dei pacchetti di distribuzione. 
+Microsoft sta collaborando attivamente con i partner di distribuzione Linux approvati per offrire immagini abilitate per cloud-init in Azure Marketplace. Queste immagini permettono il funzionamento uniforme di distribuzioni e configurazioni di cloud-init con macchine virtuali e set di scalabilità di macchine virtuali. Inizialmente collaboriamo con i partner di distribuzioni di Linux approvati e upstream per garantire le funzioni cloud-init con il sistema operativo in Azure, quindi i pacchetti vengono aggiornati e resi disponibili pubblicamente nei repository dei pacchetti di distribuzione. 
 
 Ci sono due fasi per rendere disponibile cloud-init per il sistema operativo della distro Linux approvata in Azure, il supporto per i pacchetti e quindi il supporto delle immagini:
 * "supporto dei pacchetti cloud-init in Azure" i documenti di cloud-init in poi sono supportati o in anteprima, quindi è possibile usare questi pacchetti con il sistema operativo in un'immagine personalizzata.
@@ -44,19 +44,19 @@ Ci sono due fasi per rendere disponibile cloud-init per il sistema operativo del
 ### <a name="canonical"></a>Canonical
 | Server di pubblicazione/versione| Offerta | SKU | Versione | Image cloud-init Ready | supporto del pacchetto cloud-init in Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonico 18,04 |UbuntuServer |18.04-LTS |latest |sì | sì |
-|Canonico 16,04|UbuntuServer |16.04-LTS |latest |sì | sì |
-|Canonico 14,04|UbuntuServer |14.04.5-LTS |latest |sì | sì |
+|Canonico 18,04 |UbuntuServer |18.04-LTS |più recenti |sì | sì |
+|Canonico 16,04|UbuntuServer |16.04-LTS |più recenti |sì | sì |
+|Canonico 14,04|UbuntuServer |14.04.5-LTS |più recenti |sì | sì |
 
 ### <a name="rhel"></a>RHEL
 | Server di pubblicazione/versione | Offerta | SKU | Versione | Image cloud-init Ready | supporto del pacchetto cloud-init in Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sì | Sì-supporto dalla versione del pacchetto: *18.2-1. el7_6.2*|
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | Sì (si noti che si tratta di un'immagine di anteprima e, una volta che tutte le immagini RHEL 7,7 supportano cloud-init, questa verrà rimossa a metà 2020, verrà visualizzato un avviso) | Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
-|RedHat 7.7 |RHEL |7-RAW | N/D| aggiornamenti senza immagini da avviare il 2020 febbraio| Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
-|RedHat 7.7 |RHEL |7-LVM | N/D| aggiornamenti senza immagini da avviare il 2020 febbraio| Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
-|RedHat 7.7 |RHEL |7,7 | N/D| aggiornamenti senza immagini da avviare il 2020 febbraio | Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
-|RedHat 7.7 |RHEL-BYOS | RHEL-lvm77 | N/D|aggiornamenti senza immagini da avviare il 2020 febbraio  | Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
+|RedHat 7.7 |RHEL |7-RAW | n/d| aggiornamenti senza immagini da avviare il 2020 febbraio| Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
+|RedHat 7.7 |RHEL |7-LVM | n/d| aggiornamenti senza immagini da avviare il 2020 febbraio| Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
+|RedHat 7.7 |RHEL |7,7 | n/d| aggiornamenti senza immagini da avviare il 2020 febbraio | Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
+|RedHat 7.7 |RHEL-BYOS | RHEL-lvm77 | n/d|aggiornamenti senza immagini da avviare il 2020 febbraio  | Sì-supporto dalla versione del pacchetto: *18.5 3. EL7*|
 
 ### <a name="centos"></a>CentOS
 

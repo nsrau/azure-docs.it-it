@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b83a6bacf1c6e392db9dfc65fd737ea28416a6b5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b24a08ee0367cc3dbb1c845854a0fbc91e0f1d2c
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183823"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227079"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C
 
@@ -125,6 +125,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | --------- | -------- | ----------- |
 | ServiceUrl | Sì | L'URL dell'endpoint API REST. |
 | AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic`, `Bearer` o `ClientCertificate`. Il valore `None` indica che l'API REST non è anonimo. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il valore `ClientCertificate` (scelta consigliata) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. Il valore `Bearer` indica che l'API REST limita l'accesso tramite il token di connessione del client OAuth2. |
+| AllowInsecureAuthInProduction| No| Indica se il `AuthenticationType` può essere impostato su `none` nell'ambiente di produzione (`DeploymentMode` di [TrustFrameworkPolicy](trustframeworkpolicy.md) è impostato su `Production`o non è specificato). Valori possibili: true o false (impostazione predefinita). |
 | SendClaimsIn | No | Specifica la modalità di invio di attestazioni di input al provider di attestazioni RESTful. I valori possibili sono: `Body` (impostazione predefinita), `Form`, `Header` o `QueryString`. Il valore `Body` è l'attestazione di input che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di input che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore`Header` è l'attestazione di input che viene inviata nell'intestazione della richiesta. Il valore`QueryString` è l'attestazione di input che viene inviata nella stringa di query della richiesta. I verbi HTTP richiamati da ciascuno di essi sono i seguenti:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | No | Specifica il formato per le attestazioni di output. I valori possibili sono: `Body` (impostazione predefinita), `Form`, `Header` o `QueryString`. Il valore `Body` è l'attestazione di output che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di output che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore `Header` è l'attestazione di output che viene inviata nell'intestazione della richiesta. Il valore `QueryString` è l'attestazione di output che viene inviata nella stringa di query della richiesta. |
 | ClaimUsedForRequestPayload| No | Nome di un'attestazione di stringa che contiene il payload da inviare all'API REST. |
@@ -222,7 +223,7 @@ L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistem
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | version | Sì | 1.0.0 |
-| status | Sì | 409 |
+| stato | Sì | 409 |
 | codice | No | Un codice di errore del provider di endpoint RESTful, visualizzato quando `DebugMode` è abilitato. |
 | requestId | No | Un identificatore della richiesta del provider di endpoint RESTful, visualizzato quando `DebugMode` è abilitato. |
 | userMessage | Sì | Un messaggio di errore visualizzato dall'utente. |

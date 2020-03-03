@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: fdc6834f3fb5ee97f27a6397645b965863e90a6b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6dc8c54b9d138ab62e086cca59cd5b4801fa6130
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190529"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228348"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU AMD nelle VM serie N che eseguono Windows
 
@@ -31,13 +31,18 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 
 | OS | Driver |
 | -------- |------------- |
-| Windows 10 EVD-Build 1903 <br/><br/>Windows 10-Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19. q 4.1](https://download.microsoft.com/download/7/e/5/7e558ac0-3fff-413d-af62-800285a2fc53/Radeon-Pro-Software-for-Enterprise-19.Q4.1-Technical-Preview.exe) (. exe) |
+| Windows 10 EVD-Build 1903 <br/><br/>Windows 10-Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. q 1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (. exe) |
+
 
 ## <a name="driver-installation"></a>Installazione del driver
 
 1. Connettersi tramite Desktop remoto a ogni macchina virtuale della serie NVv4.
 
-1. Scaricare ed estrarre i file di installazione del driver. Passare alla cartella ed eseguire ' Setup. exe ' per installare il driver supportato per il sistema operativo Windows.
+2. Se sei un cliente di NVv4 Preview, arresta la macchina virtuale e attendi lo stato di arresto (deallocazione).
+
+3. Avviare la macchina virtuale e quindi disinstallare il driver di anteprima eseguendo "amdcleanuputility-x64. exe" che si trova nella cartella ". ..\AMDCleanUninstallUtility". Il percorso esatto può variare in base alla posizione in cui si trovano i file di installazione dei driver precedenti.  
+
+4. Scaricare e installare il driver più recente.
 
 ## <a name="verify-driver-installation"></a>Verificare l'installazione del driver
 

@@ -3,15 +3,15 @@ title: Specifiche di Microsoft Azure FXT Edge Filer | Microsoft Docs
 description: Specifiche fisiche e ambientali per l'hardware di Azure FXT Edge Filer
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 90d56ad0cec3d187d4c7307f8c004b14c3860390
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: HT
+ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254703"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227471"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifiche di Azure FXT Edge Filer
 
@@ -34,10 +34,10 @@ I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edg
 
 ![Foto di un alloggiamento del disco rigido nello chassis FXT, con i numeri di unità e le etichette della capacità](media/fxt-drives-photo.png)
 
-| Numeri di unità    |  Uso   |  Specifiche |
+| Numeri di unità    |  Utilizzo   |  Specifiche |
 |------------------|--------|-----------------|
 | 0, 1             | OS     | Unità SSD SATA da 480 GB |
-| 2, 3, 4, 5, 6, 7, 8, 9 | Dati   | FXT 6600: unità SSD NVMe da 3,2 TB <br> FXT 6400: unità SSD NVMe da 1,6 TB |
+| 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: unità SSD NVMe 3,2 TB <br> FXT 6400: unità SSD NVMe 1,6 TB |
 
 
 ## <a name="dimensions-and-weight"></a>Dimensioni e peso
@@ -48,7 +48,7 @@ Azure FXT Edge Filer è progettato per l'inserimento in un rack standard per app
 
 | Dimensioni del filer           |                          |
 |-----------------------------|--------------------------|
-| Altezza:                      | 42,8 mm (1,68 pollici)    |
+| Altezza                      | 42,8 mm (1,68 pollici)    |
 | Larghezza (incluse le staffe per il rack) | 482,0 mm (18,97 pollici)  |
 | Larghezza - chassis principale      | 434,0 mm (17,08 pollici) |
 | Profondità - dalle staffe per il rack alla parte posteriore dello chassis principale                   | 733,82 mm (29,61 pollici) |
@@ -56,7 +56,7 @@ Azure FXT Edge Filer è progettato per l'inserimento in un rack standard per app
 | Profondità - dalle staffe per il rack alla massima sporgenza anteriore, senza cornice | 22,0 mm (0,87 pollici)  |
 | Profondità - dalle staffe per il rack alla massima sporgenza anteriore, con cornice    | 35,84 mm (1,41 pollici) |
 
-| Peso | |
+| Spessore | |
 |-----------------|----------------------|
 | Peso del nodo (senza imballaggio, senza accessori) | 18,1 kg (40 libbre) |
 | Peso netto (senza imballaggio, con accessori) | 23,1 kg (51 libbre)|
@@ -66,7 +66,7 @@ Azure FXT Edge Filer è progettato per l'inserimento in un rack standard per app
 
 | Dimensioni del pacchetto | Millimetri | Pollici |
 |-------------------|-------------|--------|
-| Altezza:            | 311,2       | 12,25" |
+| Altezza            | 311,2       | 12,25" |
 | Larghezza             | 642,8       | 25,31" |
 | Length            | 1\.051,1     | 41,38" |
 
@@ -94,7 +94,7 @@ Di seguito sono riportate le misurazioni del consumo energetico e dell'emissione
 |---------|---|---|---|---|---|
 | Tensione (V) | 100 | 120 | 208 | 230 | 240 | 
 | Frequenza (Hz) | 60 | 60 | 60 | 50 | 50 |
-| Corrente (A) | 5,02 | 4,16 |2,40 | 2,20 | 2.16 |
+| Corrente (A) | 5,02 | 4.16 |2,40 | 2.20 | 2.16 |
 | Potenza apparente (VA) | 502 | 499 | 499 | 506 | 518|
 | Fattore di potenza | 0,99 | 0,99 |0.98 | 0.98 | 0.98 |
 | Potenza effettiva (W) | 497 |494 | 489 | 496 | 508 |
@@ -114,7 +114,7 @@ Di seguito sono riportate le misurazioni del consumo energetico e dell'emissione
 |---------|---|---|---|---|---|
 | Tensione (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequenza (Hz) |60 | 60 | 60 | 50 | 50 |
-| Corrente (A) | 4,63 | 3,86 | 2,24 | 2,04 | 1,94 |
+| Corrente (A) | 4,63 | 3,86 | 2.24 | 2,04 | 1,94 |
 | Potenza apparente (VA) | 463 | 463 | 466 | 469 | 466 |
 | Fattore di potenza | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 | 
 | Potenza effettiva (W) | 458 | 459 | 457 | 460 | 456 |
@@ -124,7 +124,7 @@ Di seguito sono riportate le misurazioni del consumo energetico e dell'emissione
 |---------|---|---|---|---|---|
 | Tensione (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequenza (Hz) | 60 | 60 | 60 | 50 | 50 |
-| Corrente (A) | 5.15 | 4,28 | 2,48 | 2,28 | 2,13 |
+| Corrente (A) | 5.15 | 4,28 | 2,48 | 2.28 | 2,13 |
 | Potenza apparente (VA) | 515 | 514 | 516 | 524 | 511 |
 | Fattore di potenza | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 |
 | Potenza effettiva (W) | 510 | 508 | 506 | 514 | 501 |
@@ -144,11 +144,11 @@ Questa sezione contiene le specifiche per l'ambiente dell'hardware.
 | Altitudine                  | fino a 3.048 metri (10.000 piedi), soggetto alla riduzione della temperatura specificata di seguito | fino a 12.000 metri (39.370 piedi) |
 
 > [!NOTE] 
-> **Riduzione della temperatura in base all'altitudine:** la temperatura massima si riduce di 1 °C/300 m (1 °F/547 piedi) sopra i 950 m (3.117 piedi).
+> **Valutazione della temperatura di altitudine:** La temperatura massima è ridotta di 1 ° c/300 m (1 ° f/547 ft) superiore a 950 m (3.117 ft).
 
 ### <a name="airflow-shock-and-vibration"></a>Flusso d'aria, urti e vibrazioni 
 
-| Attributo         | Specifiche |
+| Attributo         | Specifica |
 |-------------------|---------------|
 | Flusso d'aria                    | Il flusso d'aria di sistema va dalla parte anteriore a quella posteriore. Il sistema deve essere usato con un'installazione a bassa pressione e scarico posteriore. |
 | Scossa, operativo         | 6 G per 11 millisecondi (testato in 6 orientamenti) |
@@ -160,9 +160,9 @@ Questa sezione contiene le specifiche per l'ambiente dell'hardware.
 
 Azure FXT Edge Filer è conforme alle normative elencate. 
 
-| Categoria       | Specifica della normativa | 
+| Category       | Specifica della normativa | 
 |----------------|--------------------------|
 | Sicurezza generale | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 | 
 | EMC            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (classe D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |
-| Energia         | Regolamento della Commissione (UE) n. 617/2013  |
+| Capacità         | Regolamento della Commissione (UE) n. 617/2013  |
 | RoHS           |    EN 50581:2012   |

@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: Aro, OpenShift, aquasec, Twistlock, Red Hat
-ms.openlocfilehash: 4241296a991283f14fbb294fdc059ecde58d6d75
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069662"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228233"
 ---
-# <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Eseguire i contenitori con privilegi in un cluster Azure Red Hat OpenShift
+# <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Eseguire contenitori con privilegi in un cluster di Azure Red Hat OpenShift
 
 Non è possibile eseguire contenitori con privilegi arbitrari nei cluster OpenShift di Azure Red Hat.
 È consentita l'esecuzione di due soluzioni di monitoraggio e conformità di sicurezza nei cluster ARO.
@@ -121,12 +121,17 @@ Quando si distribuiscono i campi, impostare i campi seguenti:
 
 Le istruzioni di base che verranno modificate sono disponibili nella [documentazione relativa alla distribuzione di Prism cloud](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Per iniziare, creare un nuovo progetto OpenShift
+Per iniziare, installare lo strumento `twistcli` come descritto nelle sezioni "Install Prismal cloud" e "download the Prism Cloud software".
+
+Creare un nuovo progetto OpenShift
 ```
 oc new-project twistlock
 ```
 
-È possibile seguire la documentazione fino alla sezione "installa console", usare il registro di sistema del contenitore del cloud Prisma invece di crearne uno interno.
+Ignorare la sezione facoltativa "inserire le immagini del cloud prisma in un registro privato". Non funzionerà in Azure Red Hat OpenShift. Usare invece il registro online.
+
+È possibile seguire la documentazione ufficiale durante l'applicazione delle correzioni descritte di seguito.
+Iniziare con la sezione "installare la console".
 
 ### <a name="install-console"></a>Installare la console
 

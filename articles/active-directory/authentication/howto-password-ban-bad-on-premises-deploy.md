@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f61ab87a3eb1bd4b81a8e67a182a4cb6a09aa069
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4a3eb121b68311084fd516c6abb7e00ad70eba8b
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888951"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226823"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -32,7 +32,7 @@ Durante la fase di controllo, molte organizzazioni scoprono che:
 * Spesso gli utenti usano password non sicure.
 * Devono informare gli utenti sulla modifica imminente dell'applicazione della sicurezza, sulla possibile incidenza su di essi e su come scegliere password più sicure.
 
-È anche possibile che la convalida delle password più avanzata influisca sull'automazione della distribuzione del controller di dominio Active Directory esistente. È consigliabile che almeno una promozione del controller di dominio e un'abbassamento di livello del controller di dominio si verifichino durante la valutazione del periodo di controllo, in modo da individuare in anticipo tali problemi.  Per scoprire di più, vedi:
+È anche possibile che la convalida delle password più avanzata influisca sull'automazione della distribuzione del controller di dominio Active Directory esistente. È consigliabile che almeno una promozione del controller di dominio e un'abbassamento di livello del controller di dominio si verifichino durante la valutazione del periodo di controllo, in modo da individuare in anticipo tali problemi.  Per altre informazioni, vedere:
 
 * [Ntdsutil. exe non è in grado di impostare una password per la modalità di ripristino di servizi directory debole](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [La promozione della replica del controller di dominio non riesce a causa di una password della modalità ripristino servizi directory debole](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -40,7 +40,7 @@ Durante la fase di controllo, molte organizzazioni scoprono che:
 
 Dopo che la funzionalità è stata eseguita in modalità di controllo per un periodo di tempo ragionevole, è possibile cambiare la configurazione da *controllo* a *Imponi* per richiedere password più sicure. Il monitoraggio con lo stato attivo in questa fase è una scelta valida.
 
-## <a name="deployment-requirements"></a>Requisiti di distribuzione
+## <a name="deployment-requirements"></a>Requisiti per la distribuzione
 
 * I requisiti di licenza per la protezione Azure AD password sono disponibili nell'articolo [eliminare le password non valide nell'organizzazione](concept-password-ban-bad.md#license-requirements).
 * In tutti i computer in cui verrà installato il software dell'agente di Azure AD password protection controller di dominio deve essere eseguito Windows Server 2012 o versione successiva. Questo requisito non implica che il dominio o la foresta di Active Directory deve essere anche al livello di funzionalità del dominio o della foresta di Windows Server 2012. Come indicato nei [principi di progettazione](concept-password-ban-bad-on-premises.md#design-principles), non è necessario un valore minimo di DFL o FFL per l'esecuzione del software proxy o dell'agente DC.
@@ -96,7 +96,7 @@ Il diagramma seguente illustra il modo in cui i componenti di base di Azure AD l
 
 È consigliabile esaminare il funzionamento del software prima di distribuirlo. Vedere [panoramica concettuale di Azure ad Password Protection](concept-password-ban-bad-on-premises.md).
 
-### <a name="download-the-software"></a>Scarica il software
+### <a name="download-the-software"></a>Scaricare il software
 
 Per la protezione Azure AD password sono disponibili due programmi di installazione necessari. Sono disponibili nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -106,6 +106,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
    * Ogni servizio di questo tipo può fornire solo criteri password per una singola foresta. Il computer host deve essere aggiunto a un dominio nella foresta. Sono supportati entrambi i domini radice e figlio. È necessaria la connettività di rete tra almeno un controller di dominio in ogni dominio della foresta e il computer di protezione con password.
    * È possibile eseguire il servizio proxy in un controller di dominio per il test. Il controller di dominio richiede quindi la connettività Internet, che può costituire un problema di sicurezza. Questa configurazione è consigliata solo per i test.
    * Per la ridondanza sono consigliate almeno due server proxy. Vedere [disponibilità elevata](howto-password-ban-bad-on-premises-deploy.md#high-availability).
+   * L'esecuzione del servizio proxy in un controller di dominio di sola lettura non è supportata.
 
 1. Installare il servizio proxy Azure AD password protection usando il programma di installazione del software di `AzureADPasswordProtectionProxySetup.exe`.
    * Non è necessario riavviare dopo l'installazione del software. L'installazione del software può essere automatizzata usando le procedure MSI standard, ad esempio:
@@ -133,7 +134,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Questo cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. Sono necessari anche i privilegi di amministratore di dominio Active Directory locali nel dominio radice della foresta. È inoltre necessario eseguire questo cmdlet utilizzando un account con privilegi di amministratore locale.
+     Questo cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. Sono necessari anche i privilegi di amministratore di dominio Active Directory locali nel dominio radice della foresta. Questo cmdlet deve essere eseguito anche usando un account con privilegi di amministratore locale.
 
      Dopo che il comando ha avuto esito positivo una volta per un servizio proxy, le chiamate aggiuntive verranno riuscite, ma non sono necessarie.
 
@@ -179,7 +180,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
    > È possibile che si verifichi un ritardo notevole prima del completamento la prima volta che questo cmdlet viene eseguito per un tenant di Azure specifico. A meno che non venga segnalato un errore, non preoccuparti di questo ritardo.
 
 1. Registrare la foresta.
-   * È necessario inizializzare la foresta Active Directory locale con le credenziali necessarie per comunicare con Azure tramite il cmdlet `Register-AzureADPasswordProtectionForest` PowerShell.
+   * Inizializzare la foresta Active Directory locale con le credenziali necessarie per comunicare con Azure tramite il cmdlet `Register-AzureADPasswordProtectionForest` PowerShell.
 
       Il cmdlet richiede le credenziali di amministratore globale per il tenant di Azure.  È inoltre necessario eseguire questo cmdlet utilizzando un account con privilegi di amministratore locale. Richiede anche privilegi di amministratore dell'organizzazione Active Directory locale. Questo passaggio viene eseguito una volta per ogni foresta.
 
@@ -266,7 +267,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
    Il servizio proxy non supporta l'utilizzo di credenziali specifiche per la connessione a un proxy HTTP.
 
 1. Facoltativo: configurare il servizio proxy per la protezione delle password in modo che sia in ascolto su una porta specifica.
-   * Il software dell'agente DC per la protezione delle password nei controller di dominio utilizza RPC su TCP per comunicare con il servizio proxy. Per impostazione predefinita, il servizio proxy è in ascolto su tutti gli endpoint RPC dinamici disponibili. Tuttavia, è possibile configurare il servizio in modo che sia in ascolto su una porta TCP specifica, se necessario, a causa della topologia di rete o dei requisiti del firewall nell'ambiente in uso.
+   * Il software dell'agente DC per la protezione delle password nei controller di dominio utilizza RPC su TCP per comunicare con il servizio proxy. Per impostazione predefinita, il servizio proxy è in ascolto su tutti gli endpoint RPC dinamici disponibili. È possibile configurare il servizio in modo che sia in ascolto su una porta TCP specifica, se necessario, a causa della topologia di rete o dei requisiti del firewall nell'ambiente in uso.
       * <a id="static" /></a>per configurare il servizio per l'esecuzione in una porta statica, utilizzare il cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`.
 
          ```powershell
@@ -306,7 +307,7 @@ Per la protezione Azure AD password sono disponibili due programmi di installazi
 
    È possibile installare il servizio DC Agent in un computer che non è ancora un controller di dominio. In questo caso, il servizio verrà avviato ed eseguito ma rimarrà inattivo fino a quando il computer non viene promosso a controller di dominio.
 
-   È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. Ad esempio:
+   È possibile automatizzare l'installazione del software utilizzando le procedure MSI standard. Ad esempio,
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
@@ -343,6 +344,8 @@ Non sono previsti requisiti aggiuntivi per distribuire la password di protezione
 ## <a name="read-only-domain-controllers"></a>Controller di dominio di sola lettura
 
 Le modifiche/set di password non vengono elaborate e rese permanente nei controller di dominio di sola lettura (RODC). Vengono quindi trasmessi ai controller di dominio scrivibili. Quindi, non è necessario installare il software dell'agente controller di dominio in RODC.
+
+L'esecuzione del servizio proxy in un controller di dominio di sola lettura non è supportata.
 
 ## <a name="high-availability"></a>Disponibilità elevata
 

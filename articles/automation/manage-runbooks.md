@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4531e5d483508ca99722182f97c6a7aa0e0b68f3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191113"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226259"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testare un runbook
 
-Quando si testa un Runbook, viene eseguita la [Versione bozza](#publish-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia processo, ma i flussi di [output](automation-runbook-output-and-messages.md#output-stream) e di [avviso e di errore](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro di output del test. I messaggi nel [flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro di output solo se la [variabile $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) è impostata su **continue (continua**).
+Quando si testa un Runbook, viene eseguita la [Versione bozza](#publish-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia processo, ma i flussi di [output](automation-runbook-output-and-messages.md#output-stream) e di [avviso e di errore](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro di output del test. I messaggi nel [flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro di output solo se la variabile *VerbosePreference* ] (Automation-Runbook-output-and-Messages. MD # preferenza-variabili) è impostata su **continue (continua**).
 
 Anche se si esegue la versione bozza, il runbook viene comunque eseguito normalmente ed effettua qualsiasi azione sulle risorse nell'ambiente. Per questo motivo, è necessario testare i runbook solo con risorse non di produzione.
 
@@ -113,7 +113,7 @@ Quando si crea o si importa un nuovo runbook, è necessario pubblicarlo prima di
 ### <a name="publish-a-runbook-in-the-azure-portal"></a>Pubblicare un Runbook nel portale di Azure
 
 1. Aprire il runbook nel portale di Azure.
-2. Fare clic su **Modifica**.
+2. Fare clic su **Edit**.
 3. Fare clic su **pubblica** e quindi su **Sì** in risposta al messaggio di verifica.
 
 ### <a name="publish-a-runbook-using-powershell"></a>Pubblicare un runbook con PowerShell

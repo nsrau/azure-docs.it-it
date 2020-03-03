@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/02/2020
 ms.author: victorh
-ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: dc5a05c672df1b4f9db764b58db93279c4be7570
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621955"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227449"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -125,7 +125,7 @@ Sì. Tuttavia, la configurazione di UdR per reindirizzare il traffico tra subnet
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>Azure firewall SNAT in uscita tra le reti private?
 
-Il firewall di Azure non SNAT quando l'indirizzo IP di destinazione è un intervallo IP privato per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti private, il firewall di Azure SNATs il traffico verso uno degli indirizzi IP privati del firewall in AzureFirewallSubnet. È possibile configurare il firewall di Azure in modo che **non** SNAT l'intervallo di indirizzi IP pubblici. Per altre informazioni, vedere gli [intervalli di indirizzi IP privati SNAT del firewall di Azure](snat-private-range.md).
+Il firewall di Azure non SNAT quando l'indirizzo IP di destinazione è un intervallo IP privato per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti private, il firewall di Azure SNATs il traffico verso uno degli indirizzi IP privati del firewall in AzureFirewallSubnet. È possibile configurare Firewall di Azure in modo da **non** usare SNAT per l'intervallo di indirizzi IP pubblici. Per altre informazioni, vedere [Intervalli di indirizzi IP privati SNAT di Firewall di Azure](snat-private-range.md).
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Il tunneling o il concatenamento forzato a un'appliance virtuale di rete è supportato?
 
@@ -177,3 +177,25 @@ Sono necessari da cinque a sette minuti per la scalabilità orizzontale del fire
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Il firewall di Azure consente l'accesso alle Active Directory per impostazione predefinita?
 
 No. Il firewall di Azure blocca Active Directory accesso per impostazione predefinita. Per consentire l'accesso, configurare il tag del servizio AzureActiveDirectory. Per altre informazioni, vedere [tag del servizio firewall di Azure](service-tags.md).
+
+## <a name="can-i-exclude-a-fqdn-or-an-ip-address-from-azure-firewall-threat-intelligence-based-filtering"></a>È possibile escludere un nome di dominio completo o un indirizzo IP dal filtro basato su Intelligence per le minacce del firewall di Azure?
+
+Sì, è possibile usare Azure PowerShell per eseguire questa operazione:
+
+```azurepowershell
+# Add a Threat Intelligence Whitelist to an Existing Azure Firewall
+
+## Create the Whitelist with both FQDN and IPAddresses
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
+   -FQDN @(“fqdn1”, “fqdn2”, …) -IpAddress @(“ip1”, “ip2”, …)
+
+## Or Update FQDNs and IpAddresses separately
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist.FQDNs = @(“fqdn1”, “fqdn2”, …)
+$fw.ThreatIntelWhitelist.IpAddress = @(“ip1”, “ip2”, …)
+
+Set-AzFirewall -AzureFirewall $fw
+```

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 700847c041a5b9111414d6b43ff734d83b1ca49f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e0abae8ada603e4e6b98ab0dfe9d794186e00000
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913464"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226786"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 
@@ -101,7 +101,7 @@ Caching archiviazione Premium: non supportato
 
 Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria.
 
-| Dimensioni – Dimensioni\Nome | vCPU | Memoria|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
+| Dimensioni – Dimensioni\Nome | vCPU | Memoria|NIC (Max)| Dimensioni massime per il disco temporaneo | Max (1023 GB ciascuno)| Max IOPS (300 per disco) |
 |---|---|---|---|---|---|---|
 | A0\Basic_A0 | 1 | 768 MB  | 2 | 20 GB  | 1  | 1x300  |
 | A1\Basic_A1 | 1 | 1,75 GB | 2 | 40 GB  | 2  | 2x300  |
@@ -166,6 +166,9 @@ Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
 <sup>1</sup>Per le applicazioni MPI, la rete back-end RDMA dedicata viene abilitata dalla rete InfiniBand FDR, che offre latenza estremamente bassa e larghezza di banda elevata.  
+
+> [!NOTE]
+> Le macchine virtuali a8-A11 sono pianificate per il ritiro in 3/2021. Per ulteriori informazioni, vedere la [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 
@@ -241,7 +244,7 @@ Caching archiviazione Premium: supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_DS1 | 1 | 3,5 | 7  | 4  | 4000/32 (43)    | 3200/32   | 2/500  |
+| DS1 Standard | 1 | 3,5 | 7  | 4  | 4000/32 (43)    | 3200/32   | 2/500  |
 | Standard_DS2 | 2 | 7   | 14 | 8  | 8000/64 (86)    | 6400/64   | 2/1000 |
 | Standard_DS3 | 4 | 14  | 28 | 16 | 16000/128 (172) | 12800/128 | 4/2000 |
 | Standard_DS4 | 8 | 28  | 56 | 32 | 32000/256 (344) | 25600/256 | 8/4000 |

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: c4a27db8bec6dbbd2f1b2be8acfdd034d45d37d5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 499770b664757ec0f3a0bd3b26e0de36007741b6
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561921"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228072"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -256,8 +256,8 @@ Usare l'elemento `break` per inserire pause (o interruzioni) tra le parole oppur
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `strength` | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>none</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
-| `time` | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono `2s` e `500` | Facoltativo |
+| `strength` | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>none</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativa |
+| `time` | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono `2s` e `500` | Facoltativa |
 
 | Forza | Descrizione |
 |----------|-------------|
@@ -327,7 +327,7 @@ Gli alfabeti fonetici sono costituiti da telefoni, che sono costituiti da letter
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifica l'alfabeto fonetico da usare quando si sintetizza la pronuncia della stringa nell'attributo `ph`. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati gli alfabeti possibili che è possibile specificare.<ul><li>IPA &ndash; alfabeto fonetico internazionale</li><li>Set di telefono Speech API &ndash; SAPI</li><li>UPS &ndash; set di telefono universale</li></ul>L'alfabeto si applica solo al fonema nell'elemento. Per ulteriori informazioni, vedere [riferimento all'alfabeto fonetico](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Facoltativo |
+| `alphabet` | Specifica l'alfabeto fonetico da usare quando si sintetizza la pronuncia della stringa nell'attributo `ph`. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati gli alfabeti possibili che è possibile specificare.<ul><li>IPA &ndash; alfabeto fonetico internazionale</li><li>Set di telefono Speech API &ndash; SAPI</li><li>UPS &ndash; set di telefono universale</li></ul>L'alfabeto si applica solo al fonema nell'elemento. Per ulteriori informazioni, vedere [riferimento all'alfabeto fonetico](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Facoltativa |
 | `ph` | Stringa contenente i telefoni che specificano la pronuncia della parola nell'elemento `phoneme`. Se la stringa specificata contiene telefoni non riconosciuti, il servizio di sintesi vocale rifiuta l'intero documento SSML e non genera alcun output vocale specificato nel documento. | Obbligatorio se si utilizzano fonemi. |
 
 **esempi**
@@ -348,6 +348,103 @@ Gli alfabeti fonetici sono costituiti da telefoni, che sono costituiti da letter
 </speak>
 ```
 
+## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Usare un lessico personalizzato per migliorare la pronuncia
+
+In alcuni casi TTS non può pronunciare in modo accurato una parola, ad esempio, una società o un nome esterno. Gli sviluppatori possono definire la lettura di queste entità in SSML usando `phoneme` e `sub` tag oppure definire la lettura di più entità facendo riferimento a un file di lessico personalizzato usando `lexicon` tag.
+
+**Sintassi**
+
+```XML
+<lexicon uri="string"/>
+```
+
+**Attributes (Attributi)**
+
+| Attributo | Descrizione | Obbligatoria / Facoltativa |
+|-----------|-------------|---------------------|
+| `uri` | Indirizzo del documento PLS esterno. | Obbligatoria. |
+
+**Utilizzo**
+
+Passaggio 1: definire un lessico personalizzato 
+
+È possibile definire la lettura delle entità mediante un elenco di elementi del lessico personalizzati, archiviati come file con estensione XML o pls.
+
+**Esempio**
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias>By the way</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme> 
+    <phoneme> bɛˈniːnji</phoneme>
+  </lexeme>
+</lexicon>
+```
+
+Ogni elemento `lexeme` è un elemento del lessico. `grapheme` contiene testo che descrive la OrthoGraph di `lexeme`. Il form di lettura può essere fornito come `alias`. È possibile specificare la stringa telefono nell'elemento `phoneme`.
+
+L'elemento `lexicon` contiene almeno un elemento di `lexeme`. Ogni elemento `lexeme` contiene almeno un elemento `grapheme` e uno o più elementi `grapheme`, `alais`e `phoneme`. L'elemento `grapheme` contiene testo che descrive l' <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Gli elementi `alias` vengono usati per indicare la pronuncia di un acronimo o un termine abbreviato. L'elemento `phoneme` fornisce il testo che descrive il modo in cui viene pronunciata la `lexeme`.
+
+Per ulteriori informazioni sul file di lessico personalizzato, vedere la pagina relativa alla [specifica del lessico di pronuncia (pls) versione 1,0](https://www.w3.org/TR/pronunciation-lexicon/) sul sito Web W3C.
+
+Passaggio 2: caricare il file del lessico personalizzato creato nel passaggio 1 online, è possibile archiviarlo in qualsiasi punto ed è consigliabile archiviarlo in Microsoft Azure, ad esempio [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Passaggio 3: fare riferimento al file di lessico personalizzato in SSML
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
+          xmlns:mstts="http://www.w3.org/2001/mstts" 
+          xml:lang="en-US">
+<lexicon uri="http://www.example.com/customlexicon.xml"/>
+BTW, we will be there probably 8:00 tomorrow morning.
+Could you help leave a message to Robert Benigni for me?
+</speak>
+```
+"BTW" verrà letto come "by the Way". "Benigno" verrà letto con l'IPA "bɛ ˈ ni ː nji" specificato.  
+
+**Limitazione**
+- Dimensioni file: il limite massimo delle dimensioni del file di lessico personalizzato è 100KB, se oltre questa dimensione, la richiesta di sintesi avrà esito negativo.
+- Aggiornamento della cache Lexicon: il lessico personalizzato verrà memorizzato nella cache con URI come chiave nel servizio TTS quando viene caricato per la prima volta. Il lessico con lo stesso URI non verrà ricaricato entro 15 minuti, quindi per rendere effettive le modifiche al lessico personalizzato è necessario attendere al massimo 15 minuti.
+
+**Set di telefono SAPI**
+
+Nell'esempio precedente viene usato il set di telefono dell'Associazione fonetica internazionale (IPA). Si consiglia agli sviluppatori di usare il pacchetto IPA, perché IPA è lo standard internazionale. 
+
+Considerato che l'IPA non è facile da ricordare, Microsoft definisce il set di telefono SAPI per sette lingue (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`e `zh-TW`). Per ulteriori informazioni sull'alfabeto, vedere la Guida di [riferimento all'alfabeto fonetico](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx).
+
+È possibile usare il set di telefono SAPI con i lessico personalizzati, come illustrato di seguito. Impostare il valore alfabeto con **SAPI**.
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="sapi" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias> By the way </alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme>
+    <phoneme> b eh 1 - n iy - n y iy </phoneme>
+  </lexeme>
+</lexicon>
+```
+
+Per ulteriori informazioni sull'alfabeto SAPI dettagliato, vedere il [riferimento all'alfabeto SAPI](sapi-phoneset-usage.md).
+
 ## <a name="adjust-prosody"></a>Modificare prosodia
 
 L'elemento `prosody` viene usato per specificare le modifiche apportate a pitch, contorno, Range, rate, Duration e volume per l'output di sintesi vocale. L'elemento `prosody` può contenere testo e gli elementi seguenti: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`e `s`.
@@ -364,12 +461,12 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `pitch` | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio, 600 Hz.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio: + 80 Hz o-2ST. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>low</li><li>media</li><li>high</li><li>x-alto</li><li>default</li></ul></li></ul>. | Facoltativo |
-| `contour` | Il contorno non è supportato per le voci neurali. Contour rappresenta le modifiche in pitch. Queste modifiche sono rappresentate come una matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch`). | Facoltativo |
-| `range` | Valore che rappresenta l'intervallo di pitch per il testo. È possibile esprimere `range` usando gli stessi valori assoluti, i valori relativi o i valori di enumerazione usati per descrivere `pitch`. | Facoltativo |
-| `rate` | Indica la velocità di pronuncia del testo. È possibile esprimere `rate` come:<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>veloce</li><li>x-veloce</li><li>default</li></ul></li></ul> | Facoltativo |
-| `duration` | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. | Facoltativo |
-| `volume` | Indica il livello del volume della voce di pronuncia. Il volume può essere espresso come segue:<ul><li>Valore assoluto, espresso come numero compreso nell'intervallo tra 0,0 e 100,0, dal più *silenzioso* al più *alto*. Ad esempio, 75. Il valore predefinito è 100,0.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", che specifica una quantità per modificare il volume. Ad esempio, + 10 o-5,5.</li><li>Valore costante:<ul><li>nessun suono</li><li>x-soft</li><li>temporanea</li><li>media</li><li>forte</li><li>x-Loud</li><li>default</li></ul></li></ul> | Facoltativo |
+| `pitch` | Indica il passo della linea di base per il testo. È possibile esprimere il passo come:<ul><li>Valore assoluto, espresso come numero seguito da "Hz" (hertz). Ad esempio, 600 Hz.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", seguito da "Hz" o "St", che specifica una quantità per modificare il pitch. Ad esempio: + 80 Hz o-2ST. Il valore "St" indica che l'unità di modifica è semitono, ovvero la metà di un tono (un mezzo) sulla scala diatonica standard.</li><li>Valore costante:<ul><li>x-basso</li><li>low</li><li>media</li><li>high</li><li>x-alto</li><li>predefiniti</li></ul></li></ul>. | Facoltativa |
+| `contour` | Il contorno non è supportato per le voci neurali. Contour rappresenta le modifiche in pitch. Queste modifiche sono rappresentate come una matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio, <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch`). | Facoltativa |
+| `range` | Valore che rappresenta l'intervallo di pitch per il testo. È possibile esprimere `range` usando gli stessi valori assoluti, i valori relativi o i valori di enumerazione usati per descrivere `pitch`. | Facoltativa |
+| `rate` | Indica la velocità di pronuncia del testo. È possibile esprimere `rate` come:<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>veloce</li><li>x-veloce</li><li>predefiniti</li></ul></li></ul> | Facoltativa |
+| `duration` | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. | Facoltativa |
+| `volume` | Indica il livello del volume della voce di pronuncia. Il volume può essere espresso come segue:<ul><li>Valore assoluto, espresso come numero compreso nell'intervallo tra 0,0 e 100,0, dal più *silenzioso* al più *alto*. Ad esempio, 75. Il valore predefinito è 100,0.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", che specifica una quantità per modificare il volume. Ad esempio, + 10 o-5,5.</li><li>Valore costante:<ul><li>nessun suono</li><li>x-soft</li><li>temporanea</li><li>media</li><li>forte</li><li>x-Loud</li><li>predefiniti</li></ul></li></ul> | Facoltativa |
 
 ### <a name="change-speaking-rate"></a>Cambiare la velocità del parlato
 
@@ -448,8 +545,8 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `interpret-as` | Indica il tipo di contenuto del testo dell'elemento. Per un elenco di tipi, vedere la tabella seguente. | Obbligatoria |
-| `format` | Fornisce informazioni aggiuntive sulla formattazione precisa del testo dell'elemento per i tipi di contenuto che possono avere formati ambigui. SSML definisce i formati per i tipi di contenuto che li usano (vedere la tabella riportata di seguito). | Facoltativo |
-| `detail` | Indica il livello di dettaglio da pronunciare. Questo attributo, ad esempio, può richiedere che il motore di sintesi vocale pronunci segni di punteggiatura. Nessun valore standard definito per `detail`. | Facoltativo |
+| `format` | Fornisce informazioni aggiuntive sulla formattazione precisa del testo dell'elemento per i tipi di contenuto che possono avere formati ambigui. SSML definisce i formati per i tipi di contenuto che li usano (vedere la tabella riportata di seguito). | Facoltativa |
+| `detail` | Indica il livello di dettaglio da pronunciare. Questo attributo, ad esempio, può richiedere che il motore di sintesi vocale pronunci segni di punteggiatura. Nessun valore standard definito per `detail`. | Facoltativa |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
@@ -546,9 +643,9 @@ Per ogni documento SSML è consentito un solo file audio di sfondo. Tuttavia, è
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `src` | Specifica il percorso o l'URL del file audio in background. | Obbligatorio se si usa l'audio in background nel documento di SSML. |
-| `volume` | Specifica il volume del file audio in background. **Valori accettati**: `0` `100` inclusivi. Il valore predefinito è `1`. | Facoltativo |
-| `fadein` | Specifica la durata della "dissolvenza" del suono in background in millisecondi. Il valore predefinito è `0`, che equivale a nessuna dissolvenza in. **Valori accettati**: `0` `10000` inclusivi.  | Facoltativo |
-| `fadeout` | Specifica la durata della dissolvenza dell'audio in background in millisecondi. Il valore predefinito è `0`, che equivale a nessuna dissolvenza in uscita. **Valori accettati**: `0` `10000` inclusivi.  | Facoltativo |
+| `volume` | Specifica il volume del file audio in background. **Valori accettati**: `0` `100` inclusivi. Il valore predefinito è `1`. | Facoltativa |
+| `fadein` | Specifica la durata della "dissolvenza" del suono in background in millisecondi. Il valore predefinito è `0`, che equivale a nessuna dissolvenza in. **Valori accettati**: `0` `10000` inclusivi.  | Facoltativa |
+| `fadeout` | Specifica la durata della dissolvenza dell'audio in background in millisecondi. Il valore predefinito è `0`, che equivale a nessuna dissolvenza in uscita. **Valori accettati**: `0` `10000` inclusivi.  | Facoltativa |
 
 **Esempio**
 
