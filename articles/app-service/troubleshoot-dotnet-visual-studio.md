@@ -6,18 +6,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 5c0a236dc6ebf02c859d9db3f25f0e9016ac35ab
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688377"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227901"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come usare gli strumenti di Visual Studio che consentono di eseguire il debug di un'app nel [Servizio app](https://go.microsoft.com/fwlink/?LinkId=529714) tramite la [modalità debug](https://docs.microsoft.com/visualstudio/debugger/) in remoto oppure visualizzando i log dell'applicazione e i log del server Web.
 
-Contenuto dell'esercitazione:
+Si apprenderà come:
 
 * Usare le funzioni di gestione app disponibili in Visual Studio.
 * Usare la vista remota di Visual Studio per apportare modifiche rapide a un'app remota.
@@ -61,7 +61,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
     In questa esercitazione verranno usati gli elenchi a discesa relativi a registrazione e traccia. Verrà inoltre utilizzato il debug remoto, che tuttavia verrà abilitato con un metodo diverso.
 
-    Per informazioni sulle caselle impostazioni app e stringhe di connessione in questa finestra, vedere [servizio app Azure: funzionamento delle stringhe dell'applicazione e delle stringhe di connessione](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    Per informazioni sui riquadri Impostazioni app e Stringhe di connessione in questa finestra, consultare [Servizio app di Azure: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) (App Web di Azure: come funzionano le stringhe di applicazione e le stringhe di connessione).
 
     Se si vuole eseguire un'attività di gestione di app che non può essere completata in questa finestra, fare clic su **Apri nel portale di gestione** per aprire una finestra del browser nel portale di Azure.
 
@@ -567,7 +567,7 @@ Le app del Servizio app usano la stessa funzionalità di traccia delle richieste
 
 3. In Visual Studio, nella scheda **Configurazione** della finestra **App Web di Azure** fare clic su **Apri nel portale di gestione**.
 
-4. Nella pagina **Impostazioni** del [portale di Azure](https://portal.azure.com) per l'app fare clic su **Credenziali per la distribuzione** e quindi immettere un nuovo nome utente e una nuova password.
+4. Nella pagina **Impostazioni** [portale di Azure](https://portal.azure.com) per l'app fare clic su **credenziali di distribuzione**e quindi immettere un nuovo nome utente e una nuova password.
 
     ![Nuovo nome utente e nuova password FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
@@ -620,7 +620,7 @@ Per altre informazioni sulla risoluzione dei problemi di app nel Servizio app di
 Per informazioni su specifiche domande relative alla risoluzione dei problemi, avviare un thread in uno dei forum seguenti:
 
 * [Forum di Azure sul sito ASP.NET](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [Forum di Azure su MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
+* [Il forum di Azure su Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Debug in Visual Studio
@@ -645,7 +645,7 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
   Risorsa meno recente ma ancora valida per un'introduzione di base sull'argomento.
 * [Listener di traccia](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Informazioni sui listener di traccia, ma senza riferimenti a [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
-* [Procedura detagliata: integrazione della traccia ASP.NET con la traccia System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
+* [Procedura dettagliata: Integrating ASP.NET Tracing with System.Diagnostics Tracing](/previous-versions/b0ectfxd(v=vs.140)) (Procedura dettagliata: Integrazione della traccia ASP.NET con la traccia System.Diagnostics)<br/>
   Questo articolo non è molto recente, ma contiene informazioni aggiuntive non trattate nell'articolo introduttivo.
 * [Traccia nelle visualizzazioni Razor ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](/previous-versions/bb397417(v=vs.140)) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nell'esempio seguente:
