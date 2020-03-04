@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 17ef8dd121c987c2771d274c8f0e6f9f199e386c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 6167774171affda7e5469d5852a79657a6da700d
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938243"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262626"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
-Un insieme di credenziali di Servizi di ripristino è un'entità che archivia i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali dei servizi di ripristino contiene anche i criteri di backup associati alle macchine virtuali protette.
+Un insieme di credenziali dei Servizi di ripristino è un'entità di archiviazione che archivia i punti di ripristino creati nel corso del tempo. Contiene anche i criteri di backup associati agli elementi protetti.
 
 Seguire questa procedura per creare un insieme di credenziali di Servizi di ripristino.
 
@@ -42,8 +42,8 @@ Seguire questa procedura per creare un insieme di credenziali di Servizi di ripr
 
     ![Configurare l'insieme di credenziali di Servizi di ripristino](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Name**: immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco nella sottoscrizione di Azure. Specificare un nome con un minimo di 2 caratteri e un massimo di 50 caratteri. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini.
-   - **Sottoscrizione** scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure.
+   - **Nome**: immettere un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco nella sottoscrizione di Azure. Specificare un nome con un minimo di 2 caratteri e un massimo di 50 caratteri. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini.
+   - **Sottoscrizione**: scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure.
    - **Gruppo di risorse**: Usare un gruppo di risorse esistente oppure crearne uno nuovo. Selezionare **Usa esistente** e nell'elenco a discesa scegliere una risorsa per visualizzare l'elenco di gruppi di risorse disponibili nella sottoscrizione. Per creare un nuovo gruppo di risorse, selezionare **Crea nuovo** e inserire il nome. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/management/overview.md).
    - **Località**: selezionare l'area geografica per l'insieme di credenziali. Se si crea un insieme di credenziali per proteggere le macchine virtuali, l'insieme di credenziali *deve* trovarsi nella stessa area delle macchine virtuali.
 

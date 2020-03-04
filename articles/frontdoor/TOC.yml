@@ -4,7 +4,8 @@
   items:
     - name: Informazioni sul servizio Frontdoor di Azure
       href: front-door-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
+  expanded: true
   items:
     - name: Creare una frontdoor
       href: quickstart-create-front-door.md
@@ -48,7 +49,7 @@
       href: front-door-url-rewrite.md
     - name: Reindirizzamento URL
       href: front-door-url-redirect.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Reindirizzare il traffico
       items:
@@ -68,7 +69,7 @@
   items:
     - name: Domande frequenti su Front Door
       href: front-door-faq.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/front-door/

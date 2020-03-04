@@ -8,7 +8,7 @@
     - name: Confrontare le API di ricerca Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un'istanza di Ricerca personalizzata
@@ -27,12 +27,8 @@
               href: call-endpoint-python.md
         - name: SDK
           items:
-            - name: 'Uso di C#'
-              href: sdk-csharp-quick-start.md
-            - name: Uso di Python
-              href: sdk-python-quickstart.md
-            - name: Uso di Java
-              href: sdk-java-quickstart.md
+            - name: Librerie client di Ricerca personalizzata Bing
+              href: ./quickstarts/client-libraries.md
 - name: Esercitazioni
   items:
     - name: Compilare una pagina Web di Ricerca personalizzata
@@ -41,7 +37,7 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search'
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Configurare un'esperienza di ricerca personalizzata
       href: define-your-custom-view.md
@@ -63,7 +59,7 @@
     - name: Sfogliare i risultati della ricerca
       href: ../Bing-Web-Search/paging-search-results.md
       maintainContext: true
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sull'API Suggerimenti automatici personalizzati Bing
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference'
@@ -100,7 +96,7 @@
       href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=bing+custom+search'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'

@@ -109,7 +109,7 @@
           href: connect-virtual-network-vnet-isolated-environment.md
         - name: Configurare l'accesso per più ambienti del servizio di integrazione
           href: connect-virtual-network-vnet-set-up-single-ip-address.md
-        - name: Aggiungere artefatti agli ambienti del servizio di integrazione
+        - name: Aggiungere risorse agli ambienti del servizio di integrazione
           href: add-artifacts-integration-service-environment-ise.md
         - name: Configurare le chiavi di crittografia gestite dal cliente per gli ambienti del servizio di integrazione
           href: customer-managed-keys-integration-service-environment.md
@@ -221,8 +221,6 @@
           href: ../connectors/connectors-create-api-ftp.md
         - name: GitHub
           href: ../connectors/connectors-create-api-github.md
-        - name: Google Drive
-          href: ../connectors/connectors-create-api-googledrive.md
         - name: HTTP
           href: ../connectors/connectors-native-http.md
         - name: HTTP + Swagger

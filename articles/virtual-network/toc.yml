@@ -73,7 +73,7 @@
           href: ipv6-overview.md
         - name: Prefisso dell'indirizzo IPv6 pubblico
           href: ipv6-public-ip-address-prefix.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Protezione DDoS
           href: ddos-protection-overview.md
@@ -211,7 +211,7 @@
               href: manage-public-ip-address-prefix.md
             - name: Aggiungere o rimuovere indirizzi IP dalle schede di interfaccia di rete
               href: virtual-network-network-interface-addresses.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Limitare l'accesso con gruppi di sicurezza di rete
           items:
@@ -249,8 +249,14 @@
                   href: tutorial-restrict-network-access-to-resources-powershell.md
                 - name: Interfaccia della riga di comando di Azure
                   href: tutorial-restrict-network-access-to-resources-cli.md
-            - name: Creare criteri degli endpoint
-              href: virtual-network-service-endpoint-policies-portal.md
+            - name: Uso dei criteri degli endpoint di servizio
+              items:
+                - name: Portale di Azure
+                  href: virtual-network-service-endpoint-policies-portal.md
+                - name: Azure PowerShell
+                  href: virtual-network-service-endpoint-policies-powershell.md
+                - name: Interfaccia della riga di comando di Azure
+                  href: virtual-network-service-endpoint-policies-cli.md
         - name: Indirizzare il traffico di rete
           items:
             - name: Portale di Azure

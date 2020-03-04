@@ -13,6 +13,8 @@
       href: tutorial-enable-azure-mfa.md
     - name: Abilitare il writeback delle password nell'ambiente locale
       href: tutorial-enable-sspr-writeback.md
+    - name: Configurare gli elenchi personalizzati di password escluse
+      href: tutorial-configure-custom-password-protection.md
     - name: Integrazione di Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Concetti
@@ -108,8 +110,6 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Protezione delle password di Azure AD
       items:
-        - name: Configurare l'elenco di password escluse
-          href: howto-password-ban-bad-configure.md
         - name: Integrazione locale
           items:
             - name: Distribuire la protezione delle password di Azure AD

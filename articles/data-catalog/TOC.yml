@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Data Catalog?
       href: overview.md
-- name: Guida introduttiva
+- name: Avvi rapidi
   items:
     - name: Creare un'istanza di Azure Data Catalog
       href: data-catalog-get-started.md
@@ -52,7 +52,7 @@
       href: data-catalog-how-to-view-related-data-assets.md
     - name: Risolvere problemi
       href: troubleshoot-policy-configuration.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: data-catalog-samples.md
@@ -60,7 +60,7 @@
       href: /rest/api/datacatalog/
     - name: Informazioni di riferimento sulla sintassi di ricerca
       href: /rest/api/datacatalog/data-catalog-search-syntax-reference
-    - name: Concetti per gli sviluppatori
+    - name: Concetti per sviluppatori
       href: data-catalog-developer-concepts.md
 - name: Risorse
   items:

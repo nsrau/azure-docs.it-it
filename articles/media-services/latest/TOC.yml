@@ -103,12 +103,14 @@
           href: live-event-cloud-dvr.md
         - name: Trascrizione in tempo reale
           href: live-transcription.md
-        - name: Confronto tra le funzionalità
+        - name: Confronto tra tipi di eventi live
           href: live-event-types-comparison.md
         - name: Stati e fatturazione
           href: live-event-states-billing.md
         - name: Latenza
           href: live-event-latency.md
+        - name: Diventare un partner di codificatore locale
+          href: become-on-premises-encoder-partner.md
         - name: Codici errore di eventi live
           href: live-event-error-codes.md
     - name: Creazione di pacchetti e recapito

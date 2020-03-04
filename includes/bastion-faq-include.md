@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 02/03/2020
+ms.date: 03/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 922e8a71a22db975685cb82bbd51a125c619ccf2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 17d391a7e6b8ef0558fb73afe363cd96deb60a7d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989494"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262336"
 ---
 ### <a name="regions"></a>Quali aree sono disponibili?
 
@@ -30,6 +30,9 @@ IPv6 non è attualmente supportato. Azure Bastion supporta solo IPv4.
 ### <a name="rdpssh"></a>È necessario un client RDP o SSH?
 
 Non è necessario un client RDP o SSH per accedere alla macchina virtuale di Azure tramite RDP/SSH nel portale di Azure. Usare il [portale di Azure](https://portal.azure.com) per accedere tramite RDP/SSH alla macchina virtuale direttamente nel browser.
+
+### <a name="rdscal"></a>Azure Bastion richiede una licenza CAL di Servizi Desktop remoto per scopi amministrativi nelle macchine virtuali ospitate da Azure?
+No, per accedere alle macchine virtuali Windows Server con Azure Bastion, non è richiesta una [licenza CAL di Servizi Desktop remoto](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) se viene usato esclusivamente per scopi amministrativi.
 
 ### <a name="agent"></a>È necessario un agente in esecuzione nella macchina virtuale di Azure?
 

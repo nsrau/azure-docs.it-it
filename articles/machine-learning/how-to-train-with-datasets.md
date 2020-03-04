@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 2e48b47967e29a421a96bb09dd17b2cdcdbaff3c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ece8ee77f57dc3252c70c3f8b49dcee72967dc9e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580510"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198066"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ In questo articolo vengono illustrati i due modi per utilizzare [Azure Machine L
 
 - Opzione 2: Se si dispone di dati non strutturati, creare un file filedataset e montarli o scaricarli in un computer remoto per il training.
 
-Azure Machine Learning set di impostazioni forniscono un'integrazione perfetta con Azure Machine Learning prodotti di formazione come [scriptrun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), iperguida e [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md).
+I dataset di Azure Machine Learning forniscono un'integrazione perfetta con i prodotti di formazione di Azure Machine Learning come [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) e [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -106,11 +106,28 @@ experiment_run.wait_for_completion(show_output=True)
 Se si desidera rendere disponibili i file di dati nella destinazione di calcolo per il training, utilizzare [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) per montare o scaricare i file a cui fa riferimento.
 
 ### <a name="mount-vs-download"></a>Montaggio rispetto a Scarica
-Quando si monta un set di dati, si collegano i file a cui fa riferimento il set di dati a una directory (punto di montaggio) e lo si rende disponibile nella destinazione di calcolo. Il montaggio è supportato per i calcoli basati su Linux, tra cui Azure Machine Learning calcolo, macchine virtuali e HDInsight. Se le dimensioni dei dati superano le dimensioni del disco di calcolo o se si carica solo una parte del set di dati nello script, è consigliabile montarlo. Poiché il download di un set di dati di dimensioni superiori a quelle del disco avrà esito negativo e il montaggio caricherà solo la parte di dati usata dallo script al momento dell'elaborazione. 
-
-Quando si scarica un set di dati, tutti i file a cui fa riferimento il set di dati verranno scaricati nella destinazione di calcolo. Il download è supportato per tutti i tipi di calcolo. Se lo script elabora tutti i file a cui fa riferimento il set di dati e il disco di calcolo può adattarsi al set di dati completo, è consigliabile scaricare il download per evitare il sovraccarico del flusso dei dati dai servizi di archiviazione.
 
 Il montaggio o il download di file di qualsiasi formato sono supportati per i set di dati creati dall'archiviazione BLOB di Azure, File di Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, database SQL di Azure e database di Azure per PostgreSQL. 
+
+Quando si monta un set di dati, si collegano i file a cui fa riferimento il set di dati a una directory (punto di montaggio) e lo si rende disponibile nella destinazione di calcolo. Il montaggio è supportato per i calcoli basati su Linux, tra cui Azure Machine Learning calcolo, macchine virtuali e HDInsight. Quando si scarica un set di dati, tutti i file a cui fa riferimento il set di dati verranno scaricati nella destinazione di calcolo. Il download è supportato per tutti i tipi di calcolo. 
+
+Se lo script elabora tutti i file a cui fa riferimento il set di dati e il disco di calcolo può adattarsi al set di dati completo, è consigliabile scaricare il download per evitare il sovraccarico del flusso dei dati dai servizi di archiviazione. Se le dimensioni dei dati superano le dimensioni del disco di calcolo, il download non è possibile. Per questo scenario, è consigliabile montare poiché solo i file di dati usati dallo script vengono caricati al momento dell'elaborazione.
+
+Il codice seguente consente di montare `dataset` alla directory Temp in `mounted_path`
+
+```python
+import tempfile
+mounted_path = tempfile.mkdtemp()
+
+# mount dataset onto the mounted_path of a Linux-based compute
+mount_context = dataset.mount(mounted_path)
+
+mount_context.start()
+
+import os
+print(os.listdir(mounted_path))
+print (mounted_path)
+```
 
 ### <a name="create-a-filedataset"></a>Creare un oggetto FileDataset
 
