@@ -425,10 +425,10 @@
             - name: Panoramica
               href: functions-bindings-signalr-service.md
               displayName: SignalR Service
-            - name: Panoramica
+            - name: Input
               href: functions-bindings-signalr-service-input.md
               displayName: SignalR Service
-            - name: Panoramica
+            - name: Output
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Archiviazione tabelle
