@@ -1,16 +1,16 @@
 ---
-title: risoluzione dei problemi
+title: Risoluzione dei problemi
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Informazioni su come risolvere i problemi comuni durante l'abilitazione e l'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 2b5a6f14899ec41b1740563f4e8174f65aa679c7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197998"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251115"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -44,7 +44,7 @@ Usare l'interfaccia della riga di comando Azure Dev Spaces per eliminare un cont
 
 Se l'interfaccia della riga di comando di Azure Dev Spaces non è installata, è possibile installarla usando il comando seguente e quindi eliminare il controller:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -52,13 +52,13 @@ Per ricreare il controller è possibile usare l'interfaccia della riga di comand
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Creazione del controller non riuscita a causa della lunghezza del nome del controller
 
-Il nome di un controller di Azure Dev Spaces non può contenere più di 31 caratteri. Se il nome del controller supera i 31 caratteri quando si abilitano gli spazi di sviluppo in un cluster AKS o si crea un controller, si riceverà un errore. Ad esempio:
+Il nome di un controller di Azure Dev Spaces non può contenere più di 31 caratteri. Se il nome del controller supera i 31 caratteri quando si abilitano gli spazi di sviluppo in un cluster AKS o si crea un controller, si riceverà un errore. Ad esempio,
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Per risolvere questo problema, creare un controller con un nome alternativo. Ad esempio:
+Per risolvere questo problema, creare un controller con un nome alternativo. Ad esempio,
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -80,8 +80,8 @@ Per risolvere questo problema, [aggiornare la configurazione di Taint](../aks/op
 
 È stato modificato il percorso di installazione di un aggiornamento dell'interfaccia della riga di comando Azure Dev Spaces. Se si usa una versione dell'interfaccia della riga di comando di Azure precedente a 2.0.63, è possibile che venga visualizzato questo errore. Per visualizzare la versione dell'interfaccia della riga di comando di Azure, usare `az --version`.
 
-```bash
-$ az --version
+```azurecli
+az --version
 azure-cli                         2.0.60 *
 ...
 ```
@@ -159,7 +159,7 @@ Si supponga, ad esempio, di usare un comando Helm per eseguire l'intera applicaz
 
 Azure Dev Spaces può essere configurato per puntare a un _Dockerfile_ specifico all'interno del progetto. Se sembra che Azure Dev Spaces non usi il documento _Dockerfile_ previsto per compilare i contenitori, potrebbe essere necessario indicare in modo esplicito ad Azure Dev Spaces quale Dockerfile usare. 
 
-Per risolvere questo problema, aprire il file _azds. YAML_ che Azure Dev Spaces generato nel progetto. Configurazioni di aggiornamento *: develop: Build: dockerfile* in modo che punti al dockerfile che si vuole usare. Ad esempio:
+Per risolvere questo problema, aprire il file _azds. YAML_ che Azure Dev Spaces generato nel progetto. Configurazioni di aggiornamento *: develop: Build: dockerfile* in modo che punti al dockerfile che si vuole usare. Ad esempio,
 
 ```yaml
 ...
@@ -206,7 +206,7 @@ install:
 
 Si potrebbe verificare questo errore quando il codice del servizio non viene avviato. La causa è spesso nel codice utente. Per ottenere altre informazioni di diagnostica, abilitare la registrazione più dettagliata all'avvio del servizio.
 
-Dalla riga di comando usare il `--verbose` per abilitare la registrazione più dettagliata. È anche possibile specificare un formato di output usando `--output`. Ad esempio:
+Dalla riga di comando usare il `--verbose` per abilitare la registrazione più dettagliata. È anche possibile specificare un formato di output usando `--output`. Ad esempio,
 
 ```cmd
 azds up --verbose --output json
@@ -223,7 +223,7 @@ In Visual Studio:
 
 Viene visualizzato l'errore *Service cannot be started* quando si prova a rieseguire un servizio dopo la rimozione e quindi la ricreazione del controller Azure Dev Spaces associato al cluster. In questo caso, l'output dettagliato contiene il testo seguente:
 
-```cmd
+```output
 Installing Helm chart...
 Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
@@ -329,21 +329,21 @@ Per risolvere il problema:
 1. Controllare il percorso% ProgramFiles%/Microsoft SDKs\Azure\Azure dev Spaces CLI per `azds.exe`. Se è presente, aggiungere tale percorso alla variabile di ambiente PATH.
 2. Se `azds.exe` non è installato, eseguire il comando seguente:
 
-    ```cmd
+    ```azurecli
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Errore di autorizzazione "Microsoft. DevSpaces/Register/Action"
 
-Per gestire Azure Dev Spaces, è necessario l'accesso *Proprietario* o *Collaboratore* nella sottoscrizione di Azure. Se si sta tentando di gestire gli spazi di sviluppo e non si dispone dell'accesso come *proprietario* o *collaboratore* alla sottoscrizione di Azure associata, potrebbe essere visualizzato un errore di autorizzazione. Ad esempio:
+Per gestire Azure Dev Spaces, è necessario l'accesso *Proprietario* o *Collaboratore* nella sottoscrizione di Azure. Se si sta tentando di gestire gli spazi di sviluppo e non si dispone dell'accesso come *proprietario* o *collaboratore* alla sottoscrizione di Azure associata, potrebbe essere visualizzato un errore di autorizzazione. Ad esempio,
 
-```console
+```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
 Per risolvere questo problema, usando un account con accesso *proprietario* o *collaboratore* alla sottoscrizione di Azure, registrare manualmente lo spazio dei nomi `Microsoft.DevSpaces`:
 
-```console
+```azurecli
 az provider register --namespace Microsoft.DevSpaces
 ```
 
@@ -359,7 +359,7 @@ Questo problema può avere un effetto sui pod in *tutti gli spazi dei nomi* del 
 
 Per risolvere questo problema, [aggiornare l'interfaccia della riga di comando di dev Spaces alla versione più recente](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) e quindi eliminare il *InitializerConfiguration di azds* dal controller Azure Dev Spaces:
 
-```bash
+```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
 kubectl delete InitializerConfiguration azds
 ```
@@ -391,7 +391,7 @@ Per aggiornare il ruolo RBAC dell'utente per il controller:
     * Per *ruolo*selezionare *collaboratore* o *proprietario*.
     * In *Assegna accesso a* selezionare *Utente, gruppo o entità servizio di Azure AD*.
     * Per *Select*, cercare l'utente a cui si vogliono concedere le autorizzazioni.
-1. Fare clic su *Salva*.
+1. Fare clic su *Save*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Risoluzione dei nomi DNS non completa l'operazione per un URL pubblico associato al servizio Dev Spaces
 
@@ -456,9 +456,12 @@ azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"}
 
 Per abilitare Azure Dev Spaces in uno spazio dei nomi esistente in un cluster AKS, eseguire `use-dev-spaces` e utilizzare `kubectl` per riavviare tutti i pod nello spazio dei nomi.
 
-```console
+```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 
@@ -468,7 +471,7 @@ Dopo aver riavviato i pod, è possibile iniziare a usare lo spazio dei nomi esis
 
 Per abilitare Azure Dev Spaces in un cluster AKS per il quale il traffico in uscita dai nodi del cluster è limitato, è necessario consentire i nomi di dominio completi seguenti:
 
-| Nome di dominio completo                                    | Porta      | Uso      |
+| Nome di dominio completo                                    | Porta      | Utilizzo      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Per eseguire il pull di immagini Linux alpine e di altro Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Per estrarre le immagini Helm/Tiller|
@@ -488,7 +491,7 @@ Per risolvere il problema:
 
 Dopo [la rotazione dei certificati nel cluster AKS](../aks/certificate-rotation.md), alcune operazioni, ad esempio `azds space list` e `azds up` avranno esito negativo. È anche necessario aggiornare i certificati sul controller di Azure Dev Spaces dopo la rotazione dei certificati nel cluster.
 
-Per risolvere questo problema, assicurarsi che *kubeconfig* disponga dei certificati aggiornati usando `az aks get-credentials` quindi eseguire il comando `azds controller refresh-credentials`. Ad esempio:
+Per risolvere questo problema, assicurarsi che *kubeconfig* disponga dei certificati aggiornati usando `az aks get-credentials` quindi eseguire il comando `azds controller refresh-credentials`. Ad esempio,
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>
