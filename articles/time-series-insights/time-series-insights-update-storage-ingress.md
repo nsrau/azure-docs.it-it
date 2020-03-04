@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559845"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246195"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -159,10 +159,10 @@ Per altre informazioni sull'ottimizzazione della velocità effettiva e delle par
 
 Quando si crea un ambiente con SKU *con pagamento in base* al consumo (PAYG) di anteprima, si creano due risorse Time Series Insights di Azure:
 
-* Ambiente Azure Time Series Insights anteprima che può essere configurato per l'archiviazione a caldo.
+* Ambiente Azure Time Series Insights anteprima che può essere configurato per l'archiviazione dei dati a caldo.
 * Un account BLOB di archiviazione di Azure per utilizzo generico V1 per l'archiviazione di dati a freddo.
 
-I dati nell'archivio a caldo sono disponibili solo tramite [Query Time Series](./time-series-insights-update-tsq.md) e [Esplora Azure Time Series Insights Preview](./time-series-insights-update-explorer.md). 
+I dati nell'archivio a caldo sono disponibili solo tramite [Query Time Series](./time-series-insights-update-tsq.md) e [Esplora Azure Time Series Insights Preview](./time-series-insights-update-explorer.md). Il negozio caldo conterrà i dati recenti entro il [periodo di memorizzazione](./time-series-insights-update-plan.md#the-preview-environment) selezionato durante la creazione dell'ambiente Time Series Insights.
 
 Time Series Insights anteprima Salva i dati dell'archivio a freddo nell'archivio BLOB di Azure nel [formato di file parquet](#parquet-file-format-and-folder-structure). Time Series Insights anteprima gestisce i dati di archivio a freddo esclusivamente, ma è disponibile per la lettura diretta come file parquet standard.
 
@@ -186,12 +186,7 @@ Per una descrizione completa dell'archiviazione BLOB di Azure, vedere [Introduzi
 
 Quando si crea un ambiente di Azure Time Series Insights anteprima PAYG, viene creato un account BLOB di archiviazione di Azure per utilizzo generico V1 come archivio a lungo termine.  
 
-Azure Time Series Insights anteprima pubblica fino a due copie di ogni evento nell'account di archiviazione di Azure. Per la copia iniziale sono stati ordinati eventi in base al tempo di inserimento. Tale ordine di evento viene **sempre mantenuto** in modo che altri servizi possano accedere agli eventi senza sequenziare problemi. 
-
-> [!NOTE]
-> È anche possibile usare Spark, Hadoop e altri strumenti familiari per elaborare i file parquet non elaborati. 
-
-Time Series Insights anteprima esegue anche il partizionamento dei file parquet da ottimizzare per la query Time Series Insights. Viene salvata anche questa copia di dati ripartizionata. 
+Azure Time Series Insights anteprima conserva fino a due copie di ogni evento nell'account di archiviazione di Azure. Una copia archivia gli eventi ordinati in base al tempo di inserimento, consentendo sempre l'accesso agli eventi in una sequenza temporale ordinata. Nel corso del tempo, Time Series Insights anteprima crea anche una copia ripartizionata dei dati per ottimizzare l'esecuzione di query Time Series Insights. 
 
 Durante l'anteprima pubblica, i dati vengono archiviati per un periodo illimitato nell'account di archiviazione di Azure.
 
@@ -199,15 +194,11 @@ Durante l'anteprima pubblica, i dati vengono archiviati per un periodo illimitat
 
 Per garantire le prestazioni delle query e la disponibilità dei dati, non modificare o eliminare i BLOB creati da Time Series Insights anteprima.
 
-#### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Accesso ed esportazione dei dati dalla versione di anteprima di Time Series Insights
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Accesso ai dati dell'archivio freddo di Time Series Insights Preview 
 
-Potrebbe essere necessario accedere ai dati visualizzati in Esplora Time Series Insights Preview da usare insieme ad altri servizi. Ad esempio, è possibile usare i dati per compilare un report in Power BI o per eseguire il training di un modello di apprendimento automatico usando Azure Machine Learning Studio. In alternativa, è possibile usare i dati per trasformare, visualizzare e modellare nel notebook di Jupyter.
+Oltre ad accedere ai dati dalla query [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md) e [Time Series](./time-series-insights-update-tsq.md), è anche possibile accedere ai dati direttamente dai file parquet archiviati nell'archivio a freddo. Ad esempio, è possibile leggere, trasformare e pulire i dati in un notebook di Jupyter, quindi usarli per eseguire il training del modello di Azure Machine Learning nello stesso flusso di lavoro Spark.
 
-È possibile accedere ai dati in tre modi:
-
-* Dallo strumento di esplorazione dell'anteprima di Time Series Insights È possibile esportare i dati come file CSV dalla finestra di esplorazione. Per altre informazioni, vedere [Time Series Insights anteprima di Esplora risorse](./time-series-insights-update-explorer.md).
-* Dall'API Time Series Insights anteprima usando la query Get Events. Per altre informazioni su questa API, vedere [Query Time Series](./time-series-insights-update-tsq.md).
-* Direttamente da un account di archiviazione di Azure. È necessario l'accesso in lettura a qualsiasi account usato per accedere ai dati di Time Series Insights Preview. Per altre informazioni, vedere [gestire l'accesso alle risorse dell'account di archiviazione](../storage/blobs/storage-manage-access-to-resources.md).
+Per accedere ai dati direttamente dall'account di archiviazione di Azure, è necessario l'accesso in lettura all'account usato per archiviare i dati di Time Series Insights Preview. È quindi possibile leggere i dati selezionati in base all'ora di creazione del file parquet presente nella cartella `PT=Time` descritta di seguito nella sezione [formato file parquet](#parquet-file-format-and-folder-structure) .  Per altre informazioni sull'abilitazione dell'accesso in lettura all'account di archiviazione, vedere [gestire l'accesso alle risorse dell'account di archiviazione](../storage/blobs/storage-manage-access-to-resources.md).
 
 #### <a name="data-deletion"></a>Eliminazione di dati
 
@@ -215,21 +206,21 @@ Non eliminare i file di anteprima Time Series Insights. Gestisci i dati correlat
 
 ### <a name="parquet-file-format-and-folder-structure"></a>Formato di file parquet e struttura di cartelle
 
-Parquet è un formato di file a colonne open source progettato per l'archiviazione e le prestazioni efficienti. Time Series Insights anteprima usa parquet per questi motivi. I dati vengono partizionati in base all'ID della serie temporale per le prestazioni delle query su larga scala.  
+Parquet è un formato di file a colonne open source progettato per l'archiviazione e le prestazioni efficienti. Time Series Insights anteprima usa parquet per abilitare le prestazioni delle query basate su ID della serie temporale su larga scala.  
 
 Per ulteriori informazioni sul tipo di file parquet, leggere la [documentazione parquet](https://parquet.apache.org/documentation/latest/).
 
 Time Series Insights anteprima archivia le copie dei dati come segue:
 
-* La prima copia iniziale viene partizionata in base al tempo di inserimento e archivia approssimativamente i dati in ordine di arrivo. I dati si trovano nella cartella `PT=Time`:
+* La prima copia iniziale viene partizionata in base al tempo di inserimento e archivia approssimativamente i dati in ordine di arrivo. Questi dati si trovano nella cartella `PT=Time`:
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* La seconda copia ripartizionata viene partizionata in base a un raggruppamento di ID di serie temporali e si trova nella cartella `PT=TsId`:
+* La seconda copia ripartizionata viene raggruppata in base agli ID di serie temporali e si trova nella cartella `PT=TsId`:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-In entrambi i casi, i valori temporali corrispondono al tempo di creazione del BLOB. I dati nella cartella `PT=Time` vengono conservati. I dati nella cartella `PT=TsId` verranno ottimizzati per la query nel tempo e non rimarranno statici.
+In entrambi i casi, la proprietà Time del file parquet corrisponde al tempo di creazione del BLOB. I dati nella cartella `PT=Time` vengono conservati senza modifiche dopo la scrittura nel file. I dati nella cartella `PT=TsId` verranno ottimizzati per la query nel tempo e non sono statici.
 
 > [!NOTE]
 > * `<YYYY>` viene eseguito il mapping a una rappresentazione dell'anno a quattro cifre.
@@ -239,10 +230,10 @@ In entrambi i casi, i valori temporali corrispondono al tempo di creazione del B
 Per gli eventi di anteprima Time Series Insights viene eseguito il mapping al contenuto del file parquet come segue:
 
 * Viene eseguito il mapping di ogni evento a una singola riga.
-* Ogni riga include la colonna **timestamp** con un timestamp dell'evento. La proprietà timestamp non è mai null. Se la proprietà timestamp non è specificata nell'origine evento, il valore predefinito è l' **ora di accodamento degli eventi** . Il timestamp è sempre in formato UTC.
-* Ogni riga include le colonne degli ID di serie temporali definite al momento della creazione dell'ambiente Time Series Insights. Il nome della proprietà include il suffisso `_string`.
+* Ogni riga include la colonna **timestamp** con un timestamp dell'evento. La proprietà timestamp non è mai null. Il valore predefinito è l' **ora di accodamento dell'evento** se la proprietà timestamp non è specificata nell'origine evento. Il timestamp archiviato è sempre in formato UTC.
+* Ogni riga include le colonne IDST (Time Series ID) definite al momento della creazione dell'ambiente Time Series Insights. Il nome della proprietà IDST include il suffisso `_string`.
 * Tutte le altre proprietà inviate come dati di telemetria vengono mappate ai nomi di colonna che terminano con `_string` (String), `_bool` (Boolean), `_datetime` (DateTime) o `_double` (Double), a seconda del tipo di proprietà.
-* Questo schema di mapping si applica alla prima versione del formato di file, a cui viene fatto riferimento come **V = 1**. Con l'evolversi di questa funzionalità, il nome potrebbe essere incrementato.
+* Questo schema di mapping si applica alla prima versione del formato di file, a cui si fa riferimento come **V = 1** e viene archiviato nella cartella di base con lo stesso nome. Con l'evolversi di questa funzionalità, lo schema di mapping potrebbe cambiare e il nome di riferimento viene incrementato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

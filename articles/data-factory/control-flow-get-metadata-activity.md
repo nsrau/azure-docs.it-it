@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 03/02/2020
 ms.author: jingwang
-ms.openlocfilehash: 9985997ff4bef727676232705297379ccfc179c5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928573"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250264"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data Factory
 
@@ -31,9 +31,9 @@ La funzionalità seguente è disponibile nel flusso di controllo:
 - Per eseguire la convalida, è possibile utilizzare l'output dell'attività Ottieni metadati nelle espressioni condizionali.
 - È possibile attivare una pipeline quando una condizione viene soddisfatta tramite do until loop.
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
-L'attività Ottieni metadati accetta un set di dati come input e restituisce informazioni sui metadati come output. Attualmente sono supportati i seguenti connettori e i metadati recuperabili corrispondenti. Le dimensioni massime dei metadati restituiti sono pari a 1 MB.
+L'attività Ottieni metadati accetta un set di dati come input e restituisce informazioni sui metadati come output. Attualmente sono supportati i seguenti connettori e i metadati recuperabili corrispondenti. Le dimensioni massime dei metadati restituiti sono pari a 2 MB.
 
 >[!NOTE]
 >Se si esegue l'attività Ottieni metadati in un runtime di integrazione self-hosted, le funzionalità più recenti sono supportate nella versione 3,6 o successive.
@@ -42,7 +42,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 **Archiviazione file**
 
-| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | created<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/cartella) |
+| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | created<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | Struttura<br/>(file) | columnCount<br>(file) | esiste<br>(file/cartella) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
@@ -61,7 +61,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 **Database relazionale**
 
-| Connettore/Metadati | structure | columnCount | exists |
+| Connettore/Metadati | Struttura | columnCount | esiste |
 |:--- |:--- |:--- |:--- |
 | [Database SQL di Azure](connector-azure-sql-database.md) | √ | √ | √ |
 | [Istanza gestita di Database SQL di Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
@@ -72,7 +72,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 È possibile specificare i tipi di metadati seguenti nell'elenco dei campi attività Recupera metadati per recuperare le informazioni corrispondenti:
 
-| Tipo di metadati | Description |
+| Tipo di metadati | Descrizione |
 |:--- |:--- |
 | itemName | Nome del file o della cartella. |
 | itemType | Tipo di file o di cartella. Il valore restituito è `File` o `Folder`. |
@@ -81,9 +81,9 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 | LastModified | Data/ora dell'ultima modifica del file o della cartella. |
 | childItems | Elenco di sottocartelle e file nella cartella specificata. Applicabile solo alle cartelle. Il valore restituito è un elenco del nome e del tipo di ogni elemento figlio. |
 | contentMD5 | MD5 del file. Applicabile solo ai file. |
-| structure | Struttura dei dati del file o della tabella di database relazionale. Il valore restituito è un elenco di nomi di colonna e di colonne. |
+| Struttura | Struttura dei dati del file o della tabella di database relazionale. Il valore restituito è un elenco di nomi di colonna e di colonne. |
 | columnCount | Numero di colonne nel file o nella tabella relazionale. |
-| exists| Indica se esiste un file, una cartella o una tabella. Si noti che se `exists` viene specificato nell'elenco dei campi di Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. Viene invece restituito `exists: false` nell'output. |
+| esiste| Indica se esiste un file, una cartella o una tabella. Si noti che se `exists` viene specificato nell'elenco dei campi di Get Metadata, l'attività non avrà esito negativo anche se il file, la cartella o la tabella non esiste. Viene invece restituito `exists: false` nell'output. |
 
 >[!TIP]
 >Quando si desidera convalidare l'esistenza di un file, una cartella o una tabella, specificare `exists` nell'elenco dei campi attività Ottieni metadati. È quindi possibile controllare il risultato della `exists: true/false` nell'output dell'attività. Se `exists` non è specificato nell'elenco dei campi, l'attività Ottieni metadati avrà esito negativo se l'oggetto non viene trovato.
@@ -135,14 +135,14 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 Attualmente, l'attività Ottieni metadati può restituire i seguenti tipi di informazioni sui metadati:
 
-Proprietà | Description | Obbligatoria
+Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
-fieldList | Tipi di informazioni sui metadati necessari. Per informazioni dettagliate sui metadati supportati, vedere la sezione opzioni per i [metadati](#metadata-options) di questo articolo. | SÌ 
-dataset | Set di dati di riferimento i cui metadati devono essere recuperati dall'attività Recupera metadati. Vedere la sezione [funzionalità](#capabilities) per informazioni sui connettori supportati. Per informazioni dettagliate sulla sintassi dei set di dati, vedere gli argomenti del connettore specifici. | SÌ
+fieldList | Tipi di informazioni sui metadati necessari. Per informazioni dettagliate sui metadati supportati, vedere la sezione opzioni per i [metadati](#metadata-options) di questo articolo. | Sì 
+dataset | Set di dati di riferimento i cui metadati devono essere recuperati dall'attività Recupera metadati. Vedere la sezione [funzionalità](#capabilities) per informazioni sui connettori supportati. Per informazioni dettagliate sulla sintassi dei set di dati, vedere gli argomenti del connettore specifici. | Sì
 formatSettings | Applicare quando si usa il tipo di formato DataSet. | No
 storeSettings | Applicare quando si usa il tipo di formato DataSet. | No
 
-## <a name="sample-output"></a>Output di esempio
+## <a name="sample-output"></a>Output dell'esempio:
 
 I risultati di Get Metadata vengono visualizzati nell'output dell'attività. Di seguito sono riportati due esempi che mostrano opzioni di metadati estese. Per usare i risultati in un'attività successiva, usare questo modello: `@{activity('MyGetMetadataActivity').output.itemName}`.
 

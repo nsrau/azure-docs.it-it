@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 76e7a9aa9c0f17501885c8bd06c6997fdc8d2104
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035466"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255681"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift container Platform 3,11 in Azure
 
@@ -97,14 +97,14 @@ La distribuzione di OpenShift usa la chiave SSH che è stata creata per protegge
 az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
-## <a name="create-a-service-principal"></a>Creare un’entità servizio 
+## <a name="create-a-service-principal"></a>Creare un'entità servizio 
 OpenShift comunica con Azure usando un nome utente e una password o un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come OpenShift. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente. È consigliabile definire come ambito le autorizzazioni dell'entità servizio per gruppi di risorse specifici anziché per l'intera sottoscrizione.
 
 Creare un'entità servizio con [az ad sp create-for-rbac](/cli/azure/ad/sp) e generare l'output delle credenziali necessarie per OpenShift.
 
-Nell'esempio seguente viene creata un'entità servizio a cui vengono assegnate le autorizzazioni di Collaboratore per un gruppo di risorse denominato openshiftrg.
+L'esempio seguente crea un'entità servizio e assegna le autorizzazioni di collaboratore it a un gruppo di risorse denominato *openshiftrg*.
 
-Si crea prima un gruppo di risorse chiamato openshiftrg:
+Per prima cosa, creare il gruppo di risorse denominato *openshiftrg*:
 
 ```azurecli
 az group create -l eastus -n openshiftrg
@@ -149,7 +149,7 @@ Per impostazione predefinita, il modello consente di distribuire un cluster Open
 
 È necessario archiviare questi file in Key Vault segreti.  Usare lo stesso Key Vault di quello usato per la chiave privata.  Anziché richiedere 6 input aggiuntivi per i nomi dei segreti, il modello è hardcoded per l'uso di nomi di segreti specifici per ogni file di certificato SSL.  Archiviare i dati del certificato usando le informazioni riportate nella tabella seguente.
 
-| Nome del segreto      | File del certificato   |
+| Nome del segreto      | File certificato   |
 |------------------|--------------------|
 | mastercafile     | file CA Master     |
 | mastercertfile   | file certificato Master   |

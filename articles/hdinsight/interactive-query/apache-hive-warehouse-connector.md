@@ -1,18 +1,18 @@
 ---
 title: Apache Spark & connettore del warehouse hive hive-Azure HDInsight
 description: Informazioni su come integrare Apache Spark e Apache Hive con il connettore del warehouse di hive in Azure HDInsight.
-author: nakhanha
-ms.author: nakhanha
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.openlocfilehash: 765bbc352c493124c1adec68eff456f4d0de3d49
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 03/02/2020
+ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744883"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252414"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrare Apache Spark e Apache Hive con il connettore del warehouse di hive
 
@@ -38,7 +38,7 @@ Di seguito sono riportate alcune delle operazioni supportate dal connettore del 
 
 Seguire questa procedura per configurare il connettore del warehouse di hive tra un cluster Spark e un cluster Interactive query in Azure HDInsight:
 
-### <a name="create-clusters"></a>Creare cluster
+### <a name="create-clusters"></a>Creare i cluster
 
 1. Creare un cluster HDInsight Spark **4,0** con un account di archiviazione e una rete virtuale di Azure personalizzata. Per informazioni sulla creazione di un cluster in una rete virtuale di Azure, vedere [aggiungere HDInsight a una rete virtuale esistente](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
 
@@ -54,17 +54,17 @@ Copiare le informazioni sul nodo dal file di `/etc/hosts` in headnode0 del clust
 
 #### <a name="from-your-interactive-query-cluster"></a>Dal cluster Interactive query
 
-1. Passare al home page Apache Ambari del cluster usando `https://LLAPCLUSTERNAME.azurehdinsight.net` dove `LLAPCLUSTERNAME` è il nome del cluster Interactive query.
+1. Passare alla pagina hive di Apache Ambari del cluster usando `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` dove `LLAPCLUSTERNAME` è il nome del cluster Interactive query.
 
-1. Passare a **hive** > **configs** > **Advanced** > **Advanced hive-site** > **hive. Zookeeper. quorum** e prendere nota del valore. Il valore può essere simile a: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Passare a **Advanced** > **generale** > **hive. Metastore. Uri** e prendere nota del valore. Il valore può essere simile a: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
-1. Passare a **Hive** > **configs** > **Advanced** > **generale** > **hive. Metastore. Uri** e prendere nota del valore. Il valore può essere simile a: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Passare a **advanced** > **Advanced hive-site** > **hive. Zookeeper. quorum** e prendere nota del valore. Il valore può essere simile a: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
 #### <a name="from-your-apache-spark-cluster"></a>Dal cluster Apache Spark
 
-1. Passare al home page Apache Ambari del cluster usando `https://SPARKCLUSTERNAME.azurehdinsight.net` dove `SPARKCLUSTERNAME` è il nome del cluster Apache Spark.
+1. Passare alla pagina hive di Apache Ambari del cluster usando `https://SPARKCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` dove `SPARKCLUSTERNAME` è il nome del cluster di Apache Spark.
 
-1. Passare a **hive** > **configs** > **Advanced** > **advanced hive-Interactive-site** > **hive. LLAP. daemon. Service. hosts** e prendere nota del valore. Il valore può essere simile a: `@llap0`.
+1. Passare a **advanced** > **Advanced hive-Interactive-site** > **hive. LLAP. daemon. Service. hosts** e prendere nota del valore. Il valore può essere simile a: `@llap0`.
 
 ### <a name="configure-spark-cluster-settings"></a>Configurare le impostazioni del cluster Spark
 
@@ -91,7 +91,7 @@ Salvare le modifiche e riavviare i componenti in base alle esigenze.
 
 È possibile scegliere tra alcuni metodi diversi per connettersi al cluster Interactive query ed eseguire query usando il connettore del warehouse di hive. I metodi supportati includono gli strumenti seguenti:
 
-* [spark-shell](../spark/apache-spark-shell.md)
+* [Shell Spark](../spark/apache-spark-shell.md)
 * PySpark
 * Spark-Submit
 * [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
@@ -174,7 +174,7 @@ Spark non supporta in modo nativo la scrittura nelle tabelle ACID gestite di hiv
     ```scala
     hive.table("sampletable_colorado").show()
     ```
-    
+
     ![connettore warehouse hive Mostra tabella hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>Scritture di streaming strutturato
@@ -253,7 +253,7 @@ Usare **CTRL + C** per arrestare netcat nella seconda sessione SSH. Usare `:q` p
 
         ![elenco dei criteri hive del connettore warehouse di hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. Specificare un nome di criterio desiderato. Selezione database: **predefinito**, tabella hive: **demo**, colonna hive: **nome**, utente: **rsadmin2**, tipi di accesso: **Seleziona**e **maschera parziale: Mostra gli ultimi 4** dal menu **Opzioni di selezione maschera** . Scegliere **Aggiungi**.
+    a. Specificare un nome di criterio desiderato. Selezione database: **predefinito**, tabella hive: **demo**, colonna hive: **nome**, utente: **rsadmin2**, tipi di accesso: **Seleziona**e **maschera parziale: Mostra gli ultimi 4** dal menu **Opzioni di selezione maschera** . Fare clic su **Add**.
                 ![Crea criterio](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Visualizzare di nuovo il contenuto della tabella. Dopo aver applicato i criteri Ranger, è possibile visualizzare solo gli ultimi quattro caratteri della colonna.
 
@@ -261,5 +261,5 @@ Usare **CTRL + C** per arrestare netcat nella seconda sessione SSH. Usare `:q` p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Usare Interactive Query in HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Usare Interactive Query in HDInsight](./apache-interactive-query-get-started.md)
 * [Esempi di interazione con il connettore del warehouse di hive con Zeppelin, Livio, Spark-Submit e pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

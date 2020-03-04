@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: d28db9907094a651835078f4459a985b9d15e589
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77657385"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250684"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Esplora monitoraggio di Azure per Azure Cosmos DB (anteprima)
 
@@ -33,34 +33,6 @@ Per questa funzionalità non è necessario abilitare o configurare elementi, per
 
 >[!NOTE]
 >Non sono previsti addebiti per accedere a questa funzionalità e verranno addebitate solo le funzionalità essenziali di monitoraggio di Azure configurate o abilitate, come descritto nella pagina [Dettagli prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) .
-
-## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visualizzare le metriche a livello di operazione per Azure Cosmos DB
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-
-1. Selezionare **monitoraggio** nella barra di spostamento a sinistra e selezionare **metrica**.
-
-   ![Riquadro metriche in monitoraggio di Azure](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
-
-1. Dal riquadro **metriche** > **selezionare una risorsa** > scegliere la **sottoscrizione**e il **gruppo di risorse**richiesti. Per il **tipo di risorsa**selezionare **account Azure Cosmos DB**, scegliere uno degli account Azure Cosmos esistenti e selezionare **applica**.
-
-   ![Scegliere un account Cosmos DB per visualizzare le metriche](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
-
-1. È quindi possibile selezionare una metrica dall'elenco delle metriche disponibili. È possibile selezionare metriche specifiche per unità richiesta, archiviazione, latenza, disponibilità, Cassandra e altre. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [metriche per categoria](../../cosmos-db/monitor-cosmos-db-reference.md) . In questo esempio, selezionare **unità richiesta** e **AVG** come valore di aggregazione.
-
-   Oltre a questi dettagli, è anche possibile selezionare l' **intervallo di tempo** e la **granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche negli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro. È possibile visualizzare il numero medio di unità richiesta utilizzate al minuto per il periodo selezionato.  
-
-   ![Scegliere una metrica dalla portale di Azure](./media/cosmosdb-insights-overview/metric-types.png)
-
-### <a name="add-filters-to-metrics"></a>Aggiungere filtri alle metriche
-
-È anche possibile filtrare le metriche e il grafico visualizzato da uno specifico **CollectionName**, **DatabaseName**, **OperationType**, **Region**e **statusCode**. Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprietà obbligatoria, ad esempio **OperationType** , e selezionare un valore, ad esempio **query**. Il grafico Visualizza quindi le unità richiesta utilizzate per l'operazione di query per il periodo selezionato. Le operazioni eseguite tramite la stored procedure non vengono registrate in modo che non siano disponibili nella metrica OperationType.
-
-![Aggiungere un filtro per selezionare la granularità della metrica](./media/cosmosdb-insights-overview/add-metrics-filter.png)
-
-È possibile raggruppare le metriche usando l'opzione **applica suddivisione** . È ad esempio possibile raggruppare le unità richiesta per tipo di operazione e visualizzare il grafico per tutte le operazioni in una sola volta, come illustrato nell'immagine seguente:
-
-![Aggiungi filtro di suddivisione applica](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
 
 ## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Visualizzare le metriche di utilizzo e delle prestazioni per Azure Cosmos DB
 

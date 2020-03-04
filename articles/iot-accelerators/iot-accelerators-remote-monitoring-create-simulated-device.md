@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832590"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250259"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Creare e testare un nuovo dispositivo simulato
 
@@ -30,7 +30,7 @@ Nel secondo scenario Contoso intende testare un nuovo dispositivo lampadina inte
 
 *Proprietà*
 
-| NOME                     | Valori                      |
+| Name                     | Valori                      |
 | ------------------------ | --------------------------- |
 | Colore                    | White (Bianco), Red (Rosso), Blue (Blu)            |
 | Brightness (Luminosità)               | Da 0 a 100                    |
@@ -62,9 +62,9 @@ La tabella seguente mostra le azioni supportate dal nuovo dispositivo:
 
 La tabella seguente mostra lo stato iniziale del dispositivo:
 
-| NOME                     | Valori |
+| Name                     | Valori |
 | ------------------------ | -------|
-| Initial color (Colore iniziale)            | Bianco  |
+| Initial color (Colore iniziale)            | bianco  |
 | Initial brightness (Luminosità iniziale)       | 75     |
 | Initial remaining life (Durata rimanente iniziale)   | 10,000 |
 | Initial telemetry status (Stato telemetria iniziale) | "on"   |
@@ -107,11 +107,11 @@ Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://g
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il **storage-adapter/WebService/appsettings.ini** del file e assegnare la stringa di connessione di Cosmos DB per il **documentDBConnectionString** variabile.
+Aprire il file **storage-Adapter/WebService/appSettings. ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString** .
 
 Per eseguire il microservizio in locale, fare clic su **Debug > Avvia debug**.
 
-Nella finestra **Terminale** in Visual Studio Code viene visualizzato un output dal microservizio in esecuzione che include un URL per il controllo dell'integrità del servizio Web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quando si passa a questo indirizzo, lo stato deve essere "OK: Attivo e".
+Nella finestra **Terminale** in Visual Studio Code viene visualizzato un output dal microservizio in esecuzione che include un URL per il controllo dell'integrità del servizio Web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quando si passa a questo indirizzo, lo stato deve essere "OK: Alive and well" (OK: Attivo e in esecuzione).
 
 Lasciare il microservizio di adattatore di archiviazione in esecuzione nell'istanza corrente di Visual Studio Code fino al completamento dei passaggi successivi.
 
@@ -123,7 +123,7 @@ In questa sezione si aggiunge un nuovo tipo di telemetria **Internal Temperature
 
 1. Copiare i file seguenti nella nuova cartella dalla copia scaricata del microservizio di simulazione dispositivi:
 
-    | `Source` | Destination |
+    | Origine | Destination |
     | ------ | ----------- |
     | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
@@ -424,7 +424,7 @@ In questa sezione vengono testati i tipi di dispositivi creati in locale nelle s
 
 Aprire la cartella **device-simulation-dotnet-master** scaricata da GitHub in una nuova istanza di Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il **WebService/appsettings.ini** del file e assegnare la stringa di connessione di Cosmos DB per il **documentdb_connstring** variabile e anche modificare le impostazioni come segue:
+Aprire il file **WebService/appSettings. ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentdb_connstring** e modificare anche le impostazioni come segue:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -446,7 +446,7 @@ Lo script seguente presuppone che il nome dell'hub IoT sia **device-simulation-t
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

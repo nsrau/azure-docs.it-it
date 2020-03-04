@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e9e2fe92939088420f973c5ca112b5f59d07f212
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906584"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252678"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
@@ -50,7 +50,7 @@ I file nel contenitore di **$Web** fanno distinzione tra maiuscole e minuscole, 
 
 Gli utenti possono visualizzare il contenuto del sito da un browser usando l'URL pubblico del sito Web. È possibile trovare l'URL usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. Usare questa tabella come riferimento.
 
-|Strumento| Guida |
+|Strumento| Materiale sussidiario |
 |----|----|
 |**Azure portal** | [Trovare l'URL del sito Web usando il portale di Azure](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Interfaccia della riga di comando di Azure** | [Trovare l'URL del sito Web usando l'interfaccia della riga di comando di Azure](storage-blob-static-website-how-to.md#cli-find-url) |
@@ -92,7 +92,13 @@ Se l'account di archiviazione è configurato per [richiedere il trasferimento si
 > [!TIP]
 > Si consiglia di ospitare il dominio in Azure. Per altre informazioni, vedere [ospitare il dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md).
 
-## <a name="pricing"></a>Prezzi
+## <a name="adding-http-headers"></a>Aggiunta di intestazioni HTTP
+
+Non è possibile configurare le intestazioni come parte della funzionalità del sito Web statico. Tuttavia, è possibile usare la rete CDN di Azure per aggiungere intestazioni e aggiungere (o sovrascrivere) valori di intestazione. Vedere [le informazioni di riferimento sul motore regole standard per la rete CDN di Azure](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+
+Se si vogliono usare le intestazioni per controllare la memorizzazione nella cache, vedere [controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con le regole di Caching](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+
+## <a name="pricing"></a>Pricing
 
 È possibile abilitare l'hosting di siti web statici gratuitamente. Viene addebitato solo l'archiviazione BLOB utilizzata dal sito e i costi operativi. Per altri dettagli sui prezzi di Archiviazione BLOB di Azure, consultare la [pagina dei prezzi di Archiviazione BLOB di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -105,7 +111,7 @@ Per abilitare le metriche nelle pagine del sito Web statico, vedere [abilitare l
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ospitare un sito Web statico in archiviazione di Azure](storage-blob-static-website-how-to.md)
-* [Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure](storage-custom-domain-name.md)
+* [Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure](storage-custom-domain-name.md)
 * [Funzioni di Azure](/azure/azure-functions/functions-overview)
 * [Servizio app di Azure](/azure/app-service/overview)
 * [Compilare la prima app Web serverless](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

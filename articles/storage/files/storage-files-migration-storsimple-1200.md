@@ -4,25 +4,19 @@ description: Informazioni su come eseguire la migrazione di un'appliance virtual
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/14/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 815fda861748f1011eab22ef75fa7e933ca64c55
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209480"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252670"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migrazione a Sincronizzazione file di Azure
 
-StorSimple serie 1200 è un'appliance virtuale eseguita in un data center locale.
-Con la fine del ciclo di vita annunciata della linea di prodotti StorSimple il 31 2022 dicembre, il servizio cloud a cui è connessa l'appliance virtuale smetterà di funzionare.
-
-È necessario eseguire la migrazione da qualsiasi dispositivo StorSimple con un tempo di riserva sufficiente.
-Sincronizzazione file di Azure è la tecnologia naturale successore, con più funzionalità e maggiore flessibilità rispetto alle offerte StorSimple.
-
-Questo articolo fornisce i passaggi necessari per la Knowledge base e le migrazioni per una migrazione corretta a Sincronizzazione file di Azure.
+StorSimple serie 1200 è un'appliance virtuale eseguita in un data center locale. È possibile eseguire la migrazione dei dati da questo Appliance a un ambiente Sincronizzazione file di Azure. Questo articolo fornisce i passaggi necessari per la Knowledge base e le migrazioni per una migrazione corretta a Sincronizzazione file di Azure.
 
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
@@ -117,7 +111,7 @@ Il comando RoboCopy seguente richiamerà i file dall'archiviazione di Azure Stor
 Robocopy /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
-Sfondo:
+Background:
 
 :::row:::
    :::column span="1":::
@@ -183,7 +177,7 @@ Creare una condivisione nella cartella di Windows Server ed eventualmente modifi
 
 I criteri di spazio libero del volume di suddivisione in livelli nel cloud agiscono a livello di volume con potenzialmente più endpoint server sincronizzati. Se si dimentica di regolare lo spazio libero su un solo endpoint server, la sincronizzazione continuerà ad applicare la regola più restrittiva e tenterà di mantenere il 99% di spazio libero su disco, rendendo la cache locale non funziona come previsto. A meno che non si tratti dell'obiettivo di avere solo lo spazio dei nomi per un volume che contiene solo i dati di archiviazione a cui si accede raramente.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Il problema più probabile in cui è possibile eseguire è che il comando RoboCopy ha esito negativo con *"volume full"* sul lato server di Windows. In tal caso, la velocità di download è probabilmente migliore rispetto alla velocità di caricamento. La suddivisione in livelli nel cloud funziona una volta ogni ora per l'evacuazione del contenuto dal disco locale di Windows Server, sincronizzato.
 

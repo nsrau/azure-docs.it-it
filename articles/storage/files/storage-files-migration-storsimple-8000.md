@@ -4,25 +4,19 @@ description: Informazioni su come eseguire la migrazione di un'appliance StorSim
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/20/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: ec3f59c02f73f51ccb4fac21d6ba4cc746a1134e
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 78100a5dd38b211f6b0241d5a0bac10cf86b09f6
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209441"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250955"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
-La serie StorSimple 8000 dispone di due diverse appliance fisiche al suo interno. L'unica differenza tra loro è la quantità di dimensioni della cache locale (spazio su disco). Questa appliance viene eseguita in un data center locale e funge da cache per i dati archiviati in Azure.
-Con la fine del ciclo di vita annunciata della linea di prodotti StorSimple il 31 2022 dicembre, il servizio cloud a cui è connessa l'appliance smette di funzionare.
-
-È necessario eseguire la migrazione da qualsiasi dispositivo StorSimple con un tempo di riserva sufficiente.
-Sincronizzazione file di Azure è la tecnologia naturale successore, con più funzionalità e maggiore flessibilità rispetto alle offerte StorSimple.
-
-Questo articolo fornisce i passaggi necessari per la Knowledge base e le migrazioni per eseguire la migrazione Sincronizzazione file di Azure un successo.
+La serie StorSimple 8000 rappresenta due SKU distinti ed è possibile eseguire la migrazione dei dati da uno di questi SKU a un ambiente Sincronizzazione file di Azure. Questo articolo illustra la migrazione di entrambe le appliance a Sincronizzazione file di Azure e fornisce i passaggi necessari per la Knowledge base e le migrazioni per eseguire la migrazione Sincronizzazione file di Azure un successo.
 
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
@@ -343,7 +337,7 @@ Comando RoboCopy:
 Robocopy /MT:32 /UNILOG:<file name> /TEE /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
-Sfondo:
+Background:
 
 :::row:::
    :::column span="1":::

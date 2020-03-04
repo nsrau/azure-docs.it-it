@@ -14,45 +14,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: d9720ca769eab8cf0e4ee763c720f6ba12ebb1d9
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.author: Zhchia
+ms.openlocfilehash: 27a26a0c8378f34794afd87cf11b6bb878f7b53c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063306"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248469"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Esercitazione: configurare Rollbar per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire in rollbar e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in rollbar.
+Questa esercitazione descrive i passaggi da eseguire sia in Rollbar che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi in [rollbar](https://rollbar.com/pricing/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-> [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
->
-> Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="capabilities-supported"></a>Funzionalità supportate
+> [!div class="checklist"]
+> * Creare utenti in rollbar
+> * Rimuovere gli utenti in rollbar quando non richiedono più l'accesso
+> * Mantieni gli attributi utente sincronizzati tra Azure AD e rollbar
+> * Effettuare il provisioning di gruppi e appartenenze a gruppi in rollbar
+> * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/rollbar-tutorial) per Rollbar (scelta consigliata)
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* Un tenant di Azure AD.
+* [Tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Un account utente in Azure AD con l' [autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per la configurazione del provisioning, ad esempio amministratore dell'applicazione, amministratore di applicazioni cloud, proprietario dell'applicazione o amministratore globale. 
 * [Tenant di rollbar](https://rollbar.com/pricing/) con piano Enterprise.
 * Un account utente in rollbar con autorizzazioni di amministratore.
 
-## <a name="assigning-users-to-rollbar"></a>Assegnazione di utenti a rollbar
+## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
+1. Informazioni sul [funzionamento del servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determinare quali dati eseguire il [mapping tra Azure ad e rollbar](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
-
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a rollbar. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a rollbar seguendo le istruzioni riportate qui:
-* [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
-
-## <a name="important-tips-for-assigning-users-to-rollbar"></a>Suggerimenti importanti per l'assegnazione di utenti a rollbar
-
-* È consigliabile assegnare un singolo Azure AD utente a rollbar per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
-
-* Quando si assegna un utente a rollbar, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
-
-## <a name="setup-rollbar-for-provisioning"></a>Configurare Rollbar per il provisioning
+## <a name="step-2-configure-rollbar-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Rollbar per supportare il provisioning con Azure AD
 
 Prima di configurare Rollbar per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in rollbar.
 
@@ -60,42 +57,31 @@ Prima di configurare Rollbar per il provisioning utenti automatico con Azure AD,
 
     ![Console di amministrazione di rollbar](media/rollbar-provisioning-tutorial/image00.png)
 
-2. Passare al **nome del tenant Rollbar > token di accesso dell'account**.
+2. Passare al **nome del tenant Rollbar > provider di identità**.
 
-    ![Console di amministrazione di rollbar](media/rollbar-provisioning-tutorial/account.png)
+    ![Provider di identità rollbar](media/rollbar-provisioning-tutorial/idp.png)
 
-3. Copiare il valore di **scim**. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione rollbar nel portale di Azure.
+3. Scorrere verso il basso fino a **Opzioni di provisioning**. Copiare il token di accesso. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione Rollbar nel portale di Azure. Selezionare la casella di controllo **Abilita il provisioning di utenti e team** e fare clic su **Salva**.
 
-    ![Console di amministrazione di rollbar](media/rollbar-provisioning-tutorial/scim.png)
+    ![Token di accesso rollbar](media/rollbar-provisioning-tutorial/token.png)
 
-## <a name="add-rollbar-from-the-gallery"></a>Aggiungere rollbar dalla raccolta
 
-Per configurare Rollbar per il provisioning utenti automatico con Azure AD, è necessario aggiungere rollbar Azure AD raccolta di applicazioni al proprio elenco di applicazioni SaaS gestite.
+## <a name="step-3-add-rollbar-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere rollbar dalla raccolta di applicazioni Azure AD
 
-**Per aggiungere rollbar dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
+Aggiungere rollbar dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in rollbar. Se in precedenza è stato configurato Rollbar per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'applicazione separata quando si testa inizialmente l'integrazione. Altre informazioni sull'aggiunta di un'applicazione dalla raccolta sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire chi sarà nell'ambito per il provisioning 
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà eseguito il provisioning in base all'assegnazione all'applicazione e o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile usare i [passaggi](../manage-apps/assign-user-or-group-access-portal.md) seguenti per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning basato esclusivamente sugli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+* Quando si assegnano utenti e gruppi a rollbar, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo di accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+* Avviare Small. Eseguire il test con un piccolo set di utenti e gruppi prima di distribuirlo a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+## <a name="step-5-configure-automatic-user-provisioning-to-rollbar"></a>Passaggio 5. Configurare il provisioning utenti automatico in rollbar 
 
-4. Nella casella di ricerca immettere **rollbar**, selezionare **rollbar** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
-
-    ![Rollbar nell'elenco risultati](common/search-new-app.png)
-
-## <a name="configuring-automatic-user-provisioning-to-rollbar"></a>Configurazione del provisioning utenti automatico in rollbar 
-
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in rollbar in base alle assegnazioni di utenti e/o gruppi in Azure AD.
-
-> [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per rollbar, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di rollbar](rollbar-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TestApp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-rollbar-in-azure-ad"></a>Per configurare il provisioning utenti automatico per rollbar in Azure AD:
 
@@ -115,33 +101,40 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere il valore del **token di accesso dell'account** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a rollbar. Se la connessione non riesce, verificare che l'account rollbar disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere il valore del token di accesso recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a rollbar. Se la connessione non riesce, verificare che l'account rollbar disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![Console di amministrazione di rollbar](media/rollbar-provisioning-tutorial/admin.png)
+    ![Provisioning](./media/rollbar-provisioning-tutorial/admin.png)
 
-6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
+6. Nel campo **messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che deve ricevere le notifiche degli errori di provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica quando si verifica un errore** .
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Selezionare **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a rollbar**.
 
-    ![Mapping utente rollbar](media/rollbar-provisioning-tutorial/usermapping.png)
+9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a rollbar nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Rollbar per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API rollbar supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD a rollbar nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Rollbar per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
-
-    ![Attributi utente di rollbar](media/rollbar-provisioning-tutorial/userattribute.png)
+   |Attributo|Type|
+   |---|---|
+   |userName|String|
+   |externalId|String|
+   |attivo|Boolean|
+   |name.familyName|String|
+   |name.givenName|String|
+   |messaggi di posta elettronica [digitare EQ "Work"]|String|
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to rollbar**.
 
-    ![Mapping del gruppo rollbar](media/rollbar-provisioning-tutorial/groupmapping.png)
+11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a rollbar nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Rollbar per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a rollbar nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Rollbar per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+      |Attributo|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |membri|Riferimento|
 
-    ![Attributi del gruppo rollbar](media/rollbar-provisioning-tutorial/groupattribute.png)
-
-12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Per abilitare il servizio di provisioning Azure AD per rollbar, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
@@ -155,15 +148,20 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-    L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su rollbar.
+Questa operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti nell' **ambito** nella sezione **Impostazioni** . Il ciclo iniziale richiede più tempo rispetto ai cicli successivi, che si verificano approssimativamente ogni 40 minuti, a condizione che sia in esecuzione il servizio di provisioning Azure AD. 
 
-    Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md)
-    
+## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
+Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
+
+1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato effettuato il provisioning con esito positivo o negativo
+2. Controllare l' [indicatore di stato per visualizzare](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) lo stato del ciclo di provisioning e il modo in cui terminarlo
+3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entra in quarantena. Altre informazioni sugli stati di quarantena sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)

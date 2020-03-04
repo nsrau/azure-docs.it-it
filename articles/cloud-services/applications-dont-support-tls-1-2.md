@@ -3,7 +3,7 @@ title: Risoluzione dei problemi causati da applicazioni che non supportano TLS 1
 description: Risoluzione dei problemi causati da applicazioni che non supportano TLS 1,2
 services: cloud-services
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: vashan
 editor: ''
 tags: top-support-issue
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 161c24b4e751eea9477e9d338722629daa97e193
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425035"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250445"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Risoluzione dei problemi relativi alle applicazioni che non supportano TLS 1,2
 Questo articolo descrive come abilitare i protocolli TLS precedenti (TLS 1,0 e 1,1), nonché come applicare pacchetti di crittografia legacy per supportare i protocolli aggiuntivi nei ruoli Web e di lavoro del servizio cloud di Windows Server 2019. 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: d3353451057037e5f3fd94347a007a9d3b2c0e15
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 388f1cf0231d0a7eae7b059656186b067f537d2e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193085"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250958"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Il flusso di lavoro è simile indipendentemente [da dove si distribuisce](#targe
 
 Per ulteriori informazioni sui concetti relativi al flusso di lavoro di distribuzione, vedere [gestire, distribuire e monitorare i modelli con Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -159,12 +159,6 @@ Per ulteriori informazioni sull'utilizzo di modelli sottoposti a training all'es
 
 <a name="target"></a>
 
-## <a name="choose-a-compute-target"></a>Scegliere una destinazione di calcolo
-
-Per ospitare la distribuzione del servizio Web, è possibile usare le seguenti destinazioni di calcolo o risorse di calcolo:
-
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
 ## <a name="single-versus-multi-model-endpoints"></a>Endpoint singoli e multimodello
 Azure ML supporta la distribuzione di uno o più modelli dietro un singolo endpoint.
 
@@ -172,9 +166,9 @@ Gli endpoint multimodello usano un contenitore condiviso per ospitare più model
 
 Per un esempio E2E che illustra come usare più modelli dietro un singolo endpoint in contenitori, vedere [questo esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
-## <a name="prepare-deployment-artifacts"></a>Preparare gli artefatti di distribuzione
+## <a name="prepare-to-deploy"></a>Preparare la distribuzione
 
-Per distribuire il modello, è necessario quanto segue:
+Per distribuire il modello come servizio, sono necessari i componenti seguenti:
 
 * **Script di immissione & dipendenze del codice sorgente**. Questo script accetta le richieste, assegna un punteggio alle richieste usando il modello e restituisce i risultati.
 
@@ -187,11 +181,9 @@ Per distribuire il modello, è necessario quanto segue:
     >
     >   Un'alternativa che può funzionare per lo scenario è la [stima in batch](how-to-use-parallel-run-step.md), che fornisce l'accesso agli archivi dati durante il punteggio.
 
-* **Ambiente di inferenza**. L'immagine di base con le dipendenze del pacchetto installate necessarie per eseguire il modello.
+* **Configurazione di inferenza**. La configurazione dell'inferenza specifica la configurazione dell'ambiente, lo script di ingresso e altri componenti necessari per eseguire il modello come servizio.
 
-* **Configurazione della distribuzione** per la destinazione di calcolo che ospita il modello distribuito. Questa configurazione descrive elementi quali i requisiti di memoria e CPU necessari per eseguire il modello.
-
-Questi elementi vengono incapsulati in una *configurazione di inferenza* e una *configurazione di distribuzione*. La configurazione dell'inferenza fa riferimento allo script di immissione e ad altre dipendenze. Queste configurazioni vengono definite a livello di codice quando si usa l'SDK per eseguire la distribuzione. Vengono definiti nei file JSON quando si usa l'interfaccia della riga di comando.
+Una volta creati i componenti necessari, è possibile profilare il servizio che verrà creato in seguito alla distribuzione del modello per comprenderne i requisiti di CPU e memoria.
 
 ### <a id="script"></a>1. definire lo script di immissione e le dipendenze
 
@@ -267,33 +259,7 @@ Questi tipi sono attualmente supportati:
 * `pyspark`
 * Oggetto Python standard
 
-Per usare la generazione dello schema, includere il pacchetto di `inference-schema` nel file dell'ambiente conda. Per ulteriori informazioni su questo pacchetto, vedere [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
-
-##### <a name="example-dependencies-file"></a>File delle dipendenze di esempio
-
-Il YAML seguente è un esempio di file di dipendenze conda per l'inferenza. Si noti che è necessario indicare azureml-defaults con versione > = 1.0.45 come dipendenza PIP, perché contiene la funzionalità necessaria per ospitare il modello come servizio Web.
-
-```YAML
-name: project_environment
-dependencies:
-  - python=3.6.2
-  - scikit-learn=0.20.0
-  - pip:
-      # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
-```
-
-> [!IMPORTANT]
-> Se la dipendenza è disponibile tramite conda e PIP (da PyPi), Microsoft consiglia di usare la versione conda, in quanto i pacchetti conda sono in genere dotati di binari predefiniti che rendono l'installazione più affidabile.
->
-> Per ulteriori informazioni, vedere informazioni su [conda e PIP](https://www.anaconda.com/understanding-conda-and-pip/).
->
-> Per verificare se la dipendenza è disponibile tramite conda, utilizzare il comando `conda search <package-name>` oppure utilizzare gli indici dei pacchetti in [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) e [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
-
-Se si desidera utilizzare la generazione automatica dello schema, è necessario che lo script di immissione importi i pacchetti `inference-schema`.
-
-Definire i formati di esempio di input e output nelle variabili `input_sample` e `output_sample`, che rappresentano i formati di richiesta e risposta per il servizio Web. Usare questi esempi negli elementi Decorator della funzione di input e output nella funzione `run()`. Nell'esempio Scikit-learn seguente viene utilizzata la generazione dello schema.
+Per usare la generazione dello schema, includere il pacchetto `inference-schema` nel file delle dipendenze. Per ulteriori informazioni su questo pacchetto, vedere [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). Definire i formati di esempio di input e output nelle variabili `input_sample` e `output_sample`, che rappresentano i formati di richiesta e risposta per il servizio Web. Usare questi esempi negli elementi Decorator della funzione di input e output nella funzione `run()`. Nell'esempio Scikit-learn seguente viene utilizzata la generazione dello schema.
 
 ##### <a name="example-entry-script"></a>Script di immissione di esempio
 
@@ -485,24 +451,52 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inference-environment"></a>2. definire l'ambiente di inferenza
+### <a name="2-define-your-inference-configuration"></a>2. definire la configurazione dell'inferenza
 
-Nella configurazione dell'inferenza viene descritto come configurare il modello per eseguire stime. Questa configurazione non fa parte dello script di immissione. Fa riferimento allo script di immissione e viene usato per individuare tutte le risorse richieste dalla distribuzione. Viene usato in un secondo momento, quando si distribuisce il modello.
+La configurazione dell'inferenza descrive come configurare il servizio Web che contiene il modello. Non fa parte dello script di immissione. Fa riferimento allo script di immissione e viene usato per individuare tutte le risorse richieste dalla distribuzione. Viene usato in un secondo momento, quando si distribuisce il modello.
 
-La configurazione dell'inferenza USA ambienti Azure Machine Learning per definire le dipendenze software necessarie per la distribuzione. Gli ambienti consentono di creare, gestire e riutilizzare le dipendenze software necessarie per il training e la distribuzione. Nell'esempio seguente viene illustrato il caricamento di un ambiente dall'area di lavoro e la relativa utilizzo con la configurazione dell'inferenza:
+La configurazione dell'inferenza USA ambienti Azure Machine Learning per definire le dipendenze software necessarie per la distribuzione. Gli ambienti consentono di creare, gestire e riutilizzare le dipendenze software necessarie per il training e la distribuzione. È possibile creare un ambiente da file di dipendenza personalizzati o usare uno degli ambienti Azure Machine Learning curati. Il YAML seguente è un esempio di file di dipendenze conda per l'inferenza. Si noti che è necessario indicare azureml-defaults con versione > = 1.0.45 come dipendenza PIP, perché contiene la funzionalità necessaria per ospitare il modello come servizio Web. Se si desidera utilizzare la generazione automatica dello schema, è necessario che lo script di immissione importi anche i pacchetti `inference-schema`.
+
+```YAML
+name: project_environment
+dependencies:
+  - python=3.6.2
+  - scikit-learn=0.20.0
+  - pip:
+      # You must list azureml-defaults as a pip dependency
+    - azureml-defaults>=1.0.45
+    - inference-schema[numpy-support]
+```
+
+> [!IMPORTANT]
+> Se la dipendenza è disponibile tramite conda e PIP (da PyPi), Microsoft consiglia di usare la versione conda, in quanto i pacchetti conda sono in genere dotati di binari predefiniti che rendono l'installazione più affidabile.
+>
+> Per ulteriori informazioni, vedere informazioni su [conda e PIP](https://www.anaconda.com/understanding-conda-and-pip/).
+>
+> Per verificare se la dipendenza è disponibile tramite conda, utilizzare il comando `conda search <package-name>` oppure utilizzare gli indici dei pacchetti in [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) e [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
+
+È possibile usare il file delle dipendenze per creare un oggetto ambiente e salvarlo nell'area di lavoro per un uso futuro:
+
+```python
+from azureml.core.environment import Environment
+
+
+myenv = Environment.from_conda_specification(name = 'myenv',
+                                             file_path = 'path-to-conda-specification-file'
+myenv.register(workspace=ws)
+```
+
+Nell'esempio seguente viene illustrato il caricamento di un ambiente dall'area di lavoro e la relativa utilizzo con la configurazione dell'inferenza:
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-myenv = Environment.get(workspace=ws, name="myenv", version="1")
-inference_config = InferenceConfig(entry_script="x/y/score.py",
+
+myenv = Environment.get(workspace=ws, name='myenv', version='1')
+inference_config = InferenceConfig(entry_script='path-to-score.py',
                                    environment=myenv)
 ```
-
-Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
-
-È anche possibile specificare direttamente le dipendenze senza usare un ambiente. Nell'esempio seguente viene illustrato come creare una configurazione di inferenza che carica le dipendenze software da un file conda:
 
 Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
 
@@ -510,7 +504,7 @@ Per ulteriori informazioni sulla configurazione dell'inferenza, vedere la docume
 
 Per informazioni sull'uso di un'immagine Docker personalizzata con una configurazione di inferenza, vedere [come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md).
 
-### <a name="cli-example-of-inferenceconfig"></a>Esempio di interfaccia della riga di comando di InferenceConfig
+#### <a name="cli-example-of-inferenceconfig"></a>Esempio di interfaccia della riga di comando di InferenceConfig
 
 [!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
 
@@ -528,7 +522,93 @@ In questo esempio, la configurazione specifica le impostazioni seguenti:
 
 Per informazioni sull'uso di un'immagine Docker personalizzata con una configurazione di inferenza, vedere [come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md).
 
-### <a name="3-define-your-deployment-configuration"></a>3. definire la configurazione della distribuzione
+### <a id="profilemodel"></a>3. profilare il modello per determinare l'utilizzo delle risorse
+
+Dopo aver registrato il modello e preparato gli altri componenti necessari per la distribuzione, è possibile determinare la CPU e la memoria necessarie per il servizio distribuito. Il profiling testa il servizio che esegue il modello e restituisce informazioni quali l'utilizzo della CPU, l'utilizzo della memoria e la latenza della risposta. Fornisce inoltre una raccomandazione per la CPU e la memoria in base all'utilizzo delle risorse.
+
+Per profilare il modello, è necessario:
+* Modello registrato.
+* Una configurazione di inferenza basata sullo script di immissione e la definizione dell'ambiente di inferenza.
+* Set di dati tabulare a colonna singola, in cui ogni riga contiene una stringa che rappresenta i dati della richiesta di esempio.
+
+> [!IMPORTANT]
+> A questo punto è supportata solo la profilatura dei servizi che prevedono che i dati della richiesta siano una stringa, ad esempio: JSON serializzato di stringa, testo, stringa serializzata immagine e così via. Il contenuto di ogni riga del set di dati (stringa) verrà inserito nel corpo della richiesta HTTP e inviato al servizio incapsulando il modello per l'assegnazione dei punteggi.
+
+Di seguito è riportato un esempio di come è possibile costruire un set di dati di input per profilare un servizio che prevede che i dati della richiesta in ingresso contengano JSON serializzato. In questo caso è stato creato un set di dati basato su 100 istanze dello stesso contenuto della richiesta. Negli scenari reali è consigliabile usare set di dati più grandi contenenti diversi input, soprattutto se l'utilizzo o il comportamento delle risorse del modello è dipendente dall'input.
+
+```python
+import json
+from azureml.core import Datastore
+from azureml.core.dataset import Dataset
+from azureml.data import dataset_type_definitions
+
+input_json = {'data': [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                       [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+# create a string that can be utf-8 encoded and
+# put in the body of the request
+serialized_input_json = json.dumps(input_json)
+dataset_content = []
+for i in range(100):
+    dataset_content.append(serialized_input_json)
+dataset_content = '\n'.join(dataset_content)
+file_name = 'sample_request_data.txt'
+f = open(file_name, 'w')
+f.write(dataset_content)
+f.close()
+
+# upload the txt file created above to the Datastore and create a dataset from it
+data_store = Datastore.get_default(ws)
+data_store.upload_files(['./' + file_name], target_path='sample_request_data')
+datastore_path = [(data_store, 'sample_request_data' +'/' + file_name)]
+sample_request_data = Dataset.Tabular.from_delimited_files(
+    datastore_path, separator='\n',
+    infer_column_types=True,
+    header=dataset_type_definitions.PromoteHeadersBehavior.NO_HEADERS)
+sample_request_data = sample_request_data.register(workspace=ws,
+                                                   name='sample_request_data',
+                                                   create_new_version=True)
+```
+
+Quando il set di dati contenente i dati di richiesta di esempio è pronto, creare una configurazione di inferenza. La configurazione dell'inferenza si basa su score.py e sulla definizione dell'ambiente. Nell'esempio seguente viene illustrato come creare la configurazione dell'inferenza ed eseguire la profilatura:
+
+```python
+from azureml.core.model import InferenceConfig, Model
+from azureml.core.dataset import Dataset
+
+
+model = Model(ws, id=model_id)
+inference_config = InferenceConfig(entry_script='path-to-score.py',
+                                   environment=myenv)
+input_dataset = Dataset.get_by_name(workspace=ws, name='sample_request_data')
+profile = Model.profile(ws,
+            'unique_name',
+            [model],
+            inference_config,
+            input_dataset=input_dataset)
+
+profile.wait_for_completion(True)
+
+# see the result
+details = profile.get_details()
+```
+
+Il comando seguente illustra come profilare un modello usando l'interfaccia della riga di comando:
+
+```azurecli-interactive
+az ml model profile -g <resource-group-name> -w <workspace-name> --inference-config-file <path-to-inf-config.json> -m <model-id> --idi <input-dataset-id> -n <unique-name>
+```
+
+## <a name="deploy-to-target"></a>Distribuisci nella destinazione
+
+La distribuzione usa la configurazione di distribuzione per la configurazione dell'inferenza per distribuire i modelli. Il processo di distribuzione è simile indipendentemente dalla destinazione di calcolo. La distribuzione in AKS è leggermente diversa perché è necessario fornire un riferimento al cluster AKS.
+
+### <a name="choose-a-compute-target"></a>Scegliere una destinazione di calcolo
+
+Per ospitare la distribuzione del servizio Web, è possibile usare le seguenti destinazioni di calcolo o risorse di calcolo:
+
+[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+### <a name="define-your-deployment-configuration"></a>Definire la configurazione di distribuzione
 
 Prima di distribuire il modello, è necessario definire la configurazione della distribuzione. *La configurazione della distribuzione è specifica per la destinazione di calcolo in cui verrà ospitato il servizio Web.* Ad esempio, quando si distribuisce un modello localmente, è necessario specificare la porta in cui il servizio accetta le richieste. La configurazione della distribuzione non fa parte dello script di immissione. Viene usato per definire le caratteristiche della destinazione di calcolo che ospiterà lo script del modello e della voce.
 
@@ -547,10 +627,6 @@ Le classi per local, istanze di contenitore di Azure e i servizi Web AKS possono
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-## <a name="deploy-to-target"></a>Distribuisci nella destinazione
-
-La distribuzione usa la configurazione di distribuzione per la configurazione dell'inferenza per distribuire i modelli. Il processo di distribuzione è simile indipendentemente dalla destinazione di calcolo. La distribuzione in AKS è leggermente diversa perché è necessario fornire un riferimento al cluster AKS.
 
 ### <a name="securing-deployments-with-ssl"></a>Protezione delle distribuzioni con SSL
 
@@ -597,7 +673,7 @@ Nella tabella seguente vengono descritti i diversi Stati del servizio:
 | Non integro | Il servizio è stato distribuito ma non è attualmente raggiungibile.  | No |
 | Non pianificabile | Non è possibile distribuire il servizio in questo momento a causa di risorse insufficienti. | No |
 | Operazione non riuscita | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
-| Healthy | Il servizio è integro e l'endpoint è disponibile. | Sì |
+| Integro | Il servizio è integro e l'endpoint è disponibile. | Sì |
 
 ### <a id="notebookvm"></a>Servizio Web dell'istanza di calcolo (sviluppo/test)
 
@@ -958,7 +1034,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-Dopo aver creato un pacchetto, è possibile usare `package.pull()` per eseguire il pull dell'immagine nell'ambiente Docker locale. L'output di questo comando visualizzerà il nome dell'immagine. Ad esempio: 
+Dopo aver creato un pacchetto, è possibile usare `package.pull()` per eseguire il pull dell'immagine nell'ambiente Docker locale. L'output di questo comando visualizzerà il nome dell'immagine. Ad esempio, 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

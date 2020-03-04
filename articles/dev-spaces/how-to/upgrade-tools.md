@@ -3,14 +3,14 @@ title: Aggiornare gli strumenti di Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-description: Informazioni su come eseguire l'aggiornamento degli strumenti da riga di comando Azure Dev Spaces, l'estensione di codice Visual Studs e l'estensione di Visual Studio
+description: Informazioni su come aggiornare gli strumenti da riga di comando Azure Dev Spaces, l'estensione Visual Studio Code e l'estensione di Visual Studio
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: 07d55689ac94a865527f4b595765d67b28ddb97a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 748ed4699591a21a5a09da924e093011b0813b46
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438412"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252357"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Aggiornare gli strumenti di Azure Dev Spaces
 
@@ -27,7 +27,7 @@ Non è necessario disinstallare la versione precedente: basta individuare solo i
 
 Eseguire il comando seguente:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update
 ```
 

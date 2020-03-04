@@ -1,6 +1,6 @@
 ---
 title: Tipi di LiveEvent Servizi multimediali di Azure | Microsoft Docs
-description: In servizi multimediali di Azure, un evento Live può essere uno dei due tipi, la codifica live e il pass-through. Questo articolo illustra una tabella dettagliata che confronta i tipi di evento Live.
+description: In servizi multimediali di Azure è possibile impostare un evento live su una codifica *pass-through* o *Live*. Questo articolo illustra una tabella dettagliata che confronta i tipi di evento Live.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,16 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543053"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244649"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
-In Servizi multimediali di Azure, un [evento live](https://docs.microsoft.com/rest/api/media/liveevents) può essere di due tipi: codifica live e pass-through. 
+In servizi multimediali di Azure è possibile impostare un [evento Live](https://docs.microsoft.com/rest/api/media/liveevents) su un *pass-through* (un codificatore Live locale invia un flusso a più velocità in bit) o la *codifica live* (un codificatore Live locale invia un flusso a bitrate singolo). 
+
+In questo articolo vengono confrontate le funzionalità dei tipi di evento Live.
 
 ## <a name="types-comparison"></a>Confronto tra tipi 
 
@@ -32,7 +34,7 @@ Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento L
 * **LiveEventEncodingType. standard** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni di **Default720p** codifica un set di 6 coppie di risoluzione/velocità in bit (i dettagli seguiranno più avanti in questo articolo).
 * **LiveEventEncodingType. Premium1080p** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Il set di impostazioni Default1080p specifica il set di output di coppie di risoluzione/velocità in bit (i dettagli sono seguiti più avanti nell'articolo). 
 
-| Funzionalità | Evento live pass-through | Evento live standard o Premium1080p |
+| Caratteristica | Evento live pass-through | Evento live standard o Premium1080p |
 | --- | --- | --- |
 | Input a bitrate singolo codificato in bitrate multipli nel cloud |No |Sì |
 | Risoluzione video massima per feed di contributo |4K (4096 x 2160 a 60 fotogrammi/sec) |1080p (1920 x 1088 a 30 fotogrammi/sec)|
@@ -49,7 +51,7 @@ Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento L
 | Risoluzione video massima del video di output|Uguale all'input|Standard-720p, Premium1080p-1080p|
 | Frequenza massima dei fotogrammi del video di input|60 frame al secondo|Standard o Premium1080p-30 frame al secondo|
 | Protocolli di input|RTMP, MP4 frammentato (Smooth Streaming)|RTMP, MP4 frammentato (Smooth Streaming)|
-| Prezzo|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|
+| Price|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live"|
 | Tempo di esecuzione massimo| 24 ore su 24, 365 giorni all'anno, live linear | 24 ore x 365 giorni, linea dinamica (anteprima)|
 | Possibilità di trasferire dati dei sottotitoli CEA 608/708 integrati|Sì|Sì|
 | Possibilità di attivare la trascrizione in tempo reale|Sì|Sì|
@@ -72,14 +74,14 @@ Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live
 
 Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni **Default720p** codifica il feed nei 6 livelli seguenti. Nella tabella riportata di seguito, la velocità in bit è in Kbps, MaxFPS rappresenta il numero massimo di frame consentito (in frame al secondo), il profilo rappresenta il profilo H. 264 utilizzato.
 
-| Bitrate | Larghezza | Altezza: | MaxFPS | Profilo |
+| Bitrate | Larghezza | Altezza | MaxFPS | Profilo |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alte |
-| 2200 |960 |540 |30 |Alte |
-| 1350 |704 |396 |30 |Alte |
-| 850 |512 |288 |30 |Alte |
-| 550 |384 |216 |30 |Alte |
-| 200 |340 |192 |30 |Alte |
+| 3500 |1280 |720 |30 |Alta |
+| 2200 |960 |540 |30 |Alta |
+| 1350 |704 |396 |30 |Alta |
+| 850 |512 |288 |30 |Alta |
+| 550 |384 |216 |30 |Alta |
+| 200 |340 |192 |30 |Alta |
 
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Live standard.
@@ -89,14 +91,14 @@ Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazi
 
 Se il feed di contributo è di risoluzione 1080p, il set di impostazioni **Default1080p** codifica il feed nei 6 livelli seguenti.
 
-| Bitrate | Larghezza | Altezza: | MaxFPS | Profilo |
+| Bitrate | Larghezza | Altezza | MaxFPS | Profilo |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Alte |
-| 3000 |1280 |720 |30 |Alte |
-| 1600 |960 |540 |30 |Alte |
-| 800 |640 |360 |30 |Alte |
-| 400 |480 |270 |30 |Alte |
-| 200 |320 |180 |30 |Alte |
+| 5500 |1920 |1080 |30 |Alta |
+| 3000 |1280 |720 |30 |Alta |
+| 1600 |960 |540 |30 |Alta |
+| 800 |640 |360 |30 |Alta |
+| 400 |480 |270 |30 |Alta |
+| 200 |320 |180 |30 |Alta |
 
 > [!NOTE]
 > Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che sia presente un solo livello a 1080p e al massimo 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Premium1080p Live.
@@ -114,7 +116,7 @@ La sezione precedente descrive le proprietà del codificatore Live che possono e
 
 Il codificatore Live segue la struttura [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) del feed di contributo, che indica che i livelli di output avranno la stessa durata GOP. È quindi consigliabile configurare il codificatore locale per produrre un feed di contributo con durata GOP fissa (in genere 2 secondi). In questo modo, i flussi HLS e MPEG DASH in uscita dal servizio hanno anche durate fisse. È probabile che le piccole variazioni nelle durate GOP siano tollerate dalla maggior parte dei dispositivi.
 
-### <a name="frame-rate"></a>Frequenza dei fotogrammi
+### <a name="frame-rate"></a>Frequenza fotogrammi
 
 Il codificatore Live segue anche le durate dei singoli fotogrammi video nel feed di contributo, il che significa che i livelli di output avranno frame con le stesse durate. È quindi consigliabile configurare il codificatore locale per produrre un feed di contributo con frequenza dei fotogrammi fissa (al massimo 30 frame al secondo). In questo modo si garantisce che i flussi HLS e MPEG DASH in uscita dal servizio abbiano anche una durata fissa delle frequenze dei frame. La maggior parte dei dispositivi può tollerare variazioni minime nelle frequenze dei frame, ma non vi è alcuna garanzia che il codificatore Live produrrà un output che verrà riprodotto correttamente. Il codificatore Live locale non deve eliminare i frame, ad esempio in condizioni di batteria insufficiente) o variare in alcun modo la frequenza dei fotogrammi.
 

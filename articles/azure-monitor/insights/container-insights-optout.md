@@ -3,12 +3,12 @@ title: Come arrestare il monitoraggio del cluster del servizio Azure Kubernetes 
 description: Questo articolo descrive come interrompere il monitoraggio del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: fb75379ba6c8109316f78288222039627bcb5902
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 618a4d7e10212dd2b042724b1ea11c97920dad57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715956"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250753"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 
@@ -139,7 +139,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 Il completamento della modifica della configurazione può richiedere alcuni minuti. Al termine, viene restituito un messaggio simile al seguente che include il risultato:
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -157,7 +157,7 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 Il completamento della modifica della configurazione può richiedere alcuni minuti. Al termine, viene restituito un messaggio simile al seguente che include il risultato:
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 

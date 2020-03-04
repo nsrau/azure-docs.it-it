@@ -3,7 +3,7 @@ title: Creare e caricare un VHD Linux basato su CentOS in Azure
 description: Come creare e caricare un disco rigido virtuale Azure (VHD) che contiene un sistema operativo Linux basato su CentOS.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/25/2019
 ms.author: mimckitt
-ms.openlocfilehash: a5a6dd7e451d3204c8ab2bd2eae95db93c2f0837
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dff90df255d6b7e050fad9a278666f81fade500c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750234"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246131"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su CentOS per Azure
 
@@ -42,7 +42,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 ## <a name="centos-6x"></a>CentOS 6.x
 
-1. Nella console di gestione di Hyper-V selezionare la macchina virtuale.
+1. Nella Console di gestione di Hyper-V, selezionare la macchina virtuale.
 
 2. Fare clic su **Connetti** per aprire una finestra della console per la macchina virtuale.
 
@@ -238,7 +238,7 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 
 **Procedura di configurazione**
 
-1. Nella console di gestione di Hyper-V selezionare la macchina virtuale.
+1. Nella Console di gestione di Hyper-V, selezionare la macchina virtuale.
 
 2. Fare clic su **Connetti** per aprire una finestra della console per la macchina virtuale.
 

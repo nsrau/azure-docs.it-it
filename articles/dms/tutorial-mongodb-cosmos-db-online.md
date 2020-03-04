@@ -3,8 +3,8 @@ title: "Esercitazione: eseguire la migrazione di MongoDB online all'API Azure Co
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione da MongoDB locale a Azure Cosmos DB API per MongoDB online usando il servizio migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 896ae35e1039548ea56967ff73d6a1781aa3c8a6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 66375d83dca4edef17919e3b493d5e45be37cc40
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751390"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255629"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Esercitazione: eseguire la migrazione di MongoDB all'API Azure Cosmos DB per MongoDB online con DMS
 
@@ -217,7 +217,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
    Verrà visualizzata la finestra dell'attività di migrazione con lo **stato** dell'attività.
 
-   ![Stato dell'attività](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-status1.png)
+   ![Stato attività](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>Monitorare la migrazione
 
@@ -235,7 +235,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
     ![Stato dell'attività: Riproduzione](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
 
-## <a name="complete-the-migration"></a>Completa la migrazione
+## <a name="complete-the-migration"></a>Completare la migrazione
 
 * Quando tutti i documenti dell'origine sono disponibili nella destinazione Cosmos DB, selezionare **Fine** nel menu di scelta rapida dell'attività di migrazione per completare la migrazione.
 

@@ -3,12 +3,12 @@ title: Configurare un contenitore Linux personalizzato
 description: Informazioni su come configurare un contenitore Linux personalizzato nel servizio app Azure. Questo articolo illustra le attività di configurazione più comuni.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: d9d6311e69ba4e3893da81a16b06c8baed78cdcd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6baa1fbd4932aa83a54081ff166dcae7f258fff9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671874"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255876"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurare un contenitore Linux personalizzato per il servizio app Azure
 
@@ -18,7 +18,7 @@ Questa guida fornisce concetti chiave e istruzioni per la contenitori di app Lin
 
 ## <a name="configure-port-number"></a>Configurare il numero di porta
 
-Il server Web nell'immagine personalizzata può usare una porta diversa da 80. Si indica ad Azure la porta usata dal contenitore personalizzato usando l'impostazione dell'app `WEBSITES_PORT`. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_. È possibile impostarlo eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nell'cloud Shell. ad esempio:
+Il server Web nell'immagine personalizzata può usare una porta diversa da 80. Si indica ad Azure la porta usata dal contenitore personalizzato usando l'impostazione dell'app `WEBSITES_PORT`. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_. È possibile impostarlo eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nell'cloud Shell. Ad esempio,
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -26,7 +26,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
 
-Il contenitore personalizzato può usare variabili di ambiente che devono essere fornite esternamente. È possibile passarli in eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nell'cloud Shell. ad esempio:
+Il contenitore personalizzato può usare variabili di ambiente che devono essere fornite esternamente. È possibile passarli in eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nell'cloud Shell. Ad esempio,
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -40,7 +40,7 @@ Questo metodo funziona sia per le app a contenitore singolo che per le app a pi�
 
 Quando l'archiviazione persistente è disabilitata, le Scritture nella directory `/home` non vengono rese persistenti tra i riavvii dell'app o tra più istanze. L'unica eccezione è rappresentata dalla directory `/home/LogFiles`, che viene usata per archiviare i log di Docker e del contenitore. Quando è abilitata l'archiviazione persistente, tutte le Scritture nella directory `/home` sono persistenti ed è possibile accedervi da tutte le istanze di un'app con scalabilità orizzontale.
 
-Per impostazione predefinita, l'archiviazione persistente è *abilitata* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per disabilitarlo, impostare l'impostazione dell'app `WEBSITES_ENABLE_APP_SERVICE_STORAGE` eseguendo il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) nel cloud Shell. ad esempio:
+Per impostazione predefinita, l'archiviazione persistente è *abilitata* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per disabilitarlo, impostare l'impostazione dell'app `WEBSITES_ENABLE_APP_SERVICE_STORAGE` eseguendo il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) nel cloud Shell. Ad esempio,
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -112,7 +112,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 Nel file *Docker-compose. yml* mappare l'opzione `volumes` `${WEBAPP_STORAGE_HOME}`. 
 
-`WEBAPP_STORAGE_HOME` è una variabile di ambiente nel servizio app mappata all'archiviazione permanente per l'app. ad esempio:
+`WEBAPP_STORAGE_HOME` è una variabile di ambiente nel servizio app mappata all'archiviazione permanente per l'app. Ad esempio,
 
 ```yaml
 wordpress:
@@ -136,13 +136,13 @@ Negli elenchi seguenti sono illustrate le opzioni di configurazione Docker Compo
 
 #### <a name="supported-options"></a>Opzioni supportate
 
-- command
+- comando
 - entrypoint
-- environment
+- ambiente
 - image
-- ports
+- porte
 - restart
-- services
+- servizi
 - volumes
 
 #### <a name="unsupported-options"></a>Opzioni non supportate
@@ -159,6 +159,8 @@ Negli elenchi seguenti sono illustrate le opzioni di configurazione Docker Compo
 ## <a name="configure-vnet-integration"></a>Configurare l'integrazione di VNet
 
 L'uso di un contenitore personalizzato con integrazione VNet può richiedere una configurazione aggiuntiva del contenitore. Vedere [Integrazione di un'app in una rete virtuale di Azure](../web-sites-integrate-with-vnet.md).
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 0accf502df3616a686a34fc6c96cb2cfc47e6db1
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 03963f60cc364dd36ad55c0a28e92e3b585bb38d
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667832"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255069"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-c"></a>Creare una connessione dati di griglia di eventi per Esplora dati di Azure usandoC#
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](ingest-data-event-grid.md)
+> * [Portale](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 > * [Modello di Azure Resource Manager](data-connection-event-grid-resource-manager.md)
@@ -27,8 +27,8 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se Visual Studio 2019 non è installato, è possibile scaricare e usare l'edizione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
-* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
+* Se Visual Studio 2019 non è installato, è possibile scaricare e usare la versione **gratuita** di [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
+* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Creare [un cluster e un database](create-cluster-database-csharp.md)
 * Creazione del [mapping di tabelle e colonne](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 * Impostare i [criteri di database e tabella](database-table-policies-csharp.md) (facoltativo)
@@ -93,6 +93,38 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | eventHubResourceId | *ID risorsa* | ID risorsa dell'hub eventi in cui è configurata la griglia di eventi per l'invio di eventi. |
 | storageAccountResourceId | *ID risorsa* | ID risorsa dell'account di archiviazione che include i dati per l'inserimento. |
 | Gruppo Consumer | *$Default* | Il gruppo di consumer dell'hub eventi.|
-| location | *Stati Uniti centrali* | Percorso della risorsa di connessione dati.|
+| posizione | *Stati Uniti centrali* | Percorso della risorsa di connessione dati.|
+
+## <a name="generate-sample-data"></a>Generare dati di esempio
+
+Dopo aver connesso Esplora dati di Azure e l'account di archiviazione, è possibile creare i dati di esempio e caricarli nella risorsa di archiviazione BLOB.
+
+Questo script crea un nuovo contenitore nell'account di archiviazione, carica un file esistente (come BLOB) in tale contenitore e quindi elenca gli oggetti BLOB nel contenitore.
+
+```csharp
+var azureStorageAccountConnectionString=<storage_account_connection_string>;
+
+var containerName=<container_name>;
+var blobName=<blob_name>;
+var localFileName=<file_to_upload>;
+
+// Creating the container
+var azureStorageAccount = CloudStorageAccount.Parse(azureStorageAccountConnectionString);
+var blobClient = azureStorageAccount.CreateCloudBlobClient();
+var container = blobClient.GetContainerReference(containerName);
+container.CreateIfNotExists();
+
+// Set metadata and upload file to blob
+var blob = container.GetBlockBlobReference(blobName);
+blob.Metadata.Add("rawSizeBytes", "4096‬"); // the uncompressed size is 4096 bytes
+blob.Metadata.Add("kustoIngestionMappingReference", "mapping_v2‬");
+blob.UploadFromFile(localFileName);
+
+// List blobs
+var blobs = container.ListBlobs();
+```
+
+> [!NOTE]
+> Azure Esplora dati non eliminerà i BLOB dopo l'inserimento. Conservare i BLOB da tre a cinque giorni usando il ciclo di vita dell' [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) per gestire l'eliminazione dei BLOB.
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-csharp](../../includes/data-explorer-data-connection-clean-resources-csharp.md)]

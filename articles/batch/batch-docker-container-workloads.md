@@ -7,25 +7,25 @@ manager: evansma
 ms.service: batch
 ms.topic: article
 ms.workload: na
-ms.date: 08/09/2019
+ms.date: 03/02/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 9e61cab2782abfc808020f627a6dc4efd0e502c1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 81f4e753ffbaaefd5761c9396a6533bac9f212c1
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023736"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254832"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
-Azure Batch consente di eseguire e ridimensionare numerosi processi di batch computing in Azure. Le attività di Batch possono essere eseguite direttamente sulle macchine virtuali (nodi) in un pool di Batch, ma è anche possibile configurare un pool di Batch che esegua le attività in contenitori compatibili con Docker nei nodi. Questo articolo illustra come creare un pool di nodi di calcolo che supporti l'esecuzione di attività del contenitore e quindi eseguire le attività del contenitore nel pool. 
+Azure Batch consente di eseguire e ridimensionare numerosi processi di batch computing in Azure. Le attività di Batch possono essere eseguite direttamente sulle macchine virtuali (nodi) in un pool di Batch, ma è anche possibile configurare un pool di Batch che esegua le attività in contenitori compatibili con Docker nei nodi. Questo articolo illustra come creare un pool di nodi di calcolo che supporti l'esecuzione di attività del contenitore e quindi eseguire le attività del contenitore nel pool.
 
 È consigliabile avere familiarità con i concetti relativi ai contenitori e alla creazione di un pool e un processo di Batch. Gli esempi di codice usano gli SDK di .NET e Python per Batch. È anche possibile usare altri SDK per Batch e strumenti, incluso il portale di Azure, per creare pool di Batch abilitati per il contenitore ed eseguire le attività del contenitore.
 
 ## <a name="why-use-containers"></a>Perché usare i contenitori
 
-L'uso dei contenitori consente di eseguire le attività Batch in modo semplice senza dover gestire un ambiente e le dipendenze per eseguire le applicazioni. I contenitori distribuiscono le applicazioni come unità leggere, portatili e autosufficienti che possono essere eseguite in più ambienti diversi. Ad esempio, è possibile compilare e testare in locale un contenitore, quindi caricare l'immagine del contenitore in un registro di Azure o altrove. Il modello di distribuzione del contenitore assicura che l'ambiente di runtime dell'applicazione venga sempre installato e configurato correttamente, ovunque si ospiti l'applicazione. Le attività basate sul contenitore in Batch traggono vantaggio anche dalle funzionalità di attività non del contenitore, inclusi i pacchetti dell'applicazione e la gestione dei file di risorse e di output. 
+L'uso dei contenitori consente di eseguire le attività Batch in modo semplice senza dover gestire un ambiente e le dipendenze per eseguire le applicazioni. I contenitori distribuiscono le applicazioni come unità leggere, portatili e autosufficienti che possono essere eseguite in più ambienti diversi. Ad esempio, è possibile compilare e testare in locale un contenitore, quindi caricare l'immagine del contenitore in un registro di Azure o altrove. Il modello di distribuzione del contenitore assicura che l'ambiente di runtime dell'applicazione venga sempre installato e configurato correttamente, ovunque si ospiti l'applicazione. Le attività basate sul contenitore in Batch traggono vantaggio anche dalle funzionalità di attività non del contenitore, inclusi i pacchetti dell'applicazione e la gestione dei file di risorse e di output.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +38,7 @@ L'uso dei contenitori consente di eseguire le attività Batch in modo semplice s
 
 * **Account**: nell'abbonamento di Azure è necessario creare un account Batch e, facoltativamente, un account di Archiviazione di Azure.
 
-* **Un'immagine VM supportata**I contenitori sono supportati solo in pool creati con la configurazione macchina virtuale di immagini dettagliate nella sezione seguente, "Immagini di macchine virtuali supportate". Se si fornisce un'immagine personalizzata, vedere le considerazioni nella sezione seguente e i requisiti in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md). 
+* **Un'immagine VM supportata**I contenitori sono supportati solo in pool creati con la configurazione macchina virtuale di immagini dettagliate nella sezione seguente, "Immagini di macchine virtuali supportate". Se si fornisce un'immagine personalizzata, vedere le considerazioni nella sezione seguente e i requisiti in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md).
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -48,33 +48,37 @@ L'uso dei contenitori consente di eseguire le attività Batch in modo semplice s
 
 ## <a name="supported-virtual-machine-images"></a>Immagini di macchine virtuali supportate
 
-Per creare un pool di nodi di calcolo della macchina virtuale per i carichi di lavoro del contenitore, usare una delle immagini di Windows o Linux supportate seguenti. Per altre informazioni sulle immagini del Marketplace compatibili con Batch, vedere [Elenco di immagini di macchine virtuali](batch-linux-nodes.md#list-of-virtual-machine-images). 
+Per creare un pool di nodi di calcolo della macchina virtuale per i carichi di lavoro del contenitore, usare una delle immagini di Windows o Linux supportate seguenti. Per altre informazioni sulle immagini del Marketplace compatibili con Batch, vedere [Elenco di immagini di macchine virtuali](batch-linux-nodes.md#list-of-virtual-machine-images).
 
-### <a name="windows-images"></a>Immagini di Windows
+### <a name="windows-support"></a>supporto per Windows
 
-Per i carichi di lavoro dei contenitori Windows, Batch attualmente supporta l'immagine **Windows Server 2016 Datacenter con contenitori** di Azure Marketplace. In Windows sono supportate solo le immagini del contenitore Docker.
+Batch supporta immagini di Windows Server con designazioni del supporto per i contenitori. In genere, questi nomi di SKU di immagine sono suffissi `-with-containers` o `-with-containers-smalldisk`. Inoltre, [l'API per elencare tutte le immagini supportate in batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotano una funzionalità `DockerCompatible` se l'immagine supporta i contenitori docker.
 
 È anche possibile creare immagini personalizzate da VM che eseguono Docker in Windows.
 
-### <a name="linux-images"></a>Immagini di Linux
+### <a name="linux-support"></a>Supporto di Linux
 
-Per i carichi di lavoro dei contenitori Linux, Batch attualmente supporta le immagini Linux seguenti pubblicate da Microsoft Azure Batch in Azure Marketplace:
+Per i carichi di lavoro del contenitore Linux, batch supporta attualmente le immagini Linux seguenti pubblicate da Microsoft Azure Batch in Azure Marketplace senza la necessità di un'immagine personalizzata.
 
-* **CentOS per pool di contenitori di Azure Batch**
+#### <a name="vm-sizes-without-rdma"></a>Dimensioni delle macchine virtuali senza RDMA
 
-* **CentOS (con driver RDMA) per pool di contenitori di Azure Batch**
+- Server di pubblicazione: `microsoft-azure-batch`
+  - Offerta: `centos-container`
+  - Offerta: `ubuntu-server-container`
 
-* **Server Ubuntu per pool di contenitori di Azure Batch**
+#### <a name="vm-sizes-with-rdma"></a>Dimensioni delle macchine virtuali con RDMA
 
-* **Server Ubuntu (con driver RDMA) per pool di contenitori di Azure Batch**
+- Server di pubblicazione: `microsoft-azure-batch`
+  - Offerta: `centos-container-rdma`
+  - Offerta: `ubuntu-server-container-rdma`
 
-Queste immagini possono essere usate solo nei pool di Azure Batch. Forniscono:
+Queste immagini sono supportate solo per l'uso nei pool di Azure Batch e sono rivolte all'esecuzione del contenitore docker. Forniscono:
 
-* Runtime del contenitore [Moby](https://github.com/moby/moby) preinstallato 
+* Un runtime del contenitore [Moby](https://github.com/moby/moby) compatibile con Docker pre-installato
 
-* Driver GPU con tecnologia NVIDIA preinstallati, per semplificare la distribuzione nelle VM di Azure serie N
+* Driver GPU NVIDIA preinstallati e runtime del contenitore NVIDIA per semplificare la distribuzione nelle VM serie N di Azure
 
-* Una scelta di immagini con o senza driver RDMA pre-installati. Questi driver consentono ai nodi del pool di accedere alla rete RDMA di Azure in caso di distribuzione in dimensioni delle macchine virtuali con supporto per RDMA. 
+* Immagine preinstallata/preconfigurata con supporto per le dimensioni delle VM InfiniBand RDMA per le immagini con il suffisso `-rdma`. Attualmente queste immagini non supportano le dimensioni delle macchine virtuali SR-IOV IB/RDMA.
 
 È anche possibile creare immagini personalizzate da VM che eseguono Docker in una delle distribuzioni Linux compatibili con Batch. Se si sceglie di inserire l'immagine personalizzata di Linux, vedere le istruzioni in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md).
 
@@ -128,7 +132,7 @@ new_pool = batch.models.PoolAddParameter(
 
 ### <a name="prefetch-images-for-container-configuration"></a>Prelettura delle immagini per la configurazione del contenitore
 
-Per eseguire la prelettura delle immagini del contenitore nel pool, aggiungere l'elenco di immagini del contenitore, `container_image_names` in Python, a `ContainerConfiguration`. 
+Per eseguire la prelettura delle immagini del contenitore nel pool, aggiungere l'elenco di immagini del contenitore, `container_image_names` in Python, a `ContainerConfiguration`.
 
 Il seguente esempio di base relativo a Python illustra come eseguire la prelettura di un'immagine del contenitore Ubuntu standard dall'[hub Docker](https://hub.docker.com).
 
@@ -140,7 +144,7 @@ image_ref_to_use = batch.models.ImageReference(
     version='latest')
 
 """
-Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
+Specify container configuration, fetching the official Ubuntu container image from Docker Hub.
 """
 
 container_conf = batch.models.ContainerConfiguration(
@@ -227,17 +231,17 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Per eseguire un'attività contenitore in un pool abilitato per il contenitore, specificare le impostazioni specifiche per il contenitore. Le impostazioni includono l'immagine da usare, il registro e le opzioni di esecuzione del contenitore.
 
-* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che l'opzione del contenitore `--rm` non richiede un'opzione di `--runtime` aggiuntiva perché viene eseguita in base al batch. 
+* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che l'opzione del contenitore `--rm` non richiede un'opzione di `--runtime` aggiuntiva perché viene eseguita in base al batch.
 
 * Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
 
 ### <a name="container-task-command-line"></a>Riga di comando dell'attività contenitore
 
-Quando si esegue un'attività contenitore, Batch usa automaticamente il comando [docker create](https://docs.docker.com/engine/reference/commandline/create/) per creare un contenitore usando l'immagine specificata nell'attività. Batch controlla quindi l'esecuzione dell'attività nel contenitore. 
+Quando si esegue un'attività contenitore, Batch usa automaticamente il comando [docker create](https://docs.docker.com/engine/reference/commandline/create/) per creare un contenitore usando l'immagine specificata nell'attività. Batch controlla quindi l'esecuzione dell'attività nel contenitore.
 
 Come per le attività di Batch non contenitore, è necessario impostare una riga di comando per un'attività contenitore. Dato che Batch crea automaticamente il contenitore, la riga di comando specifica solo il comando o i comandi che verranno eseguiti nel contenitore.
 
-Se l'immagine del contenitore per un'attività di Batch è configurata con uno script [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example), è possibile impostare la riga di comando per usare l'ENTRYPOINT predefinito o sostituirlo: 
+Se l'immagine del contenitore per un'attività di Batch è configurata con uno script [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example), è possibile impostare la riga di comando per usare l'ENTRYPOINT predefinito o sostituirlo:
 
 * Per usare l'ENTRYPOINT predefinito dell'immagine del contenitore, impostare la riga di comando dell'attività sulla stringa vuota `""`.
 
@@ -247,19 +251,19 @@ Se l'immagine del contenitore per un'attività di Batch è configurata con uno s
 
 ### <a name="container-task-working-directory"></a>Directory di lavoro dell'attività contenitore
 
-Un'attività contenitore di Azure Batch viene eseguita in una directory di lavoro nel contenitore, molto simile alla directory impostata da Batch per un'attività normale (non contenitore). Si noti che questa directory di lavoro è diversa da [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir), se configurata nell'immagine, o dalla directory di lavoro del contenitore predefinita (`C:\` per un contenitore Windows o `/` per un contenitore Linux). 
+Un'attività contenitore di Azure Batch viene eseguita in una directory di lavoro nel contenitore, molto simile alla directory impostata da Batch per un'attività normale (non contenitore). Si noti che questa directory di lavoro è diversa da [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir), se configurata nell'immagine, o dalla directory di lavoro del contenitore predefinita (`C:\` per un contenitore Windows o `/` per un contenitore Linux).
 
 Per un'attività contenitore Batch:
 
 * Per tutte le directory che appaiono in modo ricorsivo sotto `AZ_BATCH_NODE_ROOT_DIR` nel nodo host (la radice delle directory di Azure Batch) viene eseguito il mapping nel contenitore
 * Viene eseguito il mapping di tutte le variabili di ambiente delle attività nel contenitore
-* La directory di lavoro dell'attività `AZ_BATCH_TASK_WORKING_DIR` per il nodo viene impostata sulla stessa valida per un'attività normale e mappata nel contenitore. 
+* La directory di lavoro dell'attività `AZ_BATCH_TASK_WORKING_DIR` per il nodo viene impostata sulla stessa valida per un'attività normale e mappata nel contenitore.
 
 Questi mapping consentono di usare le attività contenitore come le attività non contenitore. Ad esempio, installare applicazioni usando i pacchetti dell'applicazione, accedere ai file di risorse da Archiviazione di Azure, usare le impostazioni di ambiente delle attività e rendere persistenti i file di output di attività dopo l'arresto del contenitore.
 
 ### <a name="troubleshoot-container-tasks"></a>Risolvere i problemi delle attività contenitore
 
-Se l'attività contenitore non viene eseguita come previsto, potrebbe essere necessario ottenere informazioni sulla configurazione di WORKDIR o ENTRYPOINT dell'immagine del contenitore. Per visualizzare la configurazione, eseguire il comando [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/). 
+Se l'attività contenitore non viene eseguita come previsto, potrebbe essere necessario ottenere informazioni sulla configurazione di WORKDIR o ENTRYPOINT dell'immagine del contenitore. Per visualizzare la configurazione, eseguire il comando [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/).
 
 Se necessario, modificare le impostazioni dell'attività contenitore in base all'immagine:
 
@@ -269,7 +273,7 @@ Se necessario, modificare le impostazioni dell'attività contenitore in base all
 
 ## <a name="container-task-examples"></a>Esempi di attività contenitore
 
-Il frammento di codice Python seguente mostra una riga di comando di base in esecuzione in un contenitore creato da un'immagine fittizia estratta dall'Hub Docker. In questo caso, l'opzione del contenitore `--rm` rimuove il contenitore al termine dell'esecuzione dell'attività e l'opzione `--workdir` imposta una directory di lavoro. La riga di comando esegue l'override dell'ENTRYPOINT del contenitore con un comando della shell semplice che consente di scrivere un piccolo file nella directory di lavoro dell'attività nell'host. 
+Il frammento di codice Python seguente mostra una riga di comando di base in esecuzione in un contenitore creato da un'immagine fittizia estratta dall'Hub Docker. In questo caso, l'opzione del contenitore `--rm` rimuove il contenitore al termine dell'esecuzione dell'attività e l'opzione `--workdir` imposta una directory di lavoro. La riga di comando esegue l'override dell'ENTRYPOINT del contenitore con un comando della shell semplice che consente di scrivere un piccolo file nella directory di lavoro dell'attività nell'host.
 
 ```python
 task_id = 'sampletask'
@@ -298,7 +302,7 @@ TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
 CloudTask containerTask = new CloudTask (
     id: "Task1",
     containerSettings: cmdContainerSettings,
-    commandLine: cmdLine); 
+    commandLine: cmdLine);
 ```
 
 

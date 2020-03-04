@@ -4,12 +4,12 @@ description: Domande frequenti su Service Fabric, incluse funzionalità, casi d'
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293522"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254892"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -22,7 +22,7 @@ Esistono molte domande frequenti sulle caratteristiche e sulle modalità di uso 
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Come si esegue il roll back del certificato del cluster di Service Fabric?
 
-Il rollback di un aggiornamento dell'applicazione richiede il rilevamento degli errori di integrità prima che il quorum del cluster di Service Fabric esegua il commit della modifica; solo a questo punto sarà possibile eseguire il roll forward delle modifiche. Potrebbe essere necessario fare ripristinare il cluster da un tecnico dell'escalation tramite il servizio clienti se è stata introdotta una modifica di interruzione del certificato non monitorata.  [Aggiornamento dell'applicazione di Service Fabric](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) applica i [Parametri di aggiornamento di un'applicazione](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) e promette un aggiornamento con tempi di inattività pari a zero.  Dopo l'aggiornamento monitorato dell'applicazione consigliato, l'avanzamento automatico tramite domini di aggiornamento è basato sul superamento di controlli di integrità, eseguendo il rollback automaticamente se l'aggiornamento di un servizio predefinito non riesce.
+Il rollback di un aggiornamento dell'applicazione richiede il rilevamento degli errori di integrità prima che il quorum del cluster di Service Fabric esegua il commit della modifica; solo a questo punto sarà possibile eseguire il roll forward delle modifiche. Potrebbe essere necessario fare ripristinare il cluster da un tecnico dell'escalation tramite il servizio clienti se è stata introdotta una modifica di interruzione del certificato non monitorata.  [Aggiornamento dell'applicazione di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) applica i [Parametri di aggiornamento di un'applicazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) e promette un aggiornamento con tempi di inattività pari a zero.  Dopo l'aggiornamento monitorato dell'applicazione consigliato, l'avanzamento automatico tramite domini di aggiornamento è basato sul superamento di controlli di integrità, eseguendo il rollback automaticamente se l'aggiornamento di un servizio predefinito non riesce.
  
 Se il cluster sfrutta ancora la proprietà di identificazione personale del certificato classica nel modello di gestione risorse, si consiglia di [modificare il cluster dall'identificazione personale del certificato a un nome comune](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), per sfruttare le moderne funzionalità di gestione dei segreti.
 
@@ -34,7 +34,7 @@ La tecnologia di clustering principale di Service Fabric può essere usata per u
 
 Se si è interessati a questo scenario, è consigliabile contattare Microsoft tramite la pagina di [elenco di problemi di Service Fabric su GitHub](https://github.com/azure/service-fabric-issues) oppure tramite il rappresentante del supporto tecnico per ottenere informazioni aggiuntive. Il team di Service Fabric sta lavorando per fornire ulteriori informazioni, materiale sussidiario e consigli per questo scenario. 
 
-Ecco alcuni aspetti da considerare: 
+Alcuni aspetti da considerare: 
 
 1. La risorsa cluster di Service Fabric in Azure è ora divisa in aree, così come i set di scalabilità di macchine virtuali su cui viene creato il cluster. Ciò significa che in caso di malfunzionamento di un'area si potrebbe perdere la possibilità di gestire il cluster tramite Azure Resource Manager o il portale di Azure. Questa situazione può verificarsi anche se il cluster resta in esecuzione ed è possibile interagire direttamente con esso. Azure inoltre attualmente non offre la possibilità di disporre di una singola rete virtuale che può essere usata tra le aree. Ciò significa che un cluster con più aree in Azure richiede [indirizzi IP pubblici per ogni macchina virtuale nei set di scalabilità di macchine virtuali di Microsoft Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Queste opzioni di rete hanno effetti diversi sui costi, sulle prestazioni e su alcuni livelli di progettazione di applicazioni. È richiesta un'attenta analisi e una pianificazione prima di affrontare un ambiente di questo tipo.
 2. La manutenzione, gestione e monitoraggio di tali computer possono diventare complicati, soprattutto quando estesi su _tipi_ di ambienti, ad esempio tra provider di cloud diversi o tra risorse locali e Azure. È necessario determinare accuratamente gli aggiornamenti, il monitoraggio, la gestione e la diagnostica per il cluster e le applicazioni prima di eseguire i carichi di lavoro di produzione in tale ambiente. Se si ha già esperienza di risoluzione di questi problemi in Azure o nei propri data center, è possibile che si possano applicare queste stesse soluzioni durante la compilazione o l'esecuzione del cluster di Service Fabric. 
@@ -84,7 +84,7 @@ Per i carichi di lavoro di produzione, è necessario garantire resilienza in cas
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>È possibile disattivare il cluster di notte o nei fine settimana per ridurre i costi?
 
-Generalmente, no. Service Fabric archivia lo stato su dischi locali e temporanei, vale a dire che se la macchina virtuale viene spostata in un host diverso, i dati non vengono spostati con essa. In condizioni normali, ciò non rappresenta un problema, in quanto il nuovo nodo viene aggiornato dagli altri nodi. Tuttavia, se si arrestano tutti i nodi per riavviarli in un secondo momento, è molto probabile che la maggior parte di essi verrà avviata su nuovi host, rendendo impossibile il ripristino dle sistema.
+In generale, no. Service Fabric archivia lo stato su dischi locali e temporanei, vale a dire che se la macchina virtuale viene spostata in un host diverso, i dati non vengono spostati con essa. In condizioni normali, ciò non rappresenta un problema, in quanto il nuovo nodo viene aggiornato dagli altri nodi. Tuttavia, se si arrestano tutti i nodi per riavviarli in un secondo momento, è molto probabile che la maggior parte di essi verrà avviata su nuovi host, rendendo impossibile il ripristino dle sistema.
 
 Se si desidera creare cluster per testare l'applicazione prima di distribuirla, è consigliabile crearli in maniera dinamica come parte della [pipeline integrazione costante/distribuzione costante](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
@@ -125,7 +125,7 @@ No. Le macchine virtuali con priorità bassa non sono supportate.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>In che modo è possibile autenticare l'applicazione con Key Vault per ottenere i segreti?
 Di seguito sono riportati i mezzi che permettono all'applicazione di ottenere le credenziali per l'autenticazione a Key Vault:
 
-R. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
+A. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
 B. Per gli host abilitati per il set di scalabilità di macchine virtuali, è possibile sviluppare un SetupEntryPoint di PowerShell semplice per l'app SF per ottenere [un token di accesso dall'endpoint MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti dall'](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)insieme di credenziali delle chiavi.
 
 ## <a name="application-design"></a>Progettazione di applicazioni

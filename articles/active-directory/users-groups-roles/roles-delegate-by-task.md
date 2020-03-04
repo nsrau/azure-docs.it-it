@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 03/03/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f07b37fffe61a6be62a72a0281e701b69167e95b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1197eb074b9afeb74c6793835455611ab784a83b
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596760"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78253760"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -44,7 +44,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Creare directory di Azure AD B2C | Tutti gli utenti non guest ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Creare applicazioni B2C | Amministratore globale | 
-Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore di applicazioni
+Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore applicazione
 Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore criteri B2C Framework dell'esperienza | 
 Creare, leggere, aggiornare ed eliminare provider di identità | Amministratore del provider di identità esterno | 
 Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | Amministratore flusso utente B2C | 
@@ -72,7 +72,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Configurare le proprietà aziendali | Amministratore globale | 
 
-## <a name="connect"></a>Connessione
+## <a name="connect"></a>Connetti
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
@@ -101,10 +101,10 @@ Visualizzare le metriche del servizio di sincronizzazione e gli avvisi | Lettore
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Gestire domini | Amministratore globale | 
+Gestione domini | Amministratore globale | 
 Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
-## <a name="domain-services"></a>Servizi di dominio
+## <a name="domain-services"></a>Servizi del dominio
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------

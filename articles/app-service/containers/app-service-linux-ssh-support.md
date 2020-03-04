@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ddf011724f72a8a5eaf4e6398c28b28fffa5bfac
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898765"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246998"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Supporto SSH per il Servizio app di Azure in Linux
 
@@ -52,7 +52,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 L'output del comando include le informazioni necessarie per aprire una sessione SSH.
 
-```
+```output
 Port 21382 is open
 SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
@@ -60,20 +60,20 @@ Start your favorite client and connect to port 21382
 
 Aprire una sessione SSH con il contenitore tramite il client scelto usando la porta locale. Nell'esempio seguente si usa il comando [ssh](https://ss64.com/bash/ssh.html) predefinito:
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
 Quando viene richiesto, digitare `yes` per continuare con la connessione. Verrà richiesto di specificare la password. Usare il valore `Docker!` che è stato illustrato in precedenza.
 
-```
+```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
 Al termine dell'autenticazione verrà visualizzata la schermata iniziale della sessione.
 
-```
+```output
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
@@ -89,7 +89,7 @@ A questo punto si è connessi al connettore.
 
 Provare a eseguire il comando [top](https://ss64.com/bash/top.html). Dovrebbe essere visibile il processo dell'app nell'elenco di processi. Nell'esempio seguente è quello con `PID 263`.
 
-```
+```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738

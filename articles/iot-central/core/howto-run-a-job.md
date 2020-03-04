@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/08/2019
+ms.date: 03/03/2020
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 2dd1eddc841cc484957c2124de3419799c4e59b7
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 8f982dbb10a15a1e02a62a97431cdd1b7015472c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206809"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252312"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Creare ed eseguire un processo nell'applicazione IoT Central di Azure
 
@@ -27,51 +27,40 @@ Questa sezione descrive come creare ed eseguire un processo. Viene illustrato co
 
 2. Selezionare **+ nuovo** per creare un nuovo processo:
 
-    > [!div class="mx-imgBorder"]
-    > ![creare un nuovo processo](./media/howto-run-a-job/createnewjob.png)
+    ![Creare un nuovo processo](./media/howto-run-a-job/createnewjob.png)
 
 3. Immettere un nome e una descrizione per identificare il processo che si sta creando.
 
 4. Selezionare il gruppo di dispositivi di destinazione a cui si vuole applicare il processo. È possibile visualizzare il numero di dispositivi a cui si applica la configurazione del processo nella sezione di **Riepilogo** .
 
-5. Quindi, scegliere **Proprietà** o **comando** come tipo di processo da configurare. Per impostare la configurazione di un processo di **Proprietà** , selezionare una proprietà e impostarne il nuovo valore. Per impostare un **comando**oppure scegliere il comando da eseguire. Un processo di proprietà può impostare più proprietà:
+5. Quindi, scegliere **Proprietà Cloud**, **Proprietà** o **comando** come tipo di processo da configurare. Per impostare la configurazione di un processo di **Proprietà** , selezionare una proprietà e impostarne il nuovo valore. Per impostare un **comando**, scegliere il comando da eseguire. Un processo di proprietà può impostare più proprietà:
 
-    > [!div class="mx-imgBorder"]
-    > ![configurare il processo](./media/howto-run-a-job/configurejob.png)
+    ![Configurazione del processo](./media/howto-run-a-job/configurejob.png)
 
-6. Dopo aver selezionato i dispositivi, scegliere **Esegui** o **Salva**. Il processo verrà ora visualizzato nella pagina dei **processi** principali. In questa pagina è possibile visualizzare il processo attualmente in esecuzione e la cronologia dei processi precedentemente eseguiti o salvati. È possibile aprire nuovamente il processo salvato in qualsiasi momento per continuare a modificarlo o eseguirlo:
+6. Dopo aver creato il processo, scegliere **Esegui** o **Salva**. Il processo verrà ora visualizzato nella pagina dei **processi** principali. In questa pagina è possibile visualizzare il processo attualmente in esecuzione e la cronologia dei processi precedentemente eseguiti o salvati. È possibile aprire nuovamente il processo salvato in qualsiasi momento per continuare a modificarlo o eseguirlo:
 
-    > [!div class="mx-imgBorder"]
-    > ![Visualizza processo](./media/howto-run-a-job/viewjob.png)
+    ![Visualizzare il processo](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > È possibile visualizzare 30 giorni di cronologia per i processi eseguiti in precedenza.
 
 7. Per ottenere una panoramica del processo, selezionare il processo da visualizzare nell'elenco. Questa panoramica contiene i dettagli del processo, i dispositivi e i valori dello stato del dispositivo. Da questa panoramica è inoltre possibile selezionare **Scarica dettagli processo** per scaricare un file CSV dei dettagli del processo, inclusi i dispositivi e i relativi valori di stato. Queste informazioni possono essere utili per la risoluzione dei problemi:
 
-    > [!div class="mx-imgBorder"]
-    > ![visualizzare lo stato del dispositivo](./media/howto-run-a-job/downloaddetails.png)
+    ![Visualizzare lo stato dei dispositivi](./media/howto-run-a-job/downloaddetails.png)
 
-### <a name="stop-a-running-job"></a>Arrestare un processo in esecuzione
+### <a name="manage-a-job"></a>Gestire un processo
 
-Per arrestare uno dei processi in esecuzione, aprirlo e selezionare **Arresta**. Lo stato del processo cambia per riflettere che il processo è stato arrestato. La sezione **Riepilogo** Mostra i dispositivi completati, non riusciti o ancora in sospeso:
+Per arrestare uno dei processi in esecuzione, aprirlo e selezionare **Arresta**. Lo stato del processo cambia per riflettere che il processo è stato arrestato. La sezione **Riepilogo** Mostra i dispositivi completati, non riusciti o ancora in sospeso.
 
-    > [!div class="mx-imgBorder"]
-    > ![Stop job](./media/howto-run-a-job/stopjob.png)
+Per eseguire un processo attualmente arrestato, selezionarlo e quindi selezionare **Esegui**. Lo stato del processo cambia per riflettere che il processo è ora in esecuzione di nuovo. La sezione di **Riepilogo** continua ad aggiornare con lo stato più recente.
 
-### <a name="run-a-stopped-job"></a>Eseguire un processo arrestato
-
-Per eseguire un processo attualmente arrestato, selezionarlo e quindi selezionare **Esegui**. Lo stato del processo cambia per riflettere che il processo è ora in esecuzione di nuovo. La sezione di **Riepilogo** continua ad aggiornare con lo stato di avanzamento più recente:
-
-    > [!div class="mx-imgBorder"]
-    > ![Resumed job](./media/howto-run-a-job/resumejob.png)
+![Gestisci processo](./media/howto-run-a-job/managejob.png)
 
 ## <a name="copy-a-job"></a>Copiare un processo
 
-Per copiare uno dei processi esistenti, aprirlo e selezionare **copia**. Viene aperta una copia della configurazione del processo da modificare e la **copia** viene aggiunta alla fine del nome del processo. È possibile salvare o eseguire il nuovo processo:
+Per copiare uno dei processi esistenti, selezionarlo nella pagina **processi** e selezionare **copia**. Verrà aperta una copia della configurazione del processo da modificare e la **copia** verrà aggiunta al nome del processo. È possibile salvare o eseguire il nuovo processo:
 
-    > [!div class="mx-imgBorder"]
-    > ![Copy job](./media/howto-run-a-job/copyjob.png)
+![Copia processo](./media/howto-run-a-job/copyjob.png)
 
 ## <a name="view-the-job-status"></a>Visualizzare lo stato del processo
 
@@ -94,7 +83,7 @@ Il messaggio di stato è seguito da una panoramica dei dispositivi nel processo.
 
 ### <a name="view-the-device-status"></a>Visualizzare lo stato del dispositivo
 
-Per visualizzare lo stato del processo e di tutti i dispositivi interessati, selezionare il processo. Per scaricare un file CSV che include i dettagli del processo, incluso l'elenco dei dispositivi e i relativi valori di stato, selezionare **Scarica dettagli processo**. Accanto a ogni nome dispositivo viene visualizzato uno dei seguenti messaggi di stato:
+Per visualizzare lo stato del processo e di tutti i dispositivi interessati, aprire il processo. Per scaricare un file CSV che include i dettagli del processo, incluso l'elenco dei dispositivi e i relativi valori di stato, selezionare **Scarica dettagli processo**. Accanto a ogni nome dispositivo viene visualizzato uno dei seguenti messaggi di stato:
 
 | Messaggio di stato       | Significato dello stato                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 70c53ea9a8fc64615a9a493efc42405631a3f06d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025164"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254853"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
@@ -49,7 +49,12 @@ Per visualizzare tutte le metriche dell'account Batch:
 3. Selezionare una o più metriche. Se lo si desidera, è possibile selezionare metriche di risorse aggiuntive tramite gli elenchi a discesa **Sottoscrizioni**, **Gruppo di risorse**, **Tipo di risorsa** e **Risorsa**.
     * Per le metriche basate su conteggi (ad esempio "conteggio principale dedicato" o "numero di nodi con priorità bassa"), usare l'aggregazione "media". Per le metriche basate su eventi, ad esempio "eventi di completamento ridimensionamento pool", usare l'aggregazione "count".
 
-    ![Metriche di Batch](media/batch-diagnostics/metrics-portal.png)
+> [!WARNING]
+> Non usare l'aggregazione "sum", che somma i valori di tutti i punti dati ricevuti nel periodo del grafico
+> 
+> 
+
+    ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
 
 Per recuperare le metriche a livello di codice, usare le API di Monitoraggio di Azure. Ad esempio, vedere [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperare metriche di Monitoraggio di Azure con .NET).
 
@@ -71,7 +76,7 @@ Per configurare un avviso sulle metriche nel portale:
 2. In **Monitoraggio** fare clic su **Regole di avviso** > **Aggiungi avviso per la metrica**.
 3. Selezionare una metrica, una condizione di avviso, ad esempio quando una metrica supera un valore specifico durante un periodo, e una o più notifiche.
 
-È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](https://docs.microsoft.com/rest/api/monitor/). Per altre informazioni, vedere la [panoramica degli avvisi](../azure-monitor/platform/alerts-overview.md)
+È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](https://docs.microsoft.com/rest/api/monitor/). Per ulteriori informazioni, vedere [Cenni preliminari sugli avvisi](../azure-monitor/platform/alerts-overview.md). Per includere le informazioni specifiche relative a processi, attività o pool negli avvisi, vedere le informazioni sulle query di ricerca in [rispondere agli eventi con gli avvisi di monitoraggio di Azure](../azure-monitor/learn/tutorial-response.md)
 
 ## <a name="batch-diagnostics"></a>Diagnostica di Batch
 
@@ -105,7 +110,7 @@ Altre destinazioni facoltative per i log di diagnostica:
 
     Quando si seleziona un account di archiviazione, è facoltativamente possibile impostare criteri di conservazione. Se non si specifica un numero di giorni per la conservazione, i dati vengono mantenuti per tutto il ciclo di vita dell'account di archiviazione.
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
     ![Diagnostica di Batch](media/batch-diagnostics/diagnostics-portal.png)
 

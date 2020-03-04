@@ -3,8 +3,8 @@ title: Stato dello scenario di migrazione del database
 titleSuffix: Azure Database Migration Service
 description: Informazioni sullo stato degli scenari di migrazione supportati dal servizio migrazione del database di Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 03fb6a1aff62df878417da55a7da7b42186b3462
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9652b78674d6a6b905eb049564d1b17cdc7c17b7
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437683"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254921"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati dal servizio migrazione del database di Azure
 
@@ -45,17 +45,17 @@ Le tabelle seguenti illustrano gli scenari di migrazione supportati quando si us
 
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni offline.
 
-| Obiettivo  | Origine | Supporto | Stato |
+| Destinazione  | Origine | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Database SQL di Azure** | SQL Server | ✔ | Disponibilità a livello generale |
+| **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL |  |  |
 |   | Oracle |  |  |
-| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | Disponibilità a livello generale |
+| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL |  |  |
 |   | Oracle |  |   |
-| **VM di Azure SQL** | SQL Server | ✔ | Disponibilità a livello generale |
+| **VM di Azure SQL** | SQL Server | ✔ | GA |
 |   | Oracle |   |   |
-| **Azure Cosmos DB** | MongoDB | ✔ | Disponibilità a livello generale |
+| **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **Database di Azure per MySQL** | MySQL |   |   |
 |   | Servizi Desktop remoto MySQL |   |   |
 | **Database di Azure per PostgreSQL** | PostgreSQL |  |
@@ -65,21 +65,21 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni online.
 
-| Obiettivo  | Origine | Supporto | Stato |
+| Destinazione  | Origine | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Database SQL di Azure** | SQL Server | ✔ | Disponibilità a livello generale |
-|   | Servizi Desktop remoto SQL | ✔ | Disponibilità a livello generale |
+| **Database SQL di Azure** | SQL Server | ✔ | GA |
+|   | Servizi Desktop remoto SQL | ✔ | GA |
 |   | Oracle |  |  |
-| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | Disponibilità a livello generale |
-|   | Servizi Desktop remoto SQL | ✔ | Disponibilità a livello generale |
+| **Istanza gestita di database SQL di Azure** | SQL Server | ✔ | GA |
+|   | Servizi Desktop remoto SQL | ✔ | GA |
 |   | Oracle | ✔ | Anteprima privata |
 | **VM di Azure SQL** | SQL Server |   |   |
 |   | Oracle  |  |  |
-| **Azure Cosmos DB** | MongoDB | ✔ | Disponibilità a livello generale |
-| **Database di Azure per MySQL** | MySQL | ✔ | Disponibilità a livello generale |
-|   | Servizi Desktop remoto MySQL | ✔ | Disponibilità a livello generale |
-| **Database di Azure per PostgreSQL** | PostgreSQL | ✔ | Disponibilità a livello generale |
-|   | Servizi Desktop remoto PostgreSQL | ✔ | Disponibilità a livello generale |
+| **Azure Cosmos DB** | MongoDB | ✔ | GA |
+| **Database di Azure per MySQL** | MySQL | ✔ | GA |
+|   | Servizi Desktop remoto MySQL | ✔ | GA |
+| **Database di Azure per PostgreSQL** | PostgreSQL | ✔ | GA |
+|   | Servizi Desktop remoto PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | Anteprima pubblica |
 
 ## <a name="next-steps"></a>Passaggi successivi

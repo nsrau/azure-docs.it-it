@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585986"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248853"
 ---
 # <a name="what-are-security-defaults"></a>Che cosa sono le impostazioni predefinite della sicurezza?
 
@@ -69,7 +69,7 @@ Un metodo comune per migliorare la protezione per tutti gli utenti è quello di 
 
 Per consentire agli utenti di accedere facilmente alle app Cloud, Azure AD supporta diversi protocolli di autenticazione, inclusa l'autenticazione legacy. *L'autenticazione legacy* è un termine che fa riferimento a una richiesta di autenticazione effettuata da:
 
-- Client di Office meno recenti che non usano l'autenticazione moderna (ad esempio, un client Office 2010).
+- Client che non usano l'autenticazione moderna (ad esempio, un client Office 2010).
 - Qualsiasi client che utilizza protocolli di posta elettronica precedenti, ad esempio IMAP, SMTP o POP3.
 
 Attualmente, la maggior parte dei compromessi per i tentativi di accesso proviene dall'autenticazione legacy. L'autenticazione legacy non supporta Multi-Factor Authentication. Anche se nella directory è abilitato un criterio di Multi-Factor Authentication, un utente malintenzionato può eseguire l'autenticazione usando un protocollo precedente e ignorare Multi-Factor Authentication. 

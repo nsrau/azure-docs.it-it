@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7a0d94522e478a69f70167183e4c0d60d0d85060
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226542"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255987"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creazione grafica in Automazione di Azure
 
@@ -163,7 +163,7 @@ Selezionare il collegamento per configurare le relative proprietà nel pannello 
 
 ### <a name="start-of-activity"></a>Inizio attività
 
-Un Runbook grafico inizia con le attività che non dispongono di un collegamento in ingresso. Spesso è presente una sola attività che funge da attività iniziale per Runbook. Se più attività non dispongono di un collegamento in ingresso, il Runbook viene avviato eseguendoli in parallelo. Seguirà i collegamenti per eseguire altre attività man mano che vengono completate.
+Un runbook grafico inizia con le attività che non dispongono di un collegamento in ingresso. Spesso è presente una sola attività che funge da attività iniziale per Runbook. Se più attività non dispongono di un collegamento in ingresso, il Runbook viene avviato eseguendoli in parallelo. Seguirà i collegamenti per eseguire altre attività man mano che vengono completate.
 
 ### <a name="link-conditions"></a>Condizioni di collegamento
 
@@ -241,7 +241,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ### <a name="checkpoints"></a>Punti di controllo
 
-È possibile impostare [Checkpoint](automation-powershell-workflow.md#checkpoints) in un runbook grafico del flusso di lavoro PowerShell selezionando **Checkpoint per runbook** in qualsiasi attività. In questo modo viene impostato un checkpoint dopo l'esecuzione dell'attività.
+È possibile impostare [Checkpoint](automation-powershell-workflow.md#checkpoints) in un Runbook del flusso di lavoro PowerShell grafico selezionando **Checkpoint Runbook** in qualsiasi attività. In questo modo viene impostato un checkpoint dopo l'esecuzione dell'attività.
 
 ![Punto di controllo](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
@@ -249,7 +249,7 @@ I checkpoint sono abilitati solo nei manuali operativi grafici del flusso di lav
 
 ## <a name="runbook-input-and-output"></a>Input e output di Runbook
 
-### < nome "Runbook-input" ></a>input Runbook
+### Input Runbook<a name="runbook-input"></a>
 
 Un Runbook richiede l'input da un utente che avvia il Runbook tramite il portale di Azure o da un altro Runbook, se quello corrente viene usato come figlio. Ad esempio, per un Runbook che crea una macchina virtuale, l'utente potrebbe dover fornire tali informazioni come nome della macchina virtuale e altre proprietà ogni volta che il Runbook viene avviato.
 
@@ -407,11 +407,11 @@ Il Runbook deve eseguire l'autenticazione all'inizio e dopo ogni checkpoint. Per
 
 ![Activity Output](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 
-## <a name="exporting-and-importing-a-graphical-runbook"></a>Esportazione e importazione di un Runbook grafico
+## <a name="exporting-and-importing-a-graphical-runbook"></a>Esportazione e importazione di un runbook con interfaccia grafica
 
-È possibile esportare solo la versione pubblicata di un Runbook grafico. Se il Runbook non è ancora stato pubblicato, il pulsante **Esporta** è disabilitato. Quando si fa clic sul pulsante **Esporta** , il Runbook viene scaricato nel computer locale. Il nome del file corrisponde al nome di runbook con l'estensione **. graphrunbook** .
+È possibile esportare solo la versione pubblicata di un runbook con interfaccia grafica. Se il Runbook non è ancora stato pubblicato, il pulsante **Esporta** è disabilitato. Quando si fa clic sul pulsante **Esporta** , il Runbook viene scaricato nel computer locale. Il nome del file corrisponde al nome di runbook con l'estensione **. graphrunbook** .
 
-È possibile importare un file di runbook grafico o di runbook grafico del flusso di lavoro PowerShell selezionando l'opzione **Importa** quando si aggiunge un runbook. Quando si seleziona il file da importare, è possibile usare lo stesso nome o specificarne uno nuovo. Il campo **tipo di Runbook** Visualizza il tipo di runbook dopo aver valutato il file selezionato. Se si tenta di selezionare un tipo diverso che non è corretto, nell'editor grafico viene visualizzato un messaggio in cui si nota che ci sono potenziali conflitti e potrebbero essersi verificati errori di sintassi durante la conversione.
+È possibile importare un file Runbook grafico o grafico di un flusso di lavoro PowerShell selezionando l'opzione di **importazione** durante l'aggiunta di un Runbook. Quando si seleziona il file da importare, è possibile usare lo stesso nome o specificarne uno nuovo. Il campo **tipo di Runbook** Visualizza il tipo di runbook dopo aver valutato il file selezionato. Se si tenta di selezionare un tipo diverso che non è corretto, nell'editor grafico viene visualizzato un messaggio in cui si nota che ci sono potenziali conflitti e potrebbero essersi verificati errori di sintassi durante la conversione.
 
 ![Importare runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 

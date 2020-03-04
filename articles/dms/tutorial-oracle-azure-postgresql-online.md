@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di Oracle online al database di Az
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire la migrazione online da Oracle in locale o su macchine virtuali in Database di Azure per PostgreSQL con il Servizio Migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 14db95adccf5118321bc763cbe599e19febc7eac
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759910"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255573"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Esercitazione: eseguire la migrazione di Oracle al database di Azure per PostgreSQL online con DMS (anteprima)
 
@@ -186,7 +186,7 @@ Per configurare ed eseguire ora2pg per creare un report di valutazione, vedere l
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-Ad esempio:
+Ad esempio,
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
@@ -231,7 +231,7 @@ Per consentire al Servizio Migrazione del database di Azure di creare lo schema,
 > [!IMPORTANT]
 > Il Servizio Migrazione del database di Azure richiede che tutte le tabelle vengano create nello stesso modo, ovvero usando il Servizio Migrazione del database di Azure o uno strumento come ora2pg, ma non entrambi.
 
-Per iniziare:
+Attività iniziali
 
 1. Creare uno schema nel database di destinazione in base ai requisiti dell'applicazione. Per impostazione predefinita, per i nomi delle colonne e dello schema di tabella PostgreSQL vengono usate lettere minuscole. Le colonne e lo schema di tabella Oracle invece usano per impostazione predefinita tutti caratteri maiuscoli.
 2. Nel passaggio relativo alla selezione degli schemi specificare il database e lo schema di destinazione.
@@ -239,15 +239,15 @@ Per iniziare:
 
     Se il nome dello schema nell'origine Oracle corrisponde a quello in Database di Azure per PostgreSQL, il Servizio Migrazione del database di Azure *crea lo schema di tabella usando la stessa combinazione di maiuscole e minuscole della destinazione*.
 
-    Ad esempio:
+    Ad esempio,
 
     | Schema Oracle di origine | Schema database PostgreSQL di destinazione | Colonna tabella schema creata dal Servizio Migrazione del database di Azure |
     | ------------- | ------------- | ------------- |
-    | Risorse umane | targetHR.public | public.countries.country_id |
-    | Risorse umane | targetHR.trgthr | trgthr.countries.country_id |
-    | Risorse umane | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
-    | Risorse umane | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
-    | Risorse umane | targetHR.Hr | \* Non è possibile eseguire il mapping con combinazioni di maiuscole/minuscole |
+    | HR | targetHR.public | public.countries.country_id |
+    | HR | targetHR.trgthr | trgthr.countries.country_id |
+    | HR | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.Hr | \* Non è possibile eseguire il mapping con combinazioni di maiuscole/minuscole |
 
     \* Per creare nomi di schemi e tabelle con combinazioni di maiuscole/minuscole nel database PostgreSQL di destinazione, contattare [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Si riceverà uno script per configurare lo schema di tabella con combinazioni di maiuscole/minuscole nel database PostgreSQL di destinazione.
 

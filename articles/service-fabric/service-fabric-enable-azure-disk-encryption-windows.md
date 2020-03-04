@@ -3,12 +3,12 @@ title: Abilitare la crittografia del disco per i cluster Windows
 description: Questo articolo descrive come abilitare la crittografia del disco per i nodi del cluster di Azure Service Fabric usando Azure Key Vault in Azure Resource Manager.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614452"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251808"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Abilitare la crittografia del disco per i nodi del cluster Service Fabric di Azure in Windows 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ L'anteprima della crittografia del disco per il set di scalabilità di macchine 
 
 Usare i comandi seguenti per creare un cluster e abilitare la crittografia dei dischi tramite un modello di Azure Resource Manager e un certificato autofirmato.
 
-### <a name="sign-in-to-azure"></a>Accedere a Azure 
+### <a name="sign-in-to-azure"></a>Accedere ad Azure 
 Accedere con i comandi seguenti:
 ```powershell
 Login-AzAccount
@@ -200,7 +200,7 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssNam
 
 ```
 
-```CLI
+```azurecli
 
 az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 

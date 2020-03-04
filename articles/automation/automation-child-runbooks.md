@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34446f98bc593c8b78cfb4a9ceae2c5e6dc6aef3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191164"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246538"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 
@@ -39,7 +39,7 @@ Quali tipi di Runbook possono chiamarsi reciprocamente?
 
 Quando l'ordine di pubblicazione è importante?
 
-L'ordine di pubblicazione dei runbook è rilevante solo per i runbook del flusso di lavoro PowerShell e i runbook grafici del flusso di lavoro PowerShell.
+L'ordine di pubblicazione di manuali operativi è importante solo per il flusso di lavoro PowerShell e manuali operativi di flusso di lavoro PowerShell grafico.
 
 Quando il Runbook chiama un Runbook figlio grafico o del flusso di lavoro PowerShell usando l'esecuzione inline, usa il nome del Runbook. Il nome deve iniziare con **.\\** per specificare che lo script si trova nella directory locale.
 

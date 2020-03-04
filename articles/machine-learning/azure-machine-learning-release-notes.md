@@ -10,18 +10,56 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 6f244fc057638bc94a94c150d9333435c0197a74
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462174"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249736"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2020-03-02"></a>2020-03-02
+
+### <a name="azure-machine-learning-sdk-for-python-v112rc0"></a>Azure Machine Learning SDK per Python v 1.1.2 RC0
+
++ **Correzioni di bug e miglioramenti**
+  + **azureml-automl-Core**
+    + Abilitazione dell'inferenza in modalità batch (assunzione di più righe una volta) per i modelli automl ONNX
+    + Miglioramento del rilevamento della frequenza per i set di dati, mancanza di dati o presenza di punti dati irregolari
+    + È stata aggiunta la possibilità di rimuovere i punti dati non conformi al frequrncy dominante.
+  + **azureml-automl-Runtime**
+    + Correzione del problema relativo all'errore generato se il granulare non presente nel set di training è stato visualizzato nel set di test
+    + Il y_query requisito è stato rimosso durante l'assegnazione del punteggio al servizio di previsione
+  + **azureml-contrib-Mir**
+    + Aggiunge la funzionalità nella classe MirWebservice per recuperare il token di accesso
+  + **azureml-Core**
+    + Per impostazione predefinita, i servizi webAzureML distribuiti verranno `INFO` registrazione. Questa operazione può essere controllata impostando la variabile di ambiente `AZUREML_LOG_LEVEL` nel servizio distribuito.
+    + Correzione dell'iterazione `Dataset.get_all` per restituire tutti i set di impostazioni registrati con l'area di lavoro.
+    + Miglioramento del messaggio di errore quando il tipo non valido viene passato a `path` argomento delle API di creazione del set di dati.
+    + Python SDK usa il servizio di individuazione per usare l'endpoint "API" invece di "pipeline".
+    + Scambiare le nuove route in tutte le chiamate SDK
+    + Modifica il routing delle chiamate a ModelManagementService a una nuova struttura unificata
+      + Metodo di aggiornamento dell'area di lavoro reso disponibile pubblicamente.
+      + Aggiunto image_build_compute parametro nel metodo di aggiornamento dell'area di lavoro per consentire all'utente di aggiornare il calcolo per la compilazione di immagini
+    +  Aggiunta dei messaggi di deprecazione al flusso di lavoro di profilatura obsoleto. Correzione dei limiti di memoria e CPU per la profilatura
+  + **azureml-interpreta**
+    + aggiornare azureml-interpretate per interpretare la community 0,6. *
+  + **azureml-mlflow**
+    + Aggiungere il supporto per i cloud sovrani a azureml. mlflow
+  + **azureml-pipeline-passaggi**
+    + Il `AutoMLStep` è stato spostato nell'`azureml-pipeline-steps package`. Il `AutoMLStep` è stato deprecato all'interno `azureml-train-automl-runtime`.
+  + **azureml-Train-automl-client**
+    + Correzione di un problema per cui alcuni pacchetti possono essere installati in versioni non corrette nelle esecuzioni remote.
+  + **azureml-Train-automl-Runtime**
+    + Correzione del problema relativo al rilevamento della frequenza nelle esecuzioni remote
+    + Il `AutoMLStep` è stato spostato nell'`azureml-pipeline-steps package`. Il `AutoMLStep` è stato deprecato all'interno `azureml-train-automl-runtime`.
+  + **azureml-Train-Core**
+    + Il `AutoMLStep` è stato spostato nell'`azureml-pipeline-steps package`. Il `AutoMLStep` è stato deprecato all'interno `azureml-train-automl-runtime`.
 
 ## <a name="2020-02-18"></a>2020-02-18
 
@@ -215,7 +253,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Correzione di un problema relativo al caricatore pytorch per l'attività di rilevamento oggetti.
   + **azureml-contrib-interpreta**
     + Rimosso il widget del dashboard di spiegazione da azureml-contrib-interpret, changed Package per fare riferimento a quello nuovo in interpret_community
-    + Versione aggiornata di interpreta-community per 0.2.0
+    + versione aggiornata di interpreta-community per 0.2.0
   + **azureml-Core**
     + Migliorare le prestazioni dei `workspace.datasets`.
     + È stata aggiunta la possibilità di registrare l'archivio dati del database SQL di Azure usando l'autenticazione con nome utente e password

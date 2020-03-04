@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali Hyper-V con MAB
 description: Questo articolo contiene le procedure per il backup e il ripristino di macchine virtuali con Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 00d1dd04522c51e4d68450a7b8f25d7159d63724
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586513"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255055"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali Hyper-V con server di Backup di Azure
 
@@ -171,7 +171,7 @@ Dopo aver completato i passaggi nelle sezioni precedenti e completato il process
 
 1. Aprire SQL Server Management Studio e connettersi all'istanza che ospita il database di MAB.
 
-2. Eseguire la query seguente: `select * from tbl_SCH_ScheduleDefinition where JobDefinitionID='9B30D213-B836-4B9E-97C2-DB03C3EB39D7'`. Questa query restituisce **idpianificazione**. Si noti questo ID come verrà usato nel passaggio successivo.
+2. Eseguire la query seguente: `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. Questa query restituisce **idpianificazione**. Si noti questo ID come verrà usato nel passaggio successivo.
 
 3. Nella SQL Server Management Studio espandere **SQL Server Agent**, quindi espandere **processi**. Fare clic con il pulsante destro del mouse su **idpianificazione** annotato e selezionare **inizia processo al passaggio**.
 

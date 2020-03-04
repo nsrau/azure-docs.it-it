@@ -3,12 +3,12 @@ title: Configurare i cluster OpenShift di Azure Red Hat con monitoraggio di Azur
 description: Questo articolo descrive come configurare il monitoraggio di un cluster Kubernetes con monitoraggio di Azure ospitato in Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 215835c04a1877ccdb6454c4c3902332b9dc1ab2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190082"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250686"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurare i cluster OpenShift di Azure Red Hat con monitoraggio di Azure per i contenitori
 
@@ -30,7 +30,7 @@ Monitoraggio di Azure per contenitori supporta il monitoraggio di Azure Red Hat 
 - Dati in tempo reale (anteprima)
 - [Raccogliere le metriche](container-insights-update-metrics.md) dai nodi e dai pod del cluster e archiviarle nel database di metriche di monitoraggio di Azure
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Per abilitare e accedere alle funzionalità di monitoraggio di Azure per i contenitori, è necessario essere almeno un membro del ruolo *collaboratore* di Azure nella sottoscrizione di Azure e un membro del ruolo [*collaboratore log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) dell'area di lavoro log Analytics configurato con monitoraggio di Azure per i contenitori.
 
@@ -113,7 +113,7 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 
     L'output sarà simile al seguente:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -197,7 +197,7 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 
     L'output sarà simile al seguente:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 

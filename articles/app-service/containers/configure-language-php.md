@@ -4,12 +4,12 @@ description: Informazioni su come configurare un contenitore PHP predefinito per
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: e805487075499bd4e461a21fffb4c44156ce192b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913872"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255842"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurare un'app PHP Linux per il servizio app Azure
 
@@ -116,7 +116,7 @@ Se è necessario apportare modifiche all'installazione di PHP, è possibile modi
 
 Per personalizzare le direttive PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (vedere [direttive php. ini](https://www.php.net/manual/ini.list.php)), aggiungere un file con *estensione htaccess* alla directory radice dell'app.
 
-Nel file con *estensione htaccess* aggiungere le direttive usando la sintassi del `php_value <directive-name> <value>`. Ad esempio:
+Nel file con *estensione htaccess* aggiungere le direttive usando la sintassi del `php_value <directive-name> <value>`. Ad esempio,
 
 ```
 php_value upload_max_filesize 1000M
@@ -193,26 +193,18 @@ Per rendere effettive le modifiche, riavviare l'app.
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Quando un'app PHP funzionante si comporta in modo diverso nel servizio app o presenta degli errori, provare a eseguire le operazioni seguenti:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. Ad esempio:
+- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. Ad esempio,
     - A seconda del file *Composer. JSON*, è possibile installare pacchetti diversi per la modalità di produzione (`require` e `require-dev`).
     - Alcuni framework Web possono distribuire i file statici in modo diverso in modalità di produzione.
     - Alcuni framework Web possono usare script di avvio personalizzati durante l'esecuzione in modalità di produzione.
 - Eseguire l'app nel servizio app in modalità di debug. Ad esempio, in [Laravel](https://meanjs.org/)è possibile configurare l'app per l'output dei messaggi di debug in produzione impostando [l'impostazione dell'app `APP_DEBUG` su `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
-### <a name="robots933456"></a>robots933456
-
-È possibile che venga visualizzato il messaggio seguente nei log del contenitore:
-
-```
-2019-04-08T14:07:56.641002476Z "-" - - [08/Apr/2019:14:07:56 +0000] "GET /robots933456.txt HTTP/1.1" 404 415 "-" "-"
-```
-
-Questo messaggio può essere ignorato in modo sicuro. `/robots933456.txt` è un percorso URL fittizio utilizzato dal servizio app per verificare se il contenitore è in grado di soddisfare le richieste. Una risposta 404 indica semplicemente che il percorso non esiste, ma consente al servizio app di capire che il contenitore è integro e pronto per rispondere alle richieste.
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

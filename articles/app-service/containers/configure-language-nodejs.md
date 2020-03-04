@@ -4,12 +4,12 @@ description: Informazioni su come configurare un contenitore node. js predefinit
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 45d7d141bc2ab85ab33be455fc3da5570b0e7f51
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: fdc5129fc395f99cb4c244414ea952b2776dc4dc
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920026"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255863"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurare un'app node. js Linux per il servizio app Azure
 
@@ -88,7 +88,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Esegui NPM Start
 
-Per avviare l'app con `npm start`, è sufficiente assicurarsi che nel file *Package. JSON* sia presente uno script di `start`. Ad esempio:
+Per avviare l'app con `npm start`, è sufficiente assicurarsi che nel file *Package. JSON* sia presente uno script di `start`. Ad esempio,
 
 ```json
 {
@@ -136,7 +136,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 È possibile eseguire il debug dell'app node. js in modalità remota in [Visual Studio Code](https://code.visualstudio.com/) se viene configurata per l' [esecuzione con PM2](#run-with-pm2), tranne quando viene eseguita con *. config. js, *. yml o *. YAML*.
 
-Nella maggior parte dei casi, non è necessaria alcuna configurazione aggiuntiva per l'app. Se l'app viene eseguita con un file *Process. JSON* (predefinito o personalizzato), deve avere una proprietà `script` nella radice JSON. Ad esempio:
+Nella maggior parte dei casi, non è necessaria alcuna configurazione aggiuntiva per l'app. Se l'app viene eseguita con un file *Process. JSON* (predefinito o personalizzato), deve avere una proprietà `script` nella radice JSON. Ad esempio,
 
 ```json
 {
@@ -164,7 +164,7 @@ process.env.NODE_ENV
 
 Per impostazione predefinita, Kudu viene eseguito `npm install --production` quando viene riconosciuta un'app node. js distribuita. Se l'app richiede uno degli strumenti di automazione più diffusi, ad esempio grugnito, Bower o Gulp, è necessario fornire uno [script di distribuzione personalizzato](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) per eseguirlo.
 
-Per abilitare il repository per l'esecuzione di questi strumenti, è necessario aggiungerli alle dipendenze in *Package. JSON.* Ad esempio:
+Per abilitare il repository per l'esecuzione di questi strumenti, è necessario aggiungerli alle dipendenze in *Package. JSON.* Ad esempio,
 
 ```json
 "dependencies": {
@@ -243,7 +243,7 @@ fi
 
 Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve controllare se le richieste degli utenti sono crittografate o meno, esaminare l'intestazione `X-Forwarded-Proto`.
 
-I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. In [Express](https://expressjs.com/)è possibile usare i [proxy di attendibilità](https://expressjs.com/guide/behind-proxies.html). Ad esempio:
+I framework Web più diffusi consentono di accedere alle informazioni `X-Forwarded-*` nel modello di app standard. In [Express](https://expressjs.com/)è possibile usare i [proxy di attendibilità](https://expressjs.com/guide/behind-proxies.html). Ad esempio,
 
 ```javascript
 app.set('trust proxy', 1)
@@ -261,16 +261,18 @@ if (req.secure) {
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Quando un'app node. js funzionante si comporta in modo diverso nel servizio app o presenta errori, provare a eseguire le operazioni seguenti:
 
 - [Accedere al flusso di log](#access-diagnostic-logs).
-- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. Ad esempio:
+- Testare l'app localmente in modalità di produzione. Il servizio app esegue le app node. js in modalità di produzione, quindi è necessario assicurarsi che il progetto funzioni come previsto in modalità di produzione localmente. Ad esempio,
     - A seconda del file *Package. JSON*, è possibile installare pacchetti diversi per la modalità di produzione (`dependencies` rispetto a `devDependencies`).
     - Alcuni framework Web possono distribuire i file statici in modo diverso in modalità di produzione.
     - Alcuni framework Web possono usare script di avvio personalizzati durante l'esecuzione in modalità di produzione.
 - Eseguire l'app nel servizio app in modalità di sviluppo. In [mean. js](https://meanjs.org/), ad esempio, è possibile impostare l'app sulla modalità di sviluppo in fase di esecuzione impostando [l'impostazione dell'app `NODE_ENV`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

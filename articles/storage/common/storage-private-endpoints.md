@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158911"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252656"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso di endpoint privati per archiviazione di Azure (anteprima)
 
@@ -78,20 +78,20 @@ Quando si risolve l'URL dell'endpoint di archiviazione dall'esterno del VNet con
 
 Per l'esempio illustrato in precedenza, i record di risorse DNS per l'account di archiviazione ' StorageAccountA ', quando risolti dall'esterno della VNet che ospita l'endpoint privato, saranno:
 
-| Nome                                                  | Type  | valore                                                 |
+| Name                                                  | Type  | Valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | endpoint pubblico del servizio di archiviazione \<\>                   |
-| endpoint pubblico del servizio di archiviazione \<\>                   | Una     | Indirizzo IP pubblico del servizio di archiviazione \<\>                 |
+| endpoint pubblico del servizio di archiviazione \<\>                   | A     | Indirizzo IP pubblico del servizio di archiviazione \<\>                 |
 
 Come indicato in precedenza, è possibile negare o controllare l'accesso per i client esterni a VNet tramite l'endpoint pubblico usando il firewall di archiviazione.
 
 I record di risorse DNS per StorageAccountA, in caso di risoluzione da parte di un client in VNet che ospita l'endpoint privato, saranno:
 
-| Nome                                                  | Type  | valore                                                 |
+| Name                                                  | Type  | Valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | Una     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
 Questo approccio consente di accedere all'account di archiviazione **usando la stessa stringa di connessione** per i client in VNet che ospitano gli endpoint privati, nonché i client esterni al VNet.
 
@@ -118,7 +118,7 @@ Per ulteriori informazioni sulla configurazione del server DNS per supportare en
 - [Risoluzione dei nomi per le risorse in reti virtuali di Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
 - [Configurazione DNS per endpoint privati](/azure/private-link/private-endpoint-overview#dns-configuration)
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
 Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link).
 
@@ -136,4 +136,4 @@ Questo vincolo è il risultato delle modifiche DNS apportate quando l'account a2
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regole del gruppo di sicurezza di rete per le subnet con endpoint privati
 
-Attualmente, non è possibile configurare regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) (NSG) per le subnet con endpoint privati. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
+Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato vengono applicate all'endpoint privato. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.

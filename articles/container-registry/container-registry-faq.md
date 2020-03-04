@@ -5,14 +5,14 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708309"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252072"
 ---
-# <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti sul Registro Azure Container
+# <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Azure Container Registry
 
 Questo articolo descrive le domande frequenti e i problemi noti relativi a Container Registry di Azure.
 
@@ -114,13 +114,13 @@ ACR supporta l'API HTTP V2 del registro docker. È possibile accedere alle API a
 
 Se si è in bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 Per PowerShell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -151,13 +151,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 Si dovrebbe essere in grado di verificare che l'utilizzo dell'archiviazione sia aumentato nel portale di Azure oppure è possibile eseguire query sull'utilizzo usando l'interfaccia della riga di comando.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Eliminare l'immagine usando l'interfaccia della riga di comando di Azure o il portale e controllare l'utilizzo aggiornato in pochi minuti.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -186,11 +186,11 @@ az acr login -n MyRegistry
 Abilitare TLS 1,2 usando qualsiasi client Docker recente (versione 18.03.0 e successive). 
 
 > [!IMPORTANT]
-> A partire dal 13 gennaio 2020, Azure Container Registry richiederà tutte le connessioni sicure da server e applicazioni per l'uso di TLS 1,2. Il supporto per TLS 1,0 e 1,1 verrà ritirato.
+> A partire dal 13 gennaio 2020, Registro Azure Container richiederà l'uso di TLS 1.2 in tutte le connessioni sicure da server e applicazioni. Il supporto per TLS 1.0 e 1.1 verrà ritirato.
 
-### <a name="does-azure-container-registry-support-content-trust"></a>Il Registro Azure Container supporta Content Trust?
+### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry supporta l'attendibilità del contenuto?
 
-Sì, è possibile usare immagini attendibili in Azure Container Registry, perché [il notatore Docker](https://docs.docker.com/notary/getting_started/) è stato integrato e può essere abilitato. Per informazioni dettagliate, vedere [attendibilità del contenuto in Azure container Registry](container-registry-content-trust.md).
+Sì, è possibile usare immagini attendibili in Azure Container Registry, perché il [notatore Docker](https://docs.docker.com/notary/getting_started/) è stato integrato e può essere abilitato. Per informazioni dettagliate, vedere [attendibilità del contenuto in Azure container Registry](container-registry-content-trust.md).
 
 
 ####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Dove si trova il file per l'identificazione personale?
@@ -216,12 +216,12 @@ ACR supporta [ruoli personalizzati](container-registry-roles.md) che forniscono 
   È quindi possibile assegnare il ruolo `AcrPull` o `AcrPush` a un utente (l'esempio seguente usa `AcrPull`):
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
+  ```
 
   In alternativa, assegnare il ruolo a un principio di servizio identificato dal relativo ID applicazione:
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -239,9 +239,9 @@ Il cessionario è quindi in grado di autenticare e accedere alle immagini nel re
   az acr repository list -n myRegistry
   ```
 
- Per eseguire il pull di un'immagine:
-    
-  ```azurecli
+* Per eseguire il pull di un'immagine:
+
+  ```console
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -275,9 +275,10 @@ Per risolvere i problemi comuni relativi all'ambiente e al registro di sistema, 
  - Se `docker pull` ha esito negativo in modo continuo, potrebbe essersi verificato un problema con il daemon docker. Il problema può in genere essere mitigato riavviando il daemon docker. 
  - Se si continua a visualizzare questo problema dopo il riavvio del daemon Docker, il problema potrebbe essere dovuto ad alcuni problemi di connettività di rete con il computer. Per verificare se la rete generale nel computer è integro, eseguire il comando seguente per testare la connettività dell'endpoint. La versione minima di `az acr` che contiene questo comando di verifica della connettività è 2.2.9. Aggiornare l'interfaccia della riga di comando di Azure se si usa una versione precedente.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - È necessario disporre sempre di un meccanismo di ripetizione dei tentativi per tutte le operazioni del client docker.
 
 ### <a name="docker-pull-is-slow"></a>Il pull di Docker è lento
@@ -308,7 +309,7 @@ unauthorized: authentication required
 ```
 
 Per risolvere l'errore:
-1. Aggiungere l'opzione `--signature-verification=false` al file di configurazione del daemon Docker `/etc/sysconfig/docker`. Ad esempio:
+1. Aggiungere l'opzione `--signature-verification=false` al file di configurazione del daemon Docker `/etc/sysconfig/docker`. Ad esempio,
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -360,10 +361,10 @@ Per informazioni dettagliate, vedere la [documentazione di Docker](https://docs.
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Le nuove autorizzazioni utente potrebbero non essere valide immediatamente dopo l'aggiornamento
 
-Quando si concedono nuove autorizzazioni (nuovi ruoli) a un'entità servizio, la modifica potrebbe non avere effetto immediato. Le ragioni possibili sono due:
+Quando si concedono nuove autorizzazioni (nuovi ruoli) a un'entità servizio, la modifica potrebbe non avere effetto immediato. Esistono due possibili motivi:
 
 * Ritardo dell'assegnazione di ruolo Azure Active Directory. Normalmente è veloce, ma potrebbero essere necessari pochi minuti a causa del ritardo della propagazione.
-* Ritardo delle autorizzazioni nel server del token ACR. Ciò potrebbe richiedere fino a 10 minuti. Per attenuare, è possibile `docker logout` e quindi eseguire di nuovo l'autenticazione con lo stesso utente dopo 1 minuto:
+* Ritardo delle autorizzazioni nel server del token ACR. Questa operazione potrebbe richiedere fino a 10 minuti. Per attenuare, è possibile `docker logout` e quindi eseguire di nuovo l'autenticazione con lo stesso utente dopo 1 minuto:
 
   ```bash
   docker logout myregistry.azurecr.io

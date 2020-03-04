@@ -3,12 +3,12 @@ title: Abilitare la crittografia del disco per i cluster Linux
 description: Questo articolo descrive come abilitare la crittografia del disco per i nodi del cluster Service Fabric di Azure in Linux usando Azure Resource Manager e Azure Key Vault.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: d990cfdee9a497135c67d99431807a85f8105b3b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609894"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252823"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Abilitare la crittografia del disco per i nodi del cluster Service Fabric di Azure in Linux 
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ L'anteprima della crittografia del disco per il set di scalabilità di macchine 
 
 Usare i comandi seguenti per creare un cluster e abilitare la crittografia del disco usando un modello di Azure Resource Manager e un certificato autofirmato.
 
-### <a name="sign-in-to-azure"></a>Accedere a Azure  
+### <a name="sign-in-to-azure"></a>Accedere ad Azure  
 
 Accedere con i comandi seguenti:
 
@@ -86,7 +86,7 @@ Set-AzContext -SubscriptionId <guid>
 
 ```
 
-```CLI
+```azurecli
 
 azure login
 az account set --subscription $subscriptionId

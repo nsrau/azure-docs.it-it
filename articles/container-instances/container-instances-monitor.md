@@ -3,12 +3,12 @@ title: Monitorare le istanze di contenitore
 description: Come monitorare il consumo delle risorse di calcolo, ad esempio CPU e memoria, da parte dei contenitori in Istanze di Azure Container.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: bd86161bc7840be599eb5ee9a20f6dbf143f5f22
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533637"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250023"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorare le risorse dei contenitori in Istanze di Azure Container
 
@@ -57,9 +57,11 @@ CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <co
 
 Usare il comando seguente per ottenere le metriche sull'uso della **CPU**
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
+```
 
+```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
 2019-04-23 22:59:00  CPU Usage
@@ -78,9 +80,11 @@ Timestamp            Name       Average
 
 Modificare il valore del parametro `--metric` nel comando per ottenere altre [metriche supportate][supported-metrics]. Ad esempio, usare il comando seguente per ottenere le metriche di utilizzo della **memoria**. 
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
+```
 
+```output
 Timestamp            Name          Average
 -------------------  ------------  ----------
 2019-04-23 22:59:00  Memory Usage
@@ -99,9 +103,11 @@ Timestamp            Name          Average
 
 Per un gruppo multi-contenitore, è possibile aggiungere la dimensione `containerName` per restituire i dati per ogni contenitore.
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
+```
 
+```output
 Timestamp            Name          Containername             Average
 -------------------  ------------  --------------------  -----------
 2019-04-23 22:59:00  Memory Usage  aci-tutorial-app

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c4a0e64e1f08bb3e80eaf67937da10906bfce0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591609"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255009"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: pianificare l'implementazione ibrida di Azure Active Directory join
 
@@ -30,7 +30,7 @@ Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività d
 
 Se si dispone di un ambiente di Active Directory (AD) locale e si desidera aggiungere i computer aggiunti a un dominio ad Azure AD, è possibile eseguire questa operazione eseguendo il join di Azure AD ibrido. Questo articolo fornisce i passaggi correlati per implementare un'aggiunta ad Azure AD ibrido nell'ambiente. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
@@ -43,11 +43,11 @@ Per pianificare l'implementazione di Azure AD ibrido, è necessario acquisire fa
 
 |   |   |
 | --- | --- |
-| ![Controllo][1] | Esaminare i dispositivi supportati |
-| ![Controllo][1] | Esaminare le informazioni utili |
-| ![Controllo][1] | Verifica la convalida controllata del join Azure AD ibrido |
-| ![Controllo][1] | Selezionare lo scenario in base all'infrastruttura di identità |
-| ![Controllo][1] | Verificare il supporto di AD UPN locale per ibrido Azure AD join |
+| ![Controlla][1] | Esaminare i dispositivi supportati |
+| ![Controlla][1] | Esaminare le informazioni utili |
+| ![Controlla][1] | Verifica la convalida controllata del join Azure AD ibrido |
+| ![Controlla][1] | Selezionare lo scenario in base all'infrastruttura di identità |
+| ![Controlla][1] | Verificare il supporto di AD UPN locale per ibrido Azure AD join |
 
 ## <a name="review-supported-devices"></a>Esaminare i dispositivi supportati
 
@@ -65,7 +65,7 @@ Per i dispositivi che eseguono il sistema operativo desktop Windows, la versione
 
 - Windows 8.1
 - Il supporto per Windows 7 è terminato il 14 gennaio 2020. Per ulteriori informazioni, vedere la pagina relativa al completamento [del supporto per Windows 7](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2. Per informazioni di supporto su Windows Server 2008 e 2008 R2, vedere la pagina relativa [alla fine del supporto tecnico per Windows server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
@@ -79,6 +79,8 @@ Come primo passaggio della pianificazione, è consigliabile esaminare l'ambiente
 - Azure AD ibrido join non è supportato per Windows Server che esegue il ruolo controller di dominio (DC).
 
 - Azure AD ibrido join non è supportato nei dispositivi Windows di livello inferiore quando si usa il roaming delle credenziali o il roaming del profilo utente o profilo obbligatorio.
+
+- Il sistema operativo Server Core non supporta alcun tipo di registrazione del dispositivo.
 
 ### <a name="os-imaging-considerations"></a>Considerazioni sull'imaging del sistema operativo
 - Se si utilizza l'utilità preparazione sistema (Sysprep) e si utilizza un'immagine **precedente a Windows 10 1809** per l'installazione, assicurarsi che l'immagine non venga da un dispositivo già registrato con Azure AD come Azure ad ibrido join.

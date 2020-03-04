@@ -3,8 +3,8 @@ title: 'Ruoli personalizzati: migrazioni in linea da SQL Server a istanza gestit
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come usare i ruoli personalizzati per SQL Server alle migrazioni online dell'istanza gestita di database SQL di Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 85c70968eb0f8a5752bbfa338918a8bba2fe7794
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e9a1024ca3ab68841474ab051c029042df4915b5
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437687"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254933"
 ---
 # <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Ruoli personalizzati per SQL Server alle migrazioni online dell'istanza gestita di database SQL
 

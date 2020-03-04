@@ -6,14 +6,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 351ed146511409fb4c6cc49705c7051b89ea0212
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: b891c8a7bbb33e3a3f18adbbc723d4bc9aa99a3a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226498"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246454"
 ---
-# <a name="my-first-graphical-runbook"></a>Il primo Runbook grafico
+# <a name="my-first-graphical-runbook"></a>Il primo runbook grafico
 
 > [!div class="op_single_selector"]
 > * [Grafico](automation-first-runbook-graphical.md)
@@ -22,7 +22,7 @@ ms.locfileid: "78226498"
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-Questa esercitazione illustra la creazione di un [Runbook grafico](automation-runbook-types.md#graphical-runbooks) in automazione di Azure. Inizia con un Runbook semplice che esegue test e pubblicazioni, imparando a tenere traccia dello stato del processo del Runbook. Modificare quindi il Runbook per gestire effettivamente le risorse di Azure, in questo caso avviando una macchina virtuale di Azure. Completare l'esercitazione per rendere il Runbook più affidabile aggiungendo i parametri Runbook e i collegamenti condizionali.
+Questa esercitazione illustra la creazione di un [runbook grafico](automation-runbook-types.md#graphical-runbooks) in Automazione di Azure. Inizia con un Runbook semplice che esegue test e pubblicazioni, imparando a tenere traccia dello stato del processo del Runbook. Modificare quindi il Runbook per gestire effettivamente le risorse di Azure, in questo caso avviando una macchina virtuale di Azure. Completare l'esercitazione per rendere il Runbook più affidabile aggiungendo i parametri Runbook e i collegamenti condizionali.
 
 >[!NOTE]
 >Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo AZ sul ruolo di lavoro ibrido per Runbook, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando [come aggiornare i moduli Azure PowerShell in automazione di Azure](automation-update-azure-modules.md).

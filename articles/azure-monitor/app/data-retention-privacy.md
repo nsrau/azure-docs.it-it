@@ -3,12 +3,12 @@ title: Conservazione e archiviazione dei dati in Azure Application Insights | Mi
 description: Informativa sulla conservazione e sulla privacy
 ms.topic: conceptual
 ms.date: 09/29/2019
-ms.openlocfilehash: 0b266eb0674f6de7dfb20311bba95bc7f4697f61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669659"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254866"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione dei dati in Application Insights
 
@@ -170,6 +170,12 @@ Per ulteriori informazioni, vedere [configurazione personalizzata di AspNetCore]
 Per impostazione predefinita, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` viene usato per i dati persistenti. Le autorizzazioni per accedere a questa cartella sono limitate all'utente corrente e agli amministratori. (Vedere [Implementazione](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts).)
 
 Il prefisso della cartella `appInsights-node` può essere sostituito modificando il valore di runtime della variabile statica `Sender.TEMPDIR_PREFIX` presente in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+
+### <a name="javascript-browser"></a>JavaScript (browser)
+
+L' [archiviazione della sessione HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) viene utilizzata per salvare in modo permanente i dati. Vengono utilizzati due buffer distinti: `AI_buffer` e `AI_sent_buffer`. I dati di telemetria in batch e in attesa di essere inviati vengono archiviati in `AI_buffer`. La telemetria appena inviata viene inserita in `AI_sent_buffer` finché il server di inserimento non risponde che è stato ricevuto correttamente. Quando la telemetria viene ricevuta correttamente, viene rimossa da tutti i buffer. In caso di errori temporanei (ad esempio, un utente perde la connettività di rete), la telemetria rimane in `AI_buffer` fino a quando non viene ricevuta correttamente o il server di inserimento risponde che i dati di telemetria non sono validi, ad esempio uno schema errato o troppo vecchio.
+
+I buffer di telemetria possono essere disabilitati impostando [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) su `false`. Quando l'archiviazione della sessione è disattivata, viene invece utilizzata una matrice locale come archivio permanente. Poiché JavaScript SDK viene eseguito in un dispositivo client, l'utente ha accesso a questa posizione di archiviazione tramite gli strumenti di sviluppo del browser.
 
 ### <a name="opencensus-python"></a>Python OpenCensus
 

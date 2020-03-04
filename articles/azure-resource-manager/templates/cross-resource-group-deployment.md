@@ -3,12 +3,12 @@ title: Distribuire le risorse tra sottoscrizioni & gruppo di risorse
 description: Illustra come specificare come destinazione più gruppi di sottoscrizioni e risorse di Azure durante la distribuzione.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8f5fbd51456003059f6a32fc32b32194a936434a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154211"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250613"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse
 
@@ -119,7 +119,7 @@ Se si imposta `resourceGroup` sul nome di un gruppo di risorse che non esiste, l
 
 Per testare il modello precedente e visualizzare i risultati, usare PowerShell o l'interfaccia della riga di comando di Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
 
@@ -211,9 +211,9 @@ La tabella seguente mostra se le funzioni vengono risolte nel gruppo di risorse 
 
 | Tipo di modello | Ambito | Risoluzione |
 | ------------- | ----- | ---------- |
-| nidificati        | Outer (impostazione predefinita) | Gruppo di risorse padre |
-| nidificati        | interno | Gruppo di risorse secondario |
-| collegato        | N/D   | Gruppo di risorse secondario |
+| annidati        | Outer (impostazione predefinita) | Gruppo di risorse padre |
+| annidati        | interna | Gruppo di risorse secondario |
+| collegate        | N/D   | Gruppo di risorse secondario |
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) seguente mostra:
 
@@ -317,7 +317,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Per testare il modello precedente e visualizzare i risultati, usare PowerShell o l'interfaccia della riga di comando di Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -340,7 +340,7 @@ L'output dell'esempio precedente è:
  linkedRG         String                     Linked resource group is linkedgroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -355,7 +355,7 @@ az group deployment create \
 
 L'output dell'esempio precedente è:
 
-```azurecli
+```output
 "outputs": {
   "defaultScopeRG": {
     "type": "String",

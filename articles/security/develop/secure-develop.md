@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 76219ec454fd105ed4bbf1a2fa0e922475d8dd1f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834978"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255652"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
 In questo articolo vengono presentati i controlli e le attività di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e di verifica di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
@@ -34,7 +34,7 @@ Si supponga che l'applicazione venga usata in modi che non si intendeva usare. C
 
 ### <a name="perform-code-reviews"></a>Eseguire revisioni del codice
 
-Prima di archiviare il codice, eseguire le [revisioni del codice](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) per aumentare la qualità complessiva del codice e ridurre il rischio di creare bug. È possibile usare [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) per gestire il processo di revisione del codice.
+Prima di archiviare il codice, eseguire le [revisioni](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) del codice per aumentare la qualità complessiva del codice e ridurre il rischio di creare bug. È possibile usare [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) per gestire il processo di revisione del codice.
 
 ### <a name="perform-static-code-analysis"></a>Eseguire l'analisi statica del codice
 
@@ -99,7 +99,7 @@ Se l'applicazione deve generare automaticamente le password, verificare che le p
 
 Se l'applicazione consente il [caricamento di file](https://www.owasp.org/index.php/Unrestricted_File_Upload), prendere in considerazione le precauzioni che è possibile intraprendere per questa attività rischiosa. Il primo passaggio di molti attacchi consiste nell'ottenere codice dannoso in un sistema in attacco. L'uso di un caricamento di file aiuta l'utente malintenzionato a eseguire questa operazione. OWASP offre soluzioni per la convalida di un file, in modo da garantire la sicurezza del file che si sta caricando.
 
-La protezione antimalware consente di identificare e rimuovere virus, spyware e altro software dannoso. È possibile installare [Microsoft antimalware](../fundamentals/antimalware.md) o una soluzione Endpoint Protection di un partner Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+La protezione antimalware consente di identificare e rimuovere virus, spyware e altro software dannoso. È possibile installare [Microsoft antimalware](../fundamentals/antimalware.md) o una soluzione Endpoint Protection di un partner Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft antimalware](../fundamentals/antimalware.md) include funzionalità come la protezione in tempo reale, l'analisi pianificata, la correzione malware, gli aggiornamenti delle firme, gli aggiornamenti del motore, la creazione di report di esempio e la raccolta di eventi di esclusione. È possibile integrare Microsoft Antimalware e soluzioni partner con [Centro sicurezza di Azure](../../security-center/security-center-partner-integration.md) per facilitare la distribuzione e i rilevamenti predefiniti (avvisi ed eventi imprevisti).
 

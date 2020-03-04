@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b3278615b90fe2ef539456c3f00eb877918aa9c2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033637"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248369"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Pianificare una distribuzione del proxy di applicazione Azure AD
 
@@ -38,7 +38,7 @@ La sezione seguente offre una panoramica generale degli elementi principali dell
 
 Prima di iniziare l'implementazione, è necessario soddisfare i prerequisiti seguenti. In questa [esercitazione](application-proxy-add-on-premises-application.md)è possibile visualizzare altre informazioni sulla configurazione dell'ambiente, inclusi questi prerequisiti.
 
-* **Connettori**: I connettori sono agenti leggeri su cui è possibile eseguire la distribuzione:
+* **Connettori**: i connettori sono agenti leggeri su cui è possibile eseguire la distribuzione:
    * Hardware fisico locale
    * Una macchina virtuale ospitata in qualsiasi soluzione hypervisor
    * Una macchina virtuale ospitata in Azure per abilitare la connessione in uscita al servizio proxy di applicazione.
@@ -50,7 +50,7 @@ Prima di iniziare l'implementazione, è necessario soddisfare i prerequisiti seg
      * Se possibile, distribuire i connettori nella [stessa rete e nello stesso](application-proxy-network-topology.md) segmento dei server applicazioni Web back-end. È consigliabile distribuire i connettori dopo aver completato l'individuazione delle applicazioni.
      * È consigliabile che ogni gruppo di connettori disponga di almeno due connettori per garantire disponibilità elevata e scalabilità. La presenza di tre connettori è ottimale nel caso in cui sia necessario servire un computer in qualsiasi momento. Esaminare la [tabella](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) relativa alla capacità del connettore per determinare il tipo di computer in cui installare i connettori. Maggiore è il numero di buffer e l'esecuzione del connettore sarà maggiore.
 
-* **Impostazioni di accesso alla rete**: Azure AD connettori del proxy [di applicazione si connettono ad Azure tramite HTTPS (porta tcp 443) e http (porta tcp 80)](application-proxy-add-on-premises-application.md). 
+* **Impostazioni di accesso alla rete**: Azure ad connettori del proxy [di applicazione si connettono ad Azure tramite HTTPS (porta TCP 443) e http (porta TCP 80)](application-proxy-add-on-premises-application.md). 
 
    * Il traffico TLS del connettore di terminazione non è supportato e impedirà ai connettori di stabilire un canale sicuro con i rispettivi endpoint proxy del app Azure.
 
@@ -62,15 +62,15 @@ Prima di iniziare l'implementazione, è necessario soddisfare i prerequisiti seg
 
 Per configurare e implementare Azure AD proxy di applicazione, è necessario soddisfare i requisiti di base seguenti.
 
-*  **Onboarding di Azure**: Prima di distribuire il proxy di applicazione, le identità utente devono essere sincronizzate da una directory locale o create direttamente all'interno dei tenant Azure AD. La sincronizzazione delle identità consente ad Azure AD di preautenticare gli utenti prima di concedere loro l'accesso alle applicazioni pubblicate tramite proxy di applicazione e di ottenere le informazioni degli ID utente necessarie per eseguire l'accesso Single Sign-On (SSO).
+*  **Onboarding di Azure**: prima di distribuire il proxy di applicazione, le identità utente devono essere sincronizzate da una directory locale o create direttamente all'interno dei tenant Azure ad. La sincronizzazione delle identità consente ad Azure AD di preautenticare gli utenti prima di concedere loro l'accesso alle applicazioni pubblicate tramite proxy di applicazione e di ottenere le informazioni degli ID utente necessarie per eseguire l'accesso Single Sign-On (SSO).
 
-* **Requisiti di accesso condizionale**: Non è consigliabile usare il proxy di applicazione per l'accesso alla Intranet perché questa operazione aggiunge una latenza che avrà un effetto sugli utenti. Si consiglia di usare il proxy di applicazione con i criteri di pre-autenticazione e di accesso condizionale per l'accesso remoto da Internet.  Un approccio per fornire l'accesso condizionale per l'uso della Intranet consiste nel modernizzare le applicazioni in modo che possano eseguire l'autenticazione direttamente con AAD. Per altre informazioni, vedere [risorse per la migrazione di applicazioni ad Aad](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
+* **Requisiti di accesso condizionale**: non è consigliabile usare il proxy di applicazione per l'accesso alla Intranet perché questa operazione consente di aumentare la latenza che influirà sugli utenti. Si consiglia di usare il proxy di applicazione con i criteri di pre-autenticazione e di accesso condizionale per l'accesso remoto da Internet.  Un approccio per fornire l'accesso condizionale per l'uso della Intranet consiste nel modernizzare le applicazioni in modo che possano eseguire l'autenticazione direttamente con AAD. Per altre informazioni, vedere [risorse per la migrazione di applicazioni ad Aad](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
 
-* **Limiti del servizio**: Per evitare il sovraconsumo delle risorse da singoli tenant, sono impostati limiti di limitazione delle richieste per ogni applicazione e tenant. Per visualizzare questi limiti, fare riferimento a [limiti e restrizioni del servizio Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Questi limiti di limitazione sono basati su un benchmark molto superiore al volume di utilizzo tipico e forniscono un ampio buffer per la maggior parte delle distribuzioni.
+* **Limiti del servizio**: per evitare il sovraconsumo delle risorse da singoli tenant sono presenti limiti di limitazione impostati per ogni applicazione e tenant. Per visualizzare questi limiti, fare riferimento a [limiti e restrizioni del servizio Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Questi limiti di limitazione sono basati su un benchmark molto superiore al volume di utilizzo tipico e forniscono un ampio buffer per la maggior parte delle distribuzioni.
 
-* **Certificato pubblico**: Se si utilizzano nomi di dominio personalizzati, è necessario ottenere un certificato pubblico rilasciato da un'autorità di certificazione non Microsoft attendibile. A seconda dei requisiti dell'organizzazione, l'ottenimento di un certificato può richiedere del tempo ed è consigliabile iniziare il processo il prima possibile. Applicazione Azure proxy supporta certificati standard, con [caratteri jolly](application-proxy-wildcard.md)o San.
+* **Certificato pubblico**: se si usano nomi di dominio personalizzati, è necessario ottenere un certificato SSL. A seconda dei requisiti dell'organizzazione, l'ottenimento di un certificato può richiedere del tempo ed è consigliabile iniziare il processo il prima possibile. Applicazione Azure proxy supporta certificati standard, con [caratteri jolly](application-proxy-wildcard.md)o San. Per altri dettagli, vedere [configurare domini personalizzati con Azure ad proxy di applicazione](application-proxy-configure-custom-domain.md).
 
-* **Requisiti di dominio**: L'accesso Single Sign-on alle applicazioni pubblicate mediante la delega vincolata Kerberos (delega vincolata Kerberos) richiede che il server che esegue il connettore e il server che esegue l'app siano aggiunti a un dominio e facciano parte dello stesso dominio o domini trusting.
+* **Requisiti di dominio**: l'accesso Single Sign-on alle applicazioni pubblicate mediante la delega vincolata Kerberos (delega vincolata Kerberos) richiede che il server che esegue il connettore e il server che esegue l'app siano aggiunti a un dominio e facciano parte dello stesso dominio o domini trusting.
 Per informazioni dettagliate sull'argomento, vedere [delega vincolata Kerberos per Single Sign-on](application-proxy-configure-single-sign-on-with-kcd.md) con il proxy di applicazione. Il servizio del connettore viene eseguito nel contesto del sistema locale e non deve essere configurato per l'uso di un'identità personalizzata.
 
 * **Record DNS per gli URL**
@@ -85,16 +85,16 @@ Per informazioni dettagliate sull'argomento, vedere [delega vincolata Kerberos p
 
    * **Per la pubblicazione e l'amministrazione delle applicazioni** è necessario il ruolo di *amministratore dell'applicazione* . Gli amministratori di applicazioni possono gestire tutte le applicazioni nella directory, incluse le registrazioni, le impostazioni SSO, le assegnazioni di utenti e gruppi e le licenze, le impostazioni del proxy di applicazione e il consenso. Non consente tuttavia di gestire l'accesso condizionale. Il ruolo di *amministratore dell'applicazione cloud* ha tutte le capacità dell'amministratore dell'applicazione, ad eccezione del fatto che non consente la gestione delle impostazioni del proxy di applicazione.
 
-* **Licenze**: Il proxy di applicazione è disponibile tramite una sottoscrizione Azure AD Premium. Per un elenco completo delle opzioni e delle funzionalità di licenza, fare riferimento alla [pagina dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) .  
+* **Licenze**: il proxy di applicazione è disponibile tramite una sottoscrizione Azure ad Premium. Per un elenco completo delle opzioni e delle funzionalità di licenza, fare riferimento alla [pagina dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) .  
 
 ### <a name="application-discovery"></a>Individuazione di applicazioni
 
 Compilare un inventario di tutte le applicazioni nell'ambito pubblicate tramite il proxy di applicazione raccogliendo le seguenti informazioni:
 
-| Tipo di informazioni| Informazioni da raccogliere |
+| Information Type| Informazioni da raccogliere |
 |---|---|
-| Tipo di servizio| Ad esempio:  SharePoint, SAP, CRM, applicazione Web personalizzata, API |
-| Piattaforma applicativa | Esempio: Windows IIS, Apache in Linux, Tomcat, NGINX |
+| Tipo di servizio| Ad esempio: SharePoint, SAP, CRM, applicazione Web personalizzata, API |
+| Piattaforma applicativa | Ad esempio: Windows IIS, Apache in Linux, Tomcat, NGINX |
 | Appartenenza al dominio| Nome di dominio completo (FQDN) del server Web |
 | Percorso applicazione | Posizione in cui si trova la farm o il server Web nell'infrastruttura |
 | Accesso interno | URL esatto utilizzato per accedere all'applicazione internamente. <br> Se una farm, quale tipo di bilanciamento del carico è in uso? <br> Indica se l'applicazione crea contenuto da origini diverse da se stesso.<br> Determinare se l'applicazione funziona su WebSocket. |
@@ -153,9 +153,9 @@ Gli elementi di progettazione seguenti dovrebbero aumentare il successo dell'imp
 
 * Limitare la visibilità dell'icona dell'applicazione pilota a un gruppo pilota nascondendo l'icona di avvio dal portale app di Azure. Quando è pronto per la produzione, è possibile definire l'ambito dell'app sui rispettivi destinatari, nello stesso tenant di pre-produzione, oppure pubblicare anche l'applicazione nel tenant di produzione.
 
-**Impostazioni di Single Sign-on**: Alcune impostazioni SSO hanno dipendenze specifiche che possono richiedere tempo per la configurazione, quindi evitare ritardi di controllo delle modifiche assicurando che le dipendenze vengano risolte in anticipo. Sono inclusi gli host del connettore di aggiunta al dominio per eseguire l'accesso SSO tramite la delega vincolata Kerberos (delega vincolata Kerberos) e la cura di altre attività che richiedono molto tempo. Ad esempio, la configurazione di un'istanza di accesso al PING, se è necessario un SSO basato su intestazione.
+**Impostazioni di Single Sign-on**: alcune impostazioni SSO hanno dipendenze specifiche che possono richiedere tempo per la configurazione, quindi evitare ritardi di controllo delle modifiche assicurando che le dipendenze vengano risolte in anticipo. Sono inclusi gli host del connettore di aggiunta al dominio per eseguire l'accesso SSO tramite la delega vincolata Kerberos (delega vincolata Kerberos) e la cura di altre attività che richiedono molto tempo. Ad esempio, la configurazione di un'istanza di accesso al PING, se è necessario un SSO basato su intestazione.
 
-**SSL tra l'host del connettore e l'applicazione di destinazione**: La sicurezza è fondamentale, quindi è consigliabile usare sempre TLS tra l'host del connettore e le applicazioni di destinazione. In particolare, se l'applicazione Web è configurata per l'autenticazione basata su form (FBA), poiché le credenziali utente vengono trasmesse in modo efficace come testo non crittografato.
+**SSL tra l'host del connettore e l'applicazione di destinazione**: la sicurezza è fondamentale, quindi è consigliabile usare sempre TLS tra l'host del connettore e le applicazioni di destinazione. In particolare, se l'applicazione Web è configurata per l'autenticazione basata su form (FBA), poiché le credenziali utente vengono trasmesse in modo efficace come testo non crittografato.
 
 **Implementare in modo incrementale e testare ogni passaggio**. Eseguire test funzionali di base dopo la pubblicazione di un'applicazione per garantire che tutti i requisiti utente e aziendale siano soddisfatti seguendo le istruzioni seguenti:
 
@@ -164,7 +164,7 @@ Gli elementi di progettazione seguenti dovrebbero aumentare il successo dell'imp
 3. Aggiungere quindi il metodo SSO per l'applicazione e testare di nuovo per convalidare l'accesso.
 4. Applicare i criteri di accesso condizionale e di autenticazione a più fattori come richiesto. Testare e convalidare l'accesso.
 
-**Strumenti per la risoluzione dei problemi**: Per la risoluzione dei problemi, iniziare sempre convalidando l'accesso all'applicazione pubblicata dal browser nell'host del connettore e verificare che l'applicazione funzioni come previsto. La configurazione più semplice, più facile da determinare la causa principale, si consiglia di provare a riprodurre problemi con una configurazione minima, ad esempio l'uso di un singolo connettore e di nessun SSO. In alcuni casi, gli strumenti di debug Web, ad esempio Fiddler di Telerik, possono risultare indispensabili per la risoluzione dei problemi di accesso o contenuto nelle applicazioni a cui si accede tramite un proxy. Fiddler può anche fungere da proxy per facilitare la traccia e il debug del traffico per le piattaforme mobili, ad esempio iOS e Android, e praticamente qualsiasi elemento che può essere configurato per l'indirizzamento tramite un proxy. Per ulteriori informazioni, vedere la [Guida alla risoluzione dei problemi](application-proxy-troubleshoot.md) .
+**Strumenti per la risoluzione dei problemi**: durante la risoluzione dei problemi, iniziare sempre convalidando l'accesso all'applicazione pubblicata dal browser nell'host del connettore e verificare che l'applicazione funzioni come previsto. La configurazione più semplice, più facile da determinare la causa principale, si consiglia di provare a riprodurre problemi con una configurazione minima, ad esempio l'uso di un singolo connettore e di nessun SSO. In alcuni casi, gli strumenti di debug Web, ad esempio Fiddler di Telerik, possono risultare indispensabili per la risoluzione dei problemi di accesso o contenuto nelle applicazioni a cui si accede tramite un proxy. Fiddler può anche fungere da proxy per facilitare la traccia e il debug del traffico per le piattaforme mobili, ad esempio iOS e Android, e praticamente qualsiasi elemento che può essere configurato per l'indirizzamento tramite un proxy. Per ulteriori informazioni, vedere la [Guida alla risoluzione dei problemi](application-proxy-troubleshoot.md) .
 
 ## <a name="implement-your-solution"></a>Implementare la soluzione
 
@@ -180,25 +180,25 @@ Per la pubblicazione di applicazioni si presuppone che siano stati soddisfatti t
 
 Di seguito sono riportate alcune procedure consigliate da seguire per la pubblicazione di un'applicazione:
 
-* **Usare i gruppi di connettori**: Assegnare un gruppo di connettori designato per la pubblicazione di tutte le rispettive applicazioni. È consigliabile che ogni gruppo di connettori disponga di almeno due connettori per garantire disponibilità elevata e scalabilità. La presenza di tre connettori è ottimale nel caso in cui sia necessario servire un computer in qualsiasi momento. Vedere anche [pubblicare applicazioni in reti e posizioni separate usando i gruppi di connettori](application-proxy-connector-groups.md) per vedere come è possibile usare i gruppi di connettori per segmentare i connettori in base alla rete o alla località.
+* **Usare i gruppi di connettori**: assegnare un gruppo di connettori designato per la pubblicazione di ogni applicazione corrispondente. È consigliabile che ogni gruppo di connettori disponga di almeno due connettori per garantire disponibilità elevata e scalabilità. La presenza di tre connettori è ottimale nel caso in cui sia necessario servire un computer in qualsiasi momento. Vedere anche [pubblicare applicazioni in reti e posizioni separate usando i gruppi di connettori](application-proxy-connector-groups.md) per vedere come è possibile usare i gruppi di connettori per segmentare i connettori in base alla rete o alla località.
 
-* **Imposta timeout applicazione back-end**: Questa impostazione è utile negli scenari in cui l'applicazione potrebbe richiedere più di 75 secondi per l'elaborazione di una transazione client. Ad esempio, quando un client invia una query a un'applicazione Web che funge da front-end per un database. Il front-end invia la query al server di database back-end e attende una risposta, ma al momento della ricezione di una risposta, si verifica il timeout del lato client della conversazione. L'impostazione del timeout su Long fornisce 180 secondi per il completamento delle transazioni più lunghe.
+* **Imposta timeout applicazione back-end**: questa impostazione è utile negli scenari in cui l'applicazione potrebbe richiedere più di 75 secondi per elaborare una transazione client. Ad esempio, quando un client invia una query a un'applicazione Web che funge da front-end per un database. Il front-end invia la query al server di database back-end e attende una risposta, ma al momento della ricezione di una risposta, si verifica il timeout del lato client della conversazione. L'impostazione del timeout su Long fornisce 180 secondi per il completamento delle transazioni più lunghe.
 
 * **Usare i tipi di cookie appropriati**
 
-   * **Cookie solo http**: Fornisce sicurezza aggiuntiva con il proxy di applicazione che include il flag HTTPOnly nelle intestazioni di risposta HTTP set-cookie. Questa impostazione consente di attenuare gli exploit come gli attacchi XSS (cross-site scripting). Lasciare questa impostazione su No per i client o gli agenti utente che richiedono l'accesso al cookie di sessione. Ad esempio, il client RDP/MTSC si connette a un Gateway Desktop remoto pubblicato tramite il proxy applicazione.
+   * **Cookie solo http**: fornisce sicurezza aggiuntiva con il proxy di applicazione che include il flag HttpOnly nelle intestazioni di risposta http set-cookie. Questa impostazione consente di attenuare gli exploit come gli attacchi XSS (cross-site scripting). Lasciare questa impostazione su No per i client o gli agenti utente che richiedono l'accesso al cookie di sessione. Ad esempio, il client RDP/MTSC si connette a un Gateway Desktop remoto pubblicato tramite il proxy applicazione.
 
-   * **Cookie protetto**: Quando si imposta un cookie con l'attributo Secure, l'agente utente (app sul lato client) includerà solo il cookie nelle richieste HTTP se la richiesta viene trasmessa su un canale protetto da TLS. Questo consente di ridurre il rischio di compromissione di un cookie su canali di testo non crittografati, pertanto dovrebbe essere abilitato.
+   * **Cookie protetto**: quando si imposta un cookie con l'attributo Secure, l'agente utente (app sul lato client) includerà solo il cookie nelle richieste HTTP se la richiesta viene trasmessa su un canale protetto da TLS. Questo consente di ridurre il rischio di compromissione di un cookie su canali di testo non crittografati, pertanto dovrebbe essere abilitato.
 
-   * **Cookie permanente**: Consente di mantenere il cookie di sessione del proxy di applicazione tra le chiusure del browser rimanendo valido finché non scade o non viene eliminato. Usato per gli scenari in cui un'applicazione avanzata, ad esempio Office, accede a un documento all'interno di un'applicazione Web pubblicata, senza che venga richiesta l'autenticazione da parte dell'utente. Abilitare con cautela, tuttavia, poiché i cookie permanenti possono lasciare un servizio a rischio di accesso non autorizzato, se non usato insieme ad altri controlli di compensazione. Questa impostazione deve essere usata solo per le applicazioni meno recenti che non possono condividere cookie tra i processi. È preferibile aggiornare l'applicazione per gestire la condivisione dei cookie tra i processi anziché usare questa impostazione.
+   * **Cookie permanente**: consente la persistenza del cookie di sessione del proxy di applicazione tra le chiusure del browser rimanendo valido finché non scade o non viene eliminato. Usato per gli scenari in cui un'applicazione avanzata, ad esempio Office, accede a un documento all'interno di un'applicazione Web pubblicata, senza che venga richiesta l'autenticazione da parte dell'utente. Abilitare con cautela, tuttavia, poiché i cookie permanenti possono lasciare un servizio a rischio di accesso non autorizzato, se non usato insieme ad altri controlli di compensazione. Questa impostazione deve essere usata solo per le applicazioni meno recenti che non possono condividere cookie tra i processi. È preferibile aggiornare l'applicazione per gestire la condivisione dei cookie tra i processi anziché usare questa impostazione.
 
-* **Converti URL nelle intestazioni**: Questa operazione viene abilitata per gli scenari in cui non è possibile configurare il DNS interno in modo che corrisponda allo spazio dei nomi pubblico dell'organizzazione (a. k. a Split DNS). A meno che l'applicazione non richieda l'intestazione host originale nella richiesta client, lasciare questo valore impostato su Sì. In alternativa è possibile fare in modo che il connettore usi il nome di dominio completo nell'URL interno per il routing del traffico effettivo e il nome di dominio completo nell'URL esterno come intestazione host. Nella maggior parte dei casi questa alternativa deve consentire all'applicazione di funzionare normalmente, quando si accede in modalità remota, ma gli utenti perdono i vantaggi derivanti dalla presenza di una corrispondenza all'interno & URL esterno.
+* **Tradurre URL nelle intestazioni**: questa operazione viene abilitata per gli scenari in cui non è possibile configurare il DNS interno in modo che corrisponda allo spazio dei nomi pubblico dell'organizzazione (a. k. a Split DNS). A meno che l'applicazione non richieda l'intestazione host originale nella richiesta client, lasciare questo valore impostato su Sì. In alternativa è possibile fare in modo che il connettore usi il nome di dominio completo nell'URL interno per il routing del traffico effettivo e il nome di dominio completo nell'URL esterno come intestazione host. Nella maggior parte dei casi questa alternativa deve consentire all'applicazione di funzionare normalmente, quando si accede in modalità remota, ma gli utenti perdono i vantaggi derivanti dalla presenza di una corrispondenza all'interno & URL esterno.
 
-* **Converti gli URL nel corpo dell’applicazione**: Attivare la conversione del collegamento del corpo dell'applicazione per un'app quando si desidera che i collegamenti da tale app vengano tradotti nelle risposte al client. Se abilitata, questa funzione fornisce un tentativo ottimale di conversione di tutti i collegamenti interni individuati dal proxy applicazione nelle risposte HTML e CSS restituite ai client. È utile quando si pubblicano app che contengono collegamenti Absolute hardcoded o NetBIOS ShortName nel contenuto oppure app con contenuto che si collega ad altre applicazioni locali.
+* **Convertire gli URL nel corpo dell'applicazione**: attivare la conversione del collegamento del corpo dell'applicazione per un'app quando si desidera che i collegamenti da tale app vengano tradotti nelle risposte al client. Se abilitata, questa funzione fornisce un tentativo ottimale di conversione di tutti i collegamenti interni individuati dal proxy applicazione nelle risposte HTML e CSS restituite ai client. È utile quando si pubblicano app che contengono collegamenti Absolute hardcoded o NetBIOS ShortName nel contenuto oppure app con contenuto che si collega ad altre applicazioni locali.
 
 Per gli scenari in cui un'app pubblicata si collega ad altre app pubblicate, abilitare la conversione dei collegamenti per ogni applicazione, in modo da avere il controllo dell'esperienza utente a livello di app.
 
-Ad esempio, si supponga di avere tre applicazioni pubblicate mediante il proxy di applicazione e che tutte siano collegate tra loro: Vantaggi, spese e viaggi, oltre a una quarta app, commenti e suggerimenti, che non vengono pubblicati tramite il proxy di applicazione.
+Si supponga, ad esempio, di disporre di tre applicazioni pubblicate tramite il proxy di applicazione che si collegano tra loro: vantaggi, spese e viaggi, oltre a una quarta app, commenti e suggerimenti, che non vengono pubblicate tramite il proxy di applicazione.
 
 ![Immagine 1](media/App-proxy-deployment-plan/link-translation.png)
 
@@ -227,7 +227,7 @@ Per le applicazioni locali normalmente accessibili in modo anonimo, che non rich
 
 Se si lascia questa opzione impostata su No, gli utenti possono accedere all'applicazione locale tramite App Azure AD proxy senza autorizzazioni, quindi usare con cautela.
 
-Una volta pubblicata, l'applicazione deve essere accessibile digitando il relativo URL esterno in un browser o tramite la relativa [https://myapps.microsoft.com](https://myapps.microsoft.com/)icona all'indirizzo.
+Una volta pubblicata, l'applicazione deve essere accessibile digitando il relativo URL esterno in un browser o tramite la relativa icona in [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
 ### <a name="enable-pre-authentication"></a>Abilita pre-autenticazione
 
@@ -263,15 +263,15 @@ La sicurezza delle applicazioni richiede un set avanzato di funzionalità di sic
 
 Per supportare Azure AD proxy di applicazione, è possibile usare le funzionalità seguenti:
 
-* Accesso condizionale basato su utente e percorso: Proteggere i dati sensibili limitando l'accesso utente in base alla posizione geografica o a un indirizzo IP con [criteri di accesso condizionale basati sulla posizione](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+* Accesso condizionale basato su utenti e località: Mantieni i dati sensibili protetti limitando l'accesso degli utenti in base alla posizione geografica o a un indirizzo IP con [criteri di accesso condizionale basati sulla posizione](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
-* Accesso condizionale basato su dispositivo: Assicurarsi che i dispositivi registrati, approvati e conformi possano accedere ai dati aziendali con [accesso condizionale basato su dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
+* Accesso condizionale basato su dispositivo: assicurarsi che solo i dispositivi registrati, approvati e conformi possano accedere ai dati aziendali con [accesso condizionale basato su dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
 
-* Accesso condizionale basato sull'applicazione: Non è necessario arrestare il lavoro quando un utente non è presente nella rete aziendale. [Proteggi l'accesso al cloud aziendale e alle app locali](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) e Mantieni il controllo con l'accesso condizionale.
+* Accesso condizionale basato sull'applicazione: non è necessario arrestare il lavoro quando un utente non è presente nella rete aziendale. [Proteggi l'accesso al cloud aziendale e alle app locali](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) e Mantieni il controllo con l'accesso condizionale.
 
-* Accesso condizionale basato sul rischio: Proteggi i tuoi dati da hacker malintenzionati con [criteri di accesso condizionale basati sul rischio](https://www.microsoft.com/cloud-platform/conditional-access) che possono essere applicati a tutte le app e a tutti gli utenti, sia in locale che nel cloud.
+* Accesso condizionale basato sul rischio: Proteggi i dati da hacker malintenzionati con [criteri di accesso condizionale basati sul rischio](https://www.microsoft.com/cloud-platform/conditional-access) che possono essere applicati a tutte le app e a tutti gli utenti, sia in locale che nel cloud.
 
-* Pannello di accesso Azure AD: Con la distribuzione del servizio proxy di applicazione e la pubblicazione sicura delle applicazioni, offrire agli utenti un hub semplice per individuare e accedere a tutte le applicazioni. Aumenta la produttività con le funzionalità self-service, ad esempio la possibilità di richiedere l'accesso a nuove app e gruppi o di gestire l'accesso a queste risorse per conto di altri utenti, tramite il [Pannello di accesso](https://aka.ms/AccessPanelDPDownload).
+* Azure AD pannello di accesso: con il servizio proxy applicazione distribuito e le applicazioni pubblicate in modo sicuro, offrire agli utenti un hub semplice per individuare e accedere a tutte le applicazioni. Aumenta la produttività con le funzionalità self-service, ad esempio la possibilità di richiedere l'accesso a nuove app e gruppi o di gestire l'accesso a queste risorse per conto di altri utenti, tramite il [Pannello di accesso](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Gestire l'implementazione
 
@@ -281,14 +281,14 @@ Microsoft sostiene il principio di concedere il privilegio meno possibile per es
 
 | Ruolo aziendale| Attività aziendali| Ruoli di Azure AD |
 |---|---|---|
-| Amministratore del supporto tecnico | In genere, l'utente finale ha segnalato problemi ed esegue attività limitate, ad esempio la modifica delle password degli utenti, l'invalidamento dei token di aggiornamento e il monitoraggio dell'integrità del servizio. | Amministratore supporto tecnico |
+| Amministratore del supporto tecnico | In genere, l'utente finale ha segnalato problemi ed esegue attività limitate, ad esempio la modifica delle password degli utenti, l'invalidamento dei token di aggiornamento e il monitoraggio dell'integrità del servizio. | Amministratore del supporto tecnico |
 | Amministratore identità| Leggere Azure AD accedere ai report e ai log di controllo per eseguire il debug dei problemi correlati al proxy app.| Ruolo con autorizzazioni di lettura per la sicurezza |
 | Proprietario dell'applicazione| Creare e gestire tutti gli aspetti delle applicazioni aziendali, le registrazioni di applicazioni e le impostazioni del proxy di applicazione.| Amministratore applicazione |
 | Amministratore dell'infrastruttura | Proprietario del rollover del certificato | Amministratore applicazione |
 
 Ridurre al minimo il numero di persone che hanno accesso a informazioni o risorse protette contribuirà a ridurre le probabilità che un attore malintenzionato ottenga l'accesso non autorizzato o un utente autorizzato che influisca inavvertitamente su una risorsa sensibile. 
  
-Tuttavia, gli utenti devono comunque eseguire operazioni con privilegi giornalieri, in modo da applicare i criteri di [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) basati su JIT (just-in-Time) per fornire accesso con privilegi su richiesta alle risorse di Azure e Azure ad è l'approccio consigliato per gestire efficacemente l'accesso amministrativo e il controllo.
+Tuttavia, gli utenti devono comunque eseguire operazioni con privilegi giornalieri, in modo da applicare i criteri JIT (just-in-Time) basati su [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) per fornire accesso con privilegi su richiesta alle risorse di Azure e Azure ad è l'approccio consigliato per la gestione efficace dell'accesso e del controllo amministrativi.
 
 ### <a name="reporting-and-monitoring"></a>Monitoraggio e creazione di report
 
@@ -302,7 +302,7 @@ Questi log forniscono informazioni dettagliate sugli accessi alle applicazioni c
 
 I connettori e il servizio si occupano di tutte le attività che richiedono disponibilità elevata. È possibile monitorare lo stato dei connettori dalla pagina del proxy di applicazione nel portale di Azure AD. Per altre informazioni sul connettore manutenzione, vedere [comprendere Azure ad connettori del proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
 
-![Esempio: Connettori del proxy di applicazione Azure AD](./media/application-proxy-connectors/app-proxy-connectors.png)
+![Esempio: Azure AD connettori del proxy di applicazione](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Registri eventi e contatori delle prestazioni di Windows
 

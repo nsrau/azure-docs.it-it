@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982151"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250218"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
 
@@ -174,7 +174,7 @@ Se si dispone di un file **proto**, il passaggio successivo consiste nel generar
 
 1. [Scaricare il compilatore Protobuf da GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Eseguire il compilatore specificando la directory di origine, la directory di destinazione e il nome del file **proto**. Ad esempio:
+1. Eseguire il compilatore specificando la directory di origine, la directory di destinazione e il nome del file **proto**. Ad esempio,
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Aprire il file **WebService\appsettings.ini** e modificare le impostazioni nel m
 
 Per impostazione predefinita, i file JSON e JS del nuovo modello di dispositivo non verranno copiati all'interno della soluzione creata. È necessario includerli esplicitamente.
 
-Aggiungere una voce al file **services\services.csproj** per ogni file da includere. Ad esempio:
+Aggiungere una voce al file **services\services.csproj** per ogni file da includere. Ad esempio,
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -231,7 +231,7 @@ Lo script seguente presuppone che il nome dell'hub IoT sia **device-simulation-t
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

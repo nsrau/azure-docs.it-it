@@ -1,19 +1,17 @@
 ---
 title: Ripristinare un'app da uno snapshot
 description: Informazioni su come ripristinare l'app da uno snapshot. Eseguire il ripristino da una perdita di dati imprevista nel livello Premium con le copie shadow automatiche.
-author: ahmedelnably
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: e5b48e05d6bd9a310b4527300126464c4b755c8d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671146"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255140"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Ripristinare un'app in Azure da uno snapshot
 Questo articolo illustra come ripristinare un'app in [Servizio app di Azure](../app-service/overview.md) da uno snapshot. È possibile ripristinare uno stato precedente dell'app, in base a uno degli snapshot dell'app. Non è necessario abilitare il backup degli snapshot. La piattaforma salva automaticamente uno snapshot di tutte le app per scopi di ripristino dei dati.
@@ -21,7 +19,7 @@ Questo articolo illustra come ripristinare un'app in [Servizio app di Azure](../
 Gli snapshot sono copie shadow incrementali e offrono diversi vantaggi rispetto ai normali [backup](manage-backup.md):
 - Nessun errore di copia di file a causa di blocchi di file.
 - Nessuna limitazione delle dimensioni di archiviazione.
-- Nessuna configurazione necessaria.
+- Nessuna configurazione richiesta.
 
 Il ripristino da snapshot è disponibile per le app in esecuzione a livello **Premium** o superiore. Per informazioni sul passaggio dell'app a un piano superiore, vedere [Scalare un'app Web in Servizio app di Azure](manage-scale-up.md).
 

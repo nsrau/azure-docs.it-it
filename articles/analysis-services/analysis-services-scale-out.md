@@ -4,15 +4,15 @@ description: Eseguire la replica di Azure Analysis Services server con scalabili
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310187"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247986"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -30,7 +30,7 @@ Indipendentemente dal numero di repliche di query presenti in un pool di query, 
 
 Quando si aumenta la scalabilità orizzontale, possono essere necessari fino a cinque minuti per aggiungere le nuove repliche di query al pool di query. Quando tutte le nuove repliche di query sono in esecuzione, le nuove connessioni client vengono sottoposte a bilanciamento del carico tra le risorse nel pool di query. Le connessioni client esistenti non vengono modificate dalla risorsa alla quale sono attualmente connesse. Durante il ridimensionamento verticale, tutte le connessioni client esistenti a una risorsa del pool di query che viene rimossa dal pool di query vengono terminate. I client possono riconnettersi a una risorsa del pool di query rimanente.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si configura la scalabilità orizzontale per la prima volta, i database modello nel server primario vengono sincronizzati *automaticamente* con le nuove repliche in un nuovo pool di query. La sincronizzazione automatica viene eseguita una sola volta. Durante la sincronizzazione automatica, i file di dati del server primario (crittografati inattivi nell'archivio BLOB) vengono copiati in una seconda posizione, crittografati anche inattivi nell'archivio BLOB. Le repliche nel pool di query vengono quindi *idratate* con i dati del secondo set di file. 
 
@@ -74,19 +74,23 @@ Per ottenere prestazioni ottimali sia delle operazioni di elaborazione che delle
 
 ## <a name="monitor-qpu-usage"></a>Monitorare l'utilizzo di QPU
 
-Per determinare se per il server è necessario un ridimensionamento orizzontale, monitorare il server nel portale di Azure tramite le metriche. Se le QPU si esauriscono regolarmente, significa che il numero di query verso i modelli supera il limite di QPU per il piano. La metrica relativa alla lunghezza della coda dei processi del pool di query aumenta anche quando il numero di query nella coda del pool di thread di query supera le QPU disponibili. 
+Per determinare se è necessaria la scalabilità orizzontale per il server, [monitorare il server](analysis-services-monitor.md) in portale di Azure usando le metriche. Se le QPU si esauriscono regolarmente, significa che il numero di query verso i modelli supera il limite di QPU per il piano. La metrica relativa alla lunghezza della coda dei processi del pool di query aumenta anche quando il numero di query nella coda del pool di thread di query supera le QPU disponibili. 
 
 Un'altra metrica efficace da controllare è la media di QPU per ServerResourceType. Questa metrica confronta la media QPU per il server primario con il pool di query. 
 
 ![Metriche di scalabilità orizzontale delle query](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### <a name="to-configure-qpu-by-serverresourcetype"></a>Per configurare QPU by ServerResourceType
+**Per configurare QPU by ServerResourceType**
+
 1. In un grafico a linee metrica fare clic su **Aggiungi metrica**. 
 2. In **risorsa**selezionare il server, in **spazio dei nomi metrica**, selezionare **Analysis Services metrica standard**, quindi in **metrica**, selezionare **QPU**, quindi in **aggregazione**selezionare **AVG**. 
 3. Fare clic su **applica suddivisione**. 
 4. In **valori**selezionare **ServerResourceType**.  
 
-Per altre informazioni, vedere [Monitorare le metriche dei server](analysis-services-monitor.md).
+### <a name="detailed-diagnostic-logging"></a>Registrazione diagnostica dettagliata
+
+Usare i log di monitoraggio di Azure per una diagnostica più dettagliata delle risorse del server con scalabilità orizzontale. Con i log è possibile usare Log Analytics query per suddividere QPU e memoria in base al server e alla replica. Per altre informazioni, vedere query di esempio in [Analysis Services registrazione diagnostica](analysis-services-logging.md#example-queries).
+
 
 ## <a name="configure-scale-out"></a>Configurare il ridimensionamento orizzontale
 
@@ -102,7 +106,7 @@ Per altre informazioni, vedere [Monitorare le metriche dei server](analysis-serv
 
 Quando si configura per la prima volta la scalabilità orizzontale per un server, i modelli nel server primario vengono sincronizzati automaticamente con le repliche nel pool di query. La sincronizzazione automatica si verifica solo una volta, quando si configura per la prima volta la scalabilità orizzontale in una o più repliche. Le successive modifiche al numero di repliche sullo stesso server *non attiverà un'altra sincronizzazione automatica*. La sincronizzazione automatica non verrà rieseguita anche se si imposta il server su zero repliche e quindi si aumenta di nuovo la scalabilità orizzontale a un numero qualsiasi di repliche. 
 
-## <a name="synchronize"></a>Sincronizza 
+## <a name="synchronize"></a>Sincronizzare 
 
 Le operazioni di sincronizzazione devono essere eseguite manualmente o tramite l'API REST.
 
@@ -127,12 +131,12 @@ Usare l'operazione **sync**.
 Codici di stato restituiti:
 
 
-|Codice  |Description  |
+|Codice  |Descrizione  |
 |---------|---------|
 |-1     |  Non valido       |
 |0     | Replicating        |
 |1     |  Reidratanti       |
-|2     |   Completi       |
+|2     |   Operazione completata       |
 |3     |   Operazione non riuscita      |
 |4     |    Finalizzazione     |
 |||
@@ -166,7 +170,7 @@ Per SSMS, Visual Studio e le stringhe di connessione in PowerShell, app per le f
 
 È possibile modificare il piano tariffario in un server con più repliche. Lo stesso piano tariffario si applica a tutte le repliche. Un'operazione di ridimensionamento arresterà prima tutte le repliche in una sola volta e quindi mostrerà tutte le repliche nel nuovo piano tariffario.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 **Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
 

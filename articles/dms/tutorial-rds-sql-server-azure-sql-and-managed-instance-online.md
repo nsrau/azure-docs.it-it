@@ -3,8 +3,8 @@ title: 'Esercitazione: eseguire la migrazione di Servizi Desktop remoto SQL Serv
 titleSuffix: Azure Database Migration Service
 description: Informazioni su come eseguire una migrazione in linea da Servizi Desktop remoto SQL Server all'istanza gestita o al database singolo del database SQL di Azure usando il servizio migrazione del database di Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 52a6ee282e12f0ece5f16c1fa67c38f07f9d86e7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751282"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255512"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server RDS al database SQL di Azure o a un'istanza gestita di database SQL di Azure Online tramite DMS
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di RDS SQL Server verso il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/) o un'[istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con tempi di inattività minimi. In questa esercitazione si userà Servizio Migrazione del database di Azure per eseguire la migrazione del database **AdventureWorks2012** ripristinato in un'istanza di RDS SQL Server con SQL Server 2012 (o versione successiva) verso un database SQL di Azure o un'istanza gestita di tale database.
@@ -247,7 +247,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 4. Selezionare **Salva** dopo aver impostato quanto segue in **Impostazioni avanzate per la migrazione online**.
 
-    | Impostazione | Description |
+    | Impostazione | Descrizione |
     | ------------- | ------------- |
     | **Numero massimo di tabelle da caricare in parallelo** | Specifica il numero di tabelle eseguite in parallelo da Servizio Migrazione del database durante la migrazione. Il valore predefinito è 5, ma può essere impostato su un valore ottimale per soddisfare esigenze di migrazione specifiche basate su migrazioni PoC. |
     | **Quando la tabella di origine è troncata** | Specifica se Servizio Migrazione del database tronca la tabella di destinazione durante la migrazione. Questa impostazione può essere utile se una o più tabelle vengono troncate nell'ambito del processo di migrazione. |

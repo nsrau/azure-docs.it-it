@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612725"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249199"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Errori comuni e passaggi per la risoluzione dei problemi per Azure Active Directory Domain Services
 
@@ -138,7 +138,7 @@ Se uno o più utenti nel tenant di Azure AD non possono accedere al dominio gest
       * L' [ultima versione consigliata di Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594)è stata distribuita o aggiornata a.
       * È stato configurato Azure AD Connect per [eseguire una sincronizzazione completa][hybrid-phs].
       * A seconda delle dimensioni della directory, è possibile che gli account utente e gli hash delle credenziali siano disponibili in Azure AD DS. Prima di tentare di eseguire l'autenticazione nel dominio gestito, assicurarsi di attendere abbastanza tempo.
-      * Se il problema persiste dopo la verifica dei passaggi precedenti, provare a riavviare il *servizio di sincronizzazione Microsoft Azure ad*. Dalla [macchina virtuale di gestione][management-vm], aprire un prompt dei comandi ed eseguire i comandi seguenti:
+      * Se il problema persiste dopo la verifica dei passaggi precedenti, provare a riavviare il *servizio di sincronizzazione Microsoft Azure ad*. Dal server Azure AD Connect aprire un prompt dei comandi ed eseguire i comandi seguenti:
     
         ```console
         net stop 'Microsoft Azure AD Sync'

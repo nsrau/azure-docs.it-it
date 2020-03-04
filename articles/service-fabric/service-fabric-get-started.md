@@ -3,14 +3,14 @@ title: Configurare un ambiente di sviluppo Windows
 description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a creare applicazioni in Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 03/02/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6768f45e61880370295ce7725e553828e66f3d39
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062116"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252775"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 
@@ -23,7 +23,7 @@ ms.locfileid: "77062116"
 
 Per compilare ed eseguire [applicazioni Azure Service Fabric][1] nel computer di sviluppo Windows, installare il Service Fabric Runtime, l'SDK e gli strumenti. È anche necessario [abilitare l'esecuzione di script Windows PowerShell](#enable-powershell-script-execution) inclusi nell'SDK.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="supported-operating-system-versions"></a>Versioni di sistema operativo supportate
 
@@ -31,7 +31,7 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
 * Windows 7
 * Windows 8 e Windows 8.1
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2016
 * Windows 10
 
@@ -68,8 +68,8 @@ Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 
 Le versioni correnti sono:
 
-* SDK e strumenti Service Fabric 4.0.466
-* 7\.0.466 runtime di Service Fabric
+* SDK e strumenti Service Fabric 4.0.470
+* 7\.0.470 runtime di Service Fabric
 
 Per un elenco delle versioni supportate, vedere [Service Fabric versions](service-fabric-versions.md) (Versioni di Service Fabric)
 

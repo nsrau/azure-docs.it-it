@@ -3,12 +3,12 @@ title: Eliminare un insieme di credenziali Servizi di ripristino di Microsoft Az
 description: In questo articolo viene illustrato come rimuovere le dipendenze e quindi eliminare un insieme di credenziali MARS (Backup di Microsoft Azure Recovery Services).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 172c632ae27c789f96e2e5cc1bdef492ef09f667
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ac9d0fd6411b512b319d02c94e86fa792243e0a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586462"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251426"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminare un insieme di credenziali di servizi di ripristino di Azure Backup
 
@@ -149,7 +149,7 @@ Per arrestare la protezione ed eliminare i dati di backup, seguire questa proced
 
     ![Elimina lo spazio di archiviazione online.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
-#### <a name="method-2"></a>Metodo 2
+#### <a name="method-2"></a>Method 2
 
 Aprire la console di **gestione di MAB** . In **Seleziona metodo protezione dati**deselezionare la casella di controllo voglio la **protezione online** .
 
@@ -286,7 +286,7 @@ Per eliminare l'insieme di credenziali di servizi di ripristino esistente, segui
 
 - Per arrestare la protezione ed eliminare i dati di backup
 
-    ```CLI
+    ```azurecli
     az backup protection disable --container-name
                              --item-name
                              [--delete-backup-data {false, true}]
@@ -301,7 +301,7 @@ Per eliminare l'insieme di credenziali di servizi di ripristino esistente, segui
 
 - Eliminare un insieme di credenziali di servizi di ripristino esistente:
 
-    ```CLI
+    ```azurecli
     az backup vault delete [--force]
                        [--ids]
                        [--name]

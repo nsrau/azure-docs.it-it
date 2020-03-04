@@ -3,12 +3,12 @@ title: Eseguire comandi nell'istanza del contenitore in esecuzione
 description: Informazioni su come eseguire un comando in un contenitore attualmente in esecuzione in Istanze di Azure Container
 ms.topic: article
 ms.date: 03/30/2018
-ms.openlocfilehash: 10d0ea0c2dfa60aad64d0ae11532aff24a7ce773
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481571"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250012"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Eseguire un comando in un'istanza di contenitore di Azure in esecuzione
 
@@ -30,8 +30,7 @@ az container exec --resource-group myResourceGroup --name mynginx --exec-command
 
 Nell'output di esempio seguente, la shell Bash viene avviata in un contenitore Linux in esecuzione, fornendo un terminale in cui viene eseguito `ls`:
 
-```console
-$ az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
+```output
 root@caas-83e6c883014b427f9b277a2bba3b7b5f-708716530-2qv47:/# ls
 bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
 boot  etc  lib   media  opt  root  sbin  sys  usr
@@ -42,8 +41,11 @@ Bye.
 
 In questo esempio, il prompt dei comandi viene avviato in un contenitore Nanoserver in esecuzione:
 
-```console
-$ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
+```azurecli
+az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
+```
+
+```output
 Microsoft Windows [Version 10.0.14393]
 (c) 2016 Microsoft Corporation. All rights reserved.
 

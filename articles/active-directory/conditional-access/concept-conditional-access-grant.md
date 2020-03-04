@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3df906936cc4e47ee1f43adb0fcbaa0e8c04b0f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 10d3f18fb11dc54f560d867e2b5ff87251e2c836
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656314"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249096"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -67,35 +67,7 @@ Le organizzazioni possono scegliere di usare l'identità del dispositivo come pa
 
 Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Queste app client approvate supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) in modo indipendente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
-Questa impostazione è valida solo per le app client seguenti:
-
-- Microsoft Azure Information Protection
-- Prenotazioni Microsoft
-- Microsoft Cortana
-- Microsoft Dynamics 365
-- Microsoft Edge
-- Microsoft Excel
-- Microsoft Flow
-- Microsoft Intune Managed Browser
-- Microsoft Invoicing
-- Microsoft Kaizala
-- Microsoft Launcher
-- Microsoft OneDrive
-- Microsoft OneNote
-- Microsoft Outlook
-- Microsoft Planner
-- Microsoft PowerApps
-- Microsoft Power BI
-- Microsoft PowerPoint
-- Microsoft SharePoint
-- Microsoft Skype for Business
-- Microsoft StaffHub
-- Microsoft Stream
-- Microsoft Teams
-- Microsoft To-Do
-- Microsoft Visio
-- Microsoft Word
-- Microsoft Yammer
+Le applicazioni supportate sono disponibili nell'articolo [Microsoft Intune app protette](/intune/apps/apps-supported-intune-apps).
 
 **Osservazioni:**
 
@@ -108,12 +80,7 @@ Questa impostazione è valida solo per le app client seguenti:
 
 Nei criteri di accesso condizionale è possibile richiedere che i [criteri di protezione delle app di Intune](/intune/app-protection-policy) siano presenti nell'app client prima che l'accesso sia disponibile per le app Cloud selezionate. 
 
-Questa impostazione è valida solo per le app client seguenti:
-
-- Microsoft Cortana
-- Microsoft OneDrive
-- Microsoft Outlook
-- Microsoft Planner
+Le applicazioni supportate sono disponibili nell'articolo [Microsoft Intune app protette](/intune/apps/apps-supported-intune-apps).
 
 **Osservazioni:**
 

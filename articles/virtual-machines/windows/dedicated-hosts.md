@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 81749b8fb8b9e3f1a10b65b758b532773bdebdac
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 39d1c0ddb4961800e889346ec110ca629ae73546
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833886"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251559"
 ---
 # <a name="azure-dedicated-hosts"></a>Host dedicati di Azure
 
@@ -28,4 +28,6 @@ Host dedicato di Azure è un servizio che fornisce server fisici in grado di osp
 
 - È possibile distribuire un host dedicato usando [Azure PowerShell](dedicated-hosts-powershell.md), il [portale](dedicated-hosts-portal.md)e l' [interfaccia](../linux/dedicated-hosts-cli.md)della riga di comando di Azure.
 
-- È disponibile un [modello di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), che usa sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile un modello di esempio [, che](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)USA sia le zone che i domini di errore per la resilienza massima in un'area.
+
+- È anche possibile risparmiare sui costi con un' [istanza riservata di host dedicati di Azure](../prepay-dedicated-hosts-reserved-instances.md).

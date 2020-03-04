@@ -3,7 +3,7 @@ title: Creazione e caricamento di un VHD SUSE Linux in Azure
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo SUSE Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: mimckitt
-ms.openlocfilehash: 5ff28e25bf3da33fcf85a77f850b3b8f5ac8bb6b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d64fc55159ddc3ce88397879958a63bf30808ad9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745824"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251581"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparare una macchina virtuale SLES o openSUSE per Azure
 
@@ -40,7 +40,7 @@ In alternativa alla creazione di un disco rigido virtuale, SUSE pubblica anche i
 
 ## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Preparare SUSE Linux Enterprise Server 11 SP4
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
-2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
+2. Fare clic su **Connetti** per aprire la finestra della macchina virtuale.
 3. Registrare il sistema SUSE Linux Enterprise per scaricare gli aggiornamenti e installare i pacchetti.
 4. Aggiornare il sistema con tutte le patch più recenti:
    
@@ -103,7 +103,7 @@ In alternativa alla creazione di un disco rigido virtuale, SUSE pubblica anche i
 ---
 ## <a name="prepare-opensuse-131"></a>Preparare openSUSE 13.1+
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
-2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
+2. Fare clic su **Connetti** per aprire la finestra della macchina virtuale.
 3. Nella shell eseguire il comando '`zypper lr`'. Se questo comando restituisce un output simile al seguente, i repository vengono configurati come previsto e non sono necessarie modifiche. Si noti che i numeri di versione possono variare:
    
         # | Alias                 | Name                  | Enabled | Refresh

@@ -4,14 +4,14 @@ description: Informazioni su come abilitare l'autenticazione basata su identità
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2020
+ms.date: 03/03/2020
 ms.author: rogarana
-ms.openlocfilehash: 419f0506751ddc328539eafa52507b0dd0739c79
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 223906343c2391d03d8526026d3daad3174791ed
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921556"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256068"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Abilitare l'autenticazione Active Directory su SMB per le condivisioni file di Azure
 
@@ -34,7 +34,7 @@ Quando si Abilita AD per le condivisioni file di Azure su SMB, i computer aggiun
 
 Le identità di Active Directory usate per accedere alle condivisioni file di Azure devono essere sincronizzate con Azure AD per applicare le autorizzazioni per i file a livello di condivisione tramite il modello di [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md) standard. Gli [elenchi DACL di tipo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) su file/directory trasferiti da file server esistenti verranno conservati e applicati. Questa funzionalità offre un'integrazione perfetta con l'infrastruttura di dominio AD aziendale. Quando si sostituiscono file server locali con condivisioni file di Azure, gli utenti esistenti possono accedere alle condivisioni file di Azure dai client correnti con un'esperienza Single Sign-On, senza alcuna modifica alle credenziali in uso.  
  
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerequisiti 
 
 Prima di abilitare l'autenticazione di Active Directory per le condivisioni file di Azure, assicurarsi di aver completato i prerequisiti seguenti: 
 
@@ -62,13 +62,13 @@ Prima di abilitare l'autenticazione di Active Directory per le condivisioni file
 
 ## <a name="regional-availability"></a>Disponibilità internazionale
 
-File di Azure l'autenticazione AD (anteprima) è disponibile nella [maggior parte delle aree pubbliche](https://azure.microsoft.com/global-infrastructure/regions/) ad eccezione di:
+File di Azure l'autenticazione AD (anteprima) è disponibile nella [maggior parte delle aree pubbliche](https://azure.microsoft.com/global-infrastructure/regions/).
 
+File di Azure autenticazione di Active Directory non è disponibile in:
 - Stati Uniti occidentali
 - Stati Uniti occidentali 2
 - Stati Uniti orientali
 - Stati Uniti orientali 2
-- Stati Uniti centro-meridionali
 - Europa occidentale
 - Europa settentrionale
 

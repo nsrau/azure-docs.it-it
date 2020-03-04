@@ -3,7 +3,7 @@ title: Creare e caricare un disco rigido virtuale Oracle Linux
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Oracle Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: e0250737f1f2934548a16ee42e9ff582f2403c48
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 240333e55f23f2536d3cf14d2bb817e5776c8139
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747737"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251587"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparare una macchina virtuale Oracle Linux per Azure
 
@@ -40,7 +40,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 Per l'esecuzione della macchina virtuale in Azure è necessario eseguire specifici passaggi di configurazione nel sistema operativo.
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
-2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
+2. Fare clic su **Connetti** per aprire la finestra della macchina virtuale.
 3. Disinstallare NetworkManager attivando il seguente comando:
    
         # sudo rpm -e --nodeps NetworkManager
@@ -117,7 +117,7 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
 **Passaggi di configurazione**
 
-1. Nella console di gestione di Hyper-V selezionare la macchina virtuale.
+1. Nella Console di gestione di Hyper-V, selezionare la macchina virtuale.
 2. Fare clic su **Connetti** per aprire una finestra della console per la macchina virtuale.
 3. Creare un file denominato **network** in the `/etc/sysconfig/` contenente il testo seguente:
    

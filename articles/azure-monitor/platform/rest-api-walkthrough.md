@@ -4,12 +4,12 @@ description: Come autenticare le richieste e usare l'API REST di monitoraggio di
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: bdf867d6ae21eda4f9e9f4283542e422cf4d2d94
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 42a7034c586f4e01066e989dcb2b9fae4eebfa85
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659034"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250836"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
 
@@ -116,7 +116,7 @@ Invoke-RestMethod -Uri $request `
 
 Il corpo della risposta JSON risultante dovrebbe essere simile all'esempio seguente: (si noti che la seconda metrica dispone di dimensioni)
 
-```JSON
+```json
 {
     "value": [
         {
@@ -254,7 +254,7 @@ Invoke-RestMethod -Uri $request `
 
 Il corpo della risposta JSON risultante dovrebbe essere simile all'esempio seguente:
 
-```JSON
+```json
 {
   "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
@@ -327,7 +327,7 @@ Invoke-RestMethod -Uri $request `
 
 Il corpo della risposta JSON risultante dovrebbe essere simile all'esempio seguente:
 
-```JSON
+```json
 {
   "cost": 0,
   "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
@@ -411,7 +411,7 @@ Invoke-RestMethod -Uri $request `
 
 Il corpo della risposta JSON risultante dovrebbe essere simile all'esempio seguente:
 
-```JSON
+```json
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
   "value": [
@@ -479,7 +479,7 @@ Invoke-RestMethod -Uri $request `
 
 Il corpo della risposta JSON risultante dovrebbe essere simile all'esempio seguente:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -527,7 +527,7 @@ Invoke-RestMethod -Uri $request `
 
 Il corpo della risposta JSON risultante dovrebbe essere simile all'esempio seguente:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -587,7 +587,7 @@ Un approccio aggiuntivo consiste nell'usare [ARMClient](https://github.com/proje
 
 Ad esempio, per poter recuperare le definizioni della metrica per un'app per la logica specifica, eseguire il comando seguente:
 
-```
+```console
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
 ```
 
@@ -633,7 +633,7 @@ Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 
 Il risultato dovrebbe essere simile all'esempio seguente:
 
-```
+```output
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
 Type           : Microsoft.Logic/workflows
@@ -655,13 +655,13 @@ Version        : 08586982649483762729
 
 Per recuperare l'ID risorsa per un account di archiviazione di Azure usando l'interfaccia della riga di comando di Azure, eseguire il comando `az storage account show`, come illustrato nell'esempio seguente:
 
-```
+```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
 Il risultato dovrebbe essere simile all'esempio seguente:
 
-```JSON
+```json
 {
   "accessTier": null,
   "creationTime": "2017-08-18T19:58:41.840552+00:00",

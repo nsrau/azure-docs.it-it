@@ -4,12 +4,12 @@ description: Informazioni sulle domande frequenti e sulle risposte relative a Az
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461984"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252498"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Domande frequenti su Service Fabric Mesh
 
@@ -44,10 +44,13 @@ Al momento la durata di un'applicazione è stata limitata a due giorni. Lo scopo
 
 In questo caso, è possibile convalidare l'arresto da parte del sistema eseguendo il comando `az mesh app show` nell'interfaccia della riga di comando di Azure e verificare se restituisce `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Ad esempio: 
+Ad esempio, 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -72,7 +75,7 @@ Ad esempio:
 
 Per eliminare il gruppo di risorse, usare il comando `az group delete <nameOfResourceGroup>`.
 
-## <a name="deployments"></a>Deployments
+## <a name="deployments"></a>Distribuzioni
 
 ### <a name="what-container-images-are-supported"></a>Quali immagini del contenitore sono supportate?
 
@@ -104,7 +107,7 @@ Le query DNS in uscita da un contenitore al servizio DNS di Service Fabric DNS p
 
 - Usare Windows Fall Creators Update (versione 1709) o versione successiva come immagine del contenitore di base.
 - Se il nome del servizio da solo non funziona, provare il nome completo: ServiceName. ApplicationName.
-- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio:
+- Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio,
 
 ```Dockerfile
 EXPOSE 80

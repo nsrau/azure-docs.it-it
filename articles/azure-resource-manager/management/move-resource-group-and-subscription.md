@@ -2,13 +2,13 @@
 title: Spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.openlocfilehash: c91081ee25a3b98fa25b8b9b9047da186b22181b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/02/2020
+ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891363"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250161"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
 
@@ -24,7 +24,7 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
 
 1. Le risorse che si desidera spostare devono supportare l'operazione di spostamento. Per un elenco delle risorse che supportano lo spostamento, vedere [spostare il supporto delle operazioni per le risorse](move-support-resources.md).
 
-1. Alcuni servizi presentano limitazioni o requisiti specifici quando si trasferiscono le risorse. Se è stato spostato uno dei servizi seguenti, controllare le linee guida prima di procedere.
+1. Alcuni servizi presentano limitazioni o requisiti specifici quando si trasferiscono le risorse. Se si sta muovendo uno dei servizi seguenti, controllare le linee guida prima di procedere.
 
    * [Linee guida per lo spostamento dei servizi app](./move-limitations/app-service-move-limitations.md)
    * [Linee guida per lo spostamento Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
@@ -261,7 +261,7 @@ Se ad esempio si trasferisce una macchina virtuale, potrebbe essere necessario t
 
 * Microsoft.Compute
    * virtualMachines
-   * disks
+   * dischi
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses

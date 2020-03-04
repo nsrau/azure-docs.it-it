@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0f13f297facedceb50920c0f6afca63fe1df0b48
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749758"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248062"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
-Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](../azure-monitor/azure-monitor-log-hub.md).
+Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. Con i [log delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md)è possibile monitorare e inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)ed esportarli in log di monitoraggio di [Azure](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Registrazione diagnostica in Archiviazione, Hub eventi o log di Monitoraggio di Azure](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -32,20 +32,20 @@ Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutt
 
 |Categorie di eventi estesi |Nome evento  |
 |---------|---------|
-|Controllo di sicurezza    |   Connessione di controllo      |
-|Controllo di sicurezza    |   Disconnessione di controllo      |
+|Controllo di sicurezza    |   Audit Login      |
+|Controllo di sicurezza    |   Audit Logout      |
 |Controllo di sicurezza    |   Inizi e arresti server di controllo      |
 |Report di stato     |   Inizio report di stato      |
 |Report di stato     |   Fine report di stato      |
 |Report di stato     |   Report di stato corrente      |
 |Query     |  Inizio query       |
 |Query     |   Fine query      |
-|Comandi:     |  Inizio comando       |
-|Comandi:     |  Fine comando       |
+|Commands     |  Inizio comando       |
+|Commands     |  Fine comando       |
 |Errori e avvisi     |   Errore      |
-|Identificazione     |   Fine individuazione      |
+|Individua     |   Fine individuazione      |
 |Notifica     |    Notifica     |
-|Session     |  Inizializzazione sessione       |
+|Sessione     |  Inizializzazione sessione       |
 |Locks    |  Deadlock       |
 |Elaborazione delle query     |   Inizio query SE VertiPaq      |
 |Elaborazione delle query     |   Fine query SE VertiPaq      |
@@ -53,9 +53,9 @@ Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutt
 |Elaborazione delle query     |   Inizio query diretta      |
 |Elaborazione delle query     |  Fine query diretta       |
 
-### <a name="service"></a>Servizio
+### <a name="service"></a>Service
 
-|Nome operazione  |Ambito  |
+|Nome operazione  |Quando si verifica  |
 |---------|---------|
 |ResumeServer     |    Ripresa di un server     |
 |SuspendServer    |   Sospensione di un server      |
@@ -88,7 +88,7 @@ La categoria metrica registra le stesse [metriche del server](analysis-services-
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Metrics** (Metriche). Selezionare questa opzione per archiviare informazioni dettagliate in [Metrics](analysis-services-monitor.md#server-metrics) (Metriche). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
-3. Fare clic su **Salva**.
+3. Fare clic su **Save**.
 
     Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
 
@@ -228,7 +228,7 @@ Avviare una sessione di Azure PowerShell e accedere all'account Azure con il com
 Connect-AzAccount
 ```
 
-Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
+Nella finestra popup del browser immettere il nome utente e la password del proprio account di Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
 
 Se sono disponibili più sottoscrizioni, potrebbe essere necessario indicarne una specifica usata per creare l'insieme di credenziali delle chiavi di Azure. Digitare il comando seguente per visualizzare le sottoscrizioni relative all'account:
 

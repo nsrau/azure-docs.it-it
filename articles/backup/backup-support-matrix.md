@@ -3,12 +3,12 @@ title: Matrice di supporto di Azure Backup
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: dd4ec646c786ee686567aa137845e583a4cf47e3
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206657"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254914"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -32,7 +32,7 @@ La tabella seguente descrive le funzionalità degli insiemi di credenziali di se
 --- | ---
 **Insiemi di credenziali nella sottoscrizione** | Fino a 500 insiemi di credenziali di Servizi di ripristino in una sottoscrizione singola.
 **Computer in un insieme di credenziali** | Fino a 1.000 VM di Azure in un unico insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
-**Origini dati nell'archivio dell'insieme di credenziali** | Massimo 54.400 GB. Non esistono limiti per i backup delle macchine virtuali di Azure.
+**Origini dei dati** | Le dimensioni massime di una singola [origine dati](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) sono di 54.400 GB. Questo limite non si applica ai backup di macchine virtuali di Azure. Nessun limite si applica alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali.
 **Backup in un insieme di credenziali** | **Macchine virtuali di Azure:** Una volta al giorno.<br/><br/>**Computer protetti da DPM/MAB:** Due volte al giorno.<br/><br/> **Computer sottoposti a backup direttamente usando l'agente Mars:** Tre volte al giorno.
 **Backup tra insiemi di credenziali** | Il backup avviene all'interno di un'area.<br/><br/> È necessario un insieme di credenziali in ogni area di Azure che contiene macchine virtuali di cui si vuole eseguire il backup. Non è possibile eseguire il backup in un'altra area.
 **Sposta insiemi di credenziali** | È possibile [spostare](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) gli insiemi di credenziali tra le sottoscrizioni o tra gruppi di risorse nella stessa sottoscrizione. Tuttavia, lo trasferimento di insiemi di credenziali tra aree non è supportato.
@@ -155,8 +155,6 @@ Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforza
 | Agente MARS/locale | No                                                           | N/D               |
 | /SAP CENTRAL SQL HANA          | No                                                           | N/D               |
 | AFS                    | No                                                           | N/D               |
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

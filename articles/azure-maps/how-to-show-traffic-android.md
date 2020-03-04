@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 73f490ec069ff44929ca70f4ecf2ab3aca52934d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 37de55d671bb19cfcd9fd494c2e76f658fc7db21
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209350"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249504"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostra i dati sul traffico sulla mappa usando le mappe di Azure Android SDK
 
-I dati di flusso e gli eventi imprevisti sono i due tipi di dati di traffico che possono essere visualizzati sulla mappa. Questa guida illustra come visualizzare entrambi i dati sul traffico. I dati degli eventi imprevisti sono costituiti da dati basati su punti e righe per operazioni quali costruzioni, chiusure stradali e incidenti. I dati di Flow mostrano le metriche relative al flusso di traffico in viaggio.
+I dati di flusso e gli eventi imprevisti sono i due tipi di dati di traffico che possono essere visualizzati sulla mappa. Questa guida illustra come visualizzare entrambi i tipi di dati di traffico. I dati degli eventi imprevisti sono costituiti da dati basati su punti e righe per operazioni quali costruzioni, chiusure stradali e incidenti. I dati di Flow mostrano le metriche relative al flusso di traffico in viaggio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter visualizzare il traffico sulla mappa, è necessario installare [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e caricare una mappa.
+Prima di poter visualizzare il traffico sulla mappa, è necessario [creare un account Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)e [ottenere una chiave di sottoscrizione](quick-demo-map-app.md#get-the-primary-key-for-your-account). Quindi, è necessario installare le [mappe di Azure Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e caricare una mappa.
 
 ## <a name="incidents-traffic-data"></a>Dati traffico eventi imprevisti 
 
@@ -38,7 +38,7 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     mapControl.getMapAsync(map - > {
         map.setTraffic(incidents(true));
-}
+    }
 }
 ```
 
@@ -63,8 +63,9 @@ Usare il frammento di codice seguente per impostare i dati del flusso di traffic
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    mapControl.getMapAsync(map -> 
+    mapControl.getMapAsync(map -> {
         map.setTraffic(flow(TrafficFlow.RELATIVE)));
+    }
 }
 ```
 

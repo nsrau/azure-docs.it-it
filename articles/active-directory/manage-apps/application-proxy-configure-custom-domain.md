@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185547"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248694"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurare domini personalizzati con Azure AD proxy di applicazione
 
@@ -87,7 +87,7 @@ Per pubblicare l'app tramite il proxy di applicazione con un dominio personalizz
    
 4. Nel campo **URL esterno** , a discesa nell'elenco, selezionare il dominio personalizzato che si vuole usare.
    
-5. Selezionare **Aggiungi**.
+5. Fare clic su **Aggiungi**.
    
    ![Selezionare un dominio personalizzato](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
@@ -130,9 +130,9 @@ Non esiste alcuna restrizione sui metodi di firma del certificato. Sono supporta
 
 È possibile usare i certificati con caratteri jolly purché il carattere jolly corrisponda all'URL esterno. È necessario usare i certificati con caratteri jolly per [le applicazioni con caratteri jolly](application-proxy-wildcard.md). Se si desidera utilizzare il certificato per accedere anche ai sottodomini, è necessario aggiungere i caratteri jolly del sottodominio come nomi alternativi del soggetto nello stesso certificato. Ad esempio, un certificato per *\*. Adventure-Works.com* non funzionerà per *\*. Apps.Adventure-Works.com* a meno che non si aggiunga *\*. Apps.Adventure-Works.com* come nome alternativo del soggetto. 
 
-È possibile usare i certificati emessi dalla propria infrastruttura a chiave pubblica (PKI) se la catena di certificati è installata nei dispositivi client. Intune può distribuire questi certificati ai dispositivi gestiti. Per i dispositivi non gestiti, è necessario installare manualmente questi certificati.
+È possibile usare i certificati emessi dalla propria infrastruttura a chiave pubblica (PKI) se la catena di certificati è installata nei dispositivi client. Intune può distribuire questi certificati ai dispositivi gestiti. Per i dispositivi non gestiti, è necessario installare manualmente questi certificati. 
 
-Non è consigliabile usare una CA radice privata. Anche la CA radice privata deve essere inoltrata ai computer client, che introduce molte problemi. 
+Non è consigliabile usare un'autorità di certificazione radice privata, poiché anche la CA radice privata deve essere inoltrata ai computer client, il che potrebbe comportare molte problemi.
 
 ### <a name="certificate-management"></a>Gestione dei certificati
 

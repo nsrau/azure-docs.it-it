@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 63174e1d4950b9f18fd3693511c507ed2dd018b3
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.date: 02/28/2020
+ms.openlocfilehash: 8c9732aec73f6387c9d32bb2333a3e7f834c2165
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500358"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249903"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -35,7 +35,7 @@ Questo articolo illustra come completare queste attività:
 > [!IMPORTANT]
 > Le app per la logica, i trigger incorporati, le azioni predefinite e i connettori eseguiti in ISE usano un piano tariffario diverso dal piano tariffario in base al consumo. Per informazioni sul funzionamento dei prezzi e della fatturazione per ISEs, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md#fixed-pricing)per la logica. Per informazioni sui prezzi, vedere [prezzi di app](../logic-apps/logic-apps-pricing.md)per la logica.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -89,27 +89,27 @@ Questa tabella descrive le porte nella rete virtuale di Azure che ISE USA e in c
 > [!IMPORTANT]
 > Le porte di origine sono effimere, quindi assicurarsi di impostarle su `*` per tutte le regole. Dove indicato, ISE interno ed ISE esterno fanno riferimento all' [endpoint selezionato al momento della creazione di ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
-| Scopo | Direction | Porte di destinazione | Tag del servizio di origine | Tag del servizio di destinazione | Note |
+| Scopo | Direzione | Porte di destinazione | Tag del servizio di origine | Tag del servizio di destinazione | Note |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | Comunicazione tra subnet nella rete virtuale | In ingresso e in uscita | * | Lo spazio degli indirizzi per la rete virtuale con le subnet di ISE | Lo spazio degli indirizzi per la rete virtuale con le subnet di ISE | Necessaria per il flusso del traffico *tra* le subnet nella rete virtuale. <p><p>**Importante**: per il flusso del traffico tra i *componenti* in ogni subnet, assicurarsi di aprire tutte le porte all'interno di ogni subnet. |
-| Comunicazione con l'app per la logica | In ingresso | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE esterno: <br>Internet | VirtualNetwork | Indirizzo IP di origine per il computer o il servizio che chiama i trigger o i webhook di richiesta nell'app per la logica. <p><p>**Importante**: la chiusura o il blocco di questa porta impedisce le chiamate http alle app per la logica con trigger di richiesta. |
-| Cronologia di esecuzione dell'app per la logica | In ingresso | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE esterno: <br>Internet | VirtualNetwork | Indirizzo IP di origine per il computer o il servizio da cui si vuole visualizzare la cronologia di esecuzione dell'app per la logica. <p><p>**Importante**: Sebbene la chiusura o il blocco di questa porta non impedisca la visualizzazione della cronologia di esecuzione, non è possibile visualizzare gli input e gli output per ogni passaggio della cronologia di esecuzione. |
-| Progettazione di App per la logica - proprietà dinamiche | In ingresso | 454 | Vedere la colonna **Note** per gli indirizzi IP da consentire | VirtualNetwork | Le richieste provengono dagli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) dell'endpoint di accesso delle app per la logica per tale area. |
-| Distribuzione dei connettori | In ingresso | 454 | AzureConnectors | VirtualNetwork | Obbligatorio per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
-| Controllo integrità rete | In ingresso | 454 | Vedere la colonna **Note** per gli indirizzi IP da consentire | VirtualNetwork | Le richieste provengono dall'endpoint di accesso delle app per la logica per gli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) e in [uscita](../logic-apps/logic-apps-limits-and-config.md#outbound) per tale area. |
-| Dipendenza da Gestione del servizio app | In ingresso | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Comunicazione da Gestione traffico di Azure | In ingresso | ISE interno: 454 <p><p>ISE esterno: 443 | AzureTrafficManager | VirtualNetwork | |
-| Gestione API - endpoint di gestione | In ingresso | 3443 | APIManagement | VirtualNetwork | |
-| Distribuzione dei criteri del connettore | In ingresso | 3443 | APIManagement | VirtualNetwork | Obbligatorio per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
-| Comunicazione dall'app per la logica | In uscita | 80, 443 | VirtualNetwork | Varia in base alla destinazione | Endpoint per il servizio esterno con cui l'app per la logica deve comunicare. |
-| Azure Active Directory | In uscita | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Gestione delle connessioni | In uscita | 443 | VirtualNetwork  | AppService | |
-| Pubblicare i log di diagnostica e metriche | In uscita | 443 | VirtualNetwork  | AzureMonitor | |
-| Dipendenza da Archiviazione di Azure | In uscita | 80, 443, 445 | VirtualNetwork | Archiviazione | |
-| Dipendenza SQL di Azure | In uscita | 1433 | VirtualNetwork | SQL | |
-| Integrità risorse di Azure | In uscita | 1886 | VirtualNetwork | AzureMonitor | Obbligatorio per la pubblicazione dello stato di integrità Integrità risorse |
-| Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | In uscita | 5672 | VirtualNetwork | Hub eventi | |
-| Istanze di accesso Cache Azure per Redis tra Role Instances | In ingresso <br>In uscita | 6379-6383 | VirtualNetwork | VirtualNetwork | Inoltre, per usare ISE con cache di Azure per Redis, è necessario aprire le [porte in uscita e in ingresso descritte nelle domande frequenti su cache di Azure per Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Comunicazione con l'app per la logica | Inserimento in | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE esterno: <br>Internet | VirtualNetwork | Indirizzo IP di origine per il computer o il servizio che chiama i trigger o i webhook di richiesta nell'app per la logica. <p><p>**Importante**: la chiusura o il blocco di questa porta impedisce le chiamate http alle app per la logica con trigger di richiesta. |
+| Cronologia di esecuzione dell'app per la logica | Inserimento in | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE esterno: <br>Internet | VirtualNetwork | Indirizzo IP di origine per il computer o il servizio da cui si vuole visualizzare la cronologia di esecuzione dell'app per la logica. <p><p>**Importante**: Sebbene la chiusura o il blocco di questa porta non impedisca la visualizzazione della cronologia di esecuzione, non è possibile visualizzare gli input e gli output per ogni passaggio della cronologia di esecuzione. |
+| Progettazione di App per la logica - proprietà dinamiche | Inserimento in | 454 | Vedere la colonna **Note** per gli indirizzi IP da consentire | VirtualNetwork | Le richieste provengono dagli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) dell'endpoint di accesso delle app per la logica per tale area. |
+| Distribuzione dei connettori | Inserimento in | 454 | AzureConnectors | VirtualNetwork | Obbligatorio per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
+| Controllo integrità rete | Inserimento in | 454 | Vedere la colonna **Note** per gli indirizzi IP da consentire | VirtualNetwork | Le richieste provengono dall'endpoint di accesso delle app per la logica per gli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) e in [uscita](../logic-apps/logic-apps-limits-and-config.md#outbound) per tale area. |
+| Dipendenza da Gestione del servizio app | Inserimento in | 454, 455 | AppServiceManagement | VirtualNetwork | |
+| Comunicazione da Gestione traffico di Azure | Inserimento in | ISE interno: 454 <p><p>ISE esterno: 443 | AzureTrafficManager | VirtualNetwork | |
+| Gestione API - endpoint di gestione | Inserimento in | 3443 | APIManagement | VirtualNetwork | |
+| Distribuzione dei criteri del connettore | Inserimento in | 3443 | APIManagement | VirtualNetwork | Obbligatorio per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
+| Comunicazione dall'app per la logica | Inserimento in | 80, 443 | VirtualNetwork | Varia in base alla destinazione | Endpoint per il servizio esterno con cui l'app per la logica deve comunicare. |
+| Azure Active Directory | Inserimento in | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
+| Gestione delle connessioni | Inserimento in | 443 | VirtualNetwork  | AppService | |
+| Pubblicare i log di diagnostica e metriche | Inserimento in | 443 | VirtualNetwork  | AzureMonitor | |
+| Dipendenza da Archiviazione di Azure | Inserimento in | 80, 443, 445 | VirtualNetwork | Archiviazione | |
+| Dipendenza SQL di Azure | Inserimento in | 1433 | VirtualNetwork | SQL | |
+| Integrità risorse di Azure | Inserimento in | 1886 | VirtualNetwork | AzureMonitor | Obbligatorio per la pubblicazione dello stato di integrità Integrità risorse |
+| Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | Inserimento in | 5672 | VirtualNetwork | Hub eventi | |
+| Istanze di accesso Cache Azure per Redis tra Role Instances | Inserimento in <br>Inserimento in | 6379-6383 | VirtualNetwork | VirtualNetwork | Inoltre, per usare ISE con cache di Azure per Redis, è necessario aprire le [porte in uscita e in ingresso descritte nelle domande frequenti su cache di Azure per Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 ||||||
 
 <a name="create-environment"></a>
@@ -128,7 +128,7 @@ Questa tabella descrive le porte nella rete virtuale di Azure che ISE USA e in c
 
    ![Fornire i dettagli dell'ambiente](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Proprietà | Obbligatoria | valore | Descrizione |
+   | Proprietà | Obbligatoria | Valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
    | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Un gruppo di risorse di Azure nuovo o esistente in cui si vuole creare l'ambiente |
@@ -151,7 +151,7 @@ Questa tabella descrive le porte nella rete virtuale di Azure che ISE USA e in c
 
    * Usa il [formato CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e uno spazio di indirizzi della classe B.
 
-   * USA almeno un `/27` nello spazio degli indirizzi perché ogni subnet richiede almeno 32 *indirizzi.* Ad esempio:
+   * USA almeno un `/27` nello spazio degli indirizzi perché ogni subnet richiede almeno 32 *indirizzi.* Ad esempio,
 
      * `10.0.0.0/28` dispone solo di 16 indirizzi ed è troppo piccolo perché 2<sup>(32-28)</sup> è 2<sup>4</sup> o 16.
 

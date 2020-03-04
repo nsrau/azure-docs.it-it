@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Esaminare e testare le modifiche da una richiesta pull direttamente nel servizio Azure Kubernetes usando le azioni di GitHub e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, azioni di GitHub, Helm, mesh dei servizi, routing mesh del servizio, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: e2b6f47483d2c7b6c4970dac531bada1cecd279e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196553"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252384"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni di GitHub & servizio Azure Kubernetes (anteprima)
 
@@ -27,7 +27,7 @@ In questa guida si apprenderà come:
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 * [L'interfaccia della riga di comando di Azure installata][azure-cli-installed].
@@ -39,7 +39,7 @@ In questa guida si apprenderà come:
 
 Creare un Container Registry di Azure (ACR):
 
-```cmd
+```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
@@ -50,9 +50,9 @@ Salvare il valore *loginServer* dall'output perché verrà usato in un passaggio
 
 ## <a name="create-a-service-principal-for-authentication"></a>Creare un'entità servizio per l'autenticazione
 
-Usare [AZ ad SP create-for-RBAC][az-ad-sp-create-for-rbac] per creare un'entità servizio. Ad esempio:
+Usare [AZ ad SP create-for-RBAC][az-ad-sp-create-for-rbac] per creare un'entità servizio. Ad esempio,
 
-```cmd
+```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
@@ -60,19 +60,19 @@ Salvare l'output JSON perché verrà usato in un passaggio successivo.
 
 Usare [AZ AKS Show][az-aks-show] per visualizzare l' *ID* del cluster AKS:
 
-```cmd
+```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
 Usare [AZ ACR Show][az-acr-show] per visualizzare l' *ID* dell'ACR:
 
-```cmd
+```azurecli
 az acr show --name <acrName> --query id
 ```
 
 Usare [AZ Role Assignment create][az-role-assignment-create] per concedere l'accesso come *collaboratore* al cluster AKS e *AcrPush* l'accesso a ACR.
 
-```cmd
+```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
 az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
@@ -158,7 +158,7 @@ Se si uniscono le modifiche nel ramo *Master* nel fork, viene eseguita un'altra 
 
 ## <a name="clean-up-your-azure-resources"></a>Pulire le risorse di Azure
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

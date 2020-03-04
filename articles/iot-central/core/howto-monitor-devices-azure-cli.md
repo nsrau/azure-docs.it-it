@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 3f18537b4b038844c9aa824593e354c23c792370
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6af6f01449f2f43e6799ef6d7821b9d71b24e603
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026783"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252342"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
 
@@ -33,16 +33,19 @@ Usare l'estensione dell'interfaccia della riga di comando di Azure per visualizz
 Eseguire il seguente comando dalla riga di comando per l'installazione:
 
 ```cmd/sh
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-Controllare la versione dell'estensione eseguendo 
+Controllare la versione dell'estensione eseguendo:
+
 ```cmd/sh
 az --version
 ```
-Si noterà che l'estensione Azure-CLI-Internet è 0.8.1 o successiva. In caso contrario, eseguire
+
+Si noterà che l'estensione Azure-Internet è 0.8.1 o versione successiva. In caso contrario, eseguire:
+
 ```cmd/sh
-az extension update --name azure-cli-iot-ext
+az extension update --name azure-iot
 ```
 
 ## <a name="using-the-extension"></a>Utilizzo dell'estensione

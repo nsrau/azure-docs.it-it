@@ -3,12 +3,12 @@ title: Gestisci immagini firmate
 description: Informazioni su come abilitare il trust del contenuto per il registro contenitori di Azure e per eseguire il push e il pull delle immagini firmate.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 0418b13c352dc3b81d34501e7e76be6c54615a83
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ce1e9e5cce0de58703e69df8db14cfbf3ecf04f3
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456463"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249932"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro Azure Container
 
@@ -76,7 +76,7 @@ Solo gli utenti o i sistemi a cui è stata concessa l'autorizzazione possono ese
 
 I dettagli per la concessione del ruolo `AcrImageSigner` nel portale di Azure e nell'interfaccia della riga di comando di Azure sono illustrati di seguito.
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 Passare al registro nel portale di Azure e quindi selezionare **Controllo di accesso (IAM)**  > **Aggiungi assegnazione di ruolo**. In **Aggiungi assegnazione di ruolo** selezionare `AcrImageSigner` in **Ruolo**, quindi in **Seleziona** selezionare uno o più utenti o entità servizio e quindi fare clic su **Salva**.
 
@@ -99,7 +99,9 @@ Per concedere, ad esempio, il ruolo a se stessi, è possibile eseguire i comandi
 REGISTRY=myregistry
 USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
+```
 
+```azurecli
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 
@@ -165,7 +167,7 @@ No valid trust data for unsigned
 
 Quando si esegue `docker pull`, il client Docker usa la stessa libreria dell'[interfaccia della riga di comando Notary][docker-notary-cli] per richiedere il mapping del digest da tag a SHA-256 per il tag di cui si esegue il pull. Dopo aver verificato le firme nei dati attendibili, il client comunica al motore Docker di eseguire un "pull in base al digest". Durante il pull, il motore usa il checksum SHA-256 come indirizzo dei contenuti per richiedere e convalidare il manifesto dell'immagine da Registro Azure Container.
 
-## <a name="key-management"></a>Gestione della chiave
+## <a name="key-management"></a>Gestione delle chiavi
 
 Come indicato nell'output di `docker push` quando si esegue il push della prima immagine attendibile, la chiave radice è la più sensibile. Assicurarsi di eseguire il backup della chiave radice e di archiviarla in una posizione sicura. Per impostazione predefinita, il client Docker archivia le chiavi di firma nella directory seguente:
 

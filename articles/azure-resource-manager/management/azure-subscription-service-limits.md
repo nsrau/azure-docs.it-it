@@ -1,15 +1,14 @@
 ---
 title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
-tags: billing
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: 1987d444c49bb5e53950c26c43c1607c8a87be6d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f7fefecddaf50feda247dd711505aef1b4f206f0
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592424"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254325"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -45,7 +44,7 @@ Quando si usano Azure Resource Manager e i gruppi di risorse di Azure, si applic
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## <a name="active-directory-limits"></a>Limiti relativi ad Active Directory
+## <a name="active-directory-limits"></a>Limiti di Active Directory
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 

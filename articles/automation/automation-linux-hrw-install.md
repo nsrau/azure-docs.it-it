@@ -3,14 +3,14 @@ title: Ruolo di lavoro ibrido per runbook Linux di Automazione di Azure
 description: Questo articolo fornisce informazioni sull'installazione di un ruolo di lavoro ibrido per runbook di Automazione di Azure che consente di eseguire i runbook sui computer Linux nel data center locale o nell'ambiente cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/28/2018
+ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 838c7450de1364588fb287c9d9804666a325cdf3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421929"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246299"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -27,7 +27,7 @@ La funzionalità ruolo di lavoro ibrido per runbook supporta le distribuzioni se
 * Oracle Linux 5, 6 e 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
 * Debian GNU/Linux 6, 7 e 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS e 16.04 LTS (x86/x64)
+* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS e 18,04 (x86/x64)
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Installazione di un ruolo di lavoro ibrido per runbook di Linux

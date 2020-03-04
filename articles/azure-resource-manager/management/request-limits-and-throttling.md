@@ -1,15 +1,15 @@
 ---
-title: Limiti e limitazione delle richieste
+title: Limiti delle richieste e limitazioni
 description: Viene descritto come usare la limitazione con le richieste di Azure Resource Manager quando sono stati raggiunti i limiti di sottoscrizioni.
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 129ca3ba32d48345bde931c6bd2084c3da79be39
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43ccf4f2e8098f6577f18943c4ab4132884b66f2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659373"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251332"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
@@ -27,9 +27,9 @@ La tabella seguente illustra i limiti di limitazione predefiniti per ora.
 
 | Ambito | Operazioni | Limite |
 | ----- | ---------- | ------- |
-| Sottoscrizione | reads | 12000 |
-| Sottoscrizione | deletes | 15000 |
-| Sottoscrizione | writes | 1200 |
+| Subscription | reads | 12000 |
+| Subscription | deletes | 15000 |
+| Subscription | writes | 1200 |
 | Tenant | reads | 12000 |
 | Tenant | writes | 1200 |
 
@@ -84,7 +84,7 @@ Alcuni provider di risorse restituiscono 429 per segnalare un problema temporane
 
 È possibile determinare il numero di richieste rimanenti esaminando le intestazioni di risposta. Le richieste di lettura restituiscono un valore nell'intestazione per il numero di richieste di lettura rimanenti. Le richieste di scrittura includono un valore per il numero di richieste di scrittura rimanenti. Nella tabella seguente vengono descritte le intestazioni di risposta che è possibile esaminare per tali valori:
 
-| Intestazione risposta | Description |
+| Intestazione risposta | Descrizione |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Richieste di lettura rimanenti nell'ambito della sottoscrizione. Questo valore viene restituito nelle operazioni di lettura. |
 | x-ms-ratelimit-remaining-subscription-writes |Richieste di scrittura rimanenti nell'ambito della sottoscrizione. Questo valore viene restituito nelle operazioni di scrittura. |
@@ -162,7 +162,7 @@ az group list --verbose --debug
 
 Tale opzione restituisce numerosi valori, inclusi i seguenti:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -182,7 +182,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 Tale opzione restituisce numerosi valori, inclusi i seguenti:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'

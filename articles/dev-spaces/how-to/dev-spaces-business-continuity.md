@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Informazioni su come usare Azure Dev Spaces e i servizi Kubernetes di Azure per garantire la continuità aziendale e prepararsi per il ripristino di emergenza
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 8a223e9610d2b243cd78bf8b674262d6438421a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8561486bcf8524d309ba46fcbb4b4d3e180d7c72
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438515"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252394"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuità aziendale e ripristino di emergenza per Azure Dev Spaces
 
@@ -41,7 +41,7 @@ Ripetere questo processo per ogni cluster.
 
 È anche possibile abilitare Dev Spaces nella riga di comando:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -57,7 +57,7 @@ Dopo aver configurato correttamente un cluster di backup su cui è in esecuzione
 
 Selezionare un altro cluster con il comando interfaccia della riga di comando seguente:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 
@@ -77,7 +77,7 @@ Dopo aver eseguito questi comandi, il cluster selezionato e lo spazio di svilupp
 
 Se si usa Visual Studio, è possibile passare al cluster usato da un progetto esistente seguendo questa procedura:
 
-1. Aprire il progetto in Visual Studio.
+1. Apri il progetto in Visual Studio.
 1. Fare clic con il pulsante destro del mouse sul nome progetto in Esplora soluzioni, quindi fare clic su **Proprietà**.
 1. Nel riquadro sinistro fare clic su **Eseguire il debug**.
 1. Nella pagina delle proprietà di Debug, fare clic sul **Profilo** elenco a discesa elenco e scegliere **Azure Dev Spaces**.

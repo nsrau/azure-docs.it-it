@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 51263af978ed599d7a7b8a2159c0c9c3c25b33a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4cdf58974cd8fa9d7813df7e970caea260409225
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558823"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251300"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenuto esterno e della community per il servizio cognitivo Analisi del testo
 
@@ -33,9 +33,13 @@ ms.locfileid: "68558823"
 
 + [Sentiment analysis with Dynamics 365 CRM Online](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) (Analisi del sentiment con Dynamics 365 CRM Online) (blog di MSDN) 
 
-+ Blog di Power BI: Extraction of key phrases from Facebook messages (Estrazione di frasi chiave da messaggi Facebook): [Parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [Parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Blog Power BI: estrazione di frasi chiave da messaggi di Facebook: [parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-## <a name="videos"></a>Video
++ [Identificare il sentimento dei commenti in un gruppo di Yammer con MS Flow (Microsoft Tech Community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
+
+
+
+## <a name="videos"></a>Videos
 
 + [Logic App to detect sentiment and extract key phrases from your text](https://www.youtube.com/watch?v=jVN9NObAzgk) (App per la logica per rilevare sentiment ed estrarre frasi chiave dal testo)
 
@@ -49,5 +53,5 @@ Se si stanno cercando informazioni su una funzionalità o su un caso d'uso non t
 
 ## <a name="see-also"></a>Vedere anche
 
- [StackOverflow: API Analisi del testo di Azure Machine Learning](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Servizi cognitivi di Azure](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)  (StackOverflow: API Analisi del testo di Azure)  
+ [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive) (StackOverflow: Servizi cognitivi di Azure)

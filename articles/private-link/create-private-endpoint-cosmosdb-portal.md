@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028585"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252591"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure
 
@@ -19,32 +19,28 @@ Endpoint privato di Azure è il blocco predefinito fondamentale per il collegame
 
 In questo articolo si apprenderà come creare una VM in una rete virtuale di Azure e un account Azure Cosmos con un endpoint privato usando il portale di Azure. Quindi, è possibile accedere in modo sicuro all'account Azure Cosmos dalla macchina virtuale.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al [portale di Azure.](https://portal.azure.com)
 
-## <a name="create-a-vm"></a>Creare una VM
+## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-### <a name="create-the-virtual-network"></a>Creare la rete virtuale
+## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
 
 In questa sezione si creerà una rete virtuale e la subnet per ospitare la macchina virtuale usata per accedere alla risorsa di collegamento privato (un account Azure Cosmos in questo esempio).
 
-1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
+In questa sezione è necessario sostituire i parametri seguenti nei passaggi con le informazioni riportate di seguito:
 
-1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
+| Parametro                   | Valore                |
+|-----------------------------|----------------------|
+| **Nome gruppo di risorse \<>**  | myResourceGroup|
+| **\<Virtual-Network-Name >** | myVirtualNetwork         |
+| **nome area \<>**          | Stati Uniti centro-occidentali     |
+| **\<IPv4-Address-Space >**   | 10.1.0.0 \ 16          |
+| **\<nome subnet >**          | mySubnet        |
+| **\<subnet-> intervallo di indirizzi** | 10.1.0.0 \ 24          |
 
-    | Impostazione | Valore |
-    | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork*. |
-    | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Percorso | Selezionare **Stati Uniti centro-occidentali**.|
-    | Subnet - Nome | Immettere *mySubnet*. |
-    | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
-    |||
-
-1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 
@@ -55,18 +51,18 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Subscription | Selezionare la propria sottoscrizione. |
     | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Area | Selezionare **Stati Uniti centro-occidentali**. |
+    | Region | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
     | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
-    | Dimensioni | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
+    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
     | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a propria scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirm Password | Immettere nuovamente la password. |
+    | Conferma password | Immettere nuovamente la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
     | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna**. |
     | **RISPARMIA** |  |
@@ -120,7 +116,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
@@ -151,7 +147,7 @@ In questa sezione si effettuerà la connessione privata all'account Azure Cosmos
 
 1. Immettere la stringa di connessione incollando le informazioni copiate in precedenza.
 
-1. Selezionare **Avanti**.
+1. Fare clic su **Avanti**.
 
 1. Selezionare **Connetti**.
 

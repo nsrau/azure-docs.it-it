@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905712"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251856"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ Per le attività di previsione, Machine Learning automatizzato USA operazioni di
 
 L'oggetto [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) definisce le impostazioni e i dati necessari per un'attività automatica di machine learning. Analogamente a un problema di regressione, si definiscono parametri di training standard come il tipo di attività, il numero di iterazioni, i dati di training e il numero di convalide incrociate. Per le attività di previsione, è necessario impostare parametri aggiuntivi che interessano l'esperimento. La tabella seguente illustra ogni parametro e il relativo utilizzo.
 
-| Param | Description | Obbligatorio |
+| Param | Descrizione | Obbligatoria |
 |-------|-------|-------|
 |`time_column_name`|Utilizzato per specificare la colonna DateTime nei dati di input utilizzati per compilare la serie temporale e dedurre la relativa frequenza.|✓|
 |`grain_column_names`|Nome/i che definisce i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||
@@ -178,13 +178,14 @@ Vedere i [notebook di esempio di previsione](https://github.com/Azure/MachineLea
 ### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configurare un esperimento di abilitazione della previsione di DNN
 
 > [!NOTE]
-> Il supporto di DNN per la previsione nel Machine Learning automatico è in anteprima.
+> Il supporto di DNN per la previsione nei Machine Learning automatici è in anteprima e non è supportato per le esecuzioni locali.
 
 Per sfruttare DNN per la previsione, è necessario impostare il parametro `enable_dnn` in AutoMLConfig su true. 
 
-Per usare DNN, è consigliabile usare un cluster di calcolo AML con SKU GPU e almeno due nodi come destinazione di calcolo. Per ulteriori informazioni, vedere la [documentazione di calcolo AML](how-to-set-up-training-targets.md#amlcompute). Per altre informazioni sulle dimensioni delle VM che includono GPU, vedere [dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) .
+È consigliabile usare un cluster di calcolo AML con SKU GPU e almeno due nodi come destinazione di calcolo. Per consentire un tempo sufficiente per il completamento del training DNN, è consigliabile impostare il timeout dell'esperimento su un minimo di un paio di ore.
+Per altre informazioni sulle dimensioni delle macchine virtuali e di calcolo di AML che includono GPU, vedere la documentazione di [calcolo AML](how-to-set-up-training-targets.md#amlcompute) e le [dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-Per consentire un tempo sufficiente per il completamento del training DNN, è consigliabile impostare il timeout dell'esperimento su almeno un paio di ore.
+Visualizzare il [notebook della previsione di produzione delle bevande](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) per un esempio di codice dettagliato con DNN.
 
 ### <a name="view-feature-engineering-summary"></a>Visualizza riepilogo Progettazione funzionalità
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979426"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251003"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creare e gestire gli account di integrazione per B2B Enterprise Integrations in app per la logica di Azure
 
@@ -55,7 +55,7 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
 
    ![Specificare i dettagli dell'account di integrazione](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Proprietà | Obbligatorio | Valore | Description |
+   | Proprietà | Obbligatoria | Valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Nome** | Sì | <*integration-account-name*> | Nome dell'account di integrazione, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). In questo esempio viene usato "Fabrikam-Integration". |
    | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |
@@ -140,13 +140,13 @@ Per apportare questa modifica, è possibile usare l'portale di Azure attenendosi
 
 1. Al prompt dei comandi, immettere il [comando **AZ Resource** ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)e impostare `skuName` sul livello superiore desiderato.
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
    Se, ad esempio, si dispone del livello Basic, è possibile impostare `skuName` su `Standard`:
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
    ```
 
@@ -164,13 +164,13 @@ Per apportare questa modifica, usare l' [interfaccia](https://docs.microsoft.com
 
 1. Al prompt dei comandi, immettere il [comando **AZ Resource** ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) e impostare `skuName` sul livello inferiore desiderato.
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
    ```
   
    Se, ad esempio, si dispone del livello standard, è possibile impostare `skuName` su `Basic`:
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
    ```
 
@@ -180,7 +180,7 @@ Se si vuole collegare l'app per la logica a un altro account di integrazione o n
 
 1. Aprire la finestra del browser e passare a [Azure Resource Explorer (https://resources.azure.com)](https://resources.azure.com). Accedere con le stesse credenziali dell'account Azure.
 
-   ![Esplora risorse di Azure](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
+   ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
 1. Nella casella di ricerca immettere il nome dell'app per la logica in modo che sia possibile trovare e selezionare l'app per la logica.
 
@@ -206,7 +206,7 @@ Se si vuole collegare l'app per la logica a un altro account di integrazione o n
    },
    ```
 
-   Ad esempio:
+   Ad esempio,
 
    ![Trova oggetto "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
