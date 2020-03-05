@@ -6,15 +6,15 @@
       href: load-balancer-overview.md
 - name: Guida introduttiva
   items:
-    - name: Portale
+    - name: Creare il bilanciamento del carico - Portale
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Interfaccia della riga di comando di Azure
+    - name: Creare il bilanciamento del carico - Interfaccia della riga di comando di Azure
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Azure PowerShell
+    - name: Creare il bilanciamento del carico - PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Modello di Azure Resource Manager
+    - name: Creare il bilanciamento del carico - modello
       href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+  expanded: true
 - name: Esercitazioni
   items:
     - name: Bilanciare il carico del traffico Internet verso le macchine virtuali
@@ -37,7 +37,7 @@
   items:
     - name: Componenti e limiti
       href: concepts-limitations.md
-    - name: Monitoraggio dell’integrità
+    - name: Monitoraggio dell'integrità
       items:
         - name: Probe di integrità
           href: load-balancer-custom-probe-overview.md

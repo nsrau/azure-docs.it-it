@@ -208,6 +208,9 @@
         - name: Creare set di dati con etichette
           displayName: 'data, labels, torchvision'
           href: how-to-use-labeled-dataset.md
+        - name: Inserimento dati con Azure Data Factory
+          displayName: 'data, ingestion, adf'
+          href: how-to-data-ingest-adf.md
         - name: DevOps per l'inserimento dati
           displayName: 'data, ingestion, devops'
           href: how-to-cicd-data-ingestion.md

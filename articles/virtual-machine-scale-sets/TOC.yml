@@ -152,7 +152,7 @@
     - name: Automatizzazione dell'infrastruttura
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: ../virtual-machines/windows/security-policy.md
@@ -219,7 +219,7 @@
           items:
             - name: Usare PowerShell
               href: disk-encryption-powershell.md
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Usare l'interfaccia della riga di comando di Azure
               href: disk-encryption-cli.md
             - name: Usare i modelli di Gestione risorse di Azure
               href: disk-encryption-azure-resource-manager.md
@@ -237,7 +237,7 @@
       items:
         - name: Attività di gestione comuni
           items:
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Usare l'interfaccia della riga di comando di Azure
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Usare Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
@@ -247,6 +247,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Aggiornamenti automatici del sistema operativo
           href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Ripristini automatici delle istanze (anteprima)
+          href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protezione delle istanze
           href: virtual-machine-scale-sets-instance-protection.md
         - name: Criteri di riduzione
