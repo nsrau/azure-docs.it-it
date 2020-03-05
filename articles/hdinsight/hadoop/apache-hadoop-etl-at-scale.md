@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/27/2020
-ms.openlocfilehash: f2c18a1e858fcebf8d2c82210f2290cf4a14d061
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/03/2020
+ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846008"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271940"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
@@ -65,9 +65,9 @@ Archiviazione di Azure include anche un livello API WebHDFS per l'archiviazione 
 
 I dati vengono in genere inseriti in Archiviazione di Azure tramite PowerShell, Azure Storage SDK o AZCopy.
 
-### <a name="azure-data-lake-storage"></a>Archiviazione Azure Data Lake
+### <a name="azure-data-lake-storage"></a>Archiviazione di Azure Data Lake
 
-Azure Data Lake Storage (ADLS) è un repository con iperscalabilità gestito per dati di analisi compatibili con HDFS.  ADLS usa un paradigma di progettazione simile ad HDFS e offre scalabilità illimitata in termini di capacità totale e dimensione dei singoli file. ADLS è un'ottima scelta quando si lavora con file di grandi dimensioni, poiché un file di questo tipo può essere archiviato in più nodi.  Il partizionamento dei dati in ADLS viene eseguito in background.  Puoi ottenere velocità effettiva molto elevata per l'esecuzione di processi di analisi con migliaia di esecutori simultanei che leggono e scrivono centinaia di terabyte di dati in modo efficiente.
+Azure Data Lake Storage (ADLS) è un repository con iperscalabilità gestito per dati di analisi compatibili con HDFS.  ADLS usa un paradigma di progettazione simile ad HDFS e offre scalabilità illimitata in termini di capacità totale e dimensione dei singoli file. ADLS è un'ottima scelta quando si lavora con file di grandi dimensioni, poiché un file di questo tipo può essere archiviato in più nodi.  Il partizionamento dei dati in ADLS viene eseguito in background.  Si ottiene una velocità effettiva molto elevata per l'esecuzione di processi di analisi con migliaia di esecutori simultanei che leggono e scrivono centinaia di terabyte di dati in modo efficiente.
 
 I dati vengono in genere inseriti in ADLS tramite Azure Data Factory, gli SDK di ADLS, il servizio AdlCopy, Apache DistCp o Apache Sqoop.  La scelta del servizio da usare dipende in gran parte dalla posizione dei dati.  Se i dati si trovano attualmente in un cluster Hadoop esistente, si può usare Apache DistCp, il servizio AdlCopy o Azure Data Factory.  Se si trovano in Archiviazione BLOB di Azure, si può usare Azure Data Lake Storage .NET SDK, Azure PowerShell o Azure Data Factory.
 
@@ -81,7 +81,7 @@ Per il caricamento dei set di dati nell'intervallo di terabyte, la latenza di re
 
 * Caricamento "offline" dei dati: è possibile usare il [servizio Importazione/Esportazione di Azure](../../storage/common/storage-import-export-service.md) per inviare le unità disco rigido con i dati a un data center di Azure. I dati vengono caricati prima di tutto in BLOB di archiviazione di Azure. È quindi possibile usare [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) o lo strumento [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) per copiare i dati dai BLOB di Archiviazione di Azure in Data Lake Storage.
 
-### <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse di Azure
+### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
 Azure SQL DW è la scelta ottimale per archiviare risultati puliti e preparati per analisi future.  Azure HDInsight consente di eseguire i servizi per Azure SQL DW.
 
@@ -129,7 +129,7 @@ Apache Flume è un servizio distribuito, affidabile e disponibile per raccoglier
 
 Non è possibile usare Apache Flume con Azure HDInsight.  Un'installazione locale di Hadoop può usare Flume per inviare dati ai BLOB del servizio di archiviazione di Azure o a Azure Data Lake Storage.  Per altre informazioni, vedere [Using Apache Flume with HDInsigh](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso di Apache Flume con HDInsight).
 
-## <a name="transform"></a>Trasformazione
+## <a name="transform"></a>Trasformare
 
 Quando i dati esistono nella posizione scelta, è necessario pulirli, combinarli o prepararli per un modello di utilizzo specifico.  Hive, Pig e Spark SQL sono soluzioni ottime per questo tipo di attività  Tutti sono supportati in HDInsight.
 

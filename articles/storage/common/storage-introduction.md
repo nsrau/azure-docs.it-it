@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ddd4f45e88c0bcc63fb62cc816fae4dbad255841
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 602f5a794f90e52ac80ea71ea2ed3656a7e0e5e7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157585"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269467"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
 
@@ -141,7 +141,7 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 - [API REST di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/)
 - [Libreria client di archiviazione di Azure per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Libreria client di archiviazione di Azure per Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Libreria client di archiviazione di Azure per node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage)
+- [Libreria client di archiviazione di Azure per node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Libreria client di archiviazione di Azure per Python](https://github.com/Azure/azure-storage-python)
 - [Libreria client di archiviazione di Azure per PHP](https://github.com/Azure/azure-storage-php)
 - [Libreria client di archiviazione di Azure per Ruby](https://github.com/Azure/azure-storage-ruby)

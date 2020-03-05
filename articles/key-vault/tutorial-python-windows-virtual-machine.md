@@ -5,16 +5,17 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 4078f2a005dcd324fa9c1d31cdca4b1f8337eecd
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3b965ab7dfafd6c78c801cf3692463efe366c852
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988380"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198083"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale Windows in Python
 
@@ -36,7 +37,7 @@ Prima di iniziare, leggere i [concetti di base di Key Vault](basic-concepts.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)

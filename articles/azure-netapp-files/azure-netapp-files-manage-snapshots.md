@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086850"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267910"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
-È possibile usare Azure NetApp Files per creare uno snapshot su richiesta per un volume o eseguire il ripristino da uno snapshot a un nuovo volume.
+È possibile usare Azure NetApp Files per creare manualmente uno snapshot su richiesta per un volume o un ripristino da uno snapshot in un nuovo volume. Il servizio Azure NetApp Files non crea automaticamente snapshot del volume.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creare uno snapshot su richiesta per un volume
 
@@ -72,10 +72,10 @@ Attualmente, è possibile ripristinare uno snapshot solo in un nuovo volume.
 
     *   **Rete virtuale**  
         Specificare la rete virtuale di Azure da cui si vuole accedere al volume.  
-        Per la rete virtuale specificata è necessario delegare una subnet ad Azure NetApp Files. Azure NetApp Files è accessibile solo dalla stessa rete virtuale o da una rete virtuale presente nella stessa area del volume tramite il peering delle reti virtuali. Il volume è possibile accedere dalla rete locale tramite Express Route. 
+        Per la rete virtuale specificata è necessario delegare una subnet ad Azure NetApp Files. Azure NetApp Files è accessibile solo dalla stessa rete virtuale o da una rete virtuale presente nella stessa area del volume tramite il peering delle reti virtuali. È possibile accedere al volume dalla rete locale tramite Express route. 
 
     * **Subnet**  
-        Specificare la subnet che si vuole usare per il volume.  
+        Specificare la subnet desiderata per il volume.  
         La subnet specificata deve essere delegata al servizio Azure NetApp Files. È possibile creare una nuova subnet selezionando **Crea nuovo** sotto il campo Subnet.  
    <!--
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 

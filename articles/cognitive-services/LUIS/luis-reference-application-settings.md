@@ -8,33 +8,33 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961783"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270811"
 ---
 # <a name="application-settings"></a>Impostazioni dell'applicazione
 
 Queste impostazioni dell'applicazione vengono archiviate nell'app [esportata](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e [aggiornate](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con le API REST. Modificando le impostazioni della versione dell'app si reimposta lo stato di training dell'app su non sottoposto a training.
 
-|Impostazione|Default value|note|
+|Impostazione|Valore predefinito|Note|
 |--|--|--|
-|NormalizePunctuation|true|Rimuove la punteggiatura.|
-|NormalizeDiacritics|true|Rimuove i segni diacritici.|
+|NormalizePunctuation|True|Rimuove la punteggiatura.|
+|NormalizeDiacritics|True|Rimuove i segni diacritici.|
 
-## <a name="diacritics-normalization"></a>Normalizzazione segni diacritici 
+## <a name="diacritics-normalization"></a>Normalizzazione segni diacritici
 
 Attivare la normalizzazione dell'espressione per i segni diacritici nel file dell'app LUIS JSON nel parametro `settings`.
 
 ```JSON
 "settings": [
     {"name": "NormalizeDiacritics", "value": "true"}
-] 
+]
 ```
 
 Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei segni diacritici influisca sulle espressioni:
@@ -61,7 +61,7 @@ Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei 
 |`ó`|`o`|
 |`ô`|`o`|
 |`õ`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |||
 
 #### <a name="dutch-nl-nl-diacritics"></a>Segni diacritici `nl-nl` olandesi
@@ -77,7 +77,7 @@ Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei 
 |`í`|`i`|
 |`ó`|`o`|
 |`ö`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |`ü`|`u`|
 |||
 
@@ -91,24 +91,24 @@ Sono incluse sia le impostazioni cultura di lingua francese sia quelle canadesi.
 |`à`|`a`|
 |`è`|`e`|
 |`ù`|`u`|
-|`â`|`a`| 
-|`ê`|`e`| 
-|`î`|`i`| 
-|`ô`|`o`| 
-|`û`|`u`| 
-|`ç`|`c`| 
-|`ë`|`e`| 
-|`ï`|`i`| 
-|`ü`|`u`| 
-|`ÿ`|`y`| 
+|`â`|`a`|
+|`ê`|`e`|
+|`î`|`i`|
+|`ô`|`o`|
+|`û`|`u`|
+|`ç`|`c`|
+|`ë`|`e`|
+|`ï`|`i`|
+|`ü`|`u`|
+|`ÿ`|`y`|
 
 #### <a name="german-de-de-diacritics"></a>Segni diacritici `de-de` tedesco
 
 |Segni diacritici impostati su false|Segni diacritici impostati su true|
 |--|--|
 |`ä`|`a`|
-|`ö`|`o`| 
-|`ü`|`u`| 
+|`ö`|`o`|
+|`ü`|`u`|
 
 #### <a name="italian-it-it-diacritics"></a>Segni diacritici `it-it` italiani
 
@@ -117,11 +117,11 @@ Sono incluse sia le impostazioni cultura di lingua francese sia quelle canadesi.
 |`à`|`a`|
 |`è`|`e`|
 |`é`|`e`|
-|`ì`|`i`| 
-|`í`|`i`| 
-|`î`|`i`| 
-|`ò`|`o`| 
-|`ó`|`o`| 
+|`ì`|`i`|
+|`í`|`i`|
+|`î`|`i`|
+|`ò`|`o`|
+|`ó`|`o`|
 |`ù`|`u`|
 |`ú`|`u`|
 
@@ -133,8 +133,8 @@ Sono inclusi sia spagnolo che messicano.
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
-|`í`|`i`| 
-|`ó`|`o`| 
+|`í`|`i`|
+|`ó`|`o`|
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
@@ -147,7 +147,7 @@ Attivare la normalizzazione dell'espressione per la punteggiatura al file dell'a
 ```JSON
 "settings": [
     {"name": "NormalizePunctuation", "value": "true"}
-] 
+]
 ```
 
 Negli enunciati seguenti viene illustrato il modo in cui la punteggiatura influisca sulle espressioni:
@@ -163,8 +163,8 @@ La punteggiatura seguente viene rimossa con `NormalizePunctuation` è impostato 
 
 |Punteggiatura|
 |--|
-|`-`| 
-|`.`| 
+|`-`|
+|`.`|
 |`'`|
 |`"`|
 |`\`|

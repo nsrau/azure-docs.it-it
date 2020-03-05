@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 5204c7cf80a5b52b0c30b3165d522aa2648cd95c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 67f0d79c6b074a822917829eee94c5fd3f6a1ef2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587431"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274046"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Esercitazione: Compilare un'applicazione console Node.js con l'SDK JavaScript per gestire i dati API SQL di Azure Cosmos DB
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere elementi al contenitore.
 > * Eseguire operazioni di base sugli elementi, sul contenitore e sul database.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerequisiti 
 
 Assicurarsi di disporre delle risorse seguenti:
 
@@ -438,7 +438,7 @@ Azure Cosmos DB supporta le query complesse sui documenti JSON archiviati in ogn
         ]
     };
 
-    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec).fetchAll();
     for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);

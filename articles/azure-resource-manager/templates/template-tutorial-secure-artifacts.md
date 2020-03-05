@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 42f11ecb8e7c7ae47b5a5ab5ff4f946833945aa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7069ff363cf274ba855efc9b598d8d01e64e18d1
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471186"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250118"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Esercitazione: Proteggere gli elementi nelle distribuzioni di modelli di Azure Resource Manager
 
@@ -31,7 +31,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
@@ -39,7 +39,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 * Rivedere [Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). Il modello usato in questa esercitazione è quello sviluppata in tale esercitazione. In questo articolo viene fornito un collegamento di download del modello completato.
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore del server SQL. Di seguito è riportato un esempio che è possibile usare per generare una password:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 

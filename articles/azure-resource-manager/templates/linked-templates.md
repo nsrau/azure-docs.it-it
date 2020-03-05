@@ -3,12 +3,12 @@ title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c6a5dced0f8607e760422bebd114a08ca0a238e3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207605"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272584"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -160,9 +160,9 @@ Il modello seguente illustra come vengono risolte le espressioni di modello in b
 
 Il valore della variabile cambia in base all'ambito. Nella tabella seguente vengono illustrati i risultati di entrambi gli ambiti.
 
-| Ambito | Output |
+| Scope | Output |
 | ----- | ------ |
-| interna | da modello annidato |
+| interno | da modello annidato |
 | Outer (o predefinito) | dal modello padre |
 
 Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segreto dell'insieme di credenziali delle chiavi da usare per la password. L'ambito è impostato su `inner` perché crea dinamicamente l'ID dell'insieme di credenziali delle chiavi e lo passa come parametro al modello annidato.
@@ -707,7 +707,7 @@ L'esempio seguente mostra come passare un token di firma di accesso condiviso qu
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "string" }
+  "containerSasToken": { "type": "securestring" }
   },
   "resources": [
   {

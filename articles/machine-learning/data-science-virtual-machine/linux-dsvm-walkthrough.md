@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428381"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268644"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data Science con Linux Data Science Virtual Machine in Azure
 
@@ -24,14 +24,14 @@ Le attività data science illustrate in questa procedura dettagliata seguono i p
 
 In questa procedura dettagliata viene analizzato il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Spambase è un set di messaggi di posta elettronica contrassegnati come posta indesiderata o prosciutto (non posta indesiderata). Spambase contiene anche alcune statistiche sul contenuto dei messaggi di posta elettronica. Le statistiche vengono illustrate più avanti nella procedura dettagliata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di poter usare un DSVM Linux, è necessario che siano soddisfatti i prerequisiti seguenti:
 
 * **Sottoscrizione di Azure**. Per ottenere una sottoscrizione di Azure, vedere [creare subito il tuo account Azure gratuito](https://azure.microsoft.com/free/).
 * [**Data Science Virtual Machine Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Per informazioni sul provisioning della macchina virtuale, vedere effettuare il provisioning [del Data Science Virtual Machine Linux](linux-dsvm-intro.md).
 * [**X2go**](https://wiki.x2go.org/doku.php) installato nel computer con una sessione di Xfce aperta. Per ulteriori informazioni, vedere [Install and configure the X2Go Client](linux-dsvm-intro.md#x2go).
-* Per un'esperienza di scorrimento più uniforme, nel Web browser Firefox di DSVM, impostare il flag `gfx.xrender.enabled` in `about:config`. [Altre informazioni](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Si consiglia inoltre di impostare `mousewheel.enable_pixel_scrolling` su `False`. [Altre informazioni](https://support.mozilla.org/questions/981140)
+* Per un'esperienza di scorrimento più uniforme, nel Web browser Firefox di DSVM, impostare il flag `gfx.xrender.enabled` in `about:config`. [Altre informazioni](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Si consiglia inoltre di impostare `mousewheel.enable_pixel_scrolling` su `False`. [Altre informazioni](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning account**. Se non si dispone già di un account, iscriversi per ottenere un nuovo account nel [home page Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Scaricare il set di dati spambase
@@ -187,6 +187,8 @@ Per distribuire il codice dell'albero delle decisioni dalla sezione precedente, 
    ![Il token di autorizzazione primaria Azure Machine Learning Studio (classico)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Caricare il pacchetto **AzureML** e quindi impostare i valori delle variabili con il token e l'ID dell'area di lavoro nella sessione di R in DSVM:
 
+        if(!require("devtools")) install.packages("devtools")
+        devtools::install_github("RevolutionAnalytics/AzureML")
         if(!require("AzureML")) install.packages("AzureML")
         require(AzureML)
         wsAuth = "<authorization-token>"
@@ -206,9 +208,23 @@ Per distribuire il codice dell'albero delle decisioni dalla sezione precedente, 
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
+1. Creare un file Settings. JSON per l'area di lavoro:
+
+        vim ~/.azureml/settings.json
+
+1. Assicurarsi che il contenuto seguente venga inserito nel file Settings. JSON:
+
+         {"workspace":{
+           "id": "<workspace-id>",
+           "authorization_token": "<authorization-token>",
+           "api_endpoint": "https://studioapi.azureml.net",
+           "management_endpoint": "https://management.azureml.net"
+         }
+
 
 1. Pubblicare la funzione **predictSpam** in AzureML usando la funzione **publishWebService** :
 
+        ws <- workspace()
         spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
 1. Questa funzione accetta la funzione **predictSpam** , crea un servizio Web denominato **spamWebService** con input e output definiti, quindi restituisce informazioni sul nuovo endpoint.

@@ -1,6 +1,7 @@
 ---
-title: 'Gestione della configurazione: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
-description: soluzioni di prevenzione per le minacce esposte in Threat Modeling Tool
+title: Gestione della configurazione per il Microsoft Threat Modeling Tool
+titleSuffix: Azure
+description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fedf8118f5581056e40594419c17f074c339a61b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3c89fae09583c96cf8139885fe2554cf6784b4e3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161547"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269832"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: gestione della configurazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -37,10 +38,10 @@ ms.locfileid: "73161547"
 
 ## <a id="csp-js"></a>Implementare Content Security Policy (CSP) e disabilitare il contenuto JavaScript inline
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introduzione a Content Security Policy) [Content Security Policy Reference](https://content-security-policy.com/) (Informazioni di riferimento su Content Security Policy), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Funzionalità di sicurezza), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) (Introduzione a Content Security Policy), [(È possibile usare use CSP?)](https://caniuse.com/#feat=contentsecuritypolicy) |
@@ -69,10 +70,10 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="xss-filter"></a>Abilitare il filtro XSS del browser
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [XSS Protection Filter](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) (Filtro di protezione XSS) |
@@ -80,10 +81,10 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="trace-deploy"></a>Le applicazioni ASP.NET devono disabilitare la traccia e il debug prima della distribuzione
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Panoramica del debug di ASP.NET](https://msdn.microsoft.com/library/ms227556.aspx), [Panoramica dell'analisi di ASP.NET](https://msdn.microsoft.com/library/bb386420.aspx), [Procedura: Abilitare l'analisi per un'applicazione ASP.NET](https://msdn.microsoft.com/library/0x5wc973.aspx), [Procedura: Abilitare il debug per applicazioni ASP.NET](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
@@ -91,10 +92,10 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="js-trusted"></a>Accedere a contenuto JavaScript di terze parti solo da origini attendibili
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
@@ -102,10 +103,10 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="ui-defenses"></a>Assicurarsi che le pagine ASP.NET autenticate incorporino difese contro attacchi di tipo UI redress o click-jacking
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [OWASP click-jacking Defense Cheat Sheet](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet) (Foglio informativo di OWASP sulla difesa contro il click-jacking), [IE Internals - Combating click-jacking With X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) (IEInternals: lotta al click-jacking con X-Frame-Options) |
@@ -137,10 +138,10 @@ Codice di Web.config per siti che devono essere inseriti in un frame solo dalle 
 
 ## <a id="cors-aspnet"></a>Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato nelle applicazioni Web ASP.NET
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Web Form, MVC 5 |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
@@ -168,10 +169,10 @@ Si noti che è fondamentale assicurarsi che l'elenco di origini nell'attributo "
 
 ## <a id="validate-aspnet"></a>Abilitare l'attributo ValidateRequest nelle pagine ASP.NET
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Web Form, MVC 5 |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Request Validation - Preventing Script Attacks](https://www.asp.net/whitepapers/request-validation) (Convalida della richiesta: prevenzione degli attacchi basati su script) |
@@ -194,10 +195,10 @@ Si noti che la funzionalità di convalida della richiesta non è supportata e no
 
 ## <a id="local-js"></a>Usare le versioni più recenti ospitate in locale delle librerie JavaScript
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
@@ -205,10 +206,10 @@ Si noti che la funzionalità di convalida della richiesta non è supportata e no
 
 ## <a id="mime-sniff"></a>Disabilitare l'analisi MIME automatica
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) (Sicurezza di IE8 parte V: protezione completa), [MIME type](https://en.wikipedia.org/wiki/Mime_type) (Tipo MIME) |
@@ -270,10 +271,10 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="standard-finger"></a>Rimuovere le intestazioni del server standard nei siti Web di Microsoft Azure per evitare la creazione di impronte digitali
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Applicazione Web. | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Applicazione Web | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Tipo di ambiente: Azure |
 | **Riferimenti**              | [Removing standard server headers on Windows Azure Web Sites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/) (Rimozione di intestazioni del server standard nei siti Web di Microsoft Azure) |
@@ -281,21 +282,21 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="firewall-db"></a>Configurare Windows Firewall per l'accesso al motore di database
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
-| **Fase SDL**               | Creare |  
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | SQL Azure, locale |
 | **Attributes (Attributi)**              | N/D, versione SQL: V12 |
 | **Riferimenti**              | [Come configurare un firewall per il database SQL di Azure](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurare Windows Firewall per l'accesso al motore di database](https://msdn.microsoft.com/library/ms175043) |
-| **Passaggi** | I sistemi firewall consentono di impedire l'accesso non autorizzato alle risorse del computer. Per accedere a un'istanza del motore di database di SQL Server tramite un firewall, è necessario configurare il firewall sul computer che esegue SQL Server per consentire l'accesso. |
+| **Passaggi** | I sistemi firewall contribuiscono a impedire l'accesso non autorizzato alle risorse del computer. Per accedere a un'istanza del motore di database di SQL Server tramite un firewall, è necessario configurare il firewall sul computer che esegue SQL Server per consentire l'accesso. |
 
 ## <a id="cors-api"></a>Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato nell'API Web ASP.NET
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Creare |  
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | MVC 5 |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Abilitazione di richieste multiorigine nell'API Web ASP.NET 2), [API Web ASP.NET: supporto di CORS nell'API Web ASP.NET 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
@@ -388,10 +389,10 @@ public class ResourcesController : ApiController
 }
 ```
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Creare |  
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | MVC 6 |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Enabling Cross-Origin Requests (CORS) in ASP.NET Core 1.0](https://docs.asp.net/en/latest/security/cors.html) (Abilitazione di richieste multiorigine (CORS) in ASP.NET Core 1.0) |
@@ -480,7 +481,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="config-sensitive"></a>Crittografare le sezioni dei file di configurazione dell'API Web contenenti dati sensibili
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Distribuzione |  
@@ -491,7 +492,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="admin-strong"></a>Assicurarsi che tutte le interfacce amministrative siano protette con credenziali sicure
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Distribuzione |  
@@ -502,10 +503,10 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="unknown-exe"></a>Assicurarsi che un codice sconosciuto non possa essere eseguito sui dispositivi
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase SDL**               | Creare |  
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) (Abilitazione dell'avvio protetto e della crittografia dispositivo BitLocker in Windows 10 IoT Core) |
@@ -513,10 +514,10 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="partition-iot"></a>Crittografare il sistema operativo e altre partizioni del dispositivo IoT con bit-locker
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase SDL**               | Creare |  
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
@@ -524,7 +525,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="min-enable"></a>Assicurarsi che sui dispositivi siano abilitati solo servizi/funzionalità minime
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Distribuzione |  
@@ -535,7 +536,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="field-bit-locker"></a>Crittografare il sistema operativo e altre partizioni del gateway IoT sul campo con bit-locker
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT sul campo | 
 | **Fase SDL**               | Distribuzione |  
@@ -546,7 +547,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="default-change"></a>Assicurarsi che le credenziali di accesso predefinite del gateway sul campo vengano modificate durante l'installazione
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT sul campo | 
 | **Fase SDL**               | Distribuzione |  
@@ -557,10 +558,10 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="cloud-firmware"></a>Assicurarsi che il gateway nel cloud implementi un processo per mantenere aggiornato il firmware dei dispositivi connessi
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
-| **Componente**               | Gateway IoT nel cloud | 
-| **Fase SDL**               | Creare |  
+| **Componente**               | Gateway IoT cloud | 
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Opzione gateway: Hub IoT di Azure |
 | **Riferimenti**              | [Panoramica della gestione dei dispositivi con l'hub IoT](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware](../../iot-hub/tutorial-firmware-update.md) (Come aggiornare il firmware di un dispositivo) |
@@ -568,7 +569,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="controls-policies"></a>Assicurarsi che i dispositivi abbiano i controlli di sicurezza degli endpoint configurati in base ai criteri organizzativi
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -579,7 +580,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="secure-keys"></a>Assicurare una gestione sicura delle chiavi di accesso alle risorse di archiviazione di Azure
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Distribuzione |  
@@ -590,10 +591,10 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="cors-storage"></a>Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato in Archiviazione di Azure
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
-| **Fase SDL**               | Creare |  
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Supporto di CORS per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx) |
@@ -601,10 +602,10 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="throttling"></a>Abilitare la funzionalità di limitazione dei servizi di WCF
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Creare |  
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework 3 |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
@@ -624,10 +625,10 @@ Di seguito è riportato un esempio di configurazione con la funzionalità di lim
 
 ## <a id="info-metadata"></a>Diffusione di informazioni di WCF tramite i metadati
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Creare |  
+| **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework 3 |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |

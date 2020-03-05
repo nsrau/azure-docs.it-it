@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3e831e58b47d53e2924956cab13568c69bc1432e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d889cd3325784f564d03e5d75dde1ec760c66804
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153741"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268527"
 ---
 # <a name="split-data-module"></a>Modulo Split data
 
@@ -84,34 +84,74 @@ Questo modulo è particolarmente utile quando è necessario separare i dati in s
 
     In base all'espressione regolare fornita, il set di dati è suddiviso in due set di righe: righe con valori corrispondenti all'espressione e tutte le righe rimanenti. 
 
+Negli esempi seguenti viene illustrato come dividere un set di dati utilizzando l'opzione **espressione regolare** . 
+
+### <a name="single-whole-word"></a>Parola intera singola 
+
+Questo esempio inserisce nel primo set di dati tutte le righe che contengono il testo `Gryphon` nella colonna `Text`e inserisce altre righe nel secondo output di **Split data**:
+
+```text
+    \"Text" Gryphon  
+```
+
+### <a name="substring"></a>Substring
+
+Questo esempio cerca la stringa specificata in qualsiasi posizione all'interno della seconda colonna del set di dati, indicata qui dal valore di indice 1. La corrispondenza tiene conto della distinzione tra maiuscole e minuscole.
+
+```text
+(\1) ^[a-f]
+```
+
+Il primo set di dati di risultati contiene tutte le righe in cui la colonna index inizia con uno dei caratteri seguenti: `a`, `b`, `c`, `d`, `e``f`. Tutte le altre righe vengono indirizzate al secondo output.
+
 ## <a name="relative-expression-split"></a>Suddivisione espressione relativa.
 
 1. Aggiungere il modulo [Split data](./split-data.md) alla pipeline e connetterlo come input al set di dati che si desidera suddividere.
   
 2. Per la **modalità di suddivisione**selezionare **espressione relativa divisa**.
   
-3. Nella casella di testo **espressione relazionale** Digitare un'espressione che esegue un'operazione di confronto in una singola colonna:
+3. Nella casella di testo **espressione relazionale** Digitare un'espressione che esegue un'operazione di confronto su una singola colonna:
 
-
- - Colonna numerica:
-    - La colonna contiene numeri di qualsiasi tipo di dati numerico, inclusi i tipi di dati di data/ora.
-
-    - L'espressione può fare riferimento a un massimo di un nome di colonna.
-
-    - Usare il carattere e commerciale (&) per l'operazione AND e usare il carattere barra verticale (|) per l'operazione OR.
-
-    - Sono supportati gli operatori seguenti: `<`, `>`, `<=`, `>=`, `==``!=`
-
-    - Non è possibile raggruppare le operazioni usando `(` e `)`.
-
- - Colonna stringa: 
-    - Sono supportati gli operatori seguenti: `==`, `!=`
-
-
+   Per la **colonna numerica**:
+   - La colonna contiene numeri di qualsiasi tipo di dati numerico, inclusi i tipi di dati di data e ora.
+   - L'espressione può fare riferimento a un massimo di un nome di colonna.
+   - Utilizzare il carattere e commerciale `&` per l'operazione e. Usare il carattere barra verticale `|` per l'operazione o.
+   - Sono supportati gli operatori seguenti: `<`, `>`, `<=`, `>=`, `==``!=`.
+   - Non è possibile raggruppare le operazioni usando `(` e `)`.
+   
+   Per la **colonna stringa**:
+   - Sono supportati gli operatori seguenti: `==`, `!=`.
 
 4. Eseguire la pipeline.
 
     L'espressione divide il set di dati in due set di righe: righe con valori che soddisfano la condizione e tutte le righe rimanenti.
+
+Gli esempi seguenti illustrano come dividere un set di dati usando l'opzione **espressione relativa** nel modulo **Split data** :  
+
+### <a name="using-calendar-year"></a>Uso dell'anno di calendario
+
+Uno scenario comune consiste nel dividere un set di dati in base agli anni. L'espressione seguente seleziona tutte le righe in cui i valori nella colonna `Year` sono maggiori di `2010`.
+
+```text
+\"Year" > 2010
+```
+
+L'espressione date deve tenere conto di tutte le parti della data incluse nella colonna di dati e il formato delle date nella colonna di dati deve essere coerente. 
+
+Ad esempio, in una colonna data che usa il formato `mmddyyyy`, l'espressione dovrebbe essere simile alla seguente:
+
+```text
+\"Date" > 1/1/2010
+```
+
+### <a name="using-column-indices"></a>Utilizzo di indici di colonna
+
+La seguente espressione illustra come usare l'indice di colonna per selezionare tutte le righe della prima colonna del set di dati che contengono valori minori o uguali a 30, ma non uguali a 20.
+
+```text
+(\0)<=30 & !=20
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

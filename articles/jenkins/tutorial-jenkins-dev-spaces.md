@@ -3,12 +3,12 @@ title: Uso del plug-in Azure Dev Spaces per Jenkins con il servizio Azure Kubern
 description: Informazioni su come usare il plug-in Azure Dev Spaces nella pipeline di integrazione continua.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 10dfbdb7d89d6f3870ec3b9dbd87d4d315360815
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 7b23893eb331f55ff41992a2ca660e79f44a609a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619989"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250893"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Esercitazione: Uso del plug-in Azure Dev Spaces per Jenkins con il servizio Azure Kubernetes 
 
@@ -26,7 +26,7 @@ In questa esercitazione si completeranno le attività seguenti:
 
 Questa esercitazione presuppone una conoscenza di livello intermedio dei principali servizi di Azure, ossia servizio Azure Kubernetes, Registro Azure Container, Azure Dev Spaces, [pipeline](https://jenkins.io/doc/book/pipeline/) e plug-in Jenkins e GitHub. È utile avere una familiarità di base con gli strumenti di supporto come kubectl e Helm.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -53,26 +53,26 @@ In questa sezione vengono create le risorse di Azure:
 
 1. Creare un gruppo di risorse.
 
-    ```bash
+    ```azurecli
     az group create --name MyResourceGroup --location westus2
     ```
 
 2. Creare un cluster del servizio Azure Kubernetes. Creare il cluster del servizio Azure Kubernetes in un'[area che supporta Dev Spaces](../dev-spaces/about.md#supported-regions-and-configurations).
 
-    ```bash
+    ```azurecli
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
     ```
 
 3. Configurare il servizio Azure Kubernetes per l'uso di Dev Spaces.
 
-    ```bash
+    ```azurecli
     az aks use-dev-spaces --resource-group MyResourceGroup --name MyAKS
     ```
     In questo passaggio viene installata l'estensione `azds` dell'interfaccia della riga di comando.
 
 4. Creare un registro contenitori.
 
-    ```bash
+    ```azurecli
     az acr create -n MyACR -g MyResourceGroup --sku Basic --admin-enabled true
     ```
 
@@ -225,7 +225,7 @@ La pipeline di esempio usa Helm e kubectl per eseguire la distribuzione nell'ist
 
 3. Per visualizzare le credenziali del Registro Azure Container, eseguire questo comando:
 
-    ```bash
+    ```azurecli
     az acr credential show -n <yourRegistryName>
     ```
 
@@ -251,7 +251,7 @@ La pipeline di esempio usa Helm e kubectl per eseguire la distribuzione nell'ist
 
 5. Configurare le credenziali del servizio Azure Kubernetes. Aggiungere un tipo di credenziale *Kubernetes configuration (kubeconfig)* (Configurazione di Kubernetes) in Jenkins. Usare l'opzione "Enter directly" (Immetti direttamente). Per ottenere le credenziali di accesso per il cluster del servizio Azure Kubernetes, eseguire il comando seguente:
 
-    ```cmd
+    ```azurecli
     az aks get-credentials -g MyResourceGroup -n <yourAKSName> -f -
     ```
 
@@ -403,7 +403,7 @@ stage('smoketest') {
 
 Dopo aver completato l'applicazione di esempio, pulire le risorse di Azure eliminando il gruppo di risorse:
 
-```bash
+```azurecli
 az group delete -y --no-wait -n MyResourceGroup
 ```
 

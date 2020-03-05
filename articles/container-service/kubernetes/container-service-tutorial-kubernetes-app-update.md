@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b4b893f185ba7e205ffebd7d939b8a2aa20a3e13
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e65ca30e4f15b6f69f39160c67813047c40ce8ee
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275554"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274119"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(DEPRECATO) Aggiornare un'applicazione in Kubernetes
 
@@ -53,7 +53,7 @@ vi azure-vote/azure-vote/config_file.cfg
 
 Cambiare i valori per `VOTE1VALUE` e `VOTE2VALUE`, quindi salvare il file.
 
-```bash
+```plaintext
 # UI Configurations
 TITLE = 'Azure Voting App'
 VOTE1VALUE = 'Blue'
@@ -109,7 +109,7 @@ kubectl get pod
 
 Output:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
 azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
@@ -120,25 +120,25 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 Se non si dispone di più pod che eseguono l'immagine azure-vote-front, ridimensionare la distribuzione di `azure-vote-front`.
 
 
-```azurecli-interactive
+```bash
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
 Per aggiornare l'applicazione, usare il comando [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set). Aggiornare `<acrLoginServer>` con il server di accesso o il nome host del registro contenitori.
 
-```azurecli-interactive
+```bash
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
 Per monitorare la distribuzione, utilizzare il comando [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get). Quando l'applicazione aggiornata viene distribuita, le unità vengono terminate e ricreate con la nuova immagine del contenitore.
 
-```azurecli-interactive
+```bash
 kubectl get pod
 ```
 
 Output:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
 azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
@@ -150,7 +150,7 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 Ottenere l'indirizzo IP esterno del servizio `azure-vote-front`.
 
-```azurecli-interactive
+```bash
 kubectl get service azure-vote-front
 ```
 

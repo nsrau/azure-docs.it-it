@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ddb08f774bbb8aa3bc4b10bcd0dd213c8583465e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 274ee0fe98281e733994f2d5df38886409cbc913
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249802"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273643"
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
 
@@ -31,8 +31,8 @@ PowerShell e manuali operativi del flusso di lavoro PowerShell in automazione di
 
 | **Proprietà** | **Descrizione** |
 |:--- |:--- |
-| Type |Obbligatoria. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
-| Name |Obbligatoria. Nome del parametro. Questo nome deve essere univoco all'interno di Runbook, deve iniziare con una lettera e può contenere solo lettere, numeri o caratteri di sottolineatura. |
+| Type |Obbligatorio. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
+| Nome |Obbligatorio. Nome del parametro. Questo nome deve essere univoco all'interno di Runbook, deve iniziare con una lettera e può contenere solo lettere, numeri o caratteri di sottolineatura. |
 | Obbligatorio |Facoltativa. Valore booleano che specifica se il parametro richiede un valore. Se si imposta questa impostazione su **true**, è necessario fornire un valore all'avvio del Runbook. Se si imposta questa opzione su **false**, un valore è facoltativo. Se non si specifica un valore per la proprietà **obbligatoria** , PowerShell considera il parametro di input facoltativo per impostazione predefinita. |
 | Valore predefinito |Facoltativa. Valore utilizzato per il parametro se non viene passato alcun valore di input all'avvio del Runbook. Runbook può impostare un valore predefinito per qualsiasi parametro. |
 
@@ -148,19 +148,19 @@ Nell'etichetta sotto la casella di input è possibile visualizzare le proprietà
 * **Cmdlet di Azure Resource Manager:** È possibile avviare un Runbook di automazione creato in un gruppo di risorse usando [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0
 ).
 
-```powershell
-  $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
   
-  Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
-```
+     Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
+   ```
 
 * **Cmdlet del modello di distribuzione classica di Azure:** è possibile avviare un runbook di automazione creato in un gruppo di risorse predefinito usando [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
-```powershell
-  $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
   
-  Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
-```
+     Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
+   ```
 
 > [!NOTE]
 > Quando si avvia un Runbook usando i cmdlet di PowerShell, viene creato un parametro predefinito, *MicrosoftApplicationManagementStartedBy*, con il valore **PowerShell**. È possibile visualizzare questo parametro nel riquadro Dettagli processo.  
@@ -169,7 +169,7 @@ Nell'etichetta sotto la casella di input è possibile visualizzare le proprietà
 
 * **Metodo Azure Resource Manager:** È possibile avviare un Runbook usando l'SDK di un linguaggio di programmazione. Di seguito è riportato un frammento di codice C# per l'avvio di un runbook nell'account di automazione. È possibile visualizzare tutto il codice nel [repository GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
-  ```csharp
+   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -185,11 +185,11 @@ Nell'etichetta sotto la casella di input è possibile visualizzare le proprietà
          });
       return response.Job;
       }
-  ```
+   ```
 
 * **Metodo del modello di distribuzione classica di Azure:** è possibile avviare un runbook usando l'SDK di un linguaggio di programmazione. Di seguito è riportato un frammento di codice C# per l'avvio di un runbook nell'account di automazione. È possibile visualizzare tutto il codice nel [repository GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
 
-  ```csharp
+   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -205,20 +205,20 @@ Nell'etichetta sotto la casella di input è possibile visualizzare le proprietà
        });
       return response.Job;
     }
-  ```
+   ```
 
-  Per avviare questo metodo, creare un dizionario per archiviare i parametri Runbook *VMName* e *resourceGroupName* e i relativi valori. Avviare quindi il runbook. Di seguito è riportato un frammento di codice C# per chiamare il metodo definito in precedenza.
+   Per avviare questo metodo, creare un dizionario per archiviare i parametri Runbook *VMName* e *resourceGroupName* e i relativi valori. Avviare quindi il runbook. Di seguito è riportato un frammento di codice C# per chiamare il metodo definito in precedenza.
 
-  ```csharp
-  IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+   ```csharp
+   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-  // Add parameters to the dictionary.
+   // Add parameters to the dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
-  RunbookParameters.Add("resourceGroupName", "WSSC1");
+   RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-  //Call the StartRunbook method with parameters
-  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
-  ```
+   //Call the StartRunbook method with parameters
+   StartRunbook("Get-AzureVMGraphical", RunbookParameters);
+   ```
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Avviare un Runbook usando l'API REST e assegnare parametri
 
@@ -238,7 +238,7 @@ Per passare parametri al processo Runbook, usare il corpo della richiesta. Accet
 
 Se si vuole avviare il Runbook **Get-AzureVMTextual** creato in precedenza con *VMName* e *resourceGroupName* come parametri, usare il formato JSON seguente per il corpo della richiesta.
 
-   ```json
+```json
     {
       "properties":{
         "runbook":{
@@ -248,7 +248,7 @@ Se si vuole avviare il Runbook **Get-AzureVMTextual** creato in precedenza con *
          "resourceGroupName":"ContosoSales"}
         }
     }
-   ```
+```
 
 Se il processo è stato creato, viene restituito un codice di stato HTTP 201. Per altre informazioni sulle intestazioni di risposta e sul corpo della risposta, vedere [creare un processo Runbook usando l'API REST](/rest/api/automation/job/create).
 
@@ -260,13 +260,13 @@ Quando si esegue il [test della versione bozza del Runbook](automation-testing-r
 
 ### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Collegare una pianificazione a un runbook e assegnare parametri
 
-È possibile [collegare una pianificazione](automation-schedules.md) al runbook in modo che venga avviato in un momento specifico. Assegnare i parametri di input durante la creazione della pianificazione. Il runbook usa questi valori quando viene avviato dalla pianificazione. Fino a quando non vengono forniti tutti i valori dei parametri obbligatori non è possibile salvare la pianificazione.
+È possibile [collegare una pianificazione](automation-schedules.md) al runbook in modo che venga avviato in un momento specifico. Assegnare i parametri di input durante la creazione della pianificazione. Il runbook usa questi valori quando viene avviato dalla pianificazione. Non è possibile salvare la pianificazione fino a quando non vengono forniti tutti i valori dei parametri obbligatori.
 
 ![Pianificazione e assegnazione di parametri](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 
 ### <a name="create-a-webhook-for-a-runbook-and-assign-parameters"></a>Creare un webhook per un runbook e assegnare parametri
 
-È possibile creare un [webhook](automation-webhooks.md) per il runbook e configurare i parametri di input del runbook. Fino a quando non vengono forniti tutti i valori dei parametri obbligatori non è possibile salvare il webhook.
+È possibile creare un [webhook](automation-webhooks.md) per il runbook e configurare i parametri di input del runbook. Non è possibile salvare il webhook fino a quando non vengono forniti tutti i valori dei parametri obbligatori.
 
 ![Creazione di webhook e assegnazione di parametri](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
@@ -330,7 +330,7 @@ Ora è possibile chiamare il runbook dal computer locale tramite Azure PowerShel
     >[!NOTE]
     >Per PowerShell manuali operativi, **Add-AzAccount** e **Add-AzureRMAccount** sono alias per **Connect-AzAccount**. Si noti che questi alias non sono disponibili per manuali operativi grafici. Un Runbook grafico può usare solo **Connect-AzAccount** .
 
-2. Ottenere il contenuto del file JSON salvato e convertirlo in una stringa. `JsonPath` è il percorso in cui è stato salvato il file JSON.
+1. Ottenere il contenuto del file JSON salvato e convertirlo in una stringa. `JsonPath` è il percorso in cui è stato salvato il file JSON.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
@@ -354,7 +354,7 @@ Ora è possibile chiamare il runbook dal computer locale tramite Azure PowerShel
    ```
 
    Si noti che il valore dei *parametri* viene impostato sull'oggetto PowerShell che contiene i valori del file JSON.
-1. Avviare il runbook
+1. Avviare il Runbook.
 
    ```powershell
    $job = Start-AzAutomationRunbook @RBParams

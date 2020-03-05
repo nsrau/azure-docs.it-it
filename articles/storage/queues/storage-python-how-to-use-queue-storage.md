@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019
-ms.openlocfilehash: b5382a6a1ea381d57a026e9d42190152e38f7696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7812b62e2de3181ae1a901241a977e37f855704b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209532"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268031"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Come usare l'archiviazione code di Azure versione 2.1 da Python
 
@@ -24,7 +24,7 @@ Questo articolo illustra scenari comuni con il servizio di archiviazione di Acco
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Gli esempi in questo articolo sono scritti in Python e usano il [Microsoft Azure Storage SDK per Python]. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
 
@@ -41,7 +41,7 @@ Gli esempi in questo articolo sono scritti in Python e usano il [Microsoft Azure
 Per eseguire l'installazione tramite Python Package Index (PyPI), digitare:
 
 ```bash
-pip install azure-storage-blob==2.1.0
+pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]
@@ -151,7 +151,7 @@ queue_service.delete_queue('taskqueue')
 Ora che sono state apprese le nozioni di base dell'archiviazione code, seguire questi collegamenti per altre informazioni.
 
 * [Informazioni di riferimento sull'API Python per le code di Azure](/python/api/azure-storage-queue)
-* [Centro per sviluppatori di Python](https://azure.microsoft.com/develop/python/)
+* [Centro per sviluppatori Python](https://azure.microsoft.com/develop/python/)
 * [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355)
 
 [Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/

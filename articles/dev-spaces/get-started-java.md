@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione Java nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 2c086c952528d5521ace44d56eaf11c14ac1cabb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: d4e335826090d4ca4819c7466c7231cceb0d5bce
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602837"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252452"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Creare uno spazio di sviluppo Kubernetes: Visual Studio Code e Java con Azure Dev Spaces
 
@@ -32,7 +32,7 @@ Azure Dev Spaces richiede un'installazione minima nel computer locale. La maggio
 ### <a name="sign-in-to-azure-cli"></a>Accedere all'interfaccia della riga di comando di Azure
 Accedere ad Azure. Digitare il comando seguente in una finestra del terminale:
 
-```cmd
+```azurecli
 az login
 ```
 
@@ -42,14 +42,14 @@ az login
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Se sono disponibili più sottoscrizioni di Azure...
 È possibile visualizzare le sottoscrizioni eseguendo: 
 
-```cmd
+```azurecli
 az account list --output table
 ```
 
 Individuare la sottoscrizione in cui il valore di *IsDefault* è *True*.
 Se non si tratta della sottoscrizione che si vuole usare, è possibile modificare la sottoscrizione predefinita:
 
-```cmd
+```azurecli
 az account set --subscription <subscription ID>
 ```
 
@@ -57,13 +57,13 @@ az account set --subscription <subscription ID>
 
 Al prompt dei comandi creare il gruppo di risorse in un'[area che supporti Azure Dev Spaces][supported-regions].
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location <region>
 ```
 
 Usare il comando seguente per creare un cluster Kubernetes:
 
-```cmd
+```azurecli
 az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
@@ -73,7 +73,7 @@ La creazione del cluster richiede alcuni minuti.
 
 Immettere il comando seguente dell'interfaccia della riga di comando di Azure, usando il gruppo di risorse contenente il cluster servizio Azure Kubernetes e il nome del cluster servizio Azure Kubernetes. Il comando configura il cluster con il supporto per gli spazi Azure Dev Spaces.
 
-   ```cmd
+   ```azurecli
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
 

@@ -1,19 +1,18 @@
 ---
 title: Rispondere a eventi con avvisi di Log Analytics di Azure | Microsoft Docs
 description: Questa esercitazione consente di comprendere l'invio di avvisi con Log Analytics per identificare informazioni importanti nell'area di lavoro e per segnalare problemi all'utente in modo proattivo o richiamare le azioni per tentare di correggerli.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 11ce572cdb8a04dac07689b37eef76f354475df3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365623"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670373"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Rispondere agli eventi con gli avvisi di Monitoraggio di Azure
 Gli avvisi in Monitoraggio di Azure possono identificare informazioni importanti nel repository di Log Analytics. Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Creare e condividere i dashboard dei dati di Log Analytics](tutorial-logs-dashboards.md).   

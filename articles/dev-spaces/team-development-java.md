@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per lo sviluppo in team di un'applicazione Java nel servizio Azure Kubernetes
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: d81b0227a627593b16bd07f4cfcf4c1b6d61f84b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 352671b2fe31095b0ffcaffb49195071a456a892
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438161"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245014"
 ---
 # <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Sviluppo in team con Java e Visual Studio Code con Azure Dev Spaces
 
@@ -166,6 +166,9 @@ Per eliminare completamente un'istanza di Azure Dev Spaces in un cluster, inclus
 L'esempio seguente elenca i controller Azure Dev Spaces nella sottoscrizione attiva e quindi elimina il controller Azure Dev Spaces associato al cluster servizio Azure Kubernetes "myservizio Azure Kubernetes" nel gruppo di risorse "myservizio Azure Kubernetes-rg".
 
 ```cmd
-    azds controller list
-    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+azds controller list
+```
+
+```azurecli
+az aks remove-dev-spaces --name myaks --resource-group myaks-rg
 ```

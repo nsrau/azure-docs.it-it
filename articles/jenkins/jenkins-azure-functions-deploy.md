@@ -4,18 +4,18 @@ description: Informazioni su come eseguire la distribuzione in Funzioni di Azure
 keywords: jenkins, azure, devops, java, funzioni di azure
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 731bac13a596bbeaf970b3f6ce976a582d1f11ae
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470667"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250918"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Eseguire la distribuzione in Funzioni di Azure tramite il plug-in Jenkins per Funzioni di Azure
 
 [Funzioni di Azure](/azure/azure-functions/) è un servizio di calcolo senza server. Usando Funzioni di Azure è possibile eseguire codice on demand senza provisioning o gestione dell'infrastruttura. Questa esercitazione mostra come distribuire una funzione Java in Funzioni di Azure tramite il plug-in per Funzioni di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - **Server Jenkins**: se non è installato un server Jenkins, vedere l'articolo [Creare un server Jenkins in Azure](./install-jenkins-solution-template.md).
@@ -31,19 +31,19 @@ La procedura seguente mostra come creare una funzione Java tramite l'interfaccia
 
 1. Creare un gruppo di risorse, sostituendo il segnaposto **&lt;resource_group>** con il nome del gruppo di risorse.
 
-    ```cli
+    ```azurecli
     az group create --name <resource_group> --location eastus
     ```
 
 1. Creare un account di archiviazione di Azure, sostituendo i segnaposto con i valori appropriati.
  
-    ```cli
+    ```azurecli
     az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. Creare l'app per le funzioni di test, sostituendo i segnaposto con i valori appropriati.
 
-    ```cli
+    ```azurecli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
 
@@ -148,7 +148,7 @@ In questa sezione viene creata la [pipeline Jenkins](https://jenkins.io/doc/book
 
 Se non si intende continuare a usare questa applicazione, eliminare le risorse associate seguendo questa procedura:
 
-```cli
+```azurecli
 az group delete -y --no-wait -n <resource_group>
 ```
 

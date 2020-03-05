@@ -4,12 +4,12 @@ description: Informazioni sul modo in cui il servizio app Azure aggiorna il sist
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846253"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273628"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
 
@@ -51,7 +51,7 @@ Gli annunci relativi a runtime aggiornati e deprecati sono disponibili qui:
 
 ### <a name="new-patch-updates"></a>Nuove patch di aggiornamento
 
-Le patch di aggiornamento per la versione di .NET, PHP, Java SDK o Tomcat/Jetty vengono applicate automaticamente sovrascrivendo l'installazione esistente con la nuova versione. Le patch di aggiornamento di Node.js vengono installate affiancate alle versioni esistenti (in modo analogo alle versioni principale e secondaria nella sezione successiva). Le nuove versioni delle patch di Python possono essere installate manualmente tramite le [estensioni del sito](https://www.siteextensions.net/packages?q=Tags%3A%22python%22), affiancate alle installazioni predefinite di Python.
+Le patch di aggiornamento per la versione di .NET, PHP, Java SDK o Tomcat/Jetty vengono applicate automaticamente sovrascrivendo l'installazione esistente con la nuova versione. Le patch di aggiornamento di Node.js vengono installate affiancate alle versioni esistenti (in modo analogo alle versioni principale e secondaria nella sezione successiva). Le nuove versioni di patch di Python possono essere installate manualmente tramite le [estensioni del sito](https://azure.microsoft.com/blog/azure-web-sites-extensions/)affiancate alle installazioni predefinite di Python.
 
 ### <a name="new-major-and-minor-versions"></a>Nuove versioni principali e secondarie
 
@@ -80,7 +80,7 @@ La tabella seguente illustra come ottenere informazioni sulle versioni di Window
 | Versione di Windows | Vedere `https://<appname>.scm.azurewebsites.net/Env.cshtml` (nelle informazioni di sistema) |
 | Versione di .NET | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | Versione di .NET Core | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `dotnet --version` |
-| Versione PHP | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `php --version` |
+| Versione di PHP | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `php --version` |
 | Versione predefinita di Node.js | In [Cloud Shell](../cloud-shell/overview.md) eseguire il comando seguente: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Versione Python | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `python --version` |  
 | Versione Java | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `java -version` |  

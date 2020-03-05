@@ -6,12 +6,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 527002bee1bec4097cf62155efebae06880bad97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bae67b0177823ab4558085db67423edea062fa3c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470866"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250063"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager
 
@@ -35,14 +35,14 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
 * Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Ecco un esempio di generazione di una password:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
     Verificare che la password generata soddisfi i requisiti delle password per le macchine virtuali. Ogni servizio di Azure presenta requisiti specifici in termini di password. Per informazioni sui requisiti delle password per le macchine virtuali, vedere [Quali requisiti devono avere le password quando si crea una macchina virtuale?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).

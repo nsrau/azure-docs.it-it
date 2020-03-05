@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976302"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197318"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -32,7 +33,7 @@ Per informazioni sui comandi dell'interfaccia della riga di comando relativi a K
 
 Le operazioni di Key Vault vengono gestite separatamente tramite autorizzazioni del controllo degli accessi in base al ruolo, come indicato di seguito:
 
-| Operazione | DESCRIZIONE | Autorizzazione utente |
+| Operazione | Descrizione | Autorizzazione utente |
 |:--|:--|:--|
 |Elenco|Elenca gli insiemi di credenziali delle chiavi eliminati.|Microsoft.KeyVault/deletedVaults/read|
 |Recupera|Recupera un insieme di credenziali delle chiavi eliminato.|Microsoft.KeyVault/vaults/write|
@@ -150,7 +151,7 @@ Per eliminare definitivamente (ripulire) una chiave eliminata temporaneamente:
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Alle azioni di **recupero** ed **eliminazione definitiva** sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. Per poter eseguire un'azione **recover** o **purge**, quindi, un utente o un'entità servizio deve avere la relativa autorizzazione per la chiave o il segreto. Per impostazione predefinita, **purge** non viene aggiunta ai criteri di accesso dell'insieme di credenziali delle chiavi se viene usato il collegamento "all" per concedere tutte le autorizzazioni. L'autorizzazione **purge** deve essere concessa esplicitamente. 
+Alle azioni di **recupero** e **pulizia** sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. Per poter eseguire un'azione **recover** o **purge**, quindi, un utente o un'entità servizio deve avere la relativa autorizzazione per la chiave o il segreto. Per impostazione predefinita, **purge** non viene aggiunta ai criteri di accesso dell'insieme di credenziali delle chiavi se viene usato il collegamento "all" per concedere tutte le autorizzazioni. L'autorizzazione **purge** deve essere concessa esplicitamente. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi
 
@@ -242,7 +243,7 @@ Per aggiungere la protezione dall'eliminazione a un insieme di credenziali esist
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
 ```
 
-## <a name="other-resources"></a>Altre risorse:
+## <a name="other-resources"></a>Altre risorse
 
 - Per una panoramica della funzionalità di eliminazione temporanea di Key Vault, vedere [Panoramica della funzionalità di eliminazione temporanea di Azure Key Vault](key-vault-ovw-soft-delete.md).
 - Per una panoramica generale dell'uso di Azure Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-overview.md)

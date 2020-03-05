@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3eb76535a8047840a577f5b044001d85c20b13f0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188403"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245396"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -45,7 +45,7 @@ Per i clienti con contratto Enterprise Agreement (EA), gli amministratori dell'o
 
     > [!IMPORTANT]
     >
-    > Se si sceglie di spostare la sottoscrizione nel tenant di Azure AD del nuovo account, tutte le assegnazioni di [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per la gestione delle risorse nella sottoscrizione vengono rimosse definitivamente. Solo l'utente del nuovo account che accetta la richiesta di trasferimento avrà accesso per la gestione delle risorse della sottoscrizione. Per altre informazioni, vedere [Trasferimento della sottoscrizione a un utente in un altro tenant Azure AD](../../cognitive-services/acoustics/known-issues.md). In alternativa, è possibile deselezionare la casella Tenant Azure AD della sottoscrizione per trasferire la proprietà della fatturazione senza spostare la sottoscrizione nel tenant del nuovo account. In questo caso, le autorizzazioni di controllo degli accessi in base al ruolo per la gestione delle risorse di Azure verranno mantenute.
+    > Se si sceglie di spostare la sottoscrizione nel tenant di Azure AD del nuovo account, tutte le assegnazioni di [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per la gestione delle risorse nella sottoscrizione vengono rimosse definitivamente. Solo l'utente del nuovo account che accetta la richiesta di trasferimento avrà accesso per la gestione delle risorse della sottoscrizione. Per altre informazioni, vedere [Trasferimento della sottoscrizione a un utente in un altro tenant Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). In alternativa, è possibile deselezionare la casella Tenant Azure AD della sottoscrizione per trasferire la proprietà della fatturazione senza spostare la sottoscrizione nel tenant del nuovo account. In questo caso, le autorizzazioni di controllo degli accessi in base al ruolo per la gestione delle risorse di Azure verranno mantenute.
 
     ![Pagina di invio della richiesta di trasferimento](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 

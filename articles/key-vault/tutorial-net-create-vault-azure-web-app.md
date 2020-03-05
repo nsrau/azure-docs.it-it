@@ -5,16 +5,17 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 84256d79ec543d038b4d3d3f3dc6901bbd003871
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e636ab843a9801097bf770ca12c9d1e512750c91
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003366"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198117"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Esercitazione: Usare Azure Key Vault con un'app Web di Azure in .NET
 
@@ -33,7 +34,7 @@ L'esercitazione illustra come:
 > * Assegnare l'autorizzazione per l'app Web.
 > * Eseguire l'app Web in Azure.
 
-Prima di iniziare, leggere i [concetti di base di Azure Key Vault](basic-concepts.md). 
+Prima di iniziare, leggere i [concetti di base di Key Vault](basic-concepts.md). 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

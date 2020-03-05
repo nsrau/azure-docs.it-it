@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d6b4f8a7965a7cbcab2616650b40ed93087072b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: 1ace4ce5b9b0fd59a69e908c1f31d1ad4853889b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589974"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271865"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Baseline della sicurezza di Azure per HDInsight
 
@@ -65,7 +65,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### <a name="13-protect-critical-web-applications"></a>1,3: proteggere le applicazioni Web critiche
 
-**Linee guida**: non disponibile; il benchmark è destinato al servizio app di Azure o alle risorse di calcolo che ospitano applicazioni Web.
+**Linee guida**: non applicabile; il benchmark è destinato al servizio app di Azure o alle risorse di calcolo che ospitano applicazioni Web.
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -125,7 +125,7 @@ Indirizzi IP di gestione HDInsight: https://docs.microsoft.com/azure/hdinsight/h
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1,7: gestire il traffico per le applicazioni Web
 
-**Linee guida**: non disponibile; il benchmark è destinato al servizio app di Azure o alle risorse di calcolo che ospitano applicazioni Web.
+**Linee guida**: non applicabile; il benchmark è destinato al servizio app di Azure o alle risorse di calcolo che ospitano applicazioni Web.
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -331,7 +331,7 @@ Come inviare un avviso sui dati del log di log Analytics:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -491,7 +491,7 @@ Come monitorare l'identità degli utenti e l'attività di accesso nel centro sic
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -713,7 +713,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsabilità**: cliente
+**Responsabilità**: condiviso
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: crittografare le informazioni riservate inattive
 
@@ -779,7 +779,7 @@ Facoltativamente, se si dispone di un Rapid7, Qualys o qualsiasi altra sottoscri
 
 Come installare Rapid7 Agent manualmente:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/azure-security-center
 
 
 Come installare Qualys Agent manualmente:
@@ -926,11 +926,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
-Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.  Verificare che tutte le risorse di Azure presenti nell'ambiente siano approvate.
+Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni. Verificare che tutte le risorse di Azure presenti nell'ambiente siano approvate.
 
 Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -972,7 +973,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
+
 Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Come negare un tipo di risorsa specifico con criteri di Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
@@ -993,9 +996,7 @@ Come negare un tipo di risorsa specifico con criteri di Azure: https://docs.micr
 **Guida**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "blocca l'accesso" per l'app "gestione Microsoft Azure".
 
 
-Come configurare l'accesso condizionale per bloccare l'accesso ai Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Come configurare l'accesso condizionale per bloccare l'accesso ai Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1003,7 +1004,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6,12: limitare la capacità degli utenti di eseguire gli script nelle risorse di calcolo
 
-**Linee guida**: non disponibile; Questa operazione non è applicabile ad Azure HDInsight perché gli utenti (non amministratori) del cluster non necessitano dell'accesso ai singoli nodi per l'esecuzione dei processi. L'amministratore del cluster dispone dell'accesso radice a tutti i nodi del cluster.
+**Linee guida**: non applicabile; Questa operazione non è applicabile ad Azure HDInsight perché gli utenti (non amministratori) del cluster non necessitano dell'accesso ai singoli nodi per l'esecuzione dei processi. L'amministratore del cluster dispone dell'accesso radice a tutti i nodi del cluster.
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1011,7 +1012,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: separare fisicamente o logicamente le applicazioni ad alto rischio
 
-**Linee guida**: non disponibile; il benchmark è destinato al servizio app di Azure o alle risorse di calcolo che ospitano applicazioni Web.
+**Linee guida**: non applicabile; il benchmark è destinato al servizio app di Azure o alle risorse di calcolo che ospitano applicazioni Web.
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1095,7 +1096,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: archiviare in modo sicuro immagini del sistema operativo personalizzate
 
-**Linee guida**: non disponibile; immagini personalizzate non applicabili ad Azure HDInsight.
+**Linee guida**: non applicabile; immagini personalizzate non applicabili ad Azure HDInsight.
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1343,7 +1344,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Linee guida**: il Centro sicurezza assegna un livello di gravità agli avvisi, in modo da consentire la priorità dell'ordine in cui si partecipa a ogni avviso, in modo che, quando una risorsa viene compromessa, è possibile accedervi immediatamente. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi utilizzata per emettere l'avviso, nonché sul livello di confidenza causato da un intento dannoso dietro l'attività che ha portato all'avviso.
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -1421,3 +1422,7 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 **Responsabilità**: condiviso
 
+## <a name="next-steps"></a>Passaggi successivi
+
+- Vedere il [benchmark di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Scopri di più sulle [linee di base di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

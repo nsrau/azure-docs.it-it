@@ -1,5 +1,6 @@
 ---
-title: 'Sicurezza della comunicazione: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
+title: Sicurezza della comunicazione per la Microsoft Threat Modeling Tool
+titleSuffix: Azure
 description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -15,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 54d34a120c575fd01f746131d909058951d1facf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b861c54cfffe409946a2b23de4c7ccf2cd85433a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839247"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269889"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | **Hub eventi di Azure** | <ul><li>[Proteggere la comunicazione con l'hub eventi con SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Verificare i privilegi dell'account del servizio e controllare che le pagine ASP.NET o i servizi personalizzati rispettino la sicurezza di CRM](#priv-aspnet)</li></ul> |
-| **Data factory di Azure** | <ul><li>[Usare gateway di gestione dati durante la connessione di SQL Server locali a Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Usare gateway di gestione dati durante la connessione di SQL Server locali a Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Verificare che tutto il traffico verso Identity Server venga gestito su connessione HTTPS](#identity-https)</li></ul> |
 | **Applicazione Web** | <ul><li>[Verificare i certificati X.509 usati per autenticare le connessioni SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configurare il certificato SSL per un dominio personalizzato nel servizio app di Azure](#ssl-appservice)</li><li>[Forzare tutto il traffico verso il servizio app di Azure su una connessione HTTPS](#appservice-https)</li><li>[Abilitare HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Database** | <ul><li>[Verificare la crittografia della connessione e la convalida dei certificati di SQL Server](#sqlserver-validation)</li><li>[Forzare la comunicazione crittografata con SQL Server](#encrypted-sqlserver)</li></ul> |
@@ -168,7 +169,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Locale |
 | **Attributes (Attributi)**              | Versione SQL: MsSQL2016, MsSQL2012, MsSQL2014 |
-| **Riferimenti**              | [Abilitare le connessioni crittografate al motore di database](https://msdn.microsoft.com/library/ms191192)  |
+| **Riferimenti**              | [Abilitare connessioni crittografate al motore di database](https://msdn.microsoft.com/library/ms191192)  |
 | **Passaggi** | Abilitando la crittografia SSL aumenta la sicurezza dei dati trasmessi sulle reti tra le istanze di SQL Server e le applicazioni. |
 
 ## <a id="comm-storage"></a>Verificare che per la comunicazione con Archiviazione di Azure venga usato HTTPS

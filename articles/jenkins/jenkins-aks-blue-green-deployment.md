@@ -4,12 +4,12 @@ description: Di seguito viene spiegato come eseguire la distribuzione nel serviz
 keywords: jenkins, azure, devops, kubernetes, k8s, servizio Azure Kubernetes, distribuzione di tipo blu-verde, recapito continuo, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: ae9c496cd820bf1263cac50fb676990ed65ed0ba
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158547"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251483"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
 
@@ -84,19 +84,19 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
 
 1. Accedere all'account Azure. Dopo avere immesso il seguente comando, vengono fornite le istruzioni che illustrano come completare l'accesso. 
     
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Quando si esegue il comando `az login` nel passaggio precedente, viene visualizzato un elenco di tutte le sottoscrizioni di Azure, oltre ai relativi ID di sottoscrizione. In questo passaggio si imposta la sottoscrizione di Azure predefinita. Sostituire il segnaposto &lt;your-subscription-id> con l'ID della sottoscrizione di Azure desiderata. 
 
-    ```bash
+    ```azurecli
     az account set -s <your-subscription-id>
     ```
 
 1. Creare un gruppo di risorse. Sostituire il segnaposto &lt;your-resource-group-name > con il nome del nuovo gruppo di risorse e sostituire il segnaposto &lt;your-location > con la località. Il comando `az account list-locations` visualizza tutte le località di Azure. Durante l'anteprima di servizio Azure Kubernetes non tutte le località sono disponibili. Se si immette una località non valida in questo momento, nel messaggio di errore vengono elencate le località disponibili.
 
-    ```bash
+    ```azurecli
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
@@ -129,7 +129,7 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
 #### <a name="set-up-a-kubernetes-cluster-manually"></a>Configurare manualmente un cluster Kubernetes 
 1. Scaricare la configurazione di Kubernetes nella cartella del profilo.
 
-    ```bash
+    ```azurecli
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
@@ -157,13 +157,13 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
     
     Aggiornare il nome DNS per l'indirizzo IP corrispondente con il comando seguente:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
     Ripetere la chiamata per `todoapp-test-blue` e `todoapp-test-green`:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
@@ -175,13 +175,13 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
 
 1. Eseguire il comando `az acr create` per creare un’istanza di Registro contenitori. Nella sezione successiva, è quindi possibile usare `login server` come URL del registro Docker.
 
-    ```bash
+    ```azurecli
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
 1. Eseguire il comando `az acr credential` per visualizzare le credenziali del Registro contenitori. Annotare il nome utente e la password del registro Docker poiché saranno necessari nella sezione successiva.
 
-    ```bash
+    ```azurecli
     az acr credential show -n <your-registry-name>
     ```
 
@@ -224,7 +224,7 @@ In questa sezione verrà illustrato come preparare il server Jenkins per eseguir
 
 1. Nel proprio repository passare a `/deploy/aks/` e aprire `Jenkinsfile`.
 
-2. Aggiornare il file come indicato di seguito:
+2. Aggiornare il file come segue:
 
     ```groovy
     def servicePrincipalId = '<your-service-principal>'
@@ -276,11 +276,11 @@ Per altre informazioni sulla distribuzione senza tempi di inattività, consultar
 
 Quando le risorse create in questa esercitazione non sono più necessarie, è possibile eliminarle.
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si rilevano bug con i plug-in Jenkins, segnalare un problema in [Jenkins JIRA](https://issues.jenkins-ci.org/) per il componente specifico.
 

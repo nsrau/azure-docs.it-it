@@ -5,16 +5,17 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 15650de776b481d1635b58f2b8ecf2bf2921d12f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 3c80a206af74eb370470c38a7af9c7f1fe840406
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242411"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198151"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Esercitazione: Usare una macchina virtuale Linux e un'app Python per archiviare segreti in Azure Key Vault
 
@@ -197,7 +198,7 @@ Il codice precedente esegue un processo in due passaggi:
    1. Recupera un token dall'endpoint dell'identità del servizio gestita locale nella macchina virtuale. L'endpoint recupera quindi un token da Azure Active Directory.
    1. Passa il token all'insieme di credenziali delle chiavi e recupera il segreto.
 
-Eseguire il comando indicato di seguito. Verrà visualizzato il valore del segreto.
+Eseguire il comando seguente. Verrà visualizzato il valore del segreto.
 
 ```console
 python Sample.py

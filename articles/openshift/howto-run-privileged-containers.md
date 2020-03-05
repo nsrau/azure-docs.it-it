@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: Aro, OpenShift, aquasec, Twistlock, Red Hat
-ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228233"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271367"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Eseguire contenitori con privilegi in un cluster di Azure Red Hat OpenShift
 
@@ -111,11 +111,11 @@ oc get route aqua-web -n aqua-security
 ### <a name="step-4-deploy-aqua-enforcers"></a>Passaggio 4: distribuire l'applicazione Aqua
 Quando si distribuiscono i campi, impostare i campi seguenti:
 
-| Campo          | Valore         |
+| Campo          | valore         |
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | Aqua-account  |
-| Progetto        | Aqua-sicurezza |
+| Project        | Aqua-sicurezza |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Passaggi specifici del prodotto per Prism cloud/Twistlock
 
@@ -137,6 +137,8 @@ Iniziare con la sezione "installare la console".
 
 Durante la `oc create -f twistlock_console.yaml` nel passaggio 2, si verifica un errore durante la creazione dello spazio dei nomi.
 È possibile ignorarlo in modo sicuro, lo spazio dei nomi è stato creato in precedenza con il comando `oc new-project`.
+
+Usare `azure-disk` per il tipo di archiviazione.
 
 ### <a name="create-an-external-route-to-console"></a>Creare una route esterna alla console
 

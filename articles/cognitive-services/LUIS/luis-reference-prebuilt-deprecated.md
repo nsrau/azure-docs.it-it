@@ -8,22 +8,22 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8c15ebacd0fd959fe789d7f3a9b33b16ee29a1b2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933615"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270671"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entità predefinite deprecate in un'app LUIS
 Le entità predefinite seguenti sono deprecate e non possono essere aggiunte alle nuove app LUIS.
 
 * **Datetime**: le app LUIS esistenti che usano **datetime** devono essere migrate in **datetimeV2**, anche se l'entità datetime continua a funzionare nelle app preesistenti che la usano.
-* **Geography**: le app LUIS esistenti che usano **geography** sono supportate fino a dicembre 2018.
-* **Encyclopedia**: le app LUIS esistenti che usano **encyclopedia** sono supportate fino a dicembre 2018.
+* **Geografia**: le app LUIS esistenti che usano **geografia** sono supportate fino a dicembre 2018.
+* **Enciclopedia**: le app LUIS esistenti che usano **enciclopedia** sono supportate fino a dicembre 2018.
 
 ## <a name="geography-culture"></a>Impostazioni cultura di geografia
 **Geografia** è disponibile solo nelle impostazioni locali `en-us`.
@@ -43,7 +43,7 @@ Entità predefinita   |   Espressione di esempio   |   JSON
 **Enciclopedia** è disponibile solo nelle impostazioni locali `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Sottotipi di enciclopedia
-L'entità encyclopedia incorporata include oltre 100 sottotipi nella tabella seguente: Inoltre, le entità encyclopedia eseguono spesso il mapping a più tipi. Ad esempio, la query Ronald Reagan restituisce: 
+L'entità predefinita enciclopedia include più di 100 sottotipi nella tabella seguente. In aggiunta le entità enciclopedia spesso eseguono il mapping su più tipi. Ad esempio, la query Ronald Reagan restituisce:
 
 ```json
 {
@@ -163,5 +163,5 @@ Entità predefinita   |   Entità predefinita (sottotipi)   |   Espressione di e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulle entità [dimensioni](luis-reference-prebuilt-dimension.md), [posta elettronica](luis-reference-prebuilt-email.md) e [numero](luis-reference-prebuilt-number.md). 
+Informazioni sulle entità [dimensioni](luis-reference-prebuilt-dimension.md), [posta elettronica](luis-reference-prebuilt-email.md) e [numero](luis-reference-prebuilt-number.md).
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 17d72ad51974bb0fb741ae19ebb19f313e646c62
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 05ad340b3856291832ba0521c7da70ad55260384
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677648"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270608"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Informazioni di riferimento sui domini predefiniti per l'app LUIS
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
@@ -25,11 +25,11 @@ I [domini personalizzati](luis-how-to-start-new-app.md), al contrario, vengono a
 
 ## <a name="custom-domains-per-language"></a>Domini personalizzati per lingua
 
-La tabella seguente riepiloga i domini attualmente supportati. Il supporto per l'inglese è in genere più completo rispetto ad altri. 
+La tabella seguente riepiloga i domini attualmente supportati. Il supporto per l'inglese è in genere più completo rispetto ad altri.
 
-| Tipo di persona giuridica       | IT-IT      | ZH-CN   | DE    | VF     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
-|:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
-| Calendar  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
+| Tipo di entità       | IT-IT      | ZH-CN   | DE    | VF     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
+|:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:|
+| Calendario  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 |Comunicazione  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Email     | ✓    | ✓       | ✓   | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | HomeAutomation          | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
@@ -49,4 +49,4 @@ I domini predefiniti **non sono supportati** in:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sull' [entità semplice](reference-entity-simple.md). 
+Informazioni sull' [entità semplice](reference-entity-simple.md).

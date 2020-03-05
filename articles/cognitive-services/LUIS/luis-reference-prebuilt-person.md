@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9777c62d97c70d4f6a0d0a4d912dea3fa8decd23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 768c719211e8a8f2133d3798343d076e795a3da0
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499546"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273426"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entità predefinita personName per un'app LUIS
 L'entità predefinita personName rileva i nomi di persona. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti personName per le finalità dell'applicazione. L'entità personName è supportata nelle [impostazioni cultura](luis-reference-prebuilt-entities.md) inglese e cinese.
@@ -28,7 +28,7 @@ Per la query vengono restituiti gli oggetti entità seguenti:
 `Is Jill Jones in Cairo?`
 
 
-#### <a name="v3-responsetabv3"></a>[Risposta V3](#tab/V3)
+#### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
 
 Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
@@ -40,7 +40,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Risposta dettagliata V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
 Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
 ```json
@@ -65,7 +65,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Risposta V2](#tab/V2)
+#### <a name="v2-response"></a>[Risposta V2](#tab/V2)
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.personName**.
 
@@ -79,10 +79,10 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.personName**.
 }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-Informazioni sulle entità [posta elettronica](luis-reference-prebuilt-email.md), [numero](luis-reference-prebuilt-number.md) e [ordinale](luis-reference-prebuilt-ordinal.md). 
+Informazioni sulle entità [posta elettronica](luis-reference-prebuilt-email.md), [numero](luis-reference-prebuilt-number.md) e [ordinale](luis-reference-prebuilt-ordinal.md).

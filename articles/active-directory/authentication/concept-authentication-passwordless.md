@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: ffe3d359dffea3278337de00bea42e0b959e10f6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505762"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269525"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
@@ -90,7 +90,7 @@ Se si è un fornitore e si desidera ottenere il dispositivo in questo elenco di 
 - Gli utenti finali possono registrare e gestire questi metodi di autenticazione con password nel portale per gli account
 - Gli utenti finali possono accedere con questi metodi di autenticazione senza password
    - App Microsoft Authenticator: funziona in scenari in cui viene usata l'autenticazione Azure AD, incluso in tutti i browser, durante l'installazione di Windows 10 (configurazione guidata) e con app per dispositivi mobili integrate in qualsiasi sistema operativo.
-   - Chiavi di sicurezza: usare la schermata di blocco per Windows 10 e il Web in browser supportati come Microsoft Edge.
+   - Chiavi di sicurezza: usare la schermata di blocco per Windows 10 e il Web in browser supportati come Microsoft Edge (sia legacy che New Edge).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

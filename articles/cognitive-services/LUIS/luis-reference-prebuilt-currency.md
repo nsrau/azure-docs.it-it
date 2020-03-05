@@ -8,25 +8,25 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5b49dcc7e999757e119c399bdf01bed7cb312e02
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 56d264fa976967ae4772f50b4aa6f58b30355d6f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465058"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270773"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entità predefinita Currency per un'app LUIS
-L'entità di valuta predefinita rileva la valuta in molte denominazioni e paesi/aree geografiche, indipendentemente dalle impostazioni cultura dell'app LUIS. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la valuta per le finalità dell'applicazione. L'entità valuta è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 
+L'entità di valuta predefinita rileva la valuta in molte denominazioni e paesi/aree geografiche, indipendentemente dalle impostazioni cultura dell'app LUIS. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la valuta per le finalità dell'applicazione. L'entità valuta è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-currency"></a>Tipi di valuta
 L'entità Currency viene gestita dal repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
 ## <a name="resolution-for-currency-entity"></a>Risoluzione per entità valuta
 
-#### <a name="v3-responsetabv3"></a>[Risposta V3](#tab/V3)
+#### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
 Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
@@ -40,7 +40,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Risposta dettagliata V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
 Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
 ```json
@@ -66,7 +66,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 }
 ```
 
-#### <a name="v2-responsetabv2"></a>[Risposta V2](#tab/V2)
+#### <a name="v2-response"></a>[Risposta V2](#tab/V2)
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.currency**.
 
@@ -84,10 +84,10 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.currency**.
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-Informazioni sulle entità [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimensioni](luis-reference-prebuilt-dimension.md) e [posta elettronica](luis-reference-prebuilt-email.md). 
+Informazioni sulle entità [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimensioni](luis-reference-prebuilt-dimension.md) e [posta elettronica](luis-reference-prebuilt-email.md).

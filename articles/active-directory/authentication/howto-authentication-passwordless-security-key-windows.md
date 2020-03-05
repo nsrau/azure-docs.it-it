@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327f53fb39e58f7b70040eb41b6cd80aca18e510
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522034"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269343"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory (anteprima)
 
@@ -35,7 +35,7 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 | [Anteprima di registrazione delle informazioni di sicurezza combinata](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Chiavi di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibili | X | X |
 | Webauthn richiede Windows 10 versione 1809 o successiva | X | X |
-| [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) richiedono Windows 10 versione 1809 o successiva | X |   |
+| [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) richiedono Windows 10 versione 1903 o successiva | X |   |
 | [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) richiedono Windows 10 Insider Build 18945 o versione successiva |   | X |
 | Controller di dominio Windows Server 2016/2019 con patch complete. |   | X |
 | [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versione 1.4.32.0 o successiva |   | X |
@@ -54,6 +54,7 @@ Gli scenari seguenti non sono supportati:
 - Accedere a un server usando una chiave di sicurezza.
 - Se non è stata usata la chiave di sicurezza per accedere al dispositivo mentre è online, non è possibile usarla per accedere o sbloccare offline.
 - Accesso o sblocco di un dispositivo Windows 10 con una chiave di sicurezza contenente più account Azure AD. Questo scenario utilizza l'ultimo account aggiunto alla chiave di sicurezza. Webauthn consente agli utenti di scegliere l'account che si desidera utilizzare.
+- Sbloccare un dispositivo che esegue Windows 10 versione 1809. Per un'esperienza ottimale, usare Windows 10 versione 1903 o successiva.
 
 ## <a name="prepare-devices-for-preview"></a>Preparare i dispositivi per l'anteprima
 

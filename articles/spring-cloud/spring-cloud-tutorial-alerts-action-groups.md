@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: 49fea7d568e356169f8bbf0dfd1f4ce5c80a7223
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690360"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920077"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Esercitazione: Monitorare le risorse di Spring Cloud tramite avvisi e gruppi di azioni
 
@@ -21,7 +21,7 @@ La procedura per la configurazione di una pipeline di avvisi, prevede due passag
 1. Configurare un gruppo di azioni con le azioni da intraprendere quando viene attivato un avviso, ad esempio messaggio di posta elettronica, SMS, runbook o webhook. I gruppi di azioni possono essere riutilizzati tra avvisi diversi.
 2. Configurare le regole di avviso. Le regole associano i modelli delle metriche ai gruppi di azioni in base alla risorsa, alla metrica, alla condizione, all'aggregazione temporale di destinazione e così via.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Oltre ai requisiti di Azure Spring, questa esercitazione dipende dalle risorse seguenti.
 
 * Un'istanza di Azure Spring Cloud distribuita.  Per iniziare, seguire la [guida dell'avvio rapido](spring-cloud-quickstart-launch-app-cli.md).
@@ -86,7 +86,7 @@ Per configurare un **Avviso**, tornare alla pagina **Avvisi** e fare clic su **G
 
 1. Fare clic su **Done**.
 
-Per informazioni dettagliate sulle condizioni disponibili per il monitoraggio, vedere [Opzioni delle metriche del portale utenti](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options).
+Per informazioni dettagliate sulle condizioni disponibili per il monitoraggio, vedere [Opzioni delle metriche del portale utenti](spring-cloud-concept-metrics.md#user-metrics-options).
 
  In **AZIONI** fare clic su **Seleziona gruppo di azioni**. Dal riquadro **AZIONI** selezionare il **Gruppo di azioni** definito in precedenza.
 
@@ -109,7 +109,7 @@ Verificare che la nuova regola di avviso sia abilitata.
    ![Screenshot dell'opzione Nuova regola di avviso nel portale](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Opzioni delle metriche del portale utenti](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
+* [Opzioni delle metriche del portale utenti](spring-cloud-concept-metrics.md#user-metrics-options)
 * [Creare e gestire gruppi di azione nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [Comportamento degli avvisi SMS nei gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [Esercitazione: ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)Uso di Traccia distribuita con Azure Spring Cloud

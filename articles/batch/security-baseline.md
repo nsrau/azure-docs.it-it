@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4094ace5772b99c646a31d6a4722bbb080fbfff7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589883"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273551"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Baseline della sicurezza di Azure per batch
 
@@ -59,7 +59,7 @@ Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -271,7 +271,7 @@ Come connettersi in remoto ai nodi del pool di Azure Batch:
 
 https://docs.microsoft.com/azure/batch/batch-api-basics#error-handling
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -323,7 +323,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Linee guida**: usare Windows Defender nei singoli nodi di batch nel caso dei sistemi operativi Windows o fornire una soluzione antimalware personalizzata se si usa Linux.
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -466,7 +466,7 @@ Come monitorare l'identità degli utenti e l'attività di accesso nel centro sic
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -511,7 +511,7 @@ Come usare le verifiche di accesso alle identità di Azure:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -524,7 +524,7 @@ Come integrare i log attività di Azure in monitoraggio di Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -551,7 +551,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Responsabilità**: cliente
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
+### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3,13: <div>Fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto<br></div>
 
 **Linee guida**: non disponibile; Customer Lockbox non ancora supportata per Azure Batch. Elenco dei servizi Customer Lockbox supportati: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -614,9 +614,9 @@ Come proteggere gli account di archiviazione di Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
+**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsabilità**: cliente
+**Responsabilità**: condiviso
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: crittografare tutte le informazioni riservate in transito
 
@@ -654,7 +654,7 @@ Come proteggere gli account di archiviazione di Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
+**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
 **Responsabilità**: condiviso
 
@@ -690,7 +690,7 @@ Informazioni sulla protezione dei dati dei clienti in Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
+**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
 **Responsabilità**: condiviso
 
@@ -704,7 +704,7 @@ Come gestire le chiavi di crittografia per gli account di archiviazione di Azure
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -728,7 +728,7 @@ Come abilitare la registrazione o il controllo aggiuntivo per un account di arch
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -751,7 +751,7 @@ Facoltativamente, se si dispone di un Rapid7, Qualys o qualsiasi altra sottoscri
 
 **Linee guida**: Microsoft per gestire e aggiornare le immagini del nodo del pool Azure batch di base. Verificare che il sistema operativo dei nodi del pool di Azure Batch rimanga patch per la durata della durata del cluster che potrebbe richiedere l'abilitazione di aggiornamenti automatici, il monitoraggio dei nodi o l'esecuzione di riavvii periodici.
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: condiviso
 
@@ -788,7 +788,7 @@ Facoltativamente, se si dispone di un Rapid7, Qualys o qualsiasi altra sottoscri
 **Linee guida**: usare Azure Resource Graph per eseguire query e individuare tutte le risorse, ad esempio calcolo, archiviazione, rete e così via, all'interno delle sottoscrizioni. Assicurarsi di disporre delle autorizzazioni (lettura) appropriate nel tenant e di poter enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
 
 
-Sebbene le risorse di Azure classiche possano essere individuate tramite Graph di risorse, è consigliabile creare e usare Azure Resource Manager risorse in futuro.
+Sebbene le risorse di Azure classiche possano essere individuate tramite Graph di risorse, è consigliabile creare e usare le risorse di Azure Resource Manager (ARM) in futuro.
 
 
 Come creare query con Azure Graph:
@@ -863,9 +863,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
+
 Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni. Verificare che tutte le risorse di Azure presenti nell'ambiente siano approvate.
 
+
 Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -901,16 +904,15 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Linee guida**: usare i criteri di Azure per limitare il tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
 
+
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
-Come configurare e gestire i criteri di Azure:
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Come negare un tipo di risorsa specifico con criteri di Azure:
 
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Come negare un tipo di risorsa specifico con criteri di Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -924,14 +926,12 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **Responsabilità**: cliente
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager-via-scripts"></a>6,11: limitare la capacità degli utenti di interagire con Azure Resource Manager tramite script
+### <a name="611-divlimit-users-ability-to-interact-with-azure-resource-manager-via-scriptsdiv"></a>6,11: <div>Limitare la capacità degli utenti di interagire con Azure Resource Manager tramite script</div>
 
 **Guida**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "blocca l'accesso" per l'app "gestione Microsoft Azure".
 
 
-Come configurare l'accesso condizionale per bloccare l'accesso ai Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Come configurare l'accesso condizionale per bloccare l'accesso ai Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -949,9 +949,7 @@ Questa operazione non è applicabile a Azure Batch perché gli utenti (non ammin
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: separare fisicamente o logicamente le applicazioni ad alto rischio
 
-**Linee guida**: non disponibile,
-
-Il benchmark è destinato alle applicazioni Web in esecuzione in app Azure servizio o istanze IaaS.
+**Linee guida**: non applicabile. il benchmark è destinato alle applicazioni Web in esecuzione in app Azure servizio o istanze IaaS.
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -966,10 +964,14 @@ Il benchmark è destinato alle applicazioni Web in esecuzione in app Azure servi
 **Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. batch" per creare criteri personalizzati per controllare o applicare la configurazione degli account e dei pool Azure batch.
 
 
-Come visualizzare gli alias dei criteri di Azure disponibili: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Come visualizzare gli alias dei criteri di Azure disponibili:
+
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 
-Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Come configurare e gestire i criteri di Azure:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -991,7 +993,9 @@ Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/
 - Microsoft.Storage
 - Microsoft.Network
 
+
 Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Comprendere gli effetti dei criteri di Azure: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -1009,11 +1013,17 @@ Comprendere gli effetti dei criteri di Azure: https://docs.microsoft.com/azure/g
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
-**Linee guida**: se si usano definizioni di criteri di Azure personalizzate per gli account Azure batch, i pool o le risorse correlate, usare Azure DevOps/repository per archiviare e gestire il codice in modo sicuro.
+**Linee guida**: se si usano definizioni di criteri di Azure personalizzate per gli account Azure batch, i pool o le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-Come archiviare il codice in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentazione di Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Come archiviare il codice in Azure DevOps:
+
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+
+
+Documentazione Azure Repos:
+
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -1024,9 +1034,14 @@ Documentazione di Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 **Linee guida**: se si usano immagini personalizzate per i pool di Azure batch, usare il controllo degli accessi in base al ruolo (RBAC) per garantire che solo gli utenti autorizzati possano accedere alle immagini.
 
 
-Informazioni sul RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+Comprendere il RBAC in Azure:
 
-Come configurare RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+
+
+Come configurare RBAC in Azure:
+
+https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1058,8 +1073,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. batch" per creare criteri personalizzati per controllare o applicare la configurazione dell'istanza di Azure batch. È anche possibile usare qualsiasi criterio incorporato creato in modo specifico per Azure Batch o le risorse usate da Azure Batch, ad esempio:
 
-- Le subnet devono essere associate a un gruppo di sicurezza di rete
-- Gli account di archiviazione devono usare un endpoint di servizio di rete virtuale
+- Le subnet devono essere associate a un gruppo di sicurezza di rete. gli account di archiviazione devono usare un endpoint di servizio di rete virtuale
 - È consigliabile abilitare i log di diagnostica negli account Batch
 
 Come visualizzare gli alias dei criteri di Azure disponibili: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
@@ -1098,7 +1112,7 @@ Come fornire Key Vault autenticazione con un'identità gestita:
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -1187,7 +1201,7 @@ Come eseguire il backup delle chiavi di Key Vault in Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -1205,7 +1219,7 @@ Come ripristinare una chiave gestita dal cliente con PowerShell:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
 **Responsabilità**: cliente
 
@@ -1218,7 +1232,7 @@ Come abilitare l'eliminazione temporanea in Azure Key Vault:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -1324,3 +1338,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilità**: condiviso
 
+## <a name="next-steps"></a>Passaggi successivi
+
+- Vedere il [benchmark di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Scopri di più sulle [linee di base di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

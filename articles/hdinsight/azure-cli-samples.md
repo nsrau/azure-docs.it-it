@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
-ms.openlocfilehash: 7ce2160fa94653a1155daaef166b7fdbb9386e7e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: cbbb38c645e56b2e7b8c70b437b1e5158b09a50b
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266471"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207099"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Esempi dell'interfaccia della riga di comando di Azure
 
@@ -90,7 +90,7 @@ az hdinsight create \
     --cluster-users-group-dns $groupDNS
 ```
 
-### <a name="create-a-kafka-cluster-with-disk-encryptionkafkaapache-kafka-byokmd"></a>Creare un cluster Kafka con [crittografia dischi](kafka/apache-kafka-byok.md)
+### <a name="create-a-kafka-cluster-with-disk-encryption"></a>Creare un cluster Kafka con [crittografia dischi](./disk-encryption.md)
 
 ```azurecli
 export clusterName=CLUSTERNAME

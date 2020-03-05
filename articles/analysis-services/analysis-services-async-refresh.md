@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029870"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273709"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
 È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
 
-Le operazioni di aggiornamento dei dati possono richiedere del tempo a seconda di diversi fattori, tra cui il volume dei dati, il livello di ottimizzazione mediante le partizioni e così via. Queste operazioni sono state tradizionalmente richiamate con i metodi esistenti, ad esempio l'uso di [Tom](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), i cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
+Le operazioni di aggiornamento dei dati possono richiedere del tempo a seconda di diversi fattori, tra cui il volume dei dati, il livello di ottimizzazione mediante le partizioni e così via. Queste operazioni sono state tradizionalmente richiamate con i metodi esistenti, ad esempio l'uso di [Tom](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), i cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
 
 L'API REST per Azure Analysis Services consente di eseguire le operazioni di aggiornamento dei dati in modo asincrono. Se si usa l'API REST non sono necessarie connessioni HTTP con esecuzione prolungata dalle applicazioni client. Ci sono anche altre funzionalità integrate che garantiscono l'affidabilità, ad esempio i tentativi automatici e il commit in batch.
 
@@ -56,7 +56,7 @@ Ad esempio, è possibile usare il verbo POST sulla raccolta Refreshes per esegui
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido nell'intestazione di autorizzazione e devono soddisfare i requisiti seguenti:
 
@@ -97,11 +97,11 @@ Il corpo dovrebbe essere simile al seguente:
 
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
-| Nome             | Tipo  | Description  |Predefinito  |
+| Nome             | Type  | Descrizione  |Predefinito  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
+| `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
-| `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
+| `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
 | `RetryCount`     | Int   | Indica il numero massimo di tentativi dell'operazione prima che venga considerata non riuscita.      |     0    |
 | `Objects`        | Array | Una matrice di oggetti da elaborare. Ogni oggetto include: "table" quando viene elaborata un'intera tabella oppure "table" e "partition" quando viene elaborata una partizione. Se non viene specificato alcun oggetto, viene aggiornato l'intero modello. |   Elaborare l'intero modello      |
 
@@ -112,7 +112,7 @@ CommitMode equivale a partialBatch. Viene usato quando si esegue un caricamento 
 
 ### <a name="status-values"></a>Valori di stato
 
-|Valore di stato  |Description  |
+|Valore di stato  |Descrizione  |
 |---------|---------|
 |`notStarted`    |   Operazione non ancora avviata.      |
 |`inProgress`     |   Operazione in corso.      |
@@ -222,7 +222,7 @@ Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/devel
 3.  Eseguire l'esempio.
 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Esempi](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   

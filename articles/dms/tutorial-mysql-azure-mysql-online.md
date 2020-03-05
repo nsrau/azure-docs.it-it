@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e0a2c9f4dd229353ef3d4dc06f7bb965d15814d9
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255545"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273248"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il Servizio Migrazione del database
 
@@ -38,7 +38,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario:
 
@@ -93,7 +93,7 @@ Supponendo di avere il database MySQL di esempio **Employees** nel sistema local
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-Ad esempio,
+Ad esempio:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -105,7 +105,7 @@ Per importare lo schema nel Database di Azure per MySQL di destinazione, eseguir
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-Ad esempio,
+Ad esempio:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -224,6 +224,8 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
     Se il database di destinazione contiene lo stesso nome del database di origine, il Servizio Migrazione del database di Azure seleziona il database di destinazione per impostazione predefinita.
 
     ![Eseguire il mapping nei database di destinazione](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
+   > [!NOTE] 
+   > Sebbene sia possibile selezionare più database in questo passaggio, ogni istanza del servizio migrazione del database di Azure supporta fino a quattro database per la migrazione simultanea. È anche previsto un limite di due istanze del servizio migrazione del database di Azure per ogni area in una sottoscrizione. Se, ad esempio, si dispone di 40 database di cui eseguire la migrazione, è possibile eseguirne solo la migrazione di otto simultaneamente e solo se sono state create due istanze del servizio migrazione del database di Azure.
 
 3. Selezionare **Salva**, nella schermata **Riepilogo della migrazione**, nella casella di testo **Nome attività**, specificare un nome per l'attività di migrazione, quindi rivedere il riepilogo per verificare che i dettagli dell'origine e della destinazione corrispondano a quanto specificato in precedenza.
 

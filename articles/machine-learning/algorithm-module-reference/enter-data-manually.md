@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917476"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268766"
 ---
 # <a name="enter-data-manually-module"></a>Immettere manualmente i dati del modulo
 
@@ -89,11 +89,9 @@ Questo modulo può essere utile in scenari come i seguenti:
         |0,00016|0,004|0,999961|0,00784|1|  
         |0|0,004|0,999955|0,008615|1|  
   
-4.  Premere INVIO dopo ogni riga per avviare una nuova riga.  
-  
-     **Assicurarsi di premere INVIO dopo la riga finale.** 
+4.  Premere INVIO dopo ogni riga per avviare una nuova riga.      
      
-     Se si preme INVIO più volte per aggiungere più righe finali vuote, la riga vuota finale viene rimossa, ma le altre righe vuote vengono considerate come valori mancanti.  
+     Se si preme INVIO più volte per aggiungere più righe finali vuote, le righe vuote verranno rimosse.  
   
      Se si creano righe con valori mancanti, è sempre possibile filtrarle in un secondo momento.  
   

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/28/2019
-ms.openlocfilehash: 4fad7d1e3359264c647ffc2d5f67dc547c87a13a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196655"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269052"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -63,7 +63,7 @@ Alcuni comandi e funzioni di query sono pesanti nell'utilizzo della CPU. Questa 
 
 Queste funzioni utilizzano la CPU in proporzione al numero di righe elaborate. L'ottimizzazione più efficiente consiste nell'aggiungere le condizioni WHERE all'inizio della query che possono filtrare il maggior numero possibile di record prima dell'esecuzione della funzione con utilizzo intensivo della CPU.
 
-Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma la seconda è di gran lunga la più efficiente come condizione [where]() prima che l'analisi escluda molti record:
+Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma la seconda è di gran lunga la più efficiente come condizione [where](/azure/kusto/query/whereoperator) prima che l'analisi escluda molti record:
 
 ```Kusto
 //less efficient
@@ -230,7 +230,7 @@ Perf
 ) on Computer
 ```
 
-Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio,
+Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio:
 
 ```Kusto
 Perf

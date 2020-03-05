@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1717969aeb24a153f986c70ef60db1aac5c840fb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423780"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267779"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato avro in Azure Data Factory
 
@@ -83,7 +83,11 @@ Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attivit
 
 ## <a name="data-type-support"></a>Supporto dei tipi di dati
 
-I [tipi di dati complessi](https://avro.apache.org/docs/current/spec.html#schema_complex) avro non sono supportati (record, enumerazioni, matrici, mappe, unioni e fissi).
+### <a name="copy-activity"></a>Attività di copia
+I [tipi di dati complessi](https://avro.apache.org/docs/current/spec.html#schema_complex) avro non sono supportati (record, enumerazioni, matrici, mappe, unioni e fisse) nell'attività di copia.
+
+### <a name="data-flows"></a>Flussi di dati
+Quando si lavora con i file avro nei flussi di dati, è possibile leggere e scrivere tipi di dati complessi, ma assicurarsi di cancellare prima lo schema fisico dal set di dati. Nei flussi di dati è possibile impostare la proiezione logica e derivare colonne che sono strutture complesse, quindi eseguire il mapping automatico di tali campi a un file avro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 1cc7469bf6b29ed864fac3955dc8770aa879f84d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499535"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270462"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita del numero di telefono per un'app LUIS
-L'entità`phonenumber` consente di estrarre una serie di numeri di telefono che includono il codice nazionale. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio all'applicazione. L'entità `phonenumber` è supportata solo nelle impostazioni cultura `en-us`. 
+L'entità`phonenumber` consente di estrarre una serie di numeri di telefono che includono il codice nazionale. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio all'applicazione. L'entità `phonenumber` è supportata solo nelle impostazioni cultura `en-us`.
 
 ## <a name="types-of-a-phone-number"></a>Tipi di un numero di telefono
 il `Phonenumber` è gestito dal repository GitHub del [testo dei riconoscitori](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
@@ -30,7 +30,7 @@ Per la query vengono restituiti gli oggetti entità seguenti:
 
 `my mobile is 1 (800) 642-7676`
 
-#### <a name="v3-responsetabv3"></a>[Risposta V3](#tab/V3)
+#### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
 Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
@@ -41,7 +41,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Risposta dettagliata V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
 Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
 ```json
@@ -68,7 +68,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Risposta V2](#tab/V2)
+#### <a name="v2-response"></a>[Risposta V2](#tab/V2)
 
 L'esempio seguente illustra la risoluzione dell'entità **builtin.phonenumber**.
 
@@ -86,10 +86,10 @@ L'esempio seguente illustra la risoluzione dell'entità **builtin.phonenumber**.
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-Informazioni sulle entità [percentuale](luis-reference-prebuilt-percentage.md), [numero](luis-reference-prebuilt-number.md) e [temperatura](luis-reference-prebuilt-temperature.md). 
+Informazioni sulle entità [percentuale](luis-reference-prebuilt-percentage.md), [numero](luis-reference-prebuilt-number.md) e [temperatura](luis-reference-prebuilt-temperature.md).

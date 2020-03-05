@@ -3,20 +3,20 @@ title: "Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'app a
 titleSuffix: Azure AD B2C
 description: Questa esercitazione illustra come usare Active Directory B2C per proteggere un'API Web .NET Core e chiamarla da un'applicazione Node.js a pagina singola.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 80b2165b0ec652358a3eb8ac9d55b64f525e4690
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f6f9ff7bb0d504ecc163f6ce1f87477b1ea9c2d1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849841"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186144"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Esercitazione: Concedere l'accesso a un'API Web ASP.NET Core da un'applicazione a pagina singola con Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Concedere le autorizzazioni per l'API Web
 > * Configurare l'esempio per l'uso dell'applicazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare i passaggi e i prerequisiti riportati in [Esercitazione: Abilitare l'autenticazione in un'applicazione a pagina singola con Azure Active Directory B2C](tutorial-single-page-app.md).
 * Visual Studio 2019 o versione successiva oppure Visual Studio Code

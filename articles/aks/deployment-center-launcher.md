@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 84e5533a17dc70fb5c835089f3a3cec1a86e35bf
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: eecb4dba39ff847515a4a312b7cb74698867c693
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596080"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247900"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro distribuzione per Azure Kubernetes
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come:
 > * Esaminare la pipeline di recapito continuo (CD).
 > * Pulire le risorse.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -39,7 +39,7 @@ In questa esercitazione si apprenderà come:
 
 1. Per creare il cluster del servizio Azure Kubernetes, eseguire i comandi seguenti:
 
-    ```cmd
+    ```azurecli
     # Create a resource group in the South India location:
 
     az group create --name azooaks --location southindia

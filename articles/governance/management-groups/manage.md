@@ -3,12 +3,12 @@ title: Come lavorare con i gruppi di gestione-governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 94df67888c0ed0ea532844a92a362a181621d3d3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751242"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267929"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -17,6 +17,12 @@ Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario 
 I gruppi di gestione offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.  Per altre informazioni sui gruppi di gestione, vedere [Organizzare le risorse con i gruppi di gestione di Azure](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+>[!IMPORTANT]
+>Azure Resource Manager i token utente e la cache del gruppo di gestione durano 30 minuti prima di essere costretti ad aggiornarli.  Dopo aver eseguito un'azione come lo stato di un gruppo di gestione o una sottoscrizione, potrebbero essere necessari fino a 30 minuti per la visualizzazione.  
+>Per visualizzare gli aggiornamenti prima che sia necessario aggiornare il token aggiornando il browser, eseguendo l'accesso e la disconnessione o richiedendo un nuovo token.  
+
+
 
 ## <a name="change-the-name-of-a-management-group"></a>Modificare il nome di un gruppo di gestione
 
@@ -192,29 +198,29 @@ Per restituire un gruppo di gestione specifico e tutti i livelli della gerarchia
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="moving-management-groups-and-subscriptions"></a>Trasferimento di sottoscrizioni e gruppi di gestione   
+## <a name="moving-management-groups-and-subscriptions"></a>Spostamento di gruppi di gestione e sottoscrizioni   
 
 Uno dei motivi per creare un gruppo di gestione è l'accorpamento delle sottoscrizioni. Solo i gruppi di gestione e le sottoscrizioni possono essere resi elementi figlio di un altro gruppo di gestione. Una sottoscrizione che passa a un gruppo di gestione eredita tutti i criteri e l'accesso utente dal gruppo di gestione padre
 
 Quando si trasferisce un gruppo di gestione o una sottoscrizione come elemento figlio di un altro gruppo di gestione, tre regole devono essere valutate come true.
 
-Se si sta eseguendo l'azione di spostamento, è necessario: 
+Per eseguire l'azione di spostamento, è necessario avere: 
 
--  Autorizzazioni di scrittura e assegnazione ruolo del gruppo di gestione per la sottoscrizione o il gruppo di gestione figlio.
-    - **Proprietario** dell'esempio di ruolo predefinito
-- Accesso in scrittura al gruppo di gestione nel gruppo di gestione padre di destinazione.
+-  Autorizzazioni di scrittura per il gruppo di gestione e l'assegnazione di ruolo nel gruppo di gestione o nella sottoscrizione figlio.
+    - Esempio di ruolo predefinito: **Proprietario**
+- Accesso in scrittura del gruppo di gestione nel gruppo di gestione padre di destinazione.
     - Esempio di ruolo predefinito: **proprietario**, **collaboratore**, **collaboratore gruppo di gestione**
-- Accesso in scrittura al gruppo di gestione per il gruppo di gestione padre esistente.
+- Accesso in scrittura del gruppo di gestione nel gruppo di gestione padre esistente.
     - Esempio di ruolo predefinito: **proprietario**, **collaboratore**, **collaboratore gruppo di gestione**
 
-**Eccezione**: se la destinazione o il gruppo di gestione padre esistente è il gruppo di gestione radice, i requisiti delle autorizzazioni non sono applicabili. Poiché il gruppo di gestione radice è il punto di destinazione predefinito per tutti i nuovi gruppi di gestione e sottoscrizioni, non è necessario disporre delle autorizzazioni per spostare un elemento.
+**Eccezione**: se la destinazione o il gruppo di gestione padre esistente è il gruppo di gestione radice, i requisiti delle autorizzazioni non sono applicabili. Poiché il gruppo di gestione radice è il punto di destinazione predefinito per tutti i nuovi gruppi di gestione e le sottoscrizioni, non è necessario avere le autorizzazioni per spostare un elemento.
 
-Se il ruolo proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si dispone del ruolo proprietario. Non è possibile spostarlo in un gruppo di gestione in cui si è collaboratori perché si perde la proprietà della sottoscrizione. Se si è direttamente assegnati al ruolo proprietario per la sottoscrizione (non ereditato dal gruppo di gestione), è possibile spostarlo in qualsiasi gruppo di gestione in cui si è collaboratore. 
+Se il ruolo Proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si ha il ruolo Proprietario. Non è possibile spostarla in un gruppo di gestione in cui si ha il ruolo Collaboratore perché si perderebbe la proprietà della sottoscrizione. Se si è direttamente assegnati al ruolo proprietario per la sottoscrizione (non ereditato dal gruppo di gestione), è possibile spostarlo in qualsiasi gruppo di gestione in cui si è collaboratore. 
 
 Per visualizzare le autorizzazioni disponibili nella portale di Azure, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
 
 
-## <a name="move-subscriptions"></a>Sposta sottoscrizioni 
+## <a name="move-subscriptions"></a>Spostare sottoscrizioni 
 
 #### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Aggiungere una sottoscrizione esistente a un gruppo di gestione nel portale
 

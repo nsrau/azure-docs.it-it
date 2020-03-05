@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 43fbca732bbd281ad980ae86e4a89f446fdb69bc
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 405381a2d80ee6469b2b90bcb25923004fe55882
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945855"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270256"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Codici di risposta comuni API e relativo significato
 
-Le API di [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) e per [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) restituiscono codici di risposta HTTP. Mentre i messaggi di risposta includono informazioni specifiche per una richiesta, il codice di stato di risposta HTTP è generale. 
+Le API di [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) e per [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) restituiscono codici di risposta HTTP. Mentre i messaggi di risposta includono informazioni specifiche per una richiesta, il codice di stato di risposta HTTP è generale.
 
 ## <a name="common-status-codes"></a>Codici di stato comuni
 La tabella seguente elenca alcuni dei codici di stato di risposta HTTP più comuni per le API di [creazione ](https://go.microsoft.com/fwlink/?linkid=2092087) e per [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356):

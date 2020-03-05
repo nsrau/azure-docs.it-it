@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e1323467db875968f45557c6a7c0afdfee5e4221
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: dd9b82cbb2984386059988496c550123a8e67a3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589935"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273086"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Baseline della sicurezza di Azure per il database SQL di Azure
 
@@ -124,10 +124,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Linee guida**: abilitazione di Advanced Threat Protection (ATP) per il database SQL di Azure.  Gli utenti ricevono un avviso in caso di attività di database sospetta, potenziali vulnerabilità e attacchi SQL injection, nonché in caso di modelli di query e accesso ai database anomali. Advanced Threat Protection integra anche gli avvisi con il Centro sicurezza di Azure.
 
-
-Comprendere e usare Advanced Threat Protection per il database SQL di Azure:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Comprendere e usare Advanced Threat Protection per il database SQL di Azure: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -164,11 +161,14 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: mantenere le configurazioni di sicurezza standard per i dispositivi di rete
 
-**Linee guida**: definire e implementare configurazioni di sicurezza di rete per le istanze del server di database SQL di Azure con criteri di Azure. È possibile usare lo spazio dei nomi "Microsoft. SQL" per definire le definizioni dei criteri personalizzati o usare una qualsiasi delle definizioni dei criteri predefinite progettate per la protezione di rete del server di database SQL di Azure. Un esempio di criteri di sicurezza di rete incorporati applicabili per il server di database SQL di Azure è il seguente: "SQL Server usare un endpoint del servizio di rete virtuale"
+**Linee guida**: definire e implementare configurazioni di sicurezza di rete per le istanze del server di database SQL di Azure con criteri di Azure. È possibile usare lo spazio dei nomi "Microsoft. SQL" per definire le definizioni dei criteri personalizzati o usare una qualsiasi delle definizioni dei criteri predefinite progettate per la protezione di rete del server di database SQL di Azure. Un esempio di criteri di sicurezza di rete incorporati applicabili per il server di database SQL di Azure è il seguente: "SQL Server usare un endpoint del servizio di rete virtuale".
+ 
 
 USA i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di gestione risorse di Azure, controllo degli accessi in base al ruolo e criteri, in una singola definizione di progetto. Applica facilmente il progetto a nuove sottoscrizioni e ambienti e ottimizza il controllo e la gestione tramite il controllo delle versioni.
 
+
 Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Come creare un Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -457,13 +457,27 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Linee guida**: usare Azure Active Directory report di sicurezza per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente.
 
+
+
 Usare Advanced Threat Protection per il database SQL di Azure per rilevare attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
 
-Come identificare Azure AD utenti contrassegnati per l'attività rischiosa: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Come monitorare l'identità degli utenti e l'attività di accesso nel centro sicurezza di Azure: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Esaminare Advanced Threat Protection e potenziali avvisi: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+Come identificare Azure AD utenti contrassegnati per le attività rischiose:
+
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+
+
+
+Come monitorare l'identità degli utenti e l'attività di accesso nel centro sicurezza di Azure:
+
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
+
+
+Esaminare Advanced Threat Protection e potenziali avvisi:
+
+https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
@@ -473,6 +487,7 @@ Esaminare Advanced Threat Protection e potenziali avvisi: https://docs.microsoft
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3,8: gestire le risorse di Azure solo dalle località approvate
 
 **Linee guida**: usare i percorsi denominati di accesso condizionale per consentire l'accesso al portale e alla gestione delle risorse di Azure solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree.
+
 
 Come configurare le località denominate in Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
@@ -714,7 +729,7 @@ Come creare avvisi per gli eventi del log attività di Azure:
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -774,7 +789,7 @@ Come esportare un report di valutazione della vulnerabilità nel centro sicurezz
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
 **Responsabilità**: cliente
 
@@ -796,11 +811,15 @@ Informazioni sul punteggio sicuro del Centro sicurezza di Azure: https://docs.mi
 
 **Linee guida**: usare Azure Resource Graph per eseguire query e individuare tutte le risorse (incluse le istanze di Azure SQL Server) nelle sottoscrizioni.  Assicurarsi di disporre delle autorizzazioni (lettura) appropriate nel tenant e di poter enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
 
+
 Sebbene le risorse di Azure classiche possano essere individuate tramite Graph di risorse, è consigliabile creare e usare Azure Resource Manager risorse in futuro.
+
 
 Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
+
 Come visualizzare le sottoscrizioni di Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
 
 Informazioni su RBAC di Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -812,7 +831,11 @@ Informazioni su RBAC di Azure: https://docs.microsoft.com/azure/role-based-acces
 
 **Linee guida**: applicare i tag alle risorse di Azure fornendo metadati per organizzarli in modo logico in una tassonomia.
 
-Come creare e usare Tag: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+
+Come creare e usare i tag:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -822,11 +845,23 @@ Come creare e usare Tag: https://docs.microsoft.com/azure/azure-resource-manager
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-Come creare sottoscrizioni di Azure aggiuntive: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Come creare Gruppi di gestione: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Come creare e usare Tag: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Come creare sottoscrizioni di Azure aggiuntive:
+
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+
+
+Come creare Gruppi di gestione:
+
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+
+
+Come creare e usare i tag:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -894,6 +929,7 @@ Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/
 
 Come negare un tipo di risorsa specifico con criteri di Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
+
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
 **Responsabilità**: cliente
@@ -911,9 +947,7 @@ Come negare un tipo di risorsa specifico con criteri di Azure: https://docs.micr
 **Guida**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "blocca l'accesso" per l'app "gestione Microsoft Azure".
 
 
-Come configurare l'accesso condizionale per bloccare l'accesso ai Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Come configurare l'accesso condizionale per bloccare l'accesso ai Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1152,7 +1186,7 @@ Informazioni sui backup e sulla continuità aziendale con SQL Server di Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
-**Monitoraggio del Centro sicurezza di Azure**: non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: condiviso
 
@@ -1204,7 +1238,7 @@ Come abilitare l'eliminazione temporanea in Key Vault:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
 **Responsabilità**: cliente
 
@@ -1292,7 +1326,7 @@ Come configurare l'automazione del flusso di lavoro e le app per la logica:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
+**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
 **Responsabilità**: cliente
 
@@ -1314,3 +1348,7 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 **Responsabilità**: condiviso
 
+## <a name="next-steps"></a>Passaggi successivi
+
+- Vedere il [benchmark di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Scopri di più sulle [linee di base di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

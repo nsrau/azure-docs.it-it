@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/07/2020
 ms.author: diberry
-ms.openlocfilehash: 8c29ebd675bb6af66203c13824dacbe9ea2421a2
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 30132983f37323e798efd330f5cc8f15c0a9d2b6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732796"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270742"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita DatetimeV2 per un'app LUIS
 
@@ -31,7 +31,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 `8am on may 2nd 2019`
 
-#### <a name="v3-responsetab1-1"></a>[Risposta V3](#tab/1-1)
+#### <a name="v3-response"></a>[Risposta V3](#tab/1-1)
 
 ```json
 "entities": {
@@ -53,7 +53,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 }
 ```
 
-#### <a name="v3-verbose-responsetab1-2"></a>[Risposta dettagliata V3](#tab/1-2)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/1-2)
 
 ```json
 
@@ -91,7 +91,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 }
 ```
 
-#### <a name="v2-responsetab1-3"></a>[Risposta V2](#tab/1-3)
+#### <a name="v2-response"></a>[Risposta V2](#tab/1-3)
 
 ```json
 "entities": [
@@ -115,7 +115,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 |Nome proprietà |Tipo e descrizione proprietà|
 |---|---|
-|Persona giuridica|**stringa** - Testo estratto dall'espressione con tipo di data, ora, intervallo di date o intervallo di tempo.|
+|Entità|**stringa** - Testo estratto dall'espressione con tipo di data, ora, intervallo di date o intervallo di tempo.|
 |type|**string** - Uno dei [sottotipi di datetimeV2](#subtypes-of-datetimev2)
 |startIndex|**int** - L'indice nell'espressione dove inizia l'entità.|
 |endIndex|**int** - L'indice nell'espressione dove termina l'entità.|
@@ -179,7 +179,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 `May 2nd`
 
-#### <a name="v3-responsetab2-1"></a>[Risposta V3](#tab/2-1)
+#### <a name="v3-response"></a>[Risposta V3](#tab/2-1)
 
 ```json
 "entities": {
@@ -204,7 +204,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 }
 ```
 
-#### <a name="v3-verbose-responsetab2-2"></a>[Risposta dettagliata V3](#tab/2-2)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/2-2)
 
 ```json
 "entities": {
@@ -244,7 +244,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 }
 ```
 
-#### <a name="v2-responsetab2-3"></a>[Risposta V2](#tab/2-3)
+#### <a name="v2-response"></a>[Risposta V2](#tab/2-3)
 
 ```json
   "entities": [
@@ -280,7 +280,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 `May 2nd to May 5th`
 
-#### <a name="v3-responsetab3-1"></a>[Risposta V3](#tab/3-1)
+#### <a name="v3-response"></a>[Risposta V3](#tab/3-1)
 
 ```json
 
@@ -309,7 +309,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 ```
 
 
-#### <a name="v3-verbose-responsetab3-2"></a>[Risposta dettagliata V3](#tab/3-2)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/3-2)
 
 ```json
 
@@ -352,7 +352,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 }
 ```
 
-#### <a name="v2-responsetab3-3"></a>[Risposta V2](#tab/3-3)
+#### <a name="v2-response"></a>[Risposta V2](#tab/3-3)
 
 ```json
 "entities": [
@@ -384,7 +384,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 `Tuesday to Thursday`
 
-#### <a name="v3-responsetab4-1"></a>[Risposta V3](#tab/4-1)
+#### <a name="v3-response"></a>[Risposta V3](#tab/4-1)
 
 ```json
 "entities": {
@@ -411,7 +411,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 }
 ```
 
-#### <a name="v3-verbose-responsetab4-2"></a>[Risposta dettagliata V3](#tab/4-2)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/4-2)
 
 ```json
 "entities": {
@@ -453,7 +453,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 }
 ```
 
-#### <a name="v2-responsetab4-3"></a>[Risposta V2](#tab/4-3)
+#### <a name="v2-response"></a>[Risposta V2](#tab/4-3)
 
 ```json
   "entities": [
@@ -492,7 +492,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 `from 6pm to 7pm`
 
-#### <a name="v3-responsetab5-1"></a>[Risposta V3](#tab/5-1)
+#### <a name="v3-response"></a>[Risposta V3](#tab/5-1)
 
 Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
@@ -517,7 +517,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab5-2"></a>[Risposta dettagliata V3](#tab/5-2)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/5-2)
 
 Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
@@ -557,7 +557,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
     }
 }
 ```
-#### <a name="v2-responsetab5-3"></a>[Risposta V2](#tab/5-3)
+#### <a name="v2-response"></a>[Risposta V2](#tab/5-3)
 
 ```json
   "entities": [
@@ -588,7 +588,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 
 `8am`
 
-#### <a name="v3-responsetab6-1"></a>[Risposta V3](#tab/6-1)
+#### <a name="v3-response"></a>[Risposta V3](#tab/6-1)
 
 ```json
 "entities": {
@@ -609,7 +609,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab6-2"></a>[Risposta dettagliata V3](#tab/6-2)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/6-2)
 
 ```json
 "entities": {
@@ -645,7 +645,7 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
     }
 }
 ```
-#### <a name="v2-responsetab6-3"></a>[Risposta V2](#tab/6-3)
+#### <a name="v2-response"></a>[Risposta V2](#tab/6-3)
 
 ```json
 "entities": [

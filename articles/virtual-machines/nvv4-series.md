@@ -7,18 +7,17 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: ccafe6f317ff50684922fd4409beb42214c18858
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0295ed7d44d64fcc1aeb68e1beaa37987b177edb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161857"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273857"
 ---
-# <a name="nvv4-series-preview"></a>Serie NVv4 (anteprima)
+# <a name="nvv4-series"></a>Serie NVv4 
 
 Le macchine virtuali della serie NVv4 sono basate su GPU [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) e sulle CPU AMD EPYC 7V12 (Roma). Con la serie NVv4, Azure introduce macchine virtuali con GPU parziali. Scegli la macchina virtuale di dimensioni appropriate per le applicazioni grafiche con accelerazione GPU e i desktop virtuali a partire dal 1/8 di una GPU con 2 GiB frame buffer in una GPU completa con 16 GiB frame buffer. Le macchine virtuali NVv4 attualmente supportano solo il sistema operativo guest Windows.
 
-[Iscriviti e ottieni l'accesso a queste macchine virtuali durante l'anteprima](https://aka.ms/nvv4signup).
 <br>
 
 Archiviazione Premium: supportata
@@ -42,11 +41,7 @@ Aggiornamenti con mantenimento della memoria: non supportato
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
-Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure che eseguono Windows, è necessario installare i driver GPU NVIDIA o AMD.
-
-L' [estensione driver GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) installa driver NVIDIA CUDA o Grid appropriati in una macchina virtuale Windows serie N. Installare o gestire l'estensione usando il portale di Azure o strumenti come i modelli di Azure PowerShell Azure o Azure Resource Manager. Vedere la [documentazione dell'estensione dei driver GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) per informazioni sui sistemi operativi supportati e sui passaggi di distribuzione. Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features](/.extensions/overview.md) (Funzionalità ed estensioni macchina virtuale di Azure).
-
-Se si sceglie di installare manualmente i driver GPU NVIDIA, vedere la pagina relativa alla [configurazione di driver GPU serie N per Windows](./windows/n-series-driver-setup.md) per i sistemi operativi supportati, i driver, l'installazione e i passaggi di verifica.
+Per sfruttare i vantaggi delle funzionalità GPU delle macchine virtuali della serie NVv4 di Azure che eseguono Windows, è necessario installare i driver GPU AMD.
 
 Per installare manualmente i driver GPU AMD, vedere la [serie N configurazione driver GPU AMD per Windows](./windows/n-series-amd-driver-setup.md) per i sistemi operativi supportati, i driver, l'installazione e i passaggi di verifica.
 

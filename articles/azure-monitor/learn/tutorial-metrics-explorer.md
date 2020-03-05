@@ -3,17 +3,16 @@ title: Esercitazione - Creare un grafico delle metriche in Monitoraggio di Azure
 description: Informazioni su come creare il primo grafico delle metriche con Esplora metriche di Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: bwren
-ms.openlocfilehash: 7d9360840912614b6ae89d958d90de962b36506d
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: be4f026ba20ce1582f5626ec7483740831c25c1a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689947"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661465"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Esercitazione: Creare un grafico delle metriche in Monitoraggio di Azure
 Esplora metriche è una funzionalità di Monitoraggio di Azure nel portale di Azure che consente di creare grafici dai valori delle metriche, correlare le tendenze a livello visivo ed esaminare picchi e flessioni nei valori delle metriche. Usare Esplora metriche per esaminare l'integrità e l'utilizzo delle risorse di Azure o per tracciare grafici dalle metriche personalizzate. 
@@ -25,7 +24,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Eseguire aggregazioni diverse per i valori della metrica
 > * Modificare l'intervallo di tempo e la granularità del grafico
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, è necessaria una risorsa di Azure da monitorare. È possibile usare tutte le risorse della sottoscrizione di Azure che supportano le metriche. Per determinare se una risorsa supporta le metriche, passare al relativo menu nel portale di Azure e verificare se è presente un'opzione **Metriche** nella sezione **Monitoraggio** del menu.
 

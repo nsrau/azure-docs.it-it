@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572368"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273690"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli amministratore e utente del server
 
@@ -52,7 +52,7 @@ Per le restanti attività, si usa SSMS per connettersi al server e gestirlo.
 
 1. In SSMS > **Esplora oggetti** fare clic su **Connetti** > **Analysis Services**.
 
-    ![Connettere](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Connessione](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. Nella finestra di dialogo **Connetti a server** incollare il nome del server copiato dal portale in **Nome del server**. In **Autenticazione** scegliere **Active Directory - Universale con supporto MFA**, quindi immettere l'account utente e infine fare clic su **Connetti**.
    
@@ -82,7 +82,7 @@ In questa attività si aggiunge un account utente o gruppo da Azure AD al ruolo 
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Aggiungere un utente al ruolo di amministratore del database modello
 
-In questa attività si aggiunge un account utente o gruppo al ruolo Internet Sales Administrator già esistente nel modello. Questo ruolo ha le autorizzazioni Controllo completo (amministratore) per il database modello di esempio adventureworks. Questa attività usa il comando TMSL [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) in uno script creato automaticamente.
+In questa attività si aggiunge un account utente o gruppo al ruolo Internet Sales Administrator già esistente nel modello. Questo ruolo ha le autorizzazioni Controllo completo (amministratore) per il database modello di esempio adventureworks. Questa attività usa il comando TMSL [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) in uno script creato automaticamente.
 
 1. In **Esplora oggetti** espandere **Database** > **adventureworks** > **Ruoli**. 
 2. Fare clic con il pulsante destro del mouse su **Internet Sales Administrator**, quindi scegliere **Crea script per ruolo** > **CREATE OR REPLACE per** > **Nuova finestra editor di query**.
@@ -98,7 +98,7 @@ In questa attività si aggiunge un account utente o gruppo al ruolo Internet Sal
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Aggiungere un nuovo ruolo del database modello e aggiungere un utente o un gruppo
 
-In questa attività si usa il comando [Create](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) in uno script TMSL per creare un nuovo ruolo Internet Sales Global, specificare le autorizzazioni di *lettura* per il ruolo e aggiungere un account utente o gruppo da Azure AD.
+In questa attività si usa il comando [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) in uno script TMSL per creare un nuovo ruolo Internet Sales Global, specificare le autorizzazioni di *lettura* per il ruolo e aggiungere un account utente o gruppo da Azure AD.
 
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse su **adventureworks** e quindi scegliere **Nuova query** > **XMLA**. 
 2. Copiare e incollare lo script TMSL seguente nell'editor di query:

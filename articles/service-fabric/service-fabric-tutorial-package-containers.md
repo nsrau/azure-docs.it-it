@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614027"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252755"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
 
@@ -25,7 +25,7 @@ Questa è la seconda di una serie di esercitazioni. In questa esercitazione vien
 > * Distribuire ed eseguire l'applicazione
 > * Eseguire la pulizia dell'applicazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Vengono usate le immagini del contenitore di cui è stato eseguito il push in Registro Azure Container creato nella [prima](service-fabric-tutorial-create-container-images.md) di questa serie di esercitazioni.
 * Viene [configurato](service-fabric-tutorial-create-container-images.md) l'ambiente di sviluppo Linux.
@@ -114,7 +114,7 @@ Affinché Service Fabric possa eseguire il pull delle immagini del contenitore d
 
 Accedere all'istanza di Registro Azure Container. Usare il comando **az acr login** per completare l'operazione. Specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -122,7 +122,7 @@ Al termine, il comando restituisce un messaggio di **Accesso riuscito**.
 
 Eseguire quindi questo comando per ottenere la password del registro contenitori. Questa password viene usata da Service Fabric per l'autenticazione al Registro Azure Container per eseguire il pull delle immagini del contenitore.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -199,7 +199,7 @@ Affinché Service Fabric possa assegnare questo nome DNS al servizio back-end, �
 
 Il servizio front-end legge una variabile di ambiente per conoscere il nome DNS dell'istanza di Redis. Questa variabile di ambiente è già definita nel Dockerfile usato per generare l'immagine Docker, di conseguenza non è necessario eseguire alcuna operazione.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 

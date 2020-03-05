@@ -5,16 +5,17 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5082ed06b4ce5baf3869fc035654be3c7a45f29f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9d3e9484fc6726241ff9bc1eafc56fce92d711cd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845301"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198100"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale Windows in .NET
 
@@ -37,7 +38,7 @@ Prima di iniziare, leggere i [concetti di base di Key Vault](basic-concepts.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)

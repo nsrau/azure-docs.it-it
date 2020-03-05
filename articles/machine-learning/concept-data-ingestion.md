@@ -10,19 +10,19 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 3370fc72b45720e2aae5731623843a1bc498911c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: MT
+ms.openlocfilehash: 35c133a4d9d95dc6e942d5b8c3e8d21debb9493b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652074"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268553"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Inserimento di dati in Azure Machine Learning
 
 In questo articolo vengono illustrati i vantaggi e gli svantaggi delle seguenti opzioni di inserimento dei dati disponibili con Azure Machine Learning. 
 
 1. Pipeline di [Azure Data Factory](#use-azure-data-factory)
-2. [SDK Azure Machine Learning Python](#use-the-python-sdk)
+2. [Python SDK di Azure Machine Learning](#use-the-python-sdk)
 
 L'inserimento dei dati è il processo in cui i dati non strutturati vengono estratti da una o più origini e quindi preparati per il training dei modelli di machine learning. È anche un tempo molto intenso, soprattutto se eseguito manualmente e se si dispone di grandi quantità di dati da più origini. L'automazione di questa operazione consente di liberare risorse e garantisce che i modelli usino i dati più recenti e applicabili.
 
@@ -55,7 +55,7 @@ Questi passaggi e il diagramma seguente illustrano il flusso di lavoro di inseri
 
 ## <a name="use-the-python-sdk"></a>Usare Python SDK 
 
-Con [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py)è possibile incorporare le attività di inserimento dei dati in un passaggio della [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md) .
+Con [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml)è possibile incorporare le attività di inserimento dei dati in un passaggio della [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md) .
 
 Nella tabella seguente sono riepilogati i vantaggi e le operazioni di i/o per l'utilizzo dell'SDK e un passaggio di pipeline di ML per le attività di inserimento dei dati.
 

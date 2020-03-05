@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000656"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195329"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -39,7 +40,7 @@ Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](key-vau
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione è necessario quanto segue:
 
 * Insieme di credenziali delle chiavi esistente e già in uso.  
 * Azure PowerShell, versione minima 1.0.0. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell immettere `$PSVersionTable.PSVersion`.  
@@ -248,7 +249,7 @@ Verrà restituita una voce di log simile alla seguente:
 
 La tabella seguente elenca i nomi dei campi e le descrizioni:
 
-| Nome campo | DESCRIZIONE |
+| Nome campo | Descrizione |
 | --- | --- |
 | **time** |Data e ora in formato UTC. |
 | **resourceId** |ID della risorsa di Azure Resource Manager. Per i log dell'insieme di credenziali delle chiavi questo è sempre l'ID della risorsa insieme di credenziali delle chiavi. |

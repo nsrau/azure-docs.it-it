@@ -3,12 +3,12 @@ title: Applicazione Azure Insights per le applicazioni ASP.NET Core | Microsoft 
 description: Monitorare le applicazioni Web ASP.NET Core per identificare disponibilità, prestazioni e utilizzo.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 7aa8ae7fd2742e51ab1ccfed26524241f4c11256
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 5028d95ef784b0d309880d0d05371cd42f627d7d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666259"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269205"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -30,14 +30,14 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 > [!NOTE]
 > Se si usa ASP.NET Core 3,0 insieme a Application Insights, usare la versione [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o successiva. Questa è l'unica versione che supporta ASP.NET Core 3,0.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Applicazione ASP.NET Core funzionante. Se è necessario creare un'applicazione ASP.NET Core, seguire questa [esercitazione ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started/).
 - Chiave di strumentazione Application Insights valida. Questa chiave è necessaria per inviare i dati di telemetria a Application Insights. Se è necessario creare una nuova risorsa Application Insights per ottenere una chiave di strumentazione, vedere [creare una risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Abilitare la telemetria lato server Application Insights (Visual Studio)
 
-1. Apri il progetto in Visual Studio.
+1. Aprire il progetto in Visual Studio.
 
     > [!TIP]
     > Se lo si desidera, è possibile configurare il controllo del codice sorgente per il progetto in modo che sia possibile tenere traccia di tutte le modifiche apportate Application Insights. Per abilitare il controllo del codice sorgente, selezionare **File** > **Aggiungi al controllo del codice sorgente**.
@@ -103,7 +103,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Ad esempio,
+    Ad esempio:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -159,6 +159,14 @@ I passaggi precedenti sono sufficienti per iniziare a raccogliere i dati di tele
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
     ```
+    
+In alternativa, è possibile utilizzare il `FullScript` `ScriptBody` è disponibile a partire da SDK v 2.14. Usare questa impostazione se è necessario controllare il tag `<script>` per impostare i criteri di sicurezza del contenuto:
+
+    ```cshtml
+        <script> // apply custom changes to this script tag.
+            @Html.Raw(JavaScriptSnippet.ScriptBody)
+        </script>
+    ```
 
 I nomi dei file di `.cshtml` a cui si fa riferimento in precedenza si trovano in un modello di applicazione MVC predefinito. Infine, se si desidera abilitare correttamente il monitoraggio lato client per l'applicazione, il frammento di codice JavaScript deve essere visualizzato nella sezione `<head>` di ogni pagina dell'applicazione che si desidera monitorare. È possibile raggiungere questo obiettivo per questo modello di applicazione aggiungendo il frammento di codice JavaScript per `_Layout.cshtml`. 
 
@@ -191,7 +199,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Elenco completo delle impostazioni in `ApplicationInsightsServiceOptions`
 
-|Impostazione | Descrizione | Default
+|Impostazione | Descrizione | Predefinito
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Abilita/Disabilita la funzionalità LiveMetrics | true
 |EnableAdaptiveSampling | Abilita/Disabilita il campionamento adattivo | true

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: b99827ff9fd01c7179a25fafd05bfc8e4ef8ae63
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 279130fa310b107bd1a016c717c48af3d905251b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921097"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270149"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
@@ -37,7 +37,7 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
  
     ![inserimento di flussi in](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. Nell' [interfaccia utente Web](https://dataexplorer.azure.com/), definire i criteri di inserimento del [flusso](/azure/kusto/concepts/streamingingestionpolicy) per le tabelle o i database che riceveranno i dati in streaming. 
+1. Nell' [interfaccia utente Web](https://dataexplorer.azure.com/), definire i criteri di inserimento del [flusso](/azure/kusto/management/streamingingestionpolicy) per le tabelle o i database che riceveranno i dati in streaming. 
 
     > [!NOTE]
     > * Se il criterio viene definito a livello di database, tutte le tabelle nel database sono abilitate per l'inserimento di flussi.
@@ -63,7 +63,7 @@ Sono disponibili due tipi di inserimento di flussi supportati:
 > [!WARNING]
 > La disabilitazione dell'inserimento di flussi potrebbe richiedere alcune ore.
 
-1. Elimina i criteri di inserimento dei [flussi](/azure/kusto/concepts/streamingingestionpolicy) da tutte le tabelle e i database pertinenti. La rimozione dei criteri di inserimento dei flussi attiva lo spostamento dei dati di inserimento dallo spazio di archiviazione iniziale all'archiviazione permanente nell'archivio colonne (extent o partizioni). Lo spostamento dei dati può durare tra pochi secondi e alcune ore, a seconda della quantità di dati nella risorsa di archiviazione iniziale e della modalità di utilizzo della CPU e della memoria da parte del cluster.
+1. Elimina i criteri di inserimento dei [flussi](/azure/kusto/management/streamingingestionpolicy) da tutte le tabelle e i database pertinenti. La rimozione dei criteri di inserimento dei flussi attiva lo spostamento dei dati di inserimento dallo spazio di archiviazione iniziale all'archiviazione permanente nell'archivio colonne (extent o partizioni). Lo spostamento dei dati può durare tra pochi secondi e alcune ore, a seconda della quantità di dati nella risorsa di archiviazione iniziale e della modalità di utilizzo della CPU e della memoria da parte del cluster.
 1. Nel portale di Azure passare a cluster di Esplora dati di Azure. In **Impostazioni**selezionare **configurazioni**. 
 1. Nel riquadro **configurazioni** selezionare disattivato per disabilitare l' **inserimento** del **flusso**.
 1. Selezionare **Salva**.

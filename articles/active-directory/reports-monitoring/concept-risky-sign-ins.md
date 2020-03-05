@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f19744e6c860ae315b681f5eb090cba23b153af
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b77486064139895799ac5a48327377154f75da6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008348"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273828"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
 
@@ -52,15 +52,15 @@ Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Act
 
 Tutte le edizioni di Azure AD offrono report relativi agli accessi a rischio. Tuttavia, il livello di granularità dei report varia a seconda delle edizioni: 
 
-- Nelle edizioni **Azure Active Directory Free e Basic**  è incluso un elenco di accessi a rischio. 
+- Nell' **edizione Azure Active Directory Free**si ottiene un elenco di accessi a rischio. 
 
 - Inoltre, la **Azure Active Directory Premium 1** edizione consente di esaminare alcuni dei rilevamenti di rischio sottostanti rilevati per ogni report. 
 
 - L'edizione **Azure Active Directory Premium 2** fornisce le informazioni più dettagliate su tutti i rilevamenti di rischi sottostanti e consente inoltre di configurare criteri di sicurezza che rispondono automaticamente ai livelli di rischio configurati.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Report degli accessi a rischio per le edizioni Azure AD Free e Basic
+## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Report degli accessi a rischio per Azure AD edizione gratuita
 
-Le edizioni Azure AD Free e Basic forniscono un elenco di accessi a rischio che sono stati rilevati per gli utenti. Ogni record contiene gli attributi seguenti:
+Il Azure AD edizione gratuita fornisce un elenco di accessi a rischio che sono stati rilevati per gli utenti. Ogni record contiene gli attributi seguenti:
 
 - **Utente**: nome dell'utente usato durante l'operazione di accesso.
 - **IP**: indirizzo IP del dispositivo usato per connettersi ad Azure Active Directory.

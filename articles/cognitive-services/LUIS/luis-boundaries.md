@@ -7,29 +7,29 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 0654916b344cf47cf9942b883d62d392c0552979
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818942"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273510"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
-LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
+LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint).
 
 
 ## <a name="model-boundaries"></a>Limiti di modello
 
-Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispatch LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) o un [contenitore LUIS](luis-container-howto.md). 
+Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispatch LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) o un [contenitore LUIS](luis-container-howto.md).
 
 |Area|Limite|
 |--|:--|
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
-| Applications| 500 applicazioni per ogni risorsa di creazione di Azure |
+| APPLICAZIONI| 500 applicazioni per ogni risorsa di creazione di Azure |
 | [Test batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
 | Entità esterne | Nessun limite |
@@ -49,7 +49,7 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 | [Versioni](luis-concept-version.md)| 100 versioni per applicazione |
 | [Nome versione][luis-how-to-manage-versions] | 10 caratteri limitati a caratteri alfanumerici e punto (.) |
 
-*Il numero max predefinito di caratteri è 50. 
+*Il numero max predefinito di caratteri è 50.
 
 <a name="intent-and-entity-naming"></a>
 
@@ -60,13 +60,13 @@ Utilizzare le seguenti regole di univocità dei nomi.
 Gli elementi seguenti devono essere univoci all'interno di un'app LUIS:
 
 * Nome versione
-* intento
+* intent
 * Entità
-* ruoli
+* roles
 
 Gli elementi seguenti devono essere univoci all'interno dell'ambito applicato:
 
-* elenco frasi 
+* elenco frasi
 
 ## <a name="object-naming"></a>Denominazione degli oggetti
 
@@ -85,9 +85,9 @@ Language Understanding ha chiavi separate, un tipo per la creazione e un tipo pe
 
 ## <a name="resource-key-limits"></a>Limiti delle chiavi di risorsa
 
-Le chiavi delle risorse hanno limiti diversi per la creazione e l'endpoint. La chiave dell'endpoint della query di stima LUIS è valida solo per le query endpoint. 
+Le chiavi delle risorse hanno limiti diversi per la creazione e l'endpoint. La chiave dell'endpoint della query di stima LUIS è valida solo per le query endpoint.
 
-* 500 applicazioni per ogni risorsa di creazione di Azure 
+* 500 applicazioni per ogni risorsa di creazione di Azure
 
 |Chiave|Creazione|Endpoint|Scopo|
 |--|--|--|--|
@@ -102,7 +102,7 @@ Le chiavi delle risorse hanno limiti diversi per la creazione e l'endpoint. La c
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input tastiera | Descrizione | 
+|Input tastiera | Descrizione |
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 

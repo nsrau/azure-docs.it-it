@@ -3,16 +3,16 @@ title: Fatture per la registrazione ad Azure Enterprise
 description: Questo articolo illustra come gestire la fattura della registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 37af492ae156aa880c55034550d4165ec046e74f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: df2d4eb1b28ac9f13511692ca7588414ea4fdff0
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199756"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272387"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 

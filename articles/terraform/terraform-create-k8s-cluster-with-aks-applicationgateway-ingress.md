@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare un controller del traffico in ingresso del gateway
 description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes con il gateway applicazione come controller di ingresso
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 14b8f6ba74a06c126da239671cbb2053df19af7d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472265"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251767"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Esercitazione: Creare un controller di ingresso del gateway applicazione nel servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 > * Usare Terraform e il servizio Azure Kubernetes per creare un cluster Kubernetes.
 > * Usare lo strumento kubectl per verificare la disponibilità di un cluster Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
@@ -765,7 +765,7 @@ Quando non sono più necessarie, eliminare le risorse create in questo articolo.
 
 Sostituire il segnaposto con il valore appropriato. Tutte le risorse nel gruppo di risorse specificato verranno eliminate.
 
-```bash
+```azurecli
 az group delete -n <resource-group>
 ```
 

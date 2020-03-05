@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 3aba570bd7f80eab205fe52a731a1be933067012
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493202"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273557"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Trigger del bus di servizio di Azure per funzioni di Azure
 
@@ -369,9 +369,6 @@ Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./funct
 |`To`|`string`|L'indirizzo di destinazione.|
 |`Label`|`string`|Etichetta specifica dell'applicazione.|
 |`CorrelationId`|`string`|L'ID di correlazione.|
-
-> [!NOTE]
-> Attualmente, il trigger del bus di servizio che funziona con le code e le sottoscrizioni abilitate per la sessione è in anteprima. Tieni traccia di [questo elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) per eventuali altri aggiornamenti. 
 
 Vedere gli [esempi di codice](#example) che usano queste proprietà in precedenza in questo articolo.
 

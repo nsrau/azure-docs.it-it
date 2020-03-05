@@ -3,16 +3,16 @@ title: Amministrazione di Azure EA Portal
 description: Questo articolo illustra le attività comuni eseguite da un amministratore in Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 3006450fe530d3e6271ad624c6f246213cab6569
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598392"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272467"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -125,7 +125,7 @@ Quando si trasferisce un account aziendale in una nuova registrazione, tenere pr
 - Vengono trasferiti solo gli account specificati nella richiesta. Se si selezionano tutti gli account, vengono trasferiti tutti.
 - La registrazione di origine mantiene il proprio stato come attiva o estesa. È possibile continuare a usarla fino alla scadenza.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 
 Quando si richiede il trasferimento di un account, fornire le informazioni seguenti:
 
@@ -167,7 +167,7 @@ La data di validità del trasferimento può essere una data corrispondente o suc
 
 L'utilizzo della registrazione di origine viene addebitato in base all'impegno monetario o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 
 Quando si richiede il trasferimento di una registrazione, fornire le informazioni seguenti:
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 01/09/2020
-ms.openlocfilehash: f6b7797fbebd3d1df3da3405926543d716e584f4
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.date: 03/03/2020
+ms.openlocfilehash: a6186753c845070ff2a5b3a3f8c6ff0de51e52f0
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835093"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269574"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto vCore
 
@@ -41,7 +41,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 |Dimensioni di calcolo|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
 |Numero massimo di database per pool|100|200|500|500|500|500|
@@ -50,10 +50,10 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Dimensioni massime dei dati (GB)|512|756|1536|1536|1536|2048|
 |Dimensioni massime dei log|154|227|461|461|461|614|
 |Dimensioni massime dati TempDB (GB)|32|64|96|128|160|192|
-|Tipo di risorse di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
+|Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati per pool *|400|800|1200|1600|2000|2400|
-|Velocità massima di log per pool (MBps)|4.7|9.4|14,1|18.8|23,4|28,1|
+|Velocità massima di log per pool (MBps)|4.7|9,4|14,1|18.8|23,4|28,1|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) * * |210|420|630|840|1050|1260|
 |Numero massimo di accessi simultanei per pool * * |210|420|630|840|1050|1260|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
@@ -65,13 +65,13 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Livello di servizio per utilizzo generico: piattaforma di calcolo di generazione 4 (parte 2)
 
 |Dimensioni di calcolo|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|159,5|
 |Numero massimo di database per pool|500|500|500|500|500|500|
@@ -80,7 +80,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Dimensioni massime dei dati (GB)|2048|2048|2048|2048|3584|4096|
 |Dimensioni massime del log (GB)|614|614|614|614|1075|1229|
 |Dimensioni massime dati TempDB (GB)|224|256|288|320|512|768|
-|Tipo di risorse di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
+|Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati per pool *|2800|3200|3600|4000|6400|9600|
 |Velocità massima di log per pool (MBps)|32,8|37,5|37,5|37,5|37,5|37,5|
@@ -93,7 +93,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Calcolo per utilizzo generico-quinta generazione
 
@@ -110,10 +110,10 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Dimensioni massime dei dati (GB)|512|756|1536|1536|1536|2048|2048|
 |Dimensioni massime del log (GB)|154|227|461|461|461|614|614|
 |Dimensioni massime dati TempDB (GB)|64|128|192|256|320|384|448|
-|Tipo di risorse di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
+|Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati per pool *|800|1600|2400|3200|4000|4800|5600|
-|Velocità massima di log per pool (MBps)|9.4|18.8|28,1|37,5|37,5|37,5|37,5|
+|Velocità massima di log per pool (MBps)|9,4|18.8|28,1|37,5|37,5|37,5|37,5|
 |Numero massimo di ruoli di lavoro simultanei per pool (richieste) * *|210|420|630|840|1050|1260|1470|
 |Numero massimo di accessi simultanei per pool (richieste) * *|210|420|630|840|1050|1260|1470|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
@@ -125,7 +125,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il valore max vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore, per altre impostazioni di vCore massime per database inferiori a 1 vCore o inferiore, il numero massimo di ruoli di lavoro simultanei è analogo  ridimensionato.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Livello di servizio per utilizzo generico: piattaforma di calcolo di generazione 5 (parte 2)
 
@@ -140,7 +140,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Dimensioni massime dei dati (GB)|2048|3072|3072|3072|4096|4096|4096|
 |Dimensioni massime del log (GB)|614|922|922|922|1229|1229|1229|
 |Dimensioni massime dati TempDB (GB)|512|576|640|768|1024|1280|2560|
-|Tipo di risorse di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
+|Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati per pool * |6\.400|7\.200|8\.000|9\.600|12.800|16.000|32.000|
 |Velocità massima di log per pool (MBps)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
@@ -155,7 +155,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Fsv2-serie di calcolo con provisioning per utilizzo generico
 
@@ -172,7 +172,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Dimensioni massime dei dati (GB)|4096|
 |Dimensioni massime del log (GB)|1024|
 |Dimensioni massime dati TempDB (GB)|333|
-|Tipo di risorse di archiviazione|Archiviazione (remota) Premium|
+|Tipo di archiviazione|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati per pool *|16.000|
 |Velocità massima di log per pool (MBps)|37,5|
@@ -187,7 +187,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Calcolo con provisioning critico per il business-Gen4
 
@@ -198,13 +198,13 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 |Dimensioni di calcolo|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|2|3|4|5|6|
 |Memoria (GB)|14|21|28|35|42|
-|Numero massimo di database per pool|100|100|100|100|100|
+|Numero massimo di database per pool|50|100|100|100|100|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|2|3|4|5|6|
-|Tipo di risorse di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|
 |Dimensioni massime del log (GB)|307|307|307|307|307|
 |Dimensioni massime dati TempDB (GB)|64|96|128|160|192|
@@ -222,19 +222,19 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Livello di servizio business critical: piattaforma di calcolo di generazione 4 (parte 2)
 
 |Dimensioni di calcolo|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|159,5|
 |Numero massimo di database per pool|100|100|100|100|100|100|
 |Supporto per columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archiviazione OLTP in memoria (GB)|7|8|9,5|11|20|36|
-|Tipo di risorse di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|1024|
 |Dimensioni massime del log (GB)|307|307|307|307|307|307|
 |Dimensioni massime dati TempDB (GB)|224|256|288|320|512|768|
@@ -252,7 +252,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ## <a name="business-critical---provisioned-compute---gen5"></a>Calcolo con provisioning critico per il business-quinta generazione
 
@@ -263,13 +263,13 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|4|6|8|10|12|14|
 |Memoria (GB)|20,8|31,1|41,5|51,9|62,3|72,7|
-|Numero massimo di database per pool|100|100|100|100|100|100|
+|Numero massimo di database per pool|50|100|100|100|100|100|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|3,14|4,71|6,28|8,65|11,02|13,39|
+|Archiviazione OLTP in memoria (GB)|3.14|4,71|6,28|8,65|11,02|13,39|
 |Dimensioni massime dei dati (GB)|1024|1536|1536|1536|3072|3072|
 |Dimensioni massime del log (GB)|307|307|461|461|922|922|
 |Dimensioni massime dati TempDB (GB)|128|192|256|320|384|448|
-|Tipo di risorse di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati per pool *|18.000|27.000|36,000|45,000|54.000|63.000|
 |Velocità massima di log per pool (MBps)|60|90|120|120|120|120|
@@ -284,7 +284,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Livello di servizio business critical: piattaforma di calcolo di generazione 5 (parte 2)
 
@@ -299,7 +299,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
 |Dimensioni massime dati TempDB (GB)|512|576|640|768|1024|1280|2560|
-|Tipo di risorse di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati per pool *|72.000|81.000|90.000|108.000|144.000|180,000|256.000|
 |Velocità massima di log per pool (MBps)|120|120|120|120|120|120|120|
@@ -314,7 +314,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Business critical-serie di calcolo con provisioning-M
 
@@ -331,7 +331,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Dimensioni massime dei dati (GB)|4096|
 |Dimensioni massime del log (GB)|2048|
 |Dimensioni massime dati TempDB (GB)|4096|
-|Tipo di risorse di archiviazione|SSD locale|
+|Tipo di archiviazione|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati per pool *|200.000|
 |Velocità massima di log per pool (MBps)|333|
@@ -346,7 +346,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](sql-database-resource-limits-database-server.md#resource-governance).
 
-\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
+\*\* per il numero massimo di ruoli di lavoro simultanei (richieste) per ogni singolo database, vedere [limiti delle risorse del database singolo](sql-database-vcore-resource-limits-single-databases.md). Ad esempio, se il pool elastico USA quinta generazione e il numero massimo di vCore per database è impostato su 2, il valore numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è impostato su 0,5, il valore numero massimo di ruoli di lavoro simultanei è 50 poiché in quinta generazione sono presenti un massimo di 100 ruoli di lavoro simultanei per vCore. Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 Se tutti i vCore in un pool elastico sono occupati, ogni database nel pool riceve una quantità identica di risorse di calcolo per elaborare le query. Il servizio di database SQL suddivide equamente le risorse fra i database con intervalli equivalenti per i tempi di calcolo. L'equa condivisione delle risorse del pool elastico avviene in aggiunta a qualsiasi quantità di risorse altrimenti garantita per ogni database quando il numero minimo di vCore per database è impostato su un valore diverso da zero.
 
@@ -357,7 +357,7 @@ La tabella seguente descrive le proprietà per i database in pool.
 > [!NOTE]
 > I limiti di risorse di singoli database nei pool elastici sono in genere gli stessi di quelli per i database singoli al di fuori dei pool che hanno le stesse dimensioni di calcolo. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database GP_Gen4_1 è 200. Di conseguenza, anche il numero massimo di ruoli di lavoro per un database in un pool GP_Gen4_1 è 200. Si noti che il numero totale di ruoli di lavoro simultanei in un pool GP_Gen4_1 è 210.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | Numero massimo di vCore per database |Numero massimo di vCore che qualsiasi database nel pool può usare, se disponibile in base all'utilizzo da parte di altri database nel pool. Il numero massimo di vCore per database non è una garanzia di risorse per un database. Si tratta di un'impostazione globale che si applica a tutti i database nel pool. Impostare il numero massimo di vCore per database su un valore sufficientemente elevato per gestire i picchi di utilizzo dei database. È previsto un certo grado di overcommit perché il pool in genere presuppone modelli di utilizzo dei database a freddo e a caldo in cui i database non raggiungono il picco contemporaneamente.|
 | Numero minimo di vCore per database |Numero minimo di vCore garantito per ogni database nel pool. Si tratta di un'impostazione globale che si applica a tutti i database nel pool. Il numero minimo di vCore per database può essere impostato su 0, che è anche il valore predefinito. Questa proprietà è impostata su qualsiasi valore compreso tra 0 e l'utilizzo medio di vCore per ogni database. Il prodotto tra il numero di database nel pool e il numero minimo di vCore per database non può superare il numero di vCore per pool.|

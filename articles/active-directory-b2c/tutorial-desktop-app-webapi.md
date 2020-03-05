@@ -2,20 +2,20 @@
 title: "Esercitazione: Concedere l'accesso a un'API Web Node.js da un'applicazione desktop"
 description: Esercitazione su come usare Active Directory B2C per proteggere un'API Web Node.js e chiamarla da un'app desktop .NET.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a72c45f80d03cda7b176c421cc5498dd16c242ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849871"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183381"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web Node.js da un'app desktop usando Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Concedere le autorizzazioni per l'API Web
 > * Aggiornare l'esempio per l'uso dell'applicazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare i passaggi e i prerequisiti riportati in [Esercitazione: Autenticare gli utenti in un client desktop nativo](tutorial-desktop-app.md).
 
@@ -51,7 +51,7 @@ Per chiamare un'API Web protetta da un'applicazione client nativa, è necessario
 
 Nell'esercitazione sui prerequisiti è stata registrata un'applicazione client nativa denominata *nativeapp1*. I passaggi seguenti consentono di configurare la registrazione dell'applicazione nativa con gli ambiti dell'API esposti per *webapi1* nella sezione precedente. Ciò consente all'applicazione desktop di ottenere un token di accesso da Azure AD B2C che l'API Web può usare per verificare e fornire l'accesso con ambito alle relative risorse. Gli esempi di codice dell'applicazione desktop e dell'API Web vengono configurati ed eseguiti più avanti nell'esercitazione.
 
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. Selezionare **Applicazioni** e quindi *nativeapp1*.
 1. Selezionare **Accesso all'API** e quindi **Aggiungi**.
@@ -59,7 +59,7 @@ Nell'esercitazione sui prerequisiti è stata registrata un'applicazione client n
 1. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti definiti in precedenza. Ad esempio, *demo.read* e *demo.write*.
 1. Selezionare **OK**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Selezionare **Registrazioni app (anteprima)** e quindi l'applicazione client nativa che deve avere accesso all'API. Ad esempio, *nativeapp1*.
 1. In **Gestisci** selezionare **Autorizzazioni API**.

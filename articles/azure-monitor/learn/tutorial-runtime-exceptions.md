@@ -1,19 +1,18 @@
 ---
 title: Diagnosticare le eccezioni di runtime con Azure Application Insights | Microsoft Docs
 description: Esercitazione per il rilevamento e la diagnosi delle eccezioni di runtime in un'applicazione con Azure Application Insights.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: d56b81dbe8c78b9b48f122d79f4567d0b0f42e27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398543"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670424"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -28,7 +27,7 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 > * Creare un nuovo elemento di lavoro per correggere il codice non corretto
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 

@@ -3,18 +3,17 @@ title: Archiviare dati di metrica e log di Azure con Archiviazione di Azure
 description: Archiviare i dati di log e metriche generati dalle risorse di Azure in un account di archiviazione.
 author: johnkemnetz
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3ed00b1c68c41bc392b09c97dd47c9cdb8fa890d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979823"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661726"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archiviare dati di metrica e log di Azure con Archiviazione di Azure
 

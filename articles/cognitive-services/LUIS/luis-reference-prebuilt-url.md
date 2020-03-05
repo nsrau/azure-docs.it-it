@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 12831ede2b9d9251f2e02fa396ee7d2fb2d61240
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 49f145ce3e9022826abad5d274dd611bb2cc6530
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499503"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270355"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entità predefinita URL per un'app LUIS
-L'entità URL consente di estrarre gli URL con nomi di dominio o indirizzi IP. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti URL per le finalità dell'applicazione. L'entità URL è supportata solo nelle impostazioni cultura `en-us`. 
+L'entità URL consente di estrarre gli URL con nomi di dominio o indirizzi IP. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti URL per le finalità dell'applicazione. L'entità URL è supportata solo nelle impostazioni cultura `en-us`.
 
 ## <a name="types-of-urls"></a>Tipi di URL
 L'entità URL viene gestita dal repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml)
@@ -30,7 +30,7 @@ Per la query vengono restituiti gli oggetti entità seguenti:
 
 `https://www.luis.ai is a great cognitive services example of artificial intelligence`
 
-#### <a name="v3-responsetabv3"></a>[Risposta V3](#tab/V3)
+#### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
 Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 
@@ -41,7 +41,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Risposta dettagliata V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
 
 Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
 
@@ -67,7 +67,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Risposta V2](#tab/V2)
+#### <a name="v2-response"></a>[Risposta V2](#tab/V2)
 
 Nell'esempio seguente viene illustrata la risoluzione del https://www.luis.ai è un ottimo esempio di servizi cognitivi di intelligenza artificiale
 
@@ -82,10 +82,10 @@ Nell'esempio seguente viene illustrata la risoluzione del https://www.luis.ai è
 ]
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 Informazioni sulle entità [ordinali](luis-reference-prebuilt-ordinal.md), [numeri](luis-reference-prebuilt-number.md) e [temperatura](luis-reference-prebuilt-temperature.md).

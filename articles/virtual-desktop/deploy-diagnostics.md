@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/03/2020
 ms.author: helohr
-ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 9e42ff0ec5b44dca743d2ec1470c2eef655b9436
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368841"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273113"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -128,10 +128,9 @@ Prima di continuare a distribuire lo strumento di diagnostica, è consigliabile 
 Per assicurarsi che la registrazione dell'app disponga delle autorizzazioni API:
 
 1. Aprire un browser e connettersi alla [portale di Azure](https://portal.azure.com/) con l'account amministrativo.
-2. Passare a **registrazioni app** e cercare la registrazione app Azure ad.
-
-      ![Pagina delle autorizzazioni dell'API.](media/api-permissions-page.png)
-
+2. Passare a **Azure Active Directory**.
+3. Passare a **registrazioni app** e selezionare **tutte le applicazioni**.
+4. Cercare la registrazione dell'app Azure AD con lo stesso nome immesso nel passaggio 5 di [creare una registrazione](deploy-diagnostics.md#create-an-azure-active-directory-app-registration)per l'app Azure Active Directory.
 
 ### <a name="review-your-log-analytics-workspace"></a>Esaminare l'area di lavoro Log Analytics
 

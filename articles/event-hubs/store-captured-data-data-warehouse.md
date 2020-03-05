@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: a83d65e497688fa97fbb2bdb5a4a72c6d29d81ae
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 43668fe1f465a5db74e63b8b1c1ae6cb328d2092
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905684"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914127"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Esercitazione: Eseguire la migrazione dei dati di Hub eventi acquisiti in SQL Data Warehouse con Griglia di eventi e Funzioni di Azure
 
@@ -35,7 +35,7 @@ In questa esercitazione vengono completate le azioni seguenti:
 > * Trasmettere in streaming dati di esempio in Hub eventi 
 > * Verificare i dati acquisiti in SQL Data Warehouse
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -76,9 +76,9 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 ```azurecli-interactive
 az group create -l westus -n rgDataMigrationSample
 
-az group deployment create \
-  --resource-group rgDataMigrationSample \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
+az group deployment create `
+  --resource-group rgDataMigrationSample `
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json `
   --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
 ```
 

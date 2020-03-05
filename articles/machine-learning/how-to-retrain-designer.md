@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 8e7874ec2a0ea160d29f8755ca8680c4dfbeec1d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921598"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268492"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ripetere il training dei modelli con Azure Machine Learning Designer (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -119,7 +119,7 @@ Usare i passaggi seguenti per inviare un endpoint della pipeline eseguito dalla 
 
 1. Selezionare la pipeline che si vuole eseguire.
 
-1. Selezionare **Run** (Esegui).
+1. Selezionare **Submit** (Invia).
 
 1. Nella finestra di dialogo di installazione è possibile specificare un nuovo valore per il percorso dei dati di input, che punta al nuovo set di dati.
 
@@ -127,7 +127,9 @@ Usare i passaggi seguenti per inviare un endpoint della pipeline eseguito dalla 
 
 ### <a name="submit-runs-with-code"></a>Invia esecuzioni con codice
 
-Esistono diversi modi per accedere all'endpoint REST a livello a seconda dell'ambiente di sviluppo. È possibile trovare esempi di codice che illustrano come inviare le esecuzioni di pipeline con i parametri nella scheda **consum** della pipeline.
+È possibile trovare l'endpoint REST di una pipeline pubblicata nel pannello panoramica. Chiamando l'endpoint, è possibile ripetere il training della pipeline pubblicata.
+
+Per eseguire una chiamata REST, è necessaria un'intestazione di autenticazione del tipo di porta OAuth 2,0. Vedere la [sezione dell'esercitazione](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) seguente per informazioni più dettagliate sulla configurazione dell'autenticazione per l'area di lavoro e l'esecuzione di una chiamata REST con parametri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

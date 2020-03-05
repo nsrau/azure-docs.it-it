@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43a620d32fcfa7970dbdb5bee9740cc8f8b33e50
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155130"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269374"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usare un provider di Azure Multi-Factor Authentication
 
@@ -41,14 +41,14 @@ Non è possibile modificare il modello di utilizzo (per utente abilitato o per a
 
 Se è stato acquistato un numero sufficiente di licenze per tutti gli utenti che sono abilitati per l'autenticazione a più fattori, è possibile eliminare completamente il provider di MFA.
 
-Se il provider di Multi-Factor Authentication non è collegato a un tenant di Azure AD o si collega il nuovo provider di Multi-Factor Authentication a un diverso tenant di Azure AD, le impostazioni utente e le opzioni di configurazione non vengono trasferite. Inoltre, i server Azure MFA esistenti devono essere riattivati usando le credenziali di attivazione generate tramite il provider di MFA. La riattivazione dei server MFA per il collegamento al provider di MFA non inciderà sull'autenticazione con chiamata telefonica e SMS, ma le notifiche dell'app mobile non funzioneranno per tutti gli utenti fino a quando non verrà riattivata l'app mobile.
+Se il provider di Multi-Factor Authentication non è collegato a un tenant di Azure AD o si collega il nuovo provider di Multi-Factor Authentication a un diverso tenant di Azure AD, le impostazioni utente e le opzioni di configurazione non vengono trasferite. Inoltre, i server Azure MFA esistenti devono essere riattivati usando le credenziali di attivazione generate tramite il provider di MFA.
 
 ### <a name="removing-an-authentication-provider"></a>Rimozione di un provider di autenticazione
 
 > [!CAUTION]
 > Non viene confermata l'eliminazione di un provider di autenticazione. La selezione di **Delete** è un processo permanente.
 
-I provider di autenticazione sono disponibili nella **portale di Azure** > **Azure Active Directory** >  di sicurezza ** > ** **provider**di autenticazione a più fattori. Fare clic su provider elencati per visualizzare i dettagli e le configurazioni associate a tale provider.
+I provider di autenticazione sono disponibili nella **portale di Azure** > **Azure Active Directory** >  di sicurezza ** > ** **provider**di autenticazione a più fattori. >  Fare clic su provider elencati per visualizzare i dettagli e le configurazioni associate a tale provider.
 
 Prima di rimuovere un provider di autenticazione, prendere nota delle impostazioni personalizzate configurate nel provider. Decidere quali impostazioni devono essere migrate alle impostazioni di autenticazione a più fattori generali dal provider e completare la migrazione di tali impostazioni. 
 
@@ -64,7 +64,7 @@ I server di autenticazione a più fattori di Azure collegati ai provider dovrann
 
 ![Eliminare un provider di autenticazione dal portale di Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-Dopo aver verificato che sia stata eseguita la migrazione di tutte le impostazioni, è possibile passare **al portale di Azure** > **Azure Active Directory** > sicurezza ** > ** **provider** di autenticazione a più fattori e selezionare i puntini di **sospensione e selezionare** **Elimina**.
+Dopo aver verificato che sia stata eseguita la migrazione di tutte le impostazioni, è possibile passare **al portale di Azure** > **Azure Active Directory** > sicurezza ** > ** **provider** di autenticazione a più fattori e selezionare i puntini di **sospensione e selezionare** **Elimina**. > 
 
 > [!WARNING]
 > L'eliminazione di un provider di autenticazione eliminerà eventuali informazioni di report associate a tale provider. È possibile salvare i report attività prima di eliminare il provider.

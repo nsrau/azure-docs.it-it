@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 02/24/2020
-ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587584"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273228"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
@@ -59,6 +59,9 @@ Per impostazione predefinita, l'attivazione del debug userà il runtime di integ
 
 ![Parte di origine](media/data-flow/sourcepart3.png "Parte di origine")
 
+> [!NOTE]
+> Una guida consigliata per scegliere il numero di partizioni per l'origine è basata sul numero di core impostati per la Azure Integration Runtime e moltiplicare il numero per cinque. Se, ad esempio, si sta trasformando una serie di file nelle cartelle ADLS e si intende usare una Azure IR 32-core, il numero di partizioni di destinazione è 32 x 5 = 160 partizioni.
+
 ### <a name="source-batch-size-input-and-isolation-level"></a>Dimensioni del batch di origine, input e livello di isolamento
 
 In **Opzioni di origine** nella trasformazione origine le impostazioni seguenti possono influire sulle prestazioni:
@@ -100,7 +103,7 @@ Per evitare gli inserimenti riga per riga nel DW, selezionare **Abilita gestione
 
 A ogni trasformazione è possibile impostare lo schema di partizionamento che si desidera data factory utilizzare nella scheda Ottimizza. È consigliabile testare prima di tutto i sink basati su file mantenendo il partizionamento e le ottimizzazioni predefinite.
 
-* Per i file di dimensioni ridotte, è possibile che la selezione di una *singola partizione* possa essere eseguita in modo migliore e più veloce rispetto alla richiesta di Spark di partizionare i file
+* Per i file di dimensioni ridotte, è possibile che la scelta di un numero inferiore di partizioni possa talvolta funzionare meglio e più velocemente rispetto alla richiesta di Spark di partizionare i file
 * Se non si dispone di informazioni sufficienti sui dati di origine, scegliere partizionamento *Round Robin* e impostare il numero di partizioni.
 * Se i dati hanno colonne che possono essere chiavi hash valide, scegliere *partizionamento hash*.
 

@@ -8,12 +8,12 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a222f72e705184c5a7ba6701cfda41073c7eba57
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 58294c7afdf31ddd29611351d6442db1c4966157
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548748"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269042"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Informazioni sul modo in cui Azure IoT Edge usa i certificati
 
@@ -69,7 +69,7 @@ Poiché i processi di produzione e operativi sono separati, tenere in consideraz
 
 * Per qualsiasi processo basato su certificato, il certificato CA radice e tutti i certificati CA intermedi devono essere protetti e monitorati durante l'intero processo di implementazione di un dispositivo IoT Edge. Il produttore del dispositivo IoT Edge deve predisporre processi rigorosi per l'archiviazione e l'utilizzo dei certificati intermedi. Inoltre, il certificato CA del dispositivo deve essere conservato in un archivio sicuro nel dispositivo stesso, preferibilmente in un modulo di protezione hardware.
 
-* Il certificato del server dell'hub di IoT Edge viene presentato dall'hub di IoT Edge ai dispositivi client e ai moduli con cui deve connettersi. Il nome comune del certificato CA del dispositivo **non può** coincidere con il valore "hostname" che verrà usato nel file config.yaml nel dispositivo IoT Edge. Il nome usato dai client per connettersi a IoT Edge, ad esempio tramite il parametro GatewayHostName della stringa di connessione o il comando CONNECT in MQTT, **non può essere** lo stesso nome comune utilizzato nel certificato CA del dispositivo. Questo perché l'hub di IoT Edge presenta l'intera catena di certificati per la verifica da parte dei client. Se il certificato del server dell'hub di IoT Edge e il certificato CA del dispositivo condividono lo stesso nome comune, si entra in un ciclo continuo di verifica che invalida il certificato.
+* Il certificato del server dell'hub di IoT Edge viene presentato dall'hub di IoT Edge ai dispositivi client e ai moduli con cui deve connettersi. Il nome comune del certificato CA del dispositivo **non può** coincidere con il valore "hostname" che verrà usato nel file config.yaml nel dispositivo IoT Edge. Il nome usato dai client per connettersi a IoT Edge (ad esempio, tramite il parametro GatewayHostName della stringa di connessione o il comando CONNECT in MQTT) **non può corrispondere** al nome comune usato nel certificato della CA del dispositivo. Questo perché l'hub di IoT Edge presenta l'intera catena di certificati per la verifica da parte dei client. Se il certificato del server dell'hub di IoT Edge e il certificato CA del dispositivo condividono lo stesso nome comune, si entra in un ciclo continuo di verifica che invalida il certificato.
 
 * Poiché viene usato dal daemon di sicurezza di IoT Edge per generare i certificati IoT Edge finali, il certificato CA del dispositivo deve essere un certificato di firma, cioè deve avere funzionalità di firma del certificato. È sufficiente aggiungere la stringa "V3 Basic constraints CA:True" al certificato del dispositivo CA per impostare automaticamente le proprietà di utilizzo della chiave necessarie.
 

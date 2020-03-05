@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c81d4db5798c15327e06471f1cb0da4841bd61b2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485370"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268520"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -283,7 +283,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Configurare la pipeline ML
 
-Per fornire i pacchetti Python necessari per avviare PTVSD e ottenere il contesto di esecuzione, creare un [ambiente]() e impostare `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Modificare la versione dell'SDK in modo che corrisponda a quella usata. Il frammento di codice seguente illustra come creare un ambiente:
+Per fornire i pacchetti Python necessari per avviare PTVSD e ottenere il contesto di esecuzione, creare un ambiente e impostare `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Modificare la versione dell'SDK in modo che corrisponda a quella usata. Il frammento di codice seguente illustra come creare un ambiente:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/30/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014431"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273807"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -80,7 +80,7 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
     b. Per **tipo di account supportati**, selezionare **account solo in questa organizzazione**.
 
-    C. Nella casella di testo **URL di reindirizzamento** selezionare **Web** digitare `https://localhost`.
+    c. Nella casella di testo **URL di reindirizzamento** selezionare **Web** digitare `https://localhost`.
 
     d. Selezionare **Registra**. 
 
@@ -127,7 +127,7 @@ Nella sezione seguente viene elencata la procedura per entrambe le API. Se non s
 Questa sezione illustra come ottenere le impostazioni seguenti dalla directory:
 
 - Nome di dominio
-- ID Client
+- ID client
 - Segreto client
 
 Questi valori sono necessari quando si configurano le chiamate all'API di creazione report. 
@@ -183,25 +183,22 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
     b. Per **Scadenza** selezionare **In 2 years** (In 2 anni).
 
-    C. Fare clic su **Save**.
+    c. Fare clic su **Salva**.
 
     d. Copiare il valore della chiave.
 
 ## <a name="troubleshoot-errors-in-the-reporting-api"></a>Risolvere gli errori relativi all'API di creazione report
 
-Questo articolo elenca i comuni messaggi di errore che potrebbero verificarsi durante l'accesso ai report delle attività usando l'API Graph di Microsoft e i passaggi per la loro risoluzione.
+Questa sezione elenca i messaggi di errore comuni che possono verificarsi durante l'accesso ai report attività usando l'API Microsoft Graph e i passaggi per la risoluzione.
 
-### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>Errore interno 500 del server HTTP durante l'accesso all'endpoint Microsoft Graph versione 2
 
-L'endpoint Microsoft Graph versione 2 non è attualmente supportato: assicurarsi di accedere ai log attività usando l'endpoint Microsoft Graph versione 1.
-
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Errore: Non è stato possibile ottenere i ruoli utente da AD Graph
+### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Errore: non è stato possibile ottenere i ruoli utente dal Microsoft Graph
 
  Accedere all'account usando entrambi i pulsanti di accesso nell'interfaccia utente di Graph Explorer per evitare di ricevere un errore durante il tentativo di accesso con Graph Explorer. 
 
 ![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Errore: Impossibile eseguire operazioni di controllo della licenza Premium da AD Graph 
+### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Errore: non è stato possibile eseguire il controllo delle licenze Premium da Microsoft Graph 
 
 Se compare questo messaggio di errore durante il tentativo di accedere agli accessi tramite Graph Explorer, scegliere **Autorizzazioni di modifica** sotto l'account sulla barra di spostamento a sinistra e selezionare **Tasks.ReadWrite** e **Directory.Read.All**. 
 
@@ -218,7 +215,7 @@ L'accesso ai report sugli accessi richiede una licenza Azure Active Directory Pr
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Errore: L'applicazione non possiede l'autorizzazione "Leggi i dati della directory" di AAD 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Errore: L'applicazione non possiede l'autorizzazione "Leggere tutti i dati dei log di controllo" dell'API Microsoft Graph
+### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Errore: l'applicazione non ha l'autorizzazione ' lettura di tutti i dati del registro di controllo ' dell'API Microsoft
 
 Seguire i passaggi descritti in [prerequisiti per accedere all'API di creazione report Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) per assicurarsi che l'applicazione sia in esecuzione con il set di autorizzazioni corretto. 
 

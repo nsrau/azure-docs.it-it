@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: jgao
-ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616305"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272639"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -40,7 +40,7 @@ I vantaggi dello script di distribuzione:
 > [!IMPORTANT]
 > Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione dello script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio script quando l'esecuzione dello script di distribuzione si trova in uno stato terminale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulisci risorse script di distribuzione](#clean-up-deployment-script-resources).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - **Identità gestita assegnata dall'utente con il ruolo di collaboratore al gruppo di risorse di destinazione**. Questa identità viene usata per eseguire gli script di distribuzione. Per eseguire operazioni all'esterno del gruppo di risorse, è necessario concedere autorizzazioni aggiuntive. Ad esempio, assegnare l'identità al livello della sottoscrizione se si vuole creare un nuovo gruppo di risorse.
 
@@ -170,7 +170,7 @@ L'output è simile al seguente:
 
 ## <a name="use-external-scripts"></a>Usare script esterni
 
-Oltre agli script inline, è anche possibile usare file di script esterni. Sono supportati solo gli script di PowerShell primari con l'estensione di file **ps1** . Per gli script dell'interfaccia della riga di comando, gli script primari possono avere estensioni (o senza estensione), purché gli script siano script bash validi. Per usare file di script esterni, sostituire `scriptContent` con `primaryScriptUri`. Ad esempio,
+Oltre agli script inline, è anche possibile usare file di script esterni. Sono supportati solo gli script di PowerShell primari con l'estensione di file **ps1** . Per gli script dell'interfaccia della riga di comando, gli script primari possono avere estensioni (o senza estensione), purché gli script siano script bash validi. Per usare file di script esterni, sostituire `scriptContent` con `primaryScriptUri`. Ad esempio:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -222,10 +222,16 @@ Gli output dello script di distribuzione devono essere salvati nel percorso AZ_S
 
 [JQ](https://stedolan.github.io/jq/) viene usato nell'esempio precedente. Viene fornita con le immagini del contenitore. Vedere [configurare l'ambiente di sviluppo](#configure-development-environment).
 
-## <a name="handle-non-terminating-errors"></a>Gestione degli errori non fatali
+## <a name="develop-deployment-scripts"></a>Sviluppare script di distribuzione
+
+### <a name="handle-non-terminating-errors"></a>Gestione degli errori non fatali
 
 È possibile controllare il modo in cui PowerShell risponde agli errori non fatali usando la variabile [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) nello script di distribuzione. Il motore di script di distribuzione non imposta o modifica il valore.  Nonostante il valore impostato per $ErrorActionPreference, lo script di distribuzione imposta lo stato di provisioning delle risorse su *non riuscito* quando si verifica un errore nello script.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Passa stringhe protette allo script di distribuzione
+
+L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Lo script di distribuzione gestisce le variabili di ambiente non protette e protette in modo analogo all'istanza di contenitore di Azure. Per altre informazioni, vedere [impostare le variabili di ambiente nelle istanze di contenitore](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Debug degli script di distribuzione
 

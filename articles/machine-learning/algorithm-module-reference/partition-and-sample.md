@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 827c76610162d74c5283177fef4989204321f44b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152126"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268719"
 ---
 # <a name="partition-and-sample-module"></a>Modulo Partition and Sample
 
@@ -154,9 +154,9 @@ Questa opzione viene usata quando si divide un set di dati in più partizioni e 
 
 5. Se si utilizzano più partizioni, è necessario aggiungere altre istanze della **partizione e** del modulo di esempio per gestire ogni partizione.
 
-    Si immagini, ad esempio, i pazienti partizionati in precedenza in quattro riduzioni utilizzando Age. Per utilizzare ogni singola sezione, è necessario disporre di quattro copie del modulo **Partition and Sample** e, in ognuno di essi, selezionare una sezione diversa, come illustrato di seguito. Non è corretto usare l' **assegnazione per ripiegare** l'output direttamente.  
+    Il modulo **Partition and Sample** della seconda riga, ad esempio, è impostato su **assign to Folds**e i moduli della terza riga sono impostati su **pick fold**.   
 
-    [![partizione ed esempio](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    ![Partition and sample (Partizione ed esempio)](./media/module/partition-and-sample.png)
 
 5. Eseguire la pipeline.
 

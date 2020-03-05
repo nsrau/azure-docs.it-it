@@ -8,21 +8,21 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 061f019fe36e4d5495a41fc81e56d9673ad595fc
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953449"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273352"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
 
-Elimina i dati dei clienti per garantire la privacy e la conformità. 
+Elimina i dati dei clienti per garantire la privacy e la conformità.
 
-## <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
+## <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 Language Understanding Intelligent Service (LUIS) conserva i contenuti dei clienti per consentire il funzionamento del servizio, ma l'utente LUIS ha il controllo completo su visualizzazione, esportazione ed eliminazione dei propri dati. Questa operazione può essere eseguita tramite il [portale](luis-reference-regions.md) Web Luis o le [API Luis authoring (note anche come programmatiche)](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
@@ -34,7 +34,7 @@ I contenuti dei clienti vengono archiviati e crittografati in archivi Azure a li
 - Query utente registrate utilizzate da [Active Learning](luis-concept-review-endpoint-utterances.md) per contribuire al miglioramento del modello
   - Gli utenti possono disattivare la registrazione delle query aggiungendo `&log=false` alla richiesta. Informazioni dettagliate sono disponibili [qui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
-## <a name="deleting-customer-data"></a>Eliminazione dei dati del cliente
+## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
 Gli utenti LUIS hanno il controllo completo per eliminare qualsiasi contenuto utente, tramite il portale Web LUIS o le API LUIS authoring (noto anche come programmatico). Nella tabella seguente sono disponibili i collegamenti per entrambe le opzioni:
 
 | | **Account utente** | **Applicazione** | **Espressioni di esempio** | **Query utente finale** |
@@ -43,7 +43,7 @@ Gli utenti LUIS hanno il controllo completo per eliminare qualsiasi contenuto ut
 | **API** | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
-## <a name="exporting-customer-data"></a>Esportazione di dati dei clienti
+## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
 Gli utenti LUIS hanno il controllo completo per visualizzare i dati nel portale, ma devono essere esportati tramite le API LUIS authoring (noto anche come programmatico). La tabella seguente contiene i collegamenti che assistono alle esportazioni di dati tramite le API di authoring LUIS (note anche a livello di codice):
 
 | | **Account utente** | **Applicazione** | **Espressione/i** | **Query utente finale** |
@@ -58,7 +58,7 @@ Per abilitare l' [apprendimento attivo](luis-how-to-review-endpoint-utterances.m
 * [Australia](#australia)
 * [Stati Uniti](#united-states)
 
-Ad eccezione dei dati di apprendimento attivi (dettagliati di seguito), LUIS segue le [procedure di archiviazione dei dati per i servizi a livello](https://azuredatacentermap.azurewebsites.net/)di area. 
+Ad eccezione dei dati di apprendimento attivi (dettagliati di seguito), LUIS segue le [procedure di archiviazione dei dati per i servizi a livello](https://azuredatacentermap.azurewebsites.net/)di area.
 
 ### <a name="europe"></a>Europa
 
@@ -68,7 +68,7 @@ Il portale di [eu.Luis.ai](https://eu.luis.ai) e la creazione di Europe (noti an
 * Francia
 * Regno Unito
 
-Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella geografia dell'Europa di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella geografia dell'Europa di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="australia"></a>Australia
 
@@ -76,7 +76,7 @@ Il portale di [au.Luis.ai](https://au.luis.ai) e la creazione dell'Australia (no
 
 * Australia
 
-Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella Geografia Australia di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella Geografia Australia di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="united-states"></a>Stati Uniti
 
@@ -84,7 +84,7 @@ Il portale di [Luis.ai](https://www.luis.ai) e la creazione di Stati Uniti (noti
 
 * Aree geografiche di Azure non supportate dalle aree di creazione dell'Europa o dell'Australia
 
-Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nel Stati Uniti geography di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nel Stati Uniti geography di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
