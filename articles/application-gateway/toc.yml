@@ -39,6 +39,8 @@
   items:
     - name: Nozioni di base
       items:
+        - name: Funzionalità del gateway applicazione
+          href: features.md
         - name: Funzionamento del gateway applicazione
           href: how-application-gateway-works.md
         - name: Componenti del gateway applicazione
@@ -227,7 +229,7 @@
           href: application-gateway-backend-health-troubleshooting.md
     - name: Eseguire la migrazione dalla versione 1 alla versione 2
       href: migrate-v1-v2.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: In ingresso per le annotazioni del servizio Azure Kubernetes
       href: ingress-controller-annotations.md
@@ -263,7 +265,7 @@
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/application-gateway/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-application-gateway'

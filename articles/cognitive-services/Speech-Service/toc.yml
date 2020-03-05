@@ -494,6 +494,13 @@
           href: speech-devices-sdk.md
         - name: Ottenere Speech Devices SDK
           href: get-speech-devices-sdk.md
+        - name: Note sulla versione
+          href: devices-sdk-release-notes.md
+        - name: Dettagli su Roobo v1
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Dettagli su Roobo v2
+          href: speech-devices-sdk-roobo-v2.md
+        - name: Specifica del microfono
     - name: Hardware
       items:
         - name: Raccomandazioni per gli array di microfoni

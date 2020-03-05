@@ -48,6 +48,8 @@
   href: code-samples.md
 - name: Concetti
   items:
+    - name: Procedure consigliate per Azure AD B2C
+      href: best-practices.md
     - name: Tipi di applicazioni
       href: application-types.md
     - name: Protocolli di autenticazione

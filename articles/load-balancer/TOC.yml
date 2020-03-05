@@ -12,7 +12,8 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Creare il bilanciamento del carico - PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Creare il bilanciamento del carico - modello
+    - name: Creare il bilanciamento del carico - Modello di Azure Resource Manager
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
   expanded: true
 - name: Esercitazioni
@@ -37,7 +38,7 @@
   items:
     - name: Componenti e limiti
       href: concepts-limitations.md
-    - name: Monitoraggio dell'integrità
+    - name: Monitoraggio dell’integrità
       items:
         - name: Probe di integrità
           href: load-balancer-custom-probe-overview.md

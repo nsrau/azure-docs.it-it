@@ -233,7 +233,7 @@
       items:
         - name: Sicurezza e criteri
           href: security-policy.md
-        - name: Crittografia dischi di Azure
+        - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Criteri di sicurezza integrati
           href: virtual-machines-linux-security-controls.md
@@ -300,7 +300,7 @@
           href: ../../security-center/security-center-just-in-time.md
         - name: Encrypt
           items:
-            - name: Scenari di crittografia dischi per Linux
+            - name: Scenari di crittografia dei dischi per Linux
               href: disk-encryption-linux.md
             - name: Crittografia di VM con l'interfaccia della riga di comando di Azure
               href: disk-encryption-cli-quickstart.md
@@ -310,13 +310,13 @@
               href: disk-encryption-portal-quickstart.md
             - name: Key Vault per Crittografia dischi di Azure
               href: disk-encryption-key-vault.md
-            - name: Script di esempio per la crittografia dischi
+            - name: Script di esempio per la crittografia dei dischi
               href: disk-encryption-sample-scripts.md
             - name: Crittografia dischi in una rete isolata
               href: disk-encryption-isolated-network.md
-            - name: Risoluzione dei problemi di crittografia dischi
+            - name: Risoluzione dei problemi di crittografia dei dischi
               href: disk-encryption-troubleshooting.md
-            - name: Domande frequenti sulla crittografia dischi
+            - name: Domande frequenti sulla crittografia del disco
               href: disk-encryption-faq.md
             - name: Crittografia dischi - versione precedente (AAD)
               items:
@@ -324,7 +324,7 @@
                   href: disk-encryption-overview-aad.md
                 - name: Key Vault per Crittografia dischi di Azure
                   href: disk-encryption-key-vault-aad.md
-                - name: Scenari di crittografia dischi per Linux
+                - name: Scenari di crittografia dei dischi per Linux
                   href: disk-encryption-linux-aad.md
         - name: Usare i controlli di accesso
           href: ../../role-based-access-control/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -726,6 +726,10 @@
           href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Spostare in una zona di disponibilità
           href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Spostare le configurazioni del controllo di manutenzione in un'altra area
+          href: ../move-region-maintenance-configuration.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Spostare le risorse di configurazione del controllo di manutenzione in un'altra area
+          href: ../move-region-maintenance-configuration-resources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Eseguire la migrazione di AWS e macchine virtuali locali
           href: ../windows/on-prem-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           items:

@@ -177,7 +177,7 @@ Per personalizzare le interfacce predefinite del modello di dispositivo RuuviTag
 
 1. Selezionare **Personalizza** nel menu del modello di dispositivo RuuviTag. 
 
-1. Scorrere l'elenco delle funzionalità e individuare il tipo di dati di telemetria `humidity`. Si tratta della riga con il valore di **Nome visualizzato***humidity* modificabile.
+1. Scorrere l'elenco delle funzionalità e individuare il tipo di dati di telemetria `humidity`. Si tratta della riga con il valore di **Nome visualizzato** *humidity* modificabile.
 
 Nei passaggi seguenti si personalizzerà il tipo di dati di telemetria `humidity` per i sensori RuuviTag. Facoltativamente, personalizzare alcuni degli altri tipi di dati di telemetria.
 

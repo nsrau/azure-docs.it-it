@@ -8,19 +8,19 @@
       href: what-is-ml-studio.md
     - name: Confrontare i prodotti Machine Learning
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-- name: Esercitazioni
+- name: Avvi rapidi
   items:
     - name: Creare la prima sperimentazione
       displayName: quickstart
       href: create-experiment.md
-    - name: Creare una soluzione predittiva
-      items:
-        - name: 1 - Creare un esperimento
-          href: tutorial-part1-credit-risk.md
-        - name: 2 - Eseguire il training e la valutazione
-          href: tutorial-part2-credit-risk-train.md
-        - name: 3 - Distribuire il servizio Web
-          href: tutorial-part3-credit-risk-deploy.md
+- name: Esercitazioni
+  items:
+    - name: '1: Creare l''esperimento predittivo'
+      href: tutorial-part1-credit-risk.md
+    - name: '2: Eseguire il training e valutare la soluzione'
+      href: tutorial-part2-credit-risk-train.md
+    - name: '3: Distribuire il servizio Web'
+      href: tutorial-part3-credit-risk-deploy.md
 - name: Esempi
   items:
     - name: Set di dati disponibili
@@ -44,13 +44,13 @@
     - name: Gestione di modelli
       displayName: 'deploy, consume, web service'
       href: deploy-consume-web-service-guide.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Gestire un'area di lavoro
       items:
         - name: Create
           href: create-workspace.md
-        - name: Gestisci
+        - name: Gestione
           href: manage-workspace.md
         - name: Risolvere problemi
           href: troubleshooting-creating-ml-workspace.md
@@ -147,7 +147,7 @@
           href: dedicated-capacity-for-bes-jobs.md
     - name: Casi d'uso
       items:
-        - name: Varianza dei clienti
+        - name: Abbandono dei clienti
           href: azure-ml-customer-churn-scenario.md
         - name: Analisi del sentiment
           href: text-analytics-module-tutorial.md
@@ -161,7 +161,7 @@
         - name: Dati della raccolta
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento su algoritmi e moduli
       href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
@@ -179,7 +179,7 @@
       href: support-aml-studio.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
