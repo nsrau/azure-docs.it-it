@@ -83,7 +83,7 @@
           href: pim-resource-roles-configure-role-settings.md
         - name: Configurare gli avvisi
           href: pim-resource-roles-configure-alerts.md
-        - name: Visualizzare la cronologia di attività e controlli
+        - name: Visualizzare la cronologia di controllo
           href: azure-pim-resource-rbac.md
         - name: Usare i ruoli personalizzati
           href: pim-resource-roles-custom-role-policy.md

@@ -3,16 +3,16 @@ title: Contratti Azure EA e modifiche
 description: Questo articolo illustra l'impatto dei contratti Azure EA e delle relative modifiche su Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 727f3cb25d2f95ec4db9f12080005d464b69d6ad
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272416"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301421"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
@@ -25,10 +25,6 @@ Eventuali modifiche per i clienti di Azure devono essere gestite tramite il part
 ## <a name="enrollment-provisioning-status"></a>Stato di provisioning della registrazione
 
 La data di inizio di un nuovo impegno monetario è definita dalla data in cui è stato elaborato dal centro operativo locale. Poiché gli ordini di impegno monetario tramite Azure EA Portal vengono elaborati nel fuso orario UTC, può verificarsi un ritardo se l'ordine di acquisto dell'impegno monetario è stato elaborato in un'area diversa. La data di inizio della copertura nell'ordine di acquisto in https://www.explore.ms indica l'inizio dell'impegno monetario. La data di inizio della copertura corrisponde a quella in cui l'impegno monetario viene visualizzato in Azure EA Portal.
-
-## <a name="special-pricing-and-azure-commitment-discount-amendments"></a>Prezzi speciali e modifiche dello Sconto per impegno in Azure
-
-Per prezzi speciali e modifiche dello Sconto per impegno in Azure, è necessario contattare il team dell'account. Il team di Azure Ops può applicare lo Sconto per impegno in Azure dopo che una modifica è stata elaborata dal business desk e richiesta al team di Azure Ops. Lo Sconto per impegno in Azure viene applicato solo al mese corrente. Tutti i mesi precedenti vengono compensati con credito retrodatato. 
 
 ## <a name="support-offer-not-provisioned"></a>Offerta di supporto senza provisioning
 
