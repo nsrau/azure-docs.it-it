@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 9cab78e85b8644f29bfcd067b104b1b5c10c2266
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8c7c9c2e3a1195422db30ba913b1cea3a1a360e4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249844"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301693"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure Databricks
 
@@ -59,7 +59,7 @@ Completare queste attività prima di iniziare questa esercitazione:
 
    Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni specifiche.
 
-   * Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio nell'ambito dell'account di Data Lake Storage Gen2. Se si assegna un ruolo al gruppo di risorse padre o alla sottoscrizione, si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
+   * Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio nell'ambito dell'account di Data Lake Storage Gen2. Se si assegna un ruolo al gruppo di risorse padre o alla sottoscrizione, si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
 
       Se si preferisce usare un elenco di controllo di accesso (ACL) per associare l'entità servizio a una directory o a un file specifico, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 

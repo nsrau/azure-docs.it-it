@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 0c997fffc1adc60f774e651ed458d253b35a3bdd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612206"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299075"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Creare una VM di gestione per configurare e amministrare un dominio gestito di Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
@@ -59,7 +59,6 @@ Azure AD DS fornisce un dominio gestito per l'utilizzo da parte di utenti, appli
 
 Ai membri del gruppo *Amministratori di AAD DC* vengono concessi privilegi nel dominio gestito di Azure AD DS che consentono di eseguire attività come:
 
-* Aggiungere computer al dominio gestito.
 * Configurare l'oggetto Criteri di gruppo predefinito per i contenitori *AADDC Computers* e *AADDC Users* nel dominio gestito.
 * Amministrare DNS nel dominio gestito.
 * Creare e amministrare unità organizzative (OU) personalizzate nel dominio gestito.

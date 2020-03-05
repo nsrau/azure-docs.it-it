@@ -7,19 +7,18 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 11c51ab702399c73dc93f850d4abde49b45b3775
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 11b61612a261b32e2d15b5dc70005b18aa112ed4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398953"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659850"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Raccogliere dati da un computer Windows in un ambiente ibrido con Monitoraggio di Azure
 
@@ -88,7 +87,7 @@ I passaggi seguenti consentono di installare e configurare l'agente per Log Anal
 
 7. Nella pagina **Azure Log Analytics** eseguire questa procedura:
 
-   1. Incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro (chiave primaria)** copiati in precedenza. Se il computer deve fare riferimento a un'area di lavoro di Log Analytics in Azure per enti pubblici, selezionare **Azure per enti pubblici statunitensi** nell'elenco **Cloud di Azure**.  
+   1. Incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro (chiave primaria)** copiati in precedenza. Se il computer deve fare riferimento a un'area di lavoro di Log Analytics in Azure per enti pubblici, selezionare **Azure US Gov** nell'elenco **Cloud di Azure**.  
    2. Se il computer deve comunicare tramite un server proxy con il servizio Log Analytics, scegliere **Avanzate** e specificare l'URL e il numero di porta del server proxy. Se il server proxy richiede l'autenticazione, immettere il nome utente e la password per l'autenticazione nel server proxy e quindi fare clic su **Avanti**.  
 
 8. Dopo aver aggiunto le impostazioni di configurazione, fare clic su **Avanti**:

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria di Archiviazione code di Azure v12 - Java'
+title: 'Guida introduttiva: Libreria di Archiviazione code di Azure v12 - Java'
 description: In questo argomento di avvio rapido si apprenderà come usare la libreria di Archiviazione code di Azure v12 per Java per creare una coda e aggiungervi messaggi, come leggere ed eliminare i messaggi dalla coda e come eliminare una coda.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 2bbd66257e1ccd81f1dac7d775b4dd6ccc39189a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cfedd322db721156584844e949724ab2d104968
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358770"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199802"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Avvio rapido: Libreria client di Archiviazione code di Azure v12 per Java
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per Java
 
 Iniziare a usare la libreria client di Archiviazione code di Azure versione 12 per Java. Archiviazione code di Azure è un servizio che consente di archiviare un numero elevato di messaggi per recuperali ed elaborarli successivamente. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -27,9 +27,9 @@ Usare la libreria client di Archiviazione code di Azure v12 per Java per:
 * Ricevere ed eliminare messaggi da una coda
 * Eliminare una coda
 
-[Documentazione di riferimento dell'API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Esempi](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples)
+[Documentazione di riferimento dell'API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) versione 8 o successiva
 * [Apache Maven](https://maven.apache.org/download.cgi)

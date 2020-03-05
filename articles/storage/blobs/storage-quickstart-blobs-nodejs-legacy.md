@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di archiviazione BLOB di Azure v10 per JavaScript'
+title: 'Guida introduttiva: Libreria client di archiviazione BLOB di Azure v10 per JavaScript'
 description: Creare, caricare ed eliminare BLOB e contenitori in Node.js con la libreria client di archiviazione di Azure v10 per JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,18 +7,18 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906481"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269495"
 ---
-# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Avvio rapido: Gestire i BLOB con JavaScript v10 SDK in Node.js
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Guida introduttiva: Gestire i BLOB con JavaScript v10 SDK in Node.js
 
 In questo argomento di avvio rapido viene illustrato come gestire i BLOB con Node.js. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Verranno caricati, scaricati, elencati ed eliminati i BLOB e verranno gestiti i contenitori.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un account dell'Archiviazione di Azure. [Creare un account di archiviazione](../common/storage-account-create.md).
@@ -409,4 +409,4 @@ Questa guida introduttiva illustra come gestire i BLOB e i contenitori nell'arch
 
 > [!div class="nextstepaction"]
 > [Repository Azure Storage v10 SDK per JavaScript](https://github.com/Azure/azure-storage-js)
-> [Informazioni di riferimento sull'API JavaScript di Archiviazione di Azure](/javascript/api/overview/azure/storage?view=azure-node-legacy)
+> [Informazioni di riferimento sull'API JavaScript di Archiviazione di Azure](/javascript/api/overview/azure/storage-overview)

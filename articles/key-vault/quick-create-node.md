@@ -5,15 +5,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: a59ba62df546c60c4086829eec355d3e69b69363
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2091916b0ec2eab68904a485d93f5d2353261f68
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773729"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197743"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Avvio rapido: Libreria client di Azure Key Vault per Node.js (v4)
+# <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Guida introduttiva: Libreria client di Azure Key Vault per Node.js (v4)
 
 Iniziare a usare la libreria client di Azure Key Vault per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -27,7 +28,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 
 [Documentazione di riferimento sull'API](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Versione aggiornata di [Node.js](https://nodejs.org) per il sistema operativo in uso.

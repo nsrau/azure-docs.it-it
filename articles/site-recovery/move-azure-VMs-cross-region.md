@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 92388c54804d85d2825a25abd0c234081670e8d4
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092174"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303920"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Spostare le VM di Azure in un'altra area di Azure
 
@@ -70,7 +70,7 @@ Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure co
    - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
    - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
-   Per gli altri componenti di rete, vedere la [documentazione relativa alle reti di Azure](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
+   Per gli altri componenti di rete, vedere la [documentazione relativa alle reti di Azure](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
 
 4. Per testare la configurazione prima dello spostamento, [creare manualmente una rete non di produzione](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) nell'area di destinazione. Il test della configurazione crea un'interferenza minima con l'ambiente di produzione ed è consigliabile eseguirlo.
     
@@ -112,7 +112,7 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 
    - **Elaborato più recente**: viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato dal servizio Site Recovery. Viene visualizzato il timestamp. Poiché non viene impiegato tempo per l'elaborazione dei dati, questa opzione offre un valore RTO (Recovery Time Objective) basso.
    - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali nel punto di recupero coerente con l'app più recente. Viene visualizzato il timestamp.
-   - **Personalizzato**: selezionare qualsiasi punto di recupero.
+   - **Custom**: selezionare qualsiasi punto di recupero.
 
 3. Selezionare la rete virtuale di Azure di destinazione in cui si vogliono spostare le VM di Azure per testare la configurazione.
 

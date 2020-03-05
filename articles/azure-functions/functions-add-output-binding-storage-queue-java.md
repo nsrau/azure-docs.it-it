@@ -1,14 +1,17 @@
 ---
 title: Connettere la funzione Java ad archiviazione di Azure
 description: Informazioni su come connettere una funzione Java attivata da HTTP ad archiviazione di Azure usando il binding dell'output di archiviazione code.
+author: KarlErickson
+ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: 72e3aad15ea8ef922d89a67891e223b65473b909
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+zone_pivot_groups: java-build-tools-set
+ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198548"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272796"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Connettere la funzione Java ad archiviazione di Azure
 
@@ -18,7 +21,7 @@ Questo articolo illustra come integrare la funzione creata nel [precedente artic
 
 La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplificare questa connessione, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare con questo articolo, completare i passaggi della [parte 1 dell'argomento di avvio rapido su Java](functions-create-first-java-maven.md).
 
@@ -112,10 +115,19 @@ final HttpResponseMessage ret = new Function().run(req, msg, context);
 
 Come prima, usare il comando seguente per creare il progetto e avviare il runtime di Funzioni in locale:
 
+::: zone pivot="java-build-tools-maven"  
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end
 
 > [!NOTE]  
 > Poiché sono stati abilitati i bundle di estensioni nel file host.json, durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#add-to-your-functions-app), nonché altre estensioni di binding di Microsoft.
@@ -138,9 +150,17 @@ Quindi, usare l'interfaccia della riga di comando di Azure per visualizzare la n
 
 Per aggiornare l'app pubblicata, eseguire di nuovo il comando seguente:  
 
-```azurecli
+::: zone pivot="java-build-tools-maven"  
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
 
 Anche in questo caso, è possibile usare cURL per testare la funzione distribuita. Come prima, passare il valore `AzureFunctions` nel corpo della richiesta POST all'URL, come indicato in questo esempio:
 

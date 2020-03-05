@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/30/2020
-ms.openlocfilehash: 74f69f789ecb0d529e52054eeb1ac7ccb51bd6c2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/03/2020
+ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588826"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271314"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -39,7 +39,7 @@ Il servizio Ricerca di Azure è stato rinominato in **Ricerca cognitiva di Azure
 
 + L'accesso privato a un servizio di ricerca è disponibile tramite due meccanismi, attualmente in anteprima:
 
-  + È possibile limitare l'accesso a specifici indirizzi IP usando l'API REST di gestione `api-version=2019-10-01-Preview` per creare il servizio. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell'[API CreateOrUpdate ](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Questa funzionalità di anteprima è disponibile in specifiche aree. Per altre informazioni, vedere [Come usare l'API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + È possibile limitare l'accesso a specifici indirizzi IP usando l'API REST di gestione `api-version=2019-10-01-Preview` per creare il servizio. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell'[API CreateOrUpdate ](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Questa funzionalità di anteprima è disponibile in specifiche aree. Per altre informazioni, vedere [Come usare l'API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + Con una funzionalità attualmente disponibile tramite un'anteprima con accesso limitato, è possibile effettuare il provisioning di un servizio di ricerca di Azure che supporta l'endpoint privato di Azure per le connessioni dei client nella stessa rete virtuale. Per altre informazioni, vedere [Creare un endpoint privato per una connessione sicura](service-create-private-endpoint.md).
 

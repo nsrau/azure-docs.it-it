@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 08c14135ba17df4de446de5625352c8cffdc60a1
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138065"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916524"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD
 
@@ -75,7 +75,7 @@ Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzaz
 | Ruolo Controllo degli accessi in base al ruolo di Azure | Autorizzazioni | Note |
 | --- | --- | --- |
 | [Proprietario](built-in-roles.md#owner) | <ul><li>Accesso completo a tutte le risorse</li><li>Delegare l'accesso ad altri utenti</li></ul> | All'amministratore del servizio e ai coamministratori viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione.<br>Si applica a tutti i tipi di risorsa. |
-| [Collaboratore](built-in-roles.md#contributor) | <ul><li>Creare e gestire tutti i tipi di risorse di Azure</li><li>Non può concedere l'accesso ad altri utenti</li></ul> | Si applica a tutti i tipi di risorsa. |
+| [Collaboratore](built-in-roles.md#contributor) | <ul><li>Creare e gestire tutti i tipi di risorse di Azure</li><li>Creare un nuovo tenant in Azure Active Directory</li><li>Non può concedere l'accesso ad altri utenti</li></ul> | Si applica a tutti i tipi di risorsa. |
 | [Lettore](built-in-roles.md#reader) | <ul><li>Visualizzare le risorse di Azure</li></ul> | Si applica a tutti i tipi di risorsa. |
 | [Amministratore accessi utente](built-in-roles.md#user-access-administrator) | <ul><li>Gestire l'accesso degli utenti alle risorse di Azure</li></ul> |  |
 

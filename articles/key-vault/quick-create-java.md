@@ -5,15 +5,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: b5748824590f40e30af8f462d4c8ff25521cfd94
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: be76a274671b0112ca0a5e326f6bb6bb8852842b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136080"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197556"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-java"></a>Avvio rapido: Libreria client di Azure Key Vault per Java
+# <a name="quickstart-azure-key-vault-client-library-for-java"></a>Guida introduttiva: Libreria client di Azure Key Vault per Java
 
 Introduzione alla libreria client di Azure Key Vault per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -27,7 +28,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 
 [Codice sorgente](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Informazioni di riferimento per l'API](https://azure.github.io/azure-sdk-for-java) | [Documentazione del prodotto](index.yml) | [Esempi](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versione 8 o successiva

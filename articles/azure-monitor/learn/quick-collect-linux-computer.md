@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Raccogliere dati da un computer Linux ibrido con Monitoraggio di Azure'
+title: 'Guida introduttiva: Raccogliere dati da un computer Linux ibrido con Monitoraggio di Azure'
 description: Questo argomento di avvio rapido descrive come distribuire l'agente di Log Analytics per computer Linux in esecuzione all'esterno di Azure e come abilitare la raccolta di dati con i log di Monitoraggio di Azure.
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -7,21 +7,20 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: f494702166fc3c018aba9b1356a6806384ae4673
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0cf171da5f473a0d78fc5f37139c94b0e519bcfb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530018"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660173"
 ---
-# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Avvio rapido: Raccogliere dati da un computer Linux in un ambiente ibrido con Monitoraggio di Azure
+# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Guida introduttiva: Raccogliere dati da un computer Linux in un ambiente ibrido con Monitoraggio di Azure
 
 [Monitoraggio di Azure](../overview.md) può raccogliere i dati direttamente dai computer fisici o virtuali Linux nell'ambiente in un'area di lavoro Log Analytics per l'analisi dettagliata e la correlazione. L'installazione dell'[agente di Log Analytics](../platform/log-analytics-agent.md) consente a Monitoraggio di Azure di raccogliere dati da un data center o da un altro ambiente cloud. Questo argomento di avvio rapido illustra come configurare e raccogliere dati dal server Linux in pochi semplici passaggi. Per informazioni sulle VM Linux di Azure, vedere [Raccogliere dati sulle macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 

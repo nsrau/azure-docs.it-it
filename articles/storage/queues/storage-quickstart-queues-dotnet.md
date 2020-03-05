@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria di Archiviazione code di Azure v12 - .NET'
+title: 'Guida introduttiva: Libreria di Archiviazione code di Azure v12 - .NET'
 description: In questo argomento di avvio rapido si apprenderà come usare la libreria di Archiviazione code di Azure v12 per .NET per creare una coda e aggiungervi messaggi, come leggere ed eliminare i messaggi dalla coda e come eliminare una coda.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 11/22/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 71a714124cecfc4f985d448371042c8aff092a11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463844"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197488"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Avvio rapido: Libreria client di Archiviazione code di Azure v12 per .NET
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per .NET
 
 Iniziare a usare la libreria client di Archiviazione code di Azure versione 12 per .NET. Archiviazione code di Azure è un servizio che consente di archiviare un numero elevato di messaggi per recuperali ed elaborarli successivamente. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -31,9 +31,9 @@ Usare la libreria client di Archiviazione code di Azure v12 per .NET per:
 * Eliminare messaggi da una coda
 * Eliminare una coda
 
-[Documentazione di riferimento dell'API](/dotnet/api/azure.storage.queues) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Esempi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+[Documentazione di riferimento dell'API](/dotnet/api/azure.storage.queues) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Account di archiviazione di Azure: [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

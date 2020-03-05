@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria di Archiviazione code di Azure v12 - JavaScript'
+title: 'Guida introduttiva: Libreria di Archiviazione code di Azure v12 - JavaScript'
 description: In questo argomento di avvio rapido si apprenderà come usare la libreria di Archiviazione code di Azure v12 per JavaScript per creare una coda e aggiungervi messaggi, come leggere ed eliminare i messaggi dalla coda e come eliminare una coda.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9f666376020d36bd57b2cc9e78a0704a8ec47b4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 59a5308d2c0a1fa2e1f38f2fe3da3a2cc29448be
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358750"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199785"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Avvio rapido: Libreria client di Archiviazione code di Azure v12 per JavaScript
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per JavaScript
 
 Iniziare a usare la libreria client di Archiviazione code di Azure versione 12 per JavaScript. Archiviazione code di Azure è un servizio che consente di archiviare un numero elevato di messaggi per recuperali ed elaborarli successivamente. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -28,9 +28,9 @@ Usare la libreria client di Archiviazione code di Azure v12 per JavaScript per:
 * Eliminare messaggi da una coda
 * Eliminare una coda
 
-[Documentazione di riferimento delle API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [Pacchetto (Gestione pacchetti del nodo)](https://www.npmjs.com/package/@azure/storage-queue) | [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples)
+[Documentazione di riferimento delle API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [Pacchetto (Gestione pacchetti del nodo)](https://www.npmjs.com/package/@azure/storage-queue) | [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Account di archiviazione di Azure: [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

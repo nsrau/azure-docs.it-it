@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare avvisi personalizzati per il Centro sicurezza di Azure per IoT'
+title: 'Guida introduttiva: Creare avvisi personalizzati per il Centro sicurezza di Azure per IoT'
 description: Informazioni per creare e assegnare avvisi del dispositivo personalizzati per il Centro sicurezza di Azure per il servizio di sicurezza per IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 510a2c3f04cc4c307acad18ee3012d9407155f9f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 063e5c9e7d75fd1c07d148c265b1fe64eee3cbc8
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766454"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303529"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Avvio rapido: Creare avvisi personalizzati
+# <a name="quickstart-create-custom-alerts"></a>Guida introduttiva: Creare avvisi personalizzati
 
 
 L'uso di gruppi di sicurezza e avvisi personalizzati sfrutta al meglio le informazioni di sicurezza end-to-end e la conoscenza categoriale dei dispositivi per garantire una maggiore sicurezza nell'intera soluzione IoT. 
@@ -80,7 +80,6 @@ Usare i gruppi di sicurezza per raggruppare i dispositivi in categorie logiche. 
 ## <a name="alerts-available-for-customization"></a>Avvisi disponibili per la personalizzazione
 
 Il Centro sicurezza di Azure per IoT offre numerosi avvisi che possono essere personalizzati in base alle esigenze specifiche. Esaminare la [tabella degli avvisi personalizzabili](concept-customizable-security-alerts.md) per informazioni sulla gravità dell'avviso, l'origine dati, la descrizione e la procedura di correzione suggerita per ogni avviso ricevuto. 
-|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

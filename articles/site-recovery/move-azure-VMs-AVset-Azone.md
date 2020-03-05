@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5728ce7125695b191de4f91d5bd9003384f428a7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693194"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298309"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
 Le zone di disponibilità di Azure consentono di proteggere le applicazioni e i dati da eventuali guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dai guasti del data center. Con le zone di disponibilità, Azure offre un Contratto di servizio con tempo di attività delle macchine virtuali del 99,99%. Le zone di disponibilità sono supportate in aree selezionate, come indicato in [Informazioni sulle zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
@@ -70,7 +70,7 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
     - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
     - [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
     
-   Per qualsiasi altro componente di rete, vedere la [documentazione](https://docs.microsoft.com/azure/#pivot=products&panel=network) relativa alle reti.
+   Per qualsiasi altro componente di rete, vedere la [documentazione](https://docs.microsoft.com/azure/?pivot=products&panel=network) relativa alle reti.
 
     > [!IMPORTANT]
     > Assicurarsi di usare un servizio di bilanciamento del carico con ridondanza della zona nella destinazione. Per altre informazioni, vedere [Load Balancer Standard e zone di disponibilità](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
@@ -116,7 +116,7 @@ Al termine del processo di replica, è possibile controllare lo stato di replica
 
    - **Elaborato più recente**: viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato dal servizio Site Recovery. Viene visualizzato il timestamp. Con questa opzione, non viene dedicato alcun tempo all'elaborazione dei dati, quindi si ottiene un RTO (Recovery Time Objective) basso.
    - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali al più recente punto di recupero coerente con l'app. Viene visualizzato il timestamp.
-   - **Personalizzato**: selezionare qualsiasi punto di recupero.
+   - **Custom**: selezionare qualsiasi punto di recupero.
 
 3. Selezionare la rete virtuale di Azure di destinazione di test in cui si vogliono spostare le VM di Azure per testare la configurazione. 
 

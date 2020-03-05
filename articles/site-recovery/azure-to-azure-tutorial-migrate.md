@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 00fc836f098f3c03afc9adebe2450f00750eb5ff
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954095"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303937"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
 Esistono vari scenari in cui può essere opportuno spostare le macchine virtuali (VM) IaaS di Azure esistenti da un'area a un'altra, ad esempio per aumentare l'affidabilità e la disponibilità delle VM esistenti, per migliorare la gestibilità oppure per motivi di governance. Per altre informazioni, vedere la [panoramica dello spostamento di VM di Azure](azure-to-azure-move-overview.md). 
 
-È possibile usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e VM di Azure ai fini della continuità aziendale e del ripristino di emergenza (BCDR), nonché per gestire lo spostamento di VM di Azure in un'area secondaria.
+È possibile usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e VM di Azure ai fini della continuità aziendale e del ripristino di emergenza, nonché per gestire lo spostamento di VM di Azure in un'area secondaria.
 
 In questa esercitazione si apprenderà come:
 
@@ -53,7 +53,7 @@ In questa esercitazione si apprenderà come:
 
 - Per le macchine virtuali di Windows, installare tutti gli aggiornamenti di Windows più recenti nella macchina virtuale in modo che tutti i certificati radice trusted siano presenti nel computer. In un ambiente non connesso, seguire i processi di aggiornamento di Windows e di aggiornamento dei certificati standard per l'organizzazione.
     
-- Per le VM Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella VM.
+- Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella macchina virtuale.
 - Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le VM da spostare.
 
 - Se la VM che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, [controllare i requisiti](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
@@ -73,7 +73,7 @@ In questa esercitazione si apprenderà come:
     - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer)
     -  [IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
-    - Per qualsiasi altro componente di rete, vedere la [documentazione relativa alle reti](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+    - Per qualsiasi altro componente di rete, vedere la [documentazione relativa alle reti](https://docs.microsoft.com/azure/?pivot=products&panel=network).
 
 
 
@@ -95,11 +95,11 @@ I passaggi seguenti mostrano come preparare la macchina virtuale per lo spostame
 
 ### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Abilitare la replica per le macchine virtuali di Azure e avviare la copia dei dati
 
-Site Recovery recupera un elenco delle VM associate alla sottoscrizione e al gruppo di risorse.
+Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscrizione e al gruppo di risorse.
 
 1. Nel passaggio successivo selezionare la VM da spostare e quindi **OK**.
 1. In **Impostazioni** selezionare **Ripristino di emergenza**.
-1. In **Configura ripristino di emergenza** >  **Area di destinazione** selezionare l'area di destinazione in cui si eseguirà la replica.
+1. In **Configura ripristino di emergenza** > **Area di destinazione** selezionare l'area di destinazione in cui si eseguirà la replica.
 1. Per questa esercitazione accettare le altre impostazioni predefinite.
 1. Selezionare **Abilita replica**. Questo passaggio avvia un processo per abilitare la replica per la VM.
 

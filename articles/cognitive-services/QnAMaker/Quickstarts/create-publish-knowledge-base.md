@@ -1,20 +1,20 @@
 ---
-title: 'Avvio rapido: Eseguire la creazione, il training e la pubblicazione di una knowledge base - QnA Maker'
+title: 'Guida introduttiva: Eseguire la creazione, il training e la pubblicazione di una knowledge base - QnA Maker'
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere alle domande di QnA Maker.
 ms.topic: quickstart
 ms.date: 02/08/2020
-ms.openlocfilehash: a4c4d9b2e8f4b816510fb35a75b3c9b8b2afa5e2
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: fd4e6a4c4288caaf714f4bfc15282b6c4b1e1111
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108718"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299092"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Avvio rapido: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Guida introduttiva: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
 È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere alle domande di QnA Maker.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 > [!div class="checklist"]
 > * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -154,6 +154,5 @@ Per altre informazioni:
 
 * [Formato Markdown nelle risposte](../reference-markdown-format.md)
 * [Origini dati](../concepts/knowledge-base.md) di QnA Maker.
-* [Impostazioni di configurazione delle risorse bot](../tutorials/create-qna-bot.md).
 
 

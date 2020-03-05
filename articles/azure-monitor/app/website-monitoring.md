@@ -1,27 +1,23 @@
 ---
-title: 'Avvio rapido: Monitorare siti Web con Application Insights di Monitoraggio di Azure'
+title: 'Guida introduttiva: Monitorare siti Web con Application Insights di Monitoraggio di Azure'
 description: Istruzioni di avvio rapido per configurare il monitoraggio di siti Web sul lato client/browser con Application Insights di Monitoraggio di Azure
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 408b24c83c5b3d795a86d1ad0275d732bb54a6db
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1c581867f1e7ebc29f2aaff97124a08bec4e3b40
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963620"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670849"
 ---
-# <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Avvio rapido: Avviare il monitoraggio del sito Web con Application Insights di Monitoraggio di Azure
+# <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Guida introduttiva: Avviare il monitoraggio del sito Web con Application Insights di Monitoraggio di Azure
 
 Questo argomento di avvio rapido illustra come aggiungere JavaScript SDK per Application Insights open source al sito Web. Descrive inoltre in maggior dettaglio l'esperienza lato client/browser per i visitatori del sito Web.
 
 Con Application Insights di Monitoraggio di Azure è possibile monitorare facilmente la disponibilità, le prestazioni e l'utilizzo di un sito Web. È anche possibile identificare e diagnosticare rapidamente gli errori nell'applicazione senza attendere che vengano segnalati da un utente. Application Insights offre funzionalità di monitoraggio sia lato server che lato client/browser.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Un sito Web a cui è possibile aggiungere JavaScript SDK per Application Insights.

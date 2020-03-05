@@ -7,12 +7,12 @@ ms.date: 08/23/2019
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 585eb1f11a285722e34c6dd084f4c6cb26a06249
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671414"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247610"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure
 
@@ -34,7 +34,7 @@ ms.locfileid: "74671414"
 
 In Cloud Shell creare una directory quickstart e passare ad essa.
 
-```azurecli-interactive
+```console
 mkdir quickstart
 
 cd $HOME/quickstart
@@ -42,13 +42,13 @@ cd $HOME/quickstart
 
 Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart.
 
-```azurecli-interactive
+```console
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
 Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
 
-```bash
+```output
 Cloning into 'nodejs-docs-hello-world'...
 remote: Counting objects: 40, done.
 remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
@@ -102,7 +102,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 Passare all'app Web appena creata. Sostituire `<app_name>` con un nome di app univoco.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 
@@ -112,7 +112,7 @@ Ecco l'aspetto che avrà la nuova app Web: ![Pagina dell'app Web vuota](media/ap
 
 In Cloud Shell passare alla directory radice dell'applicazione e creare un nuovo file ZIP per il progetto di esempio.
 
-```azurecli-interactive
+```console
 cd nodejs-docs-hello-world  
 
 zip -r myUpdatedAppFiles.zip *.*
@@ -130,7 +130,7 @@ Questo comando distribuisce i file e le directory del file ZIP nella cartella pr
 
 Passare all'applicazione distribuita con il Web browser.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app Python usando un account API SQL di Azure Cosmos DB"
+title: "Guida introduttiva: Creare un'app Python usando un account API SQL di Azure Cosmos DB"
 description: Presenta un esempio di codice Python che permette di connettersi all'API SQL di Azure Cosmos DB ed eseguire query su di essa
 author: SnehaGunda
 ms.service: cosmos-db
@@ -12,14 +12,14 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: d73d85471269bafb6f6d2e080a68f0cab10e3962
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 113955b0404b951360b670ee75789d0a74ffa534
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585969"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274092"
 ---
-# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
+# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -31,7 +31,7 @@ ms.locfileid: "77585969"
 
 In questa guida di avvio rapido si apprenderà a creare e gestire un account API SQL di Azure Cosmos DB dal portale di Azure e da Visual Studio Code con un'app Python clonata da GitHub. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con l'URI `https://localhost:8081` e la chiave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
 - [Python 3.6+](https://www.python.org/downloads/), con il file eseguibile `python` in `PATH`.
@@ -129,27 +129,27 @@ Tutti i frammenti di codice seguenti sono tratti dal file *cosmos_get_started.py
 
 * Viene inizializzato CosmosClient. Assicurarsi di aggiornare i valori di "endpoint" e "chiave" come descritto nella sezione [Aggiornare la stringa di connessione](#update-your-connection-string). 
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_cosmos_client":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
 
 * Viene creato un nuovo database.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_database_if_not_exists":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
 
 * Viene creato un nuovo contenitore con 400 RU/sec di [unità elaborate per il provisioning](request-units.md). Scegliere `lastName` come [chiave di partizione ](partitioning-overview.md#choose-partitionkey), che consente di eseguire query efficienti che filtrano in base a questa proprietà. 
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_container_if_not_exists":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
 
 * Alcuni elementi vengono aggiunti al contenitore. I contenitori sono una raccolta di elementi (documenti JSON) che possono avere uno schema vario. I metodi helper ```get_[name]_family_item``` restituiscono rappresentazioni di una famiglia archiviata in Azure Cosmos DB come documenti JSON.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_item":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
 
 * Le letture dei punti (ricerche con valori di chiave) vengono eseguite usando il metodo `read_item`. Viene stampato l'[addebito per UR](request-units.md) di ogni operazione.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="read_item":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
 
 * Viene eseguita una query con la sintassi di query SQL. Poiché si usano i valori delle chiavi di partizione di ```lastName``` nella clausola WHERE, Azure Cosmos DB instraderà in modo efficiente questa query alle partizioni pertinenti, migliorando le prestazioni.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="query_items":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
    
 ## <a name="run-the-app"></a>Eseguire l'app
 

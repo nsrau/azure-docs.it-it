@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una risorsa Load Balancer - Modello di Azure'
+title: 'Guida introduttiva: Creare una risorsa Load Balancer - Modello di Azure'
 titleSuffix: Azure Load Balancer
 description: Questa guida di avvio rapido mostra come creare un servizio di bilanciamento del carico usando il modello di Azure Resource Manager.
 services: load-balancer
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
-ms.custom: mvc
-ms.openlocfilehash: e5b9b989ed8111e2bf36194ae2c8a333db7e66b4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.custom: mvc,subject-armqs
+ms.openlocfilehash: 1f681a9a8d8547589873cff055d9f59973c27355
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650801"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295786"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Avvio rapido: Creare una risorsa Load Balancer Standard per bilanciare il carico delle macchine virtuali con un modello di Azure Resource Manager
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Guida introduttiva: Creare una risorsa Load Balancer Standard per bilanciare il carico delle macchine virtuali con un modello di Azure Resource Manager
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. Questo argomento di avvio rapido illustra come distribuire un modello di Azure Resource Manager che consente di creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali. Usando un modello di Resource Manager è necessario un numero di passaggi minore rispetto ad altri metodi di distribuzione.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria di Archiviazione BLOB di Azure v12 - .NET'
+title: 'Guida introduttiva: Libreria di Archiviazione BLOB di Azure v12 - .NET'
 description: In questa Guida introduttiva verrà illustrato come usare la libreria client di Archiviazione BLOB di Azure versione 12 per .NET per creare un contenitore e un BLOB nell'archiviazione (oggetto) BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 2a1a9b1973ded5db7182fb1898fc7222904c39c3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 09002a8c0999dc137ca3386ca7392a566d323e8a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863962"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196060"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 per .NET
+# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Guida introduttiva: Libreria client di Archiviazione BLOB di Azure v12 per .NET
 
 Iniziare a usare la libreria client di Archiviazione BLOB di Azure v12 per .NET. L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
 
@@ -29,11 +29,11 @@ Usare la libreria client di Archiviazione BLOB di Azure v12 per .NET per:
 * Scaricare il BLOB nel computer locale
 * Eliminare un contenitore
 
-[Documentazione di riferimento dell'API](/dotnet/api/azure.storage.blobs) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Esempi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+[Documentazione di riferimento dell'API](/dotnet/api/azure.storage.blobs) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Esempi](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Account di archiviazione di Azure: [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -85,7 +85,6 @@ Dalla directory del progetto:
 Ecco il codice:
 
 ```csharp
-using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System;
@@ -181,7 +180,7 @@ Il frammento di codice seguente consente di:
 
 1. Creare un file di testo nella directory *data* locale.
 1. Ottenere un riferimento a un oggetto [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) chiamando il metodo [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) sul contenitore dalla sezione [Creare un contenitore](#create-a-container).
-1. Caricare il file di testo locale nel BLOB chiamando il metodo [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync). Questo metodo crea il BLOB se non esiste o lo sovrascrive se esiste già.
+1. Caricare il file di testo locale nel BLOB chiamando il metodo [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_). Questo metodo crea il BLOB se non esiste o lo sovrascrive se esiste già.
 
 Aggiungere questo codice alla fine del metodo `Main`:
 
@@ -201,7 +200,7 @@ Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri
 
 // Open the file and upload its data
 using FileStream uploadFileStream = File.OpenRead(localFilePath);
-await blobClient.UploadAsync(uploadFileStream);
+await blobClient.UploadAsync(uploadFileStream, true);
 uploadFileStream.Close();
 ```
 

@@ -6,16 +6,17 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490416"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197760"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
@@ -34,7 +35,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 3. Nell'elenco dei risultati scegliere **Key Vault**.
 4. Nella sezione Key Vault scegliere **Crea**.
 5. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:
-    - **Nome**: è necessario un nome univoco. Per questo argomento di avvio rapido si usa **Contoso-vault2**. 
+    - **Name**: è necessario un nome univoco. Per questo argomento di avvio rapido si usa **Contoso-vault2**. 
     - **Sottoscrizione** Scegliere una sottoscrizione.
     - In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.
     - Scegliere un percorso nel menu a discesa **Percorso**.
@@ -58,9 +59,9 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio d
 2. Fare clic su **Genera/Importa**.
 3. Nella schermata **Crea un segreto** selezionare i seguenti valori:
     - **Opzioni di caricamento**: manuale.
-    - **Nome**: ExamplePassword.
+    - **Name**: ExamplePassword.
     - **Valore**: hVFkk965BuUv
-    - Lasciare invariati gli altri valori predefiniti. Fare clic su **Create**(Crea).
+    - Lasciare invariati gli altri valori predefiniti. Fare clic su **Crea**.
 
 Dopo avere ricevuto il messaggio che indica che il segreto è stato creato, è possibile fare clic sul segreto nell'elenco. Sarà quindi possibile vedere alcune delle proprietà. Se si fa clic sulla versione corrente è possibile visualizzare il valore specificato nel passaggio precedente.
 
