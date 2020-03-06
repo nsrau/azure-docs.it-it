@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0f50fe51f9c1cdef3c3f07c91640f5b9b9616229
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 18ac583837c7cb8b2dabbfa6f7d7210c8afe3fcb
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370960"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402763"
 ---
 # <a name="connect-to-a-wfs-service"></a>Connettersi a un servizio WFS
 
@@ -91,7 +91,7 @@ Il codice seguente usa il client WFS per esplorare i servizi di WFS. Selezionare
 
 <br/>
 
-<iframe height='700' scrolling='no' title= 'Esplora servizi WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS Service Explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' style='width: 100%;' scrolling='no' title= 'Esplora servizi WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS Service Explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 È anche possibile usare un servizio proxy per caricare le risorse ospitate in domini che non sono abilitati per CORs. È innanzitutto necessario definire una variabile che contenga l'URL del servizio proxy e impostare l'opzione `proxyService` per il client WFS. Per eseguire il rendering di un'opzione del servizio proxy per l'utente, aggiungere un input utente all'interfaccia utente. Caricare l'URL del servizio quando si fa clic sull'input. Nei frammenti di codice seguenti viene illustrato come utilizzare il servizio proxy.

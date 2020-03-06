@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936491"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381633"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -23,7 +23,7 @@ Usare gli strumenti HDInsight in Azure Toolkit for [Eclipse](https://www.eclipse
 * Per accedere alle risorse cluster HDInsight Spark di Azure.
 * Per sviluppare ed eseguire un'applicazione Spark in Scala localmente.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -53,7 +53,7 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
     * > Della versione di \<Azure Toolkit for Eclipse.
     * \<della versione dell'IDE scala >.
 
-## <a name="sign-in-to-your-azure-subscription"></a>Accedi alla tua sottoscrizione di Azure
+## <a name="sign-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure.
 
 1. Avviare l'IDE di Eclipse.
 
@@ -327,7 +327,7 @@ Esistono due modalità per inviare i processi. Se vengono fornite le credenziali
 
 ![errore di Eclipse Get quando cluster occupato Yarn](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "errore di Eclipse Get quando cluster occupato Yarn")
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
 

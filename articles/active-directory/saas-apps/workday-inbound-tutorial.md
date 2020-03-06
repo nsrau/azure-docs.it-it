@@ -16,11 +16,11 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365628"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378395"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -93,7 +93,7 @@ Questa sezione contiene gli aspetti di pianificazione seguenti:
 * [Integrazione con più domini di Active Directory](#integrating-with-multiple-active-directory-domains)
 * [Pianificazione di mapping e trasformazioni degli attributi utente da Workday ad Active Directory](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -245,7 +245,7 @@ Un requisito comune di tutti i connettori di provisioning Workday è la richiest
    * Lasciare l'opzione **Session Timeout Minutes (Minuti di timeout della sessione)** impostata sul valore predefinito 0, in modo da evitare un timeout prematuro delle sessioni dell'utente.
    * Selezionare l'opzione **Do Not Allow UI Sessions** (Non consentire sessioni di interfaccia utente) in quanto aggiunge un livello di sicurezza che impedisce a un utente con la password del sistema di integrazione di accedere a Workday.
 
-   ![Crea utente del sistema di integrazione](./media/workday-inbound-tutorial/wd_isu_02.png "Creazione dell'utente del sistema di integrazione")
+   ![Crea utente del sistema di integrazione](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
 
 ### <a name="creating-an-integration-security-group"></a>Creazione di un gruppo di sicurezza del sistema di integrazione
 
@@ -255,7 +255,7 @@ In questo passaggio si creerà un gruppo di sicurezza del sistema di integrazion
 
 1. Immettere "create security group" nella casella di ricerca e quindi fare clic su **Create Security Group**(Crea gruppo di sicurezza).
 
-    ![Gruppo creazione](./media/workday-inbound-tutorial/wd_isu_03.png "Creazione di un gruppo di sicurezza")
+    ![Gruppo creazione](./media/workday-inbound-tutorial/wd_isu_03.png "Create Security Group")
 2. Completare l'attività **Creare un gruppo di sicurezza**. 
 
    * Esistono due tipi di gruppi di sicurezza in Workday:
@@ -264,11 +264,11 @@ In questo passaggio si creerà un gruppo di sicurezza del sistema di integrazion
    * Verificare il partner di integrazione di Workday per selezionare il tipo di gruppo di sicurezza appropriato per l'integrazione.
    * Una volta appurato il tipo di gruppo, selezionare **Integration System Security Group (Unconstrained)** (Gruppo di sicurezza del sistema di integrazione - Non vincolato) o **Integration System Security Group (Constrained)** (Gruppo di sicurezza del sistema di integrazione - Vincolato) dall'elenco a discesa **Type of Tenanted Security Group** (Tipo di gruppo di sicurezza con tenant).
 
-     ![Gruppo creazione](./media/workday-inbound-tutorial/wd_isu_04.png "Creazione di un gruppo di sicurezza")
+     ![Gruppo creazione](./media/workday-inbound-tutorial/wd_isu_04.png "Create Security Group")
 
 3. Dopo aver creato il gruppo di sicurezza, verrà visualizzata una pagina in cui sarà possibile assegnare membri al gruppo. Aggiungere il nuovo utente di sistema di integrazione creato nel passaggio precedente per questo gruppo di sicurezza. Se si usa il gruppo di sicurezza *vincolato*, è necessario anche selezionare l'ambito dell'organizzazione appropriato.
 
-    ![Modifica gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_05.png "Modifica del gruppo di sicurezza")
+    ![Modifica gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_05.png "Edit Security Group")
 
 ### <a name="configuring-domain-security-policy-permissions"></a>Configurazione delle autorizzazioni dei criteri di sicurezza del dominio
 
@@ -278,7 +278,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 1. Immettere **Domain Security Configuration** (Configurazione della sicurezza del dominio) nella casella di ricerca e quindi fare clic sul collegamento **Domain Security Configuration Policies** (Criteri di configurazione della sicurezza del dominio).  
 
-    ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_06.png "Criteri di sicurezza del dominio")  
+    ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
 2. Nella casella di testo **Domain** (Dominio) cercare i domini seguenti e aggiungerli al filtro uno alla volta.  
    * *External Account Provisioning* (Provisioning account esterno)
    * *Worker Data: Public Worker Reports* (Dati ruolo di lavoro: report ruoli di lavoro pubblici)
@@ -288,23 +288,23 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
    * *Worker Data: Business Title on Worker Profile* (Dati ruolo di lavoro: qualifica riportata sul profilo)
    * *Account giorni lavorativi*
    
-     ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Criteri di sicurezza del dominio")  
+     ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
 
-     ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Criteri di sicurezza del dominio") 
+     ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
 
      Fare clic su **OK**.
 
 3. Nel report che viene visualizzato selezionare i puntini di sospensione (...) visualizzati accanto a **External Account Provisioning** (Provisioning account esterno) e fare clic sulla voce di menu **Domain -> Edit Security Policy Permissions** (Dominio -> Modifica autorizzazioni criteri di sicurezza)
 
-    ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_09.png "Criteri di sicurezza del dominio")  
+    ![Criteri di sicurezza del dominio](./media/workday-inbound-tutorial/wd_isu_09.png "Domain Security Policies")  
 
 4. Nella pagina **Edit Domain Security Policy Permissions (Modifica autorizzazioni criteri di sicurezza di dominio)** scorrere fino alla sezione **Integration Permissions** (Autorizzazioni di integrazione). Fare clic sul segno "+" per aggiungere il gruppo del sistema di integrazione all'elenco dei gruppi di sicurezza con autorizzazioni di integrazione **Get** e **Put**.
 
-    ![Modifica autorizzazione](./media/workday-inbound-tutorial/wd_isu_10.png "Modifica dell'autorizzazione")  
+    ![Modifica autorizzazione](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permissions")  
 
 5. Fare clic sul segno "+" per aggiungere il gruppo del sistema di integrazione all'elenco dei gruppi di sicurezza con autorizzazioni di integrazione **Get** e **Put**.
 
-    ![Modifica autorizzazione](./media/workday-inbound-tutorial/wd_isu_11.png "Modifica dell'autorizzazione")  
+    ![Modifica autorizzazione](./media/workday-inbound-tutorial/wd_isu_11.png "Edit Permissions")  
 
 6. Ripetere i passaggi precedenti da 3 a 5 per ognuno di questi criteri di sicurezza rimanenti:
 
@@ -345,12 +345,12 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 1. Immettere "activate" (attiva) nella casella di ricerca e quindi fare clic sul collegamento **Activate Pending Security Policy Changes (Attiva le modifiche in sospeso ai criteri di sicurezza)** .
 
-    ![Attiva](./media/workday-inbound-tutorial/wd_isu_16.png "Attivazione")
+    ![Attiva](./media/workday-inbound-tutorial/wd_isu_16.png "Activate")
 
 1. Avviare l'attività Activate Pending Security Policy Changes (Attiva le modifiche in sospeso ai criteri di sicurezza) immettendo un commento a scopo di controllo e quindi fare clic su **OK**.
 1. Completare l'attività nella schermata successiva selezionando la casella di controllo **Confirm (Conferma)** e quindi facendo clic su **OK**.
 
-    ![Attiva sicurezza in sospeso](./media/workday-inbound-tutorial/wd_isu_18.png "Attivazione criteri di sicurezza in sospeso")  
+    ![Attiva sicurezza in sospeso](./media/workday-inbound-tutorial/wd_isu_18.png "Activate Pending Security")  
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configurazione del provisioning utenti da Workday in Active Directory
 
@@ -418,7 +418,7 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
   
 1. Verrà ora richiesto di immettere le credenziali necessarie per connettersi al dominio AD. Nella stessa schermata è possibile usare **Select domain controller priority** (Seleziona priorità controller di dominio) per specificare i controller di dominio che l'agente deve usare per l'invio di richieste di provisioning.
 
-   ![Credenziali di dominio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   ![Credenziali del dominio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
    
 1. Dopo aver configurato il dominio, il programma di installazione mostrerà un elenco di domini configurati. In questa schermata è possibile ripetere i passaggi 5 e 6 per aggiungere più domini o fare clic su **Next** (Avanti) per procedere alla registrazione dell'agente.
 
@@ -737,7 +737,7 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Save**.
+2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti nel tenant di Workday. 
 
@@ -1114,7 +1114,7 @@ Quando si fa clic su uno dei record relativi a log di controllo, verrà visualiz
 
   Per trovare i record di log dell'agente di provisioning corrispondente a questa operazione di importazione di Active Directory, aprire il log del Visualizzatore eventi di Windows e usare il menu opzioni **Find…** (Trova...) per trovare le voci di log che contengono il valore dell'attributo ID corrispondente o il valore dell'attributo Joining Property (Proprietà di abbinamento) (in questo caso *21023*).
 
-  ![Trova](media/workday-inbound-tutorial/wd_event_viewer_02.png)
+  ![Find](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
   Cercare la voce con *Event ID = 9*, che fornirà il filtro di ricerca LDAP usato dall'agente per recuperare l'account AD. È possibile verificare se questo è il filtro di ricerca corretto per recuperare le voci univoche dell'utente.
 
@@ -1257,7 +1257,7 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
-9. Scegliere **OK**.
+9. Selezionare **OK**.
 
 10. Nel riquadro **Request** (Richiesta) incollare il codice XML sottostante e impostare **Employee_ID** sull'ID del dipendente di un utente reale nel tenant di Workday. Selezionare un utente per il quale l'attributo da estrarre sia popolato.
 

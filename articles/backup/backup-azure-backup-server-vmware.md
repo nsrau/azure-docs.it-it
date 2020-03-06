@@ -4,11 +4,11 @@ description: Questo articolo illustra come usare server di Backup di Azure per e
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152868"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392047"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali VMware con il server di Backup di Azure
 
@@ -137,7 +137,7 @@ Il server di Backup di Azure richiede un account utente con autorizzazioni di ac
 | Archivio dati. operazioni su file di basso livello                          | Globale. gestire gli attributi personalizzati                           | Datastore.AllocateSpace                     |
 | Cluster di archivio dati. Configurare un cluster datatstore             | Attributo personalizzato Global. set                               | VirtualMachine.Config.ChangeTracking        |
 | Metodi globali. Disable                                       | Operazioni host. local. Crea macchina virtuale              | VirtualMachine.State.RemoveSnapshot         |
-| Metodi globali. Enable                                        | Rete: Assegna rete                                   | VirtualMachine.State.CreateSnapshot         |
+| Metodi globali. Enable                                        | Rete. Assegna rete                                   | VirtualMachine.State.CreateSnapshot         |
 | Global. licenses                                              | Risorse. Assegnare la macchina virtuale al pool di risorse         | VirtualMachine.Provisioning.DiskRandomRead  |
 | Evento Global. log                                             | Macchina virtuale. Configurazione. Aggiungi nuovo disco                | VirtualMachine.Interact.PowerOff            |
 | Globale. gestire gli attributi personalizzati                              | Macchina virtuale. Configuration. Advanced                    | VirtualMachine.Inventory.Create             |
@@ -336,16 +336,16 @@ Aggiungere le macchine virtuali VMware per il backup. I gruppi protezione dati r
 
     ![Riepilogo delle impostazioni e dei membri del gruppo protezione dati](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
-## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
+## <a name="vmware-vsphere-67"></a>VMWare vSphere 6,7
 
 Per eseguire il backup di vSphere 6,7, seguire questa procedura:
 
-- Abilitare TLS 1.2 nel server DPM
+- Abilitare TLS 1,2 nel server DPM
 
 >[!NOTE]
 >VMWare 6,7 in poi aveva TLS abilitato come protocollo di comunicazione.
 
-- Impostare le chiavi del Registro di sistema come indicato di seguito:
+- Impostare le chiavi del registro di sistema come segue:
 
 ```text
 Windows Registry Editor Version 5.00

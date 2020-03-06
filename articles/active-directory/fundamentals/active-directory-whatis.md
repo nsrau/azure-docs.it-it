@@ -12,11 +12,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368026"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386047"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) è il servizio di gestione delle identità e d
 
 Azure AD è destinato agli utenti seguenti:
 
-- **Amministratori IT.** Gli amministratori IT possono usare Azure AD per controllare l'accesso alle app e alle risorse delle app in base ai requisiti aziendali. È ad esempio possibile usare Azure AD per richiedere l’autenticazione a più fattori  in caso di accesso a risorse importanti dell'organizzazione. È inoltre possibile usare Azure AD per automatizzare il provisioning degli utenti tra le app Windows Server AD e cloud esistenti, incluso Office 365. Azure AD offre infine strumenti avanzati per contribuire automaticamente alla protezione delle identità e delle credenziali degli utenti e per la conformità con i requisiti di accesso definiti dalla governance. Per iniziare, iscriversi per ottenere una [versione di valutazione gratuita di 30 giorni di Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
+- **Amministratori IT.** Gli amministratori IT possono usare Azure AD per controllare l'accesso alle app e alle risorse delle app in base ai requisiti aziendali. È ad esempio possibile usare Azure AD per richiedere Multi-Factor Authentication in caso di accesso a risorse importanti dell'organizzazione. È inoltre possibile usare Azure AD per automatizzare il provisioning utenti tra le app Windows Server AD e cloud esistenti, incluso Office 365. Azure AD offre infine strumenti avanzati per contribuire automaticamente alla protezione delle identità e delle credenziali degli utenti e per la conformità con i requisiti di accesso definiti dalla governance. Per iniziare, iscriversi per ottenere una [versione di valutazione gratuita di 30 giorni di Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 - **Sviluppatori di app.** Gli sviluppatori di app possono usare Azure AD come un approccio basato su standard per aggiungere l'accesso Single Sign-On (SSO) all'app in modo da consentirne il funzionamento con le credenziali preesistenti dell'utente. Azure AD fornisce anche API utili per la creazione di esperienze di app personalizzate usando i dati esistenti dell'organizzazione. Per iniziare, iscriversi per ottenere una [versione di valutazione gratuita di 30 giorni di Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/). Per altre informazioni, vedere anche [Azure Active Directory per sviluppatori](../develop/index.yml).
 
@@ -57,7 +57,7 @@ Per migliorare l'implementazione di Azure AD, è anche possibile aggiungere funz
 
 - **Licenze per le funzionalità "Con pagamento in base al consumo".** È anche possibile ottenere licenze per le funzionalità aggiuntive, ad esempio Azure Active Directory Business-to-Customer (B2C). B2C consente di fornire soluzioni di gestione delle identità e dell'accesso per le app rivolte ai clienti. Per altre informazioni, vedere la [documentazione di Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
-Per altre informazioni sull'associazione di una sottoscrizione di Azure ad Azure AD, vedere [Procedura: Associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md). Per altre informazioni sull'assegnazione di licenze agli utenti, vedere [Procedura: Assegnare o rimuovere licenze di Azure Active Directory](license-users-groups.md).
+Per altre informazioni sull'associazione di una sottoscrizione di Azure ad Azure AD, vedere [Procedura: Associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) e per altre informazioni sull'assegnazione di licenze agli utenti, vedere [Procedura: Assegnare o rimuovere licenze di Azure Active Directory](license-users-groups.md).
 
 ## <a name="terminology"></a>Terminologia
 
@@ -65,7 +65,7 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, è 
 
 |Termine o concetto|Descrizione|
 |---------------|-----------|
-|Identità| Una cosa che può essere autenticata. Un'identità può essere un utente con un nome utente e password. Le identità includono anche le applicazioni o altri server che potrebbero richiedere l'autenticazione tramite certificati o chiavi private.|
+|Identity| Una cosa che può essere autenticata. Un'identità può essere un utente con un nome utente e password. Le identità includono anche le applicazioni o altri server che potrebbero richiedere l'autenticazione tramite certificati o chiavi private.|
 |Account| Un'identità che contiene dati associati. Non è possibile avere un account senza un'identità.|
 |Account Azure AD| Identità creata tramite Azure AD o un altro servizio cloud Microsoft, ad esempio Office 365. Le identità vengono archiviate in Azure AD e sono accessibili alle sottoscrizioni dei servizi cloud dell'organizzazione. Questo account viene a volte definito account aziendale o dell'istituto di istruzione.|
 |Sottoscrizione di Azure| Usata per pagare i servizi cloud di Azure. È possibile avere più sottoscrizioni, collegate a una carta di credito.|
@@ -87,7 +87,7 @@ Dopo la scelta della licenza di Azure AD, sarà possibile accedere ad alcune o a
 |Category|Descrizione|
 |-------|-----------|
 |Gestione delle applicazioni|Consente di gestire le app cloud e locali con Application Proxy, accesso Single Sign-On, portale App personali (definito anche pannello di accesso) e app SaaS (Software as a Service). Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](../manage-apps/application-proxy.md) e la [Documentazione della gestione delle applicazioni](../manage-apps/index.yml).|
-|Authentication|Consente di gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente. Per altre informazioni, vedere la [Documentazione di Autenticazione di Azure AD](../authentication/index.yml).|
+|Autenticazione|Consente di gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente. Per altre informazioni, vedere la [Documentazione di Autenticazione di Azure AD](../authentication/index.yml).|
 |Business-to-Business (B2B)|Consente di gestire gli utenti guest e i partner esterni, mantenendo al tempo stesso il controllo sui propri dati aziendali. Per altre informazioni, vedere la [Documentazione di Azure Active Directory B2B](../b2b/index.yml).|
 |Business-to-Customer (B2C)|Consente di personalizzare e controllare la modalità con cui gli utenti accedono e gestiscono i propri profili quando usano le app. Per altre informazioni, vedere la [documentazione di Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Accesso condizionale|Consente di gestire l'accesso alle app cloud. Per altre informazioni, vedere la [Documentazione sull'accesso condizionale di Azure AD](../conditional-access/index.yml).|

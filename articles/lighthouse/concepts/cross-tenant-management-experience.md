@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 02/14/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb484ea936bbb64b3ca3d7fcf648de0d0ef73c66
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
-ms.translationtype: HT
+ms.openlocfilehash: 42368bcbc9f15f9ff5ef957b4c88f15bf070f25b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328681"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402094"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -37,7 +37,14 @@ Usando la gestione risorse delegate di Azure, gli utenti autorizzati possono acc
 
 È possibile eseguire le attività di gestione nelle risorse delegate direttamente nel portale oppure usando le API e gli strumenti di gestione, ad esempio l'interfaccia della riga di comando di Azure e Azure PowerShell. Quando si usano le risorse delegate, è possibile utilizzare tutte le API esistenti, purché la funzionalità sia supportata per la gestione tra tenant e l'utente disponga delle autorizzazioni appropriate.
 
-Sono anche disponibili API per eseguire attività di gestione risorse delegate di Azure. Per altre informazioni, vedere la sezione **Riferimento**.
+Il [cmdlet Azure PowerShell Get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) Mostra il **tenantID** per ogni sottoscrizione, consentendo di identificare se una sottoscrizione restituita appartiene al tenant del provider di servizi o a un tenant del cliente gestito.
+
+Analogamente, i comandi dell'interfaccia della riga di comando di Azure come [AZ account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) mostrano gli attributi **homeTenantId** e **managedByTenants** .
+
+> [!TIP]
+> Se questi valori non vengono visualizzati quando si usa l'interfaccia della riga di comando di Azure, provare a cancellare la cache eseguendo `az account clear` seguito da `az login --identity`.
+
+Sono inoltre disponibili API specifiche per l'esecuzione di attività di gestione delle risorse delegate di Azure. Per altre informazioni, vedere la sezione **Riferimento**.
 
 ## <a name="enhanced-services-and-scenarios"></a>Scenari e servizi avanzati
 

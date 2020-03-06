@@ -10,25 +10,25 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: cf2aa9bc1234f8bc92829b107d1a788b75d56a6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075078"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384680"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Esercitazione: Connettere, configurare e attivare Azure Data Box Edge 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Esercitazione: connettere, configurare e attivare Azure Data Box Edge 
 
 Questa esercitazione descrive come è possibile connettersi a un dispositivo Azure Data Box Edge e come è possibile configurarlo e attivarlo usando l'interfaccia utente Web locale.
 
 Per completare il processo di configurazione e attivazione sono necessari circa 20 minuti.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Connettersi a un dispositivo fisico
 > * Configurare e attivare il dispositivo fisico
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di configurare il dispositivo Data Box Edge, assicurarsi di:
 
@@ -147,7 +147,7 @@ La configurazione del dispositivo è completata. È ora possibile aggiungere con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Connettersi a un dispositivo fisico

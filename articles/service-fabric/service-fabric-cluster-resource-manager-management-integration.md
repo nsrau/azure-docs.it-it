@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614622"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386258"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
 Cluster Resource Manager di Service Fabric non gestisce gli aggiornamenti in Service Fabric ma partecipa al processo. Il primo modo in cui Cluster Resource Manager facilita la gestione è monitorando lo stato desiderato del cluster e i servizi al suo interno. Cluster Resource Manager invia report di integrità quando non riesce ad attivare la configurazione del cluster desiderata. Se ad esempio la capacità è insufficiente, Cluster Resource Manager invia avvisi ed errori relativi all'integrità che indicano il problema. Un altro aspetto dell'integrazione ha a che fare con il funzionamento degli aggiornamenti. Durante gli aggiornamenti Cluster Resource Manager modifica leggermente il suo comportamento.  
@@ -105,7 +105,7 @@ Il blocklisting non è una condizione permanente. Dopo alcuni minuti, il nodo vi
 
 Dato l'elevato numero di questi vincoli si potrebbe ritenere che i vincoli di dominio di errore siano i più importanti del sistema. Per garantire che non venga violato il vincolo di dominio di errore, si possono violare altri vincoli.
 
-I vincoli possono essere configurati con diversi livelli di priorità. ovvero:
+I vincoli possono essere configurati con diversi livelli di priorità. Si tratta di:
 
    - “hard” (0)
    - “soft” (1)

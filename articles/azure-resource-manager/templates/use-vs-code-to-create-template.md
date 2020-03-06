@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
 ms.openlocfilehash: 585e2773ea5d6af184f85e65b63d39b60d632146
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483596"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388126"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Usare Visual Studio Code per creare modelli di Azure Resource Manager
 
@@ -39,7 +39,7 @@ Parametri, variabili, funzioni, nomi ed espressioni sono codificati a colori com
 
 La visualizzazione struttura modello consente di spostarsi facilmente tra i modelli di grandi dimensioni.
 
-### <a name="intellisense"></a>Intellisense
+### <a name="intellisense"></a>IntelliSense
 
 L'estensione del modello di Gestione risorse conosce i possibili completamenti per i nomi di funzione, i parametri, le variabili e i riferimenti. I suggerimenti di IntelliSense compaiono durante la digitazione. Se si continua a digitare caratteri, l'elenco di membri (variabili, metodi e così via) viene filtrato in modo da includere solo i membri che contengono i caratteri tipizzati. Premere **Tab** o **invio** per inserire il membro selezionato.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554834"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361137"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 
@@ -38,7 +38,7 @@ Quando si completa la compilazione, il training e il test dell'app LUIS attiva, 
 
 Quando viene visualizzata la finestra popup, selezionare lo slot corretto: 
 
-* Staging
+* Gestione temporanea
 * Produzione 
 
 Con entrambi gli slot di pubblicazione è possibile disporre di due diverse versioni dell'app disponibili negli endpoint pubblicati o nella stessa versione in due endpoint diversi. 
@@ -57,7 +57,7 @@ Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea 
 
 Dopo aver selezionato lo slot, configurare le impostazioni di pubblicazione per:
 
-* Analisi dei sentimenti
+* Analisi del sentiment
 * Correzione ortografica-solo endpoint di stima V2
 * Priming del riconoscimento vocale 
 
@@ -69,7 +69,7 @@ Quando l'app viene pubblicata correttamente, viene visualizzata una notifica di 
 
 Se è necessario l'URL dell'endpoint, selezionare il collegamento. Per ottenere gli URL degli endpoint, è anche possibile scegliere **Gestisci** dal menu in alto e quindi selezionare **risorse di Azure** nel menu a sinistra. 
 
-## <a name="sentiment-analysis"></a>Analisi dei sentimenti
+## <a name="sentiment-analysis"></a>Analisi del sentiment
 
 <a name="enable-sentiment-analysis"></a>
 

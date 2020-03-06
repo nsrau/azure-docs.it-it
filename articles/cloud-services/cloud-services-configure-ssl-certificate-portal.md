@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386766"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385377"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurazione di SSL per un'applicazione in Azure
 
-La codifica SSL (Secure Socket Layer) è il metodo usato con maggiore frequenza per proteggere i dati inviati su Internet. Questa attività comune descrive come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL per proteggere l'applicazione.
+La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
 > [!NOTE]
 > Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service/configure-ssl-bindings.md).
@@ -76,7 +76,7 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
 
    Le autorizzazioni (attributo`permissionLevel`) possono essere impostate su uno dei seguenti valori:
 
-   | Valore di autorizzazione | Description |
+   | Valore di autorizzazione | Descrizione |
    | --- | --- |
    | limitedOrElevated |**(Predefinito)** Tutti i processi di ruolo possono accedere alla chiave privata. |
    | elevated |Solo i processi con autorizzazioni elevate possono accedere alla chiave privata. |
