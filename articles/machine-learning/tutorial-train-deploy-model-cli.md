@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 761011cba71c3907994616904cc854003abda7ee
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 70fa17e3e6f91bf393865cc979a8e47e4bf8687b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245142"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393340"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: eseguire il training e distribuire un modello dall'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,9 +35,9 @@ Si apprenderà a eseguire le operazioni seguenti:
 > * Distribuire il modello come servizio Web
 > * Assegnare punteggi ai dati tramite il servizio Web
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Per usare i comandi dell'interfaccia della riga di comando in questo documento dall' **ambiente locale**, è necessaria l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -128,7 +128,7 @@ La risposta da questo comando è simile al codice JSON seguente:
 
 Per ulteriori informazioni sull'utilizzo dei gruppi di risorse, vedere [AZ Group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
 
-## <a name="create-a-workspace"></a>Crea area di lavoro
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
 Per creare una nuova area di lavoro, usare il comando seguente. Sostituire `<workspace-name>` con il nome che si desidera utilizzare per questa area di lavoro. Sostituire `<resource-group-name>` con il nome del gruppo di risorse:
 
@@ -375,7 +375,7 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 ```
 
 > [!NOTE]
-> È possibile che venga visualizzato un avviso che indica che non è stato possibile controllare l'esistenza di LocalWebservice. È possibile ignorare questo problema, poiché non si distribuisce un servizio Web locale.
+> È possibile che venga visualizzato un avviso che indica che non è stato possibile controllare l'esistenza di LocalWebservice o che non è stato possibile creare il client docker. È possibile ignorare questo problema, poiché non si distribuisce un servizio Web locale.
 
 Questo comando distribuisce un nuovo servizio denominato `myservice`, usando la versione 1 del modello registrato in precedenza.
 

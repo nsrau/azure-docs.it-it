@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: bb8477165afcaafe6d03ccb3fe7764124aa166c6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7cbd2dfab7d0d9ee0df730eb15fa2c4b4952c85b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928663"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399190"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Driver MySQL e strumenti di gestione compatibili con Database di Azure per MySQL
 Questo articolo descrive i driver e gli strumenti di gestione compatibili con il Database di Azure per MySQL.
@@ -23,7 +23,7 @@ Database di Azure per MySQL usa la versione di community del database MySQL più
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
 | PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | Per la connessione PHP 7.0 con SSL MySQLi, aggiungere MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT nella stringa di connessione. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> Impostazione PDO: opzione ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` su false.|
 | .NET | Connettore Async MySQL per .NET | https://github.com/mysql-net/MySqlConnector <br> [Pacchetto di installazione di Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 e successive | 0.26.5 e precedenti | |
-| .NET | Connettore MySQL/NET | https://github.com/mysql/mysql-connector-net | 8.0, 7.0, 6.10 |  | Le connessioni potrebbero non riuscire in alcuni sistemi Windows non UTF8 a causa di un bug di codifica. |
+| .NET | Connettore MySQL/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7,0, 8,0 |  | Le connessioni potrebbero non riuscire in alcuni sistemi Windows non UTF8 a causa di un bug di codifica. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Pacchetto di installazione di NPM:<br> Eseguire `npm install mysql` da NPM | 2.15 | 2.14.1 e precedenti | |
 | Node.js | node-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
 | Go | Vai al driver MySQL | https://github.com/go-sql-driver/mysql/releases | 1,3, 1,4 | 1.2 e precedenti | Utilizzare `allowNativePasswords=true` nella stringa di connessione per la versione 1,3. La versione 1,4 contiene una correzione e `allowNativePasswords=true` non è più necessaria. |
@@ -48,7 +48,7 @@ Il vantaggio della compatibilità si estende anche agli strumenti di gestione de
 | Creare, aggiornare, leggere, scrivere, eliminare | X | X | X |
 | Connessione SSL | X | X | X |
 | Completamento automatico della query SQL | X | X |  |
-| Importare ed esportare dati | X | X | X | 
+| Importazione ed esportazione dati | X | X | X | 
 | Esportare in più formati | X | X | X |
 | Backup e ripristino |  | X |  |
 | Visualizzare i parametri del server | X | X | X |

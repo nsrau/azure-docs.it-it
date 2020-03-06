@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 5ce96796cbfdcefbaf5568ff199cba6a87f65e05
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359868"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329120"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Caricare un certificato di gestione dei servizi di Azure
 I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico fornito da Azure. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. 
@@ -29,9 +29,9 @@ Se servono altre informazioni sui certificati di Azure, compresa la creazione di
 
 È anche possibile usare [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per autenticare il codice client per scopi di automazione.
 
-**Nota:** Per eseguire qualsiasi operazione con i certificati di gestione, è necessario essere un coamministratore della sottoscrizione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=849300) su come aggiungere o rimuovere co-amministratori dal nuovo portale di Azure. 
+**Nota:** è necessario essere un co-amministratore della sottoscrizione per eseguire le operazioni con i certificati di gestione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=849300) su come aggiungere o rimuovere co-amministratori dal nuovo portale di Azure. 
 
-## <a name="upload-a-management-certificate"></a>Carica certificato di gestione
+## <a name="upload-a-management-certificate"></a>Creare un certificato di gestione
 Dopo aver creato un certificato di gestione (file con estensione cer solo con la chiave pubblica), è possibile caricarlo nel portale. Quando il certificato è disponibile nel portale, chiunque disponga di un certificato corrispondente (chiave privata) può connettersi tramite l'API di gestione e accedere alle risorse per la sottoscrizione associata.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
@@ -52,4 +52,4 @@ Dopo aver creato un certificato di gestione (file con estensione cer solo con la
     ![Impostazioni](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che è disponibile un certificato di gestione associato a una sottoscrizione, è possibile (dopo avere installato il certificato corrispondente in locale) connettersi a livello di codice all'[API REST del modello di distribuzione classico](/azure/#pivot=sdkstools) e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.
+Ora che è disponibile un certificato di gestione associato a una sottoscrizione, è possibile (dopo avere installato il certificato corrispondente in locale) connettersi a livello di codice all'[API REST del modello di distribuzione classico](/azure/?pivot=sdkstools) e automatizzare le varie risorse di Azure che possono essere associate a tale sottoscrizione.

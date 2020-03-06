@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18ef9d89a2366e6d4db3c3154bae0bd83e0386f1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: dbdc13b8c861c620bfdbaaf53c0901a51bb9ce08
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654756"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399210"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurare una connessione gateway VPN da rete virtuale a rete virtuale con il portale di Azure
 
@@ -75,16 +75,16 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
 
 - **Impostazioni della rete virtuale**
     - **Nome**: VNet1
-    - **Spazio di indirizzi**: 10.11.0.0/16
+    - **Spazio indirizzi**: 10.1.0.0/16
     - **Sottoscrizione**: selezionare la sottoscrizione che si vuole usare.
     - **Gruppo di risorse**: TestRG1
     - **Location**: Stati Uniti orientali
     - **Subnet**
         - **Nome**: frontend
-        - **Intervallo di indirizzi**: 10.11.0.0/24
+        - **Intervallo di indirizzi**: 10.1.0.0/24
     - **Subnet del gateway**:
         - **Nome**: *GatewaySubnet* è stato riempito automaticamente
-        - **Intervallo di indirizzi**: 10.11.255.0/27
+        - **Intervallo di indirizzi**: 10.1.255.0/27
 
 - **Impostazioni del gateway di rete virtuale**
     - **Nome**: VNet1GW
@@ -126,11 +126,6 @@ Se si ha già una rete virtuale, verificare che le impostazioni siano compatibil
 
 ### <a name="to-create-a-virtual-network"></a>Per creare una rete virtuale
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
-
-## <a name="add-additional-address-space-and-create-subnets"></a>Aggiungere altri spazi degli indirizzi e creare subnet
-Dopo aver creato la rete virtuale è possibile aggiungere altri spazi degli indirizzi e creare subnet.
-
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="create-a-virtual-network-gateway"></a>Creare un gateway di rete virtuale
 Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato. Se si crea questa configurazione come esercizio, vedere [Impostazioni di esempio](#example-settings).

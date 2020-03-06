@@ -4,15 +4,15 @@ description: Informazioni sulla funzione di sistema SQL StringToObject in Azure 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f09c27458a630386664f3f6579cfeee0721d8be9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349207"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296382"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
  Restituisce l'espressione convertita in un oggetto. Se l'espressione non può essere convertita, restituisce undefined.  
@@ -32,7 +32,7 @@ StringToObject(<str_expr>)
   
   Restituisce un'espressione di oggetto o non definita.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene illustrato il comportamento di `StringToObject` tra tipi diversi. 
   
@@ -103,6 +103,10 @@ SELECT
 ```json
 [{}]
 ```
+
+## <a name="remarks"></a>Osservazioni
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

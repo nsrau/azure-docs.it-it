@@ -4,18 +4,18 @@ description: Informazioni sull'inversione della funzione di sistema SQL in Azure
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8237918232bd8ba8edb2b8f71440ffd73a913334
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a22e1c8a5f4350bd2f966ee48f96368c648a4a1e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349554"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302169"
 ---
 # <a name="reverse-azure-cosmos-db"></a>Inverti (Azure Cosmos DB)
- Restituisce l'inverso di un valore stringa.  
+ Restituisce un valore stringa in ordine inverso.  
   
 ## <a name="syntax"></a>Sintassi
   
@@ -40,11 +40,15 @@ REVERSE(<str_expr>)
 SELECT REVERSE("Abc") AS reverse  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"reverse": "cbA"}]  
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

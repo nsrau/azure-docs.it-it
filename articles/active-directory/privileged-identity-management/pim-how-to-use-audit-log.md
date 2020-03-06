@@ -1,6 +1,6 @@
 ---
-title: Visualizzare il report di controllo per i ruoli Azure AD in PIM-Azure AD | Microsoft Docs
-description: Informazioni su come visualizzare la cronologia di controllo per i ruoli Azure AD in Azure AD Privileged Identity Management (PIM).
+title: Visualizzare il report del log di controllo per i ruoli Azure AD in Azure AD PIM | Microsoft Docs
+description: Informazioni su come visualizzare la cronologia dei log di controllo per i ruoli Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a2eccc02d13bf5a2dfc8bf3ceb7887e4962489
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 4b8aef68e0f61e6ca995fc2bb362d59aba73ead2
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498520"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329511"
 ---
-# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visualizzare la cronologia di controllo per i ruoli Azure AD in PIM
+# <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visualizzare la cronologia di controllo per i ruoli di Azure AD in Privileged Identity Management
 
 È possibile usare la cronologia di controllo Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni di ruolo e le attivazioni negli ultimi 30 giorni per tutti i ruoli con privilegi. Se si desidera visualizzare la cronologia di controllo completa dell'attività nell'organizzazione Azure Active Directory (Azure AD), tra cui l'amministratore, l'utente finale e l'attività di sincronizzazione, è possibile utilizzare i [report di sicurezza e attività di Azure Active Directory](../reports-monitoring/overview-reports.md).
 
@@ -32,7 +32,7 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Aprire **Azure AD Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
-    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+    [![Nuova versione dei ruoli Azure AD](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selezionare la scheda per la versione")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Nuova versione](#tab/new)
 
@@ -50,7 +50,7 @@ Il controllo delle risorse offre una visualizzazione di tutte le attività assoc
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
-    ![Elenco di controllo delle risorse con filtri](media/pim-how-to-use-audit-log/resource-audit.png)
+    ![Elenco di controllo delle risorse con filtri](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 ## <a name="view-my-audit"></a>Visualizzare Controllo personale
 
@@ -66,7 +66,7 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
-    ![Elenco di controllo per l'utente corrente](media/pim-how-to-use-audit-log/audit-time-span.png)
+    ![Elenco di controllo per l'utente corrente](media/azure-pim-resource-rbac/my-audit-time.png)
 
 # <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
@@ -84,7 +84,7 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
 
     A seconda della cronologia di controllo, viene visualizzato un istogramma con le attivazioni totali, le attivazioni massime al giorno e le attivazioni medie al giorno.
 
-    ![Cronologia di controllo dei ruoli della directory](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Nuova versione dei ruoli Azure AD](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Visualizzare la cronologia di controllo dei ruoli della directory")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
     Nella parte inferiore della pagina viene visualizzata una tabella con informazioni su ogni azione nella cronologia di controllo disponibile. Le colonne hanno i significati seguenti:
 
@@ -94,7 +94,7 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
     | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
     | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
     | Membro | Utente che sta attivando o assegnata a un ruolo. |
-    | Ruolo | Ruolo assegnato o attivato dall'utente. |
+    | Role | Ruolo assegnato o attivato dall'utente. |
     | Ragionamento | Testo immesso nel campo motivo durante l'attivazione. |
     | Scadenza | Quando un ruolo attivato scade. Si applica solo alle assegnazioni di ruolo idonee. |
 
@@ -113,6 +113,28 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
     ![Riquadro Aggiorna parametri grafico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
 1. Selezionare **fine** per visualizzare la cronologia di controllo filtrata.
+
+## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Ottieni motivo, responsabile approvazione e numero di ticket per gli eventi di approvazione
+
+1. Accedere al [portale di Azure](https://aad.portal.azure.com) con le autorizzazioni del ruolo amministratore del ruolo con privilegi e aprire Azure ad.
+1. Selezionare **log di controllo**.
+1. Usare il filtro del **servizio** per visualizzare solo gli eventi di controllo per il servizio Privileged Identity Management. Nella pagina **log di controllo** è possibile:
+
+    - Vedere la causa di un evento di controllo nella colonna **motivo dello stato** .
+    - Vedere il responsabile approvazione nella colonna **Iniziato da (attore)** per l'evento "Aggiungi membro a richiesta di ruolo approvato".
+
+    [![Nuova versione dei ruoli Azure AD](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrare il log di controllo per il servizio PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+
+1. Selezionare un evento del registro di controllo per visualizzare il numero del ticket nella scheda **attività** del riquadro **Dettagli** .
+  
+    [![Nuova versione dei ruoli Azure AD](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Controllare il numero di ticket per l'evento di controllo")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+
+1. È possibile visualizzare il richiedente (persona che attiva il ruolo) nella scheda **destinazioni** del riquadro **Dettagli** per un evento di controllo. Esistono due tipi di destinazione per i ruoli Azure AD:
+
+    - Role (**Type** = Role)
+    - Il richiedente (**tipo** = utente)
+
+In genere, l'evento del log di controllo immediatamente sopra l'evento di approvazione è un evento per "aggiunta di un membro al ruolo completato", in cui il richiedente è stato **avviato da (attore)** . Nella maggior parte dei casi non è necessario trovare il richiedente nella richiesta di approvazione dal punto di vista del controllo.
 
 ---
 

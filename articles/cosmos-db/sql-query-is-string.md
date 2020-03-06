@@ -1,18 +1,18 @@
 ---
-title: IS_STRING in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL IS_STRING in Azure Cosmos DB.
+title: IS_STRING nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL IS_STRING in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: e105394765ccd8a495a0b44b0c29e0c4c0b9f59a
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a717f343b0f46522a3ce2bb56c32e3f15998d777
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349794"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303767"
 ---
 # <a name="is_string-azure-cosmos-db"></a>IS_STRING (Azure Cosmos DB)
  Restituisce un valore booleano che indica se il tipo di espressione specificata è una stringa.  
@@ -47,11 +47,15 @@ SELECT
        IS_STRING({prop: "value"}.prop2) AS isStr7  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

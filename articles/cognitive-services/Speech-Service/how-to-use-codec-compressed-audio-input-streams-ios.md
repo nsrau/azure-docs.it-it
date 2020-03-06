@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5d65ac83fc8a41008971108c5b370c1d0416113b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805859"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331520"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Procedura: usare l'input audio compresso di codec con l'SDK di riconoscimento vocale in iOS
 
 L'API del **flusso di input audio compresso** dell'SDK vocale fornisce un modo per trasmettere audio compresso al servizio di riconoscimento vocale usando un flusso pull o push.
 
 > [!IMPORTANT]
-> Speech SDK versione 1.7.0 o successiva è necessario per lo streaming di audio compresso in iOS. È supportato anche per [ C++, C#e Java in Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md) e [Java in Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
+> Speech SDK versione 1.7.0 o successiva è necessario per lo streaming di audio compresso in iOS. È supportato anche per [ C++, C#e Java in Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8)](how-to-use-codec-compressed-audio-input-streams.md) e [Java in Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
 
 Per WAV/PCM, vedere la documentazione sulla voce principale. Al di fuori di WAV/PCM, sono supportati i formati di input compressi di codec seguenti:
 
@@ -66,5 +66,5 @@ Il frammento di codice successivo Mostra come i dati audio compressi possono ess
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 - [Vedere come riconoscere il riconoscimento vocale in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

@@ -3,12 +3,12 @@ title: Conformità con criteri di Azure
 description: Assegnare criteri predefiniti in criteri di Azure per controllare la conformità dei registri contenitori di Azure
 ms.topic: article
 ms.date: 02/26/2020
-ms.openlocfilehash: 331fcfaf72b1ad2022aa3edeefefa597e5bcfe17
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 012cd013de1c60fddcfb28e4bca96d761ada41ab
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925670"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330737"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Controllare la conformità dei registri contenitori di Azure con criteri di Azure
 
@@ -59,7 +59,7 @@ Quando una risorsa non è conforme, esistono molti motivi possibili. Per determi
 az policy assignment list --query "[?contains(displayName,'Container Registries')].{name:displayName, ID:id}" --output table
 ```
 
-Output di esempio:
+Esempio di output:
 
 ```
 Name                                                                                   ID
@@ -68,14 +68,14 @@ Name                                                                            
 [Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Eseguire quindi il comando [AZ Policy state list](/cli/azure/policy/state#az-policy-assignment-list) per restituire lo stato di conformità in formato JSON per tutte le risorse in un ID criterio specifico:
+Eseguire quindi il comando [AZ Policy state list](/cli/azure/policy/state#az-policy-state-list) per restituire lo stato di conformità in formato JSON per tutte le risorse in un ID criterio specifico:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-In alternativa, eseguire il comando [AZ Policy state list](/cli/azure/policy/state#az-policy-assignment-list) per restituire lo stato di conformità in formato JSON di una risorsa del registro di sistema specifica, ad esempio *Registro di sistema*:
+In alternativa, eseguire il comando [AZ Policy state list](/cli/azure/policy/state#az-policy-state-list) per restituire lo stato di conformità in formato JSON di una risorsa del registro di sistema specifica, ad esempio *Registro di sistema*:
 
 ```azurecli
 az policy state list \

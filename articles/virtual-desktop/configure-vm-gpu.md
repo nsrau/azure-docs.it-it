@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719756"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384818"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura accelerazione GPU (Graphics Processing Unit) per desktop virtuale Windows
 
@@ -82,7 +82,7 @@ Per verificare che le app stiano usando la GPU per il rendering, provare a esegu
 Per verificare che Desktop remoto usi la codifica con accelerazione GPU:
 
 1. Connettersi al desktop della macchina virtuale usando il client desktop virtuale di Windows.
-2. Avviare il Visualizzatore eventi e passare al nodo seguente: **registri applicazioni e servizi** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **operativo**
+2. Avviare il Visualizzatore eventi e passare al nodo seguente: **registri applicazioni e servizi** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **operativo**
 3. Per determinare se viene usata la codifica con accelerazione GPU, cercare l'ID evento 170. Se viene visualizzato "AVC hardware encoder Enabled: 1", viene usata la codifica GPU.
 4. Per determinare se viene utilizzata la modalità AVC 444, cercare l'ID evento 162. Se viene visualizzato "AVC disponibile: 1 profilo iniziale: 2048", viene usato AVC 444.
 

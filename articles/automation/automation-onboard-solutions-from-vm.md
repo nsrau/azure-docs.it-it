@@ -2,33 +2,37 @@
 title: Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 description: Informazioni su come eseguire l'onboarding in una macchina virtuale di Azure delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario, che fanno parte di Automazione di Azure.
 services: automation
-ms.date: 03/20/2019
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 93222b1b38fa37ec577da6377fdd9aff3fe12018
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421830"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299528"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 
 Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Esistono diversi modi per eseguire l'onboarding delle macchine virtuali. È possibile eseguire l'onboarding della soluzione da una macchina virtuale, [dall'account di Automazione](automation-onboard-solutions-from-automation-account.md), [dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md) o tramite un [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni da una macchina virtuale di Azure.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Abilitare le soluzioni
 
-Passare a una macchina virtuale esistente. In **Operazioni** selezionare **Gestione degli aggiornamenti**, **Inventario** o **Rilevamento modifiche**. La macchina virtuale può esistere in qualsiasi area indipendentemente dalla posizione dell'account di automazione. Quando si carica una soluzione da una macchina virtuale, è necessario avere l'autorizzazione `Microsoft.OperationalInsights/workspaces/read` per determinare se la macchina virtuale viene caricata in un'area di lavoro. Per informazioni sulle autorizzazioni aggiuntive necessarie in generale, vedere [autorizzazioni necessarie per l'onboarding dei computer](automation-role-based-access-control.md#onboarding).
+Prima di tutto, abilitare una o tutte e tre le soluzioni nella macchina virtuale:
 
-Per abilitare la soluzione solo per la macchina virtuale, assicurarsi che sia selezionata l'opzione **Enable for this VM** (Abilita per questa macchina virtuale). Per eseguire l'onboarding di più macchine virtuali nella soluzione, selezionare **Enable for VMs in this subscription** (Abilita per le macchine virtuali in questa sottoscrizione) e quindi selezionare **Click to select machines to enable** (Fare clic per selezionare le macchine virtuali da abilitare). Per informazioni su come eseguire l'onboarding di più macchine virtuali contemporaneamente, vedere [Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario](automation-onboard-solutions-from-automation-account.md).
+1. Nel [portale di Azure](https://portal.azure.com), nel riquadro a sinistra selezionare **macchine virtuali** o cercare e selezionare **macchine virtuali** dalla **Home** page.
+2. Selezionare la macchina virtuale per cui si vuole abilitare una soluzione.
+3. Nella pagina VM, in **operazioni**, selezionare **Gestione aggiornamenti**, **inventario**o **rilevamento modifiche**. La macchina virtuale può esistere in qualsiasi area indipendentemente dalla posizione dell'account di automazione. Quando si carica una soluzione da una macchina virtuale, è necessario avere l'autorizzazione `Microsoft.OperationalInsights/workspaces/read` per determinare se la macchina virtuale è caricata in un'area di lavoro. Per informazioni sulle autorizzazioni aggiuntive necessarie, vedere [autorizzazioni necessarie per l'onboarding dei computer](automation-role-based-access-control.md#onboarding).
+
+Per informazioni su come eseguire l'onboarding di più macchine virtuali contemporaneamente, vedere [Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario](automation-onboard-solutions-from-automation-account.md).
 
 Selezionare l'area di lavoro Azure Log Analytics e l'account di Automazione, quindi selezionare **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
-![Eseguire l'onboarding della soluzione Gestione aggiornamenti](media/automation-onboard-solutions-from-vm/onboard-solution.png)
+![Eseguire l'onboarding della soluzione Gestione aggiornamenti](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
 Passare alle altre soluzioni e quindi selezionare **Abilita**. Gli elenchi a discesa Log Analytics area di lavoro e account di automazione sono disabilitati perché queste soluzioni usano la stessa area di lavoro e l'account di automazione della soluzione precedentemente abilitata.
 
@@ -37,7 +41,7 @@ Passare alle altre soluzioni e quindi selezionare **Abilita**. Gli elenchi a dis
 
 ## <a name="scope-configuration"></a>Configurazione dell'ambito
 
-Ogni soluzione usa una configurazione dell'ambito nell'area di lavoro per definire i computer di destinazione della soluzione. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della soluzione a computer specifici. Per accedere alle configurazioni dell'ambito, nell'account di Automazione in **RISORSE CORRELATE** selezionare **Area di lavoro**. Nell'area di lavoro in **ORIGINI DATI DELL'AREA DI LAVORO** selezionare **Configurazioni ambito**.
+Ogni soluzione usa una configurazione dell'ambito nell'area di lavoro per definire i computer di destinazione della soluzione. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della soluzione a computer specifici. Per accedere alle configurazioni dell'ambito, nell'account di automazione in **risorse correlate**selezionare **area di lavoro**. Nell'area di lavoro in **origini dati dell'area di lavoro**selezionare **configurazioni ambito**.
 
 Se l'area di lavoro selezionata non include già le soluzioni Gestione aggiornamenti o Rilevamento modifiche, vengono create le configurazioni di ambito seguenti:
 
@@ -55,7 +59,7 @@ Quando un computer viene aggiunto alle soluzioni Gestione aggiornamenti, Rilevam
 
 Passa all'area di lavoro. In **Generale** selezionare **Ricerche salvate**. Le due ricerche salvate usate da queste soluzioni sono indicate nella tabella seguente:
 
-|Nome     |Categoria  |Alias  |
+|Nome     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Aggiornamenti        | Updates__MicrosoftDefaultComputerGroup         |
@@ -91,15 +95,15 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
 Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 
-* Aggiornare le pianificazioni - Ogni elemento avrà un nome corrispondente alle distribuzioni di aggiornamenti create.
+* Pianificazioni degli aggiornamenti: ciascuna di esse avrà nomi corrispondenti alle distribuzioni di aggiornamenti create.
 
-* Gruppi di ruoli di lavoro ibridi creati per la soluzione - Ogni elemento verrà denominato in modo analogo a machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
+* Gruppi di lavoro ibridi creati per la soluzione. ognuno verrà denominato in modo analogo a machine1. contoso. com_9ceb8108-26C9-4051-B6B3-227600d715c8).
 
 Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di minore attività, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
-* Variabili
+* variables
 
 In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro Log Analytics. Nell'area di lavoro selezionare **account di automazione** in **risorse correlate**. Nella pagina account di automazione selezionare **Scollega account**.
 
@@ -115,5 +119,7 @@ Per rimuovere una macchina virtuale per Gestione aggiornamenti:
 Continuare con le esercitazioni sulle soluzioni per informazioni su come usarle:
 
 * [Esercitazione - Gestire gli aggiornamenti per la VM](automation-tutorial-update-management.md)
+
 * [Esercitazione - Identificare il software in una VM](automation-tutorial-installed-software.md)
+
 * [Esercitazione - Risolvere i problemi delle modifiche di una VM](automation-tutorial-troubleshoot-changes.md)

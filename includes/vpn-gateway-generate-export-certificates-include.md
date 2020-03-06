@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 89fa06dda418f328b3bc07aada49aa347e35220a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1e18223736964b0327a4c8f6ddb73ddb4f58889a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182234"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304967"
 ---
 ## <a name="rootcert"></a>Creare un certificato radice autofirmato
 
@@ -28,6 +28,7 @@ Usare il cmdlet New-SelfSignedCertificate per creare un certificato radice autof
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
+ 3. Lasciare aperta la console di PowerShell se si desidera creare un certificato client subito dopo la creazione del certificato radice.
 
 ## <a name="clientcert"></a>Generazione di un certificato client
 
@@ -37,7 +38,7 @@ I passaggi seguenti illustrano come generare un certificato client da un certifi
 
 Gli esempi usano il cmdlet New-SelfSignedCertificate per generare un certificato client con scadenza in un anno. Per informazioni aggiuntive sui parametri, ad esempio l'impostazione di un valore di scadenza diverso per i certificati client, vedere [New SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-### <a name="example-1"></a>Esempio 1
+### <a name="example-1---powershell-console-session-still-open"></a>Esempio 1: sessione della console di PowerShell ancora aperta
 
 Usare questo esempio se dopo aver creato il certificato radice autofirmato non si è chiusa la console di PowerShell. Questo esempio continua dalla sezione precedente e usa la variabile dichiarata "$cert". Se è stata chiusa la console di PowerShell dopo aver creato il certificato radice autofirmato o si stanno creando i certificati client aggiuntivi in una nuova sessione della console di PowerShell, attenersi alla procedura nell'[esempio 2](#ex2).
 
@@ -51,7 +52,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="ex2"></a>Esempio 2
+### <a name="ex2"></a>Esempio 2: nuova sessione della console di PowerShell
 
 Se si creano certificati client aggiuntivi o non si usa la stessa sessione di PowerShell utilizzata per creare il certificato radice autofirmato, usare la procedura seguente:
 

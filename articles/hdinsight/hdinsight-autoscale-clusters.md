@@ -7,21 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/21/2020
-ms.openlocfilehash: 6eb8f86d7bfa1c140c6422753840ded8a37ce3c4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.date: 03/05/2020
+ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616080"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399707"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
 > [!Important]
-> La funzionalità di scalabilità automatica di Azure HDInsight è stata rilasciata per la disponibilità generale il 7 novembre 2019 per i cluster Spark e Hadoop e i miglioramenti inclusi non sono disponibili nella versione di anteprima della funzionalità. Se è stato creato un cluster Spark prima del 7 novembre 2019 e si vuole usare la funzionalità di scalabilità automatica nel cluster, il percorso consigliato consiste nel creare un nuovo cluster e abilitare la scalabilità automatica nel nuovo cluster. 
+> La funzionalità di scalabilità automatica di Azure HDInsight è stata rilasciata per la disponibilità generale il 7 novembre 2019 per i cluster Spark e Hadoop e i miglioramenti inclusi non sono disponibili nella versione di anteprima della funzionalità. Se è stato creato un cluster Spark prima del 7 novembre 2019 e si vuole usare la funzionalità di scalabilità automatica nel cluster, il percorso consigliato consiste nel creare un nuovo cluster e abilitare la scalabilità automatica nel nuovo cluster.
 >
->La scalabilità automatica per i cluster Interactive query (LLAP) e HBase è ancora in anteprima. La scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive query e HBase. 
-
+> La scalabilità automatica per i cluster Interactive query (LLAP) e HBase è ancora in anteprima. La scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive query e HBase.
 
 La funzionalità di scalabilità automatica del cluster di Azure HDInsight consente di ridimensionare automaticamente il numero di nodi del ruolo di lavoro in un cluster. Attualmente non è possibile ridimensionare altri tipi di nodi nel cluster.  Durante la creazione di un nuovo cluster HDInsight è possibile impostare un numero minimo e massimo di nodi del ruolo di lavoro. La scalabilità automatica monitora quindi i requisiti delle risorse del carico di analisi e ridimensiona il numero di nodi di lavoro verso l'alto o verso il basso. Non sono previsti costi aggiuntivi per questa funzionalità.
 
@@ -59,25 +58,20 @@ La funzionalità di scalabilità automatica monitora continuamente il cluster e 
 
 Le metriche riportate sopra vengono controllate ogni 60 secondi. La scalabilità automatica semplifica le decisioni di scalabilità verticale e verticale in base a queste metriche.
 
-### <a name="load-based-cluster-scale-up"></a>Scalabilità verticale del cluster basato sul carico
+### <a name="load-based-scale-conditions"></a>Condizioni di scalabilità basata sul carico
 
-Quando vengono rilevate le condizioni seguenti, la scalabilità automatica emette una richiesta di scalabilità verticale:
+Quando vengono rilevate le condizioni seguenti, la scalabilità automatica emette una richiesta di scalabilità:
 
-* Il totale della CPU in sospeso è maggiore del totale della CPU disponibile per più di 3 minuti.
-* Il totale della memoria in sospeso è maggiore della memoria totale libera per più di 3 minuti.
+|Aumentare|Ridimensionamento|
+|---|---|
+|Il totale della CPU in sospeso è maggiore del totale della CPU disponibile per più di 3 minuti.|Il totale CPU in sospeso è minore del totale CPU disponibile per più di 10 minuti.|
+|Il totale della memoria in sospeso è maggiore della memoria totale libera per più di 3 minuti.|Il totale memoria in sospeso è minore del totale memoria disponibile per più di 10 minuti.|
 
-Il servizio HDInsight calcola il numero di nuovi nodi di lavoro necessari per soddisfare i requisiti di CPU e memoria correnti, quindi emette una richiesta di scalabilità verticale per aggiungere il numero di nodi necessario.
+Per la scalabilità verticale, il servizio HDInsight calcola il numero di nuovi nodi di lavoro necessari per soddisfare i requisiti di memoria e CPU correnti, quindi emette una richiesta di scalabilità verticale per aggiungere il numero di nodi necessario.
 
-### <a name="load-based-cluster-scale-down"></a>Ridimensionamento del cluster basato sul carico
+Per il ridimensionamento, in base al numero di contenitori AM per nodo e ai requisiti di memoria e CPU correnti, la scalabilità automatica invia una richiesta di rimozione di un determinato numero di nodi. Il servizio rileva anche quali nodi sono candidati per la rimozione in base all'esecuzione del processo corrente. L'operazione di riduzione delle prestazioni consente innanzitutto di rimuovere le autorizzazioni dei nodi e quindi di rimuoverli dal cluster.
 
-Quando vengono rilevate le condizioni seguenti, la scalabilità automatica emette una richiesta di scalabilità verticale:
-
-* Il totale CPU in sospeso è minore del totale CPU disponibile per più di 10 minuti.
-* Il totale memoria in sospeso è minore del totale memoria disponibile per più di 10 minuti.
-
-In base al numero di contenitori AM per nodo e ai requisiti di memoria e CPU correnti, la scalabilità automatica emette una richiesta di rimozione di un determinato numero di nodi. Il servizio rileva anche quali nodi sono candidati per la rimozione in base all'esecuzione del processo corrente. L'operazione di riduzione delle prestazioni consente innanzitutto di rimuovere le autorizzazioni dei nodi e quindi di rimuoverli dal cluster.
-
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 
@@ -118,7 +112,7 @@ Per il ridimensionamento basato sul carico e sulla pianificazione, selezionare i
 
 ![Abilitare le dimensioni del nodo di scalabilità automatica basato su pianificazione del nodo di lavoro](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
-La sottoscrizione in uso ha una quota di capacità per ogni area. Il numero totale di core dei nodi head combinato con il numero massimo di nodi del ruolo di lavoro non può superare la quota di capacità. Questa quota tuttavia è un limite flessibile, in quanto è sempre possibile creare un ticket di supporto per aumentarla facilmente.
+La sottoscrizione in uso ha una quota di capacità per ogni area. Il numero totale di core dei nodi head combinati con il numero massimo di nodi di lavoro non può superare la quota di capacità. Questa quota tuttavia è un limite flessibile, in quanto è sempre possibile creare un ticket di supporto per aumentarla facilmente.
 
 > [!Note]  
 > Se si supera il limite di quota di core totale, verrà visualizzato un messaggio di errore che indica che il nodo massimo ha superato i core disponibili in questa area. scegliere un'altra area oppure contattare il supporto tecnico per aumentare la quota.

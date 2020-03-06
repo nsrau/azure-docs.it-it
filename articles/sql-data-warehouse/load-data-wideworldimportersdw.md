@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 8e58c315ddc171ba19e0bce1cea4f694691f946e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d8242731466df9b80a6a6c3f0e340d6deb76e7d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193662"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304039"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Esercitazione: caricare dati nel pool SQL di Azure sinapsi Analytics
 
@@ -119,7 +119,7 @@ Il servizio Azure sinapsi Analytics crea un firewall a livello di server che imp
 
 Il nome completo del server è quello utilizzato per la connessione al server. Passare alla risorsa del pool SQL nel portale di Azure e visualizzare il nome completo in **nome server**.
 
-![Nome del server](media/load-data-wideworldimportersdw/find-server-name.png) 
+![nome server](media/load-data-wideworldimportersdw/find-server-name.png) 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Connettersi al server come amministratore del server
 
@@ -133,8 +133,8 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
     | ------------ | --------------- | ----------- | 
     | Tipo di server | Motore di database | Questo valore è obbligatorio |
     | Nome server | Nome completo del server | Ad esempio, **sqlpoolservername.database.Windows.NET** è un nome completo del server. |
-    | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-    | Login | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
+    | Autenticazione | autenticazione SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+    | Accesso | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
     | Password | Password per l'account amministratore del server | Si tratta della password specificata al momento della creazione del server. |
 
     ![Connetti al server](media/load-data-wideworldimportersdw/connect-to-server.png)

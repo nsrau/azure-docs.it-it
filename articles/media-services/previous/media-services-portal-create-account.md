@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 234c8be8c696ca7381b8860680d072e84820d424
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1904ed9707859f0d00bca3b6e3aef90d1346cea5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431970"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331503"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Creare un account di Servizi multimediali usando il portale di Azure
 
@@ -46,13 +46,9 @@ Per completare l'esercitazione, è necessario un account Azure. Per informazioni
 I passaggi descritti in questa sezione illustrano come creare un account Servizi multimediali di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic su **+Nuovo** > **Web e dispositivi mobili** > **Servizi multimediali**.
-   
-    ![Creare Servizi multimediali](./media/media-services-create-account/media-services-new1.png)
+2. Fare clic su **+ Crea una risorsa** > **media** > **servizi multimediali**.
 3. In **CREARE UN ACCOUNT DEL SERVIZIO MULTIMEDIALE** immettere i valori richiesti.
-   
-    ![Creare Servizi multimediali](./media/media-services-create-account/media-services-new3.png)
-   
+
    1. In **Nome account**immettere il nome del nuovo account di AMS. Un nome di account di Servizi multimediali deve essere composto solo da lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
    2. In Sottoscrizione selezionare una delle diverse sottoscrizioni di Azure per le quali è disponibile l'accesso.
    3. In **Gruppo di risorse**selezionare la risorsa nuova o esistente.  Un gruppo di risorse è una raccolta di risorse che condividono il ciclo di vita, le autorizzazioni e i criteri. Fare clic [qui](../../azure-resource-manager/management/overview.md#resource-groups) per altre informazioni.
@@ -72,7 +68,6 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 Selezionare **Impostazioni** a sinistra del portale per gestire l'account AMS, ad esempio connettersi all'API AMS a livello di codice, caricare video, codificare asset, configurare la protezione del contenuto e monitorare lo stato del processo. Da **Impostazioni** passare a uno dei pannelli disponibili, ad esempio **Accesso all'API**, **Asset**, **Processi** e **Protezione del contenuto**.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora è possibile caricare i file nell'account AMS. Per altre informazioni, vedere [Upload files](media-services-portal-upload-files.md)(Caricare file).
@@ -82,6 +77,6 @@ Se si prevede di accedere all'API AMS a livello di codice, vedere [Accedere all'
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

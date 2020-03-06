@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
-ms.openlocfilehash: f8b3e541dfd55bbd613af2791329a08402cf8670
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581870"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304959"
 ---
 ## <a name="configure-the-data-source"></a>Configurare l'origine dati
 
@@ -29,7 +29,7 @@ Per configurare Esplora dati di Azure come origine dati per lo strumento dashboa
 
 1. Per creare l'entità servizio, seguire le istruzioni riportate nella [documentazione del portale di Azure](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-    1. Nella sezione [Assegnare l'applicazione a un ruolo](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) assegnare il tipo di ruolo di **Lettore** al cluster di Esplora dati di Azure.
+    1. Nella sezione [Assegnare l'applicazione a un ruolo](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) assegnare il tipo di ruolo di **Lettore** al cluster di Esplora dati di Azure.
 
     1. Nella sezione [ottenere i valori per l'accesso](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) , copiare i tre valori di proprietà descritti nei passaggi: **ID directory** (ID tenant), **ID applicazione**e **password**.
 
@@ -81,7 +81,7 @@ Dopo aver creato l'entità servizio, aggiungerla al ruolo di *visualizzatori* ne
 
 1. Nella sezione **Panoramica** selezionare il database con i dati di esempio StormEvents.
 
-    ![Selezionare il database](media/data-explorer-configure-data-source/select-database.png)
+    ![Seleziona database](media/data-explorer-configure-data-source/select-database.png)
 
 1. Selezionare **Autorizzazioni** quindi**Aggiungi**.
 

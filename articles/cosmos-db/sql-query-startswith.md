@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a7822425f17d6e121dfcb20d8766f0b3bc7032a2
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9ed49c067946186f8b79f67bad0a460113eacb73
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349306"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295709"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
  Restituisce un valore booleano che indica se la prima espressione stringa inizia con il secondo.  
@@ -29,7 +29,7 @@ STARTSWITH(<str_expr1>, <str_expr2>)
    Espressione stringa.
   
 *str_expr2*  
-   Espressione stringa da confrontare con l'inizio di *str_expr1*.
+   Espressione stringa da confrontare con l'inizio della *str_expr1*.
 
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -48,6 +48,10 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 ```json
 [{"s1": false, "s2": true}]  
 ```  
+
+## <a name="remarks"></a>Osservazioni
+
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

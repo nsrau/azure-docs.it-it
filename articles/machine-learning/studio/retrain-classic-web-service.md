@@ -10,18 +10,18 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: eac7674ae4a88621a803c70bd55a88e65b2cb7e9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: caf2437b4a4853bc29f094d082a4ea15d2f7a3c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838682"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388473"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ripetere il training e distribuire un servizio Web classico in studio (classico)
 
 La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. In questo articolo viene illustrato come ripetere il training di un servizio Web classico di studio (classico). Per una guida su come ripetere il training di un nuovo servizio Web di studio (classico), [vedere questo articolo sulle procedure.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questo articolo presuppone che si disponga già di un esperimento di ripetizione del training e di un esperimento predittivo. La procedura è illustrata in [Ripetere il training e distribuire un modello di Machine Learning](/azure/machine-learning/studio/retrain-machine-learning-model). Tuttavia, invece di distribuire il modello di Machine Learning come nuovo servizio Web, si distribuirà l'esperimento predittivo come servizio Web classico.
      
@@ -52,19 +52,6 @@ Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 ## <a name="update-the-added-endpoints-trained-model"></a>Aggiornare il modello con training dell'endpoint aggiunto
 
 ### <a name="retrieve-patch-url"></a>Recuperare l'URL PATCH
-
-### <a name="option-1-programmatically"></a>Opzione 1: a livello di codice
-
-Per ottenere l'URL PATCH corretto a livello di codice, seguire questa procedura:
-
-1. Eseguire il codice di esempio [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
-1. Dall'output di AddEndpoint, trovare il valore *HelpLocation* e copiare l'URL.
-
-   ![HelpLocation nell'output dell'esempio addEndpoint.](./media/retrain-classic/addEndpoint-output.png)
-1. Incollare l'URL in un browser per passare a una pagina contenente i collegamenti della guida per il servizio Web.
-1. Fare clic sul collegamento **Aggiorna risorsa** per aprire la pagina della guida per l'applicazione di patch.
-
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Opzione 2: usare il portale dei servizi Web Azure Machine Learning
 
 Seguire questa procedura per ottenere l'URL PATCH corretto tramite il portale Web:
 
@@ -101,8 +88,8 @@ Il codice di esempio seguente mostra come usare *BaseLocation*, *RelativeLocatio
                     Location = new AzureBlobDataReference()
                     {
                         BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-                        RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
+                        RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
+                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
                     }
                 }
             }

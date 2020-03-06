@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 45ce8a808efc5b882c90f99875fdde661e292774
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fac9cba28f90f3642de660ed7d070b165c06bb2e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205977"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303257"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza del contenitore nel centro sicurezza
 
@@ -37,6 +37,8 @@ Per istruzioni su come usare queste funzionalità, vedere [monitoraggio della si
 Per monitorare la Container Registry di Azure basata su ARM, assicurarsi di essere al livello standard del Centro sicurezza (vedere i [prezzi](/azure/security-center/security-center-pricing)). Abilitare quindi il bundle facoltativo dei registri contenitori. Quando viene effettuato il push di una nuova immagine, il Centro sicurezza esegue l'analisi dell'immagine usando uno scanner del fornitore leader del settore per l'analisi delle vulnerabilità, Qualys.
 
 Quando vengono rilevati problemi, da Qualys o dal centro sicurezza, si riceverà una notifica nel dashboard del Centro sicurezza. Per ogni vulnerabilità, il Centro sicurezza offre raccomandazioni di utilità pratica, oltre a una classificazione di gravità e indicazioni su come correggere il problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza per i contenitori, vedere l' [elenco di riferimento di raccomandazioni](recommendations-reference.md#recs-containers).
+
+Il Centro sicurezza filtra e classifica i risultati dallo scanner. Quando un'immagine è integra, il Centro sicurezza le contrassegna come tali. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Inviando notifiche solo quando si verificano problemi, il Centro sicurezza riduce il rischio di avvisi indesiderati informativi.
 
 ## <a name="environment-hardening"></a>Protezione avanzata dell'ambiente
 
@@ -61,11 +63,11 @@ AKS fornisce controlli di sicurezza e visibilità sul comportamento di sicurezza
 
 Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurezza che potrebbero essere visualizzate per questa funzionalità, vedere la sezione relativa ai [contenitori](recommendations-reference.md#recs-containers) della tabella di riferimento per le raccomandazioni.
 
-## <a name="run-time-protection---real-time-threat-protection"></a>Protezione in fase di esecuzione-protezione dalle minacce in tempo reale
+## <a name="run-time-protection---real-time-threat-detection"></a>Protezione in fase di esecuzione-rilevamento delle minacce in tempo reale
 
-Il Centro sicurezza offre protezione dalle minacce in tempo reale per gli ambienti in contenitori e genera avvisi per le attività sospette. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
+Il Centro sicurezza fornisce il rilevamento delle minacce in tempo reale per gli ambienti in contenitori e genera avvisi per le attività sospette. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
 
-Le minacce vengono rilevate a livello di host e del cluster AKS. Per informazioni dettagliate, vedere la pagina relativa alla [protezione dalle minacce per i contenitori di Azure](threat-protection.md#azure-containers).
+Le minacce vengono rilevate a livello di host e del cluster AKS. Per informazioni dettagliate, vedere [rilevamento delle minacce per i contenitori di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="container-security-faq"></a>Domande frequenti sulla sicurezza del contenitore
@@ -73,16 +75,18 @@ Le minacce vengono rilevate a livello di host e del cluster AKS. Per informazion
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Quali tipi di immagini possono essere analizzati dal centro sicurezza di Azure?
 Il Centro sicurezza analizza le immagini basate sul sistema operativo Linux che forniscono l'accesso alla Shell. 
 
-Lo scanner Qualys non supporta immagini estremamente minimaliste come immagini [Scratch di Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo l'applicazione e le relative dipendenze di runtime (senza gestione pacchetti, Shell o sistema operativo).
+Lo scanner Qualys non supporta immagini estremamente minimaliste come immagini [Scratch di Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo l'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo.
 
-### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Come si analizza il Centro sicurezza di Azure per analizzare un'immagine?
-L'immagine viene estratta dal registro di sistema. Viene quindi eseguito in una sandbox isolata con lo scanner Qualys che estrae un elenco di vulnerabilità note.
+### <a name="how-does-azure-security-center-scan-an-image"></a>In che modo il Centro sicurezza di Azure esegue l'analisi di un'immagine?
+Viene eseguito il pull dell'immagine dal registro di sistema. Viene quindi eseguito in una sandbox isolata con lo scanner Qualys che estrae un elenco di vulnerabilità note.
+
+Il Centro sicurezza filtra e classifica i risultati dallo scanner. Quando un'immagine è integra, il Centro sicurezza le contrassegna come tali. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Inviando notifiche solo quando si verificano problemi, il Centro sicurezza riduce il rischio di avvisi indesiderati informativi.
 
 ### <a name="how-often-does-azure-security-center-scan-my-images"></a>Con quale frequenza il Centro sicurezza di Azure analizza le immagini?
 Le analisi delle immagini vengono attivate a ogni push.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>È possibile ottenere i risultati dell'analisi tramite l'API REST?
-Sì. I risultati si trovano nell' [API REST delle sottovalutazioni](/rest/api/securitycenter/subassessments/list/). Inoltre, è possibile usare Azure Resource Graph (ARG), l'API di tipo kusto per tutte le risorse: una query può recuperare un'analisi specifica.
+Sì. I risultati si trovano nell' [API REST delle sottovalutazioni](/rest/api/securitycenter/subassessments/list/). È anche possibile usare Azure Resource Graph (ARG), l'API simile a kusto per tutte le risorse: una query può recuperare un'analisi specifica.
  
 
 ## <a name="next-steps"></a>Passaggi successivi

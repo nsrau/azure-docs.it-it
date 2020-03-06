@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895786"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362764"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per macchine virtuali VMware/server fisici
 
@@ -95,7 +95,7 @@ I limiti indicano il numero di failover supportati da Site Recovery entro un'ora
 
 Cosa si intende per conformità? Per avviare una macchina virtuale di Azure, Azure richiede che alcuni driver siano in stato di avvio avvio e che i servizi come DHCP siano impostati per l'avvio automatico.
 - I computer che soddisfano queste impostazioni avranno già le impostazioni.
-- Per i computer che eseguono Windows, è possibile verificare in modo proattivo la conformità e renderli conformi, se necessario. [Altre informazioni](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010)
+- Per i computer che eseguono Windows, è possibile verificare in modo proattivo la conformità e renderli conformi, se necessario. [Altre informazioni](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
 - I computer Linux vengono resi conformi solo al momento del failover.
 
 **Il computer è conforme ad Azure?** | **Limiti delle macchine virtuali di Azure (failover del disco gestito)**

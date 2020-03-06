@@ -5,49 +5,56 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: 1f743384f467e4559412fa1a46d48011b568d249
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 03/05/2020
+ms.openlocfilehash: a0330ae8e69691f431756e6ea9a3027e1ac07b1c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191558"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303376"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
-A volte, le app per la logica e gli account di integrazione devono accedere alle risorse protette, ad esempio macchine virtuali (VM) e altri sistemi o servizi, all'interno di una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per configurare questo accesso, è possibile [creare un *ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) in cui è possibile eseguire le app per la logica e creare gli account di integrazione.
+A volte, le app per la logica e gli account di integrazione devono accedere alle risorse protette, ad esempio macchine virtuali (VM) e altri sistemi o servizi, all'interno di una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per configurare questo accesso, è possibile [creare un *ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). ISE è un'istanza isolata del servizio app per la logica che usa risorse dedicate e viene eseguita separatamente dal servizio "globale" di app per la logica multi-tenant.
 
-Quando si crea un ISE, Azure *inserisce* tale ISE nella rete virtuale di Azure, che quindi distribuisce un'istanza privata e isolata del servizio app per la logica nella rete virtuale di Azure. Questa istanza privata usa risorse dedicate, ad esempio l'archiviazione, e viene eseguita separatamente dal servizio pubblico di app per la logica multi-tenant "globale". La separazione dell'istanza privata isolata e dell'istanza globale pubblica consente anche di ridurre l'impatto che altri tenant di Azure potrebbero avere sulle prestazioni delle app, nota anche come [effetto "vicini rumorosi"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE fornisce anche indirizzi IP statici. Questi indirizzi IP sono distinti dagli indirizzi IP statici condivisi dalle app per la logica nel servizio pubblico multi-tenant.
+L'esecuzione di app per la logica nell'istanza isolata separata consente di ridurre l'impatto che altri tenant di Azure potrebbero avere sulle prestazioni delle app, noto anche come [effetto "vicini rumorosi"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE offre inoltre i vantaggi seguenti:
 
-Dopo aver creato l'ISE, quando si crea l'app per la logica o l'account di integrazione, è possibile selezionare il percorso di ISE come app per la logica o l'account di integrazione:
+* Indirizzi IP statici distinti, separati dagli indirizzi IP statici condivisi dalle app per la logica nel servizio multi-tenant. È anche possibile configurare un unico indirizzo IP in uscita pubblico, statico e prevedibile per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall in questi sistemi di destinazione per ogni ISE.
+
+* Aumento dei limiti di durata dell'esecuzione, conservazione dell'archiviazione, velocità effettiva, timeout di richieste e risposte HTTP, dimensioni dei messaggi e richieste di connettori personalizzati. Per altre informazioni, vedere [limiti e configurazione per app per la logica di Azure](logic-apps-limits-and-config.md).
+
+Quando si crea un ISE, Azure *inserisce* o distribuisce ISE nella rete virtuale di Azure. È quindi possibile usare questo ISE come percorso per le app per la logica e gli account di integrazione che richiedono l'accesso.
 
 ![Selezionare l'ambiente del servizio di integrazione](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-L'app per la logica ora può accedere direttamente ai sistemi interni o connessi alla rete virtuale usando uno di questi elementi, che vengono eseguiti all'interno dello stesso ISE dell'app per la logica:
+Le app per la logica possono accedere alle risorse che si trovano all'interno o connesse alla rete virtuale usando questi elementi, eseguiti nello stesso ISE delle app per la logica:
 
-* Un connettore con etichetta **ISE**per quel sistema
 * Un trigger o un'azione incorporata con etichetta **Core**, ad esempio il trigger o l'azione http
+* Un connettore con etichetta **ISE**per quel sistema o servizio
 * Un connettore personalizzato
 
-Questa panoramica descrive più dettagliatamente il modo in cui un ISE fornisce alle app per la logica e agli account di integrazione l'accesso diretto alla rete virtuale di Azure e confronta le differenze tra un ISE e il servizio globale app per la logica.
+È comunque possibile usare anche i connettori che non hanno l'etichetta **Core** o **ISE** con le app per la logica in ISE. Questi connettori vengono eseguiti nel servizio app per la logica multi-tenant. Per ulteriori informazioni, vedere le sezioni seguenti:
+
+* [Isolato rispetto a multi-tenant](#difference)
+* [Connettersi da un ambiente del servizio di integrazione](../connectors/apis-list.md#integration-service-environment)
+* [Connettori ISE](../connectors/apis-list.md#ise-connectors)
 
 > [!IMPORTANT]
-> Le app per la logica, i trigger incorporati, le azioni predefinite e i connettori eseguiti in ISE usano un piano tariffario diverso dal piano tariffario in base al consumo. Per informazioni sul funzionamento dei prezzi e della fatturazione per ISEs, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md#fixed-pricing)per la logica. Per informazioni sui prezzi, vedere [prezzi di app](../logic-apps/logic-apps-pricing.md)per la logica.
->
-> ISE ha anche un aumento dei limiti sulla durata dell'esecuzione, sulla conservazione dell'archiviazione, sulla velocità effettiva, sui timeout di richiesta e risposta HTTP, sulle dimensioni dei messaggi e sulle richieste del connettore personalizzato. 
-> Per altre informazioni, vedere [limiti e configurazione per app per la logica di Azure](logic-apps-limits-and-config.md).
+> Le app per la logica, i trigger incorporati, le azioni predefinite e i connettori eseguiti in ISE usano un piano tariffario diverso dal piano tariffario in base al consumo. Per altre informazioni, vedere [modello di determinazione prezzi per app](../logic-apps/logic-apps-pricing.md#fixed-pricing)per la logica. Per informazioni dettagliate sui prezzi, vedere [prezzi di app](../logic-apps/logic-apps-pricing.md)per la logica.
+
+Questa panoramica descrive altre informazioni sul modo in cui un ISE fornisce alle app per la logica e agli account di integrazione l'accesso diretto alla rete virtuale di Azure e confronta le differenze tra un ISE e il servizio app per la logica multi-tenant.
 
 <a name="difference"></a>
 
-## <a name="isolated-versus-global"></a>Ambiente isolato e ambiente globale
+## <a name="isolated-versus-multi-tenant"></a>Isolato rispetto a multi-tenant
 
-Quando si crea un ambiente del servizio integrato (ISE) in Azure, è possibile selezionare la rete virtuale di Azure in cui si vuole *inserire* ISE. Azure inserisce, o distribuisce, un'istanza privata del servizio app per la logica nella rete virtuale. Questa azione crea un ambiente isolato in cui è possibile creare ed eseguire le app per la logica in risorse dedicate. Quando si crea l'app per la logica, si seleziona ISE come posizione dell'app, che consente all'app per la logica di accedere direttamente alla rete virtuale e alle risorse in tale rete.
-
-Le app per la logica in un ISE forniscono le stesse esperienze utente e funzionalità simili a quelle del servizio pubblico app per la logica globale. È possibile usare tutti gli stessi trigger, azioni e connettori gestiti predefiniti disponibili nel servizio app per la logica globale. Alcuni connettori gestiti offrono versioni di ISE aggiuntive. La differenza esiste nella posizione in cui vengono eseguite e le etichette che visualizzano nella finestra di progettazione dell'app per la logica quando si lavora all'interno di ISE.
+Quando si creano ed eseguono app per la logica in ISE, si ottengono le stesse esperienze utente e funzionalità simili a quelle del servizio app per la logica multi-tenant. È possibile usare tutti gli stessi trigger, azioni e connettori gestiti predefiniti disponibili nel servizio app per la logica multi-tenant. Alcuni connettori gestiti offrono versioni di ISE aggiuntive. La differenza tra i connettori ISE e i connettori non ISE esiste nei punti in cui vengono eseguiti e le etichette presenti nella finestra di progettazione delle app per la logica quando si lavora all'interno di ISE.
 
 ![Connettori con e senza etichette in ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
 
-* I trigger e le azioni predefiniti visualizzano l'etichetta **principale** e vengono sempre eseguiti nello stesso ISE dell'app per la logica. I connettori gestiti che visualizzano l'etichetta **ISE** vengono eseguiti anche nello stesso ISE dell'app per la logica.
+
+
+* Trigger e azioni predefiniti visualizzano l'etichetta **principale** . Vengono sempre eseguiti nello stesso ISE dell'app per la logica. I connettori gestiti che visualizzano l'etichetta **ISE** vengono eseguiti anche nello stesso ISE dell'app per la logica.
 
   Ad esempio, di seguito sono riportati alcuni connettori che offrono le versioni di ISE:
 
@@ -57,9 +64,28 @@ Le app per la logica in un ISE forniscono le stesse esperienze utente e funziona
   * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
   * AS2, X12 ed EDIFACT
 
-* I connettori gestiti che non visualizzano etichette aggiuntive vengono sempre eseguiti nel servizio app per la logica globale pubblico, ma è comunque possibile usare questi connettori in un'app per la logica basata su ISE.
+* I connettori gestiti che non visualizzano etichette aggiuntive vengono sempre eseguiti nel servizio app per la logica multi-tenant, ma è comunque possibile usare questi connettori in un'app per la logica ospitata ISE.
 
-Un ISE fornisce anche maggiori limiti per durata dell'esecuzione, conservazione dell'archiviazione, velocità effettiva, timeout di richieste e risposte HTTP, dimensioni dei messaggi e richieste di connettori personalizzati. Per altre informazioni, vedere [limiti e configurazione per app per la logica di Azure](logic-apps-limits-and-config.md).
+<a name="on-premises"></a>
+
+### <a name="access-to-on-premises-systems"></a>Accesso ai sistemi locali
+
+Per accedere a sistemi locali o origini dati connesse a una rete virtuale di Azure, le app per la logica in ISE possono usare questi elementi:
+
+* Azione HTTP
+
+* Connettore con etichetta ISE per quel sistema
+
+  > [!NOTE]
+  > Per usare l'autenticazione di Windows con il connettore SQL Server in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), usare la versione non ISE del connettore con il [gateway dati locale](../logic-apps/logic-apps-gateway-install.md). La versione con etichetta ISE non supporta l'autenticazione di Windows.
+
+* Connettore personalizzato
+
+  * Se sono presenti connettori personalizzati che richiedono il gateway dati locale e i connettori sono stati creati al di fuori di un ISE, le app per la logica in un ISE possono anche usare tali connettori.
+
+  * I connettori personalizzati creati in un ISE non funzionano con il gateway dati locale. Tuttavia, questi connettori possono accedere direttamente alle origini dati locali connesse alla rete virtuale che ospita ISE. Quindi, le app per la logica in un ISE probabilmente non necessitano del gateway dati durante la comunicazione con tali risorse.
+
+Per i sistemi locali che non sono connessi a una rete virtuale o che non hanno connettori con etichetta ISE, è necessario prima [configurare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md) prima che le app per la logica possano connettersi a tali sistemi.
 
 <a name="ise-level"></a>
 
@@ -94,27 +120,6 @@ Questi endpoint influiscono anche sul modo in cui è possibile accedere agli inp
 
 > [!IMPORTANT]
 > L'opzione endpoint di accesso è disponibile solo alla creazione di ISE e non può essere modificata in un secondo momento.
-
-<a name="on-premises"></a>
-
-## <a name="access-to-on-premises-data-sources"></a>Accesso alle origini dati locali
-
-Per i sistemi locali connessi a una rete virtuale di Azure, inserire ISE in tale rete, in modo che le app per la logica possano accedere direttamente a tali sistemi usando uno di questi elementi:
-
-* Azione HTTP
-
-* Connettore con etichetta ISE per quel sistema
-
-  > [!NOTE]
-  > Per usare l'autenticazione di Windows con il connettore SQL Server in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), usare la versione non ISE del connettore con il [gateway dati locale](../logic-apps/logic-apps-gateway-install.md). La versione con etichetta ISE non supporta l'autenticazione di Windows.
-
-* Connettore personalizzato
-
-  * Se sono presenti connettori personalizzati che richiedono il gateway dati locale e i connettori sono stati creati al di fuori di un ISE, le app per la logica in un ISE possono anche usare tali connettori.
-
-  * I connettori personalizzati creati in un ISE non funzionano con il gateway dati locale. Tuttavia, questi connettori possono accedere direttamente alle origini dati locali connesse alla rete virtuale che ospita ISE. Quindi, le app per la logica in un ISE probabilmente non necessitano del gateway dati durante la comunicazione con tali risorse.
-
-Per i sistemi locali che non sono connessi a una rete virtuale o che non hanno connettori con etichetta ISE, è necessario prima [configurare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md) prima che le app per la logica possano connettersi a tali sistemi.
 
 <a name="create-integration-account-environment"></a>
 

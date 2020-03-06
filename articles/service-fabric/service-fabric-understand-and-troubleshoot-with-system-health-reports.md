@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370376"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364964"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
 I componenti di Azure Service Fabric forniscono report sull'integrità del sistema in tutte le entità del cluster per impostazione predefinita. L' [archivio integrità](service-fabric-health-introduction.md#health-store) crea ed elimina le entità in base ai report di sistema. Le organizza anche in una gerarchia che acquisisce le interazioni delle entità.
@@ -139,7 +139,7 @@ System.Hosting genera un avviso se le capacità del nodo definite nel manifesto 
 ## <a name="application-system-health-reports"></a>Report sull'integrità del sistema di applicazioni
 System.CM, che rappresenta il servizio Cluster Manager, è l'autorità che gestisce le informazioni su un applicazione.
 
-### <a name="state"></a>Statale
+### <a name="state"></a>Stato
 System.CM restituisce OK quando l'applicazione viene creata o aggiornata. Informa l'archivio integrità quando l'applicazione viene eliminata, in modo che possa essere rimossa dall'archivio.
 
 * **SourceId**: System.CM
@@ -172,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Report sull'integrità del sistema di servizi
 System.FM, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui servizi.
 
-### <a name="state"></a>Statale
+### <a name="state"></a>Stato
 System.FM restituisce OK quando il servizio viene creato. Elimina l'entità dall'archivio integrità quando il servizio viene eliminato.
 
 * **SourceId**: System.FM
@@ -214,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Report sull'integrità del sistema di partizioni
 System.FM, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sulle partizioni del servizio.
 
-### <a name="state"></a>Statale
+### <a name="state"></a>Stato
 System.FM restituisce OK quando la partizione viene creata ed è integra. Elimina l'entità dall'archivio integrità quando la partizione viene eliminata.
 
 Se il numero di repliche della partizione è inferiore al minimo, viene segnalata una condizione di errore. Se il numero di repliche della partizione non è inferiore al minimo, ma è al di sotto del numero di repliche di destinazione, viene segnalata una condizione di avviso. Se la partizione è in una condizione di perdita del quorum, System.FM segnala un errore.
@@ -391,7 +391,7 @@ In un caso come quello dell'esempio, sono necessari ulteriori approfondimenti. V
 ## <a name="replica-system-health-reports"></a>Report sull'integrità del sistema di repliche
 **System.RA**, che rappresenta il componente agente di riconfigurazione, è l'autorità per lo stato della replica.
 
-### <a name="state"></a>Statale
+### <a name="state"></a>Stato
 System.RA restituisce OK quando viene creata la replica.
 
 * **SourceId**: System.RA
@@ -509,7 +509,7 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 1:16:03 AM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="reconfiguration"></a>Riconfigurazione
+### <a name="reconfiguration"></a>Riconfigurazione.
 Questa proprietà viene usata per indicare quando una replica in fase di [riconfigurazione](service-fabric-concepts-reconfiguration.md) rileva che la riconfigurazione è in stallo o bloccata. Questo report sull'integrità può riguardare la replica il cui ruolo corrente è primario, a eccezione dei casi di riconfigurazione con scambio della replica primaria, in cui può riguardare la replica che è stata abbassata da primaria a secondaria attiva.
 
 Il blocco della riconfigurazione può dipendere da uno dei motivi seguenti:
@@ -596,7 +596,7 @@ Per ogni replica vengono specificate le informazioni seguenti:
 - Ruolo di configurazione precedente
 - Ruolo di configurazione corrente
 - [Stato della replica](service-fabric-concepts-replica-lifecycle.md)
-- ID del nodo
+- ID nodo
 - ID replica
 
 Per sbloccare la riconfigurazione:
@@ -647,7 +647,7 @@ La proprietà e il testo indicano quale API è rimasta bloccata. I passaggi succ
 
 - **IStatefulServiceReplica.ChangeRole(P)** : il caso più comune è rappresentato dal servizio che non ha restituito un'attività da `RunAsync`.
 
-Altre chiamate API che possono rimanere bloccate sono presenti nell'interfaccia di **IReplicator**, Ad esempio:
+Altre chiamate API che possono rimanere bloccate sono presenti nell'interfaccia di **IReplicator**, Ad esempio,
 
 - **IReplicator.CatchupReplicaSet**: questo avviso indica una di due situazioni. Le repliche attive sono insufficienti. Per appurare se questo è il caso, esaminare lo stato delle repliche nella partizione o il rapporto di stato di System.FM per una riconfigurazione bloccata. oppure le repliche non riconoscono le operazioni. È possibile usare il cmdlet `Get-ServiceFabricDeployedReplicaDetail` di PowerShell per determinare lo stato di tutte le repliche. Il problema è relativo alle repliche il cui valore `LastAppliedReplicationSequenceNumber` è successivo al valore `CommittedSequenceNumber` della replica primaria.
 
@@ -738,7 +738,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>Report sull'integrità del sistema DeployedApplication
 **System.Hosting** è l'autorità per le entità distribuite.
 
-### <a name="activation"></a>Attivazione
+### <a name="activation"></a>Activation
 System.Hosting restituisce OK quando un'applicazione viene attivata correttamente nel nodo. In caso contrario, restituisce un errore.
 
 * **SourceId**: System.Hosting

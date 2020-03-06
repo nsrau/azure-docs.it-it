@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ae7812670da836efa326b9224547e4d1b64374c2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873285"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302509"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
  Restituisce il logaritmo naturale dell'espressione numerica specificata.  
@@ -26,7 +26,7 @@ LOG (<numeric_expr> [, <base>])
 ## <a name="arguments"></a>Argomenti
   
 *numeric_expr*  
-   È un'espressione numerica.  
+   Espressione numerica.  
   
 *base*  
    Argomento numerico facoltativo che imposta la base per il logaritmo.  
@@ -35,15 +35,15 @@ LOG (<numeric_expr> [, <base>])
   
   Restituisce un'espressione numerica.  
   
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
   
   Per impostazione predefinita, LOG() restituisce il logaritmo naturale. È possibile modificare la base del logaritmo e impostare un altro valore usando il parametro di base facoltativo.  
   
-  Il logaritmo naturale è il logaritmo in base **e**, dove **e** è una costante irrazionale approssimativamente uguale a 2,718281828.  
+  Il logaritmo naturale è il logaritmo per la base **e**, in cui **e** è una costante irrazionale equivalente approssimativamente a 2,718281828.  
   
   Il logaritmo naturale dell'esponente di un numero è il numero stesso: LOG ( EXP ( n ) ) = n. E il valore esponenziale del logaritmo naturale di un numero è il numero stesso: EXP( LOG( n ) ) = n.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene dichiarata una variabile e restituito il logaritmo della variabile specificata (10).  
   
@@ -51,7 +51,7 @@ LOG (<numeric_expr> [, <base>])
 SELECT LOG(10) AS log  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{log: 2.3025850929940459}]  
@@ -63,11 +63,15 @@ SELECT LOG(10) AS log
 SELECT EXP(LOG(10)) AS expLog  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{expLog: 10.000000000000002}]  
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

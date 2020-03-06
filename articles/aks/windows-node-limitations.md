@@ -4,12 +4,12 @@ description: Informazioni sulle limitazioni note quando si eseguono i pool di no
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615650"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298173"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitazioni correnti per i pool di nodi di Windows Server e i carichi di lavoro delle applicazioni in Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,7 @@ Durante l'anteprima, i pool di nodi di Windows non supportano la rotazione dell'
 
 ## <a name="how-many-node-pools-can-i-create"></a>Quanti pool di nodi è possibile creare?
 
-Il cluster AKS può avere un massimo di otto (8) pool di nodi. È possibile avere un massimo di 400 nodi tra i pool di nodi. [Limitazioni del pool di nodi][nodepool-limitations].
+Il cluster AKS può avere un massimo di 10 pool di nodi. È possibile avere un massimo di 1000 nodi tra i pool di nodi. [Limitazioni del pool di nodi][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>Cosa è possibile denominare i pool di nodi di Windows?
 

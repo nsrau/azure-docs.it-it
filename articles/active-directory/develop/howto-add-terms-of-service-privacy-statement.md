@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697337"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300010"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: configurare le condizioni del servizio e l'informativa sulla privacy per un'app
 
@@ -39,9 +39,9 @@ Gli esempi seguenti mostrano l'esperienza di consenso dell'utente quanto le cond
 
 Prima di aggiungere collegamenti ai documenti delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy, assicurarsi che gli URL rispettino queste linee guida.
 
-| Linee guida     | Description                           |
+| Linee guida     | Descrizione                           |
 |---------------|---------------------------------------|
-| Format        | URL valido                             |
+| Formato        | URL valido                             |
 | Schemi validi | HTTP e HTTPS<br/>Si consiglia HTTPS |
 | Lunghezza massima    | 2048 caratteri                       |
 
@@ -53,7 +53,7 @@ Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy s
 
 * [Tramite il portale di Azure](#azure-portal)
 * [Con il codice JSON dell'oggetto app](#app-object-json)
-* [Con la versione beta dell'API REST MSGraph](#msgraph-beta-rest-api)
+* [Uso dell'API Microsoft Graph](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>Uso della portale di Azure
 Seguire questa procedura nella portale di Azure.
@@ -62,7 +62,7 @@ Seguire questa procedura nella portale di Azure.
 2. Passare alla sezione **Registrazioni per l'app** e selezionare l'app.
 3. Aprire il riquadro **personalizzazione** .
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
-5. Salvare le modifiche.
+5. Fare clic su Salva per salvare le modifiche.
 
     ![Le proprietà dell'app contengono le condizioni per l'utilizzo e gli URL dell'informativa](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
@@ -77,12 +77,12 @@ Se si preferisce modificare direttamente il codice JSON dell'oggetto app, è pos
     }
 ```
 
-### <a name="msgraph-beta-rest-api"></a>Con la versione beta dell'API REST MSGraph
+### <a name="msgraph-rest-api"></a>Uso dell'API Microsoft Graph
 
-Per aggiornare tutte le app a livello di programmazione, è possibile usare la versione beta dell'API REST MSGraph per aggiornare tutte le app per includere collegamenti ai documenti delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy.
+Per aggiornare a livello di codice tutte le app, è possibile usare l'API Microsoft Graph per aggiornare tutte le app in modo da includere i collegamenti alle condizioni del servizio e ai documenti informativi sulla privacy.
 
 ```
-PATCH https://graph.microsoft.com/beta/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 { 
     "appId": "{your application id}", 
     "info": { 
@@ -97,4 +97,4 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 
 > [!NOTE]
 > * Prestare attenzione a non sovrascrivere eventuali valori pre-esistenti assegnati a uno di questi campi: `supportUrl`, `marketingUrl` e `logoUrl`
-> * La versione beta dell'API REST MSGraph funzionerà solo quando si accede con un account Azure AD. Gli account Microsoft personali non sono supportati.
+> * L'API Microsoft Graph funziona solo quando si accede con un account di Azure AD. Gli account Microsoft personali non sono supportati.

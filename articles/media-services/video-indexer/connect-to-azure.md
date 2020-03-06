@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1f40f16ddbe5231dd754ad97b54e414c6ce9b9e7
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838390"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328830"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -45,7 +45,7 @@ Un utente e un membro del dominio di Azure AD. Questo membro verrà usato per la
 
 L'utente deve essere un membro nella sottoscrizione di Azure con un ruolo **Proprietario** o con i ruoli **Collaboratore** e **Amministratore accessi utente**. Un utente può essere aggiunto due volte, con due ruoli: una volta con quello di collaboratore e una seconda volta con quello di amministratore degli accessi.
 
-![controllo di accesso](./media/create-account/access-control-iam.png)
+![controllo dell'accesso](./media/create-account/access-control-iam.png)
 
 ### <a name="additional-prerequisites-for-manual-flow"></a>Prerequisiti aggiuntivi per il flusso manuale
 
@@ -57,7 +57,7 @@ Cercare **Microsoft.Media** e **Microsoft.EventGrid**. Se lo stato non è "Regis
 
 ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Connect to Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 
 > [!NOTE]
 > Se la sottoscrizione di Azure usa l'autenticazione a più fattori basata su certificati, è fondamentale eseguire i passaggi seguenti in un dispositivo in cui sono installati i certificati necessari.
@@ -124,8 +124,8 @@ Se la connessione ad Azure non è riuscita, è possibile tentare di risolvere il
 4. Per consentire a Video Indexer di eseguire l'autenticazione nell'API Servizi multimediali, è necessario creare un'applicazione AD. I passaggi seguenti consentono di eseguire il processo di autenticazione Azure AD descritto in [Introduzione all'autenticazione di Azure AD tramite il portale di Azure](../previous/media-services-portal-get-started-with-aad.md):
 
     1. Nel nuovo account di Servizi multimediali selezionare **Accesso all'API**.
-    2. Selezionare il [metodo di autenticazione basata sull'entità servizio](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).
-    3. Ottenere l'ID client e il segreto client come descritto nella sezione [Ottenere l'ID client e il segreto client](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret).
+    2. Selezionare il [metodo di autenticazione basata sull'entità servizio](../previous/media-services-portal-get-started-with-aad.md).
+    3. Ottenere l'ID client e il segreto client
 
         Dopo aver selezionato **Impostazioni**->**Chiavi**, aggiungere la **Descrizione** e scegliere **Salva**. Verrà popolato il valore della chiave.
 

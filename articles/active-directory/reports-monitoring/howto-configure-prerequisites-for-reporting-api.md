@@ -17,16 +17,16 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273807"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399310"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
-Le [API di creazione report di Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare queste API da strumenti e linguaggi di programmazione.
+Le [API di creazione report di Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare queste API da strumenti e linguaggi di programmazione.
 
 L'API di creazione report usa l'autenticazione [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) per autorizzare l'accesso alle API Web.
 
@@ -191,7 +191,6 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
 Questa sezione elenca i messaggi di errore comuni che possono verificarsi durante l'accesso ai report attività usando l'API Microsoft Graph e i passaggi per la risoluzione.
 
-
 ### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Errore: non è stato possibile ottenere i ruoli utente dal Microsoft Graph
 
  Accedere all'account usando entrambi i pulsanti di accesso nell'interfaccia utente di Graph Explorer per evitare di ricevere un errore durante il tentativo di accesso con Graph Explorer. 
@@ -204,7 +203,6 @@ Se compare questo messaggio di errore durante il tentativo di accedere agli acce
 
 ![Interfaccia utente di Autorizzazioni di modifica](./media/troubleshoot-graph-api/modify-permissions.png)
 
-
 ### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Errore: il tenant non è B2C o il tenant non ha una licenza Premium
 
 L'accesso ai report sugli accessi richiede una licenza Azure Active Directory Premium 1 (P1). Se viene visualizzato questo messaggio di errore durante l'accesso agli accessi, assicurarsi che il tenant sia concesso in licenza con una licenza Azure AD P1.
@@ -215,7 +213,7 @@ L'accesso ai report sugli accessi richiede una licenza Azure Active Directory Pr
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Errore: L'applicazione non possiede l'autorizzazione "Leggi i dati della directory" di AAD 
 
-### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Errore: l'applicazione non ha l'autorizzazione ' lettura di tutti i dati del registro di controllo ' dell'API Microsoft
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Errore: l'applicazione manca l'autorizzazione Microsoft Graph ' lettura di tutti i dati del log di controllo ' dell'API
 
 Seguire i passaggi descritti in [prerequisiti per accedere all'API di creazione report Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) per assicurarsi che l'applicazione sia in esecuzione con il set di autorizzazioni corretto. 
 

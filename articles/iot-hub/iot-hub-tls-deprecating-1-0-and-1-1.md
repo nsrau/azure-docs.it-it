@@ -7,21 +7,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 8e2f8fd7f99c359949b02959cc442f2f3d3ebfff
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: d61ca8fe7c6f5e7cc400714d7c31a0a7e50b8a88
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912155"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402799"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>Deprecazione di TLS 1,0 e 1,1 nell'hub e nel servizio Device provisioning
 
-Per fornire la crittografia migliore, l'hub Internet e il servizio Device provisioning (DPS) passano a Transport Layer Security (TLS) 1,2 come meccanismo di crittografia scelto per i dispositivi e i servizi Internet. Di conseguenza, il supporto legacy per TLS 1,0 e TLS 1,1, oltre a diverse crittografie legacy non consigliate, sarà deprecato nel **1 ° luglio 2020**.
-
-
-## <a name="impact"></a>Impatto
-In base alle circostanze e alle configurazioni specifiche dei clienti, la deprecazione di TLS 1,0 e 1,1 e le crittografie legacy non consigliate possono costituire un cambiamento significativo per i dispositivi e i servizi Internet che comunicano con l'hub o il DPS. In alcuni casi, i dispositivi e i servizi che non sono compatibili con queste modifiche non saranno in grado di connettersi all'hub Internet delle cose o al DPS dopo la data di fine.
-
+Per fornire la crittografia migliore, l'hub Internet e il servizio Device provisioning (DPS) passano a Transport Layer Security (TLS) 1,2 come meccanismo di crittografia scelto per i dispositivi e i servizi Internet. 
 
 ## <a name="supported-ciphers"></a>Crittografie supportate
 

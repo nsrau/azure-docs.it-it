@@ -1,24 +1,24 @@
 ---
-title: Installare Azure Dev Spaces su AKS & gli strumenti lato client
+title: Abilitare Azure Dev Spaces su AKS & installare gli strumenti lato client
 services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
-description: Informazioni su come installare Azure Dev Spaces in un cluster AKS e installare gli strumenti lato client.
+description: Informazioni su come abilitare Azure Dev Spaces in un cluster AKS e installare gli strumenti lato client.
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: de4f91e3e0e0653519bb48db5e3e8a116e24cc78
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 0b7f6cb4a801c84df59bd5157d8c2a1a15eaaf7e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251995"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302900"
 ---
-# <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Installare Azure Dev Spaces su AKS e gli strumenti lato client
+# <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Abilitare Azure Dev Spaces in un cluster AKS e installare gli strumenti lato client
 
-Questo articolo illustra diversi modi per installare Azure Dev Spaces in un cluster AKS e installare gli strumenti lato client.
+Questo articolo illustra diversi modi per abilitare Azure Dev Spaces in un cluster AKS e installare gli strumenti lato client.
 
-## <a name="install-azure-dev-spaces-using-the-cli"></a>Installare Azure Dev Spaces usando l'interfaccia della riga di comando
+## <a name="enable-azure-dev-spaces-using-the-cli"></a>Abilitare Azure Dev Spaces usando l'interfaccia della riga di comando
 
-Prima di poter installare gli spazi di sviluppo usando l'interfaccia della riga di comando, è necessario:
+Prima di poter abilitare gli spazi di sviluppo usando l'interfaccia della riga di comando, è necessario:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][az-portal-create-account].
 * [Interfaccia della riga di comando di Azure installata][install-cli].
 * [Un cluster AKS][create-aks-cli] in un' [area supportata][supported-regions].
@@ -49,23 +49,23 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 
 Il comando `use-dev-spaces` installa anche l'interfaccia della riga di comando di Azure Dev Spaces.
 
-## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Installare Azure Dev Spaces usando il portale di Azure
+## <a name="enable-azure-dev-spaces-using-the-azure-portal"></a>Abilitare Azure Dev Spaces usando il portale di Azure
 
-Prima di poter installare gli spazi di sviluppo usando il portale di Azure, è necessario:
+Prima di poter abilitare gli spazi di sviluppo usando il portale di Azure, è necessario:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][az-portal-create-account].
 * [Un cluster AKS][create-aks-portal] in un' [area supportata][supported-regions].
 
-Per installare Azure Dev Spaces utilizzando il portale di Azure:
+Per abilitare Azure Dev Spaces utilizzando il portale di Azure:
 1. Accedere al [portale di Azure][az-portal].
 1. Passare al cluster AKS.
-1. Fare clic su *spazi di sviluppo*.
+1. Selezionare la voce di menu *dev Spaces* .
 1. Impostare *Abilita Dev Spaces* su *Sì* e fare clic su *Salva*.
 
 ![Abilitare Dev Spaces nel portale di Azure](../media/how-to-setup-dev-spaces/enable-dev-spaces-portal.png)
 
-L'installazione di Azure Dev Spaces utilizzando **il portale di Azure non** installa gli strumenti lato client per Azure Dev Spaces.
+L'abilitazione di Azure Dev Spaces utilizzando **il portale di Azure non** installa gli strumenti lato client per Azure Dev Spaces.
 
-## <a name="install-the-client-side-tooling"></a>Installare gli strumenti lato client
+## <a name="install-the-client-side-tools"></a>Installare gli strumenti lato client
 
 È possibile usare gli strumenti lato client Azure Dev Spaces per interagire con gli spazi di sviluppo in un cluster AKS dal computer locale. Sono disponibili diversi modi per installare gli strumenti lato client:
 

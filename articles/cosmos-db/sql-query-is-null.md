@@ -1,18 +1,18 @@
 ---
-title: IS_NULL in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL IS_NULL in Azure Cosmos DB.
+title: IS_NULL nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL IS_NULL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 20486b8f8c0436d264135bb09952345548222216
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4dbf21c3052ddd5ebdd62925e65a854c47f59017
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349851"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303835"
 ---
 # <a name="is_null-azure-cosmos-db"></a>IS_NULL (Azure Cosmos DB)
  Restituisce un valore booleano che indica se il tipo di espressione specificata è nulla.  
@@ -47,11 +47,15 @@ SELECT
     IS_NULL({prop: "value"}.prop2) AS isNull7  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

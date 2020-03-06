@@ -4,15 +4,15 @@ description: Informazioni sulla funzione di sistema SQL TAN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 70636dbc00307ced8ad0cf84f41fe025c759997e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9d7187ba116067445e835769fc33aa70677ef80b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349154"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301982"
 ---
 # <a name="tan-azure-cosmos-db"></a>TAN (Azure Cosmos DB)
  Restituisce la tangente dell'angolo specificato, espresso in radianti, nell'espressione specificata.  
@@ -26,7 +26,7 @@ TAN (<numeric_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *numeric_expr*  
-   È un'espressione numerica.  
+   Espressione numerica.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -40,11 +40,15 @@ TAN (<numeric_expr>)
 SELECT TAN(PI()/2) AS tan 
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"tan": 16331239353195370 }]  
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

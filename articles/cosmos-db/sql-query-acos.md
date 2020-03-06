@@ -4,15 +4,15 @@ description: Informazioni sul modo in cui la funzione di sistema SQL ARCCOS (arc
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: fd5baa3ffefb7039c40706253e633661a51150f2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 733d6b009f03d61c37170cc506a3b2ec842d7c47
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873523"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300962"
 ---
 # <a name="acos-azure-cosmos-db"></a>ARCCOS (Azure Cosmos DB)
  Restituisce l'angolo, espresso in radianti, il cui coseno corrisponde all'espressione numerica specificata. Denominato anche arcocoseno.  
@@ -26,13 +26,13 @@ ACOS(<numeric_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *numeric_expr*  
-   È un'espressione numerica.  
+   Espressione numerica.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene restituito il `ACOS` di-1.  
   
@@ -40,11 +40,15 @@ ACOS(<numeric_expr>)
 SELECT ACOS(-1) AS acos 
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"acos": 3.1415926535897931}]  
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

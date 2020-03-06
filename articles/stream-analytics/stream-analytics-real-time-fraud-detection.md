@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0273a0a729d39de27b9e417c23624992d1d55b42
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b7ca4677507f73467dddac09050f250ae34342a9
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064395"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329463"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale
 
@@ -31,7 +31,7 @@ In questa esercitazione si userà l'esempio di rilevamento delle frodi in tempo 
 
 Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di illecito, è necessario che l'azienda esamini i record del telefono in arrivo e cerchi modelli specifici, in questo caso, per le chiamate eseguite nello stesso momento in paesi o aree geografiche diverse. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 In questa esercitazione si simuleranno i dati di una chiamata telefonica usando un'app client che genera metadati di esempio di chiamate. Alcuni record prodotti dall'app hanno l'aspetto di chiamate fraudolente. 
 
@@ -94,7 +94,7 @@ Prima che un processo possa inviare dati a un hub eventi, è necessario che per 
     >[!NOTE]
     >Verificare di usare l'hub eventi e non lo spazio dei nomi.
 
-3.  Aggiungere criteri denominati `sa-policy-manage-demo` e per **Attestazione** selezionare **Gestisci**.
+3.  Aggiungere criteri denominati `asa-policy-manage-demo` e per **Attestazione** selezionare **Gestisci**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
@@ -255,7 +255,7 @@ Per archiviare ogni evento, è possibile usare una query pass-through per legger
 
     In questa query `CallStream` è l'alias specificato quando è stato creato l'input. In presenza di un alias diverso, usare questo nome.
 
-2. Fare clic su **Test**.
+2. Fare clic su **Prova**.
 
     Il processo di Analisi di flusso esegue la query a fronte dei dati di esempio e visualizza l'output nella parte inferiore della finestra, a indicare che l'hub eventi e il processo di Analisi di flusso sono configurati correttamente. Come già indicato, in seguito si creerà un sink di output in cui la query potrà scrivere dati.
 
@@ -371,7 +371,7 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. In questa 
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. Fare clic su **Salva**. 
+5. Fare clic su **Save**. 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Avviare il processo di Analisi di flusso

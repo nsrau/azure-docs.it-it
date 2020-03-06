@@ -7,16 +7,25 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 4a32251b60066d6a85595e4d1b6c002f8587c01d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252670"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330941"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migrazione a Sincronizzazione file di Azure
 
 StorSimple serie 1200 è un'appliance virtuale eseguita in un data center locale. È possibile eseguire la migrazione dei dati da questo Appliance a un ambiente Sincronizzazione file di Azure. Questo articolo fornisce i passaggi necessari per la Knowledge base e le migrazioni per una migrazione corretta a Sincronizzazione file di Azure.
+
+## <a name="storsimple"></a>StorSimple
+
+StorSimple è un prodotto Microsoft sospeso. Il supporto esteso per questo prodotto e il servizio cloud scade il 31 2022 dicembre. È importante iniziare subito a pianificare una migrazione di StorSimple.
+
+Sincronizzazione file di Azure è il servizio di Azure a lungo termine predefinito e strategico a cui è possibile eseguire la migrazione delle appliance StorSimple.
+
+> [!IMPORTANT]
+> Microsoft si impegna a supportare i clienti nella migrazione. Inviare tramite posta elettronica AzureFilesMigration@microsoft. com per un piano di migrazione personalizzato, nonché per assistenza durante la migrazione.
 
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 

@@ -14,12 +14,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b42676fa387914bc4825e2850b3d2f032827a79
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 26030c12d98d796ceb1f66f198aede6e40eebd94
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962119"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399014"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato di autenticazione dell'applicazione Microsoft Identity Platform
 
@@ -55,7 +55,7 @@ La firma viene calcolata applicando il certificato come descritto nella [specifi
 
 ## <a name="example-of-a-decoded-jwt-assertion"></a>Esempio di asserzione del token JWT decodificata
 
-```
+```JSON
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -67,12 +67,11 @@ La firma viene calcolata applicando il certificato come descritto nella [specifi
   "exp": 1484593341,
   "iss": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05",
   "jti": "22b3bb26-e046-42df-9c96-65dbd72c1c81",
-  "nbf": 1484592741,  
+  "nbf": 1484592741,
   "sub": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05"
 }
 .
 "Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-
 ```
 
 ## <a name="example-of-an-encoded-jwt-assertion"></a>Esempio di asserzione del token JWT codificata
@@ -94,10 +93,10 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ### <a name="uploading-the-certificate-file"></a>Caricamento del file del certificato
 
 Nella registrazione dell'app di Azure per l'applicazione client:
-1. Selezionare **Certificati e segreti**. 
+1. Selezionare **Certificati e segreti**.
 2. Fare clic su **Carica certificato** e selezionare il file di certificato da caricare.
-3. Scegliere **Aggiungi**.
-  Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza. 
+3. Fare clic su **Aggiungi**.
+  Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza.
 
 ### <a name="updating-the-application-manifest"></a>Aggiornamento del manifesto dell'applicazione
 
@@ -112,7 +111,7 @@ Nella registrazione dell'app di Azure per l'applicazione client:
 1. Selezionare **manifesto** per aprire il manifesto dell'applicazione.
 2. Sostituire la proprietà *keyCredentials* con le nuove informazioni del certificato usando lo schema seguente.
 
-   ```
+   ```JSON
    "keyCredentials": [
        {
            "customKeyIdentifier": "$base64Thumbprint",
@@ -123,13 +122,13 @@ Nella registrazione dell'app di Azure per l'applicazione client:
        }
    ]
    ```
-3. Salvare le modifiche nel manifesto dell'applicazione e quindi caricare il manifesto nella piattaforma di identità Microsoft. 
+3. Salvare le modifiche nel manifesto dell'applicazione e quindi caricare il manifesto nella piattaforma di identità Microsoft.
 
    La proprietà `keyCredentials` è multivalore, quindi è possibile caricare più certificati per una gestione delle chiavi più avanzata.
-   
+
 ## <a name="code-sample"></a>Esempio di codice
 
 > [!NOTE]
-> Per calcolare l'intestazione X5T, è necessario convertirla in una stringa di base 64 usando l'hash del certificato. Il codice per eseguire questa operazione C# in è: `System.Convert.ToBase64String(cert.GetCertHash());`
+> Per calcolare l'intestazione X5T, è necessario convertirla in una stringa di base 64 usando l'hash del certificato. Il codice per eseguire questa operazione C# in è `System.Convert.ToBase64String(cert.GetCertHash());`.
 
-L'esempio di codice relativo all' [autenticazione alla piattaforma di identità Microsoft nelle app daemon con certificati](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) Mostra come un'applicazione usa le proprie credenziali per l'autenticazione. Illustra anche come è possibile [creare un certificato autofirmato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando il comando `New-SelfSignedCertificate` di PowerShell. È possibile anche sfruttare e usare gli [script di creazione di app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) per creare i certificati, calcolare l'identificazione personale e così via.
+L'applicazione console di esempio di codice [.NET Core daemon con la piattaforma di identità Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) Mostra come un'applicazione usa le proprie credenziali per l'autenticazione. Illustra anche come è possibile [creare un certificato autofirmato](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) usando il comando `New-SelfSignedCertificate` di PowerShell. È possibile anche sfruttare e usare gli [script di creazione di app](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) per creare i certificati, calcolare l'identificazione personale e così via.

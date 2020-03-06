@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 5c8b3ed329c03bd08b2a0b3e26ada7a4e36ceb49
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1968bc03bfddb9d6f6c8fe743a2a1a99722c074d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716884"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399164"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua Analisi del testo nel servizio Azure Kubernetes
 
 Informazioni su come distribuire il contenitore di rilevamento della lingua. Questa procedura illustra come creare i contenitori Docker locali, eseguire il push dei contenitori in un registro contenitori privato, eseguire il contenitore in un cluster Kubernetes e testarlo in un Web browser.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa procedura richiede diversi strumenti che devono essere installati ed eseguiti in locale. Non usare Azure Cloud Shell.
 
@@ -80,8 +80,11 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
 
     Salvare i risultati per ottenere la proprietà **loginServer**. Questa farà parte dell'indirizzo del contenitore ospitato, usato successivamente nel file `language.yml`.
 
-    ```console
-    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```azurecli-interactive
+    az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```
+
+    ```output
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -126,7 +129,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
 
     Per tenere traccia della versione del registro contenitori, aggiungere il tag con un formato di versione, ad esempio `v1`.
 
-1. Eseguire il push dell'immagine nel registro contenitori. L'operazione può richiedere qualche minuto.
+1. Eseguire il push dell'immagine nel registro contenitori. L'operazione potrebbe richiedere alcuni minuti.
 
     ```console
     docker push pattyregistry.azurecr.io/language-frontend:v1
@@ -136,8 +139,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
 
     Al termine del processo, il risultato dovrebbe essere simile al seguente:
 
-    ```console
-    > docker push pattyregistry.azurecr.io/language-frontend:v1
+    ```output
     The push refers to repository [pattyregistry.azurecr.io/language-frontend]
     82ff52ee6c73: Pushed
     07599c047227: Pushed
@@ -150,7 +152,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
 
 ## <a name="get-language-detection-docker-image"></a>Ottenere l'immagine Docker di rilevamento lingua
 
-1. Eseguire il pull dell'ultima versione dell'immagine Docker nel computer locale. L'operazione può richiedere qualche minuto. Se è disponibile una versione più recente di questo contenitore, modificare il valore da `1.1.006770001-amd64-preview` alla versione più recente.
+1. Eseguire il pull dell'ultima versione dell'immagine Docker nel computer locale. L'operazione potrebbe richiedere alcuni minuti. Se è disponibile una versione più recente di questo contenitore, modificare il valore da `1.1.006770001-amd64-preview` alla versione più recente.
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
@@ -162,7 +164,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
     docker tag mcr.microsoft.com/azure-cognitive-services/language pattiyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-1. Eseguire il push dell'immagine nel registro contenitori. L'operazione può richiedere qualche minuto.
+1. Eseguire il push dell'immagine nel registro contenitori. L'operazione potrebbe richiedere alcuni minuti.
 
     ```console
     docker push pattyregistry.azurecr.io/language:1.1.006770001-amd64-preview
@@ -180,8 +182,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
     Salvare il valore `appId` dei risultati per il parametro assignee nel passaggio 3, `<appId>`. Salvare il `password` per il parametro del segreto client della sezione successiva `<client-secret>`.
 
-    ```console
-    > az ad sp create-for-rbac --skip-assignment
+    ```output
     {
       "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "displayName": "azure-cli-2018-12-31-18-39-32",
@@ -199,8 +200,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
     Salvare l'output per il valore del parametro di ambito, `<acrId>`, nel passaggio successivo. L'aspetto sarà simile al seguente:
 
-    ```console
-    > az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
+    ```output
     /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattyregistry
     ```
 
@@ -222,8 +222,7 @@ I passaggi seguenti servono per ottenere le informazioni necessarie per la conne
 
     Questo passaggio potrebbe richiedere alcuni minuti. Il risultato è:
 
-    ```console
-    > az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
+    ```output
     {
       "aadProfile": null,
       "addonProfiles": null,
@@ -300,8 +299,7 @@ Questa sezione usa l'interfaccia della riga di comando di **kubectl** per comuni
 
     La risposta ha un aspetto simile al seguente:
 
-    ```console
-    > kubectl get nodes
+    ```output
     NAME                       STATUS    ROLES     AGE       VERSION
     aks-nodepool1-13756812-0   Ready     agent     6m        v1.9.11
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
@@ -337,8 +335,7 @@ Questa sezione usa l'interfaccia della riga di comando di **kubectl** per comuni
 
     La risposta è:
 
-    ```console
-    > kubectl apply -f language.yml
+    ```output
     service "language-frontend" created
     deployment.apps "language-frontend" created
     service "language" created
@@ -353,8 +350,7 @@ Per i due contenitori, verificare che i servizi `language-frontend` e `language`
 kubectl get all
 ```
 
-```console
-> kubectl get all
+```output
 NAME                                     READY     STATUS    RESTARTS   AGE
 pod/language-586849d8dc-7zvz5            1/1       Running   0          13h
 pod/language-frontend-68b9969969-bz9bg   1/1       Running   1          13h

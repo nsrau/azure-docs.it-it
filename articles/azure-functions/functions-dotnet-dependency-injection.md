@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: df2acedd7f472b96d55d9ecc294d47e7173c5f90
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915708"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329017"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in funzioni di Azure per .NET
 
@@ -21,7 +21,7 @@ Funzioni di Azure supporta il modello DI progettazione software per l'inseriment
 
 - Il supporto per l'inserimento delle dipendenze inizia con funzioni di Azure 2. x.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter usare l'inserimento di dipendenze, è necessario installare i pacchetti NuGet seguenti:
 
@@ -132,6 +132,52 @@ Se è necessario un provider di registrazione personalizzato, registrare un tipo
 > - Non aggiungere `AddApplicationInsightsTelemetry()` alla raccolta di servizi durante la registrazione dei servizi in conflitto con i servizi forniti dall'ambiente.
 > - Non registrare il proprio `TelemetryConfiguration` o `TelemetryClient` se si usa la funzionalità di Application Insights incorporata. Se è necessario configurare un'istanza di `TelemetryClient` personalizzata, crearne una tramite la `TelemetryConfiguration` inserita come illustrato in [monitorare funzioni di Azure](./functions-monitoring.md#version-2x-and-later-2).
 
+### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
+
+L'host inserirà `ILogger<T>` e `ILoggerFactory` servizi nei costruttori.  Per impostazione predefinita, tuttavia, questi nuovi filtri di registrazione verranno filtrati all'esterno dei log di funzione.  È necessario modificare il file di `host.json` per acconsentire ad altri filtri e categorie.  Nell'esempio seguente viene illustrata l'aggiunta di un `ILogger<HttpTrigger>` con log che verranno esposti dall'host.
+
+```csharp
+namespace MyNamespace
+{
+    public class HttpTrigger
+    {
+        private readonly ILogger<HttpTrigger> _log;
+
+        public HttpTrigger(ILogger<HttpTrigger> log)
+        {
+            _log = log;
+        }
+
+        [FunctionName("HttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+        {
+            _log.LogInformation("C# HTTP trigger function processed a request.");
+
+            // ...
+    }
+}
+```
+
+E un file di `host.json` che aggiunge il filtro del log.
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingExcludedTypes": "Request",
+            "samplingSettings": {
+                "isEnabled": true
+            }
+        },
+        "logLevel": {
+            "MyNamespace.HttpTrigger": "Information"
+        }
+    }
+}
+```
+
 ## <a name="function-app-provided-services"></a>Servizi forniti dall'app per le funzioni
 
 L'host funzione registra molti servizi. I servizi seguenti possono essere considerati sicuri come una dipendenza nell'applicazione:
@@ -208,7 +254,7 @@ Per ulteriori informazioni sull'utilizzo delle opzioni, vedere il [modello di op
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 - [Come monitorare l'app per le funzioni](functions-monitoring.md)
 - [Procedure consigliate per le funzioni](functions-best-practices.md)

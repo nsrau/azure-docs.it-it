@@ -4,15 +4,15 @@ description: Informazioni sulla funzione di sistema SQL StringToBoolean in Azure
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8719857dca16585a045f8174dbac8df455f38f38
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ce11db91eff51e669f0917fbf34b1d560d0e9f07
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349264"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296542"
 ---
 # <a name="stringtoboolean-azure-cosmos-db"></a>StringToBoolean (Azure Cosmos DB)
  Restituisce l'espressione convertita in un valore booleano. Se l'espressione non può essere convertita, restituisce undefined.  
@@ -85,6 +85,10 @@ Questo è il set di risultati.
 ```json
 [{}]
 ```  
+
+## <a name="remarks"></a>Osservazioni
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

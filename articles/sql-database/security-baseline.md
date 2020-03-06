@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dd9b82cbb2984386059988496c550123a8e67a3f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: ca8d0daf5b6d9bbad0d8fa24b4b150c5e6cd6b73
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273086"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300911"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Baseline della sicurezza di Azure per il database SQL di Azure
 
@@ -251,7 +251,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 Come eseguire lo streaming di diagnostica in Analisi SQL di Azure:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -360,7 +360,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Responsabilità**: non applicabile
 
-## <a name="identity-and-access-control"></a>Gestione delle identità e controllo di accesso
+## <a name="identity-and-access-control"></a>Controllo di identità e accesso
 
 *Per altre informazioni, vedere [controllo di sicurezza: identità e controllo di accesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
@@ -1170,7 +1170,7 @@ Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di A
 
 **Responsabilità**: non applicabile
 
-## <a name="data-recovery"></a>Ripristino dei dati
+## <a name="data-recovery"></a>Recupero dei dati
 
 *Per altre informazioni, vedere [controllo di sicurezza: ripristino dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 

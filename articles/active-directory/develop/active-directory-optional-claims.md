@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585850"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300069"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: fornire attestazioni facoltative all'app Azure AD
 
@@ -49,7 +49,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 
 **Tabella 2: set di attestazioni facoltativo v 1.0 e v 2.0**
 
-| Nome                       |  Descrizione   | Tipo di token | Tipo di utente | Note  |
+| Name                       |  Descrizione   | Tipo di token | Tipo di utente | Note  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Ora dell'ultima autenticazione dell'utente. Vedere la specifica di OpenID Connect.| Token JSON Web        |           |  |
 | `tenant_region_scope`      | Area del tenant della risorsa. | Token JSON Web        |           | |
@@ -78,7 +78,7 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v 1.0, ma non sono
 
 **Tabella 3: attestazioni facoltative solo v 2.0**
 
-| Attestazione JWT     | Nome                            | Descrizione                                | Note |
+| Attestazione JWT     | Name                            | Descrizione                                | Note |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Indirizzo IP                      | Indirizzo IP da cui il client ha effettuato l'accesso.   |       |
 | `onprem_sid`  | ID di sicurezza locale |                                             |       |
@@ -122,7 +122,7 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 ## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 
 > [!IMPORTANT]
-> I token di accesso vengono **sempre** generati usando il manifesto della risorsa, non il client.  Quindi, nella richiesta `...scope=https://graph.microsoft.com/user.read...` la risorsa è Graph.  Il token di accesso viene pertanto creato utilizzando il manifesto del grafo, non il manifesto del client.  La modifica del manifesto per l'applicazione non causerà mai l'aspetto diverso dei token per Graph.  Per verificare che le modifiche apportate `accessToken` siano attive, richiedere un token per l'applicazione, non un'altra app.  
+> I token di accesso vengono **sempre** generati usando il manifesto della risorsa, non il client.  Quindi, nella richiesta `...scope=https://graph.microsoft.com/user.read...` la risorsa è l'API Microsoft Graph.  Il token di accesso viene quindi creato usando il manifesto dell'API Microsoft Graph, non il manifesto del client.  Se si modifica il manifesto per l'applicazione, i token per l'API Microsoft Graph non verranno mai diversi.  Per verificare che le modifiche apportate `accessToken` siano attive, richiedere un token per l'applicazione, non un'altra app.  
 
 È possibile configurare attestazioni facoltative per l'applicazione tramite l'interfaccia utente o il manifesto dell'applicazione.
 
@@ -138,7 +138,7 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 2. Selezionare **Aggiungi attestazione facoltativa**.
 3. Selezionare il tipo di token che si desidera configurare.
 4. Selezionare le attestazioni facoltative da aggiungere.
-5. Fare clic su **Aggiungi**.
+5. Fare clic su **Add**.
 
 **Configurazione di attestazioni facoltative tramite il manifesto dell'applicazione:**
 
@@ -186,7 +186,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome        | Type                       | Descrizione                                           |
+| Name        | Type                       | Descrizione                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT. |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -199,7 +199,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                 | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Name                 | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |
@@ -240,7 +240,7 @@ In questa sezione vengono illustrate le opzioni di configurazione in attestazion
 2. Selezionare l' **attestazione Aggiungi gruppi**
 3. Selezionare i tipi di gruppo da restituire (**tutti i gruppi**, **SecurityGroup**o **DirectoryRole**). L'opzione **tutti i gruppi** include **SecurityGroup**, **DirectoryRole**e **Distribution** .
 4. Facoltativo: fare clic sulle proprietà specifiche del tipo di token per modificare il valore dell'attestazione dei gruppi in modo che contenga gli attributi del gruppo locale o per modificare il tipo di attestazione in un ruolo
-5. Fare clic su **Save** (Salva).
+5. Fare clic su **Save**.
 
 **Configurazione di gruppi attestazioni facoltative tramite il manifesto dell'applicazione:**
 1. Accedere al [portale di Azure](https://portal.azure.com)
@@ -256,7 +256,7 @@ In questa sezione vengono illustrate le opzioni di configurazione in attestazion
    - SecurityGroup
    - DirectoryRole
 
-   Ad esempio:
+   Ad esempio,
 
     ```json
         "groupMembershipClaims": "SecurityGroup"
@@ -286,7 +286,7 @@ In questa sezione vengono illustrate le opzioni di configurazione in attestazion
        }
     ```
 
-   | Schema delle attestazioni facoltativo | valore |
+   | Schema delle attestazioni facoltativo | Valore |
    |----------|-------------|
    | **nome** | Deve essere "groups" |
    | **origine** | Non usato. Omettere o specificare null |
@@ -349,7 +349,7 @@ In questa sezione è riportato uno scenario che mostra come usare la funzionalit
 Sono disponibili più opzioni per l'aggiornamento delle proprietà di configurazione di un'identità di applicazione per abilitare e configurare le attestazioni facoltative:
 -    È possibile usare l'interfaccia utente di **configurazione del token (anteprima)** (vedere l'esempio seguente)
 -    È possibile usare il **manifesto** (vedere l'esempio seguente). Leggere prima il documento [Informazioni sul manifesto dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) per un'introduzione al manifesto.
--   È anche possibile scrivere un'applicazione che usa l'[API Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) per aggiornare l'applicazione. Il tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) nella Guida di riferimento API Graph può essere utile per la configurazione delle attestazioni facoltative.
+-   È anche possibile scrivere un'applicazione che usa l' [API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) per aggiornare l'applicazione. Il tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) nella Guida di riferimento dell'API Microsoft Graph può essere utile per la configurazione delle attestazioni facoltative.
 
 **Esempio:** Nell'esempio seguente si useranno l'interfaccia utente di **configurazione del token (anteprima)** e il **manifesto** per aggiungere attestazioni facoltative ai token di accesso, ID e SAML destinati all'applicazione. Verranno aggiunte diverse attestazioni facoltative a ogni tipo di token che l'applicazione può ricevere:
 -    I token ID conterranno ora l'UPN per gli utenti federati nel formato esteso (`<upn>_<homedomain>#EXT#@<resourcedomain>`).

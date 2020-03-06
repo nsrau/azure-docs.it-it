@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/21/2019
+ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: ecaf9e007d93b3a99a7609ebf36307f3a6dad15c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2b689588bcbca640dd55b25c52c462ad1a363da5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199955"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296338"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Eseguire il backup e il ripristino nel pool SQL sinapsi di Azure
 
@@ -58,7 +58,7 @@ Di seguito sono elencati i dettagli relativi ai periodi di conservazione dei pun
 2. Gli snapshot non vengono presi quando un pool SQL viene sospeso.
 3. Il periodo di tempo di un punto di ripristino viene misurato in base ai giorni di calendario assoluti dal momento in cui viene effettuato il punto di ripristino, incluso quando il pool SQL è sospeso.
 4. In qualsiasi momento, è garantito che un pool SQL sia in grado di archiviare fino a 42 punti di ripristino definiti dall'utente e 42 punti di ripristino automatici, purché questi punti di ripristino non raggiungano il periodo di conservazione di 7 giorni
-5. Se viene preso uno snapshot, il pool SQL viene sospeso per più di 7 giorni e quindi riprende, è possibile che il punto di ripristino venga mantenuto fino a 42 punti di ripristino totali (inclusi sia definiti dall'utente che automatici)
+5. Se viene utilizzato uno snapshot, il pool SQL viene quindi sospeso per più di 7 giorni e quindi riprende, il punto di ripristino verrà mantenuto fino a 42 punti di ripristino totali (inclusi sia definiti dall'utente che automatici)
 
 ### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Conservazione degli snapshot quando viene eliminato un pool SQL
 

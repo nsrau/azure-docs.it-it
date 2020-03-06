@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: dapine
-ms.openlocfilehash: 04546883e6742086fa05fc450920b1026702bd08
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 984d2dfe07faa22756b4be167aa86a69806b1a84
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212512"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331094"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
@@ -31,7 +31,7 @@ Una panoramica generale sulle funzionalità e sulle piattaforme supportate è di
 
 ## <a name="get-the-sdk"></a>Ottenere l'SDK
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 > [!WARNING]
 > Speech SDK supporta Windows 10 o versioni successive. Le versioni precedenti di Windows **non sono supportate**.
@@ -42,12 +42,12 @@ Per Windows sono supportati le lingue seguenti:
 
 * Java: è possibile fare riferimento e usare la versione più recente del pacchetto Maven di Speech SDK, che supporta solo Windows x64. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` come dipendenza.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 > [!NOTE]
-> Attualmente, sono supportati solo Ubuntu 16,04, Ubuntu 18,04 e Debian 9 nelle architetture di destinazione seguenti:
-> - x86, x64 e ARM64 per C++ lo sviluppo
-> - x64 e ARM64 per Java
+> Attualmente, sono supportati solo Ubuntu 16,04, Ubuntu 18,04, Debian 9, Red Hat Enterprise Linux (RHEL) 8 e CentOS 8 nelle architetture di destinazione seguenti:
+> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) per C++ lo sviluppo
+> - x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) per Java
 > - x64 per .NET Core e Python
 
 Verificare che siano installate le librerie necessarie eseguendo i comandi della shell seguenti:
@@ -65,6 +65,16 @@ In Debian 9:
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+In RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> In RHEL/CentOS 8 seguire le istruzioni su [come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * C#: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Per fare riferimento all'SDK, aggiungere al progetto il riferimento al pacchetto seguente:
 
@@ -86,7 +96,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
   Per creare un'applicazione, copiare o spostare i file binari e le librerie necessari nell'ambiente di sviluppo e includerli nel processo di compilazione come richiesto.
 
-# <a name="androidtabandroid"></a>[Android](#tab/android)
+# <a name="android"></a>[Android](#tab/android)
 
 Java SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste. È ospitato in un repository Maven in `https://csspeechstorage.blob.core.windows.net/maven/` come pacchetto `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
 

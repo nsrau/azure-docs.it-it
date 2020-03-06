@@ -8,14 +8,13 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 01/21/2020
-ms.custom: seodec18
-ms.openlocfilehash: 6f244fc057638bc94a94c150d9333435c0197a74
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 03/10/2020
+ms.openlocfilehash: 9407ad09a9b30e11cbf1e3f3debb357df46e316d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249736"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399461"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -1519,7 +1518,7 @@ Nota: la preparazione dei dati Python SDK non installerà più `numpy` e `pandas
     - Grafico a linee
     - Istogramma
     - Grafico a barre in pila
-    - Grafico Box Plot
+    - Box plot
     - Grafico a dispersione
     - Grafico a bolle
 + Il portale a questo punto genera in modo dinamico i report per gli esperimenti. Quando un utente invia un'esecuzione a un esperimento, verrà generato automaticamente un report contenente i grafici e le metriche registrate per consentire il confronto tra diverse esecuzioni.

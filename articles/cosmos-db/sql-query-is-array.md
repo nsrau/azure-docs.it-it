@@ -1,18 +1,18 @@
 ---
-title: IS_ARRAY in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL IS_ARRAY in Azure Cosmos DB.
+title: IS_ARRAY nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL IS_ARRAY in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 11ff29dcae7bf5c2e532eee658ee39d39b964e35
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f5867850db6eb3d6552bc129cca3708ef7747072
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350970"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303886"
 ---
 # <a name="is_array-azure-cosmos-db"></a>IS_ARRAY (Azure Cosmos DB)
  Restituisce un valore booleano che indica se il tipo di espressione specificata è una matrice.  
@@ -47,11 +47,15 @@ SELECT
  IS_ARRAY({prop: "value"}.prop2) AS isArray7  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"isArray1":false,"isArray2":false,"isArray3":false,"isArray4":false,"isArray5":false,"isArray6":true,"isArray7":false}]
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

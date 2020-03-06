@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 4f75adba27c8173f918fa1afbd44f307d50eb995
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9507428e63b337b3d8419a833d03d081d494c522
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902018"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330805"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -24,7 +24,7 @@ Osservare la [licenza Speech SDK](https://aka.ms/csspeech/license201809), nonch�
 
 A seconda della piattaforma, esistono diverse dipendenze per eseguire l'applicazione.
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a>WINDOWS
 
 Speech SDK do Servizi cognitivi è stato testato su Windows 10 e su Windows Server 2016.
 
@@ -39,7 +39,7 @@ Per l'input del microfono, è necessario installare le raccolte Media Foundation
 
 I file Speech SDK richiesti possono essere distribuiti nella stessa directory dell'applicazione. In questo modo l'applicazione può accedere direttamente alle raccolte. Assicurarsi di selezionare la versione corretta (Win32/x64) corrispondente all'applicazione.
 
-| Nome | Funzione |
+| Name | Funzione |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | SDK di base, necessario per la distribuzione nativa e gestita |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Obbligatorio per le distribuzioni gestite                      |
@@ -52,7 +52,7 @@ I file Speech SDK richiesti possono essere distribuiti nella stessa directory de
 
 ## <a name="linux"></a>Linux
 
-Speech SDK supporta attualmente le distribuzioni Ubuntu 16,04, Ubuntu 18,04 e Debian 9.
+Speech SDK supporta attualmente le distribuzioni Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8.
 Per un'applicazione nativa è necessario fornire la raccolta Speech SDK, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Assicurarsi di selezionare la versione (x86/x64) corrispondente all'applicazione. A seconda della versione di Linux, potrebbe essere necessario anche includere le seguenti dipendenze:
 
@@ -73,6 +73,16 @@ In Debian 9 installare questi pacchetti:
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+In RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> In RHEL/CentOS 8 seguire le istruzioni su [come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

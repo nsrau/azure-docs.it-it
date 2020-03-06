@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 35efbb8d4d97ab52abb20487d15a80985946c499
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 80dba57d4fe05630eb5ae4f8fc96bd0aa214c6d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302271"
 ---
 # <a name="lower-azure-cosmos-db"></a>INFERIORE (Azure Cosmos DB)
  Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli.  
@@ -42,12 +42,16 @@ LOWER(<str_expr>)
 SELECT LOWER("Abc") AS lower
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"lower": "abc"}]  
   
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

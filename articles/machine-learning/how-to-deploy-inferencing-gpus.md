@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 39fc57a6da20549447f782399e9571f7a0ffeea7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/05/2020
+ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122526"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398334"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ L'inferenza o il punteggio del modello è la fase in cui il modello distribuito 
 > [!NOTE]
 > Le informazioni contenute in questo articolo si basano sulle informazioni contenute nell'articolo [How to Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) . In questo articolo viene in genere illustrata la distribuzione in AKS, in questo articolo viene illustrata la distribuzione specifica della GPU
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -101,7 +101,7 @@ Per altre informazioni sull'uso di AKS con Azure Machine Learning, vedere [come 
 Lo script di immissione riceve i dati inviati al servizio Web, li passa al modello e restituisce i risultati di assegnazione dei punteggi. Lo script seguente carica il modello Tensorflow all'avvio, quindi usa il modello per assegnare un punteggio ai dati.
 
 > [!TIP]
-> Lo script di avvio è specifico del modello. Ad esempio, lo script deve essere in grado di comprendere il Framework da usare con il modello, i formati di dati e così via.
+> Lo script di immissione è specifico del modello. Ad esempio, lo script deve essere in grado di comprendere il Framework da usare con il modello, i formati di dati e così via.
 
 ```python
 import json

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 274ee0fe98281e733994f2d5df38886409cbc913
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 17be351d4af3d277242af70ea96e8735a5f68bc9
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273643"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329086"
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
 
@@ -31,8 +31,8 @@ PowerShell e manuali operativi del flusso di lavoro PowerShell in automazione di
 
 | **Proprietà** | **Descrizione** |
 |:--- |:--- |
-| Type |Obbligatorio. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
-| Nome |Obbligatorio. Nome del parametro. Questo nome deve essere univoco all'interno di Runbook, deve iniziare con una lettera e può contenere solo lettere, numeri o caratteri di sottolineatura. |
+| Type |Obbligatoria. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
+| Name |Obbligatoria. Nome del parametro. Questo nome deve essere univoco all'interno di Runbook, deve iniziare con una lettera e può contenere solo lettere, numeri o caratteri di sottolineatura. |
 | Obbligatorio |Facoltativa. Valore booleano che specifica se il parametro richiede un valore. Se si imposta questa impostazione su **true**, è necessario fornire un valore all'avvio del Runbook. Se si imposta questa opzione su **false**, un valore è facoltativo. Se non si specifica un valore per la proprietà **obbligatoria** , PowerShell considera il parametro di input facoltativo per impostazione predefinita. |
 | Valore predefinito |Facoltativa. Valore utilizzato per il parametro se non viene passato alcun valore di input all'avvio del Runbook. Runbook può impostare un valore predefinito per qualsiasi parametro. |
 
@@ -270,7 +270,7 @@ Quando si esegue il [test della versione bozza del Runbook](automation-testing-r
 
 ![Creazione di webhook e assegnazione di parametri](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-Quando si esegue un Runbook usando un webhook, viene inviato il parametro di input predefinito *[WebhookData](automation-webhooks.md#details-of-a-webhook)* , insieme ai parametri di input definiti dall'utente. 
+Quando si esegue un Runbook usando un webhook, viene inviato il parametro di input predefinito *[WebhookData](automation-webhooks.md)* , insieme ai parametri di input definiti dall'utente. 
 
 ![Parametro WebhookData](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 

@@ -1,31 +1,29 @@
 ---
-title: Visualizzare il report di controllo per i ruoli delle risorse di Azure in PIM-Azure AD | Microsoft Docs
+title: Visualizzare il report di controllo per i ruoli delle risorse di Azure in Privileged Identity Management (PIM)-Azure AD | Microsoft Docs
 description: Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718fd4054d5e21c7f6309b3b1ac65a459c514ea0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548017"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329611"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in Privileged Identity Management
 
-Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile visualizzare la cronologia di attività, attivazioni e controlli per i ruoli delle risorse di Azure all'interno dell'organizzazione, tra cui sottoscrizioni, gruppi di risorse e anche macchine virtuali. Tutte le risorse all'interno del portale di Azure che sfruttano la funzionalità controllo degli accessi in base al ruolo di Azure possono sfruttare le funzionalità di sicurezza e gestione del ciclo di vita di Privileged Identity Management.
+Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile visualizzare la cronologia di attività, attivazioni e controlli per i ruoli delle risorse di Azure all'interno dell'organizzazione, tra cui sottoscrizioni, gruppi di risorse e anche macchine virtuali. Tutte le risorse all'interno del portale di Azure che sfruttano le funzionalità di controllo degli accessi in base al ruolo di Azure possono sfruttare le funzionalità di sicurezza e gestione del ciclo di vita di Privileged Identity Management.
 
 > [!NOTE]
 > Se l'organizzazione dispone di funzioni di gestione esternalizzate a un provider di servizi che usa la [gestione delle risorse delegate di Azure](../../lighthouse/concepts/azure-delegated-resource-management.md), le assegnazioni di ruolo autorizzate dal provider di servizi non verranno visualizzate qui.
@@ -36,21 +34,21 @@ Se è necessario verificare quali azioni sono state effettuate da un utente spec
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-1. Fare clic su **Risorse di Azure**.
+1. Selezionare **Risorse di Azure**.
 
-1. Fare clic sulla risorsa per cui si vogliono visualizzare l'attività e le attivazioni.
+1. Selezionare la risorsa per cui si desidera visualizzare le attività e le attivazioni.
 
-1. Fare clic su **Ruoli** o **Membri**.
+1. Selezionare **ruoli** o **membri**.
 
-1. Fare clic su un utente.
+1. Selezionare un utente.
 
-    Si apre una visualizzazione grafica delle azioni dell'utente in Risorse di Azure divise per data. Mostra inoltre le attivazioni di ruolo recenti nell’arco dello stesso periodo di tempo.
+    Viene visualizzato un riepilogo delle azioni dell'utente nelle risorse di Azure in base alla data. Mostra inoltre le attivazioni di ruolo recenti nell’arco dello stesso periodo di tempo.
 
     ![Dettagli dell'utente con riepilogo delle attività delle risorse e attivazioni dei ruoli](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-1. Fare clic su un'attivazione del ruolo specifica per visualizzare i dettagli e l'attività di Risorse di Azure corrispondente effettuata nel periodo in cui l'utente è risultato attivo.
+1. Selezionare un'attivazione di ruolo specifica per visualizzare i dettagli e l'attività corrispondente delle risorse di Azure che si sono verificati quando l'utente era attivo.
 
-    ![Attivazione del ruolo selezionata e dettagli attività visualizzati per data](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    [![Attivazione del ruolo selezionata e dettagli attività](media/azure-pim-resource-rbac/export-membership.png "Attivazione del ruolo selezionata e dettagli attività")](media/azure-pim-resource-rbac/export-membership.png)
 
 ## <a name="export-role-assignments-with-children"></a>Esportare le assegnazioni di ruolo con gli elementi figlio
 
@@ -58,17 +56,17 @@ Potrebbe essere previsto un requisito di conformità in base al quale è necessa
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-1. Fare clic su **Risorse di Azure**.
+1. Selezionare **Risorse di Azure**.
 
-1. Fare clic sulla risorsa di cui esportare le assegnazioni di ruolo, ad esempio una sottoscrizione.
+1. Selezionare la risorsa per cui si desidera esportare le assegnazioni di ruolo, ad esempio una sottoscrizione.
 
-1. Fare clic su **Membri**.
+1. Selezionare **Membri**.
 
-1. Fare clic su **Esporta** per aprire il riquadro Esporta l'appartenenza.
+1. Selezionare **Esporta** per aprire il riquadro Esporta appartenenza.
 
-    ![Esporta riquadro appartenenza per esportare tutti i membri](media/azure-pim-resource-rbac/export-membership.png)
+    [![Esporta riquadro appartenenza per esportare tutti i membri](media/azure-pim-resource-rbac/export-membership.png "Esporta pagina di appartenenza per esportare tutti i membri")](media/azure-pim-resource-rbac/export-membership.png)
 
-1. Fare clic su **Esporta tutti i membri** per esportare tutte le assegnazioni di ruolo in un file CSV.
+1. Selezionare **Esporta tutti i membri** per esportare tutte le assegnazioni di ruolo in un file CSV.
 
     ![Assegnazioni di ruolo esportate nel file CSV come visualizzate in Excel](media/azure-pim-resource-rbac/export-csv.png)
 
@@ -78,19 +76,19 @@ L'opzione Controllo delle risorse fornisce una visualizzazione di tutte le attiv
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-1. Fare clic su **Risorse di Azure**.
+1. Selezionare **Risorse di Azure**.
 
-1. Fare clic sulla risorsa per cui si vuole visualizzare la cronologia dei controlli.
+1. Selezionare la risorsa per cui si vuole visualizzare la cronologia di controllo.
 
-1. Fare clic su **Controllo delle risorse**.
+1. Selezionare **controllo risorse**.
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
-    ![Elenco di controllo delle risorse con filtri](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    [![Elenco di controllo delle risorse con filtri](media/azure-pim-resource-rbac/rbac-resource-audit.png "Elenco di controllo delle risorse con filtri")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. Per **Tipo di controllo**, selezionare **Attiva (assegnato + attivato)** .
 
-    ![Elenco di controllo delle risorse filtrato in base al tipo di controllo Activate](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    [![Elenco di controllo delle risorse filtrato in base al tipo di controllo](media/azure-pim-resource-rbac/rbac-audit-activity.png "Elenco di controllo delle risorse filtrato per attivazione")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![elenco di controllo delle risorse filtrato in base al tipo di controllo attiva](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. In **Azione** fare clic su **(attività)** per un utente per visualizzare il dettaglio dell'attività di tale utente nelle risorse di Azure.
 
@@ -102,18 +100,43 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-1. Fare clic su **Risorse di Azure**.
+1. Selezionare **Risorse di Azure**.
 
-1. Fare clic sulla risorsa per cui si vuole visualizzare la cronologia dei controlli.
+1. Selezionare la risorsa per cui si vuole visualizzare la cronologia di controllo.
 
-1. Fare clic su **Controllo personale**.
+1. Selezionare **My audit**.
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
-    ![Elenco di controllo per l'utente corrente](media/azure-pim-resource-rbac/my-audit-time.png)
-    
+    [![Elenco di controllo per l'utente corrente](media/azure-pim-resource-rbac/my-audit-time.png "Elenco di controllo per l'utente corrente")](media/azure-pim-resource-rbac/my-audit-time.png)
+
 > [!NOTE]
 > Per accedere alla cronologia di controllo è necessario un ruolo amministratore globale o amministratore del ruolo con privilegi.
+
+## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Ottieni motivo, responsabile approvazione e numero di ticket per gli eventi di approvazione
+
+1. Accedere al [portale di Azure](https://aad.portal.azure.com) con le autorizzazioni del ruolo amministratore del ruolo con privilegi e aprire Azure ad.
+1. Selezionare **log di controllo**.
+1. Usare il filtro del **servizio** per visualizzare solo gli eventi di controllo per il servizio Privileged Identity Management. Nella pagina **log di controllo** è possibile:
+
+    - Vedere la causa di un evento di controllo nella colonna **motivo dello stato** .
+    - Vedere il responsabile approvazione nella colonna **Iniziato da (attore)** per l'evento "Aggiungi membro a richiesta di ruolo approvato".
+
+    [![Filtrare il log di controllo per il servizio PIM](media/azure-pim-resource-rbac/filter-audit-logs.png "Filtrare il log di controllo per il servizio PIM")](media/azure-pim-resource-rbac/filter-audit-logs.png)
+
+1. Selezionare un evento del registro di controllo per visualizzare il numero del ticket nella scheda **attività** del riquadro **Dettagli** .
+  
+    [![Controllare il numero di ticket per l'evento di controllo](media/azure-pim-resource-rbac/audit-event-ticket-number.png "Controllare il numero di ticket per l'evento di controllo")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)]
+
+1. È possibile visualizzare il richiedente (persona che attiva il ruolo) nella scheda **destinazioni** del riquadro **Dettagli** per un evento di controllo. Sono disponibili tre tipi di destinazione per i ruoli delle risorse di Azure:
+
+    - Role (**Type** = Role)
+    - Il richiedente (**tipo** = other)
+    - Responsabile approvazione (**tipo** = utente)
+
+    [![Verificare il tipo di destinazione](media/azure-pim-resource-rbac/audit-event-target-type.png "Verificare il tipo di destinazione")](media/azure-pim-resource-rbac/audit-event-target-type.png)
+
+In genere, l'evento log immediatamente sopra l'evento di approvazione è un evento per l'aggiunta di un membro a un ruolo completato in cui il richiedente è stato **avviato da (attore)** . Nella maggior parte dei casi non è necessario trovare il richiedente nella richiesta di approvazione dal punto di vista del controllo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

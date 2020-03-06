@@ -8,17 +8,17 @@ ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: d1b28000a14ec0825435742efe238e713f116ba7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 2ac761355fc528fe3e4b4b5f05ee0a6e317ff99a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063935"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78297985"
 ---
-# <a name="backup-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account usando l'app Microsoft Authenticator
+# <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account usando l'app Microsoft Authenticator
 
 **Si applica a:**
 
@@ -31,7 +31,7 @@ L'app Microsoft Authenticator esegue il backup delle credenziali dell'account e 
 Ogni percorso di archiviazione di backup richiede un account Microsoft personale, mentre iOS richiede anche un account iCloud. È possibile avere più account archiviati nella stessa posizione. Ad esempio, è possibile avere un account personale, un account aziendale o dell'Istituto di istruzione e un personale, non account Microsoft come per Facebook, Google e così via.
 
 > [!IMPORTANT]
-> Sono archiviate solo le credenziali di account personali e di terze parti, che includono il nome utente e il codice di verifica dell'account necessario per dimostrare la propria identità. Non vengono archiviate altre informazioni associate agli account, inclusi messaggi di posta elettronica o file. Gli account non vengono inoltre associati o condivisi in alcun modo o con qualsiasi altro prodotto o servizio. Infine, l'amministratore IT non otterrà alcuna informazione riguardo a questi account.
+> Sono archiviate solo le credenziali di account personali e di terze parti, che includono il nome utente e il codice di verifica dell'account necessario per dimostrare la propria identità. Non vengono archiviate altre informazioni associate agli account, inclusi i messaggi di posta elettronica o i file. Non è inoltre possibile associare o condividere gli account in alcun modo o con altri prodotti o servizi. Infine, l'amministratore IT non potrà ottenere informazioni su nessuno di questi account.
 
 ## <a name="back-up-your-account-credentials"></a>Eseguire il backup delle credenziali dell'account
 
@@ -75,29 +75,47 @@ Dopo aver completato il ripristino, è possibile notare che i codici di verifica
 
 ## <a name="recover-additional-accounts-requiring-more-verification"></a>Ripristinare altri account che richiedono ulteriori verifiche
 
-Se si usano le notifiche push con gli account personali, aziendali o dell'Istituto di istruzione, verrà visualizzato un avviso su schermo che indica che è necessario fornire una verifica aggiuntiva prima di poter recuperare le informazioni. Dato che le notifiche push richiedono l'uso di credenziali associate al dispositivo specifico e che non vengono mai inviate in rete, è necessario dimostrare la propria identità prima della creazione delle credenziali nel dispositivo.
+Se si usano le notifiche push con gli account personali, aziendali o dell'Istituto di istruzione, verrà visualizzato un avviso su schermo che indica che è necessario fornire una verifica aggiuntiva prima di poter recuperare le informazioni. Poiché le notifiche push richiedono l'uso di credenziali associate al dispositivo specifico e mai inviate in rete, è necessario dimostrare la propria identità prima della creazione della credenziale nel dispositivo.
 
 Per gli account Microsoft personali, è possibile provare la propria identità immettendo la password insieme a un numero di telefono o posta elettronica alternativo. Per gli account aziendali o dell'istituto di istruzione, è necessario eseguire la scansione di un codice a matrice fornito dal provider dell'account.
 
 ### <a name="to-provide-additional-verification-for-personal-accounts"></a>Per fornire un'ulteriore verifica per gli account personali
 
-1. Nella schermata **Account** dell'app Microsoft Authenticator selezionare la freccia in giù accanto all'account da ripristinare.
+1. Nella schermata **account** dell'app Microsoft Authenticator selezionare l'account che si vuole ripristinare. In un dispositivo Android selezionare la freccia accanto all'account che si desidera ripristinare.
 
     ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
 
-2. Selezionare **Accedi per ripristinare**, digitare la password e quindi confermare l'indirizzo di posta elettronica o il numero di telefono come ulteriore verifica.
+    In un dispositivo iOS toccare l'account che si vuole ripristinare per aprire la visualizzazione a schermo intero dell'account.
 
-    ![App Microsoft Authenticator che consente di immettere le informazioni di accesso](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+    ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/user-help-auth-app-backup-recovery/ios-select-account-to-recover.png)
+
+2. Accedere per ripristinare l'account. In un dispositivo Android selezionare **Accedi per ripristinare**.
+
+    ![Microsoft Authenticator app per immettere le informazioni di accesso in Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+
+    In un dispositivo iOS toccare il riquadro dell'account che si vuole ripristinare e quindi toccare l'opzione per eseguire l'accesso e il ripristino. Digitare quindi la password e confermare l'indirizzo di posta elettronica o il numero di telefono come verifica aggiuntiva. UNT.
+
+    ![Microsoft Authenticator app per immettere le informazioni di accesso in iOS](./media/user-help-auth-app-backup-recovery/ios-sign-in-to-recover.png)
 
 ### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Per fornire un'ulteriore verifica per gli account aziendali o dell'istituto di istruzione
 
-1. Nella schermata **Account** dell'app Microsoft Authenticator selezionare la freccia in giù accanto all'account da ripristinare.
+1. Accedere per ripristinare l'account. In un dispositivo Android selezionare **Accedi per ripristinare**.
 
-    ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
+    ![Microsoft Authenticator app per ripristinare un account aziendale o dell'Istituto di istruzione in Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
 
-2. Selezionare **Scansione codice QR per ripristinare** e quindi eseguire la scansione del codice a matrice.
+    In un dispositivo iOS toccare l'account che si vuole ripristinare per aprire la visualizzazione a schermo intero dell'account.
 
-    ![App Microsoft Authenticator che consente di eseguire la scansione del codice a matrice](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
+    ![Microsoft Authenticator app per il ripristino di un account aziendale o dell'Istituto di istruzione in iOS](./media/user-help-auth-app-backup-recovery/ios-recover-work-or-school-account.png)
+
+2. Per ripristinare un account, è possibile usare un codice a matrice. Selezionare **Scansione codice QR per ripristinare** e quindi eseguire la scansione del codice a matrice.
+
+    In Android:
+
+    ![Microsoft Authenticator app in Android, che consente di eseguire la scansione del codice QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
+
+    In iOS:
+
+    ![Microsoft Authenticator app in iOS, che consente di eseguire la scansione del codice QR](./media/user-help-auth-app-backup-recovery/ios-scan-qr-code.png)
 
     >[!NOTE]
     >Per altre informazioni sui codici QR e su come ottenerne uno, vedere [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [configurare le informazioni di sicurezza per l'uso di un'app di autenticazione, a](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app)seconda che l'amministratore abbia attivato le info di sicurezza.
@@ -106,19 +124,19 @@ Per gli account Microsoft personali, è possibile provare la propria identità i
 
 ## <a name="troubleshoot-backup-and-recovery-problems"></a>Risolvere i problemi di backup e ripristino
 
-Esistono diversi motivi per cui il backup potrebbe non essere disponibile:
+Esistono alcuni motivi per cui il backup potrebbe non essere disponibile
 
-- **Modifica dei sistemi operativi.** Il backup viene archiviato in iCloud per iOS e nel provider di archiviazione cloud di Microsoft per Android. Questo significa che il backup non è disponibile se si passa tra dispositivi Android e iOS. Se si esegue l'opzione, è necessario ricreare manualmente gli account all'interno dell'app Microsoft Authenticator.
+- **Modifica dei sistemi operativi**: il backup viene archiviato in iCloud per iOS e nel provider di archiviazione cloud di Microsoft per Android. Questo significa che il backup non è disponibile se si passa tra dispositivi Android e iOS. Se si esegue l'opzione, è necessario ricreare manualmente gli account all'interno dell'app Microsoft Authenticator.
 
-- **Problemi di rete.** Se si verificano problemi relativi alla rete, assicurarsi di essere connessi alla rete e di avere eseguito l'accesso al proprio account.
+- **Problemi di rete**: se si verificano problemi relativi alla rete, assicurarsi di essere connessi alla rete e di avere eseguito correttamente l'accesso al proprio account.
 
-- **Problemi relativi agli account.** Se si verificano problemi relativi all'account, assicurarsi di essere connessi correttamente all'account. Per iOS questo significa che è necessario essere connessi a iCloud usando lo stesso account AppleID dell'iPhone.
+- **Problemi**relativi all'account: se si verificano problemi relativi all'account, assicurarsi che l'accesso sia stato eseguito correttamente. Per iOS questo significa che è necessario essere connessi a iCloud usando lo stesso account AppleID dell'iPhone.
 
-- **Eliminazione accidentale.** È possibile che l'account di backup sia stato eliminato dal dispositivo precedente o durante la gestione dell'account di archiviazione nel cloud. In questo caso, è necessario ricreare manualmente l'account all'interno dell'app.
+- **Eliminazione accidentale**: è possibile che l'account di backup sia stato eliminato dal dispositivo precedente o durante la gestione dell'account di archiviazione cloud. In questo caso, è necessario ricreare manualmente l'account all'interno dell'app.
 
-- **Account Microsoft Authenticator esistenti.** Se sono già stati configurati account nell'app Microsoft Authenticator, l'app non sarà in grado di recuperare gli account di backup. Impedendo il ripristino ci si assicura che i dettagli dell'account non vengano sovrascritti con informazioni non aggiornate. In questo caso, è necessario rimuovere eventuali informazioni sugli account esistenti dagli account esistenti configurati nell'app Authenticator prima di poter ripristinare il backup.
+- **Account di Microsoft Authenticator esistenti**: se sono già stati configurati account nell'app Microsoft Authenticator, l'app non sarà in grado di ripristinare gli account di cui è stato eseguito il backup. Impedendo il ripristino ci si assicura che i dettagli dell'account non vengano sovrascritti con informazioni non aggiornate. In questo caso, è necessario rimuovere eventuali informazioni sugli account esistenti dagli account esistenti configurati nell'app Authenticator prima di poter ripristinare il backup.
 
-- **Il backup è obsoleto.** Se le informazioni di backup non sono aggiornate, è possibile che venga richiesto di aggiornare le informazioni eseguendo di nuovo l'accesso all'account Microsoft Recovery. L'account di ripristino è il account Microsoft personale usato inizialmente per archiviare il backup. Se è necessario un accesso, verrà visualizzato un punto rosso sul menu o sulla barra delle azioni. Dopo aver selezionato il punto rosso, verrà chiesto di eseguire di nuovo l'accesso per aggiornare le informazioni.
+- Il **backup non è aggiornato**: se le informazioni di backup non sono aggiornate, è possibile che venga richiesto di aggiornare le informazioni eseguendo di nuovo l'accesso all'account di Microsoft Recovery. L'account di ripristino è il account Microsoft personale usato inizialmente per archiviare il backup. Se è necessario un accesso, verrà visualizzato un punto rosso sul menu o sulla barra delle azioni oppure verrà visualizzato un punto esclamativo che richiede di eseguire l'accesso per completare il ripristino dal backup. Dopo aver selezionato l'icona, verrà chiesto di eseguire di nuovo l'accesso per aggiornare le informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f187dba4eace61695a72e4b7b08731e65ff0d7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612813"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299109"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Risolvere i problemi di aggiunta al dominio con un Azure AD Domain Services dominio gestito
 
@@ -55,7 +55,7 @@ Per risolvere i problemi relativi alle credenziali, esaminare i passaggi seguent
 
 1. Provare a usare il formato UPN per specificare le credenziali, ad esempio `dee@aaddscontoso.onmicrosoft.com`. Verificare che il nome UPN sia configurato correttamente in Azure AD.
     * Il *sAMAccountName* per l'account può essere generato automaticamente se sono presenti più utenti con lo stesso prefisso UPN nel tenant o se il prefisso UPN è troppo lungo. Pertanto, il formato di *sAMAccountName* per l'account può essere diverso da quello previsto o da usare nel dominio locale.
-1. Provare a usare le credenziali di un account utente appartenente al gruppo di *amministratori di AAD DC* per aggiungere le macchine virtuali al dominio gestito di Azure AD DS.
+1. Provare a usare le credenziali di un account utente che fa parte del dominio gestito di Azure AD DS per aggiungere le macchine virtuali al dominio gestito.
 1. Assicurarsi di aver abilitato la [sincronizzazione delle password][enable-password-sync] e di avere atteso il tempo sufficiente per il completamento della sincronizzazione iniziale delle password.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,14 +5,14 @@ author: chrissie926
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 02/01/2020
 ms.author: menchi
-ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807426"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303597"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendere e usare i moduli gemelli nell'hub IoT
 
@@ -113,7 +113,7 @@ Nell'esempio precedente, il dispositivo gemello contiene la proprietà `batteryL
 
 ### <a name="desired-property-example"></a>Esempio di proprietà desiderata
 
-Nell'esempio precedente le proprietà desiderate e segnalate del modulo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per modulo per sincronizzare la configurazione della telemetria per questo modulo. ad esempio:
+Nell'esempio precedente le proprietà desiderate e segnalate del modulo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per modulo per sincronizzare la configurazione della telemetria per questo modulo. Ad esempio,
 
 1. Il back-end della soluzione imposta la proprietà desiderata sul valore di configurazione desiderato. Questa è la parte del documento con il set di proprietà desiderate:
 
@@ -174,9 +174,9 @@ Il back-end della soluzione opera sul modulo gemello tramite le seguenti operazi
 
 * **Ricezione di notifiche relative al dispositivo gemello**. Questa operazione invia notifiche al back-end della soluzione a ogni modifica del dispositivo gemello. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *twinChangeEvents*. Per impostazione predefinita, non viene inviata alcuna notifica, ovvero queste route non sono preesistenti. Se la frequenza delle modifiche è troppo elevata o per altri motivi, ad esempio un errore interno, l'hub IoT potrebbe inviare solo una notifica che contiene tutte le modifiche. Se pertanto l'applicazione ha bisogno di controllo e registrazione affidabili di tutti gli stati intermedi, è consigliabile usare messaggi da dispositivo a cloud. Il messaggio di notifica relativo al dispositivo gemello include le proprietà e il corpo.
 
-  - properties
+  - Proprietà
 
-    | name | Value |
+    | Name | Valore |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -236,11 +236,15 @@ Tutte le operazioni precedenti richiedono l'autorizzazione **ModuleConnect**, co
 
 I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle restrizioni indicate di seguito:
 
-* Tutte le chiavi negli oggetti JSON sono stringhe UTF-8 UNICODE da 64 caratteri con distinzione tra maiuscole e minuscole. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, SP e `$`.
+* **Chiavi**: tutte le chiavi negli oggetti JSON fanno distinzione tra maiuscole e minuscole in stringhe UNICODE da 64 byte UTF-8. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, SP e `$`.
 
-* Tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: booleano, numero, stringa, oggetto. Non sono consentite le matrici. Il valore massimo per il numero intero è 4503599627370495, mentre quello minimo è -4503599627370496.
+* **Valori**: tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: Boolean, Number, String, Object. Non sono consentite le matrici.
 
-* Tutti gli oggetti JSON nei tag e nelle proprietà desiderate e segnalate possono avere una profondità massima di 5. Ad esempio, l'oggetto seguente è valido:
+    * I numeri interi possono avere un valore minimo di-4503599627370496 e un valore massimo pari a 4503599627370495.
+
+    * I valori stringa sono codificati in UTF-8 e possono avere una lunghezza massima di 512 byte.
+
+* **Depth**: tutti gli oggetti JSON nei tag, nelle proprietà desiderate e segnalate possono avere una profondità massima di 5. Ad esempio, l'oggetto seguente è valido:
 
     ```json
     {
@@ -262,20 +266,28 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
     }
     ```
 
-* Tutti i valori di stringa possono avere una lunghezza massima di 512 byte.
-
 ## <a name="module-twin-size"></a>Dimensioni del modulo gemello
 
-L'hub Internet delle cose impone un limite di dimensioni di 8 KB per il valore di `tags`e una dimensione di 32 KB limite ogni sul valore di `properties/desired` e `properties/reported`. Questi totali sono esclusivi degli elementi di sola lettura.
+L'hub Internet delle cose impone un limite di dimensioni di 8 KB per il valore di `tags`e una dimensione di 32 KB limite ogni sul valore di `properties/desired` e `properties/reported`. Questi totali sono esclusivi di elementi di sola lettura come `$etag`, `$version`e `$metadata/$lastUpdated`.
 
-Le dimensioni vengono calcolate contando tutti i caratteri a esclusione dei caratteri di controllo UNICODE, ovvero i segmenti C0 e C1, e gli spazi al di fuori delle costanti stringa.
+Le dimensioni del dispositivo gemello vengono calcolate come segue:
+
+* Per ogni proprietà nel documento JSON, l'hub Internet viene calcolato cumulativamente e viene aggiunta la lunghezza della chiave e del valore della proprietà.
+
+* Le chiavi delle proprietà sono considerate stringhe con codifica UTF8.
+
+* I valori di proprietà semplici sono considerati stringhe con codifica UTF8, valori numerici (8 byte) o valori booleani (4 byte).
+
+* Le dimensioni delle stringhe con codifica UTF8 vengono calcolate contando tutti i caratteri, esclusi i caratteri di controllo UNICODE (segmenti C0 e C1).
+
+* I valori di proprietà complesse (oggetti annidati) vengono calcolati in base alle dimensioni aggregate delle chiavi di proprietà e dei valori delle proprietà in essi contenuti.
 
 L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei documenti oltre il limite specificato.
 
 ## <a name="module-twin-metadata"></a>Metadati del modulo gemello
 
 L'hub IoT conserva il timestamp dell'ultimo aggiornamento di ogni oggetto JSON nelle proprietà desiderate e segnalate del modulo gemello. I timestamp sono in formato UTC e codificati in formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
-ad esempio:
+Ad esempio,
 
 ```json
 {

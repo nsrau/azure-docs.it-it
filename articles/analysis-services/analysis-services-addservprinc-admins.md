@@ -8,19 +8,16 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b75740e9bff714ad68c93bea7e387e60da2f1c59
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212505"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298089"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
  Per automatizzare le attività di PowerShell, un'entità servizio deve avere privilegi di **amministratore del server** nel server Analysis Services gestito. Questo articolo descrive come aggiungere un'entità servizio al ruolo di amministratore del server in un server Azure Analysis Services. A tale scopo, è possibile usare SQL Server Management Studio o un modello di Gestione risorse.
- 
-> [!NOTE]
-> Per le operazioni del server che usano i cmdlet di Azure PowerShell, l'entità servizio deve appartenere anche al ruolo di **proprietario** per la risorsa nel [controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Prima di completare questa attività, è necessario aver creato un'entità servizio registrata in Azure Active Directory.
@@ -42,7 +39,7 @@ Prima di completare questa attività, è necessario aver creato un'entità servi
     
     ![Cercare l'account dell'entità servizio](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
-## <a name="using-a-resource-manager-template"></a>Uso di un modello di Gestione risorse
+## <a name="using-a-resource-manager-template"></a>Uso di un modello di Resource Manager
 
 È anche possibile configurare gli amministratori del server distribuendo il server Analysis Services usando un modello di Azure Resource Manager. L'identità che esegue la distribuzione deve appartenere al ruolo **collaboratore** per la risorsa nel [controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/overview.md).
 
@@ -96,6 +93,24 @@ Il modello di Gestione risorse seguente distribuisce un server Analysis Services
     ]
 }
 ```
+
+## <a name="using-managed-identities"></a>Uso delle identità gestite
+
+È anche possibile aggiungere un'identità gestita all'elenco Analysis Services Admins. Ad esempio, si potrebbe avere un' [app per la logica con un'identità gestita assegnata dal sistema](../logic-apps/create-managed-service-identity.md)e si vuole concedere a quest'altra la possibilità di amministrare il server Analysis Services.
+
+Nella maggior parte delle parti del portale di Azure e delle API, le identità gestite vengono identificate usando il relativo ID oggetto entità servizio. Tuttavia, Analysis Services richiede che vengano identificati utilizzando il proprio ID client. Per ottenere l'ID client per un'entità servizio, è possibile usare l'interfaccia della riga di comando di Azure:
+
+```bash
+az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
+```
+
+In alternativa, è possibile usare PowerShell:
+
+```powershell
+(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
+```
+
+È quindi possibile usare questo ID client insieme all'ID tenant per aggiungere l'identità gestita all'elenco Analysis Services Admins, come descritto in precedenza.
 
 ## <a name="related-information"></a>Informazioni correlate
 

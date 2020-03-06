@@ -4,18 +4,18 @@ description: Informazioni sul modo in cui la funzione di sistema SQL arcotangent
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8fd398e343a3e617ceb9f49ca8f31ee776a7f073
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 899c94a939be7825dca82522eab235bde9252896
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873455"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302679"
 ---
 # <a name="atan-azure-cosmos-db"></a>ATAN (Azure Cosmos DB)
- Restituisce l'angolo, espresso in radianti, la cui tangente è l'espressione numerica specificata. Detta anche arcotangente.  
+ Restituisce l'angolo, espresso in radianti, la cui tangente è l'espressione numerica specificata. (definito anche arcotangente).  
   
 ## <a name="syntax"></a>Sintassi
   
@@ -26,13 +26,13 @@ ATAN(<numeric_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *numeric_expr*  
-   È un'espressione numerica.  
+   Espressione numerica.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene restituito il `ATAN` del valore specificato.  
   
@@ -40,12 +40,15 @@ ATAN(<numeric_expr>)
 SELECT ATAN(-45.01) AS atan  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"atan": -1.5485826962062663}]  
 ```  
   
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

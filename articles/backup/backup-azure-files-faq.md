@@ -3,12 +3,12 @@ title: Domande frequenti sul backup di file di Azure
 description: In questo articolo vengono fornite le risposte alle domande comuni su come proteggere le condivisioni file di Azure con il servizio Backup di Azure.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293998"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302543"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 
@@ -83,7 +83,7 @@ Il backup di condivisioni file di Azure è attualmente disponibile in anteprima 
 - NWW (Norvegia occidentale)
 - SZN (Svizzera settentrionale)
 
-Inviare un messaggio a [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) se è necessario usare la funzionalità in un'area geografica non indicata nell'elenco.
+Inviare un messaggio a [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) se è necessario usare la funzionalità in un'area geografica non indicata nell'elenco.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Quante condivisioni file di Azure si possono proteggere in un insieme di credenziali?
 
@@ -93,7 +93,7 @@ Durante l'anteprima è possibile proteggere condivisioni file di Azure di un mas
 
 No. Tutte le condivisioni file di un account di archiviazione possono essere protette solo dallo stesso insieme di credenziali.
 
-## <a name="backup"></a>Eseguire il backup
+## <a name="backup"></a>Backup
 
 ### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Quanti backup pianificati è possibile configurare per ogni condivisione file?
 
@@ -103,7 +103,7 @@ Backup di Azure supporta attualmente la configurazione di backup pianificati una
 
 È previsto un limite di 200 snapshot per ogni condivisione file in qualsiasi momento. Il limite include gli snapshot creati da Backup di Azure in base ai criteri definiti. Se si iniziano a rilevare errori con i backup dopo aver raggiunto questo limite, eliminare i punti di ripristino su richiesta per poter completare i backup successivi.
 
-## <a name="restore"></a>Ripristinare
+## <a name="restore"></a>Ripristina
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>È possibile recuperare una condivisione file di Azure eliminata?
 

@@ -4,15 +4,15 @@ description: Informazioni sul modo in cui la funzione di sistema SQL della cotan
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f049d1295eef3e6a45abeaafe8c22d376f90abe1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 25c907644f58ee40ea08e5636d68dc0e84564a28
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871500"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299488"
 ---
 # <a name="cot-azure-cosmos-db"></a>LETTIno (Azure Cosmos DB)
  Restituisce la cotangente trigonometrica dell'angolo specificato, espresso in radianti, nell'espressione numerica specificata.  
@@ -32,7 +32,7 @@ COT(<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene calcolato il `COT` dell'angolo specificato.  
   
@@ -45,7 +45,10 @@ SELECT COT(124.1332) AS cot
 ```json
 [{"cot": -0.040311998371148884}]  
 ```  
-  
+
+## <a name="remarks"></a>Osservazioni
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

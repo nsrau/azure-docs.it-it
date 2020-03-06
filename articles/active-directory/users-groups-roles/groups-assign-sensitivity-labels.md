@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b242a76e1daec7d401d797e8c9887821117246
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656943"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329733"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Assegnare etichette di riservatezza ai gruppi di Office 365 in Azure Active Directory (anteprima)
 
-Azure Active Directory (Azure AD) supporta l'applicazione di etichette di riservatezza pubblicate dal [centro di conformità Microsoft 365](https://sip.protection.office.com/homepage) ai gruppi di Office 365. Le etichette di riservatezza si applicano al gruppo tra servizi come Outlook, Microsoft teams e SharePoint. Questa funzionalità è attualmente in anteprima pubblica. Per ulteriori informazioni sul supporto delle app di Office 365, vedere [supporto di office 365 per le etichette di riservatezza](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
+Azure Active Directory (Azure AD) supporta l'applicazione di etichette di riservatezza pubblicate dal [centro di conformità Microsoft 365](https://sip.protection.office.com/homepage) ai gruppi di Office 365. Le etichette di riservatezza si applicano al gruppo tra servizi come Outlook, Microsoft teams e SharePoint. Questa funzionalità è attualmente in anteprima pubblica. Per ulteriori informazioni sul supporto delle app di Office 365, vedere [supporto di office 365 per le etichette di riservatezza](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Per configurare questa funzionalità, è necessario che sia presente almeno una licenza attiva Azure Active Directory Premium P1 nell'organizzazione Azure AD.

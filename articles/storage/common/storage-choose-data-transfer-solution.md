@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ada96d0d4b167e30cb6e271aa02d0d399a9ae7d3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900395"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303087"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Scegliere una soluzione di Azure per il trasferimento dei dati
 
@@ -50,20 +50,19 @@ Rispondere alle domande seguenti per selezionare una soluzione di trasferimento 
 
 - La larghezza di banda di rete disponibile è ridotta o inesistente e si vogliono trasferire set di dati di grandi dimensioni?
   
-    Se sì, vedere: [Scenario 1: Trasferire set di dati di grandi dimensioni con larghezza di banda di rete assente o bassa](storage-solution-large-dataset-low-network.md).
+    In caso affermativo, vedere: [scenario 1: trasferire set di impostazioni di grandi dimensioni con una larghezza di banda di rete insufficiente](storage-solution-large-dataset-low-network.md).
 - Si vogliono trasferire set di dati di grandi dimensioni tramite la rete e la larghezza di banda di rete è moderata o elevata?
 
-    Se sì, vedere: [Scenario 2: Trasferire set di dati di grandi dimensioni con larghezza di banda di rete da moderata a elevata](storage-solution-large-dataset-moderate-high-network.md).
+    In caso affermativo, vedere: [scenario 2: trasferire set di impostazioni di grandi dimensioni con larghezza di banda moderata e elevata](storage-solution-large-dataset-moderate-high-network.md).
 - Si vogliono trasferire occasionalmente solo pochi file tramite la rete?
 
-    Se sì, vedere [Scenario 3: Trasferire set di dati di piccole dimensioni con larghezza di banda di rete da ridotta a moderata](storage-solution-small-dataset-low-moderate-network.md).
+    In caso affermativo, vedere [scenario 3: trasferire piccoli set di impostazioni con una larghezza di banda di rete limitata a moderata](storage-solution-small-dataset-low-moderate-network.md).
 - È necessario un trasferimento dei dati temporizzato a intervalli regolari?
 
-    Se sì, usare le opzioni con script/programmatiche illustrate in [Scenario 4: Trasferimenti dei dati periodici](storage-solution-periodic-data-transfer.md).
+    In caso affermativo, usare le opzioni di scripting/programmatiche descritte nello [scenario 4: trasferimenti periodici di dati](storage-solution-periodic-data-transfer.md).
 - È necessario un trasferimento dei dati continuo?
 
-    Se sì, usare le opzioni indicate in [Scenario 4: Trasferimenti dei dati periodici](storage-solution-periodic-data-transfer.md).
- 
+    In caso affermativo, usare le opzioni nello [scenario 4: trasferimenti periodici di dati](storage-solution-periodic-data-transfer.md).
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Funzionalità di trasferimento dei dati in portale di Azure
 
@@ -74,7 +73,7 @@ Rispondere alle domande seguenti per selezionare una soluzione di trasferimento 
 - [Vedere un'introduzione ad Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [Leggere una panoramica di AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
 - [Usare Azure PowerShell con Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
-- [Usare l'interfaccia della riga di comando di Azure con Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
+- [Guida introduttiva: creare, scaricare ed elencare BLOB con interfaccia della riga di comando di Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Vengono fornite informazioni su:
 
     - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy per i trasferimenti offline](https://docs.microsoft.com/azure/databox/).

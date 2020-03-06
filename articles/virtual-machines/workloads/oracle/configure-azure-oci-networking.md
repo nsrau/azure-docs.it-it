@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802219"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302050"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurare un'interconnessione diretta tra Azure e l'infrastruttura cloud Oracle  
 
@@ -31,11 +31,11 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
 
 ![Connessione di rete tra cloud](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Per stabilire la connettività tra Azure e OCI, è necessario avere una sottoscrizione di Azure attiva e un tenant attivo OCI.
 
-* La connettività è possibile solo quando una località di peering di Azure ExpressRoute è in prossimità o nella stessa località di peering del FastConnect OCI. Vedere [limitazioni](oracle-oci-overview.md#preview-limitations)della versione di anteprima.
+* La connettività è possibile solo quando una località di peering di Azure ExpressRoute è in prossimità o nella stessa località di peering del FastConnect OCI. Vedere la pagina relativa alla [disponibilità dell'area](oracle-oci-overview.md#region-availability).
 
 * Per questa funzionalità di anteprima è necessario abilitare la sottoscrizione di Azure.
 
@@ -63,7 +63,7 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
     * Nella **chiave del servizio del provider**incollare la chiave del servizio ExpressRoute.
     * Usare il primo/30 spazio di indirizzi IP privati suddiviso in un passaggio precedente per l' **indirizzo IP BGP primario** e il secondo/30 spazio di indirizzi IP privato per l'indirizzo **IP BGP secondario** .
         * Assegnare il primo indirizzo utilizzabile dei due intervalli per l'indirizzo IP BGP Oracle (primario e secondario) e il secondo indirizzo all'indirizzo IP BGP del cliente (dal punto di vista della FastConnect). Il primo indirizzo IP utilizzabile è il secondo indirizzo IP nello spazio degli indirizzi/30 (il primo indirizzo IP è riservato da Microsoft).
-    * Fare clic su **Create**(Crea).
+    * Fare clic su **Crea**.
 1. Completare il collegamento di FastConnect alla rete cloud virtuale nel tenant Oracle tramite il gateway di routing dinamico, usando la tabella di route.
 1. Passare ad Azure e assicurarsi che lo **stato del provider** per il circuito ExpressRoute sia stato modificato in **provisioning** eseguito e che sia stato effettuato il provisioning di un peering di tipo **privato di Azure** . Questo è un prerequisito per i passaggi seguenti.
 

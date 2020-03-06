@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ba7846b60ca6649b4342d5096e92dfd8c96601
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 733743f4680f3197a1754d87b4672641b2321907
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756303"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399331"
 ---
 # <a name="start-using-privileged-identity-management"></a>Iniziare a usare Privileged Identity Management
 
@@ -27,11 +27,11 @@ Con Privileged Identity Management (PIM), è possibile gestire, controllare e mo
 
 Questo articolo descrive come abilitare e iniziare a usare Privileged Identity Management.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare Privileged Identity Management, è necessario disporre di una delle licenze seguenti:
 
-- Azure AD P2 Premium
+- Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
 
 Per ulteriori informazioni, vedere [requisiti di licenza per l'utilizzo di Privileged Identity Management](subscription-requirements.md).
@@ -62,7 +62,7 @@ Per iniziare a usare Privileged Identity Management nella directory, è necessar
 
     ![Selezionare una finestra dell'account per verificare la propria identità](./media/pim-getting-started/pick-account.png)
 
-1. Se sono necessarie altre informazioni per la verifica, si verrà guidati nel processo. Per altre informazioni, vedere [Informazioni sulla verifica in due passaggi](https://go.microsoft.com/fwlink/p/?LinkId=708614).
+1. Se sono necessarie altre informazioni per la verifica, si verrà guidati nel processo. Per altre informazioni, vedere [Informazioni sulla verifica in due passaggi](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
     ![Altre informazioni richiedono la finestra se l'organizzazione necessita di ulteriori informazioni](./media/pim-getting-started/more-information-required.png)
 
@@ -102,7 +102,7 @@ Una volta configurata la Privileged Identity Management, è possibile avviare le
 
 ![Finestra di navigazione in Privileged Identity Management che mostra le attività e Gestisci le opzioni](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Attività e gestione | Description |
+| Attività e gestione | Descrizione |
 | --- | --- |
 | **Ruoli personali**  | Visualizza un elenco di ruoli idonei e attivi assegnati all'utente. Qui è possibile attivare tutti i ruoli idonei assegnati. |
 | **Richieste personali** | Visualizza le richieste in sospeso per attivare le assegnazioni di ruolo idonee. |

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971146"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301353"
 ---
 # <a name="application-gateway-components"></a>Componenti del gateway applicazione
 
@@ -53,7 +53,7 @@ Il gateway applicazione supporta quattro protocolli: HTTP, HTTPS, HTTP/2 e WebSo
 >Il supporto del protocollo HTTP/2 è disponibile per i client che si connettono solo a listener del gateway applicazione. La comunicazione con i pool di server back-end è sempre su HTTP/1.1. Per impostazione predefinita, il supporto di HTTP/2 è disabilitato. È possibile scegliere di abilitarla.
 
 - Specificare tra i protocolli HTTP e HTTPS nella configurazione del listener.
-- Il supporto per i [protocolli WebSockets e http/2](overview.md#websocket-and-http2-traffic) viene fornito in modalità nativa e il [supporto di WebSocket](application-gateway-websocket.md) è abilitato per impostazione predefinita. Non esistono impostazioni configurabili dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket. Usare WebSocket con listener HTTP e HTTPS.
+- Il supporto per i [protocolli WebSockets e http/2](features.md#websocket-and-http2-traffic) viene fornito in modalità nativa e il [supporto di WebSocket](application-gateway-websocket.md) è abilitato per impostazione predefinita. Non esistono impostazioni configurabili dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket. Usare WebSocket con listener HTTP e HTTPS.
 
 Usare un listener HTTPS per la terminazione SSL. Un listener HTTPS trasferisce il lavoro di crittografia e decrittografia al gateway applicazione, in modo che i server Web non vengano sovraccaricati dal sovraccarico.
 
@@ -115,9 +115,9 @@ La porta e il protocollo usati nelle impostazioni HTTP determinano se il traffic
 
 Questo componente viene usato anche per:
 
-- Determinare se una sessione utente deve essere mantenuta nello stesso server utilizzando l' [affinità di sessione basata su cookie](overview.md#session-affinity).
+- Determinare se una sessione utente deve essere mantenuta nello stesso server utilizzando l' [affinità di sessione basata su cookie](features.md#session-affinity).
 
-- Rimuovere normalmente i membri del pool back-end usando lo [svuotamento della connessione](overview.md#connection-draining).
+- Rimuovere normalmente i membri del pool back-end usando lo [svuotamento della connessione](features.md#connection-draining).
 
 - Associare un probe personalizzato per monitorare l'integrità back-end, impostare l'intervallo di timeout della richiesta, sostituire il nome host e il percorso nella richiesta e fornire la facilità con un clic per specificare le impostazioni per il back-end del servizio app.
 
@@ -126,7 +126,7 @@ Questo componente viene usato anche per:
 Un pool back-end instrada la richiesta ai server back-end che forniscono la richiesta. I pool back-end possono contenere:
 
 - Schede di interfaccia di rete
-- Set di scalabilità di macchine virtuali
+- set di scalabilità di macchine virtuali
 - Indirizzi IP pubblici
 - Indirizzi IP interni
 - Nome di dominio completo

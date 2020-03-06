@@ -4,15 +4,15 @@ description: Informazioni sulla funzione di sistema SQL ENDSWITH in Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6b3e692877faab8a8d507a44068d4cdfdc73a916
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 37c5a8b3c44c5ac46b837e4d851d22f85aeaf39c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873353"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299449"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
  Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.  
@@ -35,7 +35,7 @@ ENDSWITH(<str_expr1>, <str_expr2>)
   
   Restituisce un'espressione booleana.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   L'esempio seguente restituisce "abc" che termina con "b" e "bc".  
   
@@ -48,6 +48,10 @@ SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2
 ```json
 [{"e1": false, "e2": true}]  
 ```  
+
+## <a name="remarks"></a>Osservazioni
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

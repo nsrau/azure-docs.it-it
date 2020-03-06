@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1645d2848c6d4b852a81042c4db8a0f6e90fd8fd
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945807"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399676"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi a Azure Machine Learning servizio Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
 
@@ -36,7 +36,7 @@ L'approccio consigliato e quello più aggiornato per la distribuzione del modell
 
 Per altre informazioni su questa procedura, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una **sottoscrizione di Azure**. Se non si dispone di un, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
@@ -124,7 +124,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Si noti che se si definisce YAML specifica conda, è necessario elencare azureml-defaults con Version > = 1.0.45 come dipendenza PIP. Questo pacchetto contiene la funzionalità necessaria per ospitare il modello come servizio Web.
+Si noti che se si definisce YAML specifica conda, è necessario elencare azureml-defaults con Version > = 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web.
 
 A questo punto, è possibile usare il servizio come di consueto. Ad esempio, nel codice seguente viene illustrato l'invio di dati al servizio:
 
@@ -221,6 +221,10 @@ def run(input_data):
 
 **Nota**: la restituzione di messaggi di errore dalla chiamata a `run(input_data)` dovrebbe essere eseguita solo a scopo di debug. Per motivi di sicurezza, non è necessario restituire messaggi di errore in questo modo in un ambiente di produzione.
 
+## <a name="http-status-code-502"></a>Codice di stato HTTP 502
+
+Un codice di stato 502 indica che il servizio ha generato un'eccezione o si è arrestato in modo anomalo nel metodo `run()` del file score.py. Usare le informazioni in questo articolo per eseguire il debug del file.
+
 ## <a name="http-status-code-503"></a>Codice di stato HTTP 503
 
 Le distribuzioni del servizio Azure Kubernetes supportano la scalabilità automatica, che consente di aggiungere le repliche per supportare un carico aggiuntivo. Tuttavia, la scalabilità automatica è progettata per gestire modifiche **graduali** del carico. Se si ricevono picchi elevati di richieste al secondo, i client possono ricevere un codice di stato HTTP 503.
@@ -261,6 +265,12 @@ Esistono due elementi che consentono di prevenire i codici di stato 503:
     > Se si ricevono picchi di richiesta di dimensioni maggiori di quelle che possono essere gestite da una nuova replica minima, è possibile che si riceva nuovamente 503S. Ad esempio, quando aumenta il traffico verso il servizio, potrebbe essere necessario aumentare le repliche minime.
 
 Per ulteriori informazioni sull'impostazione di `autoscale_target_utilization`, `autoscale_max_replicas`e `autoscale_min_replicas` per, vedere la Guida di riferimento al modulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) .
+
+## <a name="http-status-code-504"></a>Codice di stato HTTP 504
+
+Un codice di stato 504 indica che si è verificato il timeout della richiesta. Il timeout predefinito è di 1 minuto.
+
+È possibile aumentare il timeout o provare ad accelerare il servizio modificando il score.py per rimuovere le chiamate non necessarie. Se queste azioni non consentono di risolvere il problema, usare le informazioni in questo articolo per eseguire il debug del file score.py. Il codice può trovarsi in uno stato bloccato o in un ciclo infinito.
 
 ## <a name="advanced-debugging"></a>Debug avanzato
 

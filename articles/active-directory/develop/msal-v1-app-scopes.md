@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e0ef46d23ba267bbfc1ff539eb659fafe2b44f8e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: d5b2ef57af112169fb39e0da7a60b095698ff504
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085692"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299831"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ambiti per un'API Web che accetta i token v1.0
 
@@ -25,7 +25,7 @@ Le autorizzazioni di OAuth2 sono ambiti di autorizzazione che un'applicazione di
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a specifiche autorizzazioni OAuth2 di un'applicazione v1.0
 
-Per acquisire i token per ambiti specifici di un'applicazione v 1.0, ad esempio il grafico Azure AD, che è https://graph.windows.net), creare gli ambiti concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per tale risorsa.
+Per acquisire i token per ambiti specifici di un'applicazione v 1.0, ad esempio l'API Microsoft Graph, ovvero https://graph.microsoft.com), creare gli ambiti concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per tale risorsa.
 
 Ad esempio, per accedere per conto dell'utente a un'API Web v1.0 dove l'URI dell'ID app è `ResourceId`:
 
@@ -37,15 +37,15 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Per leggere e scrivere con MSAL.NET Azure AD usando il Azure AD API Graph (https:\//graph.windows.net/), è necessario creare un elenco di ambiti, come illustrato negli esempi seguenti:
+Per leggere e scrivere con MSAL.NET Azure AD usando l'API Microsoft Graph (https:\//graph.microsoft.com/), è necessario creare un elenco di ambiti, come illustrato negli esempi seguenti:
 
 ```csharp
-string ResourceId = "https://graph.windows.net/";
+string ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 ```javascript
-var ResourceId = "https://graph.windows.net/";
+var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 06c9e79a68540cb10557b0951b743bf841963057
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190263"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397829"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -28,8 +28,8 @@ Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per la gestione d
 
 L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Proprietary`. L'attributo **gestore** deve contenere il nome completo dell'assembly del gestore di protocollo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Tutti i profili tecnici di Azure AD includono il profilo tecnico **AAD-Common**. I profili tecnici seguenti non specificano il protocollo poiché il protocollo è configurato nel profilo tecnico **AAD-Common**:
-
+Gli [Starter Pack per i criteri personalizzati](custom-policy-get-started.md#custom-policy-starter-pack) seguenti Azure ad profili tecnici includono il profilo tecnico **comune di AAD** . I profili tecnici Azure AD non specificano il protocollo perché il protocollo è configurato nel profilo tecnico **comune di AAD** :
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingAlternativeSecurityId-NoError** - Cercare un account social nella directory.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Creare un nuovo account social.
 - **AAD-UserReadUsingEmailAddress** - Cercare un account locale nella directory.

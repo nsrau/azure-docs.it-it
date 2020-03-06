@@ -4,15 +4,15 @@ description: Informazioni sulla funzione di sistema SQL StringToArray in Azure C
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2d1f90da50950ac6ff4f87ffe96ebad9f3d811cc
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349287"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302917"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  Restituisce l'espressione convertita in una matrice. Se l'espressione non può essere convertita, restituisce undefined.  
@@ -32,7 +32,7 @@ StringToArray(<str_expr>)
   
   Restituisce un'espressione di matrice o undefined. 
   
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
   I valori stringa annidati devono essere scritti con virgolette doppie per essere JSON validi. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/)
   
 ## <a name="examples"></a>Esempi
@@ -59,7 +59,7 @@ Questo è il set di risultati.
 Di seguito è riportato un esempio di input non valido. 
    
  Le virgolette singole all'interno della matrice non sono JSON valide.
-Anche se sono valide all'interno di una query, non verranno analizzate in matrici valide. Per le stringhe all'interno della stringa di matrice deve essere preceduto da un carattere di escape "[\\" \\ "]" oppure la virgoletta circostante deve essere singola "[" "]".
+Anche se sono valide all'interno di una query, non verranno analizzate in matrici valide. Per le stringhe all'interno della stringa di matrice deve essere preceduto da un carattere di escape "[\\"\\"]" oppure la virgoletta circostante deve essere singola "[" "]".
 
 ```sql
 SELECT
@@ -90,6 +90,10 @@ Questo è il set di risultati.
 ```json
 [{}]
 ```
+
+## <a name="remarks"></a>Osservazioni
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

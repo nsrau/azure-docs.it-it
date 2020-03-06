@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: 607020f1d540e83a4d049b96b9ab9a4ebcd385f0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157254"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302713"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight usando REST
 
@@ -171,7 +171,7 @@ Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire proces
 
 1. Dopo che lo stato del processo risulta essere `SUCCEEDED`, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output. In questo esempio la località è `/example/curl`. Questo indirizzo archivia l'output del processo nella risorsa di archiviazione predefinita dei cluster in `/example/curl`.
 
-È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Per altre informazioni sull'uso dei BLOB dalla riga di comando di Azure, vedere il documento [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../../storage/common/storage-azure-cli.md#create-and-manage-blobs).
+È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure per lavorare con l'archiviazione BLOB di Azure, vedere [Guida introduttiva: creare, scaricare ed elencare BLOB con l'interfaccia](../../storage/blobs/storage-quickstart-blobs-cli.md)della riga di comando
 
 ## <a name="next-steps"></a>Passaggi successivi
 

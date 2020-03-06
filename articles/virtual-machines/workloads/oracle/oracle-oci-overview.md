@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459309"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300554"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluzioni di applicazioni Oracle che integrano Microsoft Azure e l'infrastruttura cloud Oracle (anteprima)
 
@@ -28,7 +28,7 @@ Microsoft e Oracle hanno collaborato per offrire connettività tra cloud a bassa
 Grazie a questa connettività tra cloud, è possibile partizionare un'applicazione multilivello per eseguire il livello di database in Oracle Cloud Infrastructure (OCI) e l'applicazione e altri livelli in Microsoft Azure. L'esperienza è simile all'esecuzione dell'intero stack della soluzione in un unico Cloud. 
 
 > [!IMPORTANT]
-> Questa funzionalità tra cloud è attualmente in anteprima e le [limitazioni si applicano](#preview-limitations). Per stabilire una connettività a bassa latenza tra Azure e OCI, è necessario abilitare prima la sottoscrizione di Azure per questa funzionalità. È necessario iscriversi all'anteprima completando questo breve [modulo di questionario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. È anche possibile contattare il rappresentante Microsoft per abilitare questa versione di anteprima. L'accesso alla funzionalità di anteprima è soggetto alla disponibilità e limitato da Microsoft a sua esclusiva discrezione. Il completamento del sondaggio non garantisce l'accesso. Questa versione di anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per informazioni dettagliate, vedere le condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per Microsoft Azure anteprime. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Questa funzionalità tra cloud è attualmente in anteprima e le [limitazioni si applicano](#region-availability). Per stabilire una connettività a bassa latenza tra Azure e OCI, è necessario abilitare prima la sottoscrizione di Azure per questa funzionalità. È necessario iscriversi all'anteprima completando questo breve [modulo di questionario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. È anche possibile contattare il rappresentante Microsoft per abilitare questa versione di anteprima. L'accesso alla funzionalità di anteprima è soggetto alla disponibilità e limitato da Microsoft a sua esclusiva discrezione. Il completamento del sondaggio non garantisce l'accesso. Questa versione di anteprima viene fornita senza un contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per informazioni dettagliate, vedere le condizioni per l' [utilizzo aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per Microsoft Azure anteprime. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 Se si è interessati alla distribuzione di soluzioni Oracle interamente nell'infrastruttura di Azure, vedere [le immagini di VM Oracle e la relativa distribuzione in Microsoft Azure](oracle-vm-solutions.md).
 
@@ -48,9 +48,13 @@ Il diagramma seguente è una panoramica di alto livello della soluzione connessa
 
 ![Panoramica della soluzione Azure OCI](media/oracle-oci-overview/crosscloud.png)
 
-## <a name="preview-limitations"></a>Limiti di anteprima
+## <a name="region-availability"></a>Disponibilità area 
 
-* La connettività tra cloud in anteprima è limitata alle aree Stati Uniti orientali di Azure (eastus), Regno Unito meridionale (uksouth) e Canada centrale (canadacentral) e le aree OCI Ashburn (Stati Uniti orientali), Londra (Regno Unito meridionale) e Toronto (Canada sudorientale). Per Regno Unito meridionale, usare il dominio di disponibilità 1 (AD 1) in OCI quando si distribuisce l'interconnessione per le latenze più basse.
+La connettività tra cloud è limitata alle aree seguenti:
+* Stati Uniti orientali di Azure (eastus) & OCI Ashburn (Stati Uniti orientali)
+* Azure Regno Unito meridionale (uksouth) & OCI Londra (Regno Unito meridionale)
+* Azure Canada Central (canadacentral) & OCI Toronto (Canada sudorientale)
+* Azure Europa occidentale (westeurope) & OCI Amsterdam (Paesi Bassi nord-ovest)
 
 ## <a name="networking"></a>Rete
 
@@ -60,13 +64,13 @@ Per rispondere a queste esigenze dei clienti, Oracle e Microsoft hanno consentit
 
 Con ExpressRoute e FastConnect, i clienti possono usare il peering di una rete virtuale in Azure con una rete cloud virtuale in OCI, purché lo spazio di indirizzi IP privato non si sovrappongano. Il peering delle due reti consente a una risorsa nella rete virtuale di comunicare con una risorsa nella rete cloud virtuale OCI come se si trovassero nella stessa rete.
 
-## <a name="network-security"></a>Sicurezza di rete
+## <a name="network-security"></a>sicurezza rete
 
 La sicurezza di rete è un componente fondamentale di qualsiasi applicazione aziendale ed è fondamentale per questa soluzione multicloud. Il traffico in corso su ExpressRoute e FastConnect passa attraverso una rete privata. Questa configurazione consente la comunicazione sicura tra una rete virtuale di Azure e una rete cloud virtuale Oracle. Non è necessario fornire un indirizzo IP pubblico ad alcuna macchina virtuale in Azure. Analogamente, non è necessario un gateway Internet in OCI. Tutte le comunicazioni avvengono tramite l'indirizzo IP privato dei computer.
 
 Inoltre, è possibile configurare gli [elenchi di sicurezza](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) nella rete del cloud virtuale OCI e nelle regole di sicurezza (collegate ai [gruppi di sicurezza di rete](../../../virtual-network/security-overview.md)di Azure). Usare queste regole per controllare il flusso di traffico tra i computer nelle reti virtuali. È possibile aggiungere regole di sicurezza di rete a livello di computer, a livello di subnet e a livello di rete virtuale.
  
-## <a name="identity"></a>Identità
+## <a name="identity"></a>Identity
 
 Identity è uno dei principali pilastri della partnership tra Microsoft e Oracle. È stato eseguito un lavoro significativo per integrare [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDC) con [Azure Active Directory](../../../active-directory/index.yml) (Azure ad). Azure AD è il servizio Microsoft di gestione delle identità e degli accessi basato sul cloud. Consente agli utenti di accedere e accedere a diverse risorse. Azure AD consente inoltre di gestire gli utenti e le relative autorizzazioni.
 

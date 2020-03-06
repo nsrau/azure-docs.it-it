@@ -4,18 +4,18 @@ description: Fornisce indicazioni sulla risoluzione dei problemi per diagnostica
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: f8988d3df7f61d2fce4c8fa5b49e42e872c185b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295964"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi per diagnosticare la causa del rallentamento delle prestazioni di backup per file e cartelle quando si usa Backup di Azure. Quando si usa l'agente di Backup di Azure per eseguire il backup dei file, è possibile che il processo richieda più tempo del previsto. Questo ritardo può dipendere da una o più delle cause seguenti:
 
-* [Sono presenti colli di bottiglia delle prestazioni nel computer di cui viene eseguito il backup.](#cause1)
+* [Il computer di cui viene eseguito il backup presenta colli di bottiglia delle prestazioni.](#cause1)
 * [Un altro processo o un software antivirus interferisce con il processo di Backup di Azure.](#cause2)
 * [L'agente di Backup è in esecuzione in una macchina virtuale di Azure.](#cause3)  
 * [Viene eseguito il backup di un numero elevato di file (milioni).](#cause4)
@@ -44,19 +44,19 @@ Prima di iniziare a risolvere i problemi, è consigliabile scaricare e installar
 
 I colli di bottiglia nel computer in cui viene eseguito il backup possono causare ritardi. Ad esempio, i colli di bottiglia possono essere causati dalla capacità del computer di leggere o scrivere su disco o dalla larghezza di banda disponibile per inviare dati in rete.
 
-Windows offre uno strumento integrato denominato [Performance Monitor](h https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (PerfMon) per rilevare questi colli di bottiglia.
+Windows offre uno strumento integrato denominato [Performance Monitor](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (PerfMon) per rilevare questi colli di bottiglia.
 
 Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili per diagnosticare i colli di bottiglia e ottenere backup ottimali.
 
 | Contatore | Stato |
 | --- | --- |
-| Disco logico (disco fisico) - % inattività |• Da 100% inattivo a 50% inattivo = integro</br>• Da 49% inattivo a 20% inattivo = avviso o monitoraggio</br>• Da 19% inattivo a 0% inattivo = critico o fuori specifica |
-| Disco logico (disco fisico)-% Media letture disco/sec |• Da 0,001 ms a 0,015 ms = integro</br>• Da 0,015 ms a 0,025 ms = avviso o monitoraggio</br>• Da ms 0,026 e oltre = critico o fuori specifica |
+| Disco logico (disco fisico) - % inattività |* 100% di inattività a 50% inattivo = integro</br>* 49% inattivo fino al 20% inattivo = avviso o monitoraggio</br>* 19% inattivo a 0% inattivo = critico o fuori specifica |
+| Disco logico (disco fisico)-% Media letture disco/sec |da * 0,001 MS a 0,015 MS = integro</br>da * 0,015 MS a 0,025 MS = avviso o monitoraggio</br>* 0,026 MS o superiore = critico o fuori specifica |
 | Disco logico (disco fisico) - Lunghezza corrente coda del disco (per tutte le istanze) |80 richieste per più di 6 minuti |
-| Memoria - Byte del pool non di paging |• Meno del 60% del pool utilizzato = integro<br>• Dal 61% all'80% del pool usato = avviso o monitoraggio</br>• Più dell'80% del pool utilizzato = critico o fuori specifica |
-| Memoria - Byte del pool di paging |• Meno del 60% del pool utilizzato = integro</br>• Dal 61% all'80% del pool usato = avviso o monitoraggio</br>• Più dell'80% del pool utilizzato = critico o fuori specifica |
-| Memoria - MByte disponibili |• 50% o più di memoria libera disponibile = integro</br>• 25% di memoria libera disponibile = monitoraggio</br>• 10% di memoria libera disponibile = avviso</br>• Meno di 100 MB o 5% della memoria disponibile = critico o fuori specifica |
-| Processore - \%Tempo processore (tutte le istanze) |• Meno del 60% utilizzato = integro</br>• Dal 61% al 90% usato = monitoraggio o attenzione</br>• Dal 91% al 100% utilizzato = critico |
+| Memoria - Byte del pool non di paging |* Inferiore al 60% del pool utilizzato = integro<br>* 61% al 80% del pool utilizzato = avviso o monitoraggio</br>* Superiore al 80% del pool utilizzato = critico o fuori specifica |
+| Memoria - Byte del pool di paging |* Inferiore al 60% del pool utilizzato = integro</br>* 61% al 80% del pool utilizzato = avviso o monitoraggio</br>* Superiore al 80% del pool utilizzato = critico o fuori specifica |
+| Memoria - MByte disponibili |* 50% di memoria libera disponibile o superiore = integro</br>* 25% di memoria disponibile = monitoraggio</br>* 10% di memoria libera disponibile = avviso</br>* Inferiore a 100 MB o 5% di memoria libera disponibile = critico o fuori specifica |
+| Processore - \%Tempo processore (tutte le istanze) |* Inferiore al 60% utilizzato = integro</br>* 61% al 90% utilizzato = monitoraggio o attenzione</br>* 91% a 100% utilizzato = critico |
 
 > [!NOTE]
 > Se si determina che l'infrastruttura è la causa del problema, è consigliabile deframmentare i dischi a intervalli regolari per ottenere prestazioni migliori.

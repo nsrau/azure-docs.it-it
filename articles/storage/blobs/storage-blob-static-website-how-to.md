@@ -6,13 +6,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 05/28/2019
-ms.openlocfilehash: 35b5a85ea6fba87e785b581a7a20d0c28f312820
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 03/04/2020
+ms.openlocfilehash: e312cc0dc6c58bb33a737e1fc28dd6eb3578b764
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484146"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330270"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Ospitare un sito Web statico in archiviazione di Azure
 
@@ -20,25 +20,35 @@ ms.locfileid: "77484146"
 
 Questo articolo illustra come abilitare l'hosting di siti web statici usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
 
-<a id="portal" />
+## <a name="enable-static-website-hosting"></a>Abilita hosting di siti web statici
 
-## <a name="portal"></a>[Portale](#tab/azure-portal)
+L'hosting di siti web statici è una funzionalità che è necessario abilitare nell'account di archiviazione.
 
-Per un'esercitazione dettagliata, vedere [esercitazione: ospitare un sito Web statico nell'archivio BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Dopo aver abilitato l'hosting di siti web statici, è possibile visualizzare le pagine del sito da un browser usando l'URL pubblico del sito Web.
+1. Accedere al [portale di Azure](https://portal.azure.com/) per iniziare.
 
-<a id="portal-find-url" />
+2. Individuare l'account di archiviazione e visualizzare la sezione della panoramica dell'account.
 
-### <a name="find-the-website-url-by-using-the-azure-portal"></a>Trovare l'URL del sito Web usando il portale di Azure
+3. Selezionare **Sito Web statico** per visualizzare la pagina di configurazione per i siti Web statici.
 
-Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di archiviazione selezionare **sito Web statico**. L'URL del sito viene visualizzato nel campo **endpoint primario** .
+4. Selezionare **Abilitato** per abilitare l'hosting di siti Web statici per l'account di archiviazione.
 
-![Metrica Dati in uscita delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+5. Nel campo **nome documento indice** specificare una pagina di indice predefinita, ad esempio *index. html*. 
+
+   La pagina di indice predefinita viene visualizzata quando un utente passa alla radice del sito Web statico.  
+
+6. Nel campo **percorso del documento di errore** specificare una pagina di errore predefinita (ad esempio: *404. html*). 
+
+   La pagina di errore predefinita viene visualizzata quando un utente tenta di passare a una pagina inesistente nel sito Web statico.
+
+7. Fare clic su **Save**. Il portale di Azure visualizza ora l'endpoint del sito Web statico. 
+
+    ![Abilitare l'hosting di siti Web statici per un account di archiviazione](media/storage-blob-static-website-host/enable-static-website-hosting.png)
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 <a id="cli" />
-
-## <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È possibile abilitare l'hosting di siti web statici usando l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -64,45 +74,9 @@ Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di
 
    * Sostituire il segnaposto `<index-document-name>` con il nome del documento di indice. Questo documento è comunemente "index. html".
 
-4. Caricare gli oggetti nel contenitore *$web* da una directory di origine.
-
-   > [!NOTE]
-   > Se si usa Azure Cloud Shell, assicurarsi di aggiungere un carattere di escape `\` quando si fa riferimento al contenitore `$web` (ad esempio: `\$web`). Se si usa un'installazione locale dell'interfaccia della riga di comando di Azure, non sarà necessario usare il carattere di escape.
-
-   In questo esempio si presuppone che siano in esecuzione comandi da Azure Cloud Shell sessione.
-
-   ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
-   ```
-
-   * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
-
-   * Sostituire il segnaposto `<source-path>` con un percorso del percorso dei file che si desidera caricare.
-
-   > [!NOTE]
-   > Se si usa un percorso di installazione dell'interfaccia della riga di comando di Azure, è possibile usare il percorso di qualsiasi percorso nel computer locale, ad esempio: `C:\myFolder`.
-   >
-   > Se si usa Azure Cloud Shell, sarà necessario fare riferimento a una condivisione file visibile al Cloud Shell. Questo percorso potrebbe corrispondere alla condivisione file della condivisione cloud o a una condivisione file esistente montata dal Cloud Shell. Per informazioni su come eseguire questa operazione, vedere [salvare i file in Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
-
-<a id="cli-find-url" />
-
-### <a name="find-the-website-url-by-using-the-azure-cli"></a>Trovare l'URL del sito Web usando l'interfaccia della riga di comando di Azure
-
-È possibile visualizzare il contenuto da un browser utilizzando l'URL pubblico del sito Web.
-
-Trovare l'URL usando il comando seguente:
-
-```azurecli-interactive
-az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
-```
-
-* Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
-
-* Sostituire il valore del segnaposto `<resource-group-name>` con il nome del gruppo di risorse.
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell" />
-
-## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 È possibile abilitare l'hosting di siti web statici usando il modulo Azure PowerShell.
 
@@ -152,28 +126,101 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
    * Sostituire il segnaposto `<index-document-name>` con il nome del documento di indice. Questo documento è comunemente "index. html".
 
-7. Caricare gli oggetti nel contenitore *$web* da una directory di origine.
+---
 
-    ```powershell
-    # upload a file
-    set-AzStorageblobcontent -File "<path-to-file>" `
-    -Properties @{ ContentType = "text/html; charset=utf-8";} `
-    -Container `$web `
-    -Blob "<blob-name>" `
-    -Context $ctx
-     ```
+## <a name="upload-files"></a>Caricare file 
 
-   * Sostituire il valore del segnaposto `<path-to-file>` con il percorso completo del file che si desidera caricare, ad esempio: `C:\temp\index.html`.
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
-   * Sostituire il valore del segnaposto `<blob-name>` con il nome che si desidera assegnare al BLOB risultante, ad esempio `index.html`.
+Queste istruzioni illustrano come caricare i file usando la versione di Storage Explorer visualizzata nella portale di Azure. Tuttavia, è anche possibile usare la versione di [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) eseguita all'esterno del portale di Azure. È possibile usare [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, l'interfaccia della riga di comando o qualsiasi applicazione personalizzata in grado di caricare i file nel contenitore **$Web** dell'account. Per un'esercitazione dettagliata che consente di caricare file con Visual Studio Code, vedere [esercitazione: ospitare un sito Web statico nell'archivio BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+
+1. Selezionare **Storage Explorer (anteprima)** .
+
+2. Espandere il nodo **contenitori BLOB** , quindi selezionare il contenitore **$Web** .
+
+3. Scegliere il pulsante **carica** per caricare i file.
+
+   ![Caricare file](media/storage-blob-static-website/storage-blob-static-website-upload.png)
+
+4. Se si desidera che il browser visualizzi il contenuto del file, verificare che il tipo di contenuto del file sia impostato su `text/html`. 
+
+   ![Controllare i tipi di contenuto](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
+
+   >[!NOTE]
+   > Storage Explorer imposta automaticamente questa proprietà su `text/html` per le estensioni comunemente riconosciute, ad esempio `.html`. Tuttavia, in alcuni casi, è necessario impostare questa impostazione. Se non si imposta questa proprietà su `text/html`, il browser richiederà agli utenti di scaricare il file anziché eseguire il rendering del contenuto. Per impostare questa proprietà, fare clic con il pulsante destro del mouse sul file, quindi scegliere **Proprietà**.
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Caricare gli oggetti nel contenitore *$web* da una directory di origine.
+
+> [!NOTE]
+> Se si usa Azure Cloud Shell, assicurarsi di aggiungere un carattere di escape `\` quando si fa riferimento al contenitore `$web` (ad esempio: `\$web`). Se si usa un'installazione locale dell'interfaccia della riga di comando di Azure, non sarà necessario usare il carattere di escape.
+
+In questo esempio si presuppone che siano in esecuzione comandi da Azure Cloud Shell sessione.
+
+```azurecli-interactive
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+```
+
+* Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
+
+* Sostituire il segnaposto `<source-path>` con un percorso del percorso dei file che si desidera caricare.
+
+> [!NOTE]
+> Se si usa un percorso di installazione dell'interfaccia della riga di comando di Azure, è possibile usare il percorso di qualsiasi percorso nel computer locale, ad esempio: `C:\myFolder`.
+>
+> Se si usa Azure Cloud Shell, sarà necessario fare riferimento a una condivisione file visibile al Cloud Shell. Questo percorso potrebbe corrispondere alla condivisione file della condivisione cloud o a una condivisione file esistente montata dal Cloud Shell. Per informazioni su come eseguire questa operazione, vedere [salvare i file in Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Caricare gli oggetti nel contenitore *$web* da una directory di origine.
+
+```powershell
+# upload a file
+set-AzStorageblobcontent -File "<path-to-file>" `
+-Properties @{ ContentType = "text/html; charset=utf-8";} `
+-Container `$web `
+-Blob "<blob-name>" `
+-Context $ctx
+```
+
+* Sostituire il valore del segnaposto `<path-to-file>` con il percorso completo del file che si desidera caricare, ad esempio: `C:\temp\index.html`.
+
+* Sostituire il valore del segnaposto `<blob-name>` con il nome che si desidera assegnare al BLOB risultante, ad esempio `index.html`.
+
+---
+
+## <a name="find-the-website-url-by-using-the-azure-portal"></a>Trovare l'URL del sito Web usando il portale di Azure
+
+È possibile visualizzare le pagine del sito da un browser usando l'URL pubblico del sito Web.
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+<a id="portal-find-url" />
+
+Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di archiviazione selezionare **sito Web statico**. L'URL del sito viene visualizzato nel campo **endpoint primario** .
+
+![Metrica Dati in uscita delle metriche dei siti Web statici di Archiviazione di Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+<a id="cli-find-url" />
+
+Trovare l'URL pubblico del sito Web statico usando il comando seguente:
+
+```azurecli-interactive
+az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
+```
+
+* Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
+
+* Sostituire il valore del segnaposto `<resource-group-name>` con il nome del gruppo di risorse.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell-find-url" />
 
-### <a name="find-the-website-url-by-using-powershell"></a>Trovare l'URL del sito Web usando PowerShell
-
-È possibile visualizzare il contenuto da un browser utilizzando l'URL pubblico del sito Web.
-
-Trovare l'URL usando il comando seguente:
+Trovare l'URL pubblico del sito Web statico usando usando il comando seguente:
 
 ```powershell
  $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
@@ -184,9 +231,9 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-<a id="metrics" />
-
 ---
+
+<a id="metrics" />
 
 ## <a name="enable-metrics-on-static-website-pages"></a>Abilitare le metriche nelle pagine del sito Web statico
 

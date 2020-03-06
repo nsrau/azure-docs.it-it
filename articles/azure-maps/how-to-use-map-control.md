@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9bcb0fd26710b5f44ca9e3e3715c40cb32b3c40d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 535707191557142054e493d0216b713312f53953
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913941"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368652"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di mappe di Azure
 
@@ -27,23 +27,23 @@ La controllo mappa libreria JavaScript lato client consente di eseguire il rende
 
 2. Caricare Azure Maps Web SDK. È possibile scegliere una delle due opzioni seguenti:
 
-   1. Usare la versione CDN di Azure Maps Web SDK ospitata a livello globale aggiungendo gli endpoint dell'URL al foglio di stile e i riferimenti a script nell'elemento `<head>` del file:
+    * Usare la versione CDN ospitata a livello globale di Azure Maps Web SDK aggiungendo riferimenti a JavaScript e al foglio di stile nell'elemento `<head>` del file HTML:
 
-      ```HTML
-       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-      ```
+        ```HTML
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+        ```
 
-   1. Caricare il codice sorgente di Azure Maps Web SDK in locale usando il pacchetto NPM di [Azure-Maps-Control](https://www.npmjs.com/package/azure-maps-control) e ospitarlo con l'app. Questo pacchetto include anche le definizioni TypeScript.
+    * Caricare il codice sorgente di Azure Maps Web SDK in locale usando il pacchetto NPM di [Azure-Maps-Control](https://www.npmjs.com/package/azure-maps-control) e ospitarlo con l'app. Questo pacchetto include anche le definizioni TypeScript.
 
-      > **NPM installare Azure-Maps-Control**
+        > **NPM installare Azure-Maps-Control**
 
-   Aggiungere quindi i riferimenti alle origini del foglio di stile e dello script di Mappe di Azure all'elemento `<head>` del file:
+       Aggiungere quindi i riferimenti alle origini del foglio di stile e dello script di Mappe di Azure all'elemento `<head>` del file:
 
-      ```HTML
-       <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
-       <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
-      ```
+        ```HTML
+        <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+        <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
+        ```
 
     > [!Note]
     > È possibile importare le definizioni typescript nell'applicazione aggiungendo il codice seguente:
@@ -181,7 +181,7 @@ La controllo mappa libreria JavaScript lato client consente di eseguire il rende
 
    ![Immagine mappa che mostra il risultato del rendering](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>Localizzazione della mappa
+## <a name="localizing-the-map"></a>Localizzare la mappa
 
 Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione regionale per la mappa di cui è stato eseguito il rendering. La prima opzione consiste nell'aggiungere queste informazioni allo spazio dei nomi `atlas` globale, che determinerà l'impostazione predefinita di tutte le istanze del controllo mappa nell'app. Il codice seguente imposta la lingua in francese ("fr-FR") e la vista regionale su "auto":
 

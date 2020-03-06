@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bf14bda9bd1acc62820bf07f83ac074a8d1b691c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349199"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303699"
 ---
 # <a name="substring-azure-cosmos-db"></a>Sottostringa (Azure Cosmos DB)
  Restituisce parte di un'espressione stringa a partire dalla posizione in base al carattere zero specificata e continua fino alla lunghezza specificata o alla fine della stringa.  
@@ -46,11 +46,15 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
 SELECT SUBSTRING("abc", 1, 1) AS substring  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"substring": "b"}]  
-```  
+```
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy) se la posizione iniziale è `0`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109996"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399994"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
 È possibile usare un'attività webhook per controllare l'esecuzione delle pipeline tramite il codice personalizzato. Usando l'attività webhook, i clienti possono chiamare un endpoint e passare un URL di callback. L'esecuzione della pipeline attende che il callback venga richiamato prima di procedere all'attività successiva.
@@ -55,21 +55,21 @@ ms.locfileid: "77109996"
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività Hook Web | String | Sì |
-type | Deve essere impostato su **webhook**. | String | Sì |
-metodo | Metodo API REST per l'endpoint di destinazione. | Stringa. Tipi supportati:' POST ' | Sì |
+name | Nome dell'attività Hook Web | string | Sì |
+type | Deve essere impostato su **webhook**. | string | Sì |
+method | Metodo API REST per l'endpoint di destinazione. | Stringa. Tipi supportati:' POST ' | Sì |
 url | Endpoint e percorso di destinazione | Stringa (o espressione con l'elemento resultType della stringa). | Sì |
-intestazioni | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: "headers": {"Accept-Language": "en-US", "Content-Type": "application/json"}. | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì, l'intestazione Content-type è obbligatoria. "headers": {"Content-Type": "application/json"} |
+headers | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: "headers": {"Accept-Language": "en-US", "Content-Type": "application/json"}. | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì, l'intestazione Content-type è obbligatoria. "headers": {"Content-Type": "application/json"} |
 Corpo | Rappresenta il payload inviato all'endpoint. | JSON valido (o espressione con resultType JSON). Vedere lo schema del payload della richiesta nella sezione [Schema del payload della richiesta](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Sì |
 autenticazione | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" o "ClientCertificate". Per altre informazioni, vedere la sezione [Autenticazione](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa (o un'espressione con l'elemento resultType della stringa) | No |
-timeout | Tempo di attesa dell'attività per la &#39;richiamata&#39; del callBackUri. Per quanto tempo l'attività attenderà che venga richiamato ' callBackUri '. Il valore predefinito è 10mins ("00:10:00"). Il formato è TimeSpan, ovvero d. hh: mm: SS | String | No |
+timeout | Tempo di attesa dell'attività per la &#39;richiamata&#39; del callBackUri. Per quanto tempo l'attività attenderà che venga richiamato ' callBackUri '. Il valore predefinito è 10mins ("00:10:00"). Il formato è TimeSpan, ovvero d. hh: mm: SS | string | No |
 Segnala stato del callback | Consente all'utente di segnalare lo stato di errore dell'attività webhook che contrassegna l'attività come non riuscita | Boolean | No |
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Di seguito sono riportati i tipi di autenticazione supportati nell'attività webhook.
 
-### <a name="none"></a>None
+### <a name="none"></a>nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà "authentication".
 
@@ -116,6 +116,10 @@ Specificare l'URI di risorsa per cui verrà richiesto il token di accesso usando
 Azure Data Factory passerà una proprietà aggiuntiva "callBackUri" nel corpo all'endpoint URL e si aspetterà che questo URI venga richiamato prima del valore di timeout specificato. Se l'URI non viene richiamato, l'attività avrà esito negativo con stato "timeout".
 
 L'attività del webhook ha esito negativo quando la chiamata all'endpoint personalizzato ha esito negativo. È possibile aggiungere qualsiasi messaggio di errore nel corpo del callback e usarlo in un'attività successiva.
+
+Inoltre, per ogni chiamata API REST il client si timeout se l'endpoint non risponde tra 1 min. Si tratta di una procedura consigliata http standard. Per risolvere questo problema, è necessario implementare il modello 202 in questo caso, in cui l'endpoint restituirà 202 (accettato) e il client eseguirà il polling.
+
+Il timeout di 1 min per la richiesta non ha nulla a che fare con il timeout dell'attività. Che verrà usato per attendere il callbackUri.
 
 Il corpo passato all'URI di callback deve essere JSON valido. È necessario impostare l'intestazione Content-Type su `application/json`.
 

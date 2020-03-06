@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 934853b80c6e6377923df4c2b5cce7b7d7d57d7c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bbdd1bedb7b9a9f00a0b65ccc4c108ba6fd2638c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754937"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398951"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Ottimizzare il costo delle operazioni di lettura e di scrittura in Azure Cosmos DB
 
@@ -30,14 +30,6 @@ Non è necessario preoccuparsi di distinguere le unità richiesta di operazioni 
 
 La lettura di un elemento con dimensioni pari a 1 K costa una UR. La scrittura di un elemento con dimensioni pari a 1 KB costa cinque UR. I costi di lettura e scrittura sono applicabili quando si usa il [livello di coerenza](consistency-levels.md) della sessione predefinito.  Per le UR è necessario tenere conto di dimensioni, numero di proprietà, coerenza dei dati, proprietà indicizzate, indicizzazione e modelli di query dell'elemento.
 
-## <a name="normalized-cost-for-1-million-reads-and-writes"></a>Costo normalizzato per un milione di operazioni di lettura e scrittura
-
-Il provisioning di 1.000 UR/sec si traduce in 3,6 milioni di UR/ora al costo di 0,08 dollari l'ora (negli Stati Uniti e in Europa). Con il provisioning di questa velocità effettiva, per un elemento da 1 KB, è possibile eseguire 3,6 milioni di operazioni di lettura o 0,72 milioni di operazioni di scrittura (valore calcolato come `3.6 million RU / 5`) all'ora. Normalizzato a un milione di operazioni di lettura e scrittura, il costo è di 0,022 dollari per 1 milione di operazioni di lettura (valore calcolato come 0,08 dollari/3,6 milioni) e 0,111 dollari per 1 milione di operazioni di scrittura (valore calcolato come 0,08 dollari/0,72 milioni).
-
-## <a name="number-of-regions-and-the-request-units-cost"></a>Numero di aree e costo delle unità richiesta
-
-Il costo delle operazioni di scrittura è costante, indipendentemente dal numero di aree associate all'account Azure Cosmos. In altre parole, un'operazione di scrittura di 1 KB comporta un costo di cinque UR, indipendentemente dal numero delle aree associate all'account. Una quantità di risorse non trascurabile viene usata per la replica, l'accettazione e l'elaborazione del traffico di replica in ogni area. Per informazioni dettagliate sull'ottimizzazione dei costi per più aree, vedere l'articolo [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md) (Ottimizzazione dei costi degli account Cosmos multiarea).
-
 ## <a name="optimize-the-cost-of-writes-and-reads"></a>Ottimizzare il costo di operazioni di lettura e scrittura
 
 Quando si eseguono operazioni di scrittura, è consigliabile effettuare il provisioning di una capacità sufficiente a supportare il numero di operazioni di scrittura al secondo necessarie. È possibile aumentare la velocità effettiva di cui è stato effettuato il provisioning tramite SDK, il portale o l'interfaccia della riga di comando prima di eseguire le operazioni di scrittura e quindi ridurre la velocità effettiva dopo il completamento di tali operazioni. La velocità effettiva per il periodo di scrittura corrisponde alla velocità effettiva minima necessaria per i dati specifici più la velocità effettiva necessaria per il carico di lavoro di inserimento, presupponendo che non siano in esecuzione altri carichi di lavoro. 
@@ -50,9 +42,9 @@ Se si eseguono altri carichi di lavoro contemporaneamente, ad esempio query, ope
 
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
-* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
-* Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
+* Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
+* Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
-* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)
+* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multi-area](optimize-cost-regions.md)

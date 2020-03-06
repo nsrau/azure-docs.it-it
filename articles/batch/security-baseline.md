@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: af0466299d1f972fe9334beb5f31c886c1928a1c
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273551"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329000"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Baseline della sicurezza di Azure per batch
 
@@ -343,7 +343,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Responsabilità**: cliente
 
-## <a name="identity-and-access-control"></a>Gestione delle identità e controllo di accesso
+## <a name="identity-and-access-control"></a>Controllo di identità e accesso
 
 *Per altre informazioni, vedere [controllo di sicurezza: identità e controllo di accesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
@@ -628,7 +628,7 @@ Assicurarsi che HTTPS sia necessario per l'accesso all'account di archiviazione 
 
 Informazioni sulla crittografia dell'account di archiviazione di Azure in transito:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1170,7 +1170,7 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Responsabilità**: cliente
 
-## <a name="data-recovery"></a>Ripristino dei dati
+## <a name="data-recovery"></a>Recupero dei dati
 
 *Per altre informazioni, vedere [controllo di sicurezza: ripristino dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 

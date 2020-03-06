@@ -9,24 +9,39 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: b83eb1556ed3f4a41409faf70f6ba9d8cd28322d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
-ms.translationtype: MT
+ms.openlocfilehash: 10e4ba16e00a37d532a2eceb69fedb8f5b62be8b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732179"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301659"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integrazione git per Azure Machine Learning
 
-[Git](https://git-scm.com/) è un sistema di controllo della versione noto che consente di condividere e collaborare con i progetti. Quando si invia un processo di training a Azure Machine Learning, se i file di training sono archiviati in un repository git locale, le informazioni sul repository vengono registrate come parte del processo di training.
+[Git](https://git-scm.com/) è un sistema di controllo della versione noto che consente di condividere e collaborare con i progetti. 
+
+Azure Machine Learning supporta completamente i repository Git per tenere traccia del lavoro: è possibile clonare i repository direttamente nell'area di lavoro condivisa file system, usare git nella workstation locale o usare git da una pipeline CI/CD.
+
+Quando si invia un processo a Azure Machine Learning, se i file di origine sono archiviati in un repository git locale, le informazioni sul repository vengono registrate come parte del processo di training.
 
 Poiché Azure Machine Learning tiene traccia delle informazioni da un repository git locale, non è associato ad alcun repository centrale specifico. Il repository può essere clonato da GitHub, GitLab, Bitbucket, Azure DevOps o da qualsiasi altro servizio compatibile con git.
 
-## <a name="how-does-git-integration-work"></a>Funzionamento dell'integrazione con git
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonare i repository git nell'area di lavoro file system
+Azure Machine Learning fornisce un file system condiviso per tutti gli utenti nell'area di lavoro.
+Per clonare un repository git in questa condivisione file, è consigliabile creare un'istanza di calcolo & aprire un terminale.
+Una volta aperto il terminale, è possibile accedere a un client Git completo ed è possibile clonare e usare git usando l'interfaccia della riga di comando di git.
+
+Si consiglia di clonare il repository nella directory degli utenti in modo che altri non effettuino conflitti direttamente nel ramo di lavoro.
+
+È possibile clonare qualsiasi repository git a cui è possibile eseguire l'autenticazione (GitHub, Azure Repos, BitBucket e così via)
+
+Per una guida su come usare l'interfaccia della riga di comando di Git, vedere [qui.](https://guides.github.com/introduction/git-handbook/)
+
+## <a name="track-code-that-comes-from-git-repositories"></a>Tenere traccia del codice che deriva da repository git
 
 Quando si invia un'esecuzione di training da Python SDK o Machine Learning CLI, i file necessari per il training del modello vengono caricati nell'area di lavoro. Se il `git` comando è disponibile nell'ambiente di sviluppo, il processo di caricamento lo usa per verificare se i file sono archiviati in un repository git. In tal caso, vengono caricate anche le informazioni del repository Git come parte dell'esecuzione del training. Queste informazioni vengono archiviate nelle proprietà seguenti per l'esecuzione del training:
 
-| Proprietà | Comando git usato per ottenere il valore | Description |
+| Proprietà | Comando git usato per ottenere il valore | Descrizione |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | URI da cui è stato clonato il repository. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | URI da cui è stato clonato il repository. |
@@ -89,7 +104,7 @@ Dopo aver inviato un'esecuzione di training, viene restituito un oggetto [Run](h
 run.properties['azureml.git.commit']
 ```
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 
 Il `az ml run` comando CLI può essere usato per recuperare le proprietà da un'esecuzione. Ad esempio, il comando seguente restituisce le proprietà dell'ultima esecuzione nell'esperimento denominata `train-on-amlcompute`:
 

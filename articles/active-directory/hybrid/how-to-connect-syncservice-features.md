@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347542"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300537"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
 
@@ -57,13 +57,13 @@ Le impostazioni seguenti vengono configurate da Azure AD Connect e non possono e
 
 | DirSyncFeature | Commento |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: Abilitazione del writeback dei dispositivi](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Servizio di sincronizzazione Azure AD Connect: Estensioni della directory](how-to-connect-sync-feature-directory-extensions.md) |
+| DeviceWriteback |[Azure AD Connect: abilitazione del writeback dei dispositivi](how-to-connect-device-writeback.md) |
+| DirectoryExtensions |[Servizio di sincronizzazione Azure AD Connect: estensioni della directory](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Consente di mettere in quarantena un attributo quando è un duplicato di un altro oggetto, invece di causare l'errore dell'intero oggetto durante l'esportazione. |
 | Sincronizzazione dell'hash delle password |[Implementazione della sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticazione pass-through|[Accesso utente con l'autenticazione pass-through di Azure Active Directory](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |[Anteprima: Writeback dei gruppi](how-to-connect-preview.md#group-writeback) |
-| UserWriteback |Attualmente non è supportata. |
+| UserWriteback |Attualmente non supportata. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Duplicate attribute resiliency
 
@@ -96,7 +96,7 @@ In genere, gli aggiornamenti dell'attributo UserPrincipalName usando il servizio
 
 Per alte informazioni, vedere [I nomi utente in Office 365, Azure o Intune non corrispondono agli ID di accesso o alternativi dell'UPN locale](https://support.microsoft.com/kb/2523192).
 
-L'abilitazione di questa funzionalità consente al motore di sincronizzazione di aggiornare userPrincipalName quando è modificato in locale e si utilizza l'autenticazione pass-through o sincronizzazione hash password. Se si usa la federazione, questa funzionalità non è supportata.
+L'abilitazione di questa funzionalità consente al motore di sincronizzazione di aggiornare il userPrincipalName quando viene modificato in locale e si usa la sincronizzazione dell'hash delle password o l'autenticazione pass-through.
 
 Questa funzionalità è attivata per impostazione predefinita per le nuove directory di Azure AD . Per vedere se la funzionalità è abilitata per l'utente corrente, eseguire:  
 

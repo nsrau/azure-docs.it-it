@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 7b009a6e2f540dc076340a6803679a541e60adc7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165345"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377906"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
 
@@ -68,13 +68,13 @@ Seguire i passaggi descritti in questa sezione per scoprire quali app saranno in
 ### <a name="download-and-install-acs-powershell"></a>Scaricare e installare ACS PowerShell
 
 1. Passare a PowerShell Gallery e scaricare [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-1. Installare il modulo eseguendo
+2. Installare il modulo eseguendo
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. Ottenere un elenco di tutti i comandi disponibili eseguendo
+3. Ottenere un elenco di tutti i comandi disponibili eseguendo
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -94,8 +94,8 @@ Seguire i passaggi descritti in questa sezione per scoprire quali app saranno in
   
     Potrebbe essere necessario eseguire `Set-ExecutionPolicy -ExecutionPolicy Bypass` prima di poter eseguire i comandi ed essere l'amministratore di tali sottoscrizioni per eseguire i comandi.
 
-1. Elencare le sottoscrizioni di Azure disponibili usando il cmdlet **Get-AcsSubscription**.
-1. Elencare gli spazi dei nomi ACS usando il cmdlet **Get-AcsNamespace**.
+2. Elencare le sottoscrizioni di Azure disponibili usando il cmdlet **Get-AcsSubscription**.
+3. Elencare gli spazi dei nomi ACS usando il cmdlet **Get-AcsNamespace**.
 
 ### <a name="check-which-applications-will-be-impacted"></a>Controllare quali applicazioni saranno interessate
 
@@ -103,8 +103,8 @@ Seguire i passaggi descritti in questa sezione per scoprire quali app saranno in
 
     Se ad esempio uno degli spazi dei nomi è contoso-test, passare a `https://contoso-test.accesscontrol.windows.net`
 
-1. In **Relazioni di attendibilità** selezionare **Applicazioni relying party** per visualizzare l'elenco di app che saranno interessate dal ritiro di ACS.
-1. Ripetere i passaggi 1 e 2 per qualsiasi altro spazio dei nomi ACS disponibile.
+2. In **Relazioni di attendibilità** selezionare **Applicazioni relying party** per visualizzare l'elenco di app che saranno interessate dal ritiro di ACS.
+3. Ripetere i passaggi 1 e 2 per qualsiasi altro spazio dei nomi ACS disponibile.
 
 ## <a name="retirement-schedule"></a>Pianificazione del ritiro
 
@@ -148,7 +148,7 @@ Ogni servizio cloud Microsoft che accetta token rilasciati da Controllo di acces
 
 I clienti di SharePoint 2013, 2016 e SharePoint Online hanno un servizio ACS a lungo termine per scopi di autenticazione in scenari cloud, locali e ibridi. Il ritiro di ACS influirà su alcune funzionalità e su alcuni casi d'uso di SharePoint, ma non su altri. La tabella seguente include indicazioni di riepilogo sulla migrazione per alcune delle funzionalità di SharePoint più diffuse che sfruttano ACS:
 
-| Funzionalità | Materiale sussidiario |
+| Caratteristica | Materiale sussidiario |
 | ------- | -------- |
 | Autenticazione degli utenti da Azure AD | In precedenza Azure AD non supportava i token SAML 1.1 richiesti da SharePoint per l'autenticazione e ACS veniva usato come intermediario per rendere SharePoint compatibile con i formati di token di Azure AD. A questo punto, è possibile [connettere SharePoint direttamente a Azure ad usando app Azure ad Gallery SharePoint nell'app locale](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticazione dell'app & autenticazione da server a server in SharePoint locale](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. | 
@@ -210,7 +210,7 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 | Caricare certificati per la firma di token personalizzati | Supportato | Supportato |
 | Personalizzare le attestazioni nei token |- Eseguire il pass-through delle attestazioni di input dai provider di identità<br />- Ottenere un token di accesso dal provider di identità come attestazione<br />- Rilasciare attestazioni di output in base ai valori delle attestazioni di input<br />- Rilasciare attestazioni di output con valori costanti |- Non è possibile eseguire il pass-through di attestazioni da provider di identità federati<br />- Non è possibile ottenere un token di accesso dal provider di identità come attestazione<br />- Non è possibile rilasciare attestazioni di output in base ai valori delle attestazioni di input<br />- È possibile rilasciare attestazioni di output con valori costanti<br />- È possibile rilasciare attestazioni di output in base alle proprietà degli utenti sincronizzati con Azure AD |
 | **Automazione** | | |
-| Automatizzare le attività di configurazione e gestione | Supportato tramite il servizio di gestione del Controllo di accesso | Supportato tramite Microsoft Graph e API Graph di Azure AD |
+| Automatizzare le attività di configurazione e gestione | Supportato tramite il servizio di gestione del Controllo di accesso | Supportato con l'API Microsoft Graph |
 
 Se si decide che Azure AD sia l'approccio di migrazione ottimale per le applicazioni e i servizi in uso, è necessario conoscere le due modalità disponibili per l'integrazione dell'app con Azure AD.
 
@@ -261,7 +261,7 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 | Caricare certificati per la firma di token personalizzati | Supportato | Chiavi di accesso personalizzate, non certificati, supportati tramite criteri personalizzati |
 | Personalizzare le attestazioni nei token |- Eseguire il pass-through delle attestazioni di input dai provider di identità<br />- Ottenere un token di accesso dal provider di identità come attestazione<br />- Rilasciare attestazioni di output in base ai valori delle attestazioni di input<br />- Rilasciare attestazioni di output con valori costanti |- È possibile eseguire il pass-through delle attestazioni dai provider di identità; alcune attestazioni richiedono criteri personalizzati<br />- Non è possibile ottenere un token di accesso dal provider di identità come attestazione<br />- È possibile rilasciare attestazioni di output in base ai valori delle attestazioni di input tramite criteri personalizzati<br />- È possibile rilasciare attestazioni di output con valori costanti tramite criteri personalizzati |
 | **Automazione** | | |
-| Automatizzare le attività di configurazione e gestione | Supportato tramite il servizio di gestione del Controllo di accesso |- Creazione di utenti consentita tramite l'API Graph di Azure AD<br />- Non è possibile creare tenant, applicazioni o criteri di B2C a livello di codice |
+| Automatizzare le attività di configurazione e gestione | Supportato tramite il servizio di gestione del Controllo di accesso |-Creazione di utenti consentiti tramite l'API Microsoft Graph<br />- Non è possibile creare tenant, applicazioni o criteri di B2C a livello di codice |
 
 Se si decide che Azure AD B2C è l'approccio ottimale per le applicazioni e i servizi in uso, iniziare dalle risorse seguenti:
 
@@ -325,7 +325,7 @@ Azure AD può essere usato anche per l'autenticazione S2S tramite l'implementazi
 | Metodi di autenticazione client |- Password semplice<br />- Token Web semplice firmato<br />- Token SAML dal provider di identità federato |- Password semplice<br />- Token JWT firmato |
 | Formati del token |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Solo token JSON Web |
 | Trasformazione di token |- Aggiungere attestazioni personalizzate<br />- Logica semplice di emissione di attestazioni if-then | Aggiungere attestazioni personalizzate | 
-| Automatizzare le attività di configurazione e gestione | Supportato tramite il servizio di gestione del Controllo di accesso | Supportato tramite Microsoft Graph e API Graph di Azure AD |
+| Automatizzare le attività di configurazione e gestione | Supportato tramite il servizio di gestione del Controllo di accesso | Supportato con l'API Microsoft Graph |
 
 Per indicazioni sull'implementazione di scenari S2S, vedere le risorse seguenti:
 

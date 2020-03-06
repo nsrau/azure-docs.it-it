@@ -160,6 +160,8 @@
       items:
         - name: Dal portale di Azure
           items:
+            - name: Panoramica
+              href: azure-file-share-backup-overview.md
             - name: Backup
               href: backup-afs.md
             - name: Restore

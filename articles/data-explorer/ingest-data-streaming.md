@@ -7,20 +7,20 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 279130fa310b107bd1a016c717c48af3d905251b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 1857c1154af5e3de72803f297e8a3151b0dd7aeb
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270149"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330975"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
-L'inserimento di flussi è destinato a scenari che richiedono una bassa latenza con un tempo di inserimento inferiore a 10 secondi per i vari dati del volume. Viene usato per ottimizzare l'elaborazione operativa di molte tabelle, in uno o più database, in cui il flusso di dati in ogni tabella è relativamente piccolo (pochi record al secondo), ma il volume di inserimento dati complessivo è elevato (migliaia di record al secondo).
+Usare l'inserimento di flussi quando si richiede una bassa latenza con un tempo di inserimento inferiore a 10 secondi per i vari dati del volume. Viene usato per ottimizzare l'elaborazione operativa di molte tabelle, in uno o più database, in cui il flusso di dati in ogni tabella è relativamente piccolo (pochi record al secondo), ma il volume di inserimento dati complessivo è elevato (migliaia di record al secondo). 
 
-Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la quantità di dati aumenta fino a un massimo di 1 MB al secondo per tabella. Per ulteriori informazioni sui vari metodi di inserimento, vedere [Cenni preliminari](/azure/data-explorer/ingest-data-overview) sull'inserimento di dati.
+Usare l'inserimento bulk anziché l'inserimento di flussi quando la quantità di dati aumenta fino a un massimo di 1 MB al secondo per tabella. Per ulteriori informazioni sui vari metodi di inserimento, vedere [Cenni preliminari](/azure/data-explorer/ingest-data-overview) sull'inserimento di dati.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Accedere all' [interfaccia utente Web](https://dataexplorer.azure.com/).
@@ -48,7 +48,7 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
 Sono disponibili due tipi di inserimento di flussi supportati:
 
 
-* [**Hub eventi**](/azure/data-explorer/ingest-data-event-hub) usato come origine dati
+* [**Hub eventi**](/azure/data-explorer/ingest-data-event-hub), usato come origine dati
 * Per l'inserimento **personalizzato** è necessario scrivere un'applicazione che usi una delle librerie client di Azure Esplora dati. Per un'applicazione di esempio, vedere esempio di inserimento di [flussi](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) .
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Scegliere il tipo di inserimento flusso appropriato
@@ -63,7 +63,7 @@ Sono disponibili due tipi di inserimento di flussi supportati:
 > [!WARNING]
 > La disabilitazione dell'inserimento di flussi potrebbe richiedere alcune ore.
 
-1. Elimina i criteri di inserimento dei [flussi](/azure/kusto/management/streamingingestionpolicy) da tutte le tabelle e i database pertinenti. La rimozione dei criteri di inserimento dei flussi attiva lo spostamento dei dati di inserimento dallo spazio di archiviazione iniziale all'archiviazione permanente nell'archivio colonne (extent o partizioni). Lo spostamento dei dati può durare tra pochi secondi e alcune ore, a seconda della quantità di dati nella risorsa di archiviazione iniziale e della modalità di utilizzo della CPU e della memoria da parte del cluster.
+1. Elimina i criteri di inserimento dei [flussi](/azure/kusto/management/streamingingestionpolicy) da tutte le tabelle e i database pertinenti. La rimozione dei criteri di inserimento dei flussi attiva lo spostamento dei dati di inserimento dallo spazio di archiviazione iniziale all'archiviazione permanente nell'archivio colonne (extent o partizioni). Lo spostamento dei dati può durare tra pochi secondi e alcune ore, a seconda della quantità di dati nella risorsa di archiviazione iniziale e del modo in cui la CPU e la memoria vengono usate dal cluster.
 1. Nel portale di Azure passare a cluster di Esplora dati di Azure. In **Impostazioni**selezionare **configurazioni**. 
 1. Nel riquadro **configurazioni** selezionare disattivato per disabilitare l' **inserimento** del **flusso**.
 1. Selezionare **Salva**.
@@ -72,15 +72,12 @@ Sono disponibili due tipi di inserimento di flussi supportati:
 
 ## <a name="limitations"></a>Limitazioni
 
+* L'inserimento di flussi non supporta i [cursori di database](/azure/kusto/management/databasecursor) o il [mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/tables#create-ingestion-mapping) . 
 * Le prestazioni e la capacità di inserimento dei flussi vengono ridimensionate con dimensioni maggiori di macchine virtuali e cluster. Le inserimenti simultanei sono limitate a sei inserimenti per core. Ad esempio, per gli SKU a 16 core, ad esempio D14 e L16, il carico massimo supportato è 96 di inserimenti simultanei. Per due SKU principali, ad esempio D11, il carico massimo supportato è 12 inserimenti simultanei.
 * Il limite per le dimensioni dei dati per ogni richiesta di inserimento è 4 MB.
-* Gli aggiornamenti dello schema, ad esempio la creazione e la modifica di tabelle e mapping di inserimento, possono richiedere fino a 5 minuti per il servizio di inserimento di flussi.
+* Gli aggiornamenti dello schema, ad esempio la creazione e la modifica di tabelle e mapping di inserimento, possono richiedere fino a cinque minuti per il servizio di inserimento di flussi.
 * L'abilitazione dell'inserimento di flussi in un cluster, anche quando i dati non vengono inseriti tramite lo streaming, usa una parte del disco SSD locale dei computer del cluster per il flusso dei dati di inserimento e riduce lo spazio di archiviazione disponibile per la cache a caldo.
 * I [tag di extent](/azure/kusto/management/extents-overview#extent-tagging) non possono essere impostati sui dati di inserimento del flusso.
-
-L'inserimento di flussi non supporta le funzionalità seguenti:
-* [Cursori del database](/azure/kusto/management/databasecursor).
-* [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/create-ingestion-mapping-command) . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

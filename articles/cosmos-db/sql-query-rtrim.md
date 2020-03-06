@@ -4,15 +4,15 @@ description: Informazioni sulla funzione di sistema SQL RTRIM in Azure Cosmos DB
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 511c085b465b8b70ae71c298054bcb535773837e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b740d14315f6d9ba2f1788c56d6b1fcd8945c83e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349499"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302084"
 ---
 # <a name="rtrim-azure-cosmos-db"></a>RTRIM (Azure Cosmos DB)
  Restituisce un'espressione di stringa dopo aver rimosso gli spazi vuoti finali.  
@@ -40,11 +40,15 @@ RTRIM(<str_expr>)
 SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"r1": "   abc", "r2": "abc", "r3": "abc"}]  
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

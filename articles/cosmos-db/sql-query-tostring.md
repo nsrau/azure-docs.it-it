@@ -4,15 +4,15 @@ description: Informazioni sulla funzione di sistema SQL ToString in Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 53630a0ecd76459f23a978e98040a86152d7c0d8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349122"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304260"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
  Restituisce una rappresentazione di espressione scalare. 
@@ -48,7 +48,7 @@ SELECT
     ToString(undefined) AS str8
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"str1": "1", "str2": "Hello World", "str3": "NaN", "str4": "Infinity", "str5": "false", "str6": "0.1234", "str7": "false"}]  
@@ -57,7 +57,7 @@ SELECT
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- Nell'esempio seguente viene illustrato come è possibile utilizzare `ToString` con altre funzioni di stringa come `CONCAT`.   
+ Nell'esempio seguente viene illustrato come utilizzare `ToString` con altre funzioni di stringa come `CONCAT`.   
  
 ```sql
 SELECT 
@@ -65,7 +65,7 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
-Questo è il set di risultati.  
+Set di risultati:  
   
 ```json
 [{"$1":"4lb" },
@@ -78,7 +78,7 @@ Con l'input seguente.
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-Nell'esempio seguente viene illustrato come è possibile utilizzare `ToString` con altre funzioni di stringa come `REPLACE`.   
+Nell'esempio seguente viene illustrato come utilizzare `ToString` con altre funzioni di stringa come `REPLACE`.   
 ```sql
 SELECT 
     n.id AS nutrientID,
@@ -86,7 +86,7 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
-Questo è il set di risultati.  
+Set di risultati:  
  ```json
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
@@ -94,6 +94,10 @@ Questo è il set di risultati.
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
 ``` 
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

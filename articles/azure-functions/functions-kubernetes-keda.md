@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 83c57b27c1cd1d524805a92381a1ba9eb2e1fbd6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2c06fdba8f60243acf4e0fabd23df8b832c210db
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549037"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301676"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funzioni di Azure in Kubernetes con KEDA
 
@@ -20,7 +20,7 @@ Il runtime di funzioni di Azure offre la flessibilità necessaria per ospitare i
 
 Il servizio funzioni di Azure è costituito da due componenti principali: un runtime e un controller di scalabilità.  Il runtime di funzioni viene eseguito ed esegue il codice.  Il runtime include la logica su come attivare, registrare e gestire le esecuzioni di funzioni.  Il runtime di funzioni di Azure può essere eseguito *ovunque*.  L'altro componente è un controller di scalabilità.  Il controller di scalabilità monitora la frequenza degli eventi destinati alla funzione e ridimensiona in modo proattivo il numero di istanze che eseguono l'app.  Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
 
-Le funzioni basate su Kubernetes forniscono il runtime di funzioni in un [contenitore Docker](functions-create-function-linux-custom-image.md) con scalabilità guidata dagli eventi tramite Keda.  KEDA può ridurre a 0 istanze (quando non si verificano eventi) e fino a *n* istanze. Questa operazione viene eseguita esponendo metriche personalizzate per il ridimensionamento automatico Kubernetes (Horizontal Pod AutoScaler).  L'uso di contenitori di funzioni con KEDA consente di replicare le funzionalità della funzione senza server in qualsiasi cluster Kubernetes.  Queste funzioni possono anche essere distribuite usando la funzionalità [nodi virtuali di Azure Kubernetes Services (AKS)](../aks/virtual-nodes-cli.md) per l'infrastruttura senza server.
+Le funzioni basate su Kubernetes forniscono il runtime di funzioni in un [contenitore Docker](functions-create-function-linux-custom-image.md) con scalabilità guidata dagli eventi tramite Keda.  KEDA può essere ridimensionato a 0 istanze (quando non si verificano eventi) e a *n* istanze. Questa operazione viene eseguita esponendo metriche personalizzate per il ridimensionamento automatico Kubernetes (Horizontal Pod AutoScaler).  L'uso di contenitori di funzioni con KEDA consente di replicare le funzionalità della funzione senza server in qualsiasi cluster Kubernetes.  Queste funzioni possono anche essere distribuite usando la funzionalità [nodi virtuali di Azure Kubernetes Services (AKS)](../aks/virtual-nodes-cli.md) per l'infrastruttura senza server.
 
 ## <a name="managing-keda-and-functions-in-kubernetes"></a>Gestione di KEDA e funzioni in Kubernetes
 
@@ -73,7 +73,7 @@ I passaggi per la disinstallazione di KEDA sono documentati [nel sito di Keda](h
 
 KEDA dispone del supporto per i trigger di funzione di Azure seguenti:
 
-* [Code di Archiviazione di Azure](functions-bindings-storage-queue.md)
+* [Code di archiviazione di Azure](functions-bindings-storage-queue.md)
 * [Code del bus di servizio di Azure](functions-bindings-service-bus.md)
 * [Hub eventi di Azure](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
@@ -83,8 +83,8 @@ KEDA dispone del supporto per i trigger di funzione di Azure seguenti:
 
 È possibile usare funzioni di Azure che espongono trigger HTTP, ma KEDA non li gestisce direttamente.  È possibile usare il trigger KEDA Prometheus per [scalare le funzioni http di Azure da 1 a *n* istanze](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42).
 
-## <a name="next-steps"></a>Fasi successive
-Per altre informazioni, vedere le seguenti risorse:
+## <a name="next-steps"></a>Passaggi successivi
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * [Creare una funzione usando un'immagine personalizzata](functions-create-function-linux-custom-image.md)
 * [Scrivere codici per Funzioni di Azure e testarle in locale](functions-develop-local.md)

@@ -14,12 +14,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5400ede4f3afd9f94d7380c6dfd55d8aa45d08ca
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834247"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399092"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedura: Aggiungere ruoli dell'app in un'applicazione e riceverli nel token
 
@@ -44,10 +44,10 @@ Questi ruoli applicazione sono definiti nel [portale di Azure](https://portal.az
 1. Modificare il manifesto dell'app individuando l'impostazione `appRoles` e aggiungendo tutti i ruoli applicazione desiderati.
 
      > [!NOTE]
-     > Ogni definizione di ruolo app in questo manifesto deve avere un GUID valido diverso all'interno del contesto del manifesto per la proprietà `id`.    
-     > 
+     > Ogni definizione di ruolo app in questo manifesto deve avere un GUID valido diverso all'interno del contesto del manifesto per la proprietà `id`.
+     >
      > La proprietà `value` di ogni definizione di ruolo app deve corrispondere esattamente alle stringhe utilizzate nel codice dell'applicazione. La proprietà `value` non può contenere spazi. In caso contrario, si riceverà un errore quando si salva il manifesto.
-     
+
 1. Salvare il manifesto.
 
 ### <a name="examples"></a>Esempi
@@ -108,7 +108,7 @@ Dopo aver aggiunto i ruoli dell'app nell'applicazione, è possibile assegnarli a
      Se l'applicazione desiderata non viene visualizzata, usare i filtri disponibili nella parte superiore dell'elenco **Tutte le applicazioni** per limitare l'elenco o scorrerlo verso il basso fino a trovare l'applicazione.
 
 1. Selezionare l'applicazione in cui si vuole assegnare ruoli a utenti o gruppi di sicurezza.
-1. Selezionare il riquadro **Utenti e gruppi** nel menu di spostamento a sinistra dell'applicazione.
+1. Selezionare il riquadro **utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione.
 1. Nella parte superiore dell'elenco **Utenti e gruppi** selezionare il pulsante **Aggiungi utente** per aprire il riquadro **Aggiungi assegnazione**.
 1. Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
@@ -120,9 +120,9 @@ Dopo aver aggiunto i ruoli dell'app nell'applicazione, è possibile assegnarli a
 1. Premere il pulsante **Assegna** nella parte inferiore della pagina per completare le assegnazioni di utenti e gruppi all'app.
 1. Verificare che gli utenti e i gruppi aggiunti siano presenti nell'elenco **Utenti e gruppi** aggiornato.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
-- [Authorization in a web app using Azure AD application roles &amp; role claims (Sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) (Autorizzazione in un'app Web tramite le attestazioni di ruolo e i ruoli applicazione di Azure AD - Esempio)
+- [Aggiungere l'autorizzazione usando i ruoli dell'app & le attestazioni dei ruoli a un'app Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM) (Utilizzo dei gruppi di sicurezza e dei ruoli applicazione nelle app - Video)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862) (Azure Active Directory, ora con attestazioni di gruppo e ruoli applicazione)
 - [Manifesto dell'app Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

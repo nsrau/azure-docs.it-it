@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: bc7d8d4aaec6ebe27a0f8d2ecc11ca408266f7ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 261c12e63f8f348e1673dbc46c89c614caf3283b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453234"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296355"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Aggiungere l'autenticazione e gestire le identità degli utenti nelle app per dispositivi mobili
 
@@ -21,9 +21,9 @@ La visualizzazione dell'utente e il relativo comportamento nell'applicazione con
 Usare i servizi seguenti per abilitare l'autenticazione utente nelle app per dispositivi mobili.
 
 ## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center auth](/appcenter/auth/) è un servizio di gestione delle identità basato sul cloud che gli sviluppatori possono usare per autenticare gli utenti e gestire le identità utente. App Center autenticazione si integra anche con altre parti di Visual Studio App Center. Gli sviluppatori possono usare l'identità utente per [visualizzare i dati utente](/appcenter/data/index) in altri servizi e persino [inviare notifiche push agli utenti anziché ai singoli dispositivi](/appcenter/push/push-to-user#app-center-auth-set-identity). 
+[App Center auth](/appcenter/auth/) è un servizio di gestione delle identità basato sul cloud che gli sviluppatori possono usare per autenticare gli utenti e gestire le identità utente. App Center autenticazione si integra anche con altre parti di Visual Studio App Center. Gli sviluppatori possono usare l'identità utente per [visualizzare i dati utente](/appcenter/data/index) in altri servizi e persino [inviare notifiche push agli utenti anziché ai singoli dispositivi](/appcenter/push/push-to-user#setting-user-identity). 
 
-**Caratteristiche principali**
+**Funzionalità principali**
 - Con tecnologia Azure Active Directory B2C (Azure AD B2C). 
     - Classe Enterprise.
     - Disponibilità elevata.
@@ -43,7 +43,7 @@ Usare i servizi seguenti per abilitare l'autenticazione utente nelle app per dis
 ## <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C
 [Azure ad B2C](https://azure.microsoft.com/services/active-directory-b2c/) è un servizio di gestione delle identità business-to-consumer (B2C) che gli sviluppatori possono usare per autenticare i clienti. Questo servizio con etichette bianche consente agli sviluppatori di personalizzare e controllare il modo in cui gli utenti interagiscono in modo sicuro con le applicazioni Web, desktop, per dispositivi mobili o a singola pagina. Con Azure AD B2C, gli utenti possono eseguire l'iscrizione, l'accesso, la reimpostazione delle password e la modifica dei profili. Azure AD B2C implementa una forma dei protocolli OAuth 2.0 e OpenID Connect. 
 
-**Caratteristiche principali**
+**Funzionalità principali**
 - Autenticare i clienti in modo sicuro con il provider di identità preferito.
 - Gestisci l'identità e l'accesso dei clienti.
 - Ottieni supporto per l'accesso a social media come Facebook, GitHub, Google, LinkedIn, Twitter, WeChat e Weibo.
@@ -63,7 +63,7 @@ Usare i servizi seguenti per abilitare l'autenticazione utente nelle app per dis
 - Risorse esterne, ad esempio Microsoft Office 365, portale di Azure e migliaia di altre applicazioni SaaS (Software as a Service).
 - Risorse interne, tra cui app nella rete e nella Intranet aziendale, oltre a eventuali app cloud sviluppate dall'organizzazione.
 
-**Caratteristiche principali**
+**Funzionalità principali**
 - Accesso trasparente e altamente sicuro grazie alla connessione degli utenti alle applicazioni necessarie.
 - Protezione delle identità completa e sicurezza avanzata per le identità e l'accesso in base all'utente, alla posizione, al dispositivo, ai dati e al contesto dell'applicazione.
 - Migliaia di app preintegrate per applicazioni commerciali e personalizzate, ad esempio Office 365, Salesforce.com e box.

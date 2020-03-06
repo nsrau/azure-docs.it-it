@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4ffcd82931b4df92aa2885eb043deae90a70526f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 737b25fd4c83c459f033bd7b07f6362909e38056
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695348"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299884"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrazione di applicazioni a MSAL.NET
 
@@ -27,7 +27,7 @@ Sia Microsoft Authentication Library per .NET (MSAL.NET) che Azure AD Authentica
 - è possibile autenticare un set più ampio di identità Microsoft (Azure AD identità e account Microsoft e account social e locali tramite Azure AD B2C) perché usa l'endpoint della piattaforma Microsoft Identity,
 - Gli utenti otterranno la migliore esperienza Single Sign-on.
 - l'applicazione può abilitare il consenso incrementale e il supporto dell'accesso condizionale è più semplice
-- è possibile trarre vantaggio dall'innovazione.
+- È possibile trarre vantaggio dall'innovazione.
 
 **MSAL.NET è ora la libreria di autenticazione consigliata da usare con la piattaforma di identità Microsoft**. In ADAL.NET non verranno implementate nuove funzionalità. Gli sforzi sono incentrati sul miglioramento di MSAL.
 
@@ -143,7 +143,7 @@ MSAL.NET rende la cache dei token una classe sealed, eliminando la possibilità 
 
 ## <a name="signification-of-the-common-authority"></a>Significato dell'autorità comune
 
-Nella versione 1.0, se si usa l'autorità https://login.microsoftonline.com/common , si consente agli utenti di accedere con qualsiasi account AAD (per qualsiasi organizzazione). Vedere [Convalida dell'autorità in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
+Nella versione 1.0, se si usa l'autorità https://login.microsoftonline.com/common, si consente agli utenti di accedere con qualsiasi account AAD (per qualsiasi organizzazione). Vedere [Convalida dell'autorità in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
 Se si usa l'autorità https://login.microsoftonline.com/common nella versione 2.0, si consentirà agli utenti di accedere con qualsiasi organizzazione AAD o account Microsoft personale. In MSAL.NET, se si vuole limitare l'accesso a qualsiasi account AAD (stesso comportamento di ADAL.NET), è necessario usare https://login.microsoftonline.com/organizations. Per informazioni dettagliate, vedere il parametro `authority` nell'[applicazione client pubblica](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
@@ -165,7 +165,7 @@ Le autorizzazioni OAuth2 sono ambiti di autorizzazione che l'applicazione dell'A
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a specifiche autorizzazioni OAuth2 di un'applicazione v1.0
 
-Se si vuole acquisire i token per gli ambiti specifici di un'applicazione v1.0 (ad esempio, Graph di AAD, ovvero https://graph.windows.net) ), è necessario creare `scopes` concatenando un identificatore di risorsa con un'autorizzazione OAuth2 per tale risorsa.
+Se si desidera acquisire i token per un'applicazione che accetta i token v 1.0, ad esempio l'API Microsoft Graph, che è https://graph.microsoft.com), è necessario creare `scopes` concatenando un identificatore di risorsa desiderato con l'autorizzazione OAuth2 desiderata per la risorsa.
 
 Ad esempio, per accedere al nome dell'utente in un'API Web v1.0 il cui URI dell'ID App è `ResourceId`, è possibile usare:
 
@@ -173,16 +173,16 @@ Ad esempio, per accedere al nome dell'utente in un'API Web v1.0 il cui URI dell'
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Per eseguire operazioni di lettura e scrittura con Azure Active Directory in MSAL.NET tramite l'API Graph di AAD (https://graph.windows.net/) , è possibile creare un elenco di ambiti come nel frammento di codice seguente:
+Per leggere e scrivere con MSAL.NET Azure Active Directory usando l'API Microsoft Graph (https://graph.microsoft.com/), è necessario creare un elenco di ambiti, come nel frammento di codice seguente:
 
 ```csharp
-ResourceId = "https://graph.windows.net/";
+ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Avviso: è necessario avere una o due barre nell'ambito corrispondente a un'API Web v 1.0
 
-Per eseguire operazioni di scrittura nell'ambito corrispondente all'API di Azure Resource Manager (https://management.core.windows.net/) , è necessario richiedere l'ambito seguente (si notino le due barre) 
+Per eseguire operazioni di scrittura nell'ambito corrispondente all'API di Azure Resource Manager (https://management.core.windows.net/), è necessario richiedere l'ambito seguente (si notino le due barre) 
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -196,7 +196,7 @@ Questo perché l'API di Resource Manager prevede una barra nell'attestazione dei
 La logica usata da Azure AD è la seguente:
 - Per l'endpoint ADAL (v1.0) con un token di accesso v1.0 (l'unico possibile), aud=resource
 - Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta i token v2.0, aud=resource.AppId
-- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/ ", è necessario richiedere un ambito di https:\/ /database.windows.net//.default. Vedere anche il problema #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): la barra finale dell'URL della risorsa è stata omessa, causando un errore di autenticazione SQL #747
+- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/", è necessario richiedere un ambito di https:\//database.windows.net//.default. Vedere anche il problema #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): la barra finale dell'URL della risorsa è stata omessa, causando un errore di autenticazione SQL #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a tutte le autorizzazioni di un'applicazione v1.0

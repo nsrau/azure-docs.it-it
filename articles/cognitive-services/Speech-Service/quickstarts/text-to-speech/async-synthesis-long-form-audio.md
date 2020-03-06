@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: afa9437a00c6f30688c7942feea94f7db7ed490a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: d3cd330001bcf53e7bd4fb9e6955c76a9ef20511
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919346"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331077"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Guida introduttiva: sintesi asincrona per audio a lungo termine in Python (anteprima)
 
@@ -24,13 +24,13 @@ In questa Guida introduttiva si userà l'API Long audio per convertire in modo a
 > [!NOTE]
 > La sintesi asincrona per l'audio a lungo termine può essere usata solo con le [voci neurali personalizzate](../../how-to-custom-voice.md#custom-neural-voices).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva richiede:
 
 * Python 2.7. x o 3. x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)o l'editor di testo preferito.
-* Una sottoscrizione di Azure e una chiave di sottoscrizione del servizio vocale. [Creare un account Azure](../../get-started.md#new-resource) e [creare una risorsa vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) per ottenere la chiave. Quando si crea la risorsa di sintesi vocale, assicurarsi che il piano tariffario sia impostato su **S0**e che location sia impostato su un' [area supportata](../../regions.md#standard-and-neural-voices).
+* Una sottoscrizione di Azure e una chiave di sottoscrizione del servizio vocale. [Creare un account Azure](../../get-started.md#new-resource) e [creare una risorsa vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-resource) per ottenere la chiave. Quando si crea la risorsa di sintesi vocale, assicurarsi che il piano tariffario sia impostato su **S0**e che location sia impostato su un' [area supportata](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
@@ -85,7 +85,7 @@ Ora è possibile testare le operazioni eseguite fino a questo momento. È necess
 * Sostituire `<your_key>` con la chiave di sottoscrizione per il Servizio di riconoscimento vocale. Queste informazioni sono disponibili nella scheda **Panoramica** per la risorsa nel [portale di Azure](https://aka.ms/azureportal).
 * Sostituire `<region>` con l'area in cui è stata creata la risorsa vocale, ad esempio `eastus` o `westus`. Queste informazioni sono disponibili nella scheda **Panoramica** per la risorsa nel [portale di Azure](https://aka.ms/azureportal).
 
-Eseguire questo comando:
+Eseguire il comando seguente:
 
 ```console
 python voice_synthesis_client.py --voices -key <your_key> -region <Region>
@@ -253,7 +253,7 @@ A questo punto, è possibile esaminare le richieste inviate in precedenza. Prima
 * Sostituire `<your_key>` con la chiave di sottoscrizione per il Servizio di riconoscimento vocale. Queste informazioni sono disponibili nella scheda **Panoramica** per la risorsa nel [portale di Azure](https://aka.ms/azureportal).
 * Sostituire `<region>` con l'area in cui è stata creata la risorsa vocale, ad esempio `eastus` o `westus`. Queste informazioni sono disponibili nella scheda **Panoramica** per la risorsa nel [portale di Azure](https://aka.ms/azureportal).
 
-Eseguire questo comando:
+Eseguire il comando seguente:
 
 ```console
 python voice_synthesis_client.py --syntheses -key <your_key> -region <Region>
@@ -277,7 +277,7 @@ A questo punto, rimuovere una richiesta inviata in precedenza. È necessario agg
 > [!NOTE]
 > Le richieste con stato ' running '/' Waiting ' non possono essere rimosse o eliminate.
 
-Eseguire questo comando:
+Eseguire il comando seguente:
 
 ```console
 python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>

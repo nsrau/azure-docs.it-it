@@ -10,13 +10,13 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b446a3ebf92f6240d3bc02a148fbb8296efec926
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950710"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384745"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Esercitazione: Trasformare i dati con Azure Data Box Edge per il flusso di distribuzione avanzata
+# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Esercitazione: trasformare i dati con Azure Data Box Edge per un flusso di distribuzione avanzato
 
 Questa esercitazione descrive come configurare un ruolo di calcolo per il flusso di distribuzione avanzata nel dispositivo Azure Data Box Edge. Dopo aver configurato il ruolo di calcolo, Data Box Edge può trasformare i dati prima che vengano inviati ad Azure.
 
@@ -31,7 +31,7 @@ Il calcolo può essere configurato per un flusso di distribuzione semplice o ava
 
 Il completamento di questa procedura può richiedere circa 20-30 minuti.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare il calcolo
@@ -41,7 +41,7 @@ In questa esercitazione si apprenderà come:
 > * Verificare la trasformazione e il trasferimento dei dati
 
  
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di configurare un ruolo di calcolo nel dispositivo Data Box Edge, assicurarsi di:
 
@@ -63,14 +63,14 @@ Per configurare il calcolo in Data Box Edge, si creerà una risorsa hub IoT.
 3. Nel pannello **Configura calcolo Edge** immettere quanto segue:
 
    
-    |Campo  |Valore  |
+    |Campo  |valore  |
     |---------|---------|
     |Hub IoT     | Scegliere **Nuovo** o **Esistente**. <br> Per impostazione predefinita, per creare una risorsa IoT viene usato un livello Standard (S1). Per usare una risorsa IoT di un livello gratuito, crearne uno e quindi selezionare la risorsa esistente. <br> In ogni caso, la risorsa hub IoT usa la stessa sottoscrizione e lo stesso gruppo di risorse usati dalla risorsa Data Box Edge.     |
-    |NOME     |Immettere un nome per la risorsa hub IoT.         |
+    |Nome     |Immettere un nome per la risorsa hub IoT.         |
 
     ![Introduzione al calcolo](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Selezionare **Create**. La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo Edge** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza configurazione** nel riquadro **Configura calcolo**.
+4. Selezionare **Create** (Crea). La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo Edge** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza configurazione** nel riquadro **Configura calcolo**.
     
     ![Introduzione al calcolo](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
@@ -130,7 +130,7 @@ Per la distribuzione avanzata di questa esercitazione, saranno necessarie due co
 
 2. Nel pannello **Aggiungi trigger** immettere i valori seguenti.
 
-    |Campo  |Valore  |
+    |Campo  |valore  |
     |---------|---------|
     |Nome trigger     | Nome univoco per il trigger.         |
     |Tipo di trigger     | Selezionare il trigger di **File**. Un trigger di file viene attivato ogni volta che si verifica un evento file, ad esempio la scrittura di un file nella condivisione di input. Un trigger pianificato invece, viene attivato in base a una pianificazione definita dall'utente. Per questo esempio è necessario un trigger di file.    |
@@ -181,9 +181,9 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
  
     2. Specificare le impostazioni per il modulo personalizzato IoT Edge. Immettere i valori seguenti.
      
-        |Campo  |Valore  |
+        |Campo  |valore  |
         |---------|---------|
-        |NOME     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato a Data Box Edge.        |
+        |Nome     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato a Data Box Edge.        |
         |URI immagine     | URI dell'immagine del contenitore corrispondente per il modulo.        |
         |Sono richieste credenziali     | Se questa opzione è selezionata, per recuperare i moduli con un URL corrispondente vengono usati un nome utente e una password.        |
     
@@ -261,7 +261,7 @@ Il processo di convalida è stato completato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare il calcolo

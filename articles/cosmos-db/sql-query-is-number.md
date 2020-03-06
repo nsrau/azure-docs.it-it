@@ -1,18 +1,18 @@
 ---
-title: IS_NUMBER in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL IS_NUMBER in Azure Cosmos DB.
+title: IS_NUMBER nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL IS_NUMBER in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 624f5c91a9d2a0eb4744d310120050d0d5ccef4e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: c019424241bc07d5a5d2cc19a64685c476f94548
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349836"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303818"
 ---
 # <a name="is_number-azure-cosmos-db"></a>IS_NUMBER (Azure Cosmos DB)
  Restituisce un valore booleano che indica se il tipo di espressione specificata è un numero.  
@@ -47,11 +47,15 @@ SELECT
     IS_NUMBER({prop: "value"}.prop2) AS isNum7  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

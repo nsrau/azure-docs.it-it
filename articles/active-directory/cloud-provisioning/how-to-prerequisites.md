@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909041"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298650"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prerequisiti per il provisioning di Azure AD Connect Cloud
 Questo articolo fornisce indicazioni su come scegliere e usare Azure Active Directory (Azure AD) connettere il provisioning cloud come soluzione di identità.
@@ -26,7 +26,7 @@ Questo articolo fornisce indicazioni su come scegliere e usare Azure Active Dire
 ## <a name="cloud-provisioning-agent-requirements"></a>Requisiti dell'agente di provisioning cloud
 Per usare Azure AD Connect provisioning cloud, è necessario quanto segue:
     
-- Un account amministratore globale per il tenant di Azure AD.
+- Un account amministratore globale per il tenant di Azure AD che non è un utente Guest.
 - Un server locale per l'agente di provisioning con Windows 2012 R2 o versione successiva.
 - Configurazioni del firewall locale.
 
@@ -39,6 +39,10 @@ Nel resto del documento vengono fornite istruzioni dettagliate per questi prereq
 
 1. Creare un account amministratore globale di tipo solo cloud nel tenant di Azure AD. In questo modo, è possibile gestire la configurazione del tenant se i servizi locali hanno esito negativo o diventano non disponibili. Informazioni su come [aggiungere un account amministratore globale solo cloud](../active-directory-users-create-azure-portal.md). Il completamento di questo passaggio è fondamentale per assicurarsi che non venga bloccato dal tenant.
 1. Aggiungere uno o più [nomi di dominio personalizzati](../active-directory-domains-add-azure-portal.md) al tenant di Azure AD. Gli utenti possono accedere usando uno di questi nomi di dominio.
+
+### <a name="in-your-directory-in-active-directory"></a>Nella directory Active Directory
+
+Eseguire lo [strumento IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) per preparare gli attributi di directory per la sincronizzazione.
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
-ms.openlocfilehash: c35afe6e3d6ec74e8fc7cd134f533d1e618c820e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/05/2020
+ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845730"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399100"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning di monitoraggio
 
@@ -30,7 +30,7 @@ Questo articolo descrive i dati di monitoraggio generati da Azure Machine Learni
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
-Azure Machine Learning registra i dati di monitoraggio tramite monitoraggio di Azure, un servizio di monitoraggio completo dello stack in Azure. Monitoraggio di Azure offre un set completo di funzionalità per il monitoraggio delle risorse di Azure. Consente inoltre di monitorare le risorse in altri cloud e in locale.
+Azure Machine Learning registra i dati di monitoraggio tramite Monitoraggio di Azure, un servizio di monitoraggio completo dello stack in Azure. Monitoraggio di Azure offre un set completo di funzionalità per il monitoraggio delle risorse di Azure. Consente inoltre di monitorare le risorse in altri cloud e in locale.
 
 Iniziare con l'articolo [Panoramica di monitoraggio di Azure](/azure/azure-monitor/overview), che offre una panoramica delle funzionalità di monitoraggio. Le sezioni seguenti si basano su queste informazioni fornendo le specifiche dell'uso di monitoraggio di Azure con Azure Machine Learning.
 
@@ -38,7 +38,7 @@ Per comprendere i costi associati a monitoraggio di Azure, vedere [utilizzo e co
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Monitoraggio dei dati da Azure Machine Learning
 
-Azure Machine Learning raccoglie gli stessi tipi di dati di monitoraggio delle altre risorse di Azure, descritti in [monitoraggio dei dati dalle risorse di Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Per un riferimento dettagliato dei log e delle metriche creati da Azure Machine Learning, vedere [Azure Machine Learning riferimento ai dati di monitoraggio](monitor-resource-reference.md) .
+Azure Machine Learning raccoglie gli stessi tipi di dati di monitoraggio di altre risorse di Azure, che sono descritti in [Monitoraggio dei dati dalle risorse di Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Per un riferimento dettagliato dei log e delle metriche creati da Azure Machine Learning, vedere [Azure Machine Learning riferimento ai dati di monitoraggio](monitor-resource-reference.md) .
 
 ## <a name="analyzing-metric-data"></a>Analisi dei dati delle metriche
 
@@ -62,7 +62,7 @@ Per altre informazioni sul filtro e la suddivisione, vedere [funzionalità avanz
 
 La tabella seguente elenca le regole di avviso delle metriche comuni e consigliate per Azure Machine Learning:
 
-| Tipo di avviso | Condizione | Description |
+| Tipo di avviso | Condizione | Descrizione |
 |:---|:---|:---|
 | Distribuzione modello non riuscito | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando una o più distribuzioni di modelli non sono riuscite |
 | Percentuale di utilizzo della quota | Tipo di aggregazione: media, operatore: maggiore di, valore soglia: 90| Quando la percentuale di utilizzo della quota è superiore al 90% |
@@ -85,7 +85,7 @@ Per altre informazioni sulla creazione di un'impostazione di diagnostica, vedere
 
 Per Azure Machine Learning è possibile configurare i log seguenti:
 
-| Categoria | Description |
+| Category | Descrizione |
 |:---|:---|
 | AmlComputeClusterEvent | Eventi da Azure Machine Learning cluster di elaborazione. |
 | AmlComputeClusterNodeEvent | Eventi dai nodi all'interno di un cluster di calcolo Azure Machine Learning. |
@@ -100,7 +100,7 @@ L'uso di monitoraggio di Azure Log Analytics richiede la creazione di una config
 
 I dati nei log di monitoraggio di Azure vengono archiviati in tabelle, in cui ogni tabella dispone di un proprio set di proprietà univoche. Azure Machine Learning archivia i dati nelle tabelle seguenti:
 
-| Tabella | Description |
+| Tabella | Descrizione |
 |:---|:---|
 | AmlComputeClusterEvent | Eventi da Azure Machine Learning cluster di elaborazione. |
 | AmlComputeClusterNodeEvent | Eventi dai nodi all'interno di un cluster di calcolo Azure Machine Learning. |

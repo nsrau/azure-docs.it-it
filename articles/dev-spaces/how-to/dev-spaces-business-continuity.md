@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Informazioni su come usare Azure Dev Spaces e i servizi Kubernetes di Azure per garantire la continuità aziendale e prepararsi per il ripristino di emergenza
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 8561486bcf8524d309ba46fcbb4b4d3e180d7c72
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252394"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295828"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuità aziendale e ripristino di emergenza per Azure Dev Spaces
 
@@ -27,11 +27,9 @@ L'abilitazione di Dev Spaces nei cluster del servizio Azure Kubernetes in aree d
 
 Per informazioni generali sulle distribuzioni in più aree del servizio Azure Kubernetes, vedere [Pianificazione per la distribuzione in più aree](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-Per informazioni sulla distribuzione di un cluster del servizio Azure Kubernetes compatibile con Azure Dev Spaces, vedere [Creare un cluster Kubernetes usando Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
-
 ### <a name="enable-dev-spaces-via-the-azure-portal"></a>Abilitare Dev Spaces tramite il portale di Azure
 
-Fare clic sull'elemento di navigazione **Dev Spaces** sotto le proprietà di ogni cluster nel portale di Azure. Scegliere quindi l'opzione per abilitare Dev Spaces.
+Selezionare la voce di menu **dev Spaces** sotto le impostazioni di ogni cluster nella portale di Azure. Quindi scegliere l'opzione Abilita spazi di sviluppo e Salva.
 
 ![Abilitare Dev Spaces tramite il portale di Azure](../media/common/enable-dev-spaces.jpg)
 
@@ -53,7 +51,7 @@ Quando si lavora con Dev Spaces, si distribuisce l'intera applicazione negli spa
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Selezionare il cluster del servizio Azure Kubernetes corretto da usare per Dev Spaces
 
-Dopo aver configurato correttamente un cluster di backup su cui è in esecuzione la baseline del proprio team, è possibile passare rapidamente al cluster di backup in qualsiasi momento. È possibile quindi eseguire di nuovo i singoli servizi su cui si stava lavorando in Dev Spaces.
+Dopo aver configurato correttamente un cluster di backup su cui è in esecuzione la baseline del proprio team, è possibile passare rapidamente al cluster di backup in qualsiasi momento. Sarà quindi possibile eseguire di nuovo i singoli servizi su cui si sta lavorando negli spazi di sviluppo figlio.
 
 Selezionare un altro cluster con il comando interfaccia della riga di comando seguente:
 
@@ -77,7 +75,7 @@ Dopo aver eseguito questi comandi, il cluster selezionato e lo spazio di svilupp
 
 Se si usa Visual Studio, è possibile passare al cluster usato da un progetto esistente seguendo questa procedura:
 
-1. Apri il progetto in Visual Studio.
+1. Aprire il progetto in Visual Studio.
 1. Fare clic con il pulsante destro del mouse sul nome progetto in Esplora soluzioni, quindi fare clic su **Proprietà**.
 1. Nel riquadro sinistro fare clic su **Eseguire il debug**.
 1. Nella pagina delle proprietà di Debug, fare clic sul **Profilo** elenco a discesa elenco e scegliere **Azure Dev Spaces**.

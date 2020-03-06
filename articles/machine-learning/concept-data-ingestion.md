@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 35c133a4d9d95dc6e942d5b8c3e8d21debb9493b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268553"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303121"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Inserimento di dati in Azure Machine Learning
 
@@ -71,4 +71,5 @@ Nel diagramma seguente, la pipeline Azure Machine Learning è costituita da due 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Informazioni su come creare una pipeline di inserimento dati per Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md)
 * Informazioni su come automatizzare e gestire i cicli di vita di sviluppo delle pipeline di inserimento dei dati con [Azure Pipelines](how-to-cicd-data-ingestion.md).

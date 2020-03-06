@@ -1,18 +1,18 @@
 ---
-title: IS_PRIMITIVE in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL IS_PRIMITIVE in Azure Cosmos DB.
+title: IS_PRIMITIVE nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL IS_PRIMITIVE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 960c6cbe6b60ad477f630b14ce0953601e71c34e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 04c8e41f1a431b329f2093851e4430e69ab6aee3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349799"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303784"
 ---
 # <a name="is_primitive-azure-cosmos-db"></a>IS_PRIMITIVE (Azure Cosmos DB)
  Restituisce un valore booleano che indica se il tipo di espressione specificata è un primitivo (stringa, valore booleano, numerico o null).  
@@ -47,11 +47,15 @@ SELECT
            IS_PRIMITIVE({prop: "value"}.prop2) AS isPrim7  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"isPrim1": true, "isPrim2": true, "isPrim3": true, "isPrim4": true, "isPrim5": false, "isPrim6": false, "isPrim7": false}]  
 ```  
+
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

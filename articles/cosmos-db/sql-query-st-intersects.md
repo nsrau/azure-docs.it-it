@@ -1,18 +1,18 @@
 ---
-title: ST_INTERSECTS in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL ST_INTERSECTS in Azure Cosmos DB.
+title: ST_INTERSECTS nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL ST_INTERSECTS in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 549c6b69e9112a491060478e859338c14e977612
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f3c3878956b90ffb45556ed819046af9eb7618f1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349379"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303138"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
  Restituisce un'espressione booleana che indica se l'oggetto GeoJSON (punto, poligono o LineString) specificato nel primo argomento interseca l'oggetto GeoJSON (punto, poligono o LineString) nel secondo argomento.  
@@ -50,6 +50,10 @@ WHERE ST_INTERSECTS(a.location, {
 ```json
 [{ "id": "IntersectingPolygon" }]  
 ```  
+
+## <a name="remarks"></a>Osservazioni
+
+Questa funzione di sistema trarrà vantaggio da un [Indice geospaziale](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

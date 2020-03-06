@@ -4,18 +4,18 @@ description: Informazioni sul modo in cui la funzione di sistema di CONCAt SQL i
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: adb8564d4addaaa3f4a383b32941549aed3d53bd
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c8a0941376ed74d7f8cb819d78df43eb9f0b7bd1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871551"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302611"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAt (Azure Cosmos DB)
- Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa.  
+ Restituisce la stringa risultante dalla concatenazione di due o più valori stringa.  
   
 ## <a name="syntax"></a>Sintassi
   
@@ -32,7 +32,7 @@ CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   L'esempio seguente restituisce la stringa concatenata dei valori specificati.  
   
@@ -40,12 +40,15 @@ CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])
 SELECT CONCAT("abc", "def") AS concat  
 ```  
   
- Questo è il set di risultati.  
+ Set di risultati:  
   
 ```json
 [{"concat": "abcdef"}]  
 ```  
   
+## <a name="remarks"></a>Note
+
+Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

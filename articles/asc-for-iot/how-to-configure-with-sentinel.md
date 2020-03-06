@@ -1,6 +1,6 @@
 ---
 title: Guida del Centro sicurezza di Azure per la configurazione con Sentinel di Azure (anteprima) | Microsoft Docs
-description: Questa guida illustra come configurare Sentinel di Azure per ricevere dati dal centro sicurezza di Azure per la soluzione Internet delle cose.
+description: Spiega come configurare Sentinel di Azure per ricevere dati dal centro sicurezza di Azure per la soluzione Internet delle cose.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: f6e7eddd6ddbcec61c3d8d173891cbc9abaaf08f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 082b33332051fee9da2aebe63b0c41edb300afaf
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463180"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303546"
 ---
 > [!IMPORTANT]
 > Il Centro sicurezza di Azure per il connettore dati su Internet in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
@@ -48,10 +48,10 @@ Connetti gli avvisi dal centro sicurezza di Azure per le cose e trasmettili dire
 ## <a name="connect-to-azure-security-center-for-iot"></a>Connetti al centro sicurezza di Azure per le cose
 
 1. In Sentinel di Azure selezionare **connettori dati** e quindi fare clic sul **Centro sicurezza di Azure per** il riquadro degli altri.
-1. Dal riquadro in basso a destra fare clic su **Apri pagina connettore**. 
+1. Nella parte inferiore del riquadro destro fare clic su **Apri pagina connettore**. 
 1. Fare clic su **Connetti**accanto a ogni sottoscrizione dell'hub Internet con avvisi e avvisi del dispositivo che si vuole trasmettere in Azure Sentinel. 
-    - Se il Centro sicurezza di Azure non è abilitato nell'hub, verrà visualizzato un messaggio di avviso di abilitazione. Fare clic sul collegamento **Enable (Abilita** ) per avviare il servizio. 
-1. È possibile decidere se si desidera che gli avvisi del Centro sicurezza di Azure possano generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **Abilita** per abilitare la regola di analisi predefinita per creare automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. Questa regola può essere modificata o modificata in **Analytics** > regole **attive** .
+    - Se il Centro sicurezza di Azure non è abilitato nell'hub, verrà visualizzato un messaggio di avviso di abilitazione. Fare clic sul collegamento **Enable (Abilita** ) per avviare e abilitare il servizio. 
+1. È possibile decidere se si desidera che gli avvisi del Centro sicurezza di Azure possano generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **Abilita** per abilitare la regola per la creazione automatica degli eventi imprevisti dagli avvisi generati.  Questa regola può essere modificata o modificata in **Analytics** > regole **attive** .
 
 > [!NOTE]
 >Per aggiornare l'elenco di hub dopo aver apportato le modifiche alla connessione, può essere necessario più di 10 secondi. 

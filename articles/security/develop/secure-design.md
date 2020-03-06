@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000975"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299415"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in Azure
 In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si progettano applicazioni per il cloud. Vengono analizzate le risorse di formazione e le domande e i concetti di sicurezza da prendere in considerazione durante i requisiti e le fasi di progettazione di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per progettare un'applicazione più protetta.
@@ -38,7 +38,7 @@ Usare le risorse seguenti durante la fase di training per acquisire familiarità
 
   - [Guida introduttiva per gli sviluppatori di Azure](../../guides/developer/azure-developer-guide.md) fornisce informazioni essenziali per gli sviluppatori che vogliono iniziare a usare la piattaforma Azure per le proprie esigenze di sviluppo.
 
-  - Gli [SDK e gli strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools) descrivono gli strumenti disponibili in Azure.
+  - Gli [SDK e gli strumenti](https://docs.microsoft.com/azure/index?pivot=sdkstools) descrivono gli strumenti disponibili in Azure.
 
   - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) offre strumenti per la collaborazione dello sviluppo. Gli strumenti includono pipeline ad alte prestazioni, repository git gratuiti, lavagne Kanban configurabili e test di carico completi automatizzati e basati sul cloud.
     Il [Centro risorse di DevOps](https://docs.microsoft.com/azure/devops/learn/) combina le risorse per l'apprendimento delle procedure di DevOps, il controllo della versione di Git, i metodi Agile, il modo in cui collaboriamo con DevOps in Microsoft e come è possibile valutare la progressione del DevOps.
@@ -66,7 +66,7 @@ Porre domande di sicurezza, ad esempio:
 
   - L'applicazione contiene dati sensibili?
 
-  - L'applicazione raccoglie o archivia i dati che richiedono l'adesione agli standard del settore e ai programmi di conformità come il [Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) o gli [standard di sicurezza dei dati del settore della carta di pagamento (PCI DSS) ](../blueprints/pcidss-analytics-overview.md)?
+  - L'applicazione raccoglie o archivia i dati che richiedono l'adesione agli standard del settore e ai programmi di conformità come il [Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) o gli [standard di sicurezza dei dati del settore della carta di pagamento (PCI DSS)](../blueprints/pcidss-analytics-overview.md)?
 
   - L'applicazione raccoglie o contiene dati sensibili personali o del cliente che possono essere usati, in modo autonomo o con altre informazioni, per identificare, contattare o individuare una singola persona?
 
@@ -126,10 +126,10 @@ Per lo sviluppo, usare una libreria di codifica protetta e un Framework software
 Assicurarsi di usare la versione più recente del Framework e tutte le funzionalità di sicurezza disponibili nel Framework. Microsoft offre un [set completo di strumenti di sviluppo](https://azure.microsoft.com/product-categories/developer-tools/) per tutti gli sviluppatori, che lavorano su qualsiasi piattaforma o linguaggio, per offrire applicazioni cloud. È possibile scrivere codice con la lingua scelta scegliendo tra diversi [SDK](https://azure.microsoft.com/downloads/).
 È possibile trarre vantaggio dagli ambienti di sviluppo integrato (IDE) e dagli editor completi con funzionalità di debug avanzate e supporto incorporato di Azure.
 
-Microsoft offre un'ampia gamma di [linguaggi, Framework e strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) che è possibile usare per sviluppare applicazioni in Azure. Un esempio è [Azure per gli sviluppatori .NET e .NET Core](https://docs.microsoft.com/dotnet/azure/). Per ogni linguaggio e Framework offerto, sono disponibili guide introduttive, esercitazioni e informazioni di riferimento sulle API per iniziare rapidamente.
+Microsoft offre un'ampia gamma di [linguaggi, Framework e strumenti](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) che è possibile usare per sviluppare applicazioni in Azure. Un esempio è [Azure per gli sviluppatori .NET e .NET Core](https://docs.microsoft.com/dotnet/azure/). Per ogni linguaggio e Framework offerto, sono disponibili guide introduttive, esercitazioni e informazioni di riferimento sulle API per iniziare rapidamente.
 
 Azure offre un'ampia gamma di servizi che è possibile usare per ospitare siti Web e applicazioni Web. Questi servizi consentono di sviluppare nel linguaggio preferito, sia .NET, .NET Core, Java, Ruby, node. js, PHP o Python.
-[App Web del servizio app Azure](../../app-service/overview.md) (App Web) è uno di questi servizi.
+Il [servizio app Web di app Azure](../../app-service/overview.md) (app Web) è uno di questi servizi.
 
 App Web aggiunge la potenza di Microsoft Azure all'applicazione. Include sicurezza, bilanciamento del carico, scalabilità automatica e gestione automatizzata. Puoi anche sfruttare le funzionalità di DevOps nelle app Web, come la gestione dei pacchetti, gli ambienti di staging, i domini personalizzati, i certificati SSL/TLS e la distribuzione continua da Azure DevOps, GitHub, Docker Hub e altre origini.
 
@@ -149,16 +149,16 @@ La modellazione delle minacce è il processo di identificazione delle potenziali
 
 Per semplificare il processo di modellazione delle minacce, abbiamo progettato il processo [SDL Threat Modeling Tool](threat-modeling-tool.md) con gli esperti di non sicurezza. Questo strumento semplifica la modellazione delle minacce per tutti gli sviluppatori fornendo istruzioni chiare su come creare e analizzare i modelli di rischio.
 
-Modellazione della progettazione dell'applicazione ed enumerazione delle minacce [stride](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) , ovvero spoofing, manomissioni, ripudio, divulgazione di informazioni, Denial of Service ed elevazione dei privilegi, in tutti i confini di trust si è dimostrato un modo efficace per individuare gli errori di progettazione inizio. La tabella seguente elenca le minacce STRIDE e fornisce alcune attenuazioni di esempio che usano le funzionalità fornite da Azure. Queste mitigazioni dei rischi non funzioneranno in tutte le situazioni.
+Modellazione della progettazione dell'applicazione ed enumerazione delle minacce [stride](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) , ovvero spoofing, manomissioni, ripudio, divulgazione di informazioni, Denial of Service ed elevazione dei privilegi, in tutti i confini di trust si è dimostrato un modo efficace per individuare gli errori di progettazione in anticipo. La tabella seguente elenca le minacce STRIDE e fornisce alcune attenuazioni di esempio che usano le funzionalità fornite da Azure. Queste mitigazioni dei rischi non funzioneranno in tutte le situazioni.
 
 | Threat | Proprietà di sicurezza | Mitigazione potenziale della piattaforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Spoofing               | Authentication        | [Richiedere connessioni HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manomissione              | Integrità             | Convalidare i certificati SSL/TLS. Le applicazioni che usano SSL/TLS devono verificare completamente i certificati X. 509 delle entità a cui si connettono. Usare i certificati Azure Key Vault per [gestire i certificati X509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Ripudio            | Non ripudio       | Abilitazione del [monitoraggio e diagnostica](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) di Azure.|
-| Diffusione di informazioni | Riservatezza       | Crittografare i dati sensibili [inattivi](../fundamentals/encryption-atrest.md) e [in transito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
+| Divulgazione di informazioni | Riservatezza       | Crittografare i [dati](../fundamentals/encryption-atrest.md) sensibili inattivi e [in transito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of Service      | Disponibilità          | Monitorare le metriche delle prestazioni per le potenziali condizioni di tipo Denial of Service. Implementare i filtri di connessione. [Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md#next-steps), in combinazione con le procedure consigliate per la progettazione di applicazioni, fornisce una difesa contro gli attacchi DDoS.|
-| Elevazione dei privilegi | Authorization         | Utilizzare Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Elevazione dei privilegi | Autorizzazione         | Utilizzare Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Ridurre la superficie di attacco
 
@@ -233,7 +233,7 @@ Implementare l'accesso JIT ( *just-in-Time* ) per ridurre ulteriormente il tempo
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Richiedi nuova autenticazione per transazioni importanti
 
-[Richiesta tra siti falsa](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (noto anche come *XSRF* o *CSRF*) è un attacco contro app ospitate da Web in cui un'app Web dannosa influisce sull'interazione tra un browser client e un'app Web che considera attendibile il browser. Gli attacchi di richiesta intersito falsificazione sono possibili perché i Web browser inviano automaticamente alcuni tipi di token di autenticazione con ogni richiesta a un sito Web.
+La [richiesta intersito falsificata](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (nota anche come *XSRF* o *CSRF*) è un attacco contro app ospitate da Web in cui un'app Web dannosa influisce sull'interazione tra un browser client e un'app Web che considera attendibile il browser. Gli attacchi di richiesta intersito falsificazione sono possibili perché i Web browser inviano automaticamente alcuni tipi di token di autenticazione con ogni richiesta a un sito Web.
 Questa forma di sfruttamento è nota anche come *attacco con un solo clic* o per la *sessione* , perché l'attacco sfrutta la sessione precedentemente autenticata dell'utente.
 
 Il modo migliore per difendersi da questo tipo di attacco è chiedere all'utente un elemento che solo l'utente può fornire prima di ogni transazione importante, ad esempio un acquisto, la disattivazione dell'account o una modifica della password. È possibile chiedere all'utente di immettere nuovamente la password, completare un CAPTCHA o inviare un token segreto che avrebbe solo l'utente. L'approccio più comune è il token segreto.
@@ -307,7 +307,7 @@ Assicurarsi che:
 
 Verificare che non vengano registrati dati sensibili che un utente invia al sito. Esempi di dati sensibili:
 
-- Credenziali utente
+- Credenziali dell'utente
 - Numeri di previdenza sociale o altre informazioni di identificazione
 - Numeri di carta di credito o altre informazioni finanziarie
 - Informazioni sulla salute

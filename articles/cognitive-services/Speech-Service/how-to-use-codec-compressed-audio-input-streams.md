@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 36e4506ea290d6109e1d1ae874b7e0f7c11bf50d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2b530da06b02091ce66ff7c116f3e17ddcc22497
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805825"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331111"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Uso dell'input audio compresso di codec con Speech SDK
 
 L'API del **flusso di input audio compresso** dell'SDK vocale fornisce un modo per trasmettere audio compresso al servizio di riconoscimento vocale usando PullStream o PushStream.
 
 > [!IMPORTANT]
-> Il flusso audio di input compresso è attualmente C++supportato C#per, e Java in Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9). È supportata anche per [Java in Android](how-to-use-codec-compressed-audio-input-streams-android.md) e [Objective-C nella piattaforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) .
-> È necessario l'SDK di riconoscimento vocale 1.7.0 o versione successiva.
+> Il flusso audio di input compresso è attualmente C++supportato C#per, e Java in Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8). È supportata anche per [Java in Android](how-to-use-codec-compressed-audio-input-streams-android.md) e [Objective-C nella piattaforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) .
+> La versione 1.7.0 o successiva dell'SDK vocale è obbligatoria (versione 1.10.0 o successiva per RHEL 8, CentOS 8).
 
 Per WAV/PCM, vedere la documentazione sulla voce principale.  Al di fuori di WAV/PCM, sono supportati i formati di input compressi di codec seguenti:
 
@@ -40,6 +40,15 @@ La gestione dell'audio compresso viene implementata con [GStreamer](https://gstr
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
+
+In RHEL/CentOS 8:
+
+```sh
+sudo yum install gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
+```
+
+> [!NOTE]
+> In RHEL/CentOS 8 seguire le istruzioni su [come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Codice di esempio con input audio compresso codec
 
@@ -66,5 +75,5 @@ var text = result.GetText();
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 * [Vedere come riconoscere il riconoscimento vocale in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

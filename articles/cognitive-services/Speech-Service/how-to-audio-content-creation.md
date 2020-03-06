@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ab0d2b8d95b4cb5996dd93fa0bb24085c9de26d5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913651"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331537"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Migliorare la sintesi con la creazione di contenuto audio
 
@@ -23,7 +23,7 @@ La [creazione di contenuti audio](https://aka.ms/audiocontentcreation) è uno st
 
 Lo strumento di creazione di contenuti audio è basato sul [linguaggio di markup sintesi vocale (SSML)](speech-synthesis-markup.md). Per semplificare la personalizzazione e l'ottimizzazione, la creazione di contenuti audio consente di esaminare visivamente gli output di sintesi vocale in tempo reale.
 
-## <a name="how-does-it-work"></a>Come funziona?
+## <a name="how-does-it-work"></a>Funzionamento
 
 Questo diagramma illustra i passaggi necessari per ottimizzare ed esportare output di sintesi vocale personalizzati. Usare i collegamenti seguenti per ulteriori informazioni su ogni passaggio.
 
@@ -43,7 +43,7 @@ Questo diagramma illustra i passaggi necessari per ottimizzare ed esportare outp
 
 Attenersi alla procedura seguente per creare una risorsa vocale e connetterla con speech studio.
 
-1. Seguire queste istruzioni per [iscriversi per ottenere un account Azure](get-started.md#new-resource) e [creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verificare che il piano tariffario sia impostato su **S0**. Se si usa una delle voci neurali, assicurarsi di creare la risorsa in un' [area supportata](regions.md#standard-and-neural-voices).
+1. Seguire queste istruzioni per [iscriversi per ottenere un account Azure](get-started.md#new-resource) e [creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Verificare che il piano tariffario sia impostato su **S0**. Se si usa una delle voci neurali, assicurarsi di creare la risorsa in un' [area supportata](regions.md#standard-and-neural-voices).
 2. Accedere alla [creazione del contenuto audio](https://aka.ms/audiocontentcreation).
 3. Selezionare un progetto esistente oppure fare clic su **Crea nuovo**.
 4. È possibile modificare la sottoscrizione in qualsiasi momento con l'opzione **Impostazioni** , situata nella parte superiore del NAV.
@@ -95,11 +95,11 @@ Dopo aver esaminato l'output audio e aver soddisfatto l'ottimizzazione e la rego
 2. Scegliere il formato di output per l'audio ottimizzato. Di seguito è riportato un elenco dei formati supportati e delle frequenze di campionamento.
 3. È possibile visualizzare lo stato dell'attività nella scheda **Esporta attività** . Se l'attività non riesce, vedere la pagina informazioni dettagliate per un report completo.
 4. Al termine dell'attività, l'audio sarà disponibile per il download nella scheda **libreria audio** .
-5. Fare clic su **Download**. A questo punto si è pronti per usare l'audio ottimizzato personalizzato nelle app o nei prodotti.
+5. Fare clic su **Download** A questo punto si è pronti per usare l'audio ottimizzato personalizzato nelle app o nei prodotti.
 
 ### <a name="supported-audio-formats"></a>Formati audio supportati
 
-| Format | frequenza di campionamento di 16 kHz | frequenza di campionamento di 24 kHz |
+| Formato | frequenza di campionamento di 16 kHz | frequenza di campionamento di 24 kHz |
 |--------|--------------------|--------------------|
 | wav | riff-16kHz-16 bit-mono-PCM | riff-24kHz-16 bit-mono-PCM |
 | mp3 | audio-16kHz-128kbitrate-mono-MP3 | audio-24kHz-160kbitrate-mono-MP3 |

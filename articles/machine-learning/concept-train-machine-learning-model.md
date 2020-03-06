@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 03/05/2020
+ms.openlocfilehash: 68b7dfbf61f5d353f394bfbc034e00fddd262cd1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721116"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344018"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -28,6 +28,8 @@ Azure Machine Learning offre diversi modi per eseguire il training dei modelli, 
     | [Machine Learning automatizzato](#automated-machine-learning) | Automatizzato Machine Learning consente di eseguire il **training di modelli senza approfondite Data Science o conoscenze di programmazione**. Per gli utenti con data science e la programmazione, fornisce un modo per risparmiare tempo e risorse automatizzando la selezione dell'algoritmo e l'ottimizzazione degli iperparametri. Non è necessario preoccuparsi di definire una configurazione di esecuzione quando si usa Machine Learning automatizzato. |
     | [Estimatori](#estimators) | Le classi Estimator **semplificano il training di modelli basati su Framework di apprendimento automatico diffusi**. Sono disponibili classi Estimator per **Scikit-learn**, **PyTorch**, **TensorFlow**e **Chainer**. È disponibile anche uno strumento di stima generico che può essere usato con Framework che non dispongono già di una classe Estimator dedicata. Non è necessario preoccuparsi di definire una configurazione di esecuzione quando si usano gli estimatori. |
     | [Pipeline di Machine Learning](#machine-learning-pipeline) | Le pipeline non sono un metodo di training diverso, ma un **modo per definire un flusso di lavoro usando passaggi modulari e riutilizzabili**che possono includere il training come parte del flusso di lavoro. Le pipeline di Machine Learning supportano l'uso automatico di Machine Learning, gli estimatori e la configurazione di esecuzione per eseguire il training di modelli. Poiché le pipeline non sono focalizzate in modo specifico sul training, i motivi per usare una pipeline sono più diversi rispetto agli altri metodi di training. In genere, è possibile usare una pipeline nei casi seguenti:<br>* Si desidera **pianificare processi automatici** , ad esempio processi di training con esecuzione prolungata o preparazione dei dati.<br>* Usare **più passaggi** coordinati tra le risorse di calcolo eterogenee e le posizioni di archiviazione.<br>* Utilizzare la pipeline come **modello riutilizzabile** per scenari specifici, ad esempio la ripetizione del training o il Punteggio batch.<br>* le **origini dati di rilevamento e versione, gli input e gli output** del flusso di lavoro.<br>* Il flusso **di lavoro viene implementato da team diversi che lavorano su passaggi specifici in modo indipendente**. I passaggi possono quindi essere Uniti in una pipeline per implementare il flusso di lavoro. |
+
++ [SDK di Azure Machine Learning per Python](#r-sdk): l'SDK usa il pacchetto reticolare per eseguire l'associazione all'SDK Python di Azure Machine Learning. Questo consente di accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R.
 
 + **Finestra di progettazione**: Azure Machine Learning Designer (anteprima) offre un punto di ingresso semplice in machine learning per la creazione di modelli di prova o per gli utenti con poca esperienza di codifica. Consente di eseguire il training di modelli usando un'interfaccia utente basata sul Web di trascinamento. È possibile usare il codice Python come parte della progettazione o eseguire il training di modelli senza scrivere codice.
 
@@ -61,7 +63,7 @@ Definire le iterazioni, le impostazioni iperparametri, conteggi e altre impostaz
 > [!TIP]
 > Oltre a Python SDK, è anche possibile usare Machine Learning Machine Learning con [Azure Machine Learning Studio](https://ml.azure.com).
 
-* [Che cos'è Machine Learning automatico?](concept-automated-ml.md)
+* [Informazioni su Machine Learning automatizzato](concept-automated-ml.md)
 * [Esercitazione: creare il primo modello di classificazione con Machine Learning automatico](tutorial-first-experiment-automated-ml.md)
 * [Esercitazione: usare Machine Learning automatizzato per prevedere le tariffe dei taxi](tutorial-auto-train-models.md)
 * [Esempi: esempi di Jupyter Notebook per Machine Learning automatizzato](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
@@ -89,6 +91,15 @@ Le pipeline di machine learning possono usare i metodi di formazione indicati in
 * [Esempi: pipeline con Machine Learning automatizzato](https://aka.ms/pl-automl)
 * [Esempi: pipeline con estimatori](https://aka.ms/pl-estimator)
 
+## <a name="r-sdk"></a>R SDK
+
+R SDK consente di usare il linguaggio R con Azure Machine Learning. L'SDK usa il pacchetto reticolare per eseguire l'associazione a Python SDK di Azure Machine Learning. Questo consente di accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R.
+
+Per altre informazioni, vedere gli articoli seguenti:
+
+* [Esercitazione: creare un modello di regressione logistica](tutorial-1st-r-experiment.md)
+* [Informazioni di riferimento su Azure Machine Learning SDK per R](https://azure.github.io/azureml-sdk-for-r/index.html)
+
 ## <a name="azure-machine-learning-designer"></a>Finestra di progettazione di Azure Machine Learning
 
 La finestra di progettazione consente di eseguire il training dei modelli usando un'interfaccia di trascinamento nel Web browser.
@@ -101,7 +112,7 @@ La finestra di progettazione consente di eseguire il training dei modelli usando
 + [Classificazione con script R personalizzato: prevedere i ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
 + [Classificazione del testo: set di dati di Wikipedia SP 500](how-to-designer-sample-text-classification.md)
 
-## <a name="cli"></a>Interfaccia della riga di comando
+## <a name="cli"></a>CLI
 
 L'interfaccia della riga di comando di Machine Learning è un'estensione di Azure CLI. Fornisce i comandi dell'interfaccia della riga di comando multipiattaforma per lavorare con Azure Machine Learning. In genere si usa l'interfaccia della riga di comando per automatizzare le attività, ad esempio il training di un modello di machine learning.
 

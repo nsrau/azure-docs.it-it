@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7495c6b114e232a9aad0075e173abebcb3c92cd0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 4ce56b64502904308f45c74a5471447d93419452
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273605"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303053"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Asset di tipo variabile in Automazione di Azure
 
@@ -33,9 +33,6 @@ Poiché le variabili di automazione sono persistenti, sono disponibili anche se 
 Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Altre risorse protette includono credenziali, certificati e connessioni. Automazione di Azure crittografa questi asset e li archivia usando una chiave univoca generata per ogni account di automazione. La chiave viene archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, automazione di Azure carica la chiave dalla Key Vault e la usa per crittografare l'asset. 
 
 Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Il relativo valore non può essere recuperato con il cmdlet [Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) incluso nel modulo Azure PowerShell. L'unico modo per recuperare un valore crittografato consiste nell'usare l'attività **Get-AutomationVariable** in una configurazione RUNBOOK o DSC.
-
->[!NOTE]
->Se si desidera rimuovere la crittografia per una variabile, è necessario eliminare la variabile e ricrearla come non crittografata.
 
 >[!NOTE]
 >Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo AZ sul ruolo di lavoro ibrido per Runbook, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md).
@@ -96,6 +93,9 @@ Le funzioni nella tabella seguente vengono usate per accedere e recuperare le va
 1. Dall'account di automazione fare clic sul riquadro **Asset** e poi sul pannello **Asset** selezionare **Variabili**.
 2. Nel riquadro **Variabili** selezionare **Aggiungi variabile**.
 3. Completare le opzioni nel pannello **nuova variabile** e quindi fare clic su **Crea** per salvare la nuova variabile.
+
+>[!NOTE]
+>Se si desidera rimuovere la crittografia per una variabile, è necessario eliminare la variabile e ricrearla come non crittografata.
 
 ### <a name="create-a-new-variable-with-windows-powershell"></a>Creare una nuova variabile con Windows PowerShell
 

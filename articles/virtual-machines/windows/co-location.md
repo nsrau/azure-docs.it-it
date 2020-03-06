@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: b61a84f2b284177b7443be00efeea65e7eb8aaef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171107"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374814"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>Condivisione percorso risorse per una latenza migliorata
 
 Quando si distribuisce l'applicazione in Azure, la distribuzione di istanze tra aree o zone di disponibilità crea una latenza di rete che può influisca sulle prestazioni complessive dell'applicazione. 
 
 
-## <a name="proximity-placement-groups"></a>Gruppi di posizionamento di prossimità 
+## <a name="proximity-placement-groups"></a>Gruppi di selezione host di prossimità 
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 

@@ -3,14 +3,14 @@ title: Configurare gli ambienti di staging
 description: Informazioni su come distribuire le app in uno slot non di produzione e autoscambiare in produzione. Aumentare l'affidabilità ed eliminare i tempi di inattività delle app dalle distribuzioni.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 03/04/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666457"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300861"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -23,13 +23,13 @@ La distribuzione dell'applicazione in uno slot non di produzione presenta i segu
 * La distribuzione preliminare di un'app in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. È possibile automatizzare l'intero flusso di lavoro configurando lo [scambio automatico](#Auto-Swap) quando non è necessaria la convalida pre-swap.
 * Dopo uno scambio, lo slot con l'app gestita temporaneamente include l'app di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultimo sito con i dati corretti.
 
-Ogni piano del servizio app supporta un numero diverso di slot di distribuzione. Non sono previsti costi aggiuntivi per l'uso degli slot di distribuzione. Per conoscere il numero di slot supportati dal livello dell'app, vedere [limiti del servizio app](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
+Ogni piano del servizio app supporta un numero diverso di slot di distribuzione. Non sono previsti costi aggiuntivi per l'uso degli slot di distribuzione. Per conoscere il numero di slot supportati dal livello dell'app, vedere [limiti del servizio app](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 Per ridimensionare l'app a un livello diverso, verificare che il livello di destinazione supporti il numero di slot già utilizzati dall'app. Ad esempio, se l'app ha più di cinque slot, non è possibile ridurla al livello **standard** , perché il livello **standard** supporta solo cinque slot di distribuzione. 
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Aggiungi uno slot
+## <a name="add-a-slot"></a>Aggiungere uno slot
 Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione con il piano **Standard**, **Premium** o **Isolato**.
 
 
@@ -170,7 +170,7 @@ Se si verificano errori nello slot di destinazione (ad esempio, lo slot di produ
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>Configurare lo scambio automatico
+## <a name="configure-auto-swap"></a>Configura scambio automatico
 
 > [!NOTE]
 > Lo scambio automatico non è supportato nelle app Web in Linux.
@@ -289,7 +289,7 @@ Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Wi
 Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](/powershell/azure/overview).  
 
 ---
-### <a name="create-a-web-app"></a>Crea un'app Web
+### <a name="create-a-web-app"></a>Creare un'app Web
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
@@ -303,7 +303,7 @@ New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot
 ---
 ### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Avviare uno scambio con un'anteprima (swap multifase) e applicare la configurazione dello slot di destinazione allo slot di origine
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
@@ -314,9 +314,9 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Swap degli slot di distribuzione
+### <a name="swap-deployment-slots"></a>Scambiare gli slot di distribuzione
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 

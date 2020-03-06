@@ -17,12 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7f27ad2adc5d4abf2b5ec993b3398ebf1370f52
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 4f35162be513873637f9a87260410d891fdace10
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159676"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300469"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Piattaforma di identità Microsoft e flusso di concessione implicita
 
@@ -102,14 +102,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametro |  | Descrizione |
 | --- | --- | --- |
-| `tenant` | obbligatorio |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | obbligatorio | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. |
-| `response_type` | obbligatorio |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere `token` come response_type. Usando qui il `token` , l'app può ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover inviare una seconda richiesta a tale endpoint. Se si usa il `token` response_type, il parametro `scope` deve contenere un ambito che indica la risorsa per cui emettere il token (ad esempio, User. Read in Microsoft Graph).  |
+| `tenant` | required |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
+| `client_id` | required | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. |
+| `response_type` | required |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere `token` come response_type. Usando qui il `token` , l'app può ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover inviare una seconda richiesta a tale endpoint. Se si usa il `token` response_type, il parametro `scope` deve contenere un ambito che indica la risorsa per cui emettere il token (ad esempio, User. Read in Microsoft Graph).  |
 | `redirect_uri` | Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
-| `scope` | obbligatorio |Elenco di ambiti separati da [spazi](v2-permissions-and-consent.md). Per OpenID Connect (id_tokens), deve includere l'ambito `openid`, che viene convertito nell'autorizzazione "Sign Your in" nell'interfaccia utente del consenso. Facoltativamente, è anche possibile includere gli ambiti `email` e `profile` per ottenere l'accesso a dati utente aggiuntivi. È anche possibile includere in questa richiesta altri ambiti per richiedere il consenso a diverse risorse, se è richiesto un token di accesso. |
+| `scope` | required |Elenco di ambiti separati da [spazi](v2-permissions-and-consent.md). Per OpenID Connect (id_tokens), deve includere l'ambito `openid`, che viene convertito nell'autorizzazione "Sign Your in" nell'interfaccia utente del consenso. Facoltativamente, è anche possibile includere gli ambiti `email` e `profile` per ottenere l'accesso a dati utente aggiuntivi. È anche possibile includere in questa richiesta altri ambiti per richiedere il consenso a diverse risorse, se è richiesto un token di accesso. |
 | `response_mode` | facoltativo |Specifica il metodo da usare per restituire il token risultante all'app. Per impostazione predefinita viene eseguita una query solo per un token di accesso, ma Fragment se la richiesta include un id_token. |
 | `state` | Consigliato |Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-| `nonce` | obbligatorio |Valore incluso nella richiesta, generata dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. Obbligatorio solo quando viene richiesto un id_token. |
+| `nonce` | required |Valore incluso nella richiesta, generata dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. Obbligatorio solo quando viene richiesto un id_token. |
 | `prompt` | facoltativo |Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono "login", "none", "select_account" e "consent". `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On. `prompt=none` è l'opposto: garantisce che all'utente non venga visualizzata alcuna richiesta interattiva. Se la richiesta non può essere completata in modo invisibile all'utente tramite Single Sign-on, l'endpoint della piattaforma Microsoft Identity restituisce un errore. `prompt=select_account` invia l'utente a un selettore di account in cui verranno visualizzati tutti gli account memorizzati nella sessione. `prompt=consent` attiverà la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app. |
 | `login_hint`  |facoltativo |Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`.|
 | `domain_hint` | facoltativo |Se incluso, ignorerà il processo di individuazione basato sulla posta elettronica che l'utente passa alla pagina di accesso, ottenendo un'esperienza utente leggermente più semplificata. Questa operazione viene in genere usata per le app line-of-business che operano in un singolo tenant, in cui forniranno un nome di dominio all'interno di un determinato tenant.  In questo modo l'utente verrà trasmesso al provider federativo per il tenant.  Si noti che questa operazione impedirà ai guest di accedere all'applicazione.  |
@@ -195,7 +195,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=12345
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fdirectory.read
 ```
 
 | Parametro | Descrizione |
@@ -238,7 +238,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 | Parametro |  | Descrizione |
 | --- | --- | --- |
-| `tenant` |obbligatorio |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
+| `tenant` |required |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
 | `post_logout_redirect_uri` | Consigliato | URL di destinazione al quale l'utente deve essere reindirizzato dopo la disconnessione. Questo valore deve corrispondere a uno degli URI di reindirizzamento registrati per l'applicazione. Se non è incluso, l'utente verrà visualizzato un messaggio generico dall'endpoint della piattaforma di identità Microsoft. |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,12 +3,12 @@ title: Pubblicare un'offerta di servizi gestiti in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che esegue l'onboarding dei clienti nella gestione risorse delegate di Azure.
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 841cb52791709be5649d66b72f5c18ef35b740ef
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155248"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328943"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizi gestiti in Azure Marketplace
 
@@ -36,7 +36,7 @@ Dopo aver aggiunto l'offerta, un cliente potrà delegare una o più sottoscrizio
 
 Nella sezione **Impostazioni dell'offerta** immettere le informazioni seguenti:
 
-|Campo  |Description  |
+|Campo  |Descrizione  |
 |---------|---------|
 |**ID offerta**     | Un identificatore univoco dell'offerta (nel profilo di pubblicazione). Questo ID può contenere solo caratteri alfanumerici minuscoli, trattini e caratteri di sottolineatura, fino a un massimo di 50 caratteri. Tenere presente che l'ID dell'offerta può essere visibile ai clienti ad esempio negli URL dei prodotti e nei report di fatturazione. Dopo aver pubblicato l'offerta, non è possibile modificare questo valore.        |
 |**ID editore**     | ID dell'editore che verrà associato all'offerta. Se sono presenti più ID editore, è possibile selezionare quello che si vuole usare per questa offerta.       |
@@ -54,7 +54,7 @@ Nella sezione Piani selezionare **Nuovo piano**. Immettere quindi un **ID piano*
 
 Completare le sezioni seguenti nella sezione **Dettagli piano**:
 
-|Campo  |Description  |
+|Campo  |Descrizione  |
 |---------|---------|
 |**Titolo**     | Nome descrittivo del piano da visualizzare. La lunghezza massima consentita è di 50 caratteri.        |
 |**Summary**     | Breve descrizione del piano da visualizzare sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
@@ -101,7 +101,7 @@ Nella sezione **Marketplace** si forniscono il testo e le immagini che i clienti
 
 Completare i campi seguenti nella sezione **Panoramica**:
 
-|Campo  |Description  |
+|Campo  |Descrizione  |
 |---------|---------|
 |**Titolo**     |  Titolo dell'offerta, spesso corrispondente alla forma estesa e formale del nome. Questo titolo verrà visualizzato in una posizione di estremo rilievo nel marketplace. La lunghezza massima consentita è di 50 caratteri. Nella maggior parte dei casi, corrisponderà al **nome** immesso nella sezione **Impostazioni dell'offerta**.       |
 |**Summary**     | Descrizione breve dello scopo o della funzione dell'offerta. Viene in genere visualizzata sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
@@ -141,7 +141,7 @@ Nella sezione **Supporto** specificare il nome, l'indirizzo di posta elettronica
 
 Dopo aver aggiunto queste informazioni, selezionare **Salva**.
 
-## <a name="publish-your-offer"></a>Pubblica la tua offerta
+## <a name="publish-your-offer"></a>Pubblicare l'offerta
 
 Dopo aver completato tutte le sezioni, il passaggio successivo consiste nel pubblicare l'offerta in Azure Marketplace. Selezionare il pulsante **Pubblica** per attivare l'offerta. Per altre informazioni su questo processo, vedere [Pubblicare offerte di Azure Marketplace e AppSource](../../marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer.md).
 
@@ -155,9 +155,6 @@ Dopo aver aggiunto l'offerta, un cliente potrà [delegare una o più sottoscrizi
 > La delega deve essere eseguita da un account non guest nel tenant del cliente con il [ruolo predefinito Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione di cui eseguire l'onboarding (o che contiene i gruppi di risorse di cui eseguire l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Quando il cliente delega una sottoscrizione (o uno o più gruppi di risorse all'interno di una sottoscrizione), il provider di risorse **Microsoft.ManagedServices** verrà registrato per tale sottoscrizione e gli utenti nel tenant potranno accedere alle risorse delegate in base alle autorizzazioni dell'offerta.
-
-> [!NOTE]
-> Al momento, le sottoscrizioni (o i gruppi di risorse all'interno di una sottoscrizione) non possono essere delegate se la sottoscrizione usa Azure Databricks. In modo analogo, se una sottoscrizione (o i gruppi di risorse all'interno di una sottoscrizione) è già stata delegata, attualmente non è possibile creare aree di lavoro di Databricks in tale sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,16 +7,25 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78100a5dd38b211f6b0241d5a0bac10cf86b09f6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d04b38fac2b42d2d510902c7ba54ddebb8e3f410
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250955"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330311"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
-La serie StorSimple 8000 rappresenta due SKU distinti ed è possibile eseguire la migrazione dei dati da uno di questi SKU a un ambiente Sincronizzazione file di Azure. Questo articolo illustra la migrazione di entrambe le appliance a Sincronizzazione file di Azure e fornisce i passaggi necessari per la Knowledge base e le migrazioni per eseguire la migrazione Sincronizzazione file di Azure un successo.
+La serie StorSimple 8000 è rappresentata dall'appliance locale 8100 o 8600 e dai relativi componenti del servizio cloud. È possibile eseguire la migrazione dei dati da uno di questi Appliance a un ambiente Sincronizzazione file di Azure. Questo articolo fornisce i passaggi necessari per la Knowledge base e le migrazioni per una migrazione corretta a Sincronizzazione file di Azure.
+
+## <a name="storsimple"></a>StorSimple
+
+StorSimple è un prodotto Microsoft sospeso. Il supporto esteso per questo prodotto e il servizio cloud scade il 31 2022 dicembre. È importante iniziare subito a pianificare una migrazione di StorSimple.
+
+Sincronizzazione file di Azure è il servizio di Azure a lungo termine predefinito e strategico a cui è possibile eseguire la migrazione delle appliance StorSimple.
+
+> [!IMPORTANT]
+> Microsoft si impegna a supportare i clienti nella migrazione. Inviare tramite posta elettronica AzureFilesMigration@microsoft. com per un piano di migrazione personalizzato, nonché per assistenza durante la migrazione.
 
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
