@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
 ms.openlocfilehash: 0e6aecccc19572ee980feb4d816fae1f2b0101b7
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274897"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381439"
 ---
-# <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Esercitazione: Creare un cluster Azure Red Hat OpenShift
+# <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Esercitazione: creare un cluster Azure Red Hat OpenShift
 
 Questa è la prima di una serie di esercitazioni. Si apprenderà come creare un cluster Microsoft Azure Red Hat OpenShift usando l'interfaccia della riga di comando di Azure, come ridimensionarlo e quindi eliminarlo per pulire le risorse.
 
@@ -28,7 +28,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Ridimensionare un cluster di Azure Red Hat OpenShift](tutorial-scale-cluster.md)
 > * [Eliminare un cluster di Azure Red Hat OpenShift](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 > [!IMPORTANT]
 > Questa esercitazione richiede la versione 2.0.65 dell'interfaccia della riga di comando di Azure.
@@ -42,7 +42,7 @@ Verificare di aver [configurato l'ambiente di sviluppo](howto-setup-environment.
 - Creazione di un gruppo di sicurezza
 - Creazione di un utente di Active Directory per accedere al cluster.
 
-## <a name="step-1-sign-in-to-azure"></a>Passaggio 1: Accedere ad Azure
+## <a name="step-1-sign-in-to-azure"></a>Passaggio 1: accedere ad Azure
 
 Se si esegue l'interfaccia della riga di comando di Azure in locale, aprire una shell dei comandi Bash ed eseguire `az login` per accedere ad Azure.
 
@@ -52,7 +52,7 @@ az login
 
  Se si ha accesso a più sottoscrizioni, eseguire `az account set -s {subscription ID}` sostituendo `{subscription ID}` con la sottoscrizione che si vuole usare.
 
-## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Passaggio 2: Creare un cluster Azure Red Hat OpenShift
+## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Passaggio 2: creare un cluster Azure Red Hat OpenShift
 
 Nella finestra di comando di Bash impostare le variabili seguenti:
 
@@ -119,7 +119,7 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 
 Ad esempio: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
 
-### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>Facoltativo: Connettere il cluster a Monitoraggio di Azure
+### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>Facoltativo: connettere il cluster al monitoraggio di Azure
 
 Prima di tutto ottenere l'identificatore dell'area di lavoro Log Analytics **esistente**. Il formato dell'identificatore sarà:
 
@@ -180,7 +180,7 @@ Cercare `publicHostName` nell'output, ad esempio: `"publicHostname": "openshift.
 
 L'URL di accesso per il cluster sarà `https://` seguito dal valore `publicHostName`.  Ad esempio: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Si userà questo URI nel passaggio successivo come parte dell'URI di reindirizzamento della registrazione dell'app.
 
-## <a name="step-3-update-your-app-registration-redirect-uri"></a>Passaggio 3: Aggiornare l'URI di reindirizzamento della registrazione dell'app
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>Passaggio 3: aggiornare l'URI di reindirizzamento per la registrazione dell'app
 
 Ora che si dispone dell'URL di accesso per il cluster, impostare l'interfaccia utente di reindirizzamento della registrazione dell'app:
 
@@ -188,9 +188,9 @@ Ora che si dispone dell'URL di accesso per il cluster, impostare l'interfaccia u
 2. Fare clic sull'oggetto registrazione app.
 3. Fare clic su **Aggiungi un URI di reindirizzamento**.
 4. Assicurarsi che **TIPO** sia **Web** e impostare l'**URI DI REINDIRIZZAMENTO** usando il modello seguente: `https://<public host name>/oauth2callback/Azure%20AD`. Ad esempio: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
-5. Fare clic su **Save** (Salva).
+5. Fare clic su **Save**.
 
-## <a name="step-4-sign-in-to-the-openshift-console"></a>Passaggio 4: Accedere alla console OpenShift
+## <a name="step-4-sign-in-to-the-openshift-console"></a>Passaggio 4: accedere alla console di OpenShift
 
 È ora possibile accedere alla console OpenShift per il nuovo cluster. La [console Web OpenShift](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) consente di visualizzare, esplorare e gestire i contenuti dei progetti OpenShift.
 
@@ -209,7 +209,7 @@ A questo punto si è connessi alla console del cluster.
 
  Per altre informazioni sull'[uso della console OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) per creare e compilare immagini, vedere la documentazione di [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html).
 
-## <a name="step-5-install-the-openshift-cli"></a>Passaggio 5: Installare l'interfaccia della riga di comando di OpenShift
+## <a name="step-5-install-the-openshift-cli"></a>Passaggio 5: installare l'interfaccia della riga di comando di OpenShift
 
 L'[interfaccia della riga di comando di OpenShift](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (o *strumenti OC*) fornisce i comandi per gestire le applicazioni e le utilità di livello inferiore che consentono di interagire con i vari componenti del cluster OpenShift.
 

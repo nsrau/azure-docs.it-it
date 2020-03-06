@@ -144,11 +144,5 @@
       href: score-svd-recommender.md
     - name: Train SVD Recommender
       href: train-svd-recommender.md
-- name: Rilevamento anomalie
-  items:
-    - name: Rilevamento anomalie basato su PCA
-      href: pca-based-anomaly-detection.md
-    - name: Eseguire il training del modello di rilevamento anomalie
-      href: train-anomaly-detection-model.md
 - name: Errori e risoluzione dei problemi dei moduli
   href: designer-error-codes.md

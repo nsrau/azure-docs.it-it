@@ -1,16 +1,16 @@
 ---
-title: "Guida introduttiva: Creare un'app ASP.NET in C#"
+title: "Guida introduttiva: C# creare un'app ASP.NET"
 description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo il modello predefinito di app Web ASP.NET in C# di Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: f2e31723dc2761007994f652d9d6c28ab3f7d47d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671397"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388209"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creare un'app Web del framework ASP.NET in Azure
 
@@ -43,7 +43,7 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 4. È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa guida di avvio rapido scegliere il modello **MVC**.
 
-5. Verificare che l'autenticazione sia impostata su **Nessuna autenticazione**. Selezionare **Create** (Crea).
+5. Verificare che l'autenticazione sia impostata su **Nessuna autenticazione**. Selezionare **Crea**.
 
    ![Creare un'applicazione Web ASP.NET](./media/app-service-web-get-started-dotnet-framework/select-mvc-template-vs2019.png)
 
@@ -80,7 +80,7 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
 1. Nella finestra di dialogo **Configura piano di hosting** immettere i valori della tabella seguente e quindi scegliere **OK**.
 
-   | Impostazione | Valore consigliato | DESCRIZIONE |
+   | Impostazione | Valore consigliato | Descrizione |
    |-|-|-|
    |Piano di servizio app| myAppServicePlan | Nome del piano di servizio app. |
    | Location | Europa occidentale | Data center in cui è ospitata l'app Web. |

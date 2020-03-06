@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77060227"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374784"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Esercitazione: configurare SAP SuccessFactors per il provisioning utenti di Active Directory (anteprima)
 Questa esercitazione descrive la procedura da eseguire per effettuare il provisioning degli utenti da SuccessFactors Employee Central a Active Directory (AD) e Azure AD, con Write-back facoltativo dell'indirizzo di posta elettronica in SuccessFactors. Questa integrazione è in anteprima pubblica e supporta il recupero di più di [70 attributi utente](../app-provisioning/sap-successfactors-attribute-reference.md) da SuccessFactors Employee Central.
@@ -117,7 +117,7 @@ Collaborare con il team amministratore di SuccessFactors o con il partner di imp
   >[!NOTE]
   >Per l'elenco completo degli attributi recuperati da questa app di provisioning, vedere informazioni di [riferimento sull'attributo SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-* Fare clic su **Done** (Fine). Fare clic su **Salva modifiche**.
+* Fare clic su **Done** (Fine). Fare clic su **Save Changes**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Creare un gruppo di autorizzazioni per l'utente dell'API
 
@@ -146,7 +146,7 @@ Collaborare con il team amministratore di SuccessFactors o con il partner di imp
 * Esaminare la concessione del ruolo autorizzazione al gruppo di autorizzazioni. 
   > [!div class="mx-imgBorder"]
   > ![i dettagli del gruppo e del ruolo di autorizzazione](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Fare clic su **Salva modifiche**.
+* Fare clic su **Save Changes**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Configurazione del provisioning utenti da SuccessFactors a Active Directory
 
@@ -214,7 +214,7 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
   
 1. Verrà ora richiesto di immettere le credenziali necessarie per connettersi al dominio AD. Nella stessa schermata è possibile usare **Select domain controller priority** (Seleziona priorità controller di dominio) per specificare i controller di dominio che l'agente deve usare per l'invio di richieste di provisioning.
 
-   ![Credenziali del dominio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   ![Credenziali di dominio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
    
 1. Dopo aver configurato il dominio, il programma di installazione mostrerà un elenco di domini configurati. In questa schermata è possibile ripetere i passaggi 5 e 6 per aggiungere più domini o fare clic su **Next** (Avanti) per procedere alla registrazione dell'agente.
 
@@ -346,7 +346,7 @@ Una volta completate le configurazioni dell'app di provisioning di SuccessFactor
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Salva**.
+2. Fare clic su **Save**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nel tenant di SuccessFactors. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
 

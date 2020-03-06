@@ -1,16 +1,16 @@
 ---
-title: 'Esercitazione: Creare criteri per applicare la conformità'
+title: 'Esercitazione: creare criteri per applicare la conformità'
 description: In questa esercitazione vengono usati i criteri per applicare gli standard, controllare i costi, mantenere la sicurezza e applicare principi di progettazione a livello aziendale.
 ms.date: 12/20/2019
 ms.topic: tutorial
 ms.openlocfilehash: a4e4190e5ff6a87098c349cde99572df2dba4331
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436153"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384497"
 ---
-# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: Creare e gestire i criteri per applicare la conformità
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: creare e gestire i criteri per applicare la conformità
 
 Comprendere come creare e gestire i criteri in Azure è importante per assicurare la conformità agli standard e ai contratti di servizio aziendali. Questa esercitazione illustra come usare Criteri di Azure per eseguire alcune delle attività più comuni correlate alla creazione, all'assegnazione e alla gestione dei criteri dell'organizzazione, ad esempio:
 
@@ -22,7 +22,7 @@ Comprendere come creare e gestire i criteri in Azure è importante per assicurar
 
 Se si vuole assegnare un criterio per identificare lo stato di conformità corrente delle risorse esistenti, gli articoli introduttivi illustrano come eseguire questa operazione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -351,7 +351,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 1. Inserire il **Nome** e la **Descrizione** dell'iniziativa.
 
-   Questo esempio convalida che le risorse siano conformi alle definizioni dei criteri relativi alla protezione. Assegnare un nome all'iniziativa **Proteggi** e impostare la descrizione come di seguito: **Questa iniziativa è stata creata per gestire tutte le definizioni dei criteri associati alla protezione delle risorse**.
+   Questo esempio convalida che le risorse siano conformi alle definizioni dei criteri relativi alla protezione. Assegnare un nome all'iniziativa **Get Secure** e impostare la descrizione come di seguito: **Questa iniziativa è stata creata per gestire tutte le definizioni dei criteri associati alla protezione delle risorse**.
 
 1. Per **Categoria** scegliere una delle opzioni esistenti o creare una nuova categoria.
 
@@ -423,7 +423,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Selezionare **Definizioni** in **Creazione** sul lato sinistro della pagina Criteri di Azure.
 
-1. Individuare la definizione dell'iniziativa **Get Secure** creata in precedenza e selezionarla. Selezionare **Assegna** nella parte superiore della pagina per aprire la pagina **Proteggi: Assegna iniziativa**.
+1. Individuare la definizione dell'iniziativa **Get Secure** creata in precedenza e selezionarla. Selezionare **Assegna** nella parte superiore della pagina per aprire la pagina **Get Secure: Assign Initiative**.
 
    ![Assegnare una definizione dalla pagina Definizione dell'iniziativa](../media/create-and-manage/assign-definition.png)
 
@@ -431,15 +431,15 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
    ![Opzioni alternative per un'iniziativa](../media/create-and-manage/select-right-click.png)
 
-1. Compilare la pagina **Proteggi: Assegna iniziativa** immettendo le informazioni di esempio seguenti. È possibile usare informazioni personalizzate.
+1. Compilare la pagina **Get Secure: Assign Initiative** immettendo le informazioni di esempio seguenti. È possibile usare informazioni personalizzate.
 
-   - Ambito: Il gruppo di gestione o la sottoscrizione in cui è stata salvata l'iniziativa, diventa l'impostazione predefinita.
+   - Ambito:iIl gruppo di gestione o la sottoscrizione in cui è stata salvata l'iniziativa, diventa il valore predefinito.
      È possibile modificare l'ambito per assegnare l'iniziativa a una sottoscrizione o gruppo di risorse all'interno del percorso di salvataggio.
    - Esclusioni: Configurare le risorse all'interno dell'ambito per impedire che l'assegnazione dell'iniziativa venga applicata a esse.
-   - Definizione dell'iniziativa e nome dell'assegnazione: Proteggi (prepopolato come nome dell'iniziativa assegnata).
-   - Descrizione: Questa assegnazione dell'iniziativa è ottimizzata in modo da applicare questo gruppo di definizioni dei criteri.
-   - Imposizione dei criteri: Lasciare il valore predefinito, _Abilitata_.
-   - Assegnato da: Compilato automaticamente in base a chi ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
+   - Definizione dell'iniziativa e nome dell'assegnazione: ottenere Get Secure (pre-popolato come nome dell'iniziativa assegnato).
+   - Descrizione: questa assegnazione di iniziativa è ottimizzata in modo da applicare questo gruppo di definizioni dei criteri.
+   - Applicazione dei criteri: lasciare _abilitata_l'impostazione predefinita.
+   - Assegnato da: verrà compilato automaticamente in base all'utente che ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
 
 1. Selezionare la scheda **Parametri** nella parte superiore della procedura guidata. Se è stato configurato un parametro dell'iniziativa nei passaggi precedenti, impostare un valore qui.
 
@@ -468,11 +468,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 Dopo aver assegnato un'iniziativa dei criteri per richiedere una località specifica, viene negata qualsiasi risorsa creata in una località diversa. In questa sezione viene illustrato come risolvere una richiesta negata per la creazione di una risorsa tramite la definizione di un'esclusione in un singolo gruppo di risorse. L'esclusione impedisce l'imposizione del criterio (o dell'iniziativa) sul gruppo di risorse. Nell'esempio seguente tutte le località sono consentite nel gruppo di risorse escluso. Un'esclusione può essere applicata a una sottoscrizione, a un gruppo di risorse o a una singola risorsa.
 
-Le distribuzioni impedite da un criterio o un'iniziativa assegnata possono essere visualizzate nel gruppo di risorse di destinazione della distribuzione: Selezionare **Distribuzioni** sul lato sinistro della pagina e quindi selezionare il **Nome distribuzione** della distribuzione non riuscita. La risorsa che è stata negata verrà elencata con lo stato _Non consentito_. Per determinare il criterio o l'iniziativa e l'assegnazione che ha negato la risorsa, selezionare **Operazione non riuscita. Fare clic qui per altri dettagli ->** nella pagina Panoramica della distribuzione. Sul lato destro della pagina si aprirà una finestra con le informazioni sull'errore. Nei **Dettagli errore** sono indicati gli identificatori univoci globali degli oggetti di criterio correlati.
+Le distribuzioni impedite da un criterio o un'iniziativa assegnata possono essere visualizzate nel gruppo di risorse di destinazione della distribuzione: selezionare **distribuzioni** sul lato sinistro della pagina, quindi selezionare il **nome della distribuzione** non riuscita. La risorsa che è stata negata verrà elencata con lo stato _Non consentito_. Per determinare il criterio o l'iniziativa e l'assegnazione che ha negato la risorsa, selezionare **non riuscita. Fare clic qui per i dettagli: >** nella pagina Panoramica della distribuzione. Sul lato destro della pagina si aprirà una finestra con le informazioni sull'errore. Nei **Dettagli errore** sono indicati gli identificatori univoci globali degli oggetti di criterio correlati.
 
 ![Distribuzione negata dall'assegnazione criteri](../media/create-and-manage/rg-deployment-denied.png)
 
-Nella pagina Criteri di Azure: Selezionare **Conformità** sul lato sinistro della pagina e quindi selezionare l'iniziativa dei criteri **Get Secure**. In questa pagina si rileva un aumento del numero di effetti **Nega** per le risorse bloccate. Nella scheda **Eventi** sono disponibili informazioni dettagliate su chi ha tentato di creare o distribuire la risorsa negata dalla definizione dei criteri.
+Nella pagina Criteri di Azure: selezionare **conformità** sul lato sinistro della pagina e selezionare l'iniziativa Ottieni criteri di **sicurezza** . In questa pagina si rileva un aumento del numero di effetti **Nega** per le risorse bloccate. Nella scheda **Eventi** sono disponibili informazioni dettagliate su chi ha tentato di creare o distribuire la risorsa negata dalla definizione dei criteri.
 
 ![Panoramica della conformità di un criterio assegnato](../media/create-and-manage/compliance-overview.png)
 

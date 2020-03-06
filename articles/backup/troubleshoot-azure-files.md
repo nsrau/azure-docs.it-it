@@ -4,11 +4,11 @@ description: Questo articolo contiene informazioni per la risoluzione dei proble
 ms.date: 08/20/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293947"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382547"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Risolvere i problemi del backup di condivisioni file di Azure
 
@@ -25,13 +25,13 @@ Il backup per le condivisioni file di Azure è disponibile in anteprima. Le cond
 - Non eliminare gli snapshot creati da Backup di Azure. L'eliminazione degli snapshot può comportare la perdita di punti di ripristino e/o errori di ripristino.
 - Non eliminare le condivisioni file protette mediante Backup di Azure. La soluzione corrente elimina tutti gli snapshot creati da Backup di Azure dopo l'eliminazione della condivisione file, causando la perdita di tutti i punti di ripristino
 
-Il backup per le condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente disponibile solo nelle aree Stati Uniti centrali (CUS), Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa settentrionale (NE), Asia sudorientale (SEA), Europa occidentale (WE) e Stati Uniti occidentali 2 (WUS2).
+Il backup per le condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente disponibile solo nelle aree Stati Uniti centrali (CUS), Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa settentrionale (NE), Asia sud-orientale (SEA), Europa occidentale (WE) e Stati Uniti occidentali 2 (WUS2).
 
 ## <a name="configuring-backup"></a>Configurazione del backup
 
 La configurazione del backup è illustrata nella tabella seguente:
 
-| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
+| Messaggi di errore | Possibili risoluzioni o soluzioni alternative |
 | ------------------ | ----------------------------- |
 | Impossibile trovare l'account di archiviazione per configurare il backup per la condivisione file di Azure | <ul><li>Attendere che termini l'individuazione. <li>Verificare se sono presenti condivisioni file dell'account di archiviazione già protette con un altro insieme di credenziali di Servizi di ripristino. **Nota**: le condivisioni file di un account di archiviazione possono essere protette solo con un unico insieme di credenziali di Servizi di ripristino. <li>Assicurarsi che la condivisione file non si trovi in account di archiviazione non supportati.<li> Assicurarsi che nell'account di archiviazione sia selezionata la casella di controllo **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. [Altre informazioni.](../storage/common/storage-network-security.md)|
 | Un errore visualizzato nel portale indica che non è possibile individuare gli account di archiviazione. | Se la sottoscrizione è partner (abilitata per CSP), ignorare l'errore. Se la sottoscrizione non è abilitata per CSP e non è possibile individuare gli account di archiviazione, contattare il supporto tecnico.|
@@ -42,7 +42,7 @@ La configurazione del backup è illustrata nella tabella seguente:
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Messaggi di errore dei processi di backup o ripristino
 
-| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
+| Messaggi di errore | Possibili risoluzioni o soluzioni alternative |
 | -------------- | ----------------------------- |
 | L'operazione non è riuscita perché non è stata trovata la condivisione file. | Verificare che la condivisione file da proteggere non sia stata eliminata.|
 | Account di archiviazione non trovato o non supportato. | <ul><li>Verificare che l'account di archiviazione sia presente nel gruppo di risorse e che non sia stato eliminato o rimosso dal gruppo di risorse dopo l'ultima convalida. <li> Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file.|
@@ -60,7 +60,7 @@ La configurazione del backup è illustrata nella tabella seguente:
 
 ## <a name="modify-policy"></a>Modifica dei criteri
 
-| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
+| Messaggi di errore | Possibili risoluzioni o soluzioni alternative |
 | ------------------ | ----------------------------- |
 | È in corso un'altra operazione di configurazione della protezione per questo elemento. | Attendere il completamento dell'operazione di modifica criterio precedente e riprovare dopo qualche minuto.|
 | Nell'elemento selezionato è già in corso un'altra operazione. | Attendere il completamento dell'altra operazione in corso e riprovare dopo qualche minuto. |

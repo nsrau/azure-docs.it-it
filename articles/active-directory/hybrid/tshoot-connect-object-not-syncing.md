@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60455139"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376194"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Risolvere i problemi per la mancata sincronizzazione di un oggetto con Azure Active Directory
 
@@ -38,21 +38,21 @@ Prima di esaminare i problemi di sincronizzazione, è importante conoscere il pr
 
 ### <a name="terminology"></a>**Terminologia**
 
-* **CS:** spazio connettore, una tabella in un database
-* **MV:** metaverse, una tabella in un database
+* **CS:** Spazio connettore, una tabella in un database
+* **MV:** Metaverse, una tabella in un database
 
 ### <a name="synchronization-steps"></a>**Passaggi di sincronizzazione**
 Il processo di sincronizzazione prevede i passaggi seguenti:
 
-1. **Importazione da AD:** gli oggetti di Active Directory vengono importati nello spazio connettore di Active Directory.
+1. **Importa da ad:** Gli oggetti Active Directory vengono inseriti nel Active Directory CS.
 
-2. **Importazione da Azure AD:** gli oggetti di Azure AD vengono importati nello spazio connettore di Azure AD.
+2. **Importa da Azure ad:** Gli oggetti Azure AD vengono inseriti nel Azure AD CS.
 
-3. **Sincronizzazione:** le regole di sincronizzazione in ingresso e in uscita vengono eseguite in base al numero di precedenza, dal più basso al più alto. Per visualizzare le regole di sincronizzazione, è possibile passare all'editor delle regole di sincronizzazione da un'applicazione desktop. Le regole di sincronizzazione in ingresso importano i dati dallo spazio connettore al metaverse, mentre le regole di sincronizzazione in uscita spostano i dati dal metaverse allo spazio connettore.
+3. **Sincronizzazione:** Le regole di sincronizzazione in ingresso e le regole di sincronizzazione in uscita vengono eseguite nell'ordine di numero di precedenza, da inferiore a superiore. Per visualizzare le regole di sincronizzazione, è possibile passare all'editor delle regole di sincronizzazione da un'applicazione desktop. Le regole di sincronizzazione in ingresso importano i dati dallo spazio connettore al metaverse, mentre le regole di sincronizzazione in uscita spostano i dati dal metaverse allo spazio connettore.
 
-4. **Esportazione in Active Directory:** dopo la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Active Directory in Active Directory.
+4. **Esporta in Active Directory:** Dopo la sincronizzazione, gli oggetti vengono esportati dal Active Directory CS al Active Directory.
 
-5. **Esportazione in Azure AD:** dopo la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Azure AD in Azure AD.
+5. **Esporta in Azure ad:** Dopo la sincronizzazione, gli oggetti vengono esportati dal Azure AD CS al Azure AD.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
@@ -73,7 +73,7 @@ Nella metà superiore della scheda **Operations** (Operazioni) sono elencate tut
 
 La colonna **Status** (Stato) contiene le informazioni più importanti e segnala il problema più grave di un'esecuzione. Di seguito è riportato un breve riepilogo degli stati più comuni, ordinati in base alla priorità con cui devono essere analizzati (dove * indica varie possibili stringhe di errore).
 
-| Stato | Commento |
+| Stato | Comment |
 | --- | --- |
 | stopped-* |Impossibile completare l'esecuzione. Questa condizione si verifica, ad esempio, se il sistema remoto è inattivo e non può essere contattato. |
 | stopped-error-limit |Sono presenti più di 5.000 errori. L'esecuzione è stata arrestata automaticamente a causa dell'elevato numero di errori. |
@@ -87,7 +87,7 @@ Quando si seleziona una riga, la parte inferiore della scheda **Operations** (Op
 In caso di errori, Synchronization Service Manager mostra sia l'oggetto con l'errore sia l'errore stesso sotto forma di collegamenti per la visualizzazione di altre informazioni.
 
 ![Screenshot degli errori in Synchronization Service Manager](./media/tshoot-connect-object-not-syncing/errorsync.png)  
-Per iniziare, selezionare la stringa di errore. Nella figura precedente, la stringa di errore è **sync-rule-error-function-triggered**. Verrà prima presentata una panoramica dell'oggetto. Per visualizzare l'errore effettivo, selezionare **Stack Trace** (Analisi dello stack). Questa analisi fornisce informazioni di debug relative all'errore.
+Per iniziare, selezionare la stringa di errore. Nella figura precedente, la stringa di errore è **Sync-Rule-Error-Function-attivata**. Viene presentata prima di tutto una panoramica dell'oggetto. Per visualizzare l'errore effettivo, selezionare **Stack Trace** (Analisi dello stack). Questa analisi fornisce informazioni di debug relative all'errore.
 
 Fare clic con il pulsante destro del mouse nella casella **Call Stack Information** (Informazioni sullo stack delle chiamate), fare clic su **Select All** (Seleziona tutto) e quindi selezionare **Copy** (Copia). Copiare quindi lo stack ed esaminare l'errore nell'editor preferito, ad esempio nel Blocco note.
 
@@ -110,7 +110,7 @@ Nella casella **Scope** (Ambito) selezionare **RDN** se si vuole eseguire la ric
  
 ![Screenshot di una ricerca nello spazio connettore](./media/tshoot-connect-object-not-syncing/cssearch.png)  
 
-Se non si trova l'oggetto che si sta cercando, è possibile che sia stato filtrato con il [filtro basato sul dominio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) o con il [filtro basato sull'unità organizzativa](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). Per verificare che il filtro sia stato configurato come previsto, leggere l'argomento [Servizio di sincronizzazione Azure AD Connect: Configurare il filtro](how-to-connect-sync-configure-filtering.md).
+Se non si trova l'oggetto che si sta cercando, è possibile che sia stato filtrato con il [filtro basato sul dominio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) o con il [filtro basato sull'unità organizzativa](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). Per verificare che il filtro sia configurato come previsto, leggere [Azure ad Connect sincronizzazione: configurare il filtro](how-to-connect-sync-configure-filtering.md).
 
 È possibile eseguire un'altra ricerca utile selezionando il connettore Azure Active Directory. Nella casella **Scope** (Ambito) selezionare **Pending Import** (Importazione in sospeso) e quindi la casella di controllo **Add** (Aggiungi). Questa ricerca restituisce tutti gli oggetti sincronizzati in Azure Active Directory che non possono essere associati a un oggetto locale.  
 
@@ -143,7 +143,7 @@ Nella figura precedente, nella colonna **PasswordSync** (Sincronizzazione passwo
 Dalla scheda **Lineage** (Derivazione) è possibile accedere al metaverse selezionando [**Metaverse Object Properties**](#mv-attributes) (Proprietà dell'oggetto metaverse).
 
 ### <a name="preview"></a>Anteprima
-Nell'angolo inferiore sinistro della finestra **Connector Space Object Properties** (Proprietà dell'oggetto spazio connettore) è disponibile il pulsante **Preview** (Anteprima). Selezionare questo pulsante per aprire la pagina **Preview** (Anteprima), in cui è possibile sincronizzare un singolo oggetto. Questa pagina è utile mentre si risolvono problemi relativi alle regole di sincronizzazione personalizzate e si vuole vedere l'effetto di una modifica su un singolo oggetto. È possibile selezionare una **sincronizzazione completa** o una **sincronizzazione differenziale**. È anche possibile selezionare **Generate Preview** (Genera anteprima), che mantiene semplicemente la modifica in memoria, o **Commit Preview** (Esegui commit anteprima), che aggiorna il metaverse e inserisce tutte le modifiche negli spazi connettore di destinazione.  
+Nell'angolo inferiore sinistro della finestra **Connector Space Object Properties** (Proprietà dell'oggetto spazio connettore) è disponibile il pulsante **Preview** (Anteprima). Selezionare questo pulsante per aprire la pagina **Preview** (Anteprima), in cui è possibile sincronizzare un singolo oggetto. Questa pagina è utile mentre si risolvono problemi relativi alle regole di sincronizzazione personalizzate e si vuole vedere l'effetto di una modifica su un singolo oggetto. È possibile selezionare una sincronizzazione **completa** o una **sincronizzazione Delta**. È anche possibile selezionare **genera anteprima**, che mantiene solo la modifica in memoria. o **Commit Preview** (Esegui commit anteprima), che aggiorna il metaverse e inserisce tutte le modifiche negli spazi connettore di destinazione.  
 
 ![Screenshot della pagina di anteprima, con l'opzione Start Preview (Avvia anteprima) selezionata](./media/tshoot-connect-object-not-syncing/preview.png)  
 
@@ -151,7 +151,7 @@ Nell'anteprima è possibile esaminare l'oggetto e individuare la regola applicat
 
 ![Screenshot della pagina di anteprima con la scheda Import Attribute Flow (Importa flusso attributi)](./media/tshoot-connect-object-not-syncing/previewresult.png)
 
-### <a name="log"></a>Log
+### <a name="log"></a>File di log
 Accanto al pulsante **Preview** (Anteprima) selezionare il pulsante **Log** per aprire la pagina **Log**, in cui sono riportati lo stato e la cronologia di sincronizzazione della password. Per altre informazioni, vedere [Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Proprietà dell'oggetto Metaverse

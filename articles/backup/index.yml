@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 9efc7d3ba072b0281d932b31365e7458034c30f5
-  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.openlocfilehash: 8b0f01a48ff2b1be42650d346808195f434a1f2f
+  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77582620"
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78672995"
 landingContent:
 - title: Informazioni su Backup di Azure
   linkLists:
@@ -111,7 +111,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Eseguire il backup di computer Windows con l'agente di Servizi di ripristino di Microsoft Azure di Backup di Azure
-      url: backup-configure-vault.md
+      url: backup-windows-with-mars-agent.md
     - text: Gestire i backup degli agenti di Servizi di ripristino di Microsoft Azure con il servizio Backup di Azure
       url: backup-azure-manage-mars.md
     - text: Matrice di supporto per l'agente MARS

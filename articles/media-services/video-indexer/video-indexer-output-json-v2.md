@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
 ms.openlocfilehash: 2fac5e07f9646c4fc0fac7b1be53b5a5ac1ea803
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514392"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363935"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output del Video Indexer prodotto dall'API
 
@@ -28,7 +28,7 @@ Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato del
 
 È anche possibile esaminare visivamente le informazioni dettagliate riepilogate del video, premendo il pulsante **Play** del video nel sito Web di [Video Indexer](https://www.videoindexer.ai/). Per altre informazioni, vedere [Visualizzare e analizzare le informazioni dettagliate per i video](video-indexer-view-edit.md).
 
-![Informazioni approfondite](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+![Informazioni dettagliate](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
 In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get Video Index** (Ottieni indice video). 
 
@@ -38,7 +38,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 
 ## <a name="root-elements"></a>Elementi radice
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
@@ -78,7 +78,7 @@ In questo articolo viene esaminato il contenuto JSON restituito dall'API **Get V
 
 Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
-|Attributo | Description|
+|Attributo | Descrizione|
 |---|---|
 |name|Nome del video. Ad esempio, Monitoraggio di Azure.|
 |id|ID del video. Ad esempio, 63c6d532ff.|
@@ -98,7 +98,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 
 ## <a name="videos"></a>videos
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |accountId|ID account Video Indexer del video.|
 |id|ID del video.|
@@ -196,19 +196,19 @@ Esempio:
 
 #### <a name="blocks"></a>blocks
 
-Attributo | Description
+Attributo | Descrizione
 ---|---
 id|ID del blocco.|
-istanze|Elenco degli intervalli di tempo di questo blocco.|
+instances|Elenco degli intervalli di tempo di questo blocco.|
 
 #### <a name="transcript"></a>transcript
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
 |Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
-|istanze|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
+|instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
 
@@ -241,13 +241,13 @@ Esempio:
 
 #### <a name="ocr"></a>ocr
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
 |Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
-|istanze|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
+|instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
 |height|Altezza del rettangolo OCR|
 |top|Posizione superiore in px|
 |sinistro| Posizione a sinistra in px|
@@ -276,13 +276,13 @@ Esempio:
 
 #### <a name="keywords"></a>keywords
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
 |Linguaggio|Lingua della parola chiave, quando tradotta.|
-|istanze|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
+|instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
 {
@@ -307,7 +307,7 @@ Esempio:
 
 #### <a name="faces"></a>faces
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID del volto.|
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
@@ -319,7 +319,7 @@ Esempio:
 |referenceType|Attualmente solo Bing.|
 |title|Nel caso di un personaggio noto, la qualifica, ad esempio CEO Microsoft.|
 |imageUrl|Nel caso di un personaggio noto, l'URL della relativa immagine.|
-|istanze|Istanze in cui è presente il volto nell'intervallo di tempo specificato. Ogni istanza è associata anche un thumbnailsId. |
+|instances|Istanze in cui è presente il volto nell'intervallo di tempo specificato. Ogni istanza è associata anche un thumbnailsId. |
 
 ```json
 "faces": [{
@@ -352,12 +352,12 @@ Esempio:
 
 #### <a name="labels"></a>Etichette
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
 |Linguaggio|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
-|istanze|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
+|instances|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
 
 
 ```json
@@ -411,10 +411,10 @@ Esempio:
 
 #### <a name="scenes"></a>scenes
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID della scena.|
-|istanze|Elenco di intervalli temporali di questa scena (una scena può avere solo 1 istanza).|
+|instances|Elenco di intervalli temporali di questa scena (una scena può avere solo 1 istanza).|
 
 ```json
 "scenes":[  
@@ -444,11 +444,11 @@ Esempio:
 
 #### <a name="shots"></a>shots
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco di fotogrammi chiave all'interno dell'immagine, ognuno con un ID e un elenco di intervalli di tempo di istanze. Ogni istanza del fotogramma chiave ha un campo thumbnailId, che contiene l'ID anteprima del fotogramma chiave.|
-|istanze|Un elenco di intervalli temporali di questo scatto (un Shot può avere solo 1 istanza).|
+|instances|Un elenco di intervalli temporali di questo scatto (un Shot può avere solo 1 istanza).|
 
 ```json
 "shots":[  
@@ -494,7 +494,7 @@ Esempio:
 
 Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscimento vocale e/o nell'OCR del video. Non include il riconoscimento visivo dei marchi o il rilevamento dei logo.
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID del marchio.|
 |name|Nome del marchio.|
@@ -503,7 +503,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |description|Descrizione del marchio.|
 |tags|Elenco di tag predefiniti associati a questo marchio.|
 |confidence|Valore di attendibilità della funzionalità di rilevamento dei marchi di Video Indexer (0-1).|
-|istanze|Elenco degli intervalli di tempo di questo marchio. Ogni istanza ha un brandType, che indica se il marchio è presente nella trascrizione o nell'OCR.|
+|instances|Elenco degli intervalli di tempo di questo marchio. Ogni istanza ha un brandType, che indica se il marchio è presente nella trascrizione o nell'OCR.|
 
 ```json
 "brands": [
@@ -553,7 +553,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="statistics"></a>statistiche
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |SpeakerWordCount|Numero di parole per ogni voce.|
@@ -563,11 +563,11 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|L'ID dell'effetto audio.|
 |type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
-|istanze|Elenco degli intervalli di tempo in cui è presente l'effetto audio.|
+|instances|Elenco degli intervalli di tempo in cui è presente l'effetto audio.|
 
 ```json
 "audioEffects": [
@@ -592,11 +592,11 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
-|istanze|Elenco degli intervalli di tempo in cui è presente la valutazione.|
+|instances|Elenco degli intervalli di tempo in cui è presente la valutazione.|
 |sentimentType |Il tipo può essere "Positive", "Neutral" o "Negative".|
 
 ```json
@@ -631,12 +631,12 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti hanno la possibilità di inviare una richiesta per una revisione umana del contenuto, nel quale caso l'attributo IsAdult conterrà il risultato della revisione umana.
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
 |racyScore|Punteggio contenuti spinti (dalla moderazione del contenuto).|
-|istanze|Elenco degli intervalli di tempo in cui è presente questa moderazione dei contenuti visivi.|
+|instances|Elenco degli intervalli di tempo in cui è presente questa moderazione dei contenuti visivi.|
 
 ```json
 "VisualContentModeration": [
@@ -667,7 +667,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti di testo.|
 |bannedWordsCount |Numero di parole escluse.|
@@ -677,11 +677,11 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'emozione identificata potrebbe essere: gioia, tristezza, rabbia o timore.
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID dell'emozione.|
 |type|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
-|istanze|Elenco degli intervalli di tempo in cui è comparsa l'emozione.|
+|instances|Elenco degli intervalli di tempo in cui è comparsa l'emozione.|
 
 ```json
 "emotions": [{
@@ -767,7 +767,7 @@ Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'e
 
 Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibile, viene inclusa la tassonomia [IPTC](https://iptc.org/standards/media-topics/) di secondo livello. 
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |id|ID dell'argomento.|
 |name|Nome dell'argomento, ad esempio "Prodotti farmaceutici".|
@@ -775,7 +775,7 @@ Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibi
 |confidence|Punteggio di attendibilità nell'intervallo [0,1]. A un punteggio maggiore corrisponde una maggiore attendibilità.|
 |Linguaggio|Lingua usata nell'argomento.|
 |iptcName|Nome del codice per i media IPTC, se rilevato.|
-|istanze |Video Indexer attualmente non esegue l'indicizzazione di un argomento in base a intervalli di tempo, quindi l'intero video viene usato come intervallo.|
+|instances |Video Indexer attualmente non esegue l'indicizzazione di un argomento in base a intervalli di tempo, quindi l'intero video viene usato come intervallo.|
 
 ```json
 "topics": [{

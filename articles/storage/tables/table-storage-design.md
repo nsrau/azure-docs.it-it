@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351200"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387125"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Progettare tabelle scalabili ad alte prestazioni
 
@@ -49,8 +49,8 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -69,8 +69,8 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Giu</td>
@@ -98,7 +98,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 </td>
 </tr>
 <tr>
-<td>Vendite</td>
+<td>Sales</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
@@ -106,8 +106,8 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -127,7 +127,7 @@ La scelta di **PartitionKey** e **RowKey** è fondamentale per la progettazione 
 
 Una tabella è costituita da una o più partizioni e molte delle decisioni relative alla progettazione riguarderanno la scelta di un valore appropriato per **PartitionKey** e **RowKey** per poter ottimizzare la soluzione. Una soluzione può essere costituita da una singola tabella contenente tutte le entità organizzate in partizioni, ma normalmente una soluzione comprende più tabelle. Le tabelle permettono di organizzare in modo logico le entità e di gestire l'accesso ai dati con gli elenchi di controllo di accesso. Inoltre è possibile eliminare un'intera tabella con una sola operazione di archiviazione.  
 
-## <a name="table-partitions"></a>Partizioni di tabella
+## <a name="table-partitions"></a>Partizioni della tabella
 Il nome account, il nome tabella e **PartitionKey** insieme identificano la partizione nel servizio di archiviazione in cui il servizio tabelle archivia l'entità. Oltre a far parte dello schema di indirizzamento per le entità, le partizioni definiscono un ambito per le transazioni (vedere più avanti [Transazioni di gruppi di entità](#entity-group-transactions)) e formano le basi del ridimensionamento del servizio tabelle. Per ulteriori informazioni sulle partizioni, vedere [elenco di controllo delle prestazioni e della scalabilità per l'archiviazione tabelle](storage-performance-checklist.md).  
 
 Nel servizio tabelle un solo nodo gestisce una o più partizioni complete e il servizio è scalabile grazie al bilanciamento dinamico del carico delle partizioni tra i nodi. Se un nodo è in condizioni di carico, il servizio tabelle può *dividere* in più nodi l'intervallo di partizioni gestite da quel nodo. Quando il traffico diminuisce, il servizio può *unire* nuovamente in un solo nodo gli intervalli di partizioni dai nodi inattivi.  
@@ -137,7 +137,7 @@ Per altre informazioni sui dettagli interni del servizio tabelle, in particolare
 ## <a name="entity-group-transactions"></a>Transazioni dei gruppi di entità
 Nel servizio tabelle, le transazioni di gruppi di entità (EGT, Entity Group Transaction) sono il solo meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. Le transazioni EGT sono chiamate anche *transazioni batch*. Tali transazioni possono essere usate solo con le entità archiviate nella stessa partizione (ovvero che condividono la stessa chiave di partizione in una tabella specifica). Ogni volta che è necessario un comportamento transazionale atomico tra più entità, è quindi necessario assicurarsi che le entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità.  Se si inviano più transazioni EGT simultanee per l'elaborazione, è importante garantire che tali transazioni non vengano applicate a entità che sono comuni tra le transazioni EGT, altrimenti l'elaborazione potrebbe subire ritardi.
 
-Le transazioni EGT richiedono anche la valutazione di un potenziale compromesso nella progettazione. L'uso di un maggior numero di partizioni aumenta infatti la scalabilità dell'applicazione, in quanto Azure ha maggiori opportunità di bilanciamento del carico delle richieste tra i nodi. Ma l'uso di più partizioni potrebbe limitare la capacità dell'applicazione di eseguire transazioni atomiche e mantenere la coerenza assoluta per i dati. Ci sono inoltre specifici obiettivi di scalabilità a livello di partizione, che potrebbero limitare la velocità effettiva delle transazioni prevista per un singolo nodo. Per altre informazioni sugli obiettivi di scalabilità per gli account di archiviazione standard di Azure, vedere [obiettivi di scalabilità per gli account di archiviazione standard](../common/scalability-targets-standard-account.md). Per ulteriori informazioni sugli obiettivi di scalabilità per il servizio tabelle, vedere [obiettivi di scalabilità e prestazioni per l'archiviazione tabelle](scalability-targets.md).
+Le transazioni EGT richiedono anche la valutazione di un potenziale compromesso nella progettazione. L'uso di un maggior numero di partizioni aumenta infatti la scalabilità dell'applicazione, in quanto Azure ha maggiori opportunità di bilanciamento del carico delle richieste tra i nodi. Ma l'uso di più partizioni potrebbe limitare la capacità dell'applicazione di eseguire transazioni atomiche e mantenere la coerenza assoluta per i dati. Ci sono inoltre specifici obiettivi di scalabilità a livello di partizione, che potrebbero limitare la velocità effettiva delle transazioni prevista per un singolo nodo. Per altre informazioni sugli obiettivi di scalabilità per gli account di archiviazione standard di Azure, vedere [obiettivi di scalabilità per gli account di archiviazione standard](../common/scalability-targets-standard-account.md). Per altre informazioni sugli obiettivi di scalabilità per il servizio tabelle, vedere [Obiettivi di scalabilità e prestazioni per l'archiviazione tabelle](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Considerazioni sulla capacità
 La tabella seguente descrive alcuni valori chiave da tenere presenti quando si progetta una soluzione di servizio tabelle:  

@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315779"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391830"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio
 
@@ -37,7 +37,7 @@ Questo articolo descrive come usare Visual Studio per creare account Azure Data 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Visual Studio**: Sono supportate tutte le edizioni ad eccezione di Express.
+* **Visual Studio**: sono supportate tutte le versioni ad eccezione della versione Express.
 
   * Visual Studio 2019
   * Visual Studio 2017
@@ -53,13 +53,13 @@ Per questa esercitazione è necessario che sia installato Data Lake Tools per Vi
 
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Connettersi a un account Azure Data Lake Analytics
 
-1. Aprire Visual Studio.
+1. Apri Visual Studio.
 
 1. Aprire **Esplora server** selezionando **Visualizza** > **Esplora server**.
 
 1. Fare clic con il pulsante destro del mouse su **Azure**, quindi scegliere **Connetti a Microsoft Azure sottoscrizione**. **Per accedere al proprio account**, seguire le istruzioni.
 
-1. In **Esplora server**selezionare**Data Lake Analytics**di **Azure** > . Verrà visualizzato un elenco degli account Data Lake Analytics.
+1. In **Esplora server**selezionare **Azure** > **Data Lake Analytics**. Verrà visualizzato un elenco degli account Data Lake Analytics.
 
 ## <a name="write-your-first-u-sql-script"></a>Scrivere il primo script U-SQL
 
@@ -112,7 +112,7 @@ Per visualizzare lo stato del processo più recente e aggiornare la schermata, s
 
 ## <a name="check-job-status"></a>Controllare lo stato del processo
 
-1. In **Esplora server**selezionare**Data Lake Analytics**di **Azure** > .
+1. In **Esplora server**selezionare **Azure** > **Data Lake Analytics**.
 
 1. Espandere il nome dell'account Data Lake Analytics.
 
@@ -124,7 +124,7 @@ Per visualizzare lo stato del processo più recente e aggiornare la schermata, s
 
 1. In **Esplora server**passare al processo inviato.
 
-1. Fare clic sulla scheda **Dati** .
+1. Fare clic sulla scheda **Dati**.
 
 1. Nella scheda **Output del processo** selezionare il file `"/data.csv"`.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123107"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393686"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -193,7 +193,7 @@ Vedere [Eseguire il training con tutti i dati](luis-how-to-train.md#train-with-a
 ## <a name="app-publishing"></a>Pubblicazione dell'app
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Che cos'è l'ID tenant nella finestra "Aggiungi una chiave all'app"?
-In Azure, un tenant rappresenta il client o l'organizzazione associati a un servizio. È possibile trovare l'ID del tenant nel portale di Azure nella casella **ID directory** selezionando **Azure Active Directory** > **Gestisci**  >  **Proprietà**.
+In Azure, un tenant rappresenta il client o l'organizzazione associati a un servizio. È possibile trovare l'ID del tenant nel portale di Azure nella casella **ID directory** selezionando **Azure Active Directory** > **Gestisci** > **Proprietà**.
 
 ![ID tenant nel portale di Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -206,7 +206,7 @@ Ogni app LUIS dispone della chiave di creazione/autorizzazione nell'elenco degli
 
 Se l'app esisteva prima che LUIS fosse disponibile a livello generale (GA), le chiavi di endpoint LUIS vengono assegnate automaticamente nella sottoscrizione. Tale operazione è stata pensata per facilitare la migrazione GA. Eventuali nuove chiavi di endpoint LUIS nel portale di Azure _non_ vengono assegnate automaticamente a LUIS.
 
-## <a name="key-management"></a>Gestione della chiave
+## <a name="key-management"></a>Gestione delle chiavi
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Come si fa a sapere quale chiave è necessaria, dove si trova e cosa farne? 
 
@@ -237,7 +237,7 @@ La registrazione è l'unico spazio di archiviazione delle espressioni.
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Perché un utente potrebbe non desiderare la registrazione di tutte le espressioni degli endpoint?
 Se si usa il log per l'analisi delle stime, non acquisire le espressioni di test nel log.
 
-## <a name="data-management"></a>Gestione dati
+## <a name="data-management"></a>Gestione dei dati
 
 ### <a name="can-i-delete-data-from-luis"></a>È possibile eliminare dati da LUIS?
 
@@ -264,7 +264,7 @@ La chiave di creazione/avvio consente solo 1000 query di endpoint al mese. Crear
 
 ## <a name="bots"></a>Bot
 
-### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Il bot LUIS non funziona. che cosa occorre fare?
+### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Il bot LUIS non funziona. Cosa devo fare?
 
 La prima cosa da fare è determinare se il problema è correlato a LUIS o avviene al difuori del middleware LUIS. 
 

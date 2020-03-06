@@ -12,11 +12,11 @@ ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273510"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361142"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint).
@@ -29,7 +29,7 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 |Area|Limite|
 |--|:--|
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
-| APPLICAZIONI| 500 applicazioni per ogni risorsa di creazione di Azure |
+| Applicazioni| 500 applicazioni per ogni risorsa di creazione di Azure |
 | [Test batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
 | Entità esterne | Nessun limite |
@@ -62,7 +62,7 @@ Gli elementi seguenti devono essere univoci all'interno di un'app LUIS:
 * Nome versione
 * intent
 * Entità
-* roles
+* ruoli
 
 Gli elementi seguenti devono essere univoci all'interno dell'ambito applicato:
 
@@ -89,7 +89,7 @@ Le chiavi delle risorse hanno limiti diversi per la creazione e l'endpoint. La c
 
 * 500 applicazioni per ogni risorsa di creazione di Azure
 
-|Chiave|Creazione|Endpoint|Scopo|
+|Chiave|Creazione e modifica|Endpoint|Scopo|
 |--|--|--|--|
 |Starter|1 milione/mese, 5/secondo|1\.000/mese, 5/secondo|Creazione di app LUIS|
 |Livello gratuito F0 |1 milione/mese, 5/secondo|10.000/mese, 5/secondo|Esecuzione di query per l'endpoint LUIS|

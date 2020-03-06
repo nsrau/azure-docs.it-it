@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/19/2019
 ms.openlocfilehash: 1cf1695db50e6aee2a5dae24ed5231fdda7c12de
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360851"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introduzione a Log Analytics in Monitoraggio di Azure
 
@@ -67,7 +67,7 @@ In questo esempio l'ambito di **search** è la tabella _Event_ e viene eseguita 
 ## <a name="running-a-query"></a>Esecuzione di una query
 Per eseguire una query, fare clic sul pulsante **Esegui** oppure premere **MAIUSC+INVIO**. Prendere in considerazione i dettagli seguenti che determinano il codice che verrà eseguito e i dati restituiti:
 
-- Interruzioni di riga: una singola interruzione consente di rendere più leggibile la query. Più interruzioni di riga suddividono la query in query separate.
+- Interruzioni di riga: una singola interruzione rende più semplice la lettura della query. Più interruzioni di riga suddividono la query in query separate.
 - Cursore: posizionare il cursore in un punto qualsiasi all'interno della query per eseguirla. La query corrente viene considerata come codice fino a quando non viene trovata una riga vuota.
 - Intervallo di tempo: per impostazione predefinita, viene usato un intervallo di tempo corrispondente alle _ultime 24 ore_. Per usare un intervallo diverso, usare il controllo di selezione di data e ora o aggiungere alla query un filtro di intervallo di tempo esplicito.
 
@@ -88,7 +88,7 @@ Event
 
 Log Analytics definisce automaticamente l'ambito dei risultati in base a questi parametri:
 
-- Intervallo di tempo:  per impostazione predefinita, le query sono limitate alle ultime 24 ore.
+- Intervallo di tempo: per impostazione predefinita, le query sono limitate alle ultime 24 ore.
 - Numero di risultati: i risultati sono limitati a un massimo di 10.000 record.
 
 Questa query è molto generica e restituisce troppi risultati per essere utile. È possibile filtrare i risultati tramite gli elementi della tabella o aggiungendo in modo esplicito un filtro alla query. Il filtro dei risultati tramite gli elementi della tabella si applica al set di risultati esistente, mentre un filtro per la query restituisce un nuovo set di risultati filtrato e può quindi generare risultati più accurati.
@@ -167,7 +167,7 @@ Per aggiungere un diagramma o una tabella a uno dei dashboard di Azure condivisi
 
 Quando si aggiunge un grafico a un dashboard, vengono applicate al grafico determinate semplificazioni:
 
-- Colonne e righe di tabella: per aggiungere una tabella al dashboard, la tabella deve avere al massimo quattro colonne. Verranno visualizzate solo le prime sette righe.
+- Colonne e righe di tabella: per aggiungere una tabella al dashboard, la tabella deve avere un massimo di quattro colonne. Verranno visualizzate solo le prime sette righe.
 - Limite di tempo: le query vengono automaticamente limitate agli ultimi 14 giorni.
 - Limite del numero di contenitori: se si visualizza un grafico con numerosi contenitori discreti, i contenitori meno popolati vengono automaticamente raggruppati in un unico contenitore _altri_.
 
@@ -179,7 +179,7 @@ Una volta creata una query utile, è possibile salvarla o condividerla con altri
 ![Salvare la funzione](media/get-started-portal/save-function.png)
 
 >[!NOTE]
->Quando si salva o si modifica la query salvata, nel campo **Nome** sono supportati i caratteri seguenti: `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |`.
+>Quando si salva o si modifica la query salvata, nel campo `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |`Nome**sono supportati i caratteri seguenti:** .
 
 Le query di Log Analytics vengono sempre salvate in un'area di lavoro selezionata e condivise con altri utenti dell'area di lavoro.
 
