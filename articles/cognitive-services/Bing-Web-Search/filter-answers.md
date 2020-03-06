@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111422"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381819"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrare i riscontri inclusi nella risposta della ricerca  
 
@@ -53,7 +53,7 @@ Per filtrare le risposte restituite da Bing, usare i parametri di query seguenti
 
 È possibile filtrare i tipi di risposte inclusi in Bing nella risposta, ad esempio immagini, video e notizie, usando il parametro di query [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) , che è un elenco di risposte delimitato da virgole. Una risposta verrà inclusa nella risposta se Bing ne rileva il contenuto pertinente. 
 
-Per escludere risposte specifiche dalla risposta, ad esempio immagini, anteporre un carattere `-` al tipo di risposta. Ad esempio:
+Per escludere risposte specifiche dalla risposta, ad esempio immagini, anteporre un carattere `-` al tipo di risposta. Ad esempio,
 
 ```
 &responseFilter=-images,-videos
@@ -109,7 +109,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 ```
 
 > [!NOTE]
-> A seconda della query, se si usa l'operatore di query `site:`, la risposta potrebbe includere contenuto per adulti indipendentemente dall'impostazione di [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.
+> A seconda della query, se si usa l'operatore di query `site:`, la risposta potrebbe includere contenuto per adulti indipendentemente dall'impostazione di [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si conosce il contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.
 
 ### <a name="freshness"></a>Aggiornamento
 

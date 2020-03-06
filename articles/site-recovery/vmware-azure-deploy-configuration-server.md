@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75376291"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362806"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -26,7 +26,7 @@ Si distribuisce un server di configurazione locale quando si usa [Azure Site Rec
 
 Il server di configurazione deve essere configurato come macchina virtuale VMware a disponibilità elevata con determinati requisiti hardware e di dimensionamento minimi. Per una distribuzione semplice e facile, Site Recovery fornisce un modello OVA (Open Virtualization Application) scaricabile per configurare il server di configurazione che è conforme a tutti i requisiti richiesti elencati qui.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un server di configurazione.
 
@@ -132,7 +132,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 7. Immettere le credenziali che verranno usate dal server di configurazione per connettersi al server VMware. Site Recovery usa queste credenziali per individuare automaticamente le macchine virtuali VMware disponibili per la replica. Selezionare **Aggiungi** > **Continua**. Le credenziali immesse qui vengono salvate in locale.
 8. In **Configura credenziali macchina virtuale**immettere il nome utente e la password delle macchine virtuali per installare automaticamente il servizio Mobility durante la replica. Per le macchine virtuali **Windows**, l'account deve avere privilegi di amministratore locale nelle macchine virtuali da replicare. Per **Linux**, specificare i dettagli dell'account radice.
 9. Selezionare **Finalizza configurazione** per completare la registrazione.
-10. Al termine della registrazione, aprire il portale di Azure e verificare che il server di configurazione e il server VMware siano elencati nell'insieme di credenziali di **servizi di ripristino** > **gestire** > **Site Recovery infrastruttura** > **server di configurazione**.
+10. Al termine della registrazione, aprire il portale di Azure e verificare che il server di configurazione e il server VMware siano elencati in **Insiemi di credenziali di Servizi di ripristino** > **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**.
 
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 

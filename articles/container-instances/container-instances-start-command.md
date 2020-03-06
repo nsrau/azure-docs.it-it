@@ -4,11 +4,11 @@ description: Impostare una riga di comando per eseguire l'override del EntryPoin
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533413"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365160"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Impostare la riga di comando in un'istanza di contenitore per sostituire l'operazione della riga di comando predefinita
 
@@ -26,7 +26,7 @@ Come l'impostazione delle [variabili di ambiente](container-instances-environmen
   |---------|---------|
   |Ubuntu     |   `/bin/bash`      |
   |Alpine     |   `/bin/sh`      |
-  |Windows     |    `cmd`     |
+  |WINDOWS     |    `cmd`     |
 
   Seguire le convenzioni della Shell per combinare più comandi da eseguire in sequenza.
 
@@ -50,9 +50,9 @@ La sintassi della riga di comando varia a seconda dell'API o dello strumento di 
 
   Se si ha familiarità con la sintassi di [Dockerfile](https://docs.docker.com/engine/reference/builder/) , questo formato è simile al formato *Exec* dell'istruzione cmd.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
-|    |  Interfaccia della riga di comando di Azure   | di Microsoft Azure | Modello | 
+|    |  Interfaccia della riga di comando di Azure   | Portal | Modello | 
 | ---- | ---- | --- | --- |
 | Singolo comando | `--command-line "python myscript.py arg1 arg2"` | **Override del comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Più comandi | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Override del comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |

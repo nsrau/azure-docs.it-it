@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Indirizzare il traffico Web con il portale'
+title: 'Guida introduttiva: indirizzare il traffico Web tramite il portale'
 titleSuffix: Azure Application Gateway
 description: Informazioni su come usare il portale di Azure per creare un gateway applicazione di Azure per il reindirizzamento del traffico Web a macchine virtuali in un pool back-end.
 services: application-gateway
@@ -10,13 +10,13 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 5e66632fab0306da7766f079733cd1d8cb3edc8d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544090"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359201"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione di Azure - Portale di Azure
 
 Questa guida di avvio rapido illustra come usare il portale di Azure per creare un gateway applicazione.  Al termine della creazione, si testa il gateway applicazione per verificare che funzioni correttamente. Con il gateway applicazione di Azure si indirizza il traffico Web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end. Per semplicità, questo articolo usa una configurazione semplice con un indirizzo IP pubblico front-end, un listener di base per ospitare un singolo sito nel gateway applicazione, due macchine virtuali usate per il pool back-end e una regola di routing delle richieste di base.
 
@@ -39,28 +39,28 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
 
 1. Nella scheda **Informazioni di base** immettere questi valori per le impostazioni del gateway applicazione seguenti:
 
-   - **Gruppo di risorse**: selezionare **myResourceGroupAG** come gruppo di risorse. Se non esiste, selezionare **Crea nuovo** per crearlo.
-   - **Nome del gateway applicazione**: immettere *myAppGateway* come nome del gateway applicazione.
+   - **Gruppo di risorse**: selezionare **myResourceGroupAG** per il gruppo di risorse. Se non esiste, selezionare **Crea nuovo** per crearlo.
+   - **Nome del gateway applicazione**: immettere *myAppGateway* per il nome del gateway applicazione.
 
-     ![Creare il nuovo gateway applicazione: Nozioni di base](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+     ![Creare un nuovo gateway applicazione: Nozioni di base](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2. Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale. È possibile creare una nuova rete virtuale oppure usarne una esistente. In questo esempio verrà creata una nuova rete virtuale in concomitanza con la creazione del gateway applicazione. Le istanze del gateway applicazione vengono create in subnet separate. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end.
 
     In **Configura rete virtuale** creare una nuova rete virtuale selezionando **Crea nuovo**. Nella finestra **Crea rete virtuale** visualizzata immettere i valori seguenti per creare la rete virtuale e due subnet:
 
-    - **Name**: immettere *myVnet* come nome della rete virtuale.
+    - **Nome**: immettere *myVNet* per il nome della rete virtuale.
 
-    - **Nome subnet** (subnet del gateway applicazione): Nella griglia **Subnet** verrà visualizzata una subnet denominata *Predefinita*. Modificare il nome della subnet in *myAGSubnet*.<br>La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.
+    - **Nome subnet** (subnet del gateway applicazione): nella griglia **Subnet** viene visualizzata una subnet denominata *default*. Modificare il nome della subnet in *myAGSubnet*.<br>La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.
 
-    - **Nome subnet** (subnet del server back-end): Nella seconda riga della griglia **Subnet** immettere *myBackendSubnet* nella colonna **Nome subnet**.
+    - **Nome subnet** (subnet server back-end): nella seconda riga della griglia **Subnet** immettere *myBackendSubnet* nella colonna **nome subnet** .
 
-    - **Intervallo di indirizzi** (subnet del server back-end): Nella seconda riga della griglia **Subnet** immettere un intervallo di indirizzi che non si sovrappone all'intervallo di indirizzi di *myAGSubnet*. Ad esempio, se l'intervallo di indirizzi di *myAGSubnet* è 10.0.0.0/24, immettere *10.0.1.0/24* per l'intervallo di indirizzi di *myBackendSubnet*.
+    - **Intervallo di indirizzi** (subnet server back-end): nella seconda riga della griglia **Subnet** immettere un intervallo di indirizzi che non si sovrappone all'intervallo di indirizzi di *myAGSubnet*. Ad esempio, se l'intervallo di indirizzi di *myAGSubnet* è 10.0.0.0/24, immettere *10.0.1.0/24* per l'intervallo di indirizzi di *myBackendSubnet*.
 
     Selezionare **OK** per chiudere la finestra **Crea rete virtuale** e salvare le impostazioni della rete virtuale.
 
      ![Creare un nuovo gateway applicazione: rete virtuale](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
-3. Nella scheda **Informazioni di base** accettare i valori predefiniti per le altre impostazioni e quindi selezionare **Successivo: Front-end**.
+3. Nella scheda **nozioni di base** accettare i valori predefiniti per le altre impostazioni e quindi fare clic su Next (front **-end**).
 
 ### <a name="frontends-tab"></a>Scheda Front-end
 
@@ -72,7 +72,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
 
      ![Creare il nuovo gateway applicazione: front-end](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
-3. Selezionare **Avanti: Back-end**.
+3. Selezionare **Avanti: backend**.
 
 ### <a name="backends-tab"></a>Scheda Back-end
 
@@ -82,14 +82,14 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 
 2. Nella finestra **Aggiungi un pool back-end** visualizzata immettere i valori seguenti per creare un pool back-end vuoto:
 
-    - **Name**: immettere *myBackendPool* come nome del pool back-end.
+    - **Nome**: immettere *myBackendPool* per il nome del pool back-end.
     - **Aggiungi pool back-end senza destinazioni**: selezionare **Sì** per creare un pool back-end senza destinazioni. Le destinazioni back-end verranno aggiunte dopo la creazione del gateway applicazione.
 
 3. Nella finestra **Aggiungi un pool back-end** selezionare **Aggiungi** per salvare la configurazione del pool back-end e tornare alla scheda **Back-end**.
 
      ![Creare il nuovo gateway applicazione: back-end](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
-4. Nella scheda **Back-end** selezionare **Passaggio successivo: Configurazione**.
+4. Nella scheda **backend** selezionare **Avanti: configurazione**.
 
 ### <a name="configuration-tab"></a>Scheda Configurazione
 
@@ -101,8 +101,8 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
 
 3. Una regola di routing richiede un listener. Nella scheda **Listener** nella finestra **Aggiungi una regola di routing** immettere i valori seguenti per il listener:
 
-    - **Nome listener**: immettere *myListener* per il nome del listener.
-    - **IP front-end**: selezionare **Pubblico** per scegliere l'indirizzo IP pubblico creato per il front-end.
+    - **Nome listener** *: immettere il nome del listener come* nome del listener.
+    - **IP**front-end: selezionare **pubblico** per scegliere l'indirizzo IP pubblico creato per il front-end.
   
       Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
 
@@ -112,13 +112,13 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
 
 5. Per **Impostazione HTTP** selezionare **Crea nuovo** per creare una nuova impostazione HTTP. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione HTTP** visualizzata immettere *myHTTPSetting* per **Nome impostazione HTTP**. Accettare i valori predefiniti per le altre impostazioni nella finestra **Aggiungi un'impostazione HTTP** e quindi selezionare **Aggiungi** per tornare alla finestra **Aggiungi una regola di routing**. 
 
-     ![Creare il nuovo gateway applicazione: impostazione HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+     ![Crea nuovo gateway applicazione: impostazione HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
 6. Nella finestra **Aggiungi una regola di routing** selezionare **Aggiungi** per salvare la regola di routing e tornare alla scheda **Configurazione**.
 
      ![Creare il nuovo gateway applicazione: regola di routing](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
-7. Selezionare **Avanti: Tag** e quindi **Passaggio successivo: Rivedi e crea**.
+7. Fare clic su **Avanti: Tag** e quindi su **Avanti: verifica + crea**.
 
 ### <a name="review--create-tab"></a>Scheda Rivedi e crea
 
@@ -140,13 +140,13 @@ A questo scopo, è necessario:
 2. Selezionare **Calcolo** e quindi selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**. Viene visualizzata la pagina **Creare una macchina virtuale**.<br>Il gateway applicazione può indirizzare il traffico a qualsiasi tipo di macchina virtuale usato nel pool back-end. In questo esempio si usa Windows Server 2016 Datacenter.
 3. Immettere questi valori nella scheda **Informazioni di base** per le seguenti impostazioni della macchina virtuale:
 
-    - **Gruppo di risorse**: selezionare **myResourceGroupAG** come nome del gruppo di risorse.
-    - **Nome macchina virtuale**: immettere *myVM* come nome della macchina virtuale.
-    - **Nome utente**: immettere *azureuser* come nome utente dell'amministratore.
+    - **Gruppo di risorse**: selezionare **myResourceGroupAG** per il nome del gruppo di risorse.
+    - **Nome macchina virtuale**: immettere *myVM* per il nome della macchina virtuale.
+    - **Nome utente: immettere** *azureuser* per nome utente amministratore.
     - **Password**: immettere *Azure123456!* come password amministratore.
-4. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Dischi**.  
-5. Accettare le impostazioni predefinite della scheda **Dischi** e quindi selezionare **Avanti: Rete**.
-6. Nella scheda **Rete** verificare che **myVNet** sia selezionato per la **Rete virtuale** e che la **Subnet** sia **myBackendSubnet**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Gestione**.<br>Il gateway applicazione può comunicare con le istanze all'esterno della rete virtuale in cui si trova, ma è necessario verificare che ci sia la connettività IP.
+4. Accettare le altre impostazioni predefinite e quindi selezionare **Avanti: dischi**.  
+5. Accettare i valori predefiniti per la scheda **dischi** , quindi selezionare **Avanti: rete**.
+6. Nella scheda **Rete** verificare che **myVNet** sia selezionato per la **Rete virtuale** e che la **Subnet** sia **myBackendSubnet**. Accettare le altre impostazioni predefinite e quindi selezionare **Avanti: gestione**.<br>Il gateway applicazione può comunicare con le istanze all'esterno della rete virtuale in cui si trova, ma è necessario verificare che ci sia la connettività IP.
 7. Nella scheda **Gestione** impostare **Diagnostica di avvio** su **Off**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Rivedi e crea**.
 8. Nella scheda **Rivedi e crea** rivedere le impostazioni, correggere eventuali errori di convalida e quindi selezionare **Crea**.
 9. Attendere il termine della creazione della macchina virtuale prima di continuare.

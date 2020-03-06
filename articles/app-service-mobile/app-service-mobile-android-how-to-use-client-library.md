@@ -7,18 +7,18 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461590"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374215"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
 
 Questa guida illustra come usare Android SDK del client per le App per dispositivi mobili di Azure per implementare scenari comuni, ad esempio:
 
 * L'esecuzione di query sui dati, come inserimento, aggiornamento ed eliminazione.
-* Autenticazione.
+* L'autenticazione.
 * La gestione degli errori.
 * La personalizzazione del client.
 
@@ -101,7 +101,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 Per il client è anche necessario l'accesso all'attività o al contesto (il parametro `this` nell'esempio).  La costruzione MobileServiceClient deve avvenire nel metodo `onCreate()` dell'attività a cui si fa riferimento nel file `AndroidManifest.xml`.
 
-Come procedura consigliata, è opportuno astrarre le comunicazioni del server nella relativa classe (modello singleton).  In questo caso, è consigliabile passare l'attività nel costruttore per configurare il servizio in modo appropriato.  Ad esempio,
+Come procedura consigliata, è opportuno astrarre le comunicazioni del server nella relativa classe (modello singleton).  In questo caso, è consigliabile passare l'attività nel costruttore per configurare il servizio in modo appropriato.  Ad esempio:
 
 ```java
 package com.example.appname.services;
@@ -154,8 +154,8 @@ Azure Mobile Apps SDK fondamentalmente fornisce accesso ai dati archiviati in SQ
 Per accedere ai dati dalle tabelle di SQL Azure, definire le classi di dati client che corrispondono alle tabelle nel back-end dell'app per dispositivi mobili. Negli esempi di questo argomento si presuppone l'uso di una tabella denominata **MyDataTable** con le colonne seguenti:
 
 * id
-* testo
-* completo
+* text
+* complete
 
 L'oggetto lato client tipizzato corrispondente si trova in un file denominato **MyDataTable.java**:
 
@@ -200,7 +200,7 @@ Una tabella del back-end di App per dispositivi mobili di Azure definisce cinque
 * `byte[] version`: rappresentata in genere come stringa, anche la versione viene impostata dal server.
 * `boolean deleted`: indica che il record è stato eliminato, ma non ancora definitivamente.  Non usare `deleted` come proprietà nella classe.
 
-Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  Ad esempio,
+Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  Ad esempio:
 
 ```java
 package com.example.zumoappname;
@@ -449,7 +449,7 @@ Una richiesta per tutti i record con questo metodo crea un minimo di due richies
 
 ### <a name="chaining"></a>Procedura: Concatenare metodi di query
 
-I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . Ad esempio,
+I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . Ad esempio:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -519,7 +519,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Eseguire l'override del metodo **getView** dell'adattatore. Ad esempio,
+Eseguire l'override del metodo **getView** dell'adattatore. Ad esempio:
 
 ```java
     @Override

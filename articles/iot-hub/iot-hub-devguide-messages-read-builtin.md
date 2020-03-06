@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950417"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392544"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
@@ -44,16 +44,16 @@ Quando si usano gli SDK di hub eventi o le integrazioni dei prodotti che non son
 
 2. Fare clic su **Endpoint predefiniti**.
 
-3. La sezione **Events** contiene i valori seguenti: **Partizioni**, **nome compatibile con l'hub eventi**, **endpoint compatibile con hub eventi**, **tempo di conservazione**e **gruppi**di consumer.
+3. La sezione **Events** contiene i valori seguenti: **partizioni**, **nome compatibile con**l'hub eventi, **endpoint compatibile con hub eventi**, **tempo di conservazione**e gruppi di **consumer**.
 
     ![Impostazioni da dispositivo a cloud](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-Nel portale il campo endpoint compatibile con hub eventi contiene una stringa di connessione di hub eventi completa simile alla seguente: **Endpoint = SB://abcd1234namespace.ServiceBus.Windows.NET/; SharedAccessKeyName = iothubowner; SharedAccessKey = keykeykeykeykeykey =; EntityPath = iothub-ehub-ABCD-1234-123456**. Se per l'SDK in uso sono necessari altri valori, saranno:
+Nel portale il campo endpoint compatibile con hub eventi contiene una stringa di connessione di hub eventi completa simile a: **endpoint = SB://abcd1234namespace.ServiceBus.Windows.NET/; SharedAccessKeyName = iothubowner; SharedAccessKey = keykeykeykeykeykey =; EntityPath = iothub-ehub-ABCD-1234-123456**. Se per l'SDK in uso sono necessari altri valori, saranno:
 
-| Name | Value |
+| Nome | valore |
 | ---- | ----- |
 | Endpoint | sb://abcd1234namespace.servicebus.windows.net/ |
-| Nome host | abcd1234namespace.servicebus.windows.net |
+| nomehost | abcd1234namespace.servicebus.windows.net |
 | Spazio dei nomi | abcd1234namespace |
 
 È quindi possibile usare qualsiasi criterio di accesso condiviso con autorizzazioni **ServiceConnect** per connettersi all'hub eventi specificato.

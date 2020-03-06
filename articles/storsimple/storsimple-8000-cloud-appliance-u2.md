@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965737"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366752"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
 
@@ -50,9 +50,9 @@ L'appliance cloud StorSimple è disponibile in due modelli, Standard 8010 (in pr
 | **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br> |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test basati su cloud <br></br>Bassa latenza e carichi di lavoro a prestazioni superiori<br></br>Dispositivo secondario per il ripristino di emergenza |
 
-<sup>1</sup> *precedentemente noto come 1100*.
+<sup>1</sup> *noto in precedenza come 1100*.
 
-<sup>2</sup> *Entrambi i modelli 8010 e 8020 usano l'archiviazione di Azure Standard per il livello cloud. La differenza è solo nel livello locale nel dispositivo*.
+<sup>2</sup> *8010 e 8020 usano l'archiviazione standard di Azure per il livello cloud. La differenza esiste solo nel livello locale all'interno del dispositivo*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>Differenze tra appliance cloud e dispositivo fisico
 
@@ -64,7 +64,7 @@ La tabella seguente illustra alcune differenze chiave tra l'appliance cloud Stor
 
 |  | Dispositivo fisico | Appliance cloud |
 | --- | --- | --- |
-| **Location** |Si trova nel data center. |Viene eseguito in Azure. |
+| **Posizione** |Si trova nel data center. |Viene eseguito in Azure. |
 | **Interfacce di rete** |Ha sei interfacce di rete: da DATA 0 a DATA 5. |Ha una sola interfaccia di rete: DATA 0. |
 | **Registrazione** |La registrazione viene eseguita durante il passaggio della configurazione iniziale. |La registrazione è un'attività separata. |
 | **Chiave DEK del servizio** |Rigenerare la chiave nel dispositivo fisico e quindi aggiornare l'appliance cloud con la nuova chiave. |Non è possibile rigenerare la chiave dall'appliance cloud. |
@@ -168,7 +168,7 @@ Seguire questa procedura per configurare la gestione remota per l'appliance clou
 
 [!INCLUDE [Configure remote management via HTTP for cloud appliance](../../includes/storsimple-8000-configure-remote-management-http-device.md)]
 
-### <a name="step-2-remotely-access-the-cloud-appliance"></a>Passaggio 2: Accedere all'appliance cloud in remoto
+### <a name="step-2-remotely-access-the-cloud-appliance"></a>Passaggio 2: Accedere in remoto all'appliance cloud
 
 Dopo aver abilitato la gestione remota nell'appliance cloud, usare la comunicazione remota di Windows PowerShell per connettersi all'appliance da un'altra macchina virtuale all'interno della stessa rete virtuale. Ad esempio, è possibile connettersi dalla VM host che è stata configurata e usata per connettere iSCSI. Nella maggior parte delle distribuzioni, per accedere alla VM host verrà aperto un endpoint pubblico che potrà essere usato per accedere all'appliance cloud.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280894"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393740"
 ---
 # <a name="intents-in-your-luis-app"></a>Intent nell'app LUIS
 
@@ -26,7 +26,7 @@ Definire un set di finalità che corrisponde alle azioni che gli utenti desidera
 
 Finalità dell'app di viaggi   |   Espressioni di esempio   | 
 ------|------|
- PrenotaVolo     |   "Prenotami un volo per Rio la settimana prossima" <br/> "Fammi volare a Rio il 24" <br/> "Ho bisogno di un biglietto aereo per Rio de Janeiro per domenica prossima"    |
+ BookFlight (PrenotaVolo)     |   "Prenotami un volo per Rio la settimana prossima" <br/> "Fammi volare a Rio il 24" <br/> "Ho bisogno di un biglietto aereo per Rio de Janeiro per domenica prossima"    |
  Saluti     |   "Ciao" <br/>"Salve" <br/>"Buongiorno"  |
  Meteo | "Com'è il tempo a Boston?" <br/> "Mostrami le previsioni per il weekend" |
  nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
@@ -55,7 +55,7 @@ Creare una finalità quando l' _intenzione_ dell'utente attiverà un'azione nell
 
 |Finalità   | Entità | Espressione di esempio   | 
 |------------------|------------------------------|------------------------------|
-| Meteo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Com'è il tempo a `Seattle` `tomorrow`? |
+| Meteo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Qual è il meteo come in `Seattle` `tomorrow`? |
 | Meteo | { "type": "date_range", "entity": "this weekend" } | Mostrami le previsioni per `this weekend` | 
 ||||
 

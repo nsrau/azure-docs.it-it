@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919856"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392911"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protezione dell'istanza per le istanze del set di scalabilità di macchine virtuali di Azure
 

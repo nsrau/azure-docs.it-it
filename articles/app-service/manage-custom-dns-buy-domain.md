@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023413"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375188"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -31,7 +31,7 @@ Per completare questa esercitazione:
 
 Per usare domini personalizzati in Servizio app di Azure, è necessario che il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) sia un livello a pagamento (**Condiviso**, **Basic**, **Standard** o **Premium**). In questo passaggio, verificare che l'app sia supportata dal piano tariffario adeguato.
 
-### <a name="sign-in-to-azure"></a>Accedere a Azure
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
@@ -59,7 +59,7 @@ Se il piano di servizio app non è **F1**, chiudere la pagina **Aumenta** e pass
 
 Selezionare uno dei livelli non gratuiti (**D1**, **B1**, **B2**, **B3** o uno qualsiasi dei livelli della categoria **Produzione**). Per altre opzioni, fare clic su **Visualizza opzioni aggiuntive**.
 
-Fare clic su **Applica**.
+Fare clic su **Applica**
 
 ![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -72,7 +72,7 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 ### <a name="pricing-information"></a>Informazioni sui prezzi
 Per informazioni sui prezzi dei domini app Azure Service, visitare la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e scorrere verso il basso fino al dominio del servizio app.
 
-### <a name="sign-in-to-azure"></a>Accedere a Azure
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
 Aprire il [portale di Azure](https://portal.azure.com/) e accedere con l'account Azure.
 
 ### <a name="launch-buy-domains"></a>Avvio di Acquistare un dominio
@@ -106,7 +106,7 @@ Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di 
 
 Selezionare quindi le opzioni desiderate per il dominio. Vedere la tabella seguente per alcune spiegazioni:
 
-| Impostazione | Valore consigliato | Description |
+| Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
 |Protezione della privacy | Abilitare | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
 | Assegnare i nomi host predefiniti | **www** e **\@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app è accessibile tramite i nomi host selezionati. Se l'app è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta i record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
@@ -168,7 +168,7 @@ Verificare che il dominio acquistato sia presente nella sezione **domini del ser
 Selezionare **Aggiungi il nome host**.
 
 ### <a name="configure-hostname"></a>Configurare il nome host
-Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. Ad esempio:
+Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. Ad esempio,
 
 - kontoso.net
 - www\.kontoso.net

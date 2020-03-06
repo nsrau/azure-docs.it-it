@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226469"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381418"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Eseguire il backup di Windows Server in Azure
 
@@ -40,9 +40,9 @@ Prima di eseguire il backup di Windows Server, è necessario creare una posizion
 3. Nel menu **Insieme di credenziali dei servizi di ripristino**
 
     * digitare *myRecoveryServicesVault* in **Nome**.
-    * L’ID di sottoscrizione corrente viene visualizzato in **Sottoscrizione**.
+    * L'ID di sottoscrizione corrente viene visualizzato in **Sottoscrizione**.
     * Per **Gruppo di risorse**, selezionare **Usa esistente** e scegliere *myResourceGroup*. Se *myResourceGroup* non esiste, selezionare **Crea nuovo** e digitare *myResourceGroup*.
-    * Dal menu a discesa **Percorso** scegliere *Europa occidentale*.
+    * Dal menu a discesa **Percorso**, scegliere *Europa occidentale*.
     * Fare clic su **Crea** per creare l'insieme di credenziali dei servizi di ripristino.
 
 L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino.
@@ -104,7 +104,7 @@ Usare l'agente di Servizi di ripristino di Microsoft Azure per la pianificazione
 
 3. Fare clic su **Avanti** per passare alla pagina **Seleziona elementi per backup**.
 
-4. Fare clic su **Aggiungi elementi** e dalla finestra di dialogo visualizzata selezionare **Stato del sistema** e i file o le cartelle di cui si vuole eseguire il backup. Fare quindi clic su **OK**.
+4. Fare clic su **Aggiungi elementi** e dalla finestra di dialogo visualizzata selezionare **Stato del sistema** e i file o le cartelle di cui si vuole eseguire il backup. Fare quindi clic su **OK**,
 
 5. Fare clic su **Avanti**.
 
@@ -130,7 +130,7 @@ Usare l'agente di Servizi di ripristino di Microsoft Azure per la pianificazione
 
 2. Nell'**Esecuzione guidata backup**, selezionare **File e cartelle** o **Stato del sistema** e fare clic su **Avanti**
 3. Nella pagina **Conferma** riesaminare le impostazioni che la procedura guidata di **Esegui backup** userà per il backup del server. Fare clic su **Backup**.
-4. Fare clic su **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
+4. Fare clic su **Chiudi** per uscire dalla procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
 5. Al termine del backup iniziale, viene visualizzato lo stato **Processo completato** nel riquadro **Processi** della console dell'agente di MARS.
 
 ## <a name="next-steps"></a>Passaggi successivi

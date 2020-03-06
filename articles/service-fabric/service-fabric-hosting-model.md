@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464584"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391420"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modello di hosting di Azure Service Fabric
 Questo articolo fornisce una panoramica dei modelli di hosting delle applicazioni offerti da Azure Service Fabric e descrive le differenze tra i modelli **Shared Process** (Processo condiviso) ed **Exclusive Process** (Processo esclusivo). Descrive l'aspetto di un'applicazione in un nodo di Service Fabric e la relazione tra le repliche (o istanze) del servizio e il processo host servizio.
