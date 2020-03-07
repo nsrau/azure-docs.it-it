@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384976"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385072"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
 
@@ -47,7 +47,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Nuova Zelanda|Inglese|en-NZ|
 |Filippine|Inglese|en-PH|
 |Singapore|Inglese|en-SG|
-|Stati Uniti|Inglese|en-US|
+|Stati Uniti|Inglese|it-IT|
 |Inglese|generale|en-WW|
 |Inglese|generale|en-XA|
 |Sud Africa|Inglese|en-ZA|
@@ -86,7 +86,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|en-US|
+|Stati Uniti|Inglese|it-IT|
 |Inglese|generale|en-WW|
 |Cile|Spagnolo|es-CL|
 |Messico|Spagnolo|es-MX|
@@ -108,7 +108,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|en-US|
+|Stati Uniti|Inglese|it-IT|
 |Canada|Inglese|en-CA|
 |India|Inglese|en-IN|
 |Francia|Francese|fr-FR|

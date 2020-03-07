@@ -16,11 +16,11 @@ ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
 ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69016722"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392967"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale
 ## <a name="overview"></a>Panoramica
@@ -145,7 +145,7 @@ A questo punto, il flusso audio non compresso originale deve ancora essere compr
 
 *Codificatore AAC non connesso*
 
-Ora esiste un'incompatibilità: è presente un solo pin di input audio non compresso dal codificatore AAC, ma molto probabilmente per Media File Input saranno disponibili due diversi flussi audio non compressi: uno per il canale audio sinistro e uno per quello destro. Se si usa un sistema audio di tipo surround, i canali saranno addirittura sei. Quindi non è possibile connettere direttamente l'audio dall'origine Media File Input al codificatore audio AAC. Per il componente AAC è previsto un flusso audio cosiddetto "con interleave": un solo flusso con entrambi i canali sinistro e destro con interleave reciproco. Una volta conosciuta dal file multimediale di origine la posizione nell'origine di ogni traccia audio, è possibile generare tale flusso audio con interleave con le posizioni degli altoparlanti assegnate correttamente per la sinistra e la destra.
+Ora esiste un'incompatibilità: è presente un solo pin di input audio non compresso dal codificatore AAC, ma molto probabilmente per Media File Input saranno disponibili due diversi flussi audio non compressi: uno per il canale audio sinistro e uno per quello destro. (Se si sta usando un audio surround, si tratta di sei canali). Non è quindi possibile connettere direttamente l'audio dall'origine media file input al codificatore audio AAC. Per il componente AAC è previsto un flusso audio cosiddetto "con interleave": un solo flusso con entrambi i canali sinistro e destro con interleave reciproco. Una volta conosciuta dal file multimediale di origine la posizione nell'origine di ogni traccia audio, è possibile generare tale flusso audio con interleave con le posizioni degli altoparlanti assegnate correttamente per la sinistra e la destra.
 
 Prima si genererà un flusso con interleave dai canali audio di origine necessari. Il componente Audio Stream Interleaver lo gestirà automaticamente. Aggiungerlo al flusso di lavoro e connettere gli output audio da Media File Input a esso.
 
@@ -513,7 +513,7 @@ Partendo da un flusso di lavoro che genera [un output MP4 a velocità in bit mul
 *Flusso di lavoro iniziale a cui aggiungere il taglio*
 
 ### <a id="time_based_trim_use_stream_trimmer"></a>Uso di Stream Trimmer
-Il componente Stream Trimmer consente anche di tagliare l'inizio e la fine di un flusso di input in base alle informazioni sugli intervalli (secondi, minuti...). Il trimmer non supporta il taglio basato su fotogramma.
+Il componente Stream trimmer consente di tagliare l'inizio e la fine di un flusso di input in base alle informazioni sugli intervalli (secondi, minuti,...). Il trimmer non supporta il trimming basato su frame.
 
 ![Stream Trimmer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
@@ -599,9 +599,9 @@ Ora effettuare un'esecuzione di test locale. Dopo questa esecuzione, esaminare (
 
 *Output di log hello world*
 
-L'oggetto nodo su cui viene chiamato il metodo log, fa riferimento al "nodo" corrente, ovvero al componente in cui si sta creando lo script. Ogni componente ha di per sé la possibilità di creare l'output dei dati di registrazione, disponibili nella scheda System. In questo caso, viene creato l'output del valore letterale stringa "hello world". È importante comprendere che questo si rivela un prezioso strumento di debug perché offre informazioni dettagliate sulle operazioni effettivamente eseguite dallo script.
+L'oggetto nodo su cui viene chiamato il metodo log, fa riferimento al "nodo" corrente, ovvero al componente in cui si sta creando lo script. Ogni componente è in grado di restituire i dati di registrazione, disponibili tramite la scheda sistema. In questo caso, viene restituito il valore letterale stringa "Hello World". È importante comprendere che questo si rivela un prezioso strumento di debug perché offre informazioni dettagliate sulle operazioni effettivamente eseguite dallo script.
 
-Dall'ambiente di scripting è anche possibile accedere alle proprietà degli altri componenti. Provare questo codice:
+Dall'ambiente di scripting è anche possibile accedere alle proprietà degli altri componenti. Provare a eseguire quanto segue:
 
 ```java
     //inspect current node:
@@ -761,7 +761,7 @@ Queste modifiche sono state apportate con normali operazioni di manipolazione de
 
 *Registrazione dell'elenco di clip risultante*
 
-Effettuare un'esecuzione di test per visualizzare come i flussi video e audio sono stati tagliati. Quando si effettueranno altre esecuzioni di test con valori diversi per i punti di taglio, si noterà che tali valori non verranno tenuti in considerazione perché la finestra di progettazione, diversamente dal runtime di Azure, NON esegue l'override del file XML dell'elenco di clip a ogni esecuzione. Ciò significa che solo la prima volta che sono stati impostati i punti in e out, il codice XML verrà trasformato, in tutte le altre volte la clausola Guard (if (`clipListXML.indexOf("<trim>") == -1`)) impedirà al flusso di lavoro di aggiungere un altro elemento Trim quando ne è già presente uno.
+Effettuare un'esecuzione di test per visualizzare come i flussi video e audio sono stati tagliati. Quando si effettueranno altre esecuzioni di test con valori diversi per i punti di taglio, si noterà che tali valori non verranno tenuti in considerazione perché la finestra di progettazione, diversamente dal runtime di Azure, NON esegue l'override del file XML dell'elenco di clip a ogni esecuzione. Ciò significa che solo la prima volta che sono stati impostati i punti in e out, il codice XML verrà trasformato, tutte le altre volte la clausola Guard (se (`clipListXML.indexOf("<trim>") == -1`)) impedirà al flusso di lavoro di aggiungere un altro elemento Trim quando ne è già presente uno.
 
 Per semplificare il test locale del flusso di lavoro, è consigliabile aggiungere un codice di manutenzione che controlla se è già presente un elemento trim. In questo caso, è possibile rimuoverlo prima di continuare a modificare il file XML con i nuovi valori. Invece di usare le normali manipolazioni di stringa, è probabilmente più sicuro eseguire questa operazione con l'analisi del modello a oggetti XML effettivo.
 

@@ -105,6 +105,42 @@
           href: Tutorials/integrate-qnamaker-luis.md
     - name: Analisi e telemetria
       href: How-To/get-analytics-knowledge-base.md
+    - name: Uso delle API REST
+      items:
+        - name: Creare una nuova knowledge base
+          items:
+            - name: 'C#'
+              href: Quickstarts/create-new-kb-csharp.md
+            - name: Go
+              href: Quickstarts/create-new-kb-go.md
+            - name: Java
+              href: Quickstarts/create-new-kb-java.md
+            - name: Python
+              href: Quickstarts/create-new-kb-python.md
+        - name: Pubblicare una knowledge base
+          items:
+            - name: 'C#'
+              href: Quickstarts/publish-kb-csharp.md
+            - name: Go
+              href: Quickstarts/publish-kb-go.md
+            - name: Java
+              href: Quickstarts/publish-kb-java.md
+            - name: Node.js
+              href: 'Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base'
+            - name: Python
+              href: Quickstarts/publish-kb-python.md
+        - name: Ottenere la risposta
+          items:
+            - name: 'C#'
+              href: Quickstarts/get-answer-from-knowledge-base-csharp.md
+            - name: Go
+              href: Quickstarts/get-answer-from-knowledge-base-go.md
+            - name: Java
+              href: Quickstarts/get-answer-from-knowledge-base-java.md
+            - name: Node.js
+              href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
+            - name: Python
+              href: Quickstarts/get-answer-from-knowledge-base-python.md
 - name: Informazioni di riferimento
   items:
     - name: Languages

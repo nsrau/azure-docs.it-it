@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: ff2267c2d03076d3abc44d0bd1dddc64577cc7f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428651"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386016"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guida di riferimento allo schema per il linguaggio di definizione del flusso di lavoro in Azure per la logica
 
@@ -35,7 +35,7 @@ Di seguito è riportata la struttura generale di una definizione del flusso di l
 }
 ```
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 |-----------|----------|-------------|
 | `definition` | Sì | Elemento iniziale della definizione del flusso di lavoro |
 | `$schema` | Solo quando si fa riferimento esternamente a una definizione del flusso di lavoro | Percorso del file di schema JSON che descrive la versione del linguaggio di definizione del flusso di lavoro, disponibile qui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
@@ -74,13 +74,13 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 },
 ```
 
-| Attributo | Obbligatorio | Tipo | Description |
+| Attributo | Obbligatoria | Type | Descrizione |
 |-----------|----------|------|-------------|
-| <*parameter-name*> | Sì | string | Nome del parametro che si desidera definire |
-| <*parameter-type*> | Sì | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Nota**: per tutte le password, le chiavi e i segreti, usare i tipi `securestring` o `secureobject` perché l'operazione di `GET` non restituisce questi tipi. Per ulteriori informazioni sulla protezione dei parametri, vedere [suggerimenti sulla sicurezza per i parametri di input e di azione](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Tipo di parametro |
-| <*default-parameter-value*> | Sì | Uguale a `type` | Valore predefinito del parametro da utilizzare se non viene specificato alcun valore quando si crea un'istanza del flusso di lavoro. L'attributo `defaultValue` è necessario in modo che la finestra di progettazione dell'app per la logica possa visualizzare correttamente il parametro, ma è possibile specificare un valore vuoto. |
-| <*array-with-permitted-parameter-values*> | No | Array | Matrice con valori che il parametro può accettare |
-| <*parameter-description*> | No | Oggetto JSON | Altri dettagli di parametro, ad esempio una descrizione per il parametro |
+| *nome parametro* <> | Sì | string | Nome del parametro che si desidera definire |
+| *tipo di parametro* <> | Sì | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Nota**: per tutte le password, le chiavi e i segreti, usare i tipi `securestring` o `secureobject` perché l'operazione di `GET` non restituisce questi tipi. Per ulteriori informazioni sulla protezione dei parametri, vedere [suggerimenti sulla sicurezza per i parametri di input e di azione](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Tipo di parametro |
+| <*parametro-valore predefinito*> | Sì | Uguale a `type` | Valore predefinito del parametro da utilizzare se non viene specificato alcun valore quando si crea un'istanza del flusso di lavoro. L'attributo `defaultValue` è necessario in modo che la finestra di progettazione dell'app per la logica possa visualizzare correttamente il parametro, ma è possibile specificare un valore vuoto. |
+| <*array-with-consentited-parameter-values*> | No | Array | Matrice con valori che il parametro può accettare |
+| <*parametro-description*> | No | Oggetto JSON | Altri dettagli di parametro, ad esempio una descrizione per il parametro |
 ||||
 
 Successivamente, creare un [modello di Azure Resource Manager](../azure-resource-manager/templates/overview.md) per la definizione del flusso di lavoro, definire i parametri del modello che accettano i valori desiderati in fase di distribuzione, sostituire i valori hardcoded con i riferimenti ai parametri di definizione del flusso di lavoro e del modello nel modo appropriato e archiviare i valori da usare in fase di distribuzione in un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato. In questo modo, è possibile modificare i valori più facilmente tramite il file dei parametri senza dover aggiornare e ridistribuire l'app per la logica. Per informazioni riservate o protette, ad esempio nomi utente, password e segreti, è possibile archiviare tali valori in Azure Key Vault e fare in modo che il file dei parametri recuperi tali valori dall'insieme di credenziali delle chiavi. Per altre informazioni ed esempi sulla definizione dei parametri a livello di modello e di definizione del flusso di lavoro, vedere [Panoramica: automatizzare la distribuzione per le app per la logica con Azure Resource Manager modelli](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
@@ -112,13 +112,13 @@ Nell'attributo `staticResults` definire una `outputs` fittizia dell'azione e `st
 }
 ```
 
-| Attributo | Obbligatorio | Tipo | Description |
+| Attributo | Obbligatoria | Type | Descrizione |
 |-----------|----------|------|-------------|
 | <*static-result-definition-name*> | Sì | string | Nome di una definizione di risultato statico a cui può fare riferimento una definizione di azione tramite un oggetto `runtimeConfiguration.staticResult`. Per altre informazioni vedere [Impostazioni di configurazione di runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>È possibile usare qualsiasi nome univoco desiderato. Per impostazione predefinita, questo nome univoco viene aggiunto con un numero, che viene incrementato in base alle esigenze. |
-| <*output-attributes-and-values-returned*> | Sì | Variabile | I requisiti per questi attributi variano in base a condizioni diverse. Ad esempio, quando il `status` viene `Succeeded`, l'attributo `outputs` include gli attributi e i valori restituiti come output fittizi dall'azione. Se la `status` è `Failed`, l'attributo `outputs` include l'attributo `errors`, ovvero una matrice con uno o più oggetti `message` di errore con informazioni sull'errore. |
+| <*output: gli attributi e i valori restituiti*> | Sì | Variabile | I requisiti per questi attributi variano in base a condizioni diverse. Ad esempio, quando il `status` viene `Succeeded`, l'attributo `outputs` include gli attributi e i valori restituiti come output fittizi dall'azione. Se la `status` è `Failed`, l'attributo `outputs` include l'attributo `errors`, ovvero una matrice con uno o più oggetti `message` di errore con informazioni sull'errore. |
 | <*header-values*> | No | JSON | Tutti i valori di intestazione restituiti dall'azione |
 | *stato <-codice restituito*> | Sì | string | Codice di stato restituito dall'azione |
-| <*action-status*> | Sì | string | Stato dell'azione, ad esempio `Succeeded` o `Failed` |
+| <*azione-stato*> | Sì | string | Stato dell'azione, ad esempio `Succeeded` o `Failed` |
 |||||
 
 In questa definizione di azione HTTP, ad esempio, l'attributo `runtimeConfiguration.staticResult.name` fa riferimento `HTTP0` all'interno dell'attributo `staticResults` in cui sono definiti gli output fittizi per l'azione. L'attributo `runtimeConfiguration.staticResult.staticResultOptions` specifica che l'impostazione del risultato statico è `Enabled` sull'azione HTTP.
@@ -275,11 +275,11 @@ Di seguito è riportata la struttura generale della definizione di un output:
 }
 ```
 
-| Attributo | Obbligatorio | Tipo | Description |
+| Attributo | Obbligatoria | Type | Descrizione |
 |-----------|----------|------|-------------|
 | <*key-name*> | Sì | string | Valore chiave del valore di output restituito |
 | <> *di tipo chiave* | Sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |
-| <*key-value*> | Sì | Uguale a <*key-type*> | Valore di output restituito |
+| <*key-value*> | Sì | Uguale a <*tipo di chiave*> | Valore di output restituito |
 |||||
 
 Per ottenere l'output da un'esecuzione del flusso di lavoro, esaminare la cronologia di esecuzione dell'app per la logica e i dettagli nell'portale di Azure o usare l' [API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio Power BI, per creare dashboard.

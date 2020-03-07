@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206260"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374767"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -70,7 +70,7 @@ Una regola di appartenenza che popola automaticamente un gruppo con utenti o dis
 
 - Proprietà
 - Operatore
-- Valore
+- valore
 
 L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
 
@@ -79,21 +79,21 @@ L'ordine delle parti in un'espressione è importante per evitare gli errori di s
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
 - Boolean
-- String
+- string
 - Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| Proprietà | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| Proprietà | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
@@ -104,7 +104,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | facsimileTelephoneNumber |Qualsiasi valore di stringa o *null* |(user.facsimileTelephoneNumber -eq "valore") |
 | givenName |Qualsiasi valore di stringa o *null* |(user.givenName -eq "valore") |
 | jobTitle |Qualsiasi valore di stringa o *null* |(user.jobTitle -eq "valore") |
-| posta |Qualsiasi valore di stringa o *null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
+| mail |Qualsiasi valore di stringa o *null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
 | mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
 | mobile |Qualsiasi valore di stringa o *null* |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
@@ -122,9 +122,9 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | userPrincipalName |Qualsiasi valore di stringa |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro guest *null* |(user.userType -eq "Membro") |
 
-### <a name="properties-of-type-string-collection"></a>Proprietà di tipo raccolta stringhe
+### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 
-| Proprietà | Valori consentiti | Utilizzo |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore di stringa |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -137,10 +137,10 @@ Nella tabella seguente sono elencati tutti gli operatori supportati e la relativ
 
 | Operatore | Sintassi |
 | --- | --- |
-| È diverso da |-ne |
+| Non uguale a |-ne |
 | Uguale a |-eq |
 | Non inizia con |-notStartsWith |
-| Inizia con |-startsWith |
+| Starts With |-startsWith |
 | Non contiene |-notContains |
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
@@ -213,7 +213,7 @@ Di seguito sono riportati esempi di regole di appartenenza strutturate correttam
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Precedenza tra gli operatori
+### <a name="operator-precedence"></a>Precedenza degli operatori
 
 Tutti gli operatori sono elencati di seguito in ordine decrescente di precedenza. Gli operatori sulla stessa riga hanno uguale precedenza:
 
@@ -249,7 +249,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| Proprietà | Valori | Utilizzo |
+| Proprietà | Valori | Uso |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |

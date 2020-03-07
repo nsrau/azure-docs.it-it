@@ -4,11 +4,11 @@ description: Una QnA Maker Knowledge base è costituita da un set di set di doma
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843358"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389161"
 ---
 # <a name="importing-from-data-sources"></a>Importazione da origini dati
 
@@ -28,7 +28,7 @@ Il set di contenuti QnA Chit Chat è disponibile come origine dati di contenuto 
 
 L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file strutturato `.tsv` contenente domande e risposte. Queste informazioni consentono QnA Maker raggruppare i set di domande e risposte e di assegnarli a una determinata origine dati.
 
-| Domanda  | Risposta  | Origine| Metadati (1 chiave: 1 valore) |
+| Domanda  | Risposta  | Source (Sorgente)| Metadati (1 chiave: 1 valore) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |
@@ -63,7 +63,7 @@ Se non si è certi di come rappresentare il set di QnA nel file di `.tsv`, crear
 > [!div class="nextstepaction"]
 > [Ciclo di vita di sviluppo di una knowledge](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 Usare le informazioni di riferimento su QnA Maker [Markdown](../reference-markdown-format.md) per formattare le risposte.
 

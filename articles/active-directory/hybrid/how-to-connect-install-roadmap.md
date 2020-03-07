@@ -1,5 +1,5 @@
 ---
-title: Roadmap di installazione di Azure AD Connect e Azure AD Connect Health. | Documentazione Microsoft
+title: Roadmap di installazione di Azure AD Connect e Azure AD Connect Health. | Microsoft Docs
 description: Questo documento offre una panoramica delle opzioni e dei percorsi di installazione disponibili per Azure AD Connect e Azure AD Connect Health.
 services: active-directory
 author: billmath
@@ -14,11 +14,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cddf2ab36b2372ce93ae8a2a6230ccb02ae30117
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721018"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376127"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roadmap di installazione di Azure AD Connect e Azure AD Connect Health
 
@@ -80,7 +80,7 @@ La funzionalità di [prevenzione delle eliminazioni accidentali](how-to-connect-
 |Configurare il filtro | [Servizio di sincronizzazione Azure AD Connect: Configurare il filtro](how-to-connect-sync-configure-filtering.md)|
 |Sincronizzazione dell'hash delle password | [Sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md)|
 |Autenticazione pass-through | [Autenticazione pass-through](how-to-connect-pta.md)
-|Writeback delle password | [Introduzione alla gestione delle password](../authentication/quickstart-sspr.md)|
+|writeback delle password | [Introduzione alla gestione delle password](../authentication/quickstart-sspr.md)|
 |Writeback dispositivi | [Abilitazione del writeback dei dispositivi in Azure AD Connect](how-to-connect-device-writeback.md)|
 |prevenzione delle eliminazioni accidentali | [Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |aggiornamento automatico | [Azure AD Connect: aggiornamento automatico](how-to-connect-install-automatic-upgrade.md)|
@@ -165,16 +165,16 @@ Il portale di Azure AD Connect Health visualizza gli avvisi, il monitoraggio del
 * **Active Directory Domain Services**: questa opzione visualizza tutte le foreste di Active Directory Domain Services attualmente monitorate da Azure AD Connect Health. Quando si seleziona una foresta, il pannello che si apre visualizza le informazioni su tale foresta. Queste informazioni includono una panoramica dei dati essenziali, il dashboard Controller di dominio, il dashboard Stato replica, avvisi e monitoraggio. Per altre informazioni sulle funzionalità, vedere [Uso di Azure AD Connect Health con Active Directory Domain Services](how-to-connect-health-adds.md).
 * **Configura**: questa sezione include le opzioni per attivare o disattivare quanto segue:
 
-   - **Aggiornamento automatico** dell'agente di Azure ad Connect Health alla versione più recente: l'agente di Azure ad Connect Health viene aggiornato automaticamente ogni volta che sono disponibili nuove versioni. Questa opzione è abilitata per impostazione predefinita.
+   - **Aggiornamento automatico** dell'agente di Azure ad Connect Health alla versione più recente: l'agente di Azure ad Connect Health viene aggiornato automaticamente ogni volta che sono disponibili nuove versioni. Per impostazione predefinita, questa casella di controllo è selezionata.
    - **Accesso ai dati** dall'integrità di Azure ad directory da parte di Microsoft solo ai fini della risoluzione dei problemi: se questa opzione è abilitata, Microsoft potrà accedere agli stessi dati visualizzati dall'utente. Queste informazioni possono essere utili per la risoluzione dei problemi e per fornire l'assistenza necessaria. Questa opzione è disabilitata per impostazione predefinita
 * **Controllo degli accessi in base al ruolo (IAM)** è la sezione per gestire l'accesso ai dati di Connect Health data in base al ruolo. 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Hardware e prerequisiti](how-to-connect-install-prerequisites.md) 
 - [Impostazioni rapide](how-to-connect-install-express.md)
 - [Impostazioni personalizzate](how-to-connect-install-custom.md)
-- [Sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md)|
+- [Sincronizzazione degli hash delle password](how-to-connect-password-hash-synchronization.md)|
 - [Autenticazione pass-through](how-to-connect-pta.md)
 - [Azure AD Connect e federazione](how-to-connect-fed-whatis.md)
 - [Installare gli agenti di Azure AD Connect Health](how-to-connect-health-agent-install.md) 

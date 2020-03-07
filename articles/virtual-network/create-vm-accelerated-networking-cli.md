@@ -17,15 +17,15 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793313"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363511"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creare una macchina virtuale Linux con rete accelerata usando l'interfaccia della riga di comando di Azure
 
-Questa esercitazione spiega come creare una macchina virtuale (VM) Linux con Rete Accelerata. Per creare una macchina virtuale Windows con la funzionalità rete accelerata, vedere [Creare una macchina virtuale Windows con Rete accelerata](create-vm-accelerated-networking-powershell.md). La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate ignora l'host del percorso dati riducendo la latenza, l'instabilità e l'utilizzo della CPU e può essere usato con i carichi di lavoro di rete più impegnativi nei tipi di VM supportati. L'immagine seguente illustra le comunicazioni tra due VM, con e senza rete accelerata:
+Questa esercitazione spiega come creare una macchina virtuale (VM) Linux con Rete Accelerata. Per creare una macchina virtuale Windows con la funzionalità rete accelerata, vedere [Creare una macchina virtuale Windows con Rete accelerata](create-vm-accelerated-networking-powershell.md). La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate esclude l'host dal percorso dati, riducendo così la latenza, l'instabilità e l'utilizzo della CPU e può essere usato con i carichi di lavoro di rete più impegnativi nei tipi di VM supportati. L'immagine seguente illustra le comunicazioni tra due VM, con e senza rete accelerata:
 
 ![Confronto](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -65,13 +65,13 @@ Per altre informazioni sulle istanze di VM, vedere [Dimensioni per le macchine v
 ### <a name="custom-images"></a>Immagini personalizzate
 Se si usa un'immagine personalizzata e l'immagine supporta la rete accelerata, assicurarsi di avere i driver necessari per lavorare con le schede NIC Mellanox ConnectX-3 e ConnectX-4 LX in Azure.
 
-### <a name="regions"></a>Aree
+### <a name="regions"></a>Regioni
 Questa funzionalità è disponibile in tutte le aree di Azure pubbliche e nel cloud di Azure per enti pubblici.
 
 <!-- ### Network interface creation 
 Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
-### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Abilitazione della rete accelerata in una macchina virtuale in esecuzione
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Abilitazione della Rete accelerata in una macchina virtuale in esecuzione
 In una dimensione della macchina virtuale supportata in cui la Rete accelerata non è abilitata, è possibile abilitare la funzionalità solo quando la macchina virtuale è arrestata e deallocata.  
 ### <a name="deployment-through-azure-resource-manager"></a>Distribuzione tramite Azure Resource Manager
 Le macchine virtuali (classiche) non possono essere distribuite con la funzionalità Rete accelerata.
@@ -85,7 +85,7 @@ Questo articolo illustra la procedura per creare una macchina virtuale con rete 
 Dopo aver creato la macchina virtuale, è possibile verificare che la rete accelerata sia abilitata seguendo le istruzioni riportate nella pagina [verificare che la rete accelerata sia abilitata](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="cli-creation"></a>Creazione dell'interfaccia della riga di comando
-### <a name="create-a-virtual-network"></a>Crea una rete virtuale
+### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
 
@@ -232,7 +232,7 @@ La funzionalità di rete accelerata è ora abilitata per la VM.
 Le applicazioni devono essere eseguite sulla scheda di interfaccia di rete sintetica esposta nella macchina virtuale. Se l'applicazione viene eseguita direttamente sulla scheda di interfaccia di rete VF, non riceve **tutti i** pacchetti destinati alla macchina virtuale, poiché alcuni pacchetti vengono visualizzati sull'interfaccia sintetica.
 Se un'applicazione viene eseguita sulla scheda di interfaccia di rete sintetica, garantisce che l'applicazione riceva **tutti i** pacchetti destinati a tale interfaccia. Inoltre, verifica che l'applicazione sia in esecuzione, anche se la VF viene revocata quando l'host è in fase di manutenzione. Le applicazioni che si collegano alla scheda di interfaccia di rete sintetica sono un requisito **obbligatorio** per tutte le applicazioni che sfruttano la **rete accelerata**.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>Abilitare la rete accelerata in macchine virtuali esistenti
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Abilitare la funzione Rete accelerata nelle macchine virtuali esistenti
 Se si è creata una macchina virtuale senza Rete accelerata, è possibile abilitare questa funzionalità in una macchina virtuale esistente.  Per il supporto di Rete accelerata, la macchina virtuale deve soddisfare i prerequisiti seguenti, descritti anche in precedenza:
 
 * La macchina virtuale deve essere di dimensioni supportate da Rete accelerata

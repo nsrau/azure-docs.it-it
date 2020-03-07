@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
 ms.openlocfilehash: b6802d97b964b8863f6c2fce0cebfe16782b46fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822004"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397164"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
  
@@ -41,7 +41,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 * La versione più recente di SQL Server Management Studio (SSMS) è installata. [Scaricare e installare SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio "Elastic Jobs Preview". Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.
+> Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio Elastic Jobs Preview. Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduzione ai modelli di gestione dello schema SaaS
 
@@ -55,13 +55,13 @@ Il modello con un database per ogni tenant consente di isolare i dati del tenant
 È disponibile una nuova versione del servizio Processi elastici che è ora una funzionalità integrata di database SQL di Azure. Questa nuova versione del servizio Processi elastici è attualmente in anteprima limitata. Questa anteprima limitata supporta attualmente l'utilizzo di PowerShell per creare un agente processo e T-SQL per creare e gestire i processi.
 
 > [!NOTE]
-> Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio "Elastic Jobs Preview". Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.
+> Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio Elastic Jobs Preview. Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
 Gli script di gestione e il codice sorgente sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
-## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creare un database di agenti processo e un nuovo agente processo
+## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creare un database dell'agente processo e un nuovo agente processo
 
 Questa esercitazione richiede l'uso di PowerShell per creare un agente processo e il relativo database di backup. Il database dell'agente processo contiene le definizioni e lo stato del processo e la cronologia. Dopo la creazione dell'agente processo e del relativo database, è possibile creare e monitorare i processi immediatamente.
 
@@ -77,7 +77,7 @@ Nell'app Wingtip Tickets ogni database tenant include un set di tipi di sedi sup
 Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database. 
 
 1. Aprire SSMS e connettersi al server del tenant *tenants1-dpt-&lt;user&gt;.database.windows.net*
-1. Per verificare che *Motorcycle Racing* e *Swimming Club*  **non siano** attualmente inclusi, passare al database _contosoconcerthall_ nel server *tenants1-dpt-&lt;utente&gt;* ed eseguire una query sulla tabella *VenueTypes*.
+1. Per verificare che *Motorcycle Racing* e *swimming Club* **non siano** attualmente inclusi, passare al database _contosoconcerthall_ nell' *utente tenants1--&lt;utente&gt;* Server ed eseguire una query sulla tabella *VenueTypes* .
 
 L'esercizio prevede ora la creazione di un processo per aggiornare la tabella *VenueTypes* in tutti i database tenant per aggiungere i nuovi tipi di sede.
 
@@ -95,7 +95,7 @@ Esaminare gli elementi seguenti nello script *DeployReferenceData.sql*:
 * **sp\_add\_jobstep** crea il passaggio del processo contenente il testo del comando T-SQL per aggiornare la tabella di riferimento VenueTypes.
 * Le restanti viste nello script consentono di confermare l'esistenza degli oggetti e gestire il monitoraggio dell'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** per determinare il momento in cui l'esecuzione del processo termina in tutti i database di destinazione.
 
-Dopo il completamento dello script, è possibile verificare se i dati di riferimento sono stati aggiornati.  In SSMS passare al database *contosoconcerthall* nel server *tenants1-dpt-&lt;user&gt;* ed eseguire una query sulla tabella *VenueTypes*.  Verificare che *Motorcycle Racing* e *Swimming Club* **siano** attualmente presenti.
+Dopo il completamento dello script, è possibile verificare se i dati di riferimento sono stati aggiornati.  In SSMS passare al database *contosoconcerthall* nel server *tenants1-dpt-&lt;user&gt;* ed eseguire una query sulla tabella *VenueTypes*.  Verificare che il Club di *motociclismo* e la *piscina* **siano** ora presenti.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Creare un processo per gestire l'indice della tabella di riferimento

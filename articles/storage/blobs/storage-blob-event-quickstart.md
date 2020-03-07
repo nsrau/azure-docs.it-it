@@ -4,18 +4,18 @@ description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di arc
 author: normesta
 ms.author: normesta
 ms.reviewer: cbrooks
-ms.date: 12/06/2018
-ms.topic: quickstart
+ms.date: 03/05/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: dc8ed420fdb04d04c02c91f2fa90939562b91645
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7f2807783f2750dbf87d22dfc6e356914e560e5d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845609"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398195"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Avvio rapido: Instradare gli eventi di archiviazione a un endpoint Web con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Guida introduttiva: Instradare gli eventi di archiviazione a un endpoint Web con l'interfaccia della riga di comando di Azure
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per sottoscrivere eventi di archiviazione BLOB e attivare l'evento per visualizzare il risultato.
 

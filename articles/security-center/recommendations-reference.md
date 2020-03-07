@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
 ms.openlocfilehash: a6a1371553ccd9b810ba4649af448fb8847d0ed8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604704"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380738"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza-una guida di riferimento
 
@@ -53,7 +53,7 @@ Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza c
 |----|----|----|----|----|
 |**Il controllo degli accessi in base al ruolo deve essere usato per limitare l'accesso a un cluster del servizio Kubernetes**|Per fornire filtri granulari delle azioni che gli utenti possono eseguire, usare il controllo degli accessi in base al ruolo (RBAC) per gestire le autorizzazioni nei cluster del servizio Kubernetes e configurare i criteri di autorizzazione pertinenti. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac).<br>(Criterio correlato: [Anteprima]: il controllo degli accessi in base al ruolo (RBAC) deve essere usato nei servizi Kubernetes)|Media|N|Risorse di calcolo (contenitori)|
 |**Il servizio Kubernetes deve essere aggiornato alla versione più recente di Kubernetes**|Aggiornare i cluster del servizio Kubernetes di Azure alla versione più recente di Kubernetes per trarre vantaggio dalle patch di vulnerabilità aggiornate. Per informazioni dettagliate sulle vulnerabilità Kubernetes specifiche, vedere [Kubernetes CVES](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes).<br>(Criterio correlato: [Anteprima]: i servizi Kubernetes devono essere aggiornati a una versione di Kubernetes non vulnerabile)|Alto|N|Risorse di calcolo (contenitori)|
-|**È necessario definire i criteri di sicurezza di pod per ridurre il vettore di attacco rimuovendo i privilegi di applicazione non necessari (anteprima)**|Definire i criteri di sicurezza pod per ridurre il vettore di attacco rimuovendo i privilegi di applicazione non necessari. È consigliabile configurare i criteri di sicurezza pod in modo che i pod possano accedere solo alle risorse a cui sono autorizzati ad accedere.<br>(Criterio correlato: [Anteprima]: i criteri di sicurezza Pod devono essere definiti nei servizi Kubernetes)|Media|N|Risorse di calcolo (contenitori)|
+|**È necessario definire i criteri di sicurezza di pod per ridurre il vettore di attacco rimuovendo i privilegi di applicazione non necessari (anteprima)**|Consente di definire i criteri di sicurezza pod per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari. È consigliabile configurare i criteri di sicurezza pod in modo che i pod possano accedere solo alle risorse a cui sono autorizzati ad accedere.<br>(Criterio correlato: [Anteprima]: i criteri di sicurezza Pod devono essere definiti nei servizi Kubernetes)|Media|N|Risorse di calcolo (contenitori)|
 |**L'accesso a un'API di gestione del servizio Kubernetes deve essere limitato autorizzando solo intervalli IP specifici**|Limitare l'accesso all'API di gestione del servizio Kubernetes concedendo l'accesso all'API solo agli indirizzi IP in intervalli specifici. È consigliabile configurare gli intervalli IP autorizzati, in modo che solo le applicazioni dalle reti consentite possano accedere al cluster.<br>(Criterio correlato: [Anteprima]: gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes)|Alto|N|Risorse di calcolo (contenitori)|
 |**È necessario correggere le vulnerabilità in Azure Container Registry immagini (basate su Qualys)**|La valutazione della vulnerabilità delle immagini del contenitore analizza il registro per individuare le vulnerabilità di sicurezza in ogni immagine del contenitore push ed espone i risultati dettagliati per ogni immagine La risoluzione delle vulnerabilità può migliorare significativamente il comportamento di sicurezza dei contenitori e proteggerli dagli attacchi.<br>(Nessun criterio correlato)|Alto|N|Risorse di calcolo (contenitori)|
 ||||||

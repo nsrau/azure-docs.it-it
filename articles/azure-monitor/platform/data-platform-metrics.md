@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 80bbf83da17d833c4f8bb1abac9610d70e9a23cb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666531"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362051"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metriche in Monitoraggio di Azure
 
@@ -32,11 +32,11 @@ La tabella seguente elenca i diversi modi in cui è possibile usare i dati delle
 
 |  |  |
 |:---|:---|
-| Analizza | Usare [Esplora metriche](metrics-charts.md) per analizzare le metriche raccolte in un grafico e confrontare le metriche da diverse risorse. |
-| Visualizza | Aggiungere un grafico da Esplora metriche a un [dashboard di Azure](../learn/tutorial-app-dashboards.md).<br>Creare una [cartella di lavoro](../app/usage-workbooks.md) per combinare più set di dati in un report interattivo. Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttare il dashboard e combinarli con altre origini dati. |
+| Analisi | Usare [Esplora metriche](metrics-charts.md) per analizzare le metriche raccolte in un grafico e confrontare le metriche da diverse risorse. |
+| Visualizzazione | Aggiungere un grafico da Esplora metriche a un [dashboard di Azure](../learn/tutorial-app-dashboards.md).<br>Creare una [cartella di lavoro](../app/usage-workbooks.md) per combinare più set di dati in un report interattivo. Esportare i risultati di una query in [Grafana](grafana-plugin.md) per sfruttare il dashboard e combinarli con altre origini dati. |
 | Avviso | Configurare una [regola di avviso](alerts-metric.md) per la metrica che invia una notifica o esegue un' [azione automatica](action-groups.md) quando il valore della metrica supera una soglia. |
 | Automatizzare |  Usare la [scalabilità](autoscale-overview.md) automatica per aumentare o diminuire le risorse in base a un valore della metrica che supera una soglia. |
-| Export | [Instrada le metriche ai log](resource-logs-collect-storage.md) per analizzare i dati nelle metriche di monitoraggio di Azure insieme ai dati nei log di monitoraggio di Azure e archiviare i valori delle metriche per più di 93 giorni.<br>Trasmettere le metriche a un [Hub eventi](stream-monitoring-data-event-hubs.md) per indirizzarle a sistemi esterni. |
+| Esportazione | [Instrada le metriche ai log](resource-logs-collect-storage.md) per analizzare i dati nelle metriche di monitoraggio di Azure insieme ai dati nei log di monitoraggio di Azure e archiviare i valori delle metriche per più di 93 giorni.<br>Trasmettere le metriche a un [Hub eventi](stream-monitoring-data-event-hubs.md) per indirizzarle a sistemi esterni. |
 | Recupero | Accedere ai valori delle metriche da una riga di comando usando i [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Accedere ai valori delle metriche dall'applicazione personalizzata usando l' [API REST](rest-api-walkthrough.md).<br>Accedere ai valori delle metriche dalla riga di comando usando l' [interfaccia](/cli/azure/monitor/metrics)della riga di comando. |
 | Archiviazione | [Archiviare](..//learn/tutorial-archive-data.md) la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di conformità, verifica o creazione di report offline. |
 
