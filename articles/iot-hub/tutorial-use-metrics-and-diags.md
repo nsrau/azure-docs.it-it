@@ -9,13 +9,13 @@ ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 7ce56237631b858347a99c310751d4f2c1506e10
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108225"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396569"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare le metriche e i log di diagnostica con un hub IoT
+# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Esercitazione: configurare e usare le metriche e i log di diagnostica con un hub Internet delle cose
 
 Se si dispone di una soluzione hub IoT in esecuzione nell'ambiente di produzione, è possibile configurare alcune metriche e abilitare i log di diagnostica. Se si verifica un problema, sarà quindi possibile esaminare i dati che consentono di diagnosticare il problema e risolverlo più rapidamente. In questo articolo verrà illustrato come abilitare i log di diagnostica e come controllarli per verificare la presenza di errori. Verranno inoltre configurate alcune metriche da controllare e gli avvisi che vengono generati quando le metriche raggiungono un determinato limite. Ad esempio, si potrebbe impostare la ricezione di un messaggio di posta elettronica quando il numero di messaggi di telemetria inviati supera un limite specifico o quando il numero di messaggi usati sta per raggiungere la quota di messaggi consentiti al giorno per l'hub IoT. 
 
@@ -118,7 +118,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ```
 
 >[!NOTE]
->Quando si crea l'identità del dispositivo, è possibile che venga visualizzato l'errore seguente: *Nessuna chiave trovata per i criteri iothubowner dell'hub IoT ContosoTestHub*. Per correggere questo errore, aggiornare l'estensione IoT dell'interfaccia della riga di comando di Azure e quindi eseguire nuovamente gli ultimi due comandi dello script. 
+>Quando si crea l'identità del dispositivo, è possibile che si verifichi l'errore seguente: *non sono state trovate chiavi per i criteri iothubowner dell'hub ContosoTestHub*. Per correggere questo errore, aggiornare l'estensione IoT dell'interfaccia della riga di comando di Azure e quindi eseguire nuovamente gli ultimi due comandi dello script. 
 >
 >Di seguito è riportato il comando per aggiornare l'estensione. Eseguire questo comando nell'istanza di Cloud Shell.
 >
@@ -137,7 +137,7 @@ I [log di diagnostica](../azure-monitor/platform/platform-logs-overview.md) sono
    ![Schermata che mostra la parte delle impostazioni di diagnostica del pannello Hub IoT.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
-3. Verificare che la sottoscrizione e il gruppo di risorse siano corretti. In **Tipo di risorsa** deselezionare **Seleziona tutto**, quindi cercare e selezionare **Hub IoT**. Viene visualizzato di nuovo il segno di spunta accanto a *Seleziona tutto* che in questo caso può essere ignorato. In **Risorsa** selezionare il nome dell'hub. Verrà visualizzata una schermata simile alla seguente: 
+3. Verificare che la sottoscrizione e il gruppo di risorse siano corretti. In **Tipo di risorsa** deselezionare **Seleziona tutto**, quindi cercare e selezionare **Hub IoT**. (Viene inserito il segno di spunta accanto a *Seleziona tutto* , semplicemente ignorarlo). In **risorsa**selezionare il nome dell'hub. Verrà visualizzata una schermata simile alla seguente: 
 
    ![Schermata che mostra la parte delle impostazioni di diagnostica del pannello Hub IoT.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
@@ -198,25 +198,25 @@ L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](/
 
     Compilare i campi: 
 
-    **Sottoscrizione** lasciare questo campo impostato sulla sottoscrizione corrente.
+    **Sottoscrizione**: lasciare questo campo impostato sulla sottoscrizione corrente.
 
-    **Origine**: impostare questo campo su *Metriche*.
+    **Origine**: impostare questo campo su *metrica*.
 
-    **Gruppo di risorse**: impostare questo campo sul gruppo di risorse corrente *ContosoResources*. 
+    **Gruppo di risorse**: impostare questo campo sul gruppo di risorse corrente, *ContosoResources*. 
 
-    **Tipo di risorsa**: impostare questo campo su Hub IoT. 
+    **Tipo di risorsa**: impostare questo campo sull'hub Internet. 
 
-    **Resource** (Risorsa): selezionare l'hub IoT *ContosoTestHub*.
+    **Risorsa**: selezionare l'hub Internet delle cose, *ContosoTestHub*.
 
 3. Fare clic su **Aggiungi avviso per la metrica (versione classica)** per configurare un nuovo avviso.
 
     Compilare i campi:
 
-    **Name**: specificare un nome per la regola di avviso, ad esempio *telemetry-messages*.
+    **Nome**: specificare un nome per la regola di avviso, ad esempio *i messaggi di telemetria*.
 
-    **Descrizione**: fornire una descrizione dell'avviso, ad esempio *alert when there are 1000 telemetry messages sent*. 
+    **Descrizione**: fornire una descrizione dell'avviso, ad esempio *quando sono presenti 1000 messaggi di telemetria inviati*. 
 
-    **Origine**: impostare questa opzione su *Metriche*.
+    **Origine**: impostare questa impostazione su *metrica*.
 
     I campi **Sottoscrizione**, **Gruppo di risorse** e **Risorsa** devono essere impostati sui valori selezionati nella schermata **Visualizza avvisi classici**. 
 
@@ -226,13 +226,13 @@ L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](/
 
 4. Dopo il grafico impostare i campi seguenti:
 
-   **Condizione**: Impostare su *Maggiore di*.
+   **Condition**: impostare su un *valore maggiore di*.
 
-   **Soglia**: Impostare su 1000.
+   **Soglia**: impostare su 1000.
 
-   **Periodo**: Impostare su *Negli ultimi 5 minuti*.
+   **Periodo**: impostare su *negli ultimi 5 minuti*.
 
-   **Destinatari dei messaggi di posta elettronica di notifica**: Immettere l'indirizzo di posta elettronica personale. 
+   **Destinatari di posta elettronica di notifica**: inserire l'indirizzo di posta elettronica. 
 
    ![Schermata che mostra la metà inferiore della schermata degli avvisi.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
 
@@ -242,11 +242,11 @@ L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](/
 
    Nella schermata **Visualizza avvisi classici** fare clic su **Aggiungi avviso per la metrica (versione classica)** , quindi compilare questi campi nel riquadro **Aggiungi regola**.
 
-   **Name**: specificare un nome per la regola di avviso, ad esempio *number-of-messages-used*.
+   **Nome**: specificare un nome per la regola di avviso, ad esempio *numero di messaggi usati*.
 
-   **Descrizione**: fornire una descrizione dell'avviso, ad esempio *alert when getting close to quota*.
+   **Descrizione**: fornire una descrizione dell'avviso, ad esempio *avviso quando si avvicina alla quota*.
 
-   **Origine**: impostare questo campo su *Metriche*.
+   **Origine**: impostare questo campo su *metrica*.
 
     I campi **Sottoscrizione**, **Gruppo di risorse** e **Risorsa** devono essere impostati sui valori selezionati nella schermata **Visualizza avvisi classici**. 
 
@@ -254,13 +254,13 @@ L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](/
 
 6. Sotto il grafico compilare i campi seguenti:
 
-   **Condizione**: Impostare su *Maggiore di*.
+   **Condition**: impostare su un *valore maggiore di*.
 
-   **Soglia**: Impostare su 1000.
+   **Soglia**: impostare su 1000.
 
-   **Periodo**: Impostare questo campo su *Negli ultimi 5 minuti*. 
+   **Periodo**: impostare questo campo su *negli ultimi 5 minuti*. 
 
-   **Destinatari dei messaggi di posta elettronica di notifica**: Immettere l'indirizzo di posta elettronica personale. 
+   **Destinatari di posta elettronica di notifica**: inserire l'indirizzo di posta elettronica. 
 
    Fare clic su **OK** per salvare la regola. 
 

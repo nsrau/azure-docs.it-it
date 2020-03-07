@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione"
+title: "Esercitazione: stimare il prezzo dell'automobile con la finestra di progettazione"
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando un'interfaccia basata su trascinamento della selezione. Questa esercitazione è la prima parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
 author: peterclu
@@ -10,13 +10,13 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623622"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396220"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
+# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: stimare il prezzo dell'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In questa esercitazione in due parti si apprenderà come usare la finestra di progettazione di Azure Machine Learning per eseguire il training e la distribuzione di un modello di Machine Learning che stima il prezzo di qualsiasi automobile. La finestra di progettazione è uno strumento con trascinamento della selezione che consente di creare modelli di Machine Learning senza scrivere una sola riga di codice.
@@ -35,7 +35,7 @@ Nella [seconda parte](tutorial-designer-automobile-price-deploy.md) dell'esercit
 > [!NOTE]
 >Una versione completa dell'esercitazione è disponibile come pipeline di esempio.
 >
->Per trovarla, passare alla finestra di progettazione nell'area di lavoro. Nella sezione **New pipeline** (Nuova pipeline) selezionare **Sample 1 - Regression: Automobile Price Prediction(Basic)** .
+>Per trovarla, passare alla finestra di progettazione nell'area di lavoro. Nella sezione **nuova pipeline** selezionare **Sample 1-regressione: automobile Price Prediction (Basic)** .
 
 ## <a name="create-a-new-pipeline"></a>Creare una nuova pipeline
 
@@ -260,7 +260,7 @@ Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il puntegg
 
 ## <a name="run-the-pipeline"></a>Eseguire la pipeline
 
-Ora che la pipeline è completamente configurata, è possibile inviare un'esecuzione della pipeline per eseguire il training del modello di Machine Learning. È possibile inviare un'esecuzione della pipeline in qualsiasi momento durante la creazione di pipeline nella finestra di progettazione. È possibile eseguire questa operazione per controllare il lavoro man mano che si procede e verificare le funzioni della pipeline come previsto.
+Ora che la pipeline è stata impostata, è possibile inviare un'esecuzione di pipeline per il training del modello di machine learning. È possibile inviare un'esecuzione di pipeline in qualsiasi momento durante la compilazione di pipeline nella finestra di progettazione. È possibile eseguire questa operazione per verificare il proprio lavoro mentre si procede e verificare le funzioni della pipeline come previsto.
 
 1. Nella parte superiore dell'area di disegno selezionare **Esegui**.
 
@@ -297,11 +297,11 @@ Usare **Evaluate Model** (Valutazione modello) per verificare le prestazioni del
 
 Per il modello vengono visualizzate le seguenti statistiche:
 
-* **Errore assoluto medio** (MAE): la media degli errori assoluti. Un errore è la differenza tra il valore stimato e quello effettivo.
-* **Radice dell'errore quadratico medio** (RMSE): Radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
-* **Errore assoluto relativo**: Media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
-* **Errore quadratico relativo**: Media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
-* **Coefficiente di determinazione**: noto anche come valore quadratico R, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
+* **Errore assoluto medio (Mae)** : media degli errori assoluti. Un errore è la differenza tra il valore stimato e quello effettivo.
+* **Radice errore quadratico medio (valori RMSE)** : radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
+* **Relative Absolute Error**(errore assoluto relativo): media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
+* **Relative Squared Error**(errore quadratico relativo): media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
+* **Coefficiente di determinazione**: anche noto come valore di R quadrato, questa metrica statistica indica il modo in cui un modello si adatta ai dati.
 
 Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per il coefficiente di determinazione, più il valore si avvicina a uno (1,0) più le stime sono precise.
 

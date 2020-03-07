@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: bae44f67a485546ba29148a114d88df198f7c3e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483089"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361689"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Creare e gestire il peering pubblico di ExpressRoute
 
@@ -48,7 +48,7 @@ Questa sezione illustra i servizi disponibili tramite peering pubblico. Poiché 
 * È supportata la maggior parte dei servizi di Azure. Controllare direttamente con il servizio che si vuole usare per verificare il supporto.
 
 **Non supportato:**
-  * Rete CDN
+  * RETE CDN
   * Frontdoor di Azure
   * Server di autenticazione a più fattori (legacy)
   * Gestione traffico

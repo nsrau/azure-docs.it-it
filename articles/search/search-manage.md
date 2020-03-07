@@ -10,11 +10,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754321"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379601"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Amministrazione dei servizi per Azure ricerca cognitiva nel portale di Azure
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ I clienti che usano gli [indicizzatori](search-indexer-overview.md) per compilar
 
 Se non si usano gli indicizzatori, l'utente userà il codice dell'applicazione per eseguire il push sugli oggetti e i dati per diversi servizi in parallelo. Per altre informazioni, vedere [prestazioni e ottimizzazione in Azure ricerca cognitiva](search-performance-optimization.md).
 
-## <a name="backup-and-restore"></a>Eseguire backup e ripristino
+## <a name="backup-and-restore"></a>Backup e ripristino
 
 Poiché ricerca cognitiva di Azure non è una soluzione di archiviazione dati primaria, non è disponibile un meccanismo formale per il backup e il ripristino self-service. Tuttavia, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio di Azure ricerca cognitiva .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) per eseguire il backup della definizione dell'indice e dello snapshot in una serie di file JSON e quindi usare questi file per ripristinare l'indice, se necessario. Questo strumento può inoltre spostare gli indici tra i livelli di servizio.
 
@@ -83,7 +83,7 @@ In caso contrario, il codice dell'applicazione utilizzato per creare e popolare 
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>Scalabilità verticale
+## <a name="scale-up-or-down"></a>Aumentare o ridurre la quantità di risorse
 Ogni servizio di ricerca viene creato con un minimo di una replica e una partizione. Se l'utente ha effettuato l'iscrizione a un [livello che offre risorse dedicate](search-limits-quotas-capacity.md), fare clic su sul riquadro **SCALA** nel dashboard del servizio per regolare l'uso delle risorse.
 
 Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunta viene usata dal servizio in modo automatico. Non sono necessarie altre azioni da parte dell'utente, ma vi sarà un lieve ritardo prima che l'impatto delle nuove risorse sia apprezzabile. Possono essere necessari 15 o più minuti per il provisioning delle risorse aggiuntive.

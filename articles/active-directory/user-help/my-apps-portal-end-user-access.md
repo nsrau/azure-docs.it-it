@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a5dae30c8b8f43602581b39005389211da83cb9e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022306"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375883"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Accedere e avviare app dal portale app personali
 
@@ -97,7 +97,7 @@ Se si dispone dell'autorizzazione per accedere e usare le app basate sul cloud d
 
 1. Accedere all'account aziendale o dell'Istituto di istruzione nel computer.
 
-2. In un Web browser supportato aprire e passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio `https://myapps.microsoft.com/contoso.com`.
+2. In un Web browser supportato aprire e passare a https://myapps.microsoft.comoppure usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio `https://myapps.microsoft.com/contoso.com`.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione che sono disponibili per l'uso.
 
@@ -111,7 +111,7 @@ Consente di visualizzare e usare le app dell'organizzazione da una Intune Manage
 
 1. Nel dispositivo mobile scaricare e installare l'app Intune Managed Browser dall' [App Store di Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e la [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Aprire l'app Intune Managed Browser, passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Aprire l'app Intune Managed Browser, passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -125,7 +125,7 @@ Visualizzare e usare il portale **app personali** da un dispositivo iPhone o iPa
 
 1. Sul dispositivo mobile, avviare un'app Web browser, ad esempio Safari.
 
-2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione che sono disponibili per l'uso.
 
@@ -139,7 +139,7 @@ Visualizzare e usare il portale **app personali** in un dispositivo Android.
 
 1. Sul dispositivo mobile, avviare un'app Web browser, ad esempio Google Chrome.
 
-2. Passare a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
+2. Passare a https://myapps.microsoft.como usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
 
     Viene visualizzata la pagina **app** , che Mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
@@ -178,12 +178,12 @@ Se l'amministratore ha concesso l'autorizzazione, è possibile aggiungere una nu
 
 Dopo aver ottenuto il portale **app personali** , è possibile:
 
-- Organizzare le app nelle diverse categorie create e fornite dall'organizzazione. Per altre informazioni, vedere [Access and use Collections nel portale app personali](my-applications-portal-workspaces.md).
+- Organizzare le app nelle diverse categorie create e fornite dall'organizzazione. Per altre informazioni, vedere [Accedere e usare le raccolte nel portale App personali](my-applications-portal-workspaces.md).
 
-- Esaminare, aggiornare o revocare le autorizzazioni concesse alle applicazioni. Per altre informazioni, vedere [modificare o revocare le autorizzazioni dell'applicazione nel portale app personali](my-applications-portal-permissions-saved-accounts.md).
+- Esaminare, aggiornare o revocare le autorizzazioni concesse alle applicazioni. Per altre informazioni, vedere [Modificare o revocare le autorizzazione per le applicazioni nel portale App personali](my-applications-portal-permissions-saved-accounts.md).
 
 >[!Note]
->Se non viene visualizzata alcuna raccolta o categoria disponibile, significa che l'amministratore non ha configurato o condiviso alcun utente. Rivolgersi al supporto tecnico dell'organizzazione per ottenere assistenza o autorizzazioni aggiuntive per visualizzare le raccolte condivise.
+>Se non sono disponibili raccolte o categorie, significa che l'amministratore non le ha configurate né condivise. Rivolgersi all'help desk dell'organizzazione per ottenere ulteriore assistenza o le autorizzazioni per visualizzare le raccolte condivise.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

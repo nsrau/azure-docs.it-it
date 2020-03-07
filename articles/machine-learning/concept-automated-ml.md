@@ -11,11 +11,11 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
 ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190348"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396445"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 

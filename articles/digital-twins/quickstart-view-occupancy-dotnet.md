@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Trovare stanze disponibili - Gemelli digitali di Azure | Microsoft Docs'
+title: 'Guida introduttiva: trovare le chat disponibili-dispositivi gemelli digitali di Azure | Microsoft Docs'
 description: In questa guida introduttiva si eseguono due applicazioni .NET Core di esempio per inviare dati di telemetria simulati relativi a movimento ed emissioni di anidride carbonica in uno spazio in Gemelli digitali di Azure. L'obiettivo è trovare le stanze disponibili con aria pulita dalle API di gestione dopo l'elaborazione nel cloud.
 ms.author: alinast
 author: alinamstanciu
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 01/10/2020
 ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895543"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382245"
 ---
-# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Avvio rapido: Trovare le stanze disponibili usando Gemelli digitali di Azure
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
 Il servizio Gemelli digitali di Azure consente di ricreare un'immagine digitale dell'ambiente fisico. È quindi possibile ricevere notifiche in base agli eventi che si verificano nell'ambiente e personalizzare le risposte agli eventi.
 
@@ -55,8 +55,8 @@ Compilare l'applicazione di occupazione seguendo questa procedura.
 1. Eseguire `cd occupancy-quickstart/src`.
 1. Eseguire `dotnet restore`.
 1. Modificare [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) per aggiornare le variabili seguenti:
-    - **ClientId**: immettere l'ID applicazione della registrazione dell'app Azure AD, di cui si preso nota nella sezione precedente.
-    - **Tenant**: immettere l'ID directory del tenant di Azure AD, di cui si è preso nota nella sezione precedente.
+    - **ClientId**: immettere l'ID applicazione della registrazione dell'app Azure AD, annotato nella sezione precedente.
+    - **Tenant**: immettere l'ID directory del tenant di Azure AD, anche questo annotato nella sezione precedente.
     - **BaseUrl**: URL dell'API di gestione dell'istanza di Gemelli digitali nel formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Sostituire i segnaposto in questo URL con i valori per l'istanza dalla sezione precedente.
 
     Salvare il file aggiornato.

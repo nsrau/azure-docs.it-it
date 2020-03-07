@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 786b21e7571ed173d2da90f587a5b76d8c92a13d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450877"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390730"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
 
@@ -39,15 +39,15 @@ Per la maggior parte delle organizzazioni, non è necessaria la creazione di pi�
 
 1. Selezionare **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 2. Cercare *DDoS*. Selezionare **DDoS protection plan** (Piano di protezione DDoS) quando viene visualizzato nei risultati della ricerca.
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 4. Immettere o selezionare i valori personalizzati, oppure immettere o selezionare i valori di esempio seguenti, quindi selezionare **Crea**:
 
     |Impostazione        |Valore                                              |
     |---------      |---------                                          |
-    |Nome           | myDdosProtectionPlan                              |
-    |Sottoscrizione   | Selezionare la propria sottoscrizione.                         |
+    |Name           | myDdosProtectionPlan                              |
+    |Subscription   | Selezionare la propria sottoscrizione.                         |
     |Gruppo di risorse | Selezionare **Crea nuovo** e immettere *myResourceGroup* |
-    |Percorso       | Stati Uniti orientali                                           |
+    |Location       | Stati Uniti orientali                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Abilitare DDoS per una nuova rete virtuale
 
@@ -57,10 +57,10 @@ Per la maggior parte delle organizzazioni, non è necessaria la creazione di pi�
 
     | Impostazione         | Valore                                                        |
     | ---------       | ---------                                                    |
-    | Nome            | myVirtualNetwork                                             |
-    | Sottoscrizione    | Selezionare la propria sottoscrizione.                                    |
+    | Name            | myVirtualNetwork                                             |
+    | Subscription    | Selezionare la propria sottoscrizione.                                    |
     | Gruppo di risorse  | Selezionare **Usa esistente** e quindi **myResourceGroup** |
-    | Percorso        | Stati Uniti orientali                                                      |
+    | Location        | Stati Uniti orientali                                                      |
     | Protezione DDoS | Selezionare **Standard** e quindi in **Protezione DDoS** selezionare **myDdosProtectionPlan** Il piano selezionato può essere nella stessa sottoscrizione della rete virtuale o in una diversa, ma entrambe le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory.|
 
 Non è possibile spostare una rete virtuale in un altro gruppo di risorse o in un'altra sottoscrizione quando la protezione DDoS standard è abilitata per la rete virtuale. Se si vuole spostare una rete virtuale con la protezione DDoS standard abilitata, disabilitare innanzitutto la protezione, spostare la rete virtuale e quindi abilitare la protezione DDoS standard. Dopo lo spostamento, vengono reimpostate le soglie dei criteri ottimizzati automaticamente per tutti gli indirizzi IP pubblici protetti nella rete virtuale.
@@ -107,12 +107,12 @@ Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile sel
 
     |Impostazione                  |Valore                                                                                               |
     |---------                |---------                                                                                           |
-    |Nome                     | myDdosAlert                                                                                        |
-    |Sottoscrizione             | Selezionare la sottoscrizione che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.        |
+    |Name                     | myDdosAlert                                                                                        |
+    |Subscription             | Selezionare la sottoscrizione che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.        |
     |Gruppo di risorse           | Selezionare il gruppo di risorse che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.      |
-    |Gruppi                 | Selezionare l'indirizzo IP pubblico che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi. La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile eseguire il monitoraggio dell'indirizzo IP pubblico di tutte le risorse distribuite tramite Resource Manager (distribuzione classica) elencate in [Rete virtuale per servizi di Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), ad eccezione degli ambienti di Servizio app di Azure e del gateway VPN di Azure. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
+    |Resource                 | Selezionare l'indirizzo IP pubblico che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi. La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile eseguire il monitoraggio dell'indirizzo IP pubblico di tutte le risorse distribuite tramite Resource Manager (distribuzione classica) elencate in [Rete virtuale per servizi di Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), ad eccezione degli ambienti di Servizio app di Azure e del gateway VPN di Azure. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
     |Metrica                   | Sotto attacco DDoS o no                                                                            |
-    |Soglia                | 1 - **1** indica che è in corso un attacco **0** indica che non è in corso un attacco                         |
+    |destinazione                | 1 - **1** indica che è in corso un attacco **0** indica che non è in corso un attacco                         |
     |Periodo                   | Selezionare un valore di propria scelta                                                                   |
     |Notifica tramite posta elettronica         | Selezionare la casella di controllo                                                                                  |
     |Amministratore aggiuntivo | Immettere l'indirizzo di posta elettronica se non si è proprietario, collaboratore o lettore di posta elettronica per la sottoscrizione |
@@ -230,7 +230,7 @@ Gli avvisi includono informazioni generali sull'indirizzo IP pubblico che si tro
 
 Per lavorare con i piani di protezione DDoS, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Azione                                            | Nome                                     |
+| Azione                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Leggere un piano di protezione DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Creare o aggiornare un piano di protezione DDoS  |

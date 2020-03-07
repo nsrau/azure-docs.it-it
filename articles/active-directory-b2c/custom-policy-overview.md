@@ -11,11 +11,11 @@ ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365260"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Criteri personalizzati in Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ I criteri personalizzati sono file di configurazione che definiscono il comporta
 |-|-------------------|-----------------|
 | Utenti di destinazione | Tutti gli sviluppatori di applicazioni con o senza competenze di identità. | Professionisti di identità, integratori di sistemi, consulenti e team interni per la gestione di identità. Sono confortevoli con i flussi di OpenID Connect e comprendono i provider di identità e l'autenticazione basata sulle attestazioni. |
 | Metodo di configurazione | Portale di Azure con un'interfaccia utente (UI) intuitiva. | Modifica diretta dei file XML e caricamento nel portale di Azure. |
-| Personalizzazione dell'interfaccia utente | Personalizzazione completa dell'interfaccia utente, inclusi HTML, CSS e JavaScript.<br><br>Supporto multilingue con stringhe personalizzate. | Uguale |
+| personalizzazione interfaccia utente | Personalizzazione completa dell'interfaccia utente, inclusi HTML, CSS e JavaScript.<br><br>Supporto multilingue con stringhe personalizzate. | Uguale |
 | Personalizzazione degli attributi | Attributi standard e personalizzati. | Uguale |
 | Gestione delle sessioni e dei token | Token personalizzato e opzioni di sessione multiple. | Uguale |
 | Provider di identità | Provider locale o sociale predefinito e la maggior parte dei provider di identità OIDC, ad esempio la Federazione con Azure Active Directory tenant. | OIDC, SAML e OAuth basati su standard.  L'autenticazione è inoltre possibile tramite l'integrazione con le API REST. |

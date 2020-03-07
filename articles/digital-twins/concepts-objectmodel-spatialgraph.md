@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui modelli a oggetti e sul grafico di intelligence spaziale-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Usa Gemelli digitali di Azure per modellare le relazioni tra persone, luoghi e dispositivi
+description: Gemelli digitali di Azure consente di modellare le relazioni tra persone, luoghi e dispositivi
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,11 +9,11 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562596"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382250"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 

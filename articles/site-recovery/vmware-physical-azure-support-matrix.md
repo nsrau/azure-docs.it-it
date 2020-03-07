@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 1/21/2020
 ms.author: raynew
 ms.openlocfilehash: b7ace4f470a4e054be5d7f5945fc3e9c4f7d0810
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444248"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362890"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -55,7 +55,7 @@ Ruoli di Windows Server | Non abilitare Active Directory Domain Services; Intern
 Criteri di gruppo| - Impedisci accesso al prompt dei comandi <br/> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br/> - Logica di attendibilità per file allegati <br/> - Attiva l'esecuzione di script <br/> - [altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Assicurarsi di:<br/><br/> - Non avere un sito Web predefinito preesistente <br/> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Non avere un sito Web o un'app preesistente in ascolto sulla porta 443<br/>
 Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware)
-Tipo di indirizzo IP | Static
+Tipo di indirizzo IP | Statico
 Porte | 443 usato per l'orchestrazione del canale di controllo<br/>9443 per il trasporto dati
 
 ## <a name="replicated-machines"></a>Computer replicati
