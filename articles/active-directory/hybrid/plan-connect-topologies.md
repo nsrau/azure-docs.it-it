@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Topologie supportate | Microsoft Docs'
+title: 'Azure AD Connect: topologie supportate | Microsoft Docs'
 description: Questo argomento illustra in modo dettagliato le topologie supportate e non supportate per Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275223"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375951"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -42,7 +42,7 @@ Ecco la legenda delle immagini usate nell'articolo:
 
 
 > [!IMPORTANT]
-> Microsoft non supporta la modifica o l'uso del servizio di sincronizzazione Azure AD Connect al di fuori delle configurazioni e delle azioni descritte in modo formale. Ognuna di queste configurazioni o azioni potrebbe avere come risultato uno stato incoerente o non supportato del sevizio di sincronizzazione Azure AD Connect. Microsoft pertanto non offre il supporto tecnico per distribuzioni di questo tipo.
+> Microsoft non supporta la modifica o l'uso del servizio di sincronizzazione Azure AD Connect al di fuori delle configurazioni e delle azioni descritte in modo formale. Una di queste configurazioni o azioni può causare uno stato incoerente o non supportato della sincronizzazione Azure AD Connect. Di conseguenza, Microsoft non è in grado di fornire supporto tecnico per tali distribuzioni.
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Foresta singola, tenant singolo di Azure AD

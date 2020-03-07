@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 365c228edd97ffcd02b86508deff4272365447f6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.openlocfilehash: 99083cd08db98a6d6ac56d4cf55aaf9d0e64e2b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672141"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362087"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente Log Analytics
 Azure Log Analytics Agent è stato sviluppato per una gestione completa tra macchine virtuali in qualsiasi cloud, computer locali e quelli monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro Log Analytics in monitoraggio di Azure, nonché a qualsiasi metrica o log univoco definito in una soluzione di monitoraggio. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in monitoraggio di Azure, ad esempio [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), il [Centro sicurezza di Azure](/azure/security-center/)e [automazione di Azure](../../automation/automation-intro.md).
@@ -39,7 +39,7 @@ Non è previsto alcun costo per Log Analytics Agent, ma è possibile che vengano
 ## <a name="data-collected"></a>Dati raccolti
 Nella tabella seguente sono elencati i tipi di dati che è possibile configurare un'area di lavoro di Log Analytics per la raccolta da tutti gli agenti connessi. Vedere [che cosa viene monitorato da monitoraggio di Azure?](../monitor-reference.md) per un elenco di informazioni dettagliate, soluzioni e altre soluzioni che usano l'agente di log Analytics per raccogliere altri tipi di dati.
 
-| Origine dati | Descrizione |
+| origine dati | Descrizione |
 | --- | --- |
 | [Log eventi di Windows](data-sources-windows-events.md) | Informazioni inviate al sistema di registrazione eventi di Windows. |
 | [Syslog](data-sources-syslog.md)                     | Informazioni inviate al sistema di registrazione eventi di Linux. |
@@ -70,7 +70,7 @@ Se si usa System Center Operations Manager 2012 R2 o versione successiva:
 
 Sono disponibili diversi metodi per installare l'agente di Log Analytics e connettere il computer a monitoraggio di Azure in base alle esigenze. Nella tabella seguente illustra ogni metodo per determinare quello più adatto alla propria organizzazione.
 
-|Origine | Metodo | Descrizione|
+|Source (Sorgente) | Metodo | Descrizione|
 |-------|-------------|-------------|
 |Macchina virtuale di Azure| [Manualmente dalla portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Specificare le macchine virtuali da distribuire dall'area di lavoro Log Analytics. |
 | | Log Analytics estensione VM per [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) con l'interfaccia della riga di comando di Azure o con un modello di Azure Resource Manager | L'estensione installa l'agente di Log Analytics nelle macchine virtuali di Azure e le registra in un'area di lavoro di Log Analytics esistente. |
@@ -101,7 +101,7 @@ Questa sezione fornisce informazioni dettagliate sulle distribuzioni Linux suppo
 A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di supporto sono state apportate le modifiche seguenti:  
 
 * Sono supportate solo le versioni server, non quelle client.  
-* Sono sempre supportate le nuove versioni delle [distribuzioni di Linux approvate per Azure](../../virtual-machines/linux/endorsed-distros.md).  
+* Concentrare il supporto su una delle [distribuzioni approvate per Linux di Azure](../../virtual-machines/linux/endorsed-distros.md). Si noti che potrebbe verificarsi un ritardo tra una nuova distribuzione o una nuova versione di Azure Linux approvata e supportata per l'agente Log Analytics Linux.
 * Tutte le versioni minori sono supportate per ogni versione principale elencata.
 * Non sono supportate le versioni che hanno superato la data di fine del supporto.  
 * Non sono supportate le nuove versioni di AMI.  
@@ -151,11 +151,11 @@ L'agente per Linux e Windows comunica in uscita con il servizio monitoraggio di 
 ## <a name="network-firewall-requirements"></a>Requisiti del firewall di rete
 Le informazioni seguenti elencano le informazioni di configurazione del proxy e del firewall necessarie per la comunicazione tra l'agente Linux e Windows e i log di monitoraggio di Azure.  
 
-|Risorsa agente|Porte |Direzione |Ignorare l'analisi HTTPS|
+|Risorsa agente|Porte |Direction |Ignorare l'analisi HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |Inserimento in|Sì |  
-|*.oms.opinsights.azure.com |Porta 443 |Inserimento in|Sì |  
-|*.blob.core.windows.net |Porta 443 |Inserimento in|Sì |  
+|*.ods.opinsights.azure.com |Porta 443 |In uscita|Sì |  
+|*.oms.opinsights.azure.com |Porta 443 |In uscita|Sì |  
+|*.blob.core.windows.net |Porta 443 |In uscita|Sì |  
 
 Per informazioni sul firewall richieste per Azure per enti pubblici, vedere [gestione di Azure per enti pubblici](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 

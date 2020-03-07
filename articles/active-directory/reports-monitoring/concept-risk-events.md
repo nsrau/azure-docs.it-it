@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014472"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376385"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Rilevamento del rischio Azure Active Directory
 
@@ -129,7 +129,7 @@ La proprietà livello di rischio di un rilevamento dei rischi è un indicatore (
 
 La gravità del rilevamento dei rischi rappresenta il livello di attendibilità del segnale come un predittore della compromissione dell'identità. Il livello di affidabilità è un indicatore della possibile presenza di falsi positivi. 
 
-Ad esempio: 
+Ad esempio, 
 
 * **Alta**: rilevamento di rischi elevati e di gravità elevata. Questi eventi sono fortemente indicativi di una compromissione dell'identità dell'utente e tutti gli account utente interessati devono essere corretti.
 

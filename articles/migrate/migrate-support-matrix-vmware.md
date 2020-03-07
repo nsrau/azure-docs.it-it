@@ -4,11 +4,11 @@ description: Informazioni sul supporto per la valutazione di VMware in Azure Mig
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121332"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361958"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per VMware Assessment 
 
@@ -88,13 +88,13 @@ La [visualizzazione](concepts-dependency-visualization.md) delle dipendenze cons
 
 ## <a name="agentless-dependency-visualization"></a>Visualizzazione delle dipendenze senza agenti
 
-Questa opzione è attualmente disponibile in anteprima. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md). I requisiti sono riepilogati nella tabella seguente.
+Questa opzione è attualmente in fase di anteprima. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md). I requisiti sono riepilogati nella tabella seguente.
 
 **Requisito** | **Dettagli**
 --- | ---
 **Distribuzione** | Prima di distribuire la visualizzazione delle dipendenze, è necessario disporre di un progetto Azure Migrate, con lo strumento Azure Migrate: server Assessment aggiunto al progetto. La visualizzazione delle dipendenze viene distribuita dopo aver configurato un'appliance Azure Migrate per individuare i computer locali.
 **Supporto per VM** | Attualmente supportato solo per le macchine virtuali VMware.
-**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit)
+**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit)
 **Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Account Windows** |  Per la visualizzazione è necessario un account di amministratore locale o di dominio.
 **Account Linux** | Per la visualizzazione è necessario un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre di queste autorizzazioni per i file/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Funzionalità in anteprima | Microsoft Docs'
+title: Funzionalità in anteprima di Azure AD Connect | Documentazione Microsoft
 description: Questo argomento descrive in maggiore dettaglio le funzionalità in anteprima di Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347805"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376023"
 ---
 # <a name="more-details-about-features-in-preview"></a>Altre informazioni sulle funzionalità in anteprima
 Questo argomento descrive come usare le funzionalità attualmente in anteprima.
@@ -54,4 +54,4 @@ Un gruppo di Office 365 viene rappresentato come gruppo di distribuzione in AD D
 ## <a name="next-steps"></a>Passaggi successivi
 Continuare l'[Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md).
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

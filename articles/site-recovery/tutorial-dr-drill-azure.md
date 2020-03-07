@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954428"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362778"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Eseguire un failover di test per una singola macchina.
 
 > [!NOTE]
-> Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per altre informazioni sull'esercitazione di ripristino di emergenza, [vedere questo articolo](site-recovery-test-failover-to-azure.md).
+> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per altre informazioni sull'esercitazione di ripristino di emergenza, [vedere questo articolo](site-recovery-test-failover-to-azure.md).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 

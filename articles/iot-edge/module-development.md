@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548629"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358684"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Sviluppare moduli di IoT Edge personalizzati
 
@@ -51,7 +51,7 @@ Per semplificare la creazione delle route, IoT Edge aggiunge il concetto di endp
 
 Infine, i messaggi da dispositivo a cloud gestiti dall'hub Edge vengono contrassegnati con le proprietà di sistema seguenti:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | -------- | ----------- |
 | $connectionDeviceId | L'ID dispositivo del client che ha inviato il messaggio |
 | $connectionModuleId | L'ID modulo del modulo che ha inviato il messaggio |

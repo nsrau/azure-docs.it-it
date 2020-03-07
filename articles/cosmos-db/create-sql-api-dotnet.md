@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707908"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364482"
 ---
-# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Guida introduttiva: Compilare un'app console .NET per gestire le risorse dell'API SQL di Azure Cosmos DB
+# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Guida introduttiva: creare un'app console .NET per gestire Azure Cosmos DB risorse API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -31,7 +31,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 * Creare un database e un contenitore Azure Cosmos
 * Aggiungere dati di esempio al contenitore
-* Eseguire query sui dati 
+* Eseguire una query sui dati 
 * eliminare il database
 
 [Documentazione di riferimento dell'API](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
@@ -161,7 +161,7 @@ Prima di iniziare a compilare l'applicazione, verranno esaminati la gerarchia di
 * Account Azure Cosmos 
 * Database 
 * Contenitori 
-* Items
+* Elementi
 
 Per altre informazioni sulla gerarchia delle diverse entità, vedere l'articolo sull'[uso di database, contenitori ed elementi in Azure Cosmos DB](databases-containers-items.md). Per interagire con queste risorse, si useranno le classi .NET seguenti:
 
@@ -302,7 +302,7 @@ public class Program
 }
 ```
 
-### <a name="create-a-database"></a>Creare un database 
+### <a name="create-a-database"></a>Creazione di un database 
 
 Definire il metodo `CreateDatabaseAsync` nella classe `program.cs`. Questo metodo crea `FamilyDatabase` se non esiste già.
 
