@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Copiare da dischi rigidi virtuali a dischi gestiti'
+title: 'Esercitazione: copiare da dischi rigidi virtuali a Managed Disks'
 titleSuffix: Azure Data Box
 description: Informazioni su come copiare in Azure Data Box i dati di dischi rigidi virtuali relativi a carichi di lavoro di macchine virtuali locali
 services: databox
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471228"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380203"
 ---
-# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Esercitazione: Usare Data Box per importare dati come dischi gestiti in Azure
+# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Esercitazione: usare Data Box per importare dati come Managed disks in Azure
 
 Questa esercitazione descrive come usare Azure Data Box per la migrazione di dischi rigidi virtuali locali in dischi gestiti in Azure. I dischi rigidi virtuali di macchine virtuali locali vengono copiati in Data Box come BLOB di pagine e caricati in Azure come dischi gestiti. Questi dischi gestiti possono quindi essere collegati a macchine virtuali di Azure.
 
@@ -28,11 +28,11 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Copiare i dati nel Data Box
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 
-1. Aver completato l'esercitazione descritta in [Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
+1. L'esercitazione è stata completata [: configurare Azure Data Box](data-box-deploy-set-up.md).
 2. Aver ricevuto Data Box e che lo stato dell'ordine nel portale sia **Recapitati**.
 3. Essere connessi a una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a 10 GbE, è possibile usare un collegamento dati a 1 GbE, ma la velocità delle operazioni di copia ne risentirà.
 4. Aver esaminato quanto segue:

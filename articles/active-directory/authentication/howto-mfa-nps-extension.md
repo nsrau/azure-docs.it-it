@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908854"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378123"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -165,7 +165,7 @@ Quando si aggiorna un'installazione di estensione NPS esistente, per evitare il 
 
 Il programma di installazione crea uno script di PowerShell in questa posizione: `C:\Program Files\Microsoft\AzureMfa\Config` (dove C:\ è l'unità di installazione). Ogni volta che viene eseguito, lo script di PowerShell esegue le azioni seguenti:
 
-- Creare un certificato autofirmato.
+- Creare il certificato autofirmato.
 - Associare la chiave pubblica del certificato all'entità servizio su Azure AD.
 - Archiviare il certificato nell'archivio certificati del computer locale.
 - Concedere l'accesso alla chiave privata del certificato all'utente di rete.
@@ -238,7 +238,7 @@ Dopo aver abilitato MFA per un client RADIUS utilizzando l'estensione di Server 
 
 Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire cosa succede quando questi tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema *REQUIRE_USER_MATCH* nel percorso del registro di sistema *HKLM\Software\Microsoft\AzureMFA* per controllare il comportamento della funzionalità. Questa impostazione non ha un'unica opzione di configurazione:
 
-| Chiave | Valore | Predefinito |
+| Chiave | Valore | Default |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 
@@ -252,7 +252,7 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 
 Lo script seguente è disponibile nella raccolta TechNet per eseguire i passaggi di base del controllo di integrità durante la risoluzione dei problemi relativi all'estensione NPS.
 
-[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
 ---
 

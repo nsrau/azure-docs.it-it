@@ -11,11 +11,11 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
 ms.openlocfilehash: 4149e90e07bbcd03a0df41060b42b8902b89e774
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541881"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396208"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Accesso ai dati in Azure Machine Learning
 
@@ -53,12 +53,12 @@ Servizi di archiviazione di Azure supportati che possono essere registrati come 
 + Condivisione file di Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ Database SQL di Azure
++ database SQL di Azure
 + Database di Azure per PostgreSQL
 + File system di Databricks
 + Database di Azure per MySQL
 
-### <a name="datasets"></a>Set di dati
+### <a name="datasets"></a>Dataset
 
 [Creare un set](how-to-create-register-datasets.md) di dati Azure Machine Learning per interagire con i dati negli archivi dati e comprimere i dati in un oggetto utilizzabile per le attività di machine learning. Registrare il set di dati nell'area di lavoro per condividerlo e riutilizzarlo in diversi esperimenti senza complessi di inserimento di dati.
 
@@ -91,7 +91,7 @@ Con i set di elementi, è possibile eseguire numerose attività di machine learn
 
 <a name="open"></a>
 
-## <a name="azure-open-datasets"></a>Set di dati aperti di Azure
+## <a name="azure-open-datasets"></a>Set di dati Open di Azure
 
 [Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. I set di impostazioni aperti si trovano nel cloud in Microsoft Azure e sono integrati nel Azure Machine Learning. È anche possibile accedere ai set di dati tramite API e usarli in altri prodotti, come Power BI e Azure Data Factory.
 

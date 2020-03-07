@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073625"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359990"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Creare reti virtuali per i cluster HDInsight di Azure
 
@@ -194,7 +194,7 @@ Seguire questa procedura per creare una rete virtuale che limita il traffico in 
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-4. Usare il comando seguente per applicare il gruppo di sicurezza di rete a una subnet. Sostituire i `GUID` valori `RESOURCEGROUP` e con quelli restituiti nel passaggio precedente. Sostituire `VNETNAME` e`SUBNETNAME` con il nome della rete virtuale e il nome della subnet che si desidera creare.
+4. Usare il comando seguente per applicare il gruppo di sicurezza di rete a una subnet. Sostituire i valori `GUID` e `RESOURCEGROUP` con quelli restituiti nel passaggio precedente. Sostituire `VNETNAME` e `SUBNETNAME` con il nome della rete virtuale e il nome della subnet che si desidera creare.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -211,7 +211,7 @@ Il codice seguente illustra come abilitare l'accesso SSH da Internet:
 az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 ```
 
-## <a id="example-dns"></a> Esempio: Configurazione del DNS
+## <a id="example-dns"></a> Esempio: configurazione DNS
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Risoluzione dei nomi tra una rete virtuale e una rete locale connessa
 
@@ -288,7 +288,7 @@ Nel server DNS personalizzato nella rete virtuale:
     
     * Sostituire il valore `192.168.0.1` con l'indirizzo IP del server DNS locale. Questa voce indirizza tutte le altre richieste DNS al server DNS locale.
 
-3. Per usare la configurazione, riavviare Bind. Ad esempio `sudo service bind9 restart`.
+3. Per usare la configurazione, riavviare Bind. Ad esempio: `sudo service bind9 restart`.
 
 4. Aggiungere un server d'inoltro condizionale al server DNS locale. Configurare il server d'inoltro condizionale per l'invio di richieste del suffisso DNS del passaggio 1 al server DNS personalizzato.
 

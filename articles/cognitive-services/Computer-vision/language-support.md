@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365474"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
@@ -27,7 +27,7 @@ Visione artificiale possibile riconoscere il testo in molte lingue. In particola
 
 OCR rileva automaticamente la lingua del materiale di input, pertanto non è necessario specificare un codice della lingua nella chiamata API. Tuttavia, i codici di lingua vengono sempre restituiti come valore del nodo `"language"` nella risposta JSON.
 
-|Lingua| Codice lingua | API OCR |
+|Lingua:| Codice lingua | API OCR |
 |:-----|:----:|:-----:|
 |Arabo | `ar`|✔ |
 |Cinese (semplificato) | `zh-Hans`|✔ |
@@ -60,7 +60,7 @@ OCR rileva automaticamente la lingua del materiale di input, pertanto non è nec
 
 Alcune azioni dell'API [Analyze-image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) possono restituire i risultati in altri linguaggi, specificati con il parametro di query `language`. Altre azioni restituiscono i risultati in inglese indipendentemente dalla lingua specificata e altre generano un'eccezione per le lingue non supportate. Le azioni vengono specificate con i parametri di query `visualFeatures` e `details`. per un elenco di tutte le azioni che è possibile eseguire con l'analisi delle immagini, vedere la [Panoramica](home.md) .
 
-|Lingua | Codice lingua | Categorie | Tag | Descrizione | Per adulti | Marchi | Colore | Visi | ImageType | Oggetti | Celebrità | Punti di riferimento |
+|Lingua: | Codice lingua | Categorie | Tag | Descrizione | Adulto | Marchi | Colore | Smile | ImageType | Oggetti | Celebrità | Punti di riferimento |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Cinese | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglese | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022280"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374733"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Aggiornare il profilo e le informazioni sull'account nel portale app personali
 
@@ -33,7 +33,7 @@ Se non si ha accesso al portale **App personali**, è necessario contattare il s
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Questo contenuto è destinato agli utenti di **app personali** . Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Questo contenuto è destinato agli utenti di **App personali**. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Visualizzare le informazioni sul profilo correlate all'organizzazione
 
@@ -126,7 +126,7 @@ Per la verifica a due fattori è necessario usare due tipi di informazioni di ve
 
     ![Condizioni per l'utilizzo pagina dal portale app personali](media/my-apps-portal/my-apps-portal-tou-page.png)
 
-    Se l'organizzazione non ha condizioni d'uso, è possibile selezionare **Done** da restituire per il **profilo** pagina.
+    Se l'organizzazione non ha le condizioni per l'utilizzo, è possibile selezionare **fine** per tornare alla pagina del **profilo** .
 
 ## <a name="sign-out-of-everywhere"></a>Disconnettersi da qualsiasi luogo
 

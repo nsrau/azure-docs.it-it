@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 0c32d438ac8551f061343edb747e9fc035b498e2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560525"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379858"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creare un database e un cluster di Esplora dati di Azure tramite C#
 
@@ -26,14 +26,14 @@ ms.locfileid: "77560525"
 
 Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo vengono creati un cluster e un database usando C#.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se Visual Studio 2019 non è installato, è possibile scaricare e usare la versione **gratuita** di [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazione e un'entità servizio che possano accedere alle risorse. Selezionare [Crea un'applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) per creare un'applicazione Azure ad gratuita e aggiungere l'assegnazione di ruolo nell'ambito della sottoscrizione. Viene inoltre illustrato come ottenere le `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Creare il cluster di Esplora dati di Azure
@@ -71,7 +71,7 @@ Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazio
    |---|---|---|
    | clusterName | *mykustocluster* | Nome del cluster.|
    | skuName | *Standard_D13_v2* | SKU usato per il cluster. |
-   | Livello | *Standard* | Livello SKU. |
+   | livello | *Standard* | Livello SKU. |
    | capacity | *number* | Numero di istanze del cluster. |
    | resourceGroupName | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
 
@@ -105,7 +105,7 @@ Se il risultato contiene `ProvisioningState` con il valore `Succeeded`, il clust
    |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
    |---|---|---|
    | clusterName | *mykustocluster* | Nome del cluster in cui verrà creato il database.|
-   | databaseName | *mykustodatabase* | Nome del database.|
+   | databaseName | *mykustodatabase* | Il nome del database.|
    | resourceGroupName | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
    | softDeletePeriod | *3650:00:00:00* | Periodo di tempo in cui i dati verranno mantenuti disponibili in modo che sia possibile eseguire una query. |
    | hotCachePeriod | *3650:00:00:00* | Periodo di tempo in cui i dati verranno conservati nella cache. |

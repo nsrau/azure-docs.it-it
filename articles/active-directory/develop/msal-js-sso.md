@@ -14,11 +14,11 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695875"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377222"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Single Sign-On con MSAL.js
 
@@ -87,7 +87,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 
 **Utilizzo dell'hint di accesso**
 
-Se non si dispone di un'attestazione SID configurata o se è necessario ignorare la richiesta di selezione dell'account nelle chiamate di autenticazione interattiva, è possibile eseguire questa operazione fornendo un `login_hint` nei parametri della richiesta e, facoltativamente, una `domain_hint` come `extraQueryParameters` nei metodi interattivi MSAL. js (`loginPopup`, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). Ad esempio:
+Se non si dispone di un'attestazione SID configurata o se è necessario ignorare la richiesta di selezione dell'account nelle chiamate di autenticazione interattiva, è possibile eseguire questa operazione fornendo un `login_hint` nei parametri della richiesta e, facoltativamente, una `domain_hint` come `extraQueryParameters` nei metodi interattivi MSAL. js (`loginPopup`, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). Ad esempio,
 
 ```javascript
 var request = {

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 68be15e1ffd9093ab67fc046edaad991d633ca7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445376"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385702"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gestire i livelli di coerenza in Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Questo articolo illustra come gestire i livelli di coerenza in Azure Cosmos DB. 
 
 Il [livello di coerenza predefinito](consistency-levels.md) è il livello di coerenza che i client usano per impostazione predefinita. I client possono sempre eseguirne l'override.
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 
 ```bash
 # create with a default consistency

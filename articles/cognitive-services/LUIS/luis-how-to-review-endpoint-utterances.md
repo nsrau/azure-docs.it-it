@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775150"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393689"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Come migliorare l'app LUIS esaminando gli enunciati degli endpoint
 
@@ -42,7 +42,7 @@ Usare il portale LUIS per costruire la query dell'endpoint corretta.
     > [!div class="mx-imgBorder"]
     > ![usare LUIS Portal per salvare i log, operazione necessaria per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-     Questa azione modifica l'URL di esempio aggiungendo il `log=true` parametro QueryString. Copiare e utilizzare l'URL della query di esempio modificato durante l'esecuzione di query di stima nell'endpoint di Runtime.
+     Questa azione modifica l'URL di esempio aggiungendo il parametro di stringa di query `log=true`. Copiare e usare l'URL della query di esempio modificato per l'esecuzione di query di previsione nell'endpoint di runtime.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Correggere le stime di finalità per allineare le espressioni
 

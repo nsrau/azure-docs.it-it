@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
 ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280803"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396939"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
@@ -55,10 +55,10 @@ Considerare queste espressioni di esempio:
 
 |Espressioni di esempio|
 |--|
-|how do I get a computer?|
-|Where do I get a computer?|
-|I want to get a computer, how do I go about it?|
-|When can I have a computer?| 
+|come ottenere un computer?|
+|Dove ottenere un computer?|
+|Voglio ottenere un computer, come posso fare?|
+|Quando posso ottenere un computer?| 
 
 Il termine principale qui, "computer", non è vario. Usare alternative quali computer desktop, portatile, workstation o anche solo macchina. LUIS può dedurre in modo intelligente i sinonimi dal contesto, ma quando crei espressioni per il training, è sempre meglio variare.
 
@@ -144,8 +144,8 @@ Nelle espressioni seguenti, la parola `fair` è un omografo. L'ortografia è la 
 
 |Espressione|
 |--|
-|What kind of county fairs are happening in the Seattle area this summer?|
-|Is the current rating for the Seattle review fair?|
+|Quali sono le fiere in programma nell'area di Seattle la prossima estate?|
+|L'attuale classificazione per la recensione di Seattle è valida?|
 
 Se si desidera che un'entità di evento trovi tutti i dati dell'evento, etichettare la parola `fair` nella prima espressione, ma non nella seconda.
 

@@ -1,5 +1,5 @@
 ---
-title: Utilizzo di stored procedure
+title: Stored procedure
 description: Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e6e1144043cbbbc8124785351e1e56a776b84527
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692819"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383730"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Uso di stored procedure in SQL Data Warehouse
 Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
@@ -72,19 +72,19 @@ SQL Data Warehouse non consente di usare il set di risultati di una stored proce
 ## <a name="limitations"></a>Limitazioni
 Esistono alcuni aspetti delle stored procedure Transact-SQL che non sono implementate in SQL Data Warehouse.
 
-Sono:
+ovvero:
 
 * Stored procedure temporanee
 * Stored procedure numerate
-* Stored procedure estese
+* stored procedure estese
 * Stored procedure CLR
 * Opzione di crittografia
 * Opzione di replica
 * Parametri con valori di tabella
 * Parametri di sola lettura
-* Parametri predefiniti
+* parametri predefiniti
 * Contesti di esecuzione
-* Istruzione return
+* istruzione return
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo](sql-data-warehouse-overview-develop.md).

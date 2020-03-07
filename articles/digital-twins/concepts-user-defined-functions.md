@@ -9,11 +9,11 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861099"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382287"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -97,7 +97,7 @@ I matcher definiscono un set di condizioni che valutano quali azioni vengono ese
 
 Una funzione definita dall'utente è una funzione personalizzata eseguita all'interno di un ambiente di Gemelli digitali di Azure isolato. Le funzioni definite dall'utente hanno accesso al messaggio di telemetria del sensore non elaborato al momento della ricezione. Hanno inoltre accesso al grafico spaziale e al servizio dispatcher. Dopo che la funzione definita dall'utente viene registrata in un grafico, deve venire creato un matcher (descritto in dettaglio [sopra](#matchers)) per specificare quando viene eseguita la funzione. Ad esempio, quando Gemelli digitali di Azure riceve nuovi dati di telemetria da un sensore specifico, la funzione definita dall'utente associata può calcolare una media mobile delle ultime letture del sensore.
 
-Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi helper interagiscono con il grafico nell'ambiente di esecuzione definito dall'utente. Gli sviluppatori possono eseguire frammenti di codice personalizzati sui messaggi di telemetria dei sensori. Ad esempio:
+Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi helper interagiscono con il grafico nell'ambiente di esecuzione definito dall'utente. Gli sviluppatori possono eseguire frammenti di codice personalizzati sui messaggi di telemetria dei sensori. Tra gli esempi sono inclusi:
 
 - Impostare la lettura del sensore direttamente nell'oggetto del sensore all'interno del grafico.
 - Eseguire un'azione in base a letture del sensore diverse all'interno di uno spazio nel grafico.
