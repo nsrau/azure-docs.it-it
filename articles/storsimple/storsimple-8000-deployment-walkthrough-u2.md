@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273955"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366753"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuire un dispositivo StorSimple locale (aggiornamento 3 e successivi)
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Benvenuti nella distribuzione del dispositivo Microsoft Azure StorSimple. Queste esercitazioni per la distribuzione si applicano all'aggiornamento 3 o successivi di StorSimple serie 8000. Questa serie di esercitazioni include un elenco di controllo della configurazione, di prerequisiti di configurazione e i passaggi di configurazione dettagliati per il dispositivo StorSimple.
 
 Le informazioni contenute in queste esercitazioni prevedono che siano state esaminate le precauzioni di sicurezza e che il dispositivo StorSimple sia stato disimballato, installato e cablato. Se occorre eseguire tali attività, iniziare con la revisione di [precauzioni di sicurezza](storsimple-8000-safety.md). Seguire le istruzioni specifiche per il dispositivo per disimballare, montare su rack e cablare il dispositivo.
@@ -34,7 +34,7 @@ Per completare il processo di installazione e configurazione sono necessari priv
 ## <a name="deployment-steps"></a>Passaggi di distribuzione
 Eseguire questi passaggi obbligatori per configurare il dispositivo StorSimple e connetterlo al servizio Gestione dispositivi StorSimple. Oltre ai passaggi necessari sono disponibili passaggi facoltativi e procedure che possono essere necessarie durante la distribuzione. Le istruzioni dettagliate di distribuzione indicano quando è necessario eseguire ciascuno di questi passaggi facoltativi.
 
-| Passaggio | Description |
+| Passaggio | Descrizione |
 | --- | --- |
 | **PREREQUISITI** |Devono essere completati per preparare la successiva distribuzione. |
 | [Elenco di controllo configurazione della distribuzione](#deployment-configuration-checklist) |Usare questo elenco di controllo per raccogliere e registrare informazioni prima e durante la distribuzione. |
@@ -62,7 +62,7 @@ Prima di distribuire il dispositivo, è necessario raccogliere informazioni per 
 
 * [Scaricare l'elenco di controllo configurazione della distribuzione StorSimple](https://www.microsoft.com/download/details.aspx?id=49159)
 
-## <a name="deployment-prerequisites"></a>Prerequisiti per la distribuzione
+## <a name="deployment-prerequisites"></a>Prerequisiti di distribuzione
 Le sezioni seguenti illustrano i prerequisiti di configurazione per il servizio Gestione dispositivi StorSimple e per il dispositivo StorSimple.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Per il servizio Gestione dispositivi StorSimple
@@ -153,7 +153,7 @@ Se si decide di non configurare MPIO, eseguire la procedura seguente per montare
 [!INCLUDE [storsimple-8000-mount-initialize-format-volume](../../includes/storsimple-8000-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>Passaggio 8: Eseguire un backup
-I backup garantiscono la protezione temporizzata dei volumi e migliorano la recuperabilità riducendo al minimo i tempi di ripristino. È possibile eseguire due tipi di backup su un dispositivo StorSimple: snapshot locali e snapshot nel cloud. Ciascuno di questi tipi di backup può essere **pianificato** o **manuale**.
+I backup garantiscono la protezione temporizzata dei volumi e migliorano la recuperabilità riducendo al minimo i tempi di ripristino. È possibile eseguire due tipi di backup su un dispositivo StorSimple: snapshot locali e snapshot nel cloud. ciascuno dei quali può essere **pianificato** o **manuale**.
 
 Seguire questa procedura nel portale di Azure per creare un backup pianificato.
 

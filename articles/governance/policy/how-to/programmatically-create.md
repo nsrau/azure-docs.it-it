@@ -4,11 +4,11 @@ description: Questo articolo illustra la creazione e la gestione dei criteri a l
 ms.date: 01/31/2019
 ms.topic: how-to
 ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982476"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386783"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
@@ -16,7 +16,7 @@ Questo articolo illustra la creazione a livello di codice e la gestione dei crit
 
 Per informazioni sulla conformità, vedere [Ottenere dati sulla conformità](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che i prerequisiti seguenti siano soddisfatti:
 

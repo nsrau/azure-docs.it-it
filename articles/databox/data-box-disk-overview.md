@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Microsoft Azure Data Box Disk | Microsoft Docs
-description: Descrive Azure Data Box Disk, una soluzione cloud che consente di trasferire grandi quantità di dati in Azure
+description: Viene descritta la soluzione cloud Azure Data Box Disk che consente di trasferire grandi quantità di dati in Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -10,11 +10,11 @@ ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204772"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380487"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Che cos'è Azure Data Box Disk?
 
@@ -74,7 +74,7 @@ Per altre informazioni, vedere [Azure Data Box Disk security and data protection
 ## <a name="features-and-specifications"></a>Funzionalità e specifiche
 
 
-| Specifiche                                          | DESCRIZIONE              |
+| Specifiche                                          | Descrizione              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | < 0,9 kg (2 libbre) per box. Fino a 5 dischi nel box                |
 | Dimensioni                                              | Disco - Unità SSD da 2,5" |            

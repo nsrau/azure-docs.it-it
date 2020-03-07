@@ -4,11 +4,11 @@ description: Informazioni sulle funzioni che è possibile usare in un modello di
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207236"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380643"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
 
@@ -38,8 +38,8 @@ Restituisce la somma dei due numeri interi forniti.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Sì |int |Il primo numero da aggiungere. |
-|operand2 |Sì |int |Il secondo numero da aggiungere. |
+|operand1 |Sì |INT |Il primo numero da aggiungere. |
+|operand2 |Sì |INT |Il secondo numero da aggiungere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -82,7 +82,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -110,9 +110,9 @@ Restituisce l'indice di un ciclo di iterazione.
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
-| offset |No |int |Il numero da aggiungere al valore di iterazione in base zero. |
+| offset |No |INT |Il numero da aggiungere al valore di iterazione in base zero. |
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specificato alcun valore per **offset**, viene restituito il valore di iterazione corrente. Il valore di iterazione inizia da zero. È possibile usare i cicli di iterazione quando si definiscono le risorse o le variabili.
 
@@ -155,8 +155,8 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sì |int |Il numero da dividere. |
-| operand2 |Sì |int |Il numero usato per dividere. Non può essere 0. |
+| operand1 |Sì |INT |Il numero da dividere. |
+| operand2 |Sì |INT |Il numero usato per dividere. Non può essere 0. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -199,7 +199,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -251,7 +251,7 @@ L'esempio seguente illustra come usare float per passare parametri a un'app per 
 
 <a id="int" />
 
-## <a name="int"></a>int
+## <a name="int"></a>INT
 `int(valueToConvert)`
 
 Converte il valore specificato in un numero intero.
@@ -293,7 +293,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -356,7 +356,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -420,7 +420,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -448,8 +448,8 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sì |int |Il numero da dividere. |
-| operand2 |Sì |int |Il numero usato per dividere; non può corrispondere a 0. |
+| operand1 |Sì |INT |Il numero da dividere. |
+| operand2 |Sì |INT |Il numero usato per dividere; non può corrispondere a 0. |
 
 ### <a name="return-value"></a>Valore restituito
 Un intero che rappresenta il resto.
@@ -491,7 +491,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -518,8 +518,8 @@ Restituisce la moltiplicazione dei due numeri interi forniti.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sì |int |Il primo numero da moltiplicare. |
-| operand2 |Sì |int |Il secondo numero da moltiplicare. |
+| operand1 |Sì |INT |Il primo numero da moltiplicare. |
+| operand2 |Sì |INT |Il secondo numero da moltiplicare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -562,7 +562,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -589,8 +589,8 @@ Restituisce la sottrazione dei due numeri interi forniti.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sì |int |Il numero da cui sottrarre. |
-| operand2 |Sì |int |Il numero sottratto. |
+| operand1 |Sì |INT |Il numero da cui sottrarre. |
+| operand2 |Sì |INT |Il numero sottratto. |
 
 ### <a name="return-value"></a>Valore restituito
 Un intero che rappresenta la sottrazione.
@@ -632,7 +632,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 

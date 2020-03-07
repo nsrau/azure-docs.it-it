@@ -15,11 +15,11 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201629"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388785"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -35,14 +35,14 @@ La distribuzione di un'immagine SQL Server VM di Azure Marketplace tramite il po
 
 - **Gestione semplificata delle licenze**: la registrazione con il provider di risorse VM SQL semplifica la gestione delle licenze SQL Server e consente di identificare rapidamente SQL Server VM con la vantaggio Azure Hybrid abilitata usando il [portale di Azure](virtual-machines-windows-sql-manage-portal.md), AZ CLI o PowerShell: 
 
-   # <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+   # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-   # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
@@ -57,7 +57,7 @@ Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del provider di 
 <iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Vantaggi del provider di risorse VM SQL durante l'installazione automatica di SQL Server in Azure-video Microsoft Channel 9"></iframe>
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario: 
 
@@ -106,14 +106,14 @@ Per registrare la macchina virtuale di SQL Server con il provider di risorse VM 
 
 Registrare il provider di risorse VM SQL nella sottoscrizione di Azure usando AZ CLI o PowerShell. 
 
-# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+# <a name="az-cli"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL VM resource provider to your subscription
@@ -132,7 +132,7 @@ Fornire SQL Server tipo di licenza come pagamento a consumo (`PAYG`) per il paga
 
 Le istanze del cluster di failover e le distribuzioni a istanze diverse possono essere registrate solo con il provider di risorse VM SQL in modalità lightweight. 
 
-# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+# <a name="az-cli"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 
 Registrare SQL Server VM in modalità Lightweight con AZ CLI: 
 
@@ -142,7 +142,7 @@ Registrare SQL Server VM in modalità Lightweight con AZ CLI:
   ```
 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registrare SQL Server VM in modalità Lightweight con PowerShell:  
 
@@ -183,7 +183,7 @@ Specificare `AHUB`, `PAYG`o `DR` come **sqlLicenseType**e `SQL2008-WS2008` o `SQ
 Per registrare l'istanza di SQL Server 2008 o 2008 R2 nell'istanza di Windows Server 2008, usare il seguente frammento di codice AZ CLI o PowerShell: 
 
 
-# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+# <a name="az-cli"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 
 Registrare la macchina virtuale di SQL Server 2008 in modalità noagent con AZ CLI: 
 
@@ -202,7 +202,7 @@ Registrare la macchina virtuale SQL Server 2008 R2 in modalità noagent con AZ C
    --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registrare SQL Server VM 2008 in modalità noagent con PowerShell: 
 
@@ -258,7 +258,7 @@ Per aggiornare la modalità agente a Full:
 
 ### <a name="command-line"></a>Riga di comando
 
-# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+# <a name="az-cli"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 
 Eseguire il frammento di codice AZ CLI seguente:
 
@@ -267,7 +267,7 @@ Eseguire il frammento di codice AZ CLI seguente:
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Eseguire il frammento di codice PowerShell seguente:
 
@@ -297,14 +297,14 @@ Eseguire il frammento di codice PowerShell seguente:
 
 Verificare lo stato di registrazione della macchina virtuale SQL Server corrente usando AZ CLI o PowerShell. `ProvisioningState` visualizzerà `Succeeded` se la registrazione ha avuto esito positivo. 
 
-# <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
+# <a name="az-cli"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 
 
   ```azurecli-interactive
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
   Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
@@ -345,7 +345,7 @@ Per annullare la registrazione della macchina virtuale SQL Server con il provide
 
 ### <a name="command-line"></a>Riga di comando
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 Per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse con l'interfaccia della riga di comando di Azure, usare il comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Verrà rimossa la *risorsa* della macchina virtuale SQL Server ma la macchina virtuale non verrà eliminata. 
 
 
@@ -356,7 +356,7 @@ az sql vm delete
   --yes 
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse con l'interfaccia della riga di comando di Azure, usare il comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Verrà rimossa la *risorsa* della macchina virtuale SQL Server ma la macchina virtuale non verrà eliminata. 
 
 ```powershell-interactive
@@ -455,7 +455,7 @@ Sì. SQL Server istanze del cluster di failover in una macchina virtuale di Azur
 Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Server in una macchina virtuale di Azure con il provider di risorse VM SQL se si partecipa a una configurazione del gruppo di disponibilità Always On.
 
 **Qual è il costo per la registrazione con il provider di risorse VM SQL o con l'aggiornamento alla modalità di gestibilità completa?**
-No. Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
+Nessuno Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
 
 **Qual è l'effetto sulle prestazioni dell'utilizzo delle diverse modalità di gestibilità?**
 Non vi è alcun effetto quando si utilizzano le modalità *noagent* e la gestibilità *leggera* . Quando si usa la modalità di gestibilità *completa* di due servizi installati nel sistema operativo, l'effetto è minimo. Questi possono essere monitorati tramite Gestione attività e visualizzati nella console dei servizi Windows incorporata. 

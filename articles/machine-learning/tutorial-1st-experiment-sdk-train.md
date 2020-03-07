@@ -11,11 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116530"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355241"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 > * Visualizzare i risultati del training nel portale
 > * Recuperare il modello migliore
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 L'unico prerequisito consiste nell'eseguire la prima parte di questa esercitazione, [Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
 
