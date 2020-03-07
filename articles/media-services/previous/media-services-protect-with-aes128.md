@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895824"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366886"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ Alla fine dell'articolo è disponibile un [esempio .NET](media-services-protect-
 
 L'immagine seguente illustra il flusso di lavoro descritto in precedenza. Per l'autenticazione viene usato il token.
 
-![Proteggere contenuti con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![Proteggere con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 La parte rimanente di questo articolo fornisce spiegazioni, esempi di codice e collegamenti ad argomenti che illustrano come eseguire le attività descritte in precedenza.
 
@@ -260,5 +260,5 @@ Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui s
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

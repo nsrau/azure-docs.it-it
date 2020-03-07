@@ -4,11 +4,11 @@ description: Impostare manualmente il monitoraggio di Application Insights per u
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672039"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374906"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
@@ -24,7 +24,7 @@ Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa App
 
 ![Fare clic sul segno "+" nell'angolo superiore sinistro. Selezionare Strumenti di sviluppo seguito da Application Insights](./media/create-new-resource/new-app-insights.png)
 
-   | Impostazioni        |  Valore           | Descrizione  |
+   | Impostazioni        |  valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco | Nome che identifica l'app che si sta monitorando. |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del gruppo di risorse nuovo o esistente per ospitare i dati di App Insights. |

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
 ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986989"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364566"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 Analisi di flusso di Azure può avere come destinazione [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, abilitando l'archiviazione dei dati e le query a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -105,10 +105,10 @@ L'uso di Azure Cosmos DB come output in analisi di flusso genera la richiesta se
 
 ![Campi di informazioni per un flusso di output Azure Cosmos DB](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|Campo           | Description|
+|Campo           | Descrizione|
 |-------------   | -------------|
 |Alias di output    | Alias che fa riferimento a questo output nella query di analisi di flusso.|
-|Sottoscrizione    | Sottoscrizione di Azure.|
+|Subscription    | Sottoscrizione di Azure.|
 |Account ID      | Nome o URI endpoint dell'account Azure Cosmos DB.|
 |Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB.|
 |Database        | Nome del database Azure Cosmos DB.|

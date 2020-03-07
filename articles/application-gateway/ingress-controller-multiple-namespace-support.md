@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795551"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373470"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Abilitare più supporto dello spazio dei nomi in un cluster AKS con il controller di ingresso del gateway applicazione
 
@@ -23,7 +23,7 @@ A partire dalla versione 0,7 [applicazione Azure gateway Kubernetes IngressContr
 
 La versione 0,7 di AGIC continuerà a osservare esclusivamente lo spazio dei nomi `default`, a meno che questo non venga esplicitamente modificato in uno o più spazi dei nomi diversi nella configurazione Helm (vedere la sezione seguente).
 
-## <a name="enable-multiple-namespace-support"></a>Abilita supporto per più spazi dei nomi
+## <a name="enable-multiple-namespace-support"></a>Abilitare il supporto per più spazi dei nomi
 Per abilitare il supporto di più spazi dei nomi:
 1. modificare il file [Helm-config. YAML](#sample-helm-config-file) in uno dei modi seguenti:
    - eliminare la chiave di `watchNamespace` interamente da [Helm-config. YAML](#sample-helm-config-file) -AGIC osserverà tutti gli spazi dei nomi
@@ -83,8 +83,8 @@ spec:
 
 Nonostante le due risorse in ingresso che richiedono il traffico per `www.contoso.com` essere indirizzate ai rispettivi spazi dei nomi Kubernetes, solo un back-end può servire il traffico. AGIC creerebbe una configurazione in base a una delle risorse per la prima volta. Se vengono create contemporaneamente due risorse in ingresso, quella precedente nell'alfabeto avrà la precedenza. Dall'esempio precedente, sarà possibile creare le impostazioni per il `production` in ingresso. Il gateway applicazione verrà configurato con le risorse seguenti:
 
-  - Listener: `fl-www.contoso.com-80`
-  - Regola di routing: `rr-www.contoso.com-80`
+  - Listener: `fl- www.contoso.com-80`
+  - Regola di routing: `rr- www.contoso.com-80`
   - Pool back-end: `pool-production-contoso-web-service-80-bp-80`
   - Impostazioni HTTP: `bp-production-contoso-web-service-80-80-websocket-ingress`
   - Probe di integrità: `pb-production-contoso-web-service-80-websocket-ingress`

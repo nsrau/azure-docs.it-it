@@ -15,18 +15,18 @@ ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837422"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383569"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure
 Questa esercitazione illustra come aggiungere un dominio personalizzato a un endpoint della rete CDN di Azure. Quando si usa un endpoint della rete CDN per distribuire il contenuto, è necessario un dominio personalizzato se si vuole che il nome di dominio sia visibile nell'URL della rete CDN. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione. 
 
 Dopo avere creato un endpoint della rete CDN nel profilo, il nome dell'endpoint, corrispondente a un sottodominio di azureedge.net, viene incluso nell'URL per la distribuzione del contenuto CDN per impostazione predefinita (ad esempio, https:\//contoso.azureedge.net/photo.png). Per comodità, la rete CDN di Azure offre la possibilità di associare un dominio personalizzato a un endpoint della rete CDN. Grazie a questa possibilità, si distribuisce il contenuto con un dominio personalizzato nell'URL invece che con un nome di endpoint (ad esempio, https:\//www.contoso.com/photo.png). 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > - Creare un record DNS CNAME.
 > - Associare il dominio personalizzato all'endpoint della rete CDN.
@@ -34,9 +34,9 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
+Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
 
 Se non si dispone già di un dominio personalizzato, è prima necessario acquistarne uno con un provider di dominio. Ad esempio, vedere [Acquistare un nome di dominio personalizzato](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
@@ -68,11 +68,11 @@ Per creare un record CNAME con il sottodominio cdnverify:
 
     | Source (Sorgente)                    | Type  | Destination                     |
     |---------------------------|-------|---------------------------------|
-    | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
+    | cdnverify. www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
-    - Origine: immettere il nome di dominio personalizzato, incluso il sottodominio cdnverify, nel formato seguente: cdnverify.&lt;nome di dominio personalizzato&gt;. Ad esempio, cdnverify.www.contoso.com.
+    - Origine: immettere il nome di dominio personalizzato, incluso il sottodominio cdnverify, nel formato seguente: cdnverify.&lt;&gt;nome di dominio personalizzato. Ad esempio, cdnverify. www.contoso.com.
 
-    - Digitare: immettere *CNAME*.
+    - Tipo: immettere *CNAME*.
 
     - Destinazione: immettere il nome host dell'endpoint della rete CDN, incluso il sottodominio cdnverify, nel formato seguente: cdnverify. _&lt;nome endpoint&gt;_ .azureedge.net. Ad esempio, cdnverify.contoso.azureedge.net.
 
@@ -92,9 +92,9 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
     ![Voce CNAME](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
-    - Digitare: lasciare selezionato *CNAME*.
+    - Type (Tipo): lasciare selezionato *CNAME*.
 
-    - Host: immettere il sottodominio del dominio personalizzato da usare, incluso il nome del sottodominio cdnverify. Ad esempio, cdnverify.www.
+    - Host: immettere il sottodominio del dominio personalizzato da usare, incluso il nome del sottodominio cdnverify. Ad esempio, cdnverify. www.
 
     - Points to (Punta a): immettere il nome host dell'endpoint della rete CDN, incluso il nome di sottodominio cdnverify. Ad esempio, cdnverify.contoso.azureedge.net. 
 
@@ -123,7 +123,7 @@ Dopo avere registrato il dominio personalizzato, è possibile aggiungerlo all'en
 
    Viene aperta la pagina **Aggiungi dominio personalizzato**.
 
-4. Per **Nome host dell'endpoint**, il nome host dell'endpoint da usare come dominio di destinazione del record CNAME è precompilato e derivato dall'URL dell'endpoint della rete CDN:  *&lt;nome host dell'endpoint&gt;* .azureedge.net. Non può essere modificato.
+4. Per **Nome host dell'endpoint**, il nome host dell'endpoint da usare come dominio di destinazione del record CNAME è precompilato e derivato dall'URL dell'endpoint della rete CDN: *&lt;nome host dell'endpoint&gt;* .azureedge.net. Non può essere modificato.
 
 5. Per **Nome host personalizzato**, immettere il dominio personalizzato, incluso il sottodominio, da usare come dominio di origine del record CNAME. Ad esempio, www\.contoso.com o cdn.contoso.com. Non usare il nome del sottodominio cdnverify.
 
@@ -145,7 +145,7 @@ Dopo aver completato la registrazione del dominio personalizzato, verificare che
  
 1. Assicurarsi di disporre di contenuto pubblico memorizzato nella cache nell'endpoint. Ad esempio, se l'endpoint della rete CDN è associato a un account di archiviazione, la rete CDN di Azure memorizzerà il contenuto in un contenitore pubblico della cache. Per testare il dominio personalizzato, verificare che il contenitore sia impostato per poter consentire l'accesso pubblico e che contenga almeno un file.
 
-2. Nel browser passare all'indirizzo del file usando il dominio personalizzato. Ad esempio, se il dominio personalizzato è `www.contoso.com`, l'URL del file memorizzato nella cache dovrebbe essere simile all'URL seguente: `http://www.contoso.com/my-public-container/my-file.jpg`. Verificare che il risultato sia lo stesso di quando si accede all'endpoint della rete CDN direttamente in  *&lt;nome host dell'endpoint&gt;* .azureedge.net.
+2. Nel browser passare all'indirizzo del file usando il dominio personalizzato. Ad esempio, se il dominio personalizzato è `www.contoso.com`, l'URL del file memorizzato nella cache dovrebbe essere simile all'URL seguente: `http://www.contoso.com/my-public-container/my-file.jpg`. Verificare che il risultato sia lo stesso di quando si accede all'endpoint della rete CDN direttamente in *&lt;nome host dell'endpoint&gt;* .azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Eseguire il mapping del dominio personalizzato permanente
@@ -166,7 +166,7 @@ Per creare un record CNAME per il dominio personalizzato:
 
    - Origine: immettere il nome di dominio personalizzato (ad esempio, www\.contoso.com).
 
-   - Digitare: immettere *CNAME*.
+   - Tipo: immettere *CNAME*.
 
    - Destinazione: immettere il nome host dell'endpoint della rete CDN. Deve essere nel formato seguente: _&lt;nome endpoint&gt;_ .azureedge.net. Ad esempio, contoso.azureedge.net.
 
@@ -190,7 +190,7 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
     ![Voce CNAME](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
-    - Digitare: lasciare selezionato *CNAME*.
+    - Type (Tipo): lasciare selezionato *CNAME*.
 
     - Host: immettere il sottodominio del dominio personalizzato da usare. Ad esempio, www o cdn.
 
@@ -222,7 +222,7 @@ Nei passaggi precedenti è stato aggiunto un dominio personalizzato a un endpoin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > - Creare un record DNS CNAME.

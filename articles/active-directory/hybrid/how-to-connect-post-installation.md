@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571343"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377103"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Passaggi successivi e come gestire Azure AD Connect
 Usare le procedure operative descritte in questo articolo per personalizzare Azure Active Directory Connect al fine di soddisfare le esigenze e i requisiti dell'organizzazione.  
@@ -47,21 +47,21 @@ Usare il portale di Azure per controllare lo stato di una sincronizzazione.
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Per verificare l'attività di sincronizzazione pianificata
 1. Accedere al portale di Azure come amministratore.
 2. A sinistra, selezionare **Active Directory**.
-3. A sinistra, selezionare **Azure AD Connect**
-4. Nella parte superiore della pagina, si noti l'ultima sincronizzazione.
+3. A sinistra selezionare **Azure ad Connect**
+4. Nella parte superiore della pagina prendere nota dell'ultima sincronizzazione.
 
-![Ora sincronizzazione directory](./media/how-to-connect-post-installation/verify2.png)
+![Tempo sincronizzazione directory](./media/how-to-connect-post-installation/verify2.png)
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Avviare un'attività di sincronizzazione pianificata
-Se è necessario eseguire un'attività di sincronizzazione, è possibile farlo:
+Se è necessario eseguire un'attività di sincronizzazione, è possibile procedere nel modo seguente:
 
-1. Fare doppio clic sul collegamento sul desktop di Azure AD Connect per avviare la procedura guidata.
-2. Fare clic su **configurare**.
-3. Nella schermata di attività, selezionare la **personalizzare le opzioni di sincronizzazione** e fare clic su **successivo**
+1. Fare doppio clic sul collegamento Azure AD Connect desktop per avviare la procedura guidata.
+2. Fare clic su **Configure**.
+3. Nella schermata attività selezionare le **Opzioni Personalizza sincronizzazione** e fare clic su **Avanti** .
 4. Immettere le credenziali di Azure AD
 5. Fare clic su **Avanti**. Fare clic su **Avanti**.  Fare clic su **Avanti**.
-5.  Nel **possa essere configurato** schermata, assicurarsi che le **avvia il processo di sincronizzazione al termine della configurazione** casella è selezionata.
-6.  Fare clic su **configurare**.
+5.  Nella schermata **pronto per** la configurazione assicurarsi che la casella **Avvia il processo di sincronizzazione al termine della configurazione** sia selezionata.
+6.  Fare clic su **Configure**.
 
 Per altre informazioni sull'utilità di pianificazione della sincronizzazione di Azure AD Connect, vedere [Utilità di pianificazione di Azure AD Connect](how-to-connect-sync-feature-scheduler.md).
 
@@ -74,15 +74,15 @@ La tabella seguente include un riepilogo di tali attività e una breve descrizio
 
 | Attività aggiuntive | Descrizione |
 | --- | --- |
-|**Impostazioni di privacy**|Consente di visualizzare i dati di telemetria sono condiviso con Microsoft.|
+|**Impostazioni privacy**|Visualizzare i dati di telemetria condivisi con Microsoft.|
 |**Visualizza la configurazione corrente**|Consente di visualizzare la soluzione Azure AD Connect corrente.  Include impostazioni generali, directory sincronizzate e impostazioni di sincronizzazione. |
 | **Personalizzazione delle opzioni di sincronizzazione** |Consente di modificare la configurazione corrente, come l'aggiunta di altre foreste di Active Directory alla configurazione o l'attivazione di opzioni di sincronizzazione, ad esempio writeback di utenti, gruppi, dispositivi o password. |
-|**Configurare le opzioni del dispositivo**|Opzioni di dispositivo disponibili per la sincronizzazione|
-|**Aggiorna lo schema della directory**|Consente di aggiungere nuovi oggetti di directory in locale per la sincronizzazione|
+|**Configurare le opzioni del dispositivo**|Opzioni del dispositivo disponibili per la sincronizzazione|
+|**Aggiorna schema directory**|Consente di aggiungere nuovi oggetti directory locali per la sincronizzazione|
 |**Configurare la modalità di gestione temporanea** |Informazioni relative alla gestione temporanea non vengono sincronizzate immediatamente e non vengono esportate in Azure AD o in Active Directory locale.  Con questa funzionalità è possibile visualizzare in anteprima le sincronizzazioni prima che si verifichino. |
-|**Modifica accesso dell'utente**|Modificare il metodo di autenticazione gli utenti usano per accedere|
-|**Gestire federation**|Gestire l'infrastruttura AD FS, rinnovare i certificati e aggiungere i server AD FS|
+|**Modifica dell'accesso utente**|Modificare il metodo di autenticazione usato dagli utenti per accedere|
+|**Gestisci federazione**|Gestire l'infrastruttura di AD FS, rinnovare i certificati e aggiungere AD FS server|
 |**Risolvere i problemi**|Guida alla risoluzione dei problemi di Azure AD Connect|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni sull'[integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

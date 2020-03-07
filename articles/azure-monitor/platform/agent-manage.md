@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668690"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362052"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestione e manutenzione dell'agente di Log Analytics per Windows e Linux
 
@@ -20,7 +20,7 @@ Dopo la distribuzione iniziale dell'agente Log Analytics Windows o Linux in moni
 
 L'agente di Log Analytics per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente in base allo scenario di distribuzione e all'ambiente in cui è in esecuzione la macchina virtuale. Per aggiornare l'agente, è possibile utilizzare i metodi seguenti.
 
-| Ambiente | Metodo di installazione | Metodo di aggiornamento |
+| Environment | Metodo di installazione | Metodo di aggiornamento |
 |--------|----------|-------------|
 | Macchina virtuale di Azure | Estensione macchina virtuale agente Log Analytics per Windows/Linux | Per impostazione predefinita, Agent viene aggiornato automaticamente a meno che non sia stato configurato il modello di Azure Resource Manager per rifiutare esplicitamente l'impostazione della proprietà *autoUpgradeMinorVersion* su **false**. |
 | Immagini personalizzate di VM di Azure | Installazione manuale dell'agente di Log Analytics per Windows/Linux | L'aggiornamento delle macchine virtuali alla versione più recente dell'agente deve essere eseguito dalla riga di comando che esegue il pacchetto di Windows Installer o il bundle di script di Shell autoestraente e installabile di Linux.|
@@ -97,7 +97,7 @@ I passaggi descritti in questa sezione sono necessari quando si desidera non sol
 
 5. Per aggiungere un'area di lavoro, fare clic su **Aggiungi** e, nella finestra di dialogo **Add a Log Analytics Workspace** (Aggiungere un'area di lavoro Log Analytics), incollare l'ID dell'area di lavoro e la chiave dell'area di lavoro (chiave primaria). Se il computer deve inviare report a un'area di lavoro Log Analytics nel cloud Azure per enti pubblici, selezionare Azure per enti pubblici degli Stati Uniti nell'elenco a discesa Cloud di Azure.
 
-6. Fare clic su **OK** per salvare le modifiche.
+6. Scegliere **OK** per salvare le modifiche.
 
 #### <a name="remove-a-workspace-using-powershell"></a>Rimuovere un'area di lavoro usando PowerShell
 
@@ -223,7 +223,7 @@ Se i computer Linux devono comunicare tramite un server proxy o un gateway Log A
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ```
 
-## <a name="uninstall-agent"></a>Disinstallazione dell'agente
+## <a name="uninstall-agent"></a>Disinstallare l'agente
 Utilizzare una delle seguenti procedure per disinstallare l'agente Windows o Linux utilizzando la riga di comando o l'installazione guidata.
 
 ### <a name="windows-agent"></a>Agente Windows

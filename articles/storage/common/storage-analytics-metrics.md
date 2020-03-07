@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514789"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360976"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di analisi archiviazione di Azure (versione classica)
 
@@ -39,7 +39,7 @@ Analisi archiviazione è in grado di archiviare le metriche che includono le sta
 > [!NOTE]
 >  Al momento, le metriche per la capacità sono disponibili solo per il servizio BLOB.
 
- I dati relativi alla capacità vengono registrati quotidianamente per il servizio BLOB di un account di archiviazione e vengono scritte due entità di tabella. Un'entità fornisce le statistiche per i dati utente e l'altra le statistiche sul contenitore BLOB `$logs` utilizzato da Analisi archiviazione. La tabella *$MetricsCapacityBlob* include le statistiche seguenti:  
+ I dati relativi alla capacità vengono registrati quotidianamente per il servizio BLOB di un account di archiviazione e vengono scritte due entità di tabella. Un'entità fornisce le statistiche per i dati utente e l'altra le statistiche sul contenitore BLOB `$logs` utilizzato da Analisi archiviazione. Nella tabella *$MetricsCapacityBlob* sono contenute le statistiche seguenti:  
 
 - **Capacity**: la quantità di archiviazione utilizzata dal servizio BLOB dell'account di archiviazione, in byte.  
 - **ContainerCount**: il numero di contenitori BLOB del servizio BLOB dell'account di archiviazione.  
@@ -49,16 +49,16 @@ Analisi archiviazione è in grado di archiviare le metriche che includono le sta
 
 ## <a name="how-metrics-are-stored"></a>Come vengono archiviate le metriche  
 
- Tutti i dati delle metriche per ciascun servizio di archiviazione vengono archiviati in tre tabelle riservate per tale servizio: una tabella per le informazioni sulle transazioni, una per le informazioni sulle transazioni al minuto e un'altra per le informazioni relative alla capacità. Le informazioni sulla transazione e sulle transazioni al minuto consistono nei dati di richiesta e di risposta, mentre le informazioni sulla capacità consistono nei dati d'uso dell'archiviazione. Le metriche orarie, le metriche al minuto e la capacità per il servizio BLOB di un account di archiviazione sono accessibili nelle tabelle denominate come descritto nella tabella seguente.  
+ Tutti i dati delle metriche per ciascun servizio di archiviazione vengono archiviati in tre tabelle riservate per tale servizio: una tabella per le informazioni sulle transazioni, una per le informazioni sulle transazioni al minuto e un'altra per le informazioni relative alla capacità. Le informazioni sulla transazione e sulle transazioni al minuto consistono nei dati di richiesta e di risposta, mentre le informazioni sulla capacità consistono nei dati d'uso dell'archiviazione. Le metriche orarie e al minuto e la capacità per il servizio Blob di un account di archiviazione sono accessibili nelle tabelle che sono denominate nel modo indicato nella tabella che segue.  
 
-|Livello metrica|Nomi di tabella|Supportato per le versioni|  
+|Livello di metrica|Nomi di tabella|Supportato per le versioni|  
 |-------------------|-----------------|----------------------------|  
-|Metriche orarie, posizione principale|-$MetricsTransactionsBlob<br />-$MetricsTransactionsTable<br />-$MetricsTransactionsQueue|Solo le versioni precedenti al 15-08-2013. Sebbene tali nomi siano supportati, è consigliabile passare all'utilizzo delle tabelle elencate di seguito.|  
-|Metriche orarie, posizione principale|-$MetricsHourPrimaryTransactionsBlob<br />-$MetricsHourPrimaryTransactionsTable<br />-$MetricsHourPrimaryTransactionsQueue<br />-$MetricsHourPrimaryTransactionsFile|Tutte le versioni. Il supporto per le metriche del servizio file è disponibile solo nella versione 2015-04-05 e successive.|  
-|Metriche per minuto, posizione principale|-$MetricsMinutePrimaryTransactionsBlob<br />-$MetricsMinutePrimaryTransactionsTable<br />-$MetricsMinutePrimaryTransactionsQueue<br />-$MetricsMinutePrimaryTransactionsFile|Tutte le versioni. Il supporto per le metriche del servizio file è disponibile solo nella versione 2015-04-05 e successive.|  
-|Metriche orarie, posizione secondaria|-$MetricsHourSecondaryTransactionsBlob<br />-$MetricsHourSecondaryTransactionsTable<br />-$MetricsHourSecondaryTransactionsQueue|Tutte le versioni. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica.|  
-|Metriche al minuto, posizione secondaria|-$MetricsMinuteSecondaryTransactionsBlob<br />-$MetricsMinuteSecondaryTransactionsTable<br />-$MetricsMinuteSecondaryTransactionsQueue|Tutte le versioni. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica.|  
-|Capacità (solo servizio BLOB)|$MetricsCapacityBlob|Tutte le versioni.|  
+|Metriche orarie, posizione principale|-   $MetricsTransactionsBlob<br />-   $MetricsTransactionsTable<br />-   $MetricsTransactionsQueue|Solo le versioni precedenti al 15-08-2013. Sebbene tali nomi siano supportati, è consigliabile passare all'utilizzo delle tabelle elencate di seguito.|  
+|Metriche orarie, posizione principale|-   $MetricsHourPrimaryTransactionsBlob<br />-   $MetricsHourPrimaryTransactionsTable<br />-   $MetricsHourPrimaryTransactionsQueue<br />-   $MetricsHourPrimaryTransactionsFile|tutte le versioni. Il supporto per le metriche del servizio file è disponibile solo nella versione 2015-04-05 e successive.|  
+|Metriche per minuto, posizione principale|-   $MetricsMinutePrimaryTransactionsBlob<br />-   $MetricsMinutePrimaryTransactionsTable<br />-   $MetricsMinutePrimaryTransactionsQueue<br />-   $MetricsMinutePrimaryTransactionsFile|tutte le versioni. Il supporto per le metriche del servizio file è disponibile solo nella versione 2015-04-05 e successive.|  
+|Metriche orarie, posizione secondaria|-   $MetricsHourSecondaryTransactionsBlob<br />-   $MetricsHourSecondaryTransactionsTable<br />-   $MetricsHourSecondaryTransactionsQueue|tutte le versioni. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica.|  
+|Metriche al minuto, posizione secondaria|-   $MetricsMinuteSecondaryTransactionsBlob<br />-   $MetricsMinuteSecondaryTransactionsTable<br />-   $MetricsMinuteSecondaryTransactionsQueue|tutte le versioni. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica.|  
+|Capacità (solo servizio BLOB)|$MetricsCapacityBlob|tutte le versioni.|  
 
  Queste tabelle vengono create automaticamente quando Analisi archiviazione è abilitato per un endpoint del servizio di archiviazione. È possibile accedervi tramite lo spazio dei nomi dell'account di archiviazione, ad esempio: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. Le tabelle delle metriche non vengono visualizzate in un'operazione di elenco ed è necessario accedervi direttamente tramite il nome della tabella.  
 
@@ -75,7 +75,7 @@ Seguire questi passaggi per abilitare le metriche nel [portale di Azure](https:/
 Il [portale di Azure](https://portal.azure.com) non consente attualmente di configurare le metriche di minuti nell'account di archiviazione; è necessario abilitare le metriche di minuti usando PowerShell o a livello di codice.
 
 ## <a name="enable-storage-metrics-using-powershell"></a>Abilitare le metriche di archiviazione con PowerShell  
-È possibile usare PowerShell nel computer locale per configurare le metriche di archiviazione nell'account di archiviazione usando il cmdlet Azure PowerShell **Get-AzStorageServiceMetricsProperty** per recuperare le impostazioni correnti e il cmdlet  **Impostare-AzStorageServiceMetricsProperty** per modificare le impostazioni correnti.  
+È possibile usare PowerShell nel computer locale per configurare le metriche di archiviazione nell'account di archiviazione usando il cmdlet Azure PowerShell **Get-AzStorageServiceMetricsProperty** per recuperare le impostazioni correnti e il cmdlet **set-AzStorageServiceMetricsProperty** per modificare le impostazioni correnti.  
 
 I cmdlet che controllano Metriche di archiviazione usano i seguenti parametri:  
 
@@ -112,9 +112,9 @@ Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context
 Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere: [Come installare e configurare Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ## <a name="enable-storage-metrics-programmatically"></a>Abilitare le metriche di archiviazione a livello di codice  
-Oltre a usare il portale di Azure o i cmdlet Azure PowerShell per controllare le metriche di archiviazione, è anche possibile usare una delle API di archiviazione di Azure. Se ad esempio si usa un linguaggio .NET, è possibile usare la libreria client di archiviazione.  
+Oltre a usare il portale di Azure o i cmdlet Azure PowerShell per controllare le metriche di archiviazione, è anche possibile usare una delle API di archiviazione di Azure. Se, ad esempio, si usa un linguaggio .NET, è possibile usare la libreria client di archiviazione.  
 
-Le classi **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**e **CloudFileClient** hanno tutti metodi come **SetServiceProperties** e **SetServicePropertiesAsync** che accettano  **Oggetto ServiceProperties** come parametro. È possibile usare l'oggetto **ServiceProperties** per configurare le metriche di archiviazione. Ad esempio, il frammento di codice seguente C# Mostra come modificare il livello di metrica e i giorni di conservazione per le metriche della coda oraria:  
+Le classi **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**e **CloudFileClient** hanno tutti metodi come **SetServiceProperties** e **SetServicePropertiesAsync** che accettano un oggetto **ServiceProperties** come parametro. È possibile usare l'oggetto **ServiceProperties** per configurare Metriche di archiviazione. Il seguente frammento di codice C#, ad esempio, mostra come modificare il livello di metrica e i giorni di conservazione per le metriche orarie della coda:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -146,8 +146,8 @@ Se si desidera scaricare le metriche per l'archiviazione a lungo termine o per a
 ||||  
 |-|-|-|  
 |**Metriche**|**Nomi di tabella**|**Note**|  
-|Metriche orarie|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nelle versioni precedenti alla 2013-08-15, queste tabelle erano note come:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Le metriche per il servizio file sono disponibili a partire dalla versione 2015-04-05.|  
-|Metriche al minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Può essere abilitato solo usando PowerShell o a livello di codice.<br /><br /> Le metriche per il servizio file sono disponibili a partire dalla versione 2015-04-05.|  
+|Metriche orarie|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nelle versioni precedenti al 15 agosto 2013, queste tabelle sono note come:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Le metriche per il servizio file sono disponibili a partire dalla versione 2015-04-05.|  
+|Metriche al minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Può essere abilitata solo a livello di codice o usando PowerShell.<br /><br /> Le metriche per il servizio file sono disponibili a partire dalla versione 2015-04-05.|  
 |Capacity|$MetricsCapacityBlob|Solo servizio BLOB.|  
 
 È possibile trovare i dettagli completi degli schemi di queste tabelle in [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema). Le righe di esempio riportate di seguito mostrano solo un subset delle colonne disponibili, ma illustrano alcune importanti funzionalità relative al modo in cui Metriche di archiviazione salva queste metriche:  
@@ -155,18 +155,18 @@ Se si desidera scaricare le metriche per l'archiviazione a lungo termine o per a
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
 |**PartitionKey**|**RowKey**|**Timestamp**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilità**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
-|20140522T1100|user;All|2014-05-22T11:01:16.7650250 Z|7|7|4003|46801|100|104.4286|6.857143|100|  
-|20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250 Z|5|5|2694|45951|100|143.8|7.8|100|  
-|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250 Z|1|1|538|633|100|3|3|100|  
-|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.7650250 Z|1|1|771|217|100|9|6|100|  
+|20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
+|20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
+|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
+|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.7650250Z|1|1|771|217|100|9|6|100|  
 
 Nei dati delle metriche al minuto di questo esempio, la chiave di partizione usa la risoluzione ora al minuto. La chiave di riga identifica il tipo di informazioni archiviate nella riga ed è composta da due informazioni, il tipo di accesso e il tipo di richiesta:  
 
--   Il tipo di accesso è **User** o **System**, in cui l' **utente** fa riferimento a tutte le richieste utente al servizio di archiviazione e **System** si riferisce alle richieste effettuate da analisi archiviazione.  
+-   Il tipo di accesso è **user** o **system**, dove **user** è riferito a tutte le richieste utente al servizio di archiviazione, mentre **system** è riferito alle richieste eseguite da Analisi archiviazione.  
 
--   Il tipo di richiesta è **All** , nel qual caso si tratta di una linea di riepilogo, oppure identifica l'API specifica, ad esempio **QueryEntity** o **UpdateEntity**.  
+-   Il tipo di richiesta è **all**, nel qual caso si tratta di una riga di riepilogo, oppure identifica l'API specifica, ad esempio **QueryEntity** o **UpdateEntity**.  
 
-I dati di esempio riportati sopra mostrano tutti i record per un singolo minuto (a partire dalle 11.00), quindi il numero di richieste **QueryEntities** più il numero di richieste **QueryEntity** più il numero di richieste **UpdateEntity** che aggiungono fino a sette, ovvero totale visualizzato nell' **utente: tutte** le righe. Analogamente, è possibile derivare la latenza end-to-end media 104,4286 sull' **utente: tutte** le righe calcolando ((143,8 * 5) + 3 + 9)/7.  
+I dati di esempio riportati sopra mostrano tutti i record per un singolo minuto (a partire dalle ore 11.00): il numero di richieste di **QueryEntities** più il numero di richieste di **QueryEntity** più quello di richieste di **UpdateEntity** è pari a sette, ovvero il totale visualizzato nella riga **user:All**. Analogamente, è possibile derivare la latenza end-to-end media 104.4286 sulla riga **user:All** calcolando ((143.8 * 5) + 3 + 9)/7.  
 
 ## <a name="metrics-alerts"></a>Avvisi delle metriche
 È consigliabile configurare gli avvisi nel [portale di Azure](https://portal.azure.com) in modo da ricevere automaticamente notifiche relative a modifiche importanti nel comportamento dei servizi di archiviazione. Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. Vedere [Strumento client di Archiviazione di Azure](/azure/storage/storage-explorers) per un elenco di strumenti di esplorazione di archiviazione disponibili. È possibile configurare gli avvisi nel pannello **avviso (classico)** , accessibile da **monitoraggio (classico)** nel pannello del menu dell'account di archiviazione.

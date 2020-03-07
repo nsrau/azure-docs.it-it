@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
 ms.openlocfilehash: 8c919326607100d48db1f681fd587776d2b88483
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368879"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383663"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
+# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Esercitazione: creare un pool di host usando Azure Marketplace
 
 I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 
@@ -55,7 +55,7 @@ Nel pannello **Generale** procedere come segue:
 3. Immettere un elenco di voci delimitate da virgole corrispondenti agli utenti che possono accedere ai client di Desktop virtuale Windows e a un desktop quando l'offerta di Azure Marketplace termina. Se ad esempio si vuole assegnare l'accesso a user1@contoso.com e a user2@contoso.com, immettere "user1@contoso.com,user2@contoso.com".
 4. Selezionare **Crea nuovo** e specificare il nome del nuovo gruppo di risorse.
 5. Per **Località** selezionare la stessa località della macchina virtuale che ha connettività con il server Active Directory.
-6. Selezionare **Avanti: Configurare le macchine virtuali >** .
+6. Selezionare **Avanti: Configura macchine virtuali >** .
 
 >[!IMPORTANT]
 >Se si usa una soluzione Azure Active Directory Domain Services e Azure Active Directory pura, assicurarsi di distribuire il pool host nella stessa area di Azure Active Directory Domain Services per evitare errori di aggiunta al dominio e credenziali.
@@ -70,7 +70,7 @@ Per il pannello **Configura le VM**:
     >Se le dimensioni specifiche della VM che si cercano non vengono visualizzate nel selettore di dimensioni, significa che non ne è stato ancora eseguito l'onboarding nello strumento di Azure Marketplace. Per richiedere le dimensioni della VM, creare una richiesta oppure aggiornarne una esistente nel [forum UserVoice di Desktop virtuale Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
     
 2. Immettere un prefisso per i nomi delle macchine virtuali. Ad esempio, se si immette il nome "prefisso", le macchine virtuali saranno denominate "prefisso-0", "prefisso-1" e così via.
-3. Selezionare **Avanti: Impostazioni della macchina virtuale**.
+3. Selezionare **Avanti: impostazioni macchina virtuale**.
 
 ### <a name="virtual-machine-settings"></a>Impostazioni della macchina virtuale
 
@@ -84,7 +84,7 @@ Per il pannello **Virtual machine settings** (Impostazioni macchina virtuale):
 1. Per **Origine immagine** selezionare l'origine e immettere le informazioni appropriate per trovarla e archiviarla. Se si è scelto di non usare dischi gestiti, selezionare l'account di archiviazione contenente il file con estensione vhd.
 2. Immettere il nome dell'entità utente e la password per l'account di dominio che aggiungerà le VM al dominio di Active Directory. Gli stessi valori di nome utente e password verranno creati come account locali nelle macchine virtuali. È possibile reimpostare questi account locali in seguito.
 3. Selezionare la rete virtuale che ha connettività con il server Active Directory e quindi scegliere una subnet in cui ospitare le macchine virtuali.
-4. Selezionare **Avanti: Informazioni sul tenant di Desktop virtuale Windows**.
+4. Selezionare **Avanti: informazioni sul desktop virtuale di Windows**.
 
 ### <a name="windows-virtual-desktop-tenant-information"></a>Informazioni sul tenant di Desktop virtuale Windows
 
@@ -94,7 +94,7 @@ Per il pannello **Windows Virtual Desktop tenant information** (Informazioni ten
 2. Per **Windows Virtual Desktop tenant name** (Nome tenant Desktop virtuale Windows) immettere il nome del tenant in cui verrà creato il pool di host.
 3. Specificare il tipo di credenziali da usare per l'autenticazione come proprietario di Servizi Desktop remoto del tenant di Desktop virtuale Windows. Se è stata completata l'esercitazione [Creare entità servizio e assegnazioni di ruolo con PowerShell](./create-service-principal-role-powershell.md), selezionare **Entità servizio**. Quando viene visualizzato il campo **ID tenant di Azure AD**, immettere l'ID dell'istanza di Azure Active Directory che contiene l'entità servizio.
 4. Immettere le credenziali per l'account amministratore del tenant. Sono supportate solo entità servizio con una credenziale password.
-5. Selezionare **Avanti: Rivedi e crea**.
+5. Selezionare **Avanti: verifica + crea**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Completare la configurazione e creare la macchina virtuale
 

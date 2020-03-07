@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272315"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376604"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticazione con passcode monouso tramite indirizzo di posta elettronica (anteprima)
 
@@ -56,7 +56,7 @@ Quando un utente guest riscatta un invito o usa un collegamento a una risorsa ch
 
 Al momento dell'invito non è presente alcuna indicazione del fatto che l'utente che si sta invitando userà l'autenticazione con passcode monouso. Tuttavia quando l'utente guest accede, l'autenticazione con passcode monouso sarà il metodo di fallback se non è possibile utilizzare altri metodi di autenticazione. 
 
-È possibile visualizzare gli utenti guest che eseguono l'autenticazione con i passcode monouso nel portale di Azure passando ad **Azure Active Directory** > **Relazioni aziendali**  >  **Utenti da altre organizzazioni**.
+È possibile visualizzare gli utenti guest che eseguono l'autenticazione con i passcode monouso nel portale di Azure passando ad **Azure Active Directory** > **Relazioni aziendali** > **Utenti da altre organizzazioni**.
 
 ![Screenshot che mostra un utente del codice di accesso monouso con il valore di origine OTP](media/one-time-passcode/otp-users.png)
 
