@@ -9,28 +9,28 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443156"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380213"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Esercitazione: Copiare dati in Azure Data Box tramite NFS
+# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Esercitazione: copiare dati in Azure Data Box tramite NFS
 
 Questa esercitazione descrive come connettersi al computer host e copiarne i dati usando l'interfaccia utente Web locale.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Connettersi al Data Box
 > * Copiare i dati nel Data Box
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 
-1. Aver completato l'esercitazione descritta in [Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
+1. Sia stata completata l'[Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
 2. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**.
 3. Sia disponibile un computer host con i dati da copiare nel Data Box. Il computer host deve:
     - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
@@ -148,7 +148,7 @@ Per assicurare l'integrità dei dati, il checksum viene calcolato inline durante
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Connettersi al Data Box
 > * Copiare i dati nel Data Box
 

@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793561"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379769"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Funzionamento della ricerca full-text in Azure ricerca cognitiva
 
-Questo articolo è per gli sviluppatori che necessitano di una conoscenza più approfondita del funzionamento della ricerca full-text di Lucene in Azure ricerca cognitiva. Per le query di testo, Azure ricerca cognitiva fornirà in modo uniforme i risultati previsti nella maggior parte degli scenari, ma in alcuni casi è possibile che si ottenga un risultato apparentemente "off". In questi casi, la presenza di uno sfondo nelle quattro fasi dell'esecuzione di query di Lucene (analisi delle query, analisi lessicale, abbinamento dei documenti, assegnazione dei punteggi) consente di identificare le modifiche specifiche per i parametri di query o per la configurazione di indice che garantirà il risultato desiderato. 
+Questo articolo è per gli sviluppatori che necessitano di una conoscenza più approfondita del funzionamento della ricerca full-text di Lucene in Azure ricerca cognitiva. Per le query di testo, Ricerca cognitiva di Azure fornirà i risultati previsti nella maggior parte degli scenari, ma in alcuni casi è possibile ottenere un risultato che sembrerà in qualche modo "strano". In questi casi, la presenza di uno sfondo nelle quattro fasi dell'esecuzione di query di Lucene (analisi delle query, analisi lessicale, abbinamento dei documenti, assegnazione dei punteggi) consente di identificare le modifiche specifiche per i parametri di query o per la configurazione di indice che garantirà il risultato desiderato. 
 
 > [!Note] 
 > Azure ricerca cognitiva USA Lucene per la ricerca full-text, ma l'integrazione con Lucene non è esaustiva. È possibile esporre ed estendere selettivamente la funzionalità Lucene per abilitare gli scenari importanti per Azure ricerca cognitiva. 
@@ -66,7 +66,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 Per questa richiesta, il motore di ricerca esegue le operazioni seguenti:
 
 1. Filtra i documenti in cui il prezzo è almeno $ 60 e meno di $ 300.
-2. Esegue la query. In questo esempio la query di ricerca è costituita da frasi e termini: `"Spacious, air-condition* +\"Ocean view\""` (gli utenti in genere non immettono segni di punteggiatura, ma includerli nell'esempio consente di spiegare come la gestiscono gli analizzatori). Per questa query, il motore di ricerca esegue la scansione della descrizione e dei campi del titolo specificati in `searchFields` per i documenti che contengono "Vista sull'Oceano" e anche il termine "spazioso" o i termini che iniziano con il prefisso "aria condizionata". Il parametro `searchMode` viene usato per l'abbinamento con qualsiasi termine (impostazione predefinita) o con tutti i termini, per i casi in cui un termine non è esplicitamente richiesto (`+`).
+2. Consente di eseguire la query. In questo esempio la query di ricerca è costituita da frasi e termini: `"Spacious, air-condition* +\"Ocean view\""` (gli utenti in genere non immettono segni di punteggiatura, ma includerli nell'esempio consente di spiegare come la gestiscono gli analizzatori). Per questa query, il motore di ricerca esegue la scansione della descrizione e dei campi del titolo specificati in `searchFields` per i documenti che contengono "Vista sull'Oceano" e anche il termine "spazioso" o i termini che iniziano con il prefisso "aria condizionata". Il parametro `searchMode` viene usato per l'abbinamento con qualsiasi termine (impostazione predefinita) o con tutti i termini, per i casi in cui un termine non è esplicitamente richiesto (`+`).
 3. Ordina il set risultante degli hotel in prossimità di una posizione geografica specificata e quindi restituita all'applicazione chiamante. 
 
 La maggior parte di questo articolo riguarda l'elaborazione di *query di ricerca*: `"Spacious, air-condition* +\"Ocean view\""`. Il filtro e l'ordinamento non appartengono all'ambito. Per altre informazioni, vedere la [Documentazione di riferimento dell'API di Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
@@ -251,7 +251,7 @@ Per produrre i termini in un indice inverso, il motore di ricerca esegue l'anali
 
 Ritornando all'esempio precedente, per il campo **titolo**, l'indice invertito è simile al seguente:
 
-| Durata | Elenco di documenti |
+| Termine | Elenco di documenti |
 |------|---------------|
 | atman | 1 |
 | spiaggia | 2 |
@@ -265,9 +265,9 @@ Nel campo del titolo, solo *hotel* viene visualizzato in due documenti: 1, 3.
 
 Per il campo **descrizione**, l'indice è il seguente:
 
-| Durata | Elenco di documenti |
+| Termine | Elenco di documenti |
 |------|---------------|
-| aria | 3
+| air | 3
 | e | 4
 | spiaggia | 1
 | condizionata | 3
@@ -286,8 +286,8 @@ Per il campo **descrizione**, l'indice è il seguente:
 | costa | 2
 | spazioso | 1
 | il | 1, 2
-| to | 1
-| visualizza | 1, 2, 3
+| a | 1
+| visualizzazione | 1, 2, 3
 | passeggiata | 1
 | con | 3
 
@@ -391,7 +391,7 @@ Questo articolo ha esplorato la ricerca full-text nel contesto di Azure ricerca 
 
 + [Configurare gli analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

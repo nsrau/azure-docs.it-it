@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988346"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359469"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
 
@@ -30,7 +30,7 @@ Per analizzare i contenuti usando i set di impostazioni di Media Services V3, cr
 
 ## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
 
-Come promemoria importante, è necessario rispettare tutte le leggi applicabili nell'utilizzo di Video Indexer e non è possibile utilizzare Video Indexer o altri servizi di Azure in modo da violare i diritti di altri utenti o potrebbero essere dannosi ad altri utenti. Prima di caricare tutti i video, inclusi i dati biometrici, nel servizio Video Indexer per l'elaborazione e l'archiviazione, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati, dai singoli nel video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, le [condizioni per servizi cognitivi](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)Microsoft. Per gli obblighi sulla privacy e la gestione dei dati di Microsoft, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online](https://www.microsoft.com/licensing/product-licensing/products) ("Ost") e l'appendice per l' [elaborazione dei dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Informazioni aggiuntive sulla privacy, tra cui la conservazione dei dati, l'eliminazione o la distruzione, sono disponibili nella OST e [qui](../video-indexer/faq.md). Utilizzando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di servizi cognitivi, OST, DPA e informativa sulla privacy.
+È importante ricordare che è necessario usare Video Indexer in conformità con tutte le leggi applicabili e non è possibile usare Video Indexer né qualsiasi altro servizio di Azure in un modo che violi i diritti di altri utenti o possa arrecare danni ad altri utenti. Per poter caricare video, inclusi dati biometrici, nel servizio Video Indexer per elaborarli e archiviarli, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati delle persone che compaiono nel video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, vedere le [condizioni di Servizi cognitivi Microsoft](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Per informazioni sugli obblighi relativi alla privacy e la gestione dei dati degli utenti da parte di Microsoft, vedere l'[informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement), le [condizioni per l'utilizzo dei servizi online](https://www.microsoft.com/licensing/product-licensing/products) e l'[addendum sull'elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) Microsoft. Informazioni aggiuntive sulla privacy, tra cui la conservazione e l'eliminazione/distruzione dei dati, sono disponibili nelle condizioni per l'utilizzo dei servizi online e [qui](../video-indexer/faq.md). Usando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di Servizi cognitivi, dalle condizioni per l'utilizzo dei servizi online, dall'addendum sull'elaborazione dati e dall'informativa sulla privacy.
 
 ## <a name="built-in-presets"></a>Set di impostazioni predefiniti
 
@@ -67,11 +67,11 @@ L'output include un file JSON (Insights. Json) con tutte le informazioni dettagl
 
 ### <a name="transcript"></a>transcript
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |id|ID della riga.|
-|text|Testo della trascrizione.|
-|Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
+|testo|Testo della trascrizione.|
+|language|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |istanze|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
@@ -105,12 +105,12 @@ Esempio:
 
 ### <a name="ocr"></a>ocr
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
-|text|Testo risultante dal riconoscimento ottico dei caratteri.|
+|testo|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
-|Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
+|language|Lingua del riconoscimento ottico dei caratteri.|
 |istanze|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
 
 ```json
@@ -148,7 +148,7 @@ Esempio:
 
 ### <a name="faces"></a>faces
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |id|ID del volto.|
 |name|Nome del volto. Può essere "Unknown #0", una celebrità identificata o una persona con training del cliente.|
@@ -193,7 +193,7 @@ Esempio:
 
 ### <a name="shots"></a>shots
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco dei fotogrammi chiave inclusi nello scatto, ciascuno con un ID e un elenco degli intervalli di tempo delle istanze. Le istanze dei fotogrammi chiave hanno un campo thumbnailId con l'ID anteprima del fotogramma chiave.|
@@ -250,7 +250,7 @@ Esempio:
 
 ### <a name="statistics"></a>statistiche
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |WordCount|Numero di parole per ogni voce.|
@@ -263,7 +263,7 @@ Esempio:
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
@@ -296,13 +296,13 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 ]
 ```
 
-### <a name="labels"></a>Etichette
+### <a name="labels"></a>etichette
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
-|Linguaggio|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
+|language|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
 |istanze|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
 
 ```json
@@ -354,14 +354,14 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
   ] 
 ```
 
-### <a name="keywords"></a>keywords
+### <a name="keywords"></a>parole chiave
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
-|text|Testo della parola chiave.|
+|testo|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
-|Linguaggio|Lingua della parola chiave, quando tradotta.|
+|language|Lingua della parola chiave, quando tradotta.|
 |istanze|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
@@ -407,7 +407,7 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti possono inviare una richiesta di revisione umana del contenuto, nel qual caso l'attributo `IsAdult` conterrà il risultato della revisione umana.
 
-|Nome|Description|
+|Name|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|

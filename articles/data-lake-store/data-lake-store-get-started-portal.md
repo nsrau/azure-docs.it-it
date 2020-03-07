@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438752"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385696"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -113,7 +113,7 @@ Fare clic sull'icona con i puntini di sospensione per un file e dal menu a compa
 
 ![Proprietà dei dati](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Proprietà sui dati")
 
-## <a name="secure-your-data"></a>Proteggere i dati
+## <a name="secure-your-data"></a>Protezione dei dati
 
 È possibile proteggere i dati archiviati nell'account Data Lake Storage Gen1 usando Azure Active Directory e il controllo di accesso (ACL). Per istruzioni su come eseguire questa operazione, vedere [Protezione dei dati in Azure Data Lake Storage Gen1](data-lake-store-secure-data.md).
 

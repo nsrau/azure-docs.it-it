@@ -4,11 +4,11 @@ description: Informazioni sulle valutazioni in Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 0cf933dd1c8c61edfcea20ea954c5813f3848b28
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425698"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392858"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Informazioni sulle valutazioni in Azure Migrate
 
@@ -116,7 +116,7 @@ Non tutti i computer sono idonei per l'esecuzione in Azure. Server Assessment va
 
 Per calcolare la conformità, server Assessment esamina le proprietà del computer e le impostazioni del sistema operativo riepilogate nelle tabelle seguenti. 
 
-### <a name="machine-properties"></a>Proprietà computer
+### <a name="machine-properties"></a>Proprietà del computer
 
 Server Assessment esamina le seguenti proprietà della macchina virtuale locale per determinare se può essere eseguita in Azure.
 

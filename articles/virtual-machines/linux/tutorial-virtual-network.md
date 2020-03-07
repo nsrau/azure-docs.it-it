@@ -16,15 +16,15 @@ ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d6624b9d5d77a8552584049463b63738bbf17627
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034357"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394333"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Esercitazione: Creare e gestire reti virtuali di Azure per macchine virtuali Linux con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Esercitazione: creare e gestire reti virtuali di Azure per macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
-Le macchine virtuali di Azure usano la rete di Azure per la comunicazione di rete interna ed esterna. Questa esercitazione illustra la distribuzione di due macchine virtuali e la configurazione della rete di Azure per tali VM. Gli esempi in questa esercitazione presuppongono che le VM ospitino un'applicazione Web con un back-end di database, ma nell'esercitazione non viene distribuita un'applicazione. In questa esercitazione si apprenderà come:
+Le macchine virtuali di Azure usano la rete di Azure per la comunicazione di rete interna ed esterna. Questa esercitazione illustra la distribuzione di due macchine virtuali e la configurazione della rete di Azure per tali VM. Gli esempi in questa esercitazione presuppongono che le VM ospitino un'applicazione Web con un back-end di database, ma nell'esercitazione non viene distribuita un'applicazione. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una rete virtuale e una subnet
@@ -52,7 +52,7 @@ Dopo avere completato l'esercitazione, vengono create le seguenti risorse di ret
 - *myFrontendVM*: la macchina virtuale usata per la comunicazione tra Internet e *myBackendVM*.
 - *myBackendNSG*: il gruppo di sicurezza di rete che controlla la comunicazione tra *myFrontendVM* e *myBackendVM*.
 - *myBackendSubnet*: la subnet associata a *myBackendNSG* e usata dalle risorse back-end.
-- *myBackendNic*: l'interfaccia di rete utilizzata da *myBackendVM* per comunicare con *myFrontendVM*.
+- *myBackendNic*: l'interfaccia di rete usata da *myBackendVM* per comunicare con *myFrontendVM*.
 - *myBackendVM*: la VM che usa la porta 22 e 3306 per comunicare con *myFrontendVM*.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creare una rete virtuale e una subnet
@@ -130,7 +130,7 @@ az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 
 Spesso non è necessario che una VM sia accessibile tramite Internet. Per creare una VM senza indirizzo IP pubblico, usare l'argomento `--public-ip-address ""` con due virgolette doppie vuote. Questa configurazione verrà illustrata più avanti in questa esercitazione.
 
-## <a name="create-a-front-end-vm"></a>Creare una VM front-end
+## <a name="create-a-front-end-vm"></a>Creare una macchina virtuale front-end
 
 Usare il comando [az vm create](/cli/azure/vm) per creare la VM denominata *myFrontendVM* mediante *myPublicIPAddress*.
 
@@ -190,7 +190,7 @@ az network vnet subnet update \
 
 Quando è stata creata la VM front-end, è stata creata una regola del gruppo di sicurezza di rete per consentire il traffico in ingresso sulla porta 22. Questa regola consente le connessioni SSH alla VM. Per questo esempio deve essere consentito il traffico anche sulla porta *80*. Questa configurazione consente l'accesso a un'applicazione Web nella VM.
 
-Per creare una regola per la porta *80*, usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule).
+Per creare una regola per la porta [80](/cli/azure/network/nsg/rule), usare il comando *az network nsg rule create*.
 
 ```azurecli-interactive 
 az network nsg rule create \

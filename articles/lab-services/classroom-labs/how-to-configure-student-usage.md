@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539189"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358643"
 ---
 # <a name="add-and-manage-lab-users"></a>Aggiungere e gestire gli utenti del lab
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
@@ -101,7 +101,7 @@ Se l'opzione **Limita l'accesso** è abilitata per il lab, solo gli utenti inclu
 2. Nella finestra di dialogo **registrazione utente** selezionare **fine**. 
 4. Inviare il **collegamento di registrazione** a uno studente in modo che lo studente possa registrarsi per la classe. 
 
-## <a name="view-registered-users"></a>Visualizza utenti registrati
+## <a name="view-registered-users"></a>Visualizzare gli utenti registrati
 
 1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com). 
 2. Selezionare **Accedi** e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft.

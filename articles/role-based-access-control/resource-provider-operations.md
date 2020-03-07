@@ -14,11 +14,11 @@ ms.date: 02/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9b3a1175b5e22b787c62365d3b113e02ec1d1326
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206997"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361905"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -1504,7 +1504,7 @@ Servizio di Azure: macchina virtuale del modello di distribuzione classica
 > | Azione | Microsoft.ClassicCompute/virtualMachines/performMaintenance/action | Esegue operazioni di manutenzione sulla macchina virtuale. |
 > | Azione | Microsoft.ClassicCompute/virtualMachines/restart/action | Riavvia le macchine virtuali. |
 > | Azione | Microsoft.ClassicCompute/virtualMachines/stop/action | Arresta la macchina virtuale. |
-> | Azione | Microsoft.ClassicCompute/virtualMachines/shutdown/action | Arrestare la macchina virtuale. |
+> | Azione | Microsoft.ClassicCompute/virtualMachines/shutdown/action | Chiude la macchina virtuale. |
 > | Azione | Microsoft.ClassicCompute/virtualMachines/attachDisk/action | Collega un disco dati a una macchina virtuale. |
 > | Azione | Microsoft.ClassicCompute/virtualMachines/detachDisk/action | Scollega un disco dati da una macchina virtuale. |
 > | Azione | Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action | Scarica il file RDP per la macchina virtuale. |
@@ -7527,7 +7527,7 @@ Servizio di Azure: [monitoraggio di Azure](../azure-monitor/index.yml)
 > | Azione | Microsoft.OperationalInsights/workspaces/savedSearches/write | Crea una query di ricerca salvata |
 > | Azione | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Elimina una query di ricerca salvata |
 > |  | **aree di lavoro/savedsearches/risultati** |  |
-> | Azione | microsoft.operationalinsights/workspaces/savedsearches/results/read | Recupera i risultati delle ricerche salvati. Obsoleto |
+> | Azione | microsoft.operationalinsights/workspaces/savedsearches/results/read | Recupera i risultati delle ricerche salvati. Deprecato |
 > |  | **aree di lavoro/savedsearches/pianificazioni** |  |
 > | Azione | microsoft.operationalinsights/workspaces/savedsearches/schedules/read | Recupera le ricerche pianificate. |
 > | Azione | microsoft.operationalinsights/workspaces/savedsearches/schedules/delete | Elimina le ricerche pianificate. |
@@ -7543,7 +7543,7 @@ Servizio di Azure: [monitoraggio di Azure](../azure-monitor/index.yml)
 > | Azione | Microsoft. operationalinsights/Workspaces/scopedPrivateLinkProxies/Write | Inserire il proxy di collegamento privato con ambito. |
 > | Azione | Microsoft. operationalinsights/Workspaces/scopedPrivateLinkProxies/Delete | Elimina il proxy di collegamento privato con ambito. |
 > |  | **aree di lavoro/ricerca** |  |
-> | Azione | microsoft.operationalinsights/workspaces/search/read | Ottiene i risultati della ricerca. Deprecato. |
+> | Azione | microsoft.operationalinsights/workspaces/search/read | Ottiene i risultati della ricerca. Operazione deprecata. |
 > |  | **aree di lavoro/sharedKeys** |  |
 > | Azione | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera le chiavi condivise per l'area di lavoro. Queste chiavi servono per collegare gli agenti di Microsoft Operational Insights all’area di lavoro. |
 > |  | **aree di lavoro/storageinsightconfigs** |  |
@@ -9836,7 +9836,7 @@ Servizio di Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 > | Azione | Microsoft.VisualStudio/Extension/Read | Legge l'estensione |
 > |  | **Progetto** |  |
 > | Azione | Microsoft.VisualStudio/Project/Write | Imposta il progetto |
-> | Azione | Microsoft.VisualStudio/Project/Delete | Elimina progetto |
+> | Azione | Microsoft.VisualStudio/Project/Delete | Elimina il progetto |
 > | Azione | Microsoft.VisualStudio/Project/Read | Legge il progetto |
 
 ## <a name="microsoftweb"></a>microsoft.web

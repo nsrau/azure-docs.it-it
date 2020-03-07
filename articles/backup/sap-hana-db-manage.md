@@ -4,11 +4,11 @@ description: In questo articolo vengono illustrate le attività comuni per la ge
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390578"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382471"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gestire e monitorare i database SAP HANA di cui è stato eseguito il backup
 
@@ -81,7 +81,7 @@ Se si vuole eseguire un backup locale (usando HANA Studio/pozzetto) di un databa
    * Impostare **enable_auto_log_backup** su **Sì**.
    * Impostare **log_backup_using_backint** su **true**.
 
-### <a name="change-policy"></a>Modifica di un criterio
+### <a name="change-policy"></a>Modificare i criteri
 
 È possibile modificare i criteri sottostanti per un elemento di backup SAP HANA.
 
@@ -115,14 +115,14 @@ Se si vuole eseguire un backup locale (usando HANA Studio/pozzetto) di un databa
 
 ### <a name="stop-protection-for-an-sap-hana-database"></a>Arrestare la protezione per un database SAP HANA
 
-È possibile arrestare la protezione di un database di SAP HANA in due modi:
+È possibile arrestare la protezione di un database SAP HANA in due modi:
 
 * Interrompere tutti i processi di backup futuri ed eliminare tutti i punti di recupero.
-* Arrestare tutti i processi di backup futuri e lasciare intatti i punti di ripristino.
+* Arrestare tutti i processi di backup futuri mantenendo tuttavia invariati i punti di ripristino.
 
-Se si sceglie di lasciare i punti di ripristino, tenere presente quanto segue:
+Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
-* Tutti i punti di ripristino rimarranno intatti per sempre, tutte le eliminazioni verranno interrotte in caso di arresto della protezione con Mantieni dati.
+* Tutti i punti di ripristino rimarranno invariati per sempre, tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
 * Verranno addebitati l'istanza protetta e l'archiviazione utilizzata. Per altre informazioni, vedere [prezzi di backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 * Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo.
 

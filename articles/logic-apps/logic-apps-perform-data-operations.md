@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666738"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358897"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
 
@@ -29,7 +29,7 @@ Queste tabelle riepilogano le operazioni sui dati che è possibile usare e sono 
 
 Queste azioni consentono di operare sui dati in matrici.
 
-| Azione | Description |
+| Azione | Descrizione |
 |--------|-------------|
 | [**Crea tabella CSV**](#create-csv-table-action) | Creare una tabella di valori delimitati da virgole (CSV) da una matrice. |
 | [**Crea tabella HTML**](#create-html-table-action) | Creare una tabella HTML da una matrice. |
@@ -42,7 +42,7 @@ Queste azioni consentono di operare sui dati in matrici.
 
 Queste azioni consentono di operare sui dati in formato JSON (JavaScript Object Notation).
 
-| Azione | Description |
+| Azione | Descrizione |
 |--------|-------------|
 | [**Componi**](#compose-action) | Creare un messaggio o una stringa da più input che possono avere vari tipi di dati. È quindi possibile usare questa stringa come un singolo input, invece di immettere ripetutamente gli stessi input. Ad esempio, è possibile creare un singolo messaggio JSON da vari input. |
 | [**Analizza JSON**](#parse-json-action) | Creare token di dati descrittivi per le proprietà in contenuto JSON, in modo da poter usare più facilmente le proprietà nelle app per la logica. |
@@ -200,7 +200,7 @@ Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della col
 
    `item()?['<array-property-name>']`
 
-   Ad esempio:
+   Ad esempio,
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ Nella definizione JSON dell'azione, all'interno della matrice di `columns`, impo
    }
    ```
 
-   Ad esempio:
+   Ad esempio,
 
    ```json
    "Create_CSV_table": {
@@ -351,7 +351,7 @@ Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della col
 
    `item()?['<array-property-name>']`
 
-   Ad esempio:
+   Ad esempio,
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ Nella definizione JSON dell'azione, all'interno della matrice di `columns`, impo
    }
    ```
 
-   Ad esempio:
+   Ad esempio,
 
    ```json
    "Create_HTML_table": {

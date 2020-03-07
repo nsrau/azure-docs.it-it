@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 3abd9835c1cf750b926f49442f3e34e96dc9c865
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: MT
+ms.openlocfilehash: c51387e92a100cabc5b35ccc7abde0483e77b5b1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917357"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378506"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
@@ -91,7 +91,7 @@ No. Dopo aver creato un Azure AD Domain Services dominio gestito, non è possibi
 No. Non si dispone delle autorizzazioni necessarie per connettersi ai controller di dominio per il dominio gestito utilizzando Desktop remoto. I membri del gruppo *AAD DC Administrators* possono amministrare il dominio gestito usando gli strumenti di amministrazione di ad, ad esempio Active Directory Administration Center (ADAC) o ad PowerShell. Questi strumenti vengono installati utilizzando la funzionalità *strumenti di amministrazione remota del server* in un server Windows aggiunto al dominio gestito. Per altre informazioni, vedere [creare una macchina virtuale di gestione per configurare e amministrare un Azure ad Domain Services dominio gestito](tutorial-create-management-vm.md).
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Ho abilitato Azure AD Domain Services. quale account utente è necessario usare per aggiungere i computer a questo dominio?
-I membri del gruppo amministrativo *amministratori di AAD DC* possono aggiungere computer al dominio. Gli utenti di questo gruppo sono inoltre autorizzati ad accedere da desktop remoti ai computer aggiunti al dominio.
+Tutti gli account utente che fanno parte del dominio gestito Azure AD DS possono aggiungere una macchina virtuale. Ai membri del gruppo *AAD DC Administrators* viene concesso l'accesso desktop remoto ai computer che sono stati aggiunti al dominio gestito.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>È possibile esercitare i privilegi di amministratore di dominio per il dominio gestito fornito da Azure AD Domain Services?
 No. Non sono concessi privilegi amministrativi per il dominio gestito. I privilegi di amministratore di *dominio* e di *amministratore dell'organizzazione* non sono disponibili per l'uso all'interno del dominio. Ai membri dei gruppi di amministratori di dominio o di amministratori dell'organizzazione nell'Active Directory locale non sono inoltre concessi privilegi di amministratore di dominio o dell'organizzazione per il dominio gestito.

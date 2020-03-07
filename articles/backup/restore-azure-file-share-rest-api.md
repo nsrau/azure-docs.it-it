@@ -4,11 +4,11 @@ description: Informazioni su come usare l'API REST per ripristinare condivisioni
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444810"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393192"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Ripristinare le condivisioni file di Azure usando l'API REST
 
@@ -20,7 +20,7 @@ Alla fine di questo articolo si apprenderà come eseguire le operazioni seguenti
 * Ripristinare una condivisione file di Azure completa.
 * Ripristinare singoli file o cartelle.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Si presuppone che sia già presente una condivisione file di cui si vuole eseguire il ripristino. In caso contrario, selezionare [backup condivisione file di Azure usando l'API REST](backup-azure-file-share-rest-api.md) per informazioni su come crearne uno.
 
@@ -160,7 +160,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Per attivare un ripristino per una condivisione file di Azure, di seguito sono riportati i componenti del corpo della richiesta:
 
-Nome |  Type   |   Descrizione
+Name |  Type   |   Descrizione
 --- | ---- | ----
 Proprietà | AzureFileShareRestoreRequest | Proprietà di RestoreRequestResource
 
@@ -370,7 +370,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Per attivare un ripristino per una condivisione file di Azure, di seguito sono riportati i componenti del corpo della richiesta:
 
-Nome |  Type   |   Descrizione
+Name |  Type   |   Descrizione
 --- | ---- | ----
 Proprietà | AzureFileShareRestoreRequest | Proprietà di RestoreRequestResource
 
