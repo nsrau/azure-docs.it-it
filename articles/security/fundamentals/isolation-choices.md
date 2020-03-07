@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756161"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359070"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
@@ -221,7 +221,7 @@ Per molte organizzazioni, [la crittografia dei dati inattivi](isolation-choices.
 
 -   [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
-#### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) per le macchine virtuali consente di soddisfare i requisiti di conformità e sicurezza dell'organizzazione, grazie alla possibilità di crittografare i dischi delle macchine virtuali, inclusi i dischi di avvio e di dati, con chiavi e criteri gestiti in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 La soluzione Crittografia dischi per Windows è basata su [Crittografia unità BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Microsoft e la soluzione Linux è basata su [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
@@ -321,7 +321,7 @@ La distribuzione di Azure offre più livelli di isolamento della rete. Il diagra
 
 La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-networks-overview.md) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulle [Opzioni di isolamento rete per i computer nelle reti virtuali di Microsoft Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Sono inclusi gli scenari di front-end e back-end classici in cui i computer in una rete back-end particolare o in una subnet possono consentire solo a determinati client o altri computer di connettersi a un determinato endpoint in base a un elenco di indirizzi IP consentiti.
 

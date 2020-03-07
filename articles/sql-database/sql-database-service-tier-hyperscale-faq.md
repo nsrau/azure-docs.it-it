@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 10/12/2019
-ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.date: 03/03/2020
+ms.openlocfilehash: 9f518df02b1923513fd014be53646a9a1be8465e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614997"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359843"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 
@@ -39,19 +39,19 @@ Il livello di servizio Hyperscale è disponibile solo per i database singoli che
 
 I livelli di servizio basati su vCore sono differenziati in base alla disponibilità del database e al tipo di archiviazione, alle prestazioni e alle dimensioni massime, come descritto nella tabella seguente.
 
-| | Tipo di risorsa | Scopo generico |  Hyperscale | Business critical |
+| | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
-| **Ideale per** |Tutto|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
+| **Ideale per** |Tutti|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Tipo di risorsa** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
 | **Dimensioni di calcolo**|Database singolo/pool elastico* | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
 | |Istanza gestita | 8, 16, 24, 32, 40, 64, 80 vCore | N/D | 8, 16, 24, 32, 40, 64, 80 vCore |
-| **Tipo di archiviazione** | Tutto |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
+| **Tipo di archiviazione** | Tutti |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
 | **Dimensioni archiviazione** | Database singolo/pool elastico*| 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
 | | Istanza gestita  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
 | **IOPS** | Database singolo | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. Gli IOPS effettivi dipendono dal carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
 | | Istanza gestita | Dipende dalle dimensioni del file | N/D | 1375 IOPS/vCore |
-|**Disponibilità**|Tutto|1 replica, nessuna scalabilità in lettura, nessuna cache locale | Più repliche, fino a 4 scalabilità in lettura, cache locale parziale | 3 repliche, 1 scalabilità in lettura, disponibilità elevata con ridondanza della zona, archiviazione locale completa |
-|**Backup**|Tutto|RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita)| RA-GRS, conservazione di 7 giorni, ripristino temporizzato temporizzato costante (ripristino temporizzato) | RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita) |
+|**Disponibilità**|Tutti|1 replica, nessuna scalabilità in lettura, nessuna cache locale | Più repliche, fino a 4 scalabilità in lettura, cache locale parziale | 3 repliche, 1 scalabilità in lettura, disponibilità elevata con ridondanza della zona, archiviazione locale completa |
+|**Backup**|Tutti|RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita)| RA-GRS, conservazione di 7 giorni, ripristino temporizzato temporizzato costante (ripristino temporizzato) | RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita) |
 
 \* pool elastici non sono supportati nel livello di servizio di iperscalabilità
 
@@ -95,7 +95,7 @@ L'iperscalabilità offre una scalabilità rapida in base alla domanda del carico
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>È possibile combinare iperscalare e database singoli in un singolo server logico
 
-Sì, puoi.
+Sì,
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>Il livello Hyperscale richiede la modifica del modello di programmazione dell'applicazione
 
@@ -274,11 +274,11 @@ No. I backup vengono gestiti dal sottosistema di archiviazione e sfruttano gli s
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>È possibile eseguire il ripristino geografico con un database con iperscalabilità
 
-Sì.  Il ripristino geografico è completamente supportato. A differenza del ripristino temporizzato, il ripristino geografico può richiedere un'operazione di dimensioni dei dati a esecuzione prolungata.
+Sì. Il ripristino geografico è completamente supportato. A differenza del ripristino temporizzato, il ripristino geografico richiede un'operazione di dimensione dei dati. Poiché i file di dati vengono copiati in parallelo, la durata di questa operazione dipende principalmente dalle dimensioni del file più grande nel database, invece che dalle dimensioni totali del database. Il tempo di ripristino geografico sarà significativamente più breve se il database viene ripristinato nell'area di Azure [associata all'](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) area del database di origine.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>È possibile configurare la replica geografica con un database con iperscalabilità
 
-Non attualmente.
+Attualmente non è possibile.
 
 ### <a name="can-i-take-a-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-on-sql-server-in-a-vm"></a>È possibile eseguire un backup del database con iperscalabilità e ripristinarlo nel server locale o in SQL Server in una macchina virtuale
 
@@ -296,7 +296,7 @@ No. La polibase non è supportata nel database SQL di Azure.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>L'iperscalabilità ha supporto per R e Python
 
-Non attualmente.
+Attualmente non è possibile.
 
 ### <a name="are-compute-nodes-containerized"></a>Nodi di calcolo in contenitori
 
@@ -389,6 +389,6 @@ No. I database con iperscalabilità includono spazio di archiviazione condiviso,
 
 La latenza dei dati dal momento in cui viene eseguito il commit di una transazione nel database primario nel momento in cui è visibile in una replica secondaria dipende dalla frequenza di generazione del log corrente. La latenza dei dati tipica è di pochi millisecondi.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul livello di servizio di iperscalabilità, vedere [livello di servizio di iperscalabilità](sql-database-service-tier-hyperscale.md).

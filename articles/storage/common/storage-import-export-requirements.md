@@ -9,11 +9,11 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978481"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360934"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -26,7 +26,7 @@ Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supporta
 
 |Piattaforma |Versione |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Altri software obbligatori per il client Windows
@@ -57,10 +57,10 @@ Ogni processo può essere usato per trasferire dati da o verso un solo account d
 Con il servizio Importazione/Esportazione di Azure sono supportati i tipi di archiviazione inclusi nell'elenco seguente.
 
 
-|Processo  |Servizio di archiviazione |Supportato  |Supporto non disponibile  |
+|Processo  |Servizio di archiviazione |Supportato  |Non supportate  |
 |---------|---------|---------|---------|
-|Importa     |  Archiviazione BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
-|Esporta     |   Archiviazione BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
+|Importa     |  Archivio BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
+|Esportazione     |   Archivio BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
 
 
 ## <a name="supported-hardware"></a>Hardware supportato
@@ -72,10 +72,10 @@ Per il servizio Importazione/Esportazione di Azure è necessario usare dischi pe
 Con il servizio Importazione/Esportazione sono supportati i dischi inclusi nell'elenco seguente.
 
 
-|Tipo di disco  |Dimensioni  |Supportato |
+|Tipo di disco  |Dimensione  |Supportato |
 |---------|---------|---------|
-|Unità SSD    |   2,5"      |SATA III          |
-|Unità disco rigido     |  2,5"<br>3,5"       |SATA II, SATA III         |
+|SSD    |   2,5"      |SATA III          |
+|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
 I tipi di dischi seguenti non sono supportati:
 - USBs.

@@ -8,11 +8,11 @@ ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443730"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391214"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -63,7 +63,7 @@ Per informazioni dettagliate sulla documentazione di riferimento per ogni comand
 
 Usare questa tabella come guida:
 
-| Tipo di risorse di archiviazione | Metodo di autorizzazione attualmente supportato |
+| Tipo di archiviazione | Metodo di autorizzazione attualmente supportato |
 |--|--|
 |**Archiviazione BLOB** | Firma di accesso condiviso Azure AD & |
 |**Archiviazione BLOB (spazio dei nomi gerarchico)** | Firma di accesso condiviso Azure AD & |
@@ -91,8 +91,8 @@ Questi ruoli possono essere assegnati all'entità di sicurezza in uno di questi 
 
 - Contenitore (file system)
 - Account di archiviazione
-- Gruppo di risorse
-- Sottoscrizione
+- Resource group
+- Subscription
 
 Per informazioni su come verificare e assegnare i ruoli, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -312,7 +312,7 @@ Se è necessario usare la versione precedente di AzCopy (AzCopy v 8.1), vedere u
 
 - [AzCopy in Windows (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy in Linux (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 

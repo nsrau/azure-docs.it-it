@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: 9b6db1b7171652ea5ace4db370b72dc22b6bdc90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626231"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396574"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informazioni sui prezzi dell'hub IoT di Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "60626231"
 | Messaggi da dispositivo a cloud | Per i messaggi inviati correttamente è previsto un addebito in base a blocchi di 4 KB in ingresso nell'hub IoT. Un messaggio di 6 KB, ad esempio, viene addebitato come 2 messaggi. |
 | Messaggi da cloud a dispositivo | Per i messaggi inviati correttamente è previsto un addebito in base a blocchi di 4 KB, ad esempio un messaggio di 6 KB viene addebitato come 2 messaggi. |
 | Caricamenti di file | Il trasferimento di file in Archiviazione di Azure non viene misurato dall'hub IoT. I messaggi di avvio e di completamento del trasferimento di file vengono addebitati come messaggi misurati in incrementi di 4 KB. Ad esempio, il trasferimento di un file di 10 MB viene addebitato come due messaggi, oltre al costo di archiviazione di Azure. |
-| Metodi diretti | Le richieste di metodo completate vengono addebitate in blocchi da 4 KB e risposte vengono addebitate in blocchi di 4 KB come messaggi aggiuntivi. Le richieste ai dispositivi disconnessi vengono addebitate come messaggi in blocchi di 4 KB. Ad esempio, un metodo con un corpo di 4 KB che produce una risposta senza corpo dal dispositivo viene addebitato come due messaggi. Un metodo con corpo da 6 KB che dà come risultato una risposta da 1 KB dal dispositivo viene addebitato come due messaggi per la richiesta, con in più un altro messaggio per la risposta. |
+| Metodi diretti | Le richieste di metodo completate vengono addebitate in blocchi da 4 KB e le risposte vengono addebitate in blocchi da 4 KB come messaggi aggiuntivi. Le richieste ai dispositivi disconnessi vengono addebitate come messaggi in blocchi di 4 KB. Ad esempio, un metodo con un corpo di 4 KB che produce una risposta senza corpo dal dispositivo viene addebitato come due messaggi. Un metodo con corpo da 6 KB che dà come risultato una risposta da 1 KB dal dispositivo viene addebitato come due messaggi per la richiesta, con in più un altro messaggio per la risposta. |
 | Letture di dispositivi e moduli gemelli | Le letture del dispositivo gemello dal dispositivo o dal modulo e dal back-end della soluzione vengono addebitate come messaggi in blocchi di 512 byte. La lettura di un messaggio di 6 KB del dispositivo gemello, ad esempio, viene addebitata come 12 messaggi. |
 | Aggiornamenti di dispositivi e moduli gemelli (tag e proprietà) | Gli aggiornamenti del dispositivo gemello dal dispositivo o dal modulo e dal back-end della soluzione vengono addebitati come messaggi in blocchi di 512 byte. La lettura di un messaggio di 6 KB del dispositivo gemello, ad esempio, viene addebitata come 12 messaggi. |
 | Query su dispositivi e moduli gemelli | Le query vengono addebitate come messaggi in base alle dimensioni del risultato in blocchi di 512 byte. |
@@ -42,7 +42,7 @@ ms.locfileid: "60626231"
 
 ## <a name="example-1"></a>Esempio 1
 
-Un dispositivo invia all'hub IoT un messaggio da 1 KB dal dispositivo al cloud al minuto e il messaggio viene quindi letto da Analisi di flusso di Azure. Back-end della soluzione chiama un metodo, con un payload di 512 byte, sul dispositivo ogni 10 minuti per attivare un'azione specifica. Il dispositivo risponde al metodo con un risultato di 200 byte.
+Un dispositivo invia all'hub IoT un messaggio da 1 KB dal dispositivo al cloud al minuto e il messaggio viene quindi letto da Analisi di flusso di Azure. Il back-end della soluzione richiama un metodo (con un payload di 512 byte) sul dispositivo ogni 10 minuti per attivare un'azione specifica. Il dispositivo risponde al metodo con un risultato di 200 byte.
 
 Il dispositivo usa:
 

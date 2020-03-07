@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965425"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388766"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server in macchine virtuali di Azure
 
@@ -174,7 +174,7 @@ Con questi prerequisiti, è possibile iniziare a compilare il cluster di failove
 
    In ogni macchina virtuale aprire queste porte nella Windows Firewall:
 
-   | Finalità | Porta TCP | Note
+   | Scopo | Porta TCP | Note
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta.
    | Probe di integrità | 59999 | Qualsiasi porta TCP aperta. In un passaggio successivo, configurare il [probe di integrità](#probe) del servizio di bilanciamento del carico e il cluster per l'uso di questa porta.  
@@ -292,7 +292,7 @@ Cloud Witness è un nuovo tipo di quorum di controllo del cluster archiviato in 
 
 1. Configurare il quorum di controllo del cluster di failover. Vedere [configurare il quorum di controllo nell'interfaccia utente](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
-### <a name="add-storage"></a>Aggiungi le risorse di archiviazione
+### <a name="add-storage"></a>Aggiungere le risorse di archiviazione
 
 I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono contenere partizioni o altri dati. Per pulire i dischi, attenersi [alla procedura descritta in questa guida](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
 
@@ -499,7 +499,7 @@ In macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016 o 
 - Non è possibile configurare la risorsa MSDTC in cluster per usare l'archiviazione condivisa. In Windows Server 2016, se si crea una risorsa MSDTC, non verrà visualizzata alcuna archiviazione condivisa disponibile per l'uso, anche se è disponibile spazio di archiviazione. Questo problema è stato risolto per Windows Server 2019.
 - Il servizio di bilanciamento del carico di base non gestisce le porte RPC.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Configurare Spazi di archiviazione diretta con desktop remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954344"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362871"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
@@ -61,7 +61,7 @@ Spostare l'intero carico di lavoro gestito da un server di elaborazione in un se
 3. Fare clic sul server di elaborazione da cui si desidera passare il carico di lavoro.
 4. Fare clic su **Switch**, selezionare il server di elaborazione di destinazione in cui si desidera spostare il carico di lavoro. Quindi fare clic su **OK**
 
-    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Opzione](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. Nell'insieme di credenziali monitorare lo stato di avanzamento del processo in **monitoraggio** > **Site Recovery processi**.
 
