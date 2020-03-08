@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1df037b66c72177a96f77231cee70782d04992
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3fff08690eb2807fbbd50f297761c57d3fef88fe
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620704"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671834"
 ---
 # <a name="custom-controls-preview"></a>Controlli personalizzati (anteprima)
 
-I controlli personalizzati sono una funzionalità dell'edizione Azure Active Directory Premium P1. Quando si usano i controlli personalizzati, gli utenti vengono reindirizzati a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione e convalida richieste e viene quindi reindirizzato ad Azure Active Directory. Azure Active Directory verifica la risposta e, se l'utente è stato autenticato o convalidato correttamente, l'utente continua nel flusso di accesso condizionale.
+I controlli personalizzati sono una funzionalità dell'edizione Azure Active Directory Premium P1. Quando si usano i controlli personalizzati, gli utenti vengono reindirizzati a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. Per soddisfare questo controllo, il browser di un utente viene reindirizzato al servizio esterno, esegue le attività di autenticazione o convalida richieste e quindi viene reindirizzato di nuovo al Azure Active Directory. Azure Active Directory verifica la risposta e, se l'utente è stato autenticato o convalidato correttamente, l'utente continua nel flusso di accesso condizionale.
 
 Questi controlli consentono l'uso di determinati servizi esterni o personalizzati come controlli di accesso condizionale e in genere estendono le funzionalità dell'accesso condizionale.
 
@@ -45,7 +45,7 @@ Per creare un controllo personalizzato, è opportuno prima contattare il provide
 
 I controlli personalizzati non possono essere usati con l'automazione di Identity Protection che richiede l'autenticazione a più fattori o per elevare i ruoli in Privileged Identity Manager (PIM).
 
-Copiare i dati JSON e incollarli nella casella di testo corrispondente. Non apportare modifiche ai dati JSON a meno di non aver compreso in modo esplicito la modifica che si sta apportando. L'introduzione di una modifica potrebbe interrompere la connessione tra il provider e Microsoft e potenzialmente bloccare gli utenti fuori dai rispettivi account.
+Copiare i dati JSON e incollarli nella casella di testo corrispondente. Non apportare modifiche al file JSON a meno che non si conosca in modo esplicito la modifica apportata. L'introduzione di una modifica potrebbe interrompere la connessione tra il provider e Microsoft e potenzialmente bloccare gli utenti fuori dai rispettivi account.
 
 L'opzione per creare un controllo personalizzato si trova nella sezione **Gestisci** della pagina **accesso condizionale** .
 
@@ -67,22 +67,10 @@ Per eliminare un controllo personalizzato, è prima necessario assicurarsi che n
 
 Per modificare un controllo personalizzato, è necessario eliminare il controllo corrente e creare un nuovo controllo con le informazioni aggiornate.
 
-## <a name="session-controls"></a>Controlli di sessione
-
-I controlli di sessione consentono di limitare l'esperienza in un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
-
-![Control](./media/controls/31.png)
-
-### <a name="use-app-enforced-restrictions"></a>Usa restrizioni imposte dalle app
-
-È possibile usare questo controllo per richiedere ad Azure AD di passare le informazioni sul dispositivo alle app cloud selezionate. Le informazioni sul dispositivo consentono alle app cloud di sapere se una connessione viene avviata da un dispositivo conforme o aggiunto al dominio. Questo controllo supporta solo SharePoint Online ed Exchange Online come app cloud selezionate. Una volta selezionata, l'app cloud usa le informazioni sul dispositivo per offrire agli utenti un'esperienza completa o limitata, a seconda dello stato del dispositivo.
-
-Per altre informazioni, vedere:
-
-- [Abilitazione dell'accesso limitato con SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-- [Abilitazione dell'accesso limitato con Exchange Online](https://aka.ms/owalimitedaccess)
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere le [procedure consigliate per l'accesso condizionale](best-practices.md) in Azure Active Directory.
+- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+
+- [Modalità solo report](concept-conditional-access-report-only.md)
+
+- [Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)

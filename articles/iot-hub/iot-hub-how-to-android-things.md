@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 82f6da54aec7aee94c19fd75a06d2850ca0db8b6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883121"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673393"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Sviluppare per la piattaforma Android Things tramite Azure IoT SDK
 
@@ -20,7 +20,7 @@ Gli [SDK per l'hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub/iot-hu
 
 Questa esercitazione illustra i passaggi per compilare un'applicazione lato dispositivo in Android Things con Azure IoT Java SDK.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Hardware supportato da Android Things con il sistema operativo Android Things in esecuzione.  È possibile fare riferimento alla [documentazione di Android Things](https://developer.android.com/things/get-started/kits#flash-at) per informazioni su come eseguire il flashing del sistema operativo Android Things.  Assicurarsi che il dispositivo Android Things sia connesso a Internet con periferiche di base quali la tastiera, lo schermo e il mouse collegati.  Questa esercitazione usa Raspberry Pi 3.
 
@@ -40,16 +40,16 @@ Questa esercitazione illustra i passaggi per compilare un'applicazione lato disp
 
 1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo.
 
-   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
 
-   **MyAndroidThingsDevice**: nome specificato per il dispositivo registrato. Usare MyAndroidThingsDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyAndroidThingsDevice** : nome specificato per il dispositivo registrato. Usare MyAndroidThingsDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Eseguire i comandi seguenti in Azure Cloud Shell per ottenere la *stringa di connessione del dispositivo* per il dispositivo appena registrato. Sostituire `YourIoTHubName` con il nome scelto per l'hub Internet delle cose.
+2. Eseguire i comandi seguenti in Azure Cloud Shell per ottenere la *stringa di connessione del dispositivo* per il dispositivo appena registrato. Sostituire `YourIoTHubName` di seguito con il nome scelto per l'hub Internet delle cose.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table

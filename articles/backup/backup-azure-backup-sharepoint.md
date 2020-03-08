@@ -4,12 +4,12 @@ description: Questo articolo offre una panoramica sulla protezione del server DP
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6640690f725c84899babef6825f817bad447b40f
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586479"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673279"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Eseguire il backup di una farm di SharePoint in Azure con DPM
 
@@ -69,12 +69,12 @@ Prima di usare DPM per proteggere SharePoint, è necessario configurare il servi
 
 1. Nel server WFE, al prompt dei comandi, passare a \bin\ [percorso di installazione di DPM]
 2. Digitare ConfigureSharePoint -EnableSharePointProtection.
-3. Immettere le credenziali di amministratore della farm. Questo account deve essere un membro del gruppo degli amministratori locale nel server front-end Web. Se l'amministratore della farm non è un amministratore locale, concedere le autorizzazioni seguenti sul server front-end Web:
+3. Immettere le credenziali di amministratore della farm. Questo account deve essere un membro del gruppo degli amministratori locale nel server front-end Web. Se l'amministratore della farm non è un amministratore locale, concedere le seguenti autorizzazioni nel server WFE:
    * Concedere il controllo completo del gruppo WSS_Admin_WPG sulla cartella DPM (% Program Files%\Microsoft Data Protection Manager\DPM).
    * Concedere l'accesso in lettura al gruppo WSS_Admin_WPG per la chiave del Registro di sistema di DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> È necessario eseguire di nuovo ConfigureSharePoint.exe ogni volta che si verifica un cambiamento nelle credenziali di amministratore di farm SharePoint.
+> È necessario eseguire di nuovo ConfigureSharePoint. exe ogni volta che viene apportata una modifica alle credenziali di amministratore della farm di SharePoint.
 >
 >
 
@@ -133,7 +133,7 @@ Dopo aver configurato DPM e la farm di SharePoint come descritto in precedenza, 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > DPM esegue massimo due backup giornalieri in Azure in orari diversi. Backup di Azure può inoltre controllare la quantità di larghezza di banda WAN che può essere usata per i backup in orari normali e di punta tramite la [limitazione della larghezza di bada della rete di Backup di Azure](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > DPM esegue massimo due backup giornalieri in Azure in orari diversi. Backup di Azure può anche controllare la quantità di larghezza di banda WAN che può essere usata per i backup in orari di picco e di minore utilizzo con la [limitazione della rete di backup di Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. In base alla pianificazione di backup selezionata, nella pagina **Specificare i criteri di mantenimento online** selezionare i criteri di conservazione per i punti di backup giornalieri, settimanali, mensili e annuali.

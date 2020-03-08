@@ -1,26 +1,27 @@
 ---
-title: Entità, termini e concetti di Utilità di pianificazione di Microsoft Azure | Microsoft Docs
+title: Concetti, termini ed entità
 description: Informazioni sui concetti, terminologia e gerarchia di entità di Utilità di pianificazione di Azure, inclusi processi e raccolte di processi
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
+ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300959"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898581"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+>
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 ## <a name="entity-hierarchy"></a>Gerarchia di entità
 
@@ -70,26 +71,26 @@ Utilità di pianificazione di Microsoft Azure supporta più tipi di processo:
 * Processi di coda del bus di servizio per i carichi di lavoro che usano le code del bus di servizio
 * Processi degli argomenti del bus di servizio per i carichi di lavoro che usano gli argomenti del bus di servizio
 
-## <a name="job-definition"></a>Definizione processo
+## <a name="job-definition"></a>Definizione del processo
 
 A un livello elevato, un processo di Utilità di pianificazione di Microsoft Azure include i seguenti elementi di base:
 
 * L'azione eseguita quando viene si attiva il timer del processo
-* Facoltativo: Tempo di esecuzione del processo
-* Facoltativo: Quando e con quale frequenza ripetere il processo
-* Facoltativo: Azione di errore che viene eseguita in caso di esito negativo dell'azione primaria
+* Facoltativo: il tempo necessario per eseguire il processo
+* Facoltativo: quando e quanto spesso ripetere il processo
+* Facoltativo: un'azione di errore da eseguire in caso di esito negativo dell'azione primaria
 
 Il processo include anche i dati forniti dal sistema, ad esempio l'ora successiva di esecuzione pianificata del processo. La definizione di codice del processo è un oggetto in formato JavaScript Object Notation (JSON), con questi elementi:
 
-| Elemento | Richiesto | Descrizione | 
+| Elemento | Obbligatoria | Descrizione | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | No | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**azione**](#action) | Yes | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
+| [**azione**](#action) | Sì | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
 | [**errorAction**](#error-action) | No | I dettagli per l’azione secondaria eseguita se l'azione principale ha esito negativo |
 | [**recurrence**](#recurrence) | No | I dettagli, ad esempio frequenza e intervallo per un processo ricorrente | 
 | [**retryPolicy**](#retry-policy) | No | I dettagli per la frequenza con cui ripetere un'azione | 
-| [**state**](#state) | Yes | I dettagli per lo stato del processo corrente |
-| [**status**](#status) | Yes | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
+| [**state**](#state) | Sì | I dettagli per lo stato del processo corrente |
+| [**status**](#status) | Sì | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
 ||||
 
 Ecco un esempio che illustra una definizione del processo completo per un'azione HTTP. I dettagli più completi degli elementi sono descritti nelle sezioni successive: 
@@ -245,7 +246,7 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 },
 ```
 
-| Proprietà | Richiesto | Value | Descrizione | 
+| Proprietà | Obbligatoria | Valore | Descrizione | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
 | **interval** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
@@ -275,9 +276,9 @@ Nel caso in cui un processo di Utilità di pianificazione di Microsoft Azure abb
 },
 ```
 
-| Proprietà | Richiesto | Value | Descrizione | 
+| Proprietà | Obbligatoria | Valore | Descrizione | 
 |----------|----------|-------|-------------| 
-| **retryType** | Yes | **Fixed**, **None** | Determina se sono stati specificati criteri di ripetizione (**fixed**) o no (**none**). | 
+| **retryType** | Sì | **Fixed**, **None** | Determina se sono stati specificati criteri di ripetizione (**fixed**) o no (**none**). | 
 | **retryInterval** | No | PT30S | Specifica l'intervallo e la frequenza tra i tentativi di ripetizione dei tentativi nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Il valore minimo è 15 secondi, mentre il valore massimo è 18 mesi. | 
 | **retryCount** | No | 4 | Specificare il numero di tentativi. Il valore massimo è 20. | 
 ||||
@@ -307,7 +308,7 @@ Dopo l'avvio di un processo, Utilità di pianificazione di Microsoft Azure resti
 * Il numero di errori, se presenti
 * Il numero di errori, se presenti
 
-Esempio:
+Ad esempio,
 
 ```json
 "status": {
@@ -319,11 +320,9 @@ Esempio:
 }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
-* [Concetti, terminologia e gerarchia di entità](scheduler-concepts-terms.md)
 * [Creare pianificazioni complesse e ricorrenze avanzate](scheduler-advanced-complexity.md)
-* [Limiti, quote, valori predefiniti e codici di errore](scheduler-limits-defaults-errors.md)
 * [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler)
 * [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
+* [Limiti, quote, valori predefiniti e codici di errore](scheduler-limits-defaults-errors.md)

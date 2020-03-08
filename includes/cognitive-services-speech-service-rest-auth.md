@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168329"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668954"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -22,7 +22,7 @@ Ogni richiesta richiede un'intestazione di autorizzazione. Questa tabella illust
 
 Quando viene usata l'intestazione `Ocp-Apim-Subscription-Key`, è sufficiente fornire la chiave di sottoscrizione. Ad esempio:
 
-```
+```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
@@ -34,7 +34,7 @@ Per ottenere un token di accesso, è necessario effettuare una richiesta all'end
 
 Il formato dell'endpoint `issueToken` è il seguente:
 
-```
+```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
@@ -62,7 +62,7 @@ Il corpo della risposta contiene il token di accesso in formato JWT (JSON Web To
 
 Questo esempio è un semplice script di PowerShell per ottenere un token di accesso. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione per il Servizio di riconoscimento vocale. Assicurarsi di usare l'endpoint corretto per l'area che corrisponde alla sottoscrizione. Questo esempio è attualmente impostato sugli Stati Uniti occidentali.
 
-```Powershell
+```powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
   'Content-Length'= '0';
@@ -81,7 +81,7 @@ $OAuthToken
 
 cURL è uno strumento da riga di comando disponibile in Linux (e nel sottosistema Windows per Linux). Il comando cURL illustra come ottenere un token di accesso. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione per il Servizio di riconoscimento vocale. Assicurarsi di usare l'endpoint corretto per l'area che corrisponde alla sottoscrizione. Questo esempio è attualmente impostato sugli Stati Uniti occidentali.
 
-```cli
+```console
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -93,7 +93,7 @@ curl -v -X POST
 
 La classe C# illustra come ottenere un token di accesso. Passare la chiave di sottoscrizione del Servizio di riconoscimento vocale durante la creazione di un'istanza della classe. Se la sottoscrizione non è nell'area Stati Uniti occidentali, modificare il valore di `FetchTokenUri` in modo che corrisponda all'area della sottoscrizione.
 
-```cs
+```csharp
 public class Authentication
 {
     public static readonly string FetchTokenUri =

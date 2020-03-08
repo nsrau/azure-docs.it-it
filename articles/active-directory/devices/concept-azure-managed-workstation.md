@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26197a14e78b1cf1a1e078ba0145eca207206bf
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561953"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672654"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informazioni sulle workstation sicure gestite da Azure
 
@@ -81,18 +81,18 @@ Le strategie di contenimento rafforzano la sicurezza aumentando il numero e il t
 
 Essenziale per una workstation protetta è una soluzione di supply chain in cui si usa una workstation attendibile denominata "radice di attendibilità". Le tecnologie che devono essere prese in considerazione nella selezione della radice dell'hardware di trust devono includere le tecnologie seguenti incluse nei portatili moderni: 
 
-* [Trusted Platform Module (TPM) 2,0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
-* [Crittografia unità BitLocker](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
-* [Avvio protetto UEFI](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
-* [Driver e firmware distribuiti tramite Windows Update](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
-* [Virtualizzazione e HVCI obbligatoria abilitate](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
-* [Driver e app HVCI obbligatoria-Ready](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
-* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
-* [Protezione I/O DMA](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
-* [System Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
-* [Standby moderna](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+* [Trusted Platform Module (TPM) 2,0](/windows-hardware/design/device-experiences/oem-tpm)
+* [Crittografia unità BitLocker](/windows-hardware/design/device-experiences/oem-bitlocker)
+* [Avvio protetto UEFI](/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Driver e firmware distribuiti tramite Windows Update](/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [Virtualizzazione e HVCI obbligatoria abilitate](/windows-hardware/design/device-experiences/oem-vbs)
+* [Driver e app HVCI obbligatoria-Ready](/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [Protezione I/O DMA](/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [System Guard](/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [Standby moderna](/windows-hardware/design/device-experiences/modern-standby)
 
-Per questa soluzione, la radice del trust verrà distribuita usando la tecnologia [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) con hardware che soddisfa i requisiti tecnici moderni. Per proteggere una workstation, Autopilot consente di sfruttare i dispositivi Windows 10 ottimizzati per OEM Microsoft. Questi dispositivi sono in uno stato valido noto del produttore. Anziché ricreazione dell'immagine di un dispositivo potenzialmente non sicuro, Autopilot può trasformare un dispositivo Windows in uno stato "pronto per l'azienda". Applica le impostazioni e i criteri, installa le app e persino modifica l'edizione di Windows 10. Ad esempio, Autopilot potrebbe modificare l'installazione di Windows di un dispositivo da Windows 10 Pro a Windows 10 Enterprise, in modo da poter utilizzare funzionalità avanzate.
+Per questa soluzione, la radice del trust verrà distribuita usando la tecnologia [Microsoft Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) con hardware che soddisfa i requisiti tecnici moderni. Per proteggere una workstation, Autopilot consente di sfruttare i dispositivi Windows 10 ottimizzati per OEM Microsoft. Questi dispositivi sono in uno stato valido noto del produttore. Anziché ricreazione dell'immagine di un dispositivo potenzialmente non sicuro, Autopilot può trasformare un dispositivo Windows in uno stato "pronto per l'azienda". Applica le impostazioni e i criteri, installa le app e persino modifica l'edizione di Windows 10. Ad esempio, Autopilot potrebbe modificare l'installazione di Windows di un dispositivo da Windows 10 Pro a Windows 10 Enterprise, in modo da poter utilizzare funzionalità avanzate.
 
 ![Livelli di workstation sicuri](./media/concept-azure-managed-workstation/supplychain.png)
 
@@ -105,7 +105,7 @@ Questa guida fa riferimento a diversi profili e ruoli di sicurezza che consenton
 
 * **Sicurezza avanzata** : questa soluzione protetta a livello di voce è ideale per gli utenti privati, gli utenti di piccole imprese e gli sviluppatori generali.
 
-   La workstation avanzata è un modo basato sui criteri per aumentare la sicurezza del profilo di sicurezza basso. Offre un mezzo sicuro per lavorare con i dati del cliente, usando anche strumenti di produttività come la posta elettronica e l'esplorazione Web. È possibile usare i criteri di controllo e Intune per monitorare una workstation migliorata per il comportamento degli utenti e l'utilizzo del profilo. Il profilo workstation migliorato viene distribuito con lo script Windows10 (1809) e si avvale di Advanced Malware Protection con [Advanced Threat Protection (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
+   La workstation avanzata è un modo basato sui criteri per aumentare la sicurezza del profilo di sicurezza basso. Offre un mezzo sicuro per lavorare con i dati del cliente, usando anche strumenti di produttività come la posta elettronica e l'esplorazione Web. È possibile usare i criteri di controllo e Intune per monitorare una workstation migliorata per il comportamento degli utenti e l'utilizzo del profilo. Il profilo workstation migliorato viene distribuito con lo script Windows10 (1809) e si avvale di Advanced Malware Protection con [Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Sicurezza elevata** : il modo più efficace per ridurre la superficie di attacco di una workstation consiste nel rimuovere la possibilità di amministrare autonomamente la workstation. La rimozione dei diritti amministrativi locali è un passaggio che migliora la sicurezza, ma può influisca sulla produttività se implementata in modo errato. Il profilo di sicurezza elevato si basa sul profilo di sicurezza avanzato con una modifica considerevole: la rimozione dell'amministratore locale. Questo profilo è progettato per gli utenti con profilo elevato: dirigenti, retribuzioni e utenti dati sensibili, responsabili approvazione per servizi e processi.
 
@@ -121,8 +121,8 @@ Questa guida fa riferimento a diversi profili e ruoli di sicurezza che consenton
 
 * **Isolated** : questo scenario personalizzato offline rappresenta l'estremità estremo dello spettro. Per questo caso non sono disponibili script di installazione. Potrebbe essere necessario gestire una funzione cruciale per l'azienda che richiede un sistema operativo legacy non supportato o senza patch. Ad esempio, una linea di produzione di valore elevato o un sistema di supporto della vita. Poiché la sicurezza è fondamentale e i servizi cloud non sono disponibili, è possibile gestire e aggiornare questi computer manualmente o con un'architettura di foresta Active Directory isolata, ad esempio l'ambiente di amministrazione della sicurezza avanzata (ESAE). In queste circostanze, provare a rimuovere tutti gli accessi eccetto i controlli di integrità di base di Intune e ATP.
 
-   * [Requisito per le comunicazioni di rete di Intune](https://docs.microsoft.com/intune/network-bandwidth-use)
-   * [Requisito di comunicazione di rete ATP](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Requisito per le comunicazioni di rete di Intune](/intune/network-bandwidth-use)
+   * [Requisito di comunicazione di rete ATP](/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

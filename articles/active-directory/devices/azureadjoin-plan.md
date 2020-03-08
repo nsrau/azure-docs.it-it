@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512420"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672691"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -24,7 +24,7 @@ L'aggiunta ad Azure AD permette di aggiungere dispositivi direttamente ad Azure 
 
 Questo articolo contiene le informazioni necessarie per pianificare l'implementazione dell'aggiunta ad Azure AD.
  
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questo articolo presuppone che l'utente abbia familiarità con quanto descritto in [Introduzione alla gestione dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
@@ -59,7 +59,7 @@ L'aggiunta ad Azure AD funziona sia con ambienti gestiti sia con ambienti federa
 
 ### <a name="managed-environment"></a>Ambiente gestito
 
-Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) oppure l'[autenticazione pass-through](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) con Seamless Single Sign On.
+Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) oppure l'[autenticazione pass-through](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) con Seamless Single Sign On.
 
 Questi scenari non richiedono la configurazione di un server federativo per l'autenticazione.
 
@@ -78,7 +78,7 @@ Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/a
 Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. 
 
 >[!NOTE]
-> Attualmente, Azure AD join non funziona con [AD FS 2019 configurato con provider di autenticazione esterni come metodo di autenticazione principale](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Per impostazione predefinita, Azure AD join è l'autenticazione con password come metodo principale, che comporta errori di autenticazione in questo scenario
+> Attualmente, Azure AD join non funziona con [AD FS 2019 configurato con provider di autenticazione esterni come metodo di autenticazione principale](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Per impostazione predefinita, Azure AD join è l'autenticazione con password come metodo principale, che comporta errori di autenticazione in questo scenario
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smart card e autenticazione basata su certificato
@@ -91,7 +91,7 @@ Non è possibile usare smart card o l'autenticazione basata su certificato per a
 
 Se si creano utenti in:
 
-- **Active Directory locale**, è necessario sincronizzarli con Azure AD tramite [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Active Directory locale**, è necessario sincronizzarli con Azure AD tramite [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
 - **Azure AD**, non sono necessarie altre configurazioni.
 
 In locale gli UPN che sono diversi da Azure AD UPN non sono supportati nei dispositivi aggiunti Azure AD. Se gli utenti usano un UPN locali, è consigliabile valutare di passare all'uso dei rispettivi UPN primari in Azure AD.
@@ -127,9 +127,9 @@ Esaminare i criteri supportati e non supportati per determinare se sia possibile
 - I criteri non supportati sono necessari per utenti o dispositivi aggiunti ad Azure AD?
 - I criteri non supportati sono applicabili in una distribuzione basata sul cloud?
 
-Se la soluzione MDM non è disponibile tramite la raccolta di app Azure AD, è possibile aggiungerla seguendo il processo descritto in [Azure Active Directory integration with MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) (Integrazione di Azure Active Directory con MDM). 
+Se la soluzione MDM non è disponibile tramite la raccolta di app Azure AD, è possibile aggiungerla seguendo il processo descritto in [Azure Active Directory integration with MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) (Integrazione di Azure Active Directory con MDM). 
 
-Tramite la co-gestione, è possibile usare SCCM per gestire determinati aspetti dei dispositivi, mentre i criteri vengono distribuiti tramite la piattaforma MDM. Microsoft Intune permette la co-gestione con SCCM. Per altre informazioni sulla co-gestione per i dispositivi Windows 10, vedere [che cos'è la co-gestione?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Se si usa un prodotto MDM diverso da Intune, verificare con il provider MDM gli scenari di co-gestione applicabili.
+Tramite la co-gestione, è possibile usare SCCM per gestire determinati aspetti dei dispositivi, mentre i criteri vengono distribuiti tramite la piattaforma MDM. Microsoft Intune permette la co-gestione con SCCM. Per altre informazioni sulla co-gestione per i dispositivi Windows 10, vedere [che cos'è la co-gestione?](/configmgr/core/clients/manage/co-management-overview). Se si usa un prodotto MDM diverso da Intune, verificare con il provider MDM gli scenari di co-gestione applicabili.
 
 **Consiglio:** prendere in considerazione la gestione solo MDM per i dispositivi aggiunti ad Azure AD.
 
@@ -155,7 +155,7 @@ Se le app sono compilate in modo personalizzato e/o ospitate in locale, è neces
 - Abilitare il funzionamento dell'autenticazione integrata di Windows 
 - Offrire agli utenti un'esperienza SSO senza richieste. 
 
-Se si usa AD FS, vedere [Verificare e gestire l'accesso Single Sign-On con AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
+Se si usa AD FS, vedere [Verificare e gestire l'accesso Single Sign-On con AD FS](/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
 **Consiglio:** per un'esperienza migliore, prendere in considerazione l'hosting nel cloud (ad esempio, Azure) e l'integrazione con Azure AD.
 
@@ -163,7 +163,7 @@ Se si usa AD FS, vedere [Verificare e gestire l'accesso Single Sign-On con AD FS
 
 Gli utenti ottengono SSO dai dispositivi aggiunti ad Azure AD se il dispositivo ha accesso a un controller di dominio. 
 
-**Consiglio:** distribuire il [proxy di app Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) per abilitare l'accesso sicuro per queste applicazioni.
+**Consiglio:** distribuire il [proxy di app Azure AD](/azure/active-directory/manage-apps/application-proxy) per abilitare l'accesso sicuro per queste applicazioni.
 
 ### <a name="on-premises-network-shares"></a>Condivisioni di rete locali
 
@@ -171,7 +171,7 @@ Gli utenti ottengono SSO dai dispositivi aggiunti ad Azure AD se un dispositivo 
 
 ### <a name="printers"></a>Stampanti
 
-Per le stampanti, è necessario distribuire la [stampa su cloud ibrido](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) per individuare le stampanti nei dispositivi aggiunti ad Azure AD. 
+Per le stampanti, è necessario distribuire la [stampa su cloud ibrido](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) per individuare le stampanti nei dispositivi aggiunti ad Azure AD. 
 
 Mentre le stampanti non possono essere individuate automaticamente in un ambiente solo cloud, gli utenti possono usare anche il percorso UNC delle stampanti per aggiungerle direttamente. 
 
@@ -183,15 +183,15 @@ I dispositivi aggiunti ad Azure AD non supportano le applicazioni locali basate 
 
 ### <a name="remote-desktop-services"></a>Servizi Desktop remoto
 
-La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il computer host sia stato aggiunto ad Azure AD o ad Azure AD ibrido. Desktop remoto da un dispositivo non aggiunto o non Windows non è supportato. Per altre informazioni, vedere [Connettersi a un PC remoto aggiunto ad Azure Active Directory](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
+La connessione Desktop remoto a dispositivi aggiunti ad Azure AD richiede che il computer host sia stato aggiunto ad Azure AD o ad Azure AD ibrido. Desktop remoto da un dispositivo non aggiunto o non Windows non è supportato. Per altre informazioni, vedere [Connettersi a un PC remoto aggiunto ad Azure Active Directory](/windows/client-management/connect-to-remote-aadj-pc)
 
 ## <a name="understand-your-provisioning-options"></a>Identificazione delle opzioni di provisioning
 
 È possibile effettuare il provisioning dell'aggiunta ad Azure AD tramite gli approcci seguenti:
 
-- **Modalità self-service in Configurazione guidata/Impostazioni**: in modalità self-service gli utenti eseguono il processo di aggiunta ad Azure AD durante la Configurazione guidata o le impostazioni di Windows. Per altre informazioni, vedere [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
-- **Windows Autopilot**: Windows Autopilot permette la preconfigurazione dei dispositivi per un'esperienza più uniforme in Configurazione guidata per l'esecuzione dell'aggiunta ad Azure AD. Per altre informazioni, vedere [Panoramica di Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Registrazione in blocco**: la registrazione in blocco permette un'aggiunta ad Azure AD eseguita da un amministratore tramite uno strumento di provisioning in blocco per configurare i dispositivi. Per altre informazioni, vedere [Registrazione in blocco per dispositivi Windows](https://docs.microsoft.com/intune/windows-bulk-enroll).
+- **Modalità self-service in Configurazione guidata/Impostazioni**: in modalità self-service gli utenti eseguono il processo di aggiunta ad Azure AD durante la Configurazione guidata o le impostazioni di Windows. Per altre informazioni, vedere [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Windows Autopilot**: Windows Autopilot permette la preconfigurazione dei dispositivi per un'esperienza più uniforme in Configurazione guidata per l'esecuzione dell'aggiunta ad Azure AD. Per altre informazioni, vedere [Panoramica di Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Registrazione in blocco**: la registrazione in blocco permette un'aggiunta ad Azure AD eseguita da un amministratore tramite uno strumento di provisioning in blocco per configurare i dispositivi. Per altre informazioni, vedere [Registrazione in blocco per dispositivi Windows](/intune/windows-bulk-enroll).
  
 Ecco un confronto di questi tre approcci 
  
@@ -296,7 +296,7 @@ Se per i dispositivi aggiunti ad Azure AD è stato configurato un provider MDM, 
 
 > [!div class="nextstepaction"]
 > [Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione](azuread-joined-devices-frx.md)
-> [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

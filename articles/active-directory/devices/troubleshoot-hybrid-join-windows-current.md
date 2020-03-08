@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888792"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672264"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi ai dispositivi ibridi Azure Active Directory aggiunti 
 
@@ -26,7 +26,7 @@ Per altri client Windows, vedere l'articolo [risoluzione dei problemi relativi a
 
 Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md) per supportare gli scenari seguenti:
 
-- Accesso condizionale basato sul dispositivo
+- Accesso condizionale basato su dispositivo
 - [Roaming aziendale delle impostazioni](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md) (Configurare Windows Hello for Business)
 
@@ -356,7 +356,7 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
    - Soluzione: disabilitare TPM nei dispositivi con questo errore. Windows 1809 rileva automaticamente gli errori del TPM e completa il join Azure AD ibrido senza utilizzare il TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Motivo: TPM bloccato.
-   - Soluzione: errore temporaneo. Attendere il periodo di ricarica. Il tentativo di join dopo un certo tempo dovrebbe avere esito positivo. Altre informazioni sono reperibili nell'articolo [nozioni fondamentali sui TPM](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
+   - Soluzione: errore temporaneo. Attendere il periodo di ricarica. Il tentativo di join dopo un certo tempo dovrebbe avere esito positivo. Altre informazioni sono reperibili nell'articolo [nozioni fondamentali sui TPM](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
 
 ##### <a name="network-errors"></a>Errori di rete
 

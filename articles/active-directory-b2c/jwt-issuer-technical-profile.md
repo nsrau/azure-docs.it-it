@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 03/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fa6da347289a12867a2416dea16631ba4758832f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c23648d70192607b2a5b977dcdd445931e995154
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187475"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671793"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un'autorità di certificazione del token JWT nei criteri personalizzati di Azure Active Directory B2C
 
@@ -56,6 +56,7 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 | allow_infinite_rolling_refresh_token | No | Se impostato su `true`, la durata della finestra temporale scorrevole del token di aggiornamento non scade mai. |
 | IssuanceClaimPattern | No | Controlla l'attestazione dell'autorità di certificazione (iss). Uno dei valori:<ul><li>AuthorityAndTenantGuid-l'attestazione ISS include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com`, e l'identificatore del tenant https:\//login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - l'attestazione iss include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com`, l'identificatore del tenant e il nome dei criteri relying party. https:\//login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> Valore predefinito: AuthorityAndTenantGuid |
 | AuthenticationContextReferenceClaimPattern | No | Controllare il valore di attestazione `acr`.<ul><li>Nessuno - Azure AD B2C non rilascia l'attestazione acr (record di controllo di accesso)</li><li>PolicyId: l'attestazione `acr` contiene il nome del criterio</li></ul>Le opzioni per impostare questo valore sono TFP (criteri del framework attendibilità) e ACR (riferimento al contesto di autenticazione). È consigliabile impostare questo valore su TFP, per impostare il valore, assicurarsi che `<Item>` con `Key="AuthenticationContextReferenceClaimPattern"` esista e il valore sia `None`. Nei criteri relying party, aggiungere l'elemento `<OutputClaims>`, aggiungere questo elemento `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Inoltre assicurarsi che i criteri contengano il tipo di attestazione `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
+|RefreshTokenUserJourneyId| No | Identificatore di un percorso utente che deve essere eseguito durante la richiesta [Refresh an access token](authorization-code-flow.md#4-refresh-the-token) post all'endpoint `/token`. |
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 

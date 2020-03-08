@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c22ee0ef0393c0dae64674d18bae5a2e92969b4c
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206061"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403559"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Crittografia del disco con chiavi gestite dal cliente
 
@@ -34,7 +34,7 @@ Se il firewall dell'insieme di credenziali delle chiavi è abilitato nell'insiem
 
 |Tipo di cluster |Disco del sistema operativo (disco gestito) |Disco dati (disco gestito) |Disco dati temporanei (unità SSD locale) |
 |---|---|---|---|
-|Kafka, HBase con scritture accelerate|Crittografia SSE|Crittografia SSE + crittografia CMK facoltativa|Crittografia CMK facoltativa|
+|Kafka, HBase con scritture accelerate|[Crittografia SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Crittografia SSE + crittografia CMK facoltativa|Crittografia CMK facoltativa|
 |Tutti gli altri cluster (Spark, Interactive, Hadoop, HBase senza scritture accelerate)|Crittografia SSE|N/D|Crittografia CMK facoltativa|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Introduzione alle chiavi gestite dal cliente
@@ -94,7 +94,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
     ![Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Fare clic su **Aggiungi**.
+1. Selezionare **Aggiungi**.
 
 1. Selezionare **Salva**.
 

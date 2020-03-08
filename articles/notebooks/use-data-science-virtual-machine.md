@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646995"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898413"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usare macchine virtuali di Data Science di Azure
 
@@ -38,6 +38,9 @@ Una volta creato il DSVM, selezionare l'elenco a discesa **Esegui** nel dashboar
 
 Quando si seleziona un'istanza di DSVM, Azure Notebooks può richiedere le credenziali specifiche del computer usate durante la creazione della macchina virtuale.
 
+> [!Important]
+> Il nome utente deve essere minuscolo per usarlo con JupyterHub.
+
 Se una qualsiasi delle condizioni non viene soddisfatta, è comunque possibile connettersi a DSVM. Nell'elenco a discesa selezionare l'opzione **elaborazione diretta** , che richiede un nome (da visualizzare nell'elenco), l'indirizzo IP e la porta della macchina virtuale (in genere 8000, la porta predefinita su cui JupyterHub è in ascolto) e le credenziali della macchina virtuale:
 
 ![Richiesta di raccolta informazioni sul server per l'opzione di calcolo diretto](media/project-compute-tier-direct.png)
@@ -60,7 +63,7 @@ Se più utenti condividono un DSVM, è possibile evitare di bloccarsi reciprocam
 
 1. Nella [portale di Azure](https://portal.azure.com)passare alla macchina virtuale.
 1. In **supporto e risoluzione dei problemi** nel margine sinistro selezionare **Reimposta password**.
-1. Immettere un nuovo nome utente e una nuova password e selezionare **Aggiorna**. (I nomi utente esistenti non sono interessati).
+1. Immettere un nuovo **nome utente**. Il nome utente deve essere minuscolo per usarlo con JupyterHub. Immettere una password. Quindi selezionare **Aggiorna**. (I nomi utente esistenti non sono interessati).
 1. Ripetere il passaggio precedente per tutti gli altri utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi

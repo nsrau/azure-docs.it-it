@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 353501912836e0f6706f20deed1c1d9d416f1ce6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367243"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894508"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Ridimensionare gli host di sessione usando automazione di Azure
 
@@ -37,7 +37,7 @@ Durante il periodo di picco dell'utilizzo, il processo controlla il numero corre
 >[!NOTE]
 >*SessionThresholdPerCPU* non limita il numero di sessioni nella macchina virtuale. Questo parametro determina solo quando è necessario avviare nuove macchine virtuali per bilanciare il carico delle connessioni. Per limitare il numero di sessioni, è necessario seguire le istruzioni [set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) per configurare il parametro *MaxSessionLimit* di conseguenza.
 
-Durante il tempo di utilizzo inferiore, il processo determina quali macchine virtuali host sessione devono essere arrestate in base al parametro *MinimumNumberOfRDSH* . Il processo imposterà le VM host della sessione in modalità svuotamento per impedire che le nuove sessioni si connettano agli host. Se si imposta il parametro *LimitSecondsToForceLogOffUser* su un valore positivo diverso da zero, lo script invierà una notifica a tutti gli utenti attualmente connessi per salvare il lavoro, attendere la quantità di tempo configurata e quindi forzare la disconnessione degli utenti. Dopo la disconnessione di tutte le sessioni utente nella macchina virtuale host sessione, lo script arresterà la macchina virtuale.
+Durante il tempo di utilizzo inferiore, il processo determina quali macchine virtuali host sessione devono essere arrestate in base al parametro *MinimumNumberOfRDSH* . Il processo imposterà le VM host della sessione in modalità svuotamento per impedire che le nuove sessioni si connettano agli host. Se si imposta il parametro *LimitSecondsToForceLogOffUser* su un valore positivo diverso da zero, il processo invierà una notifica a tutti gli utenti attualmente connessi per salvare il lavoro, attendere la quantità di tempo configurata e quindi forzare la disconnessione degli utenti. Dopo la disconnessione di tutte le sessioni utente nella macchina virtuale host sessione, il processo arresterà la macchina virtuale.
 
 Se si imposta il parametro *LimitSecondsToForceLogOffUser* su zero, il processo consentirà l'impostazione di configurazione della sessione nei criteri di gruppo specificati per gestire la firma delle sessioni utente. Per visualizzare questi criteri di gruppo, passare **a Configurazione Computer** > **criteri** > **Modelli amministrativi** > **componenti di Windows** > **Servizi terminal** ** > Terminal Server** limiti di **tempo della sessione**. >  Se sono presenti sessioni attive in una macchina virtuale host sessione, il processo lascerà la macchina virtuale host sessione in esecuzione. Se non sono presenti sessioni attive, il processo arresterà la macchina virtuale host sessione.
 

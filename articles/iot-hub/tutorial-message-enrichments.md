@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: d16954760d1f2bf11ec5575f912ee32810696590
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: c812e00699cd8f8cfbaf32feea1b43866ffb0990
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108212"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674362"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Esercitazione: usare gli arricchimenti di messaggi dell'hub Azure.
 
@@ -35,12 +35,12 @@ Ecco le attività da eseguire per completare questa esercitazione:
 > * Eseguire un'app che simula un dispositivo Internet delle cose che invia messaggi all'hub.
 > * Visualizzare i risultati e verificare che gli arricchimenti dei messaggi funzionino come previsto.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * È necessario disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 * Installare [Visual Studio](https://www.visualstudio.com/).
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questa esercitazione usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta può essere bloccata in alcuni ambienti aziendali e di rete scolastici. Per ulteriori informazioni e per risolvere questo problema, vedere la pagina relativa [alla connessione all'hub Internet (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questa esercitazione usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -76,7 +76,7 @@ Se non è già stato fatto, aprire una [finestra di cloud Shell](https://shell.a
 
 Di seguito sono riportate le risorse create dallo script. *Arricchito* significa che la risorsa è destinata ai messaggi con arricchimenti. *Originale* significa che la risorsa è per i messaggi che non sono arricchiti.
 
-| Name | Valore |
+| Nome | valore |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome del contenitore | originale  |
@@ -102,7 +102,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity.
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that
 #   don't have to be globally unique.
@@ -258,7 +258,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
 2. Aggiungere questi valori all'elenco per l'endpoint ContosoStorageEndpointEnriched.
 
-   | Chiave | Valore | Endpoint (elenco a discesa) |
+   | Chiave | valore | Endpoint (elenco a discesa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -296,7 +296,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
    Di seguito sono riportate le risorse create caricando il modello. **Arricchito** significa che la risorsa è destinata ai messaggi con arricchimenti. **Originale** significa che la risorsa è per i messaggi che non sono arricchiti. Questi sono gli stessi valori usati nello script dell'interfaccia della riga di comando di Azure.
 
-   | Name | Valore |
+   | Nome | valore |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome del contenitore | originale  |

@@ -11,11 +11,11 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 6b36694c2fe1bf264c876944b054d39371db616c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614289"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674278"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -61,9 +61,9 @@ La tabella seguente illustra i tipi di account di archiviazione che supportano Z
 
 |    Tipo di account di archiviazione    |    Aree supportate    |    Servizi supportati    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti Orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europa occidentale<br /> Stati Uniti Orientali    |    Solo BLOB in blocchi    |
-|    FileStorage    | Europa occidentale<br /> Stati Uniti Orientali    |    Solo File di Azure    |
+|    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
+|    BlockBlobStorage<sup>1</sup>    | Europa occidentale<br /> Stati Uniti orientali    |    Solo BLOB in blocchi    |
+|    FileStorage    | Europa occidentale<br /> Stati Uniti orientali    |    Solo File di Azure    |
 
 <sup>1</sup> il livello archivio non è attualmente supportato per gli account ZRS.<br />
 <sup>2</sup> gli account di archiviazione che contengono Azure Managed disks per le macchine virtuali usano sempre con ridondanza locale. I dischi non gestiti di Azure devono anche usare con ridondanza locale. È possibile creare un account di archiviazione per i dischi non gestiti di Azure che usa GRS, ma non è consigliabile a causa di problemi potenziali con la coerenza della replica geografica asincrona. I dischi gestiti e non gestiti non supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [prezzi per Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -110,7 +110,7 @@ GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 - Europa settentrionale
 - Europa occidentale
 - Regno Unito meridionale
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centrali
 

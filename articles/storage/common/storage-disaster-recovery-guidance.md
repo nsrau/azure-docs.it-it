@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905519"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894534"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Ripristino di emergenza e failover dell'account (anteprima)
 
@@ -114,22 +114,17 @@ Per evitare la perdita di una grande quantità di dati, controllare il valore de
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 
-Il failover dell'account è disponibile in anteprima per tutti i clienti che usano GRS o RA-GRS con distribuzioni Azure Resource Manager. Sono supportati i tipi di account di archiviazione per utilizzo generico v1, utilizzo generico v2 e BLOB. Il failover dell'account è attualmente disponibile nelle aree seguenti:
-
-- Asia orientale
-- Asia sudorientale
-- Australia orientale
-- Australia sudorientale
-- Stati Uniti centrali
-- Stati Uniti orientali 2
-- Stati Uniti centro-occidentali
-- Stati Uniti occidentali 2
+Il failover dell'account è disponibile in anteprima per tutti i clienti che usano GRS o RA-GRS con distribuzioni Azure Resource Manager. Sono supportati i tipi di account di archiviazione per utilizzo generico v1, utilizzo generico v2 e BLOB. Il failover dell'account è attualmente disponibile in tutte le aree pubbliche. Il failover degli account non è attualmente disponibile nei cloud sovrani/nazionali.
 
 La versione di anteprima è destinata solo all'uso in ambienti non di produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
 
 ### <a name="additional-considerations"></a>Altre considerazioni
 
 Leggere le considerazioni aggiuntive esposte in questa sezione per comprendere come le applicazioni e i servizi potrebbero essere interessati quando si forza un failover durante il periodo di anteprima.
+
+#### <a name="storage-account-containing-archived-blobs"></a>Account di archiviazione contenente i BLOB archiviati
+
+Gli account di archiviazione contenenti BLOB archiviati supportano il failover degli account. Al termine del failover, per riconvertire l'account in GRS o RA-GRS tutti i BLOB archieved devono essere riattivati prima di tutto in un livello online.
 
 #### <a name="storage-resource-provider"></a>Provider di risorse di archiviazione
 
@@ -162,8 +157,8 @@ Tenere presente che i dati archiviati in un disco temporaneo vanno persi quando 
 
 Le funzionalità e i servizi seguenti non sono supportati per il failover dell'account per la versione di anteprima:
 
-- Sincronizzazione file di Azure non supporta il failover dell'account di archiviazione. È consigliabile non effettuare il failover degli account di archiviazione contenenti condivisioni file di Azure che vengono usate come endpoint cloud in Sincronizzazione file di Azure. Il failover causerebbe l'arresto della sincronizzazione e potrebbe causare inoltre una perdita di dati imprevista nel caso di file appena disposti su livelli.  
-- Non è possibile effettuare il failover di un account di archiviazione contenente BLOB archiviati. Mantenere i BLOB archiviati in un account di archiviazione separato di cui non si intende effettuare il failover.
+- Sincronizzazione file di Azure non supporta il failover dell'account di archiviazione. È consigliabile non effettuare il failover degli account di archiviazione contenenti condivisioni file di Azure che vengono usate come endpoint cloud in Sincronizzazione file di Azure. Il failover causerebbe l'arresto della sincronizzazione e potrebbe causare inoltre una perdita di dati imprevista nel caso di file appena disposti su livelli.
+- Gli account di archiviazione ADLS Gen2 (account con spazio dei nomi gerarchico abilitato) non sono supportati in questo momento.
 - Non è possibile effettuare il failover di un account di archiviazione contenente BLOB in blocchi Premium. Gli account di archiviazione che supportano i BLOB in blocchi Premium non supportano attualmente la ridondanza geografica.
 - Impossibile eseguire il failover di un account di archiviazione contenente i contenitori abilitati per i [criteri di immutabilità worm](../blobs/storage-blob-immutable-storage.md) . I criteri di conservazione basati sul tempo sbloccati o bloccati o i criteri di blocco legale impediscono il failover al fine di mantenere la conformità.
 - Al termine del failover, le funzionalità seguenti potrebbero smettere di funzionare se originariamente abilitate: [sottoscrizioni di eventi](../blobs/storage-blob-event-overview.md), [feed delle modifiche](../blobs/storage-blob-change-feed.md), [criteri del ciclo](../blobs/storage-lifecycle-management-concepts.md)di vita e [registrazione analisi archiviazione](storage-analytics-logging.md).
@@ -180,7 +175,7 @@ Se l'account di archiviazione è configurato per l'archiviazione con ridondanza 
 
 In casi estremi, in cui un'area va persa a causa di una grave emergenza, Microsoft potrebbe avviare un failover a livello di area. In tal caso, non è necessaria alcuna azione da parte dell'utente. Si avrà di nuovo accesso in scrittura all'account di archiviazione solo dopo il completamento del failover gestito da Microsoft. Le applicazioni possono eseguire operazioni di lettura dall'area secondaria se l'account di archiviazione è configurato per l'archiviazione con ridondanza geografica e accesso in lettura. 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Avviare il failover di un account (anteprima)](storage-initiate-account-failover.md)
 - [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md)

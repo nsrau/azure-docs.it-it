@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 083433d31f088eae1e138dd9cbd5ac05bbe8a304
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773313"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672713"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funzionamento dell'accesso SSO alle risorse locali nei dispositivi aggiunti ad Azure AD
 
@@ -24,11 +24,11 @@ Non deve sorprendere il fatto che un dispositivo aggiunto ad Azure Active Direct
 
 Questo articolo illustra il funzionamento di questa caratteristica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
  Se Azure AD macchine unite in join non sono connesse alla rete dell'organizzazione, è necessaria una VPN o un'altra infrastruttura di rete. SSO locale richiede la comunicazione line-of-visione con i controller di dominio di servizi di dominio Active Directory locali.
 
-## <a name="how-it-works"></a>Come funziona 
+## <a name="how-it-works"></a>Funzionamento 
 
 Poiché è necessario ricordare un unico nome utente e una password, il servizio SSO semplifica l'accesso alle risorse e migliora la sicurezza dell'ambiente. Con un dispositivo aggiunto ad Azure AD, gli utenti possono già usufruire dell'esperienza SSO alle app cloud nell'ambiente. Se l'ambiente include Azure AD e un'istanza locale di AD, è possibile espandere l'ambito dell'esperienza SSO alle app line-of-business (LOB) locali, alle condivisioni file e alle stampanti.
 
@@ -42,13 +42,13 @@ Un ambiente in cui sono presenti sia Azure AD che un'istanza locale di AD è det
 Durante un tentativo di accesso a una risorsa che richiede Kerberos nell'ambiente locale dell'utente, il dispositivo:
 
 1. Invia le informazioni sul dominio locale e le credenziali utente al controller di dominio individuato per ottenere l'autenticazione dell'utente.
-1. Riceve un [ticket di concessione ticket (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) Kerberos che viene usato per accedere alle risorse aggiunte ad AD. Se il tentativo di ottenere il TGT per il dominio di AAD Connect ha esito negativo (il timeout DCLocator correlato può causare un ritardo), vengono tentate le voci di gestione delle credenziali oppure l'utente può ricevere un popup di autenticazione che richiede le credenziali per la risorsa di destinazione.
+1. Riceve un [ticket di concessione ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) Kerberos che viene usato per accedere alle risorse aggiunte ad AD. Se il tentativo di ottenere il TGT per il dominio di AAD Connect ha esito negativo (il timeout DCLocator correlato può causare un ritardo), vengono tentate le voci di gestione delle credenziali oppure l'utente può ricevere un popup di autenticazione che richiede le credenziali per la risorsa di destinazione.
 
 Tutte le app configurate per l'**autenticazione integrata di Windows** ottengono facilmente l'accesso SSO quando un utente prova ad accedervi.
 
-Windows Hello for Business richiede una configurazione aggiuntiva per abilitare l'accesso SSO locale da un dispositivo aggiunto ad Azure AD. Per altre informazioni, vedere [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base) (Configurare dispositivi aggiunti ad Azure AD per l'accesso Single-Sign On locale usando Windows Hello for Business). 
+Windows Hello for Business richiede una configurazione aggiuntiva per abilitare l'accesso SSO locale da un dispositivo aggiunto ad Azure AD. Per altre informazioni, vedere [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base) (Configurare dispositivi aggiunti ad Azure AD per l'accesso Single-Sign On locale usando Windows Hello for Business). 
 
-## <a name="what-you-get"></a>Vantaggi
+## <a name="what-you-get"></a>Risultato finale
 
 L'accesso SSO in un dispositivo aggiunto ad Azure AD consente di: 
 

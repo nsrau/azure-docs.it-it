@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9e5b3e633bf35a25a68eb513d0ec691c3254bde4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916507"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674211"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -186,6 +186,20 @@ La tabella seguente elenca i limiti per la versione di valutazione [gratuita di 
 | Spazio di archiviazione totale massimo per account | 10 GB |
 
 Prova Cosmos DB supporta la distribuzione globale solo nelle aree Stati Uniti centrali, Europa settentrionale e Asia sudorientale. Non è possibile creare ticket di supporto di Azure per gli account di prova Azure Cosmos DB. Tuttavia, viene fornito il supporto per i sottoscrittori con piani di supporto esistenti.
+
+## <a name="free-tier-account-limits"></a>Limiti dell'account del livello gratuito
+Nella tabella seguente sono elencati i limiti per [Azure Cosmos DB account del livello gratuito.](optimize-dev-test.md#azure-cosmos-db-free-tier)
+
+| Risorsa | Limite predefinito |
+| --- | --- |
+| Numero di account di livello gratuito per ogni sottoscrizione di Azure | 1 |
+| Durata dello sconto del livello gratuito | Durata dell'account. Deve acconsentire esplicitamente durante la creazione dell'account. |
+| Numero massimo di Ur/s gratuito | 400 UR/sec |
+| Spazio di archiviazione massimo gratuito | 5 GB |
+| Numero massimo di database di velocità effettiva condivisa | 5 |
+| Numero massimo di contenitori in un database di velocità effettiva condivisa | 25 <br>Negli account di livello gratuito, le UR/sec minime per un database con velocità effettiva condivisa con un massimo di 25 contenitori sono 400 ur/s. |
+
+  Oltre a quanto indicato sopra, i [limiti per account](#per-account-limits) si applicano anche agli account del livello gratuito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

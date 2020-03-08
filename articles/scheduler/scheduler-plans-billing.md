@@ -1,25 +1,26 @@
 ---
-title: Piani e fatturazione - Utilità di pianificazione di Azure
+title: Piani e fatturazione
 description: Informazioni sui piani e la fatturazione per l'Utilità di pianificazione di Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 4b63367ab9686eee66bf3f00dddc2e2efe4cb941
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300860"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898481"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Piani e fatturazione per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+>
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 ## <a name="job-collection-plans"></a>Piani di raccolta di processi
 
@@ -32,7 +33,7 @@ Nell'Utilità di pianificazione di Azure, una raccolta di processi contiene un n
 | **P20 Premium** | 1000 processi per raccolta | Una volta al minuto. Non è possibile eseguire i processi più spesso di una volta al minuto. | Ogni sottoscrizione di Azure può avere fino a 5.000 raccolte di processi P20 Premium. Per un numero maggiore di raccolte, <a href="mailto:wapteams@microsoft.com">contattare Microsoft</a>. | Accesso al set completo di funzionalità dell'Utilità di pianificazione |
 |||||| 
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
 Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](https://azure.microsoft.com/pricing/details/scheduler/).
 
@@ -80,8 +81,7 @@ Le raccolte di processi P20 Premium forniscono le stesse funzionalità delle rac
 
   Le fatture del servizio Utilità di pianificazione sono basate sul numero di raccolte di processi attive Standard o Premium.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 * [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)

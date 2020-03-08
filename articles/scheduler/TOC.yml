@@ -4,17 +4,17 @@
   items:
     - name: Che cos'è l'Utilità di pianificazione di Azure?
       href: scheduler-intro.md
-- name: Attività iniziali
+- name: Introduzione
   items:
-    - name: Creare e gestire processi - Portale
-      href: scheduler-get-started-portal.md
+    - name: Creare e gestire le pianificazioni - Azure PowerShell
+      href: scheduler-powershell-reference.md
     - name: Eseguire la migrazione dall'Utilità di pianificazione ad App per la logica
       href: migrate-from-scheduler-to-logic-apps.md
 - name: Concetti
   items:
     - name: 'Concetti, termini ed entità'
       href: scheduler-concepts-terms.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Pianificare e progettare
       items:
@@ -30,11 +30,11 @@
           href: scheduler-advanced-complexity.md
         - name: Creare e gestire le pianificazioni - Azure PowerShell
           href: scheduler-powershell-reference.md
-    - name: Proteggere
+    - name: Sicurezza
       items:
         - name: Autenticare le chiamate in uscita
           href: scheduler-outbound-authentication.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.scheduler

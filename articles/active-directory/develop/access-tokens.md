@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 3/2/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: c4e41ff76bf646fe49ff9051e0f193f21f8cd34f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 752e8745a1cf2965d2dc88eaeee9404cf596547a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377757"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668703"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso della piattaforma Microsoft Identity
 
@@ -30,7 +30,7 @@ Se l'applicazione è una risorsa (API Web) a cui i client possono richiedere l'a
 Vedere le sezioni seguenti per informazioni su come una risorsa può convalidare e usare le attestazioni all'interno di un token di accesso.
 
 > [!IMPORTANT]
-> I token di accesso vengono creati in base al gruppo di *destinatari* del token, ovvero l'applicazione proprietaria degli ambiti nel token.  Questo è il modo in cui un'impostazione della risorsa `accessTokenAcceptedVersion` nel [manifesto dell'applicazione](reference-app-manifest.md#manifest-reference) per `2` consente a un client che chiama l'endpoint v 1.0 di ricevere un token di accesso 2.0.  Analogamente, questo è il motivo per cui la modifica delle [attestazioni facoltative](active-directory-optional-claims.md) del token di accesso per il client non modifica il token di accesso ricevuto quando viene richiesto un token per `user.read`, che è di proprietà della risorsa.  
+> I token di accesso vengono creati in base al gruppo di *destinatari* del token, ovvero l'applicazione proprietaria degli ambiti nel token.  Questo è il modo in cui un'impostazione della risorsa `accessTokenAcceptedVersion` nel [manifesto dell'applicazione](reference-app-manifest.md#manifest-reference) per `2` consente a un client che chiama l'endpoint v 1.0 di ricevere un token di accesso 2.0.  Analogamente, questo è il motivo per cui la modifica delle [attestazioni facoltative](active-directory-optional-claims.md) del token di accesso per il client non modifica il token di accesso ricevuto quando viene richiesto un token per `user.read`, che è di proprietà della risorsa.
 > Per lo stesso motivo, durante il test dell'applicazione client con un account personale, ad esempio hotmail.com o outlook.com, è possibile che il token di accesso ricevuto dal client sia una stringa opaca. Ciò è dovuto al fatto che la risorsa a cui si accede ha richiesto ticket MSA legacy (account Microsoft) crittografati e che non possono essere riconosciuti dal client.
 
 ## <a name="sample-tokens"></a>Token di esempio
@@ -84,7 +84,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Quindi, l'app 
 |-----|--------|-------------|
 | `aud` | Stringa, un URI ID app | Identifica il destinatario del token. Nei token ID, il gruppo di destinatari è l'ID applicazione dell'app, assegnato all'app nell'portale di Azure. L'app deve convalidare questo valore e rifiutare il token se il valore non corrisponde. |
 | `iss` | Stringa, un URI del servizio token di sicurezza | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. Se il token emesso è un token v2.0 (vedere l'attestazione `ver`), l'URI terminerà con `/v2.0`. Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. L'app deve usare la parte relativa al GUID dell'attestazione per limitare il set di tenant che possono accedere all'app, se applicabile. |
-|`idp`| Stringa, di solito un URI del servizio token di sicurezza | Registra il provider di identità che ha autenticato l'oggetto del token. Questo valore è identico al valore dell'attestazione Autorità di certificazione, a meno che l'account utente non sia nello stesso tenant dell'autorità di certificazione, ad esempio guest. Se l'attestazione non è presente, significa che è possibile usare invece il valore di `iss`.  Per gli account personali usati in un contesto aziendale, ad esempio, un account personale invitato in un tenant di Azure AD, l'attestazione `idp` potrebbe essere "live.com" o un URI STS contenente il tenant dell'account Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`| Stringa, di solito un URI del servizio token di sicurezza | Registra il provider di identità che ha autenticato l'oggetto del token. Questo valore è identico al valore dell'attestazione Autorità di certificazione, a meno che l'account utente non sia nello stesso tenant dell'autorità di certificazione, ad esempio guest. Se l'attestazione non è presente, significa che è possibile usare invece il valore di `iss`.  Per gli account personali usati in un contesto aziendale, ad esempio, un account personale invitato in un tenant di Azure AD, l'attestazione `idp` potrebbe essere "live.com" o un URI STS contenente il tenant dell'account Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | `iat` | int, timestamp UNIX | "Issued At" indica quando è avvenuta l'autenticazione per il token. |
 | `nbf` | int, timestamp UNIX | L'attestazione "nbf" (not before) identifica l'ora prima della quale il token JWT non deve essere accettato per l'elaborazione. |
 | `exp` | int, timestamp UNIX | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. È importante notare che una risorsa può rifiutare il token anche prima di questa ora, ad esempio quando è necessaria una modifica nell'autenticazione oppure quando è stata rilevata una revoca di un token. |
@@ -100,7 +100,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Quindi, l'app 
 | `scp` | Stringa, elenco di ambiti separati da spazi | Set di ambiti esposti dall'applicazione per cui l'applicazione client ha richiesto (e ricevuto) il consenso. L'app deve verificare che questi ambiti siano ambiti validi esposti dall'app e prendere decisioni relative alle autorizzazioni in base al valore di questi ambiti. Inclusa solo per i [token utente](#user-and-application-tokens). |
 | `roles` | Matrice di stringhe, un elenco di autorizzazioni | Il set di autorizzazioni esposto dall'applicazione a cui l'applicazione o l'utente richiedente ha concesso l'autorizzazione per chiamare. Per i [token dell'applicazione](#user-and-application-tokens), viene usato durante il flusso di credenziali client ([v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)) al posto degli ambiti utente.  Per i [token utente](#user-and-application-tokens) viene popolato con i ruoli a cui è stato assegnato l'utente nell'applicazione di destinazione. |
 | `wids` | Matrice di GUID [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Indica i ruoli a livello di tenant assegnati a questo utente dalla sezione dei ruoli presenti nella [pagina ruoli di amministratore](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Questa attestazione viene configurata in base all'applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md).  È necessario impostare su "All" o "DirectoryRole".  Potrebbe non essere presente nei token ottenuti tramite il flusso implicito a causa di problemi di lunghezza del token. |
-| `groups` | Matrice di GUID JSON | Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nell'attestazione dei gruppi sono configurati per ogni singola applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md). Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. <br><br>Vedere di seguito l'attestazione `hasgroups` per informazioni dettagliate sull'uso dell'attestazione `groups` con la concessione implicita. <br>Per gli altri flussi, se il numero di gruppi in cui si trova l'utente supera un limite (150 per SAML, 200 per JWT), verrà aggiunta un'attestazione in eccedenza alle origini attestazioni che puntano all'endpoint Graph di AAD contenente l'elenco dei gruppi per l'utente. |
+| `groups` | Matrice di GUID JSON | Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nell'attestazione dei gruppi sono configurati per ogni singola applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md). Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. <br><br>Vedere di seguito l'attestazione `hasgroups` per informazioni dettagliate sull'uso dell'attestazione `groups` con la concessione implicita. <br>Per gli altri flussi, se il numero di gruppi in cui si trova l'utente supera un limite (150 per SAML, 200 per JWT), verrà aggiunta un'attestazione in eccedenza alle origini attestazioni che puntano all'endpoint Microsoft Graph contenente l'elenco dei gruppi per l'utente. |
 | `hasgroups` | Boolean | Se presente, sempre `true`, per indicare che l'utente è presente in almeno un gruppo. Usato invece dell'attestazione `groups` per i token JWT nei flussi di concessione implicita se l'attestazione completa dei gruppi estenderebbe il frammento dell'URI oltre i limiti di lunghezza dell'URL (attualmente 6 o più gruppi). Indica che il client deve utilizzare l'API Microsoft Graph per determinare i gruppi dell'utente (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Oggetto JSON | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente. Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br>**Valore token JWT di esempio**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | Stringa, un GUID | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa oppure come chiave nelle tabelle di database. Dato che il soggetto è sempre presente nei token generati da Azure AD, è consigliabile usare questo valore in un sistema di autorizzazione di uso generico. L'oggetto è tuttavia un identificatore pairwise univoco per un ID di applicazione specifico. Se quindi un singolo utente accede a due app diverse usando due ID client differenti, queste app riceveranno due valori differenti per l'attestazione dell'oggetto. Questa condizione può non essere appropriata a seconda dei requisiti a livello di architettura e di privacy. Vedere anche l'attestazione `oid` (che rimane invariata nelle app all'interno di un tenant). |
@@ -111,28 +111,28 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Quindi, l'app 
 | `rh` | Stringa opaca | Attestazione interna usata da Azure per riconvalidare i token. Le risorse non devono usare questa attestazione. |
 | `ver` | Stringa, `1.0` o `2.0` | Indica la versione del token di accesso. |
 
+**Attestazione eccedenza gruppi**
 
-> [!NOTE]
-> **Attestazione eccedenza gruppi**
->
-> Per assicurarsi che le dimensioni del token non superino i limiti delle dimensioni delle intestazioni HTTP, Azure AD limita il numero di ID oggetto inclusi nell'attestazione dei gruppi. Se un utente è membro di più gruppi rispetto al limite eccedenza (150 per i token SAML, 200 per i token JWT), Azure AD non emette l'attestazione dei gruppi nel token. Include invece un'attestazione in eccedenza nel token che indica all'applicazione di eseguire una query sull'API Microsoft Graph per recuperare l'appartenenza al gruppo dell'utente.
-  ```csharp
-  {
-    ...
-    "_claim_names": {
-     "groups": "src1"
-      },
-      {
-    "_claim_sources": {
-      "src1": {
-          "endpoint":"[Url to get this user's group membership from]"
-          }
-         }
+Per assicurarsi che le dimensioni del token non superino i limiti delle dimensioni delle intestazioni HTTP, Azure AD limita il numero di ID oggetto inclusi nell'attestazione dei gruppi. Se un utente è membro di più gruppi rispetto al limite eccedenza (150 per i token SAML, 200 per i token JWT), Azure AD non emette l'attestazione dei gruppi nel token. Include invece un'attestazione in eccedenza nel token che indica all'applicazione di eseguire una query sull'API Microsoft Graph per recuperare l'appartenenza al gruppo dell'utente.
+
+```JSON
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
        }
-    ...
-   }
-   ```
-> È possibile usare il `BulkCreateGroups.ps1` fornito nella cartella [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) per la creazione di app per testare gli scenari in eccedenza.
+     }
+  ...
+ }
+ ```
+
+È possibile usare il `BulkCreateGroups.ps1` fornito nella cartella [script](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) per la creazione di app per testare gli scenari in eccedenza.
 
 #### <a name="v10-basic-claims"></a>Attestazioni di base v1.0
 
@@ -170,9 +170,9 @@ Le identità Microsoft possono essere autenticate in modi diversi, che possono e
 
 Per convalidare un oggetto id_token o access_token, l'app deve convalidare sia la firma del token che le attestazioni. Per convalidare i token di accesso, l'app deve anche convalidare l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova in [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-Il middleware di Azure AD offre funzionalità predefinite per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne una nel linguaggio preferito. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida manuale del token JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
+Il middleware di Azure AD offre funzionalità predefinite per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne una nel linguaggio preferito.
 
-Microsoft fornisce esempi di codice e librerie che illustrano come gestire in modo semplice la convalida dei token. Le informazioni seguenti vengono fornite per chi vuole comprendere il processo sottostante. Per la convalida di JWT sono disponibili anche diverse librerie open source di terze parti: esiste almeno un'opzione per quasi tutte le piattaforme e la lingua. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Librerie di autenticazione v1.0](../azuread-dev/active-directory-authentication-libraries.md) e [Librerie di autenticazione v2.0](reference-v2-libraries.md).
+Sono disponibili librerie ed esempi di codice che illustrano come gestire la convalida del token. Le informazioni seguenti vengono fornite per chi vuole comprendere il processo sottostante. Per la convalida di JWT sono disponibili anche diverse librerie open source di terze parti: esiste almeno un'opzione per quasi tutte le piattaforme e la lingua. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Librerie di autenticazione v1.0](../azuread-dev/active-directory-authentication-libraries.md) e [Librerie di autenticazione v2.0](reference-v2-libraries.md).
 
 ### <a name="validating-the-signature"></a>Convalida della firma
 
@@ -210,7 +210,7 @@ Il documento di metadati ha le caratteristiche seguenti:
 > [!NOTE]
 > L'endpoint v1.0 restituisce entrambe le attestazioni `x5t` e `kid`, mentre l'endpoint v2.0 restituisce solo l'attestazione `kid`. In futuro è consigliabile usare l'attestazione `kid` per convalidare il token.
 
-La convalida della firma esula dall'ambito di questo documento. sono disponibili molte librerie open source che consentono di eseguire questa operazione, se necessario.  Tuttavia, la piattaforma di identità Microsoft dispone di un'estensione per la firma di token per le chiavi di firma personalizzate standard.  
+La convalida della firma esula dall'ambito di questo documento. sono disponibili molte librerie open source che consentono di eseguire questa operazione, se necessario.  Tuttavia, la piattaforma di identità Microsoft dispone di un'estensione per la firma di token per le chiavi di firma personalizzate standard.
 
 Se l'app ha chiavi di firma personalizzate come risultato dell'uso della funzionalità di [mapping delle attestazioni](active-directory-claims-mapping.md) , è necessario aggiungere un `appid` parametro di query contenente l'ID app per ottenere un `jwks_uri` che punta alle informazioni sulla chiave di firma dell'app, che devono essere usate per la convalida. Ad esempio: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene una `jwks_uri` di `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
@@ -233,13 +233,15 @@ L'applicazione può ricevere token per conto di un utente (il flusso consueto) o
 
 * I token solo app non disporranno di un'attestazione `scp` e possono invece avere un'attestazione `roles`. In questa posizione verranno registrate le autorizzazioni dell'applicazione (in contrapposizione alle autorizzazioni delegate). Per ulteriori informazioni sulle autorizzazioni delegate e dell'applicazione, vedere autorizzazione e consenso ([v 1.0](../azuread-dev/v1-permissions-consent.md), [v 2.0](v2-permissions-and-consent.md)).
 * Molte attestazioni specifiche dell'uomo saranno mancanti, ad esempio `name` o `upn`.
-* Le attestazioni `sub` e `oid` saranno uguali. 
+* Le attestazioni `sub` e `oid` saranno uguali.
 
 ## <a name="token-revocation"></a>Revoca dei token
 
 I token di aggiornamento possono essere invalidati o revocati in qualsiasi momento, per motivi diversi. Questi motivi appartengono a due categorie: timeout e revoca.
 
 ### <a name="token-timeouts"></a>Timeout dei token
+
+Utilizzando la [configurazione della durata del token](active-directory-configurable-token-lifetimes.md), la durata dei token di aggiornamento può essere modificata.  È normale e previsto che alcuni token vadano senza usare (ad esempio, l'utente non apre l'app per tre mesi) e pertanto scade.  Le app incontreranno scenari in cui il server di accesso rifiuta un token di aggiornamento a causa della sua età. 
 
 * MaxInactiveTime: se il token di aggiornamento non è stato usato entro il tempo determinato da MaxInactiveTime, il token di aggiornamento non sarà più valido.
 * MaxSessionAge: se il parametro MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor è stato impostato su un valore diverso da quello predefinito (Until-revoked), sarà necessaria una nuova autenticazione allo scadere del tempo impostato in MaxAgeSession*.
@@ -248,6 +250,8 @@ I token di aggiornamento possono essere invalidati o revocati in qualsiasi momen
   * Un'applicazione sensibile ha un MaxAgeSessionSingleFactor di un giorno. Se un utente esegue l'accesso il lunedì e il martedì (dopo 25 ore è trascorso), verrà richiesto di ripetere l'autenticazione.
 
 ### <a name="revocation"></a>Revoca
+
+I token di aggiornamento possono essere revocati dal server a causa di una modifica delle credenziali oppure a causa dell'azione di amministrazione o dell'uso.  I token di aggiornamento rientrano in due classi, quelle rilasciate ai client riservati (la colonna più a destra) e quelle rilasciate ai client pubblici (tutte le altre colonne).   
 
 |   | Cookie basato su password | Token basato su password | Cookie non basato su password | Token non basato su password | Token client riservato |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -264,7 +268,7 @@ I token di aggiornamento possono essere invalidati o revocati in qualsiasi momen
 >
 > I token di aggiornamento primari (PRT) in Windows 10 vengono separati in base alla credenziale. Ad esempio, Windows Hello e password hanno le rispettive PRT, isolate l'una dall'altra. Quando un utente accede con una credenziale Hello (PIN o biometria) e quindi modifica la password, il PRT basato su password ottenuto in precedenza verrà revocato. Quando si esegue l'accesso con una password, il PRT precedente viene invalidato e ne viene richiesta una nuova.
 >
-> I token di aggiornamento non vengono invalidati o revocati quando vengono usati per recuperare un nuovo token di accesso e un token di aggiornamento.  
+> I token di aggiornamento non vengono invalidati o revocati quando vengono usati per recuperare un nuovo token di accesso e un token di aggiornamento.  Tuttavia, l'app deve eliminare quella precedente non appena viene usata e sostituirla con quella nuova, perché il nuovo token ha una nuova scadenza. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

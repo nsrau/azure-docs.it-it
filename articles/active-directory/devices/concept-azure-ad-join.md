@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512199"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672672"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD
 
@@ -27,7 +27,7 @@ Azure AD join è destinato alle organizzazioni che vogliono essere cloud-First o
 | **Definizione** | Aggiunto solo a Azure AD che richiede l'account aziendale per accedere al dispositivo |
 | **Destinatari primari** | Adatto per organizzazioni ibride e solo cloud. |
 |   | Applicabile a tutti gli utenti di un'organizzazione |
-| **Proprietà del dispositivo** | Organizzazione |
+| **Proprietà del dispositivo** | Organization |
 | **Sistemi operativi** | Tutti i dispositivi Windows 10 |
 | **Provisioning** | Self-Service: impostazioni o OOBE di Windows |
 |   | Registrazione in blocco |
@@ -45,9 +45,9 @@ Azure AD join è destinato alle organizzazioni che vogliono essere cloud-First o
 
 Azure AD dispositivi aggiunti sono connessi a utilizzando un account di Azure AD aziendale. L'accesso alle risorse dell'organizzazione può essere ulteriormente limitato in base al Azure AD account e ai [criteri di accesso condizionale](../conditional-access/overview.md) applicati all'identità del dispositivo.
 
-Gli amministratori possono proteggere e controllare ulteriormente Azure AD dispositivi aggiunti usando strumenti di gestione di dispositivi mobili (MDM) come Microsoft Intune o in scenari di co-gestione usando Microsoft endpoint Configuration Manager. Questi strumenti forniscono un mezzo per applicare le configurazioni necessarie per l'organizzazione, ad esempio la necessità di crittografare l'archiviazione, la complessità delle password, le installazioni software e gli aggiornamenti software. Gli amministratori possono rendere disponibili le applicazioni dell'organizzazione per Azure AD i dispositivi aggiunti usando Configuration Manager per [gestire le app dal Microsoft Store per le aziende e la formazione](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Gli amministratori possono proteggere e controllare ulteriormente Azure AD dispositivi aggiunti usando strumenti di gestione di dispositivi mobili (MDM) come Microsoft Intune o in scenari di co-gestione usando Microsoft endpoint Configuration Manager. Questi strumenti forniscono un mezzo per applicare le configurazioni necessarie per l'organizzazione, ad esempio la necessità di crittografare l'archiviazione, la complessità delle password, le installazioni software e gli aggiornamenti software. Gli amministratori possono rendere disponibili le applicazioni dell'organizzazione per Azure AD i dispositivi aggiunti usando Configuration Manager per [gestire le app dal Microsoft Store per le aziende e la formazione](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-Azure AD join può essere eseguito usando opzioni self-service come la configurazione guidata, la registrazione in blocco o [Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+Azure AD join può essere eseguito usando opzioni self-service come la configurazione guidata, la registrazione in blocco o [Windows Autopilot](/intune/enrollment-autopilot).
 
 Azure AD dispositivi aggiunti possono comunque mantenere Single Sign-On l'accesso alle risorse locali quando si trovano nella rete dell'organizzazione. I dispositivi Azure AD aggiunti possono comunque eseguire l'autenticazione nei server locali, ad esempio file, stampa e altre applicazioni.
 
@@ -74,13 +74,13 @@ L'obiettivo dei dispositivi aggiunti ad Azure AD è di semplificare:
 
 È possibile distribuire Aggiunta ad Azure AD usando uno dei metodi seguenti:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [Distribuzione in blocco](https://docs.microsoft.com/intune/windows-bulk-enroll)
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
+- [Distribuzione in blocco](/intune/windows-bulk-enroll)
 - [Esperienza self-service](azuread-joined-devices-frx.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Pianificare l'implementazione dell'aggiunta ad Azure AD](azureadjoin-plan.md)
+- [Pianificare l'implementazione di Azure AD join](azureadjoin-plan.md)
 - [Come gestire il gruppo Administrators locale nei dispositivi Azure AD aggiunti](assign-local-admin.md)
 - [Gestire le identità dei dispositivi usando il portale di Azure](device-management-azure-portal.md)
 - [Gestire i dispositivi non aggiornati in Azure AD](manage-stale-devices.md)

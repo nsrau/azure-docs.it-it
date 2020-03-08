@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c8fe33f78b96dbfe780c94fbddfc5c8821148279
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016035"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672599"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -33,12 +33,12 @@ L'uso dell'autenticazione Azure AD per accedere alle macchine virtuali Windows i
 - Non è più necessario gestire gli account di amministratore locale.
 - Il controllo degli accessi in base al ruolo di Azure consente di concedere l'accesso appropriato alle macchine virtuali in base alla necessità e di rimuoverlo quando non è più necessario.
 - Prima di consentire l'accesso a una macchina virtuale, Azure AD l'accesso condizionale può applicare requisiti aggiuntivi, ad esempio: 
-   - Multi-Factor Authentication
+   - Autenticazione a più fattori
    - Controllo del rischio di accesso
 - Automatizzare e ridimensionare Azure AD join di macchine virtuali Windows di Azure che fanno parte delle distribuzioni VDI.
 
 > [!NOTE]
-> Una volta abilitata questa funzionalità, le macchine virtuali Windows in Azure verranno Azure AD Unite. Non è possibile aggiungerlo ad altro dominio, AD esempio in locale o Azure AD DS. Se necessario, è necessario disconnettere la macchina virtuale dal tenant di Azure AD disinstallando l'estensione.
+> Una volta abilitata questa funzionalità, le macchine virtuali Windows in Azure verranno Azure AD Unite. Non è possibile aggiungerlo ad altri domini come AD locale o Azure AD DS. Se necessario, è necessario disconnettere la macchina virtuale dal tenant di Azure AD disinstallando l'estensione.
 
 ## <a name="requirements"></a>Requisiti
 
@@ -103,10 +103,10 @@ Selezionare try it nell'angolo superiore destro di un blocco di codice.
 Aprire Cloud Shell nel browser.
 Selezionare il pulsante Cloud Shell nel menu nell'angolo in alto a destra del [portale di Azure](https://portal.azure.com).
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire az --version per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere l'articolo [installare l'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando di Azure.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire az --version per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere l'articolo [installare l'interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure.
 
-1. Come prima cosa creare un gruppo di risorse con [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create). 
-1. Creare una macchina virtuale con [AZ VM create](https://docs.microsoft.com/cli/azure/vm#az-vm-create) usando una distribuzione supportata in un'area supportata. 
+1. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). 
+1. Creare una macchina virtuale con [AZ VM create](/cli/azure/vm#az-vm-create) usando una distribuzione supportata in un'area supportata. 
 1. Installare l'estensione della macchina virtuale Azure AD login. 
 
 L'esempio seguente distribuisce una macchina virtuale denominata myVM che usa Win2019Datacenter in un gruppo di risorse denominato myResourceGroup nell'area southcentralus. Negli esempi seguenti è possibile specificare i nomi del proprio gruppo di risorse e della macchina virtuale in base alle esigenze.
@@ -128,7 +128,7 @@ az vm create \
 
 La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti.
 
-Infine, installare l'estensione della macchina virtuale Azure AD login per abilitare Azure AD account di accesso per la macchina virtuale Windows. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [AZ VM Extension](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) set per installare l'estensione AADLoginForWindows nella macchina virtuale denominata myVM nel gruppo di risorse myResourceGroup:
+Infine, installare l'estensione della macchina virtuale Azure AD login per abilitare Azure AD account di accesso per la macchina virtuale Windows. Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Usare [AZ VM Extension](/cli/azure/vm/extension#az-vm-extension-set) set per installare l'estensione AADLoginForWindows nella macchina virtuale denominata myVM nel gruppo di risorse myResourceGroup:
 
 > [!NOTE]
 > È possibile installare l'estensione AADLoginForWindows in una macchina virtuale Windows Server 2019 o Windows 10 1809 e versioni successive esistente per abilitarla per l'autenticazione Azure AD. Di seguito è riportato un esempio di AZ CLI.
@@ -152,8 +152,7 @@ Ora che è stata creata la macchina virtuale, è necessario configurare i criter
 
 > [!NOTE]
 > Per consentire a un utente di accedere alla VM tramite RDP, è necessario assegnare l'account di accesso dell'amministratore della macchina virtuale o del ruolo di accesso utente della macchina virtuale. Un utente di Azure con i ruoli proprietario o collaboratore assegnati a una macchina virtuale non dispone automaticamente dei privilegi necessari per accedere alla macchina virtuale tramite RDP. Questo consente di fornire la separazione controllata tra il set di persone che controllano le macchine virtuali e il set di persone che possono accedere alle macchine virtuali.
-
-È possibile configurare le assegnazioni di ruolo per la macchina virtuale in diversi modi:
+' Esistono diversi modi per configurare le assegnazioni di ruolo per la macchina virtuale:
 
 - Uso dell'esperienza del portale di Azure AD
 - Uso dell'esperienza Azure Cloud Shell
@@ -175,9 +174,9 @@ Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'a
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Uso dell'esperienza Azure Cloud Shell
 
-L'esempio seguente usa [AZ Role Assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo di accesso amministratore macchina virtuale alla macchina virtuale per l'utente corrente di Azure. Il nome utente dell'account Azure attivo viene ottenuto con [AZ account Show](https://docs.microsoft.com/cli/azure/account#az-account-show)e l'ambito è impostato sulla macchina virtuale creata in un passaggio precedente con [AZ VM Show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). È anche possibile assegnare l'ambito a livello di gruppo di risorse o di sottoscrizione e applicare le normali autorizzazioni di ereditarietà del controllo degli accessi in base al ruolo. Per altre informazioni, vedere [controlli degli accessi in base al ruolo](../../virtual-machines/linux/login-using-aad.md).
+L'esempio seguente usa [AZ Role Assignment create](/cli/azure/role/assignment#az-role-assignment-create) per assegnare il ruolo di accesso amministratore macchina virtuale alla macchina virtuale per l'utente corrente di Azure. Il nome utente dell'account Azure attivo viene ottenuto con [AZ account Show](/cli/azure/account#az-account-show)e l'ambito è impostato sulla macchina virtuale creata in un passaggio precedente con [AZ VM Show](/cli/azure/vm#az-vm-show). È anche possibile assegnare l'ambito a livello di gruppo di risorse o di sottoscrizione e applicare le normali autorizzazioni di ereditarietà del controllo degli accessi in base al ruolo. Per altre informazioni, vedere [controlli degli accessi in base al ruolo](../../virtual-machines/linux/login-using-aad.md).
 
-```AzureCLI
+```   zureCLI
 username=$(az account show --query user.name --output tsv)
 vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
@@ -188,14 +187,14 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Se il dominio di AAD e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con il `--assignee-object-id`, non solo il nome utente per `--assignee`. È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](https://docs.microsoft.com/cli/azure/ad/user#az-ad-user-list).
+> Se il dominio di AAD e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con il `--assignee-object-id`, non solo il nome utente per `--assignee`. È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere gli articoli seguenti:
 
-- [Gestire l'accesso alle risorse di Azure usando RBAC e l'interfaccia della riga di comando](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Gestire l'accesso alle risorse di Azure usando RBAC e Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-
+- [Gestire l'accesso alle risorse di Azure usando RBAC e l'interfaccia della riga di comando](/azure/role-based-access-control/role-assignments-cli)
+- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
+- [Gestire l'accesso alle risorse di Azure usando RBAC e Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+'
 ## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
 
 È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso utente prima di autorizzare l'accesso alle macchine virtuali Windows in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'opzione "accesso alla macchina virtuale Windows di Azure" dall'opzione di assegnazione app Cloud o azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
@@ -222,19 +221,18 @@ A questo punto è stato effettuato l'accesso alla macchina virtuale di Azure di 
 > [!NOTE]
 > È possibile salvare il. File RDP in locale nel computer per avviare connessioni Desktop remoto future alla macchina virtuale anziché dover passare alla pagina Panoramica macchina virtuale nella portale di Azure e usare l'opzione Connetti.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 
 Per completare la Azure AD processo join, è necessario che l'estensione AADLoginForWindows sia installata correttamente. Se l'installazione dell'estensione della macchina virtuale non riesce correttamente, seguire questa procedura.
 
-1. Eseguire la connessione RDP alla VM usando l'account Administrator locale ed esaminare CommandExecution. log in  
+1. Eseguire la connessione RDP alla VM usando l'account Administrator locale ed esaminare CommandExecuti'n. log in  
    
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 
    > [!NOTE]
-   > Se l'estensione viene riavviata dopo l'errore iniziale, il log con l'errore di distribuzione verrà salvato come CommandExecution_YYYYMMDDHHMMSSSSS. log. 
-
+   > Se l'estensione viene riavviata dopo l'errore iniziale, il log con l'errore di distribuzione verrà salvato come CommandExecution_YYYYMMDDHHMMSSSSS. log. "
 1. Aprire un prompt dei comandi nella macchina virtuale e verificare che le query eseguite sull'endpoint del servizio metadati dell'istanza (IMDS) in esecuzione nell'host di Azure restituiscono:
 
    | Comando da eseguire | Output previsto |
@@ -338,7 +336,7 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 
 ![Le credenziali non sono state utilizzate](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Verificare che il PC Windows 10 che si sta usando per avviare la connessione Desktop remoto sia un Azure AD Unito o ibrido Azure AD aggiunto alla stessa directory di Azure AD a cui è stata aggiunta la macchina virtuale. Per altre informazioni sull'identità del dispositivo, vedere l'articolo [che cos'è un'identità del dispositivo](https://docs.microsoft.com/azure/active-directory/devices/overview).
+Verificare che il PC Windows 10 che si sta usando per avviare la connessione Desktop remoto sia un Azure AD Unito o ibrido Azure AD aggiunto alla stessa directory di Azure AD a cui è stata aggiunta la macchina virtuale. Per altre informazioni sull'identità del dispositivo, vedere l'articolo [che cos'è un'identità del dispositivo](/azure/active-directory/devices/overview).
 
 > [!NOTE]
 > Windows 10 20H1 consente di aggiungere il supporto per Azure AD PC registrato per avviare una connessione Desktop remoto alla macchina virtuale. Partecipa al programma Windows Insider per provare questa funzionalità ed esplorare le nuove funzionalità di Windows 10.
@@ -355,7 +353,7 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 
 Se sono stati configurati criteri di accesso condizionale che richiedono l'autenticazione a più fattori prima di poter accedere alla risorsa, è necessario assicurarsi che il PC Windows 10 che avvia la connessione Desktop remoto alla VM esegua l'accesso con un Metodo di autenticazione, ad esempio Windows Hello. Se non si usa un metodo di autenticazione avanzata per la connessione Desktop remoto, verrà visualizzato l'errore precedente.
 
-Se Windows Hello for business non è stato distribuito e se questa opzione non è disponibile per il momento, è possibile escludere il requisito di autenticazione a più fattori configurando i criteri di accesso condizionale che escludono l'app di accesso alle macchine virtuali Windows di Azure dall'elenco di app cloud che richiedono l'autenticazione a più fattori. Per altre informazioni su Windows Hello for business, vedere [Panoramica di Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Se Windows Hello for business non è stato distribuito e se questa opzione non è disponibile per il momento, è possibile escludere il requisito di autenticazione a più fattori configurando i criteri di accesso condizionale che escludono l'app di accesso alle macchine virtuali Windows di Azure dall'elenco di app cloud che richiedono l'autenticazione a più fattori. Per altre informazioni su Windows Hello for business, vedere [Panoramica di Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
 > L'autenticazione PIN di Windows Hello for business con RDP è stata supportata da Windows 10 per diverse versioni, tuttavia è stato aggiunto il supporto per l'autenticazione biometrica con RDP in Windows 10 versione 1809. L'uso dell'autenticazione di Windows Hello for business durante RDP è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non disponibili per il modello di attendibilità della chiave
@@ -365,4 +363,4 @@ Se Windows Hello for business non è stato distribuito e se questa opzione non �
 Condividi i tuoi commenti e suggerimenti su questa funzionalità di anteprima o segnala i problemi usandola nel [Forum dei commenti Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su Azure Active Directory, vedere [Informazioni su Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+Per ulteriori informazioni su Azure Active Directory, vedere [che cos'è Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) '

@@ -4,14 +4,14 @@ description: Informazioni sulla clausola WHERE SQL per Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982230"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898757"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Clausola WHERE in Azure Cosmos DB
 
@@ -35,10 +35,11 @@ WHERE <filter_condition>
   
    Espressione che rappresenta il valore da calcolare. Per informazioni dettagliate, vedere [espressioni scalari](sql-query-scalar-expressions.md) .  
   
-
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
   
-  Affinché il documento venga restituito, un'espressione specificata come condizione di filtro deve restituire true. Solo un valore booleano true soddisferà la condizione, i valori non definiti, null, false, numero, matrice o oggetto non soddisfano la condizione. 
+  Affinché il documento venga restituito, un'espressione specificata come condizione di filtro deve restituire true. Solo il valore booleano `true` soddisferà la condizione, qualsiasi altro valore: undefined, null, false, Number, array o Object non soddisferà la condizione.
+
+  Se si include la chiave di partizione nella clausola `WHERE` come parte di un filtro di uguaglianza, la query verrà automaticamente filtrata solo per le partizioni pertinenti.
 
 ## <a name="examples"></a>Esempi
 
@@ -72,9 +73,9 @@ Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. L
 |---------|---------|
 |Aritmetico | +,-,*,/,% |
 |Bit per bit    | \|, &, ^, <<, >>, >>> (spostamento a destra riempimento zero) |
-|Logico    | AND, OR, NOT      |
+|Logiche    | AND, OR, NOT      |
 |Confronto | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|string     |  \|\| (concatenazione) |
+|String     |  \|\| (concatenazione) |
 
 Nelle query seguenti vengono utilizzati operatori binari:
 

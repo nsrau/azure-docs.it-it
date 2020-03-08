@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538811"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672320"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
@@ -57,7 +57,7 @@ Sono disponibili due opzioni per recuperare il valore del timestamp dell'attivit
 
     ![Timestamp dell'attività](./media/manage-stale-devices/01.png)
 
-- Il cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+- Il cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
 
     ![Timestamp dell'attività](./media/manage-stale-devices/02.png)
 
@@ -129,11 +129,11 @@ Anche se è possibile eliminare i dispositivi non aggiornati nel portale di Azur
 
 Una tipica routine comprende i passaggi seguenti:
 
-1. Connettersi ad Azure Active Directory usando il cmdlet [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0).
+1. Connettersi ad Azure Active Directory usando il cmdlet [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0).
 1. Ottenere l'elenco dei dispositivi
-1. Disabilitare il dispositivo usando il cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
+1. Disabilitare il dispositivo usando il cmdlet [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 1. Attendere il periodo di tolleranza del numero di giorni specificati prima di eliminare il dispositivo.
-1. Rimuovere il dispositivo usando il cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+1. Rimuovere il dispositivo usando il cmdlet [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Ottenere l'elenco dei dispositivi
 

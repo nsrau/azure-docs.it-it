@@ -1,24 +1,24 @@
 ---
-title: Domande frequenti sulla protezione delle password locali-Azure Active Directory
-description: Domande frequenti sulla protezione password di Azure AD locale
+title: Domande frequenti sulla protezione password di Azure AD locale
+description: Esaminare le domande frequenti per Azure AD la protezione delle password in un ambiente Active Directory Domain Services locale
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7b4c941272906e7ff5a017c78c8bc7c5084a667
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abef6e52e37cfa2faeb426bc59bb0de5a52a6658
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847831"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671673"
 ---
-# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
+# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Domande frequenti sulla protezione Azure AD password locale
 
 In questa sezione vengono fornite le risposte a molte domande frequenti sulla protezione Azure AD password.
 
@@ -38,7 +38,7 @@ Il portale di Azure AD consente di modificare la configurazione di "Password Pro
 
 **D: in che modo è possibile applicare Azure AD vantaggi della protezione delle password a un sottoinsieme di utenti locali?**
 
-Non supportati. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
+Non supportato. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
 
 **D: qual è la differenza tra una modifica della password e un set di password (o reimpostazione)?**
 
@@ -62,11 +62,11 @@ Sì. Il supporto di più DLL di filtro password registrate è una funzionalità 
 
 **D: come è possibile distribuire e configurare Azure AD la protezione delle password nell'ambiente Active Directory senza usare Azure?**
 
-Non supportati. Password di protezione di Azure AD è una funzionalità di Azure che supporta l'estensione in un ambiente Active Directory locale.
+Non supportato. Password di protezione di Azure AD è una funzionalità di Azure che supporta l'estensione in un ambiente Active Directory locale.
 
 **D: come è possibile modificare il contenuto del criterio a livello di Active Directory?**
 
-Non supportati. È possibile amministrare i criteri solo usando il portale di Azure AD. Vedere anche la domanda precedente.
+Non supportato. È possibile amministrare i criteri solo usando il portale di Azure AD. Vedere anche la domanda precedente.
 
 **D: perché è necessario il servizio DFSR per la replica di sysvol?**
 

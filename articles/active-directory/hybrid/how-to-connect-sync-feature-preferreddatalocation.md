@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a493179e6e657a1d99d7cdb808629bae7332567
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: faecb0bc8cbb5ca84e9fc8bfc3cb99e2ccef1f11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918968"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894561"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Lo scopo di questo argomento è illustrare come configurare l'attributo per la posizione dei dati preferita in Azure Active Directory (Azure AD) Connect Sync. Quando un utente usa funzionalità multigeo in Office 365, questo attributo viene usato per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -40,16 +40,16 @@ Un elenco di tutte le aree geografiche per Office 365 è disponibile in [Dove ve
 
 Le aree geografiche di Office 365 disponibili per Multi-Geo Capabilities sono:
 
-| Zona geografica | Valore preferredDataLocation |
+| Area geografica | Valore preferredDataLocation |
 | --- | --- |
 | Asia Pacifico | APC |
 | Australia | AUS |
 | Canada | CAN |
 | Unione Europa | EUR |
-| Francia | FRA |
+| France | FRA |
 | India | IND |
-| Giappone | JPN |
-| Corea | KOR |
+| Japan | JPN |
+| Korea | KOR |
 | Sudafrica | ZAF |
 | Emirati Arabi Uniti | ARE |
 | Regno Unito | GBR |
@@ -139,22 +139,22 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 3. Per creare una nuova regola in entrata, fare clic sul pulsante **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Value | Dettagli |
+    | Attributo | Valore | Dettagli |
     | --- | --- | --- |
-    | name | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
-    | Description | *Fornire una descrizione personalizzata* |  |
+    | Name | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
+    | Descrizione | *Fornire una descrizione personalizzata* |  |
     | Connected System | *Selezionare l'istanza di Active Directory Connector locale* |  |
     | Connected System Object Type | **Utente** |  |
     | Metaverse Object Type | **Person** |  |
-    | Tipo di collegamento | **Join** |  |
+    | Tipo collegamento | **Join** |  |
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
 5. Lasciare vuoto il campo **Scoping filter** (Filtro di ambito) per includere tutti gli oggetti. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
 6. Passare alla **scheda Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Origine | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Selezionare l'attributo di origine | Non selezionato | Aggiornare |
+    |Connessione diretta | preferredDataLocation | Selezionare l'attributo di origine | Non selezionato | Aggiornamento |
 
 7. Per creare la regola in entrata, selezionare **Aggiungi**.
 
@@ -168,30 +168,30 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 3. Selezionare **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Value | Dettagli |
+    | Attributo | Valore | Dettagli |
     | ----- | ------ | --- |
-    | name | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
-    | Description | *Inserire una descrizione* ||
+    | Name | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
+    | Descrizione | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di Azure AD* ||
     | Connected System Object Type | **Utente** ||
     | Metaverse Object Type | **Person** ||
-    | Tipo di collegamento | **Join** ||
+    | Tipo collegamento | **Join** ||
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
 5. Passare alla scheda **Scoping filter** (Filtro di ambito) e aggiungere un singolo gruppo di filtri di ambito con le due clausole:
 
-    | Attributo | Operator | Value |
+    | Attributo | Operatore | Valore |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
-    | cloudMastered | NOTEQUAL | Vero |
+    | cloudMastered | NOTEQUAL | True |
 
-    L'ambito del filtro determina a quali oggetti di Azure AD viene applicata la regola di sincronizzazione in uscita. In questo esempio viene usato lo stesso filtro di ambito dalla regola di sincronizzazione "out to Azure AD – User Identity" OOB (out-of-box). Impedisce l'applicazione della regola di sincronizzazione agli oggetti **Utente** non sincronizzati da Active Directory locale. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
+    L'ambito del filtro determina a quali oggetti di Azure AD viene applicata la regola di sincronizzazione in uscita. In questo esempio viene usato lo stesso filtro di ambito dalla regola di sincronizzazione "out to Azure AD – User Identity" OOB (out-of-box). Impedisce che la regola di sincronizzazione venga applicata agli oggetti **utente** non sincronizzati da un Active Directory locale. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
 
 6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Origine | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Non selezionato | Aggiornare |
+    | Connessione diretta | preferredDataLocation | preferredDataLocation | Non selezionato | Aggiornamento |
 
 7. Fare clic su **Aggiungi** per creare la regola in uscita.
 
@@ -260,7 +260,6 @@ A questo punto è necessario verificare la configurazione e abilitarla per gli u
 3. Usare il servizio PowerShell di Exchange Online per verificare che l'area della cassetta postale sia stata impostata correttamente.  
 ![Screenshot di PowerShell per Exchange Online](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Supponendo che il tenant sia stato contrassegnato come in grado di usare questa funzionalità, la cassetta postale viene spostata nell'area geografica corretta. Per verificare che ciò avvenga, esaminare il nome del server in cui si trova la cassetta postale.
-4. Per verificare che questa impostazione sia valida per più cassette postali, usare lo script disponibile nella [raccolta Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Questo script include anche un elenco di tutti i prefissi dei server dei data center di Office 365 e delle aree geografiche in cui si trovano. Può essere usato come riferimento nel passaggio precedente per verificare la posizione della cassetta postale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

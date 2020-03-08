@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/05/2019
+ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431643"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851157"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: dashboard di analisi in tempo reale per lo streaming dei dati
 
@@ -28,7 +28,7 @@ Questo articolo continua dall'esercitazione sul [rilevamento delle frodi in temp
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Un account Azure.
-* Un account per Power BI. È possibile usare un account aziendale o dell'istituto di istruzione.
+* Un account per Power BI Pro. È possibile usare un account aziendale o dell'istituto di istruzione.
 * Una versione completata dell'esercitazione sul [rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md). L'esercitazione include un'app che genera metadati di telefonate fittizie. Nell'esercitazione si crea un hub eventi e si inviano i dati delle telefonate all'hub eventi. Si scrive una query che rileva le chiamate fraudolente (chiamate effettuate dallo stesso numero nello stesso momento da posizioni diverse). 
 
 
@@ -44,7 +44,7 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
    |**Impostazione**  |**Valore consigliato**  |
    |---------|---------|
    |Alias di output  |  CallStream-PowerBI  |
-   |Nome del set di dati  |   set di dati SA  |
+   |Nome set di dati  |   set di dati SA  |
    |Nome tabella |  chiamate fraudolente  |
 
    ![Configurare l'output Analisi di flusso di Azure](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
@@ -99,7 +99,7 @@ Per altre informazioni sui set di dati di Power BI, vedere le informazioni di ri
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 
 ## <a name="test-the-query"></a>Testare la query
@@ -108,7 +108,7 @@ Questa sezione è facoltativa ma consigliata.
 
 1. Se l'app TelcoStreaming non è attualmente in esecuzione, avviarla seguendo questa procedura:
 
-    * Aprire il prompt dei comandi.
+    * Aprire Prompt dei comandi.
     * Passare alla cartella in cui si trovano il file telcogenerator.exe e il file modificato telcodatagen.exe.config.
     * Eseguire il comando seguente:
 
@@ -163,7 +163,7 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
 
     ![Titolo e sottotitolo per il nuovo riquadro](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Fare clic su **Apply**.
+9. Fare clic su **Applica**
 
     Si dispone a questo punto di un contatore di frodi.
 
@@ -201,7 +201,7 @@ Per calcolare il valore e visualizzare la finestra in secondi, è possibile usar
 
 ![Equazione per calcolare il valore e visualizzare la finestra in secondi](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-Ad esempio:
+Ad esempio,
 
 * Sono presenti 1.000 dispositivi che inviano dati a intervalli di un secondo.
 * Si usa lo SKU di Power BI Pro che supporta 1.000.000 righe l'ora.
@@ -234,7 +234,7 @@ Se si tenta di avviare un processo dopo che il token è scaduto, si verifica un 
 
 Dopo aver aggiornato l'autorizzazione con Power BI, viene visualizzato un avviso verde nell'area di autorizzazione che indica che il problema è stato risolto.
 
-## <a name="get-help"></a>Ottenere supporto
+## <a name="get-help"></a>Guida in linea
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi

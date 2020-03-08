@@ -1,25 +1,26 @@
 ---
-title: Autenticazione in uscita - Utilità di pianificazione di Azure
+title: Autenticazione in uscita
 description: Informazioni su come configurare o rimuovere l'autenticazione in uscita per l'Utilità di pianificazione di Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 2ea09330fb8d3d97da5fbc197dba9668f1a4f685
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300855"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898505"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticazione in uscita per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+>
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 I processi dell'Utilità di pianificazione di Azure potrebbero dover chiamare servizi che richiedono l'autenticazione, ad esempio altri servizi di Azure, Salesforce.com, Facebook e siti Web personalizzati protetti. Il servizio chiamato può determinare se il processo dell'Utilità di pianificazione può accedere alle risorse richieste. 
 
@@ -44,12 +45,12 @@ L'Utilità di pianificazione supporta questi modelli di autenticazione:
 
 Quando si aggiunge un'autenticazione usando il modello `ClientCertificate`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.  
 
-| Elemento | Richiesto | Descrizione |
+| Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso di un certificato client SSL. |
-| **type** | Yes | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
-| **pfx** | Yes | Contenuto del file PFX in codifica base64. |
-| **password** | Yes | Password per accedere al file PFX. |
+| **type** | Sì | Tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
+| **pfx** | Sì | Contenuto del file PFX in codifica base64. |
+| **password** | Sì | Password per accedere al file PFX. |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Corpo della risposta - Certificato client 
@@ -59,7 +60,7 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 | Elemento | Descrizione | 
 |---------|-------------| 
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso di un certificato client SSL. |
-| **type** | Il tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
+| **type** | Tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
 | **certificateThumbprint** |Identificazione personale del certificato. |
 | **certificateSubjectName** |Nome distintivo del soggetto del certificato. |
 | **certificateExpiration** | Data di scadenza del certificato. |
@@ -164,12 +165,12 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 Quando si aggiunge un'autenticazione usando il modello `Basic`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.
 
-| Elemento | Richiesto | Descrizione |
+| Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. | 
-| **type** | Yes | Il tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
-| **username** | Yes | Nome utente per eseguire l'autenticazione. | 
-| **password** | Yes | Password per eseguire l'autenticazione. |
+| **type** | Sì | Tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
+| **username** | Sì | Nome utente per eseguire l'autenticazione. | 
+| **password** | Sì | Password per eseguire l'autenticazione. |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo della risposta - Autenticazione di base
@@ -179,7 +180,7 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 | Elemento | Descrizione | 
 |---------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. |
-| **type** | Il tipo di autenticazione. Per l'autenticazione di base il valore è `Basic`. |
+| **type** | Tipo di autenticazione. Per l'autenticazione di base il valore è `Basic`. |
 | **username** | Nome utente autenticato. |
 ||| 
 
@@ -282,14 +283,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 Quando si aggiunge un'autenticazione usando il modello `ActiveDirectoryOAuth`, specificare i seguenti elementi aggiuntivi nel corpo della richiesta.
 
-| Elemento | Richiesto | Descrizione |
+| Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
-| **authentication** (elemento padre) | Yes | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
-| **type** | Yes | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
-| **tenant** | Yes | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
-| **audience** | Yes | Questo valore è impostato su `https://management.core.windows.net/`. | 
-| **clientId** | Yes | Identificatore client per l'applicazione Azure AD | 
-| **secret** | Yes | Segreto del client che richiede il token | 
+| **authentication** (elemento padre) | Sì | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
+| **type** | Sì | Tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
+| **tenant** | Sì | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
+| **audience** | Sì | Questo valore è impostato su `https://management.core.windows.net/`. | 
+| **clientId** | Sì | Identificatore client per l'applicazione Azure AD | 
+| **secret** | Sì | Segreto del client che richiede il token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corpo della risposta - Autenticazione OAuth Active Directory
@@ -299,7 +300,7 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 | Elemento | Descrizione |
 |---------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
-| **type** | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
+| **type** | Tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
 | **tenant** | L'identificatore del tenant di Azure AD |
 | **audience** | Questo valore è impostato su `https://management.core.windows.net/`. |
 | **clientId** | Identificatore client per l'applicazione Azure AD |
@@ -403,10 +404,9 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 * [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
-* [API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
+* [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler)
 * [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)

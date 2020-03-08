@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d2780e09c099d76aa2ef4ec2638a410793481d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186396"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671942"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: app Cloud o azioni
 
@@ -39,7 +39,7 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle ap
 - [Database SQL di Azure e data warehouse](../../sql-database/sql-database-conditional-access.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
-- [Microsoft Azure Information Protection](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Gestione Microsoft Azure](#microsoft-azure-management)
 - Gestione delle sottoscrizioni Microsoft Azure
 - Microsoft Cloud App Security
@@ -48,7 +48,7 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle ap
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- [Registrazione Microsoft Intune](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
+- [Registrazione Microsoft Intune](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Search in Bing

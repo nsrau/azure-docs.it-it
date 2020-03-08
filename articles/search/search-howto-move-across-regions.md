@@ -3,36 +3,53 @@ title: Come spostare la risorsa del servizio tra aree
 titleSuffix: Azure Cognitive Search
 description: Questo articolo illustra come spostare le risorse del ricerca cognitiva di Azure da un'area a un'altra nel cloud di Azure.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/05/2020
-ms.openlocfilehash: df712f48c5aff722a4f1a850788378fb78ea7335
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/06/2020
+ms.openlocfilehash: 183a937a232dbd28962bb7d6ef42b0d78b8a81fd
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379580"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78850687"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Spostare il servizio ricerca cognitiva di Azure in un'altra area di Azure
 
-Attualmente, non è supportato lo stato di trasferimento di un servizio di ricerca in un'altra area, in quanto non è disponibile alcuna automazione o strumento che consenta di eseguire l'attività end-to-end.
+Occasionalmente, i clienti hanno la richiesta di trasferire un servizio di ricerca esistente in un'altra area. Attualmente, non sono disponibili meccanismi o strumenti predefiniti per semplificare l'attività. Rimane un processo manuale, illustrato di seguito in questo articolo.
 
-Nel portale, il comando **Esporta modello** genera una definizione di base di un servizio (nome, posizione, livello, replica e numero di partizioni), ma non riconosce il contenuto del servizio, né esegue chiavi, ruoli o log.
+> [!NOTE]
+> Nel portale di Azure tutti i servizi dispongono di un comando **Esporta modello** . Nel caso di Azure ricerca cognitiva, questo comando genera una definizione di base di un servizio (nome, posizione, livello, replica e numero di partizioni), ma non riconosce il contenuto del servizio, né esegue il riporto di chiavi, ruoli o log. Sebbene il comando esista, non è consigliabile utilizzarlo per lo trasferimento di un servizio di ricerca.
 
-Quando si trasferisce la ricerca da un'area a un'altra, è consigliabile usare l'approccio seguente:
+## <a name="steps-for-moving-a-service"></a>Passaggi per lo stato di trasferimento di un servizio
 
-1. Inventario del servizio esistente per un elenco completo di oggetti nel servizio. Se è stata abilitata la registrazione, creare e archiviare i report che potrebbero essere necessari per il confronto futuro.
+Se è necessario spostare un servizio di ricerca in un'area diversa, l'approccio dovrebbe essere simile ai passaggi seguenti:
 
-1. Creare un servizio nella nuova area e ripubblicarlo dal codice sorgente di eventuali indici, indicizzatori, origini dati, skillsets e mappe sinonimi esistenti. I nomi dei servizi devono essere univoci, pertanto non è possibile riutilizzare il nome esistente.
+1. Identificare i servizi correlati per comprendere l'effetto completo della rilocazione di un servizio. È possibile usare archiviazione di Azure per la registrazione, l'archivio delle informazioni o come origine dati esterna. È possibile usare servizi cognitivi per l'arricchimento di intelligenza artificiale. L'accesso ai servizi in altre aree è comune, ma viene addebitato un costo aggiuntivo per la larghezza di banda. I servizi cognitivi e ricerca cognitiva di Azure devono trovarsi nella stessa area se si usa l'arricchimento di intelligenza artificiale.
+
+1. Inventario del servizio esistente per un elenco completo di oggetti nel servizio. Se è stata abilitata la registrazione, creare e archiviare i report che potrebbero essere necessari per un record cronologico.
+
+1. Controllare i prezzi e la disponibilità nella nuova area per garantire la disponibilità di Azure ricerca cognitiva più tutti i servizi correlati che è possibile creare nella stessa area. Verificare la parità di funzionalità. Alcune funzionalità di anteprima hanno una disponibilità limitata.
+
+1. Creare un servizio nella nuova area e ripubblicarlo dal codice sorgente di eventuali indici, indicizzatori, origini dati, skillsets, archivi informazioni e mappe sinonimi esistenti. I nomi dei servizi devono essere univoci, pertanto non è possibile riutilizzare il nome esistente.
+
+1. Ricaricare gli indici e gli archivi delle informazioni, se applicabile. Si userà il codice dell'applicazione per eseguire il push dei dati JSON in un indice o rieseguire gli indicizzatori per estrarre i documenti da origini esterne. 
 
 1. Abilitare la registrazione e, se vengono utilizzati, creare nuovamente i ruoli di sicurezza.
 
 1. Aggiornare le applicazioni client e i gruppi di test per usare il nuovo nome del servizio e le chiavi API e testare tutte le applicazioni.
 
-1. Eliminare il servizio precedente quando il nuovo servizio è completamente operativo.
+1. Elimina il vecchio servizio dopo che il nuovo servizio è stato completamente testato e funzionante.
+
+## <a name="next-steps"></a>Passaggi successivi
+
++ [Scegliere un livello](search-sku-tier.md)
++ [Creare un servizio di ricerca](search-create-service-portal.md)
++ [Caricare i documenti di ricerca](search-what-is-data-import.md)
++ [Abilitazione della registrazione](search-monitor-logs.md)
+
 
 <!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
 

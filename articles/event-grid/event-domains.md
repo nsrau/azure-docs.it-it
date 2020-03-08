@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511383"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898872"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi
 
@@ -31,7 +31,7 @@ I domini eventi mettono a disposizione la stessa architettura usata dai servizi 
 
 ### <a name="example-use-case"></a>Esempio di caso d'uso
 
-I domini eventi si possono comprendere più facilmente con un esempio. Si supponga di gestire Contoso Construction Machinery, che produce trattori, attrezzature di scavo e altri macchinari pesanti. Quando si gestisce un'azienda, si esegue il push verso i clienti di informazioni in tempo reale riguardanti la manutenzione delle apparecchiature, l'integrità dei sistemi e gli aggiornamenti dei contratti. Tutte queste informazioni vengono inoltrate a vari endpoint, tra cui l'app, gli endpoint dei clienti e altre infrastrutture configurate dai clienti.
+I domini eventi si possono comprendere più facilmente con un esempio. Supponiamo di eseguire contoso Operating Machinery, dove Produci i trattori, le attrezzature di scavo e altri macchinari pesanti. Quando si gestisce un'azienda, si esegue il push verso i clienti di informazioni in tempo reale riguardanti la manutenzione delle apparecchiature, l'integrità dei sistemi e gli aggiornamenti dei contratti. Tutte queste informazioni vengono inoltrate a vari endpoint, tra cui l'app, gli endpoint dei clienti e altre infrastrutture configurate dai clienti.
 
 I domini eventi consentono di modellare Contoso Construction Machinery come una singola entità di gestione degli eventi. Ogni cliente viene rappresentato come un argomento all'interno del dominio. L'autenticazione e l'autorizzazione vengono gestite mediante Azure Active Directory. Ogni cliente può sottoscrivere il proprio argomento e ricevere i relativi eventi. L'accesso gestito tramite il dominio eventi garantisce che il cliente possa accedere solo al proprio argomento.
 
@@ -43,13 +43,13 @@ Offre inoltre un singolo endpoint, in cui è possibile pubblicare tutti gli even
 
 Con un dominio si ottiene il controllo granulare dell'autenticazione e dell'autorizzazione su ogni argomento, tramite il controllo degli accessi in base al ruolo di Azure. È possibile usare questi ruoli per limitare ogni tenant nell'applicazione ai soli argomenti a cui si vuole concedere l'accesso.
 
-Il controllo degli accessi in base al ruolo nei domini eventi funziona allo stesso modo del [controllo di accesso gestito](security-authentication.md#management-access-control) nel resto di Griglia di eventi e di Azure. Usare il controllo degli accessi in base al ruolo per creare e applicare definizioni del ruolo personalizzate nei domini eventi.
+Il controllo degli accessi in base al ruolo nei domini eventi funziona allo stesso modo del [controllo di accesso gestito](security-authorization.md) nel resto di Griglia di eventi e di Azure. Usare il controllo degli accessi in base al ruolo per creare e applicare definizioni del ruolo personalizzate nei domini eventi.
 
 ### <a name="built-in-roles"></a>Ruoli predefiniti
 
 Griglia di eventi include due definizioni del ruolo predefinite per semplificare l'uso del controllo degli accessi in base al ruolo con i domini eventi. Questi ruoli sono **EventSubscription EventGrid Contributor (Preview)** e **EventGrid EventSubscription Reader (Preview)** e vengono assegnati a utenti che necessitano di sottoscrivere argomenti del dominio eventi del proprietario. È possibile definire l'ambito dell'assegnazione di ruolo solo per l'argomento a cui gli utenti devono sottoscrivere.
 
-Per informazioni su questi ruoli, vedere [Ruoli predefiniti per Griglia di eventi](security-authentication.md#built-in-roles).
+Per informazioni su questi ruoli, vedere [Ruoli predefiniti per Griglia di eventi](security-authorization.md#built-in-roles).
 
 ## <a name="subscribing-to-topics"></a>Sottoscrizione di argomenti
 
@@ -101,13 +101,13 @@ Di seguito sono riportati i limiti e le quote correlati ai domini eventi:
 
 - argomenti 100.000 per dominio evento 
 - 100 domini eventi per ogni sottoscrizione di Azure 
-- 500 sottoscrizioni di eventi per argomento in un dominio eventi
+- 500 sottoscrizioni di eventi per argomento in un dominio di evento
 - 50 sottoscrizioni ambito dominio 
 - frequenza di inserimento degli eventi 5.000 al secondo (in un dominio)
 
 Se questi limiti non soddisfano l'utente, contattare il team del prodotto aprendo un ticket di supporto o inviando un messaggio di posta elettronica a [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 I domini degli eventi utilizzano gli stessi [prezzi delle operazioni](https://azure.microsoft.com/pricing/details/event-grid/) utilizzate da tutte le altre funzionalità di griglia di eventi.
 
 Nei domini eventi le operazioni funzionano come negli argomenti personalizzati. Ogni ingresso di un evento in un dominio eventi è un'operazione e ogni tentativo di recapito di un evento è un'operazione.

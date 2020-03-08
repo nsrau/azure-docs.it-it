@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377599"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671896"
 ---
 # <a name="what-is-conditional-access"></a>Informazioni sull'accesso condizionale
 
@@ -61,7 +61,7 @@ I segnali comuni su cui si basa l'accesso condizionale per stabilire i criteri i
 
 - Blocca accesso
    - Decisione più restrittiva
-- Concedere l'accesso
+- Concedi accesso
    - Decisione meno restrittiva, può comunque richiedere una o più opzioni seguenti:
       - Richiedi autenticazione a più fattori
       - Richiedere che i dispositivi siano contrassegnati come conformi
@@ -92,7 +92,7 @@ Informazioni su come viene usato l'accesso condizionale di Azure AD da altre org
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Anche i clienti con [licenze di Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) possono accedere alle funzionalità di accesso condizionale. 
+Anche i clienti con [licenze di Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) possono accedere alle funzionalità di accesso condizionale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -102,6 +102,6 @@ Per informazioni su come implementare l'accesso condizionale nell'ambiente in us
 
 [Informazioni su Identity Protection](../identity-protection/overview-v2.md)
 
-[Informazioni su Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
+[Informazioni su Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 
-[Informazioni su Microsoft Intune](https://docs.microsoft.com/intune/index)
+[Informazioni su Microsoft Intune](/intune/index)

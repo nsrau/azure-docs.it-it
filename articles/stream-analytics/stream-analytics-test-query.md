@@ -6,22 +6,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b99666dbed4eaec3db3e56800e9a7352e10e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369865"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898393"
 ---
-# <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testare un processo di Analisi di flusso di Azure con dati di esempio
+# <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di analisi di flusso di Azure nel portale
 
-In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dal sink di input o i dati di esempio caricati da un file locale nel portale di Azure. È anche possibile testare le query localmente da dati di esempio locali o dati dinamici in [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](visual-studio-code-local-run-live-input.md).
+In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dalle origini di streaming o caricare i dati di esempio da un file locale nel portale di Azure. È anche possibile testare le query localmente da dati di esempio locali o dati dinamici in [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
-## <a name="sample-incoming-data-from-input"></a>Campionare i dati in ingresso dall'input
+## <a name="automatically-sample-incoming-data-from-input"></a>Campionamento automatico dei dati in ingresso dall'input
 
-Analisi di flusso di Azure recupera automaticamente gli eventi dall'input di streaming. È possibile eseguire query sull'esempio predefinito o impostare un intervallo di tempo specifico per l'esempio.
+Analisi di flusso di Azure recupera automaticamente gli eventi dagli input di streaming. È possibile eseguire query sull'esempio predefinito o impostare un intervallo di tempo specifico per l'esempio.
 
 1. Accedere al portale di Azure.
 
@@ -81,7 +81,7 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
    ![File di esempio di caricamento di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Selezionare **OK**.
+5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Scegliere **OK**.
 
    ![File di esempio di caricamento di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
@@ -98,6 +98,7 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 10. Dopo aver verificato i risultati visualizzati nel browser, è possibile **avviare** il processo.
 
 ## <a name="next-steps"></a>Passaggi successivi
+* [Creare una soluzione Internet delle cose usando analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): questa esercitazione illustra come creare una soluzione end-to-end con un generatore di dati che simula il traffico presso un casello.
 
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 

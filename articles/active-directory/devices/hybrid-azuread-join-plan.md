@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 76d3be0fc00465c35dbc79a258b57db962969cc8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255009"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672337"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: pianificare l'implementazione ibrida di Azure Active Directory join
 
@@ -30,7 +30,7 @@ Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività d
 
 Se si dispone di un ambiente di Active Directory (AD) locale e si desidera aggiungere i computer aggiunti a un dominio ad Azure AD, è possibile eseguire questa operazione eseguendo il join di Azure AD ibrido. Questo articolo fornisce i passaggi correlati per implementare un'aggiunta ad Azure AD ibrido nell'ambiente. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
@@ -43,11 +43,11 @@ Per pianificare l'implementazione di Azure AD ibrido, è necessario acquisire fa
 
 |   |   |
 | --- | --- |
-| ![Controlla][1] | Esaminare i dispositivi supportati |
-| ![Controlla][1] | Esaminare le informazioni utili |
-| ![Controlla][1] | Verifica la convalida controllata del join Azure AD ibrido |
-| ![Controlla][1] | Selezionare lo scenario in base all'infrastruttura di identità |
-| ![Controlla][1] | Verificare il supporto di AD UPN locale per ibrido Azure AD join |
+| ![Controllo][1] | Esaminare i dispositivi supportati |
+| ![Controllo][1] | Esaminare le informazioni utili |
+| ![Controllo][1] | Verifica la convalida controllata del join Azure AD ibrido |
+| ![Controllo][1] | Selezionare lo scenario in base all'infrastruttura di identità |
+| ![Controllo][1] | Verificare il supporto di AD UPN locale per ibrido Azure AD join |
 
 ## <a name="review-supported-devices"></a>Esaminare i dispositivi supportati
 
@@ -59,13 +59,13 @@ L'aggiunta ad Azure AD ibrido supporta un'ampia gamma di dispositivi Windows. Po
 - Windows Server 2016
 - Windows Server 2019
 
-Per i dispositivi che eseguono il sistema operativo desktop Windows, la versione supportata è elencata in questo articolo [informazioni sulla versione di Windows 10](https://docs.microsoft.com/windows/release-information/). Come procedura consigliata, Microsoft consiglia di eseguire l'aggiornamento alla versione più recente di Windows 10.
+Per i dispositivi che eseguono il sistema operativo desktop Windows, la versione supportata è elencata in questo articolo [informazioni sulla versione di Windows 10](/windows/release-information/). Come procedura consigliata, Microsoft consiglia di eseguire l'aggiornamento alla versione più recente di Windows 10.
 
 ### <a name="windows-down-level-devices"></a>Dispositivi Windows di livello inferiore
 
 - Windows 8.1
 - Il supporto per Windows 7 è terminato il 14 gennaio 2020. Per ulteriori informazioni, vedere la pagina relativa al completamento [del supporto per Windows 7](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2. Per informazioni di supporto su Windows Server 2008 e 2008 R2, vedere la pagina relativa [alla fine del supporto tecnico per Windows server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
@@ -87,7 +87,7 @@ Come primo passaggio della pianificazione, è consigliabile esaminare l'ambiente
 
 - Se si utilizza uno snapshot di macchina virtuale (VM) per creare altre macchine virtuali, assicurarsi che lo snapshot non venga da una macchina virtuale già registrata con Azure AD come Azure AD ibrido join.
 
-- Se si usa un [filtro di scrittura unificato](https://docs.microsoft.com/windows-hardware/customize/enterprise/unified-write-filter) e tecnologie simili che cancellano le modifiche apportate al disco al riavvio, è necessario applicarle dopo che il dispositivo è stato Azure ad ibrido aggiunto. L'abilitazione di tali tecnologie prima del completamento del Azure AD ibrido join comporterà la disgiunzione del dispositivo a ogni riavvio
+- Se si usa un [filtro di scrittura unificato](/windows-hardware/customize/enterprise/unified-write-filter) e tecnologie simili che cancellano le modifiche apportate al disco al riavvio, è necessario applicarle dopo che il dispositivo è stato Azure ad ibrido aggiunto. L'abilitazione di tali tecnologie prima del completamento del Azure AD ibrido join comporterà la disgiunzione del dispositivo a ogni riavvio
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Gestione dei dispositivi con Azure AD stato registrato
 Se i dispositivi Windows 10 aggiunti a un dominio sono [Azure ad registrati](overview.md#getting-devices-in-azure-ad) nel tenant, è possibile che si verifichi il doppio stato del dispositivo Azure ad ibrido aggiunto e Azure ad registrato. È consigliabile eseguire l'aggiornamento a Windows 10 1803 (con KB4489894 applicato) o versione successiva per risolvere automaticamente questo scenario. Nelle versioni precedenti alla 1803 sarà necessario rimuovere manualmente lo stato Azure AD registrato prima di abilitare Azure AD ibrido join. Nelle versioni 1803 e successive sono state apportate le modifiche seguenti per evitare questo doppio stato:
@@ -100,7 +100,7 @@ Se i dispositivi Windows 10 aggiunti a un dominio sono [Azure ad registrati](ove
 > Il Azure AD dispositivo registrato non verrà rimosso automaticamente se è gestito da Intune.
 
 ### <a name="additional-considerations"></a>Altre considerazioni
-- Se l'ambiente USA Virtual Desktop Infrastructure (VDI), vedere la pagina relativa [a identità del dispositivo e virtualizzazione desktop](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Se l'ambiente USA Virtual Desktop Infrastructure (VDI), vedere la pagina relativa [a identità del dispositivo e virtualizzazione desktop](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
 - Azure AD ibrido join è supportato per il TPM 2,0 conforme a FIPS e non è supportato per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD ibrido join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. A partire dalla versione di Windows 10 1903, TPMs 1,2 non vengono usati per i join Azure AD ibridi e i dispositivi con tali TPMs verranno considerati come se non avessero un TPM.
 
@@ -116,7 +116,7 @@ Azure AD ibrido join funziona sia con gli ambienti gestiti che federati, a secon
 
 ### <a name="managed-environment"></a>Ambiente gestito
 
-Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) o l'[autenticazione pass-through](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) con [Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
+Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](/azure/active-directory/hybrid/whatis-phs) o l'[autenticazione pass-through](/azure/active-directory/hybrid/how-to-connect-pta) con [Single Sign-On facile](/azure/active-directory/hybrid/how-to-connect-sso).
 
 Questi scenari non richiedono la configurazione di un server federativo per l'autenticazione.
 
@@ -133,7 +133,7 @@ Un ambiente federato deve includere un provider di identità che supporta i requ
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
+> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
 
 > [!NOTE]
 > Azure AD non supporta certificati o smart card nei domini gestiti.
@@ -147,9 +147,9 @@ In base allo scenario che corrisponde all'infrastruttura di identità, vedere:
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Verificare il supporto di AD UPN locale per Azure AD ibrido join
 
-I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli di Azure AD. In questi casi l'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per i nomi dell'entità utente di AD locale in base al [metodo di autenticazione](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di nomi dell'entità utente di AD locale:
+I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli di Azure AD. In questi casi l'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per i nomi dell'entità utente di AD locale in base al [metodo di autenticazione](/azure/security/fundamentals/choose-ad-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di nomi dell'entità utente di AD locale:
 
-- UPN instradabile: un UPN instradabile dispone di un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.org è il dominio primario in AD locale di proprietà di Contoso e [verificato in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
+- UPN instradabile: un UPN instradabile dispone di un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.org è il dominio primario in AD locale di proprietà di Contoso e [verificato in Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
 - UPN non instradabile: un UPN non instradabile non dispone di un dominio verificato. È applicabile solo all'interno della rete privata dell'organizzazione. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.local è il dominio primario in AD locale, ma non è un dominio verificabile in Internet e viene usato solo nella rete di Contoso.
 
 La tabella seguente contiene informazioni sul supporto per questi nomi dell'entità utente di AD locale nell'aggiunta ad Azure AD ibrido di Windows 10

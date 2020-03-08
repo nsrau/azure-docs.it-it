@@ -1,58 +1,62 @@
 ---
-title: 'Crittografia dei dati per database di Azure per PostgreSQL: risoluzione dei problemi di un singolo server'
-description: Informazioni su come risolvere i problemi relativi alla crittografia dei dati per il database di Azure per PostgreSQL-server singolo
+title: Risolvere i problemi di crittografia dei dati in database di Azure per PostgreSQL-server singolo
+description: Informazioni su come risolvere i problemi relativi alla crittografia dei dati nel database di Azure per PostgreSQL-server singolo
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 6d2e027c47bef3186f95c2183b316b5c15511070
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: bd3303117bae307bb562390cec1fdfb62c01b7c6
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371501"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851078"
 ---
-# <a name="troubleshooting-data-encryption-with-customer-managed-keys-in-azure-database-for-postgresql---single-server"></a>Risoluzione dei problemi di crittografia dei dati con chiavi gestite dal cliente nel database di Azure per PostgreSQL-server singolo
-Questo articolo descrive come identificare e risolvere i problemi comuni e gli errori che si verificano in un database di Azure per PostgreSQL, un server singolo configurato con la crittografia dei dati tramite la chiave gestita dal cliente.
+# <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Risolvere i problemi di crittografia dei dati in database di Azure per PostgreSQL-server singolo
+
+Questo articolo illustra come identificare e risolvere i problemi comuni che possono verificarsi nella distribuzione a server singolo di database di Azure per PostgreSQL se configurata con la crittografia dei dati tramite una chiave gestita dal cliente.
 
 ## <a name="introduction"></a>Introduzione
-Quando la crittografia dei dati è configurata in modo da usare una chiave gestita dal cliente in Azure Key Vault, è necessario l'accesso continuo a questa chiave affinché il server resti disponibile. Se il server perde l'accesso alla chiave gestita dal cliente in Azure Key Vault, il server inizierà a negare tutte le connessioni con il messaggio di errore appropriato e a impostare lo stato su ***inaccessibile*** nel portale di Azure.
 
-Se non è più necessario un database di Azure per PostgreSQL-server singolo, è possibile eliminarlo immediatamente per arrestare i costi. Tutte le altre azioni nel server non sono consentite fino a quando non viene ripristinato l'accesso all'insieme di credenziali delle chiavi di Azure e il server è nuovamente disponibile. Non è possibile modificare l'opzione di crittografia dei dati da' Yes ' (gestita dal cliente) a' No ' (gestita dal servizio) in un server non accessibile quando un server è crittografato con Customer-Managed. È necessario rivalidare manualmente la chiave per rendere disponibile il server. Questa operazione è necessaria per proteggere i dati da accessi non autorizzati mentre le autorizzazioni per la chiave gestita dal cliente sono state revocate.
+Quando si configura la crittografia dei dati per l'uso di una chiave gestita dal cliente in Azure Key Vault, il server richiede l'accesso continuo alla chiave. Se il server perde l'accesso alla chiave gestita dal cliente in Azure Key Vault, rifiuterà tutte le connessioni, restituirà il messaggio di errore appropriato e lo stato sarà ***inaccessibile*** nella portale di Azure.
+
+Se non è più necessario un database di Azure per il server PostgreSQL inaccessibile, è possibile eliminarlo per arrestare i costi. Non sono consentite altre azioni nel server finché non viene ripristinato l'accesso all'insieme di credenziali delle chiavi e il server non è disponibile. Non è inoltre possibile modificare l'opzione di crittografia dei dati da `Yes`(gestito dal cliente) a `No` (gestito dal servizio) in un server inaccessibile quando viene crittografato con una chiave gestita dal cliente. È necessario riconvalidare manualmente la chiave prima che il server sia nuovamente accessibile. Questa azione è necessaria per proteggere i dati da accessi non autorizzati, mentre le autorizzazioni per la chiave gestita dal cliente vengono revocate.
 
 ## <a name="common-errors-causing-server-to-become-inaccessible"></a>Errori comuni che causano l'inaccessibilità del server
 
-La maggior parte dei problemi che si verificano quando si usa la crittografia dei dati con Azure Key Vault sono causati da uno dei seguenti errori di configurazione:
+Gli errori di configurazione seguenti provocano la maggior parte dei problemi con la crittografia dei dati che usano chiavi di Azure Key Vault:
 
-L'insieme di credenziali delle chiavi non è disponibile o non esiste
+- L'insieme di credenziali delle chiavi non è disponibile o non esiste:
+  - L'insieme di credenziali delle chiavi è stato eliminato per errore.
+  - Un errore di rete intermittente rende non disponibile l'insieme di credenziali delle chiavi.
 
-* L'insieme di credenziali delle chiavi è stato eliminato per errore.
-* Un errore di rete intermittente rende non disponibile l'insieme di credenziali delle chiavi.
-
-Non sono disponibili le autorizzazioni per accedere all'insieme di credenziali delle chiavi o la chiave non esiste
-
-* La chiave è stata accidentalmente eliminata o disabilitata oppure è scaduta.
-* Il database di Azure per PostgreSQL: identità gestita da un'istanza del server singolo è stata eliminata accidentalmente.
-* Le autorizzazioni concesse all'identità gestita del database di Azure per PostgreSQL per le chiavi non sono sufficienti (non includono Get, wrap e unwrap).
-* Le autorizzazioni per l'identità gestita del database di Azure per PostgreSQL a istanza singola sono state revocate o eliminate.
+- Non si è autorizzati ad accedere all'insieme di credenziali delle chiavi o la chiave non esiste:
+  - La chiave è scaduta o è stata accidentalmente eliminata o disabilitata.
+- L'identità gestita dell'istanza del database di Azure per PostgreSQL è stata eliminata accidentalmente.
+  - L'identità gestita dell'istanza del database di Azure per PostgreSQL non ha autorizzazioni di chiave sufficienti. Ad esempio, le autorizzazioni non includono Get, wrap e unwrap.
+  - Le autorizzazioni di identità gestite per l'istanza del database di Azure per PostgreSQL sono state revocate o eliminate.
 
 ## <a name="identify-and-resolve-common-errors"></a>Identificare e risolvere gli errori comuni
+
 ### <a name="errors-on-the-key-vault"></a>Errori nell'insieme di credenziali delle chiavi
 
 #### <a name="disabled-key-vault"></a>Key Vault disabilitato
-* AzureKeyVaultKeyDisabledMessage
-* **Spiegazione** : non è stato possibile completare l'operazione nel server perché la chiave Azure Key Vault è disabilitata.
+
+- `AzureKeyVaultKeyDisabledMessage`
+- **Spiegazione**: non è stato possibile completare l'operazione nel server perché la chiave Azure Key Vault è disabilitata.
 
 #### <a name="missing-key-vault-permissions"></a>Autorizzazioni Key Vault mancanti
-* AzureKeyVaultMissingPermissionsMessage
-* Il server non dispone delle autorizzazioni Get, wrap e unwrap necessarie per le autorizzazioni Azure Key Vault. Concedere le autorizzazioni mancanti all'entità servizio con ID.
+
+- `AzureKeyVaultMissingPermissionsMessage`
+- **Spiegazione**: il server non dispone delle autorizzazioni Get, wrap e unwrap necessarie per Azure Key Vault. Concedere le autorizzazioni mancanti all'entità servizio con ID.
 
 ### <a name="mitigation"></a>Strategia di riduzione del rischio
-* Verificare che la chiave gestita dal cliente sia presente nel Key Vault:
-* Identificare l'insieme di credenziali delle chiavi, quindi passare all'insieme di credenziali delle chiavi nel portale di Azure.
-* Assicurarsi che la chiave identificata dall'URI della chiave sia presente.
 
+- Verificare che la chiave gestita dal cliente sia presente nell'insieme di credenziali delle chiavi.
+- Identificare l'insieme di credenziali delle chiavi, quindi passare all'insieme di credenziali delle chiavi nel portale di Azure.
+- Verificare che l'URI della chiave identifichi una chiave presente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Configurare la crittografia dei dati con una chiave gestita dal cliente per il database di Azure per PostgreSQL usando il portale di Azure](howto-data-encryption-portal.md).
+
+[Usare il portale di Azure per configurare la crittografia dei dati con una chiave gestita dal cliente nel database di Azure per PostgreSQL](howto-data-encryption-portal.md)

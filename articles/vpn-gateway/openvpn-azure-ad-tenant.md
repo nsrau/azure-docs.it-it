@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 03/05/2020
 ms.author: alzam
-ms.openlocfilehash: b9627862002a70dc84b0e268128c53a97df0ebe8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: f4092f651a3058c8a2e738c81d9db7e296386bfa
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472299"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402888"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni del protocollo OpenVPN P2S
 
@@ -22,9 +22,10 @@ Quando ci si connette alla VNet, è possibile usare l'autenticazione basata su c
 > L'autenticazione di Azure AD è supportata solo per le connessioni tramite il protocollo OpenVPN®.
 >
 
-## <a name="tenant"></a>1. creare il tenant di Azure AD
 
-Creare un tenant di Azure AD usando la procedura descritta nell'articolo [creare un nuovo tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
+## <a name="tenant"></a>1. verificare Azure AD tenant
+
+Verificare di disporre di un tenant Azure AD. Se non si ha un tenant di Azure AD, è possibile crearne uno seguendo la procedura descritta nell'articolo [creare un nuovo tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
 * Nome dell'organizzazione
 * Nome di dominio iniziale
@@ -35,7 +36,7 @@ Esempio:
 
 ## <a name="users"></a>2. creare Azure AD utenti tenant
 
-Successivamente, creare due account utente. Creare un account amministratore globale e un account utente Master. L'account utente master viene usato come account di incorporamento Master (account del servizio). Quando si crea un account utente Azure AD tenant, si regola il ruolo della directory per il tipo di utente che si desidera creare.
+Il tenant di Azure AD richiede gli account seguenti: un account amministratore globale e un account utente Master. L'account utente master viene usato come account di incorporamento Master (account del servizio). Quando si crea un account utente Azure AD tenant, si regola il ruolo della directory per il tipo di utente che si desidera creare.
 
 Usare la procedura descritta in [questo articolo](../active-directory/fundamentals/add-users-azure-active-directory.md) per creare almeno due utenti per il tenant di Azure ad. Assicurarsi di modificare il **ruolo della directory** per creare i tipi di account:
 
@@ -84,7 +85,7 @@ Usare la procedura descritta in [questo articolo](../active-directory/fundamenta
 
 6. Selezionare **Accetto** quando richiesto.
 
-    ![Accetta](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Nel Azure AD, in **applicazioni aziendali**, viene visualizzata la rete **VPN di Azure** elencata.
 

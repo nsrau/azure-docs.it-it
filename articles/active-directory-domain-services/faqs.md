@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: c51387e92a100cabc5b35ccc7abde0483e77b5b1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: cea1664a0418dbe6269c22cffc70e0979dea41f0
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378506"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893167"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
@@ -97,7 +97,7 @@ Tutti gli account utente che fanno parte del dominio gestito Azure AD DS possono
 No. Non sono concessi privilegi amministrativi per il dominio gestito. I privilegi di amministratore di *dominio* e di *amministratore dell'organizzazione* non sono disponibili per l'uso all'interno del dominio. Ai membri dei gruppi di amministratori di dominio o di amministratori dell'organizzazione nell'Active Directory locale non sono inoltre concessi privilegi di amministratore di dominio o dell'organizzazione per il dominio gestito.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>È possibile modificare l'appartenenza ai gruppi usando il protocollo LDAP o altri strumenti di amministrazione di AD nei domini gestiti?
-No. Le appartenenze ai gruppi non possono essere modificate nei domini serviti da Azure AD Domain Services. Lo stesso vale per gli attributi utente. È possibile modificare l'appartenenza a gruppi o gli attributi utente in Azure AD o nel dominio locale. Le modifiche vengono sincronizzate automaticamente in Azure AD Domain Services.
+Non è possibile modificare utenti e gruppi sincronizzati da Azure Active Directory a Azure AD Domain Services perché la relativa origine di origine è Azure Active Directory. Qualsiasi utente o gruppo che ha origine nel dominio gestito può essere modificato.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Quanto tempo passa prima che eventuali modifiche apportate alla directory di Azure AD siano visibili nel dominio gestito?
 Le modifiche apportate alla directory Azure AD usando l'interfaccia utente di Azure AD o PowerShell vengono automaticamente sincronizzate con il dominio gestito. Il processo di sincronizzazione avviene in background. Non esiste un periodo di tempo definito per completare la sincronizzazione di tutte le modifiche apportate all'oggetto.
@@ -141,7 +141,7 @@ No. Azure AD Domain Services è un servizio di Azure con pagamento in base al co
 ### <a name="what-azure-regions-is-the-service-available-in"></a>In quale aree di Azure è disponibile il servizio?
 Per l'elenco delle aree di Azure in cui è disponibile Azure Active Directory Domain Services, vedere i [servizi di Azure per area](https://azure.microsoft.com/regions/#services/).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Per soluzioni relative ai problemi comuni di configurazione o amministrazione di Azure AD Domain Services, vedere la [Guida alla risoluzione dei problemi](troubleshoot.md).
 

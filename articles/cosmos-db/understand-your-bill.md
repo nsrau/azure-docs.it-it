@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 74a4279d347be92b1047a9cf361e233ecc7fcff8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046138"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674312"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli 
 
 ### <a name="billing-rate-if-storage-size-changes"></a>Tariffa di fatturazione in caso di modifica delle dimensioni di archiviazione
 
-La capacità di archiviazione viene fatturata in unità della quantità oraria massima di dati archiviati, in GB, in un periodo mensile. Se, ad esempio, hai utilizzato 100 GB di spazio di archiviazione nella prima metà del mese e 50 GB nella seconda, ti verrà addebitato l'equivalente di 75 GB di spazio di archiviazione per tale mese.
+La capacità di archiviazione viene fatturata in unità della quantità oraria massima di dati archiviati, in GB, in un periodo mensile. Se, ad esempio, sono stati utilizzati 100 GB di spazio di archiviazione nella prima metà del mese e 50 GB nella seconda, verrà addebitato l'equivalente di 75 GB di spazio di archiviazione per tale mese.
 
 ### <a name="billing-rate-when-container-or-a-set-of-containers-are-active-for-less-than-an-hour"></a>Tariffa di fatturazione se un contenitore o un set di contenitori è attivo per meno di un'ora
 
@@ -99,10 +99,10 @@ Si supponga di avere un contenitore Azure Cosmos negli Stati Uniti occidentali. 
 
 |**Elemento** |**Utilizzo (mese)** |**Tariffa** |**Costo mensile** |
 |---------|---------|---------|-------|
-|Fattura per le unità elaborate per un contenitore negli Stati Uniti occidentali      | 10 K UR/sec * 24 * 30    |$ 0,008 ogni 100 UR/sec all'ora   |$ 576|
-|Fattura per le unità elaborate per 3 aree aggiuntive - Stati Uniti orientali, Europa settentrionale e Asia orientale       | 3 * 10 K UR/sec * 24 * 30    |$ 0,008 ogni 100 UR/sec all'ora  |$ 1.728|
+|Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali      | 10 K UR/sec * 24 * 30    |$ 0,008 ogni 100 UR/sec all'ora   |$ 576|
+|Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale       | 3 * 10 K UR/sec * 24 * 30    |$ 0,008 ogni 100 UR/sec all'ora  |$ 1.728|
 |Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali      | 250 GB    |$0,25/GB  |$ 62,50|
-|Fattura per le risorse di archiviazione per 3 aree aggiuntive - Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$0,25/GB  |$ 187,50|
+|Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$0,25/GB  |$ 187,50|
 |**Totale**     |     |  |**$ 2.554**|
 
 *Supponiamo inoltre che tu abbia in uscita 100 GB di dati ogni mese dal contenitore negli Stati Uniti occidentali per replicare i dati in Stati Uniti orientali, Europa settentrionale e Asia orientale. Viene addebitata l'uscita in base alle tariffe di trasferimento dati.*
@@ -116,7 +116,7 @@ Si supponga di creare un contenitore Azure Cosmos negli Stati Uniti occidentali.
 |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)       | 10 K UR/sec * 24 * 30    |$ 0,016 ogni 100 UR/sec all'ora    |$ 1.152 |
 |Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale (operazioni di scrittura in tutte le aree)        | (3+1) * 10 K UR/sec * 24 * 30    |$ 0,016 ogni 100 UR/sec all'ora   |$ 4.608 |
 |Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali      | 250 GB    |$0,25/GB  |$ 62,50|
-|Fattura per le risorse di archiviazione per 3 aree aggiuntive - Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$0,25/GB  |$ 187,50|
+|Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale      | 3 * 250 GB    |$0,25/GB  |$ 187,50|
 |**Totale**     |     |  |**$ 6.010**|
 
 *Supponiamo inoltre che tu abbia in uscita 100 GB di dati ogni mese dal contenitore negli Stati Uniti occidentali per replicare i dati in Stati Uniti orientali, Europa settentrionale e Asia orientale. Viene addebitata l'uscita in base alle tariffe di trasferimento dati.*
@@ -199,6 +199,37 @@ La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calco
 | | |Fattura della velocità effettiva per due aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$ 224  |
 || |**Costo mensile totale**  | |**$38.688**   |
 
+## <a name="billing-examples-with-free-tier-accounts"></a>Esempi di fatturazione con account di livello gratuito
+Con Azure Cosmos DB livello gratuito, otterrai le prime 400 ur/sec e 5 GB di spazio di archiviazione nell'account gratuitamente, applicato a livello di account. Tutte le UR/s e le archiviazioni oltre 400 ur/sec e 5 GB saranno fatturate in base alle normali tariffe tariffarie per la pagina dei prezzi. Nella fattura non verrà visualizzato alcun addebito o una voce per le unità di 400 ur/sec gratuite e 5 GB, ma solo per le UR/sec e per le risorse di archiviazione superiori a quelle previste per il livello gratuito. 400 ur/sec si applica a qualsiasi tipo di velocità effettiva con provisioning di Ur/s, Autopilot (anteprima) e multimaster.  
+
+### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Esempio di fatturazione-contenitore o database con velocità effettiva con provisioning
+- Si supponga di creare un database o un contenitore in un account di livello gratuito con 400 ur/s e 5 GB di spazio di archiviazione.
+- La fattura non visualizzerà alcun addebito per questa risorsa. Il costo orario e mensile sarà pari a $0.
+- Si supponga ora che nello stesso account venga aggiunto un altro database o contenitore con 1000 ur/sec e 10 GB di spazio di archiviazione.
+- Nella fattura verrà ora visualizzato un addebito per le UR/sec 1000 e 10 GB di spazio di archiviazione. 
+
+### <a name="billing-example---container-or-database-with-autopilot-throughput-preview"></a>Esempio di fatturazione-contenitore o database con velocità effettiva di Autopilot (anteprima)
+- Si supponga che in un account di livello gratuito venga creato un database o un contenitore con Autopilot abilitato, con un numero massimo di Ur/s di 4000 ur/sec. Questa risorsa verrà ridimensionata automaticamente tra 400 ur/s-4000 ur/sec. 
+- Si supponga che, tra l'ora 1 e l'ora 10, la risorsa sia almeno di 400 ur/sec. Durante l'ora 11 la risorsa è scalabile fino a 1000 ur/sec e quindi viene sottoposta a 400 ur/sec entro l'ora.
+- In ore da 1 a 10 verrà addebitato il costo $0 per la velocità effettiva, perché le 400 ur/s sono state coperte dal livello gratuito. 
+- Nell'ora 11 viene addebitata una tariffa valida di 1000 ur/s-400 ur/s = 600 ur/sec, in quanto si tratta delle UR/sec più alte nell'ora. Si tratta di 6 unità di 100 ur/sec per l'ora, quindi il costo totale della velocità effettiva per l'ora sarà 6 unità * $0,012 = $0,072. 
+- Qualsiasi spazio di archiviazione oltre i primi 5 GB verrà fatturato in base alle normali tariffe di archiviazione. 
+
+### <a name="billing-example---multi-region-single-write-region-account"></a>Esempio di fatturazione-più aree, account con singola area di scrittura
+- Supponiamo che in un account di livello gratuito creiamo un database o un contenitore con 1200 ur/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account con un solo master (Single Write-Region).
+- In totale, senza il livello gratuito, verranno addebitati 3 * 1200 ur/s = 3600 ur/s e 3 * 10 GB = 30 GB di spazio di archiviazione.
+- Con lo sconto del livello gratuito, dopo la rimozione di 400 ur/sec e di 5 GB di spazio di archiviazione, verrà addebitato un valore effettivo di 3200 ur/s (32 unità) di velocità effettiva con provisioning in corrispondenza dell'area di scrittura singola e di 25 GB di spazio di archiviazione.
+- Il costo mensile per ur/sec è: 32 unità * $0,008 * 24 ore * 31 giorni = $190,46. Il costo mensile per l'archiviazione sarà: 25 GB * 0,25/GB = $6,25. Il costo totale sarebbe $190,46 + $6,25 = $196,71.
+- Nota: se il prezzo unitario per le UR/s o lo spazio di archiviazione è diverso nelle aree, il livello gratuito 400 ur/sec e 5 GB rifletteranno le tariffe dell'account in cui è stata creata l'area.
+
+### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Esempio di fatturazione-account multiarea, multimaster (più aree di scrittura)
+
+Questo esempio riflette i [prezzi multimaster](https://azure.microsoft.com/pricing/details/cosmos-db/) per gli account creati dopo il 1 ° dicembre 2019. 
+- Supponiamo che in un account di livello gratuito creiamo un database o un contenitore con 1200 ur/sec e 10 GB di spazio di archiviazione. L'account viene replicato in 3 aree ed è presente un account multi-master (più aree di scrittura). 
+- In totale, senza il livello gratuito, verranno addebitati 3 * 1200 ur/s = 3600 ur/s e 3 * 10 GB = 30 GB di spazio di archiviazione.
+- Con lo sconto del livello gratuito, dopo la rimozione di 400 ur/sec e di 5 GB di spazio di archiviazione, verrà addebitato un effettivo 3200 ur/sec (32 unità) di velocità effettiva con provisioning a più aree di scrittura e 25 GB di spazio di archiviazione.
+- Il costo mensile per ur/sec è: 32 unità * $0,016 * 24 ore * 31 giorni = $380,93. Il costo mensile per l'archiviazione sarà: 25 GB * 0,25/GB = $6,25. Il costo totale sarebbe $380,93 + $6,25 = $387,18.
+
 ## <a name="proactively-estimating-your-monthly-bill"></a>Stima proattiva della fattura mensile  
 
 Si consideri un altro esempio, in cui si vuole stimare in modo proattivo la fattura prima della fine del mese. È possibile stimare la fattura nel modo seguente:
@@ -255,11 +286,11 @@ Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per
 |----|----|----|----|----|
 |Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
-|||Pagamento a consumo|$ 8,50|$ 6120|
+|||Pagamento in base al consumo|$ 8,50|$ 6120|
 |Capacità riservata acquistata|$ 0,0064 (20% di sconto) |100 UR/sec o $ 8 di capacità preacquistata |-$ 8|-$ 5.760 |
 |Fattura netta|||$ 0.50 |$ 360 |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 È ora possibile passare alle informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 

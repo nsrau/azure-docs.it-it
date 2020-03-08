@@ -1,25 +1,26 @@
 ---
-title: Livelli elevati di disponibilità e affidabilità - Utilità di pianificazione di Azure
+title: Disponibilità e affidabilità elevate
 description: Informazioni sui livelli elevati di disponibilità e affidabilità nell'Utilità di pianificazione di Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 6a729df7eb08f8dacff4b0d35d011854208510ff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979294"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898556"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Livelli elevati di disponibilità e affidabilità per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
 > [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+>
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 L'Utilità di pianificazione di Azure offre livelli elevati di [disponibilità](https://docs.microsoft.com/azure/architecture/framework/#resiliency) e di affidabilità per i processi. Per altre informazioni, vedere il [contratto di servizio per l'Utilità di pianificazione](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -29,7 +30,7 @@ L'Utilità di pianificazione di Azure offre disponibilità elevata e usa sia fun
 
 ### <a name="geo-redundant-service-deployment"></a>Distribuzione del servizio con ridondanza geografica
 
-L'Utilità di pianificazione di Azure è disponibile nel portale di Azure per quasi [tutte le aree geografiche attualmente supportate da Azure](https://azure.microsoft.com/global-infrastructure/regions/#services). Pertanto, se un data center di Azure in un'area servita non è più disponibile, è comunque possibile usare l'Utilità di pianificazione di Azure, in quanto le funzionalità di failover del servizio renderanno disponibile l'Utilità di pianificazione da un altro data center.
+L'utilità di pianificazione di Azure è attualmente disponibile in quasi [tutte le aree geografiche supportate da Azure](https://azure.microsoft.com/global-infrastructure/regions/#services). Pertanto, se un data center di Azure in un'area servita non è più disponibile, è comunque possibile usare l'Utilità di pianificazione di Azure, in quanto le funzionalità di failover del servizio renderanno disponibile l'Utilità di pianificazione da un altro data center.
 
 ### <a name="geo-regional-job-replication"></a>Replica geografica internazionale dei processi
 
@@ -70,9 +71,9 @@ Il tipo di azione per l'azione alternativa può essere diverso dall'azione origi
 
 Per informazioni su come configurare un endpoint alternativo, vedere [errorAction](scheduler-concepts-terms.md#error-action).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità](scheduler-concepts-terms.md)
-* [Creare pianificazioni complesse e ricorrenze avanzate](scheduler-advanced-complexity.md)
+* [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler)
+* [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
 * [Limiti, quote, valori predefiniti e codici di errore](scheduler-limits-defaults-errors.md)

@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448080"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898365"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etichettare un'entità basata su apprendimento automatico in un'espressione di esempio
 
@@ -86,7 +86,7 @@ I ruoli entità vengono etichettati usando il pannello di entità.
 1. Nella pagina di dettagli della finalità selezionare il **pannello di entità** sulla barra degli strumenti contestuali.
 1. Una volta aperto il pannello di entità, selezionare l'entità nell'elenco.
 1. Passare a **Entity Inspector** (Controllo entità) e selezionare un ruolo esistente o crearne uno nuovo.
-1. Nel testo dell'espressione di esempio, etichettare il testo con il ruolo dell'entità. 
+1. Nel testo dell'espressione di esempio, etichettare il testo con il ruolo dell'entità.
 
 ## <a name="unlabel-entities"></a>Rimuovere l'etichettatura delle entità
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986aa000102cfed01666c8a95c00847ecc0cd651
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 6970debd3885a513ac0e30d6cc5391b0db66cf9b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378419"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669093"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con Amazon Web Services (AWS)
 
@@ -337,7 +337,10 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
     ![Screenshot della sezione Impostazioni con Attiva evidenziato](./media/amazon-web-service-tutorial/provisioning2.png)
 
 > [!NOTE]
-> Il servizio di provisioning importerà solo i ruoli da AWS ad Azure AD. Non effettuerà il provisioning degli utenti e dei gruppi da Azure AD a AWS.
+> Il servizio di provisioning importa i ruoli solo da AWS a Azure AD. Il servizio non effettua il provisioning di utenti e gruppi da Azure AD a AWS.
+
+> [!NOTE]
+> Dopo aver salvato le credenziali di provisioning, è necessario attendere l'esecuzione del ciclo di sincronizzazione iniziale. Il completamento della sincronizzazione richiede in genere circa 40 minuti. È possibile visualizzare lo stato nella parte inferiore della pagina di **provisioning** , in **stato corrente**.
 
 ### <a name="create-amazon-web-services-aws-test-user"></a>Creare un utente di test di Amazon Web Services (AWS)
 

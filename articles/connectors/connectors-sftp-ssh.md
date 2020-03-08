@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0f62fb835fdd2353557a4aff47128bb94ba91a31
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161875"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851502"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -36,29 +36,34 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
   > [!NOTE]
   > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
+  È possibile eseguire l'override di questo comportamento adattivo quando si [specificano le dimensioni del blocco costante](#change-chunk-size) da usare. Questa dimensione può variare da 5 MB a 50 MB. Si supponga, ad esempio, di disporre di un file di 45 MB e di una rete in grado di supportare le dimensioni del file senza latenza. La suddivisione in blocchi adattiva comporta diverse chiamate, invece di una chiamata. Per ridurre il numero di chiamate, è possibile provare a impostare una dimensione di blocco di 50 MB. In uno scenario diverso, se l'app per la logica sta per scadere, ad esempio quando si usano 15 MB di blocchi, è possibile provare a ridurne le dimensioni a 5 MB.
+
   Le dimensioni del blocco sono associate a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
 
-  | Azione | Supporto per la suddivisione in blocchi |
-  |--------|------------------|
-  | **Copia file** | No |
-  | **Crea file** | Sì |
-  | **Crea cartella** | Non applicabile |
-  | **Elimina file** | Non applicabile |
-  | **Estrai archivio nella cartella** | Non applicabile |
-  | **Ottieni contenuto file** | Sì |
-  | **Ottieni contenuto file in base al percorso** | Sì |
-  | **Ottieni metadati file** | Non applicabile |
-  | **Ottieni metadati file in base al percorso** | Non applicabile |
-  | **Elenca file nella cartella** | Non applicabile |
-  | **Rinomina file** | Non applicabile |
-  | **Aggiorna file** | No |
-  |||
+  | Azione | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
+  |--------|------------------|-----------------------------|
+  | **Copia file** | No | Non applicabile |
+  | **Crea file** | Sì | Sì |
+  | **Crea cartella** | Non applicabile | Non applicabile |
+  | **Elimina file** | Non applicabile | Non applicabile |
+  | **Estrai archivio nella cartella** | Non applicabile | Non applicabile |
+  | **Ottieni contenuto file** | Sì | Sì |
+  | **Ottieni contenuto file in base al percorso** | Sì | Sì |
+  | **Ottieni metadati file** | Non applicabile | Non applicabile |
+  | **Ottieni metadati file in base al percorso** | Non applicabile | Non applicabile |
+  | **Elenca file nella cartella** | Non applicabile | Non applicabile |
+  | **Rinomina file** | Non applicabile | Non applicabile |
+  | **Aggiorna file** | No | Non applicabile |
+  ||||
 
-* I trigger SFTP-SSH non supportano la suddivisione in blocchi. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 15 MB o inferiori. Per ottenere file di dimensioni superiori a 15 MB, seguire invece questo modello:
+  > [!NOTE]
+  > Per caricare file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura per la cartella radice sul server SFTP.
 
-  * Usare un trigger SFTP-SSH che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
+* I trigger SFTP-SSH non supportano la suddivisione in blocchi del messaggio. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 15 MB o inferiori. Per ottenere file di dimensioni superiori a 15 MB, seguire invece questo modello:
 
-  * Seguire il trigger con l'azione SFTP-SSH **get file content** , che legge il file completo e USA in modo implicito la suddivisione in blocchi dei messaggi.
+  1. Usare un trigger SFTP-SSH che restituisce solo le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
+
+  1. Seguire il trigger con l'azione SFTP-SSH **get file content** , che legge il file completo e USA in modo implicito la suddivisione in blocchi dei messaggi.
 
 <a name="comparison"></a>
 
@@ -74,7 +79,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) nella configurazione di SSH sul server SFTP.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -125,7 +130,7 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Ad esempio:
+   Ad esempio,
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -153,13 +158,13 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Per le app per la logica vuote, nella casella di ricerca immettere "sftp ssh" come filtro. Nell'elenco dei trigger selezionare il trigger desiderato.
+1. Per le app per la logica vuote, nella casella di ricerca immettere `sftp ssh` come filtro. Nell'elenco dei trigger selezionare il trigger desiderato.
 
    -oppure-
 
-   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. Nella casella di ricerca immettere "sftp ssh" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione selezionare **nuovo passaggio**. Nella casella di ricerca immettere `sftp ssh` come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
 1. Specificare le informazioni necessarie per la connessione.
 
@@ -177,9 +182,25 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
    1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare la chiave manualmente***.
 
-1. Dopo avere immesso le informazioni per la connessione, scegliere **Crea**.
+1. Al termine dell'immissione dei dettagli della connessione, selezionare **Crea**.
 
 1. Specificare ora i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
+
+<a name="change-chunk-size"></a>
+
+## <a name="override-chunk-size"></a>Sostituisci dimensioni blocco
+
+Per eseguire l'override del comportamento adattivo predefinito usato per la suddivisione in blocchi, è possibile specificare una dimensione di blocco costante da 5 MB a 50 MB.
+
+1. Nell'angolo superiore destro dell'azione selezionare il pulsante con i puntini di sospensione ( **...** ) e quindi selezionare **Impostazioni**.
+
+   ![Aprire SFTP-impostazioni SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. In **trasferimento contenuto**, nella proprietà **dimensioni blocco** , immettere un valore intero compreso tra `5` e `50`, ad esempio: 
+
+   ![Specificare le dimensioni del blocco da usare](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. Al termine, fare clic su **Fine**.
 
 ## <a name="examples"></a>Esempi
 

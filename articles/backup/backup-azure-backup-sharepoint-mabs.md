@@ -3,12 +3,12 @@ title: Eseguire il backup di una farm di SharePoint in Azure con MAB
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 441a896f2faa67a1380007ebb9474d7c311a4842
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584252"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673132"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con MAB
 
@@ -63,12 +63,12 @@ Prima di usare MABS per proteggere SharePoint, è necessario configurare il serv
 
 1. Nel server WFE, al prompt dei comandi, passare a [percorso di installazione di MABS]\bin\
 2. Digitare ConfigureSharePoint -EnableSharePointProtection.
-3. Immettere le credenziali di amministratore della farm. Questo account deve essere un membro del gruppo degli amministratori locale nel server front-end Web. Se l'amministratore della farm non è un amministratore locale, concedere le autorizzazioni seguenti sul server front-end Web:
+3. Immettere le credenziali di amministratore della farm. Questo account deve essere un membro del gruppo degli amministratori locale nel server front-end Web. Se l'amministratore della farm non è un amministratore locale, concedere le seguenti autorizzazioni nel server WFE:
    * Concedere il controllo completo del gruppo WSS_Admin_WPG sulla cartella DPM (% Program Files%\Microsoft Azure Backup\DPM).
    * Concedere l'accesso in lettura al gruppo WSS_Admin_WPG per la chiave del Registro di sistema di DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> È necessario eseguire di nuovo ConfigureSharePoint.exe ogni volta che si verifica un cambiamento nelle credenziali di amministratore di farm SharePoint.
+> È necessario eseguire di nuovo ConfigureSharePoint. exe ogni volta che viene apportata una modifica alle credenziali di amministratore della farm di SharePoint.
 >
 >
 
@@ -127,7 +127,7 @@ Dopo aver configurato MABS e la farm di SharePoint come descritto in precedenza,
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS fornisce un massimo di due backup giornalieri in Azure dal punto di backup del disco più recente disponibile in quel momento. Backup di Azure può inoltre controllare la quantità di larghezza di banda WAN che può essere usata per i backup in orari normali e di punta tramite la [limitazione della larghezza di bada della rete di Backup di Azure](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > MABS fornisce un massimo di due backup giornalieri in Azure dal punto di backup del disco più recente disponibile in quel momento. Backup di Azure può anche controllare la quantità di larghezza di banda WAN che può essere usata per i backup in orari di picco e di minore utilizzo con la [limitazione della rete di backup di Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. In base alla pianificazione di backup selezionata, nella pagina **Specificare i criteri di mantenimento online** selezionare i criteri di conservazione per i punti di backup giornalieri, settimanali, mensili e annuali.

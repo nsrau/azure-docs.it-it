@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c0d51c9c31e4e6859eaedce371efeafaa5fd4f46
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252072"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403219"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Azure Container Registry
 
@@ -241,7 +241,7 @@ Il cessionario è quindi in grado di autenticare e accedere alle immagini nel re
 
 * Per eseguire il pull di un'immagine:
 
-  ```console
+  ```bash
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -297,28 +297,25 @@ grep OPTIONS /etc/sysconfig/docker
 
 Ad esempio, Fedora 28 server dispone delle seguenti opzioni del daemon docker:
 
-```
-OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
-```
+`OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
 Con `--signature-verification=false` mancante, `docker pull` ha esito negativo e restituisce un errore simile al seguente:
 
-```bash
+```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
 Per risolvere l'errore:
-1. Aggiungere l'opzione `--signature-verification=false` al file di configurazione del daemon Docker `/etc/sysconfig/docker`. Ad esempio,
-
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+1. Aggiungere l'opzione `--signature-verification=false` al file di configurazione del daemon Docker `/etc/sysconfig/docker`. Ad esempio:
+   
+   `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
+   
 2. Riavviare il servizio Docker daemon eseguendo il comando seguente:
-
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+   
+   ```bash
+   sudo systemctl restart docker.service
+   ```
 
 È possibile trovare i dettagli di `--signature-verification` eseguendo `man dockerd`.
 
@@ -438,7 +435,7 @@ Di seguito sono riportati alcuni scenari in cui le operazioni potrebbero non ess
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Ricerca per categorie raccogliere tracce http in Windows?
 
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>Prerequisites
 
 - Abilitare la decrittografia di HTTPS in Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Abilitare Docker per l'uso di un proxy tramite l'interfaccia utente di Docker: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -478,9 +475,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 Se si passa una cartella di origine locale al comando `az acr build`, per impostazione predefinita la cartella `.git` viene esclusa dal pacchetto caricato. È possibile creare un file di `.dockerignore` con l'impostazione seguente. Indica al comando di ripristinare tutti i file in `.git` nel pacchetto caricato. 
 
-```sh
-!.git/**
-```
+`!.git/**`
 
 Questa impostazione si applica anche al comando `az acr run`.
 
@@ -499,7 +494,7 @@ Attualmente non è supportato GitLab per i trigger di origine.
 
 ## <a name="run-error-message-troubleshooting"></a>Eseguire la risoluzione dei problemi del messaggio di errore
 
-| Messaggio di errore | Guida alla risoluzione dei problemi |
+| Messaggio di errore | Guida per la risoluzione dei problemi |
 |---|---|
 |Nessun accesso è stato configurato per la macchina virtuale, pertanto non è stata trovata alcuna sottoscrizione|Questo problema può verificarsi se si usa `az login --identity` nell'attività ACR. Si tratta di un errore temporaneo che si verifica quando l'assegnazione di ruolo dell'identità gestita non è stata propagata. Attendere alcuni secondi prima di riprovare.|
 

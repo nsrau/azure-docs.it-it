@@ -6,20 +6,22 @@ ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, estfan
 ms.topic: article
-ms.date: 09/23/2019
-ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.date: 02/29/2020
+ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912003"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899117"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, passare ad app per la logica di Azure il prima possibile seguendo questo articolo. 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, eseguire la migrazione alle app per la logica di Azure il prima possibile seguendo questo articolo. 
+>
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 Questo articolo illustra come pianificare processi unici e ricorrenti mediante la creazione di flussi di lavoro automatizzati con App per la logica di Azure anziché con l'Utilità di pianificazione di Microsoft Azure. Quando si creano processi pianificati con App per la logica, si ottengono questi vantaggi:
 
@@ -45,19 +47,19 @@ Ogni processo dell'utilità di pianificazione è univoco, quindi non esiste alcu
 
 ## <a name="schedule-one-time-jobs"></a>Pianificare processi unici
 
-È possibile eseguire più processi unici creando una singola app per la logica. 
+È possibile eseguire più processi unici creando una singola app per la logica.
 
-1. Nel [portale di Azure](https://portal.azure.com) creare o un'app per la logica vuota in Progettazione app per la logica. 
+1. Nel [portale di Azure](https://portal.azure.com) creare o un'app per la logica vuota in Progettazione app per la logica.
 
    Per i passaggi di base, seguire [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Nella casella di ricerca, digitare "in caso di richiesta http" come filtro. Nell'elenco dei trigger selezionare questo trigger: **Alla ricezione di una richiesta HTTP** 
+1. Nella casella di ricerca immettere `when a http request` per trovare il trigger di richiesta. Nell'elenco dei trigger selezionare questo trigger: **Alla ricezione di una richiesta HTTP**
 
    ![Aggiungere un trigger di richiesta](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
-1. Per il trigger di richiesta, facoltativamente si può fornire uno schema JSON, che consente a Progettazione app per la logica di comprendere la struttura per gli input dalla richiesta in ingresso e semplifica la selezione degli output in un secondo momento nel flusso di lavoro.
+1. Per il trigger di richiesta, è possibile specificare facoltativamente uno schema JSON, che consente alla finestra di progettazione dell'app per la logica di comprendere la struttura per gli input inclusi nella chiamata in ingresso al trigger di richiesta e rende più semplice selezionare gli output in un secondo momento nel flusso di lavoro.
 
-   Per specificare uno schema, immetterlo nella casella **Schema JSON del corpo della richiesta**, ad esempio: 
+   Nella casella **dello schema JSON del corpo della richiesta** immettere lo schema, ad esempio:
 
    ![Schema della richiesta](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
 
@@ -65,27 +67,34 @@ Ogni processo dell'utilità di pianificazione è univoco, quindi non esiste alcu
 
    1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.
 
-   1. In **immettere o incollare un payload JSON di esempio**specificare il payload di esempio e quindi fare clic su **fine**, ad esempio:
+   1. In **immettere o incollare un payload JSON di esempio**specificare il payload di esempio e selezionare **fine**, ad esempio:
 
       ![Esempio di payload](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
-1. Nel trigger selezionare **passaggio successivo**. 
+      ```json
+      {
+         "runat": "2012-08-04T00:00Z",
+         "endpoint": "https://www.bing.com"
+      }
+      ```
 
-1. Nella casella di ricerca immettere "ritarda fino a" come filtro. Nell'elenco di azioni selezionare l'azione **Ritarda fino a**
+1. Nel trigger selezionare **passaggio successivo**.
+
+1. Nella casella di ricerca immettere `delay until` come filtro. Nell'elenco di azioni selezionare l'azione **Ritarda fino a**
 
    Questa azione sospende il flusso di lavoro dell'app per la logica fino a una data e un'ora specificate.
 
    ![Aggiungere un'azione "Ritarda fino a"](./media/migrate-from-scheduler-to-logic-apps/delay-until.png)
 
-1. Immettere il timestamp per l'avvio dei flussi di lavoro dell'app per la logica. 
+1. Immettere il timestamp per l'avvio dei flussi di lavoro dell'app per la logica.
 
-   Quando si fa clic all'interno della casella **Timestamp** compare l'elenco di contenuto dinamico, da cui si può facoltativamente selezionare un output dal trigger.
+   Quando si fa clic all'interno della casella **timestamp** , viene visualizzato l'elenco di contenuto dinamico, in modo che sia possibile selezionare facoltativamente un output dal trigger.
 
    ![Fornire i dettagli "Ritarda fino a"](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Aggiungere le altre azioni che si desidera eseguire selezionando tra [centinaia di connettori pronti per l'uso](../connectors/apis-list.md). 
+1. Aggiungere le altre azioni che si desidera eseguire selezionando tra [centinaia di connettori pronti per l'uso](../connectors/apis-list.md).
 
-   Ad esempio, è possibile includere un'azione HTTP che invia una richiesta a un URL oppure azioni che funzionano con code di archiviazione, code del bus di servizio o argomenti del bus di servizio: 
+   Ad esempio, è possibile includere un'azione HTTP che invia una richiesta a un URL oppure azioni che funzionano con code di archiviazione, code del bus di servizio o argomenti del bus di servizio:
 
    ![Azione HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
@@ -93,20 +102,19 @@ Ogni processo dell'utilità di pianificazione è univoco, quindi non esiste alcu
 
    ![Salvare l'app per la logica](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
-   Quando si salva l'app per la logica per la prima volta, l'URL dell'endpoint per il trigger di richiesta dell'app per la logica viene visualizzato nella casella **URL POST HTTP**. 
-   Quando si vuole chiamare l'app per la logica e inviare input all'app per la logica per l'elaborazione, usare questo URL come destinazione della chiamata.
+   Quando si salva l'app per la logica per la prima volta, l'URL dell'endpoint per il trigger di richiesta dell'app per la logica viene visualizzato nella casella **URL POST HTTP**. Quando si vuole chiamare l'app per la logica e inviare input all'app per la logica per l'elaborazione, usare questo URL come destinazione della chiamata.
 
    ![Salvare l'URL dell'endpoint per il trigger di richiesta](./media/migrate-from-scheduler-to-logic-apps/request-endpoint-url.png)
 
-1. Copiare e salvare questo URL dell'endpoint in modo che in un secondo momento sia possibile inviare una richiesta manuale che attiva l'app per la logica. 
+1. Copiare e salvare questo URL dell'endpoint in modo che in un secondo momento sia possibile inviare una richiesta manuale che attiva l'app per la logica.
 
 ## <a name="start-a-one-time-job"></a>Avviare un processo unico
 
-Per eseguire o attivare manualmente un processo unico, inviare una chiamata all'URL dell'endpoint per il trigger di richiesta dell'app per la logica. Nella chiamata specificare l'input o il payload da inviare, che potrebbe essere stato descritto in precedenza specificando uno schema. 
+Per eseguire o attivare manualmente un processo unico, inviare una chiamata all'URL dell'endpoint per il trigger di richiesta dell'app per la logica. Nella chiamata specificare l'input o il payload da inviare, che potrebbe essere stato descritto in precedenza specificando uno schema.
 
 Ad esempio, usando l'app post, è possibile creare una richiesta POST con le impostazioni simili a questo esempio e quindi selezionare Send ( **Invia** ) per effettuare la richiesta.
 
-| Metodo richiesta | URL | Corpo | Headers |
+| Metodo richiesta | URL | Corpo | Intestazioni |
 |----------------|-----|------|---------|
 | **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Nella casella non **elaborata** immettere il payload che si vuole inviare nella richiesta. <p>**Nota**: questa impostazione configura automaticamente i valori **Headers** (Intestazioni). | **Key (Chiave)** : Content-Type <br>**Value (Valore)** : application/json |
 |||||
@@ -129,11 +137,11 @@ In App per la logica, ogni processo unico viene eseguito come singola istanza di
 
 ## <a name="schedule-recurring-jobs"></a>Pianificare processi ricorrenti
 
-1. Nel [portale di Azure](https://portal.azure.com) creare o un'app per la logica vuota in Progettazione app per la logica. 
+1. Nel [portale di Azure](https://portal.azure.com) creare o un'app per la logica vuota in Progettazione app per la logica.
 
    Per i passaggi di base, seguire [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Nella casella di ricerca digitare "ricorrenza" come filtro. Nell'elenco di trigger selezionare il trigger **Ricorrenza** 
+1. Nella casella di ricerca digitare "ricorrenza" come filtro. Nell'elenco di trigger selezionare il trigger **Ricorrenza**
 
    ![Aggiungere il trigger "Ricorrenza"](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
 
@@ -145,7 +153,7 @@ In App per la logica, ogni processo unico viene eseguito come singola istanza di
 
 1. Aggiungere altre azioni desiderate selezionando da [centinaia di pronte all'uso](../connectors/apis-list.md). Nel trigger selezionare **passaggio successivo**. Trovare e selezionare le azioni desiderate.
 
-   Ad esempio, è possibile includere un'azione HTTP che invia una richiesta a un URL oppure azioni che funzionano con code di archiviazione, code del bus di servizio o argomenti del bus di servizio: 
+   Ad esempio, è possibile includere un'azione HTTP che invia una richiesta a un URL oppure azioni che funzionano con code di archiviazione, code del bus di servizio o argomenti del bus di servizio:
 
    ![Azione HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
@@ -173,7 +181,7 @@ Per controllare i tentativi di ripetizione di un'azione nell'app per la logica q
 
 Nell'Utilità di pianificazione di Microsoft Azure, se l'azione predefinita non viene eseguita correttamente è possibile eseguire un'azione alternativa per risolvere la condizione di errore. In App per la logica di Azure si può eseguire la stessa attività.
 
-1. In progettazione app per la logica, sopra l'azione che si vuole gestire, spostare il puntatore sulla freccia tra i passaggi e selezionare **Aggiungi un ramo parallelo**. 
+1. In progettazione app per la logica, sopra l'azione che si vuole gestire, spostare il puntatore sulla freccia tra i passaggi e selezionare **Aggiungi un ramo parallelo**.
 
    ![Aggiungere il ramo parallelo](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -193,7 +201,7 @@ Nell'Utilità di pianificazione di Microsoft Azure, se l'azione predefinita non 
 
 Per altre informazioni sulla gestione delle eccezioni, vedere [Rilevare e gestire gli errori con la proprietà RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 <a name="retire-date"></a>
 
@@ -204,13 +212,13 @@ Per altre informazioni sulla gestione delle eccezioni, vedere [Rilevare e gestir
 **R**: tutti i processi e le raccolte di processi dell'utilità di pianificazione interrompono l'esecuzione e vengono eliminati dal sistema.
 
 **D.** È necessario eseguire il backup o altre attività prima di eseguire la migrazione dei processi dell'Utilità di pianificazione in App per la logica? <br>
-**D.** Come procedura consigliata, eseguire sempre il backup del lavoro. Prima di eliminare o disabilitare i processi dell'Utilità di pianificazione, verificare che le app per la logica create funzionino come previsto. 
+**D.** Come procedura consigliata, eseguire sempre il backup del lavoro. Prima di eliminare o disabilitare i processi dell'Utilità di pianificazione, verificare che le app per la logica create funzionino come previsto.
 
 **D.** È disponibile uno strumento per la migrazione dei processi dall'Utilità di pianificazione ad per App per la logica? <br>
 **R.** Ogni processo dell'Utilità di pianificazione è univoco, di conseguenza non esiste uno strumento appropriato per tutti. Tuttavia, in base alle esigenze, è possibile [modificare questo script per eseguire la migrazione dei processi dell'utilità di pianificazione di Azure alle app per la logica di Azure](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **D.** Dove si può ottenere supporto per la migrazione dei processi dell'Utilità di pianificazione? <br>
-**R.** Ecco alcuni modi per ottenere supporto: 
+**R.** Ecco alcuni modi per ottenere supporto:
 
 **Azure portal**
 
@@ -237,4 +245,3 @@ Se la sottoscrizione di Azure ha di un piano di supporto a pagamento, è possibi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare regolarmente attività in esecuzione e flussi di lavoro con App per la logica di Azure](../connectors/connectors-native-recurrence.md)
-* [Esercitazione: Verificare il traffico con un'app per la logica basata su pianificazione](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

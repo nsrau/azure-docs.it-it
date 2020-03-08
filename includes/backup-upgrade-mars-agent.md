@@ -10,19 +10,19 @@ ms.service: backup
 ms.tgt_pltfrm: <optional>
 ms.devlang: <optional>
 ms.topic: article
-ms.date: 8/29/2018
+ms.date: 03/03/2020
 ms.author: dacurwin
-ms.openlocfilehash: 227ec87081817b273b66684e31a0ebd0e11134a0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: bd298f758d6109b908db01dd2ae3b97e5e2f714a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197122"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673206"
 ---
 ## <a name="upgrade-the-mars-agent"></a>Aggiornare l'agente MARS
 
 Le versioni dell'agente Servizi di ripristino di Microsoft Azure (MARS) sotto 2.0.9083.0 hanno una dipendenza dal servizio di controllo di accesso di Azure. L'agente MARS è anche noto come agente di backup di Azure.
 
-In 2018, Microsoft ha [deprecato il servizio di controllo di accesso di Azure](../articles/active-directory/azuread-dev/active-directory-acs-migration.md). A partire dal 19 marzo 2018, per tutte le versioni dell'agente MARS al di sotto di 2.0.9083.0 si verificheranno errori di backup. Per evitare o risolvere gli errori di backup, [eseguire l'aggiornamento dell'agente MARS alla versione più recente](https://go.microsoft.com/fwlink/?linkid=229525). Per identificare i server che richiedono un aggiornamento dell'agente MARS, seguire i passaggi nel [Blog di backup per l'aggiornamento degli agenti Mars](https://blogs.technet.microsoft.com/srinathv/2018/01/17/updating-azure-backup-agents/).
+In 2018, Microsoft ha [deprecato il servizio di controllo di accesso di Azure](../articles/active-directory/azuread-dev/active-directory-acs-migration.md). A partire dal 19 marzo 2018, per tutte le versioni dell'agente MARS al di sotto di 2.0.9083.0 si verificheranno errori di backup. Per evitare o risolvere gli errori di backup, [eseguire l'aggiornamento dell'agente MARS alla versione più recente](https://support.microsoft.com/help/4538314/update-for-azure-backup-for-microsoft-azure-recovery-services-agent). Per identificare i server che richiedono un aggiornamento dell'agente MARS, attenersi alla procedura descritta in [aggiornare l'agente di servizi di ripristino di Microsoft Azure (Mars)](../articles/backup/upgrade-mars-agent.md).
 
 L'agente MARS viene usato per eseguire il backup di file e cartelle e dei dati dello stato del sistema in Azure. System Center DPM e server di Backup di Azure usano l'agente MARS per eseguire il backup dei dati in Azure.

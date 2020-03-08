@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379668"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672734"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -68,8 +68,8 @@ Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti 
 
 Per impostazione predefinita, Azure AD aggiunge l'utente che esegue l'aggiunta ad Azure AD al gruppo Amministratori sul dispositivo. Per impedire agli utenti normali di diventare amministratori locali, sono disponibili le opzioni seguenti:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot): Windows Autopilot offre un'opzione per impedire all'utente primario che esegue l'aggiunta di diventare un amministratore locale. A questo scopo, è possibile [creare un profilo di Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Registrazione in blocco](https://docs.microsoft.com/intune/windows-bulk-enroll): un'aggiunta ad Azure AD eseguita nell'ambito di una registrazione in blocco avviene nel contesto di un utente creato automaticamente. Gli utenti che eseguono l'accesso dopo che un dispositivo è stato aggiunto non vengono aggiunti al gruppo Amministratori.   
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot): Windows Autopilot offre un'opzione per impedire all'utente primario che esegue l'aggiunta di diventare un amministratore locale. A questo scopo, è possibile [creare un profilo di Autopilot](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Registrazione in blocco](/intune/windows-bulk-enroll): un'aggiunta ad Azure AD eseguita nell'ambito di una registrazione in blocco avviene nel contesto di un utente creato automaticamente. Gli utenti che eseguono l'accesso dopo che un dispositivo è stato aggiunto non vengono aggiunti al gruppo Amministratori.   
 
 ## <a name="manually-elevate-a-user-on-a-device"></a>Elevare manualmente un utente su un dispositivo 
 

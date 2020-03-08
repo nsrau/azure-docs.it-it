@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: ece4b7a85ff5738900b8f999cc2f14ba35ecab0d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 334cf69db70e8a1e0c2994c492f15ff44505af0d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920094"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673380"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Guida di riferimento al modulo & dell'algoritmo per Azure Machine Learning Designer (anteprima)
 
@@ -57,7 +57,7 @@ Per informazioni sulla scelta degli algoritmi, vedere
 | Linguaggio R | Scrivere codice e incorporarlo in un modulo per integrare R con la pipeline. | [Esegui script R](execute-r-script.md) |
 | Text Analytics | Fornire strumenti di calcolo specializzati per lavorare con testo strutturato e non strutturato. | [Estrai le funzionalità di N grammi dal testo](extract-n-gram-features-from-text.md) <br/> [Hashing delle funzionalità](feature-hashing.md) <br/> [Pre-elabora testo](preprocess-text.md) |
 | Recommendation | Compilare i modelli di raccomandazione. | [Valuta la raccomandazione](evaluate-recommender.md) <br/> [Punteggio SVD Recommender](score-svd-recommender.md) <br/> [Train SVD Recommender](train-SVD-recommender.md) |
-| Rilevamento anomalie | Modelli di rilevamento delle anomalie di compilazione. | [Rilevamento di anomalie basato su PCA](pca-based-anomaly-detection.md) <br/> [Training del modello di rilevamento delle anomalie](train-anomaly-detection-model.md) |
+
 
 ## <a name="error-messages"></a>messaggi di errore
 

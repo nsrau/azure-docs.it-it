@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 28b9c55df8cd7883e05e964b8b67e08c7a3eb8c1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: e845b44c51b7611cd3f23f8b33e6576aced2d6ca
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812735"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851459"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuire Esplora dati di Azure nella rete virtuale (anteprima)
 
@@ -48,11 +48,11 @@ Le dimensioni della subnet usata per ospitare un cluster di Esplora dati di Azur
 
 Il numero totale di indirizzi IP:
 
-| Uso | Numero di indirizzi |
+| Utilizzo | Numero di indirizzi |
 | --- | --- |
 | Servizio motore | 1 per istanza |
 | Servizio di gestione dati | 2 |
-| Servizi di bilanciamento del carico interni | 2 |
+| Bilanciamento del carico interno | 2 |
 | Indirizzi riservati di Azure | 5 |
 | **Totale** | **#engine_instances + 9** |
 
@@ -78,8 +78,8 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | **Uso**   | **From**   | **To**   | **Protocollo**   |
 | --- | --- | --- | --- |
 | Gestione  |[Indirizzi di gestione ADX](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | Subnet ADX: 443  | TCP  |
-| Monitoraggio dell'integrità  | [Indirizzi di monitoraggio dell'integrità di ADX](#health-monitoring-addresses)  | Subnet ADX: 443  | TCP  |
-| Comunicazione interna ADX  | Subnet ADX: tutte le porte  | Subnet ADX: tutte le porte  | Tutto  |
+| Monitoraggio dello stato  | [Indirizzi di monitoraggio dell'integrità di ADX](#health-monitoring-addresses)  | Subnet ADX: 443  | TCP  |
+| Comunicazione interna ADX  | Subnet ADX: tutte le porte  | Subnet ADX: tutte le porte  | Tutte  |
 | Consenti bilanciamento del carico di Azure in ingresso (Probe di integrità)  | AzureLoadBalancer  | Subnet ADX: 80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>Configurazione NSG in uscita
@@ -93,14 +93,14 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Download della configurazione di monitoraggio di Azure  | Subnet ADX  | [Indirizzi endpoint di configurazione di monitoraggio di Azure](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
 | Active Directory (se applicabile) | Subnet ADX | AzureActiveDirectory: 443 | TCP |
 | Autorità di certificazione | Subnet ADX | Internet: 80 | TCP |
-| Comunicazione interna  | Subnet ADX  | Subnet ADX: tutte le porte  | Tutto  |
+| Comunicazione interna  | Subnet ADX  | Subnet ADX: tutte le porte  | Tutte  |
 | Porte usate per `sql\_request` e `http\_request` plug-in  | Subnet ADX  | Internet: personalizzato  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>Indirizzi IP rilevanti
 
 #### <a name="azure-data-explorer-management-ip-addresses"></a>Indirizzi IP di gestione Esplora dati di Azure
 
-| Area geografica | Indirizzi |
+| Region | Indirizzi |
 | --- | --- |
 | Australia centrale | 20.37.26.134 |
 | Central2 Australia | 20.39.99.177 |
@@ -113,7 +113,7 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Stati Uniti centrali | 40.67.188.68 |
 | Stati Uniti centrali EUAP | 40.89.56.69 |
 | Asia orientale | 20.189.74.103 |
-| Stati Uniti Orientali | 52.224.146.56 |
+| Stati Uniti orientali | 52.224.146.56 |
 | Stati Uniti Orientali 2 | 52.232.230.201 |
 | EUAP Uniti orientale | 52.253.226.110 |
 | Francia centrale | 40.66.57.91 |
@@ -139,7 +139,7 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 
 #### <a name="health-monitoring-addresses"></a>Indirizzi di monitoraggio dello stato
 
-| Area geografica | Indirizzi |
+| Region | Indirizzi |
 | --- | --- |
 | Australia centrale | 191.239.64.128 |
 | Australia centrale 2 | 191.239.64.128 |
@@ -152,7 +152,7 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Stati Uniti centrali | 168.61.212.201 |
 | Stati Uniti centrali EUAP | 168.61.212.201 |
 | Asia orientale | 168.63.212.33 |
-| Stati Uniti Orientali | 137.116.81.189 |
+| Stati Uniti orientali | 137.116.81.189 |
 | Stati Uniti orientali 2 | 137.116.81.189 |
 | Stati Uniti orientali 2 EUAP | 137.116.81.189 |
 | Francia centrale | 23.97.212.5 |
@@ -174,11 +174,11 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Europa occidentale | 23.97.212.5 |
 | India occidentale | 23.99.5.162 |
 | Stati Uniti occidentali | 23.99.5.162 |
-| Stati Uniti occidentali 2 | 23.99.5.162 | 
+| Stati Uniti occidentali 2 | 23.99.5.162 |    
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Indirizzi degli endpoint di configurazione di monitoraggio di Azure
 
-| Area geografica | Indirizzi |
+| Region | Indirizzi |
 | --- | --- |
 | Australia centrale | 52.148.86.165 |
 | Australia centrale 2 | 52.148.86.165 |
@@ -192,7 +192,7 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Stati Uniti centrali EUAP | 13.90.43.231 |
 | Asia orientale | 13.75.117.221 |
 | Stati Uniti orientali | 13.90.43.231 |
-| Stati Uniti orientali 2 | 13.68.89.19 | 
+| Stati Uniti orientali 2 | 13.68.89.19 |    
 | Stati Uniti orientali 2 EUAP | 13.68.89.19 |
 | Francia centrale | 52.174.4.112 |
 | Francia meridionale | 52.174.4.112 |
@@ -253,7 +253,7 @@ crl3.digicert.com:80
 
 Per l'area **Stati Uniti occidentali** , ad esempio, è necessario definire i seguenti UdR:
 
-| name | Prefisso indirizzo | Hop successivo |
+| Name | Prefisso indirizzo | Hop successivo |
 | --- | --- | --- |
 | ADX_Management | 13.64.38.225/32 | Internet |
 | ADX_Monitoring | 23.99.5.162/32 | Internet |
@@ -263,3 +263,149 @@ Per l'area **Stati Uniti occidentali** , ad esempio, è necessario definire i se
 Per distribuire un cluster di Azure Esplora dati nella rete virtuale, usare il [cluster azure Esplora dati nel](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) modello di Azure Resource Manager di VNet.
 
 Questo modello consente di creare il cluster, la rete virtuale, la subnet, il gruppo di sicurezza di rete e gli indirizzi IP pubblici.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+In questa sezione viene illustrato come risolvere i problemi di connettività, funzionamento e creazione di cluster per un cluster distribuito nella [rete virtuale](/azure/virtual-network/virtual-networks-overview).
+
+### <a name="access-issues"></a>Problemi di accesso
+
+Se si riscontra un problema durante l'accesso al cluster tramite l'endpoint Public (cluster.region.kusto.windows.net) o private (private-cluster.region.kusto.windows.net) e si ritiene che sia correlato alla configurazione della rete virtuale, seguire questa procedura per risolvere il problema.
+
+#### <a name="check-tcp-connectivity"></a>Controllare la connettività TCP
+
+Il primo passaggio consiste nel verificare la connettività TCP con il sistema operativo Windows o Linux.
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+   1. Scaricare [TCping](https://www.elifulkerson.com/projects/tcping.php) nel computer che si connette al cluster.
+   2. Effettuare il ping della destinazione dalla macchina di origine usando il comando seguente:
+
+    ```cmd
+     C:\> tcping -t yourcluster.kusto.windows.net 443 
+    
+     ** Pinging continuously.  Press control-c to stop **
+    
+     Probing 1.2.3.4:443/tcp - Port is open - time=100.00ms
+     ```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+   1. Installare *netcat* nel computer che si connette al cluster
+
+    ```bash
+    $ apt-get install netcat
+     ```
+
+   2. Effettuare il ping della destinazione dalla macchina di origine usando il comando seguente:
+
+     ```bash
+     $ netcat -z -v yourcluster.kusto.windows.net 443
+    
+     Connection to yourcluster.kusto.windows.net 443 port [tcp/https] succeeded!
+     ```
+---
+
+Se il test non riesce, procedere con i passaggi seguenti. Se il test ha esito positivo, il problema non è dovuto a un problema di connettività TCP. Per ulteriori problemi, vedere [problemi operativi](#cluster-creation-and-operations-issues) .
+
+#### <a name="check-the-network-security-group-nsg"></a>Verificare il gruppo di sicurezza di rete (NSG)
+
+   Verificare che il [gruppo di sicurezza di rete](/azure/virtual-network/security-overview) (NSG) collegato alla subnet del cluster disponga di una regola in ingresso che consenta l'accesso dall'IP del computer client per la porta 443.
+
+#### <a name="check-route-table"></a>Controllare la tabella di route
+
+   Se la subnet del cluster dispone del programma di installazione del tunneling forzato sul firewall (subnet con una [tabella di route](/azure/virtual-network/virtual-networks-udr-overview) che contiene la route predefinità 0.0.0.0/0'), assicurarsi che l'indirizzo IP del computer disponga di una route con [tipo hop successivo](/azure/virtual-network/virtual-networks-udr-overview) a virtualnetwork/Internet. Questa operazione è necessaria per evitare problemi di route asimmetrici.
+
+### <a name="ingestion-issues"></a>Problemi di inserimento
+
+Se si verificano problemi di inserimento e si ritiene che siano correlati alla configurazione della rete virtuale, seguire questa procedura.
+
+#### <a name="check-ingestion-health"></a>Controllare l'integrità di inserimento
+
+    Check that the [cluster ingestion metrics](/azure/data-explorer/using-metrics#ingestion-health-and-performance-metrics) indicate a healthy state.
+
+#### <a name="check-security-rules-on-data-source-resources"></a>Controllare le regole di sicurezza per le risorse dell'origine dati
+
+Se la metrica indica che non è stato elaborato alcun evento dall'origine dati (*eventi elaborati* (per gli hub eventi/Internet), verificare che le risorse dell'origine dati (hub eventi o archiviazione) consentano l'accesso dalla subnet del cluster nelle regole del firewall o negli endpoint del servizio.
+
+#### <a name="check-security-rules-configured-on-clusters-subnet"></a>Controllare le regole di sicurezza configurate nella subnet del cluster
+
+Verificare che la subnet del cluster disponga di regole NSG, UDR e firewall configurate correttamente. Verificare inoltre la connettività di rete per tutti gli endpoint dipendenti. 
+
+### <a name="cluster-creation-and-operations-issues"></a>Problemi di creazione e di operazioni del cluster
+
+Se si verificano problemi di creazione o di operazione del cluster e si ritiene che siano correlati alla configurazione della rete virtuale, attenersi alla seguente procedura per risolvere il problema.
+
+#### <a name="diagnose-the-virtual-network-with-the-rest-api"></a>Diagnosticare la rete virtuale con l'API REST
+
+[ARMClient](https://chocolatey.org/packages/ARMClient) viene usato per chiamare l'API REST con PowerShell. 
+
+1. Accedere con ARMClient
+
+   ```powerShell
+   armclient login
+   ```
+
+1. Richiama operazione di diagnostica
+
+    ```powershell
+    $subscriptionId = '<subscription id>'
+    $clusterName = '<name of cluster>'
+    $resourceGroupName = '<resource group name>'
+    $apiversion = '2019-11-09'
+    
+    armclient post "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Kusto/clusters/$clusterName/diagnoseVirtualNetwork?api-version=$apiversion" -verbose
+    ```
+
+1. Controllare la risposta
+
+    ```powershell
+    HTTP/1.1 202 Accepted
+    ...
+    Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
+    ...
+    ```
+
+1. Attendi il completamento dell'operazione
+
+    ```powershell
+    armclient get https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
+    
+    {
+      "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
+      "name": "{operation-name}",
+      "status": "[Running/Failed/Completed]",
+      "startTime": "{start-time}",
+      "endTime": "{end-time}",
+      "properties": {...}
+    }
+    ```
+    
+   Attendere il *completamento*della proprietà *status* , quindi il campo *Properties (proprietà* ) Mostra:
+
+    ```powershell
+    {
+      "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
+      "name": "{operation-name}",
+      "status": "Completed",
+      "startTime": "{start-time}",
+      "endTime": "{end-time}",
+      "properties": {
+        "Findings": [...]
+      }
+    }
+    ```
+
+Se la proprietà *finds* Mostra un risultato vuoto, significa che tutti i test di rete sono stati superati e che non sono state interrotte connessioni. Se viene visualizzato un errore come segue: la *dipendenza in uscità {dependencyname}: {Port}' potrebbe non essere soddisfatta (in uscita)* , il cluster non può raggiungere gli endpoint di servizio dipendenti. Per risolvere i problemi, procedere con i passaggi seguenti.
+
+#### <a name="check-network-security-group-nsg"></a>Verificare il gruppo di sicurezza di rete (NSG)
+
+Verificare che il [gruppo di sicurezza di rete](/azure/virtual-network/security-overview) sia configurato in modo corretto in base alle istruzioni in [dipendenze per la distribuzione di VNet](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment)
+
+#### <a name="check-route-table"></a>Controllare la tabella di route
+
+Se la subnet del cluster dispone del tunneling forzato impostato su Firewall (subnet con una [tabella di route](/azure/virtual-network/virtual-networks-udr-overview) che contiene la route predefinità 0.0.0.0/0'), verificare che gli indirizzi IP di [gestione](#azure-data-explorer-management-ip-addresses) e il [monitoraggio dell'integrità](#health-monitoring-addresses) abbiano una route con [tipo di hop successivo](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*e [prefisso dell'indirizzo di origine](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) su *' Management-IP/32'* e *' Health-Monitoring-IP/32'* Questa operazione è necessaria per evitare problemi di route asimmetrici.
+
+#### <a name="check-firewall-rules"></a>Controllare le regole del firewall
+
+Se si forza il traffico in uscita della subnet del tunnel verso un firewall, assicurarsi che tutte le dipendenze FQDN (ad esempio, *. blob.Core.Windows.NET*) siano consentite nella configurazione del firewall, come descritto in [protezione del traffico in uscita con il firewall](/azure/data-explorer/vnet-deployment#securing-outbound-traffic-with-firewall).

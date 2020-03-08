@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 138e077f7b47fa9f38a4710db95eb7208cef78e3
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767957"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675326"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati del sensore in tempo reale dall'hub Azure Internet in un'applicazione Web
 
@@ -52,7 +52,7 @@ In questa esercitazione si apprenderà come visualizzare i dati del sensore in t
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Aggiungere un gruppo di consumer dell'hub IoT
@@ -229,7 +229,7 @@ In questa sezione si esegue il provisioning di un'app Web nel servizio app e si 
 
 11. Andare a `https://<your web app name>.azurewebsites.net` in un browser. Una pagina Web simile a quella visualizzata quando è stata eseguita l'app Web in locale. Supponendo che il dispositivo sia in esecuzione e invii dati, dovrebbe essere visualizzato un tracciato in esecuzione delle 50 più recenti letture di temperatura e umidità inviate dal dispositivo.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi con questo esempio, provare a eseguire i passaggi nelle sezioni riportate di seguito. Se si verificano ancora problemi, inviare commenti e suggerimenti nella parte inferiore di questo argomento.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c794e6fe751bc1c12b90353ef7b285f31a2331
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192142"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671903"
 ---
 # <a name="conditional-access-session"></a>Accesso condizionale: sessione
 
@@ -30,12 +30,12 @@ Le organizzazioni possono usare questo controllo per richiedere Azure AD passare
 
 Per altre informazioni sull'uso e la configurazione delle restrizioni imposte dall'app, vedere gli articoli seguenti:
 
-- [Abilitazione dell'accesso limitato con SharePoint Online](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices)
+- [Abilitazione dell'accesso limitato con SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
 - [Abilitazione dell'accesso limitato con Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="conditional-access-application-control"></a>Controllo delle applicazioni con accesso condizionale
 
-Controllo app per l'accesso condizionale usa un'architettura del proxy inverso ed è integrata in modo univoco con Azure AD l'accesso condizionale. Azure AD l'accesso condizionale consente di applicare i controlli di accesso sulle app dell'organizzazione in base a determinate condizioni. Le condizioni definiscono chi (utente o gruppo di utenti) e cosa (quali app Cloud) e dove (a quali località e reti) viene applicato un criterio di accesso condizionale. Dopo aver determinato le condizioni, è possibile indirizzare gli utenti a [Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) dove è possibile proteggere i dati con controllo app per l'accesso condizionale applicando i controlli di accesso e di sessione.
+Controllo app per l'accesso condizionale usa un'architettura del proxy inverso ed è integrata in modo univoco con Azure AD l'accesso condizionale. Accesso condizionale di Azure AD consente di applicare i controlli di accesso sulle app dell'organizzazione in base a determinate condizioni. Le condizioni definiscono chi (utente o gruppo di utenti), cosa (quali app cloud) e dove (a quali posizioni e reti) viene applicato un criterio di accesso condizionale. Dopo aver determinato le condizioni, è possibile indirizzare gli utenti a [Microsoft cloud app Security](/cloud-app-security/what-is-cloud-app-security) dove è possibile proteggere i dati con controllo app per l'accesso condizionale applicando i controlli di accesso e di sessione.
 
 Controllo app per l'accesso condizionale consente il monitoraggio e il controllo delle sessioni e dell'accesso alle app utente in tempo reale in base ai criteri di accesso e di sessione. I criteri di accesso e di sessione vengono usati nel portale di Cloud App Security per perfezionare ulteriormente i filtri e impostare le azioni da intraprendere su un utente. Con i criteri di accesso e di sessione è possibile:
 
@@ -46,7 +46,7 @@ Controllo app per l'accesso condizionale consente il monitoraggio e il controllo
 - Bloccare l'accesso: è possibile bloccare in dettaglio l'accesso per app e utenti specifici in base a diversi fattori di rischio. Ad esempio, è possibile bloccarle se usano certificati client come un modulo di gestione dei dispositivi.
 - Bloccare le attività personalizzate: alcune app hanno scenari univoci che portano a rischi, ad esempio l'invio di messaggi con contenuto sensibile in app come Microsoft teams o Slack. In questi tipi di scenari è possibile analizzare i messaggi per il contenuto sensibile e bloccarli in tempo reale.
 
-Per altre informazioni, vedere l'articolo [distribuire controllo app per l'accesso condizionale per le app in primo piano](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+Per altre informazioni, vedere l'articolo [distribuire controllo app per l'accesso condizionale per le app in primo piano](/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="sign-in-frequency-preview"></a>Frequenza di accesso (anteprima)
 

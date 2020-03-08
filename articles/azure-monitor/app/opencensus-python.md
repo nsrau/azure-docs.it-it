@@ -6,18 +6,18 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: a2b66cdc7a0704cd3560c0776a0ca5302dc689d2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: eb1bde6bb58e3e5299311636f8222e2fc181ec5d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250762"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673310"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
 Monitoraggio di Azure supporta la traccia distribuita, la raccolta delle metriche e la registrazione delle applicazioni Python tramite l'integrazione con [OpenCensus](https://opencensus.io). Questo articolo illustra il processo di configurazione di OpenCensus per Python e l'invio dei dati di monitoraggio a monitoraggio di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Installazione di Python. Questo articolo usa [Python 3.7.0](https://www.python.org/downloads/), anche se le versioni precedenti potrebbero funzionare con modifiche minime.
@@ -36,13 +36,13 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 1. Viene visualizzata una finestra di configurazione. Usare la tabella seguente per compilare i campi di input.
 
-   | Impostazione        | Valore           | Descrizione  |
+   | Impostazione        | valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco globale | Nome che identifica l'app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per ospitare i dati Application Insights |
    | **Posizione** | Stati Uniti orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentare con OpenCensus Python SDK per monitoraggio di Azure
 
@@ -65,7 +65,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
 
 ![Screenshot del mapping dei tipi di dati di telemetria da OpenCensus a monitoraggio di Azure](./media/opencensus-python/0012-telemetry-types.png)
 
-### <a name="trace"></a>Traccia
+### <a name="trace"></a>Trace
 
 > [!NOTE]
 > `Trace` in OpenCensus si riferisce alla [traccia distribuita](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). Il `AzureExporter` Invia `requests` e `dependency` la telemetria a monitoraggio di Azure.
@@ -276,7 +276,7 @@ Dovrebbe essere possibile visualizzare queste metriche in `performanceCounters`.
 
 Per informazioni dettagliate su come modificare la telemetria rilevata prima che venga inviata a monitoraggio di Azure, vedere [processori di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)Python di OpenCensus.
 
-### <a name="logs"></a>Registri
+### <a name="logs"></a>Log
 
 1. Prima di tutto, è necessario generare alcuni dati di log locali.
 
@@ -425,13 +425,14 @@ Per informazioni più dettagliate su come usare le query e i log, vedere [log in
 
 * [OpenCensus Python su GitHub](https://github.com/census-instrumentation/opencensus-python)
 * [Personalizzazione](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
-* [Integrazione Flask](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
-* [Integrazione con Django](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
-* [Integrazione con MySQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
-* [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
+* [Utilità di esportazione di monitoraggio di Azure su GitHub](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+* [Integrazioni di OpenCensus](https://github.com/census-instrumentation/opencensus-python#extensions)
+* [Applicazioni di esempio di monitoraggio di Azure](https://github.com/Azure-Samples/azure-monitor-opencensus-python)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Rilevamento delle richieste in ingresso](./../../azure-monitor/app/opencensus-python-dependency.md)
+* [Rilevamento delle richieste in uscita](./../../azure-monitor/app/opencensus-python-request.md)
 * [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)
 

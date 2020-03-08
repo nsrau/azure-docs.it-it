@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/03/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0219b3e35ed82795e9c799754cabdeb5d17096d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 4a02fb7ab7e42f2a56041638a3d883287da3eb42
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267400"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674495"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -43,6 +43,7 @@ In caso di domande specifiche, in questa sezione della pagina iniziale verrà fa
 - Quali scenari di distribuzione SAP sono supportati con le macchine virtuali di Azure e le istanze large di HANA. Le informazioni sugli scenari supportati sono disponibili nei documenti:
     - [Carico di lavoro SAP negli scenari supportati da macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
     - [Scenari supportati per istanze large di HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+- Quali servizi di Azure, tipi di VM di Azure e archiviazione di Azure sono disponibili nelle diverse aree di Azure, controllare i prodotti del sito [disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
@@ -109,6 +110,8 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 
 ## <a name="change-log"></a>Registro modifiche
+
+- 03/05/2020: modifiche della struttura e modifiche del contenuto per le aree di Azure e le macchine virtuali di Azure in [pianificazione e implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - 03/03/2020: modificare la [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES con e per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) per modificare il layout del volume e più efficiente
 - 03/01/2020: Guida al backup rilavorato [per SAP Hana nelle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) per includere il servizio backup di Azure. Contenuto ridotto e condensato in [SAP Hana backup di Azure a livello di file](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) ed eliminato un terzo documento che riguarda il backup tramite snapshot del disco. Il contenuto viene gestito nella Guida al backup per SAP HANA in macchine virtuali di Azure 
 - 02/27/2020: modificare la [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES con e per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SLES guida](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) a più SID per modificare il parametro del cluster "on fail"

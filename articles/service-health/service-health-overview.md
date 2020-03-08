@@ -3,12 +3,12 @@ title: Panoramica di integrità dei servizi di Azure | Microsoft Docs
 description: Informazioni personalizzate su come le app di Azure sono interessate dalla manutenzione e dai problemi attuali e futuri dei servizi di Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: db9d74e2883e755c3e5c3dbbe9d6570f1e78c4a6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654019"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898448"
 ---
 # <a name="service-health-overview"></a>Panoramica sull'integrità del servizio
 
@@ -16,11 +16,12 @@ L’Integrità del servizio offre un dashboard personalizzabile che registra l'i
 
 ## <a name="service-health-events"></a>Eventi di Integrità dei servizi
 
-Integrità dei servizi registra tre tipi di eventi di integrità che possono influire sulle risorse:
+L'integrità dei servizi tiene traccia di quattro tipi di eventi di integrità che possono influito sulle risorse:
 
 1. **Problemi dei servizi**: problemi dei servizi di Azure che influiscono in questo momento. 
 2. **Manutenzione pianificata**: manutenzione imminente che può influire sulla disponibilità dei servizi in futuro.  
 3. **Avvisi sull'integrità**: modifiche apportate ai servizi di Azure che richiedono attenzione, ad esempio quando le funzionalità di Azure sono deprecate o si supera una quota di utilizzo.
+4. **Avvisi di sicurezza (anteprima)** : notifiche correlate alla sicurezza che potrebbero influire sulla disponibilità dei servizi di Azure.
 
 > [!NOTE]
 > Per visualizzare gli eventi di integrità del servizio, è necessario che agli utenti venga [concesso il ruolo lettore](../role-based-access-control/role-assignments-portal.md) per una sottoscrizione.
@@ -43,7 +44,7 @@ Scegliere la scheda **Impatto potenziale** per visualizzare l'elenco specifico d
 
 ## <a name="get-links-and-downloadable-explanations"></a>Ottenere i collegamenti e spiegazioni scaricabili 
 
-È possibile ottenere un collegamento relativo al problema e usarlo nel sistema di gestione del problema. È possibile scaricare file PDF e in alcuni casi CSV da condividere con gli utenti che non hanno accesso al portale di Azure.   
+È possibile ottenere un collegamento relativo al problema e usarlo nel sistema di gestione del problema. È possibile scaricare il file PDF e talvolta i file CSV da condividere con gli utenti che non hanno accesso al portale di Azure.   
 
 ![Gestire il problema del servizio - Gestione dei problemi](./media/service-health-overview/azure-service-health-overview-3.png)
 

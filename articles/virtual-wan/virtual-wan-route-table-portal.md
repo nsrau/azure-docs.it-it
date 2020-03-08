@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: c0681024b60827cf589906041c264d912ab209bb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612361"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402923"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Creare una tabella di route dell'hub WAN virtuale per appliance virtuali: portale di Azure
 
-Questo articolo illustra come guidare il traffico da un ramo (sito locale) connesso all'hub WAN virtuale a una VNET spoke tramite un'appliance virtuale di rete.
+Questo articolo illustra come guidare il traffico da un ramo (sito locale) connesso all'hub WAN virtuale a una rete virtuale spoke (VNet) tramite un'appliance virtuale di rete.
 
 ![Diagramma della rete WAN virtuale](./media/virtual-wan-route-table/vwanroute.png)
 
@@ -31,13 +31,14 @@ Verificare di aver soddisfatto i criteri seguenti:
 
     * L'appliance virtuale di dispositivo non è distribuita nell'hub virtuale. Deve essere distribuita in una rete virtuale separata.
 
-    *  Il VNet dell'appliance virtuale di rete può avere una o più reti virtuali connesse. In questo articolo si fa riferimento all'appliance virtuale di VNet come "VNet spoke indiretta". Questi reti virtuali possono essere connessi al VNet dell'appliance virtuale di dispositivo usando il peering VNet. I collegamenti per il peering di VNET sono rappresentati da frecce nere nella figura precedente tra VNET 1, VNET 2 e NVA vnet.
-*  Sono stati creati 2 reti virtuali. Verranno usati come spoke reti virtuali.
+    *  Alla rete virtuale dell'appliance di rete virtuale possono essere connesse una o più reti virtuali. In questo articolo si fa riferimento alla rete virtuale dell'appliance virtuale di rete come "VNet spoke indiretta". Queste reti virtuali possono essere connesse all'appliance virtuale di rete VNet usando il peering VNet. I collegamenti per il peering di VNet sono rappresentati da frecce nere nella figura precedente tra VNet 1, VNet 2 e NVA VNet.
+*  Sono state create due reti virtuali. Verranno usati come spoke reti virtuali.
 
-    * Per questo esercizio, gli spazi di indirizzi VNet spoke sono: VNet1:10.0.2.0/24 e VNet2:10.0.3.0/24. Se sono necessarie informazioni su come creare un VNet, vedere [creare una rete virtuale](../virtual-network/quick-create-portal.md).
+    * Gli spazi di indirizzi VNet spoke sono: VNet1:10.0.2.0/24 e VNet2:10.0.3.0/24. Per informazioni su come creare una rete virtuale, vedere [creare una rete virtuale](../virtual-network/quick-create-portal.md).
 
     * Assicurarsi che non siano presenti gateway di rete virtuale in nessuno dei reti virtuali.
-    * Per questa configurazione, questi reti virtuali non richiedono una subnet del gateway.
+
+    * Il reti virtuali non richiede una subnet del gateway.
 
 ## <a name="signin"></a>1. accedi
 
@@ -45,7 +46,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
 
 ## <a name="vwan"></a>2. creare una rete WAN virtuale
 
-Creare una rete WAN virtuale. Ai fini di questo esercizio, è possibile usare i valori seguenti:
+Creare una rete WAN virtuale. Usare i valori di esempio seguenti:
 
 * **Nome WAN virtuale:** myVirtualWAN
 * **Gruppo di risorse:** testRG
@@ -55,7 +56,7 @@ Creare una rete WAN virtuale. Ai fini di questo esercizio, è possibile usare i 
 
 ## <a name="hub"></a>3. creare un hub
 
-Creare l'hub. Ai fini di questo esercizio, è possibile usare i valori seguenti:
+Creare l'hub. Usare i valori di esempio seguenti:
 
 * **Percorso:** Stati Uniti occidentali
 * **Nome:** westushub
@@ -65,7 +66,7 @@ Creare l'hub. Ai fini di questo esercizio, è possibile usare i valori seguenti:
 
 ## <a name="route"></a>4. creare e applicare una tabella di route Hub
 
-Aggiornare l'hub con una tabella di route Hub. Ai fini di questo esercizio, è possibile usare i valori seguenti:
+Aggiornare l'hub con una tabella di route Hub. Usare i valori di esempio seguenti:
 
 * **Spazi di indirizzi VNet spoke:** (VNet1 e VNet2) 10.0.2.0/24 e 10.0.3.0/24
 * **Indirizzo IP privato dell'interfaccia di rete DMZ rete virtuale:** 10.0.4.5
@@ -79,7 +80,7 @@ Aggiornare l'hub con una tabella di route Hub. Ai fini di questo esercizio, è p
 
 ## <a name="connections"></a>5. creare le connessioni VNet
 
-Creare una connessione VNET da ogni VNet spoke indiretta (VNet1 e VNet2) all'hub. Queste connessioni VNET sono rappresentate dalle frecce blu nella figura precedente. Quindi, creare una connessione VNET dall'appliance virtuale di VNet all'hub (freccia nera nella figura). 
+Creare una connessione di rete virtuale da ogni VNet spoke indiretta (VNet1 e VNet2) all'hub. Queste connessioni di rete virtuale sono rappresentate dalle frecce blu nella figura precedente. Quindi, creare una connessione VNet dall'appliance virtuale di VNet all'hub (freccia nera nella figura).
 
  Per questo passaggio, è possibile usare i valori seguenti:
 
@@ -89,7 +90,7 @@ Creare una connessione VNET da ogni VNet spoke indiretta (VNet1 e VNet2) all'hub
 | VNet2 | testconnection2 |
 | NVAVNet | testconnection3 |
 
-Ripetere la procedura seguente per ogni VNet che si desidera connettere.
+Ripetere la procedura seguente per ogni rete virtuale che si desidera connettere.
 
 1. Nella pagina della rete WAN virtuale fare clic su **Connessioni rete virtuale**.
 2. Nella pagina di connessione alla rete virtuale fare clic su **+ Aggiungi connessione**.

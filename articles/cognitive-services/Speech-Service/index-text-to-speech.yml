@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentazione di sintesi vocale
+title: Documentazione della sintesi vocale
 summary: Sintesi vocale dal servizio di riconoscimento vocale consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale.
 metadata:
   title: Documentazione di sintesi vocale-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2020
   ms.author: dapine
-  ms.openlocfilehash: 64d8c636aa4b0f8b75ba3a6f92d7792c91a9271d
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 11fbb549409afd78f77e194fe45fa0d7626f75a7
+  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562900"
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78674470"
 landingContent:
 - title: Introduzione
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: quickstarts/text-to-speech.md
     - text: Sintetizzare la voce in un file audio
       url: quickstarts/text-to-speech-audio-file.md
-    - text: Sintetizzare il riconoscimento vocale con audio a lungo termine
+    - text: Sintetizzare la voce da audio in formato lungo
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
 - title: Guide dettagliate
   linkLists:
@@ -79,6 +79,8 @@ landingContent:
       url: language-support.md#text-to-speech
     - text: Prezzi
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Set fonetici SSML
+      url: speech-ssml-phonetic-sets.md
     - text: Codice di comportamento
       url: https://aka.ms/custom-neural-code-of-conduct
     - text: Informativa per speaker

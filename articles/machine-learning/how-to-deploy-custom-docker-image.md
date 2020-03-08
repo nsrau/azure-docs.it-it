@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 8c55fec08f05352d4587a8821c10600b7d7fad07
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 24ca37f5610589ae675a47a1dd966871b3004800
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396168"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851266"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Questo documento è suddiviso in due sezioni:
 * Creare un'immagine di base personalizzata: fornisce informazioni agli amministratori e DevOps sulla creazione di un'immagine personalizzata e sulla configurazione dell'autenticazione in un Container Registry di Azure tramite l'interfaccia della riga di comando di Azure e Machine Learning CLI.
 * Distribuire un modello usando un'immagine di base personalizzata: fornisce informazioni ai data scientist e ai tecnici DevOps/ML sull'uso di immagini personalizzate quando si distribuisce un modello sottoposto a training da Python SDK o ML CLI.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Gruppo di lavoro Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
 * [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
@@ -155,6 +155,9 @@ I passaggi descritti in questa sezione illustrano come creare un'immagine Docker
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
+    > [!TIP]
+    > In questo esempio viene applicato un tag di `:v1` all'immagine. Se non viene specificato alcun tag, viene applicato un tag di `:latest`.
+
     Durante il processo di compilazione, le informazioni vengono trasmesse nuovamente alla riga di comando. Se la compilazione ha esito positivo, viene visualizzato un messaggio simile al testo seguente:
 
     ```text
@@ -170,6 +173,10 @@ Per altre informazioni sul caricamento di immagini esistenti in un Container Reg
 Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 
 * __Nome dell'immagine__. Ad esempio, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` è il percorso di un'immagine Docker di base fornita da Microsoft.
+
+    > [!IMPORTANT]
+    > Per le immagini personalizzate create, assicurarsi di includere tutti i tag usati con l'immagine. Ad esempio, se l'immagine è stata creata con un tag specifico, ad esempio `:v1`. Se durante la creazione dell'immagine non è stato usato un tag specifico, è stato applicato un tag di `:latest`.
+
 * Se l'immagine si trova in un __repository privato__, sono necessarie le informazioni seguenti:
 
     * __Indirizzo__del registro di sistema. Ad esempio: `myregistry.azureecr.io`.
@@ -181,7 +188,7 @@ Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 
 Microsoft fornisce diverse immagini Docker in un repository accessibile pubblicamente, che può essere usato con i passaggi descritti in questa sezione:
 
-| Image | Descrizione |
+| Immagine | Descrizione |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Immagine di base per Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contiene il runtime ONNX per l'inferenza della CPU |

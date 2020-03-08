@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a7a92bef85cd4ee7530940a065135e88c7530781
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291499"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675599"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure
 [Zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) è una delle funzionalità a disponibilità elevata offerte da Azure. L'uso delle zone di disponibilità migliora la disponibilità generale dei carichi di lavoro SAP in Azure. Questa funzionalità è già disponibile in alcune [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). In futuro sarà disponibile in un numero maggiore di aree.
@@ -118,6 +118,9 @@ A questa configurazione si applicano le considerazioni seguenti:
 - La terza zona viene usata per ospitare il dispositivo SBD nel caso si creino un [cluster Pacemaker di SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) o altre istanze dell'applicazione.
 - Per ottenere la coerenza del tempo di esecuzione per i processi aziendali critici, è possibile provare a indirizzare determinati utenti e processi batch alle istanze dell'applicazione che si trovano in zona con l'istanza di DBMS attiva usando i gruppi di server di batch SAP, i gruppi di accesso SAP o i gruppi RFC. In caso di failover di zona, è tuttavia necessario spostare manualmente questi gruppi in istanze in esecuzione su macchine virtuali nella stessa zona della macchina virtuale del database attivo.  
 - Può essere necessario distribuire le istanze di dialogo inattive in ognuna delle zone. In questo modo, viene attivata una restituzione immediata alla capacità di risorse precedente, se una zona usata da parte delle istanze dell'applicazione è fuori servizio.
+
+> [!IMPORTANT]
+> In questo scenario attivo/attivo gli addebiti aggiuntivi per la larghezza di banda vengono annunciati da Microsoft da 04/01/2020 il. Controllare i [Dettagli prezzi](https://azure.microsoft.com/pricing/details/bandwidth/)per la larghezza di banda del documento. Il trasferimento dei dati tra il livello applicazione SAP e il livello DBMS di SAP è piuttosto intenso. Pertanto lo scenario attivo/attivo può contribuire ai costi. Continua a controllare questo articolo per ottenere i costi esatti 
 
 
 ## <a name="activepassive-deployment"></a>Distribuzione attiva/passiva

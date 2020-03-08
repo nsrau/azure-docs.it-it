@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 2d2ebcc885b4018f4d9c3ff1b525ffc19b1abdda
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186241"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671935"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
 
@@ -52,7 +52,7 @@ Le organizzazioni con più piattaforme del sistema operativo per dispositivi pot
 
 Le informazioni utilizzate per calcolare la piattaforma del dispositivo provengono da origini non verificate, ad esempio stringhe agente utente che possono essere modificate.
 
-#### <a name="locations"></a>Percorsi
+#### <a name="locations"></a>Posizioni
 
 I dati relativi alla posizione sono forniti dai dati di georilevazione IP. Gli amministratori possono scegliere di definire le località e scegliere di contrassegnare alcuni come attendibili come quelli per i percorsi di rete dell'organizzazione.
 
@@ -78,7 +78,7 @@ La parte controlli di accesso dei criteri di accesso condizionale controlla il m
 
 Blocca l'accesso consente di bloccare l'accesso in base alle assegnazioni specificate. Il controllo del blocco è potente e deve essere maneggiato con le informazioni appropriate.
 
-#### <a name="grant-access"></a>Concedere l'accesso
+#### <a name="grant-access"></a>Concedi accesso
 
 Il controllo Grant può attivare l'applicazione di uno o più controlli. 
 
@@ -93,7 +93,7 @@ Gli amministratori possono scegliere di richiedere uno dei controlli precedenti 
 - Richiedi tutti i controlli selezionati (controllo e controllo)
 - Richiedi uno dei controlli selezionati (controllo o controllo)
 
-### <a name="session"></a>sessione
+### <a name="session"></a>Sessione
 
 I [controlli della sessione](concept-conditional-access-session.md) possono limitare l'esperienza 
 
@@ -131,6 +131,6 @@ L'articolo [criteri di accesso condizionale comuni](concept-conditional-access-p
 
 [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](../authentication/howto-mfa-getstarted.md)
 
-[Gestione della conformità dei dispositivi con Intune](https://docs.microsoft.com/intune/device-compliance-get-started)
+[Gestione della conformità dei dispositivi con Intune](/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security e accesso condizionale](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+[Microsoft Cloud App Security e accesso condizionale](/cloud-app-security/proxy-intro-aad)

@@ -1,36 +1,37 @@
 ---
-title: Compilare pianificazioni di processo avanzate e ricorrenze - Utilità di pianificazione di Azure
+title: Creare pianificazioni e ricorrenze di processi avanzati
 description: Informazioni su come creare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
+ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: 386284543cd8fb00cc49fea9a29d9eaee4ca4963
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300976"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898596"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Compilare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+>
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 All'interno di un processo in [Utilità di pianificazione Azure](../scheduler/scheduler-intro.md), la pianificazione è la componente principale che determina come e quando il servizio Utilità di pianificazione esegue il processo. Con Utilità di pianificazione è possibile configurare più pianificazioni singole e ricorrenti per un processo. Le pianificazioni singole vengono eseguite una sola volta a un'ora specificata e sono essenzialmente pianificazioni ricorrenti eseguite una sola volta. Le pianificazioni ricorrenti vengono eseguite con una frequenza specificata. Grazie a questa flessibilità, è possibile usare l'Utilità di pianificazione per diversi scenari aziendali, ad esempio:
 
-* **Pulire regolarmente i dati**: creare un processo giornaliero che elimina tutti i tweet più vecchi di tre mesi.
+* **Pulire i dati regolarmente**: creare un processo giornaliero che elimina tutti i tweet più vecchi di tre mesi.
 
-* **Archiviare i dati**: creare un processo mensile che esegue il push della cronologia delle fatture per un servizio di backup.
+* **Archiviare dati**: creare un processo mensile che esegue il push della cronologia delle fatture per un servizio di backup.
 
-* **Richiedere dati esterni**: creare un processo che viene eseguito ogni 15 minuti ed esegue il pull di un nuovo report meteo da NOAA.
+* **Richiesta dei dati esterni**: creare un processo che viene eseguito ogni 15 minuti ed esegue il pull di un nuovo report meteo da NOAA.
 
-* **Elaborare immagini**: creare un processo dei giorni feriali che viene eseguito nelle ore non di punta e usa il cloud computing per la compressione delle immagini caricate durante la giornata.
+* **Processare immagini**: creare un processo dei giorni feriali che viene eseguito nelle ore non di punta e usa il cloud computing per la compressione delle immagini caricate durante la giornata.
 
 Questo articolo descrive i processi di esempio che si possono creare usando l'Utilità di pianificazione e l'[API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler) e include la definizione JSON (JavaScript Object Notation) per ogni pianificazione. 
 
@@ -63,7 +64,7 @@ Per creare una pianificazione di base con l'[API REST dell'Utilità di pianifica
 
 Questa tabella fornisce una panoramica generale degli elementi JSON principali che è possibile usare durante la configurazione di ricorrenze e pianificazioni per i processi. 
 
-| Elemento | Richiesto | Descrizione | 
+| Elemento | Obbligatoria | Descrizione | 
 |---------|----------|-------------|
 | **startTime** | No | Valore di stringa DateTime nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che specifica quando il processo inizia per le prima volta in una pianificazione di base. <p>Per le pianificazioni complesse, il processo viene attivato non prima del valore di **startTime**. | 
 | **recurrence** | No | Regole di ricorrenza per l'esecuzione del processo. L'oggetto **recurrence** supporta i seguenti elementi: **frequency**, **interval**, **schedule**, **count**, e **endTime**. <p>Se si usa l'elemento **recurrence**, è necessario usare anche l’elemento **frequency**, mentre altri elementi **recurrence** sono facoltativi. |
@@ -164,7 +165,7 @@ La tabella seguente illustra in modo dettagliato gli elementi dell'oggetto sched
 | **minutes** |Minuti dell'ora in cui viene eseguito il processo. |Matrice di numeri interi. |
 | **hours** |Ora del giorno in cui viene eseguito il processo. |Matrice di numeri interi. |
 | **weekDays** |Giorni della settimana in cui viene eseguito il processo. Può essere specificato solo se la frequenza è settimanale. |Matrice di uno dei valori seguenti (la dimensione massima della matrice è 7):<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />Non viene applicata la distinzione tra maiuscole e minuscole. |
-| **monthlyOccurrences** |Determina in quali giorni del mese viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice di oggetti **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** indica il giorno della settimana in cui viene eseguito il processo. Ad esempio, *{Sunday}* corrisponde a ogni domenica del mese. Richiesto.<br /><br />**occurrence** indica l'occorrenza del giorno durante il mese. Ad esempio, *{Sunday, -1}* corrisponde all'ultima domenica del mese. facoltativo. |
+| **monthlyOccurrences** |Determina in quali giorni del mese viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice di oggetti **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** indica il giorno della settimana in cui viene eseguito il processo. Ad esempio, *{Sunday}* corrisponde a ogni domenica del mese. Obbligatoria.<br /><br />**occurrence** indica l'occorrenza del giorno durante il mese. Ad esempio, *{Sunday, -1}* corrisponde all'ultima domenica del mese. Facoltativa. |
 | **monthDays** |Giorno del mese in cui viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice dei valori seguenti:<br />- Qualsiasi valore <= -1 e >= -31<br />- Qualsiasi valore >= 1 e <= 31|
 
 ## <a name="examples-recurrence-schedules"></a>Esempi: pianificazioni di ricorrenza
@@ -207,8 +208,9 @@ In queste pianificazioni si presuppone che **interval** sia impostato su 1\. Neg
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Viene eseguito ogni 15 minuti l'ultimo venerdì del mese. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Viene eseguito alle 05:15, 05:45, 17:15 e 17:45 il terzo mercoledì di ogni mese. |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
+* [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler)
+* [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
 * [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)

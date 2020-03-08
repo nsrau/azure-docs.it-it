@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8f148bfe08d5f7933857eb46cf0d13d4582da108
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950268"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898156"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origini dati supportate in Azure Data Catalog
 
@@ -124,7 +124,7 @@ ms.locfileid: "68950268"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 e versioni successive.</td>
     </tr>
     <tr>
       <td>Vista di Database Oracle</td>
@@ -132,7 +132,7 @@ ms.locfileid: "68950268"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 e versioni successive.</td>
     </tr>
     <tr>
       <td>Altro (asset generico)</td>
@@ -191,15 +191,15 @@ ms.locfileid: "68950268"
       <td>SQL Server 2008 e versioni successive.</td>
     </tr>
     <tr>
-      <td>Report di SQL Server Reporting Services</td>
+      <td>Report SQL Server Reporting Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Browser</td>
+      <td>Browser.</td>
       <td>Solo server in modalità nativa. Modalità SharePoint non supportata. Solo SQL Server 2008 e versioni successive</td>
     </tr>
     <tr>
-      <td>Tabella SQL Server</td>
+      <td>Tabella di SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

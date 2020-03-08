@@ -1,6 +1,6 @@
 ---
-title: 'Monitoraggio e registrazione delle password: Azure Active Directory'
-description: Informazioni sul monitoraggio e la registrazione in Protezione password di Azure AD
+title: Monitorare la protezione Azure AD password locale
+description: Informazioni su come monitorare e verificare i log per la protezione Azure AD password per un ambiente Active Directory Domain Services locale
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847712"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671647"
 ---
-# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoraggio e registrazione in Protezione password di Azure AD
+# <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorare ed esaminare i log per gli ambienti Azure AD di protezione delle password locali
 
 Dopo la distribuzione di Protezione password di Azure AD, il monitoraggio e la creazione di report sono attività essenziali. Questo articolo spiega nel dettaglio varie tecniche di monitoraggio, indicando i percorsi in cui ogni servizio registra le informazioni e illustrando come creare report sull'uso di Protezione password di Azure AD.
 
@@ -235,7 +235,7 @@ La registrazione di testo è disabilitata per impostazione predefinita. Per rend
 
 Il software del servizio agente del controller di dominio installa un oggetto contatore delle prestazioni denominato **protezione password di Azure AD**. Sono attualmente disponibili i contatori delle prestazioni seguenti:
 
-|Nome contatore delle prestazioni | Description|
+|Nome contatore delle prestazioni | Descrizione|
 | --- | --- |
 |Passwords processed (Password elaborate) |Questo contatore indica il numero totale di password elaborate (accettate o rifiutate) dall'ultimo riavvio.|
 |Passwords accepted (Password accettate) |Questo contatore indica il numero totale di password accettate dall'ultimo riavvio.|
@@ -313,7 +313,7 @@ Gli eventi vengono registrati dai diversi componenti proxy tramite gli intervall
 | --- | --- |
 |Processo di hosting del servizio proxy| 10000-19999|
 |Logica di business di base del servizio proxy| 20000-29999|
-|Cmdlet di PowerShell| 30000-39999|
+|Cmdlet PowerShell| 30000-39999|
 
 ## <a name="proxy-service-text-logging"></a>Registrazione di testo del servizio proxy
 
