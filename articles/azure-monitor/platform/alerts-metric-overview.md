@@ -5,11 +5,11 @@ ms.date: 12/5/2019
 ms.topic: conceptual
 ms.subservice: alerts
 ms.openlocfilehash: 2f1734d30136be904aedf7d880922ba052130ec7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664730"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384513"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -74,7 +74,7 @@ Si supponga di avere un piano di servizio app per il sito Web. Si intende monito
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
 - Tipo di condizione: static
-- Dimensions
+- Dimensioni
   - Istanza = InstanceName1, InstanceName2
 - Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
@@ -89,7 +89,7 @@ Supponiamo di avere un'app Web che registra un numero di richieste elevato, a ca
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
 - Tipo di condizione: static
-- Dimensions
+- Dimensioni
   - Istanza = *
 - Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
@@ -106,7 +106,7 @@ Supponiamo di avere un'app Web con numerose istanze e di non sapere quale sia la
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
 - Tipo di condizione: Dynamic
-- Dimensions
+- Dimensioni
   - Istanza = *
 - Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti

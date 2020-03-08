@@ -8,11 +8,11 @@ ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
 ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715441"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344062"
 ---
 # <a name="payout-reporting"></a>Report sui pagamenti
 
@@ -32,7 +32,7 @@ Se si vendono offerte in Azure Marketplace, verranno visualizzate anche le infor
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>Ruoli e autorizzazione per accedere al report dei pagamenti
 
-| Report/pagine    | Proprietario dell'account    | Manager  | Sviluppatore | Collaboratore aziendale |  Collaboratore finanza | Venditore |
+| Report/pagine    | Proprietario dell'account    | Manager  | Developer | Collaboratore aziendale |  Collaboratore finanza | Venditore |
 |------------------|------------------|----------|-----------|----|----|-----|
 | Report di acquisizione (inclusi i dati quasi in tempo reale) | Può visualizzare | Può visualizzare | Nessun accesso | Nessun accesso | Può visualizzare | Nessun accesso |
 | Report/risposte feedback | Consente di visualizzare e inviare commenti e suggerimenti | Consente di visualizzare e inviare commenti e suggerimenti | Consente di visualizzare e inviare commenti e suggerimenti | Nessun accesso | Nessun accesso | Consente di visualizzare e inviare commenti e suggerimenti |
@@ -48,7 +48,7 @@ Se si vendono offerte in Azure Marketplace, verranno visualizzate anche le infor
 |---------|---------|---------|
 | Collegamenti | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) e [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navigazione | Report sui pagamenti forniti in Insights payout | Report sui pagamenti forniti nel centro per i partner-icona di pagamento |
-| Ambito | <ul> <li>La transazione per ogni elemento linea è visibile, per la raccolta in corso, raccolta e a pagamento </li> <li>Creazione di report: Mostra tutte le voci dopo la creazione dell'ordine di acquisto, incluse le raccolte in corso e la fatturazione in corso e lo stato della raccolta e le voci non ancora idonee per il pagamento. </li> </ul> | <ul> <li>Mostra le voci quando vengono ritenute idonee per i guadagni.</li> <li>I clienti pagano prima di tutto Microsoft, quindi gli ISV possono visualizzare il report dei pagamenti a partire da.</li> <li>Il report sui pagamenti non visualizzerà la raccolta in corso e la fatturazione in corso.  </li> </ul>  |
+| Scope | <ul> <li>La transazione per ogni elemento linea è visibile, per la raccolta in corso, raccolta e a pagamento </li> <li>Creazione di report: Mostra tutte le voci dopo la creazione dell'ordine di acquisto, incluse le raccolte in corso e la fatturazione in corso e lo stato della raccolta e le voci non ancora idonee per il pagamento. </li> </ul> | <ul> <li>Mostra le voci quando vengono ritenute idonee per i guadagni.</li> <li>I clienti pagano prima di tutto Microsoft, quindi gli ISV possono visualizzare il report dei pagamenti a partire da.</li> <li>Il report sui pagamenti non visualizzerà la raccolta in corso e la fatturazione in corso.  </li> </ul>  |
 | Transazione non pronta per il pagamento | Fatturazione in corso | Successivo pagamento stimato: lo stato del pagamento è nello stato non elaborato.  |
 | Stato del pagamento |  | Non elaborati <br> Il guadagno è idoneo per il pagamento. Rimane in questo stato per un periodo di raffreddamento come definito nella guida del programma per il programma incentive. <br> <br> Imminente <br> Ordine di pagamento-verifiche interne in sospeso generate prima dell'elaborazione del pagamento. <br> <br> Inviato: <br> Il pagamento è stato inviato alla banca. |
 
@@ -70,21 +70,21 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 
 |Descrizione    |    Data  | Ordini/utilizzo  | Pagamento |
 |----------|----------|-----------|-------------|
-|Periodo dell'ordine   | 15 agosto, 2019-30 agosto, 2019 | **Ordini degli attributi di correlazione** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Utilizzo** <br> <ul> <li>CustomerId </li> <li>Nome cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Costo esteso stimato <br> Estimated Payout (PC) </li> </ul> |  |
+|Periodo dell'ordine   | 15 agosto, 2019-30 agosto, 2019 | **Ordini degli attributi di correlazione** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Utilizzo** <br> <ul> <li>CustomerId </li> <li>Nome del cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Costo esteso stimato <br> Estimated Payout (PC) </li> </ul> |  |
 |Fine periodo (mese)   | 30 agosto 2019 | | |
 |Data di fatturazione | 1 settembre 2019 | | |
 |Data pagamento cliente | 1 settembre 2019 | | |
-|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2019-30 settembre, 2019 | | **Ordini degli attributi di correlazione:** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Nome cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Non elaborati |
+|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2019-30 settembre, 2019 | | **Ordini degli attributi di correlazione:** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Non elaborati |
 |Inizio periodo riscossione | 1 settembre 2019 | | |
 |Fine periodo riscossione (massimo 30 giorni) | 30 settembre, 2019 | | |
-|Data calcolo proventi (il giorno 15 di ogni mese) | 1 ° ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li>Nome cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Imminente |
-|Payout Date | 15 ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Nome cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Pagamento inviato |
+|Data calcolo proventi (il giorno 15 di ogni mese) | 1 ° ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li>Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Imminente |
+|Payout Date | 15 ottobre 2019 | | **Attributi di correlazione** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** Pagamento inviato |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contratto Enterprise Agreement (clienti trimestrali/mensili)
 
-| Descrizione |    Data  | Utilizzo | Pagamento |
+| Descrizione |    Data  | Uso | Pagamento |
 |----------|----------|---------|-----------|
-|Periodo dell'ordine | 15 agosto, 2019-30 agosto, 2019 | **Ordini degli attributi di correlazione** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Report sull'utilizzo** <br> <ul> <li>CustomerId </li> <li>Nome cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Costo esteso stimato <br> Estimated Payout (PC) </li> </ul> | |
+|Periodo dell'ordine | 15 agosto, 2019-30 agosto, 2019 | **Ordini degli attributi di correlazione** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Report sull'utilizzo** <br> <ul> <li>CustomerId </li> <li>Nome del cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Costo esteso stimato <br> Estimated Payout (PC) </li> </ul> | |
 |Fine periodo (trimestre) | 30 settembre, 2019 | | |
 |Data di fatturazione | 15 ottobre 2019 | | |
 |Periodo deposito (solo carte di credito, 30 giorni) | n/d | | |
@@ -93,7 +93,7 @@ Ad esempio, se il cliente acquista utilizzando una carta di credito.
 |Fine periodo riscossione (massimo 90 giorni) | 15 gennaio 2020 | | |
 |Data pagamento cliente | 30 dicembre 2019 | | |
 |Calcolo pagamenti | 15 gennaio 2020 | | |
-|Payout Date | 15 febbraio 2020 | | **Per i clienti basati su trimestre** <br> <br> **Report ordini** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Nome cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** inviato |
+|Payout Date | 15 febbraio 2020 | | **Per i clienti basati su trimestre** <br> <br> **Report ordini** <br> <ul><li>AssetId</li> <li>ID cliente</li> <li> Nome del cliente</li> </ul> <br> **Utilizzo** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nome del cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Stato del pagamento:** inviato |
 
 ## <a name="transaction-history-download-export"></a>Esportazione Download cronologia transazioni
 
@@ -162,7 +162,7 @@ Questa opzione consente di scaricare ogni elemento della riga di acquisizione vi
 | taxZipCode       | Venduto al file zip del cliente                                                                                                                  |
 | LicensingProgramName       |                                                                                                                   |
 | Codice programma       | Stringa da mappare con il nome del programma                                                                                                                   |
-| earningAmountInLastPaymentCurrency       | Acquisizione dell'importo nell'ultima valuta di pagamento (il campo sarà vuoto, se non sono stati pagati pagamenti precedenti)                                                                                                                   |
+| EarningAmountInLastPaymentCurrency       | Acquisizione dell'importo nell'ultima valuta di pagamento (il campo sarà vuoto, se non sono stati pagati pagamenti precedenti)                                                                                                                   |
 | lastPaymentCurrency       | Ultima valuta pagamenti (il campo sarà vuoto, se non è stato pagato alcun pagamento precedente)                                                                                                                   |
 | AssetId       | Identificatore univoco per gli ordini dei clienti per il servizio Marketplace.  Rappresenta gli elementi delle righe di acquisto transazionali. Possono essere presenti più asset.                                                                                                                   |
 | OrderId       | relazione con la fattura di un cliente                                                                                                                   |

@@ -13,13 +13,13 @@ ms.author: ajburnle
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024603"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376882"
 ---
-# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Avvio rapido: Creare un nuovo tenant in Azure Active Directory
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Guida introduttiva: creare un nuovo tenant in Azure Active Directory
 Nel portale di Azure Active Directory (Azure AD) è possibile eseguire tutte le attività amministrative, inclusa la creazione di un nuovo tenant per l'organizzazione. 
 
 In questa guida introduttiva si apprenderà come accedere al portale di Azure e ad Azure Active Directory e come creare un tenant di base per l'organizzazione.
@@ -49,7 +49,7 @@ Dopo aver eseguito l'accesso al portale di Azure, è possibile creare un nuovo t
 
     - Digitare _Contoso_ nella casella **Nome di dominio iniziale**.
 
-    - Nella casella **Paese o area geografica** lasciare l'opzione _Stati Uniti_.
+    - Nella casella _Paese o area geografica_ lasciare l'opzione **Stati Uniti**.
 
 1. Selezionare **Create** (Crea).
 

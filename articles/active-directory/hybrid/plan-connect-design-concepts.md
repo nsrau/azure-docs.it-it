@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Concetti relativi alla progettazione | Microsoft Docs'
+title: Concetti relativi alla progettazione per Azure AD Connect | Documentazione Microsoft
 description: Questo argomento illustra alcune aree di progettazione dell'implementazione.
 services: active-directory
 documentationcenter: ''
@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135746"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376081"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo documento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri documenti.
@@ -119,7 +119,7 @@ Quando si installa Azure AD Connect in modalità personalizzata, la procedura gu
 
 ![Installazione personalizzata - Configurazione di sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 | --- | --- |
 | Consenti ad Azure di gestire automaticamente l'ancoraggio di origine | Selezionare questa opzione se si vuole che Azure AD selezioni automaticamente l'attributo. Se si seleziona questa opzione, la procedura guidata di Azure AD Connect applica la stessa [logica di selezione dell'attributo sourceAnchor usata durante l'installazione rapida](#express-installation). Alla stregua dell'installazione rapida, la procedura guidata informa l'utente sull'attributo selezionato come attributo sourceAnchor al termine dell'installazione personalizzata. |
 | Attributo specifico | Selezionare questa opzione se si vuole specificare un attributo di AD esistente come attributo sourceAnchor. |
@@ -170,7 +170,7 @@ Se si gestisce AD FS dall'esterno di Azure AD Connect o se per l'autenticazione 
 ![Configurazione della federazione di terze parti](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Aggiunta di nuove directory alla distribuzione esistente
-Si supponga di aver distribuito Azure AD Connect con la funzionalità ConsistencyGuid abilitata e di voler aggiungere un'altra directory alla distribuzione. Quando si tenta di aggiungere la directory, la procedura guidata di Azure AD Connect controlla lo stato dell'attributo ms-DS-ConsistencyGuid nella directory. Se l'attributo è configurato su uno o più oggetti nella directory, la procedura conclude che l'attributo è usato da altre applicazioni e restituisce un errore, come mostrato di seguito. Se si è certi che l'attributo non venga utilizzato dalle applicazioni esistenti, è possibile eliminarlo riavviando la procedura guidata di Azure AD Connect con l'opzione **/SkipLdapSearch** specificata come descritto in precedenza oppure è necessario contattare il supporto tecnico per ulteriori informazioni .
+Si supponga di aver distribuito Azure AD Connect con la funzionalità ConsistencyGuid abilitata e di voler aggiungere un'altra directory alla distribuzione. Quando si tenta di aggiungere la directory, la procedura guidata di Azure AD Connect controlla lo stato dell'attributo ms-DS-ConsistencyGuid nella directory. Se l'attributo è configurato su uno o più oggetti nella directory, la procedura conclude che l'attributo è usato da altre applicazioni e restituisce un errore, come mostrato di seguito. Se si è certi che l'attributo non venga utilizzato dalle applicazioni esistenti, è possibile eliminarlo riavviando la procedura guidata di Azure AD Connect con l'opzione **/SkipLdapSearch** specificata come descritto in precedenza oppure è necessario contattare il supporto tecnico per ulteriori informazioni.
 
 ![Aggiunta di nuove directory alla distribuzione esistente](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

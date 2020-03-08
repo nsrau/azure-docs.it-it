@@ -8,11 +8,11 @@ ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: 921a05c4dc6c1d5cfa663ac71b469573b8f1925b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667041"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365381"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -47,7 +47,7 @@ Nella tabella seguente sono descritte le opzioni supportate per due versioni del
 | --- | ------- | ----- | ----- |
 | Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | Sì | Sì |
 | Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | Sì | Sì |
-| Errori | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Sì | Sì |
+| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Sì | Sì |
 | Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. | Sì | No |
 | Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. | Sì | No |
 | Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |Sì | No |
@@ -288,7 +288,7 @@ AzureDiagnostics
 > - Il prerequisito per la configurazione di questo avviso è che l'istanza gestita monitorata ha lo streaming del log ResourceUsageStats abilitato per Analisi SQL di Azure.
 > - Questa query richiede la configurazione di una regola di avviso per attivare un avviso quando sono presenti risultati (> 0 Risultati) dalla query, che indica che la condizione esiste nell'istanza gestita. L'output corrisponde al consumo medio della percentuale di utilizzo della CPU nel periodo definito nell'istanza gestita.
 
-### <a name="pricing"></a>Pricing
+### <a name="pricing"></a>Prezzi
 
 Sebbene Analisi SQL di Azure sia libero da usare, il consumo di dati di telemetria di diagnostica superiore alle unità gratuite di inserimento dati allocati ogni mese si applica, vedere [log Analytics prezzi](https://azure.microsoft.com/pricing/details/monitor). Le unità gratuite di inserimento dati fornite consentono di monitorare gratuitamente più database ogni mese. Più database attivi con carichi di lavoro più pesanti inseriscono più dati rispetto ai database inattivi. È possibile monitorare facilmente il consumo di inserimento dei dati in Analisi SQL di Azure selezionando area di lavoro OMS nel menu di navigazione di Analisi SQL di Azure, quindi selezionando utilizzo e costi stimati.
 

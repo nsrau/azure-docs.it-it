@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
 ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760352"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362966"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -19,10 +19,10 @@ Questo articolo riepiloga le domande frequenti su Azure Site Recovery. Per scena
 - [Domande sul ripristino di emergenza di macchine virtuali VMware in Azure](vmware-azure-common-questions.md)
 - [Domande sul ripristino di emergenza di macchine virtuali Hyper-V in Azure](hyper-v-azure-common-questions.md)
  
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 ### <a name="what-does-site-recovery-do"></a>Quali sono le funzioni di Site Recovery?
-Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica delle macchine virtuali di Azure tra le aree, delle macchine virtuali e dei server fisici locali in Azure o in un data center secondario. [Altre informazioni](site-recovery-overview.md)
+Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica delle macchine virtuali di Azure tra le aree, delle macchine virtuali e dei server fisici locali in Azure o in un data center secondario. [Altre informazioni](site-recovery-overview.md).
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>È possibile proteggere una macchina virtuale con un disco Docker?
 
@@ -77,7 +77,7 @@ No, non sono previsti addebiti aggiuntivi per la cache. Quando si esegue la repl
 
 Sì. Per ogni istanza protetta non vengono addebitati costi per Azure Site Recovery per i primi 31 giorni. Se ad esempio si proteggono 10 istanze negli ultimi 6 mesi e si connette un'undicesima istanza a Azure Site Recovery, non sono previsti addebiti per l'undicesima istanza per i primi 31 giorni. Le prime 10 istanze continuano a sostenere Azure Site Recovery addebiti perché sono state protette per più di 31 giorni.
 
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, vengono addebitati altri costi per Azure?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, sono previsti altri addebiti per Azure?
 
 Sì, anche se Site Recovery è gratuita durante i primi 31 giorni di un'istanza protetta, è possibile che vengano addebitati costi per archiviazione di Azure, transazioni di archiviazione e trasferimento di dati. Per una macchina virtuale ripristinata possono venire addebitati anche i costi di calcolo di Azure.
 
@@ -88,7 +88,7 @@ Non sono previsti costi separati per le esercitazioni sul ripristino di emergenz
 
 
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?
 No, Site Recovery non intercetta i dati replicati né raccoglie informazioni su ciò che è in esecuzione sulle macchine virtuali o sui server fisici.
@@ -195,7 +195,7 @@ Sì. Per altre informazioni sulla limitazione della larghezza di banda, vedere q
 ## <a name="failover"></a>Failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali di Azure dopo il failover?
 
-È possibile accedere alle VM di Azure tramite una connessione Internet sicura, una connessione VPN da sito a sito o ExpressRoute di Azure. Per la connessione è necessario preparare una serie di operazioni. [Altre informazioni](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+È possibile accedere alle VM di Azure tramite una connessione Internet sicura, una connessione VPN da sito a sito o ExpressRoute di Azure. Per la connessione è necessario preparare una serie di operazioni. [Altre informazioni](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Se si esegue il failover in Azure, in che modo Azure si assicura che i dati siano resilienti?

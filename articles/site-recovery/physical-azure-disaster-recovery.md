@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980304"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362913"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
@@ -27,7 +27,7 @@ In questa esercitazione viene illustrato come configurare il ripristino di emerg
 > * Creare un criterio di replica
 > * Abilitare la replica per un server
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
@@ -146,7 +146,7 @@ Selezionare e verificare le risorse di destinazione.
 2. Specificare il modello di distribuzione di destinazione.
 3. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili.
 
-   ![Obiettivo](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Destinazione](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Creare un criterio di replica

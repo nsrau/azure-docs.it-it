@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: b764799d3f40cef24a0412ac950026af650d4ec7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229024"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382080"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end e pool back-end nel servizio Frontdoor di Azure
 Questo articolo descrive i concetti relativi a come eseguire il mapping della distribuzione dell'app con il servizio front door di Azure. Vengono inoltre illustrati i diversi termini della configurazione front-end intorno ai backend dell'app.
@@ -67,7 +67,7 @@ Un pool back-end definisce la modalità di valutazione dei diversi back-end tram
 ### <a name="health-probes"></a>Probe di integrità
 Il servizio front door invia richieste di probe HTTP/HTTPS periodiche a ognuno dei backend configurati. Le richieste di probe determinano la vicinanza e l'integrità di ogni back-end per il bilanciamento del carico delle richieste degli utenti finali. Le impostazioni del probe di integrità per un pool back-end definiscono come viene eseguito il polling dello stato di integrità dei back-end Per la configurazione del bilanciamento del carico sono disponibili le impostazioni seguenti:
 
-- **Percorso**. URL usato per le richieste di probe per tutti i back-end nel pool back-end. Ad esempio, se uno dei backend è contoso-westus.azurewebsites.net e il percorso è impostato su/probe/test.aspx, quindi gli ambienti del servizio front door, supponendo che il protocollo sia impostato su HTTP, invierà le richieste di probe di integrità a http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+- **Path**. URL usato per le richieste di probe per tutti i back-end nel pool back-end. Ad esempio, se uno dei backend è contoso-westus.azurewebsites.net e il percorso è impostato su/probe/test.aspx, quindi gli ambienti del servizio front door, supponendo che il protocollo sia impostato su HTTP, invierà le richieste di probe di integrità a http\://contoso-westus.azurewebsites.net/probe/test.aspx.
 
 - **Protocollo**. Definisce se inviare le richieste di probe di integrità dal servizio front door ai backend con il protocollo HTTP o HTTPS.
 

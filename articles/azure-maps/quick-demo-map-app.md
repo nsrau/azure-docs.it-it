@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ricerca interattiva nelle mappe con Mappe di Azure | Mappe di Microsoft Azure'
+title: 'Guida introduttiva: Ricerca interattiva nelle mappe con Mappe di Azure | Mappe di Microsoft Azure'
 description: Informazioni su come creare un'applicazione Web demo per la ricerca interattiva di mappe tramite l'SDK Web Mappe di Microsoft Azure.
 author: farah-alyasari
 ms.author: v-faalya
@@ -10,13 +10,13 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 74539a7ed74d0216f1a4bb2d719983895d8b320f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209631"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359589"
 ---
-# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Avvio rapido: Creare una mappa per la ricerca interattiva con Mappe di Azure
+# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Guida introduttiva: Creare una mappa per la ricerca interattiva con Mappe di Azure
 
 Questo articolo illustra le funzionalità di Mappe di Azure che consentono di creare una mappa che offre agli utenti un'esperienza di ricerca interattiva. L'articolo descrive le operazioni di base seguenti:
 * Creare un proprio account di Mappe di Azure.

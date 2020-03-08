@@ -4,11 +4,11 @@ description: Informazioni su come creare un pacchetto di un'applicazione Service
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083623"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361274"
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
 
@@ -43,7 +43,7 @@ Le cartelle sono denominate in modo da corrispondere agli attributi **Name** di 
 
 ## <a name="use-setupentrypoint"></a>Usare SetupEntryPoint
 
-Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. Ad esempio,
+Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. Ad esempio:
 
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
@@ -52,7 +52,7 @@ Per altre informazioni su come configurare **SetupEntryPoint**, vedere [Configur
 
 <a id="Package-App"></a>
 
-## <a name="configure"></a>Configurazione
+## <a name="configure"></a>Configurare
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
 

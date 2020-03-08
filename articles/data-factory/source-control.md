@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
 ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031630"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386623"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 
@@ -70,7 +70,7 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro Configurazione Mostra le seguenti impostazioni del repository di codice Azure Repos:
 
-| Impostazione | Descrizione | Valore |
+| Impostazione | Descrizione | valore |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/> | Azure DevOps git o GitHub |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | `<your tenant name>` |
@@ -187,7 +187,7 @@ Quando si è pronti per eseguire il merge delle modifiche dal ramo funzionalità
 
 ### <a name="configure-publishing-settings"></a>Configurare le impostazioni di pubblicazione
 
-Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio,
+Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio:
 
 ```json
 {

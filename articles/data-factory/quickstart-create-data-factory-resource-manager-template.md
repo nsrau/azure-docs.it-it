@@ -11,11 +11,11 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440066"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386683"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare una data factory di Azure usando un modello di Azure Resource Manager
 
@@ -23,7 +23,7 @@ ms.locfileid: "75440066"
 > * [Versione 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versione corrente](quickstart-create-data-factory-resource-manager-template.md)
 
-Questa guida introduttiva descrive come usare un modello di Azure Resource Manager per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** dati usando Azure Data Factory, vedere [Esercitazione: Trasformare i dati con Spark](transform-data-using-spark.md).
+Questa guida introduttiva descrive come usare un modello di Azure Resource Manager per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** i dati usando Azure Data Factory, vedere [Esercitazione: Trasformare dati usando Spark](transform-data-using-spark.md).
 
 > [!NOTE]
 > Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per un'introduzione al servizio Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
@@ -434,7 +434,7 @@ Lo stato del trigger distribuito è arrestato. Uno dei modi per avviare il trigg
 
 3. Nella pagina Data factory fare clic sul riquadro **Crea e monitora**.
 
-4. Nella pagina **Attività iniziali** selezionare la scheda **Monitoraggio**.  ![Monitorare l'esecuzione della pipeline](media/doc-common-process/get-started-page-monitor-button.png)
+4. Nella pagina attività **iniziali** selezionare la **scheda monitoraggio**. ](media/doc-common-process/get-started-page-monitor-button.png) di esecuzione della pipeline di monitoraggio ![
 
     > [!IMPORTANT]
     > Le esecuzioni della pipeline vengono visualizzate solo al cambio di ogni ora (ad esempio 4:00, 5:00, 6:00 e così via). Fare clic su **Aggiorna** sulla barra degli strumenti per aggiornare l'elenco quando si arriva all'ora successiva.

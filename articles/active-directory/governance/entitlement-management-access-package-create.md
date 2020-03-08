@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c858a17d4574e6e45283df7c1276cd303f25297
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120477"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376694"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -107,7 +107,7 @@ Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto
 
 1. Fare clic su **Avanti**.
 
-## <a name="requests"></a>Richieste
+## <a name="requests"></a>Requests
 
 Nella scheda **richieste** creare il primo criterio per specificare gli utenti che possono richiedere il pacchetto di accesso e anche le impostazioni di approvazione. Successivamente, è possibile creare altri criteri di richiesta per consentire a gruppi aggiuntivi di utenti di richiedere il pacchetto di accesso con le proprie impostazioni di approvazione.
 

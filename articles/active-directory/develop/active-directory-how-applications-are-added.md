@@ -14,12 +14,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: daf26f346ab10906eb5c37c6d7d2bb24736417cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d47ed3a4cd4fbdcb69b956d3c8418f70a71cf44f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698817"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375657"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
@@ -77,7 +77,7 @@ Come gli oggetti applicazione, anche gli oggetti entità servizio possono essere
 * Quando un amministratore aggiunge un'applicazione dalla raccolta di app (in questo caso viene creato anche un oggetto app sottostante)
 * Aggiungere un'applicazione per l'uso di [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy)
 * Connettere un'applicazione per l'accesso Single Sign-On tramite SAML o l'accesso SSO basato su password
-* A livello di codice tramite l'API Graph di Azure AD o PowerShell
+* A livello di codice tramite l'API Microsoft Graph o PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Qual è la relazione tra oggetti applicazione ed entità servizio?
 
@@ -100,13 +100,13 @@ Le applicazioni aggiunte dall'utente (indicate come **app dell'utente** al centr
 
 ### <a name="notes-and-exceptions"></a>Note ed eccezioni
 
-* Non tutte le entità servizio fanno riferimento a un oggetto applicazione. Al momento dello sviluppo inziale di Azure AD, i servizi forniti alle applicazioni erano più limitati e l'entità servizio era sufficiente per stabilire l'identità di un'applicazione. L'entità servizio originale assomigliava più all'account del servizio di Windows Server Active Directory. Per questo motivo, è ancora possibile creare entità servizio in modi diversi, ad esempio usando Azure AD PowerShell, senza dover prima creare un oggetto applicazione. L'API Graph di Azure AD richiede che sia disponibile un oggetto applicazione prima di creare un'entità servizio.
+* Non tutte le entità servizio fanno riferimento a un oggetto applicazione. Al momento dello sviluppo inziale di Azure AD, i servizi forniti alle applicazioni erano più limitati e l'entità servizio era sufficiente per stabilire l'identità di un'applicazione. L'entità servizio originale assomigliava più all'account del servizio di Windows Server Active Directory. Per questo motivo, è ancora possibile creare entità servizio in modi diversi, ad esempio usando Azure AD PowerShell, senza dover prima creare un oggetto applicazione. L'API Microsoft Graph richiede un oggetto applicazione prima di creare un'entità servizio.
 * Non tutte le informazioni riportate sopra sono al momento esposte a livello di codice. Le funzionalità seguenti sono disponibili solo nell'interfaccia utente:
   * Regole di trasformazione delle attestazioni
   * Mapping degli attributi (provisioning utenti)
-* Per informazioni dettagliate su oggetti applicazione ed entità servizio, vedere la documentazione di riferimento dell'API REST di Azure AD Graph:
-  * [Applicazione](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Entità servizio](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+* Per informazioni più dettagliate sull'entità servizio e sugli oggetti applicazione, vedere la documentazione di riferimento per l'API Microsoft Graph:
+  * [Applicazione](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [Entità servizio](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Perché le applicazioni vengono integrate con Azure AD?
 

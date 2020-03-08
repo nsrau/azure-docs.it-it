@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 208a302a0702a5c4de4d194c9e72f562aaf758c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482296"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392724"
 ---
 # <a name="manage-users"></a>Gestire gli utenti
 
 Azure FarmBeats include la gestione degli utenti per utenti che fanno parte dell'istanza di Azure Active Directory (Azure AD). È possibile aggiungere utenti all'istanza di Azure FarmBeats per accedere alle API, visualizzare le mappe generate e accedere ai dati di telemetria dei sensori dalla farm.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - È necessaria un'installazione di Azure FarmBeats. Per altre informazioni, vedere [Install Azure FarmBeats](install-azure-farmbeats.md).
 - ID di posta elettronica degli utenti che si vuole aggiungere o rimuovere dall'istanza di Azure FarmBeats.

@@ -3,12 +3,12 @@ title: 'Domande comuni: individuazione, valutazione e analisi delle dipendenze i
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 6db521791e5ebb846585d4e0e823ba20d178d54a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: MT
+ms.openlocfilehash: 7edc73742b61e4e5e94431c50d14d263bbbea641
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918547"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362028"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Domande comuni sull'individuazione, la valutazione e l'analisi delle dipendenze
 
@@ -23,34 +23,34 @@ Questo articolo risponde alle domande più comuni sull'individuazione, la valuta
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quante VM è possibile individuare con un'appliance?
 
-È possibile individuare fino a 10.000 VM VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 250 Server con una singola appliance. Se si dispone di più computer nell'ambiente locale, vedere la pagina relativa alla scalabilità di [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) e valutazione [fisica](scale-physical-assessment.md) .
+È possibile individuare fino a 10.000 VM VMware, fino a 5.000 macchine virtuali Hyper-V e fino a 250 server fisici con un'unica appliance. Se si dispone di più computer, vedere gli articoli relativi alla scalabilità di [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md)e valutazione dei [server fisici](scale-physical-assessment.md) .
 
 
 
 ## <a name="vm-size-changed-can-i-run-an-assessment-again"></a>Dimensioni macchina virtuale modificate. È possibile eseguire nuovamente una valutazione?
 
-L'appliance Azure Migrate raccoglie continuamente informazioni sull'ambiente locale. Tuttavia, una valutazione è uno snapshot temporizzato delle macchine virtuali locali. Se si modificano le impostazioni in una macchina virtuale che si desidera valutare, utilizzare l'opzione Ricalcola per aggiornare la valutazione con le modifiche più recenti.
+Il dispositivo Azure Migrate raccoglie continuamente informazioni sui computer locali e una valutazione è uno snapshot temporizzato. Se si modificano le impostazioni in una macchina virtuale che si desidera valutare, utilizzare l'opzione Ricalcola per aggiornare la valutazione con le modifiche più recenti.
 
-### <a name="how-do-i-discover-vms-in-a-multitenant-environment"></a>Ricerca per categorie individuare le macchine virtuali in un ambiente multi-tenant?
+## <a name="how-do-i-discover-vms-in-a-multitenant-environment"></a>Ricerca per categorie individuare le macchine virtuali in un ambiente multi-tenant?
 
-- Per VMware, se l'ambiente è condiviso tra i tenant e non si vuole individuare le macchine virtuali di un tenant nella sottoscrizione di un altro tenant, creare server vCenter credenziali che possono accedere solo alle macchine virtuali che si desidera individuare. Quindi, usare queste credenziali quando si avvia l'individuazione nell'appliance Azure Migrate.
-- Per Hyper-V, l'individuazione usa le credenziali dell'host Hyper-V. Se le VM condividono lo stesso host Hyper-V, attualmente non è possibile separare l'individuazione.  
+- **VMware**: se un ambiente viene condiviso tra i tenant e non si vuole individuare le macchine virtuali di un tenant nella sottoscrizione di un altro tenant, creare server vCenter credenziali che possono accedere solo alle macchine virtuali che si desidera individuare. Quindi, usare queste credenziali quando si avvia l'individuazione nell'appliance Azure Migrate.
+- **Hyper-v**: l'individuazione usa le credenziali dell'host Hyper-v. Se le VM condividono lo stesso host Hyper-V, attualmente non è possibile separare l'individuazione.  
 
 
-### <a name="do-i-need-vcenter-server-for-vmware-vm-discovery"></a>È necessario server vCenter per l'individuazione di macchine virtuali VMWare?
+## <a name="do-i-need-vcenter-server"></a>È necessario server vCenter?
 
 Sì, Azure Migrate necessario server vCenter per eseguire l'individuazione in un ambiente VMware. Non supporta l'individuazione di host ESXi che non sono gestiti da server vCenter.
 
 
-## <a name="whats-the-difference-sizing-options"></a>Quali sono le differenze tra le opzioni di ridimensionamento?
+## <a name="whats-are-the-sizing-options"></a>Quali sono le opzioni di ridimensionamento?
 
 Con il ridimensionamento locale, Azure Migrate non considera i dati sulle prestazioni della macchina virtuale per la valutazione. Valuta le dimensioni delle macchine virtuali in base alla configurazione locale. Con il dimensionamento basato sulle prestazioni, il dimensionamento è basato sui dati di utilizzo.
 
-- Se, ad esempio, una macchina virtuale locale ha 4 core e 8 GB di memoria al 50% di utilizzo della CPU e il 50% di utilizzo della memoria, si verificheranno le condizioni seguenti:
-    - Il dimensionamento locale consiglierà uno SKU di VM di Azure con 4 core e 8 GB di memoria.
-    - Il dimensionamento basato sulle prestazioni consiglierà uno SKU di VM con 2 core e 4 GB di memoria, perché la percentuale di utilizzo è considerata.
+- Ad esempio, se una macchina virtuale locale ha 4 core e 8 GB di memoria al 50% di utilizzo della CPU e il 50% di memoria:
+    - Il dimensionamento locale consiglierà uno SKU di VM di Azure con quattro core e 8 GB di memoria.
+    - Il dimensionamento basato sulle prestazioni consiglierà uno SKU di VM con due core e 4 GB di memoria, perché la percentuale di utilizzo è considerata.
 
-- Analogamente, il ridimensionamento del disco dipende da due proprietà di valutazione: criteri di ridimensionamento e tipo di archiviazione.
+- Analogamente, il dimensionamento del disco dipende dai criteri di ridimensionamento e dal tipo di archiviazione.
     - Se i criteri di ridimensionamento sono basati sulle prestazioni e il tipo di archiviazione è automatico, Azure Migrate prende in considerazione i valori di IOPS e velocità effettiva del disco quando identifica il tipo di disco di destinazione (standard o Premium).
     - Se i criteri di ridimensionamento sono basati sulle prestazioni e il tipo di archiviazione è Premium, Azure Migrate consiglia uno SKU del disco Premium, in base alle dimensioni del disco locale. La stessa logica viene applicata al dimensionamento del disco, quando il dimensionamento è locale e il tipo di archiviazione è standard o Premium.
 
@@ -76,33 +76,52 @@ Usare la visualizzazione delle dipendenze per valutare i gruppi di macchine virt
 > [!NOTE]
 > La visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 
+## <a name="whats-the-difference-between-agent-based-and-agentless"></a>Qual è la differenza tra l'agente e l'agente?
+
+Le differenze tra la visualizzazione senza agente e la visualizzazione basata su agenti sono riepilogate nella tabella.
+
+**Requisito** | **Senza agenti** | **Basata su agenti**
+--- | --- | ---
+Supporto | Questa opzione è attualmente in anteprima ed è disponibile solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#agentless-dependency-visualization) i sistemi operativi supportati. | In disponibilità generale (GA).
+Agente | Non è necessario installare gli agenti nei computer che si vuole controllare in modo incrociato. | Agenti da installare in ogni computer locale che si vuole analizzare: [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e [Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+Prerequisites | [Esaminare](concepts-dependency-visualization.md#agentless-visualization) i prerequisiti e i requisiti di distribuzione. | [Esaminare](concepts-dependency-visualization.md#agent-based-visualization) i prerequisiti e i requisiti di distribuzione.
+Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [mapping dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) nei [log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-visualization).
+Funzionamento | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
+data | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
+Visualizzazione | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata di un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> La mappa può essere visualizzata solo in un'ora.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/> Aggiungere e rimuovere i server in un gruppo dalla vista mappa.
+Esportazione dati | Attualmente non è possibile scaricare il formato tabulare. | È possibile eseguire query sui dati con Log Analytics.
+
+
+
+
 ## <a name="do-i-pay-for-dependency-visualization"></a>Si paga per la visualizzazione delle dipendenze?
 No. Vedere [altre informazioni](https://azure.microsoft.com/pricing/details/azure-migrate/) sui prezzi di Azure Migrate.
 
-## <a name="what-do-i-install-for-dependency-visualization"></a>Cosa si installa per la visualizzazione delle dipendenze?
+## <a name="what-do-i-install-for-agent-based-dependency-visualization"></a>Cosa si installa per la visualizzazione delle dipendenze basate su agenti?
 
-Per usare la visualizzazione delle dipendenze è necessario scaricare e installare gli agenti in ogni computer locale da valutare.
+Per usare la visualizzazione delle dipendenze basata su agenti, è necessario scaricare e installare gli agenti in ogni computer locale che si vuole valutare.
 
-È necessario installare gli agenti seguenti in ogni computer:
+Installare gli agenti seguenti in ogni computer:
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
 - [Dependency Agent](../azure-monitor/platform/agents-overview.md#dependency-agent).
 - Se sono presenti computer senza connettività Internet, è necessario scaricare e installare Log Analytics gateway.
 
-Questi agenti non sono necessari a meno che non si usi la visualizzazione delle dipendenze.
+Questi agenti non sono necessari a meno che non si usi la visualizzazione delle dipendenze basate su agenti.
 
 ## <a name="can-i-use-an-existing-workspace"></a>È possibile usare un'area di lavoro esistente?
 
-Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. 
+Sì, per la visualizzazione delle dipendenze basate su agenti, è possibile allegare un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. 
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>È possibile esportare il report di visualizzazione delle dipendenze?
 
-No, la visualizzazione delle dipendenze non può essere esportata. Tuttavia, Azure Migrate USA Mapping dei servizi ed è possibile usare l' [API REST mapping dei servizi](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) per recuperare le dipendenze in formato JSON.
+No, il report di visualizzazione delle dipendenze nella visualizzazione basata su agente non può essere esportato. Tuttavia, Azure Migrate USA Mapping dei servizi ed è possibile usare l' [API REST mapping dei servizi](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) per recuperare le dipendenze in formato JSON.
 
-## <a name="can-i-automate--mmadependency-agent-installation"></a>È possibile automatizzare l'installazione di MMA/Dependency Agent?
+## <a name="can-i-automate-agent-installation"></a>È possibile automatizzare l'installazione dell'agente?
+Per la visualizzazione delle dipendenze basate su agente, automatizzare come segue:
 
-Usare questo [script per installare Dependency Agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Seguire queste [istruzioni per installare MMA](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) usando la riga di comando o l'automazione. Per MMA, usare [questo script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-
-Oltre agli script, è anche possibile usare strumenti di distribuzione come Microsoft endpoint Configuration Manager e [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) per distribuire gli agenti.
+- Usare questo [script per installare Dependency Agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
+- Per MMA, seguire queste [istruzioni](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) per usare la riga di comando o l'automazione oppure usare [questo script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- Oltre agli script, è anche possibile usare strumenti di distribuzione come Microsoft endpoint Configuration Manager e [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) per distribuire gli agenti.
 
 
 ## <a name="what-operating-systems-does-mma-support"></a>Quali sistemi operativi sono supportati da MMA?
@@ -111,7 +130,10 @@ Oltre agli script, è anche possibile usare strumenti di distribuzione come Micr
 - Visualizzare l'elenco dei [sistemi operativi Linux supportati da MMA](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
 
 ## <a name="can-i-visualize-dependencies-for-more-than-an-hour"></a>È possibile visualizzare le dipendenze per più di un'ora?
-No. È possibile visualizzare le dipendenze per un massimo di un'ora. È possibile tornare a una data specifica nella cronologia, fino a un mese, ma la durata massima per la visualizzazione è di un'ora. Ad esempio, è possibile usare la durata dell'ora nella mappa delle dipendenze per visualizzare le dipendenze per ieri, ma è possibile visualizzare le dipendenze solo per una finestra di un'ora. È tuttavia possibile usare i log di monitoraggio di Azure per [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) per un periodo di tempo più lungo.
+Per la visualizzazione basata su agenti, è possibile visualizzare le dipendenze per un massimo di un'ora. È possibile tornare a una data specifica nella cronologia, fino a un mese, ma la durata massima per la visualizzazione è di un'ora. Ad esempio, è possibile usare la durata dell'ora nella mappa delle dipendenze per visualizzare le dipendenze per ieri, ma è possibile visualizzare le dipendenze solo per una finestra di un'ora. È tuttavia possibile usare i log di monitoraggio di Azure per [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) per un periodo di tempo più lungo.
+
+Per la visualizzazione senza agenti, è possibile visualizzare la mappa delle dipendenze di un singolo server da una durata di un'ora a 30 giorni.
+
 
 ## <a name="can-visualize-dependencies-for-groups-of-more-than-10-vms"></a>È possibile visualizzare le dipendenze per gruppi di più di 10 VM?
 È possibile [visualizzare le dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) per i gruppi contenenti fino a 10 macchine virtuali. Se si dispone di un gruppo con più di 10 macchine virtuali, è consigliabile suddividere il gruppo in gruppi più piccoli, quindi visualizzare le dipendenze.

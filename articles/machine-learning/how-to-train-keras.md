@@ -12,11 +12,11 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7976d602412037578d0a324916718b2d515aac
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771786"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355509"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Eseguire il training e registrare un modello di classificazione keras con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Indipendentemente dal fatto che si stia sviluppando un modello keras da zero o s
 
 Per informazioni sulle differenze tra Machine Learning e Deep Learning, vedere l' [articolo concettuale](concept-deep-learning-vs-machine-learning.md) .
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Eseguire questo codice in uno degli ambienti seguenti:
 

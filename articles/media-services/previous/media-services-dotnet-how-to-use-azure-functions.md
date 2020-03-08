@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217511"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397232"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
 
@@ -27,7 +27,7 @@ In questo articolo viene illustrato come iniziare a creare le Funzioni di Azure 
 
 Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i Servizi multimediali di Azure, estrarre [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) (Funzioni di Azure di Servizi multimediali). Questo repository contiene esempi che usano Servizi multimediali per visualizzare i flussi di lavoro correlati all'inserimento di contenuto direttamente dall'archiviazione BLOB, alla codifica e alla scrittura del contenuto nell'archiviazione BLOB. Include inoltre esempi su come monitorare le notifiche dei processi tramite i webhook e le code di Azure. È inoltre possibile sviluppare le funzioni in base agli esempi nel repository [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Per distribuire le funzioni, premere il pulsante **Distribuisci in Azure**.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Per poter creare la prima funzione, è necessario avere un account Azure attivo. Se non si possiede già un account Azure, [sono disponibili account gratuiti](https://azure.microsoft.com/free/).
 - Se si intende creare le Funzioni di Azure per eseguire azioni sull'account dei Servizi multimediali di Azure o ascoltare gli eventi inviati dai Servizi multimediali, è necessario creare un account AMS, come descritto [qui](media-services-portal-create-account.md).
@@ -46,13 +46,13 @@ Quando si sviluppano le funzioni di Servizi multimediali, è utile aggiungere va
 
 Per la funzione definita in questo articolo si presuppongono le seguenti variabili di ambiente nelle impostazioni dell'app:
 
-**AMSAADTenantDomain**: Endpoint tenant di Azure AD. Per altre informazioni sulla connessione alle API di Servizi multimediali di Azure, vedere [questo](media-services-use-aad-auth-to-access-ams-api.md) articolo.
+**AMSAADTenantDomain**: endpoint tenant di Azure AD. Per altre informazioni sulla connessione alle API di Servizi multimediali di Azure, vedere [questo](media-services-use-aad-auth-to-access-ams-api.md) articolo.
 
 **AMSRESTAPIEndpoint**:  URI che rappresenta l'endpoint dell'API REST. 
 
-**AMSClientId**: ID applicazione (client) Azure AD.
+**AMSClientId**: ID client dell'applicazione Azure AD.
 
-**AMSClientSecret**: applicazione segreto client Azure AD.
+**AMSClientSecret**: segreto client dell'applicazione Azure AD.
 
 **StorageConnection**: connessione di archiviazione dell'account associato all'account di Servizi multimediali. Questo valore è usato nei file **function.json** e **run.csx** (descritti di seguito).
 
@@ -70,7 +70,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
     ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Fare clic su **Create**(Crea). 
+4. Fare clic su **Crea**. 
 
 ## <a name="files"></a>File
 

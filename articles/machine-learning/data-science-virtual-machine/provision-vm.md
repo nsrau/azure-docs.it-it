@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una macchina virtuale data science Windows'
+title: 'Guida introduttiva: creare un Data Science Virtual Machine Windows'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una macchina virtuale di Data Science in Azure per l'analisi dei dati e l'apprendimento automatico.
 ms.service: machine-learning
@@ -9,13 +9,13 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 ms.openlocfilehash: 1fdf8eae5d19a2d43499d1984f4dea834d8a61d8
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525873"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397292"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Avvio rapido: Configurare la Data Science Virtual Machine per Windows
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Guida introduttiva: configurare la Data Science Virtual Machine per Windows
 
 Iniziare a usare una Data Science Virtual Machine di Windows Server 2019.
 
@@ -36,12 +36,12 @@ Per creare un'istanza di DSVM:
 1. Si verrà reindirizzati al pannello "Crea macchina virtuale".
 
 1. Compilare la scheda **Nozioni di base**.
-      * **Sottoscrizione** Se si hanno più sottoscrizioni, selezionare quella in cui verrà creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-      * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente.
+      * **Sottoscrizione**: se si dispone di più di una sottoscrizione, selezionare quella in cui il computer verrà creato e fatturato. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
+      * **Gruppo di risorse**: creare un nuovo gruppo o utilizzarne uno esistente.
       * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
       * **Località**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-      * **Immagine**: Lasciare il valore predefinito.
-      * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/windows/sizes.md).
+      * **Image**: lasciare il valore predefinito.
+      * **Dimensioni**: questa operazione dovrebbe essere popolata automaticamente con una dimensione appropriata per i carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/windows/sizes.md).
       * **Nome utente**: immettere il nome utente dell'amministratore. È il nome utente che verrà usato per accedere alla macchina virtuale e non deve necessariamente essere uguale al nome utente Azure.
       * **Password**: immettere la password che si userà per accedere alla macchina virtuale.    
 1. Selezionare **Rivedi e crea**.

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176610"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374458"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
 Gestione API di Azure mette a disposizione i seguenti controlli per l'uso nei modelli del portale per sviluppatori.  
@@ -52,15 +52,15 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
  ![controllo&#45;azioni app](./media/api-management-page-controls/APIM-app-actions-control.png "App gestione API-controllo azioni")  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parametri  
   
-|Parametro|Description|  
+|Parametro|Descrizione|  
 |---------------|-----------------|  
 |appId|ID dell'applicazione.|  
   
@@ -74,14 +74,14 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
  ![controllo&#45;di accesso di base](./media/api-management-page-controls/APIM-basic-signin-control.png "GESTIONE API Basic-controllo signin")  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
   
 ```xml  
 <basic-SignIn></basic-SignIn>  
 ```  
   
-### <a name="parameters"></a>parameters  
- None.  
+### <a name="parameters"></a>Parametri  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `basic-signin` nei seguenti modelli del portale per sviluppatori:  
@@ -93,14 +93,14 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
  ![controllo paging](./media/api-management-page-controls/APIM-paging-control.png "Controllo paging gestione API")  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
   
 ```xml  
 <paging-control></paging-control>  
 ```  
   
-### <a name="parameters"></a>parameters  
- None.  
+### <a name="parameters"></a>Parametri  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `paging-control` nei seguenti modelli del portale per sviluppatori:  
@@ -116,14 +116,14 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
  ![controllo provider](./media/api-management-page-controls/APIM-providers-control.png "Controllo provider gestione API")  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
   
 ```xml  
 <providers></providers>  
 ```  
   
-### <a name="parameters"></a>parameters  
- None.  
+### <a name="parameters"></a>Parametri  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `providers` nei seguenti modelli del portale per sviluppatori:  
@@ -135,14 +135,14 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
  ![controllo di ricerca](./media/api-management-page-controls/APIM-search-control.png "Controllo di ricerca gestione API")  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
   
 ```xml  
 <search-control></search-control>  
 ```  
   
-### <a name="parameters"></a>parameters  
- None.  
+### <a name="parameters"></a>Parametri  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `search-control` nei seguenti modelli del portale per sviluppatori:  
@@ -156,14 +156,14 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
  ![controllo&#45;di iscrizione](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo di iscrizione gestione API")  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
   
 ```xml  
 <sign-up></sign-up>  
 ```  
   
-### <a name="parameters"></a>parameters  
- None.  
+### <a name="parameters"></a>Parametri  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `sign-up` nei seguenti modelli del portale per sviluppatori:  
@@ -175,14 +175,14 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
  ![controllo&#45;pulsante di sottoscrizione](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controllo del pulsante di sottoscrizioni gestione API")  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
   
 ```xml  
 <subscribe-button></subscribe-button>  
 ```  
   
-### <a name="parameters"></a>parameters  
- None.  
+### <a name="parameters"></a>Parametri  
+ No.  
   
 ### <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori  
  È possibile usare il controllo `subscribe-button` nei seguenti modelli del portale per sviluppatori:  
@@ -194,7 +194,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
  ![controllo&#45;Annulla sottoscrizione](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Sottoscrizione di gestione API-controllo annulla")  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
   
 ```xml  
 <subscription-cancel params="{ subscriptionId: '{{subscription.id}}', cancelUrl: '{{subscription.cancelUrl}}' }">  
@@ -202,9 +202,9 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parametri  
   
-|Parametro|Description|  
+|Parametro|Descrizione|  
 |---------------|-----------------|  
 |subscriptionId|ID della sottoscrizione da annullare.|  
 |cancelUrl|L'URL di annullamento della sottoscrizione.|  

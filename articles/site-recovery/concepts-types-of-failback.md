@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
 ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847477"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362929"
 ---
-# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Failback delle macchine virtuali VMware dopo il ripristino di emergenza in Azure
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Eseguire il failback delle macchine virtuali VMware in seguito al ripristino di emergenza in Azure
 
 Dopo aver effettuato il failover in Azure, nell'ambito della procedura di ripristino di emergenza, è possibile eseguire il failback nel sito locale. Esistono due diversi tipi di failback con Azure Site Recovery: 
 

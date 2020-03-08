@@ -1,16 +1,16 @@
 ---
-title: 'Esercitazione: Creare una definizione di criteri personalizzata'
+title: 'Esercitazione: creare una definizione di criteri personalizzata'
 description: In questa esercitazione viene creata una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alla risorse di Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966033"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386772"
 ---
-# <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
+# <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: creare una definizione di criteri personalizzata
 
 La definizione di criteri personalizzata consente ai clienti di definire le proprie regole per l'uso di Azure. Queste regole consentono in genere di imporre:
 
@@ -386,7 +386,7 @@ Il passaggio finale della definizione del criterio personalizzato consiste nella
 - Che il **tipo** di account di archiviazione sia **Microsoft.Storage/storageAccounts**
 - Che l'account di archiviazione **supportsHttpsTrafficOnly** non sia **true**
 
-Poiché è necessario che entrambe queste affermazioni siano vere, verrà usato l'[operatore logico](../concepts/definition-structure.md#logical-operators) **allOf**. Invece di creare una dichiarazione statica, verrà passato il parametro **effectType** all'effetto. La regola completa è riportata in questo esempio:
+Poiché è necessario che entrambe queste affermazioni siano vere, verrà usato l'**operatore logico** [allOf](../concepts/definition-structure.md#logical-operators). Invece di creare una dichiarazione statica, verrà passato il parametro **effectType** all'effetto. La regola completa è riportata in questo esempio:
 
 ```json
 "if": {

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
 ms.openlocfilehash: bc318aff0dad7d7fdff16df549c013927ef0e799
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938807"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386910"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -172,7 +172,7 @@ Un altro uso del metodo di routing multivalore è se un endpoint è "dual-homed"
 
 Non è possibile garantire che in ogni query venga restituito lo stesso set di endpoint. Questo dipende anche dal fatto che alcuni degli endpoint potrebbero non essere più integri e per questo non verranno inclusi nella risposta
 
-## <a name="real-user-measurements"></a>Misurazioni utente effettive
+## <a name="real-user-measurements"></a>Misurazioni utente reale
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quali sono i vantaggi offerti dall'utilizzo di Misurazioni utente reale?
 
@@ -385,10 +385,10 @@ Per i profili con metodo di routing diverso da Multivalore:
 |Richiesta query in ingresso|    Tipo di endpoint|  Risposta specificata|
 |--|--|--|
 |ANY |  A / AAAA / CNAME |  Endpoint di destinazione| 
-|A |    A / CNAME | Endpoint di destinazione|
-|A |    AAAA |  NODATA |
+|Una |    A / CNAME | Endpoint di destinazione|
+|Una |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  Endpoint di destinazione|
-|AAAA | A | NODATA |
+|AAAA | Una | NODATA |
 |CNAME |    CNAME | Endpoint di destinazione|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -398,7 +398,7 @@ Per i profili con metodo di routing impostato su Multivalore:
 |Richiesta query in ingresso|    Tipo di endpoint | Risposta specificata|
 |--|--|--|
 |ANY |  Combinazione di A e AAAA | Endpoint di destinazione|
-|A |    Combinazione di A e AAAA | Solo endpoint di destinazione di tipo A|
+|Una |    Combinazione di A e AAAA | Solo endpoint di destinazione di tipo A|
 |AAAA   |Combinazione di A e AAAA|     Solo endpoint di destinazione di tipo AAAA|
 |CNAME |    Combinazione di A e AAAA | NODATA |
 
@@ -499,11 +499,11 @@ La tabella seguente descrive il comportamento dei controlli dell'integrità di G
 
 | Stato di monitoraggio del profilo figlio | Stato di monitoraggio dell'endpoint padre | Note |
 | --- | --- | --- |
-| Disabilitato. Il profilo figlio è stato disabilitato. |Arrestata |Lo stato dell'endpoint padre è Stopped, non Disabled. Lo stato Disabled è usato esclusivamente per indicare che l'utente ha disabilitato l'endpoint nel profilo padre. |
+| Disabilitato. Il profilo figlio è stato disabilitato. |Arrestato |Lo stato dell'endpoint padre è Stopped, non Disabled. Lo stato Disabled è usato esclusivamente per indicare che l'utente ha disabilitato l'endpoint nel profilo padre. |
 | Danneggiato. Almeno uno degli endpoint del profilo figlio è nello stato Danneggiato. |Online: il numero di endpoint Online nel profilo figlio è pari almeno al valore di MinChildEndpoints.<BR>CheckingEndpoint: il numero di endpoint Online e CheckingEndpoint nel profilo figlio è pari almeno al valore di MinChildEndpoints.<BR>Danneggiato: negli altri casi. |Il traffico viene indirizzato a un endpoint con stato CheckingEndpoint. Se il valore di MinChildEndpoints è troppo elevato, l'endpoint risulta sempre danneggiato. |
 | Online. Almeno uno degli endpoint del profilo figlio è nello stato Online. Nessun endpoint è nello stato Danneggiato. |Vedere sopra. | |
 | CheckingEndpoints. Almeno uno degli endpoint del profilo figlio è nello stato CheckingEndpoint. Nessun endpoint è nello stato Online o Danneggiato. |Come sopra. | |
-| Inattivo. Tutti gli endpoint del profilo figlio sono nello stato Disabilitato o Arrestato oppure si tratta di un profilo senza endpoint. |Arrestata | |
+| Inattivo. Tutti gli endpoint del profilo figlio sono nello stato Disabilitato o Arrestato oppure si tratta di un profilo senza endpoint. |Arrestato | |
 
 ## <a name="next-steps"></a>Passaggi successivi:
 

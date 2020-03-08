@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 71cf1a2c4a0a2ff07d2aa0b48a8ee3bb3da8a540
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919712"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373054"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -27,9 +27,9 @@ ms.locfileid: "77919712"
 > [!NOTE]
 > La soluzione Gestione aggiornamenti richiede il collegamento di un'area di lavoro Log Analytics all'account di automazione. Per un elenco definitivo delle aree supportate, vedere [mapping dell'area di lavoro di Azure](./how-to/region-mappings.md). I mapping dell'area non influiscono sulla possibilità di gestire le macchine virtuali in un'area separata dall'account di automazione.
 
-È disponibile un [modello di gestione risorse](automation-update-management-deploy-template.md) di Azure che consente di distribuire la soluzione Gestione aggiornamenti a un account di automazione nuovo o esistente e log Analytics area di lavoro nella sottoscrizione.
-
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+È disponibile un [modello di gestione risorse](automation-update-management-deploy-template.md) di Azure che consente di distribuire la soluzione Gestione aggiornamenti a un account di automazione nuovo o esistente e log Analytics area di lavoro nella sottoscrizione.
 
 ## <a name="solution-overview"></a>Panoramica della soluzione
 
@@ -248,10 +248,15 @@ Gestione aggiornamenti si basa sul repository degli aggiornamenti configurato lo
 
 Per iniziare ad aggiornare i sistemi, è necessario abilitare la soluzione Gestione aggiornamenti. Di seguito sono riportati i metodi consigliati e supportati per l'onboarding della soluzione:
 
-* [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
-* [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
-* [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
-* [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
+- [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
+
+- [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
+
+- [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
+
+- [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
+
+- [Con un modello di Azure Resource Manager](automation-update-management-deploy-template.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

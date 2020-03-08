@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 2190bfd1a260d7b866fedc1f7c699faef2431a93
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246159"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380985"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -49,7 +49,7 @@ Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archi
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
-### <a name="tips-and-tricks"></a>Suggerimenti
+### <a name="tips-and-tricks"></a>Suggerimenti e consigli
 * La percentuale di errori più elevata per questa estensione è dovuta a errori di sintassi nello script. Verificare che lo script venga eseguito senza errori e inserire nello script altre opzioni di registrazione, per trovare più facilmente i punti che causano errori.
 * Scrivere script idempotenti in modo che, se per errore vengono eseguiti più di una volta, non siano apportate modifiche al sistema.
 * Verificare che gli script non richiedano l'input dell'utente durante l'esecuzione.
@@ -110,12 +110,12 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio | Tipo di dati | 
+| Nome | Valore/Esempio | Tipo di dati | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | date |
+| apiVersion | 2019-03-01 | Data |
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
-| typeHandlerVersion | 2.1 | int |
+| typeHandlerVersion | 2.1 | INT |
 | fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (es.) | MyPythonScript.py Python \<> param1 | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
@@ -376,7 +376,7 @@ az vm extension set \
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Quando viene eseguita l'estensione per script personalizzati, lo script viene creato o scaricato in una directory simile all'esempio seguente. Anche l'output del comando viene salvato in questa directory, nei file `stdout` e `stderr`.
 
 ```bash
