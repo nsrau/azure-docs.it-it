@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086647"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387206"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Esercitazione: pubblicare, sottoscrivere gli eventi in locale
 
@@ -23,7 +23,7 @@ Questo articolo illustra tutti i passaggi necessari per pubblicare e sottoscrive
 > [!NOTE]
 > Per informazioni sugli argomenti e sulle sottoscrizioni di griglia di eventi di Azure, vedere [concetti relativi a griglia di eventi](concepts.md).
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 Per completare questa esercitazione è necessario disporre degli elementi seguenti:
 
 * **Sottoscrizione di Azure** : creare un [account gratuito](https://azure.microsoft.com/free) se non ne è già disponibile uno. 
@@ -77,7 +77,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
           }
         }
     ```    
- 1. Fare clic su **Save**.
+ 1. Fare clic su **Save** (Salva).
  1. Passare alla sezione successiva per aggiungere il modulo del Sottoscrittore di griglia di eventi di Azure prima di distribuirli insieme.
 
     >[!IMPORTANT]
@@ -99,7 +99,7 @@ Questa sezione illustra come distribuire un altro modulo Internet che funge da g
    * **Nome**: Sottoscrittore
    * **URI immagine**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opzioni di creazione del contenitore**: nessuna
-1. Fare clic su **Save**.
+1. Fare clic su **Save** (Salva).
 1. Fare clic su **Avanti** per passare alla sezione Route
 
  ### <a name="setup-routes"></a>Route di installazione
@@ -114,7 +114,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
 
     Per l'avvio del modulo e per il rilevamento da parte dell'hub IoT può essere richiesto un po' di tempo. Aggiornare la pagina per visualizzare lo stato aggiornato.
 
-## <a name="create-a-topic"></a>Crea un argomento
+## <a name="create-a-topic"></a>Creare un argomento
 
 Come server di pubblicazione di un evento, è necessario creare un argomento di griglia di eventi. In griglia di eventi di Azure un argomento si riferisce a un endpoint in cui i publisher possono inviare eventi a.
 
@@ -141,7 +141,7 @@ Come server di pubblicazione di un evento, è necessario creare un argomento di 
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-   Esempio di output:
+   Output di esempio:
 
    ```json
         [
@@ -191,7 +191,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
 
-    Esempio di output:
+    Output di esempio:
 
    ```json
         {
@@ -252,7 +252,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
     sudo docker logs subscriber
     ```
 
-    Esempio di output:
+    Output di esempio:
 
     ```sh
         Received Event:

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60633139"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366748"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Usare il pannello di riepilogo del servizio per dispositivi StorSimple serie 8000
 

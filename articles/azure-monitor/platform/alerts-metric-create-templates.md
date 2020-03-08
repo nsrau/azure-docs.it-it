@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
 ms.openlocfilehash: 2f6e9cd4e7a035e6555b2241613cb9c46c3be550
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664837"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368016"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
@@ -565,7 +565,7 @@ az group deployment create \
 
 Gli avvisi delle metriche più recenti supportano la creazione di avvisi in base a metriche multidimensionali e la specifica di più criteri. È possibile usare il modello seguente per creare una regola di avviso metrica più avanzata sulle metriche dimensionali e specificare più criteri.
 
-Si notino i vincoli seguenti quando si usano le dimensioni in una regola di avviso che contiene più criteri:
+Tenere presenti i vincoli seguenti quando si usano le dimensioni in una regola di avviso che contiene più criteri:
 - È possibile selezionare un solo valore per dimensione all'interno di ogni criterio.
 - Non è possibile utilizzare "\*" come valore della dimensione.
 - Quando le metriche configurate in criteri diversi supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nei criteri pertinenti).

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c184972789c412406f264f725f8b94e1f7f162ce
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547048"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358671"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -92,16 +92,16 @@ Ogni elemento nel manifesto della distribuzione contiene informazioni specifiche
   * In esecuzione
   * Non integro
   * Operazione non riuscita
-  * Arrestata
+  * Arrestato
 
-* **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. Possibili valori:
+* **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. I valori possibili sono:
   
   * `never`: l'agente IoT Edge non riavvia mai il modulo.
   * `on-failure`: se il modulo si arresta in modo anomalo, l'agente IoT Edge lo riavvia. Se il modulo viene arrestato in modo corretto, l'agente IoT Edge non lo riavvia.
   * `on-unhealthy`: se il modulo si arresta in modo anomalo o viene considerato non integro, l'agente IoT Edge lo riavvia.
   * `always`: se il modulo si arresta in modo anomalo, viene considerato non integro o si arresta in qualsiasi modo, l'agente IoT Edge lo riavvia.
 
-* **imagePullPolicy** : indica se l'agente di IOT Edge tenta di estrarre automaticamente l'immagine più recente per un modulo. Se non si specifica un valore, il valore predefinito è *OnCreate*. Possibili valori:
+* **imagePullPolicy** : indica se l'agente di IOT Edge tenta di estrarre automaticamente l'immagine più recente per un modulo. Se non si specifica un valore, il valore predefinito è *OnCreate*. I valori possibili sono:
 
   * `on-create`: quando si avvia un modulo o si aggiorna un modulo basato su un nuovo manifesto di distribuzione, l'agente di IoT Edge tenterà di eseguire il pull dell'immagine del modulo dal registro contenitori.
   * `never`: l'agente IoT Edge non tenterà mai di eseguire il pull dell'immagine del modulo dal registro contenitori. Con questa configurazione, si è responsabili dell'acquisizione dell'immagine del modulo sul dispositivo e della gestione degli aggiornamenti delle immagini.
@@ -117,7 +117,7 @@ L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di ri
 
 Per ulteriori informazioni, vedere informazioni [su come distribuire moduli e definire route in IOT Edge](module-composition.md).
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla.
 

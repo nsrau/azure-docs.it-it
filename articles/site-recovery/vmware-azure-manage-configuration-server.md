@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954351"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362876"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware/server fisici
 
@@ -104,7 +104,7 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
 3. Accedere al computer del server di configurazione.
 4. In **%ProgramData%\ASR\home\svsystems\bin** aprire **cspsconfigtool.exe**.
 5. Nella scheda **Registrazione insieme di credenziali** selezionare **Sfoglia** e individuare il file di credenziali dell'insieme di credenziali scaricato.
-6. Se necessario, fornire i dettagli del server proxy. Selezionare quindi **Registra**.
+6. Se necessario, fornire i dettagli del server proxy. Selezionare quindi **Register** (Registra).
 7. Aprire una finestra dei comandi di PowerShell per amministratore ed eseguire il comando seguente:
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -154,16 +154,16 @@ Per aggiornare il server, seguire questa procedura:
 
 1. Nell'insieme di credenziali passare a **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**.
 2. Se è disponibile un aggiornamento, verrà visualizzato un collegamento nella colonna **Versione agente**.
-    ![Aggiornare](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Scaricare il file del programma di installazione dell'aggiornamento nel server di configurazione.
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Fare doppio clic per eseguire il programma di installazione.
 5. Il programma di installazione rileva la versione corrente in esecuzione nel computer. Fare clic su **Sì** per avviare l'aggiornamento.
 6. Al termine dell'aggiornamento viene convalidata la configurazione del server.
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Fare clic su **Fine** per chiudere il programma di installazione.
 8. Per eseguire l'aggiornamento degli altri componenti di Site Recovery, vedere le [indicazioni sugli aggiornamenti](https://aka.ms/asr_vmware_upgrades).
@@ -184,23 +184,23 @@ Eseguire il file di installazione come segue:
   ```
 
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>Parametri
 
-|Nome parametro| digitare | DESCRIZIONE| Valori|
+|Nome parametro| Type | Descrizione| Valori|
 |-|-|-|-|
-| /Modalità server|obbligatori|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|obbligatori|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|obbligatori|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|obbligatori|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|obbligatori|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|obbligatori|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|obbligatori|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|obbligatori|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|obbligatori|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 
@@ -214,7 +214,7 @@ MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
 ```
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Creare il file di input per ProxySettingsFilePath
-Il parametro ProxySettingsFilePath usa un file come input. Creare il file usando il formato seguente e passarlo come parametro ProxySettingsFilePath di input.
+Il parametro ProxySettingsFilePath prende un file come input. Creare il file usando il formato seguente e passarlo come parametro ProxySettingsFilePath di input.
 
 ```ini
 [ProxySettings]
@@ -290,7 +290,7 @@ Per le distribuzioni del server di configurazione precedenti maggio 2016, la sca
 
 ## <a name="refresh-configuration-server"></a>Aggiornare il server di configurazione
 
-1. Nel portale di Azure passare a **Insieme di credenziali di Servizi di ripristino** > **Gestisci** > **Infrastruttura di Site Recovery**  >  **Per VMware e computer fisici** > **Server di configurazione**
+1. Nel portale di Azure passare a **Insieme di credenziali di Servizi di ripristino** > **Gestisci** > **Infrastruttura di Site Recovery** > **Per VMware e computer fisici** > **Server di configurazione**
 2. Fare clic sul server di configurazione che si vuole aggiornare.
 3. Nel pannello con i dettagli del server di configurazione scelto fare clic su **Altro** > **Aggiorna server**.
 4. Monitorare lo stato del processo in **Insieme di credenziali di Servizi di ripristino** > **Monitoraggio** > **Processi di Site Recovery**.

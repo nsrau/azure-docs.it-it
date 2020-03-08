@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: a3583a5efd120733ce7f6b71a7594b5636593f99
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795994"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373492"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Annotazioni per il controller di ingresso del gateway applicazione 
 
@@ -39,7 +39,7 @@ Affinché una risorsa in ingresso venga osservata da AGIC, è **necessario annot
 
 Questa annotazione consente la riscrittura del percorso back-end specificato in una risorsa in ingresso con il prefisso specificato in questa annotazione. Ciò consente agli utenti di esporre i servizi i cui endpoint sono diversi dai nomi degli endpoint usati per esporre un servizio in una risorsa di ingresso.
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 ```yaml
 appgw.ingress.kubernetes.io/backend-path-prefix: <path prefix>
@@ -74,7 +74,7 @@ Nell'esempio precedente è stata definita una risorsa di ingresso denominata `go
 
 Il gateway applicazione [può essere configurato](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) in modo da reindirizzare automaticamente gli URL http alle relative controparti HTTPS. Quando questa annotazione è presente e TLS è configurato correttamente, il controller di ingresso di Kubernetes creerà una [regola di routing con una configurazione di reindirizzamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e applicherà le modifiche al gateway applicazione. Il reindirizzamento creato sarà HTTP `301 Moved Permanently`.
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 ```yaml
 appgw.ingress.kubernetes.io/ssl-redirect: "true"
@@ -110,7 +110,7 @@ spec:
 `connection-draining`: questa annotazione consente agli utenti di specificare se abilitare lo svuotamento della connessione.
 `connection-draining-timeout`: questa annotazione consente agli utenti di specificare un timeout dopo il quale il gateway applicazione terminerà le richieste all'endpoint back-end di svuotamento.
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 ```yaml
 appgw.ingress.kubernetes.io/connection-draining: "true"
@@ -143,7 +143,7 @@ spec:
 
 Questa annotazione consente di specificare se abilitare l'affinità basata su cookie.
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 ```yaml
 appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
@@ -174,7 +174,7 @@ spec:
 
 Questa annotazione consente di specificare il timeout della richiesta in secondi dopo il quale il gateway applicazione non riuscirà a eseguire la richiesta se la risposta non viene ricevuta.
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 ```yaml
 appgw.ingress.kubernetes.io/request-timeout: "20"
@@ -210,7 +210,7 @@ Questa annotazione consente di specificare se esporre questo endpoint nell'indir
 > * Per il gateway applicazione che non dispone di un indirizzo IP privato, il traffico in ingresso con `appgw.ingress.kubernetes.io/use-private-ip: "true"` verrà ignorato. Questa operazione si riflette nei log del controller e negli eventi in ingresso per tali ingressi con `NoPrivateIP` avviso.
 
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
@@ -243,7 +243,7 @@ Questa annotazione consente di specificare il protocollo che il gateway applicaz
 > * Sebbene i certificati autofirmati siano supportati nel gateway applicazione, attualmente AGIC supporta solo `https` quando i pod usano un certificato firmato da un'autorità di certificazione ben nota.
 > * Assicurarsi di non usare la porta 80 con HTTPS e la porta 443 con HTTP nei pod.
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 ```yaml
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```

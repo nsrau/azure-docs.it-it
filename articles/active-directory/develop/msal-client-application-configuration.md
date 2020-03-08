@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085013"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377357"
 ---
 # <a name="application-configuration-options"></a>Opzioni di configurazione dell'applicazione
 
@@ -108,7 +108,7 @@ L'URI di reindirizzamento è l'URI al quale il provider di identità invierà di
 Se sei uno sviluppatore di app client pubbliche che usa MSAL:
 - Si vuole usare `.WithDefaultRedirectUri()` nelle applicazioni desktop o UWP (MSAL.NET 4.1 +). Questo metodo imposterà la proprietà URI di reindirizzamento dell'applicazione client pubblica sull'URI di reindirizzamento consigliato predefinito per le applicazioni client pubbliche. 
 
-  Platform  | URI di reindirizzamento  
+  Piattaforma  | URI di reindirizzamento  
   ---------  | --------------
   App desktop (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
   UWP | valore della `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Questo consente l'accesso SSO con il browser impostando il valore sul risultato di WebAuthenticationBroker. GetCurrentApplicationCallbackUri () che è necessario registrare

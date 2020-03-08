@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551761"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365074"
 ---
 # <a name="azure-service-fabric-security"></a>Sicurezza di Azure Service Fabric 
 
@@ -217,7 +217,7 @@ Il [firewall di Azure è un servizio di sicurezza di rete gestito e basato sul c
 Queste regole del firewall sono complementari ai gruppi di sicurezza di rete in uscita consentiti, che includono ServiceFabric e archiviazione, come destinazioni consentite dalla rete virtuale.
 
 ## <a name="tls-12"></a>TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+[STG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 

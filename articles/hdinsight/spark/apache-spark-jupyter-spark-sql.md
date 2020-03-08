@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Creare un cluster Apache Spark usando un modello - Azure HDInsight'
-description: Questa guida di avvio rapido illustra come usare il modello di Resource Manager per creare un cluster Apache Spark in HDInsight di Azure ed eseguire una query Spark SQL semplice.
+title: 'Guida introduttiva: Creare un cluster Apache Spark usando un modello - Azure HDInsight'
+description: Questa guida introduttiva illustra come usare il modello di Resource Manager per creare un cluster Apache Spark in HDInsight di Azure ed eseguire una query Spark SQL semplice.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc
 ms.openlocfilehash: 2637603fa303d57340aa36786443508f1930a481
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049916"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381318"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Avvio rapido: Creare cluster Apache Spark in Azure HDInsight con un modello di Resource Manager
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight con un modello di Resource Manager
 
 In questa guida di avvio rapido si usa un modello di Azure Resource Manager per creare un cluster Apache Spark in Azure HDInsight. Creare quindi un notebook Jupyter e usarlo per eseguire query Spark SQL su tabelle Apache Hive. Azure HDInsight è un servizio di analisi open source, gestito e ad ampio spettro per le aziende. Il framework Apache Spark per HDInsight consente di velocizzare cluster computing e analisi dei dati grazie all'elaborazione in memoria. Il notebook Jupyter consente di interagire con i dati, combinare codice e testo Markdown ed eseguire visualizzazioni semplici.
 
@@ -42,12 +42,12 @@ Il cluster usa i BLOB del servizio di archiviazione di Azure come archiviazione 
 
     | Proprietà | valore |
     |---|---|
-    |**Sottoscrizione**|Selezionare la sottoscrizione di Azure usata per creare il cluster. La sottoscrizione di Azure usata in questa guida di avvio rapido è **&lt;Azure subscription name>** . |
-    | **Gruppo di risorse**|Creare un gruppo di risorse o selezionarne uno esistente. Il gruppo di risorse viene usato per gestire le risorse di Azure per i progetti. Il nuovo nome del gruppo di risorse usato per questa guida di avvio rapido è **myspark20180403rg**.|
-    | **Posizione**|Selezionare una posizione per il gruppo di risorse. Il modello usa questa posizione per la creazione del cluster e per l'archiviazione del cluster predefinita. La posizione usata in questa guida di avvio rapido è **Stati Uniti orientali 2**.|
-    | **ClusterName**|Immettere un nome per il cluster che si vuole creare. Il nuovo nome del cluster usato per questa guida di avvio rapido è **myspark20180403**.|
-    | **Nome di accesso e password del cluster**|Il nome di accesso predefinito è admin. Scegliere una password per l'accesso al cluster. Il nome di accesso usato per questa guida di avvio rapido è **admin**.|
-    | **Nome utente e password SSH**|Scegliere una password per l'utente SSH. Il nome utente SSH usato per questa guida di avvio rapido è **sshuser**.|
+    |**Sottoscrizione**|Selezionare la sottoscrizione di Azure usata per creare il cluster. La sottoscrizione di Azure usata in questa guida introduttiva è **&lt;Azure subscription name>** . |
+    | **Gruppo di risorse**|Creare un gruppo di risorse o selezionarne uno esistente. Il gruppo di risorse viene usato per gestire le risorse di Azure per i progetti. Il nuovo nome del gruppo di risorse usato per questa guida introduttiva è **myspark20180403rg**.|
+    | **Posizione**|Selezionare una posizione per il gruppo di risorse. Il modello usa questa posizione per la creazione del cluster e per l'archiviazione del cluster predefinita. La posizione usata in questa guida introduttiva è **Stati Uniti orientali 2**.|
+    | **ClusterName**|Immettere un nome per il cluster che si vuole creare. Il nuovo nome del cluster usato per questa guida introduttiva è **myspark20180403**.|
+    | **Nome di accesso e password del cluster**|Il nome di accesso predefinito è admin. Scegliere una password per l'accesso al cluster. Il nome di accesso usato per questa guida introduttiva è **admin**.|
+    | **Nome utente e password SSH**|Scegliere una password per l'utente SSH. Il nome utente SSH usato per questa guida introduttiva è **sshuser**.|
 
     ![Creare un cluster Spark in HDInsight usando un modello di Azure Resource Manager](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Creare un cluster Spark in HDInsight usando un modello di Azure Resource Manager")
 

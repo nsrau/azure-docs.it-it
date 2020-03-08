@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839469"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361308"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -37,7 +37,7 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
    3. **Gruppo di risorse**: gruppo di risorse di Azure in cui creare l'account. 
    4. **Posizione**: data center di Azure per l'account di Data Lake Analytics. 
    5. **Data Lake Store**: archivio predefinito da usare per l'account di Data Lake Analytics. L'account di Azure Data Lake Store e quello di Data Lake Analytics devono trovarsi nella stessa posizione.
-4. Fai clic su **Crea**. 
+4. Fare clic su **Crea**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminare un account di Data Lake Analytics
 
@@ -55,7 +55,7 @@ Prima di eliminare un account di Data Lake Analytics, eliminare il relativo acco
 
 Data Lake Analytics supporta le origini dati seguenti:
 
-* Archivio Data Lake
+* Data Lake Store
 * Archiviazione di Azure
 
 Per esplorare le origini dati ed eseguire operazioni di gestione dei file di base è possibile usare Esplora dati. 
@@ -135,7 +135,7 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
     2. **Priorità**: i numeri più bassi hanno maggiore priorità. Se due processi sono in coda, verrà eseguito per primo quello con la priorità più bassa.
     3. **Parallelismo**: numero massimo di processi di calcolo da riservare per il processo.
 
-3. Fare clic su **Submit Job**.
+3. Fare clic su **Invia processo**.
 
 ### <a name="monitor-jobs"></a>Monitorare i processi
 

@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701400"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375670"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
 
@@ -46,11 +46,11 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parametro |  | Description |
+| Parametro |  | Descrizione |
 | --- | --- | --- |
-| ID | Obbligatorio | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
-| Versione | Obbligatorio | Questo parametro deve essere impostato su **2.0**. |
-| IssueInstant | Obbligatorio | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
+| ID | Obbligatoria | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
+| Versione | Obbligatoria | Questo parametro deve essere impostato su **2.0**. |
+| IssueInstant | Obbligatoria | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
 | AssertionConsumerServiceUrl | Facoltativo | Se specificato, il parametro deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
 | ForceAuthn | Facoltativo | Si tratta di un valore booleano. Se è True, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
 | IsPassive | Facoltativo | È un valore booleano che specifica se Azure AD deve autenticare l'utente in modalità invisibile, senza interazione dell'utente, usando il cookie di sessione, se è disponibile. In questo caso Azure AD tenterà di autenticare l'utente usando il cookie di sessione. |
@@ -99,7 +99,7 @@ Se viene specificato, non includere l'attributo `ProxyCount` e l'elemento `IDPLi
 ### <a name="signature"></a>Firma
 Non includere un elemento `Signature` negli elementi `AuthnRequest` perché Azure AD non supporta le richieste di autenticazione firmate.
 
-### <a name="subject"></a>Argomento
+### <a name="subject"></a>Oggetto
 Azure AD ignora l'elemento `Subject` degli elementi `AuthnRequest`.
 
 ## <a name="response"></a>Risposta
@@ -210,7 +210,7 @@ Per generare questa firma digitale, Azure AD usa la chiave di firma specificata 
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Argomento
+#### <a name="subject"></a>Oggetto
 
 Specifica l'entità oggetto delle istruzioni nell'asserzione. Contiene un elemento `NameID` che rappresenta l'utente autenticato. Il valore `NameID` è un identificatore di destinazione che viene indirizzato solo al provider di servizi destinatario del token. È persistente: può essere revocato, ma mai riassegnato. È anche opaco perché non rivela alcun dettaglio relativo all'utente e non può essere usato come identificatore per le query di attributi.
 

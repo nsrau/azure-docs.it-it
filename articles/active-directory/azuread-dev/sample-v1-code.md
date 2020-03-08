@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 74da5b84fafd7f7c60d07fc90b05c051c1fa2a3e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 9b4479436077dbad8cf2fb4dc40954194c138981
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164396"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377686"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Esempi di codice di Azure Active Directory (endpoint v1.0)
 
@@ -54,7 +54,7 @@ Questo esempio illustra come scrivere un'applicazione a pagina singola protetta 
 
 Gli esempi seguenti illustrano le applicazioni Web che eseguono l'accesso degli utenti. Alcune di queste applicazioni chiamano anche Microsoft Graph o un'API Web a nome dell'utente connesso.
 
- Piattaforma | Esegue solo l'accesso degli utenti | Chiama Microsoft Graph o AAD Graph| Chiama un'altra API Web ASP.NET o ASP.NET Core 2.0
+ Piattaforma | Esegue solo l'accesso degli utenti | Chiama Microsoft Graph | Chiama un'altra API Web ASP.NET o ASP.NET Core 2.0
  -------- | ------------------- | --------------------- | -------------------------
 ![Questa immagine mostra il logo di ASP.NET](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
 ![Questa immagine mostra il logo di ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
@@ -125,10 +125,6 @@ Per esempi ed esercitazioni che mostrano modelli di utilizzo diversi per l'API M
 
 ## <a name="see-also"></a>Vedere anche
 
-[Guida per gli sviluppatori di Azure Active Directory](v1-overview.md)
-
-[Librerie di autenticazione di Azure Active Directory](active-directory-authentication-libraries.md)
-
-[Concetti e riferimenti relativi all'API Graph di Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
-
-[Libreria helper dell'API Graph di Azure AD](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+- [Guida per gli sviluppatori di Azure Active Directory](v1-overview.md)
+- [Librerie di autenticazione di Azure Active Directory](active-directory-authentication-libraries.md)
+- [Concetti e informazioni di riferimento sull'API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)

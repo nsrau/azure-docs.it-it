@@ -8,11 +8,11 @@ ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272946"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375142"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -22,7 +22,7 @@ Azure Analysis Services è una piattaforma distribuita come servizio (PaaS) comp
 
 ![Origini dati](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Video:** guardare [Panoramica di Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) per scoprire come Azure Analysis Services si integra con le funzionalità BI generali di Microsoft.
+**Video:** guardare [Azure Analysis Services Overview](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) (Panoramica di Azure Analysis Services) per scoprire come Azure Analysis Services si integra con le funzionalità BI generali di Microsoft.
 
 ## <a name="get-up-and-running-quickly"></a>Operazioni iniziali rapide
 
@@ -260,7 +260,7 @@ Analysis Services è costituito da una vivace community di utenti. È possibile 
 > [Iscriversi per ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Creare un server - Portale](analysis-services-create-server.md)   
+> [Guida introduttiva: Creare un server - Portale](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Creare un server: PowerShell](analysis-services-create-powershell.md)  
+> [Guida introduttiva: Creare un server - PowerShell](analysis-services-create-powershell.md)  

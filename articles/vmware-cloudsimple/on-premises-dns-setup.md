@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS)-configurare DNS per AVS private cloud
-description: Viene descritto come configurare la risoluzione dei nomi DNS per l'accesso al server vCenter in un cloud privato AVS da workstation locali
+title: 'Soluzione VMware di Azure di CloudSimple: configurare DNS per il cloud privato CloudSimple'
+description: Viene descritto come configurare la risoluzione dei nomi DNS per l'accesso al server vCenter in un cloud privato CloudSimple da workstation locali
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,26 +8,26 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 12c4362ae1b075af132d5971f4fe0461c9d91733
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083093"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364412"
 ---
-# <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurare DNS per la risoluzione dei nomi per AVS private cloud vCenter Access da workstation locali
+# <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurare DNS per la risoluzione dei nomi per il cloud privato accesso vCenter da workstation locali
 
-Per accedere al server vCenter in un cloud privato AVS da workstation locali, è necessario configurare la risoluzione degli indirizzi DNS in modo che il server vCenter possa essere indirizzato in base al nome host e all'indirizzo IP.
+Per accedere al server vCenter in un cloud privato CloudSimple dalle workstation locali, è necessario configurare la risoluzione degli indirizzi DNS in modo che il server vCenter possa essere indirizzato in base al nome host e all'indirizzo IP.
 
-## <a name="obtain-the-ip-address-of-the-dns-server-for-your-avs-private-cloud"></a>Ottenere l'indirizzo IP del server DNS per il cloud privato AVS
+## <a name="obtain-the-ip-address-of-the-dns-server-for-your-private-cloud"></a>Ottenere l'indirizzo IP del server DNS per il cloud privato
 
-1. Accedere al [portale AVS](access-cloudsimple-portal.md).
+1. Accedere al portale di [CloudSimple](access-cloudsimple-portal.md).
 
-2. Passare a **risorse** > i **cloud privati AVS** e selezionare il cloud privato AVS a cui si vuole connettersi.
+2. Passare a **risorse** > Cloud **privati** e selezionare il cloud privato a cui si vuole connettersi.
 
-3. Nella pagina **Riepilogo** del cloud privato AVS in informazioni di **base**, copiare l'indirizzo IP del server DNS di AVS private cloud.
+3. Nella pagina **Riepilogo** del cloud privato in informazioni di **base**copiare l'indirizzo IP del server DNS del cloud privato.
 
-    ![Server DNS del cloud privato AVS](media/private-cloud-dns-server.png)
+    ![Server DNS del cloud privato](media/private-cloud-dns-server.png)
 
 
 Usare una di queste opzioni per la configurazione DNS.
@@ -71,14 +71,14 @@ zone "az.cloudsimple.io"
 5. Immettere il nome della zona e fare clic su **Avanti**.
 
     ![Nuova zona](media/DNS05.png)
-6. Immettere gli indirizzi IP dei server DNS per il cloud privato AVS ottenuti dal portale AVS.
+6. Immettere gli indirizzi IP dei server DNS per il cloud privato ottenuti dal portale di CloudSimple.
 
     ![Nuova zona](media/DNS06.png)
 7. Fare clic su **Avanti** se necessario per completare l'installazione della procedura guidata.
 
 ## <a name="create-a-conditional-forwarder"></a>Creazione di un server d'avanzamento condizionale
 
-Un server d'avanzamento condizionale Invia tutte le richieste di risoluzione dei nomi DNS al server designato. Con questa configurazione, qualsiasi richiesta a *. cloudsimple.io viene trasmessa ai server DNS che si trovano nel cloud privato AVS. Gli esempi seguenti illustrano come configurare i server d'avanzamento su diversi tipi di server DNS.
+Un server d'avanzamento condizionale Invia tutte le richieste di risoluzione dei nomi DNS al server designato. Con questa configurazione, qualsiasi richiesta a *. cloudsimple.io viene trasmessa ai server DNS che si trovano nel cloud privato. Gli esempi seguenti illustrano come configurare i server d'avanzamento su diversi tipi di server DNS.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Creazione di un server d'avanzamento condizionale in un server DNS di binding
 
@@ -99,4 +99,4 @@ zone "az.cloudsimple.io" {
 2. Fare clic con il pulsante destro del mouse su **server d'inoltri condizionali** e selezionare l'opzione per aggiungere un nuovo server d'istruzione.
 
     ![Server di invio condizionale 1 DNS Windows](media/DNS08.png)
-3. Immettere il dominio DNS e l'indirizzo IP dei server DNS nel cloud privato AVS, quindi fare clic su **OK**.
+3. Immettere il dominio DNS e l'indirizzo IP dei server DNS nel cloud privato e fare clic su **OK**.

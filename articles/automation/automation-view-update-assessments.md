@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310085"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372974"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Visualizza le valutazioni degli aggiornamenti di Azure Gestione aggiornamenti
 
@@ -34,7 +34,7 @@ Nelle tabelle seguenti sono elencate le classificazioni di aggiornamento support
 
 ### <a name="windows"></a>Windows
 
-|Classificazione  |Description  |
+|Classificazione  |Descrizione  |
 |---------|---------|
 |Aggiornamenti critici     | Un aggiornamento per un problema specifico che risolve un bug critico non correlato alla sicurezza.        |
 |Aggiornamenti per la sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
@@ -47,7 +47,7 @@ Nelle tabelle seguenti sono elencate le classificazioni di aggiornamento support
 
 ### <a name="linux-2"></a>Linux
 
-|Classificazione  |Description  |
+|Classificazione  |Descrizione  |
 |---------|---------|
 |Aggiornamenti critici e della sicurezza     | Aggiornamenti per un problema specifico o specifico del prodotto, correlato alla sicurezza.         |
 |Altri aggiornamenti     | Tutti gli altri aggiornamenti che non sono critici per natura o che non sono aggiornamenti della sicurezza.        |

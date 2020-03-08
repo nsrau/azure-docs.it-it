@@ -4,11 +4,11 @@ description: Descrive i provider di risorse che supportano Gestione risorse, i r
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.openlocfilehash: ce68762dae14f98a751cb4b619b75ff04a5f655b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478591"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372217"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provider e tipi di risorse di Azure
 

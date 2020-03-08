@@ -1,6 +1,6 @@
 ---
-title: Configurare un server di elaborazione scale-out durante il ripristino di emergenza di macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come impostare il server di elaborazione scale-out durante il ripristino di emergenza di macchine virtuali VMware e server fisici.
+title: Configurare un server di elaborazione con scalabilità orizzontale durante il ripristino di emergenza di macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs '
+description: Questo articolo descrive come configurare un server di elaborazione con scalabilità orizzontale durante il ripristino di emergenza di macchine virtuali VMware e server fisici.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925481"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362815"
 ---
-# <a name="scale-with-additional-process-servers"></a>Ridimensionare con server di elaborazione aggiuntivi
+# <a name="scale-with-additional-process-servers"></a>Scalabilità con server di elaborazione aggiuntivi
 
-Per impostazione predefinita, quando si esegue la replica di server fisici o macchine virtuali VMware in Azure con [Site Recovery](site-recovery-overview.md), nel server di configurazione viene installato un server di elaborazione che è usato per coordinare il trasferimento dei dati tra Site Recovery e l'infrastruttura locale. Per aumentare la capacità e la scalabilità orizzontale della distribuzione della replica, è possibile aggiungere server di elaborazione autonomi aggiuntivi. Questo articolo descrive come configurare un server di elaborazione scale-out.
+Per impostazione predefinita, quando si esegue la replica di server fisici o macchine virtuali VMware in Azure con [Site Recovery](site-recovery-overview.md), nel server di configurazione viene installato un server di elaborazione che è usato per coordinare il trasferimento dei dati tra Site Recovery e l'infrastruttura locale. Per aumentare la capacità e la scalabilità orizzontale della distribuzione della replica, è possibile aggiungere server di elaborazione autonomi aggiuntivi. Questo articolo descrive come configurare un server di elaborazione con scalabilità orizzontale.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, quando si esegue la replica di server fisici o mac
 
 Assicurarsi di aver [pianificato la capacità](site-recovery-plan-capacity-vmware.md) per la replica VMware. Ciò consente di identificare come e quando è necessario distribuire i server di elaborazione aggiuntivi.
 
-Da versione 9.24, materiale sussidiario viene aggiunto durante la selezione dei server di elaborazione per nuove repliche. Server di elaborazione verranno contrassegnati integro, avviso e critico in base a determinati criteri. Per informazioni sui diversi scenari che possono influenzare lo stato del server di elaborazione, vedere la [elaborare avvisi server](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
+Dalla versione 9,24, vengono aggiunte informazioni aggiuntive durante la selezione del server di elaborazione per le nuove repliche. Il server di elaborazione verrà contrassegnato come integro, avviso e critico in base a determinati criteri. Per comprendere scenari diversi che possono influenzare lo stato del server di elaborazione, esaminare gli [avvisi del server di elaborazione](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > L'uso di un componente server di processo clonato non è supportato. Seguire i passaggi in questo articolo per ciascun scale-out PS.
@@ -41,7 +41,7 @@ Verificare i requisiti di dimensione riepilogati nella tabella. In generale, se 
 
 In cui ogni computer di origine protetto è configurato con tre dischi da 100 GB.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Nella tabella seguente sono riepilogati i prerequisiti per il server di elaborazione aggiuntivo.
 

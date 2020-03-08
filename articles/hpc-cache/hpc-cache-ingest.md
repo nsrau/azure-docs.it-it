@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646728"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364939"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Spostare i dati nell'archivio BLOB di Azure
 
@@ -31,7 +31,7 @@ Se non si vuole usare l'utilità di caricamento o si vuole aggiungere contenuto 
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Pre-caricare i dati nell'archivio BLOB con CLFSLoad
 
-È possibile utilizzare l'area di lavoro <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Usare l'utilità CLFSLoad per copiare i dati in un nuovo contenitore di archiviazione BLOB prima di aggiungerli come destinazione di archiviazione. Questa utilità viene eseguita in un singolo sistema Linux e scrive i dati nel formato proprietario necessario per la cache HPC di Azure. CLFSLoad è il modo più efficiente per popolare un contenitore di archiviazione BLOB da usare con la cache.
+È possibile utilizzare il cmdlet <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Usare l'utilità CLFSLoad per copiare i dati in un nuovo contenitore di archiviazione BLOB prima di aggiungerli come destinazione di archiviazione. Questa utilità viene eseguita in un singolo sistema Linux e scrive i dati nel formato proprietario necessario per la cache HPC di Azure. CLFSLoad è il modo più efficiente per popolare un contenitore di archiviazione BLOB da usare con la cache.
 
 L'utilità CLFSLoad è disponibile in base alla richiesta del team di cache HPC di Azure. Chiedere al team il contatto o aprire un ticket di [supporto](hpc-cache-support-ticket.md) per richiedere assistenza.
 

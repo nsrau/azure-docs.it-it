@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980265"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364564"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
@@ -94,7 +94,7 @@ Quando si configura IGNORE_DUP_KEY per diversi tipi di indici, tenere presente l
 Quando si usa il livello di compatibilità originale (1,0), analisi di flusso di Azure usata per modificare i nomi di colonna in lettere minuscole. Questo comportamento è stato corretto nei livelli di compatibilità successivi. Per mantenere il caso, si consiglia ai clienti di passare al livello di compatibilità 1,1 e versioni successive. È possibile trovare altre informazioni sul [livello di compatibilità per i processi di analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 
-## <a name="get-help"></a>Ottenere supporto
+## <a name="get-help"></a>Ottenere aiuto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

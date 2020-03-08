@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77611901"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377349"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API Web-Acquisisci un token
 
@@ -208,7 +208,7 @@ Per altre informazioni, vedere la documentazione del protocollo: [Microsoft Iden
 
 In MSAL.NET `AcquireTokenForClient` utilizza la cache del token dell'applicazione. Tutti gli altri metodi AcquireToken*XX* utilizzano la cache dei token utente. Non chiamare `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient`, perché `AcquireTokenSilent` usa la cache dei token *utente* . `AcquireTokenForClient` controlla la cache del token *dell'applicazione* e la Aggiorna.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Si è usato l'ambito Resource/. default?
 

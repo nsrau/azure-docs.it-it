@@ -4,11 +4,11 @@ description: Come escludere i dischi dalla replica in Azure con Azure Site Recov
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498267"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362934"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Escludere dischi dal ripristino di emergenza
 

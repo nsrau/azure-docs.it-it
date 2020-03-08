@@ -8,11 +8,11 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961363"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362820"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza di VMware in Azure
 
@@ -82,7 +82,7 @@ Dopo aver usato [Site Recovery Deployment Planner](site-recovery-deployment-plan
   * Il valore del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** specifica il numero di thread usati per il trasferimento dati di un disco, durante la replica iniziale o differenziale. Un valore più elevato aumenta la larghezza di banda di rete usata per la replica.
   * Il valore del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** specifica il numero di thread usati per il trasferimento dati durante il failback.
 
-### <a name="throttle-bandwidth"></a>Limitare la larghezza di banda
+### <a name="throttle-bandwidth"></a>Limitazione della larghezza di banda
 
 1. Aprire lo snap-in MMC di Azure Backup nel computer usato come server di elaborazione. Per impostazione predefinita, un collegamento per il backup è disponibile sul desktop o nella cartella seguente: c:\Programmi\Microsoft Azure Recovery Services Agent\bin.
 2. Nello snap-in selezionare **Modifica proprietà**.
@@ -92,7 +92,7 @@ Dopo aver usato [Site Recovery Deployment Planner](site-recovery-deployment-plan
 
     ![Screenshot della finestra di dialogo Proprietà di Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-È anche possibile usare il cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) per impostare la limitazione. Ecco un esempio:
+È anche possibile usare il cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) per impostare la limitazione. Ad esempio:
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday

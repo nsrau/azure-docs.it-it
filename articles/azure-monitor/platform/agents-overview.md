@@ -8,11 +8,11 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668520"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361945"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -32,8 +32,8 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | | Diagnostica<br>estensione (WAD) | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|
 | Ambienti supportati | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | 
-| Requisiti dell'agente  | None | None | Richiede Log Analytics Agent |
-| Dati raccolti | Registri eventi<br>Eventi ETW<br>Prestazioni<br>Log basati su file<br>Log IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Registri eventi<br><IIS logs> prestazioni<br>Log basati su file<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
+| Requisiti dell'agente  | nessuno | nessuno | Richiede Log Analytics Agent |
+| Dati raccolti | Log eventi<br>Eventi ETW<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Log eventi<br><IIS logs> prestazioni<br>Log basati su file<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
 | Dati inviati a | Archiviazione di Azure<br>Metriche di monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
 
 
@@ -42,8 +42,8 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 | | Diagnostica<br>estensione (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|
 | Ambienti supportati | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
-| Requisiti dell'agente  | None | None | None | Richiede Log Analytics Agent |
-| Dati raccolti | Syslog<br>Prestazioni | Prestazioni | Syslog<br>Prestazioni| Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
+| Requisiti dell'agente  | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
+| Dati raccolti | syslog<br>Prestazioni | Prestazioni | syslog<br>Prestazioni| Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
 | Dati inviati a | Archiviazione di Azure<br>Hub eventi | Metriche di monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
 
 ## <a name="log-analytics-agent"></a>Agente di Log Analytics

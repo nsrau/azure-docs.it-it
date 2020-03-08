@@ -11,11 +11,11 @@ ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206607"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365384"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -93,13 +93,13 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
    
 ### <a id="audit-storage-destination">Controllo nella destinazione di archiviazione</a>
 
-Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**, I log antecedenti al periodo di conservazione vengono eliminati.
+Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
 
    > [!IMPORTANT]
    > - Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
    > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo conservazione abilitata)
 
-   ![account di archiviazione](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+   ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 Per configurare un account di archiviazione in una rete virtuale o un firewall, è necessario un [Active Directory amministratore](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) sul server, abilitare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nell'account di archiviazione. Inoltre, è necessario disporre dell'autorizzazione ' Microsoft. Authorization/roleAssignments/Write ' per l'account di archiviazione selezionato.
 

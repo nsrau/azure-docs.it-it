@@ -4,11 +4,11 @@ description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666157"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375059"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
 Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](../../azure-monitor/app/app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
@@ -66,7 +66,7 @@ Con un solo clic è possibile esaminare i campioni rappresentativi per ognuno di
 ## <a name="custom-tracing-and-log-data"></a>Dati di traccia e di log personalizzati
 Per ottenere dati di diagnostica specifici per l'app, è possibile inserire codice per l'invio di dati di telemetria personalizzati. Visualizzato in ricerca diagnostica insieme alla richiesta, alla visualizzazione pagina e ad altri dati raccolti automaticamente.
 
-Le opzioni disponibili sono diverse:
+Sono disponibili diverse opzioni:
 
 * [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) viene usato in genere per il monitoraggio dei modelli di utilizzo, ma i dati inviati vengono visualizzati anche in Eventi personalizzati nella ricerca diagnostica. Gli eventi sono denominati e possono includere proprietà di stringa e metriche numeriche, in base alle quali è possibile [filtrare le ricerche diagnostiche](../../azure-monitor/app/diagnostic-search.md).
 * [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) permette di inviare dati più lunghi, ad esempio informazioni POST.
@@ -197,7 +197,7 @@ Se però sono presenti reindirizzamenti attivi, aggiungere le righe seguenti all
 ## <a name="mvc"></a>MVC
 A partire da Application Insights Web SDK versione 2.6 (beta 3 e versioni successive), Application Insights raccoglie le eccezioni non gestite generate automaticamente nei metodi dei controller MVC 5+. Se in precedenza è stato aggiunto un gestore personalizzato per tenere traccia di tali eccezioni (come descritto negli esempi seguenti), è possibile rimuoverlo per evitare il doppio rilevamento delle eccezioni.
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio,
+Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
 
 * Eccezioni generate dai costruttori dei controller.
 * Eccezioni generate dai gestori di messaggi.
@@ -289,7 +289,7 @@ Registrare AiHandleErrorAttribute come filtro globale in FilterConfig.cs:
 ## <a name="web-api"></a>API Web
 A partire da Application Insights Web SDK versione 2.6 (beta 3 e versioni successive), Application Insights raccoglie le eccezioni non gestite generate automaticamente nei metodi dei controller per WebAPI 2+. Se in precedenza è stato aggiunto un gestore personalizzato per tenere traccia di tali eccezioni (come descritto negli esempi seguenti), è possibile rimuoverlo per evitare il doppio rilevamento delle eccezioni.
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio,
+Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
 
 * Eccezioni generate dai costruttori dei controller.
 * Eccezioni generate dai gestori di messaggi.

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650656"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380864"
 ---
 # <a name="createuidefinition-functions"></a>Funzioni di CreateUiDefinition
 Questa sezione contiene le firme per tutte le funzioni supportate di CreateUiDefinition.
@@ -446,7 +446,7 @@ L'esempio seguente restituisce `false`:
 "[and(equals(0, 0), greater(1, 2))]"
 ```
 
-### <a name="or"></a>Oppure
+### <a name="or"></a>o
 Restituisce `true` se almeno uno dei parametri restituisce `true`. Questa funzione supporta solo due o più parametri di tipo booleano.
 
 L'esempio seguente restituisce `true`:
@@ -488,7 +488,7 @@ Si supponga che `element1` e `element2` non siano definiti. L'esempio seguente r
 ## <a name="conversion-functions"></a>Funzioni di conversione
 Queste funzioni possono essere usate per convertire i valori tra codifiche e tipi di dati JSON.
 
-### <a name="int"></a>int
+### <a name="int"></a>INT
 Converte il parametro in un valore intero. Questa funzione supporta parametri di tipo numero e stringa.
 
 L'esempio seguente restituisce `1`:
@@ -687,7 +687,7 @@ L'esempio seguente restituisce `2`:
 "[mod(6, 4)]"
 ```
 
-### <a name="min"></a>min
+### <a name="min"></a>Min
 Restituisce il più piccolo di due numeri.
 
 L'esempio seguente restituisce `1`:

@@ -6,11 +6,11 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671495"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362075"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -37,7 +37,7 @@ La tabella seguente riepiloga i tipi di campionamento disponibili per ogni SDK e
 | Funzioni di Azure | [Sì (attiva per impostazione predefinita)](#configuring-adaptive-sampling-for-azure-functions) | No | Solo se non è attivo alcun altro campionamento |
 | Java | No | [Sì](#configuring-fixed-rate-sampling-for-java-applications) | Solo se non è attivo alcun altro campionamento |
 | Python | No | [Sì](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Solo se non è attivo alcun altro campionamento |
-| Tutti gli altri valori | No | No | [Sì](#ingestion-sampling) |
+| Tutti gli altri | No | No | [Sì](#ingestion-sampling) |
 
 > [!NOTE]
 > Le informazioni nella maggior parte di questa pagina sono valide per le versioni correnti degli SDK Application Insights. Per informazioni sulle versioni precedenti degli SDK, [vedere la sezione seguente](#older-sdk-versions).
