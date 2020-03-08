@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0050112dc7d9d2fa20da612691f1ff0927df93fb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662349"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385337"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Metriche personalizzate in Monitoraggio di Azure
 
@@ -28,7 +28,7 @@ Le metriche **personalizzate** possono essere raccolte tramite i dati di telemet
 
 Quando si inviano le metriche personalizzate a Monitoraggio di Azure, ogni punto dati (o valore) segnalato deve includere le informazioni seguenti.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 Per inviare le metriche personalizzate a Monitoraggio di Azure, l'entità a cui inviare la metrica deve disporre di un token di Azure Active Directory (Azure AD) valido nell'intestazione **Bearer** della richiesta. Sono supportati alcuni modi per acquisire un token di connessione valido:
 1. [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
 2. [Entità servizio di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
@@ -59,10 +59,10 @@ Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con u
 ### <a name="namespace"></a>Spazio dei nomi
 Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usando gli spazi dei nomi, è possibile isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Ad esempio, si potrebbe avere uno spazio dei nomi denominato **contosomemorymetrics** che tiene traccia delle metriche di utilizzo della memoria che profilano l'app. Un altro spazio dei nomi denominato **contosoapptransaction** può tenere traccia di tutte le metriche sulle transazioni utente nell'applicazione.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 **Nome** è il nome della metrica che viene segnalata. In genere, il nome è sufficientemente descrittivo per aiutare a identificare l'elemento misurato. Un esempio è una metrica che misura il numero di byte di memoria utilizzati su una determinata macchina virtuale. Potrebbe avere un nome di metrica come ad esempio **Byte di memoria In uso**.
 
-### <a name="dimension-keys"></a>Chiavi dimensione
+### <a name="dimension-keys"></a>Chiavi di dimensione
 Una dimensione è una coppia chiave o valore che consente di descrivere caratteristiche aggiuntive sulla metrica raccolta. Usando le caratteristiche aggiuntive, è possibile raccogliere altri dati sulla metrica, così da ottenere informazioni più dettagliate. Alla metrica **Byte di memoria in uso**, ad esempio, può essere associata una chiave di dimensione denominata **Processo** che acquisisce il numero di byte di memoria usati da ogni processo in una macchina virtuale. Usando tale chiave, è possibile filtrare la metrica per visualizzare la quantità di memoria usata da processi specifici o per identificare i primi 5 processi per uso della memoria.
 Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni. Una metrica personalizzata può avere fino a 10 dimensioni.
 
@@ -152,17 +152,21 @@ Nell'esempio seguente si crea una metrica personalizzata denominata **Byte di me
 Non è necessario predefinire una metrica personalizzata in Monitoraggio di Azure prima che venga generata. Ogni punto dati di metrica pubblicato contiene spazio dei nomi, nome e informazioni sulle dimensioni. In tal modo la prima volta che una metrica personalizzata viene generata in Monitoraggio di Azure, viene creata automaticamente una definizione di metrica. Questa definizione di metrica è quindi individuabile in qualsiasi risorsa per cui viene generata la metrica tramite le definizioni di metrica.
 
 > [!NOTE]  
-> Monitoraggio di Azure non supporta ancora la definizione **Unità** per una metrica personalizzata.
+> Monitoraggio di Azure non supporta ancora la definizione di **unità** per una metrica personalizzata.
 
 ## <a name="using-custom-metrics"></a>Uso delle metriche personalizzate
 Dopo l'invio delle metriche personalizzate a Monitoraggio di Azure, è possibile esplorarle tramite il portale di Azure e sottoporle a query tramite le API REST di Monitoraggio di Azure. È inoltre possibile creare avvisi su di esse per ricevere una notifica quando vengono soddisfatte determinate condizioni.
+
+> [!NOTE]
+> È necessario essere un ruolo di lettore o collaboratore per visualizzare le metriche personalizzate.
+
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Esplorare le metriche personalizzate tramite il portale di Azure
-1.  Accedere al [portale di Azure](https://portal.azure.com).
-2.  Selezionare il riquadro **Monitoraggio**.
-3.  Selezionare **Metriche**.
-4.  Selezionare una risorsa per cui sono state generate metriche personalizzate.
-5.  Selezionare lo spazio dei nomi di metriche per la metrica personalizzata.
-6.  Selezionare la metrica personalizzata.
+1.    Accedere al [portale di Azure](https://portal.azure.com).
+2.    Selezionare il riquadro **Monitoraggio**.
+3.    Selezionare **Metriche**.
+4.    Selezionare una risorsa per cui sono state generate metriche personalizzate.
+5.    Selezionare lo spazio dei nomi di metriche per la metrica personalizzata.
+6.    Selezionare la metrica personalizzata.
 
 ## <a name="supported-regions"></a>Aree supportate
 Nella versione di anteprima pubblica la possibilità di pubblicare metriche personalizzate è disponibile solo in un subset di aree di Azure. Tale restrizione significa che le metriche possono essere pubblicate solo per le risorse in una delle aree supportate. La seguente tabella elenca il set di aree di Azure supportate per le metriche personalizzate. Elenca inoltre gli endpoint corrispondenti nei quali le metriche per le risorse in tali aree devono essere pubblicate:

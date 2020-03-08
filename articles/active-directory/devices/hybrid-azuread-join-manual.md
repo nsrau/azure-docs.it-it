@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed28b4bb8ec61455168f50058c8cdcaf9f50717d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: HT
+ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882858"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672244"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
+# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
 Con la gestione dei dispositivi in Azure Active Directory (Azure AD), è possibile assicurarsi che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard di sicurezza e conformità dell'organizzazione. Per altre informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](overview.md).
 
 > [!TIP]
 > Se si prende in considerazione l'uso di Azure AD Connect, vedere le esercitazioni correlate per i domini [gestiti](hybrid-azuread-join-managed-domains.md) o [federati](hybrid-azuread-join-federated-domains.md). Con Azure AD Connect, è possibile semplificare la configurazione di aggiunta ad Azure AD ibrido in modo significativo.
 
-Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositivi aggiunti a un dominio in un ambiente Active Directory locale, è possibile configurare dispositivi aggiunti all'identità ibrida di Azure AD. In questa esercitazione si apprenderà come:
+Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositivi aggiunti a un dominio in un ambiente Active Directory locale, è possibile configurare dispositivi aggiunti all'identità ibrida di Azure AD. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare manualmente l'aggiunta ad Azure AD ibrido
@@ -35,7 +35,7 @@ Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositi
 > * Verificare i dispositivi aggiunti
 > * Risolvere i problemi di implementazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa esercitazione presuppone che l'utente abbia familiarità con:
 
@@ -185,7 +185,7 @@ Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti:
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
+> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
 
 > [!NOTE]
 >Se non si usa AD FS come servizio federativo locale, seguire le istruzioni del fornitore per verificare che siano supportati endpoint WS-Trust 1.3 o 2005 e che questi vengano pubblicati tramite file Metadata Exchange (MEX).
@@ -503,7 +503,7 @@ Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello infe
 
 Per registrare i dispositivi Windows di livello inferiore, verificare che l'impostazione per consentire agli utenti di registrare i dispositivi in Azure AD sia abilitata. Per trovare questa impostazione nel portale di Azure, selezionare **Azure Active Directory** > **Utenti e gruppi** > **Impostazioni del dispositivo**.
 
-Il criterio seguente deve essere impostato su **Tutti**: **Gli utenti possono registrare i loro dispositivi con Azure AD**.
+Il criterio seguente deve essere impostato su **tutti**: **gli utenti possono registrare i propri dispositivi con Azure ad**.
 
 ![Il pulsante Tutti consente agli utenti di registrare i dispositivi](./media/hybrid-azuread-join-manual/23.png)
 
@@ -549,7 +549,7 @@ Per registrare i dispositivi Windows di livello inferiore, è necessario scarica
 
 ## <a name="verify-joined-devices"></a>Verificare i dispositivi aggiunti
 
-Per verificare i dispositivi aggiunti correttamente nell'organizzazione, è possibile usare il cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) del [modulo di Azure Active Directory per PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Per verificare i dispositivi aggiunti correttamente nell'organizzazione, è possibile usare il cmdlet [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) del [modulo di Azure Active Directory per PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 L'output del cmdlet mostra i dispositivi registrati e aggiunti ad Azure AD. Per ottenere tutti i dispositivi, usare il parametro **-All** e quindi filtrare i risultati con la proprietà **deviceTrustType**. I dispositivi aggiunti a un dominio hanno il valore **Aggiunto a un dominio**.
 

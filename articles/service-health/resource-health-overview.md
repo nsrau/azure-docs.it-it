@@ -3,12 +3,12 @@ title: Panoramica di Integrità risorse di Azure
 description: Panoramica su Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f22b41e66f15dd12d973c5744870969fae795bc1
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356787"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924946"
 ---
 # <a name="resource-health-overview"></a>Panoramica di Integrità risorse
  
@@ -38,7 +38,7 @@ Non *disponibile* significa che il servizio ha rilevato una piattaforma o un eve
 
 #### <a name="platform-events"></a>Eventi piattaforma
 
-Questi eventi vengono attivati da più componenti dell'infrastruttura di Azure. Includono le azioni pianificate (ad esempio, la manutenzione pianificata) e gli eventi imprevisti (ad esempio, il riavvio di un host non pianificato).
+Questi eventi vengono attivati da più componenti dell'infrastruttura di Azure. Sono incluse le azioni pianificate (ad esempio, la manutenzione pianificata) e gli eventi imprevisti (ad esempio, il riavvio di un host non pianificato o l'hardware host danneggiato stimato per avere esito negativo dopo un intervallo di tempo specificato).
 
 Integrità risorse fornisce dettagli aggiuntivi sull'evento e sul processo di ripristino. Consente inoltre di contattare supporto tecnico Microsoft anche se non si dispone di un contratto di supporto attivo.
 
@@ -80,7 +80,7 @@ Se si ritiene che lo stato di integrità corrente non sia corretto, è possibile
 
 ![Elenco di eventi di Integrità risorse nelle ultime due settimane](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Introduzione
 
 Per aprire Integrità risorse per una risorsa:
 
