@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 600b0f598c54b5db154fd488aebf26a6fcdc0b1d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383462"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925690"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Esercitazione: creare un tenant in un desktop virtuale Windows
 
@@ -72,7 +72,7 @@ L'assegnazione del ruolo applicazione TenantCreator a un utente di Azure Active 
 
 Per assegnare il ruolo applicazione TenantCreator:
 
-1. Accedere al  [portale di Azure](https://portal.azure.com)  per gestire il ruolo applicazione TenantCreator. Cercare e selezionare **Applicazioni aziendali**. Se si usano più tenant di Azure Active Directory, la procedura consigliata è di aprire una sessione privata del browser e di copiare e incollare gli URL nella barra degli indirizzi.
+1. Passare alla [portale di Azure](https://portal.azure.com) per gestire il ruolo applicazione TenantCreator. Cercare e selezionare **Applicazioni aziendali**. Se si usano più tenant di Azure Active Directory, la procedura consigliata è di aprire una sessione privata del browser e di copiare e incollare gli URL nella barra degli indirizzi.
 
    ![Screenshot della ricerca di applicazioni aziendali nel portale di Azure](media/azure-portal-enterprise-applications.png)
 2. All'interno di **Applicazioni aziendali** cercare **Desktop virtuale Windows**. Verranno visualizzate le due applicazioni per cui è stato fornito il consenso nella sezione precedente. Tra queste due app, selezionare **Desktop virtuale Windows**.

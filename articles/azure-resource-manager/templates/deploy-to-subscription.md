@@ -2,17 +2,23 @@
 title: Distribuire le risorse nella sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 2e747b7faa6e9766a577b472cc3e283d6223109e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/06/2020
+ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379118"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925356"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
-In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare risorse a livello di sottoscrizione. Le distribuzioni a livello di sottoscrizione vengono usate per eseguire azioni che hanno senso a tale livello, ad esempio la creazione di gruppi di risorse o l'assegnazione del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
+In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare risorse in:
+
+* livello di sottoscrizione (trattato in questo articolo)
+* [livello gruppo di gestione](deploy-to-management-group.md)
+* [livello tenant](deploy-to-tenant.md)
+
+Le distribuzioni a livello di sottoscrizione vengono usate per eseguire azioni che hanno senso a tale livello, ad esempio la creazione di gruppi di risorse o l'assegnazione del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
 
 Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della riga di comando di Azure, PowerShell o l'API REST. Il portale di Azure non supporta la distribuzione nel livello di sottoscrizione.
 
@@ -21,7 +27,7 @@ Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della
 È possibile distribuire i tipi di risorse seguenti a livello di sottoscrizione:
 
 * [bilanci](/azure/templates/microsoft.consumption/budgets)
-* [distribuzioni](/azure/templates/microsoft.resources/deployments)
+* [distribuzioni](/azure/templates/microsoft.resources/deployments) : per i modelli annidati che vengono distribuiti ai gruppi di risorse.
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -88,12 +94,12 @@ Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni
 
 * La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
 * Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
-* La funzione [resourceId()](template-functions-resource.md#resourceid) funzione è supportata. Usare la funzione per ottenere l'ID risorsa per le risorse che vengono usate in distribuzioni a livello di sottoscrizione. Non specificare un valore per il parametro del gruppo di risorse.
+* Usare la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di sottoscrizione.
 
   Ad esempio, per ottenere l'ID risorsa per una definizione dei criteri, usare:
   
   ```json
-  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
   Il formato dell'ID risorsa restituito è il seguente:
@@ -101,8 +107,6 @@ Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
-
-  In alternativa, usare la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) per ottenere l'ID risorsa per una risorsa a livello di sottoscrizione.
 
 ## <a name="create-resource-groups"></a>Creare gruppi di risorse
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 9b69feef7c6587f7356648e6a6828277ba500aea
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: c166f4cace6a8cc25b36a84f4614033801e69a51
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365382"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925963"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Acquisire eventi tramite Hub eventi di Azure in Archiviazione BLOB di Azure o Azure Data Lake Storage
 Hub eventi di Azure consente di acquisire automaticamente i dati in streaming in hub eventi in un [Archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o Azure Data Lake storage account di [generazione 1 o gen 2](https://azure.microsoft.com/services/data-lake-store/) di propria scelta, con la flessibilità aggiuntiva di specificare un intervallo di tempo o di dimensioni. La configurazione di Acquisizione è rapida, non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le [unità elaborate](event-hubs-scalability.md#throughput-units) in Hub eventi. Acquisizione di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
@@ -94,10 +94,11 @@ Un esempio completo end-to-end è disponibile nel repository Flussi scalabili:
 
 ### <a name="use-apache-spark"></a>Usare Apache Spark
 
-[Apache Spark][Apache Spark] è un motore di analisi unificato per l'elaborazione di dati su larga scala. Supporta diversi linguaggi, tra cui SQL, e può accedere facilmente ad Archiviazione BLOB di Azure. Sono disponibili due opzioni per l'esecuzione di Apache Spark in Azure ed entrambe consentono un accesso semplificato ad Archiviazione BLOB di Azure:
+[Apache Spark][Apache Spark] è un motore di analisi unificato per l'elaborazione di dati su larga scala. Supporta diversi linguaggi, tra cui SQL, e può accedere facilmente ad Archiviazione BLOB di Azure. Sono disponibili alcune opzioni per eseguire Apache Spark in Azure e ognuna consente di accedere facilmente all'archivio BLOB di Azure:
 
 - [HDInsight: indirizzare i file in archiviazione di Azure][HDInsight: Address files in Azure storage]
 - [Azure Databricks: archiviazione BLOB di Azure][Azure Databricks: Azure Blob Storage]
+- [Servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/spark-job) 
 
 ### <a name="use-avro-tools"></a>Usare Avro Tools
 

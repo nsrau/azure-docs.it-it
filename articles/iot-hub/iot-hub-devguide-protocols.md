@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626180"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668402"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Informazioni di riferimento: scegliere un protocollo di comunicazione
 
@@ -29,7 +29,7 @@ Per informazioni sulle modalità di supporto dei protocolli alle funzionalità s
 
 Nella tabella seguente vengono fornite le indicazioni generali per la scelta del protocollo:
 
-| Protocol | Quando scegliere questo protocollo |
+| Protocollo | Quando scegliere questo protocollo |
 | --- | --- |
 | MQTT <br> MQTT su WebSocket |Viene usato su tutti i dispositivi che non richiedono la connessione di più dispositivi, ognuno con le sue credenziali per dispositivo, sulla stessa connessione TLS. |
 | AMQP <br> AMQP su WebSocket |Usare in gateway cloud e sul campo per sfruttare il vantaggio della connessione multiplexing tra dispositivi. |
@@ -48,13 +48,13 @@ Nella scelta del protocollo per le comunicazioni sul lato dispositivo occorre pr
 * **Dimensioni del payload**. MQTT e AMQP sono protocolli binari, quindi hanno payload più compatti rispetto a HTTPS.
 
 > [!WARNING]
-> Quando si usa HTTPS, ogni dispositivo deve eseguire il polling dei messaggi da cloud a dispositivo ogni 25 minuti o più. In fase di sviluppo è comunque accettabile eseguire il polling con una frequenza maggiore di 25 minuti.
+> Quando si usa HTTPS, ogni dispositivo deve eseguire il polling dei messaggi da cloud a dispositivo non più di una volta ogni 25 minuti. In fase di sviluppo, ogni dispositivo può eseguire il polling più frequentemente, se lo si desidera.
 
 ## <a name="port-numbers"></a>Numeri di porta
 
 I dispositivi possono comunicare con l'hub IoT in Azure tramite una serie di protocolli. In genere, la scelta del protocollo è determinata dai requisiti specifici della soluzione. Nella tabella seguente sono elencate le porte in uscita che devono essere aperte affinché un dispositivo possa utilizzare un protocollo specifico:
 
-| Protocol | Port |
+| Protocollo | Porta |
 | --- | --- |
 | MQTT |8883 |
 | MQTT su WebSocket |443 |

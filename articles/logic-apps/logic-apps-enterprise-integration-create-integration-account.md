@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251003"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899269"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creare e gestire gli account di integrazione per B2B Enterprise Integrations in app per la logica di Azure
 
@@ -33,7 +33,7 @@ In questo argomento viene illustrato come eseguire queste attività:
 * Spostare l'account di integrazione in un gruppo di risorse o in una sottoscrizione di Azure differente.
 * Eliminare l'account di integrazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -55,7 +55,7 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
 
    ![Specificare i dettagli dell'account di integrazione](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Proprietà | Obbligatoria | Valore | Descrizione |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Nome** | Sì | <*integration-account-name*> | Nome dell'account di integrazione, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). In questo esempio viene usato "Fabrikam-Integration". |
    | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |
@@ -206,7 +206,7 @@ Se si vuole collegare l'app per la logica a un altro account di integrazione o n
    },
    ```
 
-   Ad esempio,
+   Ad esempio:
 
    ![Trova oggetto "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

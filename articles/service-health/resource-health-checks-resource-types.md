@@ -3,12 +3,12 @@ title: Tipi di risorse supportati tramite Integrità risorse di Azure|Microsoft 
 description: Tipi di risorse supportati tramite Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f5d1c720d3cbafafc81276a968abf2003bbd46ce
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: ec194287e8a8e06d3bb14c4b202cc2f11063d1dd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373463"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925380"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
@@ -41,7 +41,7 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Controlli eseguiti|
 |---|
-|<ul><li>Il server host è operativo?</li><li>L'avvio del sistema operativo host è stato completato?</li><li>Sono stati eseguiti il provisioning e l'accensione del contenitore della macchina virtuale?</li><li>È disponibile la connettività di rete tra l'host e l'account di archiviazione?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li></ul>|
+|<ul><li>Il server host è operativo?</li><li>L'avvio del sistema operativo host è stato completato?</li><li>Sono stati eseguiti il provisioning e l'accensione del contenitore della macchina virtuale?</li><li>È disponibile la connettività di rete tra l'host e l'account di archiviazione?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li><li>L'hardware dell'host è peggiorato e la previsione di un errore è imminente?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Controlli eseguiti|
@@ -51,7 +51,7 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Controlli eseguiti|
 |---|
-|<ul><li>Il server che ospita la macchina virtuale è operativo?</li><li>L'avvio del sistema operativo host è stato completato?</li><li>Sono stati eseguiti il provisioning e l'accensione del contenitore della macchina virtuale?</li><li>È disponibile la connettività di rete tra l'host e l'account di archiviazione?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li></ul>|
+|<ul><li>Il server che ospita la macchina virtuale è operativo?</li><li>L'avvio del sistema operativo host è stato completato?</li><li>Sono stati eseguiti il provisioning e l'accensione del contenitore della macchina virtuale?</li><li>È disponibile la connettività di rete tra l'host e l'account di archiviazione?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li><li>L'hardware dell'host è peggiorato e la previsione di un errore è imminente?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft. DataFactory/Factory
 |Controlli eseguiti|
