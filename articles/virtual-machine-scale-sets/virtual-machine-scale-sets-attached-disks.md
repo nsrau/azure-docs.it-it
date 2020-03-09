@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
 ms.openlocfilehash: c7fd4d89fcc66fb4110029be45ad94e21faea0e0
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278183"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386652"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Set di scalabilità di macchine virtuali di Azure e dischi di dati collegati
 Per espandere lo spazio di archiviazione disponibile, i [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano le istanze di macchina virtuale con dischi dati collegati. È possibile collegare i dischi dati quando il set di scalabilità viene creato, ma anche a un set di scalabilità esistente.

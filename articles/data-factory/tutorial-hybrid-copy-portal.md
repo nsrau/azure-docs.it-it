@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: 01f2644874da032b95162f3f5721ab9dbea74265
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974708"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393433"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure
 In questa esercitazione si usa l'interfaccia utente di Azure Data Factory per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.
@@ -227,7 +227,7 @@ Selezionare **Add Trigger** (Aggiungi trigger) sulla barra degli strumenti della
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
 
-1. Passare alla scheda **Monitoraggio**. Verrà visualizzata la pipeline attivata manualmente nel passaggio precedente.
+1. Passare alla scheda **monitoraggio** . Viene visualizzata la pipeline attivata manualmente nel passaggio precedente.
 
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
 1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Vengono visualizzate solo le esecuzioni di attività perché la pipeline contiene solo un'attività. Per visualizzare informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Azioni**. Per tornare alla visualizzazione Pipeline Runs (Esecuzioni di pipeline), selezionare **Pipeline Runs** in alt.

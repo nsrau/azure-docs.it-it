@@ -10,11 +10,11 @@ ms.date: 02/26/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ms.openlocfilehash: 5f1672b53fa9bd8c8126fefd092e1be78a844ab9
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621838"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382581"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -79,7 +79,7 @@ Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti priva
 
 ## <a name="inbound-dnat-support"></a>Supporto DNAT in ingresso
 
-Il traffico di rete Internet in ingresso all'indirizzo IP pubblico del firewall viene convertito (Destination Network Address Translation) e filtrato per gli indirizzi IP nelle reti virtuali.
+Il traffico di rete Internet in ingresso verso l'indirizzo IP pubblico del firewall viene convertito (conversione degli indirizzi di rete di destinazione) e filtrato negli indirizzi IP privati nelle reti virtuali.
 
 ## <a name="multiple-public-ip-addresses"></a>Più indirizzi IP pubblici
 

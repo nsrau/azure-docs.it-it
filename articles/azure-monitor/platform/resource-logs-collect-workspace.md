@@ -8,11 +8,11 @@ ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659000"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391047"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccolta dei log della piattaforma Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Questo articolo descrive come raccogliere i log delle risorse in un'area di lavoro Log Analytics che consente di analizzarli con altri dati di monitoraggio raccolti nei log di monitoraggio di Azure con potenti query di log e anche per sfruttare altre funzionalità di monitoraggio di Azure, ad esempio gli avvisi e Visualizzazioni. 
@@ -25,7 +25,7 @@ Raccogliendo i log della piattaforma in un'area di lavoro Log Analytics è possi
 * **Avvisi: ottenere** una notifica proattiva delle condizioni critiche e dei modelli identificati nei log delle risorse usando gli [avvisi del log in monitoraggio di Azure](alerts-log.md).
 * **Visualizzazioni** : aggiungere i risultati di una query di log a un dashboard di Azure o includerli in una cartella di lavoro come parte di un report interattivo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Se non si dispone già di una nuova area di lavoro, è necessario [crearne una nuova](../learn/quick-create-workspace.md) . Non è necessario che l'area di lavoro si trovi nella stessa sottoscrizione della risorsa che invia log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 ## <a name="create-a-diagnostic-setting"></a>Creare un'impostazione di diagnostica
@@ -54,7 +54,7 @@ Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono ra
 
 La tabella AzureDiagnostics sarà simile alla seguente:  
 
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | Una  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -71,7 +71,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
  
 - Tabella *Service1AuditLogs* come segue:
 
-    | Provider di risorse | Category | A | B | C |
+    | Provider di risorse | Category | Una | b | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | z1 |
     | Service1 | AuditLogs | X5 | Y5 | z5 |

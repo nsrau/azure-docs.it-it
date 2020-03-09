@@ -10,11 +10,11 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510533"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379357"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -22,7 +22,7 @@ Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, s
 
 Questo articolo illustra come il portale di Azure consente di creare un manifesto della distribuzione ed eseguire il push della distribuzione a un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione destinata a più dispositivi in base ai tag condivisi, vedere [distribuire e monitorare IOT Edge moduli su larga scala](how-to-deploy-monitor.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
 * Un [dispositivo IoT Edge](how-to-register-device.md#register-in-the-azure-portal) con il runtime di IoT Edge installato.

@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929989"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387362"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Eseguire il push dei dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -34,10 +34,10 @@ Per consentire la connessione del servizio Data Factory a un archivio dati local
 
 Gateway di gestione dati consente di connettere le origini dati locali ai servizi cloud in modo sicuro e gestito. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che esegue il push dei dati da un archivio dati di origine a un indice di ricerca usando diversi strumenti o API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
 È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
@@ -55,20 +55,20 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 
 La tabella seguente fornisce le descrizioni degli elementi JSON specifici del servizio collegato di Azure ricerca cognitiva.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
-| type | La proprietà type deve essere impostata su **AzureSearch**. | SÌ |
-| url | URL per il servizio di ricerca. | SÌ |
-| key | Chiave di amministrazione per il servizio di ricerca. | SÌ |
+| type | La proprietà type deve essere impostata su **AzureSearch**. | Sì |
+| url | URL per il servizio di ricerca. | Sì |
+| Key | Chiave di amministrazione per il servizio di ricerca. | Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md) . Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati. La sezione **typeProperties** è diversa per ogni tipo di set di dati. Le proprietà della sezione typeProperties per un set di dati di tipo **AzureSearchIndex** sono le seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
-| type | La proprietà type deve essere impostata su **AzureSearchIndex**.| SÌ |
-| indexName | Nome dell'indice di ricerca. Il servizio Data Factory non crea l'indice. L'indice deve esistere in ricerca cognitiva di Azure. | SÌ |
+| type | La proprietà type deve essere impostata su **AzureSearchIndex**.| Sì |
+| indexName | Nome dell'indice di ricerca. Il servizio Data Factory non crea l'indice. L'indice deve esistere in ricerca cognitiva di Azure. | Sì |
 
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
@@ -76,7 +76,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per l'attività di copia, quando il sink è del tipo **AzureSearchIndexSink**, nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | Description | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).| Merge (impostazione predefinita)<br/>Caricamento| No |
 | WriteBatchSize | Carica i dati nell'indice di ricerca quando la dimensione del buffer raggiunge writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property). | Da 1 a 1000. Il valore predefinito è 1000. | No |
@@ -99,11 +99,11 @@ La tabella seguente specifica se un tipo di dati di ricerca cognitiva di Azure �
 
 | Tipo di dati ricerca cognitiva di Azure | Supportato in Azure ricerca cognitiva sink |
 | ---------------------- | ------------------------------ |
-| Stringa | S |
+| string | S |
 | Int32 | S |
 | Int64 | S |
-| DOUBLE | S |
-| boolean | S |
+| Double | S |
+| Boolean | S |
 | DataTimeOffset | S |
 | String Array | N |
 | GeographyPoint | N |

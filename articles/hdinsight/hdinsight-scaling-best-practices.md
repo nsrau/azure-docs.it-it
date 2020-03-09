@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: a88682cd2217850e336afc2f9ef5af84c0d8cb82
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192644"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389518"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 

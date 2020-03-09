@@ -10,11 +10,11 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892483"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360917"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
 
@@ -24,7 +24,7 @@ L'accesso in lettura pubblico è ideale per scenari in cui si vuole che BLOB spe
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB
 
-Per impostazione predefinita, un contenitore e i BLOB al suo interno sono accessibili solo a un utente a cui sono state concesse le autorizzazioni appropriate. Per assegnare a utenti anonimi l'accesso in lettura a un contenitore e ai relativi BLOB, è possibile impostare il livello di accesso pubblico del contenitore. Quando si concede l'accesso pubblico a un contenitore, gli utenti anonimi possono leggere i BLOB in un contenitore accessibile pubblicamente senza autorizzare la richiesta.
+Per impostazione predefinita, un contenitore e tutti i BLOB al suo interno possono accedere solo a un utente a cui sono state concesse le autorizzazioni appropriate. Per concedere agli utenti anonimi l'accesso in lettura a un contenitore e ai relativi BLOB, è possibile impostare il livello di accesso pubblico del contenitore. Quando si concede l'accesso pubblico a un contenitore, gli utenti anonimi possono leggere i BLOB in un contenitore accessibile pubblicamente senza autorizzare la richiesta.
 
 È possibile configurare un contenitore con le autorizzazioni seguenti:
 

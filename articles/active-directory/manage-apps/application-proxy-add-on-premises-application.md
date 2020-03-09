@@ -13,13 +13,13 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 29ab39c10686066599a23d12c4fd8e66caae732e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586071"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375686"
 ---
-# <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
+# <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
 Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione consente di preparare l'ambiente per l'uso con il proxy di applicazione. Quando l'ambiente è pronto, si userà il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD.
 
@@ -128,7 +128,7 @@ Per installare il connettore:
 
 ### <a name="general-remarks"></a>Osservazioni generali
 
-Se in precedenza è stato installato un connettore, reinstallarlo per ottenere la versione più recente. Per informazioni sulle versioni rilasciate in precedenza e le modifiche incluse, vedere [Cronologia delle versioni del proxy di applicazione](application-proxy-release-version-history.md).
+Se in precedenza è stato installato un connettore, reinstallarlo per ottenere la versione più recente. Per visualizzare informazioni sulle versioni rilasciate in precedenza e sulle modifiche da essi incluse, vedere [proxy di applicazione: cronologia delle versioni](application-proxy-release-version-history.md).
 
 Se si sceglie di avere più server Windows per le applicazioni locali, è necessario installare e registrare il connettore in ogni server. È possibile organizzare i connettori in gruppi di connettori. Per altre informazioni, vedere [Gruppi di connettori](application-proxy-connector-groups.md).
 

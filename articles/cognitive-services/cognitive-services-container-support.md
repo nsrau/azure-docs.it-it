@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: dapine
 ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866930"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390803"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -49,7 +49,7 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 
 I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenitori Docker, ognuno dei quali contiene un subset di funzionalità dei servizi disponibili in Servizi cognitivi di Azure:
 
-| Servizio | Piano tariffario supportato | Contenitore | Description |
+| Service | Piano tariffario supportato | Contenitore | Descrizione |
 |---------|----------|----------|-------------|
 |[Rilevamento anomalie][ad-containers] |F0, S0|**Rilevamento anomalie** |L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso](https://aka.ms/adcontainer)|
 |[Visione artificiale][cv-containers] |F0, S1|**Lettura** |Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese.|
@@ -73,7 +73,7 @@ Inoltre, alcuni contenitori sono supportati in Servizi cognitivi [**All-in-One c
 * Visione artificiale
 * Viso
 * LUIS
-* Analisi del testo
+* Text Analytics
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 
@@ -89,7 +89,7 @@ I contenitori di Servizi cognitivi di Azure sono disponibili pubblicamente attra
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare i contenitori di Servizi cognitivi di Azure, è necessario soddisfare i prerequisiti seguenti:
 

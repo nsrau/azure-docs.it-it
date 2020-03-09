@@ -10,11 +10,11 @@ ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: d116ba81b0c8940687663c17a4ed403e86dd6c22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187541"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380290"
 ---
 ::: zone target="docs"
 
@@ -35,13 +35,13 @@ Questa esercitazione illustra come restituire Azure Data Box e verificare che i 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * Prerequisiti
 > * Preparare per la spedizione
 > * Spedire il Data Box a Microsoft
 > * Verificare il caricamento dei dati in Azure
 > * Cancellare i dati dal Data Box
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
 
@@ -77,7 +77,7 @@ Assicurarsi che la copia dei dati sul dispositivo sia completa e che la **prepar
 
 ::: zone-end
 
-## <a name="in-us-canada-europetabin-us-canada-europe"></a>[Stati Uniti, Canada o Europa](#tab/in-us-canada-europe)
+## <a name="in-us-canada-europe"></a>[Stati Uniti, Canada o Europa](#tab/in-us-canada-europe)
 
 Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Uniti, in Canada on in Europa.
 
@@ -114,7 +114,7 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 ::: zone-end
 
 
-## <a name="in-australiatabin-australia"></a>[Australia](#tab/in-australia)
+## <a name="in-australia"></a>[Australia](#tab/in-australia)
 
 I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per la spedizione in Australia.
 
@@ -143,7 +143,7 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 
 ::: zone-end
 
-## <a name="in-japantabin-japan"></a>[Giappone](#tab/in-japan) 
+## <a name="in-japan"></a>[Giappone](#tab/in-japan) 
 
 1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
 2. Spegnere il dispositivo e rimuovere i cavi.
@@ -191,7 +191,7 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 
 ::: zone-end
 
-## <a name="in-singaporetabin-singapore"></a>[Singapore](#tab/in-singapore) 
+## <a name="in-singapore"></a>[Singapore](#tab/in-singapore) 
 
 1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
 2. Annotare il numero di tracciabilità (visualizzato come numero di riferimento nella pagina Prepara per la spedizione dell'interfaccia utente Web locale di Data Box). Il numero sarà disponibile dopo il completamento del passaggio Prepara per la spedizione. Scaricare l'etichetta indirizzo da questa pagina e incollarla sulla scatola. 
@@ -273,7 +273,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managedtabin-selfmanaged"></a>[Modalità autogestita](#tab/in-selfmanaged) 
+## <a name="self-managed"></a>[Modalità autogestita](#tab/in-selfmanaged) 
 
 Se si usa Data Box in Giappone, Singapore, Corea ed Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
 

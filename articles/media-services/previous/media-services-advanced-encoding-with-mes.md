@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61230254"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385437"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard 
 
@@ -30,7 +30,7 @@ Questo argomento descrive come personalizzare i set d impostazioni di Media Enco
 Se si usa un set di impostazioni XML, assicurarsi di mantenere l'ordine degli elementi, come illustrato negli esempi XML seguenti (KeyFrameInterval, ad esempio, deve precedere SceneChangeDetection).
 
 > [!NOTE] 
-> Molte delle funzionalità v2 di servizi multimediali avanzate di Media Encoder Standard non sono attualmente disponibili nella v3. Per altre informazioni, vedere [gap di funzionalità](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
+> Molte delle funzionalità avanzate di Media Services V2 del Media Encoder Standard non sono attualmente disponibili in V3. Per altre informazioni, vedere [gap delle funzionalità](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Supporto per le dimensioni relative
 
@@ -237,14 +237,14 @@ Si applicano le considerazioni seguenti:
 * L'utilizzo di timestamp espliciti per Inizio/Passaggio/Intervallo presuppone che l'origine dell'input duri almeno 1 minuto.
 * Gli elementi Jpg/Png/BmpImage hanno gli attributi inizio, passaggio e intervallo della stringa, che possono essere interpretati come:
 
-  * Numero di frame se sono numeri interi non negativi, ad esempio "Start": "120",
+  * Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
   * Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
   * Timestamp se espresso come HH:MM:SS come formato, ad esempio "Start": "00:01:00"
 
     È possibile combinare e associare le notazioni a piacimento.
 
-    Start inoltre supporta anche una macro speciale, ovvero {Best}, che tenta di determinare il primo frame "interessante" del contenuto. NOTA: Step e Range vengono ignorati quando Start è impostato su {Best}
-  * Valori predefiniti: Start:{Best}
+    Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
+  * Impostazioni predefinite: Start: {Best}
 * Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collega JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
 ## <a id="trim_video"></a>Tagliare un video (ritaglio)
@@ -748,7 +748,7 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 
 
 ## <a id="audio_only"></a>Impostazioni predefinite solo audio
-Questa sezione illustra due impostazioni predefinite Media Encoder Standard solo audio: Audio AAC e Audio AAC di buona qualità.
+In questa sezione vengono illustrate due impostazioni predefinite MES solo audio: Audio AAC e Audio AAC di buona qualità.
 
 ### <a name="aac-audio"></a>Audio ACC
     {

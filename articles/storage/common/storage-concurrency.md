@@ -11,13 +11,13 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460476"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373685"
 ---
-# <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'Archiviazione di Microsoft Azure
+# <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
 
 Le applicazioni moderne basate su Internet in genere hanno più utenti che visualizzano e aggiornano contemporaneamente i dati. Ciò richiede agli sviluppatori di applicazioni un'attenta riflessione su come offrire un'esperienza prevedibile ai propri utenti finali, in particolare per gli scenari in cui più utenti possono aggiornare gli stessi dati. Gli sviluppatori in genere prendono in considerazione tre strategie principali di concorrenza dei dati:  
 
@@ -195,7 +195,7 @@ Le operazioni contenitore seguenti possono usare i lease per gestire la concorre
 * Set Container ACL
 * Lease Container  
 
-Per scoprire di più, vedi:  
+Per altre informazioni, vedere:  
 
 * [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
@@ -256,7 +256,7 @@ SI noti che le operazioni **Insert or Replace Entity** e **Insert or Merge Entit
 
 In generale gli sviluppatori che usano tabelle devono fare affidamento sulla concorrenza ottimistica quando sviluppano applicazioni scalabili. Se è necessario un blocco pessimistico, un possibile approccio che gli sviluppatori possono adottare quando effettuano l'accesso alle tabelle è di assegnare un BLOB designato per ciascuna tabella e provare ad acquisire un lease sul BLOB prima di eseguire operazioni sulla tabella. Adottando questo approccio è necessario che l'applicazione verifichi che tutti i percorsi di accesso ai dati ottengano il lease prima di eseguire operazioni sulla tabella. Occorre inoltre notare che il tempo di lease minimo è di 15 secondi, pertanto è necessario prestare una particolare attenzione alla scalabilità.  
 
-Per scoprire di più, vedi:  
+Per altre informazioni, vedere:  
 
 * [Operazioni sulle entità](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
@@ -266,7 +266,7 @@ Uno scenario in cui la concorrenza rappresenta un problema nel servizio di accod
 
 Il servizio di accodamento non offre il supporto della concorrenza ottimistica o pessimistica e per questo motivo i client che elaborano messaggi recuperati da una coda devono garantire che vengano recuperati in un modo idempotente. Una strategia in cui prevale l'ultima scrittura viene usata per aggiornare operazioni quali SetQueueServiceProperties, SetQueueMetaData, SetQueueACL e UpdateMessage.  
 
-Per scoprire di più, vedi:  
+Per altre informazioni, vedere:  
 
 * [API REST del servizio di accodamento](https://msdn.microsoft.com/library/azure/dd179363.aspx)
 * [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
@@ -277,7 +277,7 @@ Per scoprire di più, vedi:
 
 Quando un client SMB apre un file per eliminarlo, lo contrassegna come in attesa dell'eliminazione fino a quando tutti gli altri handle aperti del client SMB su tale file vengono chiusi. Quando un file viene contrassegnato come in attesa di eliminazione, qualsiasi operazione REST su tale file restituirà il codice di stato 409 (Conflitto) con codice errore SMBDeletePending. Il codice di stato 404 (Non trovato) non viene restituito perché è il client SMB può rimuovere il flag di eliminazione in sospeso prima di chiudere il file. In altre parole, il codice di stato 404 (Non trovato) è previsto solo dopo la rimozione del file. Se un file si trova in uno stato di attesa di eliminazione da parte del client SMB, non sarà incluso nei risultati degli elenchi di file. Le operazioni di eliminazione dei file REST e di eliminazione della directory REST vengono anche sottoposte a commit in modo atomico e non determinano lo stato di eliminazione in sospeso.  
 
-Per scoprire di più, vedi:  
+Per altre informazioni, vedere:  
 
 * [Managing File Locks](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 

@@ -1,5 +1,5 @@
 - name: Documentazione di Azure Marketplace e AppSource
-  href: index.md
+  href: index.yml
   items:
     - name: Roadmap di Azure Marketplace e AppSource
       href: ./marketplace-roadmap.md
@@ -51,9 +51,6 @@
           items:
             - name: Procedure consigliate per le inserzioni di offerte
               href: ./gtm-offer-listing-best-practices.md
-              items:
-                - name: Categorie
-                  href: ./gtm-offer-listing-best-practices-categories.md
             - name: Come essere in primo piano
               href: ./gtm-how-to-get-featured.md
             - name: Convalida del contenuto di Marketplace
@@ -176,7 +173,7 @@
         - name: Offerta di un'applicazione Azure
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerequisiti
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Creare un'offerta per un'applicazione di Azure
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -202,7 +199,7 @@
         - name: Servizi di consulenza
           href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerequisiti
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
             - name: Creare un'offerta di un servizio di consulenza
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
@@ -216,7 +213,7 @@
         - name: Offerta di contenitori
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerequisiti
               href: ./cloud-partner-portal/containers/cpp-prerequisites.md
             - name: Creare un'offerta di contenitori
               href: ./cloud-partner-portal/containers/cpp-create-offer.md
@@ -253,7 +250,7 @@
         - name: Offerta Dynamics 365 for Customer Engagement
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerequisiti
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: Creare un'offerta Customer Engagement
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -275,7 +272,7 @@
         - name: Offerta Dynamics 365 for Operations
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerequisiti
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: Come eseguire la pubblicazione
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -292,7 +289,7 @@
         - name: Offerta di modulo IoT Edge
           href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
           items:
-            - name: Prerequisites
+            - name: Prerequisiti
               href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
             - name: Creare un'offerta di modulo IoT Edge
               href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
@@ -314,7 +311,7 @@
         - name: Offerta per app Power BI
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerequisiti
               href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
             - name: Creare un'offerta per app Power BI
               href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
@@ -338,7 +335,7 @@
         - name: Offerta di una macchina virtuale
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
-            - name: Prerequisites
+            - name: Prerequisiti
               href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
             - name: Creare un'offerta per le macchine virtuali
               href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
@@ -402,7 +399,7 @@
       items:
         - name: Panoramica
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Prerequisites
+        - name: Prerequisiti
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: Considerazioni
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md

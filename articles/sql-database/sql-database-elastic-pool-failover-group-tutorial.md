@@ -12,11 +12,11 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552560"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380022"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Esercitazione: aggiungere un pool elastico del database SQL di Azure a un gruppo di failover
 
@@ -28,7 +28,7 @@ Configurare un gruppo di failover per un pool elastico del database SQL di Azure
 > - Creare un [gruppo di failover](sql-database-auto-failover-group.md) per due pool elastici tra due server SQL logici.
 > - Failover di test.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, accertarsi di avere: 
 
@@ -43,7 +43,7 @@ Per completare questa esercitazione, accertarsi di avere:
 In questo passaggio si creerà un pool elastico e si aggiungerà il singolo database. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Creare il pool elastico usando il portale di Azure. 
 
@@ -71,7 +71,7 @@ Creare il pool elastico usando il portale di Azure.
 1. Selezionare **Verifica + crea** per esaminare le impostazioni del pool elastico e quindi selezionare **Crea** per creare il pool elastico. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Creare i pool elastici e il server secondario usando PowerShell. 
 
    ```powershell-interactive
@@ -129,7 +129,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 In questo passaggio verrà creato un gruppo di [failover](sql-database-auto-failover-group.md) tra un server SQL di Azure esistente e un nuovo server SQL di Azure in un'altra area. Aggiungere quindi il pool elastico al gruppo di failover. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gruppo di failover usando il portale di Azure. 
 
@@ -163,7 +163,7 @@ Creare il gruppo di failover usando il portale di Azure.
 1. Selezionare **Seleziona** per applicare le impostazioni del pool elastico al gruppo di failover e quindi selezionare **Crea** per creare il gruppo di failover. L'aggiunta del pool elastico al gruppo di failover avvierà automaticamente il processo di replica geografica.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare il gruppo di failover usando PowerShell. 
 
@@ -252,7 +252,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 In questo passaggio si verificherà un errore nel gruppo di failover nel server secondario e quindi si eseguirà il failback utilizzando il portale di Azure. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Testare il failover del gruppo di failover usando il portale di Azure. 
 
@@ -276,7 +276,7 @@ Testare il failover del gruppo di failover usando il portale di Azure.
 1. Selezionare di nuovo **failover** per non riuscire a ripristinare le impostazioni originali del gruppo di failover. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Failover di test del gruppo di failover usando PowerShell. 
 
@@ -357,7 +357,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 Pulire le risorse eliminando il gruppo di risorse. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 
 1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com).
@@ -365,7 +365,7 @@ Pulire le risorse eliminando il gruppo di risorse.
 1. Digitare il nome del gruppo di risorse, `myResourceGroup`, nella casella di testo e quindi selezionare **Elimina** per eliminare il gruppo di risorse. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pulire le risorse usando PowerShell. 
 
@@ -392,7 +392,7 @@ Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 
 ## <a name="full-script"></a>Script completo
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
@@ -414,7 +414,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse | 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Non sono disponibili script per la portale di Azure.
 
 ---

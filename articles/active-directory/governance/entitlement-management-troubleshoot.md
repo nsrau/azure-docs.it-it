@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422483"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376545"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Risolvere i problemi di Azure AD gestione dei diritti
 
@@ -37,17 +37,17 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 * I ruoli per le applicazioni sono definiti dall'applicazione stessa e vengono gestiti in Azure AD. Se un'applicazione non dispone di alcun ruolo delle risorse, la gestione dei diritti assegna gli utenti a un ruolo di **accesso predefinito** .
 
-    Si noti che i portale di Azure possono anche visualizzare entità servizio per i servizi che non possono essere selezionati come applicazioni.  In particolare, **Exchange Online** e **SharePoint Online** sono servizi, non applicazioni con ruoli delle risorse nella directory, quindi non possono essere inclusi in un pacchetto di Access.  Usare invece le licenze basate sui gruppi per stabilire una licenza appropriata per un utente che deve accedere a tali servizi.
+    Si noti che i portale di Azure possono anche visualizzare entità servizio per i servizi che non possono essere selezionati come applicazioni.  In particolare, **Exchange Online** e **SharePoint Online** sono servizi, non applicazioni con ruoli delle risorse nella directory, quindi non possono essere inclusi in un pacchetto di Access.  Usare invece le licenze basate su gruppi per stabilire una licenza appropriata per un utente che ha bisogno di accedere a tali servizi.
 
-* Affinché un gruppo sia una risorsa in un pacchetto di accesso, deve essere in grado di essere modificabile in Azure AD.  I gruppi che hanno origine in un Active Directory locale non possono essere assegnati come risorse perché i relativi attributi proprietario o membro non possono essere modificati nel Azure AD.   I gruppi che provengono da Exchange Online come gruppi di distribuzione non possono essere modificati in Azure AD. 
+* Per poter essere una risorsa in un pacchetto di accesso, un gruppo deve essere modificabile in Azure AD.  I gruppi che hanno origine in Active Directory locale non possono essere assegnati come risorse perché i loro attributi di proprietario o membro non possono essere modificati in Azure AD.   Nemmeno i gruppi che hanno origine in Exchange Online come gruppi di distribuzione possono essere modificati in Azure AD. 
 
-* Non è possibile aggiungere le raccolte documenti di SharePoint Online e i singoli documenti come risorse.  Al contrario, creare un [gruppo di sicurezza Azure ad](../fundamentals/active-directory-groups-create-azure-portal.md), includere il gruppo e un ruolo del sito nel pacchetto di accesso e in SharePoint Online utilizzare tale gruppo per controllare l'accesso alla raccolta documenti o al documento.
+* Le raccolte documenti e i singoli documenti di SharePoint Online non possono essere aggiunti come risorse.  Al contrario, creare un [gruppo di sicurezza Azure ad](../fundamentals/active-directory-groups-create-azure-portal.md), includere il gruppo e un ruolo del sito nel pacchetto di accesso e in SharePoint Online utilizzare tale gruppo per controllare l'accesso alla raccolta documenti o al documento.
 
-* Se sono presenti utenti che sono già stati assegnati a una risorsa che si vuole gestire con un pacchetto di accesso, assicurarsi che gli utenti siano assegnati al pacchetto di accesso con un criterio appropriato. Ad esempio, potrebbe essere necessario includere un gruppo in un pacchetto di accesso che dispone già di utenti nel gruppo. Se gli utenti del gruppo necessitano dell'accesso continuo, devono avere un criterio appropriato per i pacchetti di accesso in modo che non perdano l'accesso al gruppo. È possibile assegnare il pacchetto di accesso chiedendo agli utenti di richiedere il pacchetto di accesso contenente tale risorsa o di assegnarli direttamente al pacchetto di accesso. Per ulteriori informazioni, vedere [modifica delle impostazioni di richiesta e approvazione per un pacchetto di accesso](entitlement-management-access-package-request-policy.md).
+* Se ci sono utenti già assegnati a una risorsa che si desidera gestire con un pacchetto di accesso, assicurarsi che siano assegnati al pacchetto di accesso con un criterio appropriato. Ad esempio, potrebbe essere necessario includere un gruppo in un pacchetto di accesso che ha già utenti nel gruppo. Se gli utenti nel gruppo richiedono accesso continuo, devono disporre dei un criterio appropriato per i pacchetti di accesso, in modo da non perdere l'accesso al gruppo. È possibile assegnare il pacchetto di accesso chiedendo agli utenti di richiedere il pacchetto di accesso contenente tale risorsa oppure assegnandoli direttamente al pacchetto di accesso. Per ulteriori informazioni, vedere [modifica delle impostazioni di richiesta e approvazione per un pacchetto di accesso](entitlement-management-access-package-request-policy.md).
 
-* Quando si rimuove un membro di un team, questi vengono rimossi anche dal gruppo di Office 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)a un gruppo.
+* Quando si rimuove un membro di un team, questo membro del team viene rimosso anche dal gruppo di Office 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)a un gruppo.
 
-* Verificare che la directory non sia configurata per l'area geografica. Attualmente la gestione dei diritti non supporta le località geografiche per SharePoint Online. I siti di SharePoint Online devono trovarsi nella posizione geografica predefinita per poter essere gestiti con diritti di gestione. Per altre informazioni, vedere funzionalità per più aree [geografiche in OneDrive e SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Verificare che la directory non sia configurata per varie aree geografiche. Attualmente la gestione entitlement non supporta varie posizioni geografiche per SharePoint Online. Per poter essere gestiti con la gestione entitlement, i siti di SharePoint Online devono trovarsi nella posizione geografica predefinita. Per altre informazioni, vedere funzionalità per più aree [geografiche in OneDrive e SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="external-users"></a>Utenti esterni
 
@@ -57,17 +57,17 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
 * Se un nuovo utente esterno, che non ha precedentemente eseguito l'accesso alla directory, riceve un pacchetto di accesso che include un sito di SharePoint Online, il relativo pacchetto di accesso verrà visualizzato come non completamente recapitato fino a quando non viene eseguito il provisioning dell'account in SharePoint Online. Per altre informazioni sulle impostazioni di condivisione, vedere [esaminare le impostazioni di condivisione esterna di SharePoint Online](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings).
 
-## <a name="requests"></a>Richieste
+## <a name="requests"></a>Requests
 
 * Quando un utente desidera richiedere l'accesso a un pacchetto di accesso, assicurarsi che usi il **collegamento portale di accesso personale** per il pacchetto di accesso. Per ulteriori informazioni, vedere [la pagina relativa alla condivisione del collegamento per richiedere un pacchetto di accesso](entitlement-management-access-package-settings.md).
 
-* Se si apre il portale di accesso personale con il browser impostato sulla modalità in modalità privata o in incognito, è possibile che si verifichi un conflitto con il comportamento di accesso. Si consiglia di non usare la modalità in modalità privata o in incognito per il browser quando si visita il portale di accesso personale.
+* Se si apre il portale Accesso personale con il browser impostato sulla modalità privata o in incognito, potrebbe verificarsi un conflitto con il comportamento di accesso. È consigliabile non usare la modalità privata o in incognito per il browser quando si visita il portale Accesso personale.
 
-* Quando un utente che non è ancora presente nella directory accede al portale di accesso personale per richiedere un pacchetto di accesso, assicurarsi di eseguire l'autenticazione usando il proprio account aziendale. L'account aziendale può essere un account nella directory delle risorse o in una directory inclusa in uno dei criteri del pacchetto di accesso. Se l'account dell'utente non è un account aziendale o la directory in cui viene eseguita l'autenticazione non è inclusa nel criterio, l'utente non visualizzerà il pacchetto di accesso. Per altre informazioni, vedere [richiedere l'accesso a un pacchetto di accesso](entitlement-management-request-access.md).
+* Quando un utente che non è ancora presente nella directory accede al portale Accesso personale per richiedere un pacchetto di accesso, assicurarsi che esegua l'autenticazione usando il suo account aziendale. L'account aziendale può appartenere alla directory delle risorse o a una directory inclusa in uno dei criteri del pacchetto di accesso. Se l'account dell'utente non è un account aziendale o la directory in cui esegue l'autenticazione non è inclusa nel criterio, l'utente non visualizzerà il pacchetto di accesso. Per altre informazioni, vedere [richiedere l'accesso a un pacchetto di accesso](entitlement-management-request-access.md).
 
-* Se un utente non accede alla directory delle risorse, non sarà in grado di richiedere l'accesso nel portale di accesso personale. Prima che l'utente possa richiedere l'accesso, è necessario rimuovere il blocco di accesso dal profilo dell'utente. Per rimuovere il blocco di accesso, nella portale di Azure fare clic su **Azure Active Directory**, fare clic su **utenti**, fare clic sull'utente e quindi su **profilo**. Modificare la sezione **Impostazioni** e modificare **Accedi** a **No**. Per altre informazioni, vedere [aggiungere o aggiornare le informazioni sul profilo di un utente usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  È anche possibile controllare se l'utente è stato bloccato a causa di un [criterio di Identity Protection](../identity-protection/howto-unblock-user.md).
+* Se a un utente viene impedito di accedere alla directory delle risorse, tale utente non potrà richiedere l'accesso nel portale Accesso personale. Prima che l'utente possa richiedere l'accesso, è necessario rimuovere il blocco dell'accesso dal profilo dell'utente. Per rimuovere il blocco di accesso, nella portale di Azure fare clic su **Azure Active Directory**, fare clic su **utenti**, fare clic sull'utente e quindi su **profilo**. Modificare la sezione **Impostazioni** e modificare **Accedi** a **No**. Per altre informazioni, vedere [aggiungere o aggiornare le informazioni sul profilo di un utente usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  È anche possibile controllare se l'utente è stato bloccato a causa di un [criterio di Identity Protection](../identity-protection/howto-unblock-user.md).
 
-* Se un utente è un richiedente e un responsabile approvazione, nel portale di accesso personale non visualizzerà la richiesta di un pacchetto di accesso nella pagina **approvazioni** . Questo comportamento è intenzionale, un utente non può approvare la propria richiesta. Verificare che il pacchetto di accesso richiesto disponga di responsabili approvazione aggiuntivi configurati nei criteri. Per ulteriori informazioni, vedere [modifica delle impostazioni di richiesta e approvazione per un pacchetto di accesso](entitlement-management-access-package-request-policy.md).
+* Se un utente è un richiedente e un responsabile approvazione, nel portale di accesso personale non visualizzerà la richiesta di un pacchetto di accesso nella pagina **approvazioni** . Questo comportamento è intenzionale: un utente non può approvare la sua stessa richiesta. Verificare che nei criteri del pacchetto di accesso richiesto siano configurati altri responsabili approvazione. Per ulteriori informazioni, vedere [modifica delle impostazioni di richiesta e approvazione per un pacchetto di accesso](entitlement-management-access-package-request-policy.md).
 
 ### <a name="view-a-requests-delivery-errors"></a>Visualizzare gli errori di recapito di una richiesta
 
@@ -129,7 +129,7 @@ Se una richiesta rileva un errore, è possibile rielaborare la richiesta per rip
 
 * Quando si applicano più criteri, i criteri selezionati automaticamente o i criteri visualizzati per il richiedente sono basati sulla logica di priorità seguente:
 
-    | Priorità dei criteri | Ambito |
+    | Priorità dei criteri | Scope |
     | --- | --- |
     | P1 | Utenti e gruppi specifici nella directory o in organizzazioni connesse specifiche |
     | P2 | Tutti i membri della directory (esclusi i guest) |

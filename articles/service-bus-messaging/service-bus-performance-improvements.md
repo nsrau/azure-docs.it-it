@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: aschhab
 ms.openlocfilehash: 683a28ca3cdabd5a7ffbf6e9ffdc3ed0c58d3247
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264696"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370480"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 

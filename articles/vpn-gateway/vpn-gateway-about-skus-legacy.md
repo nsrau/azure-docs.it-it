@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861915"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379219"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilizzo degli SKU del gateway di rete virtuale (SKU di versione precedente)
 
@@ -36,7 +36,7 @@ Questo articolo contiene informazioni sugli SKU del gateway di rete virtuale (ve
 
 È possibile ridimensionare il gateway in uno SKU del gateway solo all'interno della stessa famiglia di SKU. Se si ha uno SKU Standard, ad esempio, è possibile ridimensionarlo in uno SKU HighPerformance. Non è tuttavia possibile ridimensionare il gateway VPN tra gli SKU precedenti e le nuove famiglie di SKU. Non è ad esempio possibile passare da uno SKU Standard a uno SKU VpnGw2 o da uno SKU Basic a VpnGw1.
 
-### <a name="resource-manager"></a>Azure Resource Manager
+### <a name="resource-manager"></a>Gestione risorse
 
 Per ridimensionare un gateway per il modello di distribuzione Resource Manager con PowerShell, usare il comando seguente:
 

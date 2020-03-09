@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278835"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381886"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 In questa esercitazione viene illustrato come usare il servizio Gestione dispositivi StorSimple per creare e gestire i volumi nel dispositivo StorSimple serie 8000 con aggiornamento 3 o successivo.
 

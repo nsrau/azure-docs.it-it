@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.openlocfilehash: af53dea76670be500e7be20063487e3e4a2177b6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548731"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395709"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian
 

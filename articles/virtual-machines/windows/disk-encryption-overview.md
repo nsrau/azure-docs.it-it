@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435743"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383375"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Crittografia dischi di Azure per macchine virtuali Windows 
 
@@ -59,7 +59,7 @@ Per abilitare crittografia dischi di Azure, le macchine virtuali devono soddisfa
 
 Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per le macchine virtuali Windows. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
 
-I criteri di BitLocker nelle macchine virtuali appartenenti a un dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: [Configura archiviazione utente delle informazioni di ripristino di BitLocker-> Consenti chiave di ripristino a 256 bit](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Nei computer in cui l'impostazione dei criteri non è corretta potrebbe essere necessario applicare i nuovi criteri, forzarne l'aggiornamento (gpupdate.exe /force) e quindi eseguire il riavvio.
+I criteri di BitLocker nelle macchine virtuali appartenenti a un dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: [Configura archiviazione utente delle informazioni di ripristino di BitLocker-> Consenti chiave di ripristino a 256 bit](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.
 
 Crittografia dischi di Azure non riuscirà se i criteri di gruppo a livello di dominio bloccano l'algoritmo AES-CBC, usato da BitLocker.
 
@@ -74,7 +74,7 @@ La tabella seguente definisce alcuni dei termini comuni usati nella documentazio
 
 | Terminologia | Definizione |
 | --- | --- |
-| Azure Key Vault | Key Vault è un servizio di crittografia e gestione delle chiavi basato su moduli di sicurezza hardware convalidati dagli standard FIPS (Federal Information Processing Standards). Questi standard consentono di proteggere le chiavi crittografiche e i segreti sensibili. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) e [creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure](disk-encryption-key-vault.md). |
+| Insieme di credenziali chiave di Azure | Key Vault è un servizio di crittografia e gestione delle chiavi basato su moduli di sicurezza hardware convalidati dagli standard FIPS (Federal Information Processing Standards). Questi standard consentono di proteggere le chiavi crittografiche e i segreti sensibili. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) e [creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure](disk-encryption-key-vault.md). |
 | Interfaccia della riga di comando di Azure | [L'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) è ottimizzata per la gestione e l'amministrazione delle risorse di Azure dalla riga di comando.|
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) è una tecnologia di crittografia del volume di Windows riconosciuta nel settore, usata per abilitare la crittografia dei dischi nelle macchine virtuali Windows. |
 | Chiave di crittografia della chiave (KEK) | Chiave asimmetrica (RSA 2048) che è possibile usare per proteggere o eseguire il wrapping del segreto. È possibile fornire una chiave protetta tramite modulo di protezione hardware o una chiave protetta tramite software. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) e [creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure](disk-encryption-key-vault.md). |

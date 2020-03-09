@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045816"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388751"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Esercitazione: configurare manualmente il gruppo di disponibilità in Azure SQL Server VM
 
@@ -32,13 +32,13 @@ Il diagramma illustra le operazioni di compilazione nell'esercitazione.
 
 ![Gruppo di disponibilità](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibilità di SQL Server AlwaysOn. Se sono necessarie altre informazioni, vedere [Panoramica di Gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 La tabella seguente elenca i prerequisiti da completare prima di iniziare l'esercitazione:
 
-|  |Requisito |Description |
+|  |Requisito |Descrizione |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Due istanze di SQL Server | - In un set di disponibilità di Azure <br/> - In un dominio singolo <br/> - Con la funzionalità Clustering di failover installata |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Controllo di condivisione file per il cluster |  
@@ -364,7 +364,7 @@ Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load 
    | **Tipo** |Interno |
    | **Rete virtuale** |Usare il nome della rete virtuale di Azure. |
    | **Subnet** |Usare il nome della subnet in cui si trova la macchina virtuale.  |
-   | **Assegnazione indirizzi IP** |Statica |
+   | **Assegnazione indirizzi IP** |Statico |
    | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. Usare questo indirizzo per il listener del gruppo di disponibilità. Si noti che questo indirizzo è diverso dall'indirizzo IP del cluster.  |
    | **Sottoscrizione** |Usare la stessa sottoscrizione della macchina virtuale. |
    | **Posizione** |Usare la stessa posizione della macchina virtuale. |
@@ -402,9 +402,9 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare il probe di integrità del listener nel modo seguente:
 
-   | Impostazione | Description | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
-   | **Nome** | Testo | SQLAlwaysOnEndPointProbe |
+   | **Nome** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
    | **Porta** | Qualsiasi porta non usata | 59999 |
    | **Interval**  | Intervallo di tempo tra i tentativi del probe, in secondi |5 |
@@ -418,9 +418,9 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare le regole di bilanciamento del carico del listener come segue.
 
-   | Impostazione | Description | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
-   | **Nome** | Testo | SQLAlwaysOnEndPointListener |
+   | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |
    | **Protocollo** | Scegliere TCP |TCP |
    | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 1433 |
@@ -445,9 +445,9 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare il probe di integrità dell'indirizzo IP principale del cluster WSFC come segue:
 
-   | Impostazione | Description | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
-   | **Nome** | Testo | WSFCEndPointProbe |
+   | **Nome** | Text | WSFCEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
    | **Porta** | Qualsiasi porta non usata | 58888 |
    | **Interval**  | Intervallo di tempo tra i tentativi del probe, in secondi |5 |
@@ -459,9 +459,9 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare le regole di bilanciamento del carico dell'indirizzo IP principale del cluster come indicato di seguito.
 
-   | Impostazione | Description | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
-   | **Nome** | Testo | WSFCEndPoint |
+   | **Nome** | Text | WSFCEndPoint |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |
    | **Protocollo** | Scegliere TCP |TCP |
    | **Porta** | Usare la porta per l'indirizzo IP del cluster. Si tratta di una porta disponibile che non viene usata per la porta probe del listener. | 58888 |

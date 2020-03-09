@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: c3f5fb2a387db6e672290fcf03d46c476b6211b6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77657104"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368924"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
 
@@ -85,12 +85,12 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà di una fu
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera un elemento da una matrice. |
 | `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | value | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
-| `['get', string, object]` | value | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
+| `['get', string]` | Valore | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
+| `['get', string, object]` | Valore | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità dispongono della proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto dispongono della proprietà specificata. |
-| `['id']` | value | Ottiene l'ID della funzionalità se ne è presente uno. |
-| `['length', string | array]` | numero | Ottiene la lunghezza di una stringa o di una matrice. |
+| `['id']` | Valore | Ottiene l'ID della funzionalità se ne è presente uno. |
+| `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['in', boolean | string | number, array]` | boolean | Determina se un elemento esiste in una matrice |
 | `['in', substring, string]` | boolean | Determina se una sottostringa esiste in una stringa |
 
@@ -143,32 +143,32 @@ Le espressioni matematiche forniscono operatori matematici per eseguire calcoli 
 
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | numero | Calcola la somma dei numeri specificati. |
-| `['-', number]` | numero | Sottrae 0 per il numero specificato. |
-| `['-', number, number]` | numero | Sottrae i primi numeri per il secondo numero. |
-| `['*', number, number, …]` | numero | Moltiplica i numeri specificati insieme. |
-| `['/', number, number]` | numero | Divide il primo numero per il secondo numero. |
-| `['%', number, number]` | numero | Calcola il resto quando si divide il primo numero per il secondo numero. |
-| `['^', number, number]` | numero | Calcola il valore del primo valore elevato alla potenza del secondo numero. |
-| `['abs', number]` | numero | Calcola il valore assoluto del numero specificato. |
-| `['acos', number]` | numero | Calcola l'arcoseno del numero specificato. |
-| `['asin', number]` | numero | Calcola l'arcoseno del numero specificato. |
-| `['atan', number]` | numero | Calcola l'arcotangente del numero specificato. |
-| `['ceil', number]` | numero | Arrotonda il numero per eccesso al numero intero successivo. |
-| `['cos', number]` | numero | Calcola il coseno del numero specificato. |
-| `['e']` | numero | Restituisce la costante matematica `e`. |
-| `['floor', number]` | numero | Arrotonda il numero per difetto all'intero intero precedente. |
-| `['ln', number]` | numero | Calcola il logaritmo naturale del numero specificato. |
-| `['ln2']` | numero | Restituisce la costante matematica `ln(2)`. |
-| `['log10', number]` | numero | Calcola il logaritmo in base 10 del numero specificato. |
-| `['log2', number]` | numero | Calcola il logaritmo in base due del numero specificato. |
-| `['max', number, number, …]` | numero | Calcola il numero massimo nel set di numeri specificato. |
-| `['min', number, number, …]` | numero | Calcola il numero minimo nel set di numeri specificato. |
-| `['pi']` | numero | Restituisce la costante matematica `PI`. |
-| `['round', number]` | numero | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
-| `['sin', number]` | numero | Calcola il seno del numero specificato. |
-| `['sqrt', number]` | numero | Calcola la radice quadrata del numero specificato. |
-| `['tan', number]` | numero | Calcola la tangente del numero specificato. |
+| `['+', number, number, …]` | d'acquisto | Calcola la somma dei numeri specificati. |
+| `['-', number]` | d'acquisto | Sottrae 0 per il numero specificato. |
+| `['-', number, number]` | d'acquisto | Sottrae i primi numeri per il secondo numero. |
+| `['*', number, number, …]` | d'acquisto | Moltiplica i numeri specificati insieme. |
+| `['/', number, number]` | d'acquisto | Divide il primo numero per il secondo numero. |
+| `['%', number, number]` | d'acquisto | Calcola il resto quando si divide il primo numero per il secondo numero. |
+| `['^', number, number]` | d'acquisto | Calcola il valore del primo valore elevato alla potenza del secondo numero. |
+| `['abs', number]` | d'acquisto | Calcola il valore assoluto del numero specificato. |
+| `['acos', number]` | d'acquisto | Calcola l'arcoseno del numero specificato. |
+| `['asin', number]` | d'acquisto | Calcola l'arcoseno del numero specificato. |
+| `['atan', number]` | d'acquisto | Calcola l'arcotangente del numero specificato. |
+| `['ceil', number]` | d'acquisto | Arrotonda il numero per eccesso al numero intero successivo. |
+| `['cos', number]` | d'acquisto | Calcola il coseno del numero specificato. |
+| `['e']` | d'acquisto | Restituisce la costante matematica `e`. |
+| `['floor', number]` | d'acquisto | Arrotonda il numero per difetto all'intero intero precedente. |
+| `['ln', number]` | d'acquisto | Calcola il logaritmo naturale del numero specificato. |
+| `['ln2']` | d'acquisto | Restituisce la costante matematica `ln(2)`. |
+| `['log10', number]` | d'acquisto | Calcola il logaritmo in base 10 del numero specificato. |
+| `['log2', number]` | d'acquisto | Calcola il logaritmo in base due del numero specificato. |
+| `['max', number, number, …]` | d'acquisto | Calcola il numero massimo nel set di numeri specificato. |
+| `['min', number, number, …]` | d'acquisto | Calcola il numero minimo nel set di numeri specificato. |
+| `['pi']` | d'acquisto | Restituisce la costante matematica `PI`. |
+| `['round', number]` | d'acquisto | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
+| `['sin', number]` | d'acquisto | Calcola il seno del numero specificato. |
+| `['sqrt', number]` | d'acquisto | Calcola la radice quadrata del numero specificato. |
+| `['tan', number]` | d'acquisto | Calcola la tangente del numero specificato. |
 
 ## <a name="aggregate-expression"></a>Espressione di aggregazione
 
@@ -190,7 +190,7 @@ Un'espressione di aggregazione accetta tre valori: un valore di operatore e un v
 
 Se tutte le funzionalità di un set di dati dispongono di una proprietà `revenue`, ovvero un numero. Quindi, è possibile calcolare i ricavi totali di tutti i punti di un cluster creati dal set di dati. Questo calcolo viene eseguito utilizzando l'espressione di aggregazione seguente: `['+', 0, ['get', 'revenue']]`
 
-## <a name="boolean-expressions"></a>espressioni booleane
+## <a name="boolean-expressions"></a>Espressioni booleane
 
 Le espressioni booleane forniscono un set di espressioni di operatori booleani per la valutazione di confronti booleani.
 
@@ -405,7 +405,7 @@ Le espressioni di tipo forniscono strumenti per il test e la conversione di tipi
 | `['image', string]` | string | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
 | `['to-boolean', value]` | boolean | Converte il valore di input in un valore booleano. Il risultato è `false` quando l'input è una stringa vuota, `0`, `false`, `null`o `NaN`; in caso contrario, il `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte il valore di input in un colore. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | numero | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false`, il risultato è 0. Se l'input è `true`, il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | d'acquisto | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false`, il risultato è 0. Se l'input è `true`, il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
 | `['to-string', value]` | string | Converte il valore di input in una stringa. Se l'input è `null`, il risultato viene `""`. Se l'input è un valore booleano, il risultato è `"true"` o `"false"`. Se l'input è un numero, viene convertito in una stringa utilizzando la funzione numero [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) della specifica del linguaggio ECMAScript. Se l'input è un colore, viene convertito nella stringa CSS RGBA color `"rgba(r,g,b,a)"`. In caso contrario, l'input viene convertito in una stringa utilizzando la funzione [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) della specifica del linguaggio ECMAScript. |
 | `['typeof', value]` | string | Restituisce una stringa che descrive il tipo del valore specificato. |
 
@@ -508,7 +508,7 @@ Esistono tre tipi di metodi di interpolazione che possono essere utilizzati in u
 
 Di seguito è riportato un esempio di come appaiono questi diversi tipi di interpolazioni. 
 
-| Linear  | Esponenziali | Bezier cubica |
+| Lineari  | Esponenziali | Bezier cubica |
 |---------|-------------|--------------|
 | ![Grafico interpolazione lineare](media/how-to-expressions/linear-interpolation.png) | ![Grafico di interpolazione esponenziale](media/how-to-expressions/exponential-interpolation.png) | ![Grafico di interpolazione Bezier cubica](media/how-to-expressions/bezier-curve-interpolation.png) |
 

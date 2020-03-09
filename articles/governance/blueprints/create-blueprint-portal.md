@@ -1,20 +1,20 @@
 ---
-title: 'Avvio rapido: Creare un progetto nel portale'
+title: 'Guida introduttiva: Creare un progetto nel portale'
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti tramite il portale di Azure.
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436609"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356076"
 ---
-# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Avvio rapido: Definire e assegnare un progetto nel portale
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Guida introduttiva: Definire e assegnare un progetto nel portale
 
 Quando si impara a creare e assegnare progetti è possibile definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Azure Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprints per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione. Queste attività includono:
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
