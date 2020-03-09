@@ -110,20 +110,18 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Protezione delle password di Azure AD
       items:
-        - name: Integrazione locale
-          items:
-            - name: Distribuire la protezione delle password di Azure AD
-              href: howto-password-ban-bad-on-premises-deploy.md
-            - name: Configurare la protezione delle password di Azure AD
-              href: howto-password-ban-bad-on-premises-operations.md
-            - name: Monitorare la protezione delle password di Azure AD
-              href: howto-password-ban-bad-on-premises-monitor.md
-            - name: Risolvere i problemi relativi alla protezione delle password di Azure AD
-              href: howto-password-ban-bad-on-premises-troubleshoot.md
-            - name: Domande frequenti
-              href: howto-password-ban-bad-on-premises-faq.md
-            - name: Cronologia delle versioni dell'agente locale
-              href: howto-password-ban-bad-on-premises-agent-versions.md
+        - name: Pianificare e distribuire in locale
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: Abilitare e configurare in locale
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: Monitorare le distribuzioni locali
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: Risolvere i problemi delle distribuzioni locali
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: Domande frequenti sull'ambiente locale
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: Cronologia delle versioni dell'agente locale
+          href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Blocco intelligente di Azure AD
       href: howto-password-smart-lockout.md
     - name: Accesso senza password

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965465"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384885"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
 
@@ -57,7 +57,7 @@ Per creare un servizio, attenersi alla procedura seguente.
 
 Per ogni servizio Gestione dispositivi StorSimple, sono disponibili gli attributi seguenti:
 
-* **Nome**: nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori dei volumi e criteri di backup che non è possibile rinominare nel portale di Azure.**
+* **Nome**: nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominate nella portale di Azure.**
 * **Stato**: stato del servizio, che può essere **Attivo**, **Creazione in corso** oppure **Online**.
 * **Posizione** : posizione geografica in cui verrà distribuito il dispositivo StorSimple.
 * **Sottoscrizione** : sottoscrizione di fatturazione associata al servizio.
@@ -83,7 +83,7 @@ Per eliminare un servizio, attenersi alla procedura seguente.
 
 3. Nel messaggio di richiesta di conferma fare clic su **Sì** . L'eliminazione del servizio può richiedere alcuni minuti.
 
-    ![Conferma eliminazione](./media/storsimple-8000-manage-service/deletessdevman3.png)
+    ![Confermare l'eliminazione](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
 ## <a name="get-the-service-registration-key"></a>Ottenere la chiave di registrazione del servizio
 
@@ -95,7 +95,7 @@ Per ottenere la chiave di registrazione del servizio, attenersi alla procedura s
 
 Conservare la chiave di registrazione del servizio in una posizione sicura. Questa chiave e la chiave DEK del servizio saranno necessarie per registrare altri dispositivi con il servizio. Dopo aver ottenuto la chiave di registrazione del servizio, è necessario configurare il dispositivo tramite l'interfaccia di Windows PowerShell per StorSimple.
 
-Per informazioni dettagliate su come usare questa chiave di registrazione, vedere [Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Per informazioni dettagliate sull'uso della chiave di registrazione, vedere [Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## <a name="regenerate-the-service-registration-key"></a>Rigenerare la chiave di registrazione del servizio
 La rigenerazione di una chiave di registrazione del servizio deve essere effettuata quando è necessario eseguire la rotazione delle chiavi o se l'elenco di amministratori del servizio è stato modificato. Quando si rigenera la chiave, quest'ultima viene usata solo per registrare dispositivi successivi. I dispositivi già registrati non sono interessati da questo processo.
@@ -103,7 +103,7 @@ La rigenerazione di una chiave di registrazione del servizio deve essere effettu
 Per rigenerare una chiave di registrazione del servizio, attenersi alla procedura seguente.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Per rigenerare la chiave di registrazione del servizio
-1. In **Gestione dispositivi StorSimple** passare a **Gestione&gt;** **Chiavi**.
+1. Nel pannello **Device Manager StorSimple** passare a **gestione &gt;** **chiavi**.
     
     ![Pannello Chiavi](./media/storsimple-8000-manage-service/regenregkey2.png)
 
@@ -129,7 +129,7 @@ La modifica della chiave DEK del servizio è un processo che prevede 3 fasi:
 2. Mediante Windows PowerShell per StorSimple, si consente di avviare la modifica della chiave DEK del servizio.
 3. Se si dispone di più di un dispositivo StorSimple, è necessario aggiornare la chiave DEK del servizio in altri dispositivi.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Passaggio 1: Usare uno script di Windows PowerShell per autorizzare un dispositivo a modificare la chiave di crittografia dei dati del servizio
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Passaggio 1: Usare uno script di Windows PowerShell per autorizzare un dispositivo a modificare la chiave DEK del servizio
 In genere, l'amministratore dei dispositivi richiede all'amministratore del servizio di autorizzare un dispositivo a modificare le chiavi DEK del servizio. L'amministratore del servizio autorizza quindi il dispositivo a modificare la chiave.
 
 Questo passaggio viene eseguito usando lo script basato su Azure Resource Manager. L'amministratore del servizio può selezionare un dispositivo idoneo per l'autorizzazione. Il dispositivo viene quindi autorizzato ad avviare il processo di modifica della chiave DEK del servizio. 
@@ -145,7 +145,7 @@ Per essere autorizzato ad avviare le modifiche alla chiave DEK del servizio, un 
 * Non è possibile autorizzare un dispositivo mentre è in corso il rollover della chiave DEK del servizio.
 * È possibile autorizzare un dispositivo quando alcuni dei dispositivi registrati con il servizio hanno eseguito il rollover della crittografia mentre altri no. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave di crittografia dei dati del servizio
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio
 Questo passaggio viene eseguito nell'interfaccia di Windows PowerShell per StorSimple nel dispositivo StorSimple autorizzato.
 
 > [!NOTE]
@@ -170,7 +170,7 @@ Se si usa la console seriale del dispositivo per la connessione all'interfaccia 
    
    Se nel servizio è registrato un unico dispositivo, il processo di rollover è completo ed è possibile ignorare il passaggio successivo. Se nel servizio sono registrati più dispositivi, andare al passaggio 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Passaggio 3: Aggiornare la chiave di crittografia dei dati del servizio in altri dispositivi StorSimple
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Passaggio 3: Aggiornare la chiave DEK del servizio in altri dispositivi StorSimple
 Questa procedura deve essere eseguita nell'interfaccia di Windows PowerShell del dispositivo StorSimple se vi sono più dispositivi registrati per il servizio StorSimple Manager. La chiave ottenuta nel passaggio 2 deve essere usata per aggiornare tutti i dispositivi StorSimple rimanenti registrati con il servizio StorSimple Manager.
 
 Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispositivo.
@@ -178,7 +178,7 @@ Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispo
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Per aggiornare la chiave di crittografia dei dati del servizio nei dispositivi fisici
 1. Usare Windows PowerShell per StorSimple per connettersi alla console. Selezionare l'opzione 1 per eseguire l'accesso completo.
 2. Al prompt dei comandi digitare: `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Fornire la chiave di crittografia dei dati del servizio ottenuta in [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave di crittografia dei dati del servizio](#to-initiate-the-service-data-encryption-key-change).
+3. Specificare la chiave DEK ottenuta nel [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Per aggiornare la chiave di crittografia dei dati del servizio in tutte le appliance cloud 8010/8020
 1. Scaricare e configurare lo script di PowerShell [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1). 
@@ -191,7 +191,7 @@ Nel portale di Azure sono supportati solo i dispositivi StorSimple che eseguono 
 
 | Operazione                                                                                                                       | Supportato      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registrare un dispositivo                                                                                                               | Yes            |
+| Registrare un dispositivo                                                                                                               | Sì            |
 | Configurare le impostazioni di dispositivo, ad esempio le caratteristiche generali, la rete e la sicurezza                                                                | Sì            |
 | Analizzare, scaricare e installare aggiornamenti                                                                                             | Sì            |
 | Disattivare un dispositivo                                                                                                               | Sì            |

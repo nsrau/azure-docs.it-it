@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928267"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387367"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Spostare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -38,10 +38,10 @@ Per abilitare la connettività all'istanza di SAP HANA, installare i componenti 
 - **Gateway di gestione dati**: il servizio Data Factory supporta la connessione ad archivi dati locali (incluso SAP HANA) usando un componente denominato Gateway di gestione dati. Per informazioni su Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md). Il gateway è necessario anche se il database SAP HANA è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
 - **Driver ODBC di SAP HANA** nel computer del gateway. È possibile scaricare il driver ODBC di SAP HANA dall'[area per il download di software SAP](https://support.sap.com/swdc). Per cercare il driver, usare la parola chiave **SAP HANA CLIENT for Windows**. 
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con un'attività di copia che sposta i dati da un archivio dati SAP HANA locale usando diversi strumenti/API. 
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md). 
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
 - È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
@@ -57,13 +57,13 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato SAP HANA.
 
-Proprietà | Description | Valori consentiti | Obbligatoria
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | string | SÌ
-authenticationType | Tipo di autenticazione. | string. "Basic" o "Windows" | SÌ 
-Nome utente | Nome dell'utente che ha accesso al server SAP | string | SÌ
-password | Password per l'utente. | string | SÌ
-gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | string | SÌ
+server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | string | Sì
+authenticationType | Tipo di autenticazione. | specificata. "Basic" o "Windows" | Sì 
+nomeutente | Nome dell'utente che ha accesso al server SAP | string | Sì
+password | Password per l'utente. | string | Sì
+gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | string | Sì
 encryptedCredential | Stringa di credenziali crittografata. | string | No
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
@@ -79,9 +79,9 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Se l'origine nell'attività di copia è di tipo **RelationalSource** (che include SAP HANA), nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | Description | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Query SQL. | SÌ |
+| query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Query SQL. | Sì |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Esempio JSON: Copiare dati da SAP HANA a BLOB di Azure
 L'esempio seguente fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questo esempio illustra come copiare dati da un database SAP HANA locale a un archivio BLOB di Azure. I dati possono tuttavia essere copiati **direttamente** in qualsiasi sink elencato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.  
@@ -286,20 +286,20 @@ Tipo SAP HANA | Tipo basato su .Net
 TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
-BIGINT | Int64
-REAL | Singolo
-DOUBLE | Singolo
-DECIMAL | DECIMAL
+bigint | Int64
+real | Single
+DOUBLE | Single
+DECIMAL | Decimal
 BOOLEAN | Byte
-VARCHAR | Stringa
-NVARCHAR | Stringa
+VARCHAR | String
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | Stringa
+ALPHANUM | String
 BLOB | Byte[]
-DATE | Data e ora
-TIME | Intervallo di tempo
-TIMESTAMP | Data e ora
-SECONDDATE | Data e ora
+DATE | Datetime
+TIME | TimeSpan
+timestamp | Datetime
+SECONDDATE | Datetime
 
 ## <a name="known-limitations"></a>Limitazioni note
 Quando si copiano dati da SAP HANA, è necessario tenere conto di alcune limitazioni:

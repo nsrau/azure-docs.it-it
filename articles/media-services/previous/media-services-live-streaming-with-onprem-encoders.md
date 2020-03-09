@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887102"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390518"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso di canali che ricevono il flusso live a bitrate multipli da codificatori locali
 
@@ -176,18 +176,18 @@ Anche dopo l'arresto e l'eliminazione del programma, gli utenti possono trasmett
 ## <a id="states"></a>Stati del canale e fatturazione
 I valori possibili per lo stato corrente di un canale includono i seguenti:
 
-* **Arrestato**: stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate, ma lo streaming non è consentito.
-* **Avvio**: è in corso l'avvio del canale. Durante questo stato non sono consentiti aggiornamenti o streaming. Se si verifica un errore, il canale torna allo stato **Arrestato**.
+* **Arrestato**: stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
+* **Avvio**: è in corso l'avvio del canale. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato **Arrestato**.
 * **In esecuzione**: il canale può elaborare flussi live.
-* **Arresto**: è in corso l'arresto del canale. Durante questo stato non sono consentiti aggiornamenti o streaming.
-* **Eliminazione**: è in corso l'eliminazione del canale. Durante questo stato non sono consentiti aggiornamenti o streaming.
+* **Arresto**: è in corso l'arresto del canale. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Eliminazione**: è in corso l'eliminazione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
 
-La tabella seguente mostra l'associazione tra stati del canale e modalità di fatturazione.
+La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione.
 
-| Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturazione? |
+| Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturato? |
 | --- | --- | --- |
 | **Avvio** |**Avvio** |No (stato temporaneo) |
-| **Running** |**Pronto** (nessun programma in esecuzione)<p><p>Oppure<p>**Streaming** (almeno un programma in esecuzione) |SÌ |
+| **Running** |**Pronto** (nessun programma in esecuzione)<p><p>o<p>**Streaming** (almeno un programma in esecuzione) |Sì |
 | **Arresto** |**Arresto** |No (stato temporaneo) |
 | **Stopped** |**Stopped** |No |
 
@@ -225,7 +225,7 @@ Ecco altre considerazioni relative all'uso dei canali e dei componenti correlati
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>Commenti
+## <a name="feedback"></a>Commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati

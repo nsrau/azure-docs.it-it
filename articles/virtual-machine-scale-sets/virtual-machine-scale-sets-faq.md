@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
 ms.openlocfilehash: 222f26febb7b14c627307295a8cdd68a17694d03
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275892"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394673"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -64,7 +64,7 @@ Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizi
 Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
-## <a name="autoscale"></a>Scalabilità automatica
+## <a name="autoscale"></a>Autoscale
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quali sono le procedure consigliate per la scalabilità automatica di Azure?
 
@@ -221,11 +221,11 @@ Quando si crea una VM Linux è possibile fornire le chiavi pubbliche SSH in test
 }
 ```
 
-Nome dell'elemento linuxConfiguration | Obbligatorio | Tipo | Description
+Nome dell'elemento linuxConfiguration | Obbligatoria | Type | Descrizione
 --- | --- | --- | ---
 ssh | No | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
-path | Sì | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
-keyData | Sì | string | Specifica una chiave pubblica SSH con codifica Base64
+path | Sì | String | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
+keyData | Sì | String | Specifica una chiave pubblica SSH con codifica Base64
 
 Per un esempio, vedere il [modello di avvio rapido 101-vm-sshkey di GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -331,7 +331,7 @@ Dal punto di vista della conformità, i set di scalabilità di macchine virtuali
 
 Per altre informazioni, vedere il [Centro protezione Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funzionano con i set di scalabilità di macchine virtuali?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funzionano con i set di scalabilità di macchine virtuali?
 
 Sì. È possibile vedere alcuni modelli MSI di esempio in modelli di avvio rapido di Azure per [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
@@ -563,7 +563,7 @@ Per creare un set di scalabilità di macchine virtuali che assegni un indirizzo 
 
 Sì. È possibile aggiungere gli ID risorsa per più pool di indirizzi back-end del gateway applicazione all'elenco _applicationGatewayBackendAddressPools_ nella sezione _ipConfigurations_ del profilo di rete del set di scalabilità.
 
-## <a name="scale"></a>Scalare
+## <a name="scale"></a>Scala
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>In quale caso è consigliabile creare un set di scalabilità di macchine virtuali con meno di due macchine virtuali?
 
@@ -642,7 +642,7 @@ Sì, è possibile installando l'estensione di monitoraggio di Azure nelle VM del
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
-È possibile trovare l'ID e la chiave dell'area di lavoro necessari nell'area di lavoro Log Analytics nel portale di Azure. Nella pagina Panoramica fare clic sul riquadro Impostazioni. Fare clic sula scheda Origini connesse nella parte superiore.
+È possibile trovare l'ID e la chiave dell'area di lavoro necessari nell'area di lavoro Log Analytics nel portale di Azure. Nella pagina Panoramica fare clic sul riquadro Impostazioni. Fare clic sulla scheda Connected Sources nella parte superiore.
 
 > [!NOTE]
 > Se il set di scalabilità _upgradePolicy_ è impostato su manuale, è necessario applicare l'estensione a tutte le macchine virtuali nel set chiamando l'aggiornamento su di essi. Nell'interfaccia della riga di comando è necessario chiamare _az vmss update-instances_.
@@ -673,7 +673,7 @@ Quando viene creata una nuova VM, la proprietà InstanceView della VM mostra i d
 }
 ```
 
-## <a name="virtual-machine-properties"></a>Proprietà della macchina virtuale
+## <a name="virtual-machine-properties"></a>Proprietà macchine virtuali
 
 ### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>Come si possono ottenere informazioni sulle proprietà di ogni macchina virtuale senza dover eseguire più chiamate? Come si ottiene ad esempio il dominio di errore per ognuna delle 100 VM del set di scalabilità di macchine virtuali?
 

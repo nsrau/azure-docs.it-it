@@ -81,8 +81,12 @@
           href: batch-aad-auth-management.md
         - name: Accedere in modo sicuro a Key Vault con Batch
           href: credential-access-key-vault.md
-    - name: Uso di pacchetti dell'applicazione
-      href: batch-application-packages.md
+    - name: Copiare file e applicazioni in nodi del pool
+      items:
+        - name: Uso di pacchetti dell'applicazione
+          href: batch-application-packages.md
+        - name: Creare file di risorse
+          href: resource-files.md
     - name: Creare e gestire i pool
       items:
         - name: Nodi di calcolo a scalabilità automatica
@@ -123,12 +127,12 @@
           href: batch-user-accounts.md
         - name: Inviare un numero elevato di attività
           href: large-number-tasks.md
+        - name: Pianificare i processi per l'efficienza
+          href: batch-job-schedule.md
         - name: Verificare la presenza di errori relativi a processi e attività
           href: batch-job-task-error-checking.md
         - name: Rilevamento e gestione degli errori del servizio Batch
           href: batch-retry-after-errors.md
-    - name: Creare file di risorse
-      href: resource-files.md
     - name: Rendere persistente l'output di processi e attività
       href: batch-task-output.md
       items:

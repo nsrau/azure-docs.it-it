@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 5e7a4eff57841fdcf3bab87eda4e9771d9742bc5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190381"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386762"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: caricare il set di dati del taxi di New York
 
@@ -148,8 +148,8 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | Tipo di server    | Motore di database                            | Questo valore è obbligatorio                                       |
     | Nome server    | Nome completo del server            | Il nome sarà simile a: **mynewserver-20180430.database.windows.net**. |
-    | Authentication | Autenticazione di SQL Server                  | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-    | Login          | Account amministratore del server                   | Si tratta dell'account specificato al momento della creazione del server. |
+    | Autenticazione | autenticazione SQL Server                  | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+    | Accesso          | Account amministratore del server                   | Si tratta dell'account specificato al momento della creazione del server. |
     | Password       | Password per l'account amministratore del server | Si tratta della password specificata al momento della creazione del server. |
 
     ![Connetti al server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -561,7 +561,7 @@ Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/stat
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>Eseguire l'autenticazione usando identità gestite per il caricamento (facoltativo)
 Il caricamento tramite polibase e l'autenticazione tramite identità gestite è il meccanismo più sicuro e consente di sfruttare gli endpoint di servizio della rete virtuale con archiviazione di Azure. 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 1.  Installare Azure PowerShell usando questa [guida](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).

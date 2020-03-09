@@ -12,18 +12,18 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: fc328c34c1543a75fdc885087d44b28e24c0850a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818239"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380087"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Livello Business critical - Servizio di database SQL di Azure
 
 > [!NOTE]
 > Il livello Business critical è chiamato Premium nel modello di acquisto basato su DTU. Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-purchase-models.md).
 
-Il Database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud per garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Esistono tre modelli di architettura usati nel database SQL di Azure:
+Il Database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud per garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Esistono tre modelli architetturali usati nel database SQL di Azure:
 - Utilizzo generico/Standard 
 - Business critical/Premium
 - Hyperscale
@@ -53,7 +53,7 @@ I motivi principali per cui è consigliabile scegliere business critical livello
 -   Transazioni con esecuzione prolungata che modificano i dati. Le transazioni aperte per un periodo di tempo più lungo impediscono il troncamento del file di log che potrebbe aumentare le dimensioni del log e il numero di [file di log virtuali (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Un numero elevato di VLF può rallentare il recupero del database dopo il failover.
 -   Carico di lavoro con query di Reporting e analisi che possono essere reindirizzate alla replica secondaria di sola lettura gratuita.
 - Maggiore resilienza e ripristino più rapido dagli errori. In caso di errore di sistema, il database nell'istanza primaria verrà disabilitato e una delle repliche secondarie diventerà immediatamente un nuovo database primario di lettura/scrittura pronto per l'elaborazione delle query. Il motore di database non deve analizzare e ripristinare le transazioni dal file di log e caricare tutti i dati nel buffer di memoria.
-- Protezione avanzata per il danneggiamento dei dati: il livello business critical sfrutta le repliche di database in background per la continuità aziendale, quindi il servizio utilizza anche la correzione automatica della pagina, che è la stessa tecnologia utilizzata per SQL Server database [mirroring e gruppi di disponibilità](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). Se una replica non è in grado di leggere una pagina a causa di un problema di integrità dei dati, una copia aggiornata della pagina verrà recuperata da un'altra replica, sostituendo la pagina illeggibile senza perdita di dati o tempi di inattività del cliente. Questa funzionalità è applicabile nel livello per utilizzo generico se il database ha una replica geografica secondaria.
+- Protezione avanzata per il danneggiamento dei dati: il livello business critical sfrutta le repliche di database in background per la continuità aziendale, quindi il servizio utilizza anche la correzione automatica della pagina, che è la stessa tecnologia utilizzata per SQL Server il [mirroring del database e i gruppi di disponibilità](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). Se una replica non è in grado di leggere una pagina a causa di un problema di integrità dei dati, una copia aggiornata della pagina verrà recuperata da un'altra replica, sostituendo la pagina illeggibile senza perdita di dati o tempi di inattività del cliente. Questa funzionalità è applicabile nel livello per utilizzo generico se il database ha una replica geografica secondaria.
 - Maggiore disponibilità: il livello business critical nella configurazione multiaz garantisce una disponibilità del 99,995% rispetto al 99,99% del livello per utilizzo generico.
 - Ripristino geografico rapido: il livello di business critical configurato con la replica geografica ha un obiettivo del punto di ripristino (RPO) garantito di 5 secondi e obiettivo del tempo di ripristino (RTO) di 30 secondi per il 100% delle ore distribuite.
 

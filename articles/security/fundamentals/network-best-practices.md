@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
 ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76771998"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392027"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedure consigliate di Azure per la sicurezza di rete
 Questo articolo illustra una raccolta di procedure consigliate di Azure per migliorare la sicurezza della rete. derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
@@ -131,9 +131,9 @@ Molte organizzazioni hanno scelto la strada dell'IT ibrido. Con l'IT ibrido, alc
 In uno scenario IT ibrido, in genere è presente un tipo di connettività cross-premise. che consente alla società di connettere le proprie reti locali alle reti virtuali di Azure. Sono disponibili due soluzioni di connettività cross-premise:
 
 * [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). è una tecnologia attendibile, affidabile e consolidata, ma la connessione avviene tramite Internet. La larghezza di banda è vincolata a un massimo di circa 1,25 Gbps. La VPN da sito a sito è un'opzione auspicabile in alcuni scenari.
-* **ExpressRoute di Azure**. Si consiglia di usare [ExpressRoute](../../expressroute/expressroute-introduction.md) per la connettività cross-premise. ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Azure, Office 365 e Dynamics 365. ExpressRoute è un collegamento WAN dedicato tra il percorso locale o un provider di hosting di Microsoft Exchange. Poiché si tratta di una connessione Telco, i dati non passano via Internet, quindi non vengono esposti ai rischi potenziali delle comunicazioni Internet.
+* **ExpressRoute di Azure**. per la connettività cross-premise, [ExpressRoute](../../expressroute/expressroute-introduction.md) è la scelta consigliata. ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Azure, Office 365 e Dynamics 365. ExpressRoute è un collegamento WAN dedicato tra il percorso locale o un provider di hosting di Microsoft Exchange. Poiché si tratta di una connessione Telco, i dati non passano via Internet, quindi non vengono esposti ai rischi potenziali delle comunicazioni Internet.
 
-Il percorso della connessione ExpressRoute può influire sulla capacità del firewall, la scalabilità, l'affidabilità e la visibilità del traffico di rete. È necessario identificare la posizione in cui terminare ExpressRoute in reti esistenti (locali). Puoi:
+Il percorso della connessione ExpressRoute può influire sulla capacità del firewall, la scalabilità, l'affidabilità e la visibilità del traffico di rete. È necessario identificare la posizione in cui terminare ExpressRoute in reti esistenti (locali). È possibile:
 
 - Terminare all'esterno del firewall (il paradigma della rete perimetrale) se è necessaria visibilità sul traffico, se è necessario continuare una procedura esistente di isolamento dei data center o se si stanno inserendo solo risorse Extranet in Azure.
 - Terminare all'interno del firewall (il paradigma dell'estensione di rete). Si tratta dell'indicazione predefinita. In tutti gli altri casi, è consigliabile considerare Azure come un ennesimo Data Center.

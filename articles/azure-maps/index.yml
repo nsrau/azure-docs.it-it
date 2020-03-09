@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: de21e0efb6725433fe16b15665fafd9226c74f61
-  ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+  ms.openlocfilehash: cab367254df3f83903eeee110f0a435b97ea8eba
+  ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/02/2020
-  ms.locfileid: "78208776"
+  ms.lasthandoff: 03/05/2020
+  ms.locfileid: "78368618"
 landingContent:
 - title: Informazioni su Mappe di Azure
   linkLists:
@@ -74,6 +74,22 @@ landingContent:
       url: tutorial-route-location.md
     - text: Creare un localizzatore di punti vendita
       url: tutorial-create-store-locator.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usare il modulo di I/O spaziale
+      url: how-to-use-spatial-io-module.md
+    - text: Aggiungere un livello dati semplice
+      url: spatial-io-add-simple-data-layer.md
+    - text: Leggere e scrivere dati spaziali
+      url: spatial-io-read-write-spatial-data.md
+    - text: Aggiungere un livello mappa OGC
+      url: spatial-io-add-ogc-map-layer.md
+    - text: Connettersi a un servizio WFS
+      url: spatial-io-connect-wfs-service.md
+    - text: Sfruttare le operazioni principali
+      url: spatial-io-core-operations.md
+    - text: Dettagli sul formato dati supportato
+      url: spatial-io-supported-data-format-details.md
   - linkListType: reference
     links:
     - text: Controllo mappa
@@ -82,6 +98,8 @@ landingContent:
       url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
     - text: Modulo del servizio
       url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+    - text: Modulo di I/O spaziale
+      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
 - title: Sviluppo con Android SDK
   linkLists:
   - linkListType: how-to-guide

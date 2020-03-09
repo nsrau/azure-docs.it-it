@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: c006aa8c46864b78ae46aa9c351605cca1d1e425
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606581"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388575"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Trigger Azure Cosmos DB per funzioni di Azure 2. x
 
@@ -240,7 +240,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 Il trigger richiede una seconda raccolta usata per archiviare i _lease_ nelle partizioni. Sia la raccolta monitorata che la raccolta che contiene i lease deve essere disponibile affinché il trigger funzioni.
 

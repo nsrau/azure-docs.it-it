@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918731"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387373"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -33,10 +33,10 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un'archiviazione tabelle di Azure usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
 È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
@@ -60,14 +60,14 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **AzureTable** presenta le proprietà seguenti.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database di tabelle di Azure a cui fa riferimento il servizio collegato. |Sì. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
 
 ### <a name="schema-by-data-factory"></a>Schema da Data Factory
 Per gli archivi di dati privi di schema, ad esempio Tabella di Azure, il servizio Data Factory deduce lo schema in uno dei modi seguenti:
 
-1. Se si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, viene inserito un valore null.
+1. Se si specifica la struttura dei dati usando la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, viene inserito un valore null.
 2. Se non si specifica la struttura dei dati usando la proprietà **structure** nella definizione del set di dati, Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non sono presenti nel risultato dell'operazione di copia.
 
 Di conseguenza, per le origini dati prive di schema, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure** .
@@ -79,7 +79,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 **AzureTableSource** supporta le seguenti proprietà della sezione typeProperties:
 
-| Proprietà | Description | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | AzureTableSourceQuery |Usare la query personalizzata per leggere i dati. |Stringa di query della tabella di Azure. Vedere gli esempi nella sezione successiva. |No. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
 | azureTableSourceIgnoreTableNotFound |Indica se ignorare l'eccezione di tabella inesistente. |TRUE<br/>FALSE |No |
@@ -99,14 +99,14 @@ Se la colonna della tabella di Azure è di tipo datetime:
 
 **AzureTableSink** supporta le seguenti proprietà della sezione typeProperties:
 
-| Proprietà | Description | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Valore predefinito della chiave di partizione che può essere usato dal sink. |Valore stringa. |No |
 | azureTablePartitionKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di partizione. Se non specificato, AzureTableDefaultPartitionKeyValue viene usato come chiave di partizione. |Nome colonna. |No |
 | azureTableRowKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di riga. Se non specificato, usare un GUID per ogni riga. |Nome colonna. |No |
 | azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>Per scoprire come funzionano queste impostazioni (unione e sostituzione), vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità). <br/><br> Queste impostazioni vengono applicate a livello di riga, non a livello di tabella, e nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. |merge (impostazione predefinita)<br/>replace |No |
 | writeBatchSize |Inserisce dati nella tabella di Azure quando viene raggiunto il writeBatchSize o writeBatchTimeout. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
-| writeBatchTimeout |Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout |timespan<br/><br/>Ad esempio: "00:20:00" (20 minuti) |No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi) |
+| writeBatchTimeout |Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout |Intervallo di tempo<br/><br/>Ad esempio: "00:20:00" (20 minuti) |No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 Eseguire il mapping di una colonna di origine a una colonna di destinazione usando la funzione di conversione proprietà JSON prima di poter usare la colonna di destinazione come azureTablePartitionKeyName.
@@ -474,16 +474,16 @@ Come accennato nell'articolo sulle [attività di spostamento dei dati](data-fact
 
 Quando si spostano i dati da e verso tabelle di Azure, i seguenti [mapping definiti dal servizio tabelle di Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) vengono usati dai tipi di OData di tabelle di Azure al tipo di .NET e viceversa.
 
-| Tipo di dati OData | Tipo .NET | Dettagli |
+| Tipo di dati OData | Tipo di .NET | Dettagli |
 | --- | --- | --- |
 | Edm.Binary |byte[] |Una matrice di byte di dimensioni fino a 64 KB. |
 | Edm.Boolean |bool |Valore booleano. |
-| Edm.DateTime |Data e ora |Un valore a 64 bit espresso come Coordinated Universal Time (UTC). L'intervallo DateTime supportato inizia dalle 00:00, 1 gennaio, 1601 D.C. (C.E.), UTC. L'intervallo termina il 31 dicembre 9999. |
-| Edm.Double |Double |Un valore a virgola mobile a 64 bit. |
-| Edm.Guid |GUID |Un identificatore univoco globale a 128 bit. |
+| Edm.DateTime |Datetime |Un valore a 64 bit espresso come Coordinated Universal Time (UTC). L'intervallo DateTime supportato inizia dalle 00:00, 1 gennaio, 1601 D.C. (C.E.), UTC. L'intervallo termina il 31 dicembre 9999. |
+| Edm.Double |double |Un valore a virgola mobile a 64 bit. |
+| Edm.Guid |Guid |Un identificatore univoco globale a 128 bit. |
 | Edm.Int32 |Int32 |Un valore integer a 32 bit. |
 | Edm.Int64 |Int64 |Un valore integer a 64 bit. |
-| Edm.String |Stringa |Un valore con codifica UTF-16. I valori delle stringhe possono essere di dimensioni fino a 64 KB. |
+| Edm.String |string |Un valore con codifica UTF-16. I valori delle stringhe possono essere di dimensioni fino a 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Esempio di conversione di tipo
 L'esempio seguente riguarda la copia dei dati da un BLOB di Azure a tabelle di Azure con conversioni del tipo.

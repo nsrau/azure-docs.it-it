@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: spelluru
 ms.openlocfilehash: 9b31f3e68fbabc32f301fdcd8066a3bfbf1c2dbd
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028446"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380947"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concedere le autorizzazioni utente per specifici criteri di lab
 ## <a name="overview"></a>Panoramica
@@ -30,7 +30,7 @@ Come descritto nell'articolo [Controllo degli accessi in base al ruolo di Azure]
 
 Nei lab di sviluppo/test un criterio è un tipo di risorsa che abilita l'azione del controllo degli accessi in base al ruolo **Microsoft.DevTestLab/labs/policySets/policies/** . Ogni criterio di lab è una risorsa del tipo di risorsa Criterio e può essere assegnato come ambito a un ruolo del controllo degli accessi in base al ruolo.
 
-Ad esempio, per concedere agli utenti l'autorizzazione di lettura/scrittura per i criteri di **dimensioni delle VM consentite** , è necessario creare un ruolo personalizzato che funzioni con **Microsoft. DevTestLab/Labs/policySets/Policies/** Action, quindi assegnare gli utenti appropriati a Questo ruolo personalizzato nell'ambito di **Microsoft. DevTestLab/Labs/policySets/Policies/AllowedVmSizesInLab**.
+Ad esempio, per concedere agli utenti l'autorizzazione di lettura/scrittura per i criteri di **dimensioni delle VM consentite** , è necessario creare un ruolo personalizzato che funzioni con **Microsoft. DevTestLab/Labs/policySets/Policies/** Action, quindi assegnare gli utenti appropriati a questo ruolo personalizzato nell'ambito di **Microsoft. DevTestLab/Labs/PolicySets/Policies/AllowedVmSizesInLab**.
 
 Per altre informazioni sui ruoli personalizzati in RBAC, vedere il [controllo di accesso ai ruoli personalizzati](../role-based-access-control/custom-roles.md).
 

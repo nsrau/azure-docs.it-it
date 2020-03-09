@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029963"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363909"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usare il servizio Importazione/Esportazione di Azure per importare i dati in File di Azure
 
@@ -21,7 +21,7 @@ Questo articolo offre istruzioni dettagliate su come usare il servizio Importazi
 
 Il servizio Importazione/Esportazione supporta solo l'importazione di dati di File di Azure in Archiviazione di Azure. L'esportazione di dati di File di Azure non è supportata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di creare un processo di importazione per trasferire dati in File di Azure, esaminare attentamente e soddisfare l'elenco seguente di prerequisiti. È necessario:
 
@@ -130,7 +130,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
     - Immettere un nome descrittivo per il processo di importazione. Usare questo nome per tenere traccia dei processi mentre sono in corso e una volta completati.
         -  Questo nome può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura.
         -  Il nome deve iniziare con una lettera e non può contenere spazi.
-    - Seleziona una sottoscrizione.
+    - Selezionare una sottoscrizione.
     - Selezionare un gruppo di risorse.
 
         ![Creare il processo di importazione - Passaggio 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)

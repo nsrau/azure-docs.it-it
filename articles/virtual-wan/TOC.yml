@@ -34,24 +34,36 @@
       href: connect-virtual-network-gateway-vwan.md
     - name: Configurare il peering di reti virtuali globale
       href: global-peering-vnet.md
-    - name: Configurare la crittografia di ExpressRoute
-      href: vpn-over-expressroute.md
     - name: Aggiornare uno SKU di rete WAN virtuale
       href: upgrade-virtual-wan.md
     - name: Configurare criteri IPSec personalizzati
       href: virtual-wan-custom-ipsec-portal.md
-    - name: Configurare i certificati per la VPN utente (da punto a sito)
-      href: certificates-point-to-site.md
-    - name: Configurare il tenant di Azure per la VPN utente
-      href: openvpn-azure-ad-tenant.md
-    - name: Abilitare Multi-Factor Authentication (MFA) per la VPN utente
-      href: openvpn-azure-ad-mfa.md
-    - name: Configurare l'autenticazione di Azure AD per la VPN utente
-      href: virtual-wan-point-to-site-azure-ad.md
-    - name: Configurare l'autenticazione multi-applicazione di Azure AD per la VPN utente
-      href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Scaricare profili VPN basati su hub e globali
-      href: global-hub-profile.md
+    - name: ExpressRoute
+      items:
+        - name: Creare una connessione ExpressRoute
+          href: virtual-wan-expressroute-portal.md
+        - name: Configurare la crittografia di ExpressRoute
+          href: vpn-over-expressroute.md
+    - name: Da sito a sito
+      items:
+        - name: Creare una connessione da sito a sito
+          href: virtual-wan-site-to-site-portal.md
+    - name: VPN utente (da punto a sito)
+      items:
+        - name: Creare connessioni VPN utente (da punto a sito)
+          href: virtual-wan-point-to-site-portal.md
+        - name: Configurare i certificati per VPN utente
+          href: certificates-point-to-site.md
+        - name: Configurare il tenant di Azure per la VPN utente
+          href: openvpn-azure-ad-tenant.md
+        - name: Abilitare Multi-Factor Authentication (MFA) per la VPN utente
+          href: openvpn-azure-ad-mfa.md
+        - name: Configurare l'autenticazione di Azure AD per la VPN utente
+          href: virtual-wan-point-to-site-azure-ad.md
+        - name: Configurare l'autenticazione multi-applicazione di Azure AD per la VPN utente
+          href: openvpn-azure-ad-tenant-multi-app.md
+        - name: Scaricare profili VPN utente globali e basati su hub
+          href: global-hub-profile.md
     - name: Configurare il routing
       items:
         - name: Indirizzare il traffico da un hub virtuale a un'appliance virtuale di rete
