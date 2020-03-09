@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 tags: connectors
 ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900272"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386510"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure
 
@@ -36,7 +36,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'az
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per ottenere un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -58,7 +58,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **URL POST HTTP** | {none} | Sì | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
    | **Schema JSON del corpo della richiesta** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
@@ -157,7 +157,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 1. Per specificare altre proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **Metodo** | `method` | No | Metodo che la richiesta in ingresso deve usare per chiamare l'app per la logica |
    | **Percorso relativo** | `relativePath` | No | Percorso relativo del parametro che l'URL dell'endpoint dell'app per la logica può accettare |
@@ -189,7 +189,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 Di seguito sono riportate altre informazioni sugli output del trigger di richiesta:
 
-| Nome proprietà JSON | Tipo di dati | Description |
+| Nome proprietà JSON | Tipo di dati | Descrizione |
 |--------------------|-----------|-------------|
 | `headers` | Oggetto | Oggetto JSON che descrive le intestazioni della richiesta |
 | `body` | Oggetto | Oggetto JSON che descrive il contenuto del corpo dalla richiesta |
@@ -231,7 +231,7 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto.
 
    Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta. 
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **Codice di stato** | `statusCode` | Sì | Codice di stato da restituire nella risposta |
    | **Intestazioni** | `headers` | No | Oggetto JSON che descrive una o più intestazioni da includere nella risposta |

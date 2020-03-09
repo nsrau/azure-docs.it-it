@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 00d260a74807774d5bf226c3ec00a6b84f93b8d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478799"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360030"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gestire le risorse di Azure usando il portale di Azure
 
@@ -19,7 +19,7 @@ Informazioni su come usare la [portale di Azure](https://portal.azure.com) con [
 Altri articoli sulla gestione delle risorse:
 
 - [Gestire le risorse di Azure usando l'interfaccia della riga di comando](manage-resources-cli.md)
-- [Gestire le risorse di Azure usando Azure PowerShell](manage-resources-powershell.md)
+- [Gestire le risorse di Azure tramite Azure PowerShell](manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 

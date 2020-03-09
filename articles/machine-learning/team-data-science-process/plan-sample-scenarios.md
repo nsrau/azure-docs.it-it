@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710487"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393411"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenari per l'analisi avanzata in Azure Machine Learning
 Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il [Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Il TDSP offre un approccio sistematico per consentire ai team di collaborare sulla compilazione di applicazioni intelligenti. Gli scenari presentati illustrano le opzioni disponibili nel flusso di lavoro dell'elaborazione dei dati basato su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
@@ -85,7 +85,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
    Opzione \#1: Uso di SQL Server Management Studio.
    
    * Accedere alla macchina virtuale SQL Server
-   * Eseguire SQL Server Management Studio.
+   * Eseguire SQL Server Management Studio
    * Creare tabelle di database e di destinazione
    * Utilizzare uno dei metodi di importazione globale per caricare i dati dai file della macchina virtuale locale.
    
@@ -120,7 +120,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
    
     b.  Se i dati non sono già stati salvati, scaricare i file di dati dal contenitore di archiviazione di Azure alla cartella locale della macchina virtuale.
    
-    c.  Eseguire SQL Server Management Studio.
+    c.  Eseguire SQL Server Management Studio
    
     d.  Creare tabelle di database e di destinazione
    
@@ -156,7 +156,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
    
    b.  Scaricare i file di dati da un contenitore di archiviazione di Azure alla cartella locale della macchina virtuale.
    
-   c.  Eseguire SQL Server Management Studio.
+   c.  Eseguire SQL Server Management Studio
    
    d.  Creare tabelle di database e di destinazione
    

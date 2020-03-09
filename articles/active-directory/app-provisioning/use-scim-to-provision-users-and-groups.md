@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2fda5d1bdd00a601df363bd930e5f2f6d610c7f
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 42fc10c1e7e88e36e4d2174671702e043fb96538
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208713"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926853"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
 
@@ -33,7 +33,7 @@ SCIM è una definizione standardizzata di due endpoint: un endpoint/Users e un e
 
 Lo schema dell'oggetto utente standard e le API REST per la gestione definite in SCIM 2,0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) consentono a provider di identità e app di integrarsi più facilmente tra loro. Gli sviluppatori di applicazioni che compilano un endpoint SCIM possono integrarsi con qualsiasi client conforme a SCIM senza dover eseguire operazioni personalizzate.
 
-L'automazione del provisioning in un'applicazione richiede la compilazione e l'integrazione di un endpoint SCIM con la Azure AD conforme a SCIM. Eseguire la procedura seguente per avviare il provisioning di utenti e gruppi nell'applicazione. 
+L'automazione del provisioning in un'applicazione richiede la compilazione e l'integrazione di un endpoint SCIM con il client SCIM Azure AD. Eseguire la procedura seguente per avviare il provisioning di utenti e gruppi nell'applicazione. 
     
   * **[Passaggio 1: progettare lo schema utente e gruppo.](#step-1-design-your-user-and-group-schema)** Identificare gli oggetti e gli attributi necessari per l'applicazione e determinare il modo in cui vengono mappati allo schema utente e gruppo supportato dall'implementazione di Azure AD SCIM.
 
@@ -60,10 +60,10 @@ Ogni applicazione richiede attributi diversi per creare un utente o un gruppo. A
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|nome. lastName|lastName|
-|workMail|Messaggi di posta elettronica [digitare EQ "Work"]. Value|Posta|
+|workMail|Messaggi di posta elettronica [digitare EQ "Work"]. Value|Posta elettronica|
 |manager|manager|manager|
 |tag|urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtension: Tag|extensionAttribute1|
-|stato|attivo|isSoftDeleted (valore calcolato non archiviato nell'utente)|
+|status|active|isSoftDeleted (valore calcolato non archiviato nell'utente)|
 
 Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON riportato di seguito. Si noti che, oltre agli attributi necessari per l'applicazione, la rappresentazione JSON include gli attributi "ID", "externalId" e "meta" obbligatori.
 
@@ -99,14 +99,14 @@ Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON r
 
 | Utente Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
-| IsSoftDeleted |attivo |
+| IsSoftDeleted |active |
 |department|urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|
 | displayName |displayName |
 |employeeId|urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: employeeNumber|
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| posta |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -124,9 +124,9 @@ Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON r
 | Gruppo di Azure Active Directory | urn: IETF: params: SCIM: schemas: Core: 2.0: Group |
 | --- | --- |
 | displayName |displayName |
-| posta |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| membri |membri |
+| Membri di |Membri di |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
@@ -560,7 +560,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 * L'aggiornamento alla richiesta PATCH di gruppo deve restituire un *contenuto HTTP 204 senza contenuto* nella risposta. Non è consigliabile restituire un corpo con un elenco di tutti i membri.
 * Non è necessario supportare la restituzione di tutti i membri del gruppo.
 
-#### <a name="create-group"></a>Crea gruppo
+#### <a name="create-group"></a>Creare un gruppo
 
 ##### <a name="request-7"></a>Richiesta
 
@@ -712,7 +712,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 *HTTP/1.1 204 nessun contenuto*
 
-#### <a name="delete-group"></a>Elimina gruppo
+#### <a name="delete-group"></a>Eliminare un gruppo
 
 ##### <a name="request-13"></a>Richiesta
 
@@ -752,7 +752,7 @@ Barra minima suite di crittografia TLS 1,2:
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passaggio 3: creare un endpoint SCIM
 
-Ora che si è desidned lo schema e si è compreso il Azure AD implementazione di SCIM, è possibile iniziare a sviluppare l'endpoint SCIM. Anziché iniziare da zero e compilare completamente l'implementazione autonomamente, è possibile fare affidamento su una serie di librerie SCIM Open Source pubblicate da SCIM Commuinty.  
+Ora che è stato progettato lo schema e si è compreso il Azure AD implementazione di SCIM, è possibile iniziare a sviluppare l'endpoint SCIM. Anziché iniziare da zero e compilare completamente l'implementazione autonomamente, è possibile fare affidamento su una serie di librerie SCIM Open Source pubblicate da SCIM Commuinty.  
 Il [codice di riferimento](https://aka.ms/SCIMReferenceCode) di .NET Core open source pubblicato dal team di Azure ad provisioning è una risorsa di questo tipo che consente di avviare lo sviluppo. Dopo aver compilato l'endpoint SCIM, è necessario eseguirne il test. È possibile usare la raccolta di [test di posting](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) forniti come parte del codice di riferimento o eseguire le richieste o le risposte di esempio fornite in [precedenza](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
 
 Nota: il codice di riferimento è utile per iniziare a creare l'endpoint SCIM e viene fornito "così com'è". I contributi della community sono benvenuti per facilitare la compilazione e la gestione del codice. 

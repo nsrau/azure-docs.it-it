@@ -1,14 +1,14 @@
 ---
 title: Estensione di criteri di Azure per Visual Studio Code
 description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Gestione risorse alias.
-ms.date: 11/04/2019
+ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386785"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932638"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
@@ -21,7 +21,7 @@ L'estensione di criteri di Azure per Visual Studio Code può essere installata i
 > [!NOTE]
 > Le modifiche apportate localmente ai criteri visualizzati nell'estensione criteri di Azure per Visual Studio Code non vengono sincronizzate con Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare i passaggi in questo articolo, è necessario quanto segue:
 
@@ -82,7 +82,7 @@ Quando si accede per la prima volta, solo le risorse e i criteri di sottoscrizio
 
    - Tavolozza comandi: 
 
-     Dalla barra dei menu passare a **visualizza** > **riquadro comandi**e immettere criteri di **Azure: selezionare le sottoscrizioni**.
+     Dalla barra dei menu passare a **visualizza** > **riquadro comandi**e immettere **Azure: selezionare sottoscrizioni**.
 
    - Piè di pagina della finestra
 

@@ -1,22 +1,14 @@
 ---
 title: Come testare una knowledge base - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Testare la Knowledge Base di QnA Maker è una parte importante di un processo iterativo per migliorare l'accuratezza delle risposte restituite. È possibile testare la Knowledge Base attraverso un'interfaccia di chat avanzata che consente anche di apportare modifiche.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: c139d3a740067e3cecaff90d3171d7b0cb3d52c7
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.date: 03/05/2020
+ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091762"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927266"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Testare la Knowledge base in QnA Maker
 
@@ -61,11 +53,11 @@ Se la risposta con il punteggio più alto non è corretta, selezionare la rispos
 
 ### <a name="add-a-new-answer"></a>Aggiungere una nuova risposta
 
-È possibile aggiungere una nuova risposta se una delle risposte esistenti individuate non è corretta o se la risposta non esiste nella Knowledge Base (non è stata trovata una buona corrispondenza nella Knowledge Base). 
+È possibile aggiungere una nuova risposta se una delle risposte esistenti individuate non è corretta o se la risposta non esiste nella Knowledge Base (non è stata trovata una buona corrispondenza nella Knowledge Base).
 
-Nella parte inferiore dell'elenco risposte utilizzare la casella di testo per immettere una nuova risposta e premere INVIO per aggiungerla. 
+Nella parte inferiore dell'elenco risposte utilizzare la casella di testo per immettere una nuova risposta e premere INVIO per aggiungerla.
 
-Selezionare **Save and train** (Salva ed esegui training) per salvare questa risposta in modo permanente. Una nuova coppia di domanda/risposta è stata così aggiunta alla Knowledge Base. 
+Selezionare **Save and train** (Salva ed esegui training) per salvare questa risposta in modo permanente. Una nuova coppia di domanda/risposta è stata così aggiunta alla Knowledge Base.
 
 > [!NOTE]
 > Tutte le modifiche alla Knowledge Base vengono salvate solo quando si fa clic sul pulsante  **Save and train** (Salva ed esegui training).
@@ -83,12 +75,14 @@ Utilizzare lo strumento di test batch quando si desidera:
 * determinare la risposta e il Punteggio principali per un set di domande
 * convalidare la risposta prevista per il set di domande
 
-I test batch sono forniti con lo strumento di test batch. Questo strumento è disponibile come [file eseguibile compresso](https://aka.ms/qnamakerbatchtestingtool) per il download o come [ C# codice sorgente](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+Per istruzioni dettagliate, vedere l' [esercitazione](../Quickstarts/batch-testing.md) relativa ai test di batch.
+
+I test batch sono forniti con lo strumento di test batch. Questo strumento è disponibile come [file eseguibile compresso](https://aka.ms/qnamakerbatchtestingtool) per il download o come [ C# codice sorgente](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
 
 [La documentazione di riferimento sullo strumento](../reference-tsv-format-batch-testing.md) include:
 
 * esempio di riga di comando dello strumento
-* formato per i file di input e di file con estensione TSV 
+* formato per i file di input e di file con estensione TSV
 
 ## <a name="next-steps"></a>Passaggi successivi
 

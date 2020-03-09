@@ -13,11 +13,11 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931816"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387563"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Spostare dati da un database Cassandra locale mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -34,7 +34,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 ## <a name="supported-versions"></a>Versioni supportate
 Il connettore Cassandra supporta le versioni seguenti di Cassandra: 2.x e 3.x. Per attività in esecuzione nel runtime di integrazione self-hosted, Cassandra 3.x è supportato dalla versione 3.7 del runtime di integrazione e versioni successive.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Perché il servizio Azure Data Factory possa connettersi al database Cassandra locale, è necessario installare un gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Il gateway di gestione dati è un componente che connette le origini dati locali ai servizi cloud in modo sicuro e gestito. Leggere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per i dettagli sul Gateway di gestione dati. Per istruzioni passo per passo su come configurare il gateway di una pipeline di dati per spostare i dati, vedere [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 È necessario usare il gateway per connettersi a un database Cassandra anche se il database è ospitato nel cloud, ad esempio, in una VM IaaS di Azure. È possibile avere il gateway nella stessa macchina virtuale che ospita il database o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
@@ -44,10 +44,10 @@ Quando si installa il gateway, viene installato automaticamente un driver Micros
 > [!NOTE]
 > Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 - È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
@@ -63,15 +63,15 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Cassandra.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesCassandra** |SÌ |
-| host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/><br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |SÌ |
+| type |La proprietà type deve essere impostata su: **OnPremisesCassandra** |Sì |
+| host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/><br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No, valore predefinito: 9042 |
-| authenticationType |Di base o anonima |SÌ |
-| Nome utente |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
+| authenticationType |Di base o anonima |Sì |
+| username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. |Sì, se authenticationType è impostato su Basic. |
-| gatewayName |Il nome del gateway che viene usato per connettersi al database Cassandra locale. |SÌ |
+| gatewayName |Il nome del gateway che viene usato per connettersi al database Cassandra locale. |Sì |
 | encryptedCredential |Credenziali crittografate dal gateway. |No |
 
 >[!NOTE]
@@ -82,7 +82,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **CassandraTable** presenta le proprietà seguenti
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | keyspace |Nome del keyspace o schema nel database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
 | tableName |Nome della tabella in un database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
@@ -94,7 +94,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 In caso di origine di tipo **CassandraSource**, nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | Description | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query CQL. Vedere il [riferimento a CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui eseguire la query. |No (se tableName e keyspace sul set di dati sono definiti). |
 | consistencyLevel |Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Per informazioni dettagliate, vedere [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati). |No. Il valore predefinito è ONE. |
@@ -261,21 +261,21 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere le [proprie
 ### <a name="type-mapping-for-cassandra"></a>Mapping dei tipi per Cassandra
 | Tipo Cassandra | Tipo basato su .Net |
 | --- | --- |
-| ASCII |Stringa |
-| BIGINT |Int64 |
+| ASCII |string |
+| bigint |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |boolean |
-| DECIMAL |DECIMAL |
-| DOUBLE |DOUBLE |
-| FLOAT |Singolo |
-| INET |Stringa |
+| BOOLEAN |Boolean |
+| DECIMAL |Decimal |
+| DOUBLE |Double |
+| FLOAT |Single |
+| INET |string |
 | INT |Int32 |
-| TEXT |Stringa |
-| TIMESTAMP |Data e ora |
-| TIMEUUID |GUID |
-| UUID |GUID |
-| VARCHAR |Stringa |
-| VARINT |DECIMAL |
+| TEXT |string |
+| timestamp |Datetime |
+| TIMEUUID |Guid |
+| UUID |Guid |
+| VARCHAR |string |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Per i tipi di raccolta (mappa, set, elenco e così via), vedere la sezione [Uso delle raccolte con una tabella virtuale](#work-with-collections-using-virtual-table) .
@@ -299,7 +299,7 @@ Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo a
 ### <a name="example"></a>Esempio
 Ad esempio, "ExampleTable" è una tabella di un database Cassandra contenente una colonna chiave primaria integer denominata "pk_int", una colonna testo denominata value, una colonna elenco, una colonna mappa e una colonna set (denominata "StringSet").
 
-| pk_int | Value | Elenco | Mappa | StringSet |
+| pk_int | valore | Elenco | Mappa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valore di esempio 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valore di esempio 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -308,7 +308,7 @@ Il driver genera più tabelle virtuali per rappresentare questa singola tabella.
 
 La prima tabella virtuale è la tabella di base denominata "ExampleTable", illustrata nella tabella di seguito. La tabella di base contiene gli stessi dati della tabella di database originale, tranne le raccolte, che vengono omesse da questa tabella ed espanse in altre tabelle virtuali.
 
-| pk_int | Value |
+| pk_int | valore |
 | --- | --- |
 | 1 |"valore di esempio 1" |
 | 3 |"valore di esempio 3" |
@@ -329,17 +329,17 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 #### <a name="table-exampletable_vt_map"></a>Tabella “ExampleTable_vt_Map”:
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |A |
+| 1 |S1 |Una |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
 #### <a name="table-exampletable_vt_stringset"></a>Tabella “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |A |
+| 1 |Una |
 | 1 |b |
 | 1 |C |
-| 3 |A |
+| 3 |Una |
 | 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink

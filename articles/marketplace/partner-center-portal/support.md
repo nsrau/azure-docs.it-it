@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: 032d4793576e2fb9b8de9e36666548e5bffb9460
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a85d9ebb03ea0c9ebe078ad49ce6bbf40a5b004d
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898204"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927546"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Supporto per il programma Commercial Marketplace nel centro per i partner
 
@@ -27,9 +27,9 @@ Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Trovare
 
 1. Accedere al [programma Commercial Marketplace nel centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) con l'account aziendale. Se non è ancora stato fatto, sarà necessario [creare un account del centro](./create-account.md)per i partner.
 
-1. Nel menu superiore sul lato destro della pagina selezionare l'icona **supporto** . 
+2. Nel menu superiore sul lato destro della pagina selezionare l'icona **supporto** . 
  
-1. Il riquadro **Guida e supporto** verrà visualizzato dal lato destro della pagina. 
+3. Il riquadro **Guida e supporto** verrà visualizzato dal lato destro della pagina. 
  
    ![Menu a discesa supporto](./media/commercial-marketplace-support-pane.png)
 
@@ -37,11 +37,11 @@ Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Trovare
 
    ![Guida e supporto tecnico dalla Home page](./media/homepage-help-support.png)
 
-1. Selezionare la **[documentazione](../index.md)** per esaminare le risposte complete a domande e risorse. 
+4. Selezionare la **[documentazione](../index.yml)** per esaminare le risposte complete a domande e risorse. 
 
-1. Per rispondere alle domande, selezionare **[Forum della community del partner Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** per rispondere alle proprie domande sfruttando la conoscenza di altri editori Microsoft. 
+5. Per rispondere alle domande, selezionare **[Forum della community del partner Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** per rispondere alle proprie domande sfruttando la conoscenza di altri editori Microsoft. 
 
-1. Selezionare la **[Guida aggiuntiva](https://aka.ms/marketplacepublishersupport)** per aprire un nuovo ticket di **richiesta di supporto** .  
+6. Selezionare la **[Guida aggiuntiva](https://aka.ms/marketplacepublishersupport)** per aprire un nuovo ticket di **richiesta di supporto** .  
 
 ## <a name="how-to-open-a-support-ticket"></a>Come aprire un ticket di supporto
 

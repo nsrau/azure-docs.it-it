@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di grafici delle risorse e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
-ms.date: 12/05/2019
+ms.date: 03/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f4be4d86a340867e1ad3015ff288f98fc54cecf
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851214"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927489"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -24,12 +24,16 @@ Questo articolo illustra i componenti del linguaggio supportati da Resource Grap
 
 Il grafico risorse fornisce diverse tabelle per i dati archiviati su Gestione risorse tipi di risorse e le relative proprietà. Queste tabelle possono essere utilizzate con operatori `join` o `union` per ottenere proprietà da tipi di risorse correlati. Ecco l'elenco di tabelle disponibili nel grafico delle risorse:
 
-|Tabelle di grafici delle risorse |Description |
+|Tabelle di grafici delle risorse |Descrizione |
 |---|---|
-|resources |Tabella predefinita se non ne è stata definita alcuna nella query. La maggior parte dei Gestione risorse tipi di risorse e le proprietà sono disponibili qui. |
+|Risorse |Tabella predefinita se non ne è stata definita alcuna nella query. La maggior parte dei Gestione risorse tipi di risorse e le proprietà sono disponibili qui. |
 |ResourceContainers |Include i dati e i tipi di risorse della sottoscrizione (in anteprima-`Microsoft.Resources/subscriptions`) e del gruppo di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|AdvisorResources |Include risorse _correlate_ all'`Microsoft.Advisor`. |
 |AlertsManagementResources |Include risorse _correlate_ all'`Microsoft.AlertsManagement`. |
+|MaintenanceResources |Include risorse _correlate_ all'`Microsoft.Maintenance`. |
 |SecurityResources |Include risorse _correlate_ all'`Microsoft.Security`. |
+
+Per un elenco completo che include i tipi di risorse, vedere informazioni di [riferimento: tabelle e tipi di risorse supportati](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > Le _risorse_ sono la tabella predefinita. Quando si esegue una query sulla tabella _Resources_ , non è necessario fornire il nome della tabella, a meno che non vengano utilizzati `join` o `union`. Tuttavia, la procedura consigliata consiste nell'includere sempre la tabella iniziale nella query.
@@ -120,4 +124,4 @@ Alcuni nomi di proprietà, ad esempio quelli che includono un `.` o `$`, devono 
 
 - Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
 - Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).
-- Altre informazioni su come [esplorare risorse](explore-resources.md).
+- Altre informazioni su come [esplorare le risorse](explore-resources.md).

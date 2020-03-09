@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
-ms.date: 11/22/2019
-ms.openlocfilehash: 29c91cf14413a11804de82eeaf08d628b125d76a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/06/2020
+ms.openlocfilehash: d03a3d482d147d3bc69354ee09dfe0b187610a09
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471942"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927449"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Informazioni su come distribuire un modello da Azure Machine Learning come app p
 
 Con Azure Machine Learning, è possibile creare immagini Docker da modelli di apprendimento automatico sottoposti a training. Azure Machine Learning dispone ora della funzionalità di anteprima per compilare questi modelli di apprendimento automatico in app per le funzioni, che possono essere [distribuite in funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -148,24 +148,24 @@ Quando `show_output=True`, viene visualizzato l'output del processo di compilazi
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
-    az appservice plan create --name myplanname --resource-group myresourcegroup --sku EP1 --is-linux
+    az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    In questo esempio viene usato un piano tariffario _Linux Premium_ (`--sku EP1`).
+    In questo esempio viene usato un piano tariffario _Basic Linux_ (`--sku B1`).
 
     > [!IMPORTANT]
     > Le immagini create da Azure Machine Learning usano Linux, quindi è necessario usare il parametro `--is-linux`.
 
-1. Creare l'account di archiviazione da usare per l'archiviazione dei processi Web e ottenere la stringa di connessione. Sostituire `<webjobStorage>` con il nome che si desidera utilizzare.
+1. Creare l'account di archiviazione da usare per l'archiviazione dei processi Web e ottenere la relativa stringa di connessione. Sostituire `<webjobStorage>` con il nome che si desidera utilizzare.
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. Per creare l'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome che si desidera utilizzare. Sostituire `<acrinstance>` e `<imagename>` con i valori restituiti `package.location` precedente. Sostituire Sostituisci `<webjobStorage>` con il nome dell'account di archiviazione nel passaggio precedente:
+1. Per creare l'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome che si desidera utilizzare. Sostituire `<acrinstance>` e `<imagename>` con i valori restituiti `package.location` precedente. Sostituire `<webjobStorage>` con il nome dell'account di archiviazione nel passaggio precedente:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
@@ -174,12 +174,12 @@ Quando `show_output=True`, viene visualizzato l'output del processo di compilazi
     > [!IMPORTANT]
     > A questo punto è stata creata l'app per le funzioni. Tuttavia, poiché non è stata specificata la stringa di connessione per il trigger o le credenziali del BLOB al Container Registry di Azure che contiene l'immagine, l'app per le funzioni non è attiva. Nei passaggi successivi vengono fornite la stringa di connessione e le informazioni di autenticazione per il registro contenitori. 
 
-1. Creare l'account di archiviazione da usare per l'archiviazione del trigger BLOB e ottenere la stringa di connessione. Sostituire `<triggerStorage>` con il nome che si desidera utilizzare.
+1. Creare l'account di archiviazione da usare per l'archiviazione del trigger del BLOB e ottenere la relativa stringa di connessione. Sostituire `<triggerStorage>` con il nome che si desidera utilizzare.
 
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactive
+    ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Registrare la stringa di connessione da fornire all'app per le funzioni. Verrà usato in un secondo momento per richiedere `<triggerConnectionString>`
@@ -205,7 +205,7 @@ Quando `show_output=True`, viene visualizzato l'output del processo di compilazi
     ```
     Salvare il valore restituito, che verrà usato come `imagetag` nel passaggio successivo.
 
-1. Per fornire all'app per le funzioni le credenziali necessarie per accedere al registro contenitori, usare il comando seguente. Sostituire `<app-name>` con il nome che si desidera utilizzare. Sostituire `<acrinstance>` e `<imagetag>` con i valori della chiamata AZ CLI nel passaggio precedente. Sostituire `<username>` e `<password>` con le informazioni di accesso di ACR recuperate in precedenza:
+1. Per fornire all'app per le funzioni le credenziali necessarie per accedere al registro contenitori, usare il comando seguente. Sostituire `<app-name>` con il nome dell'app per le funzioni. Sostituire `<acrinstance>` e `<imagetag>` con i valori della chiamata AZ CLI nel passaggio precedente. Sostituire `<username>` e `<password>` con le informazioni di accesso di ACR recuperate in precedenza:
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -246,6 +246,52 @@ A questo punto, l'app per le funzioni inizia a caricare l'immagine.
 
 > [!IMPORTANT]
 > Potrebbero essere necessari alcuni minuti prima che l'immagine venga caricata. È possibile monitorare lo stato di avanzamento tramite il portale di Azure.
+
+## <a name="test-the-deployment"></a>Test della distribuzione
+
+Dopo che l'immagine è stata caricata e l'app è disponibile, seguire questa procedura per attivare l'app:
+
+1. Creare un file di testo contenente i dati previsti dal file score.py. L'esempio seguente funziona con un score.py che prevede una matrice di 10 numeri:
+
+    ```json
+    {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+    ```
+
+    > [!IMPORTANT]
+    > Il formato dei dati dipende da ciò che si aspetta il score.py e il modello.
+
+2. Usare il comando seguente per caricare il file nel contenitore di input nel BLOB di archiviazione dei trigger creato in precedenza. Sostituire `<file>` con il nome del file che contiene i dati. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza. In questo esempio `input` è il nome del contenitore di input creato in precedenza. Se è stato usato un nome diverso, sostituire questo valore:
+
+    ```azurecli-interactive
+    az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    L'output di questo comando è simile al codice JSON seguente:
+
+    ```json
+    {
+    "etag": "\"0x8D7C21528E08844\"",
+    "lastModified": "2020-03-06T21:27:23+00:00"
+    }
+    ```
+
+3. Per visualizzare l'output prodotto dalla funzione, utilizzare il comando seguente per elencare i file di output generati. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza. In questo esempio `output` è il nome del contenitore di output creato in precedenza. Se è stato usato un nome diverso, sostituire questo valore::
+
+    ```azurecli-interactive
+    az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
+    ```
+
+    L'output di questo comando è simile a `sample_input_out.json`.
+
+4. Per scaricare il file ed esaminarne il contenuto, usare il comando seguente. Sostituire `<file>` con il nome del file restituito dal comando precedente. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza: 
+
+    ```azurecli-interactive
+    az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    Al termine del comando, aprire il file. Contiene i dati restituiti dal modello.
+
+Per altre informazioni sull'uso dei trigger BLOB, vedere l'articolo [creare una funzione attivata da archiviazione BLOB di Azure](/azure/azure-functions/functions-create-storage-blob-triggered-function) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

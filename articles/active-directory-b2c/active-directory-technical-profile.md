@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78397829"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78932979"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -58,13 +58,13 @@ Nell'esempio seguente viene illustrato un profilo tecnico **AAD-Common**:
 
 ## <a name="input-claims"></a>Attestazioni di input
 
-I profili tecnici seguenti includono **InputClaims** per gli account social e locali:
+L'elemento InputClaims contiene un'attestazione, che viene usata per cercare un account nella directory o crearne uno nuovo. Nella raccolta di attestazioni di input deve essere presente esattamente un elemento attestazione per tutti i profili tecnici Azure AD. Potrebbe essere necessario eseguire il mapping del nome dell'attestazione definito nei criteri al nome definito in Azure Active Directory.
 
-- I profili tecnici di account social **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserWriteUsingAlternativeSecurityId** includono l'attestazione **AlternativeSecurityId**. Questa attestazione contiene l'identificatore utente dell'account social.
-- I profili tecnici dell'account locale **AAD-UserReadUsingEmailAddress** e **AAD-UserWriteUsingLogonEmail** includono l'attestazione **posta elettronica**. Questa attestazione contiene il nome di accesso dell'account locale.
-- I profili tecnici (locali e social) unificati **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId** e **AAD-UserWritePhoneNumberUsingObjectId** includono l'attestazione **objectId**. Identificatore univoco di un evento.
+Per leggere, aggiornare o eliminare un account utente esistente, l'attestazione di input è una chiave che identifica in modo univoco l'account nella directory Azure AD. Ad esempio **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username**o **alternativeSecurityId**. 
 
-L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** che vengono usati per modificare le attestazioni di input o per generarne di nuove.
+Per creare un nuovo account utente, l'attestazione di input è una chiave che identifica in modo univoco un account locale o federato. Ad esempio, account locale: **signInNames. EmailAddress**o **signInNames. username**. Per un account federato: **alternativeSecurityId**.
+
+L'elemento InputClaimsTransformations può contenere una raccolta di elementi di trasformazione delle attestazioni di input usati per modificare l'attestazione di input o generarne una nuova.
 
 ## <a name="output-claims"></a>Attestazioni di output
 

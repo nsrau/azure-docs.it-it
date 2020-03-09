@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084954"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385116"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
 Questo articolo descrive i fogli contenuti nel report Excel generato da Azure Site Recovery Deployment Planner per uno scenario di distribuzione da Hyper-V ad Azure.
@@ -41,7 +41,7 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Observed typical data churn per day (GB)** (Varianza dei dati giornaliera tipica osservata - GB): varianza media dei dati osservata in tutti i giorni di profilatura.
 
-## <a name="recommendations"></a>Recommendations 
+## <a name="recommendations"></a>Consigli 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da Hyper-V ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato selezionato:
 
 ![Raccomandazioni del report per lo scenario da Hyper-V ad Azure](media/hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)

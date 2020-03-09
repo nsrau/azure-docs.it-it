@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 03/06/2020
 ms.author: radeltch
-ms.openlocfilehash: 06c92797f2cab96a9e0c423b0f0f754e57b99b14
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: fb73bf6af46ce8303e1be80d1bfc7303f95cda06
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598443"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927334"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
 
@@ -328,6 +328,16 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    <pre><code>sudo zypper in socat
    </code></pre>
 
+1. **[A] installare il** componente Azure-lb, necessario per le risorse cluster
+
+   <pre><code>sudo zypper in resource-agents
+   </code></pre>
+
+   > [!NOTE]
+   > Controllare la versione del pacchetto Resource-Agents e verificare che siano soddisfatti i requisiti minimi della versione:  
+   > - Per SLES 12 SP4/SP5, la versione deve essere almeno Resource-Agents-4.3.018. a7fb5035-3.30.1.  
+   > - Per SLES 15/15 SP1, la versione deve essere almeno Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
+
 1. **[A]** configurare il sistema operativo
 
    In alcuni casi, Pacemaker crea molti processi, esaurendo così il numero di processi consentito. In tal caso, un heartbeat tra i nodi del cluster potrebbe avere esito negativo e richiedere il failover delle risorse. È consigliabile aumentare il numero massimo di processi consentito impostando il parametro seguente.
@@ -607,9 +617,9 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 Azure offre [eventi pianificati](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Gli eventi pianificati vengono forniti tramite il servizio meta-dati e consentono di preparare l'applicazione per gli eventi come l'arresto della macchina virtuale, la ridistribuzione delle macchine virtuali e così via. Agente risorse **[-monitoraggio eventi Azure](https://github.com/ClusterLabs/resource-agents/pull/1161)** per gli eventi di Azure pianificati. Se vengono rilevati eventi, l'agente tenterà di arrestare tutte le risorse nella macchina virtuale interessata e di spostarle in un altro nodo del cluster. Per ottenere che siano configurate risorse aggiuntive per pacemaker. 
 
-1. **[A]** installare l'agente **Azure-Events** . 
+1. **[A]** assicurarsi che il pacchetto per l'agente **Azure-Events** sia già installato e aggiornato. 
 
-<pre><code>sudo zypper install resource-agents
+<pre><code>sudo zypper info resource-agents
 </code></pre>
 
 2. **[1]** configurare le risorse in pacemaker. 

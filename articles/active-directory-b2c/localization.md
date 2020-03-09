@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a9fb1d64fb27507e4ee42c39be9ea80fbe5f168
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5dcbc2ee35620d0a29c495b24bd3756769095a17
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184452"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933000"
 ---
 # <a name="localization"></a>Localizzazione
 
@@ -146,7 +146,7 @@ L'elemento **LocalizedString** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ElementType | Sì | Un riferimento a un elemento del tipo di attestazione o a un elemento dell'interfaccia utente nel criterio. I valori possibili sono: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate` o  . Il valore `ClaimType` viene usato per localizzare uno degli attributi di attestazione, come specificato nell'ID stringa. Il valore `UxElement` viene usato per localizzare uno degli elementi dell'interfaccia utente, come specificato nell'ID stringa. Il valore `ErrorMessage` viene usato per localizzare uno dei messaggi di errore del sistema, come specificato nell'ID stringa. Il valore `Predicate` viene usato per localizzare uno dei messaggi di errore del sistema [Predicato](predicates.md), come specificato nell'ID stringa. Il valore `InputValidation` viene usato per localizzare uno dei messaggi di errore del gruppo [PredicateValidation](predicates.md), come specificato nell'ID stringa. |
+| ElementType | Sì | Un riferimento a un elemento del tipo di attestazione o a un elemento dell'interfaccia utente nel criterio. Valori possibili: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`o `GetLocalizedStringsTransformationClaimType`. Il valore `ClaimType` viene usato per localizzare uno degli attributi di attestazione, come specificato nell'ID stringa. Il valore `UxElement` viene usato per localizzare uno degli elementi dell'interfaccia utente, come specificato nell'ID stringa. Il valore `ErrorMessage` viene usato per localizzare uno dei messaggi di errore del sistema, come specificato nell'ID stringa. Il valore `Predicate` viene usato per localizzare uno dei messaggi di errore del sistema [Predicato](predicates.md), come specificato nell'ID stringa. Il valore `InputValidation` viene usato per localizzare uno dei messaggi di errore del gruppo [PredicateValidation](predicates.md), come specificato nell'ID stringa. Il valore `GetLocalizedStringsTransformationClaimType` viene utilizzato per copiare le stringhe localizzate in attestazioni. Per altre informazioni, vedere [GetLocalizedStringsTransformation Claims Transformation](string-transformations.md#getlocalizedstringstransformation)  | 
 | ElementId | Sì | Se **ElementType** è impostato su `ClaimType`, `Predicate` o `InputValidation`, questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema. |
 | ID stringa | Sì | Se **ElementType** è impostato su `ClaimType`, questo elemento contiene un riferimento a un attributo di un tipo di attestazione. I valori possibili sono: `DisplayName`, `AdminHelpText` o `PatternHelpText`. Il valore`DisplayName` viene usato per impostare il nome visualizzato di attestazione. Il valore `AdminHelpText` viene usato per impostare il nome del testo di istruzioni dell'utente di attestazione. Il valore`PatternHelpText` viene usato per impostare il testo di istruzioni del criterio di attestazione. Se **ElementType** è impostato su `UxElement`, questo elemento contiene un riferimento a un elemento dell'interfaccia utente. Se **ElementType** è impostato su `ErrorMessage`, questo elemento specifica l'identificatore di un messaggio di errore. Visualizzare gli [ID stringa di localizzazione](localization-string-ids.md) per un elenco completo degli `UxElement` identificatori.|
 

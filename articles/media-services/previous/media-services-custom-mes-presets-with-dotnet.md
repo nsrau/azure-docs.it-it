@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247244"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394749"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizzazione dei set di impostazioni di Media Encoder Standard  
 
@@ -30,7 +30,7 @@ Questo articolo illustra come eseguire le attività di codifica avanzata con Med
 L'articolo illustra come personalizzare un set di impostazioni partendo dal set di impostazioni [Codec video H.264 a bitrate multiplo con risoluzione 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e riducendo il numero di livelli. L'articolo [Personalizzazione dei set di impostazioni di Media Encoder Standard](media-services-advanced-encoding-with-mes.md) illustra i set di impostazioni personalizzati che è possibile usare per eseguire attività di codifica avanzata.
 
 > [!NOTE]
-> Il set di impostazioni personalizzati descritti in questo articolo non può essere utilizzato [V3 di servizi multimediali](https://docs.microsoft.com/azure/media-services/latest/) trasformazioni o i comandi dell'interfaccia della riga. Vedere le [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md) per altri dettagli.
+> I set di impostazioni personalizzati descritti in questo articolo non possono essere usati nelle trasformazioni di [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/) o nei comandi dell'interfaccia della riga di comando. Per ulteriori informazioni, vedere le [linee guida per la migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md) .
 
 ## <a id="customizing_presets"></a> Personalizzazione di un set di impostazioni di Media Encoder Standard
 
@@ -266,7 +266,7 @@ namespace CustomizeMESPresests
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Come codificare con una trasformazione personalizzata utilizzando CLI](../latest/custom-preset-cli-howto.md)
+- [Come codificare con una trasformazione personalizzata usando l'interfaccia della riga di comando](../latest/custom-preset-cli-howto.md)
 - [Codifica con Servizi multimediali v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

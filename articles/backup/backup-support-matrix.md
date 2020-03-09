@@ -1,14 +1,14 @@
 ---
-title: Matrice di supporto di Azure Backup
+title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363837"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932759"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -84,7 +84,7 @@ Ecco cosa è supportato se si vuole eseguire il backup di computer Linux:
 
 ## <a name="daylight-saving-time-support"></a>Supporto per l'ora legale
 
-Backup di Azure non supporta la regolazione automatica dell'orologio per l'ora legale per i backup di VM di Azure. Modificare manualmente i criteri di backup in base alle necessità.
+Backup di Azure non supporta la regolazione automatica dell'orologio per l'ora legale per i backup di VM di Azure. Non sposta l'ora del backup avanti o indietro. Per assicurarsi che il backup venga eseguito all'ora desiderata, modificare manualmente i criteri di backup come richiesto.
 
 ## <a name="disk-deduplication-support"></a>Supporto per la deduplicazione dei dischi
 
