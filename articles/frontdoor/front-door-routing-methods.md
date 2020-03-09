@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736225"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382099"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
 
@@ -25,9 +25,9 @@ Il servizio Frontdoor di Azure supporta vari metodi di routing del traffico per 
 Esistono quattro concetti principali in relazione al routing del traffico in Frontdoor:
 
 * **[Latenza](#latency):** il routing basato sulla latenza assicura che le richieste vengano inviate al back-end con la latenza più bassa accettabile all'interno di un intervallo di sensibilità. Sostanzialmente, le richieste utente vengono inviate al set di back-end "più vicino" rispetto alla latenza della rete.
-* **[Priorità](#priority):** è possibile assegnare priorità ai diversi back-end quando si vuole usare un back-end di servizio primario per tutto il traffico e prevedere backup nel caso in cui il back-end primario o i back-end di backup non siano disponibili.
-* **[Ponderato](#weighted):** è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set di back-end, in modo uniforme o in base ai coefficienti di peso.
-* **Affinità di sessione:** è possibile configurare l'affinità di sessione per gli host o i domini front-end quando le richieste successive da un utente devono essere inviate allo stesso back-end, a condizione che la sessione utente sia ancora attiva e l'istanza di back-end sia ancora segnalata come integra in base ai probe di integrità. 
+* **[Priorità](#priority):** è possibile assegnare priorità ai diversi back-end quando si vuole usare un back-end di servizio primario per tutto il traffico e prevedere back-end di backup nel caso in cui il back-end primario o i back-end di backup non siano disponibili.
+* **[Peso](#weighted):** è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set back-end, in modo uniforme o in base ai coefficienti di peso.
+* **Affinità di sessione:** È possibile configurare l'affinità di sessione per gli host o i domini front-end quando si desidera che le richieste successive di un utente vengano inviate allo stesso back-end purché la sessione utente sia ancora attiva e l'istanza back-end riporti l'integrità in base ai Probe di integrità. 
 
 Tutte le configurazioni di Frontdoor includono il monitoraggio dell'integrità back-end e il failover globale immediato automatizzato. Per altre informazioni, vedere [Front Door Backend Monitoring](front-door-health-probes.md) (Monitoraggio del back-end Frontdoor). Frontdoor può essere configurato per operare in base a un singolo metodo di routing. A seconda delle esigenze dell'applicazione, è comunque possibile usare diversi o tutti questi metodi di routing in combinazione per creare una topologia di routing ottimale.
 
@@ -39,7 +39,7 @@ Il back-end più vicino non è necessariamente il più vicino in termini di dist
 
 Di seguito è illustrato il flusso complessivo delle decisioni:
 
-| Back-end disponibili | Priorità | Segnale di latenza (basato sui probe di integrità) | Weights |
+| Back-end disponibili | Priorità | Segnale di latenza (basato sui probe di integrità) | Pesi |
 |-------------| ----------- | ----------- | ----------- |
 | In primo luogo, selezionare tutti i back-end che sono abilitati e restituiti come integri (200 OK) per il probe di integrità. Supponiamo che siano presenti sei back-end A, B, C, D, E e F, tra i quali C non è integro ed E è disabilitato. Pertanto, l'elenco dei back-end disponibili è A, B, D e F.  | Vengono quindi selezionati i back-end prioritari tra quelli disponibili. Supponiamo che i back-end A, B e D abbiano la priorità 1 e che il back-end F abbia la priorità 2. I back-end selezionati saranno A, B e D.| Selezionare i back-end con l'intervallo di latenza (latenza inferiore e sensibilità di latenza in ms specificata). Supponiamo che A sia a 15 ms, B a 30 ms e D a 60 ms dall'ambiente Frontdoor in cui è stata ricevuta la richiesta e che la sensibilità di latenza sia di 30 ms. In questo caso, il pool con la latenza più bassa è costituito dai back-end A e B, perché D è a oltre 30 ms dal back-end più vicino (A). | Infine, Frontdoor eseguirà il round robin del traffico tra il pool selezionato finale di back-end nel rapporto di pesi specificati. Se il back-end A ha un peso di 5 e il back-end B ha un peso di 8, il traffico verrà distribuito in un rapporto di 5:8 tra i back-end A e B. |
 
@@ -66,7 +66,7 @@ Tra l'elenco dei back-end disponibili entro la sensibilità di latenza accettata
 
 Il metodo "Ponderato" abilita alcuni scenari utili:
 
-* **Aggiornamento graduale dell'applicazione**: allocare una percentuale di traffico da indirizzare a un nuovo back-end e incrementare gradualmente il traffico nel tempo per portarlo al livello degli altri back-end.
+* **Aggiornamento graduale dell'applicazione**: allocare una percentuale di traffico da indirizzare a un nuovo back-end, quindi incrementare gradualmente il traffico nel tempo per portarlo al livello degli altri back-end.
 * **Migrazione dell'applicazione in Azure**: creare un pool back-end con back-end di Azure ed esterni. Regolare il peso dei back-end per preferire i nuovi back-end. È possibile applicare questa configurazione gradualmente, iniziando con i nuovi back-end disabilitati, quindi assegnando loro i pesi più bassi e aumentandoli lentamente fino ai livelli di massimo traffico. È infine possibile disabilitare i back-end con preferenza inferiore e rimuoverli dal pool.  
 * **Espansione del cloud per capacità aggiuntiva**: espandere rapidamente una distribuzione locale nel cloud posizionandola dietro Frontdoor. In caso di necessità di capacità aggiuntiva nel cloud, si possono aggiungere o abilitare più back-end e si può specificare la quantità di traffico da indirizzare a ogni back-end.
 

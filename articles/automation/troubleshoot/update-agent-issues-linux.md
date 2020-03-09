@@ -10,11 +10,11 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769830"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373074"
 ---
 # <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Comprendere e risolvere l'integrità del ruolo di lavoro ibrido per Runbook di Linux per Gestione aggiornamenti
 
@@ -78,7 +78,7 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 Questo controllo determina se l'agente invia report a più aree di lavoro. Il multihoming non è supportato da Gestione aggiornamenti.
 
-### <a name="hybrid-runbook-worker"></a>Ruolo di lavoro ibrido per runbook
+### <a name="hybrid-runbook-worker"></a>ruolo di lavoro ibrido per runbook
 
 Questo controllo verifica se l'agente di Log Analytics per Linux ha il pacchetto di lavoro ibrido per Runbook. Questo pacchetto è necessario per il funzionamento di Gestione aggiornamenti.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 9284400254860b47f3aea6de5c79ab4c2a77f199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60755833"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384587"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Gateway 
 
@@ -23,7 +23,7 @@ Questo articolo descrive come gestire le condivisioni in Azure Data Box Gateway.
 
 Per trasferire i dati in Azure, è necessario creare le condivisioni in Azure Data Box Gateway. Le condivisioni che si aggiungono nel dispositivo Azure Data Box Gateway sono condivisioni di cloud. I dati provenienti da queste condivisioni vengono caricati automaticamente nel cloud. Tutte le funzioni del cloud, ad esempio aggiornare e sincronizzare le chiavi di archiviazione, si applicano a queste condivisioni. Usare le condivisioni di cloud quando si vuole eseguire automaticamente il push dei dati del dispositivo nell'account di archiviazione nel cloud.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Aggiungere una condivisione
@@ -119,7 +119,7 @@ Se le chiavi dell'account di archiviazione sono state ruotate, sarà necessario 
 Eseguire i passaggi seguenti nel portale di Azure per sincronizzare la chiave di accesso alle risorse di archiviazione.
 
 1. Passare a **Panoramica** nella risorsa. 
-2. Nell'elenco delle condivisioni, scegliere e fare clic su una condivisione associata all'account di archiviazione che è necessario sincronizzare. Fare clic su **Sincronizza chiavi di archiviazione**. 
+2. Dall'elenco di condivisioni scegliere e fare clic su una condivisione associata all'account di archiviazione che è necessario sincronizzare. Fare clic su **Sincronizza chiave di archiviazione**. 
 
      ![Sincronizzare la chiave di archiviazione 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 

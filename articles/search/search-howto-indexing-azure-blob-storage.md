@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020625"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379559"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Come indicizzare i documenti nell'archivio BLOB di Azure con Azure ricerca cognitiva
 
@@ -146,7 +146,7 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): ultimo timestamp modificato per il BLOB. Azure ricerca cognitiva usa questo timestamp per identificare i BLOB modificati, in modo da evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
   * **metadata\_storage\_size** (Edm.Int64): dimensioni del BLOB in byte.
   * **metadata\_storage\_content\_md5** (Edm.String): hash MD5 dei contenuti del BLOB, se disponibile.
-  * **metadata\_storage\_sas\_token** (Edm.String): token di firma di accesso condiviso temporaneo che può essere usato dalle[competenze personalizzate](cognitive-search-custom-skill-interface.md) per ottenere l'accesso al BLOB. Questo token non deve essere archiviato per un uso successivo, perché potrebbe scadere.
+  * **metadata\_storage\_sas\_token** (EDM. String): un token di firma di accesso condiviso temporaneo che può essere usato dalle [competenze personalizzate](cognitive-search-custom-skill-interface.md) per ottenere l'accesso al BLOB. Questo token non deve essere archiviato per un uso successivo, perché potrebbe scadere.
 
 * Le proprietà dei metadati specifiche di ogni formato di documento vengono estratte nei campi elencati [qui](#ContentSpecificMetadata).
 
@@ -233,7 +233,7 @@ Se sono presenti sia `indexedFileNameExtensions` che `excludedFileNameExtensions
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controllo delle parti di BLOB da indicizzare
 
-Il parametro di configurazione `dataToExtract` permette di controllare quali parti dei BLOB vengono indicizzate. I valori possibili sono i seguenti:
+Il parametro di configurazione `dataToExtract` permette di controllare quali parti dei BLOB vengono indicizzate. Può accettare i valori seguenti:
 
 * `storageMetadata`: specifica che vengono indicizzati solo [i metadati specificati dall'utente e le proprietà BLOB standard](../storage/blobs/storage-properties-metadata.md).
 * `allMetadata`: specifica che vengono indicizzati i metadati di archiviazione e i [metadati specifici del tipo di contenuto](#ContentSpecificMetadata) estratti dal contenuto BLOB.
@@ -281,7 +281,7 @@ Azure ricerca cognitiva limita le dimensioni dei BLOB indicizzati. Questi limiti
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Ad esempio:
+È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Ad esempio,
 
     {
       ... other parts of indexer definition
@@ -294,7 +294,7 @@ Quando si configura un indicizzatore BLOB per l'esecuzione in base a una pianifi
 > [!NOTE]
 > Non è necessario specificare un criterio di rilevamento delle modifiche perché l'indicizzazione incrementale viene abilitata automaticamente.
 
-Per supportare l'eliminazione di documenti, usare un approccio di "eliminazione temporanea". Se si eliminano completamente i BLOB, i documenti corrispondenti non verranno rimossi dall'indice della ricerca. Seguire invece questa procedura:  
+Per supportare l'eliminazione di documenti, usare un approccio di "eliminazione temporanea". Se si eliminano completamente i BLOB, i documenti corrispondenti non verranno rimossi dall'indice della ricerca. Effettuare invece la procedura seguente:  
 
 1. Aggiungere una proprietà dei metadati personalizzata al BLOB per indicare ad Azure ricerca cognitiva che è stata eliminata logicamente
 2. Configurare un criterio di rilevamento eliminazione temporanea nell'origine dati

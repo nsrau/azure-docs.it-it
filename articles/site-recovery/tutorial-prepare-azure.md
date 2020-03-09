@@ -9,11 +9,11 @@ ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620602"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367099"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparare Azure per il ripristino di emergenza in locale in Azure
 
@@ -22,7 +22,7 @@ Questo articolo descrive come preparare risorse e componenti di Azure per poter 
 Questo articolo è la prima esercitazione di una serie che illustra come configurare il ripristino di emergenza per macchine virtuali locali. 
 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Verificare che l'account Azure abbia le autorizzazioni di replica.
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare una rete virtuale di Azure (VNet). Quando le VM di Azure vengono create dopo il failover, vengono aggiunte a questa rete.
 
 > [!NOTE]
-> Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, vedere l'articolo nella sezione delle procedure del sommario di Site Recovery.
+> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, vedere l'articolo nella sezione delle procedure del sommario di Site Recovery.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -70,7 +70,7 @@ Per completare queste attività, è necessario che all'account sia assegnato il 
 
 I computer locali vengono replicati in dischi gestiti di Azure. Quando si verifica un failover, le VM di Azure vengono create da questi dischi gestiti e aggiunti alla rete di Azure specificata in questa procedura.
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** >  **Rete** > **Rete virtuale**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 2. Lasciare selezionato **Resource Manager** come modello di distribuzione.
 3. In **Nome** immettere un nome di rete. Il nome deve essere univoco all'interno del gruppo di risorse di Azure. In questa esercitazione viene usato **ContosoASRnet**.
 4. In **Spazio indirizzi** immettere l'intervallo di indirizzi della rete virtuale nella notazione CIDR. In questo caso verrà usato l'indirizzo **10.1.0.0/24**.

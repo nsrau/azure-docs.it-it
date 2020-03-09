@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7d637c2fb3f4a4d5f8deac9cd99c0a44af6568e6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7fd76be8d17dc1c632e555a56d038d4f5c1e1486
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919612"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668726"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -102,7 +102,7 @@ Utilizzare solo le versioni `1.6.0` o versione successiva. Attualmente esiste 
 
 <a id="explorer-in-portal" />
 
-## <a name="storage-explorer-in-the-azure-portal"></a>Storage Explorer nel portale di Azure
+## <a name="storage-explorer-in-the-azure-portal"></a>Storage Explorer nella portale di Azure
 
 Gli ACL non sono ancora supportati.
 
@@ -111,6 +111,14 @@ Gli ACL non sono ancora supportati.
 ## <a name="thirdpartyapplications"></a>Applicazioni di terze parti
 
 Le applicazioni di terze parti che usano le API REST per lavorare continueranno a funzionare se vengono usate con Data Lake Storage Gen2 applicazioni che chiamano API blob probabilmente funzioneranno.
+
+## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Elenchi di controllo di accesso (ACL) e accesso in lettura anonimo
+
+Se è stato concesso [l'accesso in lettura anonimo](storage-manage-access-to-resources.md) a un contenitore, gli ACL non avranno alcun effetto sul contenitore o sui file in tale contenitore.
+
+## <a name="windows-azure-storage-blob-wasb-driver"></a>Driver di Windows BLOB del servizio di archiviazione di Azure (WASB)
+
+Attualmente, esistono diversi problemi associati all'uso del driver WASB insieme agli account con uno spazio dei nomi gerarchico. È consigliabile usare il driver del [file System BLOB di Azure (ABFS)](data-lake-storage-abfs-driver.md) nei carichi di lavoro. 
 
 
 

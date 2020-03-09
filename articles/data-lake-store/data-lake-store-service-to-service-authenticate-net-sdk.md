@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65915847"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390544"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 tramite .NET SDK
 > [!div class="op_single_selector"]
@@ -37,9 +37,9 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da se
 * **Creare un'applicazione "Web" di Azure Active Directory**. È necessario avere completato i passaggi descritti in [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
-1. In Visual Studio, selezionare la **File** dal menu **New**e quindi **progetto**.
-2. Scegli **App Console (.NET Framework)** , quindi selezionare **successivo**.
-3. Nelle **nome progetto**, immettere `CreateADLApplication`, quindi selezionare **Create**.
+1. In Visual Studio selezionare il menu **file** , **nuovo**e quindi **progetto**.
+2. Scegliere **app console (.NET Framework)** e quindi fare clic su **Avanti**.
+3. In **Nome del progetto** immettere `CreateADLApplication` e quindi selezionare **Crea**.
 
 4. Aggiungere i pacchetti NuGet al progetto.
 
@@ -50,7 +50,7 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da se
       * `Microsoft.Azure.Management.DataLake.Store` - Questa esercitazione usa v2.1.3-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Questa esercitazione usa la versione 2.2.12.
 
-        ![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creare un nuovo account Azure Data Lake")
+        ![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Crea un nuovo account Azure Data Lake")
    4. Chiudere **Gestione pacchetti NuGet**.
 
 5. Aprire **Program.cs**, eliminare il codice esistente e quindi includere le istruzioni seguenti per aggiungere riferimenti agli spazi dei nomi.

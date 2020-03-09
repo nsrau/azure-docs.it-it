@@ -12,11 +12,11 @@ ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 02/10/2020
 ms.custom: seoapril2019
 ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462582"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360070"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze, limitazioni e problemi noti di istanza gestita di T-SQL
 
@@ -61,7 +61,7 @@ Per le istanze gestite sono disponibili backup automatici, in modo che gli utent
   - Opzioni nastro: `REWIND`, `NOREWIND`, `UNLOAD`e `NOUNLOAD` non sono supportate.
   - Opzioni specifiche del log: `NORECOVERY`, `STANDBY`e `NO_TRUNCATE` non sono supportate.
 
-Limiti: 
+Limitazioni: 
 
 - Con un'istanza gestita, è possibile eseguire il backup di un database di istanza in un backup con un massimo di 32 striping, che è sufficiente per i database fino a 4 TB se viene utilizzata la compressione dei backup.
 - Non è possibile eseguire `BACKUP DATABASE ... WITH COPY_ONLY` in un database crittografato con Transparent Data Encryption gestite dal servizio (Transparent Service). La crittografia Transparent gestita dal servizio impone la crittografia dei backup con una chiave Transparent Data Encryption. La chiave non può essere esportata, quindi non è possibile ripristinare il backup. Utilizzare i backup automatici e il ripristino temporizzato oppure utilizzare la crittografia [BYOK (Customer-Managed)](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) . È anche possibile disabilitare la crittografia nel database.
@@ -79,7 +79,7 @@ Limiti:
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](/sql/t-sql/statements/backup-transact-sql).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="auditing"></a>Controllo
 
@@ -119,7 +119,7 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="credential"></a>Credential
+### <a name="credential"></a>Credenziale
 
 Sono supportati solo l'insieme di credenziali delle chiavi di Azure e le identità `SHARED ACCESS SIGNATURE`. Gli utenti di Windows non sono supportati.
 
@@ -192,7 +192,7 @@ Un'istanza gestita non può accedere ai file, pertanto non è possibile creare i
 - L' [estensione del pool di buffer](/sql/database-engine/configure-windows/buffer-pool-extension) non è supportata.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` non è supportata. Vedere [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>Regole di confronto
 
 Le regole di confronto di istanza predefinita sono `SQL_Latin1_General_CP1_CI_AS` e possono essere specificate come un parametro di creazione. Vedere [Regole di confronto](/sql/t-sql/statements/collations).
 
@@ -236,7 +236,7 @@ Per `CREATE DATABASE`si applicano le limitazioni seguenti:
 
 Per altre informazioni, vedere [CREATE DATABASE](/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
-#### <a name="alter-database-statement"></a>Istruzione ALTER DATABASE
+#### <a name="alter-database-statement"></a>ALTER DATABASE - istruzione
 
 Alcune proprietà di file non possono essere impostate o modificate:
 
@@ -282,7 +282,7 @@ Per altre informazioni, vedere [ALTER DATABASE](/sql/t-sql/statements/alter-data
   - I processi di replica seguenti sono supportati:
     - Lettore di log delle transazioni
     - Snapshot
-    - Server di distribuzione
+    - Database di distribuzione
   - I passaggi del processo SSIS sono supportati.
   - Altri tipi di passaggi di processo non sono attualmente supportati:
     - Il passaggio del processo di replica di tipo merge non è supportato. 
@@ -414,7 +414,7 @@ Per ulteriori informazioni sulla configurazione della replica transazionale, ved
 - [Replica tra un server di pubblicazione MI e un Sottoscrittore](replication-with-sql-database-managed-instance.md)
 - [Replica tra un server di pubblicazione MI, un server di distribuzione MI e un Sottoscrittore SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
 
-### <a name="restore-statement"></a>istruzione RESTORE 
+### <a name="restore-statement"></a>Istruzione RESTORE 
 
 - Sintassi supportata:
   - `RESTORE DATABASE`
@@ -442,7 +442,7 @@ Le opzioni di database seguenti sono impostate o sottoposte a override e non pos
 - Qualsiasi filegroup ottimizzato per la memoria esistente viene rinominato in XTP. 
 - le opzioni `SINGLE_USER` e `RESTRICTED_USER` vengono convertite in `MULTI_USER`.
 
-Limiti: 
+Limitazioni: 
 
 - I backup dei database danneggiati potrebbero essere ripristinati a seconda del tipo di danneggiamento, ma i backup automatici non verranno eseguiti finché il danneggiamento non viene risolto. Assicurarsi di eseguire `DBCC CHECKDB` nell'istanza di di origine e utilizzare `WITH CHECKSUM` di backup per evitare questo problema.
 - Il ripristino di `.BAK` file di un database che contiene qualsiasi limitazione descritta in questo documento (ad esempio, `FILESTREAM` o `FILETABLE` oggetti) non può essere ripristinato in Istanza gestita.
@@ -648,7 +648,7 @@ le istruzioni `CREATE DATABASE`, `ALTER DATABASE ADD FILE`e `RESTORE DATABASE` p
 
 Ogni istanza gestita di per utilizzo generico ha fino a 35 TB di spazio di archiviazione riservato per lo spazio su disco Premium di Azure. Ogni file di database si trova in un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato sul disco non viene addebitato, ma la somma totale delle dimensioni del disco Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni di archiviazione a causa della frammentazione interna.
 
-Ad esempio, un'istanza gestita di per utilizzo generico potrebbe avere un file di grandi dimensioni di 1,2 TB in un disco da 4 TB. Potrebbero inoltre essere presenti 248 file con dimensioni di 1 GB, ognuno dei quali si trova in dischi 128 GB distinti. In questo esempio:
+Ad esempio, un'istanza gestita di per utilizzo generico potrebbe avere un file di grandi dimensioni di 1,2 TB in un disco da 4 TB. Potrebbero inoltre essere presenti 248 file con dimensioni di 1 GB, ognuno dei quali si trova in dischi 128 GB distinti. Esempio:
 
 - la dimensione totale della risorsa di archiviazione sul disco allocato è 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Lo spazio totale riservato per i database nell'istanza è 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.

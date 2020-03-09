@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383261"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376300"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect
 
@@ -253,10 +253,10 @@ Per stabilire il motivo per cui nessuna password viene sincronizzata, seguire qu
 
     ![Output dello script di PowerShell dalle impostazioni di sincronizzazione password](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Se la funzionalità non è abilitata in Azure AD o se lo stato del canale di sincronizzazione non è abilitato, eseguire l'Installazione guidata di Connect. Selezionare **Personalizzazione delle opzioni di sincronizzazione** e deselezionare l'opzione di sincronizzazione delle password. Questa modifica disabilita temporaneamente la funzionalità. Eseguire quindi di nuovo la procedura guidata e riabilitare la sincronizzazione password. Eseguire di nuovo lo script per verificare che la configurazione sia corretta.
+3. Se la funzionalità non è abilitata in Azure AD o se lo stato del canale di sincronizzazione non è abilitato, eseguire l'Installazione guidata di Connect. Selezionare **Personalizza opzioni di sincronizzazione**e deselezionare sincronizzazione password. Questa modifica Disabilita temporaneamente la funzionalità. Quindi eseguire di nuovo la procedura guidata e riabilitare la sincronizzazione delle password. Eseguire di nuovo lo script per verificare che la configurazione sia corretta.
 
 4. Esaminare il log eventi per cercare eventuali errori. Cercare gli eventi seguenti che potrebbero indicare un problema:
-    * Origine: "Directory synchronization" ID: 0, 611, 652, 655 Se vengono visualizzati eventi di questo tipo, è presente un problema di connettività. Il messaggio del log eventi contiene informazioni relative alla foresta in cui è presente un problema. Per altre informazioni, vedere [Problemi di connettività](#connectivity problem).
+    * Origine: ID "Sincronizzazione della directory": 0, 611, 652, 655 Se vengono visualizzati eventi di questo tipo, c'è un problema di connettività. Il messaggio del log eventi contiene informazioni relative alla foresta in cui è presente un problema. Per altre informazioni, vedere [Problemi di connettività](#connectivity problem).
 
 5. Se non viene visualizzato alcun heartbeat o non si sono trovate altre soluzioni al problema, eseguire lo script riportato in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords). Eseguire lo script una sola volta.
 
@@ -293,7 +293,7 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
  
 8. Selezionare il dominio in **Select directory partitions** (Selezionare le partizioni della directory), selezionare la casella di controllo **Only use preferred domain controller** (Usare solo controller di dominio preferito) e quindi fare clic su **Configura**. 
 
-9. Nell'elenco immettere i controller di dominio che Connect deve usare per la sincronizzazione delle password. Lo stesso elenco viene usato anche per importare ed esportare. Eseguire questi passaggi per tutti i domini.
+9. Nell'elenco immettere i controller di dominio che Connect deve usare per la sincronizzazione delle password. Lo stesso elenco viene usato anche per l'importazione e l'esportazione. Eseguire questi passaggi per tutti i domini.
 
 10. Se lo script mostra che non sono stati generati heartbeat, eseguire lo script riportato in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords).
 
@@ -339,11 +339,11 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
 
     Verificare che non sia presente alcun attributo **cloudFiltered**. Assicurarsi che gli attributi di dominio (domainFQDN e domainNetBios) abbiano i valori previsti.
 
-    j. Fare clic sulla scheda **Connettori**. Assicurarsi che i connettori per Active Directory locale e Azure AD siano visualizzati.
+    j. Fare clic sulla scheda **Connectors (connettori** ). Assicurarsi di visualizzare i connettori sia per la Active Directory locale sia per Azure ad.
 
     ![Informazioni del metaverse](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Selezionare la riga che rappresenta Azure AD, fare clic su **Proprietà** e quindi sulla scheda **Lineage** (Derivazione). L'oggetto spazio connettore deve avere una regola in uscita con la colonna **PasswordSync** (Sincronizzazione password) impostata su **True**. Nella configurazione predefinita il nome della regola di sincronizzazione è **Out to AAD - User Join**.  
+    k. Selezionare la riga che rappresenta Azure AD, fare clic su **Proprietà**e quindi sulla **scheda** derivazione. L'oggetto spazio connettore deve avere una regola in uscita nella colonna **PasswordSync** impostata su **true**. Nella configurazione predefinita il nome della regola di sincronizzazione è **Out to AAD - User Join**.  
 
     ![Finestra di dialogo Proprietà dell'oggetto spazio connettore](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
@@ -353,14 +353,14 @@ I valori possibili per la colonna dello stato sono i seguenti:
 
 | Stato | Descrizione |
 | --- | --- |
-| Riuscito |La password è stata sincronizzata. |
+| Operazione completata |La password è stata sincronizzata. |
 | FilteredByTarget |La password è impostata su **Richiedi modifica della password all'accesso successivo**. La password non è stata sincronizzata. |
 | NoTargetConnection |Nessun oggetto in metaverse o nello spazio connettore di Azure AD |
 | SourceConnectorNotPresent |Nessun oggetto trovato nello spazio connettore di Active Directory locale. |
 | TargetNotExportedToDirectory |L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato. |
 | MigratedCheckDetailsForMoreInfo |La voce di log è stata creata prima della compilazione 1.0.9125.0 e viene visualizzata nello stato precedente. |
-| Tipi di errore |Il servizio ha restituito un errore sconosciuto. |
-| Sconosciuto |Si è verificato un errore durante il tentativo di elaborare un batch di hash delle password.  |
+| Errore |Il servizio ha restituito un errore sconosciuto. |
+| Unknown |Si è verificato un errore durante il tentativo di elaborare un batch di hash delle password.  |
 | MissingAttribute |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non sono disponibili. |
 | RetryRequestedByTarget |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non erano disponibili in precedenza. Viene effettuato un tentativo di risincronizzare l'hash della password dell'utente. |
 
@@ -445,5 +445,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Implementazione della sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](how-to-connect-password-hash-synchronization.md)
-* [Servizio di sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
