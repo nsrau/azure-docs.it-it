@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
 ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770986"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361732"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -86,7 +86,7 @@ Se il circuito ExpressRoute è abilitato per il peering Microsoft di Azure, è p
 
 **Non supportato:**
 
-* Rete CDN
+* RETE CDN
 * Frontdoor di Azure
 * Server di autenticazione a più fattori (legacy)
 * Gestione traffico

@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494122"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389693"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernel per il notebook di Jupyter nei cluster Apache Spark in Azure HDInsight
 
@@ -28,7 +28,7 @@ In questo articolo viene illustrato come usare questi kernel e i vantaggi che ne
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un cluster Apache Spark in HDInsight. Per istruzioni, vedere [Creazione dei cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Creare un notebook di Jupyter in HDInsight Spark
 
@@ -65,7 +65,7 @@ Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyt
 
     È possibile invece usare direttamente i contesti preimpostati nell'applicazione.
 
-- **Celle magic**. Il kernel PySpark offre alcuni "magic" predefiniti. Si tratta di comandi speciali che è possibile chiamare con `%%`, ad esempio `%%MAGIC` `<args>`. Il comando magic deve essere la prima parola di una cella di codice e consente di generare più righe di contenuto. La parola magic deve essere la prima della cella. L'aggiunta di qualsiasi elemento prima del comando magic, anche un commento, causa un errore.     Per altre informazioni sui magic, vedere [questa pagina](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Celle magic**. Il kernel PySpark offre alcuni "Magic" predefiniti, ovvero comandi speciali che è possibile chiamare con `%%` (ad esempio `%%MAGIC` `<args>`). Il comando magic deve essere la prima parola di una cella di codice e consente di generare più righe di contenuto. La parola magic deve essere la prima della cella. L'aggiunta di qualsiasi elemento prima del comando magic, anche un commento, causa un errore.     Per altre informazioni sui magic, vedere [questa pagina](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
     La tabella seguente elenca i diversi magic disponibili tramite i kernel.
 
@@ -73,12 +73,12 @@ Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyt
    | --- | --- | --- |
    | help |`%%help` |Genera una tabella di tutti i magic disponibili con esempi e descrizioni |
    | info |`%%info` |Visualizza informazioni sulla sessione per l'endpoint Livy corrente |
-   | CONFIGURA |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura i parametri per la creazione di una sessione. Il flag force (-f) è obbligatorio se è già stata creata una sessione, affinché tale sessione venga eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come una stringa JSON e devono essere nella riga successiva al magic, come illustrato nella colonna di esempio. |
+   | configura |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura i parametri per la creazione di una sessione. Il flag force (-f) è obbligatorio se è già stata creata una sessione, affinché tale sessione venga eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come una stringa JSON e devono essere nella riga successiva al magic, come illustrato nella colonna di esempio. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Esegue una query Hive su sqlContext. Se viene passato il parametro `-o` , il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati [Pandas](https://pandas.pydata.org/) . |
-   | local |`%%local`<br>`a=1` |Tutto il codice presente nelle righe successive viene eseguito localmente. Il codice deve essere un codice python2 valido anche indipendentemente dal kernel usato. Quindi, anche se si selezionano kernel **PySpark3** o **Spark** durante la creazione del notebook, se si usa il `%%local` Magic in una cella, tale cella deve avere solo codice python2 valido. |
+   | locali |`%%local`<br>`a=1` |Tutto il codice presente nelle righe successive viene eseguito localmente. Il codice deve essere un codice python2 valido anche indipendentemente dal kernel usato. Quindi, anche se si selezionano kernel **PySpark3** o **Spark** durante la creazione del notebook, se si usa il `%%local` Magic in una cella, tale cella deve avere solo codice python2 valido. |
    | log |`%%logs` |Visualizza i log per la sessione Livy corrente. |
    | delete |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Non è possibile eliminare la sessione avviata per il kernel stesso. |
-   | cleanup |`%%cleanup -f` |Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
+   | pulizia |`%%cleanup -f` |Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
 
    > [!NOTE]  
    > Oltre ai magic aggiunti dal kernel PySpark, è possibile anche usare i [magic IPython incorporati](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), tra cui `%%sh`. È possibile usare il magic `%%sh` per eseguire script e il blocco del codice nel nodo head del cluster.
@@ -156,11 +156,11 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 - [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](apache-spark-intellij-tool-plugin.md)
 - [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Apache Spark in remoto](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-- [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
+- [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 - [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 - [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Gestire risorse
+### <a name="manage-resources"></a>Gestione di risorse
 
 - [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 - [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)

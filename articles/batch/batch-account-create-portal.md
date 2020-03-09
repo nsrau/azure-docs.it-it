@@ -15,11 +15,11 @@ ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048640"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394921"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 

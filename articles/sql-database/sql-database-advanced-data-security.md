@@ -12,23 +12,23 @@ manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
 ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293845"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360287"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Sicurezza dei dati avanzata per il database SQL di Azure
 
 Sicurezza dei dati avanzata è un pacchetto unificato che include le funzionalità di sicurezza avanzate SQL. Include funzionalità per l'individuazione e la classificazione di dati sensibili, il rilevamento e l'attenuazione di potenziali vulnerabilità dei database e il rilevamento di attività anomale che possono indicare una minaccia per il database. Offre una posizione unica per l'abilitazione e la gestione di queste funzionalità.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Advanced Data Security (ADS) fornisce un set di funzionalità avanzate per la sicurezza di SQL, tra cui individuazione dei dati & classificazione, valutazione della vulnerabilità e protezione avanzata dalle minacce.
 
 - [Individuazione dati & classificazione](sql-database-data-discovery-and-classification.md) offre funzionalità integrate nel database SQL di Azure per l'individuazione, la classificazione, l'assegnazione di etichette & la protezione dei dati sensibili nei database. Consente di visualizzare lo stato di classificazione del database e di tenere traccia dell'accesso ai dati sensibili all'interno del database e all'esterno di questo ambito.
 - [Valutazione della vulnerabilità](sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database. Consente di visualizzare lo stato di sicurezza e prevede passaggi utili per risolvere i problemi di sicurezza e migliorare la protezione del database.
-- [Advanced Threat Protection](sql-database-threat-detection-overview.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di modelli di accesso ai database anomali. Gli avvisi della funzionalità di Advanced Threat Protection includono dettagli sulle attività sospette e consigliano azioni per l'analisi e la mitigazione della minaccia.
+- [Advanced Threat Protection](sql-database-threat-detection-overview.md) rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare il database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di modelli di accesso ai database anomali. Gli avvisi avanzati per la protezione dalle minacce forniscono informazioni dettagliate sull'attività sospetta e consigliano azioni su come analizzare e mitigare la minaccia.
 
 Abilitare SQL Advanced Data Security una volta per abilitare tutte le funzionalità incluse. Con un solo clic, è possibile abilitare ADS per tutti i database nel server di database SQL o nell'istanza gestita. Per abilitare o gestire le impostazioni di Sicurezza dei dati avanzata è necessario il ruolo di [gestore della sicurezza SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), il ruolo di amministratore del database SQL o il ruolo di amministratore di SQL Server. 
 
@@ -58,7 +58,7 @@ Fare clic sulla scheda **Individuazione dati e classificazione** per visualizzar
 
 Per visualizzare e gestire le impostazioni di Sicurezza dei dati avanzata, passare a **Sicurezza dei dati avanzata** sotto l'intestazione **Sicurezza** per l'istanza gestita o il server di database SQL. In questa pagina è possibile abilitare o disabilitare gli annunci e modificare la valutazione della vulnerabilità e le impostazioni di Advanced Threat Protection per l'intero server di database SQL o istanza gestita.
 
-![Impostazioni del server](./media/sql-advanced-protection/server_settings.png) 
+![Impostazioni server](./media/sql-advanced-protection/server_settings.png) 
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. gestire le impostazioni ADS per un database SQL
 

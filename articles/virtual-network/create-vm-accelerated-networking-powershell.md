@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083709"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363509"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Creare una macchina virtuale Windows con rete accelerata usando Azure PowerShell
 
@@ -49,7 +49,7 @@ Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate
 La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU.  Queste serie supportate sono D/DSv2 e F/Fs
 
-Nelle istanze che supportano l'hyperthreading, la rete accelerata è supportata nelle istanze di VM con 4 o più vCPU. Le serie supportate sono: D/Dsv3, E/Esv3, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
+Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. Le serie supportate sono: D/Dsv3, E/Esv3, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
 Per altre informazioni sulle istanze di VM, vedere [Dimensioni per le macchine virtuali Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -76,9 +76,9 @@ Dopo aver creato la macchina virtuale, è possibile verificare che la rete accel
 
 Installare [Azure PowerShell](/powershell/azure/install-az-ps) versione 1.0.0 o successiva. Per trovare la versione attualmente installata, eseguire `Get-Module -ListAvailable Az`. Se è necessario installare o aggiornare, installare la versione più recente del modulo AZ dal [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). In una sessione di PowerShell accedere a un account Azure usando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
+Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
 
-Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus*:
+Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus*.
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
@@ -163,7 +163,7 @@ $nic = New-AzNetworkInterface `
     -EnableAcceleratedNetworking
 ```
 
-## <a name="create-the-virtual-machine"></a>Creazione della macchina virtuale
+## <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 
 Impostare le credenziali della VM sulla variabile `$cred` usando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
@@ -293,9 +293,9 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet"
 ```
 
-Dopo il riavvio, attendere che gli aggiornamenti vengano completati. Al termine, la VF verrà visualizzata all'interno della macchina virtuale.  (assicurarsi di usare una dimensione di macchina virtuale e un sistema operativo supportati).
+Dopo il riavvio, attendere che gli aggiornamenti vengano completati. Al termine, la VF verrà visualizzata all'interno della macchina virtuale  (assicurarsi di usare una dimensione di macchina virtuale e un sistema operativo supportati).
 
-### <a name="resizing-existing-vms-with-accelerated-networking"></a>Ridimensionamento di macchine virtuali esistenti con rete accelerata
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Ridimensionamento di macchine virtuali esistenti con Rete accelerata
 
 Le macchine virtuali con la funzione Rete accelerata abilitata possono essere ridimensionate solo nelle macchine virtuali che supportano questa funzionalità.  
 
