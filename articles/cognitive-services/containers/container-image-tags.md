@@ -1,5 +1,5 @@
 ---
-title: Tag dell'immagine del contenitore di servizi cognitivi
+title: Tag delle immagini di contenitori in Servizi cognitivi
 titleSuffix: Azure Cognitive Services
 description: Elenco completo di tutti i tag dell'immagine del contenitore di servizi cognitivi.
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.topic: reference
 ms.date: 11/18/2019
 ms.author: dapine
 ms.openlocfilehash: 0d8c7a36582c30975f3a408a2ea6e95d39e560ef
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173762"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390830"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Tag dell'immagine del contenitore di servizi cognitivi di Azure
 
@@ -29,7 +29,7 @@ Servizi cognitivi di Azure offre molte immagini del contenitore. I registri dei 
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
@@ -41,7 +41,7 @@ Questa immagine del contenitore include i tag seguenti:
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.1.009920003-amd64-preview` | |
@@ -53,7 +53,7 @@ L'immagine del contenitore [viso][fa-containers] è reperibile nel registro cont
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
@@ -71,20 +71,20 @@ L'immagine del contenitore del [riconoscitore del modulo][fr-containers] è repe
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
 | `1.1.008640001-amd64-preview` | |
 | `1.1.008510001-amd64-preview` | |
 
-## <a name="language-understanding-luis"></a>Comprensione del linguaggio (LUIS)
+## <a name="language-understanding-luis"></a>Language Understanding (LUIS)
 
 L'immagine del contenitore [Luis][lu-containers] si trova nel Consorzio di registro contenitori di `mcr.microsoft.com`. Si trova all'interno del repository `azure-cognitive-services` ed è denominato `luis`. Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/luis`.
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.1.010330004-amd64-preview` | |
@@ -102,7 +102,7 @@ Questa immagine del contenitore include i tag seguenti:
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `2.0.0-amd64-preview` | |
@@ -113,7 +113,7 @@ Questa immagine del contenitore include i tag seguenti:
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.3.0-amd64-preview` | |
@@ -124,7 +124,7 @@ L'immagine del contenitore [di sintesi vocale][sp-stt] è reperibile nel registr
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | Immagine del contenitore con le impostazioni locali `en-US`. |
 | `2.0.0-amd64-ar-eg-preview` | Immagine del contenitore con le impostazioni locali `ar-EG`. |
@@ -249,7 +249,7 @@ L'immagine del contenitore sintesi [vocale][sp-tts] è reperibile nel registro c
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | Immagine del contenitore con le impostazioni locali `en-US` e `en-US-JessaRUS` voce. |
 | `1.3.0-amd64-ar-eg-hoda-preview` | Immagine del contenitore con le impostazioni locali `ar-EG` e `ar-EG-Hoda` voce. |
@@ -425,7 +425,7 @@ Il [estrazione frasi chiave][ta-kp] immagine del contenitore è reperibile nel `
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
@@ -440,7 +440,7 @@ Il [rilevamento lingua][ta-la] immagine del contenitore è reperibile nel `mcr.m
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |
@@ -455,7 +455,7 @@ Il [analisi del sentiment][ta-se] immagine del contenitore è reperibile nel `mc
 
 Questa immagine del contenitore include i tag seguenti:
 
-| Tag immagine | note |
+| Tag immagine | Note |
 |------------|:------|
 | `latest` | |
 | `1.1.009301-amd64-preview` | |

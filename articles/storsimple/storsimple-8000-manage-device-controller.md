@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894836"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366750"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestire i controller del dispositivo StorSimple
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 In questa esercitazione vengono descritte le diverse operazioni che è possibile eseguire nei controller del dispositivo StorSimple. I controller del dispositivo StorSimple sono controller ridondanti (peer) in una configurazione attiva-passiva. In un determinato momento, un solo controller è attivo e sta elaborando tutte le operazioni su disco e di rete. L'altro controller è in modalità passiva. Se il controller attivo non restituisce l'esito positivo, il controller passivo diventa automaticamente attivo.
 

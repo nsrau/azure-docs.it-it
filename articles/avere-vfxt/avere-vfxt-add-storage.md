@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153990"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372205"
 ---
 # <a name="configure-storage"></a>Configurare l'archiviazione
 
@@ -125,12 +125,12 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
 
 1. Specificare le informazioni seguenti per creare le credenziali per il core filer cloud:
 
-   | Campo | Valore |
+   | Campo | valore |
    | --- | --- |
    | Credential name (Nome credenziali) | qualsiasi nome descrittivo |
    | Tipo di servizio | (selezionare la chiave di accesso di archiviazione di Azure) |
    | Tenant | nome dell'account di archiviazione |
-   | Sottoscrizione | ID sottoscrizione |
+   | Subscription | ID sottoscrizione |
    | Storage Access Key (Chiave di accesso alle risorse di archiviazione) | chiave di accesso di Archiviazione di Azure (copiata nel passaggio precedente) |
 
    Fare clic su **Submit** (Invia).

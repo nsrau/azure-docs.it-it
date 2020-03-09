@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
 ms.openlocfilehash: 3cecb04a4f299051860c45425f0fc4e13c3722ea
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656297"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395793"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Informazioni sull'integrità delle macchine virtuali di Azure
 
@@ -33,12 +33,12 @@ Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine v
 
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le VM Windows e Linux di Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando rilevano una condizione di tipo non integro.
 
-| Nome monitoraggio | Frequenza (min) | Lookback durata (min) | Operatore | destinazione | Avviso per stato | Severity | Categoria carico di lavoro | 
+| Nome monitoraggio | Frequenza (min) | Lookback durata (min) | Operatore | Soglia | Avviso per stato | Gravità | Categoria carico di lavoro | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
 | Disco logico online | 5 | 15 | <> | 1 (true) | Critico | Sev1 | Linux | 
 | Spazio disponibile su disco logico | 5 | 15 | < | 200 MB (avviso)<br> 100 MB (critico) | Avviso | Sev1<br> Sev2 | Linux | 
 | % inode disponibili su disco logico | 5 | 15 | < | 5% | Critico | Sev1 | Linux | 
-| % di spazio disponibile disco logico | 5 | 15 | < | 5% | Critico | Sev1 | Linux | 
+| % spazio disponibile su disco logico | 5 | 15 | < | 5% | Critico | Sev1 | Linux | 
 | Stato scheda di rete | 5 | 15 | <> | 1 (true) | Avviso | Sev2 | Linux | 
 | Memoria disponibile in MB sistema operativo | 5 | 10 | < | 2,5 MB | Critico | Sev1 | Linux | 
 | Media letture disco/sec | 5 | 25 | > | 0,05s | Critico | Sev1 | Linux | 
@@ -46,33 +46,33 @@ Questa sezione descrive i criteri di integrità predefiniti per monitorare le VM
 | Media scritture disco/sec | 5 | 25 | > | 0,05s | Critico | Sev1 | Linux | 
 | Stato del disco | 5 | 25 | <> | 1 (true) | Critico | Sev1 | Linux | 
 | Percentuale tempo processore totale sistema operativo | 5 | 10 | >= | 95% | Critico | Sev1 | Linux | 
-| % Utilizzo CPU totale | 5 | 10 | >= | 95% | Critico | Sev1 | WINDOWS | 
-| Danneggiamento o errore del file system | 60 | 60 | <> | 4 | Critico | Sev1 | WINDOWS | 
-| Media di secondi per lettura su disco logico | 1 | 15 | > | 0,04s | Avviso | Sev2 | WINDOWS | 
-| Media di secondi per trasferimento su disco logico | 1 | 15 | > | 0,04s | Avviso | Sev2 | WINDOWS | 
-| Media di secondi per scrittura su disco logico (disco logico) | 1 | 15 | > | 0,04s | Avviso | Sev2 | WINDOWS | 
-| Lunghezza corrente coda del disco (disco logico) | 5 | 60 | >= | 32 | Avviso | Sev2 | WINDOWS | 
-| Spazio disponibile su disco logico (MB) | 15 | 60 | > | 500 MB di avviso<br> 300 MB critico | Critico | Sev1<br> Sev2 | WINDOWS | 
-| Spazio disponibile su disco logico (%) | 15 | 60 | > | avviso 10%<br> critico 5% | Critico | Sev1<br> Sev2 | WINDOWS |
-| Percentuale del tempo di inattività del disco logico | 15 | 360 | <= | 20% | Avviso | Sev2 | WINDOWS | 
-| Percentuale larghezza di banda utilizzata per lettura | 5 | 60 | >= | 60% | Avviso | Sev2 | WINDOWS | 
-| Percentuale larghezza di banda utilizzata totale | 5 | 60 | >= | 75% | Avviso | Sev2 | WINDOWS | 
-| Percentuale della larghezza di banda utilizzata per scrittura | 5 | 60 | >= | 60% | Avviso | Sev2 | WINDOWS | 
-| Stato del servizio client DHCP | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | WINDOWS | 
-| Stato del servizio client DNS | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | WINDOWS | 
-| Stato del servizio Registro eventi di Windows | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | WINDOWS | 
-| Integrità del servizio Windows Firewall | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | WINDOWS | 
-| Stato del servizio RPC | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | WINDOWS | 
-| Stato del servizio Server | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | WINDOWS | 
-| Integrità del servizio Gestione remota Windows | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | WINDOWS | 
-| Megabyte disponibili in memoria | 5 | 10 | < | 100 MB | Critico | Sev1 | WINDOWS | 
-| Voci libere tabella pagine di sistema | 5 | 10 | <= | 5000 | Critico | Sev1 | WINDOWS | 
-| Pagine in memoria al secondo | 5 | 10 | >= | 5000/s | Avviso | Sev1 | WINDOWS | 
-| % Memoria vincolata in uso | 5 | 10 | > | 80% | Critico | Sev1 | WINDOWS | 
-| Media di secondi per trasferimento su disco | 1 | 15 | > | 0,04s | Avviso | Sev2 | WINDOWS | 
-| Media di secondi per scrittura su disco | 1 | 15 | > | 0,04s | Avviso | Sev2 | WINDOWS | 
-| Lunghezza coda del disco attuale | 5 | 60 | >= | 32 | Avviso | Sev2 | WINDOWS | 
-| Percentuale tempo di inattività del disco | 5 | 60 | >= | 20% | Avviso | Sev2 | WINDOWS | 
+| Percentuale di utilizzo di CPU totale | 5 | 10 | >= | 95% | Critico | Sev1 | Windows | 
+| Errore o danneggiamento del file system | 60 | 60 | <> | 4 | Critico | Sev1 | Windows | 
+| Media lettura disco logico/secondi | 1 | 15 | > | 0,04s | Avviso | Sev2 | Windows | 
+| Media trasferimento disco logico/secondi | 1 | 15 | > | 0,04s | Avviso | Sev2 | Windows | 
+| Media di secondi per scrittura su disco logico (disco logico) | 1 | 15 | > | 0,04s | Avviso | Sev2 | Windows | 
+| Lunghezza corrente coda su disco (disco logico) | 5 | 60 | >= | 32 | Avviso | Sev2 | Windows | 
+| Spazio disponibile su disco logico (MB) | 15 | 60 | > | 500 MB di avviso<br> 300 MB critico | Critico | Sev1<br> Sev2 | Windows | 
+| Spazio disponibile su disco logico (%) | 15 | 60 | > | avviso 10%<br> critico 5% | Critico | Sev1<br> Sev2 | Windows |
+| Percentuale tempo di inattività del disco logico | 15 | 360 | <= | 20% | Avviso | Sev2 | Windows | 
+| Percentuale di larghezza di banda utilizzata per lettura | 5 | 60 | >= | 60% | Avviso | Sev2 | Windows | 
+| Percentuale di larghezza di banda utilizzata in totale | 5 | 60 | >= | 75% | Avviso | Sev2 | Windows | 
+| Percentuale di larghezza di banda utilizzata per scrittura | 5 | 60 | >= | 60% | Avviso | Sev2 | Windows | 
+| Integrità del servizio di client DHCP | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio di client DNS | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio Registro eventi di Windows | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio Windows Firewall | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio RPC | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio di server | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Integrità del servizio Gestione remota Windows | 5 | 12 | <> | 4 (in esecuzione) | Critico | Sev1 | Windows | 
+| Megabyte disponibili per la memoria | 5 | 10 | < | 100 MB | Critico | Sev1 | Windows | 
+| Voci libere tabella pagine di sistema | 5 | 10 | <= | 5000 | Critico | Sev1 | Windows | 
+| Pagine di memoria al secondo | 5 | 10 | >= | 5000/s | Avviso | Sev1 | Windows | 
+| Percentuale di memoria in uso di cui è stato eseguito il commit | 5 | 10 | > | 80% | Critico | Sev1 | Windows | 
+| Media trasferimento disco/secondi | 1 | 15 | > | 0,04s | Avviso | Sev2 | Windows | 
+| Media di secondi per scrittura su disco | 1 | 15 | > | 0,04s | Avviso | Sev2 | Windows | 
+| Lunghezza corrente coda del disco | 5 | 60 | >= | 32 | Avviso | Sev2 | Windows | 
+| Percentuale tempo di inattività del disco | 5 | 60 | >= | 20% | Avviso | Sev2 | Windows | 
 
 >[!NOTE]
 >La durata lookback rappresenta la frequenza con cui la finestra di ricerca controlla i valori delle metriche, ad esempio negli ultimi cinque minuti.  
@@ -102,12 +102,12 @@ Selezionando lo stato accanto al componente si apre l'esperienza di diagnostica 
 
 La tabella seguente descrive gli stati di integrità definiti per una macchina virtuale:
 
-|Icona |Stato integrità |Significato |
+|Icona |Stato di integrità |Significato |
 |-----|-------------|---------------|
-| |Integro |La macchina virtuale rientra nelle condizioni di integrità definite. Questo stato indica che non sono stati rilevati problemi e che la macchina virtuale funziona normalmente. Con un monitoraggio rollup padre viene eseguito il rollup dello stato e viene riflesso lo stato migliore o peggiore del case figlio.|
+| |Healthy |La macchina virtuale rientra nelle condizioni di integrità definite. Questo stato indica che non sono stati rilevati problemi e che la macchina virtuale funziona normalmente. Con un monitoraggio rollup padre viene eseguito il rollup dello stato e viene riflesso lo stato migliore o peggiore del case figlio.|
 | |Critico |Lo stato non rientra nella condizione di integrità definita, a indicare che sono stati rilevati uno o più problemi critici. È necessario risolvere questi problemi per ripristinare le funzionalità normali. Con un monitor di rollup padre, lo stato di integrità viene rollup e riflette lo stato migliore o peggiore del case figlio.|
 | |Avviso |Lo stato è compreso tra due soglie per la condizione di integrità definita, dove uno indica uno stato di avviso e l'altro indica uno stato critico (è possibile configurare tre soglie di stato di integrità) o quando un problema non critico può causare problemi critici se irrisolti. Con un monitoraggio rollup padre, se uno o più elementi figlio sono in uno stato di avviso, l'elemento padre rifletterà uno stato di avviso. Se un elemento figlio si trova in uno stato critico e un altro figlio in uno stato di avviso, il rollup padre visualizzerà lo stato di integrità critico.|
-| |Sconosciuto |Non è possibile calcolare lo stato per diversi motivi. Nella sezione seguente vengono forniti dettagli aggiuntivi e possibili soluzioni. |
+| |Unknown |Non è possibile calcolare lo stato per diversi motivi. Nella sezione seguente vengono forniti dettagli aggiuntivi e possibili soluzioni. |
 
 Uno stato di integrità sconosciuto può essere causato dai seguenti problemi:
 
@@ -217,7 +217,7 @@ La pagina **diagnostica dell'integrità** include tre sezioni principali:
 
 * Modello componente
 * Criteri di integrità
-* Modifiche stato
+* Modifiche di stato
 
 ![Sezioni della pagina Diagnostica integrità](./media/vminsights-health/health-diagnostics-page-02.png)
 
@@ -263,7 +263,7 @@ Per ulteriori informazioni sui criteri di integrità, sono stati inclusi articol
 
 Per esaminare tutti gli articoli della Knowledge base inclusi in Monitoraggio di Azure per le macchine virtuali Health, vedere la documentazione della Knowledge base sull' [integrità di monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
 
-### <a name="state-changes"></a>Modifiche dello stato
+### <a name="state-changes"></a>Modifiche stato
 
 La colonna all'estrema destra della pagina di **diagnostica dell'integrità** è **stata modificata**. In questa colonna sono elencate tutte le modifiche di stato associate ai criteri di integrità selezionati nella sezione **criteri di integrità** o la modifica dello stato della VM se è stata selezionata una macchina virtuale dalla colonna **modello di componente** o criteri di **integrità** della tabella.
 
@@ -302,14 +302,14 @@ Gli avvisi di altri tipi di risorse o servizi non devono essere inclusi in quest
 |Colonna |Descrizione |
 |-------|------------|
 |Subscription |Selezionare una sottoscrizione di Azure. Sono inclusi nella visualizzazione solo gli avvisi della sottoscrizione selezionata. |
-|Gruppo risorse |Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
+|Gruppo di risorse |Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 |Tipo di risorsa |Selezionare uno o più tipi di risorsa. Per impostazione predefinita, in questa visualizzazione sono selezionati e inclusi solo gli avvisi della **Macchina virtuale** di destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
-|Resource |Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna è disponibile solo dopo che è stato specificato un tipo di risorsa. |
-|Severity |Selezionare una gravità degli avvisi oppure **Tutti** per includere gli avvisi di tutti i livelli di gravità. |
+|Risorsa |Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna è disponibile solo dopo che è stato specificato un tipo di risorsa. |
+|Gravità |Selezionare una gravità degli avvisi oppure **Tutti** per includere gli avvisi di tutti i livelli di gravità. |
 |Condizione del monitoraggio |Selezionare una condizione di monitoraggio per filtrare gli avvisi se sono stati generati o risolti dal sistema se la condizione non è più attiva. In alternativa, selezionare **tutti** per includere gli avvisi di tutte le condizioni. |
 |Stato dell'avviso |Selezionare uno stato di avviso, **nuovo**, **riconoscimento**, **chiuso**o **tutti** per includere gli avvisi di tutti gli Stati. |
 |Servizio di monitoraggio |Selezionare un servizio oppure **Tutti** per includere tutti i servizi. Per questa funzionalità sono supportati solo gli avvisi di VM Insights.|
-|Intervallo di tempo| Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
+|Intervallo di ore| Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
 Quando si seleziona un avviso, viene visualizzata la pagina dei **Dettagli dell'avviso** . Questa pagina fornisce i dettagli dell'avviso e consente di modificarne lo stato.
 

@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/9/2019
 ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976299"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363552"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Questo articolo illustra come configurare i parametri di server del Database di Azure per MariaDB usando il portale di Azure
 
@@ -41,26 +41,26 @@ Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collega
 |---|---|---|
 |Basic| 1| 1024|
 |Basic| 2| 2560|
-|Scopo generico| 2| 3584|
-|Scopo generico| 4| 7680|
-|Scopo generico| 8| 15360|
-|Scopo generico| 16| 31232|
-|Scopo generico| 32| 62976|
-|Scopo generico| 64| 125952|
-|Ottimizzate per la memoria| 2| 7168|
-|Ottimizzate per la memoria| 4| 15360|
-|Ottimizzate per la memoria| 8| 30720|
-|Ottimizzate per la memoria| 16| 62464|
-|Ottimizzate per la memoria| 32| 125952|
+|Utilizzo generico| 2| 3584|
+|Utilizzo generico| 4| 7680|
+|Utilizzo generico| 8| 15360|
+|Utilizzo generico| 16| 31232|
+|Utilizzo generico| 32| 62976|
+|Utilizzo generico| 64| 125952|
+|Con ottimizzazione per la memoria| 2| 7168|
+|Con ottimizzazione per la memoria| 4| 15360|
+|Con ottimizzazione per la memoria| 8| 30720|
+|Con ottimizzazione per la memoria| 16| 62464|
+|Con ottimizzazione per la memoria| 32| 125952|
 
 Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 
 |**Parametro**|**Valore fisso**|
 | :------------------------ | :-------- |
-|innodb_file_per_table nel livello Basic|DISATTIVA|
+|innodb_file_per_table nel livello Basic|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512 MB|
+|innodb_log_file_size|512MB|
 
 Altri parametri non elencati qui sono impostati sui propri valori predefiniti per [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
 

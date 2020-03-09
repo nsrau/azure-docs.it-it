@@ -4,11 +4,11 @@ description: Informazioni su come modificare i dati prima delle previsioni in La
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148267"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361139"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modificare i dati delle espressioni prima e durante la stima
 LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. Che includono la [correzione dell'ortografia](luis-tutorial-bing-spellcheck.md)e la correzione dei problemi di fuso orario per [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefiniti.
@@ -28,14 +28,14 @@ Per correggere gli errori di ortografia nell'espressione, LUIS usa l'[API Contro
 
 L'endpoint richiede due parametri per il funzionamento delle correzioni ortografiche:
 
-|Param|Valore|
+|Param|valore|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Chiave endpoint [API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
 
 Quando l'[API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) rileva un errore, dall'endpoint vengono restituite l'espressione originale e l'espressione corretta insieme alle previsioni.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 ```JSON
 {
@@ -49,7 +49,7 @@ Quando l'[API Controllo ortografico Bing V7](https://azure.microsoft.com/service
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 ```JSON
 {
@@ -78,14 +78,14 @@ Quando un'app LUIS USA l'entità [datetimeV2](luis-reference-prebuilt-datetimev2
 ### <a name="endpoint-querystring-parameter"></a>Parametro queryString dell'endpoint
 Per correggere il fuso orario aggiungere il fuso orario dell'utente all'[endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) mediante il parametro `timezoneOffset`. Il valore di `timezoneOffset` deve essere il numero positivo o negativo che, in minuti, modifica l'ora.
 
-|Param|Valore|
+|Param|valore|
 |--|--|
 |`timezoneOffset`|numero positivo o negativo, in minuti|
 
 ### <a name="daylight-savings-example"></a>Esempio di ora legale
 Se è necessario che l'entità datetimeV2 predefinita restituita sia regolata in base all'ora legale, occorre usare il `timezoneOffset`parametro querystring con un valore +/- in minuti per la query [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356).
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Richiesta dell'endpoint di previsione V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[Richiesta dell'endpoint di previsione V2](#tab/V2)
 
 Aggiungere 60 minuti:
 
@@ -95,7 +95,7 @@ Sottrarre 60 minuti:
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Richiesta dell'endpoint di previsione V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[Richiesta dell'endpoint di previsione V3](#tab/V3)
 
 Aggiungere 60 minuti:
 

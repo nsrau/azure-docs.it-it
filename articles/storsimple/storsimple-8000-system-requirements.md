@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963341"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365840"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple serie 8000
 
@@ -65,14 +65,14 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 | Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatoria | Note |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Out |WAN |No |<ul><li>La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Out |WAN |Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li><li>Questa porta viene usata anche su entrambi i controller per operazioni di garbage collection.</li></ul> |
-| UDP 53 (DNS) |Out |Rete WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. |
-| UDP 123 (NTP) |Out |Rete WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet. |
-| TCP 9354 |Out |WAN |Sì |La porta in uscita viene usata dal dispositivo StorSimple per comunicare con il servizio Gestione dispositivi StorSimple. |
-| 3260 (iSCSI) |In |LAN |No |Questa porta viene usata per accedere ai dati tramite iSCSI. |
-| 5985 |In |LAN |No |La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP. |
-| 5986 |In |LAN |No |Questa porta viene utilizzata quando ci si connette in modalità remota a Windows PowerShell per StorSimple tramite HTTPS. |
+| TCP 80 (HTTP)<sup>3</sup> |In uscita |WAN |No |<ul><li>La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |In uscita |WAN |Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li><li>Questa porta viene usata anche su entrambi i controller per operazioni di garbage collection.</li></ul> |
+| UDP 53 (DNS) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. |
+| UDP 123 (NTP) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet. |
+| TCP 9354 |In uscita |WAN |Sì |La porta in uscita viene usata dal dispositivo StorSimple per comunicare con il servizio Gestione dispositivi StorSimple. |
+| 3260 (iSCSI) |In ingresso |LAN |No |Questa porta viene usata per accedere ai dati tramite iSCSI. |
+| 5985 |In ingresso |LAN |No |La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP. |
+| 5986 |In ingresso |LAN |No |Questa porta viene utilizzata quando ci si connette in modalità remota a Windows PowerShell per StorSimple tramite HTTPS. |
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 
@@ -104,7 +104,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Account di archiviazione di Azure e monitoraggio |Interfacce di rete abilitate per il cloud |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Server di Microsoft Update<br> |Solo indirizzi IP fissi del controller |
 | `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
-| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Pacchetto per il supporto |Interfacce di rete abilitate per il cloud |
+| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Pacchetto di supporto |Interfacce di rete abilitate per il cloud |
 
 #### <a name="url-patterns-for-azure-government-portal"></a>Modelli di URL per il portale di Azure Government
 
@@ -116,7 +116,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Account di archiviazione di Azure e monitoraggio |Interfacce di rete abilitate per il cloud |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Server di Microsoft Update<br> |Solo indirizzi IP fissi del controller |
 | `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
-| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Pacchetto per il supporto |Interfacce di rete abilitate per il cloud |
+| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Pacchetto di supporto |Interfacce di rete abilitate per il cloud |
 
 ### <a name="routing-metric"></a>Metrica di routing
 
@@ -129,7 +129,7 @@ L'algoritmo delle metriche di routing usato per l'aggiornamento 2 e versioni suc
 * È stato assegnato un set di valori predefiniti alle interfacce di rete.
 * Si consideri la tabella di esempio seguente con valori assegnati alle varie interfacce di rete quando sono abilitate o disabilitate per il cloud, ma con un gateway configurato. Si noti che i valori assegnati qui sono puramente esemplificativi.
 
-    | Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
+    | interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
     |-----|---------------|---------------------------|
     | Data 0  | 1            | -                        |
     | Data 1  | 2            | 20                       |
@@ -157,7 +157,7 @@ L'algoritmo delle metriche di routing usato per l'aggiornamento 2 e versioni suc
 * Viene anche generato un avviso sul dispositivo StorSimple quando si verifica un errore VIP. Per altre informazioni, vedere l'articolo [Avviso riferimento rapido](storsimple-8000-manage-alerts.md).
 * Per quanto riguarda i tentativi, iSCSI avrà la precedenza sul cloud.
   
-    Si consideri l'esempio seguente: Un dispositivo StorSimple ha due interfacce di rete abilitate, data 0 e data 1. Data 0 è abilitata per il cloud, mentre Data 1 è abilitata sia per il cloud che per iSCSI. Nessun'altra interfaccia di rete su questo dispositivo è abilitata per il cloud o iSCSI.
+    Si consideri l'esempio seguente: un dispositivo StorSimple ha due interfacce di rete abilitate, Data 0 e Data 1. Data 0 è abilitata per il cloud, mentre Data 1 è abilitata sia per il cloud che per iSCSI. Nessun'altra interfaccia di rete su questo dispositivo è abilitata per il cloud o iSCSI.
   
     Se Data 1 restituisce un errore, poiché è l'ultima interfaccia di rete iSCSI si verificherà un failover del controller a Data 1 sull'altro controller.
 

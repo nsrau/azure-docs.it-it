@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
 ms.openlocfilehash: a6bc8546a4047e921d62953e39eaddf546f38229
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367433"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388831"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creare un contenitore di profili per un pool di host con una condivisione file
 
@@ -65,9 +65,9 @@ Per configurare le macchine virtuali con il software FSLogix, eseguire le operaz
 6. Creare una chiave denominata **profili**.
 7. Creare i valori seguenti per la chiave dei profili:
 
-| Name                | Type               | Dati/valore                        |
+| Nome                | Type               | Dati/valore                        |
 |---------------------|--------------------|-----------------------------------|
-| Abilitato             | DWORD              | 1                                 |
+| Attivato             | DWORD              | 1                                 |
 | VHDLocations        | Valore multistringa | "Percorso di rete per la condivisione file"     |
 
 >[!IMPORTANT]

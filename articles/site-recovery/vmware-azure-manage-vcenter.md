@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77611761"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362829"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gestisci server VMware vCenter
 
@@ -53,7 +53,7 @@ Quando si configura il ripristino di emergenza per le macchine virtuali VMware l
 1. In **Aggiungi vCenter**specificare un nome descrittivo per l'host vSphere o il server vCenter.
 1. Specificare l'indirizzo IP o il nome di dominio completo del server.
 1. Lasciare la porta 443, a meno che i server VMware siano configurati per l'ascolto delle richieste su una porta diversa.
-1. Selezionare l'account usato per la connessione al server VMware vCenter o vSphere ESXi. Fare quindi clic su **OK**,
+1. Selezionare l'account usato per la connessione al server VMware vCenter o vSphere ESXi. Fare quindi clic su **OK**.
 
 ## <a name="modify-credentials"></a>Modificare le credenziali
 

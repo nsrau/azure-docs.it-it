@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251635"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361240"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric per Visual Studio Code
 
@@ -21,7 +21,7 @@ Questo articolo offre una panoramica dei requisiti e dell'installazione dell'est
 > [!IMPORTANT]
 > Le applicazioni Java di Service Fabric possono essere sviluppate su computer Windows, ma possono essere distribuite solo in cluster Linux di Azure. Il debug di applicazioni Java non è supportato in Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 I prerequisiti seguenti devono essere installati in tutti gli ambienti.
 
@@ -50,12 +50,12 @@ I prerequisiti seguenti devono essere installati negli ambienti di sviluppo .NET
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) (versione 2.0.0 o successiva)
 * [C# per Visual Studio Code (con tecnologia OmniSharp), estensione di Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), necessaria per eseguire il debug di servizi di linguaggio C#. È possibile eseguire l'installazione facendo clic sull'icona delle estensioni nella **barra attività** in Visual Studio Code e ricercando l'estensione oppure dal marketplace di VS Code.
 
-## <a name="setup"></a>Programma di installazione
+## <a name="setup"></a>Configurazione
 
 1. Aprire Visual Studio Code.
 2. Fare clic sull'icona dell'estensione nella **barra attività** sulla sinistra di Visual Studio Code. Cercare "Service Fabric". Fare clic su **Installa** per l'estensione di Reliable Services di Service Fabric.
 
-## <a name="commands"></a>Commands
+## <a name="commands"></a>Comandi:
 L'estensione di Reliable Services di Service Fabric per Visual Studio Code offre molti comandi per consentire agli sviluppatori di creare e distribuire i progetti di Service Fabric. È possibile chiamare i comandi dal **riquadro comandi** selezionando `(Ctrl + Shift + p)`, quindi digitando il nome del comando nella barra degli input e scegliendo il comando desiderato dall'elenco dei messaggi di richiesta. 
 
 * Service Fabric: Creare l'applicazione 

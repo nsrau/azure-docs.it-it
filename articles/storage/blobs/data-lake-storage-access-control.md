@@ -9,11 +9,11 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026133"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381955"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che s
 
 <a id="azure-role-based-access-control-rbac" />
 
-## <a name="role-based-access-control"></a>Controllo degli accessi basato sul ruolo
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
 RBAC usa le assegnazioni di ruolo per applicare in modo efficace i set di autorizzazioni alle *entità di sicurezza*. Un' *entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (ad) che richiede l'accesso alle risorse di Azure.
 
@@ -60,7 +60,7 @@ Per impostare le autorizzazioni a livello di file e directory, vedere gli artico
 
 |||
 |--------|-----------|
-|Azure Storage Explorer |[Usare Azure Storage Explorer per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Esplora archivi Azure |[Usare Azure Storage Explorer per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
 |Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
 |Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
@@ -302,7 +302,7 @@ Il creatore di un file o una directory ne diventa il proprietario. Nel caso dell
 
 Il gruppo proprietario viene copiato da quello della directory padre in cui si crea il nuovo file o la nuova directory.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, Che cosa occorre fare?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, Cosa devo fare?
 
 L'utente proprietario può modificare le autorizzazioni del file in modo da assegnarsi tutte le autorizzazioni RWX necessarie.
 
@@ -340,6 +340,6 @@ Gli elenchi di controllo di accesso non ereditano. Gli ACL predefiniti tuttavia 
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Panoramica di Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

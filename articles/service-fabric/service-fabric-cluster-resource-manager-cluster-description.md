@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774485"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389187"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrivere un cluster di Service Fabric usando cluster Gestione risorse
 La funzionalità cluster Gestione risorse di Azure Service Fabric fornisce diversi meccanismi per la descrizione di un cluster:
@@ -478,7 +478,7 @@ Le metriche sono diverse dai vincoli di posizionamento e dalle proprietà dei no
 
 Proprio come per i vincoli di posizionamento e le proprietà dei nodi, Service Fabric cluster Gestione risorse non comprende il significato dei nomi delle metriche. I nomi delle metriche sono semplicemente stringhe. È consigliabile dichiarare le unità come parte dei nomi di metrica creati quando potrebbero essere ambigui.
 
-## <a name="capacity"></a>Capacità
+## <a name="capacity"></a>Capacity
 Se è stato disattivato tutto il *bilanciamento*delle risorse, Service Fabric cluster gestione risorse assicurerà comunque che nessun nodo superi la propria capacità. Gestire i sovraccarichi di capacità è possibile, a meno che il cluster non sia pieno o il carico di lavoro sia maggiore rispetto a qualsiasi altro nodo. La capacità è un altro *vincolo* che cluster gestione risorse USA per comprendere la quantità di risorse di un nodo. La capacità rimanente verrà registrata anche per il cluster nel suo complesso. 
 
 Sia la capacità che l'utilizzo a livello di servizio sono espressi in termini di metriche. Ad esempio, la metrica potrebbe essere "ClientConnections" e un nodo potrebbe avere una capacità per "ClientConnections" di 32.768. Altri nodi possono avere altri limiti. Un servizio in esecuzione su tale nodo può dire che sta attualmente utilizzando 32.256 della metrica "ClientConnections".

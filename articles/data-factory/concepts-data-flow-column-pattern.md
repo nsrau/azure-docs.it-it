@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789886"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395922"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilizzo di modelli di colonna nel flusso di dati di mapping
 
@@ -35,7 +35,7 @@ Le due caselle di espressione sotto la condizione di corrispondenza specificano 
 
 ![modelli di colonna](media/data-flow/columnpattern2.png "Criteri delle colonne")
 
-Il modello di colonna precedente corrisponde a ogni colonna di tipo Double e crea una colonna di aggregazione per ogni corrispondenza. Il nome della nuova colonna è il nome della colonna corrispondente concatenato con "_ Total". Il valore della nuova colonna è costituito dalla somma aggregata arrotondata del valore Double esistente.
+Il modello di colonna precedente corrisponde a ogni colonna di tipo Double e crea una colonna di aggregazione per ogni corrispondenza. Il nome della nuova colonna è il nome della colonna corrispondente concatenato con "_total". Il valore della nuova colonna è costituito dalla somma aggregata arrotondata del valore Double esistente.
 
 Per verificare che la condizione di corrispondenza sia corretta, è possibile convalidare lo schema di output delle colonne definite nella scheda **Controlla** oppure ottenere uno snapshot dei dati nella scheda **Anteprima dati** . 
 

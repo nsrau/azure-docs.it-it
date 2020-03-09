@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60815134"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385646"
 ---
 # <a name="command-line-interface"></a>Interfaccia della riga di comando
 
@@ -30,7 +30,7 @@ L'interfaccia della riga di comando di Knowledge Exploration Service (KES) offre
 
 <a name="build_index-command"></a>
 
-## <a name="buildindex-command"></a>Comando build_index
+## <a name="build_index-command"></a>Comando build_index
 
 Il comando **build_index** compila un file di indice binario da un file di definizione dello schema e un file di dati degli oggetti da indicizzare.  Il file di indice risultante può essere usato per valutare espressioni di query strutturate o per generare interpretazioni di query in linguaggio naturale in combinazione con un file di grammatica compilato.
 
@@ -55,7 +55,7 @@ Per impostazione predefinita, l'indice viene compilato nel computer locale.  All
 
 <a name="build_grammar-command"></a>
 
-## <a name="buildgrammar-command"></a>Comando build_grammar
+## <a name="build_grammar-command"></a>Comando build_grammar
 
 Il comando **build_grammar** compila una grammatica specificata in XML in un file di grammatica binario.  Il file di grammatica risultante può essere usato in combinazione con un file di indice per generare interpretazioni di query in linguaggio naturale.
 
@@ -70,7 +70,7 @@ Questi file possono essere specificati da percorsi di file locali o percorsi URL
 
 <a name="host_service-command"/>
 
-## <a name="hostservice-command"></a>Comando host_service
+## <a name="host_service-command"></a>Comando host_service
 
 Il comando **host_service** ospita un'istanza del servizio KES nel computer locale.
 
@@ -82,13 +82,13 @@ Il comando **host_service** ospita un'istanza del servizio KES nel computer loca
 | `<indexFile>`   | Percorso dell'indice binario di input           |
 | `--port <port>` | Numero di porta locale.  Predefinito: 8000 |
 
-Questi file possono essere specificati da percorsi di file locali o percorsi URL di BLOB di Azure.  Un servizio Web verrà ospitato in http://localhost:&lt ;porta&gt; /.  Vedere [Interfaccia API Web](WebAPI.md) per un elenco delle operazioni supportate.
+Questi file possono essere specificati da percorsi di file locali o percorsi URL di BLOB di Azure.  Un servizio Web verrà ospitato in http://localhost:&lt;porta&gt;/.  Vedere [Interfaccia API Web](WebAPI.md) per un elenco delle operazioni supportate.
 
 All'esterno dell'ambiente di Azure, i servizi ospitati in locale sono limitati a file di indice di dimensioni fino a 1 MB, 10 richieste al secondo e 1.000 chiamate in totale.  Per superare queste limitazioni, eseguire **host_service** all'interno di una macchina virtuale di Azure oppure distribuire un servizio cloud di Azure usando **deploy_service**.
 
 <a name="deploy_service-command"/>
 
-## <a name="deployservice-command"></a>Comando deploy_service
+## <a name="deploy_service-command"></a>Comando deploy_service
 
 Il comando **deploy_service** distribuisce un'istanza del servizio KES in un servizio cloud di Azure.
 
@@ -108,7 +108,7 @@ Per impostazione predefinita, il servizio viene distribuito nell'ambiente di ges
 
 <a name="describe_index-command"/>
 
-## <a name="describeindex-command"></a>Comando describe_index
+## <a name="describe_index-command"></a>Comando describe_index
 
 Il comando **describe_index** restituisce informazioni su un file di indice, inclusi lo schema e una descrizione.
 
@@ -122,7 +122,7 @@ Questo file può essere specificato da un percorso file locale o da un percorso 
 
 <a name="describe_grammar-command"/>
 
-## <a name="describegrammar-command"></a>Comando describe_grammar
+## <a name="describe_grammar-command"></a>Comando describe_grammar
 
 Il comando **describe_grammar** restituisce la specifica di grammatica originale usata per compilare la grammatica binaria.
 
