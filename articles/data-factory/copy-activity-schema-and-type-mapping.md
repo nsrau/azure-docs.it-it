@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423632"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386827"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapping dello schema nell'attività di copia
 
@@ -93,7 +93,7 @@ Le proprietà seguenti sono supportate in `translator` -> oggetto `mappings`-> c
 | ordinal  | Indice di colonna. Iniziare con 1. <br>Apply e Required quando si usa un testo delimitato senza riga di intestazione. | No       |
 | path     | Espressione del percorso JSON per ogni campo da estrarre o mappare. Applicare per i dati gerarchici, ad esempio MongoDB/REST.<br>Per i campi sotto l'oggetto radice, il percorso JSON inizia con la radice $; per i campi all'interno della matrice scelta da `collectionReference` proprietà, il percorso JSON inizia dall'elemento di matrice. | No       |
 | type     | Data Factory tipo di dati provvisori della colonna di origine o sink. | No       |
-| lingua  | Impostazioni cultura della colonna di origine o sink. <br>Applicare quando il tipo è `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No       |
+| culture  | Impostazioni cultura della colonna di origine o sink. <br>Applicare quando il tipo è `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No       |
 | format   | Stringa di formato da utilizzare quando il tipo è `Datetime` o `Datetimeoffset`. Per informazioni su come formattare datetime, vedere [Stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | No       |
 
 Le proprietà seguenti sono supportate in `translator` -> `mappings` oltre all'oggetto con `source` e `sink`:
@@ -295,7 +295,7 @@ Data Factory supporta i tipi di dati provvisori seguenti: è possibile specifica
 * Int32
 * Int64
 * Single
-* String
+* string
 * TimeSpan
 
 ## <a name="next-steps"></a>Passaggi successivi

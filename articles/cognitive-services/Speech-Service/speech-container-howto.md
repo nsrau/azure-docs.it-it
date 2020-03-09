@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
 ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367764"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390767"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
@@ -35,7 +35,7 @@ I contenitori di sintesi vocale consentono ai clienti di creare un'architettura 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 I prerequisiti seguenti prima di usare i contenitori di sintesi vocale:
 
@@ -73,27 +73,27 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore vocale.
 
-# <a name="speech-to-texttabstt"></a>[Riconoscimento vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore | Minimo | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore | Minimo | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
-# <a name="text-to-speechtabtts"></a>[Sintesi vocale](#tab/tts)
+# <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore | Minimo | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Sintesi vocale | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
-# <a name="custom-text-to-speechtabctts"></a>[Sintesi vocale personalizzata](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore | Minimo | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
@@ -110,27 +110,27 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Le immagini del contenitore per la sintesi vocale sono disponibili nelle Container Registry seguenti.
 
-# <a name="speech-to-texttabstt"></a>[Riconoscimento vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Riconoscimento vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Da Riconoscimento vocale personalizzato a testo | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
-# <a name="text-to-speechtabtts"></a>[Sintesi vocale](#tab/tts)
+# <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# <a name="custom-text-to-speechtabctts"></a>[Sintesi vocale personalizzata](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale personalizzata | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
@@ -140,7 +140,7 @@ Le immagini del contenitore per la sintesi vocale sono disponibili nelle Contain
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Pull Docker per i contenitori di riconoscimento vocale
 
-# <a name="speech-to-texttabstt"></a>[Riconoscimento vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Pull di Docker per il contenitore di riconoscimento vocale
 
@@ -169,7 +169,7 @@ Il seguente tag è un esempio del formato:
 
 Per tutte le impostazioni locali supportate del contenitore di **riconoscimento vocale** , vedere [tag dell'immagine da voce a testo](../containers/container-image-tags.md#speech-to-text).
 
-# <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Pull di Docker per il contenitore da Riconoscimento vocale personalizzato a testo
 
@@ -182,7 +182,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 > [!NOTE]
 > Il `locale` e il `voice` per i contenitori di riconoscimento vocale personalizzati sono determinati dal modello personalizzato inserito dal contenitore.
 
-# <a name="text-to-speechtabtts"></a>[Sintesi vocale](#tab/tts)
+# <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Pull di Docker per il contenitore di sintesi vocale
 
@@ -214,7 +214,7 @@ Per tutte le impostazioni locali supportate e le voci corrispondenti del conteni
 > [!IMPORTANT]
 > Quando si crea un POST HTTP *di tipo text-to-Speech standard* , il messaggio [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) richiede un elemento `voice` con un attributo `name`. Il valore corrisponde alle impostazioni locali del contenitore e alla voce corrispondenti, nota anche come ["nome breve"](language-support.md#standard-voices). Ad esempio, il tag `latest` avrà un nome vocale di `en-US-JessaRUS`.
 
-# <a name="custom-text-to-speechtabctts"></a>[Sintesi vocale personalizzata](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Pull Docker per il contenitore di sintesi vocale personalizzato
 
@@ -240,7 +240,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori `{Endpoint_URI}` e `{API_Key}`, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) . Sono disponibili anche [esempi](speech-container-configuration.md#example-docker-run-commands) aggiuntivi del comando `docker run`.
 
-# <a name="speech-to-texttabstt"></a>[Riconoscimento vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
 Per eseguire il contenitore *sintesi vocale* , eseguire il comando `docker run` seguente.
 
@@ -259,7 +259,7 @@ Questo comando:
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
 Il contenitore *da riconoscimento vocale personalizzato a testo* si basa su un modello di riconoscimento vocale personalizzato. È necessario eseguire il [Training](how-to-custom-speech-train-model.md) del modello personalizzato usando il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
 
@@ -311,7 +311,7 @@ Questo comando:
 * Se il modello personalizzato è stato scaricato in precedenza, il `ModelId` viene ignorato.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
 
-# <a name="text-to-speechtabtts"></a>[Sintesi vocale](#tab/tts)
+# <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
 Per eseguire il contenitore *sintesi vocale* , eseguire il comando `docker run` seguente.
 
@@ -330,7 +330,7 @@ Questo comando:
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
 
-# <a name="custom-text-to-speechtabctts"></a>[Sintesi vocale personalizzata](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
 Il contenitore *sintesi vocale personalizzato* si basa su un modello Voice personalizzato. È necessario eseguire il [Training](how-to-custom-voice-create-voice.md) del modello personalizzato tramite il [portale vocale personalizzato](https://aka.ms/custom-voice-portal). Per eseguire il contenitore è necessario l' **ID del modello** Voice personalizzato. Si trova nella pagina **Training** del portale Voice personalizzato. Dal portale vocale personalizzato passare alla pagina **Training** e selezionare il modello.
 <br>
@@ -405,7 +405,7 @@ Questo contenitore e un contenitore di Servizi cognitivi diverso sono in esecuzi
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 All'avvio o all'esecuzione del contenitore possono verificarsi problemi. Usare un [montaggio](speech-container-configuration.md#mount-settings) di output e abilitare la registrazione. Questa operazione consentirà al contenitore di generare file di log utili per la risoluzione dei problemi.
 
@@ -423,7 +423,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](spe
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di sintesi vocale. In sintesi:
 

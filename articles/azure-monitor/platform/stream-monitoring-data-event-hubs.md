@@ -8,11 +8,11 @@ ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: b22f779d616751ebaa3dad853d5aa23ec4969f23
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658864"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381157"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi
 Monitoraggio di Azure offre una soluzione completa per il monitoraggio completo dello stack per applicazioni e servizi in Azure, in altri cloud e in locale. Oltre a usare monitoraggio di Azure per analizzare i dati e sfruttarli per diversi scenari di monitoraggio, potrebbe essere necessario inviarli ad altri strumenti di monitoraggio nell'ambiente in uso. Il metodo più efficace per trasmettere i dati di monitoraggio agli strumenti esterni nella maggior parte dei casi consiste nell'usare [Hub eventi di Azure](/azure/event-hubs/). Questo articolo fornisce una breve descrizione di come è possibile trasmettere i dati di monitoraggio da origini diverse a un hub eventi e collegamenti a istruzioni dettagliate.

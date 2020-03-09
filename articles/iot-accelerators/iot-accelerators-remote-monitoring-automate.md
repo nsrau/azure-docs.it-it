@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888880"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392270"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: Rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
 
 In questa esercitazione si configura l'acceleratore della soluzione di monitoraggio remoto per rilevare i problemi con i dispositivi IoT connessi. Per rilevare i problemi con i dispositivi, vengono aggiunte regole che generano avvisi nel dashboard della soluzione.
 
@@ -51,10 +51,10 @@ Per visualizzare solo le regole valide per i dispositivi refrigeratore, applicar
 
 Per creare una regola che generi un avviso quando la pressione in un dispositivo refrigeratore è maggiore di 150 PSI, fare clic su **Nuova regola**. Usare i valori seguenti per creare la regola:
 
-| Impostazione          | Valore                                 |
+| Impostazione          | valore                                 |
 | ---------------- | ------------------------------------- |
 | Nome regola        | Chiller warning (Avviso refrigeratore)                       |
-| DESCRIZIONE      | Chiller pressure has exceeded 150 PSI (La pressione del refrigeratore è maggiore di 150 PSI) |
+| Descrizione      | Chiller pressure has exceeded 150 PSI (La pressione del refrigeratore è maggiore di 150 PSI) |
 | Gruppo di dispositivi     | Gruppo di dispositivi **Chillers** (Refrigeratori)             |
 | Calcolo      | Istantaneo                               |
 | Campo condizione 1| pressure                              |
@@ -74,10 +74,10 @@ Per salvare la nuova regola, fare clic su **Applica**.
 
 Per creare una regola con più condizioni che genera un avviso critico quando negli ultimi cinque minuti per un dispositivo refrigeratore l'umidità media è superiore a 80% e la temperatura media è superiore a 75 gradi fahrenheit, fare clic su **Nuova regola** . Usare i valori seguenti per creare la regola:
 
-| Impostazione          | Valore                                 |
+| Impostazione          | valore                                 |
 | ---------------- | ------------------------------------- |
 | Nome regola        | Umidità refrigeratore e temperatura critiche    |
-| DESCRIZIONE      | Temperatura e umidità sono critiche |
+| Descrizione      | Temperatura e umidità sono critiche |
 | Gruppo di dispositivi     | Gruppo di dispositivi **Chillers** (Refrigeratori)             |
 | Calcolo      | Media                               |
 | Periodo di tempo      | 5                                     |
@@ -90,7 +90,7 @@ Per creare una regola con più condizioni che genera un avviso critico quando ne
 
 Per aggiungere la seconda condizione, fare clic su "+ Add condition" (+ Aggiungi condizione). Utilizzare i seguenti valori per la nuova condizione:
 
-| Impostazione          | Valore                                 |
+| Impostazione          | valore                                 |
 | ---------------- | ------------------------------------- |
 | Campo condizione 2| temperatura                           |
 | Operatore condizione 2 | Maggiore di                      |

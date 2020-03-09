@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: manayar
 ms.openlocfilehash: aa2b0013818f897f01945d394266a57016ecb0bb
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275839"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390449"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure
 Questo articolo descrive gli ID istanza per i set di scalabilità e le diverse modalità di esplorazione.

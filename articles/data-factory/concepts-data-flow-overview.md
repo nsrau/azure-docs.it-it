@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/19/2019
 ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444493"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395976"
 ---
 # <a name="what-are-mapping-data-flows"></a>Che cosa sono i flussi di dati di mapping?
 
@@ -21,7 +21,7 @@ I flussi di dati di mapping sono le trasformazioni di dati progettate visivament
 
 Il mapping di flussi di dati offre un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti nel proprio cluster di esecuzione per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce tutta la conversione del codice, l'ottimizzazione del percorso e l'esecuzione dei processi del flusso di dati.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 Per creare un flusso di dati, selezionare il segno più in **risorse Factory**, quindi selezionare **flusso di dati**. 
 
@@ -35,7 +35,7 @@ L'area di disegno del flusso di dati è suddivisa in tre parti: la barra superio
 
 ![Canvas](media/data-flow/canvas1.png "Canvas")
 
-### <a name="graph"></a>Grafo
+### <a name="graph"></a>Grafico
 
 Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine**. Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente.
 
@@ -43,7 +43,7 @@ Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Proprietà del flusso di dati del runtime di integrazione di Azure
 
-![Pulsante debug](media/data-flow/debugbutton.png "Pulsante Debug")
+![Pulsante debug](media/data-flow/debugbutton.png "Pulsante debug")
 
 Quando si inizia a usare i flussi di dati in ADF, è necessario attivare l'opzione "debug" per i flussi di dati nella parte superiore dell'interfaccia utente del browser. Verrà avviata una Azure Databricks cluster da utilizzare per il debug interattivo, le anteprime dei dati e le esecuzioni di debug della pipeline. È possibile impostare le dimensioni del cluster usato scegliendo una [Azure Integration Runtime](concepts-integration-runtime.md)personalizzata. La sessione di debug resterà attiva per un massimo di 60 minuti dopo l'ultima esecuzione dell'anteprima dei dati o dell'ultima esecuzione della pipeline di debug.
 
@@ -87,11 +87,11 @@ La prima scheda del riquadro di configurazione di ogni trasformazione contiene l
 
 ![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
 
-#### <a name="optimize"></a>Ottimizzare
+#### <a name="optimize"></a>Ottimizzazione
 
 La scheda **ottimizza** contiene le impostazioni per la configurazione degli schemi di partizionamento.
 
-![Optimize](media/data-flow/optimize1.png "Ottimizzare") (Ottimizza)
+![Optimize](media/data-flow/optimize1.png "Ottimizzazione") (Ottimizza)
 
 L'impostazione predefinita è **Usa il partizionamento corrente**, che indica Azure Data Factory di usare lo schema di partizionamento nativo per i flussi di dati in esecuzione in Spark. Nella maggior parte degli scenari è consigliabile questa impostazione.
 
@@ -129,7 +129,7 @@ Se si dispone di una conoscenza corretta della cardinalità dei dati, il partizi
 
 La scheda **Controlla** fornisce una visualizzazione dei metadati del flusso di dati che si sta trasformando. È possibile visualizzare i conteggi delle colonne, le colonne modificate, le colonne aggiunte, i tipi di dati, l'ordinamento delle colonne e i riferimenti alle colonne. **Esaminare** è una visualizzazione di sola lettura dei metadati. Non è necessario che la modalità di debug sia abilitata per visualizzare i metadati nel riquadro di **controllo** .
 
-![Inspect](media/data-flow/inspect1.png "Controllare")
+![Ispezionare](media/data-flow/inspect1.png "Controllare")
 
 Quando si modifica la forma dei dati tramite le trasformazioni, il flusso delle modifiche dei metadati verrà visualizzato nel riquadro **Controlla** . Se non è presente uno schema definito nella trasformazione origine, i metadati non saranno visibili nel riquadro **ispezione** . La mancanza di metadati è comune negli scenari di drifting dello schema.
 

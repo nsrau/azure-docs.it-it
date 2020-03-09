@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760522"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380933"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
@@ -42,7 +42,7 @@ Invieremo gli aggiornamenti delle interruzioni usando l'handle di Twitter da ora
 ### <a name="twitter"></a>Twitter
 Il nostro handle Twitter: [@azlabservices](https://twitter.com/azlabservices)
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 ### <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 Se la domanda non è elencata, è possibile inviarla a Microsoft, per consentire di trovare una risposta.
 
@@ -76,7 +76,7 @@ Ecco alcuni scenari per cui i clienti usano DevTest Labs:
 ### <a name="how-am-i-billed-for-devtest-labs"></a>Come avviene la fatturazione di DevTest Labs?
 DevTest Labs è un servizio gratuito. La creazione di lab e la configurazione di criteri, modelli ed elementi in DevTest Labs sono gratuite. Si pagano solo le risorse di Azure usate nei lab, ad esempio macchine virtuali, account di archiviazione e reti virtuali. Per altre informazioni sui costi delle risorse dei lab, vedere [Prezzi di Azure DevTest Labs](https://azure.microsoft.com/pricing/details/devtest-lab/).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quali sono i diversi livelli di sicurezza in DevTest Labs?
 L'accesso di sicurezza è determinato dal controllo degli accessi in base al ruolo (RBAC). Per comprendere il funzionamento dell'accesso, è utile conoscere le differenze tra un'autorizzazione, un ruolo e un ambito, come definiti dal controllo degli accessi in base al ruolo.
@@ -304,7 +304,7 @@ Azure Marketplace deve essere usato per impostazione predefinita, se non in caso
 - Condizioni normative o di conformità, ad esempio criteri di sicurezza, che devono essere definite per tutti i computer.
 - L'uso di immagini personalizzate non dovrebbe essere considerato leggero. Presentano una complessità aggiuntiva, perché ora è necessario gestire i file VHD per le immagini di base sottostanti. È anche necessario applicare periodicamente patch alle immagini di base con aggiornamenti software. Tra questi rientrano i nuovi aggiornamenti del sistema operativo e tutti gli aggiornamenti o le modifiche di configurazione necessarie per il pacchetto software stesso.
 
-## <a name="artifacts"></a>Artefatti
+## <a name="artifacts"></a>Elementi
 
 ### <a name="what-are-artifacts"></a>Cosa sono gli elementi?
 Gli elementi sono componenti personalizzabili che è possibile usare per distribuire i bit più recenti o gli strumenti di sviluppo in una macchina virtuale. Collegare gli elementi alla macchina virtuale quando si crea la macchina virtuale. Dopo il provisioning della macchina virtuale, gli elementi vengono usati per distribuire e configurare la macchina virtuale. Nel [repository GitHub pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)sono disponibili vari artefatti preesistenti. È anche possibile [creare elementi personalizzati](devtest-lab-artifact-author.md).
@@ -375,7 +375,7 @@ Sì. Due sono gli aspetti da considerare: il traffico in ingresso e in uscita.
 
 È anche possibile usare gruppi di sicurezza di rete per macchine virtuali o subnet. Questo passaggio aggiunge un livello di protezione per consentire o bloccare il traffico.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Perché la rete virtuale esistente non viene salvata correttamente?
 È possibile che il nome della rete virtuale contenga dei punti. In tal caso, provare a rimuovere i punti o a sostituirli con trattini. Provare quindi a salvare di nuovo la rete virtuale.

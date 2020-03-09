@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672277"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384483"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
@@ -27,7 +27,7 @@ Questo articolo contiene informazioni sulla risoluzione dei problemi relativi al
 Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel resto del documento verrà fatto riferimento a queste informazioni.
 
 ### <a name="azure-cloud-services"></a>Servizi cloud di Azure
-| Elemento | Percorso |
+| Elemento | Path |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\Config.txt |
 | **File di log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\ |
@@ -38,7 +38,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-| Elemento | Percorso |
+| Elemento | Path |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versione>\RuntimeSettings |
 | **File di log** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -205,7 +205,7 @@ Esempio:
 ```
 Questo codice genera quattro tabelle:
 
-| Evento | Nome tabella |
+| Event | Nome tabella |
 | --- | --- |
 | provider = "ProV1" &lt;ID evento = "1"/&gt; |WADEvent + MD5 ("ProV1") + "1" |
 | provider = "ProV1" &lt;ID evento = "2" eventDestination = "DesT1"/&gt; |WADdest1 |

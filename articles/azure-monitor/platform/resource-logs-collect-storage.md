@@ -8,16 +8,16 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658972"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394935"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archiviare i log delle risorse di Azure nell'account di archiviazione
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono.  Questo articolo descrive come raccogliere i log della piattaforma in un account di archiviazione di Azure per conservare i dati per l'archiviazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 È necessario [creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) , se non ne è già presente uno. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della risorsa che invia log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 

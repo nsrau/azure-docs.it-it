@@ -13,18 +13,21 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f3825a2d87d5948de4bb4a9b86be8e3050f2100
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981113"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892779"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codifica di video e audio con servizi multimediali
 
 Il termine codifica in servizi multimediali si applica al processo di conversione di file contenenti video digitali e/o audio da un formato standard a un altro, con lo scopo di (a) di ridurre le dimensioni dei file e/o (b) produrre un formato compatibile con un'ampia gamma di dispositivi e app. Questo processo è noto anche come compressione video o transcodifica. Per ulteriori informazioni sui concetti, vedere [compressione dei dati](https://en.wikipedia.org/wiki/Data_compression) e informazioni su [codifica e transcodifica](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) .
 
 I video vengono in genere recapitati a dispositivi e app tramite [download progressivo](https://en.wikipedia.org/wiki/Progressive_download) o [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
+
+> [!IMPORTANT]
+> Servizi multimediali non esegue la fatturazione per i processi annullati o con errori. Ad esempio, un processo che ha raggiunto il 50% di avanzamento e viene annullato non viene fatturato al 50% dei minuti del processo. Vengono addebitati solo i processi finiti.
 
 * Per eseguire il download progressivo, è possibile usare servizi multimediali di Azure per convertire un file multimediale digitale (mezzanino) in un file [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) , che contiene video codificati con il codec [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) e audio che è stato codificato con il codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) . Questo file MP4 viene scritto in un asset nell'account di archiviazione. È possibile usare le API o gli SDK di archiviazione di Azure, ad esempio l' [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md), per scaricare direttamente il file. Se l'asset di output è stato creato con un nome di contenitore specifico nello spazio di archiviazione, usare tale percorso. In caso contrario, è possibile usare servizi multimediali per [elencare gli URL del contenitore di asset](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
 * Per preparare il contenuto per la distribuzione tramite streaming a bitrate adattivo, è necessario codificare il file in formato intermedio a più velocità in bit (da alto a basso). Per garantire una transizione normale della qualità, la risoluzione del video viene ridotta quando il bitrate viene ridotto. In questo modo si ottiene una cosiddetta scala di codifica, ovvero una tabella di risoluzioni e bitrate (vedere [scala a bitrate adattivo generato automaticamente](autogen-bitrate-ladder.md)). È possibile usare servizi multimediali per codificare i file in formato intermedio a più velocità in bit. In questo modo, si otterrà un set di file MP4 e file di configurazione del flusso associati scritti in un asset nell'account di archiviazione. È quindi possibile usare la funzionalità di creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) di servizi multimediali per distribuire il video tramite protocolli di streaming, ad esempio [MPEG-Dash](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). A questo scopo, è necessario creare un [localizzatore di streaming](streaming-locators-concept.md) e creare URL di streaming corrispondenti ai protocolli supportati, che possono essere quindi passati a dispositivi/app in base alle relative funzionalità.
@@ -135,6 +138,12 @@ In servizi multimediali V3 i set di impostazioni sono entità fortemente tipizza
 ## <a name="scaling-encoding-in-v3"></a>Ridimensionamento della codifica nella versione v3
 
 Per ridimensionare l'elaborazione di contenuti multimediali, vedere [ridimensionare con CLI](media-reserved-units-cli-how-to.md).
+
+## <a name="billing"></a>Fatturazione
+
+Servizi multimediali non esegue la fatturazione per i processi annullati o con errori. Ad esempio, un processo che ha raggiunto il 50% di avanzamento e viene annullato non viene fatturato al 50% dei minuti del processo. Vengono addebitati solo i processi finiti.
+
+Per altre informazioni, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 

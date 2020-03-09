@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720685"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395849"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire i processi (Aggiornamento 3 e successivi)
 
@@ -77,13 +77,13 @@ Eseguire la procedura seguente per annullare un processo in esecuzione.
 
 
 ### <a name="to-cancel-a-job"></a>Per annullare un processo
-1. Nella pagina **Processi** , visualizzare i processi in esecuzione che si desidera annullare eseguendo una query con filtri appropriati. Selezionare il processo.
+1. Nella pagina **Processi** visualizzare il processo o i processi in esecuzione da annullare eseguendo una query con filtri appropriati. Selezionare il processo.
 
 2. Fare clic sul processo selezionato per richiamare il menu di scelta rapida e fare clic su **Annulla**.
 
     ![Dettagli del processo](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
-3. Alla richiesta di conferma fare clic su **Sì**. Questo processo ora viene annullato.
+3. Quando viene richiesta la conferma, fare clic su **Sì**. Questo processo ora viene annullato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [gestire i criteri di backup di StorSimple](storsimple-8000-manage-backup-policies-u2.md).

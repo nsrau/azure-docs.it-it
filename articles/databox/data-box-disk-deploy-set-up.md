@@ -10,11 +10,11 @@ ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: ef6f342ec2308897d8c2221250ce92f81ce66863
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514103"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380426"
 ---
 ::: zone target="docs"
 
@@ -40,7 +40,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ::: zone target="docs"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
 

@@ -3,22 +3,48 @@ title: Note sulla versione-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Un log in esecuzione di versioni della funzionalità del servizio vocale, miglioramenti, correzioni di bug e problemi noti.
 services: cognitive-services
-author: oscholz
-manager: nitinme
+author: brianem
+manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.author: oliversc
+ms.date: 02/25/2020
+ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 235d8788b47355925d93cb3e3835d32e25c1b51f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: cbe9c7cbd0f402e38d1163050d77b055f89948ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168153"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394801"
 ---
 # <a name="release-notes"></a>Note sulla versione
+## <a name="speech-sdk-1100-2020-february-release"></a>Speech SDK 1.10.0:2020-versione di febbraio
+
+**Nuove funzionalità**
+ - Sono stati aggiunti pacchetti Python per supportare la nuova versione 3,8 di Python.
+ - Supporto Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 (C++, C#, Java, Python).
+   > [!NOTE] 
+   > I clienti devono configurare OpenSSL seguendo [queste istruzioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux).
+ - Supporto di Linux ARM32 per Debian e Ubuntu.
+ - DialogServiceConnector supporta ora un parametro "ID bot" facoltativo in BotFrameworkConfig. Questo parametro consente l'uso di più bot per la comunicazione diretta con una sola risorsa di sintesi vocale di Azure. Senza il parametro specificato, verrà usato il bot predefinito, come determinato dalla pagina di configurazione del canale di riconoscimento vocale diretto.
+ - DialogServiceConnector dispone ora di una proprietà SpeechActivityTemplate. Il contenuto di questa stringa JSON verrà usato da Direct Line Speech per pre-popolare un'ampia gamma di campi supportati in tutte le attività che raggiungono un bot Direct Line Speech, incluse le attività generate automaticamente in risposta a eventi come il riconoscimento vocale.
+ - TTS ora usa la chiave di sottoscrizione per l'autenticazione, riducendo la latenza del primo byte del primo risultato di sintesi dopo la creazione di un sintetizzatore.
+ - Modelli di riconoscimento vocale aggiornati per 19 impostazioni locali per una riduzione della frequenza degli errori di Word media pari al 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, PT-BR, zh-CN, ZH-HK, nb-NO, Fi-FL, ur-ur, pl-PL, ca-ES, ZH-TW, th-TH, PT-PT, TR-TR). I nuovi modelli introducono miglioramenti significativi in più domini, tra cui la dettatura, la trascrizione del Call-Center e gli scenari di indicizzazione video.
+
+**Correzioni di bug**
+ - Correzione del bug per cui il trascrittore delle conversazioni non era in attesa correttamente nelle API JAVA 
+ - Correzione dell'emulatore Android x86 per il [problema di GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363) Novell
+ - Aggiungi mancante (Get | Set) metodi della proprietà su AudioConfig
+ - Correzione di un bug TTS in cui non è stato possibile arrestare il audioDataStream quando la connessione non riesce
+ - L'uso di un endpoint senza un'area provocherebbe errori di USP per il convertitore di conversazioni
+ - La generazione di ID nelle applicazioni Windows universali USA ora un algoritmo GUID univoco in modo appropriato. per impostazione predefinita in precedenza e involontariamente in un'implementazione con stub che produceva spesso collisioni su grandi set di interazioni.
+ 
+ **Esempi**
+ - Esempio di Unity per l'uso di Speech SDK con [Unity microphone and push mode streaming](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone)
+
+**Altre modifiche**
+ - [Documentazione di configurazione di OpenSSL aggiornata per Linux](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
 
 ## <a name="speech-sdk-190-2020-january-release"></a>Speech SDK 1.9.0:2020-versione di gennaio
 

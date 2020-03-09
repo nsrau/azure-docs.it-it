@@ -4,11 +4,11 @@ description: Questo articolo illustra come preparare i backup di System Center D
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753958"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381508"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -46,9 +46,9 @@ Componenti | Nel server DPM devono essere installati Windows PowerShell e .NET F
 App supportate | [Informazioni](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) relative agli elementi di cui DPM può eseguire il backup.
 Tipi di file supportati | Questi tipi di file possono essere sottoposti a backup con Backup di Azure: crittografati, solo backup completi; compressi, backup incrementali supportati; sparse, backup incrementali supportati; compressi e sparse considerati come sparse.
 Tipi di file non supportati | Server nei file system che distinguono tra maiuscole e minuscole; collegamenti reali, ignorati; reparse point, ignorati; crittografati e compressi, ignorati; crittografati e sparse, ignorati; flusso compresso; analisi di flusso.
-Risorse di archiviazione locali | Ogni computer di cui si desidera eseguire il backup deve disporre di spazio di archiviazione locale disponibile almeno il 5% delle dimensioni dei dati di cui viene eseguito il backup. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 5 GB di spazio disponibile nello spazio di lavoro.
+Archiviazione locale | Ogni computer di cui si desidera eseguire il backup deve disporre di spazio di archiviazione locale disponibile almeno il 5% delle dimensioni dei dati di cui viene eseguito il backup. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 5 GB di spazio disponibile nello spazio di lavoro.
 Archiviazione dell'insieme di credenziali | Non esiste alcun limite alla quantità di dati di cui è possibile eseguire il backup in un insieme di credenziali di backup di Azure, ma le dimensioni di un'origine dati (ad esempio una macchina virtuale o un database) non devono superare 54.400 GB.
-ExpressRoute di Azure | Se Azure ExpressRoute è configurato con peering privato o Microsoft, non può essere usato per eseguire il backup dei dati in Azure.<br/><br/> Se Azure ExpressRoute è configurato con il peering pubblico, può essere usato per eseguire il backup dei dati in Azure.<br/><br/> **Nota:** Il peering pubblico è deprecato per i nuovi circuiti.
+Azure ExpressRoute | Se Azure ExpressRoute è configurato con peering privato o Microsoft, non può essere usato per eseguire il backup dei dati in Azure.<br/><br/> Se Azure ExpressRoute è configurato con il peering pubblico, può essere usato per eseguire il backup dei dati in Azure.<br/><br/> **Nota:** Il peering pubblico è deprecato per i nuovi circuiti.
 Agente di Backup di Azure | Se DPM è in esecuzione in System Center 2012 SP1, installare il rollup 2 o successivo per DPM SP1. È necessario per l'installazione dell'agente.<br/><br/> Questo articolo descrive come distribuire la versione più recente dell'agente di Backup di Azure, noto anche come agente del servizio di ripristino di Microsoft Azure. Se è stata distribuita una versione precedente, eseguire l'aggiornamento alla versione più recente per garantire che il backup funzioni come previsto.
 
 Prima di iniziare è necessario disporre di un account di Azure su cui è abilitata la funzionalità Backup di Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Informazioni sui [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).

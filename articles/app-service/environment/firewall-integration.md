@@ -8,11 +8,11 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565724"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391810"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -114,7 +114,7 @@ Le informazioni seguenti sono necessarie solo se si vuole configurare un'applian
 
 | Endpoint |
 |----------|
-| SQL di Azure |
+| Azure SQL |
 | Archiviazione di Azure |
 | Hub eventi di Azure |
 
@@ -272,7 +272,7 @@ Linux non è disponibile nelle aree US Gov e pertanto non è elencato come confi
 
 | Endpoint |
 |----------|
-| SQL di Azure |
+| Azure SQL |
 | Archiviazione di Azure |
 | Hub eventi di Azure |
 

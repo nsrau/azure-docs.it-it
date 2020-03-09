@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896013"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395120"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Storm tramite Azure HDInsight
 
@@ -127,7 +127,7 @@ I servizi Storm nel cluster sono configurati per usare automaticamente il quorum
 ### <a name="worker-nodes"></a>Nodi di lavoro
 
 I nodi di lavoro di Storm eseguono i seguenti servizi:
-* Supervisor
+* Supervisore
 * Java Virtual Machine (JVM) di lavoro, per le topologie in esecuzione
 * Agente Ambari
 
@@ -174,7 +174,7 @@ Esempi: `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 Quando si invia una topologia, l'utente può ricevere un messaggio di errore simile a: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
 
-Per risolvere il problema, è possibile che l'utente debba presentare un ticket per riavviarlo o riavviarlo. Per altre informazioni, vedi [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
+Per risolvere il problema, è possibile che l'utente debba presentare un ticket per riavviarlo o riavviarlo. Per altre informazioni, vedere [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 

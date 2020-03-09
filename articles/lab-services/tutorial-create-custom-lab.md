@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759534"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380959"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Esercitazione: Configurare un lab usando Azure DevTest Labs
 Questa esercitazione descrive come creare un lab usando il portale di Azure. Un amministratore del lab configura un lab in un'organizzazione, crea le V M nel lab e configura i criteri. Gli utenti del lab (ad esempio, gli sviluppatori e i tester) richiedono le VM nel lab, si connettono a tali VM e le usano. 

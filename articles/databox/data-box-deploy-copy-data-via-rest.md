@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Usare le API REST per copiare nell'archiviazione BLOB"
+title: "Esercitazione: usare le API REST per la copia nell'archivio BLOB"
 titleSuffix: Azure Data Box
 description: Informazioni su come copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST
 services: databox
@@ -10,28 +10,28 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
 ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471840"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380156"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: copiare dati in Azure Data Box archiviazione BLOB tramite le API REST  
 
 Questa esercitazione descrive le procedure per connettersi all'archiviazione BLOB di Azure Data Box con API REST tramite *HTTP* o *HTTPS*. Una volta stabilita la connessione, vengono descritti anche i passaggi necessari per copiare i dati nell'archiviazione BLOB di Data Box e preparare Data Box per la spedizione.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Connettersi all'archiviazione BLOB di Data Box tramite *HTTP* o *HTTPS*
 > * Copiare i dati nel Data Box
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare che:
 
-1. Aver completato l'esercitazione descritta in [Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
+1. L'esercitazione è stata completata [: configurare Azure Data Box](data-box-deploy-set-up.md).
 2. Aver ricevuto Data Box e che lo stato dell'ordine nel portale sia **Recapitati**.
 3. Aver esaminato i [requisiti di sistema per l'archiviazione Blob di Data Box](data-box-system-requirements-rest.md) e avere familiarità con le versioni supportate di API, SDK e strumenti.
 4. Avere accesso a un computer host che include i dati da copiare in Data Box. Il computer host deve:
@@ -227,7 +227,7 @@ Il passaggio successivo consiste nel preparare il dispositivo per la spedizione.
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Connettersi all'archiviazione BLOB di Data Box tramite *HTTP* o *HTTPS*
 > * Copiare i dati nel Data Box
 

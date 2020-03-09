@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666934"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384778"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <td>ActivityResume</td><td>L'attività è sospesa e non è possibile eseguire le finestre attività fino a quando non viene ripresa.</td>
 </tr>
 <tr>
-<td>Retry</td><td>L'esecuzione dell'attività viene ritentata.</td>
+<td>Riprova</td><td>L'esecuzione dell'attività viene ritentata.</td>
 </tr>
 <tr>
 <td>Convalida</td><td>La convalida non è ancora stata avviata.</td>
@@ -207,10 +207,10 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <td>Ready</td><td>-</td><td>La finestra attività è pronta per l'utilizzo.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>-</td><td>La finestra attività non è stata elaborata.</td>
+<td>Operazione ignorata</td><td>-</td><td>La finestra attività non è stata elaborata.</td>
 </tr>
 <tr>
-<td>Nessuna</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>
+<td>nessuno</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>
 </tr>
 </table>
 
@@ -222,10 +222,10 @@ Quando si fa clic su una finestra attività nell'elenco, i relativi dettagli ven
 ### <a name="refresh-activity-windows"></a>Aggiornare le finestre attività
 I dettagli non vengono aggiornati automaticamente. L'elenco delle finestre attività deve essere aggiornato manualmente usando il pulsante di aggiornamento, (il secondo pulsante) sulla barra dei comandi.  
 
-### <a name="properties-window"></a>Finestra Properties
+### <a name="properties-window"></a>Finestra Proprietà
 La finestra Properties si trova nel riquadro destro dell'app di monitoraggio e gestione.
 
-![Finestra Properties](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
+![Finestra Proprietà](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
 Qui vengono visualizzate le proprietà dell'elemento selezionato nella visualizzazione albero di Resource Explorer, nella visualizzazione diagramma o nell'elenco delle Activity Windows (Finestre attività).
 
@@ -270,7 +270,7 @@ Nell' **elenco Finestre attività**fare clic sul nome di una colonna, ad esempio
 
 ![Menu della colonna nell'elenco Activity Windows (Finestre attività)](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-A questo punto è possibile eseguire le attività seguenti:
+È possibile eseguire le operazioni seguenti:
 
 * Applicare l'ordinamento crescente.
 * Applicare l'ordinamento decrescente.

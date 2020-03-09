@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080523"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394771"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
 
@@ -103,7 +103,7 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
   - /var/log/waagent.log
-  - /var/log/Azure/[cartella estensioni]/\*log\*
+  - /var/log/Azure/[cartella estensioni]/\* log\*
   - /var/opt/microsoft/omsconfig/omsconfig.log
   - /var/opt/microsoft/omsagent/log/omsagent.log
   - /etc/waagent.config
@@ -136,7 +136,7 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
     |                            |                                                   |
 
 >[!Note]
->[`*`] Consultare la sezione [problemi noti](#known-issues)
+>[`*`] Vedere la sezione [problemi noti](#known-issues)
 
 ### <a name="known-issues"></a>Problemi noti
 
@@ -173,7 +173,7 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
    tar xzvf PerfInsights.tar.gz
    ```
 
-2. Passare alla cartella che contiene `perfinsights.py` il file e quindi eseguire `perfinsights.py` per visualizzare i parametri della riga di comando disponibili.
+2. Passare alla cartella che contiene `perfinsights.py` file, quindi eseguire `perfinsights.py` per visualizzare i parametri della riga di comando disponibili.
 
     ```bash
     cd <the path of PerfInsights folder>
@@ -205,11 +205,11 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     >
     >Se si dispone di un ticket di supporto attivo con Microsoft e si esegue PerfInsights in base alla richiesta del tecnico del supporto che si sta utilizzando, assicurarsi di specificare il numero di ticket di supporto utilizzando l'opzione **-s o--Support-Request** .
 
-Al termine dell'esecuzione, un nuovo file tar viene visualizzato nella stessa cartella di PerfInsights, a meno che non venga specificata alcuna cartella di output. Il nome del file è **PerformanceDiagnostics\_aaaa-mm\_-GG fff. tar. gz.** È possibile inviare questo file all'agente di supporto per l'analisi o aprire il report all'interno del file per esaminare i risultati e le raccomandazioni.
+Al termine dell'esecuzione, un nuovo file tar viene visualizzato nella stessa cartella di PerfInsights, a meno che non venga specificata alcuna cartella di output. Il nome del file è **PerformanceDiagnostics\_aaaa-mm-gg\_fff. tar. gz.** È possibile inviare questo file all'agente di supporto per l'analisi o aprire il report all'interno del file per esaminare i risultati e le raccomandazioni.
 
 ## <a name="review-the-diagnostics-report"></a>Esaminare il rapporto di diagnostica
 
-Nel file **PerformanceDiagnostics\_aaaa-mm-gg\_fff. tar. gz** è possibile trovare un report HTML che detaili i risultati di PerfInsights. Per esaminare il report, espandere il **file\_PerformanceDiagnostics aaaa-mm-\_GG fff. tar. gz** , quindi aprire il file **PerfInsights report. html** .
+All'interno del file **PerformanceDiagnostics\_aaaa-mm-gg\_fff. tar. gz** , è possibile trovare un report HTML che detaili i risultati di PerfInsights. Per esaminare il report, espandere il file **PerformanceDiagnostics\_aaaa-mm-gg\_fff. tar. gz** , quindi aprire il file **PerfInsights report. html** .
 
 ### <a name="overview-tab"></a>Scheda Panoramica
 
@@ -254,4 +254,4 @@ Lo screenshot seguente mostra un messaggio simile a quello che l'utente potrebbe
 
 Seguire le istruzioni nel messaggio per accedere all'area di lavoro di trasferimento del file. Per maggiore sicurezza, l'utente dovrà cambiare la password al primo uso.
 
-Dopo aver eseguito l'accesso, si troverà una finestra di dialogo per caricare il file **PerformanceDiagnostics\_aaaa-mm\_-GG fff. tar. gz** raccolto da PerfInsights.
+Dopo aver eseguito l'accesso, viene visualizzata una finestra di dialogo per caricare il file **PerformanceDiagnostics\_aaaa-mm-gg\_fff. tar. gz** che è stato raccolto da PerfInsights.

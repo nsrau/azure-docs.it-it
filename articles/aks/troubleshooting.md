@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: b7aa90bd19e52059319570f1e7f6e64b90dee6e4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f0ad8d503b5280b8cba89d940b99dcd81da71ffc
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593348"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892824"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -384,7 +384,7 @@ Impostazioni consigliate:
 | 1.12.0-1.12.1 | 0755 |
 | 1.12.2 e versioni successive | 0777 |
 
-Se si usa un cluster con Kuberetes versione 1.8.5 o successiva e si crea dinamicamente il volume permanente con una classe di archiviazione, è possibile specificare le opzioni di montaggio nell'oggetto classe di archiviazione. L'esempio seguente imposta *0777*:
+Se si usa un cluster con Kubernetes versione 1.8.5 o successiva e si crea dinamicamente il volume permanente con una classe di archiviazione, è possibile specificare le opzioni di montaggio nell'oggetto classe di archiviazione. L'esempio seguente imposta *0777*:
 
 ```yaml
 kind: StorageClass
@@ -491,6 +491,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 Questo errore è dovuto a un cluster upstream che esegue il ridimensionamento automatico race condition dove il servizio di scalabilità automatica del cluster termina con un valore diverso da quello effettivamente presente nel cluster. Per uscire da questo stato, è sufficiente disabilitare e riabilitare il [ridimensionamento][cluster-autoscaler]automatico del cluster.
+
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Collegamento lento del disco, GetAzureDiskLun richiede da 10 a 15 minuti e viene visualizzato un errore
+
+Nelle versioni Kubernetes **precedenti a 1.15.0** è possibile che venga visualizzato un errore, ad esempio **errore WaitForAttach Impossibile trovare lun per il disco**.  La soluzione alternativa consiste nell'attendere circa 15 minuti e riprovare.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

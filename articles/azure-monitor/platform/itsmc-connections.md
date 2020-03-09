@@ -7,11 +7,11 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: c6cad29b6cc392746a2e56323302521302835b2f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665868"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394957"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](../../azure-monitor/platform/itsmc-overview.md).
@@ -31,7 +31,7 @@ Sono supportati i prodotti/servizi ITSM seguenti. Selezionare il prodotto per vi
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto System Center Service Manager a Connettore di Gestione dei servizi IT in Azure.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
@@ -159,7 +159,7 @@ Seguire questa procedura per configurare le impostazioni del listener per la con
 
 3. Accedere con le credenziali di Azure e selezionare la sottoscrizione in cui è stata creata la connessione ibrida.
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 La connessione ibrida è stata completata.
 
@@ -176,7 +176,7 @@ L'esempio seguente mostra i dettagli di una connessione riuscita:
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto ServiceNow a Connettore di Gestione dei servizi IT in Azure.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versioni supportate di ServiceNow: New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki, Ginevra.
@@ -282,7 +282,7 @@ Al termine della creazione dell'utente, lo stato di **Check Installation Checkli
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Provance a Connettore di Gestione dei servizi IT in Azure.
 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
@@ -335,7 +335,7 @@ Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei ser
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Cherwell a Connettore di Gestione dei servizi IT in Azure.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 

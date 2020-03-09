@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365836"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Sostituire un modulo controller nel dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -62,7 +62,7 @@ Nella tabella seguente vengono illustrati gli scenari di sostituzione del contro
 Quando uno dei due controller nel dispositivo Microsoft Azure StorSimple non è riuscita, non funziona correttamente o è mancante, è necessario sostituire un unico controller.
 
 ### <a name="single-controller-replacement-logic"></a>Logica di sostituzione del singolo controller
-In una sostituzione di un controller singolo, è necessario rimuovere prima il controller che ha avuto esito negativo. (Il controller rimanente nel dispositivo è il controller attivo). Quando si inserisce il controller di sostituzione, si verificano le azioni seguenti:
+In una sostituzione di un controller singolo, è necessario rimuovere prima il controller che ha avuto esito negativo. (Il controller rimanente nel dispositivo è il controller attivo). Quando si inserisce il controller sostitutivo, si verificano le azioni seguenti:
 
 1. Il controller di sostituzione avvia immediatamente la comunicazione con il dispositivo StorSimple.
 2. Uno snapshot del disco rigido virtuale (VHD) per il controller attivo viene copiato nel controller sostitutivo.
