@@ -7,11 +7,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 1c9fba3c13cc6e5476377d59130a95a2edaa324d
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77459192"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373963"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -84,7 +84,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 Nel codice precedente sostituire `MOBILE_APP_URL` con l'URL del back-end dell'App per dispositivi mobili, che si trova nel pannello relativo al back-end dell'App per dispositivi mobili nel [Azure portal]. L'oggetto MobileServiceClient deve essere un singleton.
 
 ## <a name="work-with-tables"></a>Usare le tabelle
-Nella sezione seguente viene illustrato come cercare e recuperare i record e modificare i dati all'interno della tabella.  Vengono trattati i seguenti argomenti:
+Nella sezione seguente viene illustrato come cercare e recuperare i record e modificare i dati all'interno della tabella.  Vengono trattati gli argomenti seguenti:
 
 * [Creare un riferimento alla tabella](#instantiating)
 * [Eseguire query sui dati](#querying)
@@ -370,7 +370,7 @@ Quando si esegue una richiesta di eliminazione, è necessario specificare un ID.
 
 App per dispositivi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `version` definita per ogni tabella nel back-end di App per dispositivi mobili. Ogni volta che un record viene aggiornato, App per dispositivi mobili imposta la proprietà `version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del back-end, la libreria client genera un'eccezione `MobileServicePreconditionFailedException<T>` . Il tipo incluso nell'eccezione corrisponde al record del back-end contenente la versione dei server del record. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `version` corretto dal back-end per effettuare il commit delle modifiche.
 
-Per abilitare la concorrenza ottimistica, definire una colonna sulla classe di tabella per la proprietà di sistema `version` . Ad esempio,
+Per abilitare la concorrenza ottimistica, definire una colonna sulla classe di tabella per la proprietà di sistema `version` . Ad esempio:
 
 ```csharp
 public class TodoItem
@@ -608,7 +608,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Questo formato è una chiamata tipizzata al metodo, che richiede che il tipo restituito **MarkAllResult** sia definito. Sono supportati sia i metodi tipizzati, sia quelli non tipizzati.
 
 Il metodo InvokeApiAsync() antepone "/api/" all'API che si desidera chiamare, a meno che l'API non inizi con una "/".
-Ad esempio,
+Ad esempio:
 
 * `InvokeApiAsync("completeAll",...)` chiama /api/completeAll nel back-end
 * `InvokeApiAsync("/.auth/me",...)` chiama /.auth/me nel back-end

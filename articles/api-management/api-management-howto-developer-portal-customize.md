@@ -10,20 +10,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454414"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893249"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accedere e personalizzare il portale per sviluppatori
 
 Il portale per sviluppatori è un sito Web completamente personalizzabile e completamente personalizzabile con la documentazione delle API. Si tratta del punto in cui gli utenti dell'API possono individuare le API, informazioni su come usarle e richiedere l'accesso.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Accedere alla versione gestita del portale per sviluppatori
@@ -36,7 +36,7 @@ Per ulteriori informazioni, vedere il portale per sviluppatori nel [portale per 
 
 ![Portale per sviluppatori di gestione API-modalità di amministrazione](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [importare e pubblicare](import-and-publish.md)
@@ -80,9 +80,9 @@ La Guida di stile è un pannello creato con le finestre di progettazione. Consen
 
 Per modificare una variante, fare clic su di essa e selezionare l'icona a matita visualizzata sopra. Dopo aver apportato le modifiche nella finestra popup, chiuderla.
 
-### <a name="save-button"></a>Pulsante Salva
+### <a name="save-button"></a>Pulsante per il salvataggio
 
-![Pulsante Salva](media/api-management-howto-developer-portal-customize/save-button.png)
+![Pulsante per il salvataggio](media/api-management-howto-developer-portal-customize/save-button.png)
 
 Ogni volta che si apportano modifiche nel portale, è necessario salvarle manualmente premendo il pulsante **Salva** nel menu in basso. Quando si salvano le modifiche, il contenuto modificato viene caricato automaticamente nel servizio gestione API.
 
@@ -91,7 +91,7 @@ Ogni volta che si apportano modifiche nel portale, è necessario salvarle manual
 Prima di rendere disponibile il portale per i visitatori, è necessario personalizzare il contenuto generato automaticamente. Le modifiche consigliate includono i layout, gli stili e il contenuto del home page.
 
 > [!NOTE]
-> A causa di considerazioni sull'integrazione, le pagine seguenti non possono essere rimosse o spostate in un URL diverso: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef``/publish`, `/signin`, `/signin-sso`, `/signup`.
+> A causa di considerazioni sull'integrazione, le pagine seguenti non possono essere rimosse o spostate in un URL diverso: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
 
 ### <a name="home-page"></a>Home page
 
@@ -101,7 +101,7 @@ La **Home** page predefinita viene riempita con contenuto fittizio. È possibile
 
 Sostituire il logo generato automaticamente nella barra di spostamento con la propria immagine.
 
-### <a name="styling"></a>Stili
+### <a name="styling"></a>Stile
 
 Sebbene non sia necessario modificare alcuno stile, è possibile modificare determinati elementi. Ad esempio, modificare il colore primario in modo che corrisponda al colore del marchio.
 
@@ -125,6 +125,10 @@ Per rendere disponibili il portale e le modifiche più recenti ai visitatori, è
 ## <a name="visit-the-published-portal"></a>Visita il portale pubblicato
 
 Dopo aver pubblicato il portale, è possibile accedervi con lo stesso URL del pannello amministrativo, ad esempio `https://contoso-api.developer.azure-api.net`. Visualizzarlo in una sessione del browser separata (modalità di esplorazione in incognito/privata) come visitatore esterno.
+
+## <a name="apply-the-cors-policy-on-apis"></a>Applicare il criterio CORS sulle API
+
+È necessario abilitare CORS (condivisione risorse tra le origini) sulle API per consentire ai visitatori del portale di testare le API tramite la console interattiva incorporata. Per ulteriori informazioni, fare riferimento a [questo articolo della documentazione](api-management-howto-developer-portal.md#cors) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

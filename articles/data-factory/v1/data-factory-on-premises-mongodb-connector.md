@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928119"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387459"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Spostare i dati da MongoDB con Azure Data Factory
 
@@ -30,7 +30,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 È possibile copiare dati da un archivio dati MongoDB locale a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento dei dati da un archivio dati MongoDB ad altri archivi dati, ma non da altri archivi dati a un archivio dati MongoDB.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per consentire al servizio Azure Data Factory di connettersi al database MongoDB in locale, è necessario installare i componenti seguenti:
 
 - Le versioni di MongoDB supportate sono: 2,4, 2,6, 3,0, 3,2, 3,4 e 3,6.
@@ -41,10 +41,10 @@ Per consentire al servizio Azure Data Factory di connettersi al database MongoDB
     > [!NOTE]
     > È necessario usare il gateway per connettersi a MongoDB anche se è ospitato in VM IaaS di Azure. Se si sta provando a connettersi a un'istanza di MongoDB ospitata nel cloud è anche possibile installare l'istanza del gateway nella macchina virtuale IaaS.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un archivio dati MongoDB usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
+Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
 È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
@@ -61,17 +61,17 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato **OnPremisesMongoDB** .
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesMongoDb** |SÌ |
-| server |Indirizzo IP o nome host del server MongoDB. |SÌ |
+| type |La proprietà type deve essere impostata su: **OnPremisesMongoDb** |Sì |
+| server |Indirizzo IP o nome host del server MongoDB. |Sì |
 | port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |Facoltativo, valore predefinito: 27017 |
-| authenticationType |Di base o anonima. |SÌ |
-| Nome utente |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
+| authenticationType |Di base o anonima. |Sì |
+| username |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
 | password |Password per l'utente. |Sì (se si usa l'autenticazione di base). |
 | authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |Facoltativo (se si usa l'autenticazione di base). Predefinito: usa l'account di amministrazione e il database specificato usando la proprietà databaseName. |
-| databaseName |Nome del database MongoDB a cui si vuole accedere. |SÌ |
-| gatewayName |Nome del gateway che accede all'archivio dati. |SÌ |
+| databaseName |Nome del database MongoDB a cui si vuole accedere. |Sì |
+| gatewayName |Nome del gateway che accede all'archivio dati. |Sì |
 | encryptedCredential |Credenziali crittografate in base al gateway. |Facoltativo |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
@@ -79,9 +79,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **MongoDbCollection** presenta le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| collectionName |Nome della raccolta nel database MongoDB. |SÌ |
+| collectionName |Nome della raccolta nel database MongoDB. |Sì |
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
@@ -90,7 +90,7 @@ D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'a
 
 In caso di origine di tipo **MongoDbSource** , nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | Description | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL-92. Ad esempio: selezionare * da MyTable. |No, se **collectionName** di **set di dati** è specificato |
 
@@ -290,17 +290,17 @@ Come accennato nell'articolo sulle [attività di spostamento dei dati](data-fact
 
 Quando si spostano i dati in MongoDB vengono usati i mapping seguenti dai tipi MongoDB ai tipi .NET.
 
-| Tipo di MongoDB | Tipo di .NET Framework |
+| Tipo di MongoDB | Tipo .NET Framework |
 | --- | --- |
 | Binary |Byte[] |
-| boolean |boolean |
-| Data |Data e ora |
-| NumberDouble |DOUBLE |
+| Boolean |Boolean |
+| Data |Datetime |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Stringa |
-| Stringa |Stringa |
-| UUID |GUID |
+| ObjectID |string |
+| string |string |
+| UUID |Guid |
 | Oggetto |Rinormalizzato in colonne rese flat con "_" come separatore annidato |
 
 > [!NOTE]
@@ -323,15 +323,15 @@ Ad esempio, "ExampleTable" di seguito è una tabella MongoDB che contiene una co
 
 | _id | Nome del cliente | Fatture | Livello di servizio | Classificazioni |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Gold |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Argento |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Oro |[1,2] |
 
 Il driver genera più tabelle virtuali per rappresentare questa singola tabella. La prima tabella virtuale è la tabella di base denominata "ExampleTable", illustrata di seguito. La tabella di base contiene tutti i dati della tabella originale, ma i dati dalle matrici sono stati omessi e vengono espansi nelle tabelle virtuali.
 
 | _id | Nome del cliente | Livello di servizio |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
+| 1111 |ABC |Argento |
+| 2222 |XYZ |Oro |
 
 Le tabelle seguenti illustrano le tabelle virtuali che rappresentano le matrici originali nell'esempio. In queste tabelle è possibile vedere:
 
@@ -341,11 +341,11 @@ Le tabelle seguenti illustrano le tabelle virtuali che rappresentano le matrici 
 
 Tabella "ExampleTable_Invoices":
 
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Sconto |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Discount |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0,2 |
 | 1111 |1 |124 |oven |1235 |0,2 |
-| 2222 |0 |135 |fridge |12543 |0.0 |
+| 2222 |0 |135 |fridge |12543 |0,0 |
 
 Tabella "ExampleTable_Ratings":
 
@@ -365,5 +365,5 @@ Quando si copiano dati da archivi dati relazionali, è necessario tenere present
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per istruzioni dettagliate sulla creazione di una pipeline di dati che sposta i dati da un archivio dati locale a un archivio dati di Azure.

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60384187"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376362"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
 
@@ -31,11 +31,11 @@ ms.locfileid: "60384187"
 La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sincronizzazione è connesso.
 
 ## <a name="connector-actions"></a>Azioni del connettore
-| Azione | Commento |
+| Azione | Comment |
 | --- | --- |
 | Create |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
-| Properties |Si usa per i filtri di unità organizzativa e dominio. |
-| [Eliminazione](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
+| Proprietà |Si usa per i filtri di unità organizzativa e dominio. |
+| [Elimina](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
 | [Configura profili di esecuzione](#configure-run-profiles) |Fatta eccezione per i filtri di dominio, qui non è richiesta alcuna configurazione. Questa azione consente di visualizzare i profili di esecuzione già configurati. |
 | Esegui |Si usa per avviare l'esecuzione occasionale di un profilo. |
 | Arresto |Arresta un connettore che sta eseguendo attualmente un profilo. |
@@ -66,7 +66,7 @@ L’azione Cerca spazio connettore è utile per trovare oggetti e risolvere prob
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Iniziare selezionando un **ambito**. È possibile eseguire ricerche in base ai dati (RDN, DN, Ancoraggio, Sottoalbero) o allo stato dell'oggetto (tutte le altre opzioni).  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 Se ad esempio si esegue una ricerca nel sottoalbero, si ottengono tutti gli oggetti in una OU.  
 ![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Da questa griglia è possibile selezionare un oggetto, selezionare le **proprietà** e [seguirlo](tshoot-connect-object-not-syncing.md) dallo spazio connettore di origine attraverso il metaverse e fino allo spazio connettore di destinazione.
@@ -80,13 +80,13 @@ Se si modifica la password dell'account, il servizio di sincronizzazione non sar
 Per risolvere il problema, aggiornare l'account utente di Active Directory Domain Services mediante la procedura seguente:
 
 
-1. Avviare Synchronization Service Manager (START → Synchronization Service).
+1. Avviare Synchronization Service Manager (START → Servizio di sincronizzazione).
 </br>![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
 2. Passare alla scheda **Connettori**.
 3. Selezionare il connettore di Active Directory configurato per usare l'account di Active Directory Domain Services.
 4. In Azioni selezionare **Proprietà**.
 5. Nella finestra di dialogo popup, selezionare Connetti a Foresta Active Directory:
-6. Il nome della foresta indica la corrispondente Active Directory locale.
+6. Il nome della foresta indica l'annuncio locale corrispondente.
 7. Il nome utente indica l'account di Active Directory Domain Services usato per la sincronizzazione.
 8. Immettere la nuova password dell'account di Active Directory Domain Services nella casella di testo Password ![Utility per la chiave di crittografia per la sincronizzazione Azure AD Connect](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Fare clic su OK per salvare la nuova password e riavviare il servizio di sincronizzazione per rimuovere la vecchia password dalla cache in memoria.
@@ -96,4 +96,4 @@ Per risolvere il problema, aggiornare l'account utente di Active Directory Domai
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](how-to-connect-sync-whatis.md).
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

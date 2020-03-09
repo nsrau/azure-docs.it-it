@@ -12,11 +12,11 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 650a4f643f170fc64dd0e0643d645a7dcbffdfbc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420475"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379792"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Guida introduttiva: Aggiungere un'applicazione al tenant di Azure Active Directory
 
@@ -50,7 +50,7 @@ Per aggiungere un'applicazione della raccolta al tenant di Azure AD:
 
     ![Selezionare Nuova applicazione per aggiungere un'app della raccolta al tenant](media/add-application-portal/new-application.png)
 
- 4. Passare alla nuova esperienza di anteprima della raccolta: Nel banner nella parte superiore della **pagina Aggiungi applicazione** selezionare il collegamento **Fare clic qui per provare la nuova raccolta di app migliorata**.
+ 4. Passa alla nuova esperienza di anteprima della raccolta: nel banner nella parte superiore della **pagina Aggiungi un'applicazione**selezionare il collegamento **fare clic qui per provare la raccolta di app nuova e migliorata**.
 
 5. Viene visualizzato il riquadro **Esplora la raccolta di Azure AD (anteprima)** , contenente sezioni per le piattaforme cloud, le applicazioni locali e le applicazioni in primo piano. Si noti che per le applicazioni elencate nella sezione **Applicazioni in primo piano** vengono visualizzate icone che indicano se l'accesso Single Sign-On (SSO) federato e il provisioning sono supportati.
 
@@ -100,13 +100,13 @@ Per modificare le proprietà dell'applicazione:
        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
-       | Sì | Sì | Sì | Sì | Sì  |
-       | Sì | Sì | no  | Sì | no   |
-       | Sì | no  | Sì | Sì | Sì  |
-       | Sì | no  | no  | Sì | no   |
-       | no  | Sì | Sì | no  | no   |
-       | no  | Sì | no  | no  | no   |
-       | no  | no  | Sì | no  | no   |
+       | sì | sì | sì | sì | sì  |
+       | sì | sì | no  | sì | no   |
+       | sì | no  | sì | sì | sì  |
+       | sì | no  | no  | sì | no   |
+       | no  | sì | sì | no  | no   |
+       | no  | sì | no  | no  | no   |
+       | no  | no  | sì | no  | no   |
        | no  | no  | no  | no  | no   |
 
    - Comportamento per gli utenti **non assegnati**:
@@ -114,13 +114,13 @@ Per modificare le proprietà dell'applicazione:
        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
-       | Sì | Sì | Sì | no  | no   |
-       | Sì | Sì | no  | no  | no   |
-       | Sì | no  | Sì | Sì | no   |
-       | Sì | no  | no  | Sì | no   |
-       | no  | Sì | Sì | no  | no   |
-       | no  | Sì | no  | no  | no   |
-       | no  | no  | Sì | no  | no   |
+       | sì | sì | sì | no  | no   |
+       | sì | sì | no  | no  | no   |
+       | sì | no  | sì | sì | no   |
+       | sì | no  | no  | sì | no   |
+       | no  | sì | sì | no  | no   |
+       | no  | sì | no  | no  | no   |
+       | no  | no  | sì | no  | no   |
        | no  | no  | no  | no  | no   |
 
      *L'applicazione viene visualizzata agli utenti nel pannello di accesso e nell'icona di avvio delle app di Office 365?

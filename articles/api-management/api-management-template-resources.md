@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176505"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374392"
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
 Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli del portale per sviluppatori.  
@@ -51,23 +51,23 @@ Sono supportate le opzioni di localizzazione seguenti:
 | Impostazioni locali    | Linguaggio               |
 |-----------|------------------------|
 | "en"      | Inglese              |
-| CS      | Čeština              |
+| CS      | "Čeština"              |
 | de      | Deutsch              |
 | es      | Spagnolo              |
 | fr      | Français             |
 | Hu      | Magyar               |
 | è      | Italiano             |
-| "ja-JP"   | 日本語                |
-| Ko      | 한국어                |
+| "ja-JP"   | "日本語"                |
+| "ko"      | "한국어"                |
 | nl      | Nederlands           |
 | pl      | Polski               |
 | "PT-BR"   | "Português (Brasil)"   |
 | "PT-PT"   | "Português (Portogallo)" |
-| ru      | Русский              |
+| ru      | "Русский"              |
 | SV      | Svenska              |
 | TR      | Türkçe               |
-| "zh-Hans" | "中文 (简体)"           |
-| "zh-Hant" | "中文 (繁體)"           |
+| "zh-Hans" | "中文(简体)"           |
+| "zh-Hant" | "中文(繁體)"           |
 
  Fare riferimento alle tabelle seguenti per le risorse di tipo stringa da usare nei modelli del portale per sviluppatori. Usare il nome della tabella come prefisso per le risorse stringa in tale tabella.  
   
@@ -113,13 +113,13 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Application preview (Anteprima dell'applicazione)|  
 |WebApplicationsRequirementsHeader|Requisiti|  
@@ -128,31 +128,31 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application? (Rimuovere l'applicazione?)|  
 |WebDevelopersAppNotPublished|Not published (Non pubblicata)|  
 |WebDevelopersAppNotSubmitted|Not submitted (Non inviata)|  
-|WebDevelopersAppTableCategoryHeader|Categoria|  
-|WebDevelopersAppTableNameHeader|name|  
-|WebDevelopersAppTableStateHeader|Statale|  
+|WebDevelopersAppTableCategoryHeader|Category|  
+|WebDevelopersAppTableNameHeader|Nome|  
+|WebDevelopersAppTableStateHeader|State|  
 |WebDevelopersEditLink|Modifica|  
 |WebDevelopersRegisterAppLink|Registrare l'applicazione|  
-|WebDevelopersRemoveLink|Rimuovi|  
-|WebDevelopersSubmitLink|Invia|  
+|WebDevelopersRemoveLink|Rimuovere|  
+|WebDevelopersSubmitLink|Submit|  
 |WebDevelopersYourApplicationsHeader|Applicazioni|  
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
-|WebApplicationsHeader|applicazioni|  
+|WebApplicationsHeader|APPLICAZIONI|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
-|NoItemsToDisplay|Nessun risultato trovato.|  
+|NoItemsToDisplay|No results found. (Nessun risultato trovato.)|  
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
 |GeneralJsonExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, reload the page and try again. (Ricaricare la pagina e riprovare.)|  
 |ConfirmationMessageUnsavedChanges|There are some unsaved changes. (Sono presenti modifiche non salvate.) Are you sure you want to cancel and discard the changes? (Annullare e rimuovere le modifiche?)|  
@@ -161,16 +161,16 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |ButtonLabelCancel|Annulla|  
-|ButtonLabelSave|Salva|  
+|ButtonLabelSave|Salvare|  
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
 |NoItemsToDisplay|There are no items to display. (Nessun elemento da visualizzare.)|  
-|PagerButtonLabelFirst|Iniziali|  
+|PagerButtonLabelFirst|First (Primo)|  
 |PagerButtonLabelLast|Last (Ultimo)|  
-|PagerButtonLabelNext|Successivi|  
-|PagerButtonLabelPrevious|Precedente|  
+|PagerButtonLabelNext|Avanti|  
+|PagerButtonLabelPrevious|Prev (Precedente)|  
 |PagerLabelPageNOfM|Pagina {0} di {1}|  
 |PasswordTooShort|The Password is too short (La password è troppo breve)|  
 |EmailAsPassword|Do not use your email as your password (La password non può contenere l'indirizzo di posta elettronica)|  
@@ -185,7 +185,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="Documentation"></a> Documentazione  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Intestazione "{0}" non valida|  
 |WebDocumentationInvalidRequestErrorMessage|Invalid Request URL (URL della richiesta non valido)|  
@@ -249,16 +249,16 @@ Sono supportate le opzioni di localizzazione seguenti:
 |OAuth2ClientId_ImplicitGrant_AuthorizationRequest|OBBLIGATORIO. The client identifier. (Identificatore cliente.)|  
 |OAuth2Code_AuthorizationCodeGrant_AuthorizationResponse|OBBLIGATORIO. The authorization code generated by the authorization server. (Il codice di autorizzazione generato dal server di autorizzazione.)|  
 |OAuth2Code_AuthorizationCodeGrant_TokenRequest|OBBLIGATORIO. The authorization code received by the authorization server. (Il codice di autorizzazione ricevuto dal server di autorizzazione.)|  
-|OAuth2ErrorDescription_AuthorizationCodeGrant_AuthorizationErrorResponse|FACOLTATIVO. Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
-|OAuth2ErrorDescription_AuthorizationCodeGrant_TokenErrorResponse|FACOLTATIVO. Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
-|OAuth2ErrorDescription_ClientCredentialsGrant_TokenErrorResponse|FACOLTATIVO. Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
-|OAuth2ErrorDescription_ImplicitGrant_AuthorizationErrorResponse|FACOLTATIVO. Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
-|OAuth2ErrorDescription_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|FACOLTATIVO. Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
-|OAuth2ErrorUri_AuthorizationCodeGrant_AuthorizationErrorResponse|FACOLTATIVO. A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
-|OAuth2ErrorUri_AuthorizationCodeGrant_TokenErrorResponse|FACOLTATIVO. A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
-|OAuth2ErrorUri_ClientCredentialsGrant_TokenErrorResponse|FACOLTATIVO. A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
-|OAuth2ErrorUri_ImplicitGrant_AuthorizationErrorResponse|FACOLTATIVO. A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
-|OAuth2ErrorUri_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|FACOLTATIVO. A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
+|OAuth2ErrorDescription_AuthorizationCodeGrant_AuthorizationErrorResponse|FACOLTATIVO Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
+|OAuth2ErrorDescription_AuthorizationCodeGrant_TokenErrorResponse|FACOLTATIVO Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
+|OAuth2ErrorDescription_ClientCredentialsGrant_TokenErrorResponse|FACOLTATIVO Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
+|OAuth2ErrorDescription_ImplicitGrant_AuthorizationErrorResponse|FACOLTATIVO Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
+|OAuth2ErrorDescription_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|FACOLTATIVO Human-readable ASCII text providing additional information. (Testo ASCII leggibile dall'utente che fornisce informazioni aggiuntive.)|  
+|OAuth2ErrorUri_AuthorizationCodeGrant_AuthorizationErrorResponse|FACOLTATIVO A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
+|OAuth2ErrorUri_AuthorizationCodeGrant_TokenErrorResponse|FACOLTATIVO A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
+|OAuth2ErrorUri_ClientCredentialsGrant_TokenErrorResponse|FACOLTATIVO A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
+|OAuth2ErrorUri_ImplicitGrant_AuthorizationErrorResponse|FACOLTATIVO A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
+|OAuth2ErrorUri_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|FACOLTATIVO A URI identifying a human-readable web page with information about the error. (URI che identifica una pagina Web leggibile dall'utente con informazioni sull'errore.)|  
 |OAuth2Error_AuthorizationCodeGrant_AuthorizationErrorResponse|OBBLIGATORIO. A single ASCII error code from the following: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable. (Un singolo codice di errore ASCII tra i seguenti: invalid_request, unauthorized_client, access_denied, unsupported_response_type, invalid_scope, server_error, temporarily_unavailable.)|  
 |OAuth2Error_AuthorizationCodeGrant_TokenErrorResponse|OBBLIGATORIO. A single ASCII error code from the following: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope. (Un singolo codice di errore ASCII tra i seguenti: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.)|  
 |OAuth2Error_ClientCredentialsGrant_TokenErrorResponse|OBBLIGATORIO. A single ASCII error code from the following: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope. (Un singolo codice di errore ASCII tra i seguenti: invalid_request, invalid_client, invalid_grant, unauthorized_client, unsupported_grant_type, invalid_scope.)|  
@@ -272,21 +272,21 @@ Sono supportate le opzioni di localizzazione seguenti:
 |OAuth2GrantType_ClientCredentialsGrant_TokenRequest|OBBLIGATORIO. Value MUST be set to "client_credentials". (Il valore deve essere impostato su "client_credentials".)|  
 |OAuth2GrantType_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OBBLIGATORIO. Value MUST be set to "password". (Il valore deve essere impostato su "password".)|  
 |OAuth2Password_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OBBLIGATORIO. The resource owner password. (La password del proprietario delle risorse.)|  
-|OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|FACOLTATIVO. The redirection endpoint URI must be an absolute URI. (L'URI dell'endpoint di reindirizzamento deve essere un URI assoluto.)|  
+|OAuth2RedirectUri_AuthorizationCodeGrant_AuthorizationRequest|FACOLTATIVO The redirection endpoint URI must be an absolute URI. (L'URI dell'endpoint di reindirizzamento deve essere un URI assoluto.)|  
 |OAuth2RedirectUri_AuthorizationCodeGrant_TokenRequest|REQUIRED if the "redirect_uri" parameter was included in the authorization request, and their values MUST be identical. (OBBLIGATORIO se il parametro "redirect_uri" è stato incluso nella richiesta di autorizzazione; i relativi valori devono essere identici.)|  
-|OAuth2RedirectUri_ImplicitGrant_AuthorizationRequest|FACOLTATIVO. The redirection endpoint URI must be an absolute URI. (L'URI dell'endpoint di reindirizzamento deve essere un URI assoluto.)|  
-|OAuth2RefreshToken_AuthorizationCodeGrant_TokenResponse|FACOLTATIVO. The refresh token, which can be used to obtain new access tokens. (Il token di aggiornamento, che può essere usato per ottenere nuovi token di accesso.)|  
-|OAuth2RefreshToken_ClientCredentialsGrant_TokenResponse|FACOLTATIVO. The refresh token, which can be used to obtain new access tokens. (Il token di aggiornamento, che può essere usato per ottenere nuovi token di accesso.)|  
-|OAuth2RefreshToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|FACOLTATIVO. The refresh token, which can be used to obtain new access tokens. (Il token di aggiornamento, che può essere usato per ottenere nuovi token di accesso.)|  
+|OAuth2RedirectUri_ImplicitGrant_AuthorizationRequest|FACOLTATIVO The redirection endpoint URI must be an absolute URI. (L'URI dell'endpoint di reindirizzamento deve essere un URI assoluto.)|  
+|OAuth2RefreshToken_AuthorizationCodeGrant_TokenResponse|FACOLTATIVO The refresh token, which can be used to obtain new access tokens. (Il token di aggiornamento, che può essere usato per ottenere nuovi token di accesso.)|  
+|OAuth2RefreshToken_ClientCredentialsGrant_TokenResponse|FACOLTATIVO The refresh token, which can be used to obtain new access tokens. (Il token di aggiornamento, che può essere usato per ottenere nuovi token di accesso.)|  
+|OAuth2RefreshToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|FACOLTATIVO The refresh token, which can be used to obtain new access tokens. (Il token di aggiornamento, che può essere usato per ottenere nuovi token di accesso.)|  
 |OAuth2ResponseType_AuthorizationCodeGrant_AuthorizationRequest|OBBLIGATORIO. Value MUST be set to "code". (Il valore deve essere impostato su "code".)|  
 |OAuth2ResponseType_ImplicitGrant_AuthorizationRequest|OBBLIGATORIO. Value MUST be set to "token". (Il valore deve essere impostato su "token".)|  
-|OAuth2Scope_AuthorizationCodeGrant_AuthorizationRequest|FACOLTATIVO. The scope of the access request. (L'ambito della richiesta di accesso.)|  
+|OAuth2Scope_AuthorizationCodeGrant_AuthorizationRequest|FACOLTATIVO The scope of the access request. (L'ambito della richiesta di accesso.)|  
 |OAuth2Scope_AuthorizationCodeGrant_TokenResponse|OPTIONAL if identical to the scope requested by the client; otherwise, REQUIRED. (FACOLTATIVO se è identico all'ambito richiesto dal client; in caso contrario, è OBBLIGATORIO.)|  
-|OAuth2Scope_ClientCredentialsGrant_TokenRequest|FACOLTATIVO. The scope of the access request. (L'ambito della richiesta di accesso.)|  
+|OAuth2Scope_ClientCredentialsGrant_TokenRequest|FACOLTATIVO The scope of the access request. (L'ambito della richiesta di accesso.)|  
 |OAuth2Scope_ClientCredentialsGrant_TokenResponse|OPTIONAL if identical to the scope requested by the client; otherwise, REQUIRED. (FACOLTATIVO se è identico all'ambito richiesto dal client; in caso contrario, è OBBLIGATORIO.)|  
-|OAuth2Scope_ImplicitGrant_AuthorizationRequest|FACOLTATIVO. The scope of the access request. (L'ambito della richiesta di accesso.)|  
+|OAuth2Scope_ImplicitGrant_AuthorizationRequest|FACOLTATIVO The scope of the access request. (L'ambito della richiesta di accesso.)|  
 |OAuth2Scope_ImplicitGrant_AuthorizationResponse|OPTIONAL if identical to the scope requested by the client; otherwise, REQUIRED. (FACOLTATIVO se è identico all'ambito richiesto dal client; in caso contrario, è OBBLIGATORIO.)|  
-|OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenRequest|FACOLTATIVO. The scope of the access request. (L'ambito della richiesta di accesso.)|  
+|OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenRequest|FACOLTATIVO The scope of the access request. (L'ambito della richiesta di accesso.)|  
 |OAuth2Scope_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OPTIONAL if identical to the scope requested by the client; otherwise, REQUIRED. (FACOLTATIVO se è identico all'ambito richiesto dal client; in caso contrario, è OBBLIGATORIO.)|  
 |OAuth2State_AuthorizationCodeGrant_AuthorizationErrorResponse|REQUIRED if the "state" parameter was present in the client authorization request. (OBBLIGATORIO se il parametro "state" era presente nella richiesta di autorizzazione del client.)  The exact value received from the client. (L'esatto valore ricevuto dal client.)|  
 |OAuth2State_AuthorizationCodeGrant_AuthorizationRequest|CONSIGLIATO. An opaque value used by the client to maintain state between the request and callback. (Un valore opaco usato dal client per mantenere lo stato tra la richiesta e il callback.)  The authorization server includes this value when redirecting the user-agent back to the client. (Il server di autorizzazione include questo valore quando reindirizza l'agente utente al client.)  The parameter SHOULD be used for preventing cross-site request forgery. (È necessario usare il parametro per prevenire richieste intersito false.)|  
@@ -302,7 +302,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |OAuth2UnsupportedTokenType|Il tipo di token '{0}' non è supportato.|  
 |OAuth2InvalidState|Invalid response from authorization server (Risposta non valida dal server di autorizzazione)|  
 |OAuth2GrantType_AuthorizationCode|Authorization code (Codice di autorizzazione)|  
-|OAuth2GrantType_Implicit|Implicit (Implicita)|  
+|OAuth2GrantType_Implicit|Implicito|  
 |OAuth2GrantType_ClientCredentials|Credenziali del client|  
 |OAuth2GrantType_ResourceOwnerPassword|Resource owner password. (Password del proprietario delle risorse.)|  
 |WebDocumentation302Code|302 - Trovato|  
@@ -325,7 +325,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |SectionHeadingRequestBody|Corpo della richiesta|  
 |SectionHeadingRequestParameters|Parametri della richiesta|  
 |SectionHeadingRequestUrl|URL richiesta|  
-|SectionHeadingResponse|Response|  
+|SectionHeadingResponse|Risposta|  
 |SectionHeadingRequestHeaders|Intestazioni della richiesta|  
 |FormLabelSubtextOptional|facoltativo|  
 |SectionHeadingCodeSamples|Esempi di codice|  
@@ -333,7 +333,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |LinkLabelBack|Indietro|  
 |LinkLabelHomePage|home page|  
@@ -351,7 +351,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemi|  
 |WebIssuesNoActiveSubscriptions|Non si dispone di sottoscrizioni attive. You need to subscribe for a product to report an issue. (È necessario disporre della sottoscrizione al prodotto per segnalare un problema.)|  
@@ -362,7 +362,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|Inviare un messaggio di posta elettronica|  
@@ -377,18 +377,18 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |WebProductsAgreement|Con la sottoscrizione al Prodotto {0}, accetto il `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Condizioni per l'utilizzo|  
-|WebProductsSubscribeButton|Abbonati|  
-|WebProductsUsageLimitsHeader|Limiti di utilizzo|  
+|WebProductsSubscribeButton|Sottoscrivi|  
+|WebProductsUsageLimitsHeader|Limiti di consumo|  
 |WebProductsYouAreNotSubscribed|You are subscribed to this product. (È presente una sottoscrizione al prodotto.)|  
 |WebProductsYouRequestedSubscription|You requested subscription to this product. (È stata richiesta una sottoscrizione al prodotto.)|  
 |ErrorYouNeedToAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed. (È necessario accettare le Condizioni per l'utilizzo prima di continuare.)|  
-|ButtonLabelAddSubscription|Aggiungi sottoscrizione|  
+|ButtonLabelAddSubscription|Aggiungere una sottoscrizione|  
 |LinkLabelChangeSubscriptionName|change (modifica)|  
-|ButtonLabelConfirm|Conferma|  
+|ButtonLabelConfirm|Confirm|  
 |TextblockMultipleSubscriptionsCount|Sono presenti {0} sottoscrizioni al prodotto:|  
 |TextblockSingleSubscriptionsCount|È presente {0} sottoscrizione al prodotto:|  
 |TextblockSingleApisCount|Questo prodotto contiene {0} API:|  
@@ -399,13 +399,13 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
-|PageTitleProducts|Prodotti|  
+|PageTitleProducts|Products|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Sign in is disabled by the administrators at the moment. (L'accesso è al momento disabilitato dagli amministratori.)|  
 |TextboxExternalIdentitiesSigninInvitation|Alternatively, sign in with (In alternativa, accedere con)|  
@@ -413,7 +413,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |PrincipalNotFound|Principal is not found or signature is invalid (Entità non trovata o firma non valida)|  
 |ErrorSsoAuthenticationFailed|SSO authentication failed (Autenticazione SSO non riuscita)|  
@@ -432,7 +432,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationEmailHasBeenRevertedNotice|You email already exist. (Indirizzo di posta elettronica già esistente.) Request has been reverted (La richiesta è stata ripristinata)|  
 |ValidationErrorEmailAlreadyExists|Email already exist. (Indirizzo di posta elettronica già esistente)|  
 |ValidationErrorEmailInvalid|Invalid e-mail address (Indirizzo di posta elettronica non valido)|  
-|TextboxLabelEmail|Indirizzo di posta elettronica|  
+|TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|L'indirizzo di posta elettronica è obbligatorio.|  
 |WebAuthenticationErrorNoticeHeader|Errore|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve avere una lunghezza massima di {1}|  
@@ -477,7 +477,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |ButtonLabelChangePassword|Cambia password|  
 |ButtonLabelChangeAccountInfo|Change account information(Modifica informazioni sull'account)|  
 |ButtonLabelCloseAccount|Close account (Chiudi account)|  
-|WebAuthenticationInvalidCaptchaErrorMessage|Text entered doesn't match text on the picture. (Il testo immesso non corrisponde al testo dell'immagine.) Riprovare in seguito.|  
+|WebAuthenticationInvalidCaptchaErrorMessage|Text entered doesn't match text on the picture. (Il testo immesso non corrisponde al testo dell'immagine.) Riprovare.|  
 |ValidationErrorCredentialsInvalid|Email or password is invalid. (Indirizzo email o password non validi.) Correggere gli errori e riprovare.|  
 |WebAuthenticationRequestIsNotValid|Richiesta non valida.|  
 |WebAuthenticationUserIsNotConfirm|Please confirm your registration before attempting to sign in. (Confermare la registrazione prima di tentare l'accesso.)|  
@@ -509,7 +509,7 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Password dimenticata?|  
 |WebAuthenticationIfAdministrator|If you are an Administrator you must sign in `<a href="{0}"\>here</a\>`. (Gli amministratori devono accedere da `<a href="{0}"\>here</a\>`.)|  
@@ -517,21 +517,21 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationRemember|Remember me on this computer (Memorizza utente su questo computer)|  
 |WebAuthenticationSigininWithPassword|Sign in with your username and password (Immettere il proprio nome utente e la password)|  
 |WebAuthenticationSigninTitle|Accesso|  
-|WebAuthenticationSignUpNow|Iscriviti ora|  
+|WebAuthenticationSignUpNow|Effettua l'iscrizione ora|  
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
-|PageTitleSignup|Iscriviti|  
-|WebAuthenticationAlreadyAMember|Offerte riservate ai membri|  
+|PageTitleSignup|Iscrizione|  
+|WebAuthenticationAlreadyAMember|Already a member? (Si è già membri?)|  
 |WebAuthenticationCreateNewAccount|Create a new API Management account (Creare un nuovo account di Gestione API)|  
 |WebAuthenticationSigninNow|Sign in now (Accedere ora)|  
-|ButtonLabelSignup|Iscriviti|  
+|ButtonLabelSignup|Iscrizione|  
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Are you sure that you want to cancel this subscription? (Annullare la sottoscrizione?)|  
 |SubscriptionRenewConfirmation|Are you sure that you want to renew this subscription? (Rinnovare la sottoscrizione?)|  
@@ -543,18 +543,18 @@ Sono supportate le opzioni di localizzazione seguenti:
 |ButtonLabelRenewSubscription|Renew|  
 |WebDevelopersSubscriptionRequested|Richiesta in data {0}|  
 |WebDevelopersSubscriptionRequestedState|Requested (Richiesta)|  
-|WebDevelopersSubscriptionTableNameHeader|name|  
-|WebDevelopersSubscriptionTableStateHeader|Statale|  
+|WebDevelopersSubscriptionTableNameHeader|Nome|  
+|WebDevelopersSubscriptionTableStateHeader|State|  
 |WebDevelopersUsageStatisticsLink|Analytics reports (Report di analisi)|  
 |WebDevelopersYourSubscriptions|Your subscriptions (Sottoscrizioni)|  
 |SubscriptionPropertyLabelRequestedDate|Requested on (Richiesta il)|  
 |SubscriptionPropertyLabelStartedDate|Started on (Avviata il)|  
 |PageTitleRenameSubscription|Rename subscription (Rinomina sottoscrizione)|  
-|SubscriptionPropertyLabelName|Nome della sottoscrizione|  
+|SubscriptionPropertyLabelName|Nome sottoscrizione|  
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Looking to close your account? (Chiudere l'account?)|  
 |PageTitleDeveloperProfile|Profilo|  
@@ -565,19 +565,19 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Update profile (Aggiorna profilo)|  
 |PageTitleUpdateProfile|Update account information (Aggiorna informazioni sull'account)|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|name|Testo|  
+|Nome|Text|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Change account information(Modifica informazioni sull'account)|  
 |ButtonLabelChangePassword|Cambia password|  
 |ButtonLabelCloseAccount|Close account (Chiudi account)|  
-|TextboxLabelEmail|Indirizzo di posta elettronica|  
+|TextboxLabelEmail|Email|  
 |TextboxLabelEmailFirstName|Nome|  
 |TextboxLabelEmailLastName|Cognome|  
 |TextboxLabelNotificationsSenderEmail|Notifications sender email (Indirizzo di posta elettronica del mittente delle notifiche)|  
@@ -590,7 +590,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |SubscriptionStateSuspended|Suspended|  
 |DefaultSubscriptionNameTemplate|{0} (impostazione predefinita)|  
 |SubscriptionNameTemplate|Accesso sviluppatore n. {0}|  
-|TextboxLabelSubscriptionName|Nome della sottoscrizione|  
+|TextboxLabelSubscriptionName|Nome sottoscrizione|  
 |ValidationMessageSubscriptionNameRequired|Il nome della sottoscrizione non può essere vuoto.|  
 |ApiManagementUserLimitReached|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Please upgrade to a higher pricing tier. (Eseguire l'aggiornamento a un piano tariffario superiore.)|  
   

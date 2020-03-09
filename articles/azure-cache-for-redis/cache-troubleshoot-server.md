@@ -7,17 +7,17 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433358"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372187"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Risolvere i problemi del lato server di cache di Azure per il server Redis
 
 Questa sezione illustra la risoluzione dei problemi che si verificano a causa di una condizione in una cache di Azure per Redis o delle macchine virtuali che lo ospitano.
 
-- [Pressione della memoria nel server Redis](#memory-pressure-on-redis-server)
+- [Utilizzo elevato di memoria nel server Redis](#memory-pressure-on-redis-server)
 - [Utilizzo CPU elevato o carico server](#high-cpu-usage-or-server-load)
 - [Comandi con esecuzione prolungata](#long-running-commands)
 - [Limitazione della larghezza di banda lato server](#server-side-bandwidth-limitation)

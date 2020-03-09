@@ -17,11 +17,11 @@ ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
 ms.openlocfilehash: 5d7ec2cbbc5cc1bf8bdc87d7f82a965b3bc8c267
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037095"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363637"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Aggiungere un disco a una VM Linux
 Questo articolo illustra come collegare un disco persistente alla macchina virtuale per poter mantenere i dati, anche se si effettua di nuovo il provisioning della macchina virtuale per manutenzione o ridimensionamento.
@@ -52,7 +52,7 @@ az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connettersi alla VM Linux per montare il nuovo disco
 
-È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [Come usare SSH con Linux in Azure](mac-create-ssh-keys.md). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*:
+È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [How to use SSH with Linux on Azure](mac-create-ssh-keys.md) (Come usare SSH con Linux in Azure). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -77,7 +77,7 @@ L'output è simile all'esempio seguente:
 > [!NOTE]
 > Si consiglia di usare le versioni più recenti di Fdisk o di parte disponibili per la distribuzione.
 
-In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `parted`: se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare il partizionamento MBR o GPT. Se si usa il partizionamento MBR, è possibile usare `fdisk`. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
+In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `parted`, se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare sia il partizionamento MBR che il partizionamento GPT. Se si usa il partizionamento MBR, è possibile usare `fdisk`. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
@@ -236,7 +236,7 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 

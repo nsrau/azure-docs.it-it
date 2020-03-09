@@ -3,7 +3,7 @@ title: Trasmettere log Azure Active Directory ai log di monitoraggio di Azure | 
 description: Informazioni su come integrare i log di Azure Active Directory con i log di monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bffe16d604ac6b86b489092f50fbdc0b856867b3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989776"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376448"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrare log di Azure AD con i log di monitoraggio di Azure
 
@@ -44,14 +44,14 @@ Questo articolo illustra come integrare i log di Azure Active Directory (Azure A
 
 È possibile indirizzare i log attività di controllo e i log attività di accesso ai log di Monitoraggio di Azure per ulteriori analisi. 
 
-* **Log di controllo**: Il [report delle attività del log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
-* **Log di accesso**: Il [report delle attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
+* **Log di controllo**: il [report sull'attività relativo ai log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
+* **Log di accesso**: il [report sull'attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
 
 > [!NOTE]
 > I log attività di controllo e di accesso correlati a B2C non sono al momento supportati.
 >
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 Per usare questa funzionalità, sono necessari:
 

@@ -13,11 +13,11 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997038"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375701"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -86,7 +86,7 @@ I gruppi di connettori rendono più semplice gestire le distribuzioni di grandi 
 
 Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>pianificazione della capacità
+## <a name="capacity-planning"></a>Pianificazione della capacità
 
 È importante assicurarsi di aver pianificato la capacità sufficiente tra i connettori per gestire il volume di traffico previsto. È consigliabile che ogni gruppo di connettori disponga di almeno due connettori per garantire disponibilità elevata e scalabilità. La presenza di tre connettori è ottimale nel caso in cui sia necessario servire un computer in qualsiasi momento.
 
@@ -114,7 +114,7 @@ I connettori inviano le richieste soltanto in uscita. Il traffico in uscita vien
 
 Per maggiori informazioni sulla configurazione delle regole del firewall in uscita, vedere [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
 
-## <a name="performance-and-scalability"></a>Performance e scalabilità
+## <a name="performance-and-scalability"></a>Prestazioni e scalabilità
 
 Anche se la scalabilità per il servizio proxy di applicazione è trasparente, è comunque un fattore per i connettori. È necessario disporre di connettori sufficienti per gestire il traffico di picco. Poiché i connettori sono senza stato, non vengono influenzati dal numero di utenti o sessioni. Dipendono invece dal numero di richieste e dalle dimensioni del payload. In un traffico Web standard, un computer medio può gestire circa duemila richieste al secondo. La capacità specifica dipende dalle esatte caratteristiche del computer.
 
@@ -160,7 +160,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-## <a name="under-the-hood"></a>Dietro le quinte
+## <a name="under-the-hood"></a>dietro le quinte
 
 I connettori sono basati su proxy di applicazione Web di Windows Server, per cui condividono la maggior parte degli strumenti di gestione, inclusi i log eventi di Windows
 

@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76835165"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388807"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -76,7 +76,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
    Creare prima una macchina virtuale di Azure con un'istanza di SQL Server, quindi eseguire la migrazione dei database locali in tale istanza. Per alcune strategie di migrazione dei dati, vedere [Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure](virtual-machines-windows-migrate-sql.md).
 
-## <a name="licensing"></a>Licenze
+## <a name="licensing"></a>Gestione delle licenze
 
 1. **Come si installa una copia di SQL Server con licenza in una VM di Azure?**
 
@@ -198,7 +198,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
   
    
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 1. **Le istanze del cluster di failover di sono SQL Server supportate nelle macchine virtuali di Azure?**
 

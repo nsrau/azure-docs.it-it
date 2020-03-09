@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516801"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365704"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -40,7 +40,7 @@ Vengono illustrati i prerequisiti per l'esecuzione del provisioning di un array 
 Prima di iniziare, verificare che:
 
 * Tutti i passaggi sulla [preparazione del portale per StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)siano stati completati.
-* L'immagine dell'array virtuale per Hyper-V è stata scaricata dal portale di Azure. Per altre informazioni, vedere il **Passaggio 3: Scaricare l'immagine dell'array virtuale** della [Guida alla preparazione del portale per l'array virtuale StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
+* L'immagine dell'array virtuale per Hyper-V è stata scaricata dal portale di Azure. Per altre informazioni, vedere **Passaggio 3: Scaricare l'immagine dell'array virtuale** nella [guida alla preparazione del portale per l'array virtuale StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
   > Il software in esecuzione nell'array virtuale StorSimple può essere usato solo in combinazione con il servizio Gestione dispositivi StorSimple.
@@ -88,7 +88,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 
 #### <a name="to-provision-a-virtual-array"></a>Per eseguire il provisioning di un array virtuale
 1. Nell'host di Windows Server copiare l'immagine dell'array virtuale in un'unità locale. Si tratta dell'immagine (VHD o VHDX) scaricata tramite il portale di Azure. Prendere nota della posizione in cui è stata copiata l'immagine da usare più avanti nella procedura.
-2. Aprire **Server Manager**. Nell'angolo in alto a destra fare clic su **Strumenti** e scegliere **Console di gestione di Hyper-V**.
+2. Aprire **Gestione server**. Nell'angolo in alto a destra fare clic su **Strumenti** e scegliere **Console di gestione di Hyper-V**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
@@ -208,7 +208,7 @@ Eseguire la procedura seguente per avviare l'array virtuale a cui connettersi.
        >
        >
 
-Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione (riportato sotto). Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Fare riferimento ai requisiti di configurazione minimi nel Passaggio 1: Verificare che il sistema host soddisfi i requisiti minimi dell'array virtuale.
+Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione (riportato sotto). Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in passaggio 1: verificare che il sistema host soddisfi i requisiti minimi dell'array virtuale.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

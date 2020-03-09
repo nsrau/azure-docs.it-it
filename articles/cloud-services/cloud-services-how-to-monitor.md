@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972951"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384129"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
 
@@ -42,7 +42,7 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 * Log applicazioni
 * Log eventi di Windows
 * Origine degli eventi .NET
-* Log IIS
+* Log di IIS
 * ETW basato su manifesto
 * Dump di arresto anomalo
 * Log degli errori dei clienti

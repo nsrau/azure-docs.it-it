@@ -16,17 +16,17 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034545"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372840"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
+# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
 
 [Rilevamento modifiche](../../automation/change-tracking.md) di Azure consente di identificare facilmente le modifiche, mentre [Gestione aggiornamenti](../../automation/automation-update-management.md) permette di gestire gli aggiornamenti del sistema operativo per le macchine virtuali Linux di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Gestire gli aggiornamenti di Windows
@@ -111,9 +111,9 @@ Pianificare una nuova distribuzione di aggiornamenti per la macchina virtuale fa
 
 Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la distribuzione di aggiornamenti**. Si apre la pagina **Nuova distribuzione di aggiornamenti**. Specificare i valori per le proprietà descritte nella tabella seguente e quindi fare clic su **Crea**:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
+| Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Linux o Windows|
 | Gruppi da aggiornare |Per i computer di Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. </br></br>Per i computer non di Azure, selezionare una ricerca esistente salvata per selezionare un gruppo di computer non di Azure da includere nella distribuzione. </br></br>Per altre informazioni, vedere [Gruppi dinamici](../../automation/automation-update-management-groups.md)|
 | Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md) |

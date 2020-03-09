@@ -13,11 +13,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 915675af1e646f2cb77e36c0018ed372ff9496fc
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380305"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377592"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione di posizione in Azure Active Directory l'accesso condizionale? 
 
@@ -25,7 +25,7 @@ Con [l'accesso condizionale Azure Active Directory (Azure ad)](../active-directo
 
 Questo articolo fornisce le informazioni necessarie per configurare la condizione della posizione.
 
-## <a name="locations"></a>Località
+## <a name="locations"></a>Percorsi
 
 Azure AD abilita Single Sign-On a dispositivi, app e servizi da qualsiasi posizione sulla rete Internet pubblica. Con la condizione della posizione, è possibile controllare l'accesso alle app cloud in base al percorso di rete dell'utente. Casi d'uso comuni per la condizione della posizione:
 
@@ -68,7 +68,7 @@ I criteri di accesso condizionale si applicano al traffico IPv4 e IPv6. Le local
 
 Se i criteri sono configurati per essere applicati a "qualsiasi percorso", verranno applicati al traffico IPv4 e IPv6. Località denominate configurate per paesi e aree geografiche specificato supporta solo indirizzi IPv4. Il traffico IPv6 è incluso solo se è stata selezionata l'opzione "Includi aree sconosciute".
 
-## <a name="trusted-ips"></a>Provider di identità attendibili
+## <a name="trusted-ips"></a>Indirizzi IP attendibili
 
 È inoltre possibile configurare gli intervalli di indirizzi IP che rappresentano la Intranet locale dell'organizzazione nelle [impostazioni del servizio di autenticazione a più fattori](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Questa funzionalità consente di configurare fino a 50 intervalli di indirizzi IP. Gli intervalli di indirizzi IP sono in formato CIDR. Per altre informazioni, vedere [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 

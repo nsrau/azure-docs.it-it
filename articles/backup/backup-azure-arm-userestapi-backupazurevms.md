@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450154"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395581"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -41,7 +41,7 @@ L'operazione di aggiornamento è un'[operazione asincrona](https://docs.microsof
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
 |202 - Accettato     |         |     Accepted    |
@@ -104,7 +104,7 @@ All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario al
 
 #### <a name="responses-1"></a>Risposte
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per creare un elemento protetto.
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Proprietà delle risorse ProtectedItem         |
 
@@ -208,7 +208,7 @@ La creazione di un elemento protetto è un'[operazione asincrona](https://docs.m
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 - Accettato     |         |     Accepted    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Proprietà BackupRequestResource         |
 
@@ -319,7 +319,7 @@ L'attivazione di un backup su richiesta è un'[operazione asincrona](https://doc
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accepted    |
 
@@ -439,7 +439,7 @@ L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](htt
 
 L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 204 (nessun contenuto restituito) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 NoContent (Nessun contenuto)     |         |  Nessun contenuto restituito       |
 |202 - Accettato     |         |     Accepted    |

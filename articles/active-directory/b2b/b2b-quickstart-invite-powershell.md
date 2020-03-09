@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Aggiungere un utente guest con PowerShell - Azure AD'
+title: 'Guida introduttiva: aggiungere un utente guest con PowerShell-Azure AD'
 description: In questa guida introduttiva si apprenderà come usare PowerShell per inviare un invito a un utente esterno di Collaborazione B2B di Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50c283122fe707e922275b6c1a6c576009964855
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273365"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377777"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guida introduttiva: Aggiungere un utente guest con PowerShell
 
@@ -25,7 +25,7 @@ Esistono diversi modi per invitare partner esterni ad accedere alle app e ai ser
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installare il modulo AzureADPreview più recente
 Verificare che sia installata la versione più recente del modulo di Azure AD PowerShell per Graph (AzureADPreview). 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo v3 | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Analisi del testo v3 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Usare questo argomento di avvio rapido per connettere le applicazioni all'API Analisi del testo di Servizi cognitivi di Azure.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 02/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
 ms.openlocfilehash: c6883b9b79adfc4f91af354147d45ea27d806d78
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614473"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396103"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library"></a>Avvio rapido: Usare la libreria client di Analisi del testo
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Guida introduttiva: Usare la libreria client di Analisi del testo
 
 Introduzione alla libreria client di Analisi del testo. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 

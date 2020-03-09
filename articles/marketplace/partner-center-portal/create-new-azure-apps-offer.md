@@ -9,11 +9,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760897"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391472"
 ---
 # <a name="create-an-azure-application-offer"></a>Creare un'offerta per un'applicazione di Azure
 
@@ -152,7 +152,7 @@ Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
 La pagina delle **Proprietà** consente di definire le categorie e i settori usati per raggruppare l'offerta nel Marketplace, la versione dell'app e i contratti legali che supportano l'offerta. Selezionare **Salva** dopo aver completato questa pagina.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare un minimo di una e un massimo di tre categorie, che verranno usate per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di richiamare il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. 
 
@@ -173,7 +173,7 @@ Sarà necessario definire i dettagli del Marketplace (nome dell'offerta, descriz
 
 Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di offerte. Questo campo viene prepopolato con il testo immesso per l' **alias offerta** al momento della creazione dell'offerta, ma è possibile modificare questo valore. Questo nome può essere registrato (e possono essere inclusi marchi o simboli di copyright). Il nome non può contenere più di 50 caratteri e non può includere emoji.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Fornire una breve descrizione dell'offerta (fino a 100 caratteri), che può essere usata nei risultati della ricerca nel Marketplace.
 
@@ -181,7 +181,7 @@ Fornire una breve descrizione dell'offerta (fino a 100 caratteri), che può esse
 
 Fornire una descrizione più lunga dell'offerta (fino a 256 caratteri). La descrizione può essere usata nei risultati della ricerca nel Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrizione
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie. 
 
@@ -196,7 +196,7 @@ Alcuni suggerimenti per scrivere la descrizione:
 - Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti. 
 - Prendere in considerazione l'uso di tag HTML per formattare la descrizione e renderla più accattivante.
 
-### <a name="search-keywords"></a>Parole chiave di ricerca
+### <a name="search-keywords"></a>Search Keywords (Parole chiave di ricerca)
 
 Facoltativamente, è possibile immettere fino a tre parole chiave di ricerca per aiutare i clienti a trovare l'offerta nel Marketplace. Per ottenere risultati ottimali, provare a usare queste parole chiave anche nella descrizione.
 
@@ -313,11 +313,11 @@ La scheda **elenco piani** Visualizza le informazioni di visualizzazione specifi
 
 Pre-popolato in base al nome assegnato al piano al momento della creazione.  Questo nome verrà visualizzato come titolo di questo "piano software" visualizzato nel Marketplace.  Può contenere un massimo di 100 caratteri.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Fornire un breve riepilogo del piano software.  Può contenere un massimo di 100 caratteri.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrizione
 
 Questa descrizione è un'opportunità per spiegare cosa rende univoco questo piano software e qualsiasi differenza rispetto ad altri piani software all'interno dell'offerta. Può contenere un massimo di 2.000 caratteri.
 

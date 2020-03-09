@@ -8,11 +8,11 @@ ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 9849e8ab918562267e93506771a4c32cf96533a4
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544940"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362130"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -35,7 +35,7 @@ Le cause comuni di questo problema sono le seguenti:
 | CentOS | 7+ |  7.5+ |
 | Debian | 8+ |   |
 | openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| SuSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - Le utilità CIFS (CIFS-utils) non sono installate nel client.
 - La versione SMB/CIFS minima, ossia la 2.1, non è installata nel client.
@@ -112,7 +112,7 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
         - [Parallelo GNU](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) : Ordina i file e li comprime in partizioni.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) : USA fpart e uno strumento di copia per generare più istanze per eseguire la migrazione dei dati da src_dir a dst_url.
-        - [Multi](https://github.com/pkolano/mutil) CP e md5sum multithread multithreading basati su coreutils GNU.
+        - CP e [md5sum multithread](https://github.com/pkolano/mutil) multithreading basati su coreutils GNU.
 - Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del file di destinazione con `truncate - size <size><file>` comando. Successivamente, `dd if=<source> of=<target> bs=1M conv=notrunc`comando copierà un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
     - e quindi copiare i file senza estendere le Scritture in parallelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
@@ -288,6 +288,6 @@ Questo problema di riconnessione nel kernel Linux è stato corretto nell'ambito 
 
 Se non è possibile eseguire l'aggiornamento alle versioni del kernel più recenti, si può ovviare a questo problema conservando un file nella condivisione file di Azure in cui scrivere ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica del file. In caso contrario, i risultati verrebbero memorizzati nella cache e l'operazione potrebbe non attivare la riconnessione.
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

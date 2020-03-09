@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422592"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376682"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
@@ -65,7 +65,7 @@ Il diagramma seguente mostra i cataloghi con risorse per gli uffici marketing, F
 
 Dopo la delega, il reparto marketing potrebbe avere ruoli simili alla tabella seguente.
 
-| Utente | Posizione lavorativa | Ruolo di Azure AD | Ruolo di gestione dei diritti |
+| Utente | Ruolo di lavoro | Ruolo di Azure AD | Ruolo di gestione dei diritti |
 | --- | --- | --- | --- |
 | Hana | Amministratore IT | Amministratore globale o Amministratore utenti |  |
 | Muja | Responsabile marketing | Utente | Autore del catalogo e proprietario del catalogo |
@@ -76,7 +76,7 @@ Dopo la delega, il reparto marketing potrebbe avere ruoli simili alla tabella se
 
 La gestione dei diritti ha i seguenti ruoli specifici per la gestione dei diritti.
 
-| Ruolo di gestione dei diritti | Description |
+| Ruolo di gestione dei diritti | Descrizione |
 | --- | --- |
 | Creatore del catalogo | Creare e gestire cataloghi. In genere un amministratore IT che non è un amministratore globale o un proprietario di risorse per una raccolta di risorse. La persona che crea un catalogo diventa automaticamente il primo proprietario del catalogo e può aggiungere altri proprietari del catalogo. Un autore del catalogo non può gestire o vedere cataloghi di cui non è proprietario e non può aggiungere risorse di cui non è proprietario per un catalogo. Se l'autore del catalogo deve gestire un altro catalogo o aggiungere risorse di cui non è proprietario, può richiedere di essere un comproprietario di tale catalogo o risorsa. |
 | Proprietario Catalogo | Modificare e gestire cataloghi esistenti. In genere un amministratore IT o proprietari di risorse oppure un utente designato dal proprietario del catalogo. |
@@ -84,10 +84,10 @@ La gestione dei diritti ha i seguenti ruoli specifici per la gestione dei diritt
 
 Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto di accesso dispongono anche di diritti, anche se non sono ruoli.
 
-| Right | Description |
+| A destra | Descrizione |
 | --- | --- |
 | Responsabile approvazione | Autorizzazione eseguita da un criterio per approvare o negare le richieste di accesso ai pacchetti, sebbene non possano modificare le definizioni dei pacchetti di accesso. |
-| Utente supporto tecnico | Autorizzazione eseguita da un criterio di un pacchetto di accesso per richiedere il pacchetto di accesso. |
+| Richiedente | Autorizzazione eseguita da un criterio di un pacchetto di accesso per richiedere il pacchetto di accesso. |
 
 Nella tabella seguente sono elencate le attività che i ruoli di gestione dei diritti possono eseguire.
 
@@ -122,8 +122,8 @@ Per un utente che non è un amministratore globale o un amministratore di utenti
 
 | Ruolo della directory di Azure AD | Ruolo di gestione dei diritti | È possibile aggiungere un gruppo di sicurezza | È possibile aggiungere il gruppo Office 365 | È possibile aggiungere l'app | È possibile aggiungere il sito di SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Amministratore utenti](../users-groups-roles/directory-assign-admin-roles.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Amministratore utenti](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Amministratore di Intune](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Amministratore di Exchange](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  | :heavy_check_mark: |  |  |
 | [Amministratore del servizio Teams](../users-groups-roles/directory-assign-admin-roles.md) | Proprietario Catalogo |  | :heavy_check_mark: |  |  |

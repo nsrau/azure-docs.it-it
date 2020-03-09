@@ -1,5 +1,5 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: Utilità di pianificazione | Microsoft Docs'
+title: 'Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione | Documentazione Microsoft'
 description: Questo argomento illustra la funzionalità utilità di pianificazione predefinita nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65139298"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378110"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Servizio di sincronizzazione Azure AD Connect: Utilità di pianificazione
-In questo argomento viene descritta l'utilità di pianificazione predefinita nel servizio di sincronizzazione Azure AD Connect (motore di sincronizzazione).
+# <a name="azure-ad-connect-sync-scheduler"></a>Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione
+In questo argomento viene descritta l'utilità di pianificazione predefinita in Azure AD Connect Sync (motore di sincronizzazione).
 
 Questa funzionalità è stata introdotta nella build 1.1.105.0 rilasciata nel mese di febbraio 2016.
 
@@ -50,7 +50,7 @@ Se quando si esegue questo cmdlet viene visualizzato il messaggio **Non è dispo
 * **AllowedSyncCycleInterval**. L'intervallo di tempo più breve tra i cicli di sincronizzazione consentito da Azure AD. La sincronizzazione con una frequenza superiore a quella di questa impostazione non è supportata.
 * **CurrentlyEffectiveSyncCycleInterval**. pianificazione attualmente applicata. Ha lo stesso valore di CustomizedSyncInterval (se impostato), se non ha una frequenza superiore ad AllowedSyncInterval. Se si usa una build precedente alla 1.1.281 e si modifica il valore di CustomizedSyncCycleInterval, la modifica viene applicata dopo il ciclo di sincronizzazione successivo. Con la build 1.1.281 la modifica viene applicata immediatamente.
 * **CustomizedSyncCycleInterval**. Se si vuole che l'utilità di pianificazione sia eseguita con una frequenza diversa dal valore predefinito di 30 minuti, configurare questa impostazione. Nell'immagine precedente l'utilità di pianificazione è stata impostata per essere eseguita ogni ora. Se si configura questa impostazione su un valore inferiore a quello di AllowedSyncInterval, viene usato quest'ultimo valore.
-* **NextSyncCyclePolicyType**. differenziale o iniziale. Definisce se l'esecuzione successiva deve elaborare solo le modifiche differenziali o se deve eseguire un'importazione e una sincronizzazione complete, per poter rielaborare anche eventuali regole nuove o modificate.
+* **NextSyncCyclePolicyType**. differenziale o iniziale. Definisce se l'esecuzione successiva deve elaborare solo le modifiche delta o se l'esecuzione successiva deve eseguire un'importazione e una sincronizzazione complete. Quest'ultimo rielaborerà anche eventuali regole nuove o modificate.
 * **NextSyncCycleStartTimeInUTC**. Ora di inizio del prossimo ciclo di sincronizzazione da parte dell'utilità di pianificazione.
 * **PurgeRunHistoryInterval**. tempo di conservazione dei log operazioni. È possibile esaminare i log in Synchronization Service Manager. Per impostazione predefinita, i log vengono conservati per 7 giorni.
 * **SyncCycleEnabled**. indica se l'utilità di pianificazione esegue i processi di importazione, sincronizzazione ed esportazione come parte del funzionamento normale.
@@ -92,7 +92,7 @@ Dopo avere apportato le modifiche, ricordare di abilitare di nuovo l'utilità di
 ## <a name="start-the-scheduler"></a>Avviare l'utilità di pianificazione
 Per impostazione predefinita, l'utilità di pianificazione viene eseguita ogni 30 minuti. In alcuni casi, è possibile che si voglia eseguire un ciclo di sincronizzazione tra i cicli pianificati o che sia necessario eseguirne un tipo diverso.
 
-### <a name="delta-sync-cycle"></a>Ciclo di sincronizzazione differenziale
+### <a name="delta-sync-cycle"></a>Ciclo di sincronizzazione Delta
 Un ciclo di sincronizzazione differenziale include i passaggi seguenti:
 
 
@@ -109,24 +109,24 @@ Un ciclo di sincronizzazione completa include i passaggi seguenti:
 
 Potrebbe essere presente una modifica urgente da sincronizzare immediatamente e potrebbe essere quindi necessario eseguire manualmente un ciclo. 
 
-Se è necessario eseguire manualmente un ciclo di sincronizzazione, quindi in PowerShell eseguire `Start-ADSyncSyncCycle -PolicyType Delta`.
+Se è necessario eseguire manualmente un ciclo di sincronizzazione, da PowerShell eseguire `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 Per avviare un ciclo di sincronizzazione completa, eseguire `Start-ADSyncSyncCycle -PolicyType Initial` a un prompt di PowerShell.   
 
-Eseguendo un ciclo di sincronizzazione completa può richiedere molto tempo, leggere la sezione successiva per informazioni su come ottimizzare questo processo.
+L'esecuzione di un ciclo di sincronizzazione completa può richiedere molto tempo. leggere la sezione successiva per informazioni su come ottimizzare il processo.
 
-### <a name="sync-steps-required-for-different-configuration-changes"></a>Sincronizzare i passaggi necessari per le modifiche di configurazione diverso
-Modifiche di configurazione diverse richiedono passaggi di sincronizzazione diverso per assicurarsi che le modifiche vengono applicate correttamente a tutti gli oggetti.
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Passaggi di sincronizzazione necessari per diverse modifiche di configurazione
+Diverse modifiche di configurazione richiedono diversi passaggi di sincronizzazione per garantire che le modifiche vengano applicate correttamente a tutti gli oggetti.
 
-- Aggiunta di altri oggetti o attributi da importare da una directory di origine (per l'aggiunta/modifica le regole di sincronizzazione)
-    - Un'importazione completa è necessaria per il connettore per tale directory di origine
+- Aggiunta di altri oggetti o attributi da importare da una directory di origine (mediante l'aggiunta o la modifica delle regole di sincronizzazione)
+    - È necessaria un'importazione completa sul connettore per la directory di origine
 - Modifiche alle regole di sincronizzazione
-    - Una sincronizzazione completa è necessaria per il connettore per le regole di sincronizzazione modificate
+    - È necessaria una sincronizzazione completa sul connettore per le regole di sincronizzazione modificate
 - Modifica dei [filtri](how-to-connect-sync-configure-filtering.md) in modo che venga incluso un numero diverso di oggetti
-    - Un'importazione completa è necessaria per il connettore per ogni connettore di Active Directory a meno che non si usa il filtro basato su attributo in base agli attributi già importati nel motore di sincronizzazione
+    - È necessaria un'importazione completa sul connettore per ogni connettore AD, a meno che non si usi un filtro basato su attributi basato su attributi già importati nel motore di sincronizzazione.
 
-### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personalizzazione di un ciclo di sincronizzazione eseguire la giusta combinazione di passaggi di sincronizzazione Delta e Full
-Per evitare di eseguire un ciclo di sincronizzazione completo è possibile contrassegnare i connettori specifici per eseguire un passaggio completo usando i cmdlet seguenti.
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personalizzazione di un ciclo di sincronizzazione eseguire la combinazione corretta di passaggi Delta e sincronizzazione completa
+Per evitare l'esecuzione di un ciclo di sincronizzazione completa, è possibile contrassegnare connettori specifici per eseguire un passaggio completo usando i cmdlet seguenti.
 
 `Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
 
@@ -134,13 +134,13 @@ Per evitare di eseguire un ciclo di sincronizzazione completo è possibile contr
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-Esempio:  Se sono state apportate modifiche alle regole di sincronizzazione per il connettore "A foresta Active Directory" che non richiedono qualsiasi nuovi attributi deve essere importata è necessario eseguire il seguente cmdlet per eseguire una sincronizzazione delta del ciclo che inoltre una sincronizzazione completa passaggio per tale connettore.
+Esempio: se sono state apportate modifiche alle regole di sincronizzazione per il connettore "AD Forest A" che non richiedono l'importazione di nuovi attributi, è necessario eseguire i cmdlet seguenti per eseguire un ciclo di sincronizzazione Delta che ha eseguito anche un passaggio di sincronizzazione completa per il connettore.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-Esempio:  Se sono state apportate modifiche alle regole di sincronizzazione per il connettore "A foresta Active Directory" in modo che richiedano ora un nuovo attributo deve essere importata eseguire i cmdlet seguenti per eseguire un ciclo di sincronizzazione delta che ha anche un'importazione completa, il passaggio sincronizzazione completa per tale connettore.
+Esempio: se sono state apportate modifiche alle regole di sincronizzazione per il connettore "AD Forest A" in modo che ora richiedano l'importazione di un nuovo attributo, eseguire i cmdlet seguenti per eseguire un ciclo di sincronizzazione Delta che ha eseguito anche un'importazione completa, passaggio di sincronizzazione completa per il connettore.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 
@@ -157,7 +157,7 @@ Se l'utilità di pianificazione sta eseguendo un ciclo di sincronizzazione, potr
 Quando un ciclo di sincronizzazione è in esecuzione, non è possibile modificare la configurazione. Si può attendere il completamento del processo da parte dell'utilità di pianificazione oppure è possibile interromperlo, per potere apportare immediatamente le modifiche. L'arresto del ciclo corrente non è dannoso e le modifiche in sospeso vengono elaborate all'esecuzione successiva.
 
 1. Richiedere prima di tutto all'utilità di pianificazione di interrompere il ciclo corrente con il cmdlet `Stop-ADSyncSyncCycle`di PowerShell.
-2. Se si usa una build precedente alla 1.1.281, l'arresto dell'utilità di pianificazione non comporta l'interruzione dell'attività corrente del connettore attuale. Per imporre l'arresto del connettore, eseguire queste azioni:  ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Se si usa una build precedente alla 1.1.281, l'arresto dell'utilità di pianificazione non comporta l'interruzione dell'attività corrente del connettore attuale. Per imporre l'arresto del connettore, eseguire queste azioni: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Avviare **Synchronization Service** (Servizio di sincronizzazione) dal menu Start. Passare a **Connettori**, evidenziare il connettore con stato **In esecuzione** e selezionare **Arresta** fra le azioni.
 
 L'utilità di pianificazione è ancora attiva e viene riavviata alla successiva opportunità.
@@ -207,4 +207,4 @@ Se si avvia l'installazione guidata, l'utilità di pianificazione viene sospesa 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](how-to-connect-sync-whatis.md).
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

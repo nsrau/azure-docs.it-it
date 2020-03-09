@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155147"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378091"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
 
@@ -24,7 +24,7 @@ Le persone si connettono alle risorse dell'organizzazione in scenari sempre più
 
 [Azure multi-factor authentication (](concept-mfa-howitworks.md) multi-factor authentication) consente di proteggere l'accesso ai dati e alle applicazioni. Fornisce un livello di sicurezza aggiuntivo utilizzando una seconda forma di autenticazione. Le organizzazioni possono usare [l'accesso condizionale](../conditional-access/overview.md) per rendere la soluzione adatta alle proprie esigenze specifiche.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare una distribuzione di Azure Multi-Factor Authentication, è necessario prendere in considerazione elementi prerequisiti.
 
@@ -85,7 +85,7 @@ Alcuni dei rilevamenti dei rischi rilevati da Azure Active Directory Identity Pr
 ### <a name="configuring-a-named-location"></a>Configurazione di un percorso denominato
 
 1. Aprire **Azure Active Directory** nella portale di Azure
-2. Selezionare la **sicurezza**
+2. Scegliere **Sicurezza**
 3. In **Gestisci**scegliere **località denominate**
 4. Seleziona **nuova posizione**
 5. Nel campo **nome** specificare un nome significativo
@@ -221,7 +221,7 @@ Per pianificare la strategia di criteri di accesso condizionale, che determina q
 ### <a name="create-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale.
-1. Passare a **Azure Active Directory** **sicurezza** >  > **l'accesso condizionale**.
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
    ![creare un criterio di accesso condizionale per abilitare l'autenticazione a più fattori per portale di Azure utenti del gruppo pilota](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Immettere un nome significativo per i criteri.
@@ -277,7 +277,7 @@ Se è già stata distribuita un'istanza NPS e in uso, fare riferimento a [integr
 
 Scegliere cosa accade quando gli utenti che non sono registrati con l'autenticazione a più fattori tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema `REQUIRE_USER_MATCH` nel percorso del registro di sistema `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | Valore | Predefinito |
+| Chiave | valore | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Non impostato (equivalente a VERO) |
 
@@ -288,11 +288,11 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 | La chiave non esiste | Non registrato | La richiesta di autenticazione a più fattori non è riuscita |
 | Il valore è impostato su true/not set | Non registrato | La richiesta di autenticazione a più fattori non è riuscita |
 | Chiave impostata su false | Non registrato | Autenticazione senza autenticazione a più fattori |
-| La chiave è impostata su false o true | Registrazione eseguita | Eseguire l'autenticazione con l'autenticazione a più fattori |
+| La chiave è impostata su false o true | Registrati | Eseguire l'autenticazione con l'autenticazione a più fattori |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrazione con Active Directory Federation Services
 
-Se l'organizzazione è federata con Azure AD, è possibile usare [multi-factor authentication di Azure per proteggere le risorse ad FS](multi-factor-authentication-get-started-adfs.md), sia in locale che nel cloud. Autenticazione a più fattori di Azure consente di ridurre le password e fornire un modo più sicuro per l'autenticazione. A partire da Windows Server 2016, è possibile configurare autenticazione a più Fattori di Azure per l'autenticazione principale.
+Se l'organizzazione è federata con Azure AD, è possibile usare [multi-factor authentication di Azure per proteggere le risorse ad FS](multi-factor-authentication-get-started-adfs.md), sia in locale che nel cloud. Autenticazione a più fattori di Azure consente di ridurre le password e fornire un modo più sicuro per l'autenticazione. A partire da Windows Server 2016, è ora possibile configurare l'autenticazione a più fattori di Azure per l'autenticazione principale.
 
 A differenza di quanto accade con AD FS in Windows Server 2012 R2, l'adapter multi-factor authentication di Azure AD FS 2016 si integra direttamente con Azure AD e non richiede un server di autenticazione a più fattori locale di Azure. La scheda multi-factor authentication di Azure è incorporata in Windows Server 2016 e non è necessaria un'installazione aggiuntiva.
 
@@ -347,7 +347,7 @@ Report per l'autenticazione a più fattori di Azure
 
 Azure Multi-Factor Authentication fornisce report tramite i portale di Azure:
 
-| Documentazione | Percorso | Description |
+| Report | Location | Descrizione |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

@@ -5,11 +5,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: 514f1d6631a70301589943ddb7920ca3c9c46062
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609222"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363014"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Eseguire un failover dal sito locale in Azure
 
@@ -32,7 +32,7 @@ Per connettersi alle macchine virtuali di Azure tramite RDP/SSH dopo il failover
 
 **Dopo il failover** | **Posizione** | **Actions**
 --- | --- | ---
-**VM di Azure che esegue Windows** | Computer locale prima del failover | Per accedere alla VM di Azure tramite Internet, abilitare RDP e assicurarsi che vengano aggiunte regole TCP e UDP per **Pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per l'accesso alla VM di Azure tramite una connessione da sito a sito, abilitare RDP nel computer e assicurarsi che il protocollo RDP sia consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.<br/><br/> <br/><br/> Rimuovere le route persistenti statiche e il proxy WinHTTP. Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135)<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. L'aggiornamento di Windows potrebbe essere avviato durante il failover e non si potrà accedere alla macchina virtuale finché non sarà completato.
+**VM di Azure che esegue Windows** | Computer locale prima del failover | Per accedere alla VM di Azure tramite Internet, abilitare RDP e assicurarsi che vengano aggiunte regole TCP e UDP per **Pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per l'accesso alla VM di Azure tramite una connessione da sito a sito, abilitare RDP nel computer e assicurarsi che il protocollo RDP sia consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.<br/><br/> <br/><br/> Rimuovere le route persistenti statiche e il proxy WinHTTP. Verificare che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/kb/3031135).<br/><br/> Quando si attiva un failover, verificare che nella macchina virtuale non siano in sospeso aggiornamenti di Windows. L'aggiornamento di Windows potrebbe essere avviato durante il failover e non si potrà accedere alla macchina virtuale finché non sarà completato.
 **VM di Azure che esegue Linux** | Computer locale prima del failover | Assicurarsi che il servizio Secure Shell nella macchina virtuale sia impostato per l'avvio automatico all'avvio del sistema.<br/><br/> Verificare che le regole firewall accettino la connessione SSH.
 
 
@@ -137,7 +137,7 @@ Seguire i passaggi descritti [qui](site-recovery-failover-to-azure-troubleshoot.
     - Mantenere lo stesso indirizzo IP: è possibile usare lo stesso indirizzo IP nella macchina virtuale di Azure come quello allocato al computer locale.
     - Usare un indirizzo IP diverso: è possibile usare un indirizzo IP diverso per la macchina virtuale di Azure.
     - [Altre](concepts-on-premises-to-azure-networking.md#assign-an-internal-address) informazioni sulla configurazione degli indirizzi IP interni.
-- **Indirizzi IP esterni**: è possibile mantenere gli indirizzi IP pubblici in seguito al failover. Alle macchine virtuali di Azure create come parte del processo di failover deve essere assegnato un indirizzo IP pubblico di Azure disponibile nell'area di Azure. È possibile assegnare un indirizzo IP pubblico manualmente o automatizzando il processo con un piano di ripristino. [Altre informazioni](concepts-public-ip-address-with-site-recovery.md)
+- **Indirizzi IP esterni**: è possibile mantenere gli indirizzi IP pubblici in seguito al failover. Alle macchine virtuali di Azure create come parte del processo di failover deve essere assegnato un indirizzo IP pubblico di Azure disponibile nell'area di Azure. È possibile assegnare un indirizzo IP pubblico manualmente o automatizzando il processo con un piano di ripristino. [Altre informazioni](concepts-public-ip-address-with-site-recovery.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

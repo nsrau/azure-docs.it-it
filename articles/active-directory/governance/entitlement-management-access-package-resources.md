@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174653"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376619"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -103,7 +103,7 @@ Per altre informazioni, vedere [confrontare gruppi](https://docs.microsoft.com/o
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un gruppo o un team](./media/entitlement-management-access-package-resources/group-role.png)
 
-1. Fare clic su **Aggiungi**.
+1. Fare clic su **Add**.
 
     Tutti gli utenti con assegnazioni esistenti al pacchetto di accesso diventeranno automaticamente membri di questo gruppo o team quando verranno aggiunti.
 
@@ -134,7 +134,7 @@ Di seguito sono riportate alcune considerazioni per la selezione di un'applicazi
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un'applicazione](./media/entitlement-management-access-package-resources/application-role.png)
 
-1. Fare clic su **Aggiungi**.
+1. Fare clic su **Add**.
 
     A tutti gli utenti con assegnazioni esistenti al pacchetto di accesso verrà automaticamente concesso l'accesso a questa applicazione al momento dell'aggiunta.
 
@@ -154,7 +154,7 @@ Azure AD possibile assegnare automaticamente agli utenti l'accesso a un sito di 
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un sito di SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
-1. Fare clic su **Aggiungi**.
+1. Fare clic su **Add**.
 
     A tutti gli utenti con assegnazioni esistenti al pacchetto di accesso verrà automaticamente concesso l'accesso al sito di SharePoint Online quando viene aggiunto.
 
@@ -178,7 +178,7 @@ Azure AD possibile assegnare automaticamente agli utenti l'accesso a un sito di 
 
 Per la gestione dei diritti, Azure AD elaborerà le modifiche bulk per l'assegnazione e le risorse nei pacchetti di accesso più volte al giorno. Se quindi si effettua un'assegnazione o si modificano i ruoli delle risorse del pacchetto di accesso, possono essere necessarie fino a 24 ore prima che la modifica venga effettuata in Azure AD, oltre alla quantità di tempo necessaria per propagare tali modifiche ad altri Microsoft Online Services o a un'applicazione SaaS connessa s. Se la modifica interessa solo pochi oggetti, la modifica richiederà solo alcuni minuti per l'applicazione Azure AD, dopo la quale altri componenti Azure AD rileveranno la modifica e aggiorneranno le applicazioni SaaS. Se la modifica interessa migliaia di oggetti, la modifica avrà più tempo. Se, ad esempio, si dispone di un pacchetto di accesso con due applicazioni e 100 assegnazioni utente e si decide di aggiungere un ruolo del sito di SharePoint al pacchetto di accesso, è possibile che si verifichi un ritardo fino a quando tutti gli utenti non fanno parte del ruolo del sito di SharePoint. È possibile monitorare lo stato di avanzamento tramite il registro di controllo Azure AD, il log di provisioning Azure AD e i log di controllo del sito di SharePoint.
 
-Quando si rimuove un membro di un team, questi vengono rimossi anche dal gruppo di Office 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)a un gruppo.
+Quando si rimuove un membro di un team, questo membro del team viene rimosso anche dal gruppo di Office 365. La rimozione dalla funzionalità di chat del team potrebbe essere posticipata. Per ulteriori informazioni, vedere [appartenenza](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)a un gruppo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

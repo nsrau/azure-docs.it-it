@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 94dc0b5da348989c60922fdd8c95e3e22d2b4a83
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661244"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385290"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -158,7 +158,7 @@ Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possi
 Prima di tutto è necessario creare le macchine virtuali per questo cluster. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end.
 
 1. Creare un gruppo di risorse
-1. Creazione di una rete virtuale
+1. Creare una rete virtuale
 1. Creare un set di disponibilità  
    Impostare il numero massimo di domini di aggiornamento
 1. Creare la macchina virtuale 1  
@@ -175,7 +175,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
          1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-ascs-frontend**
          1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.7**
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Indirizzo IP 10.0.0.8 per ASCS ERS
          * Ripetere i passaggi precedenti per creare un indirizzo IP per ERS, ad esempio **10.0.0.8** e **nw1-aers-backend**
    1. Creare i pool back-end
@@ -193,7 +193,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-ascs-hp**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Porta 621**02** per ASCS ERS
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
@@ -204,7 +204,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Selezionare le **porte a disponibilità elevata**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Fare clic su OK
+         1. Fare clic su OK.
          * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **NW1-lb-ERS**
 1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
@@ -212,7 +212,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
          1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio **nw1-ascs-frontend**
          1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.7**
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Indirizzo IP 10.0.0.8 per ASCS ERS
          * Ripetere i passaggi precedenti per creare un indirizzo IP per ERS, ad esempio **10.0.0.8** e **nw1-aers-backend**
    1. Creare i pool back-end
@@ -222,7 +222,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Fare clic su Aggiungi una macchina virtuale.
          1. Selezionare il set di disponibilità creato in precedenza
          1. Selezionare le macchine virtuali del cluster (A)SCS
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Creare un pool back-end per ASCS ERS
          * Ripetere i passaggi precedenti per creare un pool back-end per ERS, ad esempio **nw1-aers-backend**
    1. Creare i probe di integrità
@@ -230,7 +230,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-ascs-hp**
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Porta 621**02** per ASCS ERS
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
@@ -241,7 +241,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Mantenere il protocollo **TCP**, immettere la porta **3200**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Porte aggiuntive per ASCS
          * Ripetere i passaggi precedenti per le porte 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP per ASCS
       1. Porte aggiuntive per ASCS ERS
