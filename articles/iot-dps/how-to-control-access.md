@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453797"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396066"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controllo dell'accesso al servizio Device Provisioning in hub IoT di Azure
 
@@ -24,7 +24,7 @@ L'articolo illustra:
 * Le diverse autorizzazioni che è possibile concedere a un'app back-end per accedere al servizio di provisioning.
 * Il processo di autenticazione e i token usati per verificare le autorizzazioni.
 
-### <a name="when-to-use"></a>Quando usare questa opzione
+### <a name="when-to-use"></a>Utilizzo
 
 È necessario avere le autorizzazioni appropriate per accedere agli endpoint del servizio di provisioning. Un'app back-end, ad esempio, deve includere un token contenente le credenziali di sicurezza con ogni messaggio inviato al servizio.
 
@@ -39,7 +39,7 @@ Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è p
 > [!NOTE]
 > Per informazioni dettagliate, vedere [Autorizzazioni](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Servizio Device Provisioning in hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso. Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
 
@@ -75,7 +75,7 @@ Il token di sicurezza ha il formato seguente:
 
 I valori previsti sono i seguenti:
 
-| Valore | Description |
+| valore | Descrizione |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256.|
 | {expiry} |Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |

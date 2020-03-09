@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una VM - Portale di Azure'
+title: 'Guida introduttiva: diagnosticare un problema di filtro del traffico di rete della macchina virtuale-portale di Azure'
 titleSuffix: Azure Network Watcher
 description: In questa guida introduttiva si apprende come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale usando la funzionalità di verifica del flusso IP di Azure Network Watcher.
 services: network-watcher
@@ -18,13 +18,13 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844922"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381192"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il Portale di Azure
 
 In questa guida introduttiva si distribuisce una macchina virtuale e quindi si controllano le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 
@@ -40,13 +40,13 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter** o una versione di **Ubuntu Server**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
-    |Nome|myVm|
+    |Name|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selezionare la propria sottoscrizione.|
-    |Resource group| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
+    |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
     |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
@@ -76,13 +76,13 @@ Quando si crea una macchina virtuale, per impostazione predefinita Azure consent
 2. Selezionare **Verifica flusso IP** in **Strumenti di diagnostica di rete**.
 3. Selezionare la sottoscrizione, immettere o selezionare i valori seguenti e quindi selezionare **Controllo**, come illustrato nell'immagine seguente:
 
-    |Impostazione            |valore                                                                                              |
+    |Impostazione            |Valore                                                                                              |
     |---------          |---------                                                                                          |
-    | Resource group    | Selezionare myResourceGroup                                                                            |
+    | Gruppo di risorse    | Selezionare myResourceGroup                                                                            |
     | Macchina virtuale   | Selezionare myVm                                                                                       |
     | interfaccia di rete | MyVM: il nome dell'interfaccia di rete creata dal portale quando è stata creata la VM è diverso. |
     | Protocollo          | TCP                                                                                               |
-    | Direction         | In uscita                                                                                          |
+    | Direzione         | Inserimento in                                                                                          |
     | Indirizzo IP locale  | 10.0.0.4                                                                                          |
     | Porta locale      | 60000                                                                                                |
     | Indirizzo IP remoto | 13.107.21.200: uno degli indirizzi per <www.bing.com>.                                             |

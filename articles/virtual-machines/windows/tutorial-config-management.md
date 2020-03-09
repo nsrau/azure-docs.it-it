@@ -16,17 +16,17 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064807"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373023"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Windows in Azure
+# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Esercitazione: monitorare le modifiche e aggiornare una macchina virtuale Windows in Azure
 
 Con [Rilevamento modifiche](../../automation/change-tracking.md) e [Gestione aggiornamenti](../../automation/automation-update-management.md) di Azure, è possibile identificare facilmente le modifiche apportate alle macchine virtuali Windows in Azure e gestire gli aggiornamenti del sistema operativo per tali VM.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Gestire gli aggiornamenti di Windows.
@@ -115,7 +115,7 @@ Per installare gli aggiornamenti, pianificare una distribuzione che rispetti la 
 
 Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtuale, selezionare **Pianifica la distribuzione di aggiornamenti** nella parte superiore della finestra **Gestione aggiornamenti**. Nella finestra **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | --- | --- |
 | **Nome** |immettere un nome univoco per identificare la distribuzione di aggiornamenti. |
 |**Sistema operativo**| Selezionare **Linux** o **Windows**.|
@@ -144,9 +144,9 @@ Selezionare la distribuzione di aggiornamenti completata per visualizzare il das
 
 Il riquadro **Risultati aggiornamento** include un riepilogo del numero totale di aggiornamenti e dei risultati della distribuzione nella macchina virtuale. La tabella a destra offre una suddivisione dettagliata di ogni aggiornamento e dei risultati dell'installazione. Ogni risultato ha uno dei valori seguenti:
 
-* **Tentativo non eseguito**: l'aggiornamento non viene installato. Il tempo disponibile in base alla durata della finestra di manutenzione definita non è sufficiente.
-* **Completato**: aggiornamento completato.
-* **Operazione non riuscita**: aggiornamento non riuscito.
+* **Tentativo non**eseguito: l'aggiornamento non è installato. Il tempo disponibile in base alla durata della finestra di manutenzione definita non è sufficiente.
+* **Completato**: l'aggiornamento è stato completato.
+* **Non riuscito**: l'aggiornamento non è riuscito.
 
 Selezionare **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
 

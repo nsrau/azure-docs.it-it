@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870922"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386977"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Utilizzo di matrici e oggetti in Azure Cosmos DB
 
@@ -157,6 +157,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
-- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Join](sql-query-join.md)
+- [Guida introduttiva](sql-query-getting-started.md)
+- [Esempi di Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Unisce](sql-query-join.md)

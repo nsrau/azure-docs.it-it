@@ -11,11 +11,11 @@ ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818028"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360530"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Esercitazione: Proteggere un database singolo o in pool
 
@@ -157,7 +157,7 @@ Per aggiungere utenti, scegliere il tipo di autenticazione del database:
 
 - **Autenticazione di Azure AD**: usa le identità gestite da Azure AD
 
-### <a name="sql-authentication"></a>Autenticazione in SQL
+### <a name="sql-authentication"></a>Autenticazione SQL
 
 Per aggiungere un utente con l'autenticazione di SQL:
 

@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Descrive i requisiti di rete per l'esecuzione di Azure Dev Spaces nei servizi Kubernetes di Azure
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, CNI, kubenet, SDN, rete
 ms.openlocfilehash: 9e32e3b65451dceefaeeaf7faed7c8337797e0b8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044984"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389655"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurare la rete per Azure Dev Spaces in topologie di rete diverse
 
@@ -28,7 +28,7 @@ Azure Dev Spaces prevede determinati requisiti per il traffico di rete in *ingre
 
 Azure Dev Spaces richiede il traffico in ingresso e in uscita per i nomi di dominio completi seguenti:
 
-| Nome di dominio completo                       | Porta       | Uso      |
+| FQDN                       | Porta       | Usare      |
 |----------------------------|------------|----------|
 | cloudflare.docker.com      | HTTPS: 443 | Per eseguire il pull delle immagini Docker per Azure Dev Spaces |
 | gcr.io                     | HTTPS: 443 | Per eseguire il pull delle immagini Helm per Azure Dev Spaces |
@@ -65,16 +65,16 @@ I cluster AKS consentono di configurare una sicurezza aggiuntiva che limita qual
 
 A questo punto, Azure Dev Spaces non è supportato con i [cluster privati AKS][aks-private-clusters].
 
-## <a name="client-requirements"></a>Requisiti per i client
+## <a name="client-requirements"></a>Requisiti client
 
 Azure Dev Spaces usa gli strumenti lato client, ad esempio l'estensione dell'interfaccia della riga di comando Azure Dev Spaces, l'estensione Visual Studio Code e l'estensione di Visual Studio per comunicare con il cluster AKS per il debug. Per usare gli strumenti Azure Dev Spaces lato client, consentire il traffico dai computer di sviluppo al dominio *azds-\*. azds.io* . Vedere *dataplaneFqdn* in `USERPROFILE\.azds\settings.json` per il nome FQDN esatto. Se si usano gli [intervalli IP autorizzati del server API][auth-range-section], è anche necessario consentire l'indirizzo IP di tutti i computer di sviluppo che si connettono al cluster AKS per eseguire il debug per la connessione al server API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come Azure Dev Spaces consente di sviluppare applicazioni più complesse in più contenitori e su come è possibile semplificare lo sviluppo collaborativo usando versioni o rami diversi del codice in spazi diversi.
+Scopri in che modo Azure Dev Spaces ti aiuta a sviluppare applicazioni più complesse tra più contenitori e come semplificare lo sviluppo collaborativo lavorando con versioni o rami diversi del codice in spazi diversi.
 
 > [!div class="nextstepaction"]
-> [Sviluppo in team in Azure Dev Spaces][team-quickstart]
+> [Sviluppo team in Azure Dev Spaces][team-quickstart]
 
 [aks-cni]: ../aks/configure-azure-cni.md
 [aks-cni-ip-planning]: ../aks/configure-azure-cni.md#plan-ip-addressing-for-your-cluster
