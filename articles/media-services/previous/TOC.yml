@@ -393,6 +393,7 @@
           href: media-services-deliver-asset-download.md
         - name: Scenario di streaming con failover
           href: media-services-implement-failover.md
+          displayName: 'HA, high availability'
     - name: Utilizzo
       items:
         - name: Riprodurre contenuti multimediali con i lettori esistenti
