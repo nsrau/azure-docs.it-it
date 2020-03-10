@@ -9,11 +9,11 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200090"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381135"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Eseguire il servizio di gestione certificati dell'insieme di credenziali OPC in modo sicuro
 
@@ -32,15 +32,15 @@ Il microservizio dell'insieme di credenziali OPC consente ai ruoli distinti di a
 
 Il microservizio dell'insieme di credenziali OPC definisce i ruoli seguenti:
 
-- **Lettore**: Per impostazione predefinita, qualsiasi utente autenticato nel tenant ha accesso in lettura. 
+- **Reader**: per impostazione predefinita, qualsiasi utente autenticato nel tenant ha accesso in lettura. 
   - Accesso in lettura alle applicazioni e alle richieste di certificati. Consente di elencare ed eseguire query per le applicazioni e le richieste di certificati. Inoltre, le informazioni di individuazione dei dispositivi e i certificati pubblici sono accessibili con accesso in lettura.
-- **Writer**: Il ruolo writer viene assegnato a un utente per aggiungere le autorizzazioni di scrittura per determinate attività. 
+- **Writer**: il ruolo writer viene assegnato a un utente per aggiungere le autorizzazioni di scrittura per determinate attività. 
   - Accesso in lettura/scrittura alle applicazioni e alle richieste di certificati. Consente di registrare, aggiornare e annullare la registrazione delle applicazioni. Può creare richieste di certificati e ottenere chiavi private e certificati approvati. Consente inoltre di eliminare le chiavi private.
-- **Responsabile approvazione**: Il ruolo responsabile approvazione viene assegnato a un utente per approvare o rifiutare le richieste di certificati. Il ruolo non include altri ruoli.
+- **Responsabile approvazione**: il ruolo responsabile approvazione viene assegnato a un utente per approvare o rifiutare le richieste di certificati. Il ruolo non include altri ruoli.
   - Oltre al ruolo responsabile approvazione per accedere all'API del microservizio dell'insieme di credenziali OPC, l'utente deve avere anche l'autorizzazione per la firma della chiave in Azure Key Vault per poter firmare i certificati.
   - Il ruolo writer e responsabile approvazione deve essere assegnato a utenti diversi.
   - Il ruolo principale del responsabile approvazione è l'approvazione della generazione e del rifiuto delle richieste di certificati.
-- **Amministratore**: Il ruolo di amministratore viene assegnato a un utente per gestire i gruppi di certificati. Il ruolo non supporta il ruolo responsabile approvazione, ma include il ruolo writer.
+- **Administrator**: il ruolo di amministratore viene assegnato a un utente per gestire i gruppi di certificati. Il ruolo non supporta il ruolo responsabile approvazione, ma include il ruolo writer.
   - L'amministratore può gestire i gruppi di certificati, modificare la configurazione e revocare i certificati dell'applicazione emettendo un nuovo elenco di revoche di certificati (CRL).
   - Idealmente, i ruoli writer, responsabile approvazione e amministratore vengono assegnati a utenti diversi. Per una maggiore sicurezza, un utente con il ruolo di responsabile approvazione o amministratore deve avere anche l'autorizzazione per la firma della chiave in Key Vault, per emettere certificati o per rinnovare un certificato CA dell'emittente.
   - Oltre al ruolo di amministrazione del microservizio, il ruolo include, ma non è limitato a:
@@ -82,7 +82,7 @@ Usare la funzionalità di autenticazione a più fattori (detta anche autenticazi
 
 Il servizio certificati deve disporre di un piano di risposta di sicurezza aggiornato sul file, che contiene contatti dettagliati di risposta agli eventi imprevisti.
 
-### <a name="security-updates"></a>Aggiornamenti della sicurezza
+### <a name="security-updates"></a>Aggiornamenti per la sicurezza
 
 Tutti i sistemi devono essere monitorati e aggiornati continuamente con gli aggiornamenti della sicurezza più recenti.
 
@@ -110,19 +110,19 @@ Mantenere un inventario degli asset per tutti gli host di produzione (incluse le
 #### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Inventario della distribuzione di produzione del microservizio dell'insieme di credenziali di Azure OPC predefinito 
 
 In Azure:
-- **App Service Plan** (Piano di servizio app): Piano di servizio app per gli host del servizio. S1 predefinito.
-- **Servizio app** per microservizio: Host del servizio dell'insieme di credenziali OPC.
-- **Servizio app** per l'applicazione di esempio: L'host dell'applicazione di esempio dell'insieme di credenziali OPC.
-- **Key Vault standard**: Per archiviare i segreti e le chiavi di Azure Cosmos DB per i servizi Web.
-- **Key Vault Premium**: Per ospitare le chiavi CA dell'autorità emittente, per il servizio di firma e per la configurazione dell'insieme di credenziali e l'archiviazione delle chiavi private dell'applicazione.
-- **Azure Cosmos DB**: Database per richieste di certificati e applicazioni. 
+- **Piano di servizio app**: piano di servizio app per gli host del servizio. S1 predefinito.
+- **Servizio app** per microservizio: host del servizio dell'insieme di credenziali OPC.
+- **Servizio app** per l'applicazione di esempio: host dell'applicazione di esempio dell'insieme di credenziali OPC.
+- **Key Vault standard**: per archiviare segreti e chiavi Azure Cosmos DB per i servizi Web.
+- **Key Vault Premium**: per ospitare le chiavi CA dell'autorità emittente, per il servizio di firma e per la configurazione dell'insieme di credenziali e l'archiviazione delle chiavi private dell'applicazione.
+- **Azure Cosmos DB**: database per le richieste dell'applicazione e del certificato. 
 - **Application Insights**: (facoltativo) soluzione di monitoraggio per l'applicazione e il servizio Web.
-- **Azure ad registrazione dell'applicazione**: Una registrazione per l'applicazione di esempio, il servizio e il modulo perimetrale.
+- **Azure ad registrazione dell'applicazione**: una registrazione per l'applicazione di esempio, il servizio e il modulo perimetrale.
 
 Per i servizi cloud, è necessario documentare tutti i nomi host, i gruppi di risorse, i nomi delle risorse, gli ID sottoscrizione e gli ID tenant usati per distribuire il servizio. 
 
 In Azure IoT Edge o in un server di IoT Edge locale:
-- **Modulo di IOT Edge**dell'insieme di credenziali OPC: Per supportare un server di individuazione globale della rete aziendale OPC UA. 
+- **OPC Vault IOT Edge Module**: per supportare un server di individuazione globale della rete aziendale OPC UA. 
 
 Per i dispositivi IoT Edge, è necessario documentare i nomi host e gli indirizzi IP. 
 
@@ -174,8 +174,8 @@ Il servizio dell'insieme di credenziali OPC è un'autorità di certificazione on
   - Le chiavi CA radice RSA con una durata tipica maggiore o uguale a 20 anni devono avere una lunghezza di 4096 bit o superiore.
   - Le chiavi CA dell'autorità emittente RSA devono essere di almeno 2048 bit. Se la data di scadenza del certificato della CA è successiva alla 2030, la chiave della CA deve essere 4096 bit o superiore.
 - Durata del certificato
-  - Certificati CA radice: Il periodo di validità massimo del certificato per le autorità di certificazione radice non deve superare i 25 anni.
-  - CA Sub o certificati CA autorità emittente online: Il periodo di validità massimo del certificato per le CA online ed emette solo i certificati del Sottoscrittore non deve superare i 6 anni. Per queste autorità di certificazione, la chiave di firma privata correlata non deve essere usata più di 3 anni per emettere nuovi certificati.<br>
+  - Certificati CA radice: il periodo di validità massimo del certificato per le autorità di certificazione radice non deve superare i 25 anni.
+  - Sub CA o certificati CA autorità emittente online: il periodo di validità massimo del certificato per le autorità di certificazione online ed emette solo i certificati del Sottoscrittore non deve superare i 6 anni. Per queste autorità di certificazione, la chiave di firma privata correlata non deve essere usata più di 3 anni per emettere nuovi certificati.<br>
     > [!IMPORTANT]
     > Il certificato dell'autorità emittente, così come viene generato nel microservizio dell'insieme di credenziali OPC predefinito senza CA radice esterna, viene considerato come una CA in linea, con i rispettivi requisiti e durate. La durata predefinita è impostata su 5 anni, con una lunghezza della chiave maggiore o uguale a 2048.
   - Tutte le chiavi asimmetriche devono avere una durata massima di 5 anni e una durata consigliata di 1 anno.<br>
@@ -190,8 +190,8 @@ Il servizio dell'insieme di credenziali OPC è un'autorità di certificazione on
 
 ### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>Le chiavi e i certificati della CA devono soddisfare i requisiti minimi
 
-- **Chiavi private**: Le chiavi RSA devono essere di almeno 2048 bit. Se la data di scadenza del certificato della CA è successiva alla 2030, la chiave della CA deve essere 4096 bit o superiore.
-- **Durata**: Il periodo di validità massimo del certificato per le CA online ed emette solo i certificati del Sottoscrittore non deve superare i 6 anni. Per queste autorità di certificazione, la chiave di firma privata correlata non deve essere usata più di 3 anni per emettere nuovi certificati.
+- **Chiavi private**: le chiavi RSA devono essere di almeno 2048 bit. Se la data di scadenza del certificato della CA è successiva alla 2030, la chiave della CA deve essere 4096 bit o superiore.
+- **Durata**: il periodo di validità massimo del certificato per le CA online ed emette solo i certificati del Sottoscrittore non deve superare i 6 anni. Per queste autorità di certificazione, la chiave di firma privata correlata non deve essere usata più di 3 anni per emettere nuovi certificati.
 
 ### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>Le chiavi CA sono protette mediante moduli di protezione hardware
 
@@ -208,7 +208,7 @@ Documentare e gestire le procedure operative standard (SOP) per il rilascio dei 
 - Il modo in cui la richiesta di certificato viene elaborata e convalidata (se applicabile, include anche la modalità di elaborazione delle richieste di rinnovo del certificato e rekey). 
 - Modalità di distribuzione dei certificati emessi ai sottoscrittori. 
 
-Il SOP del microservizio dell'insieme di credenziali OPC è descritto nell'architettura dell'insieme di credenziali [OPC](overview-opc-vault-architecture.md) e [gestire il servizio certificati dell'](howto-opc-vault-manage.md)insieme di credenziali OPC. Le procedure seguono "OPC Unified Architecture Specification part 12: Individuazione e servizi globali ".
+Il SOP del microservizio dell'insieme di credenziali OPC è descritto nell'architettura dell'insieme di credenziali [OPC](overview-opc-vault-architecture.md) e [gestire il servizio certificati dell'](howto-opc-vault-manage.md)insieme di credenziali OPC. Le procedure seguono "OPC Unified Architecture Specification part 12: Discovery and Global Services".
 
 
 ### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Documentare e gestire le procedure PKI operative standard per la revoca dei certificati

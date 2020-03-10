@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a9de9435c0e2fb2b67733a995ff412978ea02d89
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250304"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898785"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Parole chiave in Azure Cosmos DB
 Questo articolo descrive in dettaglio le parole chiave che possono essere usate nelle query SQL Azure Cosmos DB.
@@ -126,9 +126,11 @@ Nell'esempio seguente vengono restituiti tutti gli elementi in cui lo stato è u
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-L'API SQL fornisce supporto per l' [iterazione su matrici JSON](sql-query-object-array.md#Iteration), con un nuovo costrutto aggiunto tramite la parola chiave in nell'origine da. 
+L'API SQL fornisce supporto per l' [iterazione su matrici JSON](sql-query-object-array.md#Iteration), con un nuovo costrutto aggiunto tramite la parola chiave in nell'origine da.
 
-## <a name="top"></a>TORNA ALL'INIZIO
+Se si include la chiave di partizione nel filtro `IN`, la query verrà automaticamente filtrata solo per le partizioni pertinenti.
+
+## <a name="top"></a>Torna all'inizio
 
 La parola chiave TOP restituisce il primo `N` numero di risultati della query in un ordine non definito. Come procedura consigliata, utilizzare TOP con la clausola ORDER BY per limitare i risultati al primo `N` numero di valori ordinati. La combinazione di queste due clausole è l'unico modo per indicare in modo prevedibile quali righe hanno effetto.
 

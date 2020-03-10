@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116262"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361036"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -55,7 +55,7 @@ Un set predefinito di metriche verrà visualizzato in grafici nel pannello dell'
 È possibile disabilitare la raccolta e la registrazione delle metriche impostando **Stato** su **Disattivato**.
 
 > [!NOTE]
-> Archiviazione di Azure usa l'[archivio tabelle](storage-introduction.md#table-storage) per archiviare le metriche per l'account di archiviazione e archivia le metriche in tabelle dell'account. Per altre informazioni, vedere . [Come vengono archiviate le metriche](storage-analytics-metrics.md#how-metrics-are-stored).
+> Archiviazione di Azure usa l'[archivio tabelle](storage-introduction.md#table-storage) per archiviare le metriche per l'account di archiviazione e archivia le metriche in tabelle dell'account. Per altre informazioni, vedere [Come vengono archiviate le metriche](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personalizzare i grafici delle metriche
@@ -138,7 +138,7 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 1. Verificare che l'opzione **Stato** sia impostata su **Attivato** e selezionare i **servizi** per cui si vuole abilitare la registrazione.
 
     ![Configurare la registrazione nel portale di Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](https://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
 

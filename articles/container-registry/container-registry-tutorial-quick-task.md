@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come compilare un'immagine del conten
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8a45cf3a72ed8f38f6f28a2f0225d0913f906da
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 51891d7b17fad7e438cc31652b6a0769d024e8e0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456060"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252108"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 
@@ -52,13 +52,13 @@ Dopo aver creato una copia tramite fork del repository, clonare il fork e passar
 
 Clonare il repository con `git`, sostituendo **\<your-github-username\>** con il proprio nome utente GitHub:
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 Passare alla directory contenente il codice sorgente:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -72,7 +72,9 @@ Dopo aver eseguito il pull del codice sorgente nel computer in uso, seguire ques
 
 Per semplificare l'esecuzione dei comandi di esempio, nelle esercitazioni di questa serie vengono usate variabili di ambiente della shell. Eseguire il comando seguente per impostare la variabile `ACR_NAME`. Sostituire **\<registry-name\>** con un nome univoco per il nuovo registro contenitori. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici in minuscolo. Dato che le altre risorse create in questa esercitazione sono basate su questo nome, sarà necessario modificare solo questa prima variabile.
 
-```azurecli-interactive
+[![Incorpora avvio](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 

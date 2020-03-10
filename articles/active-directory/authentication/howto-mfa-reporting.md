@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425288"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378077"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication offre diversi report che possono essere usati dall'utente e dall'organizzazione e ai quali è possibile accedere tramite il portale di Azure. La tabella seguente elenca i report disponibili:
 
-| Documentazione | Percorso | Description |
+| Report | Location | Descrizione |
 |:--- |:--- |:--- |
 | Cronologia utenti bloccati | Azure AD > sicurezza > autenticazione a più fattori > Blocca/Sblocca utenti | Consente di visualizzare la cronologia delle richieste di blocco o sblocco degli utenti. |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
@@ -104,7 +104,7 @@ I report delle attività di accesso per l'autenticazione a più fattori permetto
       - Utente non trovato
       - Il codice di verifica è già stato usato una volta
 
-**Metodo autenticazione a più fattori:** metodo di autenticazione usato dall'utente per completare l'autenticazione a più fattori. Possibili valori:
+**Metodo autenticazione a più fattori:** metodo di autenticazione usato dall'utente per completare l'autenticazione a più fattori. I valori possibili sono:
 
 - SMS
 - Notifica dell'app per dispositivi mobili
@@ -148,12 +148,12 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 La tabella seguente può essere usata per risolvere i problemi di autenticazione a più fattori usando la versione scaricata del report attività di autenticazione a più fattori. Non verranno visualizzati direttamente nella portale di Azure.
 
-| Risultato della chiamata | Description | Descrizione generale |
+| Risultato della chiamata | Descrizione | Descrizione generale |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | PIN immesso | L'utente ha immesso un PIN.  Se l'autenticazione ha avuto esito positivo, ha immesso il PIN corretto.  Se l'autenticazione viene negata, è stato immesso un PIN errato o l'utente è impostato sulla modalità standard. |
-| SUCCESS_NO_PIN | Solo # immesso | Se l'utente è impostato in modalità PIN e l'autenticazione viene negata, l'utente non ha immesso il PIN e ha immesso solo #.  Se l'utente è impostato in modalità Standard e l'autenticazione ha esito positivo, l'utente ha immesso solo #, come richiesto in modalità Standard. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Non premuto dopo l'immissione | L'utente non ha inviato le cifre DTMF poiché # non è stato immesso.  Le altre cifre immesse non vengono inviate a meno che non venga immesso #, a indicare il completamento della voce. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Nessun input telefono - Timeout | La chiamata è stata risposta, ma non c'è stata alcuna risposta.  Ciò indica in genere che la chiamata è stata prelevata dalla segreteria telefonica. |
+| SUCCESS_WITH_PIN | PIN immesso | L'utente ha immesso un PIN.  Se l'autenticazione ha esito positivo, l'utente ha immesso il PIN corretto.  Se l'autenticazione viene negata, è stato immesso un PIN errato o l'utente è impostato sulla modalità standard. |
+| SUCCESS_NO_PIN | Solo # immesso | Se l'utente è impostato in modalità PIN e l'autenticazione viene negata, l'utente non ha immesso il PIN e ha immesso solo #.  Se l'utente è impostato sulla modalità standard e l'autenticazione ha esito positivo, significa che l'utente ha immesso solo #, operazione corretta da eseguire in modalità standard. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # Non premuto dopo l'immissione | L'utente non ha inviato le cifre DTMF poiché # non è stato immesso.  Le altre cifre immesse non vengono inviate a meno che non viene immesso # che indica il completamento della voce. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Nessun input telefono - Timeout | La chiamata è stata risposta, ma non c'è stata alcuna risposta.  Indica in genere che la chiamata è stata risposta dal messaggio vocale. |
 | SUCCESS_PIN_EXPIRED | PIN scaduto e non modificato | Il PIN dell'utente è scaduto ed è stato richiesto di modificarlo, ma non è stata completata la modifica del PIN. |
 | SUCCESS_USED_CACHE | Cache utilizzata | L'autenticazione è riuscita senza una chiamata di Multi-Factor Authentication perché si è verificata un'autenticazione precedente riuscita per lo stesso nome utente nell'intervallo di tempo della cache configurato. |
 | SUCCESS_BYPASSED_AUTH | Autenticazione ignorata | L'autenticazione ha avuto esito positivo mediante un bypass monouso avviato per l'utente.  Per ulteriori informazioni sul bypass, vedere il report Cronologia utenti bypass. |
@@ -172,7 +172,7 @@ La tabella seguente può essere usata per risolvere i problemi di autenticazione
 | CONFIG_ISSUE | Telefono irraggiungibile | La chiamata è stata tentata, ma non è stato possibile posizionarla o non è stata trovata alcuna risposta.  Sono inclusi il segnale occupato, il segnale di occupato veloce (disconnesso), i tritoni (numero non più nel servizio), il timeout durante la suoneria e così via. |
 | FAILED_INVALID_PHONENUMBER | Formato numero di telefono non valido | Il formato del numero di telefono non è valido.  I numeri di telefono devono essere numerici e devono essere costituiti da 10 cifre per il codice paese + 1 (Stati Uniti & Canada). |
 | FAILED_USER_HUNGUP_ON_US | Chiamata disconnessa da utente | L'utente ha risposto al telefono ma ha riappeso senza premere alcun pulsante. |
-| FAILED_INVALID_EXTENSION | Interno non valido | L'interno contiene caratteri non validi.  Sono consentite solo cifre, virgole, * e #.  È possibile utilizzare anche un prefisso @. |
+| FAILED_INVALID_EXTENSION | Interno non valido | L'interno contiene caratteri non validi.  Sono consentiti solo cifre, virgole, * e #.  È inoltre possibile utilizzare un prefisso @. |
 | FAILED_FRAUD_CODE_ENTERED | Codice illecito immesso | L'utente ha scelto di segnalare un illecito durante la chiamata, pertanto l'autenticazione è stata negata e il numero di telefono bloccato.| 
 | FAILED_SERVER_ERROR | Impossibile effettuare chiamate | Il servizio Multi-Factor Authentication non è stato in grado di effettuare la chiamata. |
 | FAILED_SMS_NOT_SENT | Impossibile inviare l'SMS. | Impossibile inviare il messaggio di testo.  Autenticazione negata. |

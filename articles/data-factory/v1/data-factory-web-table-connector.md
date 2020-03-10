@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927929"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387644"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Spostare i dati da un'origine tabella Web con Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -34,7 +34,7 @@ Data Factory supporta attualmente solo lo spostamento di dati da una tabella Web
 > [!IMPORTANT]
 > Questo connettore Web attualmente supporta soltanto l'estrazione del contenuto della tabella da una pagina HTML. Per recuperare dati da un endpoint HTTP/s, usare invece il [connettore HTTP](data-factory-http-connector.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare questo connettore tabella Web, è necessario impostare un runtime di integrazione self-hosted (ovvero un gateway di gestione dati) e configurare la proprietà `gatewayName` nel servizio collegato sink. Ad esempio, per copiare dalla tabella Web all'archiviazione BLOB di Azure, configurare il servizio collegato di archiviazione di Azure come indicato di seguito:
 
@@ -51,10 +51,10 @@ Per usare questo connettore tabella Web, è necessario impostare un runtime di i
 }
 ```
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md). 
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
 - È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
@@ -70,11 +70,11 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Web.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **Web** |SÌ |
-| Url |URL dell'origine Web |SÌ |
-| authenticationType |Anonimo. |SÌ |
+| type |La proprietà type deve essere impostata su: **Web** |Sì |
+| URL |URL dell'origine Web |Sì |
+| authenticationType |Anonimo. |Sì |
 
 ### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
 
@@ -98,11 +98,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **WebTable** presenta le proprietà seguenti
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type |Tipo del set di dati. Deve essere impostato su **WebTable** |SÌ |
+| type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
 | path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |SÌ |
+| indice |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
 
 **Esempio:**
 

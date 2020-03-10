@@ -9,11 +9,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906686"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358800"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -27,7 +27,7 @@ Per la gestione degli errori e delle eccezioni di base, è possibile usare un *c
 
 Ecco i tipi di criteri di ripetizione:
 
-| Tipo | Description |
+| Type | Descrizione |
 |------|-------------|
 | **Default** | Questi criteri inviano fino a quattro richieste di ripetizione a intervalli con *crescita esponenziale* di 7,5 secondi ma con un limite massimo compreso tra 5 e 45 secondi. |
 | **Intervallo esponenziale**  | Questi criteri attendono un intervallo casuale selezionato da un intervallo con crescita esponenziale prima di inviare la richiesta successiva. |
@@ -69,7 +69,7 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 *Obbligatorio*
 
-| Valore | Tipo | Description |
+| valore | Type | Descrizione |
 |-------|------|-------------|
 | <*retry-policy-type*> | string | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` |
 | <*retry-interval*> | string | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. |
@@ -78,7 +78,7 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 *Facoltativo*
 
-| Valore | Tipo | Description |
+| valore | Type | Descrizione |
 |-------|------|-------------|
 | <*minimum-interval*> | string | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*maximum-interval*> | string | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
@@ -112,7 +112,7 @@ Anche se non è espressamente definito nell'azione o nel trigger, qui sotto vien
 }
 ```
 
-### <a name="none"></a>Nessuno
+### <a name="none"></a>nessuno
 
 Per specificare che l'azione o il trigger non ripete richieste con esito negativo, impostare <*retry-policy-type*> su `none`.
 

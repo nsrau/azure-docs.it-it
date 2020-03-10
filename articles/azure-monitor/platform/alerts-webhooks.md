@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665069"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373391"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chiamare un webhook con un avviso di metrica classico in monitoraggio di Azure
 
@@ -70,12 +70,12 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 
 | Campo | Obbligatorio | Set di valori fisso | Note |
 |:--- |:--- |:--- |:--- |
-| stato |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
-| context |S | |Contesto dell'avviso. |
+| status |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
+| contesto |S | |Contesto dell'avviso. |
 | timestamp |S | |Ora in cui è stato attivato l'avviso. |
 | id |S | |Ogni regola di avviso ha un ID univoco. |
 | name |S | |Nome dell'avviso. |
-| description |S | |Una descrizione dell'avviso |
+| description |S | |Descrizione dell'avviso. |
 | conditionType |S |Metric, Event |Sono supportati due tipi di avviso: metrica ed evento. Gli avvisi di metrica sono basati su una condizione di metrica. Gli avvisi di eventi sono basati su un evento nel log attività. Usare questo valore per controllare se l'avviso è basato su una metrica o su un evento. |
 | condizione |S | |Campi specifici da controllare in base al valore di **conditionType**. |
 | metricName |Per avvisi di metrica | |Nome della metrica che definisce l'oggetto monitorato dalla regola. |
@@ -84,7 +84,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 | threshold |Per avvisi di metrica | |Valore soglia al quale viene attivato l'avviso. |
 | windowSize |Per avvisi di metrica | |Periodo di tempo usato per monitorare l'attività degli avvisi in base alla soglia. Il valore deve essere compreso tra 5 minuti e 1 giorno. Il valore deve essere nel formato di durata ISO 8601. |
 | timeAggregation |Per avvisi di metrica |Average, Last, Maximum, Minimum, None, Total |Definisce come i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". Vedere i [valori consentiti](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| operatore |Per avvisi di metrica | |Operatore usato per confrontare i dati di metrica attuali con la soglia impostata. |
+| operator |Per avvisi di metrica | |Operatore usato per confrontare i dati di metrica attuali con la soglia impostata. |
 | subscriptionId |S | |ID sottoscrizione di Azure. |
 | resourceGroupName |S | |Nome del gruppo di risorse per la risorsa interessata. |
 | resourceName |S | |Nome della risorsa interessata. |
@@ -92,7 +92,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 | resourceId |S | |ID della risorsa interessata. |
 | resourceRegion |S | |Area o posizione della risorsa interessata. |
 | portalLink |S | |Collegamento diretto alla pagina di riepilogo delle risorse del portale. |
-| connessione |N |Facoltativa |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio: `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
+| properties |N |Facoltativo |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio: `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
 
 > [!NOTE]
 > È possibile impostare il campo delle **proprietà** solo tramite le [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).

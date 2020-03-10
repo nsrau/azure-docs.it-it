@@ -4,12 +4,12 @@ description: Creare una funzione di PowerShell serverless, attivata tramite HTTP
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533367"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196536"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Esercitazione: Usare una funzione di Azure attivata tramite HTTP per creare un gruppo di contenitori
 
@@ -30,7 +30,7 @@ Si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per informazioni sui prerequisiti necessari per installare e usare Visual Studio Code con Funzioni di Azure nel sistema operativo in uso, vedere [Creare la prima funzione di PowerShell in Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites).
+Per informazioni sui prerequisiti necessari per installare e usare Visual Studio Code con Funzioni di Azure nel sistema operativo in uso, vedere [Creare la prima funzione in Azure](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment).
 
 In alcuni passaggi di questo articolo si usa l'interfaccia della riga di comando di Azure. Per completare questi passaggi, è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 

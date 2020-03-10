@@ -13,11 +13,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
 ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820735"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360080"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
@@ -117,7 +117,7 @@ Zone di disponibilità di Azure tenta di proteggersi da un'interruzione di una s
 
 Infatti, il contratto di servizio di Azure, basato su una rete globale di data center gestiti da Microsoft, [consente di garantire](https://azure.microsoft.com/support/legal/sla/) l'esecuzione dell'app 24/7. La piattaforma Azure gestisce completamente tutti i database e non garantisce alcuna perdita di dati e una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori di hardware, software o rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. La disponibilità standard viene ottenuta separando i livelli di calcolo e archiviazione. La disponibilità Premium viene eseguita integrando risorse di calcolo e archiviazione in un singolo nodo per le prestazioni e quindi implementando una tecnologia simile a Always On gruppi di disponibilità. Per una descrizione completa delle funzionalità a disponibilità elevata del database SQL di Azure, vedere la [disponibilità del database SQL](sql-database-high-availability.md). 
 
-Inoltre, il database SQL offre funzionalità integrate per la [continuità aziendale e la scalabilità globale](sql-database-business-continuity.md) . inclusi i seguenti:
+Inoltre, il database SQL offre funzionalità integrate per la [continuità aziendale e la scalabilità globale](sql-database-business-continuity.md) . incluse le seguenti:
 
 - [Backup automatici](sql-database-automated-backups.md):
 
@@ -155,7 +155,7 @@ Molti dei nostri partner che eseguono [app SaaS multi-tenant](sql-database-desig
 - **Gestione automatica degli indici**: consente di identificare gli indici da aggiungere al database e quelli che è consigliabile rimuovere.
 - **Correzione automatica**dei piani: identifica i piani problematici e corregge i problemi di prestazioni dei piani SQL.
 
-### <a name="adaptive-query-processing"></a>Elaborazione di query adattiva
+### <a name="adaptive-query-processing"></a>Elaborazione di query adattive
 
 È possibile utilizzare l' [elaborazione di query adattive](/sql/relational-databases/performance/intelligent-query-processing), inclusa l'esecuzione Interleaved per le funzioni con valori di tabella con più istruzioni, il feedback delle concessioni di memoria in modalità batch e i join adattivi in modalità batch. Ognuna di queste funzionalità di elaborazione di query adattiva applica tecniche di "apprendimento e adattamento" simili e consente di agevolare ulteriormente la risoluzione dei problemi di prestazioni correlati a problemi di ottimizzazione delle query storicamente difficili da gestire.
 
@@ -242,7 +242,7 @@ Il Vantaggio Azure Hybrid per SQL Server differisce dalla mobilità delle licenz
 
 I clienti del database SQL dispongono dei diritti seguenti associati a Vantaggio Azure Hybrid per SQL Server:
 
-|Footprint di licenza|Che cosa Vantaggio Azure Hybrid per SQL Server ottenere?|
+|Impronta della licenza|Che cosa Vantaggio Azure Hybrid per SQL Server ottenere?|
 |---|---|
 |Clienti di SQL Server Enterprise Edition con Software Assurance|<li>Può pagare la tariffa di base in per utilizzo generico o business critical SKU</li><br><li>1 core in locale = 4 core nello SKU del livello Utilizzo generico</li><br><li>1 core in locale = 1 core nello SKU del livello Business Critical</li>|
 |Clienti di SQL Server Standard Edition con Software Assurance|<li>Può pagare la tariffa di base solo per per utilizzo generico SKU</li><br><li>1 core in locale = 1 core nello SKU del livello Utilizzo generico</li>|

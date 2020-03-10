@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/23/2020
 ms.author: juliako
-ms.openlocfilehash: 3984f33cd97ada9b3d5301e45fe3506966880848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dac5f75216a8addcaa65407d945a06363e4cbf9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719671"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359514"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -93,7 +93,7 @@ Consultare l'elenco di [codec e formati](media-encoder-standard-formats.md) di M
 
 ## <a name="live-streaming-workflow"></a>Flusso di lavoro dello streaming live
 
-Un evento live può essere di due tipi: pass-through o codifica live. 
+Un evento Live può essere impostato su un *pass-through* (un codificatore Live locale invia un flusso a più velocità in bit) o la *codifica live* (un codificatore Live locale invia un flusso a bitrate singolo). 
 
 Ecco un flusso di lavoro comune per lo streaming live con creazione dinamica dei pacchetti:
 
@@ -240,7 +240,7 @@ Di seguito è riportato un esempio di file manifesto Smooth Streaming:
 
 ### <a name="naming-of-tracks-in-the-manifest"></a>Denominazione delle tracce nel manifesto
 
-Se nel file con estensione ism viene specificato un nome di traccia audio, Servizi multimediali aggiunge un elemento `Label` all'interno di `AdaptationSet` per specificare le informazioni di texturing per la traccia audio specifica. Esempio del manifesto DASH di output:
+Se nel file con estensione ISM viene specificato un nome di traccia audio, servizi multimediali aggiunge un elemento `Label` all'interno di un `AdaptationSet` per specificare le informazioni di texturing per la traccia audio specifica. Esempio del manifesto del TRATTEggio di output:
 
 ```xml
 <AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
@@ -262,7 +262,7 @@ Per altre informazioni, vedere l'esempio [Come segnalare una traccia audio descr
 
 #### <a name="smooth-streaming-manifest"></a>Manifesto Smooth Streaming
 
-Se si riproduce un flusso di Smooth Streaming, il manifesto conterrà i valori negli attributi `Accessibility` e `Role` per la traccia audio. `Role="alternate" Accessibility="description"` verrebbe aggiunto ad esempio nell'elemento `StreamIndex` per indicare che si tratta di una descrizione audio.
+Se si sta riproducendo un flusso di Smooth Streaming, il manifesto conterrà i valori `Accessibility` e `Role` attributi per la traccia audio. Ad esempio, `Role="alternate" Accessibility="description"` verrebbe aggiunto nell'elemento `StreamIndex` per indicare che si tratta di una descrizione audio.
 
 #### <a name="dash-manifest"></a>Manifesto DASH
 
@@ -287,7 +287,7 @@ Per controllare il numero di tracce, i formati, la velocità in bit e gli interv
 
 ## <a name="dynamic-encryption"></a>Crittografia dinamica
 
-È possibile usare la *crittografia dinamica* per crittografare dinamicamente i contenuti live o on demand tramite AES-128 o con uno dei tre principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni, vedere [Crittografia dinamica](content-protection-overview.md).
+È possibile usare la *crittografia dinamica* per crittografare dinamicamente il contenuto Live o su richiesta con AES-128 o uno dei tre sistemi principali Digital Rights Management (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni, vedere [Crittografia dinamica](content-protection-overview.md).
 
 > [!NOTE]
 > Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.

@@ -14,11 +14,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1bd348ad27d892d0421b13c16ce81bc4f5dfb021
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695127"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377488"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializzazione della cache dei token in MSAL.NET
 Dopo l'[acquisizione di un token](msal-acquire-cache-tokens.md), questo viene memorizzato nella cache da Microsoft Authentication Library (MSAL).  Il codice dell'applicazione deve tentare di ottenere un token dalla cache prima di acquisire un token con un altro metodo.  Questo articolo illustra la serializzazione predefinita e personalizzata della cache dei token in MSAL.NET.
@@ -278,7 +278,7 @@ Esempi di come usare le cache dei token per le app Web e le API Web sono disponi
 ## <a name="next-steps"></a>Passaggi successivi
 Gli esempi seguenti illustrano la serializzazione della cache dei token.
 
-| Esempio | Piattaforma | Description|
+| Esempio | Piattaforma | Descrizione|
 | ------ | -------- | ----------- |
 |[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Applicazione .NET per Windows Desktop (WPF) che chiama l'API Microsoft Graph. ![Topologia](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (Console) | Set di soluzioni di Visual Studio che illustra la migrazione delle applicazioni di Azure AD v1.0 (che usano ADAL.NET) alle applicazioni di Azure AD v2.0, anche denominate applicazioni con convergenza (che usano MSAL.NET), in particolare la [migrazione della cache dei token](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

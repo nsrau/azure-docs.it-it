@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
 ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367645"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942637"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -36,7 +36,7 @@ A partire dalla versione 3, questa funzionalità del API Analisi del testo può 
 
 Nel API Analisi del testo sono disponibili due versioni di Named Entity Recognition-V2 e V3. La versione 3 (anteprima pubblica) fornisce maggiori dettagli nelle entità che possono essere rilevate e categorizzate.
 
-| Caratteristica                                                         | NER V2 | NER V3 |
+| Funzionalità                                                         | NER V2 | NER V3 |
 |-----------------------------------------------------------------|--------|--------|
 | Metodi per richieste singole e batch                          | X      | X      |
 | Riconoscimento di entità di base in diverse categorie              | X      | X      |
@@ -47,7 +47,7 @@ Nel API Analisi del testo sono disponibili due versioni di Named Entity Recognit
 Per informazioni, vedere Supporto per le [lingue](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versione 3,0-Preview](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
 ### <a name="entity-types"></a>Tipi di entità
 
@@ -74,7 +74,7 @@ Collegamento di entità
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-#### <a name="version-21tabversion-2"></a>[Versione 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
 
 ### <a name="entity-types"></a>Tipi di entità
 
@@ -89,7 +89,7 @@ Collegamento di entità
 | Quantità      | Number        | "6", "sei"     |
 | Quantità      | Percentuale    | "50%", "cinquanta percento"|
 | Quantità      | Ordinal       | "2°", "secondo"     |
-| Quantità      | Tempo trascorso           | "90 giorni", "30 anni"    |
+| Quantità      | Age           | "90 giorni", "30 anni"    |
 | Quantità      | Valuta      | "$ 10,99"     |
 | Quantità      | Dimension     | "10 miglia", "40 cm"     |
 | Quantità      | Temperatura   | "32 gradi"    |
@@ -98,7 +98,7 @@ Collegamento di entità
 | Datetime      | Tempo          | "8", "8:00"  |
 | Datetime      | DateRange     | "Dal 2 maggio al 5 maggio"    |
 | Datetime      | TimeRange     | "dalle 18 alle 19"     |
-| Datetime      | Durata      | "1 minuto e 45 secondi"   |
+| Datetime      | Duration      | "1 minuto e 45 secondi"   |
 | Datetime      | Configurazione           | "ogni martedì"     |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
@@ -130,7 +130,7 @@ Creare una richiesta POST. È possibile usare la **console di testing API** o di
 > [!NOTE]
 > È possibile trovare la chiave e l'endpoint per la risorsa Analisi del testo nel portale di Azure. Si trovano in **Gestione risorse** nella pagina **Avvio rapido** della risorsa. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versione 3,0-Preview](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
 [Informazioni di riferimento sul riconoscimento delle entità denominate V3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -144,7 +144,7 @@ NER
 Collegamento di entità
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
-#### <a name="version-21tabversion-2"></a>[Versione 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
 
 [Informazioni di riferimento sul riconoscimento delle entità denominate (NER) V2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
@@ -178,14 +178,14 @@ Al momento della ricezione della richiesta viene eseguita l'analisi. Vedere la s
 
 L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account e i risultati vengono restituiti immediatamente nella risposta.
 
-## <a name="view-results"></a>Visualizza risultati
+## <a name="view-results"></a>Visualizzazione dei risultati
 
 Tutte le richieste POST restituiscono una risposta in formato JSON con gli ID e le proprietà dell'entità rilevata.
 
 L'output viene restituito immediatamente. Si possono trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale e quindi importarlo in un'applicazione che consente di ordinare, cercare e modificare i dati.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versione 3,0-Preview)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versione 3,0-Preview)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Risposte di esempio V3
 
@@ -242,7 +242,7 @@ La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. D
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Versione 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
 
 ### <a name="example-ner-v2-response"></a>Risposta di esempio NER V2
 ```json
@@ -281,7 +281,7 @@ La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. D
 
 ---
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 

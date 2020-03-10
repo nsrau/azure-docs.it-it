@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120813"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374318"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -48,18 +48,18 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Name|Descrizione|Obbligatoria|
+|Nome|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
 |authentication-basic|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-|Name|Descrizione|Obbligatoria|Default|
+|Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
-|nomeutente|Specifica il nome utente della credenziale di base.|Sì|N/D|
+|username|Specifica il nome utente della credenziale di base.|Sì|N/D|
 |password|Specifica la password della credenziale di base.|Sì|N/D|
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 -   **Sezioni del criterio:** inbound
@@ -88,18 +88,18 @@ In questo esempio il certificato client viene identificato in base al nome della
 
 ### <a name="elements"></a>Elementi  
   
-|Name|Descrizione|Obbligatoria|  
+|Nome|Descrizione|Obbligatoria|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento radice.|Sì|  
   
-### <a name="attributes"></a>Attributi  
+### <a name="attributes"></a>Attributes  
   
-|Name|Descrizione|Obbligatoria|Default|  
+|Nome|Descrizione|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|Identificazione digitale|Identificazione personale del certificato client.|È necessario che sia presente `thumbprint` o `certificate-id`.|N/D|  
+|thumbprint|Identificazione personale del certificato client.|È necessario che sia presente `thumbprint` o `certificate-id`.|N/D|  
 |ID certificato|Nome della risorsa del certificato.|È necessario che sia presente `thumbprint` o `certificate-id`.|N/D|  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
@@ -147,19 +147,19 @@ In questo esempio il certificato client viene identificato in base al nome della
 
 ### <a name="elements"></a>Elementi  
   
-|Name|Descrizione|Obbligatoria|  
+|Nome|Descrizione|Obbligatoria|  
 |----------|-----------------|--------------|  
 |autenticazione-gestita-identità |Elemento radice.|Sì|  
   
-### <a name="attributes"></a>Attributi  
+### <a name="attributes"></a>Attributes  
   
-|Name|Descrizione|Obbligatoria|Default|  
+|Nome|Descrizione|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |resource|Stringa. ID app dell'API Web di destinazione (risorsa protetta) in Azure Active Directory.|Sì|N/D|  
 |output-token-variabile-nome|Stringa. Nome della variabile di contesto che riceverà il valore del token come tipo di oggetto `string`. |No|N/D|  
-|ignore-error|Boolean. Se è impostato su `true`, la pipeline dei criteri continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No|false|  
+|ignore-error|Proprietà di tipo Boolean. Se è impostato su `true`, la pipeline dei criteri continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No|false|  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  

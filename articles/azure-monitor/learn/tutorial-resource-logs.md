@@ -1,18 +1,17 @@
 ---
 title: Raccogliere i log delle risorse da una risorsa di Azure e analizzarli con Monitoraggio di Azure
 description: Questa esercitazione mostra come configurare le impostazioni di diagnostica per raccogliere i log delle risorse da una risorsa di Azure in un'area di lavoro Log Analytics in cui possono essere analizzati con una query su log.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 90b2a9bc9e3e8aa6297f02a46163717a2bf58a22
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532614"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269200"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Esercitazione: Raccogliere e analizzare i log delle risorse da una risorsa di Azure
 
@@ -26,7 +25,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare una query su log semplice per analizzare i log
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, è necessaria una risorsa di Azure da monitorare. È possibile usare tutte le risorse della sottoscrizione di Azure che supportano le impostazioni di diagnostica. Per determinare se una risorsa supporta le impostazioni di diagnostica, passare al relativo menu nel portale di Azure e verificare se è presente un'opzione **Impostazioni di diagnostica** nella sezione **Monitoraggio** del menu.
 
@@ -47,7 +46,7 @@ Un'area di lavoro Log Analytics in Monitoraggio di Azure raccoglie e indicizza i
    - **Sottoscrizione** selezionare la sottoscrizione in cui archiviare l'area di lavoro. Non è necessario che corrisponda alla sottoscrizione della risorsa monitorata.
    - **Gruppo di risorse**: selezionare un gruppo di risorse esistente oppure fare clic su **Crea nuovo** per crearne uno nuovo. Non è necessario che corrisponda al gruppo di risorse della risorsa monitorata.
    - **Località**: selezionare un'area di Azure o crearne una nuova. Non è necessario che corrisponda alla località della risorsa monitorata.
-   - **Piano tariffario**: selezionare *Gratuito* che include la conservazione dei dati per 7 giorni. Sarà possibile modificare il piano tariffario in un secondo momento. Per altre informazioni sui vari piani tariffari disponibili, fare clic sul collegamento **Prezzi di Log Analytics**.
+   - **Piano tariffario**: Selezionare *Con pagamento in base al consumo* come piano tariffario. Sarà possibile modificare il piano tariffario in un secondo momento. Per altre informazioni sui vari piani tariffari disponibili, fare clic sul collegamento **Prezzi di Log Analytics**.
 
     ![Nuova area di lavoro](media/tutorial-resource-logs/new-workspace.png)
 

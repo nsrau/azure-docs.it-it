@@ -4,11 +4,11 @@ description: Viene descritto come abilitare il backup quando si crea una macchin
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449944"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363751"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -20,7 +20,7 @@ Questo articolo illustra come abilitare il backup quando si crea una macchina vi
 
 - [Controllare](backup-support-matrix-iaas.md#supported-backup-actions) quali sistemi operativi sono supportati se si Abilita il backup quando si crea una macchina virtuale.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Se non è già stato effettuato l'accesso al proprio account, accedere al [portale di Azure](https://portal.azure.com).
 

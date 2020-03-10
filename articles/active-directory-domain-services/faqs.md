@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: cea1664a0418dbe6269c22cffc70e0979dea41f0
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: a57826c79babded6e616548879a5ec0c223307d0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893167"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946425"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
@@ -36,6 +36,7 @@ In questa pagina vengono fornite le risposte alle domande frequenti su Azure Act
 * [È possibile aggiungere controller di dominio a un Azure AD Domain Services dominio gestito?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Gli utenti Guest invitati alla directory possono usare Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [È possibile spostare un dominio gestito Azure AD Domain Services esistente in una sottoscrizione, un gruppo di risorse, un'area o una rete virtuale diversi?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Azure AD Domain Services includono opzioni di disponibilità elevata?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>È possibile creare più domini gestiti per una singola directory di Azure AD?
 No. È possibile creare solo un singolo dominio gestito da Active Directory Domain Services per una singola directory di Azure AD.
@@ -74,6 +75,10 @@ No. Gli utenti guest invitati a una directory di Azure AD tramite la procedura d
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>È possibile spostare un dominio gestito Azure AD Domain Services esistente in una sottoscrizione, un gruppo di risorse, un'area o una rete virtuale diversi?
 No. Dopo aver creato un Azure AD Domain Services dominio gestito, non è possibile spostare l'istanza di in un gruppo di risorse, una rete virtuale, una sottoscrizione e così via. Quando si distribuisce l'istanza di Azure AD DS, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
+
+### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Azure AD Domain Services includono opzioni di disponibilità elevata?
+
+Sì. Ogni dominio gestito Azure AD Domain Services include due controller di dominio. Non è possibile gestire o connettersi a questi controller di dominio, che fanno parte del servizio gestito. Se si distribuisce Azure AD Domain Services in un'area che supporta zone di disponibilità, i controller di dominio vengono distribuiti tra le zone. In aree che non supportano zone di disponibilità, i controller di dominio vengono distribuiti tra set di disponibilità. Non sono disponibili opzioni di configurazione o controllo di gestione per questa distribuzione. Per altre informazioni, vedere [Opzioni di disponibilità per le macchine virtuali in Azure](../virtual-machines/windows/availability.md).
 
 ## <a name="administration-and-operations"></a>Amministrazione e operazioni
 
@@ -141,7 +146,7 @@ No. Azure AD Domain Services è un servizio di Azure con pagamento in base al co
 ### <a name="what-azure-regions-is-the-service-available-in"></a>In quale aree di Azure è disponibile il servizio?
 Per l'elenco delle aree di Azure in cui è disponibile Azure Active Directory Domain Services, vedere i [servizi di Azure per area](https://azure.microsoft.com/regions/#services/).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Per soluzioni relative ai problemi comuni di configurazione o amministrazione di Azure AD Domain Services, vedere la [Guida alla risoluzione dei problemi](troubleshoot.md).
 

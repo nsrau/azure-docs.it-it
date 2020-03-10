@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d593e5f27dbcd676e2b42975251778a6c48a7d79
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: HT
+ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511876"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378291"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -37,16 +37,16 @@ La gestione delle identità dei dispositivi costituisce un elemento fondamentale
 Per inserire un dispositivo in Azure AD, sono disponibili più opzioni:
 
 - **Registrazione in Azure AD**
-   - I dispositivi registrati in Azure AD personali sono in genere dispositivi personali o dispositivi mobili e sono accessibili con un account Microsoft personale o un altro account locale.
+   - I dispositivi Azure AD registrati sono in genere di proprietà personale o di dispositivi mobili e hanno eseguito l'accesso con un account Microsoft personale o un altro account locale.
       - Windows 10
       - iOS
       - Android
       - MacOS
 - **Aggiunta ad Azure AD**
-   - I dispositivi aggiunti ad Azure AD sono di proprietà di un'organizzazione e sono accessibili con un account Azure AD appartenente all'organizzazione. Sono presenti solo nel cloud.
+   - I dispositivi Azure AD aggiunti sono di proprietà di un'organizzazione e hanno eseguito l'accesso con un account Azure AD appartenente all'organizzazione. Sono presenti solo nel cloud.
       - Windows 10 
 - **Aggiunto a Azure AD in modalità ibrida**
-   - I dispositivi aggiunti ad Azure AD in modalità ibrida sono di proprietà di un'organizzazione e sono accessibili con un account Azure AD appartenente all'organizzazione. Sono presenti nel cloud e nell'ambiente locale.
+   - I dispositivi ibridi Azure AD aggiunti sono di proprietà di un'organizzazione e hanno eseguito l'accesso con un account Azure AD appartenente all'organizzazione. Sono presenti nel cloud e nell'ambiente locale.
       - Windows 7, 8.1 o 10
       - Windows Server 2008 o versioni successive
 

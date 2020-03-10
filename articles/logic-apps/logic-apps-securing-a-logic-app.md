@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.openlocfilehash: 3a7fc8028348ae20403df62cd03c76a266edf07c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191327"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358826"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 

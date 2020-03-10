@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893325"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396529"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiare dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -40,12 +40,12 @@ In particolare, il connettore Amazon Redshift supporta il recupero di dati da Re
 > [!TIP]
 > Per ottenere prestazioni ottimali quando si copiano grandi quantità di dati da Redshift, è possibile usare lo strumento UNLOAD Redshift predefinito tramite Amazon S3. Per informazioni dettagliate, vedere la sezione [Usare UNLOAD per copiare i dati da Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se si copiano dati in un archivio dati locale usando il [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md), concedere al runtime di integrazione (usare l'indirizzo IP del computer) l'accesso al cluster Amazon Redshift. Vedere [Autorizzare l'accesso al cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) per le istruzioni.
 * Se si copiano dati in un archivio dati di Azure, vedere [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli IP del centro dati di Azure) per gli intervalli di indirizzi IP ed SQL di calcolo usati dai data center di Azure.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,7 +55,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Amazon Redshift sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **AmazonRedshift** | Sì |
 | server |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
@@ -97,7 +97,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare i dati da Amazon spostamento, sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type del set di dati deve essere impostata su: **AmazonRedshiftTable** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
@@ -132,7 +132,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Amazon Redshift, impostare il tipo di origine nell'attività di copia su **AmazonRedshiftSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AmazonRedshiftSource** | Sì |
 | query |Usare la query personalizzata per leggere i dati. Ad esempio: selezionare * da MyTable. |No (se nel set di dati è specificato "tableName") |
@@ -221,14 +221,14 @@ Quando si copiano dati da Amazon Redshift, vengono usati i mapping seguenti tra 
 | bigint |Int64 |
 | BOOLEAN |string |
 | CHAR |string |
-| DATE |Data e ora |
+| DATE |Datetime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
-| real |Singolo |
+| real |Single |
 | SMALLINT |Int16 |
 | TEXT |string |
-| timestamp |Data e ora |
+| timestamp |Datetime |
 | VARCHAR |string |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca

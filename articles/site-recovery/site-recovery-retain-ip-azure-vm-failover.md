@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083682"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396900"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Mantenere gli indirizzi IP durante il failover
 

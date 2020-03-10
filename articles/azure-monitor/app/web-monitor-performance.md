@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670900"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384167"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorare le prestazioni di applicazioni Web
 
@@ -46,7 +46,7 @@ Fare clic su un grafico per scegliere quali metriche visualizzare oppure aggiung
 ## <a name="metrics"></a>Interpretazione dei dati riquadri e report sulle prestazioni
 È possibile ottenere diverse metriche delle prestazioni. Vengono analizzate innanzitutto quelle visualizzate per impostazione predefinita nel pannello dell'applicazione.
 
-### <a name="requests"></a>Richieste
+### <a name="requests"></a>Requests
 Il numero di richieste HTTP ricevute in un periodo specificato. Confrontare questo numero con i risultati di altri report per analizzare il comportamento dell'app al variare del carico.
 
 Le richieste HTTP includono tutte le richieste GET o POST di pagine, dati e immagini.

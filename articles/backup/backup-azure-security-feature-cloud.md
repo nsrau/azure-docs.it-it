@@ -4,11 +4,11 @@ description: Informazioni su come usare le funzionalità di sicurezza in backup 
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660836"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395570"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza che consentono di proteggere i carichi di lavoro cloud che usano backup di Azure
 
@@ -173,7 +173,7 @@ I dati di backup in stato di eliminazione temporanea prima della disabilitazione
 
 ### <a name="using-azure-portal"></a>Uso del portale di Azure
 
-Esegui questi passaggi:
+A tale scopo, seguire questa procedura:
 
 1. Seguire i passaggi per [disabilitare l'eliminazione](#disabling-soft-delete)temporanea.
 2. Nel portale di Azure passare all'insieme di credenziali, passare a **elementi di backup**e scegliere la macchina virtuale eliminata temporaneamente.

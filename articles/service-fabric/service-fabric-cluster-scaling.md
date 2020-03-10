@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610081"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386282"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Ridimensionamento di cluster di Azure Service Fabric
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I cluster possono contenere migliaia di nodi. Dopo aver creato un cluster di Service Fabric, è possibile scalare il cluster in orizzontale (modificare il numero di nodi) o in verticale (modificare le risorse dei nodi).  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.

@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3297319c67ad2b7c94371356cde49113c7ef737
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718889"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391279"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
@@ -63,7 +63,7 @@ Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di
 Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end su come usare cluster di Azure HDInsight Spark per compilare soluzioni di data science, una tramite Python e l'altra tramite Scala. Per altre informazioni sui cluster di **Azure HDInsight Spark**, vedere [Introduzione a Spark in HDInsight](../../hdinsight/spark/apache-spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Python** in un cluster di Azure HDInsight Spark, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Scala** in un cluster di Azure HDInsight Spark, vedere [Analisi scientifica dei dati tramite Scala e Spark in Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse di Azure
+##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
 Azure SQL Data Warehouse consente di ridimensionare le risorse di calcolo in modo semplice e rapido, senza eseguire un provisioning o un pagamento in eccesso. Tale servizio offre anche la possibilità esclusiva di sospendere l'uso delle risorse di calcolo, consentendo pertanto di gestire in modo più efficiente i costi correlati al cloud. La possibilità di distribuire risorse di calcolo scalabili consente di trasferire tutti i dati in Azure SQL Data Warehouse. I costi di archiviazione sono minimi ed è possibile eseguire calcoli solo sulle parti dei set di dati da analizzare. 
 

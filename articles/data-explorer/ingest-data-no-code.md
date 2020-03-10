@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Inserire dati di monitoraggio senza codice - Esplora dati di Azure'
+title: 'Esercitazione: Inserire dati di monitoraggio in Esplora dati di Azure senza codice'
 description: Questa esercitazione illustra come inserire dati di monitoraggio in Esplora dati di Azure senza una riga di codice e come eseguire query su tali dati.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 24e09f6578431e6b7f2a83be13bae59bf2e707de
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3a53a660da2257540f23bc6438fc5933e5229c76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986207"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198049"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Esercitazione: Inserire ed eseguire query sui dati di monitoraggio in Esplora dati di Azure 
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > [!NOTE]
 > Creare tutte le risorse nella stessa località o area di Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * [Un cluster e un database di Esplora dati di Azure](create-cluster-database-portal.md). In questa esercitazione il nome del database è *TestDatabase*.
@@ -43,7 +43,7 @@ Visualizzare e interpretare i dati forniti dai log e dalle metriche di diagnosti
 
 Le metriche e i log di diagnostica e i log attività di Azure vengono emessi da un servizio di Azure e forniscono dati sul funzionamento del servizio stesso. 
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Metriche di diagnostica](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Metriche di diagnostica](#tab/diagnostic-metrics)
 #### <a name="example"></a>Esempio
 
 Le metriche di diagnostica vengono aggregate con un intervallo di tempo di 1 minuto. Di seguito è riportato un esempio di schema di evento di metrica di Esplora dati di Azure sulla durata di una query:
@@ -77,7 +77,7 @@ Le metriche di diagnostica vengono aggregate con un intervallo di tempo di 1 min
 }
 ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
 #### <a name="example"></a>Esempio
 
 Di seguito è riportato un esempio di [log di inserimento diagnostica](using-diagnostic-logs.md#diagnostic-logs-schema) di Esplora dati di Azure:
@@ -133,7 +133,7 @@ Di seguito è riportato un esempio di [log di inserimento diagnostica](using-dia
     }
 }
 ```
-# <a name="activity-logstabactivity-logs"></a>[Log attività](#tab/activity-logs)
+# <a name="activity-logs"></a>[Log attività](#tab/activity-logs)
 #### <a name="example"></a>Esempio
 
 I log attività di Azure sono log a livello di sottoscrizione che forniscono informazioni sulle operazioni eseguite sulle risorse nella sottoscrizione. Di seguito è riportato un esempio di evento di log attività per il controllo dell'accesso:
@@ -210,7 +210,7 @@ La struttura dei log di Monitoraggio di Azure non è tabellare. Si manipoleranno
 
 Usare l'interfaccia utente Web di Esplora dati di Azure per creare le tabelle di destinazione nel database di Esplora dati di Azure.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Metriche di diagnostica](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Metriche di diagnostica](#tab/diagnostic-metrics)
 #### <a name="create-tables-for-the-diagnostic-metrics"></a>Creare tabelle per le metriche di diagnostica
 
 1. Nel database *TestDatabase* creare una tabella denominata *DiagnosticMetrics* in cui archiviare i record delle metriche di diagnostica. Usare il comando di controllo seguente `.create table`:
@@ -235,7 +235,7 @@ Usare l'interfaccia utente Web di Esplora dati di Azure per creare le tabelle di
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
 #### <a name="create-tables-for-the-diagnostic-logs"></a>Creare tabelle per i log di diagnostica 
 
 1. Nel database *TestDatabase* creare una tabella denominata *DiagnosticLogs* in cui archiviare i record di log di diagnostica. Usare il comando di controllo seguente `.create table`:
@@ -258,7 +258,7 @@ Usare l'interfaccia utente Web di Esplora dati di Azure per creare le tabelle di
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[Log attività](#tab/activity-logs)
+# <a name="activity-logs"></a>[Log attività](#tab/activity-logs)
 #### <a name="create-tables-for-the-activity-logs"></a>Creare tabelle per i log attività 
 
 1. Creare una tabella denominata *ActivityLogs* nel database *TestDatabase* in cui ricevere i record dei log attività. Per creare la tabella, eseguire la query di Esplora dati di Azure seguente:
@@ -284,7 +284,7 @@ Usare l'interfaccia utente Web di Esplora dati di Azure per creare le tabelle di
 
  Poiché il formato dei dati è `json`, è necessario eseguirne il mapping. Il mapping `json` mappa ogni percorso JSON al nome di una colonna della tabella.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Metriche di diagnostica/log di diagnostica](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Metriche di diagnostica/log di diagnostica](#tab/diagnostic-metrics+diagnostic-logs) 
 #### <a name="map-diagnostic-metrics-and-logs-to-the-table"></a>Eseguire il mapping delle metriche e dei log di diagnostica alla tabella
 
 Per eseguire il mapping dei dati delle metriche e dei log di diagnostica alla tabella, usare la query seguente:
@@ -293,7 +293,7 @@ Per eseguire il mapping dei dati delle metriche e dei log di diagnostica alla ta
 .create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-# <a name="activity-logstabactivity-logs"></a>[Log attività](#tab/activity-logs)
+# <a name="activity-logs"></a>[Log attività](#tab/activity-logs)
 #### <a name="map-activity-logs-to-the-table"></a>Eseguire il mapping dei log attività alla tabella
 
 Per eseguire il mapping dei dati dei log attività alla tabella, usare la query seguente:
@@ -305,7 +305,7 @@ Per eseguire il mapping dei dati dei log attività alla tabella, usare la query 
 
 ### <a name="create-the-update-policy-for-metric-and-log-data"></a>Creare e aggiornare i criteri per i dati di metriche e log
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Metriche di diagnostica](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Metriche di diagnostica](#tab/diagnostic-metrics)
 #### <a name="create-data-update-policy-for-diagnostics-metrics"></a>Creare criteri di aggiornamento dei dati per le metriche di diagnostica
 
 1. Creare una [funzione](/azure/kusto/management/functions) che espande la raccolta di record delle metriche di diagnostica in modo che ogni valore della raccolta riceva una riga distinta. Usare l'operatore [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -333,7 +333,7 @@ Per eseguire il mapping dei dati dei log attività alla tabella, usare la query 
     .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
 #### <a name="create-data-update-policy-for-diagnostics-logs"></a>Creare criteri di aggiornamento dei dati per i log di diagnostica
 
 1. Creare una [funzione](/azure/kusto/management/functions) che espande la raccolta di record del log di diagnostica in modo che ogni valore della raccolta riceva una riga distinta. Abilitare i log di inserimento in un cluster di Esplora dati di Azure e usare lo [schema dei log di inserimento](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). Verrà creata una tabella per l'inserimento riuscito e non riuscito, mentre alcuni campi saranno vuoti per l'inserimento riuscito (ad esempio, ErrorCode). Usare l'operatore [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -366,7 +366,7 @@ Per eseguire il mapping dei dati dei log attività alla tabella, usare la query 
     .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[Log attività](#tab/activity-logs)
+# <a name="activity-logs"></a>[Log attività](#tab/activity-logs)
 #### <a name="create-data-update-policy-for-activity-logs"></a>Creare i criteri di aggiornamento per i dati dei log attività
 
 1. Creare una [funzione](/azure/kusto/management/functions) che espande la raccolta di record del log attività in modo che ogni valore della raccolta riceva una riga distinta. Usare l'operatore [`mv-expand`](/azure/kusto/query/mvexpandoperator):
@@ -425,7 +425,7 @@ Le impostazioni di diagnostica di Azure consentono l'esportazione delle metriche
 
 A questo punto è necessario connettere le metriche e i log di diagnostica e i log attività all'hub eventi.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Metriche di diagnostica/log di diagnostica](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Metriche di diagnostica/log di diagnostica](#tab/diagnostic-metrics+diagnostic-logs) 
 ### <a name="connect-diagnostic-metrics-and-logs-to-your-event-hub"></a>Connettere le metriche e i log di diagnostica all'hub eventi
 
 Selezionare una risorsa da cui esportare le metriche. Esistono diversi tipi di risorse che consentono l'esportazione dei dati di diagnostica, tra cui lo spazio dei nomi di Hub eventi, Azure Key Vault, hub IoT di Azure e i cluster di Esplora dati di Azure. In questa esercitazione come risorsa verrà usato un cluster di Esplora dati di Azure e si esamineranno le metriche delle prestazioni delle query e i log dei risultati di inserimento.
@@ -452,7 +452,7 @@ Selezionare una risorsa da cui esportare le metriche. Esistono diversi tipi di r
 
 1. Selezionare **Salva**.
 
-# <a name="activity-logstabactivity-logs"></a>[Log attività](#tab/activity-logs)
+# <a name="activity-logs"></a>[Log attività](#tab/activity-logs)
 ### <a name="connect-activity-logs-to-your-event-hub"></a>Collegare i log attività all'hub eventi
 
 1. Scegliere **Log attività** dal menu a sinistra del portale di Azure.
@@ -501,7 +501,7 @@ A questo punto è necessario creare le connessioni dati per le metriche e i log 
 
     ![Connessione dati dell'hub eventi](media/ingest-data-no-code/event-hub-data-connection.png)
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Metriche di diagnostica/log di diagnostica](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Metriche di diagnostica/log di diagnostica](#tab/diagnostic-metrics+diagnostic-logs) 
 
 1. Nella finestra **Connessione dati** usare le impostazioni seguenti:
 
@@ -528,7 +528,7 @@ A questo punto è necessario creare le connessioni dati per le metriche e i log 
 
 1. Selezionare **Create** (Crea).  
 
-# <a name="activity-logstabactivity-logs"></a>[Log attività](#tab/activity-logs)
+# <a name="activity-logs"></a>[Log attività](#tab/activity-logs)
 
 1. Nella finestra **Connessione dati** usare le impostazioni seguenti:
 
@@ -560,7 +560,7 @@ A questo punto è necessario creare le connessioni dati per le metriche e i log 
 
 È stata configurata una pipeline con un flusso di dati. L'inserimento tramite il cluster richiede 5 minuti per impostazione predefinita, quindi aspettare alcuni minuti durante il flusso di dati prima di avviare la query.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Metriche di diagnostica](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Metriche di diagnostica](#tab/diagnostic-metrics)
 ### <a name="query-the-diagnostic-metrics-table"></a>Eseguire una query sulla tabella delle metriche di diagnostica
 
 La query seguente analizza i dati sulla durata della query dai record delle metriche di diagnostica di Esplora dati di Azure:
@@ -579,7 +579,7 @@ Risultati della query:
 |   | 00:06,156 |
 | | |
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
 ### <a name="query-the-diagnostic-logs-table"></a>Eseguire una query sulla tabella dei log di diagnostica
 
 Questa pipeline genera inserimenti tramite un hub eventi. Verranno esaminati i risultati di queste inserimenti.
@@ -599,7 +599,7 @@ Risultati della query:
 |   | 00:06,156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
 | | |
 
-# <a name="activity-logstabactivity-logs"></a>[Log attività](#tab/activity-logs)
+# <a name="activity-logs"></a>[Log attività](#tab/activity-logs)
 ### <a name="query-the-activity-logs-table"></a>Eseguire una query sulla tabella dei log attività
 
 La query seguente analizza i dati dai record dei log attività di Esplora dati di Azure:

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fac83a7a5137a50a26721da58395cc2e915f222d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086196"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913819"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -24,21 +24,24 @@ La tabella seguente illustra le API del servizio Mappe di Azure che forniscono f
 
 | API del servizio Google Maps | API del servizio Mappe di Azure                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Indicazioni              | [Route](https://docs.microsoft.com/rest/api/maps/route)                               |
-| Matrice di distanze         | [Matrice di percorsi](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) |
-| Geocodifica               | [Ricerca](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Ricerca luoghi           | [Ricerca](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Completamento automatico luoghi      | [Ricerca](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Mappa statica              | [Rendering](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                 |
-| Fuso orario               | [Fusi orari](https://docs.microsoft.com/rest/api/maps/timezone)                        |
+| Indicazioni              | [Route](https://docs.microsoft.com/rest/api/maps/route)                                     |
+| Matrice di distanze         | [Matrice di percorsi](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
+| Geocodifica               | [Ricerca](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Ricerca luoghi           | [Ricerca](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Completamento automatico luoghi      | [Ricerca](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Blocca sulla strada            | Vedere la sezione [Calcolare percorsi e indicazioni](#calculate-routes-and-directions).            |
+| Limiti di velocità            | Vedere la sezione [Geocodifica inversa di una coordinata](#reverse-geocode-a-coordinate).                  |
+| Mappa statica              | [Rendering](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                       |
+| Fuso orario               | [Fusi orari](https://docs.microsoft.com/rest/api/maps/timezone)                              |
 
 Le API dei servizi seguenti non sono attualmente disponibili in Mappe di Azure:
 
 - Altitudine
 - Georilevazione
-- Dettagli del luogo e foto del luogo. I numeri di telefono e gli URL dei siti Web sono disponibili nell'API di ricerca di Mappe di Azure.
+- Dettagli e foto di luoghi - I numeri di telefono e gli URL dei siti Web sono disponibili nell'API di ricerca di Mappe di Azure.
 - URL mappa
-- Strade. I dati relativi ai limiti di velocità sono disponibili tramite le API di pianificazione percorso e geocodifica inversa in Mappe di Azure.
+- Strade più vicine - Ciò è possibile usando l'SDK Web come mostrato [qui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic
+), ma al momento non disponibile come servizio.
 - Visualizzazione strada statica
 
 Mappe di Azure offre numerosi servizi Web REST aggiuntivi che possono risultare utili:
@@ -176,8 +179,8 @@ Calcolare percorsi e indicazioni usando Mappe di Azure. Mappe di Azure offre num
 
 Il servizio di pianificazione percorso di Mappe di Azure fornisce le API seguenti per il calcolo dei percorsi:
 
-- [**Calcolo percorso**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): consente di calcolare un percorso e di elaborare immediatamente la richiesta. Questa API supporta le richieste GET e POST. Usare le richieste POST per specificare un numero elevato di waypoint o per usare numerose opzioni per il percorso. L'uso delle richieste POST garantisce che la richiesta URL non diventi troppo lunga e causi problemi.
-- [**Percorso batch**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): consente di creare una richiesta contenente fino a 1.000 richieste di percorso e le elabora in un certo periodo di tempo. Tutti i dati verranno elaborati in parallelo nel server. Al termine dell'elaborazione, è possibile scaricare l'intero set di risultati.
+- [**Calcolo percorso**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): consente di calcolare un percorso e di elaborare immediatamente la richiesta. Questa API supporta le richieste GET e POST. Le richieste POST sono consigliate quando si specifica un numero elevato di punti di tragitto o quando si usano molte opzioni pel percorso per assicurarsi che la richiesta URL non diventi troppo lunga e causi problemi. La direzione del percorso POST in Mappe di Azure offre un'opzione che può contenere migliaia di [punti di supporto](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) e li userà per ricreare un percorso logico tra di essi (blocca sulla strada). 
+- [**Percorso batch**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): consente di creare una richiesta contenente fino a 1.000 richieste di percorso e le elabora in un certo periodo di tempo. Tutti i dati verranno elaborati in parallelo nel server e, al termine dell'operazione, sarà possibile scaricare il set di risultati completo.
 - [**Servizi di mobilità**](https://docs.microsoft.com/rest/api/maps/mobility): consente di calcolare percorsi e indicazioni usando il trasporto pubblico.
 
 La tabella offre un riferimento incrociato dei parametri dell'API Google Maps e dei parametri equivalenti dell'API in Mappe di Azure.

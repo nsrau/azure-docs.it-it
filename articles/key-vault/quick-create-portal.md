@@ -12,13 +12,13 @@ ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197760"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381345"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. È possibile creare e gestire istanze di Azure Key Vault tramite il portale di Azure. In questo avvio rapido viene creato un insieme di credenziali delle chiavi che viene poi usato per archiviare un segreto. Per altre informazioni su Key Vault, vedere la relativa [panoramica](key-vault-overview.md).
 
@@ -35,8 +35,8 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 3. Nell'elenco dei risultati scegliere **Key Vault**.
 4. Nella sezione Key Vault scegliere **Crea**.
 5. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:
-    - **Name**: è necessario un nome univoco. Per questo argomento di avvio rapido si usa **Contoso-vault2**. 
-    - **Sottoscrizione** Scegliere una sottoscrizione.
+    - **Nome**: è necessario un nome univoco. Per questo argomento di avvio rapido si usa **Contoso-vault2**. 
+    - **Sottoscrizione**: scegliere una sottoscrizione.
     - In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.
     - Scegliere un percorso nel menu a discesa **Percorso**.
     - Lasciare invariati i valori predefiniti delle altre opzioni.
@@ -44,7 +44,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Prendere nota delle due proprietà elencate di seguito:
 
-* **Vault Name**: nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri passaggi.
+* **Nome dell'insieme di credenziali**: nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri passaggi.
 * **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://contoso-vault2.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
 A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su questo nuovo insieme di credenziali.
@@ -58,8 +58,8 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio d
 1. Nella pagina delle proprietà di Key Vault selezionare **Segreti**.
 2. Fare clic su **Genera/Importa**.
 3. Nella schermata **Crea un segreto** selezionare i seguenti valori:
-    - **Opzioni di caricamento**: manuale.
-    - **Name**: ExamplePassword.
+    - **Opzioni di caricamento**: manuali.
+    - **Nome**: ExamplePassword.
     - **Valore**: hVFkk965BuUv
     - Lasciare invariati gli altri valori predefiniti. Fare clic su **Crea**.
 

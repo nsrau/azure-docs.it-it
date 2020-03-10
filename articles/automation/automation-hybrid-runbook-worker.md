@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120911"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372478"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
 
@@ -30,7 +30,7 @@ Il processo per installare un ruolo di lavoro ibrido per runbook dipende del sis
 
 Per installare e configurare un ruolo di lavoro ibrido per runbook di Windows, è possibile usare due metodi. Il metodo consigliato consiste nell'usare un runbook di Automazione per automatizzare completamente il processo necessario di configurazione di un computer Windows. Il secondo metodo prevede l'esecuzione di una procedura dettagliata per installare e configurare il ruolo manualmente. Per i computer Linux si esegue uno script Python per installare l'agente nel computer.
 
-|Sistema operativo  |Tipi distribuzione  |
+|OS  |Tipi distribuzione  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuale](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
@@ -128,7 +128,7 @@ Se è disponibile un account di Automazione definito per un'area specifica, è p
 | Australia orientale |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
 | Australia sud-orientale |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Regno Unito meridionale | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| Governo degli Stati Uniti - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il file XML degli [indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) dall'Area download Microsoft.
 
@@ -143,7 +143,7 @@ Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il f
 
 Oltre agli indirizzi e alle porte standard che il ruolo di lavoro ibrido per runbook richiede, per Gestione aggiornamenti sono necessari gli indirizzi specifici seguenti. La comunicazione verso questi indirizzi avviene sulla porta 443.
 
-|Azure Public  |Azure per enti pubblici  |
+|Azure Public  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |

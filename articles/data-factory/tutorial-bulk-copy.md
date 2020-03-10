@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 4ab467c0dc5014ec6c8a543fe7e8ecc136dfa02d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439495"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388706"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 
@@ -109,7 +109,7 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
         ```
 
     * Per creare istanze di Data Factory è necessario essere un collaboratore o amministratore della sottoscrizione di Azure.
-    * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+    * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
@@ -117,7 +117,7 @@ In questa esercitazione vengono creati tre servizi collegati rispettivamente per
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Creare il servizio collegato database SQL di Azure di origine
 
-1. Creare un file JSON denominato **AzureSqlDatabaseLinkedService.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente: Creare la cartella ADFv2TutorialBulkCopy, se non esiste già.
+1. Creare un file JSON denominato **AzureSqlDatabaseLinkedService.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente: (Creare la cartella ADFv2TutorialBulkCopy, se non esiste già).
 
     > [!IMPORTANT]
     > Sostituire &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;password&gt; con i valori del database SQL di Azure prima di salvare il file.
@@ -136,7 +136,7 @@ In questa esercitazione vengono creati tre servizi collegati rispettivamente per
 
 2. In **Azure PowerShell** passare alla cartella **ADFv2TutorialBulkCopy**.
 
-3. Eseguire il cmdlet **Set-AzDataFactoryV2LinkedService** per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
+3. Eseguire il cmdlet **set-AzDataFactoryV2LinkedService** per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -170,7 +170,7 @@ In questa esercitazione vengono creati tre servizi collegati rispettivamente per
     }
     ```
 
-2. Per creare il servizio collegato **AzureSqlDWLinkedService**, eseguire il cmdlet **Set-AzDataFactoryV2LinkedService**.
+2. Per creare il servizio collegato: **AzureSqlDWLinkedService**, eseguire il cmdlet **set-AzDataFactoryV2LinkedService** .
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
@@ -206,7 +206,7 @@ In questa esercitazione l'archivio BLOB di Azure viene usato come area di stagin
     }
     ```
 
-2. Per creare il servizio collegato **AzureStorageLinkedService**, eseguire il cmdlet **Set-AzDataFactoryV2LinkedService**.
+2. Per creare il servizio collegato: **AzureStorageLinkedService**, eseguire il cmdlet **set-AzDataFactoryV2LinkedService** .
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -245,7 +245,7 @@ In questa esercitazione vengono creati i set di dati di origine e sink, che spec
     }
     ```
 
-2. Per creare il set di dati **AzureSqlDatabaseDataset**, eseguire il cmdlet **Set-AzDataFactoryV2Dataset**.
+2. Per creare il set di dati: **AzureSqlDatabaseDataset**, eseguire il cmdlet **set-AzDataFactoryV2Dataset** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -263,7 +263,7 @@ In questa esercitazione vengono creati i set di dati di origine e sink, che spec
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Creare un set di dati per l'istanza sink di SQL Data Warehouse
 
-1. Creare un file JSON denominato **AzureSqlDWDataset.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente: Il valore "tableName" viene impostato come parametro e successivamente l'attività di copia che fa riferimento a questo set di dati passa il valore effettivo nel set di dati.
+1. Creare un file JSON denominato **AzureSqlDWDataset.json** nella cartella **C:\ADFv2TutorialBulkCopy** con il contenuto seguente: Il valore "tableName" viene configurato come parametro e successivamente l'attività di copia che fa riferimento a questo set di dati passa il valore effettivo al set di dati.
 
     ```json
     {
@@ -289,7 +289,7 @@ In questa esercitazione vengono creati i set di dati di origine e sink, che spec
     }
     ```
 
-2. Per creare il set di dati **AzureSqlDWDataset**, eseguire il cmdlet **Set-AzDataFactoryV2Dataset**.
+2. Per creare il set di dati: **AzureSqlDWDataset**, eseguire il cmdlet **set-AzDataFactoryV2Dataset** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -381,7 +381,7 @@ Questa pipeline accetta l'elenco di tabelle come parametro. Per ogni tabella del
     }
     ```
 
-2. Per creare la pipeline **IterateAndCopySQLTables**, eseguire il cmdlet **Set-AzDataFactoryV2Pipeline**.
+2. Per creare la pipeline: **IterateAndCopySQLTables**, eseguire il cmdlet **set-AzDataFactoryV2Pipeline** .
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
@@ -457,7 +457,7 @@ Questa pipeline esegue due passaggi:
     }
     ```
 
-2. Per creare la pipeline **GetTableListAndTriggerCopyData**, eseguire il cmdlet **Set-AzDataFactoryV2Pipeline**.
+2. Per creare la pipeline: **GetTableListAndTriggerCopyData**, eseguire il cmdlet **set-AzDataFactoryV2Pipeline** .
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"

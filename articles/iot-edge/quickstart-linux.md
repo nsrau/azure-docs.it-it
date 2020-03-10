@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a076f9e6ae67b9a4dc27fcd058945716dfebe75
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
-ms.translationtype: HT
+ms.openlocfilehash: e2dd17a324c8920f44e972987508352a69383bb9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264611"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893026"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Guida introduttiva: distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale
 
 Per testare Azure IoT Edge in questa guida di avvio rapido, distribuire il codice in contenitori in un dispositivo IoT Edge virtuale. IoT Edge consente di gestire in remoto il codice nei dispositivi, in modo da poter inviare più carichi di lavoro ai dispositivi perimetrali. Per questa guida di avvio rapido è consigliabile usare per il dispositivo IoT Edge una macchina virtuale di Azure che consenta di creare rapidamente un computer di test con tutti i prerequisiti installati e quindi eliminarlo al termine dell'operazione.
 
@@ -40,8 +40,10 @@ Usare l'interfaccia della riga di comando di Azure per completare molti dei pass
 Aggiungere l'estensione Azure IoT all'istanza di Cloud Shell.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+   
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prerequisites"></a>Prerequisites
 

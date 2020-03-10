@@ -1,26 +1,26 @@
 ---
 title: Integrazione e distribuzione continue
-description: Esperienza DevOps di database di livello aziendale per data warehouse con supporto incorporato per l'integrazione e la distribuzione continue con Azure Pipelines.
+description: Esperienza DevOps di database di livello aziendale per il data warehousing con supporto incorporato per l'integrazione e la distribuzione continue con Azure Pipelines.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: overview
+ms.topic: how-to
 ms.subservice: integration
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: cb28afc84c423c5c5321a8f948e82f82031888a0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: HT
+ms.openlocfilehash: a72ca29c2386035adaa6ebd58c4177f0f4e8ba11
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195941"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673601"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integrazione e distribuzione continue per i data warehouse
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integrazione e distribuzione continue per il data warehousing
 
-Questa semplice esercitazione illustra come integrare il progetto di database di SQL Server Data Tools (SSDT) con Azure DevOps e sfruttare Azure Pipelines per configurare l'integrazione e la distribuzione continue. Si tratta del secondo passaggio per la creazione della pipeline di integrazione e distribuzione continue per i data warehouse. 
+Questa semplice esercitazione illustra come integrare il progetto di database di SQL Server Data Tools (SSDT) con Azure DevOps e sfruttare Azure Pipelines per configurare l'integrazione e la distribuzione continue. Questa esercitazione rappresenta il secondo passaggio per la creazione della pipeline di integrazione e distribuzione continua per il data warehousing. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -62,7 +62,7 @@ A questo punto, si avrà un ambiente semplice in cui qualsiasi archiviazione nel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Architettura MPP di SQL Analytics](massively-parallel-processing-mpp-architecture.md)
+- Esplora l' [Architettura MPP di SQL Analytics](massively-parallel-processing-mpp-architecture.md)
 - [Creare un pool SQL](create-data-warehouse-portal.md) rapidamente
 - [Caricare dati di esempio](sql-data-warehouse-load-sample-databases.md)
 - Esplorare i [video](/azure/sql-data-warehouse/sql-data-warehouse-videos)

@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
 ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906764"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363077"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
@@ -235,7 +235,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 9. Se la VM farà parte di un dominio, verificare i criteri seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate. 
     
-    | Obiettivo                                     | Criterio                                                                                                                                                       | Valore                                                                                    |
+    | Obiettivo                                     | Policy                                                                                                                                                       | valore                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP è abilitato                           | Configurazione computer\Criteri\Impostazioni di Windows \Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni         | Consenti la connessione remota tramite Servizi Desktop remoto                                  |
     | Criteri di gruppo NLA                         | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedere l'autenticazione utente per l'accesso remoto usando NLA |
@@ -269,7 +269,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
    ``` 
 5. Se la VM farà parte di un dominio, controllare i criteri di Azure AD seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate. 
 
-    | Obiettivo                                 | Criterio                                                                                                                                                  | Valore                                   |
+    | Obiettivo                                 | Policy                                                                                                                                                  | valore                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Abilitare i profili di Windows Firewall | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Proteggi tutte le connessioni di rete         |
     | Abilitare RDP                           | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Consenti eccezioni per Desktop remoto in ingresso |
@@ -360,7 +360,7 @@ Assicurarsi che la macchina virtuale sia integra, sicura e accessibile tramite R
 
    Il criterio dovrebbe elencare i gruppi seguenti:
 
-   - Amministratori
+   - Administrators
 
    - Operatori di backup
 
@@ -374,7 +374,7 @@ Assicurarsi che la macchina virtuale sia integra, sicura e accessibile tramite R
 
 12. Disinstallare qualsiasi altro software o driver di terze parti correlato a componenti fisici o qualsiasi altra tecnologia di virtualizzazione.
 
-### <a name="install-windows-updates"></a>Installare gli aggiornamenti di Windows
+### <a name="install-windows-updates"></a>Installare aggiornamenti di Windows
 Idealmente, è consigliabile lasciare il computer aggiornato a *livello di patch*. Se ciò non è possibile, verificare che siano installati i seguenti aggiornamenti. Per ottenere gli aggiornamenti più recenti, vedere le pagine relative alla cronologia di Windows Update: [Windows 10 e Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4009470) e [Windows 7 SP1 e Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Componente               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
@@ -408,7 +408,7 @@ Idealmente, è consigliabile lasciare il computer aggiornato a *livello di patch
 |                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726         | 10.0.14393.594 - KB4022715                              | -                          | -                                               | -                                               |
 |                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | rdpwd.sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
-| Sicurezza                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                          | KB4012606                                               | KB4012606                  | -                                               | -                                               |
+| Security                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                          | KB4012606                                               | KB4012606                  | -                                               | -                                               |
 |                         |                |                                           | KB4012216                                   |                                    | KB4013198                                               | KB4013198                  | -                                               | -                                               |
 |                         |                | KB4012215                                 | KB4012214                                   | KB4012216                          | KB4013429                                               | KB4013429                  | -                                               | -                                               |
 |                         |                |                                           | KB4012217                                   |                                    | KB4013429                                               | KB4013429                  | -                                               | -                                               |

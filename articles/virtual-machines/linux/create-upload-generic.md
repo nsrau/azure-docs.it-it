@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: mimckitt
 ms.openlocfilehash: 7f2422df3a2449999e086e74e9446d125ffecbda
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251667"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385023"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 

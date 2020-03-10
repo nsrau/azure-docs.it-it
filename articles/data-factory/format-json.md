@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049854"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397004"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 

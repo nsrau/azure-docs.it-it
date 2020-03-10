@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966933"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384797"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Log di diagnostica e integrità back-end per il gateway applicazione
 
@@ -158,7 +158,7 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 
 Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per V1:
 
-|Valore  |Description  |
+|valore  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -202,7 +202,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 ```
 Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 
-|Valore  |Description  |
+|valore  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione che ha gestito la richiesta.        |
 |clientIP     | IP di origine della richiesta.        |
@@ -256,7 +256,7 @@ Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. È disponibile solo per lo SKU V1. Per lo SKU V2, usare le [metriche](application-gateway-metrics.md) per i dati sulle prestazioni. Vengono registrati i dati seguenti:
 
 
-|Valore  |Description  |
+|valore  |Descrizione  |
 |---------|---------|
 |instanceId     |  Istanza del gateway applicazione per cui vengono generati i dati delle prestazioni. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.        |
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
@@ -293,7 +293,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 Il log del firewall viene generato solo se è stato abilitato in ogni gateway applicazione, come descritto nei passaggi precedenti. Questo log richiede anche che il web application firewall sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
 
 
-|Valore  |Description  |
+|valore  |Descrizione  |
 |---------|---------|
 |instanceId     | Istanza del gateway applicazione per cui vengono generati i dati del firewall. Per un gateway applicazione a più istanze viene visualizzata una riga per ogni istanza.         |
 |clientIp     |   IP di origine della richiesta.      |

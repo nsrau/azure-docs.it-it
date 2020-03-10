@@ -1,14 +1,14 @@
 ---
 title: Panoramica di Azure Resource Graph
 description: Informazioni sul servizio Azure Resource Graph, che consente di eseguire query complesse sulle risorse su vasta scala, in diverse sottoscrizioni e diversi tenant.
-ms.date: 10/21/2019
+ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: 1e84de19d35f0c5f5d7975c8a94d5164100013e4
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
-ms.translationtype: HT
+ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936525"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385217"
 ---
 # <a name="what-is-azure-resource-graph"></a>Che cos'è Azure Resource Graph?
 
@@ -22,8 +22,8 @@ Azure Resource Graph è un servizio di Azure che consente di estendere la gestio
 In questa documentazione verrà esaminata ogni funzionalità in modo dettagliato.
 
 > [!NOTE]
-> Azure Resource Graph è usato dalla barra di ricerca e dalla nuova esperienza di navigazione "Tutte le risorse" del portale di Azure e dal _diff visivo_ di [Cronologia modifiche](../policy/how-to/determine-non-compliance.md#change-history-preview)
->  di Criteri di Azure. Il suo scopo è aiutare i clienti a gestire ambienti su larga scala.
+> Azure Resource Graph è usato dalla barra di ricerca e dalla nuova esperienza di navigazione "Tutte le risorse" del portale di Azure e dal [diff visivo](../policy/how-to/determine-non-compliance.md#change-history-preview) di 
+> Cronologia modifiche di Criteri di Azure. Il suo scopo è aiutare i clienti a gestire ambienti su larga scala.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -31,7 +31,7 @@ In questa documentazione verrà esaminata ogni funzionalità in modo dettagliato
 
 Attualmente, Azure Resource Manager supporta le query su campi di risorse di base, in particolare il nome della risorsa, l'ID, il tipo, il gruppo di risorse, la sottoscrizione e la posizione. Resource Manager fornisce anche funzionalità per la chiamata di provider di risorse individuali per ottenere proprietà dettagliate una risorsa alla volta.
 
-Con Azure Resource Graph, è possibile accedere a queste proprietà restituite dai provider di risorse senza la necessità di effettuare chiamate singole per ogni provider di risorse. Per un elenco dei tipi di risorsa supportati, cercare un **Sì** nella tabella [Risorse per le distribuzioni in modalità completa](../../azure-resource-manager/templates/complete-mode-deletion.md). I tipi di risorse aggiuntivi sono disponibili nelle [tabelle di Resource Graph](./concepts/query-language.md#resource-graph-tables) correlate. Un modo alternativo per visualizzare i tipi di risorse supportati è tramite il [browser di schemi di Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
+Con Azure Resource Graph, è possibile accedere a queste proprietà restituite dai provider di risorse senza la necessità di effettuare chiamate singole per ogni provider di risorse. Per un elenco dei tipi di risorse supportati, vedere la [tabella e il riferimento al tipo di risorsa](./reference/supported-tables-resources.md). Un modo alternativo per visualizzare i tipi di risorse supportati è tramite il [browser di schemi di Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
 Con Azure Resource Graph è possibile:
 
@@ -72,8 +72,8 @@ Specificare il caso aziendale e selezionare la casella di controllo "Microsoft p
 
 Resource Graph applica limitazioni alle query a livello di utente. La risposta del servizio contiene le intestazioni HTTP seguenti:
 
-- `x-ms-user-quota-remaining` (int): quota di risorse rimanenti per l'utente. Questo valore è associato al conteggio delle query.
-- `x-ms-user-quota-resets-after` (hh:mm:ss): durata temporale fino alla reimpostazione del consumo della quota dell'utente
+- `x-ms-user-quota-remaining` (int): quota di risorse rimanente per l'utente. Questo valore è associato al conteggio delle query.
+- `x-ms-user-quota-resets-after` (HH: mm: SS): periodo di tempo fino a quando non viene reimpostato il consumo della quota di un utente
 
 Per altre informazioni, vedere [Guidance for throttled requests](./concepts/guidance-for-throttled-requests.md).
 

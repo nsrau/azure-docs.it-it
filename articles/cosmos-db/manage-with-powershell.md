@@ -8,11 +8,11 @@ ms.date: 10/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 978f37d08275de704dd01c0251dde42665fca552
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882100"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364477"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gestire le risorse dell'API SQL di Azure Cosmos DB tramite PowerShell
 
@@ -47,7 +47,7 @@ Le sezioni seguenti illustrano come gestire l'account Azure Cosmos:
 
 ### <a id="create-account"></a> Creare un account Azure Cosmos
 
-Questo comando crea un account del database Azure Cosmos con il [criterio di coerenza](consistency-levels.md) bounded-staleness in [più aree][distribute-data-globally].
+Questo comando crea un account del database Azure Cosmos con il [criterio di coerenza][distribute-data-globally] bounded-staleness in [più aree](consistency-levels.md).
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API

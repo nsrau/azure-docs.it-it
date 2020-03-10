@@ -8,11 +8,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
 ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982544"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386541"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -23,7 +23,7 @@ Sebbene sia possibile creare, modificare, gestire e distribuire app per la logic
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -259,7 +259,7 @@ Per eliminare l'app per la logica dal portale di Azure, in Cloud Explorer aprire
 > [!NOTE]
 > Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo. 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Quando si apre il progetto dell'app per la logica in Progettazione app per la logica, l'opzione per la selezione della sottoscrizione di Azure potrebbe non essere presente. L'app per la logica viene invece aperta con una sottoscrizione di Azure diversa da quella che si vuole usare. Questo comportamento si verifica perché, dopo aver aperto il file JSON di un'app per la logica, Visual Studio memorizza nella cache la prima sottoscrizione selezionata per un uso futuro. Per risolvere il problema, provare a eseguire uno di questi passaggi:
 

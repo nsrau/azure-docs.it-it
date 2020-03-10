@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457115"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382198"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -27,7 +27,7 @@ ms.locfileid: "75457115"
 
 L'hub IoT di Azure è un servizio multi-tenant che espone le proprie funzionalità a diversi attori. Il diagramma seguente mostra i vari endpoint esposti dall'hub IoT.
 
-![Endpoint dell'hub IoT](./media/iot-hub-devguide-endpoints/endpoints.png)
+![Endpoint hub IoT](./media/iot-hub-devguide-endpoints/endpoints.png)
 
 L'elenco seguente offre una descrizione degli endpoint:
 
@@ -84,10 +84,10 @@ Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas 
 
 È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. Si consiglia di usare le [metriche dell'hub](iot-hub-metrics.md) delle cose correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integra, perché si prevede che la latenza sia superiore quando l'endpoint si trova in uno di questi Stati.
 
-|Stato integrità|Description|
+|Stato integrità|Descrizione|
 |---|---|
 |healthy|L'endpoint accetta messaggi come previsto.|
-|Non integro|L'endpoint non accetta messaggi come previsto e l'hub Internet sta tentando di inviare i dati a questo endpoint. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.|
+|non integro|L'endpoint non accetta messaggi come previsto e l'hub Internet sta tentando di inviare i dati a questo endpoint. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.|
 |unknown|L'hub cose non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
 |morto|L'endpoint non accetta messaggi, dopo che l'hub di Internet delle cose ha ritentato l'invio di messaggi per il periodo di prova.|
 

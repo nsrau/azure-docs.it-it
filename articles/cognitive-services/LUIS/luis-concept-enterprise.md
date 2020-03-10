@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619933"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361134"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Strategie aziendali per un'app LUIS
 Rivedere queste strategie di progettazione per l'app aziendale.
@@ -69,7 +69,7 @@ Comprendere il modo in cui viene eseguita questa gerarchia di chiamate dal Bot B
 ### <a name="intent-limits-in-dispatch-model"></a>Limiti di finalità nel modello recapito
 Al massimo un'applicazione di recapito dispone di 500 origini di recapito, equivalenti a 500 finalità. 
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 * [SDK del Framework bot](https://github.com/Microsoft/botframework)
 * [Esercitazione sul modello di invio](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)

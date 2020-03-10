@@ -3,12 +3,12 @@ title: Procedure consigliate per il registro contenitori
 description: Informazioni su come usare Registro Azure Container in modo efficace seguendo queste procedure consigliate.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445796"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669331"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per Registro Azure Container
 
@@ -35,12 +35,10 @@ Con l'uso di spazi dei nomi dell'archivio, è possibile consentire la condivisio
 
 Si considerino ad esempio i tag delle immagini del contenitore seguenti: Le immagini utilizzate a livello aziendale, ad esempio `aspnetcore`, vengono inserite nello spazio dei nomi radice, mentre le immagini del contenitore di proprietà dei prodotti e dei gruppi marketing utilizzano i propri spazi dei nomi.
 
-```
-contoso.azurecr.io/aspnetcore:2.0
-contoso.azurecr.io/products/widget/web:1
-contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
-contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
-```
+- *contoso.azurecr.io/aspnetcore:2.0*
+- *contoso.azurecr.io/products/widget/web:1*
+- *contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
+- *contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
 
 ## <a name="dedicated-resource-group"></a>Gruppo di risorse dedicato
 
@@ -48,11 +46,11 @@ Poiché i registri contenitori sono risorse usate in più host contenitori, un r
 
 Anche se è possibile provare con un tipo di host specifico, come le Istanze di Azure Container, probabilmente al termine si vorrà eliminare l'istanza del contenitore. Tuttavia, è anche possibile mantenere la raccolta di immagini inserita in Registro Azure Container. Posizionando il registro nel suo gruppo di risorse, si riduce al minimo il rischio di eliminare accidentalmente la raccolta di immagini nel registro quando si elimina il gruppo di risorse delle istanze del contenitore.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Quando si esegue l'autenticazione con Registro Azure Container, esistono due scenari principali: autenticazione singola e autenticazione di servizio (o "headless"). La tabella seguente fornisce una breve panoramica di questi scenari e il metodo di autenticazione consigliato per ognuno.
 
-| Tipo | Scenario di esempio | Metodo consigliato |
+| Type | Scenario di esempio | Metodo consigliato |
 |---|---|---|
 | Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identità headless/del servizio | Pipeline di compilazione e distribuzione in cui l'utente non è direttamente coinvolto. | [Entità servizio](container-registry-authentication.md#service-principal) |
@@ -65,8 +63,11 @@ I vincoli di archiviazione di [ogni SKU del registro contenitori][container-regi
 
 Usare il comando dell'interfaccia della riga di comando di Azure [AZ ACR Show-Usage][az-acr-show-usage] per visualizzare le dimensioni correnti del registro di sistema:
 
-```console
-$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```azurecli
+az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```
+
+```output
 NAME      LIMIT         CURRENT VALUE    UNIT
 --------  ------------  ---------------  ------
 Size      536870912000  185444288        Bytes

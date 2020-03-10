@@ -4,11 +4,11 @@ description: Inserire alcune righe di codice nell'app desktop o per dispositivi,
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666497"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362014"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -18,7 +18,7 @@ Inserire alcune righe di codice nell'applicazione per scoprire come viene usato 
 
 L'API principale è uniforme in tutte le piattaforme, a parte alcune variazioni, ad esempio `GetMetric` (solo .NET).
 
-| Metodo | Utilizzato per |
+| Metodo | Utilizzo |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Pagine, schermate, pannelli o form. |
 | [`TrackEvent`](#trackevent) |Azioni dell'utente e altri eventi. Usato per tenere traccia del comportamento dell'utente o per monitorare le prestazioni. |
@@ -246,7 +246,7 @@ Per inviare le metriche ad Application Insights, è possibile usare l'API `Track
 
 * Valore singolo. Ogni volta che si esegue una misurazione nell'applicazione, si invia il valore corrispondente ad Application Insights. Ad esempio, si supponga di avere una metrica che descrive il numero di elementi in un contenitore. Durante un periodo di tempo specifico, inserire prima tre elementi nel contenitore e poi rimuoverne due. Di conseguenza, è necessario chiamare `TrackMetric` due volte: prima passando il valore `3` e poi il valore `-2`. Application Insights memorizza entrambi i valori per conto dell'utente.
 
-* Aggregation. Quando si usano le metriche non si considera mai una sola misura. È importante invece il riepilogo delle operazioni eseguite in un periodo di tempo specifico. Tale riepilogo viene chiamato _aggregazione_. Nell'esempio precedente la somma della metrica di aggregazione per quel periodo di tempo è `1` e il conteggio dei valori della metrica è `2`. Quando si usa l'approccio di aggregazione, si chiama `TrackMetric` solo una volta per periodo di tempo e si inviano i valori di aggregazione. Questo è l'approccio consigliato in quanto può ridurre notevolmente i costi e le prestazioni generali inviando meno punti dati ad Application Insights, durante la raccolta di tutte le informazioni pertinenti.
+* Aggregazione. Quando si usano le metriche non si considera mai una sola misura. È importante invece il riepilogo delle operazioni eseguite in un periodo di tempo specifico. Tale riepilogo viene chiamato _aggregazione_. Nell'esempio precedente la somma della metrica di aggregazione per quel periodo di tempo è `1` e il conteggio dei valori della metrica è `2`. Quando si usa l'approccio di aggregazione, si chiama `TrackMetric` solo una volta per periodo di tempo e si inviano i valori di aggregazione. Questo è l'approccio consigliato in quanto può ridurre notevolmente i costi e le prestazioni generali inviando meno punti dati ad Application Insights, durante la raccolta di tutte le informazioni pertinenti.
 
 ### <a name="examples"></a>Esempi
 
@@ -518,7 +518,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-La maggior parte delle informazioni importanti dello stack è già stata estratta in variabili distinte, ma è possibile separare la struttura `details` per ottenerne altre. Poiché si tratta di una struttura dinamica, è necessario eseguire il cast del risultato per il tipo previsto. Ad esempio,
+La maggior parte delle informazioni importanti dello stack è già stata estratta in variabili distinte, ma è possibile separare la struttura `details` per ottenerne altre. Poiché si tratta di una struttura dinamica, è necessario eseguire il cast del risultato per il tipo previsto. Ad esempio:
 
 ```kusto
 exceptions
@@ -581,7 +581,7 @@ Registrare un evento di diagnostica, ad esempio inserire o rimuovere un metodo.
 Il limite delle dimensioni per `message` è molto superiore al limite per le proprietà.
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio è possibile codificare dati POST.  
 
-È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio,
+È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio:
 
 *C#*
 
@@ -729,7 +729,7 @@ La funzione è asincrona per il [canale di telemetria del server](https://www.nu
 
 In teoria, il metodo Flush () deve essere utilizzato nell'attività di arresto dell'applicazione.
 
-## <a name="authenticated-users"></a>Authenticated users
+## <a name="authenticated-users"></a>utenti autenticati
 
 In un'app Web gli utenti sono identificati dai cookie per impostazione predefinita. Un utente può essere conteggiato più volte se accede all'app da un computer o da un browser diverso o se elimina i cookie.
 
@@ -864,7 +864,7 @@ telemetry.trackEvent("WinGame", properties, metrics);
 ```
 
 > [!NOTE]
-> Prestare attenzione a non registrare informazioni personali nelle proprietà.
+> Assicurarsi di non registrare informazioni personali nelle proprietà.
 >
 >
 
@@ -1144,7 +1144,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient dispone di una proprietà Context contenente valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. Ad esempio,
+TelemetryClient dispone di una proprietà Context contenente valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. Ad esempio:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1193,7 +1193,7 @@ Per determinare quanto tempo vengono conservati i dati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    Nessuno Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](../../azure-monitor/app/export-power-bi.md ) e l'[esportazione continua](../../azure-monitor/app/export-telemetry.md).

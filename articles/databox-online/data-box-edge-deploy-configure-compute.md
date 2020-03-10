@@ -10,19 +10,19 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277283"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397310"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Esercitazione: Trasformare i dati con Azure Data Box Edge
+# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Esercitazione: trasformare i dati con Azure Data Box Edge
 
 Questa esercitazione descrive come configurare un ruolo di calcolo nel dispositivo Azure Data Box Edge. Dopo aver configurato il ruolo di calcolo, Data Box Edge può trasformare i dati prima che vengano inviati ad Azure.
 
 Il completamento di questa procedura può richiedere circa 10-15 minuti.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare il calcolo
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 > * Verificare la trasformazione e il trasferimento dei dati
 
  
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di configurare un ruolo di calcolo nel dispositivo Data Box Edge, assicurarsi di:
 
@@ -50,10 +50,10 @@ Per configurare il calcolo in Data Box Edge, si creerà una risorsa hub IoT.
 3. Nel pannello **Configura calcolo Edge** immettere quanto segue:
 
    
-    |Campo  |Valore  |
+    |Campo  |valore  |
     |---------|---------|
     |Hub IoT     | Scegliere **Nuovo** o **Esistente**. <br> Per impostazione predefinita, per creare una risorsa IoT viene usato un livello Standard (S1). Per usare una risorsa IoT di un livello gratuito, crearne uno e quindi selezionare la risorsa esistente. <br> In ogni caso, la risorsa hub IoT usa la stessa sottoscrizione e lo stesso gruppo di risorse usati dalla risorsa Data Box Edge.     |
-    |NOME     |Immettere un nome per la risorsa hub IoT.         |
+    |Nome     |Immettere un nome per la risorsa hub IoT.         |
 
     ![Introduzione al calcolo](./media/data-box-edge-deploy-configure-compute/configure-compute-2.png)
 
@@ -109,9 +109,9 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
 2. Nel pannello **Configura e aggiungi modulo** immettere i valori seguenti:
 
     
-    |Campo  |Valore  |
+    |Campo  |valore  |
     |---------|---------|
-    |NOME     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato a Data Box Edge.        |
+    |Nome     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato a Data Box Edge.        |
     |URI immagine     | URI dell'immagine del contenitore corrispondente per il modulo.        |
     |Sono richieste credenziali     | Se questa opzione è selezionata, per recuperare i moduli con un URL corrispondente vengono usati un nome utente e una password.        |
     |Condivisione di input     | Selezionare una condivisione di input. In questo caso, la condivisione di input è la condivisione locale Edge. Il modulo usato in questo esempio sposta i file dalla condivisione locale Edge a una condivisione Edge in cui vengono caricati nel cloud.        |
@@ -157,7 +157,7 @@ Il processo di convalida è stato completato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare il calcolo

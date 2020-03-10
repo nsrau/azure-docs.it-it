@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: raynew
 ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014012"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361933"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto Azure Migrate
 
@@ -52,7 +52,7 @@ Migrazione server di Azure Migrate | ND | Eseguire la migrazione di [VM VMware](
 
 **Supporto** | **Dettagli**
 --- | ---
-Sottoscrizione | È possibile avere più progetti Azure Migrate in una sottoscrizione.
+Subscription | È possibile avere più progetti Azure Migrate in una sottoscrizione.
 Autorizzazioni di Azure | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
 VM VMware  | Consente di valutare fino a 35.000 VM VMware in un singolo progetto.
 VM Hyper-V | Valutazione di un massimo di 35.000 macchine virtuali Hyper-V in un singolo progetto.
@@ -75,7 +75,7 @@ Creare un insieme di credenziali delle chiavi per la migrazione senza agenti VMw
 
 **Area geografica** | **Posizione di archiviazione dei metadati**
 --- | ---
-Azure per enti pubblici | Governo degli Stati Uniti - Virginia
+Azure Government | US Gov Virginia
 Asia Pacifico | Asia orientale o Asia sud-orientale
 Australia | Australia orientale o Australia sudorientale
 Brasile | Brasile meridionale
@@ -84,7 +84,7 @@ Europa | Europa settentrionale o Europa occidentale
 Francia | Francia centrale
 India | India centrale o India meridionale
 Giappone |  Giappone orientale o Giappone occidentale
-Corea | Corea centrale o Corea del sud
+Corea del Sud | Corea centrale o Corea del sud
 Regno Unito | Regno Unito meridionale o Regno Unito occidentale
 Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
@@ -108,7 +108,7 @@ Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
 Sono disponibili due versioni del servizio Azure Migrate:
 
-- **Versione corrente**: con questa versione è possibile creare nuovi progetti di Azure migrate, individuare le valutazioni locali e orchestrare valutazioni e migrazioni. [Altre informazioni](whats-new.md#release-version-july-2019)
+- **Versione corrente**: con questa versione è possibile creare nuovi progetti di Azure migrate, individuare le valutazioni locali e orchestrare valutazioni e migrazioni. [Altre informazioni](whats-new.md#release-version-july-2019).
 - **Versione precedente**: per i clienti che usano la versione precedente di Azure migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora necessario usare la versione corrente. Nella versione precedente non è possibile creare nuovi progetti di Azure Migrate o eseguire nuove individuazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi

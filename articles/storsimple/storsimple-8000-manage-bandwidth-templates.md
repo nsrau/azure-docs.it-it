@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699472"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366747"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i modelli di larghezza di banda StorSimple
 
@@ -171,5 +171,5 @@ Seguire queste procedure consigliate relative al dispositivo StorSimple:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull'[utilizzo del servizio Gestione dispositivi StorSimple per la gestione del dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

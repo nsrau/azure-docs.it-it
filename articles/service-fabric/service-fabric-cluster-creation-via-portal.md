@@ -4,11 +4,11 @@ description: Informazioni su come configurare un cluster di Service Fabric prote
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452310"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363382"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ Questo articolo contiene una guida dettagliata che illustra i passaggi per la co
 > 
 > 
 
-## <a name="cluster-security"></a>Sicurezza dei cluster 
+## <a name="cluster-security"></a>Sicurezza del cluster 
 I certificati vengono usati in Service Fabric per fornire l'autenticazione e la crittografia e proteggere i vari aspetti di un cluster e delle sue applicazioni. Per altre informazioni sull'uso dei certificati in Service Fabric, vedere [Scenari di sicurezza di un cluster di Service Fabric][service-fabric-cluster-security].
 
 Se è la prima volta che si sta creando un cluster dell'infrastruttura di servizio o si sta distribuendo un cluster per dei carichi di lavoro di prova, è possibile passare alla sezione successiva (**Crea cluster nel portale di Azure**) e ottenere dal sistema i certificati necessari per i cluster che eseguono carichi di lavoro di prova. Se si configura un cluster per i carichi di lavoro di produzione, continuare la lettura.
@@ -173,7 +173,7 @@ Selezionare la casella **Configura impostazioni avanzate** per l'immissione dei 
 
 Per completare la creazione del cluster fare clic su **Crea**. È possibile, facoltativamente, scaricare il modello.
 
-![Riepilogo]
+![Summary]
 
 È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: Fare clic sull'icona "campanello" accanto alla barra di stato nella parte superiore destra della schermata. Se è stato fatto clic su **Aggiungi a schermata iniziale** durante la creazione del cluster, viene visualizzata la **distribuzione di Service Fabric cluster** aggiunto alla lavagna **iniziale** . Questo processo richiede tempo. 
 

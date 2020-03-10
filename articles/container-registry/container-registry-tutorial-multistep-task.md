@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come configurare un'attività del Reg
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5342e51af870b1e5f8651ea2d28894233ed8e62
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7d84770f1b945ff47cb4e9118d9c342e67118722
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456066"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249910"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Esercitazione: Eseguire un flusso di lavoro dei contenitori in più passaggi nel cloud quando si esegue il commit di codice sorgente
 
@@ -69,7 +69,9 @@ Le operazioni di un'attività in più passaggi sono le seguenti:
 
 Per prima cosa, popolare queste variabili di ambiente della shell con i valori appropriati per l'ambiente in uso. Questo passaggio non è obbligatorio, ma semplifica in parte l'esecuzione dei comandi su più righe dell'interfaccia della riga di comando di Azure. Se non si popolano queste variabili di ambiente, sarà necessario sostituire manualmente ogni valore in ogni occorrenza nei comandi di esempio.
 
-```azurecli-interactive
+[![Incorpora avvio](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
@@ -217,13 +219,13 @@ Dopo aver testato l'attività eseguendola manualmente, attivarla automaticamente
 
 Prima di tutto, verificare di trovarsi nella directory contenente il clone locale del [repository][sample-repo]:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 Eseguire quindi questi comandi per eseguire la creazione, il commit e il push di un nuovo file nel fork del repository in GitHub:
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"

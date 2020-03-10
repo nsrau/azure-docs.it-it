@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438651"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303206"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Gateway
 
@@ -42,7 +42,7 @@ Per distribuire il Data Box Gateway, vedere le esercitazioni seguenti nella sequ
 
 È ora possibile iniziare a configurare il portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Di seguito sono elencati i prerequisiti di configurazione per la risorsa Data Box Gateway, il dispositivo Data Box Gateway e la rete del data center.
 
@@ -94,7 +94,7 @@ Per creare una risorsa Data Box Gateway, seguire questa procedura nel portale di
     - Portale di Azure per enti pubblici all'URL [https://portal.azure.us](https://portal.azure.us). Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare **Data Box Edge/Data Box Gateway**. Selezionare Data Box Edge/Data Box Gateway. Selezionare **Create** (Crea).
-3. Selezionare la sottoscrizione da usare per il dispositivo Data Box Gateway. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Gateway. Per questa versione sono disponibili le aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. Nell'opzione **Data Box Gateway** selezionare **Crea**.
+3. Selezionare la sottoscrizione da usare per il dispositivo Data Box Gateway. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Gateway. Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. Nell'opzione **Data Box Gateway** selezionare **Crea**.
 
     ![Cercare nel servizio Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
@@ -110,7 +110,7 @@ Per creare una risorsa Data Box Gateway, seguire questa procedura nel portale di
     |Impostazione  |valore  |
     |---------|---------|
     |Nome   | Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |   
-    |Region     |Per questa versione, per la distribuzione della risorsa sono disponibili le aree Stati Uniti orientali, Asia sud-orientale ed Europa occidentale. Per Azure per enti pubblici sono disponibili tutte le aree per enti pubblici elencate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). <br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
+    |Region     |Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Per Azure per enti pubblici sono disponibili tutte le aree per enti pubblici elencate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). <br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
     
     ![Creazione della risorsa Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

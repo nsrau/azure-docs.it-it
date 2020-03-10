@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Collegare i cavi di un dispositivo Azure FXT Edge Filer'
+title: 'Esercitazione: connettere cavi a un filer di Azure FXT Edge'
 description: Informazioni su come cablare le porte di rete e collegare l'alimentazione per il nodo hardware Azure FXT Edge Filer
 author: ekpgh
 ms.author: rohogue
@@ -7,13 +7,13 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550945"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395429"
 ---
-# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Esercitazione: Creare connessioni di rete e alimentare il nodo Azure FXT Edge Filer
+# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Esercitazione: creare connessioni di rete e fornire energia al nodo del filer di Azure FXT Edge
 
 Questa esercitazione spiega su come cablare le connessioni di rete per un nodo hardware Azure FXT Edge Filer.
 

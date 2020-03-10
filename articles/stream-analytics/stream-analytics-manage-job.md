@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459564"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392531"
 ---
-# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Esercitazione: Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
+# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Esercitazione: analizzare i dati delle telefonate con l'analisi di flusso e visualizzare i risultati in Power BI Dashboard
 
 Questa esercitazione spiega come analizzare i dati delle telefonate con Analisi di flusso di Azure. I dati delle telefonate, generati da un'applicazione client, contengono alcune chiamate fraudolente che verranno filtrate dal processo di Analisi di flusso.
 
@@ -85,7 +85,7 @@ Affinché un'applicazione possa inviare dati ad Hub eventi di Azure, è necessar
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>`
 
-   Si noti che la stringa di connessione contiene più coppie chiave-valore separate da punti e virgola: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey**, e **EntityPath**.
+   Si noti che la stringa di connessione contiene più coppie chiave-valore, delimitate da punti e virgola: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** e **EntityPath**.
 
 ## <a name="start-the-event-generator-application"></a>Avviare l'applicazione generatore eventi
 

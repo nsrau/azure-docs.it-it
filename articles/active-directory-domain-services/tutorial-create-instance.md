@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: iainfou
 ms.openlocfilehash: 86097a8706956a768def107dd312c9a20c63c6ff
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612351"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378444"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: creare e configurare un'istanza di Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) offre servizi di dominio gestiti, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. È possibile utilizzare questi servizi di dominio senza distribuire, gestire e applicare patch manualmente ai controller di dominio. Azure AD DS si integra con il tenant di Azure AD esistente. Questa integrazione consente agli utenti di accedere con le proprie credenziali aziendali ed è possibile usare i gruppi e gli account utente esistenti per proteggere l'accesso alle risorse.
 
@@ -45,7 +45,7 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 Nonostante non sia necessario per Azure Active Directory Domain Services, è consigliabile [configurare la reimpostazione della password self-service][configure-sspr] per il tenant di Azure AD. Gli utenti possono modificare la password senza questa funzionalità, ma la reimpostazione della password self-service è utile se dimenticano la password e devono reimpostarla.
 
 > [!IMPORTANT]
-> Dopo aver creato un dominio gestito Azure Active Directory Domain Services, non è possibile spostare l'istanza in un gruppo di risorse, una rete virtuale o una sottoscrizione diversa. Quando si distribuisce l'istanza di Azure Active Directory Domain Services, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
+> Dopo aver creato un dominio gestito di Azure AD DS, non è possibile spostare l'istanza in un gruppo di risorse, una rete virtuale, una sottoscrizione e così via. Quando si distribuisce l'istanza di Azure AD DS, prestare attenzione a selezionare la sottoscrizione, il gruppo di risorse, l'area e la rete virtuale più appropriati.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -63,23 +63,23 @@ Per avviare la procedura guidata **Abilita Azure AD Domain Services**, seguire q
 
 Quando si crea un'istanza di Azure AD DS, si specifica un nome DNS. Di seguito sono riportate alcune considerazioni per la scelta di questo nome DNS:
 
-* **Nome di dominio predefinito:** per impostazione predefinita, viene usato il nome di dominio predefinito della directory, con il suffisso *.onmicrosoft.com*. Se si vuole abilitare l'accesso LDAP sicuro al dominio gestito tramite Internet, non è possibile creare un certificato digitale per proteggere la connessione con il dominio predefinito. Microsoft è proprietaria del dominio *.onmicrosoft.com*, quindi un'autorità di certificazione (CA) pubblica non emetterà un certificato.
-* **Nomi di dominio personalizzati:** l'approccio più comune è quello di specificare un nome di dominio personalizzato, in genere uno di cui si è già proprietari ed è instradabile. Se si usa un dominio personalizzato instradabile, il traffico può fluire correttamente in base alle esigenze per supportare le applicazioni.
-* **Suffissi di dominio non instradabili:** è in genere consigliabile evitare un suffisso del nome di dominio non instradabile, ad esempio *contoso.local*. Il suffisso *.local* non è instradabile e può causare problemi con la risoluzione DNS.
+* **Nome di dominio predefinito:** Per impostazione predefinita, viene usato il nome di dominio predefinito della directory (suffisso *. onmicrosoft.com* ). Se si vuole abilitare l'accesso LDAP sicuro al dominio gestito tramite Internet, non è possibile creare un certificato digitale per proteggere la connessione con il dominio predefinito. Microsoft è proprietaria del dominio *.onmicrosoft.com*, quindi un'autorità di certificazione (CA) pubblica non emetterà un certificato.
+* **Nomi di dominio personalizzati:** L'approccio più comune è quello di specificare un nome di dominio personalizzato, in genere uno di cui si è già proprietari ed è instradabile. Se si usa un dominio personalizzato instradabile, il traffico può fluire correttamente in base alle esigenze per supportare le applicazioni.
+* **Suffissi di dominio non instradabili:** È in genere consigliabile evitare un suffisso del nome di dominio non instradabile, ad esempio *contoso. local*. Il suffisso *.local* non è instradabile e può causare problemi con la risoluzione DNS.
 
 > [!TIP]
 > Se si crea un nome di dominio personalizzato, prestare attenzione agli spazi dei nomi DNS esistenti. È consigliabile usare un nome di dominio separato da uno spazio dei nomi DNS locale o di Azure esistente.
 >
-> Se, ad esempio, lo spazio dei nomi DNS esistente è *contoso.com*, creare un dominio gestito di Azure Active Directory Domain Services con il nome di dominio personalizzato *aaddscontoso.com*. Se occorre usare il protocollo LDAP sicuro, è necessario eseguire la registrazione ed essere il proprietario del nome di dominio personalizzato per generare i certificati necessari.
+> Se, ad esempio, si dispone di uno spazio dei nomi DNS esistente di *contoso.com*, creare un dominio gestito di Azure AD DS con il nome di dominio personalizzato *aaddscontoso.com*. Se è necessario usare il protocollo LDAP sicuro, è necessario registrarsi e denominare il nome di dominio personalizzato per generare i certificati necessari.
 >
-> Potrebbe essere necessario creare alcuni record DNS aggiuntivi per altri servizi nell'ambiente in uso o server di inoltro DNS condizionali tra gli spazi dei nomi DNS esistenti nell'ambiente corrente. Ad esempio, se si esegue un server Web che ospita un sito con il nome DNS radice, possono essere presenti conflitti di denominazione che richiedono voci DNS aggiuntive.
+> Potrebbe essere necessario creare alcuni record DNS aggiuntivi per altri servizi nell'ambiente in uso o i server d'inoltri DNS condizionali tra gli spazi dei nomi DNS esistenti nell'ambiente in uso. Ad esempio, se si esegue un server Web che ospita un sito con il nome DNS radice, possono essere presenti conflitti di denominazione che richiedono voci DNS aggiuntive.
 >
-> In queste esercitazioni e guide pratiche viene usato il dominio personalizzato *aadds.contoso.com* a titolo di esempio. In tutti i comandi specificare il proprio nome di dominio.
+> In queste esercitazioni e articoli sulle procedure viene usato come breve esempio il dominio personalizzato di *aaddscontoso.com* . In tutti i comandi specificare il proprio nome di dominio.
 
 Si applicano anche le seguenti restrizioni relative ai nomi DNS:
 
-* **Limitazioni dei prefissi di dominio:** non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri. Il prefisso del nome di dominio specificato (ad esempio, *aaddscontoso* nel nome di dominio *aaddscontoso.com*) deve contenere un massimo di 15 caratteri.
-* **Conflitti nei nomi di rete:** il nome di dominio DNS per il dominio gestito non deve essere già presente nella rete virtuale. In particolare, verificare i seguenti scenari che potrebbero causare un conflitto di nomi:
+* **Restrizioni del prefisso di dominio:** Non è possibile creare un dominio gestito con un prefisso più lungo di 15 caratteri. Il prefisso del nome di dominio specificato, ad esempio *aaddscontoso* nel nome di dominio *aaddscontoso.com* , deve contenere un massimo di 15 caratteri.
+* **Conflitti di nomi di rete:** Il nome di dominio DNS per il dominio gestito non dovrebbe essere già presente nella rete virtuale. In particolare, verificare i seguenti scenari che potrebbero causare un conflitto di nomi:
     * È già presente un dominio di Active Directory con lo stesso nome di dominio DNS nella rete virtuale.
     * La rete virtuale in cui si intende abilitare il dominio gestito ha una connessione VPN alla rete locale. In questo caso, verificare che non sia presente un dominio con lo stesso nome di dominio DNS nella rete locale.
     * Esiste un servizio cloud di Azure con lo stesso nome della rete virtuale di Azure.
@@ -120,7 +120,7 @@ Nella pagina **Riepilogo** della procedura guidata controllare le impostazioni d
     ![Notifica nel portale di Azure sulla distribuzione in corso](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. La pagina verrà caricata con aggiornamenti sul processo di distribuzione, inclusa la creazione di nuove risorse nella directory.
-1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi scegliere l'istanza di Azure Active Directory Domain Services dall'elenco di risorse di Azure, ad esempio *aaddscontoso.com*. La scheda **Panoramica** indica che il dominio gestito è attualmente in fase di *Distribuzione*. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning.
+1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi scegliere l'istanza di Azure AD DS dall'elenco di risorse di Azure, ad esempio *aaddscontoso.com*. La scheda **Panoramica** indica che il dominio gestito è attualmente in fase di *Distribuzione*. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning.
 
     ![Stato di Domain Services durante lo stato di provisioning](./media/tutorial-create-instance/provisioning-in-progress.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c62af3ddf8b2c2dc8082dc4f4870ecfcdc175ab8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661960"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380748"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Avvisi di sicurezza-Guida di riferimento
 
@@ -243,7 +243,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|
 |----|----|:----:|
 |**Anteprima-associazione ruolo al ruolo di amministratore del cluster rilevato**|L'analisi del log di controllo di Kubernetes ha rilevato una nuova associazione al ruolo di amministratore del cluster, con privilegi di amministratore. La fornitura inutilmente di privilegi di amministratore potrebbe causare problemi di escalation dei privilegi nel cluster.|Persistenza|
-|**ANTEPRIMA: è stato rilevato un dashboard Kubernetes esposto**|L'analisi del log di controllo di Kubernetes ha rilevato l'esposizione del dashboard Kubernetes da parte di un servizio LoadBalancer. I dashboard esposti consentono l'accesso non autenticato alla gestione del cluster e costituiscono una minaccia per la sicurezza.|Persistenza|
+|**ANTEPRIMA: è stato rilevato un dashboard Kubernetes esposto**|L'analisi del log di controllo di Kubernetes ha rilevato l'esposizione del dashboard Kubernetes da parte di un servizio LoadBalancer. I dashboard esposti consentono l'accesso non autenticato alla gestione del cluster e costituiscono una minaccia per la sicurezza.|Accesso iniziale|
 |**ANTEPRIMA: rilevato nuovo ruolo con privilegi elevati**|L'analisi del log di controllo di Kubernetes ha rilevato un nuovo ruolo con privilegi elevati. Un'associazione a un ruolo con privilegi elevati consente di privilegi elevati di utenti/gruppi nel cluster. La fornitura inutilmente di privilegi elevati può causare problemi di escalation dei privilegi nel cluster.|Persistenza|
 |**ANTEPRIMA-nuovo contenitore nello spazio dei nomi Kube-System rilevato**|L'analisi del log di controllo di Kubernetes ha rilevato un nuovo contenitore nello spazio dei nomi Kube-System che non è tra i contenitori che in genere vengono eseguiti in questo spazio dei nomi. Gli spazi dei nomi Kube-System non devono contenere risorse utente. Gli utenti malintenzionati possono utilizzare questo spazio dei nomi per nascondere i componenti dannosi.|Persistenza|
 |**ANTEPRIMA-contenitore di data mining Digital Currency rilevato**|L'analisi del log di controllo di Kubernetes ha rilevato un contenitore con un'immagine associata a uno strumento di data mining digitale.|Esecuzione|
@@ -263,7 +263,7 @@ Sotto le tabelle degli avvisi è riportata una tabella che descrive la catena di
 |**Il server SSH viene eseguito all'interno di un contenitore**|I log del computer indicano che un server SSH viene eseguito all'interno di un contenitore docker. Sebbene questo comportamento possa essere intenzionale, spesso indica che un contenitore non è configurato correttamente o è stato violato.|Esecuzione|
 |**Rilevato contenitore con un'immagine Miner**|I log del computer indicano l'esecuzione di un contenitore Docker che esegue un'immagine associata a Digital Currency mining. Questo comportamento può eventualmente indicare che le risorse sono state usate.|Esecuzione|
 |**Richiesta sospetta all'API Kubernetes**|I log del computer indicano che è stata apportata una richiesta sospetta all'API Kubernetes. La richiesta è stata inviata da un nodo Kubernetes, probabilmente da uno dei contenitori in esecuzione nel nodo. Sebbene questo comportamento possa essere intenzionale, potrebbe indicare che il nodo esegue un contenitore compromesso.|Esecuzione|
-|**Richiesta sospetta al dashboard di Kubernetes**|I log del computer indicano che è stata apportata una richiesta sospetta al dashboard di Kubernetes. La richiesta è stata inviata da un nodo Kubernetes, probabilmente da uno dei contenitori in esecuzione nel nodo. Sebbene questo comportamento possa essere intenzionale, potrebbe indicare che il nodo esegue un contenitore compromesso.|-|
+|**Richiesta sospetta al dashboard di Kubernetes**|I log del computer indicano che è stata apportata una richiesta sospetta al dashboard di Kubernetes. La richiesta è stata inviata da un nodo Kubernetes, probabilmente da uno dei contenitori in esecuzione nel nodo. Sebbene questo comportamento possa essere intenzionale, potrebbe indicare che il nodo esegue un contenitore compromesso.|Spostamento laterale|
 ||||
 
 
@@ -395,7 +395,7 @@ Conoscere l'intenzione di un attacco può aiutarti a esaminare e segnalare più 
 
 La serie di passaggi che descrivono la progressione di un cyberattack da ricognizione a data exfiltration è spesso definita "catena di terminazione". 
 
-Le finalità della catena di Kill per il Centro sicurezza sono basate su [Mitre ATT &AMP; CK™ Framework](https://attack.mitre.org/matrices/enterprise) e descritte nella tabella seguente.
+Le finalità della catena di Kill per il Centro sicurezza sono basate su [Mitre ATT &AMP; CK&trade; Framework](https://attack.mitre.org/matrices/enterprise) e descritte nella tabella seguente.
 
 |Finalità|Descrizione|
 |------|-------|

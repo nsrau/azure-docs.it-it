@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
 ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120576"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370860"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x
 
@@ -43,7 +43,7 @@ Il trigger di Azure Cosmos DB usa il [feed di modifiche di Azure Cosmos DB](../c
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che viene richiamata in caso di inserimenti o aggiornamenti nel database e nella raccolta specificati.
 
@@ -76,7 +76,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive i messaggi di log quando vengono modificati i record di Cosmos DB.
 
@@ -112,7 +112,7 @@ Ecco il codice script C#:
     }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive i messaggi di log quando vengono modificati i record di Cosmos DB.
 
@@ -145,7 +145,7 @@ Ecco il codice JavaScript:
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs).
 
@@ -164,11 +164,11 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
 
 Per un esempio completo, vedere [Trigger - esempio in C#](#trigger).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Gli attributi non sono supportati C# dallo script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -178,11 +178,11 @@ Gli attributi non sono supportati da JavaScript.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDBTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type** | N/D | Il valore deve essere impostato su `cosmosDBTrigger`. |
-|**direction** | N/D | Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | N/D | Il nome della variabile usato nel codice funzione che rappresenta l'elenco di documenti con le modifiche. |
+|**type** | n/d | Il valore deve essere impostato su `cosmosDBTrigger`. |
+|**direction** | n/d | Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | n/d | Il nome della variabile usato nel codice funzione che rappresenta l'elenco di documenti con le modifiche. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Il nome di un'impostazione dell'app che contiene la stringa di connessione usata per connettersi all'account di Azure Cosmos DB monitorato. |
 |**databaseName**|**DatabaseName**  | Il nome del database di Azure Cosmos DB con la raccolta monitorata. |
 |**collectionName** |**CollectionName** | Il nome della raccolta monitorata. |
@@ -215,7 +215,7 @@ Il trigger non indica se un documento è stato aggiornato o aggiunto, fornisce s
 
 L'associazione di input di Azure Cosmos DB usa l'API SQL per recuperare uno o più documenti di Azure Cosmos DB e li passa al parametro di input della funzione. L'ID documento o i parametri di query possono essere determinati in base al trigger che richiama la funzione.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -523,7 +523,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -881,7 +881,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -1093,17 +1093,17 @@ Ecco il codice JavaScript:
 
 ## <a name="input---attributes"></a>Input - attributi
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
 Il costruttore dell'attributo accetta il nome del database e il nome della raccolta. Per informazioni su tali impostazioni e altre proprietà che è possibile configurare, vedere la [sezione seguente relativa alla configurazione](#input---configuration).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Gli attributi non sono supportati C# dallo script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -1113,11 +1113,11 @@ Gli attributi non sono supportati da JavaScript.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `DocumentDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type**     | N/D | Il valore deve essere impostato su `documentdb`.        |
-|**direction**     | N/D | Il valore deve essere impostato su `in`.         |
-|**nome**     | N/D | Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**type**     | n/d | Il valore deve essere impostato su `documentdb`.        |
+|**direction**     | n/d | Il valore deve essere impostato su `in`.         |
+|**nome**     | n/d | Nome del parametro di binding che rappresenta il documento nella funzione.  |
 |**databaseName** |**DatabaseName** |Database che contiene il documento.        |
 |**collectionName** |**CollectionName** | Nome della raccolta che contiene il documento. |
 |**id**    | **Id** | ID del documento da recuperare. Questa proprietà supporta le [espressioni di associazione](./functions-bindings-expressions-patterns.md). Non impostare entrambe le proprietà **id** e **sqlQuery**. Se non si imposta una delle due proprietà, verrà recuperato l'intera raccolta. |
@@ -1129,15 +1129,15 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="input---usage"></a>Input - uso
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Quando la funzione viene chiusa correttamente, tutte le modifiche apportate al documento di input tramite parametri di input denominati vengono rese automaticamente permanente.
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Quando la funzione viene chiusa correttamente, tutte le modifiche apportate al documento di input tramite parametri di input denominati vengono rese automaticamente permanente.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli aggiornamenti non vengono eseguiti automaticamente alla chiusura della funzione. Per eseguire gli aggiornamenti usare invece `context.bindings.<documentName>In` e `context.bindings.<documentName>Out`. Vedere l' [esempio di input](#input).
 
@@ -1147,7 +1147,7 @@ Gli aggiornamenti non vengono eseguiti automaticamente alla chiusura della funzi
 
 L'associazione di output di Azure Cosmos DB consente di scrivere un nuovo documento in un database di Azure Cosmos DB tramite l'API SQL.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -1233,7 +1233,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -1361,7 +1361,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente mostra un'associazione di output di Azure Cosmos DB in un file *function.json* e una [funzione script JavaScript](functions-reference-node.md) che usa l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
 
@@ -1420,7 +1420,7 @@ Ecco il codice JavaScript:
 
 ## <a name="output---attributes"></a>Output - attributi
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
@@ -1438,11 +1438,11 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
 
 Per un esempio completo, vedere [output](#output).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Gli attributi non sono supportati C# dallo script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -1452,11 +1452,11 @@ Gli attributi non sono supportati da JavaScript.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `DocumentDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type**     | N/D | Il valore deve essere impostato su `documentdb`.        |
-|**direction**     | N/D | Il valore deve essere impostato su `out`.         |
-|**nome**     | N/D | Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**type**     | n/d | Il valore deve essere impostato su `documentdb`.        |
+|**direction**     | n/d | Il valore deve essere impostato su `out`.         |
+|**nome**     | n/d | Nome del parametro di binding che rappresenta il documento nella funzione.  |
 |**databaseName** | **DatabaseName**|Database contenente la raccolta in cui viene creato il documento.     |
 |**collectionName** |**CollectionName**  | Nome della raccolta in cui viene creato il documento. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false* perché le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di costi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/).  |
@@ -1475,7 +1475,7 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimenti |
+| Associazione | Riferimento |
 |---|---|
 | Cosmos DB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 

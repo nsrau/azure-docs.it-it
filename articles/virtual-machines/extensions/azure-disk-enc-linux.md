@@ -14,19 +14,19 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
 ms.openlocfilehash: 4fa7f7d1419a8cd1006a632ba67587ab3434bf5a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073801"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383367"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Crittografia dischi di Azure sfrutta il sottosistema di dm-crypt di Linux per fornire la crittografia completa del disco nelle [distribuzioni di Linux Azure selezionate](https://aka.ms/adelinux).  Questa soluzione è integrata con Azure Key Vault per gestire le chiavi e i segreti di crittografia dei dischi.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure per macchine virtuali Linux](../linux/disk-encryption-overview.md), in particolare le sezioni seguenti:
 
@@ -134,21 +134,21 @@ Utilizzo di `AADClientCertificate`:
 
 | Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | stringa |
-| type | AzureDiskEncryptionForLinux | stringa |
-| typeHandlerVersion | 0,1, 1,1 | int |
+| apiVersion | 2015-06-15 | Data |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 0,1, 1,1 | INT |
 | (schema 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 0.1) AADClientSecret | Password | stringa |
-| (schema 0.1) AADClientCertificate | thumbprint | stringa |
+| (schema 0.1) AADClientSecret | password | string |
+| (schema 0.1) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | stringa | 
-| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | stringa |
-| KeyEncryptionKeyURL | URL | stringa |
-| opzionale KeyVaultURL | URL | stringa |
-| Passphrase | Password | stringa | 
-| SequenceVersion | uniqueidentifier | stringa |
-| VolumeType | Sistema operativo, dati, tutti | stringa |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
+| KeyEncryptionKeyURL | url | string |
+| opzionale KeyVaultURL | url | string |
+| Passphrase | password | string | 
+| SequenceVersion | UNIQUEIDENTIFIER | string |
+| VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -160,13 +160,13 @@ Le istruzioni sono disponibili nella versione più recente della [documentazione
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 Per la risoluzione di problemi, consultare la [guida alla risoluzione dei problemi di Crittografia dischi di Azure](../../security/azure-security-disk-encryption-tsg.md).
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

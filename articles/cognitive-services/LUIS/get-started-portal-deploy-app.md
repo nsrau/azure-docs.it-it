@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Distribuire un'app con il portale LUIS"
+title: "Guida introduttiva: distribuire un'app con il portale LUIS"
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come distribuire un'app creando una risorsa endpoint di previsione, assegnando la risorsa, eseguendo il training e quindi pubblicando l'app.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772486"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393722"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Avvio rapido: Distribuire un'app nel portale LUIS
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: distribuire un'app nel portale LUIS
 
 Quando l'app LUIS è pronta a restituire stime di espressioni a un'applicazione client, ad esempio un chatbot, è necessario distribuirla nell'endpoint di stima.
 

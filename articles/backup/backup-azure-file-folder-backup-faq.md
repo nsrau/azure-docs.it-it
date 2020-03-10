@@ -3,12 +3,12 @@ title: Backup di file e cartelle-domande comuni
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425069"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673105"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
@@ -98,7 +98,7 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 1. Per impostazione predefinita, la cartella Scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verificare che il percorso della cartella dei file temporanei corrisponda ai valori delle voci della chiave del registro di sistema mostrate di seguito:
 
-    | Percorso del Registro | Chiave del Registro | Valore |
+    | Percorso del Registro | Chiave del Registro | valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
@@ -113,7 +113,7 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 4. Copiare l'intera cartella `\Scratch` in un'altra unità con spazio sufficiente. Verificare che il contenuto venga copiato, non spostato.
 5. Aggiornare le voci del registro di sistema seguenti con il percorso della cartella Scratch appena spostata.
 
-    | Percorso del Registro | Chiave del Registro | Valore |
+    | Percorso del Registro | Chiave del Registro | valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso cartella Scratch* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso cartella Scratch* |
@@ -149,11 +149,11 @@ La cartella della cache e il VHD dei metadati non hanno gli attributi necessari 
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>È possibile modificare la quantità di larghezza di banda usata per il backup?
 
-Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-configure-vault.md#enable-network-throttling).
+Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-windows-with-mars-agent.md#enable-network-throttling).
 
-## <a name="restore"></a>Ripristina
+## <a name="restore"></a>Restore
 
-### <a name="manage"></a>Gestire
+### <a name="manage"></a>Gestione
 
 **È possibile eseguire il ripristino se si dimentica la passphrase?**
 L'agente di backup di Azure richiede una passphrase (fornita durante la registrazione) per decrittografare i dati di cui è stato eseguito il backup durante il ripristino. Esaminare gli scenari seguenti per comprendere le opzioni per la gestione di una passphrase persa:

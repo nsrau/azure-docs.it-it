@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397365"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schema di eventi di Griglia di eventi di Azure per l'archiviazione BLOB
 
@@ -21,16 +21,16 @@ Questo articolo illustra le proprietà e lo schema per gli eventi di archiviazio
 Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi di archiviazione](event-sources.md#storage).
 
 >[!NOTE]
-> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. **Archiviazione (genral scopo V1)** non *supporta l'* integrazione con griglia di eventi.
+> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con Griglia di eventi.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Elenco di eventi per le API REST BLOB
 
 Questi eventi vengono attivati quando un client crea, sostituisce o Elimina un BLOB chiamando API REST BLOB.
 
- |Nome evento |Description|
+ |Nome evento |Descrizione|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Attivato quando si crea o si sostituisce un BLOB. <br>In particolare, questo evento viene generato quando i client usano le operazioni `PutBlob`, `PutBlockList`o `CopyBlob` disponibili nell'API REST BLOB.   |
- |**Microsoft.Storage.BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene generato quando i client chiamano l'operazione `DeleteBlob` disponibile nell'API REST BLOB. |
+ |**Microsoft. storage. BlobCreated** |Attivato quando si crea o si sostituisce un BLOB. <br>In particolare, questo evento viene generato quando i client usano le operazioni `PutBlob`, `PutBlockList`o `CopyBlob` disponibili nell'API REST BLOB.   |
+ |**Microsoft. storage. BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene generato quando i client chiamano l'operazione `DeleteBlob` disponibile nell'API REST BLOB. |
 
 > [!NOTE]
 > Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le chiamate all'API REST di `CopyBlob`, `PutBlob`e `PutBlockList`. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
@@ -39,14 +39,14 @@ Questi eventi vengono attivati quando un client crea, sostituisce o Elimina un B
 
 Questi eventi vengono attivati se si Abilita uno spazio dei nomi gerarchico nell'account di archiviazione e i client chiamano Azure Data Lake Storage Gen2 API REST.
 
-|Nome evento|Description|
+|Nome evento|Descrizione|
 |----------|-----------|
-|**Microsoft.Storage.BlobCreated** | Attivato quando si crea o si sostituisce un BLOB. <br>In particolare, questo evento viene generato quando i client usano le operazioni `CreateFile` e `FlushWithClose` disponibili nell'API REST Azure Data Lake Storage Gen2. |
-|**Microsoft.Storage.BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene attivato anche quando i client chiamano l'operazione `DeleteFile` disponibile nell'API REST di Azure Data Lake Storage Gen2. |
-|**Microsoft.Storage.BlobRenamed**|Attivato quando un BLOB viene rinominato. <br>In particolare, questo evento viene generato quando i client usano l'operazione `RenameFile` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
-|**Microsoft.Storage.DirectoryCreated**|Attivato quando viene creata una directory. <br>In particolare, questo evento viene generato quando i client usano l'operazione `CreateDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
-|**Microsoft.Storage.DirectoryRenamed**|Attivato quando una directory viene rinominata. <br>In particolare, questo evento viene generato quando i client usano l'operazione `RenameDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
-|**Microsoft.Storage.DirectoryDeleted**|Attivato quando una directory viene eliminata. <br>In particolare, questo evento viene generato quando i client usano l'operazione `DeleteDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
+|**Microsoft. storage. BlobCreated** | Attivato quando si crea o si sostituisce un BLOB. <br>In particolare, questo evento viene generato quando i client usano le operazioni `CreateFile` e `FlushWithClose` disponibili nell'API REST Azure Data Lake Storage Gen2. |
+|**Microsoft. storage. BlobDeleted** |Attivato quando viene eliminato un BLOB. <br>In particolare, questo evento viene attivato anche quando i client chiamano l'operazione `DeleteFile` disponibile nell'API REST di Azure Data Lake Storage Gen2. |
+|**Microsoft. storage. BlobRenamed**|Attivato quando un BLOB viene rinominato. <br>In particolare, questo evento viene generato quando i client usano l'operazione `RenameFile` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
+|**Microsoft. storage. DirectoryCreated**|Attivato quando viene creata una directory. <br>In particolare, questo evento viene generato quando i client usano l'operazione `CreateDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
+|**Microsoft. storage. DirectoryRenamed**|Attivato quando una directory viene rinominata. <br>In particolare, questo evento viene generato quando i client usano l'operazione `RenameDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
+|**Microsoft. storage. DirectoryDeleted**|Attivato quando una directory viene eliminata. <br>In particolare, questo evento viene generato quando i client usano l'operazione `DeleteDirectory` disponibile nell'API REST di Azure Data Lake Storage Gen2.|
 
 > [!NOTE]
 > Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per la chiamata all'API REST di `FlushWithClose`. Questa chiamata API attiva l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
@@ -292,7 +292,7 @@ Se per l'account di archiviazione BLOB è presente uno spazio dei nomi gerarchic
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -305,7 +305,7 @@ Un evento presenta i seguenti dati di primo livello:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | api | string | L'operazione che ha attivato l'evento. |
 | clientRequestId | string | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |

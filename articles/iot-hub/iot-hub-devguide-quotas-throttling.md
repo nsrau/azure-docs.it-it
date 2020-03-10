@@ -8,11 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906989"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396522"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -26,7 +26,7 @@ Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unit
 
 Il livello determina anche le limitazioni che l'hub IoT applica alle operazioni.
 
-### <a name="iot-plug-and-play"></a>IoT Plug and Play
+### <a name="iot-plug-and-play"></a>Plug and Play IoT
 
 Durante la fase di anteprima pubblica, gli Plug and Play dispositivi invieranno messaggi distinti per interfaccia, che potrebbero aumentare il numero di messaggi conteggiati per la quota del messaggio.
 

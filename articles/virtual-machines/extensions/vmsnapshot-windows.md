@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: c4f5650e333c209d3b5f342c1f1c61ec1ca5cf47
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264289"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383237"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Estensione Windows VM Snapshot per Backup di Azure
 
 Backup di Azure fornisce supporto per il backup dei carichi di lavoro da locale al cloud e il backup delle risorse cloud nell'insieme di credenziali dei servizi di ripristino. Backup di Azure usa l'estensione VM Snapshot per eseguire un backup coerente dell'applicazione della macchina virtuale di Azure senza la necessità di arrestare la macchina virtuale. L'estensione VM Snapshot è pubblicata e supportata da Microsoft come parte del servizio Backup di Azure. Backup di Azure installerà l'estensione come parte del primo backup pianificato attivato dopo l'abilitazione del backup. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione VM Snapshot.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operativo
 Per un elenco dei sistemi operativi supportati, consultare i [sistemi operativi supportati da Backup di Azure](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -63,7 +63,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione VM Snapshot
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
 | commandStartTimeUTCTicks | 6.36458E+17 | string |
 | locale | it-it | string |
-| objectStr | Codifica della matrice di URI di firma di accesso condiviso-"blobSASUri": ["https:\/\/sopattna5365.blob.core.windows.net\/VHD\/vmwin1404ltsc201652903941. vhd? SV = 2014-02-14 & SR = b & sig = TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW", "https:\/\/sopattna8461.blob.core.windows.net\/VHD\/vmwin1404ltsc-20160629-122418. vhd? SV = 2014-02-14 & SR = b & sig = 5S0A6YDWvVwqPAkzWXVy% 2B% 2FqMwzFMbamT5upwx05v8Q% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna8461.blob.core.windows.net\/avvio-vmwintu1-deb58392-ed5e-48be-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541. vhd? SV = 2014-02-14 & SR = b & sig = X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna5365.blob.core.windows.net\/VHD\/vmwin1404ltsc-20160701-163922. vhd? SV = 2014-02-14 & SR = b & sig = oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r% 2BC% 2BNIAork% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna5365.blob.core.windows.net\/VHD\/vmwin1404ltsc-20170705-124311. vhd? SV = 2014-02-14 & SR = b & sig = ZUM9d28Mvvm% 2FfrhJ71TFZh0Ni90m38bBs3zMl% 2FQ9rs0% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "] | string |
+| objectStr | Codifica di sas uri array- "blobSASUri": ["https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc201652903941.vhd?sv=2014-02-14&sr=b&sig=TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna8461.blob.core.windows.net\/vhds\/vmwin1404ltsc-20160629-122418.vhd?sv=2014-02-14&sr=b&sig=5S0A6YDWvVwqPAkzWXVy%2BS%2FqMwzFMbamT5upwx05v8Q%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna8461.blob.core.windows.net\/bootdiagnostics-vmwintu1-deb58392-ed5e-48be-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541.vhd?sv=2014-02-14&sr=b&sig=X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc-20160701-163922.vhd?sv=2014-02-14&sr=b&sig=oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r%2BC%2BNIAork%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc-20170705-124311.vhd?sv=2014-02-14&sr=b&sig=ZUM9d28Mvvm%2FfrhJ71TFZh0Ni90m38bBs3zMl%2FQ9rs0%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw"] | string |
 | logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string |
 | statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string |
 
@@ -88,7 +88,7 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 

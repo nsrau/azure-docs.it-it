@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
 ms.openlocfilehash: beb1562738699bbcede58d8214e69342abbb7c93
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921471"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396719"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows visualizza una schermata blu di errore durante l'avvio di una macchina virtuale di Azure
 Questo articolo descrive gli errori con schermata blu che possono verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure. Sono incluse le procedure per raccogliere i dati per un ticket di supporto. 

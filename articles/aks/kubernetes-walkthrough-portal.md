@@ -5,14 +5,14 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: b73389a9b1dadfff287718abec1755007cbe859c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
-ms.translationtype: HT
+ms.openlocfilehash: f4885bea686267ce0397e9ca6f3e2c0ac8640971
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595117"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390317"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Guida introduttiva: distribuire un cluster Azure Kubernetes Service (AKS) usando il portale di Azure
 
 Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. In questa guida introduttiva viene distribuito un cluster del servizio Azure Container usando il portale di Azure. Nel cluster verrà eseguita un'applicazione multi-contenitore che include un front-end Web e un'istanza di Redis. Verrà quindi descritto come monitorare l'integrità del cluster e dei pod che eseguono l'applicazione.
 
@@ -35,16 +35,16 @@ Per creare un cluster del servizio Azure Kubernetes, seguire questa procedura:
 2. Selezionare **Contenitori** >  **Servizio Kubernetes**.
 
 3. Nella pagina **Informazioni di base** configurare le opzioni seguenti:
-    - **Dettagli del progetto**: Selezionare una **sottoscrizione** di Azure, quindi selezionare o creare un **gruppo di risorse** di Azure, ad esempio *myResourceGroup*.
-    - **Dettagli del cluster**: Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*. Selezionare un'**area**, una **versione di Kubernetes** e il **prefisso di nome DNS** per il cluster del servizio Azure Kubernetes.
-    - **Pool di nodi primario**: Selezionare le **dimensioni del nodo** della macchina virtuale per i nodi del servizio Azure Kubernetes. *Non è possibile* modificare le dimensioni della macchina virtuale dopo la distribuzione di un cluster del servizio Azure Kubernetes. 
+    - **Dettagli progetto**: selezionare una **sottoscrizione**di Azure e quindi selezionare o creare un **gruppo di risorse**di Azure, ad esempio *myResourceGroup*.
+    - **Dettagli cluster**: immettere un **nome per il cluster Kubernetes**, ad esempio *myAKSCluster*. Selezionare un'**area**, una **versione di Kubernetes** e il **prefisso di nome DNS** per il cluster del servizio Azure Kubernetes.
+    - **Pool di nodi primari**: selezionare le **dimensioni del nodo** della VM per i nodi AKS. *Non è possibile* modificare le dimensioni della macchina virtuale dopo la distribuzione di un cluster del servizio Azure Kubernetes. 
             - Selezionare il numero di nodi da distribuire nel cluster. Per questa guida introduttiva, impostare **Numero di nodi** su *1*. Il numero di nodi *può* essere modificato dopo che il cluster è stato distribuito.
     
     ![Creare un cluster del servizio Azure Kubernetes - fornire informazioni di base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selezionare **Avanti: Scala** al termine.
+    Selezionare **Avanti: ridimensiona** al termine.
 
-4. Nella pagina **Scala** mantenere le opzioni predefinite. Nella parte inferiore della schermata fare clic su **Successivo: Autenticazione**.
+4. Nella pagina **Scala** mantenere le opzioni predefinite. Nella parte inferiore della schermata fare clic su **Avanti: autenticazione**.
     > [!CAUTION]
     > Quando si creano nuove entità servizio AAD, queste potrebbero propagarsi e diventare disponibili dopo diversi minuti, causando errori di entità servizio non trovata e di convalida nel portale di Azure. In questo caso, visitare [questa pagina](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) per avere informazioni su come mitigare tali problemi.
 
@@ -74,13 +74,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 L'esempio di output seguente mostra il nodo singolo creato nei passaggi precedenti. Assicurarsi che lo stato del nodo sia impostato su *Pronto*:
 
-```
+```output
 NAME                       STATUS    ROLES     AGE       VERSION
 aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 ```
@@ -92,7 +92,7 @@ Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, a
 > [!TIP]
 > In questa guida introduttiva, si creano e distribuiscono manualmente i manifesti dell'applicazione nel cluster servizio Azure Kubernetes. In altre situazioni reali, è possibile usare [Azure Dev Spaces][azure-dev-spaces] per eseguire rapidamente l'iterazione e il debug del codice direttamente nel cluster servizio Azure Kubernetes. È possibile usare Dev Spaces su piattaforme del sistema operativo e ambienti di sviluppo e collaborare con altri utenti nel team.
 
-In Cloud Shell usare il comando `nano azure-vote.yaml` o `vi azure-vote.yaml` per creare un file denominato `azure-vote.yaml`. Copiare al suo interno la definizione YAML seguente:
+Nella Cloud Shell utilizzare il comando `nano azure-vote.yaml` o `vi azure-vote.yaml` per creare un file denominato `azure-vote.yaml`. Copiare al suo interno la definizione YAML seguente:
 
 ```yaml
 apiVersion: apps/v1
@@ -181,13 +181,13 @@ spec:
 
 Distribuire l'applicazione usando il comando [kubectl apply][kubectl-apply] e specificare il nome del manifesto YAML:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
 L'output di esempio seguente mostra le distribuzioni e i servizi creati correttamente:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -200,20 +200,20 @@ Durante l'esecuzione dell'applicazione, un servizio Kubernetes espone il front-e
 
 Per monitorare lo stato, usare il comando [kubectl get service][kubectl-get] con l'argomento `--watch`.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 *EXTERNAL-IP* per il servizio *azure-vote-front* viene inizialmente visualizzato come *pending*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Quando *EXTERNAL-IP* passa da *pending* a un effettivo indirizzo IP pubblico, usare `CTRL-C` per arrestare il processo di controllo `kubectl`. L'output di esempio seguente mostra un indirizzo IP pubblico valido assegnato al servizio:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come configurare un'attività del Reg
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 23f77cb4f4c14f052d8ecdb23beed21263623d3e
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3870bc70e9d18a3c1c854055cb0c27018554a556
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617506"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249975"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
@@ -30,7 +30,7 @@ Contenuto dell'esercitazione:
 
 Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata l'interfaccia della riga di comando di Azure versione **2.0.46** o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="complete-the-previous-tutorials"></a>Completare le esercitazioni precedenti
 
@@ -51,7 +51,9 @@ Se non è già stato fatto, prima di procedere completare le esercitazioni segue
 
 Popolare queste variabili di ambiente della shell con i valori appropriati per l'ambiente in uso. Questo passaggio non è obbligatorio, ma semplifica in parte l'esecuzione dei comandi su più righe dell'interfaccia della riga di comando di Azure. Se non si popolano queste variabili di ambiente, sarà necessario sostituire manualmente ogni valore in ogni occorrenza nei comandi di esempio.
 
-```azurecli-interactive
+[![Incorpora avvio](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial

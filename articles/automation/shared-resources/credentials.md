@@ -10,11 +10,11 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 767c1fddbc3d1f46d4341a70c990c2b57ad40e54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930408"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373541"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Asset credenziali in Automazione di Azure
 
@@ -29,18 +29,18 @@ Un asset delle credenziali di automazione contiene un oggetto che contiene le cr
 
 Per Azure PowerShell AZ Module, i cmdlet della tabella seguente vengono usati per creare e gestire asset delle credenziali di automazione con Windows PowerShell. Vengono forniti come parte del [modulo AzureAz. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
 
-| Cmdlet | Description |
+| Cmdlet | Descrizione |
 |:--- |:--- |
 | [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Recupera informazioni riguardo un asset credenziali. Questa operazione non restituisce un oggetto PSCredential.  |
 | [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Crea nuove credenziali di Automazione. |
 | [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Rimuove le credenziali di Automazione. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Imposta le proprietà per le credenziali di Automazione esistenti. |
 
-## <a name="activities"></a>Attività
+## <a name="activities"></a>attività
 
 Le attività incluse nella tabella seguente vengono usate per accedere alle credenziali in un Runbook o nelle configurazioni DSC.
 
-| Attività | Description |
+| attività | Descrizione |
 |:--- |:--- |
 | Get-AutomationPSCredential |Ottiene una credenziale da usare in un runbook o in una configurazione DSC. Restituisce un oggetto [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) . |
 
@@ -51,7 +51,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle cred
 
 La funzione nella tabella seguente viene usata per accedere alle credenziali in un runbook Python2.
 
-| Funzione | Description |
+| Funzione | Descrizione |
 |:---|:---|
 | automationassets.get_automation_credential | Recupera informazioni riguardo un asset credenziali. |
 

@@ -4,11 +4,11 @@ description: Questo articolo illustra come eseguire il backup di File di Azure u
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120513"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382504"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Eseguire il backup di File di Azure con PowerShell
 

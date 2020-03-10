@@ -15,11 +15,11 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c46facb2d43137175730bf04fea0efec9c1ecbd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063850"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389950"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -348,7 +348,7 @@ Determinare se i ruoli di amministratore di Azure AD predefiniti correnti sono a
 
 Per altre informazioni, vedere [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](../device-management-hybrid-azuread-joined-devices-setup.md).
 
-#### <a name="review-members-of-built-in-office-365-admin-roleshttpssupportofficecomarticleabout-office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d"></a>Esaminare i membri dei [ruoli di amministratore predefiniti di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
+#### <a name="review-members-of-built-in-office-365-admin-roles"></a>Esaminare i membri dei [ruoli di amministratore predefiniti di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Se si usa Office 365.
 ‎
 #### <a name="validate-incident-response-plan"></a>Convalidare il piano di risposta agli eventi imprevisti

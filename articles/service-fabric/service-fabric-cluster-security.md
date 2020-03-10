@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
 ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746927"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396650"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 
@@ -114,7 +114,7 @@ Il certificato deve soddisfare i requisiti seguenti:
 Altri aspetti da considerare:
 
 * Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. In genere, l'inizializzazione è **CN** (per il *nome comune*); ad esempio, **cn = www\.contoso.com**.
-* Il campo **oggetto** può essere vuoto.
+* Il campo **Soggetto** può essere vuoto.
 * Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Queste voci vengono immesse come valori di **nomi DNS**. Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
 * Il valore del campo **Scopi designati** del certificato deve includere un valore appropriato, ad esempio **Autenticazione server** o **Autenticazione client**.
 

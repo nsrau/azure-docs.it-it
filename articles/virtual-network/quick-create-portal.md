@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
 ms.openlocfilehash: d8e95f9c345a943eb458800b852640e3f1fde907
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488498"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393110"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Guida introduttiva: Creare una rete virtuale usando il portale di Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Guida introduttiva: Creare una rete virtuale con il portale di Azure
 
 Una rete virtuale è il blocco costitutivo fondamentale per una rete privata in Azure. Consente alle risorse di Azure, come le macchine virtuali, di comunicare in modo sicuro tra loro e con Internet. In questa guida di avvio rapido si apprenderà come creare una rete virtuale usando il portale di Azure. Sarà quindi possibile distribuire due macchine virtuali nella rete virtuale, attivare comunicazioni sicure tra le due macchine virtuali e connettersi alle macchine virtuali da Internet.
 
@@ -34,15 +34,15 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-1. Scegliere **Crea una risorsa** dal menu del portale di Azure.
+1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
 
 2. In Azure Marketplace selezionare **Rete** > **Rete virtuale**.
 
 3. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *myVirtualNetwork*. |
+    | Nome | Immettere *myVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
@@ -58,13 +58,13 @@ Creare due VM nella rete virtuale:
 
 ### <a name="create-the-first-vm"></a>Creare la prima VM
 
-1. Scegliere **Crea una risorsa** dal menu del portale di Azure.
+1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
 
 2. In Azure Marketplace selezionare **Calcolo** > **Windows Server 2019 Datacenter**.
 
 3. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -84,13 +84,13 @@ Creare due VM nella rete virtuale:
     | **RISPARMIA** |  |
     | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No**. |
 
-4. Selezionare **Avanti: Dischi**.
+4. Selezionare **Avanti: dischi**.
 
-5. In **Creare una macchina virtuale - Dischi**, lasciare i valori predefiniti e selezionare **Avanti: Rete**.
+5. In **creare una macchina virtuale-dischi**lasciare le impostazioni predefinite e selezionare **Avanti: rete**.
 
 6. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **myVirtualNetwork**. |
     | Subnet | Lasciare l'impostazione predefinita **myVirtualSubnet (10.1.0.0/24)** . |
@@ -98,15 +98,15 @@ Creare due VM nella rete virtuale:
     | Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
     | Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**.
 
-7. Selezionare **Avanti: Gestione**.
+7. Selezionare **Avanti: gestione**.
 
 8. In **Creare una macchina virtuale - Gestione**, per **Account di archiviazione di diagnostica**, selezionare **Crea nuovo**.
 
 9. In **Crea account di archiviazione**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | NOME | Immettere *myvmstorageaccount*. Se il nome è già usato, creare un nome univoco.|
+    | Nome | Immettere *myvmstorageaccount*. Se il nome è già usato, creare un nome univoco.|
     | Tipo di account | Lasciare l'impostazione predefinita **Archiviazione (utilizzo generico v1)** . |
     | Prestazioni | Lasciare l'impostazione predefinita **Standard**. |
     | Replica | Lasciare l'impostazione predefinita **Archiviazione con ridondanza locale**. |

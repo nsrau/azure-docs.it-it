@@ -14,11 +14,11 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
 ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461199"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377796"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
 
@@ -83,7 +83,7 @@ I token di sessione non permanenti hanno una durata di 24 ore, mentre i token pe
 I criteri per la durata dei token rappresentano un tipo di oggetto criteri contenente le regole di durata dei token. Usare le proprietà dei criteri per controllare la durata di token specifici. Se non si impostano criteri, il valore di durata predefinito viene applicato dal sistema.
 
 ### <a name="configurable-token-lifetime-properties"></a>Proprietà configurabili per la durata dei token
-| Proprietà | Stringa proprietà criteri | Impatto | Default | Minimo | Massimo |
+| Proprietà | Stringa proprietà criteri | Impatto | Predefinito | Minima | Massimo |
 | --- | --- | --- | --- | --- | --- |
 | Durata dei token di accesso |AccessTokenLifetime<sup>2</sup> |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
 | Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |90 giorni |10 minuti |90 giorni |
@@ -96,7 +96,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 * <sup>2</sup> Per assicurarsi che il client Web Microsoft teams funzioni, è consigliabile mantenere AccessTokenLifetime a più di 15 minuti per Microsoft teams.
 
 ### <a name="exceptions"></a>Eccezioni
-| Proprietà | Impatto | Default |
+| Proprietà | Impatto | Predefinito |
 | --- | --- | --- |
 | Validità massima dei token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |Token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |12 ore |
 | Tempo inattività massimo token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |90 giorni |
@@ -208,7 +208,7 @@ Gli esempi illustrano come:
 * Creare criteri per un'app nativa che chiama un'API Web
 * Gestire criteri avanzati
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le app, le entità servizio e l'intera organizzazione. Se non si ha familiarità con Azure AD, è consigliabile vedere [come ottenere un tenant di Azure AD](quickstart-create-new-tenant.md) prima di procedere con questi esempi.  
 
 Per iniziare, seguire questa procedura:
