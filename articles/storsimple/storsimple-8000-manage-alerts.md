@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270835"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365844"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Il pannello **Avvisi** del servizio Gestione dispositivi StorSimple fornisce un modo per esaminare e deselezionare gli avvisi correlati ai dispositivi StorSimple in tempo reale. Il pannello consente di monitorare in modo centralizzato i problemi di integrità dei dispositivi StorSimple e della soluzione Microsoft Azure StorSimple in generale.
 
@@ -48,7 +48,7 @@ Gli avvisi possono avere diversi livelli di gravità, in base all'impatto determ
 > [!NOTE]
 > È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
 
-Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *StorSimple-Alerts-noreply\@mail.WindowsAzure.com* e descrivono la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche e-mail.
+Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *StorSimple-Alerts-noreply\@mail.WindowsAzure.com* e descrivono la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per rimuovere il proprio indirizzo dall'elenco di notifica tramite posta elettronica.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Per abilitare la notifica di posta elettronica degli avvisi per un dispositivo
 1. Passare al servizio Gestione dispositivi StorSimple. Nell'elenco dei dispositivi, selezionare e fare clic sul dispositivo da configurare.
@@ -64,7 +64,7 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
       
 3. Per inviare una notifica di posta elettronica di prova, fare clic su **Invia messaggio di posta elettronica di prova**. Il servizio Gestione dispositivi StorSimple visualizza i messaggi di stato e inoltra la notifica di prova.
 
-    ![Impostazione avviso](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+    ![Impostazioni avviso](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
 4. Viene visualizzata una notifica quando il messaggio di posta elettronica di prova viene inviato. 
    
@@ -73,7 +73,7 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
    > [!NOTE]
    > Se non è possibile inviare il messaggio di notifica di prova, il servizio Gestione dispositivi StorSimple visualizza un messaggio di errore appropriato. Attendere alcuni minuti e provare a inviare nuovamente il messaggio di notifica di prova. 
 
-5. Dopo aver completato la configurazione, fare clic su **Salva**. Alla richiesta di conferma fare clic su **Sì**.
+5. Dopo aver completato la configurazione, fare clic su **Salva**. Quando viene richiesta la conferma, fare clic su **Sì**.
 
      ![Messaggio di posta elettronica di prova della notifica di avviso inviato](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
@@ -81,7 +81,7 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
 
 Il pannello di riepilogo del servizio Gestione dispositivi StorSimple offre un rapido riepilogo del numero di avvisi sui dispositivi, organizzati per livello di gravità.
 
-![Dashboard degli avvisi](./media/storsimple-8000-manage-alerts/device-summary4.png)
+![Dashboard avvisi](./media/storsimple-8000-manage-alerts/device-summary4.png)
 
 Scegliere il livello di gravità per aprire il pannello **Avvisi** . I risultati includono solo gli avvisi che corrispondono al livello di gravità scelto.
 
@@ -91,9 +91,9 @@ Fare clic su un avviso nell'elenco per visualizzare ulteriori dettagli sull'avvi
 
 Se è necessario inviare le informazioni al supporto tecnico Microsoft, è possibile copiare i dettagli dell'avviso in un file di testo. Dopo avere seguito i suggerimenti e risolto la condizione di avviso in locale, è necessario cancellare l'avviso dal dispositivo, selezionando l'avviso nel pannello **Avvisi** e facendo clic su **Cancella**. Per cancellare più avvisi, fare clic su qualsiasi colonna tranne **Avviso**, selezionare tutti gli avvisi da cancellare e fare clic su **Cancella**. Si noti che alcuni avvisi vengono automaticamente cancellati quando il problema viene risolto oppure quando il sistema aggiorna l'avviso con nuove informazioni.
 
-Quando si fa clic su **Cancella**si ha la possibilità di fornire commenti sull'avviso e i passaggi eseguiti per risolvere il problema. Alcuni eventi verranno cancellati dal sistema se un altro evento viene attivato con nuove informazioni. In tal caso, viene inviato il messaggio seguente.
+Quando si fa clic su **Cancella**, è possibile fornire commenti sull'avviso e sui passaggi eseguiti per risolvere l'avviso. Alcuni eventi verranno cancellati dal sistema se un altro evento viene attivato con nuove informazioni. In tal caso, viene inviato il messaggio seguente.
 
-![Cancellare il messaggio di avviso](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
+![Messaggio cancellazione avvisi](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 
 ## <a name="sort-and-review-alerts"></a>Ordinare e rivedere gli avvisi
 
@@ -146,11 +146,11 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 |:--- |:--- |:--- |
 | Failover del dispositivo su <*nome dispositivo*>. |Il dispositivo è in modalità di manutenzione. |Failover del dispositivo a causa dell'ingresso o dell'uscita dalla modalità manutenzione. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
 | Failover del dispositivo su <*nome dispositivo*>. |Il software o il firmware del dispositivo è stato appena aggiornato. |Failover del cluster a causa di un aggiornamento. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
-| Failover del dispositivo su <*nome dispositivo*>. |Il controller è stato arrestato o riavviato. |Failover del dispositivo a causa dell'arresto o del riavvio del controller attivo da parte di un amministratore. Non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
+| Failover del dispositivo su <*nome dispositivo*>. |Il controller è stato arrestato o riavviato. |Failover del dispositivo a causa dell'arresto o del riavvio del controller attivo da parte di un amministratore. Non sono richieste azioni. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
 | Failover del dispositivo su <*nome dispositivo*>. |Failover pianificato. |Verificare che si tratta di un failover pianificato. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 | Failover del dispositivo su <*nome dispositivo*>. |Failover non pianificato. |StorSimple è progettato per eseguire il ripristino automatico dai failover non pianificati. Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft. |
 | Failover del dispositivo su <*nome dispositivo*>. |Causa diversa/sconosciuta. |Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
-| Un servizio critico del dispositivo è segnalato come non riuscito. |Errore del servizio percorso dati. |Contattare il supporto tecnico Microsoft per ottenere assistenza. |
+| Un servizio critico del dispositivo è segnalato come non riuscito. |Errore del servizio percorso dati. |Per ulteriori informazioni, contattare il Supporto tecnico Microsoft. |
 | Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #* > è segnalato come non riuscito. |Causa diversa/sconosciuta. |Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Lo stato dell'indirizzo IP virtuale per l'interfaccia di rete <*DATA #* > è segnalato come non riuscito. |Impossibile connettere l'indirizzo IP per nome interfaccia: <*DATA #* >. `<IP address>` Nella rete è stato rilevato un indirizzo IP duplicato. |Assicurarsi che l'indirizzo IP duplicato venga rimosso dalla rete o riconfigurare l'interfaccia con un altro indirizzo IP. |
 

@@ -5,24 +5,24 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834290"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372995"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 
 Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Esistono diversi modi per eseguire l'onboarding di computer. Ad esempio, è possibile eseguire l'onboarding della soluzione [da una macchina virtuale](automation-onboard-solutions-from-vm.md), [dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md), dall'account di Automazione o tramite [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni dall'account di Automazione.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Abilitare soluzioni
 
-Passare all'account di Automazione e selezionare **Inventario** o **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE**.
+Passare all'account di automazione e selezionare **inventario** o **rilevamento modifiche** in **gestione della configurazione**.
 
 Scegliere l'area di lavoro Log Analytics e l'account di automazione e fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
@@ -35,17 +35,17 @@ Scegliere l'area di lavoro Log Analytics e l'account di automazione e fare clic 
 
 La soluzione di rilevamento delle modifiche e di inventario offre la possibilità di [tenere traccia delle modifiche](automation-vm-change-tracking.md) e dei dati di [inventario](automation-vm-inventory.md) nelle macchine virtuali. In questo passaggio si abilita la soluzione su una macchina virtuale.
 
-Quando si riceve la notifica di completamento del caricamento della soluzione di rilevamento delle modifiche e di inventario, fare clic su **Gestione aggiornamenti** in **GESTIONE DELLA CONFIGURAZIONE**.
+Al termine della notifica di onboarding della soluzione rilevamento modifiche e inventario, selezionare **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
-La soluzione di gestione degli aggiornamenti consente di gestire gli aggiornamenti e le patch per le macchine virtuali Windows di Azure. È possibile valutare in modo rapido lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente alla macchina virtuale. Questa azione ha abilitato la soluzione per la macchina virtuale.
+La soluzione Gestione aggiornamenti consente di gestire gli aggiornamenti e le patch per le macchine virtuali ibride e Azure. È possibile valutare lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti necessari ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente.
 
-Selezionare **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**. L'area di lavoro Log Analytics selezionata corrisponde alla stessa area di lavoro usata nel passaggio precedente. Fare clic su **Abilita** per caricare la soluzione di gestione degli aggiornamenti. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
+Nella pagina Abilita soluzione l'area di lavoro Log Analytics selezionata è la stessa usata nel passaggio precedente. Fare clic su **Abilita** per caricare la soluzione Gestione aggiornamenti. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
 ![Eseguire l'onboarding della soluzione per gli aggiornamenti](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
 ## <a name="scope-configuration"></a>Configurazione dell'ambito
 
-Ogni soluzione usa una configurazione dell'ambito nell'area di lavoro per definire i computer di destinazione della soluzione. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della soluzione a computer specifici. Per accedere alle configurazioni dell'ambito, nell'account di Automazione in **RISORSE CORRELATE** selezionare **Area di lavoro**. Quindi nell'area di lavoro in **ORIGINI DATI DELL'AREA DI LAVORO** selezionare **Configurazioni ambito**.
+Ogni soluzione usa una configurazione dell'ambito nell'area di lavoro per definire i computer di destinazione della soluzione. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della soluzione a computer specifici. Per accedere alle configurazioni dell'ambito, nell'account di automazione in **risorse correlate**selezionare **area di lavoro**. Quindi nell'area di lavoro in **origini dati dell'area di lavoro**selezionare **configurazioni ambito**.
 
 Se l'area di lavoro selezionata non include ancora le soluzioni Gestione aggiornamenti o Rilevamento modifiche, vengono create le configurazioni di ambito seguenti:
 
@@ -61,7 +61,7 @@ Quando un computer viene aggiunto alle soluzioni Gestione aggiornamenti o Rileva
 
 Passare all'area di lavoro Log Analytics e selezionare **ricerche salvate** in **generale**. Le due ricerche salvate usate da queste soluzioni sono indicate nella tabella seguente:
 
-|Nome     |Categoria  |Alias  |
+|Name     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Aggiornamenti        | Updates__MicrosoftDefaultComputerGroup         |
@@ -72,7 +72,7 @@ Selezionare una ricerca salvata per visualizzare la query usata per popolare il 
 
 ## <a name="onboard-azure-vms"></a>Caricare le macchine virtuali di Azure
 
-Dall'account di Automazione selezionare **Inventario** o **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE** oppure **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**.
+Dall'account di automazione selezionare **inventario** o **rilevamento modifiche** in **gestione della configurazione**o **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
 Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più VM dall'elenco. Le macchine virtuali che non possono essere abilitate sono non disponibili e non selezionabili. Le macchine virtuali di Azure possono esistere in qualsiasi area, indipendentemente dalla posizione dell'account di automazione. Nella pagina **Abilita Gestione aggiornamenti** fare clic su **Abilita**. Le macchine virtuali selezionate vengono aggiunte alla ricerca salvata del gruppo di computer per la soluzione.
 
@@ -80,13 +80,13 @@ Fare clic su **+ Aggiungi macchine virtuali di Azure** e selezionare una o più 
 
 ## <a name="onboard-a-non-azure-machine"></a>Eseguire l'onboarding di un computer non di Azure
 
-I computer non in Azure devono essere aggiunti manualmente. Dall'account di Automazione selezionare **Inventario** o **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE** oppure **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**.
+I computer non in Azure devono essere aggiunti manualmente. Dall'account di automazione selezionare **inventario** o **rilevamento modifiche** in **gestione della configurazione**o **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
 Fare clic su **Aggiungi computer non di Azure**. Verrà visualizzata una nuova finestra del browser con le [istruzioni su come installare e configurare Microsoft Monitoring Agent nel computer](../azure-monitor/platform/log-analytics-agent.md), in modo che possa iniziare a inviare report alla soluzione. In caso di onboarding di un computer attualmente gestito da System Center Operations Manager, non è richiesto un nuovo agente, dal momento che le informazioni dell'area di lavoro vengono inserite nell'agente esistente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Eseguire l'onboarding di computer nell'area di lavoro
 
-I computer installati manualmente o i computer che inviano già report all'area di lavoro devono essere aggiunti ad Automazione di Azure per la soluzione da abilitare. Dall'account di Automazione selezionare **Inventario** o **Rilevamento modifiche** in **GESTIONE DELLA CONFIGURAZIONE** oppure **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**.
+I computer installati manualmente o i computer che inviano già report all'area di lavoro devono essere aggiunti ad Automazione di Azure per la soluzione da abilitare. Dall'account di automazione selezionare **inventario** o **rilevamento modifiche** in **gestione della configurazione**o **Gestione aggiornamenti** in **Gestione aggiornamenti**.
 
 Selezionare **Gestisci computer**. Verrà visualizzata la pagina **Gestisci computer**. Questa pagina consente di abilitare la soluzione in un set selezionato di computer, in tutti i computer disponibili oppure di abilitare la soluzione per tutti i computer correnti e per tutti i computer futuri. Il pulsante **Gestisci computer** può essere disabilitato se si è scelto in precedenza l'opzione **Abilita in tutti i computer disponibili e futuri**.
 
@@ -104,7 +104,7 @@ Per abilitare la soluzione per tutti i computer disponibili e per tutti i comput
 
 ### <a name="selected-machines"></a>Computer selezionati
 
-Per abilitare la soluzione per uno o più computer, selezionare **Abilita nei computer selezionati** e fare clic su **Aggiungi** accanto a ogni computer che si vuole aggiungere alla soluzione. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la soluzione.
+Per abilitare la soluzione per uno o più computer, selezionare **Abilita nei computer selezionati** e fare clic su **Aggiungi** accanto a ogni computer che si desidera aggiungere alla soluzione. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la soluzione.
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Scollega area di lavoro)
 
@@ -133,9 +133,9 @@ Dopo la rimozione di queste soluzioni è possibile completare i passaggi seguent
 
 Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 
-* Aggiornare le pianificazioni - Ogni elemento avrà un nome corrispondente alle distribuzioni di aggiornamenti create.
+* Pianificazioni degli aggiornamenti: ciascuna di esse avrà nomi corrispondenti alle distribuzioni di aggiornamenti create.
 
-* Gruppi di ruoli di lavoro ibridi creati per la soluzione - Ogni elemento verrà denominato in modo analogo a machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
+* Gruppi di lavoro ibridi creati per la soluzione. ognuno verrà denominato in modo analogo a machine1. contoso. com_9ceb8108-26C9-4051-B6B3-227600d715c8).
 
 Se è stata usata la soluzione per avviare e arrestare VM durante gli orari di minore attività, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 

@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277165"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384897"
 ---
-# <a name="contact-microsoft-support"></a>Contatta il supporto Microsoft
+# <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft.
 
 Gestione dispositivi StorSimple offre la possibilità di **registrare una nuova richiesta di supporto** all'interno del pannello di riepilogo servizio. Se si verificano problemi con la soluzione StorSimple, è possibile creare una richiesta di servizio per il supporto tecnico. In una sessione online con il supporto tecnico, è necessario anche avviare una sessione di supporto nel dispositivo StorSimple. In questo articolo viene descritto:
 
@@ -92,7 +92,7 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 
 1. Accedere al dispositivo direttamente tramite la console seriale o tramite una sessione telnet da un computer remoto. A tale scopo, attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. Nella sessione che viene aperta, premere **Invio** per visualizzare un prompt dei comandi.
-3. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
+3. Nel menu della console seriale selezionare l'opzione 1 **Accedi con accesso completo**.
 4. Al prompt dei comandi, digitare la seguente password:
    
     `Password1`

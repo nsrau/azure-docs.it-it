@@ -1,5 +1,5 @@
 ---
-title: risoluzione dei problemi
+title: Risoluzione dei problemi
 description: Risoluzione dei problemi di analisi sinapsi di Azure.
 services: sql-data-warehouse
 author: kevinvngo
@@ -12,16 +12,16 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 085b907b6a848fb534df63b5465948864048cc19
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199870"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383726"
 ---
 # <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Risoluzione dei problemi di analisi SQL in sinapsi di Azure
 In questo articolo sono elencate le domande frequenti relative alla risoluzione dei problemi.
 
-## <a name="connecting"></a>Connecting
+## <a name="connecting"></a>Connessione in corso
 | Problema                                                        | Risoluzione                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Accesso non riuscito per l'utente 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Errore: 18456) | Questo errore si verifica quando un utente AAD tenta di connettersi al database master, ma non dispone di un utente nel database master.  Per risolvere il problema, specificare il pool SQL a cui si desidera connettersi al momento della connessione o aggiungere l'utente al database master.  Per ulteriori dettagli, vedere l'articolo [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md) . |

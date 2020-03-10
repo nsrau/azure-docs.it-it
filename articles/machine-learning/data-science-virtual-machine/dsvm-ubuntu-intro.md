@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una Data Science Virtual Machine Ubuntu'
+title: 'Guida introduttiva: creare un Data Science Virtual Machine Ubuntu'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una Data Science Virtual Machine per Linux (Ubuntu) per attività di analisi e Machine Learning.
 ms.service: machine-learning
@@ -9,17 +9,17 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526111"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360629"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Avvio rapido: Configurare la Data Science Virtual Machine per Linux (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Guida introduttiva: configurare la Data Science Virtual Machine per Linux (Ubuntu)
 
 Iniziare a usare una Data Science Virtual Machine Ubuntu 18.04.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare una Data Science Virtual Machine Ubuntu 18.04, è necessario avere una sottoscrizione di Azure. [Provare Azure gratuitamente](https://azure.com/free).
 Si noti che gli account gratuiti di Azure non supportano gli SKU delle macchine virtuali abilitate per GPU.
@@ -39,13 +39,13 @@ Di seguito sono elencati i passaggi per la creazione della Data Science Virtual 
 
     1. **Nozioni di base**:
     
-       * **Sottoscrizione** Se si hanno più sottoscrizioni, selezionare quella in cui verrà creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-       * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente.
+       * **Sottoscrizione**: se si dispone di più di una sottoscrizione, selezionare quella in cui il computer verrà creato e fatturato. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
+       * **Gruppo di risorse**: creare un nuovo gruppo o utilizzarne uno esistente.
        * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
        * **Area**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Immagine**: Lasciare il valore predefinito.
-       * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Linux in Azure](../../virtual-machines/linux/sizes.md).
-       * **Tipo di autenticazione**: per velocizzare la configurazione, selezionare "Password". 
+       * **Image**: lasciare il valore predefinito.
+       * **Dimensioni**: questa operazione dovrebbe essere popolata automaticamente con una dimensione appropriata per i carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Linux in Azure](../../virtual-machines/linux/sizes.md).
+       * **Tipo di autenticazione**: per un'installazione più rapida, selezionare "password". 
          
          > [!NOTE]
          > Se si intende usare JupyterHub, assicurarsi di selezionare "Password", perché JupyterHub *non* è configurato per l'uso di chiavi pubbliche SSH.
@@ -60,7 +60,7 @@ Di seguito sono elencati i passaggi per la creazione della Data Science Virtual 
    1. Selezionare **Rivedi e crea**.
    1. **Rivedi e crea**
       * Verificare che tutte le informazioni immesse siano corrette. 
-      * Selezionare **Create** (Crea).
+      * Selezionare **Crea**.
     
     Per il provisioning sono necessari circa 5 minuti. Lo stato viene visualizzato nel portale di Azure.
 
@@ -94,18 +94,18 @@ Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è po
 
 1. Nella finestra di configurazione risultante immettere i parametri di configurazione seguenti.
    * **Scheda Session**(Sessione):
-     * **Host**: immettere l'indirizzo IP della VM, di cui si è preso nota in precedenza.
-     * **Accesso**: immettere il nome utente nella VM Linux.
-     * **Porta SSH**: lasciare il valore predefinito 22.
-     * **Tipo di sessione**: modificare il valore in **XFCE**. Attualmente, la VM Linux supporta solo l'ambiente desktop XFCE.
-   * **Scheda Supporti**: è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
-   * **Cartelle condivise**: se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
+     * **Host**: immettere l'indirizzo IP della macchina virtuale che è stata annotata in precedenza.
+     * **Login**: immettere il nome utente nella VM Linux.
+     * **SSH Port**(Porta SSH): lasciare il valore predefinito 22.
+     * **Session Type**(Tipo sessione): modificare il valore in **XFCE**. Attualmente, la VM Linux supporta solo l'ambiente desktop XFCE.
+   * **Scheda Media**(Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
+   * **Shared folders**(Cartelle condivise): se si intende montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
 
    ![Configurazione di X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 1. Fare clic sulla casella nel riquadro destro della finestra di X2Go per visualizzare la schermata di accesso per la VM.
 1. Immettere la password per la VM.
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 1. Per completare la connessione potrebbe essere necessario concedere a X2Go l'autorizzazione per ignorare il firewall.
 1. Verrà ora visualizzata l'interfaccia grafica per la DSVM Ubuntu. 
 

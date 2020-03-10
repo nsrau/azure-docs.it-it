@@ -9,11 +9,11 @@ author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
 ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76771524"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395652"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di archiviazione tabelle di Azure: tabelle scalabili ed efficienti
 
@@ -51,8 +51,8 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -71,11 +71,11 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
-<td>Giu</td>
+<td>Jun</td>
 <td>Cao</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -100,7 +100,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 </td>
 </tr>
 <tr>
-<td>Vendite</td>
+<td>Sales</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
@@ -108,8 +108,8 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -129,7 +129,7 @@ La scelta di `PartitionKey` e `RowKey` è fondamentale per una corretta progetta
 
 Una tabella è costituita da una o più partizioni e molte delle decisioni di progettazione effettuate saranno la scelta di un `PartitionKey` appropriato e `RowKey` per ottimizzare la soluzione. Una soluzione può essere costituita da una sola tabella che contiene tutte le entità organizzate in partizioni, ma in genere una soluzione dispone di più tabelle. Le tabelle consentono di organizzare logicamente le entità e consentono di gestire l'accesso ai dati tramite gli elenchi di controllo di accesso. È possibile eliminare un'intera tabella usando una singola operazione di archiviazione.  
 
-### <a name="table-partitions"></a>Partizioni di tabella
+### <a name="table-partitions"></a>Partizioni della tabella
 Il nome dell'account, il nome della tabella e `PartitionKey` insieme identificano la partizione all'interno del servizio di archiviazione in cui l'archiviazione tabelle archivia l'entità. Oltre a far parte dello schema di indirizzamento per le entità, le partizioni definiscono un ambito per le transazioni (vedere la sezione più avanti in questo articolo, [le transazioni del gruppo di entità](#entity-group-transactions)) e costituiscono la base per la scalabilità dell'archiviazione tabelle. Per ulteriori informazioni sulle partizioni di tabella, vedere [elenco di controllo delle prestazioni e della scalabilità per l'archiviazione tabelle](../storage/tables/storage-performance-checklist.md).  
 
 Nell'archivio tabelle, un singolo nodo esegue una o più partizioni complete e il servizio viene ridimensionato in modo dinamico tramite il bilanciamento del carico delle partizioni tra i nodi. Se un nodo è sotto carico, l'archivio tabelle può suddividere l'intervallo di partizioni gestite da tale nodo su nodi diversi. Quando si utilizza il traffico, l'archivio tabelle può unire gli intervalli di partizione dai nodi non interattiva a un singolo nodo.  
@@ -195,12 +195,12 @@ Negli esempi seguenti si presuppone che l'archiviazione tabelle memorizzi le ent
 
 | Nome colonna | Tipo di dati |
 | --- | --- |
-| `PartitionKey` (nome del reparto) |string |
-| `RowKey` (ID dipendente) |string |
-| `FirstName` |string |
-| `LastName` |string |
+| `PartitionKey` (nome del reparto) |String |
+| `RowKey` (ID dipendente) |String |
+| `FirstName` |String |
+| `LastName` |String |
 | `Age` |Integer |
-| `EmailAddress` |string |
+| `EmailAddress` |String |
 
 Ecco alcune linee guida generali per la progettazione di query di archiviazione tabelle. La sintassi di filtro usata negli esempi seguenti è dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -663,7 +663,7 @@ In un database relazionale, in genere si normalizzano i dati per rimuovere la du
 ![Rappresentazione grafica dell'entità Department e dell'entità Employee][16]
 
 #### <a name="solution"></a>Soluzione
-Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:  
+Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio,  
 
 ![Rappresentazione grafica dell'entità denormalizzata e combinata del reparto][17]
 
@@ -1138,8 +1138,8 @@ L'archiviazione tabelle è un archivio tabelle *senza schema* . Ciò significa c
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1158,8 +1158,8 @@ L'archiviazione tabelle è un archivio tabelle *senza schema* . Ciò significa c
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1195,8 +1195,8 @@ L'archiviazione tabelle è un archivio tabelle *senza schema* . Ciò significa c
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1231,8 +1231,8 @@ Ogni entità deve avere ancora valori `PartitionKey`, `RowKey`e `Timestamp`, ma 
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1253,8 +1253,8 @@ Ogni entità deve avere ancora valori `PartitionKey`, `RowKey`e `Timestamp`, ma 
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1294,8 +1294,8 @@ Ogni entità deve avere ancora valori `PartitionKey`, `RowKey`e `Timestamp`, ma 
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Età</th>
-<th>Indirizzo di posta elettronica</th>
+<th>Tempo trascorso</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226089"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394238"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
 
@@ -45,7 +45,7 @@ Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
 
 Le autorizzazioni per un oggetto del file system sono **Lettura**, **Scrittura** ed **Esecuzione** e possono essere usate per file e cartelle come illustrato nella tabella seguente:
 
-|            |    File     |   Cartella |
+|            |    File     |   Folder |
 |------------|-------------|----------|
 | **Lettura (R)** | È possibile leggere il contenuto di un file | Per elencare il contenuto della cartella sono necessarie le autorizzazioni di **Lettura** ed **Esecuzione**|
 | **Scrittura (W)** | È possibile scrivere o aggiungere in un file | Per creare elementi figlio in una cartella sono necessarie le autorizzazioni di **Scrittura** ed **Esecuzione**. |
@@ -71,15 +71,15 @@ Nel modello di tipo POSIX usato da Data Lake Storage Gen1, le autorizzazioni per
 
 Di seguito sono riportati alcuni scenari comuni che consentono di comprendere quali autorizzazioni sono necessarie per eseguire determinate operazioni su un account Data Lake Storage Gen1.
 
-| Operazione | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| Operazione | Oggetto              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Eliminare    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Crea    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Elenco      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -133,7 +133,7 @@ Poiché non esiste alcun "gruppo primario" associato agli utenti in Data Lake St
 **Assegnazione del gruppo proprietario per un nuovo file o cartella**
 
 * **Caso 1**: cartella radice "/". Questa cartella viene creata al momento della creazione di un account Data Lake Storage Gen1. In questo caso, il gruppo proprietario viene impostato su un GUID costituito solo da zeri.  Questo valore non permette alcun accesso.  È un segnaposto fino a quando non viene assegnato un gruppo.
-* **Caso 2** (qualsiasi altro caso): quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla cartella padre.
+* **Caso 2**: tutti gli altri casi. Quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla cartella padre.
 
 **Modifica del gruppo proprietario**
 
@@ -270,7 +270,7 @@ Il creatore di un file o una cartella ne diventa il proprietario.
 
 Il gruppo proprietario viene copiato da quello della cartella padre in cui si crea il nuovo file o la nuova cartella.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, Cosa devo fare?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, Quale operazione devo eseguire?
 
 L'utente proprietario può modificare le autorizzazioni del file in modo da assegnarsi tutte le autorizzazioni RWX necessarie.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516673"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365585"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
 
@@ -73,9 +73,9 @@ Per eliminare un servizio, attenersi alla procedura seguente.
 1. Passare a **Tutte le risorse**. Ricercare il servizio Gestione dispositivi StorSimple. Selezionare il servizio da eliminare.
    
     ![Selezionare il servizio da eliminare](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Passare al dashboard del servizio per verificare che non siano presenti dispositivi connessi al servizio. Se non sono presenti dispositivi registrati con questo servizio, verrà visualizzato un messaggio di intestazione in proposito. Fare clic su **Elimina**.
+2. Passare al dashboard del servizio per verificare che non siano presenti dispositivi connessi al servizio. Se non sono presenti dispositivi registrati con questo servizio, verrà visualizzato un messaggio di intestazione in proposito. Scegliere **Elimina**.
    
-    ![Elimina servizio](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
+    ![Delete service](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
 3. Quando viene richiesta la conferma, fare clic su **Sì** nella notifica di conferma. 
    
@@ -94,7 +94,7 @@ Dopo aver creato un servizio, è necessario registrare il dispositivo StorSimple
 Per ottenere la chiave di registrazione del servizio, attenersi alla procedura seguente.
 
 #### <a name="to-get-the-service-registration-key"></a>Per ottenere la chiave di registrazione del servizio
-1. In **Gestione dispositivi StorSimple** passare a **Gestione&gt;** **Chiavi**.
+1. Nel pannello **Device Manager StorSimple** passare a **gestione &gt;** **chiavi**.
    
    ![Pannello Chiavi](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Nel pannello **Chiavi** viene visualizzata la chiave di registrazione del servizio. Copiare la chiave di registrazione usando l'icona di copia. 
@@ -107,7 +107,7 @@ La rigenerazione di una chiave di registrazione del servizio deve essere effettu
 Per rigenerare una chiave di registrazione del servizio, attenersi alla procedura seguente.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Per rigenerare la chiave di registrazione del servizio
-1. In **Gestione dispositivi StorSimple** passare a **Gestione&gt;** **Chiavi**.
+1. Nel pannello **Device Manager StorSimple** passare a **gestione &gt;** **chiavi**.
    
    ![Pannello Chiavi](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Nel pannello **Chiavi** fare clic su **Rigenera**.

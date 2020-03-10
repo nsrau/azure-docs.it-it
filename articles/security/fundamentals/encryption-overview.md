@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
 ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804033"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358816"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -63,7 +63,7 @@ I tre modelli di crittografia lato server offrono caratteristiche differenti di 
 
 Le chiavi e i segreti di crittografia vengono protetti nella sottoscrizione di [Azure Key Vault](../../key-vault/key-vault-overview.md). È possibile eseguire il backup e il ripristino delle macchine virtuali crittografate con configurazione KEK usando il servizio Backup di Microsoft Azure.
 
-### <a name="azure-storage-service-encryption"></a>Crittografia del servizio Archiviazione di Azure
+### <a name="azure-storage-service-encryption"></a>Crittografia del servizio di archiviazione di Azure
 
 I dati inattivi negli archivi BLOB di Azure e nelle condivisioni di file di Azure possono essere crittografati sia in scenari lato server che in quelli lato client.
 
@@ -181,7 +181,7 @@ Per altre informazioni sulle connessioni VPN da punto a sito per reti virtuali d
 
 È possibile configurare una connessione VPN da sito a sito a una rete virtuale usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-Per scoprire di più, vedi:
+Per altre informazioni, vedere:
 
 [Creare una connessione da sito a sito nel portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

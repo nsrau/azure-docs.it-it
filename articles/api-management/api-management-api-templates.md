@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176881"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374380"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
 
@@ -27,7 +27,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 I modelli in questa sezione consentono di personalizzare il contenuto delle pagine API del portale per sviluppatori.  
   
 -   [Elenco API](#APIList)  
--   [Operazione](#Product)  
+-   [operazione](#Product)  
 -   [Esempi di codice](#CodeSamples)  
     -   [Curl](#Curl)  
     -   [C#](#CSharp)  
@@ -80,7 +80,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 </div>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Il modello `API list` può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
@@ -89,7 +89,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|Description|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`apis`|Raccolta di entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|Le API visibili all'utente corrente.|  
   
@@ -339,18 +339,18 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 </div>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Il modello `Operation` non consente l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|Description|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`apiId`|string|ID dell'API corrente.|  
 |`apiName`|string|Nome dell'API.|  
 |`apiDescription`|string|Descrizione dell'API.|  
 |`api`|Entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|API corrente.|  
-|`operation`|[Operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
+|`operation`|[operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
 |`sampleUrl`|string|L'URL per l'operazione corrente.|  
 |`operationMenu`|[Menu operazione](api-management-template-data-model-reference.md#Menu)|Un menu di operazioni per questa API.|  
 |`consoleUrl`|URI|L'URI per il pulsante **Prova**.|  
@@ -682,7 +682,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
   
 ```  
   
-#### <a name="controls"></a>Controlli  
+#### <a name="controls"></a>Controls  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modello di dati  
@@ -861,7 +861,7 @@ namespace CSHttpClientSample
 }     
 ```  
   
-#### <a name="controls"></a>Controlli  
+#### <a name="controls"></a>Controls  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modello di dati  
@@ -957,7 +957,7 @@ public class JavaSample
   
 ```  
   
-#### <a name="controls"></a>Controlli  
+#### <a name="controls"></a>Controls  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modello di dati  
@@ -1046,7 +1046,7 @@ public class JavaSample
   
 ```  
   
-#### <a name="controls"></a>Controlli  
+#### <a name="controls"></a>Controls  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modello di dati  
@@ -1158,7 +1158,7 @@ int main(int argc, const char * argv[])
   
 ```  
   
-#### <a name="controls"></a>Controlli  
+#### <a name="controls"></a>Controls  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modello di dati  
@@ -1248,7 +1248,7 @@ catch (HttpException $ex)
 ?>  
 ```  
   
-#### <a name="controls"></a>Controlli  
+#### <a name="controls"></a>Controls  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modello di dati  
@@ -1366,7 +1366,7 @@ except Exception as e:
 ####################################  
 ```
   
-#### <a name="controls"></a>Controlli  
+#### <a name="controls"></a>Controls  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modello di dati  
@@ -1437,7 +1437,7 @@ puts response.body
   
 ```  
   
-#### <a name="controls"></a>Controlli  
+#### <a name="controls"></a>Controls  
  I modelli degli esempi di codici non consentono l'uso di [controlli di pagina](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modello di dati  

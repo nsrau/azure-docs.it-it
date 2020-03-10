@@ -8,15 +8,15 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70d0246debc532260d287104bacea2f15c1b94d2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277286"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384887"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Connettersi in remoto al dispositivo StorSimple serie 8000
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 È possibile connettersi in remoto al dispositivo tramite Windows PowerShell. Questo metodo di connessione non consente di visualizzare alcun menu. Viene visualizzato un menu solo se si usa la console seriale sul dispositivo per la connessione. Con la comunicazione remota di Windows PowerShell è possibile connettersi a un spazio specifico. È inoltre possibile specificare la lingua di visualizzazione.
 
@@ -67,7 +67,7 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Per abilitare la gestione remota tramite la console seriale del dispositivo:
 1. Nel menu della console seriale, selezionare l'opzione 1. Per altre informazioni sull'uso della console seriale del dispositivo, vedere [Connessione a Windows PowerShell per StorSimple tramite la console seriale del dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
 2. Al prompt dei comandi, digitare: `Enable-HcsRemoteManagement –AllowHttp`
-3. L'utente riceve una notifica sulle vulnerabilità di sicurezza relative all'utilizzo di HTTP per la connessione al dispositivo. Quando richiesto, confermare digitando **Y**.
+3. L'utente riceve una notifica sulle vulnerabilità di sicurezza relative all'utilizzo di HTTP per la connessione al dispositivo. Quando richiesto, digitare **Y** per confermare.
 4. Verificare che HTTP sia abilitato digitando: `Get-HcsSystem`
 5. Verificare che il campo **RemoteManagementMode** mostri **HttpsAndHttpEnabled**. Nella figura seguente vengono illustrate queste impostazioni in PuTTY.
    
@@ -97,7 +97,7 @@ Eseguire le operazioni seguenti sul client per abilitare la gestione remota.
 4. Nella finestra di dialogo visualizzata:
    
    1. Digitare il nome utente nel formato: *ip_dispositivo\SSAdmin*.
-   2. Digitare la password di amministratore del dispositivo impostata quando il dispositivo è stato configurato con la configurazione guidata. La password predefinita è *Password1*.
+   2. Digitare la password di amministratore del dispositivo impostata quando il dispositivo è stato configurato con la configurazione guidata. Il valore predefinito è *Password1*.
 5. Avviare una sessione di Windows PowerShell sul dispositivo digitando questo comando:
    
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
@@ -143,7 +143,7 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Per abilitare la gestione remota tramite la console seriale del dispositivo:
 1. Nel menu della console seriale, selezionare l'opzione 1. Per altre informazioni sull'uso della console seriale del dispositivo, vedere [Connessione a Windows PowerShell per StorSimple tramite la console seriale del dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Al prompt dei comandi, digitare:
+2. Al prompt digitare:
    
      `Enable-HcsRemoteManagement`
    
@@ -182,11 +182,11 @@ Per preparare il computer host per una connessione remota che utilizza una sessi
 Ognuna di queste procedure è descritta di seguito.
 
 #### <a name="to-import-the-certificate-on-the-remote-host"></a>Per importare il certificato nell'host remoto:
-1. Fare clic con il pulsante destro del mouse sul file con estensione .cer e selezionare **Installa certificato**. Viene avviata l'Esportazione guidata certificati.
+1. Fare clic con il pulsante destro del mouse sul file con estensione cer, quindi scegliere **Installa certificato**. Viene avviata l'Esportazione guidata certificati.
    
     ![Impostazione guidata del certificato 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
-2. Per **Percorso archivio**, selezionare **Computer locale**, quindi fare clic su **Avanti**.
-3. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
+2. Per **Percorso archivio** selezionare **Computer locale**, quindi fare clic su **Avanti**.
+3. Selezionare **Mettere tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Spostarsi sull'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
    
     ![Impostazione guidata del certificato 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 4. Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
@@ -196,7 +196,7 @@ Ognuna di queste procedure è descritta di seguito.
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Per aggiungere i numeri di serie del dispositivo all'host remoto:
 1. Avviare Blocco note come amministratore, quindi aprire il file hosts che si trova in \Windows\System32\Drivers\etc.
 2. Aggiungere le tre voci seguenti al file hosts: **DATA 0 IP address**, **Controller 0 Fixed IP address** e **Controller 1 Fixed IP address**.
-3. Immettere il numero di serie salvato in precedenza. Eseguirne il mapping all'indirizzo IP come illustrato nella figura seguente. Per Controller 0 e Controller 1, aggiungere **Controller0** e **Controller1** alla fine del numero di serie (nome CN).
+3. Immettere il numero di serie salvato in precedenza. Eseguirne il mapping all'indirizzo IP come illustrato nella figura seguente. Per il controller 0 e il controller 1, aggiungere **Controller0** e **Controller1** al termine del numero di serie (nome comune).
    
     ![Aggiunta del nome CN al file hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 4. Salvare il file hosts.

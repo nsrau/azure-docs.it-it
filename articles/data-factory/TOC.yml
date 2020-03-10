@@ -491,6 +491,8 @@
           href: data-flow-exists.md
         - name: Filtro
           href: data-flow-filter.md
+        - name: Flatten
+          href: data-flow-flatten.md
         - name: Join
           href: data-flow-join.md
         - name: Ricerca
@@ -515,8 +517,6 @@
           href: data-flow-unpivot.md
         - name: Finestra
           href: data-flow-window.md
-        - name: Flatten
-          href: data-flow-flatten.md
     - name: Impostare parametri
       items:
         - name: Impostazione dei parametri per i servizi collegati

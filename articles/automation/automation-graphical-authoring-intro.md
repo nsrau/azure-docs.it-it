@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272975"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373369"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creazione grafica in Automazione di Azure
 
@@ -54,7 +54,7 @@ Il controllo della configurazione consente di specificare i dettagli per un ogge
 
 Il controllo Test non viene visualizzato al primo avvio dell'editor grafico. Viene aperto quando si testa un Runbook grafico in modo interattivo.
 
-## <a name="activities"></a>attività
+## <a name="activities"></a>Attività
 
 Le attività sono i blocchi predefiniti di un Runbook. Un'attività può essere un cmdlet di PowerShell, un Runbook figlio o un flusso di lavoro. È possibile aggiungere un'attività a Runbook facendo clic con il pulsante destro del mouse sul controllo libreria e selezionando **Aggiungi ad area di disegno**. È quindi possibile fare clic e trascinare l'attività per posizionarla in un punto qualsiasi nel canvas desiderato. Il percorso dell'attività nell'area di disegno non influisce sul funzionamento di Runbook. È possibile disporre il Runbook in qualsiasi modo sia più adatto per visualizzarne il funzionamento.
 
@@ -70,13 +70,13 @@ Nell'esempio seguente il cmdlet [Get-AzVM](https://docs.microsoft.com/powershell
 
 ![Parameter Set](media/automation-graphical-authoring-intro/get-azurermvm-parameter-sets.png)
 
-#### <a name="parameter-values"></a>Valori dei parametri
+#### <a name="parameter-values"></a>Valori parametro
 
 Quando si specifica un valore per un parametro, è necessario selezionare un'origine dati per determinare come verrà specificato il valore. Le origini dati disponibili per un determinato parametro dipendono dai valori validi per il parametro. Ad esempio, **null** non è un'opzione disponibile per un parametro che non consente valori null.
 
-| origine dati | Descrizione |
+| Origine dati | Descrizione |
 |:--- |:--- |
-| Constant Value |Digitare un valore per il parametro. Questa origine dati è disponibile solo per i tipi di dati seguenti: Int32, Int64, String, Boolean, DateTime, switch. |
+| Valore costante |Digitare un valore per il parametro. Questa origine dati è disponibile solo per i tipi di dati seguenti: Int32, Int64, String, Boolean, DateTime, switch. |
 | Activity Output |Utilizzare l'output di un'attività che precede l'attività corrente nel flusso di lavoro. Verranno elencate tutte le attività valide. Per il valore del parametro, usare solo l'attività che produce l'output. Se l'attività restituisce un oggetto con più proprietà, è possibile digitare il nome di una proprietà specifica dopo aver selezionato l'attività. |
 | Input di runbook |Selezionare un input Runbook come input per il parametro Activity. |
 | Asset della variabile |Selezionare una variabile di automazione come input. |
@@ -156,7 +156,7 @@ Un collegamento in un Runbook grafico connette due attività. Viene visualizzato
 
 Selezionare il collegamento per configurare le relative proprietà nel pannello Configuration, Le proprietà includono il tipo di collegamento, descritto nella tabella seguente.
 
-| Tipo di collegamento | Descrizione |
+| Tipo collegamento | Descrizione |
 |:--- |:--- |
 | Pipeline |L'attività di destinazione viene eseguita una volta per ogni oggetto restituito dall'attività di origine. L'attività di destinazione non viene eseguita se l'attività di origine non genera alcun output. L'output dell'attività di origine è disponibile come oggetto. |
 | Sequenza |L'attività di destinazione viene eseguita una sola volta quando riceve l'output dall'attività di origine. L'output dell'attività di origine è disponibile come matrice di oggetti. |
@@ -239,11 +239,11 @@ $ActivityOutput['Activity Label']
 $ActivityOutput['Activity Label'].PropertyName
 ```
 
-### <a name="checkpoints"></a>Checkpoint
+### <a name="checkpoints"></a>Punti di controllo
 
 È possibile impostare [Checkpoint](automation-powershell-workflow.md#checkpoints) in un Runbook del flusso di lavoro PowerShell grafico selezionando **Checkpoint Runbook** in qualsiasi attività. In questo modo viene impostato un checkpoint dopo l'esecuzione dell'attività.
 
-![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Punto di controllo](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 I checkpoint sono abilitati solo nei manuali operativi grafici del flusso di lavoro PowerShell e non sono disponibili nei manuali operativi grafici. Se il Runbook usa i cmdlet di Azure, deve seguire qualsiasi attività con checkpoint con un'attività **Connect-AzAccount** . L'operazione Connect viene usata nel caso in cui il Runbook venga sospeso e deve essere riavviato da questo checkpoint in un ruolo di lavoro diverso.
 
@@ -263,7 +263,7 @@ Ogni parametro di input è definito dalle proprietà descritte nella tabella seg
 
 | Proprietà | Descrizione |
 |:--- |:--- |
-| Nome | Obbligatorio. Nome del parametro. Il nome deve essere univoco all'interno di Runbook. Deve iniziare con una lettera e può contenere solo lettere, numeri e caratteri di sottolineatura. Il nome non può contenere uno spazio. |
+| Name | Obbligatoria. Nome del parametro. Il nome deve essere univoco all'interno di Runbook. Deve iniziare con una lettera e può contenere solo lettere, numeri e caratteri di sottolineatura. Il nome non può contenere uno spazio. |
 | Descrizione |Facoltativa. Descrizione dello scopo del parametro di input. |
 | Type | Facoltativa. Tipo di dati previsto per il valore del parametro. Il portale di Azure visualizzerà un controllo appropriato per il tipo di dati per ogni parametro quando viene richiesto l'input. I tipi di parametro supportati sono String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se un tipo di dati non è selezionato, il valore predefinito è String.|
 | Obbligatorio | Facoltativa. Impostazione che specifica se è necessario fornire un valore per il parametro. Se si sceglie **Sì**, è necessario fornire un valore all'avvio del Runbook. Se si sceglie **No**, non è necessario un valore quando viene avviato il Runbook ed è possibile utilizzare un valore predefinito. Non è possibile avviare runbook se non si specifica un valore per ogni parametro obbligatorio per il quale non è definito un valore predefinito. |

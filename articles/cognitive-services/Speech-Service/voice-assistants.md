@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812917"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394810"
 ---
 # <a name="about-voice-assistants"></a>Informazioni sugli assistenti vocali
 
@@ -31,7 +31,7 @@ Le applicazioni si connettono al servizio Voice Assistant con Speech Software De
 
 Il primo passaggio per la creazione di un assistente vocale è quello di decidere cosa fare. Il servizio di riconoscimento vocale offre più soluzioni complementari per la creazione di interazioni con gli assistenti. Che tu voglia ottenere la flessibilità e la versatilità offerte dal canale di [sintesi vocale diretta](direct-line-speech.md) di bot Framework o la semplicità dei [comandi personalizzati (anteprima)](custom-commands.md) per scenari semplici, la selezione degli strumenti più appropriati ti consente di iniziare.
 
-| Se vuoi... | Quindi, prendere in considerazione... | Per esempio... |
+| Per... | Quindi, prendere in considerazione... | Per esempio... |
 |-------------------|------------------|----------------|
 |Conversazione aperta con Solid Skills Integration e controllo completo della distribuzione | Canale di [sintesi vocale diretta](direct-line-speech.md) di bot Framework | <ul><li>"Devo andare a Seattle"</li><li>"Che tipo di pizza è possibile ordinare?"</li></ul>
 |Gestione dei comandi e delle conversazioni orientate alle attività con la creazione e l'hosting semplificate | [Comandi personalizzati (anteprima)](custom-commands.md) | <ul><li>"Accendere la luce del sovraccarico"</li><li>"Renderlo 5 gradi più caldo"</ul>
@@ -46,7 +46,7 @@ I [comandi personalizzati (anteprima)](custom-commands.md) offrono un'esperienza
 
 Indipendentemente dal fatto che si scelga [Direct Line Speech](direct-line-speech.md) o [Custom Commands (anteprima)](custom-commands.md) per creare le interazioni con gli assistenti, è possibile usare un set completo di funzionalità di personalizzazione per personalizzare l'assistente per il marchio, il prodotto e la personalità.
 
-| Categoria | database elastico |
+| Category | Funzionalità |
 |----------|----------|
 |[Parola chiave Custom](speech-devices-sdk-create-kws.md) | Gli utenti possono avviare conversazioni con gli assistenti con una parola chiave personalizzata, ad esempio "Hey contoso". Un'app esegue questa operazione con un motore di parole chiave personalizzato nell'SDK di riconoscimento vocale, che può essere configurato con una parola chiave personalizzata [che è possibile generare qui](speech-devices-sdk-create-kws.md). Gli assistenti vocali possono usare la verifica delle parole chiave sul lato servizio per migliorare l'accuratezza dell'attivazione della parola chiave (rispetto al dispositivo da solo).
 |[Riconoscimento vocale](speech-to-text.md) | Gli assistenti vocali convertono l'audio in tempo reale in testo riconosciuto usando il [riconoscimento vocale](speech-to-text.md) dal servizio di riconoscimento vocale. Questo testo è disponibile, in quanto viene trascritto, sia per l'implementazione dell'assistente che per l'applicazione client.
@@ -56,11 +56,11 @@ Indipendentemente dal fatto che si scelga [Direct Line Speech](direct-line-speec
 
 Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive per Assistente vocale, organizzate in base alla lingua.
 
-| Avvio rapido | Piattaforma | Informazioni di riferimento sulle API |
+| Guida rapida | Platform | Riferimento all'API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| C#, UWP | WINDOWS | [Sfoglia](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Sfoglia](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Sfoglia](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -80,7 +80,7 @@ Gli assistenti vocali creati con il servizio di riconoscimento vocale possono us
 > [!NOTE]
 > Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](supported-languages.md)).
 
-## <a name="reference-docs"></a>Documenti di riferimento
+## <a name="reference-docs"></a>Documentazione di riferimento
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Servizio Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)

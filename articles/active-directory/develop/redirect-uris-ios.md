@@ -18,11 +18,11 @@ ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
 ms.openlocfilehash: c36c6b1b1b08de6d2db9a7f7f9ebd3b162c02383
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085634"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377140"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Uso degli URI di reindirizzamento con Microsoft Authentication Library per iOS e macOS
 
@@ -40,7 +40,7 @@ Potrebbe tuttavia essere necessario modificare l'URI di reindirizzamento per gli
 
 Affinché Microsoft Identity Platform possa condividere i token tra le app, ogni app deve avere lo stesso ID client o ID applicazione. Si tratta dell'identificatore univoco fornito al momento della registrazione dell'app nel portale (non dell'ID bundle dell'applicazione registrato per ogni app con Apple).
 
-Gli URI di reindirizzamento devono essere diversi per ogni app iOS. Questo consente al servizio di gestione delle identità Microsoft di identificare in modo univoco le diverse app che condividono un ID applicazione. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di Azure. Ogni app della suite avrà un URI di reindirizzamento diverso. Ad esempio:
+Gli URI di reindirizzamento devono essere diversi per ogni app iOS. Questo consente al servizio di gestione delle identità Microsoft di identificare in modo univoco le diverse app che condividono un ID applicazione. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di Azure. Ogni app della suite avrà un URI di reindirizzamento diverso. Ad esempio,
 
 Data la seguente registrazione dell'applicazione nella portale di Azure:
 
@@ -82,7 +82,7 @@ MSAL verificherà se l'URI di reindirizzamento viene registrato correttamente e 
 
 ## <a name="use-a-custom-redirect-uri"></a>Usare un URI di reindirizzamento personalizzato
 
-Per usare un URI di reindirizzamento personalizzato, passare il parametro `redirectUri` a `MSALPublicClientApplicationConfig` e passare tale oggetto a `MSALPublicClientApplication` quando si inizializza l'oggetto. Se l'URI di reindirizzamento non è valido, l'inizializzatore restituirà `nil` e imposterà `redirectURIError` con informazioni aggiuntive.  Ad esempio:
+Per usare un URI di reindirizzamento personalizzato, passare il parametro `redirectUri` a `MSALPublicClientApplicationConfig` e passare tale oggetto a `MSALPublicClientApplication` quando si inizializza l'oggetto. Se l'URI di reindirizzamento non è valido, l'inizializzatore restituirà `nil` e imposterà `redirectURIError` con informazioni aggiuntive.  Ad esempio,
 
 Objective-C:
 

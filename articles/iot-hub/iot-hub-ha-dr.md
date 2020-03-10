@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
 ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748562"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392575"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
@@ -125,12 +125,12 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 
 | Opzione a disponibilità elevata e ripristino di emergenza | RTO | RPO | È necessario un intervento manuale? | Complessità dell'implementazione | Impatto dei costi aggiuntivi|
 | --- | --- | --- | --- | --- | --- |
-| Failover avviato da Microsoft |2-26 ore|Fare riferimento a tabella RPO precedente|No|Nessuna|Nessuna|
-| Failover manuale |10 min-2 ore|Fare riferimento a tabella RPO precedente|Sì|Molto bassa. È sufficiente attivare questa operazione dal portale.|Nessuna|
-| Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alto|> 1 x il costo di 1 Hub IoT|
+| Failover avviato da Microsoft |2-26 ore|Fare riferimento a tabella RPO precedente|No|None|None|
+| Failover manuale |10 min-2 ore|Fare riferimento a tabella RPO precedente|Sì|Molto bassa. È sufficiente attivare questa operazione dal portale.|None|
+| Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alta|> 1 x il costo di 1 Hub IoT|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è l'hub IoT di Azure?](about-iot-hub.md)
+* [Che cos'è l'hub IoT Azure?](about-iot-hub.md)
 * [Introduzione agli hub IoT (guida introduttiva)](quickstart-send-telemetry-dotnet.md)
 * [Esercitazione: eseguire il failover manuale per un hub Internet delle cose](tutorial-manual-failover.md)

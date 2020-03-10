@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 2af887f529d57052d8b729fa1a613e8eeb9003ea
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 21e35afc72aa9824baa1076abe0e767ce4935c28
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228289"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391104"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -52,7 +52,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureBackup** |Backup di Azure.<br/><br/>*Nota:* Questo tag presenta una dipendenza sui tag di **archiviazione** e **AzureActiveDirectory** . | Inserimento in | No | Sì |
 | **AzureBotService** | Servizio Azure bot. | Inserimento in | No | No |
 | **AzureCloud** | Tutti [gli indirizzi IP pubblici del Data Center](https://www.microsoft.com/download/details.aspx?id=56519). | Inserimento in | Sì | Sì |
-| **AzureCognitiveSearch** | Ricerca cognitiva di Azure. <br/><br/>Questo tag o gli indirizzi IP trattati da questo tag possono essere utilizzati per concedere agli indicizzatori l'accesso sicuro alle origini dati. Per altri dettagli, vedere la [documentazione sulla connessione dell'indicizzatore](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) . | Inserimento in | No | No |
+| **AzureCognitiveSearch** | Ricerca cognitiva di Azure. <br/><br/>Questo tag o gli indirizzi IP trattati da questo tag possono essere utilizzati per concedere agli indicizzatori l'accesso sicuro alle origini dati. Per altri dettagli, vedere la [documentazione sulla connessione dell'indicizzatore](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) . <br/><br/> *Nota*: l'indirizzo IP del servizio di ricerca non è incluso nell'elenco degli intervalli IP per questo tag del servizio e **deve anche essere aggiunto** al firewall IP delle origini dati. | Inserimento in | No | No |
 | **AzureConnectors** | Connettori delle app per la logica di Azure per le connessioni Probe/back-end. | Inserimento in | Sì | Sì |
 | **AzureContainerRegistry** | Container Registry di Azure. | Inserimento in | Sì | Sì |
 | **AzureCosmosDB** | Azure Cosmos DB. | Inserimento in | Sì | Sì |

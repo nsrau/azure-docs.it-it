@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176751"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374407"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelli di profilo utente in Gestione API di Azure
 In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, ad esempio [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings) localizzate, [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
@@ -97,7 +97,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Questo modello potrebbe non usare i [controlli di pagina](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modello di dati  
@@ -105,7 +105,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  I modelli [Profilo](#Profile), [Applicazioni](#Applications) e [Sottoscrizioni](#Subscriptions) condividono lo stesso modello di dati e ricevono gli stessi dati del modello.  
   
-|Proprietà|Type|Description|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
 |`lastName`|string|Cognome dell'utente corrente.|  
@@ -316,7 +316,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
@@ -326,7 +326,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  I modelli [Profilo](#Profile), [Applicazioni](#Applications) e [Sottoscrizioni](#Subscriptions) condividono lo stesso modello di dati e ricevono gli stessi dati del modello.  
   
-|Proprietà|Type|Description|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
 |`lastName`|string|Cognome dell'utente corrente.|  
@@ -479,7 +479,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [app-actions](api-management-page-controls.md#app-actions)  
@@ -489,7 +489,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  I modelli [Profilo](#Profile), [Applicazioni](#Applications) e [Sottoscrizioni](#Subscriptions) condividono lo stesso modello di dati e ricevono gli stessi dati del modello.  
   
-|Proprietà|Type|Description|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
 |`lastName`|string|Cognome dell'utente corrente.|  
@@ -606,7 +606,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </a>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Questo modello potrebbe non usare i [controlli di pagina](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modello di dati  

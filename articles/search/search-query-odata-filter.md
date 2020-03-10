@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113211"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390333"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintassi di $filter OData in Azure ricerca cognitiva
 
@@ -108,7 +108,7 @@ Sono previsti limiti per le dimensioni e la complessità delle espressioni di fi
 > [!TIP]
 > L'uso [della funzione `search.in`](search-query-odata-search-in-function.md) anziché di disgiunzioni lunghe di confronti di uguaglianza consente di evitare il limite della clausola di filtro, perché una chiamata di funzione viene conteggiata come una singola clausola.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Trovare tutti gli alberghi con almeno una stanza con una tariffa di base inferiore a $200 che sono classificate a o superiori a 4:
 
@@ -130,7 +130,7 @@ Trovare tutti gli alberghi con il parcheggio incluso e la posizione in cui tutte
 
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
 
-Trovare tutti gli alberghi di lusso o con parcheggio incluso e di categoria 5 o superiore:  
+Trovare tutti gli alberghi di lusso o che includono il parcheggio e con una classificazione 5:  
 
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
 

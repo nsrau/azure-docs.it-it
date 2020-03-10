@@ -14,11 +14,11 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073426"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374475"
 ---
 # <a name="about-api-management"></a>Informazioni su Gestione API
 
@@ -60,7 +60,7 @@ Il sistema è costituito dai componenti seguenti:
   * Creare un account ed eseguire la sottoscrizione per ottenere le chiavi API.
   * Accedere all'analisi di utilizzo personalizzata.
 
-Per altre informazioni, vedere [Gestione API basate sul cloud: sfruttare appieno i vantaggi delle API](https://j.mp/ms-apim-whitepaper) white paper PDF. Questo white paper introduttivo sulla gestione delle API redatto da CITO Research tratta gli argomenti seguenti: 
+Per altre informazioni, vedere il white paper in formato PDF [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) sulla gestione delle API basate sul cloud. Questo white paper introduttivo sulla gestione delle API redatto da CITO Research tratta gli argomenti seguenti: 
  
  * Problematiche e requisiti comuni delle API
  * Disaccoppiamento delle API e presentazione delle facciate
@@ -81,7 +81,7 @@ I prodotti rappresentano il modo in cui le API sono presentate agli sviluppatori
 
 I gruppi permettono di gestire la visibilità dei prodotti agli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono. 
 
-## <a name="groups"></a> Gruppi
+## <a name="groups"></a> Gruppi di
 I gruppi permettono di gestire la visibilità dei prodotti agli sviluppatori. Gestione API include i gruppi di sistema non modificabili seguenti:
 
 * **Amministratori** : gli amministratori delle sottoscrizioni di Azure sono membri di questo gruppo. Gli amministratori gestiscono le istanze del servizio Gestione API e creano le API, le operazioni e i prodotti usati dagli sviluppatori.
@@ -99,7 +99,7 @@ Quando gli sviluppatori effettuano la sottoscrizione a un prodotto, viene conces
 
 Per altre informazioni, vedere [Come creare o invitare sviluppatori][How to create or invite developers] e [Come associare gruppi a sviluppatori][How to associate groups with developers].
 
-## <a name="policies"></a> Criteri
+## <a name="policies"></a> Criteri di
 I criteri sono una funzionalità avanzata di Gestione API e consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare il numero di chiamate in ingresso da uno sviluppatore. Sono anche disponibili numerosi altri criteri.
 
 Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](/azure/api-management/api-management-advanced-policies#choose) e [set variable](/azure/api-management/api-management-advanced-policies#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) ed [Espressioni di criteri](/azure/api-management/api-management-policy-expressions).

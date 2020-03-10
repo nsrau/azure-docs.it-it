@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928100"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387569"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Spostare i dati da MySQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -46,10 +46,10 @@ Per Gestione dati Gateway per connettersi al database MySQL, è necessario insta
 > [!TIP]
 > Se si è verificato un errore in "autenticazione non riuscita perché la parte remota ha chiuso il flusso di trasporto", provare a aggiornare il connettore MySQL/NET alla versione successiva.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Per una procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md). 
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
 - È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
@@ -65,23 +65,23 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato MySQL.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesMySql** |SÌ |
-| server |Nome del server MySQL. |SÌ |
-| database |Nome del database MySQL. |SÌ |
+| type |La proprietà type deve essere impostata su: **OnPremisesMySql** |Sì |
+| server |Nome del server MySQL. |Sì |
+| database |Nome del database MySQL. |Sì |
 | schema |Nome dello schema nel database. |No |
-| authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |SÌ |
-| userName |Specificare nome utente per la connessione al database MySQL. |SÌ |
-| password |Specificare la password per l'account utente specificato. |SÌ |
-| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |SÌ |
+| authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Sì |
+| userName |Specificare nome utente per la connessione al database MySQL. |Sì |
+| password |Specificare la password per l'account utente specificato. |Sì |
+| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che comprende il set di dati MySQL) presenta le proprietà seguenti.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database MySQL a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -92,7 +92,7 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Se l'origine nell'attività di copia è di tipo **RelationalSource** (che comprende MySQL), sono disponibili le proprietà seguenti nella sezione typeProperties:
 
-| Proprietà | Description | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No (se **tableName** di **set di dati** è specificato) |
 
@@ -298,46 +298,46 @@ Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-da
 
 Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MySQL al tipo .NET.
 
-| Tipo di database MySQL | Tipo di .NET Framework |
+| Tipo di database MySQL | Tipo .NET Framework |
 | --- | --- |
-| bigint unsigned |DECIMAL |
+| bigint unsigned |Decimal |
 | bigint |Int64 |
-| bit |DECIMAL |
-| BLOB |Byte[] |
-| bool |boolean |
-| char |Stringa |
-| date |DateTime |
-| Datetime |DateTime |
-| decimal |DECIMAL |
-| double precision |DOUBLE |
-| Double |DOUBLE |
-| enum |Stringa |
-| float |Singolo |
+| bit |Decimal |
+| blob |Byte[] |
+| bool |Boolean |
+| char |String |
+| date |Datetime |
+| datetime |Datetime |
+| decimal |Decimal |
+| double precision |Double |
+| double |Double |
+| enum |String |
+| float |Single |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
 | integer |Int32 |
 | long varbinary |Byte[] |
-| long varchar |Stringa |
+| long varchar |String |
 | longblob |Byte[] |
-| longtext |Stringa |
+| longtext |String |
 | mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
-| mediumtext |Stringa |
-| numeric |DECIMAL |
-| real |DOUBLE |
-| set |Stringa |
+| mediumtext |String |
+| numeric |Decimal |
+| real |Double |
+| set |String |
 | smallint unsigned |Int32 |
-| smallint |Int16 |
-| text |Stringa |
-| time |Intervallo di tempo |
-| timestamp |DateTime |
+| SMALLINT |Int16 |
+| testo |String |
+| time |TimeSpan |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
-| tinyint |Int16 |
-| tinytext |Stringa |
-| varchar |Stringa |
+| TINYINT |Int16 |
+| tinytext |String |
+| varchar |String |
 | anno |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink

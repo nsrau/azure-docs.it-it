@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150110"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386936"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -123,7 +123,7 @@ Il parametro `hive.exec.reducers.bytes.per.reducer` specifica il numero di byte 
 
 Una query Hive viene eseguita in una o più fasi. Se le fasi indipendenti possono essere eseguite in parallelo, le prestazioni della query miglioreranno.
 
-1. Per abilitare l'esecuzione della query parallela, passare alla scheda **Config** (Configurazioni) di Hive e cercare la proprietà `hive.exec.parallel`. Il valore predefinito è False. Impostare il valore su true e quindi premere **INVIO** per salvare il valore.
+1. Per abilitare l'esecuzione della query parallela, passare alla scheda **Config** (Configurazioni) di Hive e cercare la proprietà `hive.exec.parallel`. Il valore predefinito è false. Impostare il valore su true e quindi premere **INVIO** per salvare il valore.
 
 1. Per limitare il numero di processi da eseguire in parallelo, modificare la proprietà `hive.exec.parallel.thread.number`. Il valore predefinito è 8.
 
@@ -135,7 +135,7 @@ Hive elabora i dati una riga alla volta. Con la vettorializzazione Hive elabora 
 
 1. Per abilitare un'esecuzione di query vettorializzata, passare alla scheda **Configs** (Configurazioni) di Hive e cercare il parametro `hive.vectorized.execution.enabled`. Il valore predefinito è true per Hive 0.13.0 o versione successiva.
 
-1. Per abilitare l'esecuzione vettorializzata per il lato reduce della query, impostare il parametro `hive.vectorized.execution.reduce.enabled` su true. Il valore predefinito è False.
+1. Per abilitare l'esecuzione vettorializzata per il lato reduce della query, impostare il parametro `hive.vectorized.execution.reduce.enabled` su true. Il valore predefinito è false.
 
     ![Apache Hive esecuzione vettoriale](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -175,7 +175,7 @@ I processi Hadoop presentano in genere colli di bottiglia a causa dell'I/O. La c
 
 I tipi di compressione disponibili sono:
 
-| Format | Strumento | Algoritmo | Estensione file | Divisibile |
+| Formato | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | gz | No |
 | Bzip2 | Bzip2 | Bzip2 |bz2 | Sì |
@@ -184,7 +184,7 @@ I tipi di compressione disponibili sono:
 
 Come regola generale, è importante che il metodo di compressione sia divisibile. In caso contrario, verranno creati pochissimi mapper. Se i dati di input sono costituiti da testo, `bzip2` è l'opzione migliore. Per il formato ORC, Snappy è l'opzione di compressione più rapida.
 
-1. Per abilitare la compressione intermedia, passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare il parametro `hive.exec.compress.intermediate` su true. Il valore predefinito è False.
+1. Per abilitare la compressione intermedia, passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare il parametro `hive.exec.compress.intermediate` su true. Il valore predefinito è false.
 
     ![Compressione intermedia di esecuzione di Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
@@ -199,9 +199,9 @@ Come regola generale, è importante che il metodo di compressione sia divisibile
 
     b. Selezionare **Aggiungi proprietà** nella parte inferiore del riquadro Custom hive-site.
 
-    C. Nella finestra Add Property (Aggiungi proprietà) immettere `mapred.map.output.compression.codec` come chiave e `org.apache.hadoop.io.compress.SnappyCodec` come valore.
+    c. Nella finestra Add Property (Aggiungi proprietà) immettere `mapred.map.output.compression.codec` come chiave e `org.apache.hadoop.io.compress.SnappyCodec` come valore.
 
-    d. Selezionare **Aggiungi**.
+    d. Fare clic su **Aggiungi**.
 
     ![Apache Hive aggiunta proprietà personalizzata](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -214,7 +214,7 @@ Come regola generale, è importante che il metodo di compressione sia divisibile
 
 Anche l'output di Hive finale può essere compresso.
 
-1. Per comprimere l'output di Hive finale, passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare il parametro `hive.exec.compress.output` su true. Il valore predefinito è False.
+1. Per comprimere l'output di Hive finale, passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare il parametro `hive.exec.compress.output` su true. Il valore predefinito è false.
 
 1. Per scegliere il codec di compressione dell'output, aggiungere la proprietà personalizzata `mapred.output.compression.codec` al riquadro Custom hive-site (hive-site personalizzato), come descritto nel passaggio 3 della sezione precedente.
 
@@ -226,7 +226,7 @@ L'esecuzione speculativa avvia un determinato numero di attività duplicate per 
 
 È consigliabile non attivare l'esecuzione speculativa per le attività MapReduce a esecuzione prolungata con grandi quantità di input.
 
-* Per abilitare l'esecuzione speculativa, passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare il parametro `hive.mapred.reduce.tasks.speculative.execution` su true. Il valore predefinito è False.
+* Per abilitare l'esecuzione speculativa, passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare il parametro `hive.mapred.reduce.tasks.speculative.execution` su true. Il valore predefinito è false.
 
     ![Esecuzione speculativa di attività mapred reduce di Apache Hive](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -266,7 +266,7 @@ Le sezioni seguenti descrivono altre ottimizzazioni relative a Hive che è possi
 
 Il tipo di join predefinito in Hive è un *join casuale*. In Hive speciali mapper leggono l'input e generano una coppia chiave/valore di join per un file intermedio. Hadoop ordina e unisce queste coppie in una fase casuale. Questa fase casuale è costosa. La scelta del join appropriato in base ai dati può migliorare considerevolmente le prestazioni.
 
-| Tipo di join | Se | Come | Settings di Hive | Commenti |
+| Tipo di join | Quando | Modalità | Settings di Hive | Comments |
 | -- | -- | -- | -- | -- |
 | Join casuale | <ul><li>Scelta predefinita</li><li>È sempre valido</li></ul> | <ul><li>Legge da parte di una delle tabelle</li><li>Raggruppa e ordina nella chiave di join</li><li>Invia un bucket a ogni elemento reduce</li><li>Il join viene eseguito sul lato Reduce</li></ul> | Non sono necessarie impostazioni di Hive significative | Funziona sempre |
 | Map Join | <ul><li>La memoria disponibile è sufficiente per una tabella</li></ul> | <ul><li>Legge una tabella di piccole dimensioni nella tabella hash della memoria</li><li>Passa attraverso parte del file di grandi dimensioni</li><li>Crea un join con ogni record della tabella hash</li><li>I join vengono eseguiti tramite il solo mapper</li></ul> | `hive.auto.confvert.join=true` | Molto veloce, ma limitato |
@@ -311,7 +311,7 @@ Per eseguire gli script di Pig, sono disponibili due motori di esecuzione: MapRe
 
 Come in Hive, la modalità locale viene usata per velocizzare i processi con quantità relativamente piccole di dati.
 
-1. Per abilitare la modalità locale, impostare `pig.auto.local.enabled` su **true**. Il valore predefinito è False.
+1. Per abilitare la modalità locale, impostare `pig.auto.local.enabled` su **true**. Il valore predefinito è false.
 
 1. I processi con dati di input di dimensioni inferiori al valore della proprietà `pig.auto.local.input.maxbytes` sono considerati processi di piccole dimensioni. Il valore predefinito è 1 GB.
 
@@ -335,13 +335,13 @@ Le impostazioni della memoria seguenti consentono di ottimizzare le prestazioni 
 
 Pig genera file temporanei durante l'esecuzione dei processi. La compressione dei file temporanei produce un aumento delle prestazioni durante la lettura o la scrittura di file su disco. Per comprimere i file temporanei, si possono usare le impostazioni seguenti.
 
-* `pig.tmpfilecompression`: se true, abilita la compressione dei file temporanei. Il valore predefinito è False.
+* `pig.tmpfilecompression`: se true, abilita la compressione dei file temporanei. Il valore predefinito è false.
 
 * `pig.tmpfilecompression.codec`: codec di compressione da usare per comprimere i file temporanei. I codec di compressione consigliati sono [LZO](https://www.oberhumer.com/opensource/lzo/) e Snappy per un utilizzo della CPU più basso.
 
 ### <a name="enable-split-combining"></a>Abilitare la combinazione per la suddivisione
 
-Se abilitata, i file di piccole dimensioni vengono combinati per ottenere un numero inferiore di attività mappe, migliorando così l'efficienza dei processi con molti file di piccole dimensioni. Per abilitarla, impostare `pig.noSplitCombination` su true. Il valore predefinito è False.
+Se abilitata, i file di piccole dimensioni vengono combinati per ottenere un numero inferiore di attività mappe, migliorando così l'efficienza dei processi con molti file di piccole dimensioni. Per abilitarla, impostare `pig.noSplitCombination` su true. Il valore predefinito è false.
 
 ### <a name="tune-mappers"></a>Ottimizzare i mapper
 

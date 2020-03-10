@@ -17,15 +17,15 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 075b2c92168afe0c366608266c38b14394b73cff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275476"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375762"
 ---
-# <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory
+# <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerazioni relative alla topologia di rete quando si usa il proxy applicazione di Azure Active Directory
 
-Questo articolo presenta alcune considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory (Azure AD) per la pubblicazione delle applicazioni e il relativo accesso da remoto.
+Questo articolo presenta alcune considerazioni relative alla topologia di rete quando si usa il proxy applicazione di Azure Active Directory (Azure AD) per la pubblicazione delle applicazioni e il relativo accesso da remoto.
 
 ## <a name="traffic-flow"></a>Flusso del traffico
 
@@ -53,7 +53,7 @@ Le sezioni successive contengono altri suggerimenti per ridurre ulteriormente la
 
 ### <a name="connector-placement"></a>Posizionamento dei connettori
 
-Il servizio proxy di applicazione sceglie automaticamente la posizione delle istanze in base alla località del tenant. L'utente deve comunque decidere dove installare il connettore e, in questo modo, può definire le caratteristiche di latenza del traffico di rete.
+Il servizio proxy applicazione sceglie automaticamente la posizione delle istanze in base alla località del tenant. L'utente deve comunque decidere dove installare il connettore e, in questo modo, può definire le caratteristiche di latenza del traffico di rete.
 
 Quando si configura il servizio proxy applicazione, è consigliabile porsi le domande seguenti:
 
@@ -174,7 +174,7 @@ In questa situazione è anche possibile prendere in considerazione l'uso di un'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare il proxy dell’applicazione](application-proxy-add-on-premises-application.md)
+- [Abilitare il proxy dell'applicazione](application-proxy-add-on-premises-application.md)
 - [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md)
 - [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)

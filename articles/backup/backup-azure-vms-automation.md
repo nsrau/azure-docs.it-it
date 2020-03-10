@@ -4,11 +4,11 @@ description: Viene descritto come eseguire il backup e il ripristino di macchine
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 733a06a84aa170f1361ea74d126ec9752586fce2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527995"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363854"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -521,7 +521,7 @@ Dopo aver ripristinato i dischi, usare la procedura seguente per creare e config
 
 ### <a name="create-a-vm-using-the-deployment-template"></a>Creare una macchina virtuale usando il modello di distribuzione
 
-I dettagli del processo risultante forniscono l'URI del modello che può essere sottoposto a query e distribuito.
+I dettagli del processo risultante includono l'URI del modello che può essere sottoposto a query e distribuito.
 
 ```powershell
    $properties = $details.properties

@@ -18,11 +18,11 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085515"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377124"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedura: configurare l'accesso SSO in macOS e iOS
 
@@ -141,7 +141,7 @@ do {
 > Questa operazione è particolarmente utile se sono presenti applicazioni che si basano su token per eseguire operazioni in background.
 > La condivisione di un keychain significa che è necessario prestare molta attenzione quando l'app usa le operazioni di rimozione di Microsoft Identity SDK.
 
-La procedura è terminata. Microsoft Identity SDK ora condividerà le credenziali tra tutte le applicazioni. L'elenco di account verrà inoltre condiviso tra le istanze dell'applicazione.
+L'operazione è terminata. Microsoft Identity SDK ora condividerà le credenziali tra tutte le applicazioni. L'elenco di account verrà inoltre condiviso tra le istanze dell'applicazione.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>SSO tramite il broker di autenticazione in iOS
 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
 ms.openlocfilehash: 89e86a6702be7314b99975cac90818252eb07df7
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046228"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372350"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
 
@@ -310,10 +310,10 @@ Per maggiore sicurezza, le chiavi di accesso primaria e secondaria di un account
 
 Dopo la registrazione di un computer come nodo DSC nella configurazione dello stato di automazione di Azure, esistono diversi motivi per cui potrebbe essere necessario ripetere la registrazione del nodo in futuro:
 
-- Per le versioni di Windows Server precedenti a Windows Server 2019, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. Attualmente, il protocollo di registrazione di PowerShell DSC non può rinnovare automaticamente i certificati quando si avvicina la scadenza, quindi è necessario registrare di nuovo i nodi dopo un anno. Prima di ripetere la registrazione, assicurarsi che ogni nodo esegua Windows Management Framework 5,0 RTM. Se il certificato di autenticazione di un nodo scade e il nodo non viene registrato nuovamente, il nodo non è in grado di comunicare con automazione di Azure ed è contrassegnato "non risponde". la ripetizione della registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l'ora di scadenza del certificato, comporterà la generazione e l'utilizzo di un nuovo certificato.  Una soluzione a questo problema è inclusa in Windows Server 2019 e versioni successive.
+- Per le versioni di Windows Server precedenti a Windows Server 2019, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. Attualmente, il protocollo di registrazione di PowerShell DSC non può rinnovare automaticamente i certificati quando si avvicina la scadenza, quindi è necessario registrare di nuovo i nodi dopo un anno. Prima di ripetere la registrazione, assicurarsi che ogni nodo esegua Windows Management Framework 5,0 RTM. Se il certificato di autenticazione di un nodo scade e il nodo non viene registrato nuovamente, il nodo non è in grado di comunicare con automazione di Azure ed è contrassegnato "non risponde". La ripetizione della registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l'ora di scadenza del certificato, comporterà la generazione e l'utilizzo di un nuovo certificato.  Una soluzione a questo problema è inclusa in Windows Server 2019 e versioni successive.
 - Per modificare qualsiasi [valore di Gestione configurazione locale per PowerShell DS](/powershell/scripting/dsc/managing-nodes/metaConfig4) impostato durante la registrazione iniziale del nodo, ad esempio ConfigurationMode. Attualmente, i valori degli agenti DSC possono essere modificati solo tramite la ripetizione della registrazione. L'unica eccezione è il valore di Configurazione del nodo assegnato al nodo che può essere modificato direttamente in Automation DSC per Azure.
 
-la ripetizione della registrazione può essere eseguita nello stesso modo in cui è stato registrato inizialmente il nodo, usando uno dei metodi di onboarding descritti in questo documento. Non è necessario annullare la registrazione di un nodo dalla configurazione dello stato di automazione di Azure prima di registrarlo di nuovo.
+La ripetizione della registrazione può essere eseguita nello stesso modo in cui è stato registrato inizialmente il nodo, usando uno dei metodi di onboarding descritti in questo documento. Non è necessario annullare la registrazione di un nodo dalla configurazione dello stato di automazione di Azure prima di registrarlo di nuovo.
 
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>Risoluzione dei problemi di caricamento di macchine virtuali di Azure
 

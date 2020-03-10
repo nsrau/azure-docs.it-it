@@ -16,11 +16,11 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 5657a2d2c348b371f81aed74c92e52b5199cdc61
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159881"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377410"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -57,7 +57,7 @@ Questa guida usa la libreria seguente:
 
 ## <a name="set-up-your-web-server-or-project"></a>Impostare il server Web o il progetto
 
-> Si preferisce scaricare questo progetto di esempio? Effettuare una delle operazioni seguenti:
+> Si preferisce scaricare questo progetto di esempio? Eseguire una delle operazioni seguenti:
 > 
 > - Per eseguire il progetto con un server Web locale, ad esempio Node.js, [scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
@@ -65,7 +65,7 @@ Questa guida usa la libreria seguente:
 >
 > Per configurare l'esempio di codice prima di eseguirlo, procedere con il [passaggio di configurazione](#register-your-application).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Per eseguire l'esercitazione, è necessario un server Web locale, ad esempio [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -75,7 +75,7 @@ Questa guida usa la libreria seguente:
 
 ## <a name="create-your-project"></a>Creare il progetto
 
-> ### <a name="option-1-nodejs-or-other-web-servers"></a>Opzione 1: Node.js o altri server Web
+> ### <a name="option-1-nodejs-or-other-web-servers"></a>Opzione 1: node. js o altri server Web
 > Assicurarsi che [Node.js](https://nodejs.org/en/download/) sia installato e quindi creare una cartella in cui ospitare l'applicazione.
 >
 > ### <a name="option-2-visual-studio"></a>Opzione 2: Visual Studio
@@ -351,7 +351,7 @@ Aggiungere il codice seguente al file `index.html` tra i tag `<script></script>`
 >
 > #### <a name="set-a-redirect-url-for-visual-studio"></a>Impostare l'URL di reindirizzamento per Visual Studio
 > Per ottenere l'URL di reindirizzamento per Visual Studio, procedere come segue:
-> 1. In Esplora soluzioni selezionare il progetto.
+> 1. Selezionare il progetto in Esplora soluzioni.
 >
 >    Si aprirà la finestra **Proprietà**. In caso contrario, premere F4.
 >
@@ -404,7 +404,7 @@ Se non si usa Visual Studio, assicurarsi che il server Web sia stato avviato.
 
 Se si usa Visual Studio, selezionare la soluzione del progetto e premere F5 per eseguire il progetto. Il browser si aprirà all'indirizzo http://<span></span>localhost:{porta} e dovrebbe essere visibile il pulsante **Accedi**.
 
-## <a name="test-your-application"></a>Testare l'applicazione
+## <a name="test-your-application"></a>Eseguire il test dell'applicazione
 
 Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Verrà chiesto di accedere con l'endpoint Microsoft Identity Platform:
 

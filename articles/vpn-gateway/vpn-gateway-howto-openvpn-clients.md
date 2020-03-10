@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: cherylmc
 ms.openlocfilehash: a45a3412a1ceb8e8a9bd9fd1a34dfdbd10ba1c75
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162430"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393547"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurare i client OpenVPN per il gateway VPN di Azure
 
@@ -105,7 +105,7 @@ Verificare di aver completato i passaggi per configurare OpenVPN per il gateway 
 
 13. Avviare l'app OpenVPN e scorrere l'opzione nella pagina del **profilo** a destra per connettersi
 
-    ![Connessione](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
+    ![Connetti](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
 
 
 ## <a name="linux"></a>Client Linux

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Risolvere i problemi di Azure AD i problemi di connettività | Microsoft Docs'
+title: 'Azure AD Connect: risolvere i problemi di connettività Azure AD | Microsoft Docs'
 description: Descrive come risolvere i problemi di connettività con Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572790"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375976"
 ---
-# <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività di Azure Active Directory
+# <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Risolvere i problemi di connettività nell'Installazione guidata
@@ -43,7 +43,7 @@ Per il server proxy devono essere aperti anche gli URL necessari. L'elenco uffic
 
 Nella tabella seguente sono riportate le impostazioni minime relative agli URL assolutamente indispensabili per potersi connettere ad Azure AD. L'elenco non include le funzionalità facoltative, ad esempio il writeback delle password o Azure AD Connect Health. Le impostazioni documentate di seguito sono finalizzate alla risoluzione dei problemi relativi alla configurazione iniziale.
 
-| URL | Port | Descrizione |
+| URL | Porta | Descrizione |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Usate per scaricare gli elenchi di CRL. |
 | \*.verisign.com |HTTP/80 |Usate per scaricare gli elenchi di CRL. |
@@ -76,7 +76,7 @@ Questo errore viene visualizzato se l'endpoint **https://secure.aadcdn.microsoft
 
 ### <a name="the-password-cannot-be-verified"></a>La password non può essere verificata
 Se l'Installazione guidata riesce a connettersi ad Azure AD, ma non è possibile verificare la password, viene visualizzato questo errore:  
-![Password errata.](./media/tshoot-connect-connectivity/badpassword.png)
+![Password non valida.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere a https://login.microsoftonline.com da un computer diverso dal server di Azure AD Connect e verificare che l'account sia utilizzabile.
 
@@ -93,10 +93,10 @@ Se viene visualizzato il messaggio **Impossibile effettuare la connessione al se
 Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Tipi di errore | Testo dell'errore | Commento |
+| Errore | Testo degli errori | Commento |
 | --- | --- | --- |
-| 403 |Accesso negato |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
-| 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che tale impostazione sia configurata in machine.config. Verificare anche di usare account di dominio sia per l'utente che esegue la procedura guidata sia per l'account del servizio. |
+| 403 |Non consentito |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
+| 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che questa impostazione sia configurata in Machine. config. Assicurarsi inoltre di utilizzare gli account di dominio per l'utente che esegue la procedura guidata e per l'account del servizio. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Impostazione del timeout di inattività del proxy
 Quando Azure AD Connect invia una richiesta di esportazione ad Azure AD, potrebbero volerci fino a 5 minuti affinché Azure AD elabori la richiesta prima di generare una risposta. Questo può verificarsi soprattutto se sono presenti un numero di oggetti del gruppo con appartenenza a un gruppo di grandi dimensioni incluso nella stessa richiesta di esportazione. Verificare che il timeout di inattività del proxy sia configurato per essere superiore ai 5 minuti. In caso contrario, è possibile che si verifichino problemi di connettività intermittente con Azure Active Directory nel server di Azure AD Connect.
@@ -113,7 +113,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 
 **Connessione ad Azure AD**
 
-| Time | URL |
+| Tempo | URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -122,9 +122,9 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
-**Configura**
+**Configurare**
 
-| Time | URL |
+| Tempo | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 
 **Sincronizzazione iniziale**
 
-| Time | URL |
+| Tempo | URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
@@ -166,7 +166,7 @@ Le credenziali sono scadute. Modificare la password.
 Non è stato possibile autorizzare l'utente a eseguire azioni in Azure AD.
 
 ### <a name="authentication-canceled"></a>Autenticazione annullata
-La sfida di multi-factor authentication (MFA) è stata annullata.
+La richiesta di autenticazione a più fattori (AMF) è stata annullata.
 
 <div id="connect-msolservice-failed">
 <!--
@@ -224,7 +224,7 @@ Visualizzata come un errore imprevisto nell'Installazione guidata, può verifica
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Procedure di risoluzione dei problemi per le versioni precedenti.
 L'Assistente per l'accesso è stato ritirato a partire dalle versioni con numero di build 1.1.105.0, rilasciata nel mese di febbraio 2016. Questa sezione e la configurazione non dovrebbero essere più necessarie, ma vengono conservate come riferimento.
 
-Per consentire il funzionamento dell'Assistente per l'accesso, è necessario configurare winhttp Questa configurazione può essere eseguita con [ **netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+Per consentire il funzionamento dell'Assistente per l'accesso, è necessario configurare winhttp Questa configurazione può essere eseguita con [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
 ![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>L'Assistente per l'accesso non è stato configurato correttamente

@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dell'uso di Gestione aggiornam
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 01/21/2020
+ms.date: 03/04/2020
 ms.custom: mvc
-ms.openlocfilehash: 3922f8a2478f00c632b6daf294f23c7b5ad8c261
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: HT
+ms.openlocfilehash: 347f2fbc0f12aa775c42dbb14a4625dc509a20ed
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310136"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372976"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -22,59 +22,31 @@ Per informazioni sui prezzi, vedere [Prezzi di Automazione per la gestione degli
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Caricare una VM per Gestione aggiornamenti
 > * Visualizzare una valutazione degli aggiornamenti
 > * Configurare gli avvisi
 > * Pianificare la distribuzione degli aggiornamenti
 > * Visualizzare i risultati di una distribuzione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 
-* Una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare il credito Azure mensile per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [account di Automazione di Azure](automation-offering-get-started.md) per contenere i runbook watcher e azione e l'attività watcher.
+* La soluzione [Gestione aggiornamenti](automation-update-management.md) abilitata per una o più macchine virtuali.
 * Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md) da caricare.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="enable-update-management"></a>Abilitare la gestione degli aggiornamenti
-
-Prima di tutto, abilitare Gestione aggiornamenti nella macchina virtuale per questa esercitazione:
-
-1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Macchine virtuali** oppure cercare e selezionare **Macchine virtuali** nella pagina **Home**.
-1. Selezionare la macchina virtuale per la quale si vuole abilitare Gestione aggiornamenti.
-1. Nella pagina della macchina virtuale, in **OPERAZIONI**, selezionare **Gestione aggiornamenti**. Verrà aperto il riquadro **Abilita Gestione aggiornamenti**.
-
-Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitato per la macchina virtuale. La convalida include controlli per un'area di lavoro Log Analytics di Azure e un account di Automazione collegato e verifica se la soluzione Gestione aggiornamenti è presente nell'area di lavoro.
-
-L'area di lavoro di [Log Analytics](../azure-monitor/platform/data-platform-logs.md) consente di raccogliere i dati generati da funzionalità e servizi come Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
-
-Il processo di convalida controlla anche se nella macchina virtuale sono presenti l'agente Log Analytics e un ruolo di lavoro ibrido per runbook di Automazione. L'agente consente di comunicare con Automazione di Azure e ottenere informazioni sullo stato dell'aggiornamento. L'agente richiede che la porta 443 sia aperta per comunicare con il servizio Automazione di Azure e scaricare gli aggiornamenti.
-
-Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggiunti automaticamente:
-
-* Area di lavoro di [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
-* [Account di Automazione](./automation-offering-get-started.md)
-* [Ruolo di lavoro ibrido per runbook](./automation-hybrid-runbook-worker.md) (abilitato nella macchina virtuale)
-
-In **Gestione aggiornamenti** configurare la posizione, l'area di lavoro Log Analytics e l'account di Automazione da usare. Selezionare quindi **Abilita**. Se queste opzioni non sono disponibili, un'altra soluzione di automazione è abilitata per la macchina virtuale. In tal caso, è necessario usare lo stesso account di Automazione e la stessa area di lavoro.
-
-![Finestra di abilitazione della soluzione Gestione aggiornamenti](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
-
-L'abilitazione della soluzione può richiedere alcuni minuti. Durante questo intervallo di tempo, non chiudere la finestra del browser. Dopo l'abilitazione della soluzione, le informazioni sugli aggiornamenti mancanti nella macchina virtuale passano ai log di Monitoraggio di Azure. Affinché i dati diventino disponibili per l'analisi, sarà necessario attendere da 30 minuti a 6 ore.
-
 ## <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
 
 Dopo aver abilitato Gestione aggiornamenti, verrà visualizzata la schermata **Gestione aggiornamenti**. Se alcuni aggiornamenti vengono identificati come mancanti, il relativo elenco viene visualizzato nella scheda **Aggiornamenti mancanti**.
 
-In **COLLEGAMENTO ALLE INFORMAZIONI** selezionare il collegamento per aprire l'articolo di supporto per l'aggiornamento. È possibile acquisire informazioni importanti sull'aggiornamento.
+In **collegamento informazioni**selezionare il collegamento Aggiorna per aprire l'articolo del supporto per l'aggiornamento. È possibile acquisire informazioni importanti sull'aggiornamento.
 
 ![Visualizzare lo stato degli aggiornamenti](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Facendo clic in altro punto dell'area dell'aggiornamento, viene aperto il riquadro **Ricerca log** per l'aggiornamento selezionato. La query per la ricerca log è predefinita per tale specifico aggiornamento. È possibile modificare questa query o crearne una nuova per visualizzare informazioni dettagliate sugli aggiornamenti distribuiti o mancanti nell'ambiente.
+Fare clic in un punto qualsiasi dell'aggiornamento per aprire il riquadro **Ricerca log** per l'aggiornamento selezionato. La query per la ricerca log è predefinita per tale specifico aggiornamento. È possibile modificare questa query o crearne una nuova per visualizzare informazioni dettagliate sugli aggiornamenti distribuiti o mancanti nell'ambiente.
 
 ![Visualizzare lo stato degli aggiornamenti](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -90,7 +62,7 @@ L'account di Automazione è già selezionato come risorsa. Se si desidera modifi
 
 Fare clic su **Aggiungi condizione** e selezionare il segnale appropriato per la distribuzione degli aggiornamenti. Nella tabella di seguito vengono illustrati i dettagli dei due segnali disponibili per le distribuzioni degli aggiornamenti:
 
-|Nome segnale|Dimensioni|Descrizione|
+|Nome segnale|Dimensions|Descrizione|
 |---|---|---|
 |**Esecuzioni totali della distribuzione di aggiornamenti**|- Nome della distribuzione di aggiornamenti</br>- Stato|Questo segnale viene usato per inviare avvisi sullo stato generale della distribuzione di un aggiornamento.|
 |**Esecuzioni totali della distribuzione di aggiornamenti del computer**|- Nome della distribuzione di aggiornamenti</br>- Stato</br>- Computer di destinazione</br>- ID di esecuzione della distribuzione di aggiornamenti|Questo segnale viene usato per inviare avvisi sullo stato di una distribuzione di aggiornamenti destinata a computer specifici|
@@ -101,9 +73,9 @@ Per i valori di dimensione, selezionare un valore valido dall'elenco. Se il valo
 
 In **Logica avvisi**, per **Soglia**, immettere **1**. Al termine, fare clic su **Fine**.
 
-### <a name="alert-details"></a>Dettagli dell'avviso
+### <a name="alert-details"></a>Dettagli avvisi
 
-In **2. Definire i dettagli dell'avviso** assegnare un nome e una descrizione per l'avviso. Impostare **Gravità** su **Informational(Sev 2)** per un'esecuzione riuscita o su **Informational(Sev 1)** per un'esecuzione non riuscita.
+Inferiore a **2. Definire i dettagli dell'avviso**, immettere un nome e una descrizione per l'avviso. Impostare **Gravità** su **Informational(Sev 2)** per un'esecuzione riuscita o su **Informational(Sev 1)** per un'esecuzione non riuscita.
 
 ![Configurare la logica dei segnali](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -111,15 +83,15 @@ Da **Gruppi di azioni**, selezionare **Crea nuovo**. Un gruppo di azioni è un i
 
 Nella casella **Nome gruppo di azioni** immettere un nome per l'avviso e un nome breve. Il nome breve viene usato al posto del nome completo di un gruppo di azioni quando le notifiche vengono inviate usando questo gruppo.
 
-In **Azioni** immettere un nome per l'azione, ad esempio **Notifiche tramite posta elettronica**. In **TIPO DI AZIONE** selezionare **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce). In **DETTAGLI** selezionare **Modifica dettagli**.
+In **azioni**immettere un nome per l'azione, ad esempio **notifiche di posta elettronica**. In **tipo di azione**selezionare **posta elettronica/SMS/push/voce**. In **Dettagli**selezionare **Modifica dettagli**.
 
 Nel riquadro **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce) immettere un nome. Selezionare la casella di controllo **Posta elettronica** e quindi immettere un indirizzo di posta elettronica valido.
 
 ![Configurare un gruppo di azioni di posta elettronica](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-Nel riquadro **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce) selezionare **OK**. Nel riquadro **Aggiungi gruppo di azioni** selezionare **OK**.
+Nel riquadro **email/SMS/push/Voice** selezionare **OK**. Nel riquadro **Aggiungi gruppo di azioni** fare clic su **OK**.
 
-Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, in **Crea regola**, in **Personalizza azioni**, selezionare **Oggetto messaggio di posta elettronica**. Al termine, selezionare **Crea regola di avviso**. L'avviso segnala quando una distribuzione di un aggiornamento ha esito positivo e indica i computer inclusi nella distribuzione.
+Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, in **Crea regola**, in **Personalizza azioni**selezionare **oggetto posta elettronica**. Al termine, selezionare **Crea regola di avviso**. L'avviso segnala quando una distribuzione di un aggiornamento ha esito positivo e indica i computer inclusi nella distribuzione.
 
 ## <a name="schedule-an-update-deployment"></a>Pianificare la distribuzione degli aggiornamenti
 
@@ -133,21 +105,21 @@ Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtual
 
 In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
 
-* **Name**: immettere un nome univoco per la distribuzione degli aggiornamenti.
+* **Nome**: immettere un nome univoco per la distribuzione di aggiornamenti.
 
 * **Sistema operativo**: selezionare il sistema operativo di destinazione per la distribuzione degli aggiornamenti.
 
-* **Gruppi da aggiornare (anteprima)** : Definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management-groups.md)
+* **Gruppi da aggiornare (anteprima)** : definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management-groups.md)
 
-* **Computer da aggiornare**: Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md)
+* **Computer da aggiornare**: selezionare una ricerca salvata o un gruppo importato, oppure scegliere un computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie **computer**, la conformità del computer viene visualizzata nella colonna **Aggiorna conformità agente** . Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md)
 
-* **Classificazione aggiornamenti**: Selezionare le classificazioni di aggiornamento supportate disponibili per ogni prodotto da includere nella distribuzione degli aggiornamenti. Per questa esercitazione, lasciare tutti i tipi selezionati.
+* **Classificazione aggiornamenti**: selezionare le classificazioni di aggiornamento supportate disponibili per ogni prodotto che può essere incluso nella distribuzione degli aggiornamenti. Per questa esercitazione, lasciare tutti i tipi selezionati.
 
   I tipi di classificazione sono:
 
    |OS  |Type  |
    |---------|---------|
-   |Windows     | Aggiornamenti critici</br>Aggiornamenti per la sicurezza</br>Aggiornamenti cumulativi</br>Feature Pack</br>Service Pack</br>Aggiornamenti della definizione</br>Strumenti</br>Aggiornamenti        |
+   |WINDOWS     | Aggiornamenti critici</br>Aggiornamenti della protezione</br>Aggiornamenti cumulativi</br>Feature Pack</br>Service Pack</br>Aggiornamenti della definizione</br>Strumenti</br>Aggiornamenti        |
    |Linux     | Aggiornamenti critici e della sicurezza</br>Altri aggiornamenti       |
 
    Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-view-update-assessments.md#update-classifications).
@@ -161,13 +133,13 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 > Non è possibile includere aggiornamenti che sono stati sostituiti nella distribuzione degli aggiornamenti.
 >
 
-* **Impostazioni di pianificazione**: apre il riquadro **Impostazioni di pianificazione**. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
+* **Impostazioni di pianificazione**: consente di aprire la pagina **Impostazioni di pianificazione**. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
 
-   È anche possibile specificare se eseguire la distribuzione una sola volta o impostare una pianificazione ricorrente. In **Ricorrenza** selezionare **Una sola volta**. Mantenere l'impostazione predefinita di 1 giorno e selezionare **OK**. Viene configurata una pianificazione ricorrente.
+   È anche possibile specificare se eseguire la distribuzione una sola volta o impostare una pianificazione ricorrente. In **Ricorrenza** selezionare **Una sola volta**. Lasciare il valore predefinito di 1 giorno e selezionare **OK**. Viene configurata una pianificazione ricorrente.
 
 * **Pre-script e post-script**: selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire i pre-script e i post-script](pre-post-scripts.md).
 
-* **Finestra di manutenzione (minuti)** : Lasciare il valore predefinito. Le finestre di manutenzione controllano la quantità di tempo consentito per l'installazione di aggiornamenti. Quando si specifica una finestra di manutenzione, tenere presenti i dettagli seguenti.
+* **Finestra di manutenzione (minuti)** : lasciare il valore predefinito. Le finestre di manutenzione controllano la quantità di tempo consentito per l'installazione di aggiornamenti. Quando si specifica una finestra di manutenzione, tenere presenti i dettagli seguenti.
 
   * Le finestre di manutenzione controllano la quantità di aggiornamenti che si tenta di installare.
   * Gestione aggiornamenti non interrompe l'installazione di nuovi aggiornamenti se si avvicina la fine di una finestra di manutenzione.
@@ -177,7 +149,7 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
   > [!NOTE]
   > Per evitare che gli aggiornamenti vengano applicati al di fuori di una finestra di manutenzione in Ubuntu, riconfigurare il pacchetto Unattended-Upgrade per disabilitare gli aggiornamenti automatici. Per informazioni sulla configurazione del pacchetto, vedere l'[argomento Aggiornamenti automatici nella Guida a Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-* **Opzioni di riavvio**: questa impostazione determina le modalità di gestione dei riavvii. Le opzioni disponibili sono:
+* **Opzioni di riavvio**: questa impostazione determina come vengono gestiti i riavvii. Le opzioni disponibili sono:
   * Riavvia se necessario (opzione predefinita)
   * Riavvia sempre
   * Non riavviare mai
@@ -209,9 +181,9 @@ In **Risultati aggiornamento** è disponibile un riepilogo che fornisce il numer
 
 L'elenco seguente mostra i valori disponibili:
 
-* **Tentativo non eseguito**: l'aggiornamento non è stato installato poiché, in base alla durata definita per la finestra di manutenzione, il tempo disponibile non era sufficiente.
-* **Riuscito**: aggiornamento completato.
-* **Non riuscito**: aggiornamento non riuscito.
+* **Tentativo non eseguito**: l'aggiornamento non è stato installato a causa di tempo disponibile non sufficiente basato sulla durata della finestra di manutenzione specificata.
+* **Completato**: l'aggiornamento è stato completato.
+* **Non riuscito**: l'aggiornamento non è riuscito.
 
 Selezionare **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
 

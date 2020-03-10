@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126750"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394203"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installare l'aggiornamento 5 nel dispositivo StorSimple
 
@@ -61,7 +61,7 @@ Le versioni software che possono essere aggiornate usando il metodo hotfix sono:
 * Aggiornamento 1, 1.1, 1.2
 * Aggiornamento 2, 2.1, 2.2
 * Aggiornamento 3, 3.1
-* Aggiornamento 4
+* Update 4
 
 > [!NOTE] 
 > Il metodo consigliato per installare l'aggiornamento 5 è tramite il portale di Azure quando si prova a eseguire l'aggiornamento dall'aggiornamento 3 e versioni successive. Quando si aggiorna un dispositivo che esegue versioni precedenti all'aggiornamento 3, usare questa procedura. È possibile usare questa procedura anche se la verifica del gateway non riesce quando si prova a installare gli aggiornamenti tramite il portale di Azure. La verifica non riesce quando un gateway è assegnato a un'interfaccia di rete non DATA 0 e sul dispositivo è in esecuzione una versione del software precedente all'aggiornamento 1.
@@ -76,19 +76,19 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 È necessario scaricare e installare gli hotfix seguenti nell'ordine indicato e nelle cartelle seguenti:
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
+| Order | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Aggiornamento software<br> Scaricare sia _HcsSoftwareUpdate.exe_ che _CisMSDAgent.exe_ |Normale <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
 
 Se si esegue l'aggiornamento da un dispositivo che esegue l'aggiornamento 4, è sufficiente installare gli aggiornamenti cumulativi del sistema operativo come aggiornamenti di secondo livello.
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
+| Order | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |Pacchetto di aggiornamenti cumulativi del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
 
 Se si esegue l'installazione da un dispositivo che esegue l'aggiornamento 3 o versione precedente, installare i componenti seguenti oltre agli aggiornamenti cumulativi.
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
+| Order | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Normale <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacchetto di aggiornamenti della sicurezza del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
@@ -97,7 +97,7 @@ Se si esegue l'installazione da un dispositivo che esegue l'aggiornamento 3 o ve
 
 Potrebbe essere necessario anche installare gli aggiornamenti del firmware del disco sopra tutti gli aggiornamenti indicati nelle tabelle precedenti. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion` . Se si stanno eseguendo le versioni del firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107` non è quindi necessario installare questi aggiornamenti.
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
+| Order | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Firmware del disco |Manutenzione <br></br>Con interruzioni |~ 30 min. | ThirdOrderUpdate |
 

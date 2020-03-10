@@ -9,11 +9,11 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
 ms.openlocfilehash: 78ec5b6d330f03d78dcb4e798b23d588fd93398e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76835964"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387204"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -36,11 +36,11 @@ Per provare a eseguire questa operazione, vedere gli articoli introduttivi segue
 Se il proprio account dispone di uno spazio dei nomi gerarchico, in questa esercitazione verrà illustrato come connettere una sottoscrizione di griglia di eventi, una funzione di Azure e un [processo](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks: [esercitazione: usare eventi Azure Data Lake storage Gen2 per aggiornare una tabella Delta di databricks](data-lake-storage-events.md).
 
 >[!NOTE]
-> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. **Archiviazione (genral scopo V1)** non *supporta l'* integrazione con griglia di eventi.
+> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con Griglia di eventi.
 
 ## <a name="the-event-model"></a>Modello di eventi
 
-Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per indirizzare i messaggi di evento ai sottoscrittori. Questa immagine illustra la relazione tra autori di eventi, sottoscrizioni di eventi e gestori eventi.
+Griglia di eventi usa le [sottoscrizioni](../../event-grid/concepts.md#event-subscriptions) di eventi per indirizzare i messaggi di evento ai sottoscrittori. Questa immagine illustra la relazione tra autori di eventi, sottoscrizioni di eventi e gestori eventi.
 
 ![Modello di Griglia di eventi di Azure](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
@@ -53,7 +53,7 @@ Vedere l'articolo [dello schema degli eventi di archiviazione BLOB](../../event-
 > * Un esempio dei dati che la griglia di eventi invierà per ognuno di questi eventi.
 > * Scopo di ogni coppia chiave-valore visualizzata nei dati.
 
-## <a name="filtering-events"></a>Filtro degli eventi
+## <a name="filtering-events"></a>Filtro di eventi
 
 [Gli eventi BLOB possono essere filtrati](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) in base al tipo di evento, al nome del contenitore o al nome dell'oggetto che è stato creato/eliminato. I filtri in griglia di eventi corrispondono all'inizio o alla fine dell'oggetto in modo che gli eventi con un oggetto corrispondente vadano al Sottoscrittore.
 

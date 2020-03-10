@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/02/2017
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f365a8325fc027d8770287208f91d164166fcbc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 611937a709152823ddc1b88b1a0befe4161217cd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024331"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375987"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
 Il documento seguente è un riferimento tecnico per fornire informazioni sulle porte e i protocolli necessari per l'implementazione di una soluzione ibrida di gestione delle identità. Usare la figura riportata di seguito e vedere la tabella corrispondente.
@@ -31,7 +31,7 @@ Il documento seguente è un riferimento tecnico per fornire informazioni sulle p
 ## <a name="table-1---azure-ad-connect-and-on-premises-ad"></a>Tabella 1 - Azure AD Connect e AD locale
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e l'AD locale.
 
-| Protocollo | Porte | Description |
+| Protocollo | Porte | Descrizione |
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |Ricerche DNS della foresta di destinazione. |
 | Kerberos |88 (TCP/UDP) |Autenticazione Kerberos per la foresta Active Directory. |
@@ -46,17 +46,17 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tabella 2 - Azure AD Connect e AD locale
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e Azure AD.
 
-| Protocollo | Porte | Description |
+| Protocollo | Porte | Descrizione |
 | --- | --- | --- |
 | HTTP |80 (TCP) |Usato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL. |
 | HTTPS |443 (TCP) |Usato per la sincronizzazione con Azure AD. |
 
-Per un elenco degli URL e degli indirizzi IP da aprire nel firewall, vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+Per un elenco degli URL e degli indirizzi IP che è necessario aprire nel firewall, vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) e [risoluzione dei problemi Azure ad Connect connettività](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Tabella 3 - Azure AD Connect e server federativi/WAP di AD FS
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e i server federativi/WAP di AD FS.  
 
-| Protocollo | Porte | Description |
+| Protocollo | Porte | Descrizione |
 | --- | --- | --- |
 | HTTP |80 (TCP) |Usato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL. |
 | HTTPS |443 (TCP) |Usato per la sincronizzazione con Azure AD. |
@@ -65,14 +65,14 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 ## <a name="table-4---wap-and-federation-servers"></a>Tabella 4 - server federativi e WAP
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra i server federativi e i server WAP.
 
-| Protocollo | Porte | Description |
+| Protocollo | Porte | Descrizione |
 | --- | --- | --- |
 | HTTPS |443 (TCP) |Usato per l'autenticazione. |
 
 ## <a name="table-5---wap-and-users"></a>Tabella 5 - WAP e utenti
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra gli utenti e i server WAP.
 
-| Protocollo | Porte | Description |
+| Protocollo | Porte | Descrizione |
 | --- | --- | --- |
 | HTTPS |443 (TCP) |Usato per l'autenticazione del dispositivo. |
 | TCP |49443 (TCP) |Usato per l'autenticazione del certificato. |
@@ -81,7 +81,7 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 La tabella seguente descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e Azure AD.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabella 6a - Autenticazione pass-through con SSO
-|Protocollo|Numero della porta|Description
+|Protocollo|Numero porta|Descrizione
 | --- | --- | ---
 |HTTP|80|Abilitare il traffico HTTP in uscita per la convalida di sicurezza quale SSL. Serve anche per il funzionamento corretto dell'aggiornamento automatico del connettore.
 |HTTPS|443| Consentire il traffico HTTPS in uscita per operazioni quali l'abilitazione e disabilitazione della funzionalità, la registrazione di connettori, il download degli aggiornamenti del connettore e la gestione di tutte le richieste di accesso degli utenti.
@@ -90,7 +90,7 @@ La tabella seguente descrive le porte e i protocolli necessari per la comunicazi
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabella 6b - Sincronizzazione degli hash delle password con SSO
 
-|Protocollo|Numero della porta|Description
+|Protocollo|Numero porta|Descrizione
 | --- | --- | ---
 |HTTPS|443| Abilitare la registrazione SSO (necessaria solo per il processo di registrazione SSO).
 
@@ -102,10 +102,10 @@ Le tabelle seguenti descrivono gli endpoint, le porte e i protocolli necessari p
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabella 7a - Porte e protocolli per l'agente di Azure AD Connect Health (AD FS/sincronizzazione) e Azure AD
 Questa tabella descrive le porte in uscita seguenti e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD.  
 
-| Protocollo | Porte | Description |
+| Protocollo | Porte | Descrizione |
 | --- | --- | --- |
-| HTTPS |443 (TCP) |In uscita |
-| Service Bus di Azure |5671 (TCP) |In uscita |
+| HTTPS |443 (TCP) |Inserimento in |
+| Bus di servizio di Azure |5671 (TCP) |Inserimento in |
 
 La porta 5671 del bus di servizio di Azure non è più necessaria per la versione più recente dell'agente. La versione più recente dell'agente Azure AD Connect Health richiesta solo la porta 443.
 

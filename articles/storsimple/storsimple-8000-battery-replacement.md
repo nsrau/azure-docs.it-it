@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276892"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365839"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 
-## <a name="overview"></a>Overview
-Il modulo di alimentazione e raffreddamento (PCM, Power and Cooling Module) dello chassis principale nel dispositivo Microsoft Azure StorSimple dispone di un pacchetto di batteria aggiuntivo. Tale pacchetto fornisce l'alimentazione in modo che il dispositivo StorSimple possa salvare i dati in caso di perdita dell'alimentazione CA allo chassis principale. Questo pacchetto di batteria viene definito come *modulo della batteria di backup*. Il modulo della batteria di backup è disponibile solo per lo chassis principale nel dispositivo StorSimple (lo chassis EBOD non contiene un modulo della batteria di backup).
+## <a name="overview"></a>Panoramica
+Il modulo di alimentazione e raffreddamento (PCM, Power and Cooling Module) dello chassis principale nel dispositivo Microsoft Azure StorSimple dispone di un pacchetto di batteria aggiuntivo. Tale pacchetto fornisce l'alimentazione in modo che il dispositivo StorSimple possa salvare i dati in caso di perdita dell'alimentazione CA allo chassis principale. Questo gruppo viene denominato *modulo batteria di backup*. Il modulo della batteria di backup è disponibile solo per lo chassis principale nel dispositivo StorSimple (lo chassis EBOD non contiene un modulo della batteria di backup).
 
 In questa esercitazione viene illustrato come:
 
@@ -35,11 +35,11 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
 1. Nel portale di Azure passare al pannello del servizio Gestione dispositivi StorSimple. Passare a **Dispositivi** e selezionare il dispositivo dall'elenco dei dispositivi. Passare a **Monitoraggio** > **Integrità hardware**. Sotto **Componenti condivisi**, controllare lo stato della batteria.
 2. Identificare il PCM in cui la batteria è guasta. Nella Figura 1 viene mostrata la parte posteriore del dispositivo StorSimple.
    
-    ![Backplane dei moduli dello chassis principale del dispositivo](./media/storsimple-battery-replacement/IC740994.png)
+    ![Backplane dei moduli dell'enclosure principale del dispositivo](./media/storsimple-battery-replacement/IC740994.png)
    
     **Figura 1** Parte posteriore del dispositivo principale in cui vengono mostrati il PCM e i moduli del controller
    
-   | Etichette | Description |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -48,11 +48,11 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
    
     Come mostrato nella Figura 2 numero 3, l'indicatore LED di monitoraggio sul PCM 0 che corrisponde a **Guasto alla batteria** deve essere attivato.
    
-    ![Backplane degli indicatori LED di monitoraggio del PCM del dispositivo](./media/storsimple-battery-replacement/IC740992.png)
+    ![Backplane dei LED degli indicatori di monitoraggio della scheda PCM del dispositivo](./media/storsimple-battery-replacement/IC740992.png)
    
     **Figura 2** Parte posteriore del PCM in cui vengono mostrati gli indicatori LED di monitoraggio
    
-   | Etichette | Description |
+   | Etichetta | Descrizione |
    |:--- |:--- |
    | 1 |Guasto dell’alimentazione CA |
    | 2 |Guasto alla ventola |
@@ -63,7 +63,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
 3. Per rimuovere il PCM con una batteria guasta, seguire i passaggi descritti in [Rimozione di un PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. Dopo aver rimosso il PCM, sollevare e ruotare il punto di manipolazione del modulo della batteria verso l'alto, come indicato nella figura riportata di seguito ed estrarlo fino a rimuovere la batteria.
    
-    ![Rimozione della batteria dal PCM](./media/storsimple-battery-replacement/IC741019.png)
+    ![Rimozione della batteria dalla scheda PCM](./media/storsimple-battery-replacement/IC741019.png)
    
     **Figura 3** Rimozione della batteria dal PCM
 5. Inserire il modulo nel pacchetto dell'unità sostituibile sul campo.
@@ -81,7 +81,7 @@ Eseguire i passaggi seguenti per installare il modulo della batteria sostitutiva
 ## <a name="maintain-the-backup-battery-module"></a>Mantenimento del modulo della batteria di backup
 Nel dispositivo StorSimple, il modulo della batteria di backup fornisce alimentazione al controller durante un evento di perdita dell'alimentazione. Consente al dispositivo StorSimple di salvare i dati critici prima dell'arresto in modo controllato. Con due batterie completamente cariche nei PCM, il sistema può gestire due eventi di perdita consecutivi.
 
-Nel portale di Azure classico la voce **Integrità hardware** nel pannello **Monitoraggio** indica se la batteria non funziona correttamente o se si sta avvicinando la fine del ciclo di vita. Lo stato della batteria è indicato da **Batteria in PCM 0** o **Batteria in PCM 1** sotto **Componenti condivisi**. In questo pannello viene visualizzato lo stato **DANNEGGIATO** per indicare l'avvicinarsi della fine del ciclo di vita e **NON RIUSCITO** per indicare che è stata raggiunta la fine del ciclo di vita.
+Nel portale di Azure classico la voce **Integrità hardware** nel pannello **Monitoraggio** indica se la batteria non funziona correttamente o se si sta avvicinando la fine del ciclo di vita. Lo stato della batteria è indicato in **Batteria PCM 0** o **Batteria PCM 1** nella pagina **Componenti condivisi**. In questo pannello viene visualizzato lo stato **DANNEGGIATO** per indicare l'avvicinarsi della fine del ciclo di vita e **NON RIUSCITO** per indicare che è stata raggiunta la fine del ciclo di vita.
 
 > [!NOTE]
 > La batteria può segnalare **NON RIUSCITO** quando è semplicemente necessario ricaricarla.

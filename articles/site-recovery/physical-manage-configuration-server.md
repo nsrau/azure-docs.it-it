@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084606"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367098"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -20,7 +20,7 @@ Si configura un server di configurazione locale quando si usa il servizio [Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 La tabella riepiloga i prerequisiti per la distribuzione del computer server di configurazione locale.
 
@@ -31,7 +31,7 @@ La tabella riepiloga i prerequisiti per la distribuzione del computer server di 
 | Numero di dischi | 3, inclusi disco del sistema operativo, disco della cache del server di elaborazione e unità di conservazione per il failback |
 | Spazio libero su disco (cache del server di elaborazione) | 600 GB
 | Spazio libero su disco (disco di conservazione) | 600 GB|
-| Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
+| Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Impostazioni locali del sistema operativo | Inglese (Stati Uniti)|
 | Versione di VMware vSphere PowerCLI | Facoltativo|
 | Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
@@ -46,8 +46,8 @@ La tabella riepiloga i prerequisiti per la distribuzione del computer server di 
 
 L'ultima versione del file di installazione del server di configurazione è disponibile nel portale di Site Recovery. Può essere inoltre scaricato direttamente dall'[Area download Microsoft](https://aka.ms/unifiedsetup).
 
-1. Accedere al portale di Azure e passare all'insieme di credenziali dei servizi di ripristino.
-2. Passare a **Infrastruttura di Site Recovery** > **Server di configurazione**, in For VMware & Physical Machines (Computer VMware e fisici).
+1. Accedere al portale di Azure e passare all'insieme di credenziali di Servizi di ripristino.
+2. Passare a **Infrastruttura di Site Recovery** > **Server di configurazione** (in For VMware & Physical Machines (Computer VMware e fisici)).
 3. Fare clic sul pulsante **+Servers** (+Server).
 4. Nella pagina **Add Server** (Aggiungi server) fare clic sul pulsante Download (Scarica) per scaricare la chiave di registrazione. Questa chiave viene usata durante l'installazione del server di configurazione ai fini della registrazione con il servizio Azure Site Recovery.
 5. Fare clic sul collegamento **Download the Microsoft Azure Site Recovery Unified Setup** (Scarica l'installazione unificata di Microsoft Azure Site Recovery) per scaricare la versione più recente del server di configurazione.
@@ -71,14 +71,14 @@ L'ultima versione del file di installazione del server di configurazione è disp
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. In **Controllo dei prerequisiti** il programma di installazione esegue un controllo per assicurarsi che sia possibile eseguire l'installazione. Se viene visualizzato un avviso relativo al **Global time sync check** (Controllo della sincronizzazione ora globale), verificare che l'ora del clock di sistema, nelle impostazioni di **Data e ora**, corrisponda al fuso orario.
 
-    ![prerequisiti](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Prerequisiti](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. In **MySQL Configuration** (Configurazione MySQL) creare le credenziali per l'accesso all'istanza del server MySQL che viene installata.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
 8. In **Dettagli ambiente** specificare se si vuole eseguire la replica di VM VMware. In caso affermativo, il programma di installazione verifica quindi se è installato PowerCLI 6.0.
 9. In **Percorso di installazione** specificare il percorso di installazione dei file binari e di archiviazione della cache. L'unità selezionata deve avere almeno 5 GB di spazio su disco disponibile, ma è consigliabile usare un'unità cache con almeno 600 GB di spazio disponibile.
 
-    ![Posizione di installazione](./media/physical-manage-configuration-server/combined-wiz8.png)
+    ![Percorso di installazione](./media/physical-manage-configuration-server/combined-wiz8.png)
 10. In **Selezione della rete** selezionare prima l'interfaccia di rete usata dal server di elaborazione predefinito per il rilevamento e l'installazione push del servizio Mobility nei computer di origine e quindi selezionare la scheda di interfaccia di rete usata dal server di configurazione per la connettività con Azure. La porta 9443 è la porta predefinita per l'invio e la ricezione del traffico di replica, ma è possibile modificare il numero di porta in base ai requisiti dell'ambiente. Oltre alla porta 9443, viene aperta anche la porta 443, che viene usata da un server Web per orchestrare le operazioni di replica. Non usare la porta 443 per inviare o ricevere traffico di replica.
 
     ![Selezione rete](./media/physical-manage-configuration-server/combined-wiz9.png)
@@ -106,24 +106,24 @@ Eseguire il file di installazione come segue:
   ```
 
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>Parametri
 
-|Nome parametro| digitare | DESCRIZIONE| Valori|
+|Nome parametro| Type | Descrizione| Valori|
 |-|-|-|-|
-| /Modalità server|obbligatori|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|obbligatori|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|obbligatori|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|obbligatori|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|obbligatori|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|obbligatori|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|obbligatori|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|obbligatori|Percorso completo del file della passphrase|Percorso del file valido|
-|/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
-|/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
-|DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
-|/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|obbligatori|Il flag implica l'accettazione dell'EULA di terze parti| |
-|/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
+| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
+|/BypassProxy|Facoltativa|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
+|/ProxySettingsFilePath|Facoltativa|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
+|DataTransferSecurePort|Facoltativa|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
+|/SkipSpaceCheck|Facoltativa|Ignora la verifica dello spazio per il disco della cache| |
+|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/ShowThirdpartyEULA|Facoltativa|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 
 
@@ -136,7 +136,7 @@ MySQLRootPassword = "Password"
 MySQLUserPassword = "Password"
 ```
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Creare il file di input per ProxySettingsFilePath
-Il parametro ProxySettingsFilePath usa un file come input. Creare il file usando il formato seguente e passarlo come parametro ProxySettingsFilePath di input.
+Il parametro ProxySettingsFilePath prende un file come input. Creare il file usando il formato seguente e passarlo come parametro ProxySettingsFilePath di input.
 
 ```ini
 [ProxySettings]
@@ -157,7 +157,7 @@ ProxyPassword="Password"
 
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Specificare i dettagli del nuovo proxy e fare clic sul pulsante **Register** (Registra).
-6. Aprire una finestra dei comandi di PowerShell per amministratore.
+6. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
 7. Eseguire il comando seguente:
 
    ```powershell
@@ -177,7 +177,7 @@ ProxyPassword="Password"
 4. Scaricare un nuovo file di registrazione dal portale e fornirlo come input allo strumento.
       ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Specificare i dettagli del server proxy e fare clic sul pulsante **Register** (Registra).  
-6. Aprire una finestra dei comandi di PowerShell per amministratore.
+6. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
 7. Eseguire il comando seguente
 
     ```powershell
@@ -206,7 +206,7 @@ ProxyPassword="Password"
 4. Fare clic sulla scheda **Vault Registration** (Registrazione dell'insieme di credenziali).
 5. Scaricare un nuovo file di registrazione dal portale e fornirlo come input allo strumento.
 6. Specificare i dettagli del server proxy e fare clic sul pulsante **Register** (Registra).  
-7. Aprire una finestra dei comandi di PowerShell per amministratore.
+7. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
 8. Eseguire il comando seguente
     ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -217,7 +217,7 @@ ProxyPassword="Password"
 
 ## <a name="upgrade-a-configuration-server"></a>Aggiornare un server di configurazione
 
-Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. Ad esempio:
+Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. Ad esempio,
 
 - Se si esegue la versione 9.7, 9.8, 9.9 o 9.10, è possibile eseguire l'aggiornamento direttamente alla versione a 9.11.
 - Se si esegue la versione 9.6 o una versione precedente e si desidera eseguire l'aggiornamento alla 9.11, è necessario prima eseguire l'aggiornamento alla versione 9.7 e poi alla 9.11.
@@ -257,7 +257,7 @@ Per aggiornare il server, seguire questa procedura:
    * Agente di Servizi di ripristino di Microsoft Azure
    * Servizio Mobility di Microsoft Azure Site Recovery/server di destinazione master
    * Provider di Microsoft Azure Site Recovery
-   * Server di elaborazione/server di configurazione di Microsoft Azure Site Recovery
+   * Server di elaborazione/Server di configurazione di Microsoft Azure Site Recovery
    * Dipendenze del server di configurazione di Microsoft Azure Site Recovery
    * MySQL Server 5.5
 4. Al prompt dei comandi dell'amministratore, eseguire questo comando:

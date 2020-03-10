@@ -1,5 +1,5 @@
 ---
-title: 'Rete WAN virtuale di Azure: Creare connessioni da sito a sito'
+title: 'Rete WAN virtuale di Azure: creare connessioni da sito a sito'
 description: In questa esercitazione si vedrà come usare la rete WAN virtuale di Azure per creare una connessione VPN da sito a sito ad Azure.
 services: virtual-wan
 author: cherylmc
@@ -9,11 +9,11 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775334"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391156"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure
 
@@ -63,7 +63,7 @@ In un browser passare al portale di Azure e accedere con l'account Azure.
    * **Gruppo di risorse** - Creare un nuovo gruppo o usarne uno esistente.
    * **Posizione gruppo di risorse** - Scegliere una posizione per le risorse nell'elenco a discesa. Una rete WAN è una risorsa globale e non si trova in un'area specifica. Tuttavia, è necessario selezionare un'area per poter gestire e individuare più facilmente la risorsa WAN creata.
    * **Nome** - Digitare il nome che si vuole usare per la rete WAN.
-   * **Tipo:** Basic o Standard. Con la creazione di una rete WAN di base è possibile creare solo un hub di base. Gli hub di base possono supportare solo la connettività VPN da sito a sito.
+   * **Tipo:** Basic o standard. Con la creazione di una rete WAN di base è possibile creare solo un hub di base. Gli hub di base possono supportare solo la connettività VPN da sito a sito.
 4. Dopo aver completato i campi, selezionare **Rivedi e crea**.
 5. Al termine della convalida selezionare **Crea** per creare la rete WAN virtuale.
 
@@ -104,7 +104,7 @@ In questo passaggio si crea la connessione tra l'hub e una rete virtuale. Ripete
 Usare la configurazione del dispositivo VPN per configurare il dispositivo VPN locale.
 
 1. Nella pagina della rete WAN virtuale fare clic su **Panoramica**.
-2. Nella parte superiore della pagina **Hub -> sito VPN** fare clic su **Scarica configurazione VPN**. Azure crea un account di archiviazione nel gruppo di risorse 'microsoft-network-[posizione]', dove posizione è la posizione della rete WAN. Dopo aver applicato la configurazione ai dispositivi VPN, è possibile eliminare questo account di archiviazione.
+2. Nella parte superiore della pagina **Hub-> VPNSite** fare clic su **Scarica configurazione VPN**. Azure crea un account di archiviazione nel gruppo di risorse "Microsoft-Network-[Location]", dove location è il percorso della rete WAN. Dopo aver applicato la configurazione ai dispositivi VPN, è possibile eliminare questo account di archiviazione.
 3. Al termine della creazione del file è possibile fare clic sul collegamento per scaricarlo.
 4. Applicare la configurazione al dispositivo VPN locale.
 
@@ -131,7 +131,7 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Dettagli di configurazione della connessione al gateway VPN**, ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
+    * **Dettagli di configurazione della connessione vpngateway** , ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
   
 ### <a name="example-device-configuration-file"></a>Esempio di file di configurazione del dispositivo
 
@@ -255,7 +255,7 @@ Se sono necessarie istruzioni per configurare il dispositivo, è possibile usare
 
 1. Passare alla rete WAN virtuale.
 2. Nella pagina **Panoramica** ogni punto sulla mappa rappresenta un hub. Passare il mouse su un punto qualsiasi per visualizzare riepilogo dell'integrità dell'hub, stato della connessione, byte in entrata e in uscita.
-3. Nella sezione Hub e connessioni è possibile visualizzare stato dell'hub, siti VPN e così via. È possibile fare clic su un nome di hub specifico e passare al sito VPN per altri dettagli.
+3. Nella sezione Hub e connessioni è possibile visualizzare lo stato dell'hub, i siti VPN e così via. È possibile fare clic su un nome di Hub specifico e passare al sito VPN per altri dettagli.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

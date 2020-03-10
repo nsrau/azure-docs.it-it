@@ -16,11 +16,11 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 892cdeea20780c90ce325e8be9b7b91fee0d9fad
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522527"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378389"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -62,7 +62,7 @@ Quando si configura il provisioning, è importante esaminare e configurare i map
 
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questi mapping è necessario scrivere un'espressione simile a uno script che consente di trasformare i dati degli utenti in formati più accettabili per l'applicazione SaaS. Per informazioni dettagliate, vedere [scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md).
 
-## <a name="scoping"></a>Scoping 
+## <a name="scoping"></a>Definizione dell'ambito 
 ### <a name="assignment-based-scoping"></a>Ambito basato sull'assegnazione
 
 Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle [assegnazioni di utenti o gruppi](../manage-apps/assign-user-or-group-access-portal.md) è il modo più comune per determinare quali utenti sono inclusi nell'ambito del provisioning. Poiché le assegnazioni utente vengono usate anche per l'abilitazione di Single Sign-On, è possibile usare lo stesso metodo per gestire l'accesso e il provisioning. L'ambito basato sull'assegnazione non si applica agli scenari di provisioning in ingresso, ad esempio giorni lavorativi e SuccessFactors.

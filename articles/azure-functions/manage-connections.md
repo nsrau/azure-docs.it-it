@@ -4,11 +4,11 @@ description: Informazioni su come evitare i problemi di prestazioni in Funzioni 
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226489"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370463"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in funzioni di Azure
 
@@ -56,7 +56,7 @@ Una domanda comune su [HttpClient](https://msdn.microsoft.com/library/system.net
 
 ### <a name="http-agent-examples-javascript"></a>Esempi di agenti HTTP (JavaScript)
 
-È consigliabile usare la classe [`http.agent` ](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) che fornisce opzioni di gestione della connessione migliori, anziché i metodi non nativi come il modulo `node-fetch`. I parametri di connessione vengono configurati tramite le opzioni della classe `http.agent`. Per le opzioni dettagliate disponibili con l'agente HTTP, vedere [New Agent (opzioni\[\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
+È consigliabile usare la classe [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) che fornisce opzioni di gestione della connessione migliori, anziché i metodi non nativi come il modulo `node-fetch`. I parametri di connessione vengono configurati tramite le opzioni della classe `http.agent`. Per le opzioni dettagliate disponibili con l'agente HTTP, vedere [New Agent (opzioni\[\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
 La classe `http.globalAgent` globale utilizzata da `http.request()` dispone di tutti questi valori impostati sulle rispettive impostazioni predefinite. Il modo consigliato per configurare i limiti di connessione in Funzioni è impostare un numero massimo globale. L'esempio seguente imposta il numero massimo di socket per l'app per la funzione:
 

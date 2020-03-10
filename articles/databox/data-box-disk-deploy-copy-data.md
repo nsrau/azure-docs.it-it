@@ -10,15 +10,15 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514154"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380503"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare i dati in Azure Data Box Disk ed eseguire la verifica
 
 ::: zone-end
 
@@ -40,10 +40,10 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Copiare i dati sul Data Box Disk.
 > * Verificare i dati
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
-- Aver completato l'esercitazione descritta in [Esercitazione: Installare e configurare Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+- Sia stata completata l'[esercitazione: Installare e configurare Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - I dischi vengono sbloccati e connessi a un computer client.
 - Il computer client usato per copiare i dati nei dischi deve eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Il tipo di archiviazione scelto per i dati corrisponda a uno dei [tipi di archiviazione supportati](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
@@ -102,12 +102,12 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     
     |Parametri/opzioni  |Descrizione |
     |--------------------|------------|
-    |Source (Sorgente)            | Specifica il percorso della directory di origine.        |
+    |Origine            | Specifica il percorso della directory di origine.        |
     |Destination       | Specifica il percorso della directory di destinazione.        |
     |/E                  | Copia le sottodirectory, incluse le directory vuote. |
     |/MT[:N]             | Crea copie multi-thread con N thread, dove N è un numero intero compreso tra 1 e 128. <br>Il valore predefinito per N è 8.        |
-    |/R: \<N>             | Specifica il numero di tentativi per le copie non riuscite. Il valore predefinito di N è 1.000.000 (un milione di tentativi).        |
-    |/W: \<N>             | Specifica il tempo di attesa tra i tentativi, in secondi. Il valore predefinito di N è 30 (tempo di attesa di 30 secondi).        |
+    |/R: \<N >             | Specifica il numero di tentativi per le copie non riuscite. Il valore predefinito di N è 1.000.000 (un milione di tentativi).        |
+    |/W: \<N >             | Specifica il tempo di attesa tra i tentativi, in secondi. Il valore predefinito di N è 30 (tempo di attesa di 30 secondi).        |
     |/NFL                | Specifica che i nomi dei file non devono essere inseriti nei log.        |
     |/NDL                | Specifica che i nomi di directory non devono essere inseriti nei log.        |
     |/FFT                | Presuppone i tempi dei file FAT (precisione di due secondi).        |
@@ -183,7 +183,7 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
  
     Per ottimizzare le prestazioni, usare i parametri robocopy seguenti durante la copia dei dati.
 
-    |    Piattaforma    |    Prevalentemente file di piccole dimensioni < 512 KB                           |    Prevalentemente file di medie dimensioni 512 KB-1 MB                      |    Prevalentemente file di grandi dimensioni > 1 MB                             |   
+    |    Platform    |    Prevalentemente file di piccole dimensioni < 512 KB                           |    Prevalentemente file di medie dimensioni 512 KB-1 MB                      |    Prevalentemente file di grandi dimensioni > 1 MB                             |   
     |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
     |    Data Box Disk        |    4 sessioni* di Robocopy <br> 16 thread per sessione    |    2 sessioni* di Robocopy <br> 16 thread per sessione    |    2 sessioni* di Robocopy <br> 16 thread per sessione    |
     

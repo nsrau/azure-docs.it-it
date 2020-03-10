@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899903"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359492"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi all'API di servizi multimediali V3-.NET
 
@@ -43,9 +43,9 @@ L'app di esempio in questo argomento, targets `netcoreapp2.0`. Il codice USA ' A
 ## <a name="add-required-nuget-packages"></a>Aggiungere i pacchetti NuGet necessari
 
 1. In Visual Studio selezionare **strumenti** > **gestione pacchetti NuGet** > **console di gestione NuGet**.
-2. Nella finestra **console di gestione pacchetti** usare `Install-Package` comando per aggiungere i pacchetti NuGet seguenti. Ad esempio `Install-Package Microsoft.Azure.Management.Media`.
+2. Nella finestra **console di gestione pacchetti** usare `Install-Package` comando per aggiungere i pacchetti NuGet seguenti. Ad esempio: `Install-Package Microsoft.Azure.Management.Media`.
 
-|Pacchetto|Description|
+|Pacchetto|Descrizione|
 |---|---|
 |`Microsoft.Azure.Management.Media`|SDK di servizi multimediali di Azure. <br/>Per assicurarsi di usare il pacchetto di servizi multimediali di Azure più recente, controllare [Microsoft. Azure. Management. Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|ADAL Authentication Library per Azure SDK per NET|
@@ -240,7 +240,7 @@ namespace ConsoleApp1
 - [Creare filtri con Servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Esempi di video on-demand avanzato di Funzioni di Azure v2 con Servizi multimediali v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Per altri esempi di codice, vedere il repository degli [esempi di .NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) .

@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791757"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358839"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
@@ -173,7 +173,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    ![Configurare la pianificazione della ricorrenza](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Proprietà | Value |
+   | Proprietà | Valore |
    | -------- | ----- |
    | **Interval** | 1 | 
    | **Frequenza** | Giorno |
@@ -189,7 +189,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    ![Impostare le proprietà della variabile](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Proprietà | Value | Description |
+   | Proprietà | Valore | Descrizione |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | Nome della variabile | 
    | **Tipo** | Integer | Nome del tipo di dati della variabile | 
@@ -230,7 +230,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       ![Configurare le proprietà del messaggio di posta elettronica](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Proprietà | Value | Description |
+      | Proprietà | Valore | Descrizione |
       | -------- | ----- | ----------- | 
       | **To** | *\<indirizzo di posta elettronica\@dominio >* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
       | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 
@@ -247,7 +247,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
 Un ciclo "Until" ha limiti predefiniti che arrestano l'esecuzione se si verifica una di queste condizioni:
 
-| Proprietà | Valore predefinito | Description | 
+| Proprietà | Valore predefinito | Descrizione | 
 | -------- | ------------- | ----------- | 
 | **Numero** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
 | **Timeout** | PT1H | Intervallo di tempo massimo per l'esecuzione di un ciclo prima della chiusura del ciclo. L'impostazione predefinita è un'ora ed è specificata in formato ISO 8601. <p>Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. | 
@@ -333,7 +333,7 @@ Questo ciclo "Until" di esempio chiama un endpoint HTTP, che crea una risorsa. I
 }
 ```
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).

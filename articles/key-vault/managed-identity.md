@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 36a4871339401629300eedd77b6441aed10aabf3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199836"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395947"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornire Key Vault autenticazione con un'identità gestita
 
@@ -26,7 +26,7 @@ Questo articolo illustra come creare un'identità gestita per un'applicazione de
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerequisiti 
 
 Per completare questa guida, è necessario disporre delle risorse riportate di seguito. 
 
@@ -50,7 +50,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 1. Selezionare **Identità gestita**. 
 
-1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**. 
+1. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Save**. 
 
     ![](./media/managed-identity-system-assigned.png)
 

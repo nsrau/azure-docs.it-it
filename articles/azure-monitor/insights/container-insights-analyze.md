@@ -4,11 +4,11 @@ description: Questo articolo descrive come è possibile visualizzare e analizzar
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75731017"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385530"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -72,17 +72,17 @@ Nella tabella seguente viene fornita una suddivisione del calcolo che controlla 
 | |Integro |100% |  
 | |Avviso |90 - 99% |  
 | |Critico |<90% |  
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |  
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |  
 |**Pod di sistema**| | |  
 | |Integro |100% |
 | |Avviso |N/D |
 | |Critico |<100% |
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Node** | | |
 | |Integro |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 
 Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **cluster** selezionando il nome del cluster. Passare quindi alla pagina prestazioni **nodi** selezionando il rollup dei nodi nella colonna **nodi** per quel cluster specifico. In alternativa, è possibile eseguire il drill-down nella pagina prestazioni **controller** selezionando il rollup della colonna **Pod utente** o **pod di sistema** .
 
@@ -117,7 +117,7 @@ Il monitoraggio di Azure per i contenitori supporta anche [Esplora metriche](../
 
 In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e dei Pod aggregati da monitoraggio di Azure per i contenitori. La tabella seguente riepiloga i dettagli che consentono di comprendere come usare i grafici delle metriche per visualizzare le metriche dei contenitori.
 
-|Spazio dei nomi | Metrica | Description | 
+|Spazio dei nomi | Metrica | Descrizione | 
 |----------|--------|-------------|
 | insights.container/nodes | |
 | | cpuUsageMillicores | Misurazione aggregata dell'utilizzo della CPU nel cluster. Si tratta di un core CPU suddiviso in unità 1000 (Milli = 1000). Usato per determinare l'utilizzo dei core in un contenitore in cui molte applicazioni potrebbero usare un core.| 
@@ -189,14 +189,14 @@ Queste informazioni consentono di identificare rapidamente se si dispone di un g
 
 Le informazioni presentate quando si visualizza la scheda **nodi** sono descritte nella tabella seguente.
 
-| Colonna | Description | 
+| Colonna | Descrizione | 
 |--------|-------------|
-| Nome | Nome dell'host. |
+| Name | Nome dell'host. |
 | Stato | Visualizzazione Kubernetes dello stato del nodo. |
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;%  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Min, AVG, cinquantesimo, 90, 95, max | Valore effettivo del nodo medio basato sul percentile durante la durata selezionata. Il valore medio viene misurato in base al limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
 | Contenitori | Numero di contenitori. |
-| Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un nodo. |
+| Tempo di attività | Rappresenta il tempo dall'avvio o dal riavvio di un nodo. |
 | Controller | Solo per i contenitori e i pod. Indica il controller in cui risiede. Non tutti i pod sono presenti in un controller. È quindi possibile che per alcuni sia visualizzato **N/A** per indicare che non sono disponibili. | 
 | Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95&nbsp;%, Max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del controller. |
 
@@ -218,15 +218,15 @@ Selezionare il valore nella colonna **nodo** per il controller specifico.
 
 Le informazioni visualizzate quando si visualizzano i controller sono descritte nella tabella seguente.
 
-| Colonna | Description | 
+| Colonna | Descrizione | 
 |--------|-------------|
-| Nome | Nome del controller.|
+| Name | Nome del controller.|
 | Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Contenitori | Numero totale di contenitori per il controller o il pod. |
 | Riavvii | Rollup del numero di riavvii dai contenitori. |
-| Uptime | Rappresenta il tempo dall'avvio di un contenitore. |
+| Tempo di attività | Rappresenta il tempo dall'avvio di un contenitore. |
 | Nodo | Solo per i contenitori e i pod. Indica il controller in cui risiede. | 
 | Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95&nbsp;%, Max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentile medio del controller. |
 
@@ -255,16 +255,16 @@ Da un contenitore è possibile eseguire il drill-down in un pod o nodo per visua
 
 Le informazioni visualizzate quando si visualizzano i contenitori sono descritte nella tabella seguente.
 
-| Colonna | Description | 
+| Colonna | Descrizione | 
 |--------|-------------|
-| Nome | Nome del controller.|
+| Name | Nome del controller.|
 | Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Pod | Contenitore in cui è presente il pod.| 
 | Nodo |  Nodo in cui è presente il contenitore. | 
 | Riavvii | Rappresenta il tempo dall'avvio di un contenitore. |
-| Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un contenitore. |
+| Tempo di attività | Rappresenta il tempo dall'avvio o dal riavvio di un contenitore. |
 | Tendenza min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95&nbsp;%, Max&nbsp;% | Grafico a barre della tendenza che presenta il valore percentuale medio delle metriche di percentile del contenitore. |
 
 Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella tabella seguente.

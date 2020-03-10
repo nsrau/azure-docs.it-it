@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910466"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363041"
 ---
 # <a name="service-updates-in-site-recovery"></a>Aggiornamenti del servizio in Site Recovery
 
@@ -48,7 +48,7 @@ Site Recovery notifica all'utente i componenti scaduti (o prossimi alla scadenza
 
 Le notifiche tramite posta elettronica vengono inviate come indicato di seguito.
 
-**Ora** | **Frequenza**
+**Time** | **Frequenza**
 --- | ---
 60 giorni prima della scadenza del componente | Una volta bi-settimanale
 Prossimi 53 giorni | Una volta alla settimana
@@ -118,7 +118,7 @@ Nell'esempio riportato nella tabella viene illustrato il funzionamento.
 |9.16 |  9.18 | Non obbligatorio|
 |9.16 | 9.19 | Non obbligatorio|
 | 9.16 | 9.20 | Non obbligatorio
- | 9.16 | 9.21 | Obbligatorio.<br/><br/> Eseguire l'aggiornamento a 9,20, quindi riavviare il computer prima di eseguire l'aggiornamento a 9,21.
+ | 9.16 | 9.21 | Mandatory.<br/><br/> Eseguire l'aggiornamento a 9,20, quindi riavviare il computer prima di eseguire l'aggiornamento a 9,21.
 
 ## <a name="hyper-v-vm-disaster-recovery-to-azure"></a>Ripristino di emergenza di VM Hyper-V in Azure
 

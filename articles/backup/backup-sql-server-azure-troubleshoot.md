@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
-ms.translationtype: MT
+ms.openlocfilehash: 7ebe76fde344b1dabca9a3aee2d0cc9e1edb8df4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602316"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392845"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -16,11 +16,12 @@ Questo articolo fornisce informazioni sulla risoluzione dei problemi per SQL Ser
 
 Per altre informazioni sul processo di backup e sulle limitazioni, vedere [informazioni su SQL Server backup in macchine virtuali di Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
-## <a name="sql-server-permissions"></a>Autorizzazioni di SQL Server
+## <a name="sql-server-permissions"></a>Autorizzazioni SQL Server
 
 Per configurare la protezione per un database di SQL Server in una macchina virtuale, è necessario installare l'estensione **AzureBackupWindowsWorkload** in tale macchina virtuale. Se si riceve l'errore **UserErrorSQLNoSysadminMembership**, significa che l'istanza di SQL Server non dispone delle autorizzazioni necessarie per il backup. Per correggere l'errore, seguire la procedura descritta in [impostare le autorizzazioni della macchina virtuale](backup-azure-sql-database.md#set-vm-permissions).
 
 ## <a name="troubleshoot-discover-and-configure-issues"></a>Risolvere i problemi di individuazione e configurazione
+
 Dopo aver creato e configurato un insieme di credenziali di servizi di ripristino, l'individuazione dei database e la configurazione del backup sono un processo in due passaggi.<br>
 
 ![sql](./media/backup-azure-sql-database/sql.png)
@@ -37,13 +38,29 @@ Durante la configurazione del backup, se la macchina virtuale SQL e le relative 
 
 Se la VM SQL deve essere registrata nel nuovo insieme di credenziali, è necessario annullarne la registrazione dall'insieme di credenziali precedente.  Per annullare la registrazione di una macchina virtuale SQL dall'insieme di credenziali, è necessario arrestare la protezione di tutte le origini dati protette e quindi eliminare i dati di cui è stato eseguito il backup. L'eliminazione dei dati di cui è stato eseguito il backup è un'operazione distruttiva.  Dopo aver esaminato ed eseguito tutte le precauzioni per annullare la registrazione della VM SQL, registrare la stessa VM con un nuovo insieme di credenziali e ripetere l'operazione di backup.
 
+## <a name="troubleshoot-backup-and-recovery-issues"></a>Risolvere i problemi di backup e ripristino  
 
+In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni di backup e ripristino oppure che tali operazioni rimangano bloccate. Questa operazione potrebbe essere dovuta a programmi antivirus nella macchina virtuale. Come procedura consigliata, è consigliabile eseguire le operazioni seguenti:
 
-## <a name="error-messages"></a>messaggi di errore
+1. Escludere le cartelle seguenti dall'analisi antivirus:
+
+    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+
+    Sostituire `C:\` con la lettera di *SystemDrive*.
+
+1. Escludere i seguenti tre processi in esecuzione all'interno di una macchina virtuale dall'analisi antivirus:
+
+    - IaasWLPluginSvc. exe
+    - IaasWorkloadCoordinaorService. exe
+    - TriggerExtensionJob. exe
+
+1. In SQL sono inoltre disponibili alcune linee guida per l'utilizzo dei programmi antivirus. Per informazioni dettagliate, vedere [questo articolo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server).
+
+## <a name="error-messages"></a>Messaggi di errore
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| Gravità | Descrizione | Possibili cause | Azione consigliata |
+| Severity | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
 | Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
 
@@ -149,7 +166,6 @@ L'operazione è bloccata perché l'insieme di credenziali ha raggiunto il limite
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
 La macchina virtuale non è in grado di contattare il servizio backup di Azure a causa di problemi di connettività Internet. | Per la macchina virtuale è necessaria la connettività in uscita al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory.| -Se si usa NSG per limitare la connettività, è necessario usare il tag del servizio AzureBackup per consentire l'accesso in uscita a backup di Azure al servizio backup di Azure, archiviazione di Azure o servizi Azure Active Directory. Per concedere l'accesso, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) .<br>-Assicurarsi che DNS stia risolvendo gli endpoint di Azure.<br>-Verificare se la macchina virtuale si trova dietro un servizio di bilanciamento del carico che blocca l'accesso a Internet. Assegnando un indirizzo IP pubblico alle macchine virtuali, l'individuazione funzionerà.<br>-Verificare che non esistano firewall/antivirus/proxy che bloccano le chiamate ai tre servizi di destinazione precedenti.
-
 
 ## <a name="re-registration-failures"></a>Errori di ripetizione della registrazione
 

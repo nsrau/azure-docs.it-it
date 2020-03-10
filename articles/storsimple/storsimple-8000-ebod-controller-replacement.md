@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578664"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365984"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Sostituzione di un controller EBOD nel dispositivo StorSimple
 
@@ -41,7 +41,7 @@ Prima di iniziare, tenere in considerazione le informazioni seguenti:
 Prima di sostituire il modulo controller EBOD guasto nel dispositivo StorSimple, assicurarsi che l'altro modulo controller EBOD sia attivo e in esecuzione. Nella procedura e nella tabella seguenti viene illustrato come rimuovere il modulo controller EBOD.
 
 #### <a name="to-remove-an-ebod-module"></a>Per rimuovere un modulo EBOD:
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 2. Passare a **Impostazioni** > **Integrità hardware**, quindi verificare che lo stato del LED per il modulo controller EBOD sia verde e che il LED per il modulo controller EBOD guasto sia rosso.
 3. Individuare il modulo controller EBOD guasto nella parte posteriore del dispositivo.
 4. Rimuovere i cavi che collegano il modulo controller EBOD al controller prima di rimuovere il modulo EBOD dal sistema.
@@ -82,7 +82,7 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
     **Figura 3** Chiusura del chiavistello del modulo EBOD
 4. Riconnettere i cavi. Utilizzare la configurazione esatta presente prima della sostituzione. Vedere il diagramma e la tabella seguenti per informazioni dettagliate su come connettere i cavi.
    
-    ![Cablare il dispositivo 4U per l'alimentazione](./media/storsimple-ebod-controller-replacement/IC770723.png)
+    ![Cavo del dispositivo 4U per l'alimentazione](./media/storsimple-ebod-controller-replacement/IC770723.png)
    
     **Figura 4**. Ricollegamento dei cavi
    
