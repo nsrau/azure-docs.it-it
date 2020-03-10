@@ -4,12 +4,12 @@ description: In questa esercitazione viene descritto come configurare l'integraz
 keywords: jenkins, azure, devops, macchina virtuale, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 380d547aaee68ad40ae12a4836826d2addae3a18
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606378"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192609"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Azure DevOps Services
 
@@ -96,9 +96,9 @@ Prima di tutto, è necessario configurare due plug-in Jenkins: **NodeJS** e **VS
 5. Selezionare **Trigger release in TFS/Team Services** (Attiva rilascio in TFS/Team Services). Immettere l'URI per l'organizzazione di Azure DevOps Services, ad esempio **https://{your-organization-name}.visualstudio.com**.
 6. Immettere il nome del **progetto**.
 7. Scegliere un nome per la pipeline di versione. Si crea questa pipeline di versione in un momento successivo in Azure DevOps Services.
-8. Scegliere le credenziali per connettersi all'ambiente Azure DevOps Services o Team Foundation Server:
+8. Scegliere le credenziali per connettersi all'ambiente Azure DevOps Services o Azure DevOps Server:
    - Lasciare vuoto **Username** (Nome utente) se si usa Azure DevOps Services. 
-   - Immettere nome utente e password se si usa una versione locale di Team Foundation Server.    
+   - Immettere nome utente e password se si usa una versione locale diAzure DevOps Server.    
    ![Configurazione delle azioni di post-compilazione in Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Salvare il progetto Jenkins.
 

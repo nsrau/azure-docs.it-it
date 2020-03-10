@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1c19523508f434c114df884824d1595376bac21
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c02595ebdb2f011dcc94b517771a79a4b2df754d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276944"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161721"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app Android usando Ancoraggi nello spazio di Azure
 
@@ -123,13 +123,13 @@ Infine, aggiungere il metodo `handleTap()` seguente, che collegherà tutti gli e
 
 ## <a name="attach-a-local-azure-spatial-anchor"></a>Collegare un ancoraggio nello spazio di Azure locale
 
-Modificare `Gradle Scripts\build.gradle (Module: app)` per includere la voce seguente. Questo codice assicura che l'app sia destinata ad Ancoraggi nello spazio di Azure versione 1.3.0. In ogni caso, il riferimento a qualsiasi versione recente di Ancoraggi nello spazio di Azure dovrebbe funzionare.
+Modificare `Gradle Scripts\build.gradle (Module: app)` per includere la voce seguente. Questo codice assicura che l'app sia destinata ad Ancoraggi nello spazio di Azure versione 2.2.0. In ogni caso, il riferimento a qualsiasi versione recente di Ancoraggi nello spazio di Azure dovrebbe funzionare. Le note sulla versione sono disponibili [qui](https://github.com/Azure/azure-spatial-anchors-samples/releases).
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.2.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.2.0]"
     ...
 }
 ```

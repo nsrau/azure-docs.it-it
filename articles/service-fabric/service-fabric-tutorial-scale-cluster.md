@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come aumentare e ridurre il numero di
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 9f3049f5a46918d9e70e27fe862372de2cf577ae
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639055"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251807"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: Ridimensionare un cluster di Service Fabric in Azure
 
@@ -33,7 +33,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -93,7 +93,7 @@ Salvare le modifiche nei file *template.json* e *parameters.json*.  Per distribu
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 In alternativa, usare il comando dell'interfaccia della riga di comando di Azure seguente:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -799,7 +799,7 @@ Salvare le modifiche nei file *template.json* e *parameters.json*.  Per distribu
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 In alternativa, usare il comando dell'interfaccia della riga di comando di Azure seguente:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
@@ -845,7 +845,7 @@ Dopo aver creato un cluster di Service Fabric, è possibile scalare un tipo di n
 
 [Esportare un file di modello e parametri](#export-the-template-for-the-resource-group) dal gruppo di risorse per la distribuzione più recente.  Aprire il file *parameters.json*.  Se il cluster è stato distribuito con il [modello di esempio][template] di questa esercitazione, sono disponibili tre tipi di nodo nel cluster.  
 
-Le dimensioni delle macchine virtuali nel secondo tipo di nodo vengono impostate nel parametro *vmNodeType1Size*.  Modificare il valore del parametro *vmNodeType1Size* da Standard_D2_V2 a [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series), raddoppiando le risorse di ogni istanza di macchina virtuale.
+Le dimensioni delle macchine virtuali nel secondo tipo di nodo vengono impostate nel parametro *vmNodeType1Size*.  Modificare il valore del parametro *vmNodeType1Size* da Standard_D2_V2 a [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md), raddoppiando le risorse di ogni istanza di macchina virtuale.
 
 Lo SKU della macchina virtuale per tutti e tre i tipi di nodo è impostato nel parametro *vmImageSku*.  Anche in questo caso, la modifica dello SKU della macchina virtuale di un tipo di nodo deve essere eseguita con attenzione e non è consigliata per il tipo di nodo primario.
 
@@ -856,7 +856,7 @@ Salvare le modifiche nei file *template.json* e *parameters.json*.  Per distribu
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 In alternativa, usare il comando dell'interfaccia della riga di comando di Azure seguente:
-```azure-cli
+```azurecli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 

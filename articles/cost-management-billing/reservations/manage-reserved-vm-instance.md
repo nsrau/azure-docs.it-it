@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: banders
 ms.openlocfilehash: 8ee683501346f0ee99b513ad966db1cc06b2737a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470972"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344345"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 

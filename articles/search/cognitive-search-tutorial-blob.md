@@ -1,36 +1,45 @@
 ---
-title: 'Esercitazione: Estrarre testo e struttura da BLOB JSON'
+title: 'Esercitazione: REST e intelligenza artificiale su BLOB di Azure'
 titleSuffix: Azure Cognitive Search
-description: Procedura di esempio di estrazione del testo ed elaborazione del linguaggio naturale su contenuto in BLOB JSON con Postman e API REST di Ricerca cognitiva di Azure.
+description: Procedura di esempio di estrazione del testo ed elaborazione del linguaggio naturale su contenuto in Archiviazione BLOB con Postman e API REST di Ricerca cognitiva di Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/26/2020
+ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113667"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190723"
 ---
-# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Esercitazione: Estrarre testo e struttura da BLOB JSON in Azure usando le API REST (Ricerca cognitiva di Azure)
+# <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Esercitazione: Usare REST e intelligenza artificiale per generare contenuto ricercabile dai BLOB di Azure
 
-Se si dispone di contenuto di immagini o di testo non strutturato in Archiviazione BLOB di Azure, è possibile usare la [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per estrarre informazioni e creare nuovo contenuto utile per gli scenari di ricerca full-text o di knowledge mining. Anche se la pipeline consente di elaborare file di immagine (JPG, PNG, TIFF), questa esercitazione è incentrata sul contenuto basato su parole, sull'applicazione del rilevamento della lingua e dell'analisi del testo per creare nuovi campi e informazioni che è possibile sfruttare in query, facet e filtri.
+Se si dispone di immagini o di testo non strutturato in Archiviazione BLOB di Azure, è possibile usare la [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per estrarre informazioni e creare nuovo contenuto utile per gli scenari di ricerca full-text o di knowledge mining. Anche se la pipeline può elaborare le immagini, questa esercitazione per REST è incentrata sul testo, sull'applicazione del rilevamento della lingua e sull'elaborazione del linguaggio naturale per creare nuovi campi e informazioni che è possibile sfruttare in query, facet e filtri.
+
+Questa esercitazione usa Postman e le [API REST per la ricerca](https://docs.microsoft.com/rest/api/searchservice/) per eseguire le attività seguenti:
 
 > [!div class="checklist"]
-> * Iniziare con documenti interi (testo non strutturato) come PDF, MD, DOCX e PPTX in Archiviazione BLOB di Azure.
+> * Iniziare con documenti interi (testo non strutturato), ad esempio file PDF, HTML, DOCX e PPTX, in Archiviazione BLOB di Azure.
 > * Definire una pipeline che estrae il testo, rileva la lingua, riconosce le entità e rileva le frasi chiave.
 > * Definire un indice per archiviare l'output (contenuto non elaborato, nonché coppie nome-valore generate dalla pipeline).
 > * Eseguire la pipeline per avviare le trasformazioni e l'analisi, nonché per creare e caricare l'indice.
 > * Esplorare i risultati tramite un ricerca full-text e una sintassi di query avanzata.
 
-Per completare questa procedura dettagliata, sono necessari diversi servizi, oltre all'[app desktop Postman](https://www.getpostman.com/) o a un altro strumento di test Web per effettuare le chiamate all'API REST. 
-
 Se non si ha una sottoscrizione di Azure, aprire un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="download-files"></a>Download dei file
+## <a name="prerequisites"></a>Prerequisiti
+
++ [Archiviazione di Azure](https://azure.microsoft.com/services/storage/)
++ [App desktop Postman](https://www.getpostman.com/)
++ [Creare](search-create-service-portal.md) o [trovare un servizio di ricerca esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+
+> [!Note]
+> È possibile usare il servizio gratuito per questa esercitazione. Un servizio di ricerca gratuito consente di usare solo tre indici, tre indicizzatori e tre origini dati. Questa esercitazione crea un elemento per ogni tipo. Prima di iniziare, assicurarsi che lo spazio nel servizio sia sufficiente per accettare le nuove risorse.
+
+## <a name="download-files"></a>Scaricare i file
 
 1. Aprire questa [cartella OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e nell'angolo in alto a sinistra fare clic su **Scarica** per copiare i file nel computer. 
 
@@ -38,7 +47,9 @@ Se non si ha una sottoscrizione di Azure, aprire un [account gratuito](https://a
 
 ## <a name="1---create-services"></a>1 - Creare i servizi
 
-Questa procedura dettagliata usa Ricerca cognitiva di Azure per l'indicizzazione e le query, Servizi cognitivi per l'arricchimento con intelligenza artificiale e Archiviazione BLOB di Azure per fornire i dati. Se possibile, creare tutti e tre i servizi nella stessa area e nello stesso gruppo di risorse per motivi di prossimità e gestibilità. In pratica, l'account di archiviazione di Azure può trovarsi in qualsiasi area.
+Questa esercitazione usa Ricerca cognitiva di Azure per l'indicizzazione e le query, Servizi cognitivi nel back-end per l'arricchimento tramite intelligenza artificiale e Archiviazione BLOB di Azure per fornire i dati. Questa esercitazione non supera l'allocazione gratuita di 20 transazioni per indicizzatore al giorno in Servizi cognitivi, quindi gli unici servizi che è necessario creare sono il servizio di ricerca e quello di archiviazione.
+
+Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risorse per motivi di prossimità e gestibilità. In pratica, l'account di archiviazione di Azure può trovarsi in qualsiasi area.
 
 ### <a name="start-with-azure-storage"></a>Iniziare con Archiviazione di Azure
 
@@ -102,9 +113,9 @@ Come per Archiviazione BLOB di Azure dedicare qualche istante alla raccolta dell
 
 2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-    Ottenere anche la chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
+   Ottenere anche la chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
 
-![Ottenere il nome del servizio e le chiavi amministratore e di query](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Ottenere il nome del servizio e le chiavi amministratore e di query](media/search-get-started-nodejs/service-name-and-keys.png)
 
 Nell'intestazione di ogni richiesta inviata al servizio è necessario specificare una chiave API (api-key). La presenza di una chiave valida stabilisce una relazione di trust, in base a singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -164,7 +175,7 @@ Un [oggetto set di competenze](https://docs.microsoft.com/rest/api/searchservice
 
 1. Nel **corpo** della richiesta copiare la definizione JSON seguente. Il set di competenze è costituito dalle competenze predefinite seguenti.
 
-   | Competenza                 | DESCRIZIONE    |
+   | Competenza                 | Descrizione    |
    |-----------------------|----------------|
    | [Riconoscimento delle entità](cognitive-search-skill-entity-recognition.md) | Estrae i nomi di persone, organizzazioni e località dal contenuto nel contenitore BLOB. |
    | [Rilevamento lingua](cognitive-search-skill-language-detection.md) | Rileva la lingua del contenuto. |
@@ -475,29 +486,25 @@ Ricordare che all'inizio è stato usato il contenuto del BLOB, in cui l'intero d
    cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
    ```
 
-Queste query illustrano alcuni dei modi in cui è possibile usare la sintassi di query e i filtri nei nuovi campi creati dalla ricerca cognitiva. Per altri esempi di query, vedere gli [esempi nell'API REST di Ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), gli [esempi di query con sintassi semplice](search-query-simple-examples.md) e gli [esempi di query Lucene completi](search-query-lucene-examples.md).
+Queste query illustrano alcuni dei modi in cui è possibile usare la sintassi e i filtri di query sui nuovi campi creati dalla ricerca cognitiva. Per altri esempi di query, vedere [Esempi nell'API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Esempi di sintassi di query semplice](search-query-simple-examples.md) ed [Esempi di sintassi di query Lucene completa](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Reimpostare ed eseguire di nuovo
 
-Nelle prime fasi sperimentali dello sviluppo della pipeline, l'approccio più pratico per le iterazioni di progettazione consiste nell'eliminare gli oggetti da Ricerca cognitiva di Azure e consentire al codice di ricompilarli. I nomi di risorsa sono univoci. L'eliminazione di un oggetto consente di ricrearlo usando lo stesso nome.
+Nelle prime fasi sperimentali di sviluppo l'approccio più pratico per le iterazioni di progettazione consiste nell'eliminare gli oggetti da Ricerca cognitiva di Azure e consentire al codice di ricompilarli. I nomi di risorsa sono univoci. L'eliminazione di un oggetto consente di ricrearlo usando lo stesso nome.
 
-Per reindicizzare i documenti con le nuove definizioni:
+È possibile usare il portale per eliminare indici, indicizzatori, origini dati e set di competenze. Quando si elimina l'indicizzatore, è facoltativamente possibile eliminare l'indice, il set di competenze e l'origine dati in modo selettivo contemporaneamente.
 
-1. Eliminare l'indicizzatore, l'indice e il set di competenze.
-2. Modificare gli oggetti.
-3. Ricrearli nel servizio per eseguire la pipeline. 
+![Eliminazione degli oggetti di ricerca](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Eliminare gli oggetti di ricerca nel portale")
 
-È possibile usare il portale per eliminare indici, indicizzatori e set di competenze oppure usare **DELETE** e specificare gli URL per ogni oggetto. Il comando seguente elimina un indicizzatore.
+In alternativa, usare il comando **DELETE** e specificare gli URL per ogni oggetto. Il comando seguente elimina un indicizzatore.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
 ```
 
 In caso di corretto completamento dell'eliminazione viene restituito il codice di stato 204.
-
-Con l'evoluzione del codice può risultare necessario perfezionare una strategia di ricompilazione. Per altre informazioni, vedere [How to rebuild an index](search-howto-reindex.md) (Come ricompilare un indice).
 
 ## <a name="takeaways"></a>Risultati
 
@@ -509,11 +516,13 @@ Infine, è stato descritto come testare i risultati e reimpostare il sistema per
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca cognitiva di Azure e il servizio BLOB di Azure. Supponendo che entrambi i servizi siano stati inseriti nello stesso gruppo, eliminare il gruppo di risorse a questo punto per eliminare definitivamente tutti gli elementi in esso contenuti, inclusi i servizi e qualsiasi contenuto archiviato creato per questa esercitazione. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica di ciascun servizio.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno rimuovere le risorse che non sono più necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+
+Per trovare e gestire le risorse nel portale, usare il collegamento Tutte le risorse o Gruppi di risorse nel riquadro di spostamento a sinistra.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Personalizzare o estendere la pipeline con competenze personalizzate. Creare una competenza personalizzata e aggiungerla a un set di competenze consente di caricare procedure di analisi del testo o delle immagini personalizzate. 
+Ora che si ha familiarità con tutti gli oggetti in una pipeline di arricchimento tramite intelligenza artificiale, verranno esaminate in dettaglio le definizioni dei set di competenze e le singole competenze.
 
 > [!div class="nextstepaction"]
-> [Esempio: Creazione di una competenza personalizzata per l'arricchimento tramite intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
+> [Come creare un set di competenze](cognitive-search-defining-skillset.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un gateway NAT - Portale di Azure'
+title: 'Guida introduttiva: Creare un gateway NAT - Portale di Azure'
 titlesuffix: Azure Virtual Network NAT
 description: Questa guida di avvio rapido mostra come creare un gateway NAT usando il portale di Azure
 services: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c6da4b54dbc982c69e9d3004a5da8f63deffa3e9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588740"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246023"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Avvio rapido: Creare un gateway NAT usando il portale di Azure
+# <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Guida introduttiva: Creare un gateway NAT usando il portale di Azure
 
 Questa guida di avvio rapido illustra come usare il servizio NAT di rete virtuale di Azure. Verrà creato un gateway NAT per fornire connettività in uscita per una macchina virtuale in Azure. 
 
@@ -32,27 +32,24 @@ Questa guida di avvio rapido illustra come usare il servizio NAT di rete virtual
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
 
-Prima di distribuire una macchina virtuale e di poter usare il gateway NAT, è necessario creare il gruppo di risorse e la rete virtuale.  
+Prima di distribuire una macchina virtuale e di poter usare il gateway NAT, è necessario creare il gruppo di risorse e la rete virtuale.
 
-1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale** o cercare una **Rete virtuale** nella ricerca del Marketplace.
+In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
+| Parametro                   | valore                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Stati Uniti orientali 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Nome | Immettere **myVNet**. |
-    | Spazio degli indirizzi | Immettere **192.168.0.0/16**. |
-    | Subscription | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare Crea nuovo - **myResourceGroup**. |
-    | Location | Selezionare **Stati Uniti orientali 2**.|
-    | Subnet - Nome | Immettere **mySubnet**. |
-    | Subnet - Intervallo di indirizzi | Immettere **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. Accettare tutte le impostazioni predefinite e selezionare **Crea**.
-
-### <a name="create-a-vm-to-use-the-nat-gateway"></a>Creare una macchina virtuale da usare con il gateway NAT
+## <a name="create-a-vm-to-use-the-nat-gateway"></a>Creare una macchina virtuale da usare con il gateway NAT
 
 Ora verrà creata una macchina virtuale per l'uso del servizio NAT. Questa macchina virtuale ha un indirizzo IP pubblico da usare come indirizzo IP pubblico a livello di istanza per consentire l'accesso alla macchina virtuale. Il servizio NAT è in grado di riconoscere la direzione del flusso e sostituirà la destinazione Internet predefinita nella subnet. L'indirizzo IP pubblico della macchina virtuale non verrà usato per le connessioni in uscita.
 

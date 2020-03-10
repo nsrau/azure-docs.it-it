@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 3fd1405d8421d71f52d9cd215dd055ce1595abd0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.custom: hdinsightactive,mvc
+ms.date: 03/02/2020
+ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327266"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251959"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Esercitazione: Analizzare dati di Apache Spark usando Power BI in HDInsight
 
 In questa esercitazione si apprenderà come usare [Microsoft Power BI](https://powerbi.microsoft.com/) per visualizzare i dati nel cluster Apache Spark in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Visualizzare i dati di Spark usando Power BI
 
@@ -134,33 +134,33 @@ Il servizio Power BI consente di condividere report e dashboard nell'organizzazi
 
 1. Selezionare un'area di lavoro in cui pubblicare il set di dati e il report e quindi fare clic su **Seleziona**. Nella figura seguente è selezionato il valore predefinito **Area di lavoro personale**.
 
-    ![Selezionare l'area di lavoro in cui pubblicare il set di dati e il report](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selezionare l'area di lavoro in cui pubblicare il set di dati e il report") 
+    ![Selezionare l'area di lavoro in cui pubblicare il set di dati e il report](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selezionare l'area di lavoro in cui pubblicare il set di dati e il report")
 
-1. Al termine della pubblicazione, fare clic su **Apri 'BuildingTemperature.pbix' in Power BI**.
+1. Al termine della pubblicazione, selezionare **Apri 'BuildingTemperature.pbix' in Power BI**.
 
-    ![Pubblicazione completata, fare clic per immettere le credenziali](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Pubblicazione completata, fare clic per immettere le credenziali") 
+    ![Pubblicazione completata, fare clic per immettere le credenziali](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Pubblicazione completata, fare clic per immettere le credenziali")
 
-1. Nel servizio Power BI fare clic su **Immettere le credenziali**.
+1. Nel servizio Power BI selezionare **Immettere le credenziali**.
 
     ![Immettere le credenziali nel servizio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Immettere le credenziali nel servizio Power BI")
 
-1. Fare clic su **Modifica credenziali**.
+1. Selezionare **Modifica credenziali**.
 
     ![Modificare le credenziali nel servizio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Modificare le credenziali nel servizio Power BI")
 
-1. Immettere le informazioni account di accesso HDInsight e quindi fare clic su **Accedi**. Il nome account predefinito è *admin*.
+1. Immettere le informazioni dell'account di accesso di HDInsight e quindi fare clic su **Accedi**. Il nome account predefinito è *admin*.
 
     ![Accedere al cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Accedere al cluster Spark")
 
-1. Nel riquadro a sinistra passare ad **Aree di lavoro** > **Area di lavoro personale** > **REPORT** e quindi fare clic su **BuildingTemperature**.
+1. Nel riquadro a sinistra passare ad **Aree di lavoro** > **Area di lavoro personale** > **REPORT** e quindi selezionare **BuildingTemperature**.
 
     ![Report elencato nei report nel riquadro sinistro](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Report elencato nei report nel riquadro sinistro")
 
     Il report **BuildingTemperature** è visualizzato anche in **SET DI DATI** nel riquadro a sinistra.
 
-    L'oggetto visivo creato in Power BI Desktop è ora disponibile nel servizio Power BI. 
+    L'oggetto visivo creato in Power BI Desktop è ora disponibile nel servizio Power BI.
 
-1. Passare il cursore sopra la visualizzazione e quindi fare clic sull'icona della puntina nell'angolo in alto a destra.
+1. Passare il puntatore del mouse sopra la visualizzazione e quindi fare clic sull'icona a forma di puntina nell'angolo in alto a destra.
 
     ![Report nel servizio Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Report nel servizio Power BI")
 
@@ -168,7 +168,7 @@ Il servizio Power BI consente di condividere report e dashboard nell'organizzazi
 
     ![Aggiungere al nuovo dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Aggiungere al nuovo dashboard")
 
-1. All'interno del report fare clic su **Vai al dashboard**.
+1. All'interno del report selezionare **Vai al dashboard**.
 
 L'oggetto visivo è stato aggiunto al dashboard. È possibile aggiungere altri oggetti visivi al report e aggiungerli poi allo stesso dashboard. Per altre informazioni su report e dashboard, vedere [Report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) e [Dashboard in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 

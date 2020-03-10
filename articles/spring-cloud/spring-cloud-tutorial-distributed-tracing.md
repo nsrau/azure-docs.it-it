@@ -6,26 +6,26 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: e4d3a7fbdb938071b754a16179bcd021985383cc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277497"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273203"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usare la traccia distribuita con Azure Spring Cloud
 
-Gli strumenti di traccia distribuita in Azure Spring Cloud consentono di eseguire facilmente il debug e il monitoraggio di problemi complessi. Azure Spring Cloud integra [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) con [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) di Azure. Questa integrazione fornisce funzionalità di traccia distribuita avanzate dal portale di Azure.
+Gli strumenti di traccia distribuita in Azure Spring Cloud consentono di eseguire facilmente il debug e il monitoraggio di problemi complessi. Azure Spring Cloud integra [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) con [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) di Azure. Questa integrazione fornisce funzionalità di traccia distribuita avanzate dal portale di Azure.
 
 In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Abilitare Traccia distribuita nel portale di Azure.
-> * Aggiungere Azure Spring Cloud Sleuth all'applicazione.
+> * Aggiungere Spring Cloud Sleuth all'applicazione.
 > * Visualizzare le mappe di dipendenze per le applicazioni di microservizi.
 > * Eseguire ricerche nei dati di traccia con filtri diversi.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, è necessario un servizio Azure Spring Cloud di cui sia già stato effettuato il provisioning e che sia in esecuzione. Completare la guida di [avvio rapido sulla distribuzione di un'app tramite l'interfaccia della riga di comando di Azure](spring-cloud-quickstart-launch-app-cli.md) per effettuare il provisioning ed eseguire un servizio Azure Spring Cloud.
     
@@ -39,7 +39,7 @@ Per completare questa esercitazione, è necessario un servizio Azure Spring Clou
 
    Dopo questa modifica, il mittente Zipkin può inviare al Web.
 
-1. Se è stata seguita la [guida alla preparazione dell'applicazione Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md), è possibile ignorare questo passaggio. In caso contrario, passare all'ambiente di sviluppo locale e modificare il file pom.xml per includere la dipendenza Azure Spring Cloud Sleuth seguente:
+1. Se è stata seguita la [guida alla preparazione dell'applicazione Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md), è possibile ignorare questo passaggio. In caso contrario, passare all'ambiente di sviluppo locale e modificare il file pom.xml per includere la dipendenza Spring Cloud Sleuth seguente:
 
     ```xml
     <dependencyManagement>

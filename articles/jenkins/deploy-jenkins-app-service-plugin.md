@@ -4,12 +4,12 @@ description: Informazioni su come usare il Servizio app di Azure per distribuire
 keywords: jenkins, azure, devops, servizio app
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158522"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251454"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -17,7 +17,7 @@ Per distribuire un'app Web Java in Azure, è possibile usare l'interfaccia della
 * Caricamento di file.
 * Docker per App Web in Linux.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Configurare Jenkins per distribuire app Web tramite il caricamento di file.
 > * Configurare Jenkins per distribuire app Web per contenitori.
@@ -207,10 +207,13 @@ Per il valore **Docker registry URL** (URL registro Docker) immettere l'URL nel 
 ### <a name="for-azure-app-service-on-linux"></a>Per Servizio app di Azure in Linux
 
 1. Per verificare l'app Web, eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
-    ```CLI
+    
+    ```azurecli
     az acr repository list -n <myRegistry> -o json
     ```
+    
     Viene visualizzato il messaggio seguente:
+    
     ```CLI
     ["calculator"]
     ```

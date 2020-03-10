@@ -1,20 +1,19 @@
 ---
-title: Informazioni sullo stack di tecnologie Apache Hadoop - Azure HDInsight
+title: Informazioni su Apache Hadoop e MapReduce - Azure HDInsight
 description: Introduzione a HDInsight, oltre che allo stack di tecnologie e ai componenti di Apache Hadoop.
-keywords: azure hadoop, hadoop azure, introduzione hadoop, intro hadoop, stack di tecnologie hadoop, intro a hadoop, introduzione a hadoop, informazioni sul cluster hadoop, info sul cluster hadoop, uso di hadoop
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 08/15/2019
-ms.openlocfilehash: 193b8f59a805de4303bfc38d397a821cc068dcc0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.date: 02/27/2020
+ms.openlocfilehash: 7e8dd69b7c58e090c30ea1aa59feddab610dd3c5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088192"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244880"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Informazioni su Apache Hadoop in Azure HDInsight
 
@@ -24,7 +23,7 @@ Azure HDInsight è un servizio di analisi open source completamente gestito e ad
 
 Per i componenti dello stack di tecnologie Hadoop disponibili in HDInsight, vedere [Componenti e versioni disponibili con HDInsight](../hdinsight-component-versioning.md). Per altre informazioni su Hadoop in HDInsight, vedere la pagina delle [funzionalità di Azure per HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-## <a id="whatis"></a>Definizione di MapReduce
+## <a name="what-is-mapreduce"></a>Informazioni su MapReduce
 
 Apache Hadoop MapReduce è un framework software per la scrittura di processi in grado di elaborare grandi quantità di dati. I dati di input sono suddivisi in blocchi indipendenti. Ogni blocco viene elaborato in parallelo attraverso i nodi del cluster. Un processo MapReduce è costituito da due funzioni:
 
@@ -32,7 +31,7 @@ Apache Hadoop MapReduce è un framework software per la scrittura di processi in
 
 * **Reducer**: usa le tuple generate dal Mapper ed esegue un'operazione di riepilogo che crea un risultato combinato più piccolo a partire dai dati del Mapper
 
-La figura seguente illustra un esempio di processo di base di conteggio parole in MapReduce.   
+La figura seguente illustra un esempio di processo di base di conteggio parole in MapReduce.
 
  ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
@@ -51,7 +50,7 @@ Lo streaming di Hadoop comunica con il mapper e il riduttore tramite STDIN e STD
 
     [key]/t[value]
 
-Per altre informazioni, vedere l'argomento relativo a [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Per altre informazioni, vedere l'argomento relativo a [Hadoop Streaming](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html).
 
 Per alcuni esempi sull'uso dello streaming di Hadoop con HDInsight, vedere il documento seguente:
 

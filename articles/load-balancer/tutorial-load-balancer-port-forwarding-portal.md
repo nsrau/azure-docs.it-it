@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6dda01543a6a7f447adefcc6cc3cfa3ea5da5492
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048855"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249870"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
 
@@ -47,11 +47,11 @@ Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
     | SKU           | Selezionare **Standard**.                          |
@@ -68,19 +68,20 @@ Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico
 
 Creare una rete virtuale con due macchine virtuali, quindi aggiungere le VM al pool back-end del servizio di bilanciamento del carico. 
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
 
-1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
-   
-1. Nel riquadro **Crea rete virtuale** digitare o selezionare questi valori:
-   
-   - **Nome**: Digitare *MyVNet*.
-   - **Gruppo di risorse**: selezionare nell'elenco a discesa **Seleziona esistente**, quindi **MyResourceGroupLB**. 
-   - **Subnet** > **Nome**: Digitare *MyBackendSubnet*.
-   
-1. Selezionare **Create** (Crea).
+In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
 
-   ![Crea rete virtuale](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
+| Parametro                   | valore                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLB (Selezionare un gruppo di risorse esistente) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa occidentale      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Creare le macchine virtuali e aggiungerle al pool back-end del servizio di bilanciamento del carico
 
@@ -94,7 +95,7 @@ Creare una rete virtuale con due macchine virtuali, quindi aggiungere le VM al p
    - **Password**: digitare *Azure1234567*. 
      Nel campo **Conferma password** digitare nuovamente la password.
    
-1. Selezionare la scheda **Networking**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**. 
+1. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**. 
    
    Verificare che siano selezionate le opzioni seguenti:
    - **Rete virtuale**: **MyVNet**
@@ -145,11 +146,11 @@ Creare una regola del gruppo di sicurezza di rete (NSG) per far sì che le macch
    
    - **Origine**: selezionare **Tag del servizio**.  
    - **Tag del servizio di origine**: selezionare **Internet**. 
-   - **Intervalli di porte di destinazione**: digitare *80*.
+   - **Intervalli di porte di destinazione**: Digitare *80*.
    - **Protocollo**: selezionare **TCP**. 
    - **Azione**: selezionare **Consenti**.  
    - **Priorità**: digitare *100*. 
-   - **Nome**: digitare *MyHTTPRule*. 
+   - **Name**: digitare *MyHTTPRule*. 
    - **Descrizione**: digitare *Allow HTTP*. 
    
 1. Selezionare **Aggiungi**. 
@@ -188,9 +189,9 @@ Per consentire al servizio di bilanciamento del carico di monitorare lo stato de
    
 1. Nella pagina **Aggiungi probe integrità** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyHealthProbe*.
+   - **Name**: digitare *MyHealthProbe*.
    - **Protocollo**: Nell'elenco a discesa selezionare **HTTP**. 
-   - **Porta**: digitare *80*. 
+   - **Porta**: Digitare *80*. 
    - **Percorso**: Accettare */* come URI predefinito. È possibile sostituire questo valore con qualsiasi altro URI. 
    - **Intervallo**: Digitare *15*. L'intervallo specifica il numero di secondi tra i tentativi del probe.
    - **Soglia non integra**: Digitare *2*. Questa impostazione specifica il numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
@@ -211,7 +212,7 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
 1. Nella pagina **Aggiungi regola di bilanciamento del carico** digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyLoadBalancerRule*.
+   - **Name**: Digitare *MyLoadBalancerRule*.
    - **Protocollo**: selezionare **TCP**.
    - **Porta**: Digitare *80*.
    - **Porta back-end**: Digitare *80*.
@@ -232,7 +233,7 @@ Creare una regola del Network Address Translation (NAT) in ingresso del bilancia
    
 1. Nella pagina **Aggiungi regola NAT in ingresso**, digitare o selezionare i valori seguenti:
    
-   - **Nome**: digitare *MyNATRuleVM1*.
+   - **Name**: digitare *MyNATRuleVM1*.
    - **Porta**: digitare *4221*.
    - **Macchina virtuale di destinazione**: Selezionare **MyVM1** nell'elenco a discesa.
    - **Configurazione IP di rete**: selezionare **ipconfig1** nell'elenco a discesa.

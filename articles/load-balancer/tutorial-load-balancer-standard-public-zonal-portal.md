@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225160"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251899"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -50,11 +50,11 @@ Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando s
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare *MyResourceGroupZLB* nella casella di testo.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
     | SKU           | Selezionare **Standard**.                          |
@@ -63,18 +63,24 @@ Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando s
     |Zona di disponibilità| Selezionare **1**.    |
 3. Nella scheda **Rivedi e crea** fare clic su **Crea**.   
 
-   ## <a name="create-backend-servers"></a>Creare i server back-end
+## <a name="create-backend-servers"></a>Creare i server back-end
 
 In questa sezione si crea una rete virtuale. Si creano inoltre due macchine virtuali nella stessa zona ,ovvero la zona 1, per l'area da aggiungere al pool back-end del servizio di bilanciamento del carico. Quindi si installa IIS nelle macchine virtuali per testare il servizio di bilanciamento del carico con ridondanza della zona. In caso di errore di una macchina virtuale, il probe di integrità per la macchina virtuale nella stessa zona ha esito negativo. Il traffico continua a essere gestito dalle altre macchine virtuali all'interno della stessa zona.
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
-1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.  Immettere i valori seguenti per la rete virtuale:
-    - **myVnet** come nome della rete virtuale.
-    - **myResourceGroupZLB** come nome del gruppo di risorse esistente.
-    - **myBackendSubnet** come nome della subnet.
-2. Fare clic su **Crea** per creare la rete virtuale.
+## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
 
-    ![Crea rete virtuale](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
+In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
+
+| Parametro                   | valore                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupZLB (Selezionare un gruppo di risorse esistente) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa occidentale      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 

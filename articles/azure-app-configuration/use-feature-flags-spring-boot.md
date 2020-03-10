@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
-ms.openlocfilehash: 8c66e2995462701f7ddaefc3a2623c02fee883ef
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 090ede85301f9e7aff14394c8fb5c7d558d98dd4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687201"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656025"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Esercitazione: Usare i flag di funzionalità in un'app Spring Boot
 
@@ -29,7 +29,7 @@ Le librerie di gestione delle funzionalità gestiscono anche i cicli di vita dei
 
 La guida di avvio rapido [Aggiungere flag di funzionalità a un'app Spring Boot](./quickstart-feature-flag-spring-boot.md) illustra diversi modi per aggiungere flag di funzionalità in un'applicazione Spring Boot. Questa esercitazione illustra questi metodi più dettagliatamente.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere i flag di funzionalità nelle parti chiave dell'applicazione per controllare la disponibilità delle funzionalità.
@@ -51,11 +51,23 @@ public HelloController(FeatureManager featureManager) {
 
 Il modo più semplice per connettere l'applicazione Spring Boot a Configurazione app consiste nell'usare il provider di configurazione:
 
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-    <version>1.1.0.M4</version>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
+
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.2.1</version>
 </dependency>
 ```
 
@@ -69,23 +81,22 @@ Lo strumento di gestione delle funzionalità supporta *application.yml* come ori
 
 ```yml
 feature-management:
-  featureSet:
-    features:
-      FeatureA: true
-      FeatureB: false
-      FeatureC:
-        EnabledFor:
-          -
-            name: Percentage
-            parameters:
-              value: 50
+  feature-set:
+    feature-a: true
+    feature-b: false
+    feature-c:
+      enabled-for:
+        -
+          name: Percentage
+          parameters:
+            value: 50
 ```
 
 Per convenzione, la sezione `feature-management` di questo documento YML viene usata per le impostazioni dei flag di funzionalità. L'esempio precedente mostra tre flag di funzionalità con i relativi filtri definiti nella proprietà `EnabledFor`:
 
-* `FeatureA` è *attivo*.
-* `FeatureB` è *disattivato*.
-* `FeatureC` specifica un filtro denominato `Percentage` con una proprietà `Parameters`. `Percentage` è un filtro configurabile. In questo esempio `Percentage` specifica una probabilità del 50% che il flag `FeatureC` sia *attivo*.
+* `feature-a` è *attivo*.
+* `feature-b` è *disattivato*.
+* `feature-c` specifica un filtro denominato `Percentage` con una proprietà `parameters`. `Percentage` è un filtro configurabile. In questo esempio `Percentage` specifica una probabilità del 50% che il flag `feature-c` sia *attivo*.
 
 ## <a name="feature-flag-checks"></a>Controlli dei flag di funzionalità
 
@@ -94,7 +105,7 @@ Il modello di base di gestione delle funzionalità consiste prima di tutto nel c
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabled("FeatureA"))
+if (featureManager.isEnabledAsync("feature-a"))
 {
     // Run the following code
 }
@@ -118,11 +129,11 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>Azioni del controller
 
-Nei controller MVC è possibile usare l'attributo `@FeatureGate` per controllare se un'azione specifica è abilitata. Per poter eseguire l'azione `Index` seguente, il flag`FeatureA` deve essere *attivo*:
+Nei controller MVC è possibile usare l'attributo `@FeatureGate` per controllare se un'azione specifica è abilitata. Per poter eseguire l'azione `Index` seguente, il flag`feature-a` deve essere *attivo*:
 
 ```java
 @GetMapping("/")
-@FeatureGate(feature = "FeatureA")
+@FeatureGate(feature = "feature-a")
 public String index(Model model) {
     ...
 }
@@ -132,7 +143,7 @@ Quando un controller o un'azione MVC viene bloccato perché il flag di funzional
 
 ## <a name="mvc-filters"></a>Filtri MVC
 
-È possibile configurare i filtri MVC in modo da attivarli in base allo stato di un flag di funzionalità. Il codice seguente aggiunge un filtro MVC denominato `FeatureFlagFilter`. Questo filtro viene attivato all'interno della pipeline MVC solo se il flag `FeatureA` è attivato.
+È possibile configurare i filtri MVC in modo da attivarli in base allo stato di un flag di funzionalità. Il codice seguente aggiunge un filtro MVC denominato `FeatureFlagFilter`. Questo filtro viene attivato all'interno della pipeline MVC solo se il flag `feature-a` è attivato.
 
 ```java
 @Component
@@ -144,7 +155,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("FeatureA")) {
+        if(!featureManager.isEnabled("feature-a")) {
             chain.doFilter(request, response);
             return;
         }
@@ -156,11 +167,11 @@ public class FeatureFlagFilter implements Filter {
 
 ## <a name="routes"></a>Route
 
-È possibile usare i flag di funzionalità per reindirizzare le route. Il codice seguente abiliterà il reindirizzamento di un utente da `FeatureA`:
+È possibile usare i flag di funzionalità per reindirizzare le route. Il codice seguente abiliterà il reindirizzamento di un utente da `feature-a`:
 
 ```java
 @GetMapping("/redirect")
-@FeatureGate(feature = "FeatureA", fallback = "/getOldFeature")
+@FeatureGate(feature = "feature-a", fallback = "/getOldFeature")
 public String getNewFeature() {
     // Some New Code
 }

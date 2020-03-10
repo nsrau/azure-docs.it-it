@@ -1,23 +1,23 @@
 ---
 title: Introduzione ad Apache Kafka in HDInsight - Azure
 description: Informazioni su Apache Kafka in HDInsight. Che cos'è, che cosa fa e dove trovare esempi e informazioni introduttive.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 06/13/2019
-ms.openlocfilehash: 543a18ad48384e3502231f85516a092468db2387
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.custom: hdinsightactive
+ms.date: 02/25/2020
+ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560100"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672175"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Informazioni su Apache Kafka in Azure HDInsight
 
-[Apache Kafka](https://kafka.apache.org) è una piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. Kafka offre anche una funzionalità di broker di messaggi simile a una coda di messaggi, dove è possibile pubblicare e sottoscrivere flussi dei dati denominati. 
+[Apache Kafka](https://kafka.apache.org) è una piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. Kafka offre anche una funzionalità di broker di messaggi simile a una coda di messaggi, dove è possibile pubblicare e sottoscrivere flussi dei dati denominati.
 
 Di seguito sono illustrate le caratteristiche specifiche di Kafka in HDInsight:
 
@@ -29,7 +29,7 @@ Di seguito sono illustrate le caratteristiche specifiche di Kafka in HDInsight:
 
     Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
-* Kafka è stato progettato con una singola vista dimensionale di un rack. Azure separa un rack in due dimensioni: domini di aggiornamento (UD) e domini di errore (FD). Microsoft offre strumenti che consentono il ribilanciamento delle partizioni e delle repliche Kafka tra domini di aggiornamento e domini di errore. 
+* Kafka è stato progettato con una singola vista dimensionale di un rack. Azure separa un rack in due dimensioni: domini di aggiornamento (UD) e domini di errore (FD). Microsoft offre strumenti che consentono il ribilanciamento delle partizioni e delle repliche Kafka tra domini di aggiornamento e domini di errore.
 
     Per altre informazioni, vedere l'articolo relativo alla [disponibilità elevata con Apache Kafka in HDInsight](apache-kafka-high-availability.md).
 
@@ -41,15 +41,15 @@ Di seguito sono illustrate le caratteristiche specifiche di Kafka in HDInsight:
 
     Per altre informazioni, vedere [Analizzare i log per Apache Kafka in HDInsight](apache-kafka-log-analytics-operations-management.md).
 
-### <a name="apache-kafka-on-hdinsight-architecture"></a>Apache Kafka sull'architettura di HDInsight
+## <a name="apache-kafka-on-hdinsight-architecture"></a>Apache Kafka sull'architettura di HDInsight
 
 Il diagramma seguente mostra una configurazione tipica di Kafka che usa gruppi di consumer, partizionamento e replica per offrire la lettura parallela degli eventi con tolleranza di errore:
 
 ![Diagramma di configurazione del cluster Kafka](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
-Apache ZooKeeper gestisce lo stato del cluster Kafka. Zookeeper è stato compilato per le transazioni simultanee, resilienti e a bassa latenza. 
+Apache ZooKeeper gestisce lo stato del cluster Kafka. Zookeeper è stato compilato per le transazioni simultanee, resilienti e a bassa latenza.
 
-Kafka archivia i record (dati) in **argomenti**. I record vengono prodotti da **producer** e usati da **consumer**. I producer inviano i record ai **broker** Kafka. Ogni nodo del ruolo di lavoro nel cluster HDInsight è un broker Kafka. 
+Kafka archivia i record (dati) in **argomenti**. I record vengono prodotti da **producer** e usati da **consumer**. I producer inviano i record ai **broker** Kafka. Ogni nodo del ruolo di lavoro nel cluster HDInsight è un broker Kafka.
 
 Record di partizione degli argomenti tra broker. Quando si usano i record, è possibile usare fino a un consumer per partizione, per ottenere l'elaborazione parallela dei dati.
 
@@ -59,35 +59,17 @@ Viene usata la replica per duplicare le partizioni tra i nodi e garantire protez
 
 Quelli che seguono sono attività e criteri comuni che possono essere eseguiti usando Kafka in HDInsight:
 
-* **Replica di dati di Apache Kafka**: Kafka offre l'utilità MirrorMaker, che replica i dati tra cluster Kafka.
-
-    Per informazioni sull'uso di MirrorMaker, vedere l'articolo su come [replicare gli argomenti Apache Kafka con Apache Kafka in HDInsight](apache-kafka-mirroring.md).
-
-* **Modello pubblicazione-sottoscrizione di messaggi**: Kafka offre un'API Producer per la pubblicazione di record in un argomento Kafka. L'API Consumer viene usata quando si sottoscrive un argomento.
-
-    Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
-
-* **Elaborazione del flusso**. Kafka viene spesso usato con Apache Storm o Spark per l'elaborazione dei flussi in tempo reale. In Kafka 0.10.0.0 (HDInsight versione 3.5 e 3.6) è stata introdotta un'API di streaming che consente di compilare soluzioni di streaming senza ricorrere a Storm o Spark.
-
-    Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
-
-* **Scalabilità orizzontale**: le partizioni Kafka trasmettono nei nodi del cluster HDInsight. È possibile associare processi consumer a singole partizioni per garantire il bilanciamento del carico durante l'utilizzo dei record.
-
-    Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
-
-* **Recapito in ordine**: all'interno di ogni partizione, i record vengono archiviati nel flusso nell'ordine in cui sono stati ricevuti. Associando un processo consumer per partizione, è possibile garantire che i record vengano elaborati in ordine.
-
-    Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
-
-## <a name="use-cases"></a>Casi d'uso
-
-* **Messaggistica**: poiché supporta il modello di pubblicazione-sottoscrizione dei messaggi, Kafka viene spesso usato come broker di messaggi.
-
-* **Rilevamento dell'attività**: poiché Kafka offre la registrazione ordinata dei record, può essere usato per tenere traccia delle attività e per ricrearle. Ad esempio, le azioni dell'utente in un sito Web o in un'applicazione.
-
-* **Aggregazione**: Usando l'elaborazione dei flussi, è possibile aggregare informazioni da flussi diversi per combinarle e centralizzarle in dati operativi.
-
-* **Trasformazione**: Usando l'elaborazione dei flussi, è possibile combinare e arricchire dati da più argomenti di input in uno o più argomenti di output.
+|Uso |Descrizione |
+|---|---|
+|Replica dei dati di Apache Kafka|Kafka offre l'utilità MirrorMaker, che replica i dati tra cluster Kafka. Per informazioni sull'uso di MirrorMaker, vedere l'articolo su come [replicare gli argomenti Apache Kafka con Apache Kafka in HDInsight](apache-kafka-mirroring.md).|
+|Modello messaggistica di tipo pubblicazione-sottoscrizione|Kafka offre un'API Producer per la pubblicazione di record in un argomento Kafka. L'API Consumer viene usata quando si sottoscrive un argomento. Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).|
+|Elaborazione del flusso|Kafka viene spesso usato con Apache Storm o Spark per l'elaborazione dei flussi in tempo reale. In Kafka 0.10.0.0 (HDInsight versione 3.5 e 3.6) è stata introdotta un'API di streaming che consente di compilare soluzioni di streaming senza ricorrere a Storm o Spark. Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).|
+|Scalabilità orizzontale|le partizioni Kafka trasmettono nei nodi del cluster HDInsight. È possibile associare processi consumer a singole partizioni per garantire il bilanciamento del carico durante l'utilizzo dei record. Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).|
+|Recapito in ordine|all'interno di ogni partizione, i record vengono archiviati nel flusso nell'ordine in cui sono stati ricevuti. Associando un processo consumer per partizione, è possibile garantire che i record vengano elaborati in ordine. Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).|
+|Messaggistica|poiché supporta il modello di pubblicazione-sottoscrizione dei messaggi, Kafka viene spesso usato come broker di messaggi.|
+|Rilevamento attività|poiché Kafka offre la registrazione ordinata dei record, può essere usato per tenere traccia delle attività e per ricrearle. Ad esempio, le azioni dell'utente in un sito Web o in un'applicazione.|
+|Aggregazione|Usando l'elaborazione dei flussi, è possibile aggregare informazioni da flussi diversi per combinarle e centralizzarle in dati operativi.|
+|Trasformazione|Usando l'elaborazione dei flussi, è possibile combinare e arricchire dati da più argomenti di input in uno o più argomenti di output.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

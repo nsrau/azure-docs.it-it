@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 175625ab9fca9103bde027c3c0ea0986806ad846
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 7b73923b7fc32ae83bfc8405d074835c02031a63
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208303"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913702"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Eseguire la migrazione da Google Maps a Mappe di Azure
 
@@ -39,10 +39,13 @@ La tabella seguente fornisce un elenco generale delle funzionalità di Mappe di 
 | Altitudine                   | Pianificata                                |
 | Geocodifica (diretta/inversa) | ✓                                      |
 | Georilevazione                 | N/D                                    |
+| Strade più vicine               | ✓                                      |
 | Ricerca luoghi               | ✓                                      |
 | Dettagli di luoghi              | N/D - sito Web e numero di telefono disponibili |
 | Foto di luoghi               | N/D                                    |
 | Completamento automatico luoghi          | ✓                                      |
+| Blocca sulla strada                | ✓                                      |
+| Limiti di velocità                | ✓                                      |
 | Mappe statiche                 | ✓                                      |
 | Visualizzazione strada statica          | N/D                                    |
 | Fuso orario                   | ✓                                      |
@@ -87,7 +90,9 @@ Ecco un elenco di risorse tecniche utili per Mappe di Azure.
 - Forum per sviluppatori: [https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
 - Video: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
+- Blog tecnico: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Feedback su Mappe di Azure (UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
+- [Jupyter Notebook - Mappe di Azure] [https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook ]
 
 ## <a name="migration-support"></a>Supporto per la migrazione
 

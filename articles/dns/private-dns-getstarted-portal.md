@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8391d92a2e2970378c11c043ca9f5d4f6dc44696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939377"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244958"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Avvio rapido: Creare una zona DNS privato di Azure con il portale di Azure
+# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Guida introduttiva: Creare una zona DNS privato di Azure con il portale di Azure
 
 Questo avvio rapido descrive i passaggi necessari per creare la prima zona DNS privato e il primo record DNS con il portale di Azure.
 
@@ -48,7 +48,7 @@ Una zona DNS contiene le voci DNS per un dominio. Per iniziare a ospitare il dom
 
 1. Nella pagina **Crea zona DNS privato** digitare o selezionare i valori seguenti:
 
-   - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere *MyAzureResourceGroup* e selezionare **OK**. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione di Azure. 
+   - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere *MyAzureResourceGroup* e selezionare **OK**. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione di Azure.
    -  **Name**: Digitare *private.contoso.com* per questo esempio.
 1. Per **Località del gruppo di risorse** selezionare **Stati Uniti centro-occidentali**.
 
@@ -58,13 +58,21 @@ Una zona DNS contiene le voci DNS per un dominio. Per iniziare a ospitare il dom
 
 La creazione della zona può richiedere alcuni minuti.
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
 
-1. In alto a sinistra nella pagina del portale selezionare **Crea una risorsa**, quindi **Rete** e infine **Rete virtuale**.
-2. Per **Nome** digitare **myAzureVNet**.
-3. Per **Gruppo di risorse** selezionare **MyAzureResourceGroup**.
-4. Per **Località** selezionare **Stati Uniti centro-occidentali**.
-5. Accettare gli altri valori predefiniti e selezionare **Crea**.
+In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
+
+| Parametro                   | valore                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | MyAzureResourceGroup (Selezionare un gruppo di risorse esistente) |
+| **\<virtual-network-name>** | MyAzureVNet          |
+| **\<region-name>**          | Stati Uniti centro-occidentali      |
+| **\<IPv4-address-space>**   | 10.2.0.0\16          |
+| **\<subnet-name>**          | MyAzureSubnet        |
+| **\<subnet-address-range>** | 10.2.0.0\24          |
+
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="link-the-virtual-network"></a>Collegare la rete virtuale
 
@@ -88,9 +96,8 @@ A questo punto, creare due macchine virtuali in modo da testare la zona DNS priv
 1. Selezionare **MyAzureResourceGroup** come gruppo di risorse.
 1. Digitare **myVM01** come nome della macchina virtuale.
 1. Selezionare **Stati Uniti centro-occidentali** per **Area**.
-1. Digitare **azureadmin** come nome utente amministratore.
-2. Digitare **Azure12345678** come password e confermarla.
-
+1. Immettere un nome per il nome utente amministratore.
+2. Immettere una password e confermarla.
 5. In **Porte in ingresso pubbliche** selezionare **Consenti porte selezionate** e quindi selezionare **RDP (3389)** in **Selezionare le porte in ingresso**.
 10. Accettare gli altri valori predefiniti nella pagina e quindi fare clic su **Avanti: Dischi >** .
 11. Accettare i valori predefiniti nella pagina **Dischi** e quindi fare clic su **Avanti: Rete >** .

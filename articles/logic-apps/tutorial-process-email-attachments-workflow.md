@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/20/2019
-ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/27/2020
+ms.openlocfilehash: 4adcda6030ed59cb6cc2285eb1c1eea0f768662c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969116"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662749"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure
 
@@ -34,7 +34,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 ![App per la logica completata](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -89,7 +89,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell
 
 1. Creare un contenitore di archiviazione BLOB per gli allegati di posta elettronica.
 
-   1. Nel menu dell'account di archiviazione selezionare **Panoramica**. In **Servizi** selezionare **Contenitori**.
+   1. Nel menu dell'account di archiviazione selezionare **Panoramica**. Nel riquadro Panoramica selezionare **Contenitori**.
 
       ![Aggiungere un contenitore di archiviazione BLOB](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
@@ -223,24 +223,24 @@ Dopo aver controllato il funzionamento della funzione, creare l'app per la logic
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
 
-1. Dalla home page di Azure nella casella di ricerca trovare e selezionare **App per la logica**.
+1. Nella casella di ricerca di primo livello di Azure immettere `logic apps` e selezionare **App per la logica**.
 
    ![Trovare e selezionare "App per la logica"](./media/tutorial-process-email-attachments-workflow/find-select-logic-apps.png)
 
-1. Nella pagina **App per la logica** selezionare **Aggiungi**.
+1. Nel riquadro **App per la logica** selezionare **Aggiungi**.
 
-   ![Aggiungere la nuova app per la logica](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![Aggiungere la nuova app per la logica](./media/tutorial-process-email-attachments-workflow/add-new-logic-app.png)
 
-1. In **Crea app per la logica** specificare i dettagli sull'app per la logica come mostrato di seguito. Al termine, selezionare **Crea**.
+1. Nel riquadro **App per la logica** specificare i dettagli dell'app per la logica come illustrato di seguito. Al termine, selezionare **Rivedi e crea**.
 
    ![Specificare le informazioni sull'app per la logica](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
    | Impostazione | valore | Descrizione |
    | ------- | ----- | ----------- |
-   | **Nome** | LA-ProcessAttachment | Nome dell'app per la logica |
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | La stessa sottoscrizione di Azure usata in precedenza |
    | **Gruppo di risorse** | LA-Tutorial-RG | Lo stesso gruppo di risorse di Azure usato in precedenza |
-   | **Posizione** | Stati Uniti occidentali | La stessa area usata in precedenza |
+   | **Nome dell'app per la logica** | LA-ProcessAttachment | Nome dell'app per la logica |
+   | **Selezionare la località** | Stati Uniti occidentali | La stessa area usata in precedenza |
    | **Log Analytics** | Disattivato | Per questa esercitazione, selezionare l'impostazione **No**. |
    ||||
 
@@ -667,7 +667,15 @@ Testare quindi l'app per la logica, che si presenterà ora come in questo esempi
 
 Quando questo esempio non è più necessario, eliminare il gruppo di risorse contenente l'app per la logica e le risorse correlate.
 
-1. Nel menu principale di Azure scegliere **Gruppi di risorse**. Dall'elenco dei gruppi di risorse selezionare il gruppo di risorse per questa esercitazione. Nel riquadro **Panoramica** selezionare **Elimina gruppo di risorse**.
+1. Nella casella di ricerca di Azure di primo livello immettere `resources groups` e selezionare **Gruppi di risorse**.
+
+   ![Trovare e selezionare "Gruppi di risorse"](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
+
+1. Dall'elenco **Gruppi di risorse** selezionare il gruppo di risorse per questa esercitazione. 
+
+   ![Trovare il gruppo di risorse per l'esercitazione](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
+
+1. Nel riquadro **Panoramica** selezionare **Elimina gruppo di risorse**.
 
    ![Eliminare il gruppo di risorse dell'app per la logica](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 

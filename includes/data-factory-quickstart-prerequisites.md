@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: f808158c959894e757adaa73a81e3bf57f475da0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4d77cb8128105a40143a40e48ebe450115f7cf1e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020857"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164168"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="azure-subscription"></a>Sottoscrizione di Azure
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ### <a name="azure-roles"></a>Ruoli di Azure
-Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro del ruolo *collaboratore* o *proprietario* oppure un *amministratore* della sottoscrizione di Azure. Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al [portale di Azure](https://portal.azure.com), selezionare il nome utente nell'angolo in alto a destra, selezionare **Altre opzioni** (...) e quindi selezionare **Autorizzazioni personali**. Se si accede a più sottoscrizioni, selezionare quella appropriata.
+Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro del ruolo *collaboratore* o *proprietario* oppure un *amministratore* della sottoscrizione di Azure. Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al [portale di Azure](https://portal.azure.com), selezionare il nome utente nell'angolo in alto a destra, selezionare l'icona **...** per visualizzare altre opzioni e quindi selezionare **Autorizzazioni personali**. Se si accede a più sottoscrizioni, selezionare quella appropriata.
 
 Per creare e gestire le risorse figlio per Data Factory, inclusi i set di dati, i servizi collegati, le pipeline, i trigger e i runtime di integrazione, sono applicabili i requisiti seguenti:
 
@@ -36,10 +36,10 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Roles and permissions for Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md) (Ruoli e autorizzazioni per Azure Data Factory)
 
 ### <a name="azure-storage-account"></a>Account di archiviazione di Azure
-In questa guida introduttiva si usa un account di archiviazione di Azure per utilizzo generico (specificamente, di archiviazione BLOB) come archivio dati sia di *origine* che di *destinazione*. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../articles/storage/common/storage-account-create.md) per informazioni su come crearne uno. 
+In questa guida di avvio rapido si usa un account di archiviazione di Azure per utilizzo generico (nello specifico, un account di archiviazione BLOB) come archivio dati sia di *origine* che di *destinazione*. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../articles/storage/common/storage-account-create.md) per informazioni su come crearne uno. 
 
 #### <a name="get-the-storage-account-name"></a>Ottenere il nome dell'account di archiviazione
-Per questa guida introduttiva è necessario avere il nome dell'account di archiviazione di Azure. La procedura seguente illustra i passaggi per recuperare il nome dell'account di archiviazione: 
+Per questa guida di avvio rapido è necessario avere il nome dell'account di archiviazione di Azure. La procedura seguente illustra i passaggi per recuperare il nome dell'account di archiviazione: 
 
 1. In un Web browser passare al [portale di Azure](https://portal.azure.com) e accedere usando il nome utente e la password di Azure.
 2. Dal menu del portale di Azure scegliere **Tutti i servizi**, quindi selezionare **Archiviazione** > **Account di archiviazione**. È anche possibile cercare e selezionare *Account di archiviazione* in qualsiasi pagina.
@@ -50,9 +50,9 @@ Per questa guida introduttiva è necessario avere il nome dell'account di archiv
 #### <a name="create-a-blob-container"></a>Creare un contenitore BLOB
 In questa sezione viene creato un contenitore BLOB denominato **adftutorial** nell'archivio BLOB di Azure.
 
-1. Dalla pagina dell'account di archiviazione, selezionare **Panoramica** > **BLOB**.
-2. Nella barra degli strumenti *\<Nome account>*  - **BLOB** selezionare **Contenitore**.
-3. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** come nome e quindi fare clic su **OK**. La pagina *\<Nome account>*  - **BLOB** viene aggiornata per includere **adftutorial** nell'elenco dei contenitori.
+1. Dalla pagina dell'account di archiviazione, selezionare **Panoramica** > **Contenitori**.
+2. Nella barra degli strumenti della pagina *\<Nome account>*  - **Contenitori** selezionare **Contenitore**.
+3. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** come nome e quindi fare clic su **OK**. La pagina *\<Nome account>*  - **Contenitori** viene aggiornata per includere **adftutorial** nell'elenco dei contenitori.
 
    ![Elenco dei contenitori](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
@@ -66,11 +66,11 @@ Jane, Doe
 
 Salvare il file nella cartella **C:\ADFv2QuickStartPSH**. Se la cartella non esiste, crearla. Tornare al portale di Azure e seguire questa procedura:
 
-1. Dal punto in cui ci si trovava nella pagina *\<Nome account>*  - **BLOB** selezionare **adftutorial** nell'elenco aggiornato dei contenitori.
+1. Dal punto in cui ci si trovava nella pagina *\<Nome account>*  - **Contenitori** selezionare **adftutorial** nell'elenco aggiornato dei contenitori.
 
    1. Se la finestra è stata chiusa o è passata a un'altra pagina, accedere nuovamente al [portale di Azure](https://portal.azure.com).
    1. Dal menu del portale di Azure scegliere **Tutti i servizi**, quindi selezionare **Archiviazione** > **Account di archiviazione**. È anche possibile cercare e selezionare *Account di archiviazione* in qualsiasi pagina.
-   1. Selezionare l'account di archiviazione, quindi **BLOB** > **adftutorial**.
+   1. Selezionare l'account di archiviazione, quindi **Contenitori** > **adftutorial**.
 
 2. Nella barra degli strumenti della pagina del contenitore **adftutorial** selezionare **Carica**.
 3. Nella pagina **Carica BLOB** selezionare la casella **File**, quindi individuare e selezionare il file **emp.txt**.
