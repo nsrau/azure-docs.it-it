@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 2570e3753dd93173166c6b563e9add69bed3f862
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: d2c5a094c45eeca779a33a39261bd3fc17d53d1a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922265"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913855"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -47,6 +47,28 @@ Eseguire il comando seguente in [Cloud Shell](https://shell.azure.com) per impos
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
 ```
+
+## <a name="customize-build-automation"></a>Personalizzare l'automazione della compilazione
+
+Se si distribuisce l'app usando pacchetti GIT o ZIP con l'automazione della compilazione attivata, l'automazione della compilazione del servizio app esegue la sequenza seguente:
+
+1. Esegue lo script personalizzato se specificato da `PRE_BUILD_SCRIPT_PATH`.
+1. Esegue `pip install -r requirements.txt`.
+1. Se nella radice del repository viene trovato *manage.py*, esegue *manage.py collectstatic*. Se però `DISABLE_COLLECTSTATIC` è impostato su `true`, questo passaggio viene ignorato.
+1. Esegue lo script personalizzato se specificato da `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` e `DISABLE_COLLECTSTATIC` sono variabili di ambiente vuote per impostazione predefinita. Per eseguire comandi pre-compilazione, definire `PRE_BUILD_COMMAND`. Per eseguire comandi post-compilazione, definire `POST_BUILD_COMMAND`. Per disabilitare l'esecuzione di collectstatic durante la compilazione di app Django, impostare `DISABLE_COLLECTSTATIC=true`.
+
+Nell'esempio seguente vengono specificate le due variabili, separate da virgole, per una serie di comandi.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Per altre variabili di ambiente per personalizzare l'automazione della compilazione, vedere [Configurazione Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di app Python in Linux, vedere la [documentazione di Oryx relativa al rilevamento e alla compilazione di app Python](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
 ## <a name="container-characteristics"></a>Caratteristiche del contenitore
 

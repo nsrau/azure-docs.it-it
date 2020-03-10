@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934713"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915640"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Web Application Firewall di Azure in Frontdoor di Azure
 
@@ -77,7 +77,7 @@ Un criterio di WAF può essere costituito da due tipi di regole di sicurezza: re
 
 ### <a name="azure-managed-rule-sets"></a>Set di regole gestiti da Azure
 
-I set di regole gestiti da Azure consentono di distribuire in modo semplice la protezione da un set comune di minacce alla sicurezza. Poiché questi set sono gestiti da Azure, le regole vengono opportunamente aggiornate per assicurare la protezione dalle nuove firme di attacco. In versione di anteprima pubblica, il set di regole predefinito gestito da Azure include regole per le categorie di minacce seguenti:
+I set di regole gestiti da Azure consentono di distribuire in modo semplice la protezione da un set comune di minacce alla sicurezza. Poiché questi set sono gestiti da Azure, le regole vengono opportunamente aggiornate per assicurare la protezione dalle nuove firme di attacco. Il set di regole predefinito gestito da Azure include regole per le categorie di minacce seguenti:
 
 - Scripting intersito
 - Attacchi Java
@@ -91,6 +91,8 @@ I set di regole gestiti da Azure consentono di distribuire in modo semplice la p
 
 Il numero di versione del set di regole predefinito viene incrementato man mano vengono aggiunte nuove firme di attacco.
 Il set di regole predefinito è abilitato per impostazione predefinita nei criteri di WAF quando è attiva la modalità di rilevamento. È possibile disabilitare o abilitare singole regole nel set predefinito in base ai requisiti dell'applicazione. È anche possibile impostare azioni specifiche (ALLOW/BLOCK/REDIRECT/LOG) per ogni regola.
+
+Talvolta può essere necessario omettere determinati attributi delle richieste da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione. È possibile configurare un elenco di esclusione per una regola gestita, un gruppo di regole o per l'intero set di regole.  
 
 L'azione predefinita è BLOCK. È inoltre possibile configurare regole personalizzate nello stesso criterio di WAF se si vuole ignorare una qualsiasi regola preconfigurata nel set predefinito.
 

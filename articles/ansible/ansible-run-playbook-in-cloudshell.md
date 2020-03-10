@@ -4,18 +4,18 @@ description: In questo argomento di avvio rapido viene illustrato come eseguire 
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 2a938179cf2e07a61749042db32ef9e1c9d843ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193651"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247886"
 ---
-# <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Avvio rapido: Esegui i playbook di Ansible tramite Bash in Azure Cloud Shell
+# <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Guida introduttiva: Esegui i playbook di Ansible tramite Bash in Azure Cloud Shell
 
 Azure Cloud Shell è una shell interattiva accessibile dal browser per la gestione delle risorse di Azure. Cloud Shell consente di usare una riga di comando di Bash o di PowerShell. In questo articolo si usa Bash in Azure Cloud Shell per eseguire un playbook di Ansible.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Configurare Azure Cloud Shell**: se non si ha familiarità con Azure Cloud Shell, vedere [Avvio rapido per Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -35,7 +35,7 @@ az account list
 
 Usando l'ID della sottoscrizione di Azure, impostare `AZURE_SUBSCRIPTION_ID` come segue:
 
-```azurecli-interactive
+```console
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 

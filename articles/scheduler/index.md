@@ -1,24 +1,28 @@
 ---
-title: Documentazione di Utilità di pianificazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come usare Utilità di pianificazione per pianificare e richiamare i processi, ad esempio azioni ricorrenti delle applicazioni e manutenzione di routine. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+title: Documentazione di Utilità di pianificazione di Azure
+description: Creare, pianificare ed eseguire processi automatizzati nel cloud, ad esempio azioni ricorrenti delle applicazioni e manutenzione ordinaria
 services: scheduler
-author: carmonmills
-manager: carmonm
-layout: LandingPage
 ms.service: scheduler
+author: derek1ee
+ms.author: estfan
+layout: LandingPage
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carmonm
-ms.openlocfilehash: ddf335d0c2b165ae98feab0b42e60527f87de59c
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 02/23/2020
+ms.openlocfilehash: 026d4590160d8292fed5e1a678715ac65fdbd859
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610343"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898617"
 ---
 # <a name="scheduler-documentation"></a>Documentazione di Utilità di pianificazione
 
-Informazioni su come usare Utilità di pianificazione per pianificare e richiamare automaticamente i processi ricorrenti nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come pianificare e monitorare i processi, ad esempio azioni ricorrenti delle applicazioni e manutenzione di routine.
+> [!IMPORTANT]
+> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è [in corso il ritiro](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati in Utilità di pianificazione, eseguire la [migrazione ad App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) quanto prima. 
+>
+> Utilità di pianificazione non è più disponibile nel portale di Azure, ma l'[API REST](/rest/api/scheduler) e i [cmdlet di PowerShell per Utilità di pianificazione di Azure](scheduler-powershell-reference.md) rimangono attualmente disponibili, quindi è possibile gestire processi e raccolte di processi.
+
+Leggere informazioni su come creare, pianificare, eseguire, gestire e aggiornare i processi ricorrenti automatizzati nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come pianificare e monitorare i processi, ad esempio azioni ricorrenti delle applicazioni e manutenzione di routine.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -33,6 +37,24 @@ Informazioni su come usare Utilità di pianificazione per pianificare e richiama
                     </div>
                     <div class="cardText">
                         <h3>Informazioni sull'Utilità di pianificazione</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/scheduler/migrate-from-scheduler-to-logic-apps">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -57,29 +79,11 @@ Informazioni su come usare Utilità di pianificazione per pianificare e richiama
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/scheduler/scheduler-get-started-portal">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introduzione all'Utilità di pianificazione di Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
 
 ---
 
-<h2>riferimento</h2>
+<h2>Informazioni di riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

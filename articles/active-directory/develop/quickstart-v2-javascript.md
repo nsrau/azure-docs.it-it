@@ -1,7 +1,7 @@
 ---
 title: Consentire l'accesso degli utenti nelle applicazioni a pagina singola JavaScript | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come le app JavaScript possono chiamare un'API che richiede token di accesso tramite Microsoft Identity Platform.
+description: Informazioni su come un'app JavaScript possa chiamare un'API che richiede token di accesso tramite Microsoft Identity Platform.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,22 +12,23 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.openlocfilehash: 954fd6c200e1165f27549dcf95502e9bfeed0267
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9077d5c471911c9967c327c457d683b06856b920
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703355"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249061"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Guida introduttiva: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
 In questa guida di avvio rapido si usa codice di esempio per dimostrare in che modo un'applicazione a pagina singola JavaScript possa concedere l'accesso ad account personali, aziendali o dell'istituto di istruzione. Un'applicazione a pagina singola può anche ottenere un token di accesso per chiamare l'API Microsoft Graph o un'API Web. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Node.js](https://nodejs.org/en/download/).
-* [Visual Studio Code](https://code.visualstudio.com/download) (per modificare i file di progetto) oppure [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (per eseguire il progetto come soluzione di Visual Studio).
+* [Node.js](https://nodejs.org/en/download/)
+* [Visual Studio Code](https://code.visualstudio.com/download) (per modificare i file di progetto)
+
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registrare e scaricare l'app dell'avvio rapido
@@ -38,7 +39,9 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account in alto a destra e quindi impostare la sessione del portale sul tenant di Azure Active Directory (Azure AD) che si vuole usare.
 > 1. Passare al nuovo riquadro [Portale di Azure - Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
-> 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
+> 1. Immettere un nome per l'applicazione. 
+> 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
+> 1. Selezionare **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione.
 >
 > ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>Opzione 2 (Manuale): Registrare e configurare manualmente l'applicazione e il codice di esempio
@@ -52,15 +55,15 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 > 1. Selezionare **Nuova registrazione**.
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere il nome dell'applicazione.
 > 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
-> 1. Nell'elenco a discesa nella sezione **URI di reindirizzamento** selezionare la piattaforma **Web** e quindi impostare il valore su `http://localhost:30662/`.
 > 1. Selezionare **Registra**. Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)** per uso successivo.
 > 1. Per questo avvio rapido è necessario abilitare il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). Nel riquadro sinistro dell'applicazione registrata selezionare **Autenticazione**.
-> 1. Nella sezione **Impostazioni avanzate**, in **Concessione implicita**, selezionare entrambe le caselle di controllo **Token ID** e **Token di accesso**. I token ID e di accesso sono obbligatori perché l'app deve consentire l'accesso agli utenti e chiamare un'API.
-> 1. Nella parte superiore della pagina selezionare **Salva**.
+> 1. In **Configurazioni della piattaforma** selezionare **Aggiungi una piattaforma**. Viene visualizzato un pannello sulla sinistra. Selezionare l'area **Applicazioni Web**.
+> 1. Sempre a sinistra, impostare il valore di **URI di reindirizzamento** su `http://localhost:3000/`. Selezionare quindi **Token di accesso** e **Token ID**.
+> 1. Selezionare **Configura**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento dell'esempio di codice di questa guido argomento di avvio rapido, è necessario aggiungere un oggetto `redirectUri` come `http://localhost:30662/` e abilitare l'opzione **Concessione implicita**.
+> Per il funzionamento dell'esempio di codice di questa guida di avvio rapido, è necessario aggiungere un oggetto `redirectUri` come `http://localhost:3000/` e abilitare l'opzione **Concessione implicita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >
@@ -69,43 +72,45 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 
 #### <a name="step-2-download-the-project"></a>Passaggio 2: Scaricare il progetto
 
-Selezionare l'opzione più adatta al proprio ambiente di sviluppo:
+> [!div renderon="docs"]
+> Per eseguire il progetto con un server Web, ad esempio Node.js, [scaricare i file di progetto di base](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
-* Per eseguire il progetto con un server Web, ad esempio Node.js, [scaricare i file di progetto di base](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip). Per aprire i file, usare un editor come [Visual Studio Code](https://code.visualstudio.com/).
+> [!div renderon="portal"]
+> Eseguire il progetto con un server Web usando Node.js
 
-* (Facoltativo) Per eseguire il progetto con il server IIS, [scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Estrarre il file con estensione zip in una cartella locale, ad esempio *C:\Azure-Samples*.
-
-#### <a name="step-3-configure-your-javascript-app"></a>Passaggio 3: Configurare l'app JavaScript
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Scaricare il codice di esempio]()
 
 > [!div renderon="docs"]
-> Nella cartella *JavaScriptSPA* modificare *index.html* e impostare i valori `clientID` e `authority` presenti nella sezione `msalConfig`.
+> #### <a name="step-3-configure-your-javascript-app"></a>Passaggio 3: Configurare l'app JavaScript
+>
+> Nella cartella *JavaScriptSPA* modificare *authConfig.js* e impostare i valori `clientID` e `authority` presenti nella sezione `msalConfig`.
+> ```javascript
+>
+>  // Config object to be passed to Msal on creation
+>  const msalConfig = {
+>    auth: {
+>      clientId: "Enter_the_Application_Id_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>      redirectUri: "Enter_the_Redirect_Uri_Here",
+>    },
+>    cache: {
+>      cacheLocation: "sessionStorage", // This configures where your cache will be stored
+>      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+>      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
+>    }
+>  };  
+> ```
 
-> [!div class="sxs-lookup" renderon="portal"]
-> Nella cartella *JavaScriptSPA* modificare *index.html*e sostituire `msalConfig` con il codice seguente:
-
-```javascript
-var msalConfig = {
-    auth: {
-        clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
-        redirectUri: "http://localhost:30662/"
-    },
-    cache: {
-        cacheLocation: "localStorage",
-        storeAuthStateInCookie: true
-    }
-};
-
-```
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.
-
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 >
 > Dove:
-> - *\<Enter_the_Application_Id_here>* è il valore di **ID applicazione (client)** dell'applicazione registrata.
+> - *\<Enter_the_Application_Id_Here>* è il valore di **ID applicazione (client)** dell'applicazione registrata.
+> - *\<Enter_the_Cloud_Instance_Id_Here>* è l'istanza del cloud di Azure. Per il cloud di Azure principale o globale è sufficiente immettere *https://login.microsoftonline.com* . Per i cloud **nazionali** (ad esempio, Cina), vedere [Cloud nazionali](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
 > - Il valore *\<Enter_the_Tenant_info_here>* deve essere impostato su una delle opzioni seguenti:
 >    - Se l'applicazione supporta *Account solo in questa directory organizzativa*, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, *contoso.microsoft.com*).
 >    - Se l'applicazione supporta *Account in qualsiasi directory organizzativa*, sostituire questo valore con **organizations**.
@@ -114,23 +119,23 @@ var msalConfig = {
 > > [!TIP]
 > > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
 >
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
+> Il progetto è stato configurato con i valori delle proprietà dell'app. 
 
-#### <a name="step-4-run-the-project"></a>Passaggio 4: Eseguire il progetto
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>Passaggio 4: Eseguire il progetto
 
-* Se si usa [Node.js](https://nodejs.org/en/download/):
+Eseguire il progetto con un server Web usando [Node.js](https://nodejs.org/en/download/):
 
-    1. Per avviare il server, eseguire il comando seguente nella directory del progetto:
+1. Per avviare il server, eseguire il comando seguente nella directory del progetto:
+    ```batch
+    npm install
+    npm start
+    ```
+1. Aprire un Web browser e passare a `http://localhost:3000/`.
 
-        ```batch
-        npm install
-        node server.js
-        ```
-
-    1. Aprire un Web browser e passare a `http://localhost:30662/`.
-    1. Fare clic su **Accedi** per effettuare l'accesso e chiamare quindi l'API Microsoft Graph.
-
-
-* Se si usa [Visual Studio](https://visualstudio.microsoft.com/downloads/), selezionare la soluzione del progetto e premere F5 per eseguire il progetto.
+1. Fare clic su **Accedi** per effettuare l'accesso e chiamare quindi l'API Microsoft Graph.
 
 Dopo che il browser ha caricato l'applicazione, fare clic su **Accedi**. Al primo accesso viene chiesto di concedere il proprio consenso per consentire all'applicazione di accedere al profilo e completare la procedura di accesso. Dopo aver effettuato l'accesso, nella pagina devono essere visualizzate le informazioni del profilo utente.
 
@@ -145,7 +150,7 @@ Dopo che il browser ha caricato l'applicazione, fare clic su **Accedi**. Al prim
 Con la libreria MSAL è possibile concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. Il file *index.html* dell'argomento di avvio rapido contiene un riferimento alla libreria:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
+<script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
 ```
 > [!TIP]
 > È possibile sostituire la versione precedente con l'ultima versione rilasciata disponibile nella pagina delle [versioni di MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
@@ -162,26 +167,28 @@ npm install msal
 Il codice di avvio rapido illustra anche come inizializzare la libreria MSAL:
 
 ```javascript
-var msalConfig = {
+  // Config object to be passed to Msal on creation
+  const msalConfig = {
     auth: {
-        clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        redirectUri: "http://localhost:30662/"
+      clientId: "75d84e7a-40bx-f0a2-91b9-0c82d4c556aa", // this is a fake id
+      authority: "https://login.microsoftonline.com/common",
+      redirectUri: "http://localhost:3000/",
     },
     cache: {
-        cacheLocation: "localStorage",
-        storeAuthStateInCookie: true
+      cacheLocation: "sessionStorage", // This configures where your cache will be stored
+      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
     }
-};
+  };  
 
-var myMSALObj = new Msal.UserAgentApplication(msalConfig);
+const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
 > |Where  |  |
 > |---------|---------|
 > |`clientId`     | ID dell'applicazione registrata nel portale di Azure.|
 > |`authority`    | (Facoltativo) URL dell'autorità che supporta i tipi di account, come descritto nella sezione di configurazione precedente. L'autorità predefinita è `https://login.microsoftonline.com/common`. |
-> |`redirectUri`     | L'oggetto reply/redirectUri della registrazione dell'applicazione configurato. In questo caso, `http://localhost:30662/`. |
+> |`redirectUri`     | L'oggetto reply/redirectUri della registrazione dell'applicazione configurato. In questo caso, `http://localhost:3000/`. |
 > |`cacheLocation`  | (Facoltativo) Valore che consente di impostare l'archiviazione del browser per lo stato di autenticazione. L'impostazione predefinita è sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Facoltativo) Libreria che archivia lo stato della richiesta di autenticazione necessario per la convalida dei flussi di autenticazione nei cookie del browser. Questo cookie viene impostato per i browser Internet Explorer ed Edge per attenuare alcuni [problemi noti](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
@@ -192,11 +199,13 @@ Per altre informazioni sulle opzioni configurabili disponibili, vedere [Iniziali
 Il frammento di codice seguente illustra come consentire l'accesso degli utenti:
 
 ```javascript
-var requestObj = {
-    scopes: ["user.read"]
+// Add scopes for the id token to be used at Microsoft identity platform endpoints.
+const loginRequest = {
+    scopes: ["openid", "profile", "User.Read"],
 };
 
-myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
+myMSALObj.loginPopup(loginRequest)
+    .then((loginResponse) => {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -219,21 +228,23 @@ In MSAL sono disponibili tre metodi per acquisire i token: `acquireTokenRedirect
 Il metodo `acquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token senza alcuna interazione da parte dell'utente. Dopo aver eseguito il metodo `loginRedirect` o `loginPopup` la prima volta, per le chiamate successive il metodo comunemente usato per ottenere i token usati per accedere a risorse protette è `acquireTokenSilent`. Le chiamate per richiedere o rinnovare i token vengono eseguite in modo invisibile per l'utente.
 
 ```javascript
-var requestObj = {
-    scopes: ["user.read"]
+// Add scopes for the access token to be used at Microsoft Graph API endpoints.
+const tokenRequest = {
+    scopes: ["Mail.Read"]
 };
 
-myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
-    // Callback code here
-    console.log(tokenResponse.accessToken);
-}).catch(function (error) {
-    console.log(error);
-});
+myMSALObj.acquireTokenSilent(tokenRequest)
+    .then((tokenResponse) => {
+        // Callback code here
+        console.log(tokenResponse.accessToken);
+    }).catch((error) => {
+        console.log(error);
+    });
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | Contiene gli ambiti da restituire nel token di accesso per l'API, ad esempio: `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate, ovvero `api://<Application ID>/access_as_user`.|
+> | `scopes`   | Contiene gli ambiti da restituire nel token di accesso per l'API, ad esempio: `[ "mail.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate, ovvero `api://<Application ID>/access_as_user`.|
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
@@ -247,16 +258,18 @@ Per la maggior parte delle applicazioni, l'approccio consigliato è quello di ch
 Se si chiama `acquireTokenPopup`, viene visualizzata una finestra popup di accesso, mentre con `acquireTokenRedirect` gli utenti vengono reindirizzati all'endpoint di Microsoft Identity Platform. Nella finestra popup gli utenti devono interagire confermando le proprie credenziali, concedendo il consenso per la risorsa necessaria o completando l'autenticazione a due fattori.
 
 ```javascript
-var requestObj = {
-    scopes: ["user.read"]
+// Add here scopes for access token to be used at MS Graph API endpoints.
+const tokenRequest = {
+    scopes: ["Mail.Read"]
 };
 
-myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
-    // Callback code here
-    console.log(tokenResponse.accessToken);
-}).catch(function (error) {
-    console.log(error);
-});
+myMSALObj.acquireTokenPopup(requestObj)
+    .then((tokenResponse) => {
+        // Callback code here
+        console.log(tokenResponse.accessToken);
+    }).catch((error) => {
+        console.log(error);
+    });
 ```
 
 > [!NOTE]

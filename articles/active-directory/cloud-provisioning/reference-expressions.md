@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d250377e15b957c10322dbba9ca587dd58944ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794977"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298616"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning cloud, come mapping degli attributi è possibile specificare il mapping di espressioni. 
@@ -34,12 +34,12 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 * È possibile passare tre tipi diversi di argomenti nelle funzioni:
   
   1. Attributi, che devono essere racchiusi tra parentesi quadre. Ad esempio: [NomeAttributo]
-  2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio:  "Stati Uniti"
-  3. Altre funzioni. Ad esempio:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio:  "Nome società: \\"Contoso\\""
+  2. Costanti di stringa, che devono essere racchiuse tra virgolette doppie. Ad esempio: "Stati Uniti"
+  3. Altre funzioni. Ad esempio: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "Nome società: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
-| Elenco di funzioni | DESCRIZIONE |
+| Elenco di funzioni | Descrizione |
 |-----|----|
 |[Append](#append)|Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.|
 |[BitAnd](#bitand)|La funzione BitAnd imposta i bit specificati su un valore.|
@@ -87,10 +87,10 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-   | **suffix** |Obbligatoria |string |Stringa da aggiungere alla fine del valore di origine. |
+   | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+   | **suffix** |Obbligatorio |string |Stringa da aggiungere alla fine del valore di origine. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -102,7 +102,7 @@ La funzione BitAnd imposta i bit specificati su un valore.
 
 * value1, value2: valori numerici da unire con AND
 
-**Osservazioni:**  
+**Note:**  
 Questa funzione converte entrambi i parametri nella rappresentazione binaria e imposta un bit su:
 
 * 0: se il valore di uno o entrambi i bit corrispondenti in *value1* e *value2* è 0
@@ -124,7 +124,7 @@ La funzione CBool restituisce un valore booleano basato sull'espressione valutat
 **Sintassi:**  
 `bool CBool(exp Expression)`
 
-**Osservazioni:**  
+**Note:**  
 Se l'espressione restituisce un valore diverso da zero, CBool restituisce True. In caso contrario, restituisce False.
 
 **Esempio:**  
@@ -171,7 +171,7 @@ La funzione ConvertToUTF8Hex converte una stringa in un valore con codifica esad
 **Sintassi:**  
 `str ConvertToUTF8Hex(str source)`
 
-**Osservazioni:**  
+**Note:**  
 Il formato di output di questa funzione viene usato da Azure Active Directory come formato dell'attributo DN.
 
 **Esempio:**  
@@ -231,7 +231,7 @@ La funzione DNComponent restituisce il valore di un componente DN specificato, a
 Se dn è "cn=Joe,ou=…," verrà restituito Joe
 
 ---
-### <a name="error"></a>Tipi di errore
+### <a name="error"></a>Errore
 **Descrizione:**  
 La funzione Error viene usata per restituire un errore personalizzato.
 
@@ -250,11 +250,11 @@ Se l'attributo accountName non è presente, viene generato un errore nell'oggett
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-   | **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-   | **outputFormat** |Obbligatoria |string |Formato della data di output. |
+   | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+   | **inputFormat** |Obbligatorio |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **outputFormat** |Obbligatorio |string |Formato della data di output. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -296,7 +296,7 @@ La funzione InStr trova la prima occorrenza di una sottostringa in una stringa.
 * start: posizione iniziale per la ricerca della sottostringa
 * compare: vbTextCompare o vbBinaryCompare
 
-**Osservazioni:**  
+**Note:**  
 Restituisce la posizione in cui è stata trovata la sottostringa o 0 se non viene trovata.
 
 **Esempio:**  
@@ -314,7 +314,7 @@ Se l'espressione restituisce Null, la funzione IsNull restituisce True.
 **Sintassi:**  
 `bool IsNull(var Expression)`
 
-**Osservazioni:**  
+**Note:**  
 Per un attributo, Null è espresso dall'assenza dell'attributo.
 
 **Esempio:**  
@@ -329,7 +329,7 @@ Se l'espressione è Null o una stringa vuota, la funzione IsNullOrEmpty restitui
 **Sintassi:**  
 `bool IsNullOrEmpty(var Expression)`
 
-**Osservazioni:**  
+**Note:**  
 Per un attributo, verrà restituito True se l'attributo è assente oppure se è presente, ma è una stringa vuota.  
 La funzione inversa di questa funzione è denominata IsPresent.
 
@@ -345,7 +345,7 @@ Se l'espressione restituisce una stringa non Null e non vuota, la funzione IsPre
 **Sintassi:**  
 `bool IsPresent(var expression)`
 
-**Osservazioni:**  
+**Note:**  
 La funzione inversa di questa funzione è denominata IsNullOrEmpty.
 
 **Esempio:**  
@@ -362,7 +362,7 @@ La funzione Item restituisce un elemento da una stringa o un attributo multivalo
 * attribute: attributo multivalore
 * index: indice di un elemento nella stringa multivalore.
 
-**Osservazioni:**  
+**Note:**  
 La funzione Item usata con la funzione Contains è utile, perché quest'ultima restituisce l'indice di un elemento nell'attributo multivalore.
 
 Genera un errore se l'indice non è compreso nell'intervallo.
@@ -379,7 +379,7 @@ Se l'espressione può essere valutata come tipo stringa, la funzione IsString re
 **Sintassi:**  
 `bool IsString(var expression)`
 
-**Osservazioni:**  
+**Note:**  
 Usata per determinare se CStr() riuscirà ad analizzare l'espressione.
 
 ---
@@ -392,9 +392,9 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **separator** |Obbligatoria |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
+   | **separator** |Obbligatorio |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
    | **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
 
 ---
@@ -408,7 +408,7 @@ La funzione Left restituisce un numero di caratteri specificato a partire da sin
 * string: stringa dalla quale restituire i caratteri
 * NumChars: numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa
 
-**Osservazioni:**  
+**Note:**  
 Una stringa contenente i primi caratteri numChars della stringa:
 
 * Se numChars = 0, restituisce una stringa vuota.
@@ -429,11 +429,11 @@ Restituisce `Joh`.
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string |Corrisponde in genere al nome dell'attributo. |
-   | **start** |Obbligatoria |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-   | **length** |Obbligatoria |numero intero |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
+   | **source** |Obbligatorio |string |Corrisponde in genere al nome dell'attributo. |
+   | **start** |Obbligatorio |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+   | **length** |Obbligatorio |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -443,21 +443,21 @@ Restituisce `Joh`.
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string | In genere un attributo nome o cognome. |
+   | **source** |Obbligatorio |string | In genere un attributo nome o cognome. |
 
 ---
-### <a name="not"></a>not
+### <a name="not"></a>Not
 **Funzione:**<br> Not(source)
 
 **Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore di **source** è "*True*", restituisce "*False*". In caso contrario, restituisce "*True*".
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+   | **source** |Obbligatorio |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
@@ -497,9 +497,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto **source**. |
+   | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto **source**. |
    | **oldValue** |Facoltativo |string |Valore da sostituire in **source** o **template**. |
    | **regexPattern** |Facoltativo |string |Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa **replacementPropertyName**, corrisponde al modello usato per estrarre il valore da **replacementPropertyName**. |
    | **regexGroupName** |Facoltativo |string |Nome del gruppo in **regexPattern**. Solo se si usa **replacementPropertyName**, il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
@@ -522,7 +522,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
    | **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |string | Elenco delle regole di generazione di valori univoci da valutare. |
 
@@ -535,9 +535,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-  | NOME | Obbligatorio/Ripetuto | Type | Note |
+  | Nome | Obbligatorio/Ripetuto | Tipo | Note |
   |--- | --- | --- | --- |
-  | **[appRoleAssignments]** |Obbligatoria |string |Oggetto **[appRoleAssignments]** . |
+  | **[appRoleAssignments]** |Obbligatorio |string |Oggetto **[appRoleAssignments]** . |
 
 ---
 ### <a name="split"></a>Split
@@ -547,10 +547,10 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string |**source** da aggiornare. |
-   | **delimiter** |Obbligatoria |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
+   | **source** |Obbligatorio |string |**source** da aggiornare. |
+   | **delimiter** |Obbligatorio |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -568,24 +568,24 @@ La funzione StringFromSid converte una matrice di byte contenente un ID di sicur
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string |**source** da aggiornare. |
+   | **source** |Obbligatorio |string |**source** da aggiornare. |
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Opzione
 **Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string |**Source** da aggiornare. |
+   | **source** |Obbligatorio |string |Valore **source** da controllare. |
    | **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-   | **key** |Obbligatoria |string |Parametro **key** con cui confrontare il valore di **source**. |
-   | **value** |Obbligatoria |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+   | **key** |Obbligatorio |string |Parametro **key** con cui confrontare il valore di **source**. |
+   | **value** |Obbligatorio |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -595,9 +595,9 @@ La funzione StringFromSid converte una matrice di byte contenente un ID di sicur
 
 **Parametri:**<br> 
 
-   | NOME | Obbligatorio/Ripetuto | Type | Note |
+   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+   | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
    | **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
@@ -609,9 +609,9 @@ La funzione StringFromSid converte una matrice di byte contenente un ID di sicur
 
 **Parametri:**<br> 
 
-  | NOME | Obbligatorio/Ripetuto | Type | Note |
+  | Nome | Obbligatorio/Ripetuto | Tipo | Note |
   | --- | --- | --- | --- |
-  | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+  | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
   | **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
@@ -642,7 +642,7 @@ La funzione Word restituisce una parola contenuta in una stringa, in base ai par
 * WordNumber: numero che identifica il numero di parole da restituire.
 * delimiters: stringa che rappresenta uno o più delimitatori da usare per identificare le parole
 
-**Osservazioni:**  
+**Note:**  
 Ogni stringa di caratteri contenuta nella stringa con valori separati da uno dei caratteri specificati nei delimitatori viene identificata come una parola:
 
 * Se number è < 1, restituisce una stringa vuota.

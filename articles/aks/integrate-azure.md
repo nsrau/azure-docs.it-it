@@ -5,18 +5,18 @@ author: zr-msft
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 8d727256afbe152a4f7022d0fd2454c4677b023c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2eddedea7d626a92e21442c81aa49e00491958a1
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595604"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273028"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrazione con i servizi gestiti di Azure usando Open Service Broker for Azure (OSBA)
 
 Insieme al [catalogo di servizi di Kubernetes][kubernetes-service-catalog], Open Service Broker for Azure (OSBA) consente agli sviluppatori di usare i servizi gestiti di Azure in Kubernetes. Questa guida descrive la distribuzione del catalogo di servizi di Kubernetes, di Open Service Broker for Azure (OSBA) e delle applicazioni che usano i servizi gestiti di Azure con Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure.
 
 * Interfaccia della riga di comando di Azure: [installarla localmente][azure-cli-install] o usarla in [Azure Cloud Shell][azure-cloud-shell].
@@ -29,39 +29,43 @@ Insieme al [catalogo di servizi di Kubernetes][kubernetes-service-catalog], Open
 
 ## <a name="install-service-catalog"></a>Installare il catalogo di servizi
 
-Il primo passaggio consiste nell'installare il catalogo di servizi nel cluster di Kubernetes usando un grafico Helm. Aggiornare l'installazione di Tiller (server Helm) nel cluster con:
+Il primo passaggio consiste nell'installare il catalogo di servizi nel cluster di Kubernetes usando un grafico Helm.
 
-```azurecli-interactive
+Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Cloud Shell nel browser.
+
+Aggiornare l'installazione di Tiller (server Helm) nel cluster con:
+
+```console
 helm init --upgrade
 ```
 
 A questo punto aggiungere il grafico del catalogo di servizi al repository Helm:
 
-```azurecli-interactive
+```console
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
 Infine installare il catalogo di servizi con il grafico Helm. Se il cluster dispone dell'abilitazione RBAC, eseguire questo comando.
 
-```azurecli-interactive
+```console
 helm install svc-cat/catalog --name catalog --namespace catalog --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 Se il cluster non dispone dell'abilitazione RBAC, eseguire questo comando.
 
-```azurecli-interactive
+```console
 helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 Dopo l'esecuzione del grafico Helm verificare che `servicecatalog` venga visualizzato nell'output del comando seguente:
 
-```azurecli-interactive
+```console
 kubectl get apiservice
 ```
 
 Ad esempio, l'output dovrebbe essere simile al seguente (troncato):
 
-```
+```output
 NAME                                 AGE
 v1.                                  10m
 v1.authentication.k8s.io             10m
@@ -76,7 +80,7 @@ Il passaggio successivo consiste nell'installare [Open Service Broker for Azure]
 
 Iniziare aggiungendo Open Service Broker per il repository Helm di Azure:
 
-```azurecli-interactive
+```console
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
@@ -88,7 +92,7 @@ az ad sp create-for-rbac
 
 L'output dovrebbe essere simile al seguente: Annotare i valori `appId`, `password` e `tenant` che verranno usati nel passaggio successivo.
 
-```JSON
+```json
 {
   "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
   "displayName": "azure-cli-2017-10-15-02-20-15",
@@ -100,7 +104,7 @@ L'output dovrebbe essere simile al seguente: Annotare i valori `appId`, `passwor
 
 Impostare le variabili di ambiente seguenti con i valori precedenti:
 
-```azurecli-interactive
+```console
 AZURE_CLIENT_ID=<appId>
 AZURE_CLIENT_SECRET=<password>
 AZURE_TENANT_ID=<tenant>
@@ -114,7 +118,7 @@ az account show --query id --output tsv
 
 Impostare nuovamente la variabile di ambiente seguente con il valore precedente:
 
-```azurecli-interactive
+```console
 AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
 ```
 
@@ -132,20 +136,20 @@ Una volta completata la distribuzione di Open Service Broker for Azure installar
 
 Eseguire i comandi seguenti per installare il binario dell'interfaccia della riga di comando del catalogo di servizi:
 
-```azurecli-interactive
+```console
 curl -sLO https://servicecatalogcli.blob.core.windows.net/cli/latest/$(uname -s)/$(uname -m)/svcat
 chmod +x ./svcat
 ```
 
 A questo punto elencare i Service Broker installati:
 
-```azurecli-interactive
+```console
 ./svcat get brokers
 ```
 
 L'output dovrebbe essere simile al seguente:
 
-```
+```output
   NAME                               URL                                STATUS
 +------+--------------------------------------------------------------+--------+
   osba   http://osba-open-service-broker-azure.osba.svc.cluster.local   Ready
@@ -153,13 +157,13 @@ L'output dovrebbe essere simile al seguente:
 
 Successivamente elencare le classi di servizio disponibili. Le classi di servizio visualizzate sono i servizi gestiti di Azure disponibili che possono essere sottoposti a provisioning tramite Open Service Broker for Azure.
 
-```azurecli-interactive
+```console
 ./svcat get classes
 ```
 
 Infine elencare tutti i piani di servizio disponibili. I piani di servizio sono i livelli di servizio dei servizi gestiti di Azure. Ad esempio, per il Database di Azure per MySQL, i piani vanno da `basic50` per il livello Basic con 50 unità di transazione database (DTU), a `standard800` per il livello Standard con 800 DTU.
 
-```azurecli-interactive
+```console
 ./svcat get plans
 ```
 
@@ -167,20 +171,20 @@ Infine elencare tutti i piani di servizio disponibili. I piani di servizio sono 
 
 In questo passaggio usare Helm per installare un grafico Helm aggiornato per WordPress. Il grafico esegue il provisioning di un'istanza del Database di Azure per MySQL che WordPress può usare. Il processo potrebbe richiedere alcuni minuti.
 
-```azurecli-interactive
+```console
 helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 Per verificare che l'installazione abbia eseguito il provisioning delle risorse corrette elencare le istanze e i collegamenti del servizio installato:
 
-```azurecli-interactive
+```console
 ./svcat get instances -n wordpress
 ./svcat get bindings -n wordpress
 ```
 
 Elencare i segreti installati:
 
-```azurecli-interactive
+```console
 kubectl get secrets -n wordpress -o yaml
 ```
 

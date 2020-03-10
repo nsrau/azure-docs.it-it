@@ -11,18 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 86401e0a827d1941b2d183d8c17371ba915c81ae
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e78477b9c046bbdbcb67a3ff1a5420c0808a748e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063697"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274311"
 ---
-# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Avvio rapido: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
+# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guida introduttiva: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
-Questo avvio rapido contiene un esempio di codice che illustra come un'applicazione UWP (Universal Windows Platform) può consentire l'accesso a utenti con account personali, aziendali o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph.
-
-![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-uwp/uwp-intro.svg)
+Questo avvio rapido contiene un esempio di codice che illustra come un'applicazione UWP (Universal Windows Platform) può consentire l'accesso a utenti con account personali, aziendali o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
@@ -64,22 +62,32 @@ Questo avvio rapido contiene un esempio di codice che illustra come un'applicazi
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passaggio 2: Scaricare il progetto di Visual Studio
 
- - [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+> [!div renderon="docs"]
+> [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
+> [!div class="sxs-lookup" renderon="portal"]
+> Eseguire il progetto con Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Scaricare il codice di esempio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
-1. Aprire il progetto in Visual Studio. È possibile che venga chiesto di installare UWP SDK. In tal caso, accettare.
-1. Modificare **MainPage.Xaml.cs** e sostituire il valore del campo `ClientId`:
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
+> Il progetto è stato configurato con i valori delle proprietà dell'app ed è pronto per essere eseguito. 
 
-    ```csharp
-    private const string ClientId = "Enter_the_Application_Id_here";
-    ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.    
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
+> 
+> 1. Estrarre il file ZIP in una cartella locale vicina alla radice del disco, ad esempio **C:\Azure-Samples**.
+> 1. Aprire il progetto in Visual Studio. È possibile che venga chiesto di installare UWP SDK. In tal caso, accettare.
+> 1. Modificare **MainPage.Xaml.cs** e sostituire il valore del campo `ClientId`:
+>
+>    ```csharp
+>    private const string ClientId = "Enter_the_Application_Id_here";
+>    ```
 > Dove:
 > - `Enter_the_Application_Id_here` è l'ID applicazione dell'applicazione registrata.
 >
@@ -90,13 +98,15 @@ Questo avvio rapido contiene un esempio di codice che illustra come un'applicazi
 
 Se si vuole provare l'avvio rapido sul computer Windows:
 
-1. Sulla barra degli strumenti di Visual Studio scegliere la piattaforma corretta (probabilmente **x64** oppure **x86**, non ARM).
-   > Osservare che l'impostazione relativa al dispositivo di destinazione passa da *Dispositivo* a *Computer locale*
+1. Sulla barra degli strumenti di Visual Studio scegliere la piattaforma corretta (probabilmente **x64** oppure **x86**, non ARM). Osservare che l'impostazione relativa al dispositivo di destinazione passa da *Dispositivo* a *Computer locale*
 1. Selezionare Debug | **Avvia senza eseguire debug**
 
 ## <a name="more-information"></a>Ulteriori informazioni
 
 Questa sezione contiene altre informazioni sulla guida introduttiva.
+
+### <a name="how-the-sample-works"></a>Funzionamento dell'esempio
+![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 

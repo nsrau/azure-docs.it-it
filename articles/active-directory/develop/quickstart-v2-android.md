@@ -11,23 +11,22 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: bbaaf4b26beec56cd8608abc8a2f9cdd3a4cda3f
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: a184b035e3296f82ecdacf74a99ea7148d99bd49
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084536"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271108"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
-In questo avvio rapido si usa un esempio di codice per illustrare in che modo un'applicazione Android può accedere ad account personali, aziendali o dell'istituto di istruzione mediante Microsoft Identity Platform, ottenere un token di accesso e chiamare l'API Microsoft Graph.
+In questo avvio rapido si usa un esempio di codice per illustrare in che modo un'applicazione Android può accedere ad account personali, aziendali o dell'istituto di istruzione mediante Microsoft Identity Platform, ottenere un token di accesso e chiamare l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
-Le applicazioni devono essere rappresentate da un oggetto app in Azure Active Directory in modo che Microsoft Identity Platform possa condividere i token con l'applicazione.
+Le applicazioni devono essere rappresentate da un oggetto app in Azure Active Directory in modo che Microsoft Identity Platform possa fornire i token all'applicazione.
 
 > [!div renderon="docs"]
 > Per praticità, l'esempio di codice include un oggetto `redirect_uri` predefinito preconfigurato nel file di `AndroidManifest.xml`, in modo da non dover prima registrare il proprio oggetto app. Un oggetto `redirect_uri` è parzialmente basato sulla chiave di firma dell'app. Il progetto di esempio è preconfigurato con una chiave di firma in modo da consentire l'utilizzo corretto dell'oggetto `redirect_uri` fornito. Per altre informazioni sulla registrazione di un oggetto app e sull'integrazione con l'applicazione, vedere l'esercitazione [Accesso utenti e chiamata di Microsoft Graph da un'app Android](tutorial-v2-android.md).
 
-![Screenshot dell'app di esempio](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Prerequisiti**
@@ -44,73 +43,14 @@ Le applicazioni devono essere rappresentate da un oggetto app in Azure Active Di
 > > ![Già configurata](media/quickstart-v2-android/green-check.png) L'applicazione è configurata con questi attributi
 >
 > ### <a name="step-2-download-the-project"></a>Passaggio 2: Scaricare il progetto 
-> * [Scaricare il codice di esempio](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
+> [!div class="sxs-lookup" renderon="portal"]
+> Eseguire il progetto con Android Studio.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Scaricare il codice di esempio](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
-> ### <a name="step-3-configure-your-project"></a>Passaggio 3: Configurare il progetto
-> 1. Estrarre e aprire il progetto in Android Studio.
-> 2. In **app** > **src** > **main** > **res** > **raw**, aprire **auth_config_multiple_account.json** e sostituirlo con il codice seguente:
-> ```javascript 
-> {
->   "client_id" : "Enter_the_Application_Id_Here",
->   "authorization_user_agent" : "DEFAULT",
->   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->   "account_mode" : "MULTIPLE",
->   "broker_redirect_uri_registered": true,
->   "authorities" : [
->     {
->       "type": "AAD",
->       "audience": {
->         "type": "Enter_the_Audience_Info_Here",
->         "tenant_id": "Enter_the_Tenant_Info_Here"
->       }
->     }
->   ]
-> }
-> ```
-
 > [!div class="sxs-lookup" renderon="portal"]
-> 3. In **app** > **src** > **main** > **res** > **raw**, aprire **auth_config_single_account.json** e sostituirlo con il codice seguente:
-> ```javascript 
-> {
->   "client_id" : "Enter_the_Application_Id_Here",
->   "authorization_user_agent" : "DEFAULT",
->   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->   "account_mode" : "SINGLE",
->   "broker_redirect_uri_registered": true,
->   "authorities" : [
->     {
->       "type": "AAD",
->       "audience": {
->         "type": "Enter_the_Audience_Info_Here",
->         "tenant_id": "Enter_the_Tenant_Info_Here"
->       }
->     }
->   ]
-> }
-> ```
-
-> [!div class="sxs-lookup" renderon="portal"]
-> 4. In **app** > **src** > **main**, aprire **AndroidManifest.xml**.
-> 5. Nel nodo **manifest\application** sostituire il nodo **activity android:name="com.microsoft.identity.client.BrowserTabActivity"** con:    
-> ```xml
-> <!--Intent filter to catch Microsoft's callback after Sign In-->
-> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
->     <intent-filter>
->         <action android:name="android.intent.action.VIEW" />
->         <category android:name="android.intent.category.DEFAULT" />
->         <category android:name="android.intent.category.BROWSABLE" />
->         <!--
->             Add in your scheme/host from registered redirect URI 
->             note that the leading "/" is required for android:path
->         -->
->         <data 
->             android:host="Enter_the_Package_Name"
->             android:path="/Enter_the_Signature_Hash"
->             android:scheme= "msauth" />
->     </intent-filter>
-> </activity>
-> ```
-> 6. Eseguire l'app.   
+> ### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passaggio 3: L'app è configurata e pronta per l'esecuzione
+> Il progetto è stato configurato con i valori delle proprietà dell'app ed è pronto per essere eseguito. 
 > L'app di esempio viene avviata nella schermata **Single Account Mode** (Modalità per account singolo). Per impostazione predefinita, viene fornito un ambito predefinito, **user.read**, che viene usato durante la lettura dei dati del profilo durante la chiamata all'API Microsoft Graph. L'URL per la chiamata all'API Microsoft Graph viene fornito per impostazione predefinita. Se si desidera, è possibile modificarli entrambi.
 >
 > ![App di esempio MSAL che illustra l'utilizzo di account singoli o multipli](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -126,7 +66,7 @@ Le applicazioni devono essere rappresentate da un oggetto app in Azure Active Di
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 > ## <a name="step-1-get-the-sample-app"></a>Passaggio 1: Ottenere l'app di esempio
@@ -151,6 +91,8 @@ Le applicazioni devono essere rappresentate da un oggetto app in Azure Active Di
 > Nella modalità per account multipli è possibile ripetere gli stessi passaggi.  È anche possibile rimuovere l'account di accesso e di conseguenza rimuovere i token memorizzati nella cache per tale account.
 
 ## <a name="how-the-sample-works"></a>Funzionamento dell'esempio
+![Screenshot dell'app di esempio](media/quickstart-v2-android/android-intro.svg)
+
 
 Il codice è organizzato in frammenti in cui viene illustrato come scrivere un'app MSAL per account singolo e account multipli. I file di codice sono organizzati come indicato di seguito:
 
@@ -171,7 +113,7 @@ I file verranno ora esaminati in modo più dettagliato e verrà richiamato il co
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. Gradle 3.0+ installa la libreria quando si aggiunge quanto segue in **Gradle Scripts** > **build.gradle (Module: app)** in **Dependencies**:
 
 ```gradle  
-implementation 'com.microsoft.identity.client:msal:1.0.0'
+implementation 'com.microsoft.identity.client:msal:1.+'
 ```
 
 È possibile verificarlo nel progetto di esempio in build.gradle (Module: app):
@@ -179,7 +121,7 @@ implementation 'com.microsoft.identity.client:msal:1.0.0'
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:1.+'
     ...
 }
 ```

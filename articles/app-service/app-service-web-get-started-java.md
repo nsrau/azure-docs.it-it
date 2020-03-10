@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 3cf759294a31fcf90c5a3f4a6cdc68e3c35882e0
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1929e78b1787e4e5d50908fd3cfc0292de8ea92b
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425368"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226357"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Avvio rapido: Creare un'app Java in Servizio app di Azure in Windows
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Guida introduttiva: Creare un'app Java in Servizio app di Azure in Windows
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app Web Java in Linux](./containers/quickstart-java.md).
@@ -119,9 +119,20 @@ Al termine della distribuzione, passare all'applicazione distribuita usando l'UR
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+> [!div class="nextstepaction"]
+> [Connettersi al database SQL di Azure con Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Connettersi al database SQL di Azure per MySQL con Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+
+> [!div class="nextstepaction"]
+> [Connettersi al database SQL di Azure per PostgreSQL con Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
 > [Risorse Azure per sviluppatori Java](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Eseguire il mapping di un dominio personalizzato](app-service-web-tutorial-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Altre informazioni sui plug-in Maven per Azure](https://github.com/microsoft/azure-maven-plugins)

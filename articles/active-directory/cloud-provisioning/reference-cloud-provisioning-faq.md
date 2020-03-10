@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020761"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916575"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -71,6 +71,14 @@ No, il provisioning cloud non supporta il writeback di ms-ds-consistencyGUID per
 **D: Dopo aver effettuato il provisioning degli utenti con il provisioning cloud, si elimina la configurazione. Perché è ancora possibile vedere gli oggetti sincronizzati precedenti in Azure AD?** 
 
 Quando si elimina la configurazione, il provisioning cloud non pulisce gli oggetti sincronizzati in Azure AD. Per assicurarsi che non siano presenti oggetti obsoleti, cambiare l'ambito della configurazione impostandolo su un gruppo o su unità organizzative vuote. Dopo l'effettuazione del provisioning e la pulizia degli oggetti, disabilitare ed eliminare la configurazione. 
+
+**D:  Cosa significa che la distribuzione ibrida di Exchange non è supportata?**
+
+La funzionalità Distribuzione ibrida di Exchange consente la coesistenza di cassette postali di Exchange in locale e in Office 365. Azure AD Connect sincronizza un set specifico di attributi da Azure AD alla directory locale.  L'agente di provisioning cloud non sincronizza attualmente questi attributi nella directory locale e quindi non può essere usato in sostituzione di Azure AD Connect.
+
+**D:  È possibile installare l'agente di provisioning cloud in Windows Server Core?**
+
+No, l'installazione dell'agente in Server Core non è supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

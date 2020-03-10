@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0bd53b72c334b35daea0864acf61cc432c272ae
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442123"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298820"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Creare un progetto pilota per il provisioning cloud di una foresta di AD sincronizzata esistente 
 
@@ -31,11 +31,11 @@ Prima di provare questa esercitazione, considerare quanto segue:
 3. Verificare che gli oggetti nell'ambito del progetto pilota abbiano il valore ms-ds-consistencyGUID popolato, in modo che corrispondano a livello hardware con il provisioning cloud. 
 
    > [!NOTE]
-   > Il servizio di sincronizzazione di Azure AD Connect non popola *ms-ds-consistencyGUID* per impostazione predefinita. Seguire i passaggi descritti in [questo post di blog](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) per popolare *ms-ds-consistencyGUID* per gli oggetti gruppo.
+   > Il servizio di sincronizzazione di Azure AD Connect non popola *ms-ds-consistencyGUID* per impostazione predefinita.
 
 4. Si tratta di uno scenario avanzato. Assicurarsi di seguire esattamente i passaggi descritti in questa esercitazione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione sono necessari i requisiti seguenti
 - Un ambiente di test con il servizio di sincronizzazione di Azure AD Connect versione 1.4.32.0 o successiva
 - Un'unità organizzativa o un gruppo incluso nell'ambito di sincronizzazione e che è possibile usare nel progetto pilota. È consigliabile iniziare con un piccolo set di oggetti.
@@ -119,7 +119,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
 1. Accedere al server che si userà con le autorizzazioni di amministratore dell'organizzazione.  Se si usa l'esercitazione [Ambiente di AD e Azure di base](tutorial-basic-ad-azure.md), sarà CP1.
-2. Scaricare l'agente di provisioning cloud di Azure AD Connect [qui](https://go.microsoft.com/fwlink/?linkid=2109037).
+2. Scaricare l'agente di provisioning cloud di Azure AD Connect usando la procedura descritta [qui](how-to-install.md#install-the-agent).
 3. Eseguire il provisioning cloud di Azure AD Connect (AADConnectProvisioningAgent.Installer)
 3. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.</br>
 ![Schermata iniziale](media/how-to-install/install1.png)</br>

@@ -4,12 +4,12 @@ description: Informazioni su come usare Ansible per la creazione e la configuraz
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 9cd574417733518b993bb242c2c168aba338e34a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603118"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247876"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Esercitazione: Configurare i database in Database di Azure per MySQL tramite Ansible
 
@@ -28,7 +28,7 @@ ms.locfileid: "77603118"
 > * Eseguire una query sui server MySQL disponibili
 > * Elencare tutti i database nei server connessi
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -157,9 +157,13 @@ ansible-playbook mysql_firewall.yml
 
 In questa sezione si usa Azure Cloud Shell per connettersi al server creato in precedenza.
 
-1. Selezionare il pulsante **Prova** nel codice seguente:
+1. Aprire shell.azure.com facendo clic sul pulsante in basso.
 
-    ```azurecli-interactive
+   [![Incorpora avvio](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
+
+1. Immettere il codice seguente:
+
+    ```sql
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     ```
 
@@ -171,7 +175,7 @@ In questa sezione si usa Azure Cloud Shell per connettersi al server creato in p
     
     Se il comando viene eseguito correttamente, viene visualizzato un output simile ai risultati seguenti:
     
-    ```
+    ```output
     demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.

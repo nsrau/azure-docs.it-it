@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app Java in Linux"
+title: "Guida introduttiva: Creare un'app Java in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Java in un contenitore Linux nel servizio app.
 keywords: azure, app service, Web app, linux, java, maven, avvio rapido
 author: msangapu-msft
@@ -8,14 +8,14 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f07c4d8b440216cb676484ae2f510b2736b7d17c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: faea0759f86e9d12530df6c647d903eacdade5c4
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443908"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228053"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Java in Servizio app di Azure in Linux
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Guida introduttiva: Creare un'app Java in Servizio app di Azure in Linux
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida di avvio rapido illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in di App Web di Azure per Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web (WAR) Java nel sistema operativo Linux.
 
@@ -136,6 +136,15 @@ az group delete --name <your resource group name; for example: helloworld-155840
 L'esecuzione del comando può richiedere un minuto.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Connettersi al database SQL di Azure con Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Connettersi al database SQL di Azure per MySQL con Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+
+> [!div class="nextstepaction"]
+> [Connettersi al database SQL di Azure per PostgreSQL con Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
 > [Configurare l'app Java](configure-custom-container.md)

@@ -145,10 +145,6 @@
             - name: Output
               displayName: 'iteration,copy'
               href: copy-outputs.md
-        - name: Risorse a livello di sottoscrizione
-          href: deploy-to-subscription.md
-        - name: Risorse a livello di gruppo di gestione
-          href: deploy-to-management-group.md
     - name: Usare gli strumenti di creazione
       items:
         - name: Visual Studio Code
@@ -182,7 +178,15 @@
           href: rollback-on-error.md
         - name: Proteggere il modello tramite token di firma di accesso condiviso
           href: secure-template-with-sas-token.md
-        - name: Eseguire la distribuzione in più gruppi di risorse o sottoscrizioni
+    - name: Distribuzioni con ambito
+      items:
+        - name: Subscription
+          href: deploy-to-subscription.md
+        - name: Gruppo di gestione
+          href: deploy-to-management-group.md
+        - name: Tenant
+          href: deploy-to-tenant.md
+        - name: Più gruppi di risorse o sottoscrizioni
           href: cross-resource-group-deployment.md
     - name: Specificare i parametri
       items:
