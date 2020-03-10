@@ -1,25 +1,18 @@
 ---
 title: Accedere a una VM Linux con Azure Active Directory credenziali
 description: Informazioni su come creare e configurare una macchina virtuale Linux per accedere usando l'autenticazione Azure Active Directory.
-services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: eb303ecb5657e9312445093841cfa6c501efda18
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544617"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944805"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -54,7 +47,7 @@ Durante l'anteprima di questa funzionalità sono attualmente supportate le distr
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
-| SUSE Linux Enterprise Server | SLES 12 |
+| SuSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 e Ubuntu Server 18.04 |
 
 
@@ -113,7 +106,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione è stata installata correttamente nella macchina virtuale.
+Il *provisioningState* di *succeeded* viene visualizzato dopo che l'estensione è stata installata correttamente nella macchina virtuale. Per installare l'estensione, la macchina virtuale deve disporre di un agente di macchine virtuali in esecuzione. Per altre informazioni, vedere [Panoramica dell'agente di macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurare le assegnazioni di ruolo per la macchina virtuale
 

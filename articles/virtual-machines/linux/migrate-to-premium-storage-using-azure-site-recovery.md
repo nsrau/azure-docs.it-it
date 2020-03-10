@@ -1,21 +1,18 @@
 ---
 title: Eseguire la migrazione delle macchine virtuali Linux in archiviazione Premium di Azure con Azure Site Recovery
 description: Eseguire la migrazione delle macchine virtuali esistenti ad Archiviazione Premium di Azure usando Site Recovery. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
-services: virtual-machines-linux,storage
-cloud: Azure
 author: luywang
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: b8c299869da003d8dc4e9ac111ba8c5e8bb27345
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035836"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944838"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
@@ -65,7 +62,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 * Una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando vengono create in fase di failover. La rete virtuale di Azure deve trovarsi nella stessa area dell'insieme di esecuzione di Site Recovery.
 * Un account di archiviazione Standard di Azure in cui archiviare i log delle repliche. Può essere lo stesso account di archiviazione dei dischi delle macchine virtuali di cui viene eseguita la migrazione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Conoscere i componenti dello scenario di migrazione pertinenti nella sezione precedente.
 * Pianificare il tempo di inattività dopo avere letto le informazioni sul [failover in Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -203,7 +200,7 @@ Site Recovery creerà un'istanza di una macchina virtuale di tipo uguale o simil
 
 3. **Pulire l'infrastruttura di Azure Site Recovery**. Se Site Recovery non è più necessario, è possibile rimuovere l'infrastruttura. Eliminare gli elementi replicati, il server di configurazione e i criteri di ripristino, quindi eliminare l'insieme di credenziali di Azure Site Recovery.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 * [Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Forum di Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)

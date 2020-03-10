@@ -1,6 +1,6 @@
 ---
 title: Integrazione del controllo del codice sorgente
-description: Esperienza DevOps di database di livello aziendale per SQL Data Warehouse con integrazione nativa del controllo del codice sorgente tramite Azure Repos (Git e GitHub).
+description: Esperienza DevOps di database di livello aziendale per un pool SQL con integrazione nativa del controllo del codice sorgente tramite repository di Azure (Git e GitHub).
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1a4939e8c349f36fe745becb811717983caa95c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720028"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198218"
 ---
-# <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integrazione del controllo del codice sorgente per Azure SQL Data Warehouse
+# <a name="source-control-integration-for-sql-pool"></a>Integrazione del controllo del codice sorgente per il pool SQL
 
-Questa esercitazione illustra come integrare il progetto di database SQL Server Data Tools (SSDT) con il controllo del codice sorgente.  L'integrazione del controllo del codice sorgente è il primo passaggio per la creazione della pipeline di integrazione e distribuzione continua con SQL Data Warehouse. 
+Questa esercitazione illustra come integrare il progetto di database SQL Server Data Tools (SSDT) con il controllo del codice sorgente.  L'integrazione del controllo del codice sorgente è il primo passaggio per la creazione della pipeline di integrazione e distribuzione continue con la risorsa pool SQL in Azure Synapse Analytics. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -49,7 +49,7 @@ Questa esercitazione illustra come integrare il progetto di database SQL Server 
 
    ![Creare un nuovo progetto](media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Creare un nuovo progetto")  
 
-2. Fare clic con il pulsante destro del mouse sul progetto SQL vuoto e importarvi il data warehouse
+2. Fare clic con il pulsante destro del mouse sul progetto SQL vuoto e importarvi il data warehouse nel progetto di database
 
    ![Importare il progetto](media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importare il progetto")  
 
@@ -81,4 +81,4 @@ Questa esercitazione illustra come integrare il progetto di database SQL Server 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Sviluppo per Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+- [Sviluppo per il pool SQL](sql-data-warehouse-overview-develop.md)

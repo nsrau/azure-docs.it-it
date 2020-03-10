@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905496"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933787"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -41,7 +41,7 @@ Per ulteriori informazioni, fare riferimento agli esempi.
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Funzionalità avanzate
+## <a name="advanced"></a>Avanzate
 
 AzCopy rileva automaticamente il tipo di contenuto dei file durante il caricamento dal disco locale, in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -81,7 +81,7 @@ Caricare un'intera directory usando un token SAS:
   
 - azcopy CP "/Path/to/dir" "https:///[account]. blob. Core. Windows. NET/[Container]/[path/to/directory]? [SAS] "--ricorsivo = true
 
-Oppure
+o
 
 - azcopy CP "/Path/to/dir" "https:///[account]. blob. Core. Windows. NET/[Container]/[path/to/directory]? [SAS] "--ricorsivo = true--put-MD5
 
@@ -147,31 +147,31 @@ Copiare tutti i contenitori BLOB, le directory e i BLOB dall'account di archivia
 
 Copiare un singolo oggetto nell'archivio BLOB da Amazon Web Services (AWS) S3 usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
   
-- azcopy CP "https://s3.amazonaws.com/ [bucket]/[oggetto]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/BLOB]? [SAS] "
+- azcopy CP "https://s3.amazonaws.com/[bucket]/[oggetto]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/BLOB]? [SAS] "
 
 Copiare un'intera directory nell'archivio BLOB da AWS S3 usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/ [bucket]/[cartella]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/directory]? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3.amazonaws.com/[bucket]/[cartella]" "https://[destaccount]. blob. Core. Windows. NET/[contenitore]/[percorso/a/directory]? [SAS] "--ricorsivo = true
 
 Per comprendere meglio il segnaposto [cartella], vedere https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html.
 
 Copiare tutti i bucket nell'archiviazione BLOB da Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/ " "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3.amazonaws.com/" "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
 
 Copiare tutti i bucket nell'archiviazione BLOB da un'area Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3- [Region]. amazonaws. com/" "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3-[Region]. amazonaws. com/" "https:///[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
 
 Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. Come gli esempi precedenti, sono necessari una chiave di accesso e un token di firma di accesso condiviso. Assicurarsi di impostare la variabile di ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY per l'origine AWS s3.
 
-- azcopy CP "https://s3.amazonaws.com/ [bucket * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
+- azcopy CP "https://s3.amazonaws.com/[bucket * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--ricorsivo = true
 
 ## <a name="options"></a>Opzioni
 
 **--BLOB-type** String definisce il tipo di BLOB nella destinazione. Viene usato per il caricamento di BLOB e per la copia tra gli account (valore predefinito ' Detect '). I valori validi includono ' Detect ',' BlockBlob ',' PageBlob ' è AppendBlob '. Quando si esegue la copia tra account, un valore di ' Detect ' fa in modo che AzCopy usi il tipo di BLOB di origine per determinare il tipo di BLOB di destinazione. Quando si carica un file,' Detect ' determina se il file è un disco rigido virtuale o un file VHDX basato sull'estensione del file. Se il file è un file VHD o VHDX, AzCopy considera il file come un BLOB di pagine. (valore predefinito "rileva")
 
-**--Block-BLOB:** consente di caricare un BLOB in blocchi in archiviazione di Azure usando questo livello BLOB. (valore predefinito "None")
+**--Block-BLOB** consente di caricare i BLOB in blocchi direttamente nel [livello di accesso](../blobs/storage-blob-storage-tiers.md) desiderato. (valore predefinito ' none '). I valori validi includono ' none ',' Hot ',' cool ' è Archive '. Se viene passato il valore ' none ' o nessun livello, il BLOB erediterà il livello dell'account di archiviazione.
 
 **--block-size-MB** float usa questa dimensione del blocco (specificata in MIB) durante il caricamento in archiviazione di Azure e il download da archiviazione di Azure. Il valore predefinito viene calcolato automaticamente in base alle dimensioni del file. Sono consentite frazioni decimali, ad esempio: 0,25.
 
@@ -241,6 +241,6 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [azcopy](storage-ref-azcopy.md)

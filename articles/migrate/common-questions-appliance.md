@@ -2,13 +2,13 @@
 title: Domande frequenti sull'appliance Azure Migrate
 description: Risposte alle domande più comuni sull'appliance Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 99f7fc7db79785f99b96e6076607e434e43e605f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.date: 03/09/2020
+ms.openlocfilehash: 3d0844b980ac418c5c334c2535c40dc5f3caeb16
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927320"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939297"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -64,7 +64,7 @@ I dati raccolti dal dispositivo Azure Migrate vengono archiviati nella località
 
 Di seguito sono riportate altre informazioni sulla modalità di archiviazione dei dati:
 
-- I dati vengono archiviati in modo sicuro in una sottoscrizione Microsoft e vengono eliminati quando si elimina il progetto Azure Migrate.
+- I dati raccolti vengono archiviati in modo sicuro in CosmosDB in una sottoscrizione Microsoft. I dati vengono eliminati quando si elimina il progetto Azure Migrate. Lo spazio di archiviazione viene gestito da Azure Migrate. Non è possibile scegliere in modo specifico un account di archiviazione per i dati raccolti.
 - Se si usa la [visualizzazione delle dipendenze](concepts-dependency-visualization.md), i dati raccolti vengono archiviati nel Stati Uniti in un'area di lavoro di Azure log Analytics creata nella sottoscrizione di Azure. I dati vengono eliminati quando si elimina l'area di lavoro Log Analytics nella sottoscrizione.
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>Quanti dati vengono caricati durante la profilatura continua?
@@ -88,9 +88,13 @@ Questi passaggi descrivono il modo in cui l'appliance si connette a server VMwar
 3. Il dispositivo raccoglie i dati di configurazione sulle VM (core, memoria, dischi, schede di rete) e la cronologia delle prestazioni di ogni macchina virtuale per l'ultimo mese.
 4. I metadati raccolti vengono inviati al Azure Migrate: strumento di valutazione del server (tramite Internet tramite HTTPS) per la valutazione.
 
-## <a name="can-i-connect-the-appliance-to-multiple-instances-of-vcenter-server"></a>È possibile connettere l'appliance a più istanze di server vCenter?
+## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>Il dispositivo Azure Migrate può connettersi a più server vCenter?
 
-No. Esiste un mapping uno-a-uno tra un appliance e server vCenter. Per individuare le macchine virtuali in più istanze di server vCenter, è necessario distribuire più appliance.
+No. Esiste un mapping uno-a-uno tra un [Azure migrate Appliance](migrate-appliance.md) e server vCenter. Per individuare le macchine virtuali in più istanze di server vCenter, è necessario distribuire più appliance. 
+
+## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Un progetto di Azure Migrate può avere più appliance?
+A un progetto possono essere collegati più appliance. Tuttavia, un appliance può essere associato solo a un progetto. 
+
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quante VM o server è possibile individuare con un'appliance?
 

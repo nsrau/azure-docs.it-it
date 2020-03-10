@@ -1,34 +1,42 @@
 ---
-title: Usare Java e Maven per pubblicare una funzione in Azure
-description: Creare e pubblicare una funzione attivata da HTTP in Azure con Java e Maven.
-author: rloutlaw
+title: Usare Java e Maven/Gradle per pubblicare una funzione in Azure
+description: Creare e pubblicare una funzione attivata da HTTP in Azure con Java e Maven o Gradle.
+author: KarlErickson
+ms.author: karler
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f226736050319d57cd0bc123fdb2211e0faeae11
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+zone_pivot_groups: java-build-tools-set
+ms.openlocfilehash: dbdcf2552b453fa72bfec616a02bd45afc45fb0f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208847"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272725"
 ---
-# <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Avvio rapido: Usare Java e Maven per creare e pubblicare una funzione in Azure
+# <a name="quickstart-use-java-and-mavengradle-to-create-and-publish-a-function-to-azure"></a>Guida introduttiva: Usare Java e Maven/Gradle per creare e pubblicare una funzione in Azure
 
-Questo articolo illustra come creare e pubblicare una funzione Java in Funzioni di Azure con lo strumento da riga di comando Maven. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](functions-scale.md#consumption-plan) e viene attivato da una richiesta HTTP.
+Questo articolo illustra come creare e pubblicare una funzione Java in Funzioni di Azure con lo strumento da riga di comando Maven/Gradle. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](functions-scale.md#consumption-plan) e viene attivato da una richiesta HTTP.
 
 <!--
 > [!NOTE] 
 > You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
 -->
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per sviluppare funzioni con Java, è necessario che siano installati gli elementi seguenti:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), versione 8
-- [Apache Maven](https://maven.apache.org), versione 3.0 o successive
 - [Interfaccia della riga di comando di Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.6.666 o successive
+::: zone pivot="java-build-tools-maven" 
+- [Apache Maven](https://maven.apache.org), versione 3.0 o successive
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+- [Gradle](https://gradle.org/) versione 4.10 e successive
+::: zone-end 
 
 È anche necessaria una sottoscrizione di Azure attiva. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,34 +44,20 @@ Per sviluppare funzioni con Java, è necessario che siano installati gli element
 > [!IMPORTANT]
 > Per completare questa guida introduttiva, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
 
-## <a name="generate-a-new-functions-project"></a>Generare un nuovo progetto di Funzioni
+## <a name="prepare-a-functions-project"></a>Preparare un progetto di Funzioni
 
+::: zone pivot="java-build-tools-maven" 
 In una cartella vuota eseguire il comando seguente per generare il progetto di Funzioni da un [archetipo Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-### <a name="linuxmacos"></a>Linux/macOS
-
 ```bash
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
 > [!NOTE]
+> Se si usa PowerShell, assicurarsi di racchiudere i parametri tra virgolette ("").
+
+> [!NOTE]
 > Se si verificano problemi durante l'esecuzione del comando, esaminare quale versione di `maven-archetype-plugin` è in uso. Poiché il comando viene eseguito in una directory vuota senza file `.pom`, potrebbe provare a usare un plug-in della versione meno recente di `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin`, se Maven è stato aggiornato da una versione precedente. In questo caso, provare a eliminare la directory `maven-archetype-plugin` e a eseguire di nuovo il comando.
-
-### <a name="windows"></a>Windows
-
-```powershell
-mvn archetype:generate `
-    "-DarchetypeGroupId=com.microsoft.azure" `
-    "-DarchetypeArtifactId=azure-functions-archetype"
-```
-
-```cmd
-mvn archetype:generate ^
-    "-DarchetypeGroupId=com.microsoft.azure" ^
-    "-DarchetypeArtifactId=azure-functions-archetype"
-```
 
 Maven chiede i valori necessari per completare la generazione del progetto nella distribuzione. Quando richiesto, specificare i valori seguenti:
 
@@ -79,7 +73,35 @@ Maven chiede i valori necessari per completare la generazione del progetto nella
 
 Digitare `Y` o premere INVIO per confermare.
 
-Maven crea i file di progetto in una nuova cartella denominata _artifactId_, che in questo esempio è `fabrikam-functions`. 
+Maven crea i file di progetto in una nuova cartella denominata _artifactId_, che in questo esempio è `fabrikam-functions`. Eseguire il comando seguente per passare alla cartella del progetto creato.
+```bash
+cd fabrikam-function
+```
+
+::: zone-end 
+::: zone pivot="java-build-tools-gradle"
+Usare il comando seguente per clonare il progetto di esempio:
+
+```bash
+git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
+cd azure-functions-samples-java/
+```
+
+Aprire `build.gradle` e nella sezione seguente impostare `appName` su un nome univoco per evitare conflitti di nomi di dominio durante la distribuzione in Azure. 
+
+```gradle
+azurefunctions {
+    resourceGroup = 'java-functions-group'
+    appName = 'azure-functions-sample-demo'
+    pricingTier = 'Consumption'
+    region = 'westus'
+    runtime {
+      os = 'windows'
+    }
+    localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
+}
+```
+::: zone-end
 
 Aprire il nuovo file Function.java dal percorso *src/main/java* in un editor di testo e rivedere il codice generato. Questo codice è una funzione [attivata da HTTP](functions-bindings-http-webhook.md) che restituisce il corpo della richiesta. 
 
@@ -88,17 +110,25 @@ Aprire il nuovo file Function.java dal percorso *src/main/java* in un editor di 
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
-Eseguire il comando seguente, che passa alla cartella appena creata, quindi crea ed esegue il progetto di funzione:
+Eseguire il comando seguente per creare e quindi eseguire il progetto di funzione:
 
-```console
-cd fabrikam-function
+::: zone pivot="java-build-tools-maven" 
+```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end 
 
-Quando si esegue il progetto in locale, viene visualizzato un output di Azure Functions Core Tools simile al seguente:
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end 
 
-```Output
+Quando si esegue il progetto in locale, verrà visualizzato un output di Azure Functions Core Tools simile al seguente:
+
+```output
 ...
 
 Now listening on: http://0.0.0.0:7071
@@ -112,11 +142,11 @@ Http Functions:
 
 Attivare la funzione dalla riga di comando usando cURL in una nuova finestra del terminale:
 
-```CMD
+```bash
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
-```Output
+```output
 Hello AzureFunctions!
 ```
 La [chiave della funzione](functions-bindings-http-webhook-trigger.md#authorization-keys) non è necessaria durante l'esecuzione in locale. Usare `Ctrl+C` nel terminal per interrompere il codice funzione.
@@ -135,13 +165,22 @@ az login
 > [!TIP]
 > Se l'account può accedere a più sottoscrizioni, usare [az account set](/cli/azure/account#az-account-set) per impostare quella predefinita per questa sessione. 
 
-Usare il comando Maven seguente per distribuire il progetto in una nuova app per le funzioni. 
+Usare il comando seguente per distribuire il progetto in una nuova app per le funzioni. 
 
-```azurecli
+
+::: zone pivot="java-build-tools-maven" 
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end 
 
-Questa destinazione Maven `azure-functions:deploy` crea le risorse seguenti in Azure:
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
+
+In Azure verranno create le risorse seguenti:
 
 + Gruppo di risorse. Con il nome _resourceGroup_ specificato.
 + Account di archiviazione. Richiesto da Funzioni. Il nome viene generato in modo casuale in base ai requisiti di denominazione degli account di archiviazione.
@@ -175,13 +214,13 @@ Al termine della distribuzione, è possibile visualizzare l'URL utilizzabile per
 
 Per verificare l'app per le funzioni in esecuzione in Azure tramite `cURL`, sostituire l'URL dell'esempio seguente con l'URL copiato dal portale.
 
-```azurecli
+```console
 curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
 Viene inviata una richiesta POST all'endpoint della funzione con `AzureFunctions` nel corpo. Verrà visualizzata la risposta seguente.
 
-```Output
+```output
 Hello AzureFunctions!
 ```
 

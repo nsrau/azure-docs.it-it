@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un indice di ricerca in Python con le API REST'
+title: 'Guida introduttiva: Creare un indice di ricerca in Python con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Informazioni su come creare un indice, caricare dati ed eseguire query con Python, Jupyter Notebook e le API REST di Ricerca cognitiva di Azure.
 author: tchristiani
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 15a3801a7ea99d6d799bcd8adf340b03f36bc196
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121627"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227106"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in Python con Jupyter Notebook
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Python con Jupyter Notebook
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
@@ -30,7 +30,7 @@ Creare un notebook di Jupyter che crea e carica un indice di Ricerca cognitiva d
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguenti. 
 
@@ -126,7 +126,7 @@ Questo indice è denominato "hotels-quickstart" e include le definizioni dei cam
     }
     ```
 
-2. In un'altra cella formulare la richiesta. Questa richiesta PUT specifica come destinazione la raccolta di indici del servizio di ricerca e crea un indice basato sullo schema inserito nella cella precedente.
+2. In un'altra cella formulare la richiesta. Questa richiesta POST specifica come destinazione la raccolta di indici del servizio di ricerca e crea un indice basato sullo schema inserito nella cella precedente.
 
    ```python
    url = endpoint + "indexes" + api_version

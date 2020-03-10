@@ -1,18 +1,18 @@
 ---
 title: Panoramica dello stato di Azure | Microsoft Docs
 description: Visualizzazione globale dell'integrità dei servizi di Azure
-ms.topic: article
+ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 1257476234709380de3452015313e3a3bf71e04d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463996"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654155"
 ---
-# <a name="azure-status-overview"></a>Panoramica sullo stato di Azure
+# <a name="azure-status-overview"></a>Panoramica di Stato di Azure
 
-[Stato di Azure](https://status.azure.com/status/) offre una visualizzazione globale dell'integrità dei servizi e delle aree di Azure. Con lo stato di Azure è possibile ottenere informazioni sulla disponibilità del servizio. Stato di Azure è disponibile per tutti gli utenti e permette di visualizzare tutti i servizi che segnalano la propria integrità, nonché gli eventi imprevisti con un ampio impatto. Per gli utenti correnti di Azure, è consigliabile tuttavia usare l'esperienza personalizzata in [Integrità dei servizi di Azure](https://aka.ms/azureservicehealth). Integrità dei servizi di Azure include tutte le interruzioni, le attività di manutenzione pianificate imminenti e gli avvisi di servizio.
+[Stato di Azure](https://status.azure.com/status/) offre una visualizzazione globale dell'integrità dei servizi e delle aree di Azure. Con Stato di Azure è possibile ottenere informazioni sulla disponibilità dei servizi. Stato di Azure è disponibile per tutti gli utenti e permette di visualizzare tutti i servizi che segnalano la propria integrità, nonché gli eventi imprevisti con un ampio impatto. Per gli utenti correnti di Azure, è consigliabile tuttavia usare l'esperienza personalizzata in [Integrità dei servizi di Azure](https://aka.ms/azureservicehealth). Integrità dei servizi di Azure include tutte le interruzioni, le attività di manutenzione pianificate imminenti e gli avvisi di servizio.
 
 ![Pagina relativa allo stato di Azure](./media/azure-status-overview/azure-status.PNG)
 
@@ -22,7 +22,7 @@ La pagina relativa allo stato di Azure viene aggiornata in tempo reale quando l'
 
 ![Aggiornamento dello stato di Azure](./media/azure-status-overview/update.PNG)
 
-## <a name="azure-status-history"></a>Cronologia stato di Azure
+## <a name="azure-status-history"></a>Cronologia dello stato di Azure
 
 Mentre la pagina relativa allo stato di Azure mostra sempre i dati sull'integrità più recenti, è possibile visualizzare gli eventi meno recenti usando la [pagina della cronologia dello stato di Azure](https://status.azure.com/status/history/).
 
@@ -32,7 +32,7 @@ Qui è possibile visualizzare gli eventi dei 90 giorni precedenti, incluso una c
 
 Lo stato di Azure offre anche un [feed RSS](https://status.azure.com/status/feed/) delle modifiche all'integrità dei servizi di Azure che è possibile sottoscrivere.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come ottenere una visualizzazione più personalizzata dello stato di integrità di Azure tramite [Integrità dei servizi](./service-health-overview.md).
 * Informazioni su come ottenere una visualizzazione più dettagliata dello stato di integrità di risorse di Azure specifiche tramite [Integrità risorsa](./resource-health-overview.md).

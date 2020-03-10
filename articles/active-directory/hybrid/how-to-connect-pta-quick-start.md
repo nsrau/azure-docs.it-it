@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fe38b434c4e54b375b22d76c573d3bbe88b0e16
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: be6a6e9231b13c47d1421543464c720f6283b5f9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889941"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376183"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory - Avvio rapido
 
@@ -68,7 +68,7 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti.
      Se il firewall applica regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizi di rete.
    - Se il firewall o il proxy consente l'inserimento di DNS nell'elenco elementi consentiti, aggiungere le connessioni a **\*.msappproxy.net** e **\*.servicebus.windows.net** all'elenco elementi consentiti. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana.
    - Gli agenti di autenticazione devono poter accedere a **login.windows.net** e **login.microsoftonline.net** per la registrazione iniziale. Aprire il firewall anche per questi URL.
-   - Per la convalida del certificato, sbloccare gli URL seguenti: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**e **www\.Microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
+   - Per la convalida del certificato, sbloccare questi URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Poiché vengono usati per la convalida del certificato con altri prodotti Microsoft, questi URL potrebbero essere già sbloccati.
 
 ## <a name="step-2-enable-the-feature"></a>Passaggio 2: Abilitare la funzionalità
 
@@ -131,7 +131,7 @@ Per iniziare, seguire queste istruzioni per scaricare il software dell'agente di
 ![Interfaccia di amministrazione di Azure Active Directory: riquadro Scarica agente](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
->È anche possibile [scaricare il software dell'agente di autenticazione](https://aka.ms/getauthagent). Leggere e accettare le [Condizioni d'uso](https://aka.ms/authagenteula) dell'agente di autenticazione _prima_ di installarlo.
+>È anche possibile [scaricare il software dell'agente di autenticazione](https://aka.ms/getauthagent). Verificare e accettare le [condizioni del servizio dell'agente di](https://aka.ms/authagenteula) autenticazione _prima_ di installarlo.
 
 Esistono due modi per distribuire un agente di autenticazione autonomo:
 
@@ -148,7 +148,7 @@ In secondo luogo è possibile creare ed eseguire uno script di distribuzione aut
         $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
 3. Passare a **C:\Programmi\Microsoft Azure AD Connect Authentication Agent** ed eseguire lo script seguente usando l'oggetto `$cred` creato:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 >[!IMPORTANT]
 >Se un agente di autenticazione è installato in una macchina virtuale, non è possibile clonare la macchina virtuale per configurare un altro agente di autenticazione. Questo metodo non è **supportato**.
@@ -163,7 +163,7 @@ Il blocco Smart consente di bloccare gli attori malintenzionati che tentano di i
 - [Limitazioni correnti](how-to-connect-pta-current-limitations.md): informazioni su quali scenari sono supportati con l'autenticazione pass-through e quali non lo sono.
 - [Approfondimento tecnico](how-to-connect-pta-how-it-works.md): comprendere come funziona l'autenticazione pass-through.
 - [Domande frequenti](how-to-connect-pta-faq.md): risposte alle domande più frequenti.
-- [Risoluzione dei problemi](tshoot-connect-pass-through-authentication.md): informazioni su come risolvere i problemi comuni con la funzionalità di autenticazione pass-through.
+- [Risoluzione dei problemi](tshoot-connect-pass-through-authentication.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
 - [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): ottenere informazioni tecniche sulla funzionalità di autenticazione pass-through.
 - [Accesso Single Sign-On facile di Azure AD](how-to-connect-sso.md): ottenere altre informazioni su questa funzionalità complementare.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.

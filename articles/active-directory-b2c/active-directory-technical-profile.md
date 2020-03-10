@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: f7a6c5872c5e2b7e1b47b40e32ddb047641e8b2e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2020
-ms.locfileid: "78932979"
+ms.locfileid: "78944218"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico **AAD-Common**:
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Attestazioni di input
+## <a name="inputclaims"></a>InputClaims
 
 L'elemento InputClaims contiene un'attestazione, che viene usata per cercare un account nella directory o crearne uno nuovo. Nella raccolta di attestazioni di input deve essere presente esattamente un elemento attestazione per tutti i profili tecnici Azure AD. Potrebbe essere necessario eseguire il mapping del nome dell'attestazione definito nei criteri al nome definito in Azure Active Directory.
 
@@ -66,7 +66,7 @@ Per creare un nuovo account utente, l'attestazione di input è una chiave che id
 
 L'elemento InputClaimsTransformations può contenere una raccolta di elementi di trasformazione delle attestazioni di input usati per modificare l'attestazione di input o generarne una nuova.
 
-## <a name="output-claims"></a>Attestazioni di output
+## <a name="outputclaims"></a>OutputClaims
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni restituite dal profilo tecnico di Azure AD. Potrebbe essere necessario eseguire il mapping del nome dell'attestazione definito nei criteri al nome definito in Azure Active Directory. È anche possibile includere le attestazioni che non vengono restituite da Azure Active Directory, fino a quando è impostato l'attributo `DefaultValue`.
 

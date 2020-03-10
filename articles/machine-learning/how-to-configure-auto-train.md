@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1b52d9b7eb60483da91f87435ace1994d91b1039
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7018100c830f22c3ed5e924b5096911b1f8135cb
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665842"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942333"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -145,7 +145,7 @@ Successivamente, determinare dove verrà eseguito il training del modello. Un es
 
 Per configurare l'esperimento di Machine Learning automatizzato sono disponibili varie opzioni. Questi parametri vengono impostati creando un oggetto `AutoMLConfig`. Vedere la [Classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) per un elenco completo dei parametri.
 
-Alcuni esempi includono:
+Di seguito sono riportati alcuni esempi:
 
 1.  Esperimento di classificazione con AUC ponderato come metrica primaria con minuti di timeout dell'esperimento impostati su 30 minuti e 2 riduzioni di convalida incrociata.
 
@@ -154,7 +154,7 @@ Alcuni esempi includono:
         task='classification',
         primary_metric='AUC_weighted',
         experiment_timeout_minutes=30,
-        blacklist_models='XGBoostClassifier',
+        blacklist_models=['XGBoostClassifier'],
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
@@ -165,7 +165,7 @@ Alcuni esempi includono:
     automl_regressor = AutoMLConfig(
         task='regression',
         experiment_timeout_minutes=60,
-        whitelist_models='kNN regressor'
+        whitelist_models=['kNN regressor'],
         primary_metric='r2_score',
         training_data=train_data,
         label_column_name=label,
@@ -181,7 +181,7 @@ La metrica primaria determina la metrica da utilizzare durante il training del m
 
 |Classificazione | Regressione | Previsione di una serie temporale
 |-- |-- |--
-|accuratezza| spearman_correlation | spearman_correlation
+|precisione| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
 |average_precision_score_weighted | r2_score | r2_score
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error

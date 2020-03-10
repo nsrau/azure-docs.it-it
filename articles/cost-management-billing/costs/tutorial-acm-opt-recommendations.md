@@ -3,17 +3,17 @@ title: 'Esercitazione: Ridurre i costi di Azure con le raccomandazioni'
 description: Questa esercitazione consente di ridurre i costi di Azure quando si agisce seguendo gli elementi consigliati di ottimizzazione.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 796d843461d5d622988f7992439a7c4426186761
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199960"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245402"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Esercitazione: Ottimizzare i costi grazie agli elementi consigliati
 
@@ -26,13 +26,13 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Agire seguendo gli elementi consigliati di ridimensionare una macchina virtuale a un'opzione più conveniente
 > * Verificare l'azione per assicurarsi che la macchina virtuale sia stata ridimensionata correttamente
 
-## <a name="prerequisites"></a>Prerequisites
-Sono disponibili raccomandazioni per diversi ambiti e tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+## <a name="prerequisites"></a>Prerequisiti
+Sono disponibili raccomandazioni per diversi ambiti e tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 - Subscription
 - Resource group
 
-È necessario disporre di macchine virtuali attive con almeno 14 giorni di attività.
+Se si ha una nuova sottoscrizione, non è possibile usare immediatamente le funzionalità di Gestione costi. Potrebbero essere necessarie fino a 48 ore prima di poter usarle usare tutte. È inoltre necessario avere macchine virtuali attive con almeno 14 giorni di attività.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).

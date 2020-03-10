@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612927"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944426"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Modalità di sincronizzazione di oggetti e credenziali in un Azure AD Domain Services dominio gestito
 
@@ -38,7 +38,7 @@ Il processo di sincronizzazione è unidirezionale/unidirezionale per progettazio
 
 La tabella seguente elenca alcuni attributi comuni e il modo in cui vengono sincronizzati con Azure AD DS.
 
-| Attributo in Azure AD DS | Origine | Note |
+| Attributo in Azure AD DS | Source (Sorgente) | Note |
 |:--- |:--- |:--- |
 | UPN | Attributo *UPN* dell'utente in Azure ad tenant | L'attributo UPN del tenant Azure AD viene sincronizzato così com'è per Azure AD DS. Il modo più affidabile per accedere a un dominio gestito di Azure AD DS consiste nell'usare l'UPN. |
 | SAMAccountName | Attributo *mailNickname* dell'utente in Azure ad tenant o generato automaticamente | L'attributo *sAMAccountName* viene originato dall'attributo *mailNickname* nel tenant Azure ad. Se più account utente hanno lo stesso attributo *mailNickname* , il *sAMAccountName* viene generato automaticamente. Se il *mailNickname* o il prefisso *UPN* dell'utente è più lungo di 20 caratteri, *sAMAccountName* viene generato automaticamente per soddisfare il limite di 20 caratteri per gli attributi *sAMAccountName* . |
@@ -65,7 +65,7 @@ Nella tabella seguente viene illustrato il modo in cui gli attributi specifici p
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
 | jobTitle |title |
-| posta |posta |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (a volte può essere generato automaticamente) |
 | mobile |mobile |
@@ -89,7 +89,7 @@ Nella tabella seguente viene illustrato il modo in cui gli attributi specifici p
 |:--- |:--- |
 | displayName |displayName |
 | displayName |SAMAccountName (a volte può essere generato automaticamente) |
-| posta |posta |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |

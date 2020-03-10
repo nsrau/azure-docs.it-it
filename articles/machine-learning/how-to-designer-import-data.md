@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138163"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942291"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importare i dati in Azure Machine Learning Designer (anteprima)
 
@@ -56,6 +56,8 @@ Sebbene sia consigliabile usare i set di dati per importare i dati, è anche pos
 
 Per informazioni dettagliate su come usare il modulo Import Data, vedere la [pagina Import Data Reference](algorithm-module-reference/import-data.md).
 
+[!NOTE]
+> Se i dati sono costituiti da più colonne, è possibile che venga visualizzato il errore "convalida non riuscita a causa di limitazioni delle dimensioni" nel modulo Import Data. Questo perché le colonne escludono la lunghezza del parametro del modulo maxmium dopo la codifica. In questo caso è consigliabile [registrare il set di dati nell'interfaccia utente dei set di dati](how-to-create-register-datasets.md#use-the-ui), che può evitare l'errore.  
 
 ## <a name="supported-sources"></a>Origini supportate
 
@@ -70,13 +72,13 @@ La finestra di progettazione supporta i set di impostazioni tabulari creati dall
  * File delimitati
  * File JSON
  * File Parquet
- * query SQL
+ * Query SQL
 
 ## <a name="data-types"></a>Tipi di dati
 
 La finestra di progettazione riconosce internamente i tipi di dati seguenti:
 
-* String
+* string
 * Integer
 * Decimal
 * Boolean

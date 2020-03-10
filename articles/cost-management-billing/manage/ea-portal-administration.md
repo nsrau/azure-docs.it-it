@@ -7,12 +7,12 @@ ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3006450fe530d3e6271ad624c6f246213cab6569
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 79225d4dfe9e53da6936f8647c9f5a1dff0b4909
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272467"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301473"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -24,7 +24,7 @@ Gli amministratori dell'organizzazione hanno il maggior numero di privilegi per 
 
 ## <a name="update-user-state-from-pending-to-active"></a>Aggiornare lo stato dell'utente da in sospeso ad attivo
 
-Quando vengono aggiunti nuovi proprietari di account a una registrazione EA di Azure per la prima volta, il relativo stato viene visualizzato come _in sospeso_. Quando un nuovo proprietario dell'account riceve il messaggio di posta elettronica di benvenuto per l'attivazione, può accedere per attivare il proprio account. Una volta attivato l'account, il relativo stato viene aggiornato e passa da _In sospeso_ ad _Attivo_. Il proprietario dell'account deve leggere il messaggio di avviso e fare clic su **Continua**. Ai nuovi utenti potrebbe essere richiesto di immettere il nome e il cognome per creare un account commerciale. In tal caso, devono aggiungere le informazioni necessarie per continuare, quindi l'account viene attivato.
+Quando vengono aggiunti nuovi proprietari di account a una registrazione EA di Azure per la prima volta, il relativo stato viene visualizzato come _in sospeso_. Quando un nuovo proprietario dell'account riceve il messaggio di posta elettronica di benvenuto per l'attivazione, può accedere per attivare il proprio account. Una volta attivato l'account, il relativo stato viene aggiornato e passa da _In sospeso_ ad _Attivo_. Il proprietario dell'account deve leggere il messaggio di avviso e selezionare **Continua**. Ai nuovi utenti potrebbe essere richiesto di immettere il nome e il cognome per creare un account commerciale. In tal caso, devono aggiungere le informazioni necessarie per continuare, quindi l'account viene attivato.
 
 ## <a name="add-a-department-admin"></a>Aggiungere un amministratore del reparto
 
@@ -39,28 +39,28 @@ Gli amministratori dell'organizzazione possono associare account esistenti ai re
 ### <a name="to-associate-an-account-to-a-department"></a>Per associare un account a un reparto
 
 1. Accedere ad Azure EA Portal come amministratore dell'organizzazione.
-1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
-1. Fare clic su **Reparto**.
-1. Passare il puntatore del mouse sulla riga relativa all'account desiderato e fare clic sull'icona della matita a destra.
-1. Selezionare dall'elenco a discesa il reparto desiderato.
-1. Fare clic su **Salva**.
+1. Selezionare **Gestisci** nel riquadro di spostamento di sinistra.
+1. Selezionare **Reparto**.
+1. Passare il puntatore del mouse sulla riga relativa all'account e selezionare l'icona della matita a destra.
+1. Selezionare il reparto nel menu a discesa.
+1. Selezionare **Salva**.
 
 ## <a name="department-spending-quotas"></a>Quote di spesa del reparto
 
-I clienti EA possono impostare o modificare le quote di spesa per ogni reparto nell'ambito di una registrazione. L'importo delle quote di spesa è impostato per il periodo di impegno corrente. Alla fine del periodo di impegno corrente, il sistema estenderà la quota di spesa esistente al periodo di impegno successivo, a meno che i valori non vengano aggiornati.
+I clienti EA possono impostare o cambiare le quote di spesa per ogni reparto nell'ambito di una registrazione. L'importo delle quote di spesa è impostato per il periodo di impegno corrente. Alla fine del periodo di impegno corrente, il sistema estenderà la quota di spesa esistente al periodo di impegno successivo, a meno che i valori non vengano aggiornati.
 
 L'amministratore del reparto può visualizzare la quota di spesa, ma l'importo della quota può essere aggiornato solo dall'amministratore dell'organizzazione. L'amministratore dell'organizzazione e l'amministratore del reparto riceveranno notifiche quando la quota raggiunge il 50%, il 75%, il 90% e il 100%.
 
 ### <a name="enterprise-administrator-to-set-the-quota"></a>Per impostare la quota (amministratore dell'organizzazione):
 
  1. Aprire Azure EA Portal.
- 1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
- 1. Fare clic sulla scheda **Reparto**.
- 1. Fare clic sul reparto desiderato.
- 1. Fare clic sull'icona della matita nella sezione relativa ai dettagli del reparto oppure fare clic sul pulsante **+ Add Department** (Aggiungi reparto) per aggiungere una quota di spesa insieme a un nuovo reparto.
- 1. Nella sezione relativa ai dettagli del reparto immettere un importo per la quota di spesa nella valuta della registrazione nella casella relativa all'importo per la quota di spesa (il valore deve essere maggiore di 0).
+ 1. Selezionare **Gestisci** nel riquadro di spostamento di sinistra.
+ 1. Selezionare la scheda **Reparto**.
+ 1. Selezionare il reparto.
+ 1. Selezionare il simbolo della matita nella sezione relativa ai dettagli del reparto oppure selezionare il simbolo **+ Aggiungi reparto** per aggiungere una quota di spesa insieme a un nuovo reparto.
+ 1. Nella sezione relativa ai dettagli del reparto immettere un importo per la quota di spesa nella valuta della registrazione nella casella corrispondente (il valore deve essere maggiore di 0).
     - In questa fase è anche possibile modificare il nome del reparto e il centro di costo.
- 1. Premere **Salva**.
+ 1. Selezionare **Salva**.
 
 La quota di spesa del reparto sarà ora visibile nella visualizzazione dell'elenco dei reparti nella scheda Reparto. Al termine dell'impegno corrente, Azure EA Portal manterrà le quote di spesa per il periodo di impegno successivo.
 
@@ -69,8 +69,8 @@ L'importo della quota del reparto è indipendente dall'impegno monetario corrent
 ### <a name="department-administrator-to-view-the-quota"></a>Per visualizzare la quota (amministratore del reparto):
 
 1. Aprire Azure EA Portal.
-1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
-1. Fare clic sulla scheda **Reparto** ed esaminare la visualizzazione elenco dei reparti con le quote di spesa.
+1. Selezionare **Gestisci** nel riquadro di spostamento di sinistra.
+1. Selezionare la scheda **Reparto** ed esaminare la visualizzazione elenco dei reparti con le quote di spesa.
 
 Per i clienti indiretti le funzionalità relative ai costi devono essere abilitate dal partner di canale.
 
@@ -88,27 +88,27 @@ Per altre informazioni sui ruoli utente, vedere [Ruoli utente dell'organizzazion
 
 ## <a name="add-an-azure-ea-account"></a>Aggiungere un account EA di Azure
 
-L'account EA di Azure è un'unità organizzativa in Azure EA Portal usata per amministrare le sottoscrizioni e anche per la creazione di report. Per accedere e usare i servizi di Azure, è necessario creare un account o farsene creare uno.
+L'account Azure EA è un'unità organizzativa in EA Portal di Azure. Viene usato per l'amministrazione delle sottoscrizioni e anche per la creazione di report. Per accedere e usare i servizi di Azure, è necessario creare un account o farsene creare uno.
 
 Per altre informazioni sugli account di Azure, vedere Aggiungere un account.
 
 ## <a name="enterprise-devtest-offer"></a>Offerta Sviluppo/test Enterprise
 
-Un amministratore dell'organizzazione di Azure può ora abilitare i proprietari di account dell'organizzazione per la creazione di sottoscrizioni basate sull'offerta Sviluppo/test EA. A tale scopo, selezionare la casella di sviluppo/test relativa al proprietario dell'account in Azure EA Portal.
+Un amministratore dell'organizzazione di Azure può abilitare i proprietari di account dell'organizzazione per la creazione di sottoscrizioni basate sull'offerta Sviluppo/test EA. A tale scopo, selezionare la casella Sviluppo/test per il proprietario dell'account in Azure EA Portal.
 
-Dopo aver selezionato la casella di sviluppo/test, informare il proprietario dell'account in modo che possa configurare le sottoscrizioni di Sviluppo/test EA necessarie per i team di sottoscrittori di Sviluppo/test.
+Dopo aver selezionato la casella Sviluppo/test, informare il proprietario dell'account in modo che possa configurare le sottoscrizioni di Sviluppo/test EA necessarie per i team di sottoscrittori di Sviluppo/test.
 
-Questa offerta consente ai sottoscrittori di Visual Studio attivi di eseguire carichi di lavoro di sviluppo e test in Azure a tariffe di sviluppo/test speciali, con accesso alla raccolta completa di immagini di sviluppo/test, inclusi Windows 8.1 e Windows 10.
+Questa offerta consente ai sottoscrittori attivi di Visual Studio di eseguire carichi di lavoro di sviluppo e test in Azure a tariffe speciali. Fornisce l'accesso alla raccolta completa di immagini di Sviluppo/test, tra cui Windows 8.1 e Windows 10.
 
 ### <a name="to-set-up-the-enterprise-devtest-offer"></a>Per configurare l'offerta Sviluppo/test Enterprise:
 
 1. Accedere come amministratore dell'organizzazione.
-1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
+1. Selezionare **Gestisci** nel riquadro di spostamento di sinistra.
 1. Fare clic sulla scheda **Account**.
-1. Fare clic sulla riga relativa all'account in cui si intende abilitare l'accesso a Sviluppo/test.
-1. Fare clic sull'icona della matita a destra della riga.
+1. Selezionare la riga relativa all'account in cui si intende abilitare l'accesso a Sviluppo/test.
+1. Selezionare il simbolo della matita a destra della riga.
 1. Selezionare la casella di controllo di sviluppo/test.
-1. Premere **Salva**.
+1. Selezionare **Salva**.
 
 Quando un utente viene aggiunto come proprietario dell'account tramite Azure EA Portal, le sottoscrizioni di Azure associate al proprietario dell'account che si basano sull'offerta Sviluppo/test con pagamento in base al consumo o sulle offerte di credito mensile per i sottoscrittori di Visual Studio verranno convertite nell'offerta Sviluppo/test EA. Le sottoscrizioni associate al proprietario dell'account basate su altri tipi di offerta, ad esempio con pagamento in base al consumo, verranno convertite in offerte di Microsoft Azure Enterprise.
 
@@ -116,7 +116,7 @@ Al momento l'offerta Sviluppo/test non è applicabile ai clienti di Azure per en
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Trasferire un account aziendale in una nuova registrazione
 
-Un trasferimento di account sposta il proprietario dell'account da una registrazione a un'altra. Tutte le sottoscrizioni correlate del proprietario dell'account vengono spostate nella registrazione di destinazione. Questa operazione viene eseguita quando si hanno più registrazioni attive e si vogliono spostare solo determinati proprietari di account.
+Un trasferimento di account sposta il proprietario dell'account da una registrazione a un'altra. Tutte le sottoscrizioni correlate del proprietario dell'account vengono spostate nella registrazione di destinazione. Usare un trasferimento di account se si hanno più registrazioni attive e si vogliono spostare solo determinati proprietari di account.
 
 Questa sezione è unicamente a scopo informativo perché l'azione non può essere eseguita da un amministratore dell'organizzazione. Per trasferire un account aziendale in una nuova registrazione, è necessaria una richiesta di supporto.
 
@@ -148,7 +148,7 @@ Il trasferimento di una registrazione si prende in considerazione quando:
 
 - Il periodo di impegno di una registrazione corrente è terminato.
 - Una registrazione è nello stato di scadenza/estensione e viene negoziato un nuovo contratto.
-- Si hanno più registrazioni e si vogliono consolidare tutti gli account e la fatturazione in una sola registrazione.
+- Si hanno più registrazioni e si vogliono combinare tutti gli account e la fatturazione in una singola registrazione.
 
 Questa sezione è unicamente a scopo informativo perché l'azione non può essere eseguita da un amministratore dell'organizzazione. Per trasferire una registrazione aziendale in una nuova, è necessaria una richiesta di supporto.
 
@@ -158,8 +158,8 @@ Quando si richiede il trasferimento di un'intera registrazione EA in un'altra re
 - Lo stato della registrazione viene impostato su _Trasferito_. La registrazione trasferita è disponibile solo per la creazione di report cronologici sull'utilizzo.
 - Non è possibile aggiungere ruoli o sottoscrizioni a una registrazione trasferita. Lo stato Trasferito impedisce ulteriori utilizzi per la registrazione.
 - Qualsiasi saldo dell'impegno monetario rimanente nel contratto viene perso, inclusi i periodi futuri.
--   Se la registrazione da cui si esegue il trasferimento prevede acquisti di istanze riservate, la tariffa di acquisto di istanze riservate verrà mantenuta nella registrazione di origine, tuttavia tutti i vantaggi relativi alle istanze riservate verranno trasferiti per essere usati nella nuova registrazione.
--   La tariffa di costo di acquisto una tantum del Marketplace ed eventuali tariffe fisse mensili già addebitate nella registrazione precedente non verranno trasferite nella nuova registrazione. Verranno trasferiti gli addebiti per il Marketplace basati sul consumo.
+-    Se la registrazione da cui si esegue il trasferimento prevede acquisti di istanze riservate, la tariffa di acquisto di istanze riservate verrà mantenuta nella registrazione di origine, tuttavia tutti i vantaggi relativi alle istanze riservate verranno trasferiti per essere usati nella nuova registrazione.
+-    La tariffa di costo di acquisto una tantum del Marketplace ed eventuali tariffe fisse mensili già addebitate nella registrazione precedente non verranno trasferite nella nuova registrazione. Verranno trasferiti gli addebiti per il Marketplace basati sul consumo.
 
 ### <a name="effective-transfer-date"></a>Data di validità del trasferimento
 
@@ -195,7 +195,7 @@ Azure EA Portal può trasferire le sottoscrizioni da un proprietario dell'accoun
 
 ## <a name="subscription-transfer-effects"></a>Effetti del trasferimento della sottoscrizione
 
-Quando una sottoscrizione di Azure viene trasferita a un account nello stesso tenant di Azure Active Directory, tutti gli utenti, i gruppi e le entità servizio che disponevano del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per gestire le risorse conservano l'accesso.
+Quando una sottoscrizione di Azure viene trasferita in un account nello stesso tenant di Azure Active Directory, tutti gli utenti, i gruppi e le entità servizio che disponevano del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per gestire le risorse conservano l'accesso.
 
 Per visualizzare gli utenti con autorizzazioni di controllo degli accessi in base al ruolo alla sottoscrizione:
 
@@ -209,12 +209,12 @@ Se la sottoscrizione viene trasferita a un account in un altro tenant di Azure A
 - Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../../storage/common/storage-account-overview.md).
 - Credenziali di accesso remoto per servizi quali macchine virtuali di Azure.
 
-Se il destinatario deve limitare l'accesso alle risorse di Azure, deve prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio. La maggior parte delle risorse può essere aggiornate usando la procedura seguente:
+Se il destinatario deve limitare l'accesso alle risorse di Azure, è consigliabile che esegua l'aggiornamento degli eventuali segreti associati al servizio. La maggior parte delle risorse può essere aggiornate usando la procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Scegliere **Tutte le risorse** dal menu Hub.
 3. Selezionare la risorsa.
-4. Nella pagina della risorsa fare clic su **Impostazioni** per visualizzare e aggiornare i segreti esistenti.
+4. Nella pagina della risorsa selezionare **Impostazioni** per visualizzare e aggiornare i segreti esistenti.
 
 ## <a name="delete-subscription"></a>Eliminare una sottoscrizione
 
@@ -222,20 +222,22 @@ Per eliminare una sottoscrizione in cui si è proprietario dell'account:
 
 1. Accedere al portale di Azure con le credenziali associate all'account.
 1. Nel menu Hub selezionare **Sottoscrizioni**.
-1. Nella scheda delle sottoscrizioni nell'angolo in alto a sinistra della pagina selezionare la sottoscrizione da annullare e fare clic su **Cancel Sub** (Annulla sottoscrizione) per aprire la scheda per l'annullamento.
-1. Immettere il nome della sottoscrizione, scegliere un motivo per l'annullamento e fare clic sul pulsante **Cancel Sub** (Annulla sottoscrizione).
+1. Nella scheda delle sottoscrizioni nell'angolo in alto a sinistra della pagina selezionare la sottoscrizione da annullare e quindi **Cancel Sub** (Annulla sottoscrizione) per aprire la scheda per l'annullamento.
+1. Immettere il nome della sottoscrizione, scegliere un motivo per l'annullamento e selezionare il pulsante **Cancel Sub** (Annulla sottoscrizione).
 
-Si noti che solo gli amministratori dell'account possono annullare le sottoscrizioni.
+Solo gli amministratori dell'account possono annullare le sottoscrizioni.
+
+Per altre informazioni, vedere [Cosa accade quando si annulla la sottoscrizione](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
 
 ## <a name="delete-an-account"></a>Eliminare un account
 
 La rimozione di un account può essere completata solo per gli account attivi senza sottoscrizioni attive.
 
-1. Da Enterprise Portal selezionare **Gestisci** nel riquadro di spostamento sinistro.
+1. In Enterprise Portal selezionare **Gestisci** nel riquadro di spostamento sinistro.
 1. Fare clic sulla scheda **Account**.
 1. Dalla tabella Account selezionare l'account che si intende eliminare.
-1. Fare clic sull'icona X a destra della riga relativa all'account.
-1. Nel momento in cui non sono presenti sottoscrizioni attive nell'account, fare clic sul pulsante **Sì** nella riga relativa all'account per confermarne la rimozione.
+1. Selezionare il simbolo X a destra della riga relativa all'account.
+1. Nel momento in cui non sono presenti sottoscrizioni attive nell'account, selezionare **Sì** nella riga relativa all'account per confermarne la rimozione.
 
 ## <a name="update-notification-settings"></a>Aggiornare le impostazioni di notifica
 
@@ -251,37 +253,37 @@ Per visualizzare le impostazioni di notifica correnti:
 
 Per aggiungere un contatto:
 
-1. Fare clic su **+Aggiungi contatto**.
+1. Selezionare **+Aggiungi contatto**.
 2. Immettere l'indirizzo di posta elettronica e confermarlo.
-3. Fare clic su **Salva**.
+3. Selezionare **Salva**.
 
-Il nuovo contatto per le notifiche viene visualizzato nella sezione **Contatto per le notifiche**. Per modificare la frequenza di notifica, selezionare il contatto per la notifica e fare clic sul simbolo della matita a destra della riga selezionata. Impostare la frequenza su **giornaliera**, **settimanale**, **mensile** o **nessuna**.
+Il nuovo contatto per le notifiche viene visualizzato nella sezione **Contatto per le notifiche**. Per cambiare la frequenza di notifica, selezionare il contatto per la notifica e quindi il simbolo della matita a destra della riga selezionata. Impostare la frequenza su **giornaliera**, **settimanale**, **mensile** o **nessuna**.
 
 È possibile eliminare le notifiche sul ciclo di vita che segnalano che si sta avvicinando la _data di fine del periodo di copertura_ e la _data di disabilitazione e deprovisioning_. Se si disabilitano le notifiche sul ciclo di vita, vengono eliminate le notifiche sulla data di fine del periodo di copertura e del contratto.
 
 ## <a name="manage-partner-administrators"></a>Gestire gli amministratori partner
 
-Ogni amministratore partner in Azure EA Portal è in grado di aggiungere o rimuovere altri amministratori partner. Gli amministratori partner sono associati alle organizzazioni partner di registrazioni indirette e non sono associati direttamente alle registrazioni.
+Ogni amministratore partner in Azure EA Portal è in grado di aggiungere o rimuovere altri amministratori partner. Gli amministratori partner sono associati alle organizzazioni partner di registrazioni indirette e non direttamente alle registrazioni.
 
 ### <a name="add-a-partner-administrator"></a>Aggiungere un amministratore partner
 
-Per visualizzare un elenco di tutte le registrazioni associate alla stessa organizzazione partner dell'utente corrente, fare clic sulla scheda **Registrazione** e selezionare una casella di registrazione desiderata.
+Per visualizzare un elenco di tutte le registrazioni associate alla stessa organizzazione partner dell'utente corrente, selezionare la scheda **Registrazione** e quindi una casella di registrazione.
 
 1. Accedere come amministratore partner.
-1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
-1. Fare clic sulla scheda **Partner**.
-1. Fare clic su **+ Aggiungi amministratore** e immettere l'indirizzo di posta elettronica, il contatto per le notifiche e i dettagli delle notifiche.
-1. Fare clic su **Aggiungi**.
+1. Selezionare **Gestisci** nel riquadro di spostamento di sinistra.
+1. Selezionare la scheda **Partner**.
+1. Selezionare **+ Aggiungi amministratore** e immettere l'indirizzo di posta elettronica, il contatto per le notifiche e i dettagli delle notifiche.
+1. Selezionare **Aggiungi**.
 
 ### <a name="remove-a-partner-administrator"></a>Rimuovere un amministratore partner
 
-Per visualizzare un elenco di tutte le registrazioni associate alla stessa organizzazione partner dell'utente corrente, fare clic sulla scheda **Registrazione** e selezionare una casella di registrazione desiderata.
+Per visualizzare un elenco di tutte le registrazioni associate alla stessa organizzazione partner dell'utente corrente, selezionare la scheda **Registrazione** e quindi una casella di registrazione.
 
 1. Accedere come amministratore partner.
-1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
-1. Fare clic sulla scheda **Partner**.
+1. Selezionare **Gestisci** nel riquadro di spostamento di sinistra.
+1. Selezionare la scheda **Partner**.
 1. Nella sezione Amministratore selezionare la riga appropriata per l'amministratore che si intende rimuovere.
-1. Fare clic sull'icona X a destra.
+1. Selezionare il simbolo X a destra.
 1. Confermare l'eliminazione.
 
 ## <a name="manage-partner-notifications"></a>Gestire le notifiche dei partner
@@ -291,12 +293,12 @@ Gli amministratori partner possono gestire la frequenza con cui ricevono le noti
 Se un utente non riceve una notifica, verificare che le impostazioni di notifica dell'utente siano corrette con la procedura seguente.
 
 1. Accedere ad Azure EA Portal come amministratore partner.
-2. Fare clic su **Gestisci** e quindi sulla scheda **Partner**.
+2. Selezionare **Gestisci** e quindi la scheda **Partner**.
 3. Visualizzare l'elenco degli amministratori nella sezione Amministratore.
-4. Per modificare le preferenze di notifica, passare il puntatore sull'amministratore appropriato e fare clic sul simbolo della matita.
-5. Modificare la frequenza di notifica e le notifiche sul ciclo di vita in base alle esigenze.
-6. Aggiungere un contatto, se necessario, e fare clic su **Aggiungi**.
-7. Fare clic su **Salva**.
+4. Per modificare le preferenze di notifica, passare il puntatore sull'amministratore appropriato e selezionare il simbolo della matita.
+5. Aumentare la frequenza di notifica e le notifiche sul ciclo di vita in base alle esigenze.
+6. Aggiungere un contatto, se necessario, e selezionare **Aggiungi**.
+7. Selezionare **Salva**.
 
 ![Esempio che mostra la casella Aggiunta di un contatto ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
 
@@ -307,11 +309,11 @@ Gli amministratori partner possono accedere a una visualizzazione elenco di tutt
 ### <a name="view-a-list-of-enrollments"></a>Visualizzare un elenco di registrazioni
 
 1. Accedere come amministratore partner.
-1. Fare clic su **Gestisci** nel riquadro di spostamento sul lato sinistro della pagina.
-1. Fare clic sulla scheda **Registrazione**.
-1. Selezionare la casella relativa alla registrazione desiderata.
+1. Selezionare **Gestisci** nel riquadro di spostamento sul lato sinistro della pagina.
+1. Selezionare la scheda **Registrazione**.
+1. Selezionare la casella relativa alla registrazione.
 
-Nella parte superiore della pagina è visibile una visualizzazione di tutte le registrazioni con le caselle relative a ogni registrazione. È inoltre possibile spostarsi tra le registrazioni facendo clic sul numero di registrazione corrente nel riquadro di spostamento sul lato sinistro della pagina. Verrà visualizzata una finestra popup che consente di eseguire la ricerca delle registrazioni o di selezionare una registrazione diversa facendo clic sulla casella appropriata.
+Nella parte superiore della pagina è visibile una visualizzazione di tutte le registrazioni con le caselle relative a ogni registrazione. È inoltre possibile spostarsi tra le registrazioni selezionando il numero di registrazione corrente nel riquadro di spostamento sul lato sinistro della pagina. Verrà visualizzata una finestra popup che consente di cercare registrazioni o di selezionare una registrazione diversa facendo clic sulla casella appropriata.
 
 ## <a name="azure-sponsorship-offer"></a>Offerta Azure Sponsorship
 
@@ -346,7 +348,7 @@ Per ogni sottoscrizione è consentito un solo proprietario di account.  È possi
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Un proprietario di account di Azure può essere elencato in più reparti?
 
-Un proprietario di account può essere associato solo a un singolo reparto.  In questo modo è possibile garantire un monitoraggio e una ripartizione accurati di costi/spese associati al reparto con cui è allineato nella registrazione in Azure EA Portal.
+No, un proprietario di account può essere associato solo a un singolo reparto. Questo criterio garantisce un monitoraggio e una ripartizione accurati di costi e spese associati al reparto con cui è allineato nella registrazione EA in Azure EA Portal.
 
 ### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Un proprietario di account di Azure può essere elencato come gruppo di sicurezza?
 
@@ -362,7 +364,7 @@ Attualmente questa operazione deve essere eseguita in base ai criteri, ovvero pe
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>Da dove è possibile creare una sottoscrizione?
 
-Per poter creare una sottoscrizione per l'offerta Azure Enterprise (EA), è necessario prima che l'account venga aggiunto al ruolo di proprietario dell'account dall'amministratore della registrazione EA in Azure EA Portal. Sarà quindi necessario accedere ad Azure EA Portal per ottenere i diritti per creare sottoscrizioni per il tipo di offerta EA. È consigliabile creare la prima sottoscrizione EA dal collegamento + Aggiungi sottoscrizione nella scheda relativa alle sottoscrizioni in EA Portal.  Tuttavia, una volta che l'account è stato autorizzato, potrebbe essere più facile creare sottoscrizioni in portal.azure.com nella scheda relativa alla sottoscrizione nell'angolo superiore sinistro della pagina, in cui è possibile creare e rinominare una sottoscrizione in un unico passaggio.
+Per poter creare una sottoscrizione per l'offerta Azure Enterprise (EA), è necessario che l'account venga prima aggiunto al ruolo di proprietario dell'account dall'amministratore della registrazione EA in Azure EA Portal. Sarà quindi necessario accedere ad Azure EA Portal per ottenere l'entitlement per creare sottoscrizioni per il tipo di offerta EA. È consigliabile creare la prima sottoscrizione EA dal collegamento '+ Aggiungi sottoscrizione' nella scheda relativa alle sottoscrizioni in EA Portal.  Tuttavia, una volta che l'account è stato autorizzato, potrebbe essere più facile creare sottoscrizioni in portal.azure.com nella scheda relativa alla sottoscrizione nell'angolo superiore sinistro della pagina, in cui è possibile creare e rinominare una sottoscrizione in un unico passaggio.
 
 ### <a name="who-can-create-a-subscription"></a>Chi può creare una sottoscrizione?
 

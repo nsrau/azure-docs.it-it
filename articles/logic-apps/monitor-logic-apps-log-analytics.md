@@ -7,11 +7,11 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426327"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381901"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure
 
@@ -21,7 +21,7 @@ Per configurare la registrazione per l'app per la logica, è possibile [abilitar
 
 Questo articolo illustra come abilitare Log Analytics quando si creano app per la logica, come installare e configurare la soluzione di gestione delle app per la logica e come impostare e creare query per i log di monitoraggio di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, è necessario disporre di un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Se non si dispone di un'area di lavoro, vedere la pagina relativa [alla creazione di un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -111,7 +111,7 @@ Quando si archiviano informazioni sugli eventi e i dati di runtime nei [log di m
 
    1. Al termine, selezionare **Salva**.
 
-   Ad esempio,
+   Ad esempio:
 
    ![Selezionare l'area di lavoro Log Analytics e i dati per la registrazione](./media/monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -179,7 +179,7 @@ Insieme ai log di monitoraggio di Azure, è possibile estendere il modo in cui s
 * [Archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs-collect-storage.md)
 * [Trasmettere i log della piattaforma Azure a hub eventi di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
-È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Ad esempio,
+È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Ad esempio:
 
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

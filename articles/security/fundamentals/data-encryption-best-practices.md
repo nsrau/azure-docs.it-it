@@ -4,7 +4,7 @@ description: Questo articolo presenta una serie di procedure consigliate per la 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934738"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945500"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la crittografia e la sicurezza dei dati di Azure
 Questo articolo descrive le procedure consigliate per la sicurezza e la crittografia dei dati.
@@ -48,8 +48,8 @@ Di seguito vengono indicate le procedure consigliate per l'uso di Key Vault.
 **Procedura consigliata**: concedere l'accesso a utenti, gruppi e applicazioni in un ambito specifico.   
 **Dettagli**: usare i ruoli predefiniti per il controllo degli accessi in base al ruolo. Ad esempio, per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, si assegna all'utente un ruolo predefinito [Collaboratore di Key Vault](/azure/role-based-access-control/built-in-roles) in un ambito specifico. In questo caso, l'ambito può essere una sottoscrizione, un gruppo di risorse o semplicemente uno specifico insieme di credenziali delle chiavi. Se i ruoli predefiniti non soddisfano specifiche esigenze, è possibile [definire ruoli personalizzati](/azure/role-based-access-control/custom-roles).
 
-**Procedura consigliata**: verificare ciò a cui gli utenti hanno accesso.   
-**Dettagli**: L'accesso a un insieme di credenziali delle chiavi è controllato tramite due interfacce separate: piano di gestione e piano dati. I controlli di accesso al piano di gestione e al piano dati funzionano in maniera indipendente.
+**Procedura consigliata**: controllare ciò a cui gli utenti hanno accesso.   
+**Dettagli**: l'accesso a un insieme di credenziali delle chiavi è controllato tramite due interfacce separate: piano di gestione e piano dati. I controlli di accesso al piano di gestione e al piano dati funzionano in maniera indipendente.
 
 Usare il controllo degli accessi in base al ruolo per verificare ciò a cui gli utenti hanno accesso. Se ad esempio si vuole consentire a un'applicazione l'uso delle chiavi di un insieme di credenziali delle chiavi, è sufficiente concedere autorizzazioni di accesso al piano dati usando criteri di accesso all'insieme di credenziali delle chiavi. Per questa applicazione non sono necessarie autorizzazioni di accesso al piano di gestione. Al contrario, se si vuole che un utente sia in grado di leggere i tag e le proprietà dell'insieme di credenziali, senza avere accesso a chiavi, segreti o certificati, è possibile concedere l'accesso "read" usando il controllo degli accessi in base al ruolo e non sono necessarie autorizzazioni di accesso al piano dati.
 
@@ -76,7 +76,7 @@ Poiché la maggior parte degli attacchi prende di mira l'utente finale, l'endpoi
 **Procedura consigliata**: usare una workstation di gestione sicura per proteggere gli account, le attività e i dati sensibili.   
 **Dettagli**: usare una [workstation con accesso con privilegi](https://technet.microsoft.com/library/mt634654.aspx) per ridurre la superficie di attacco nelle workstation. Queste workstation di gestione sicure consentono di contenere alcuni di questi attacchi e contribuiscono a proteggere i dati.
 
-**Procedura consigliata**: abilitare Endpoint Protection.   
+**Procedura consigliata**: assicurare la protezione di endpoint.   
 **Dettagli**: applicare criteri di sicurezza in tutti i dispositivi che consentono di utilizzare i dati, indipendentemente dal fatto che i dati si trovino nel cloud o in locale.
 
 ## <a name="protect-data-at-rest"></a>Proteggere i dati inattivi
@@ -84,11 +84,11 @@ Poiché la maggior parte degli attacchi prende di mira l'utente finale, l'endpoi
 [La crittografia dei dati inattivi](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy, la conformità e la sovranità dei dati.
 
 **Procedura consigliata**: applicare la crittografia dischi per migliorare la protezione dei dati.   
-**Dettagli**: usare [Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption-overview). Consente agli amministratori IT di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi combina la funzionalità standard di settore BitLocker di Windows e la funzionalità dm-crypt di Linux per fornire la crittografia del volume per i dischi del sistema operativo e dei dati.
+**Dettagli**: usare la [Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption-overview). Consente agli amministratori IT di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi combina la funzionalità standard di settore BitLocker di Windows e la funzionalità dm-crypt di Linux per fornire la crittografia del volume per i dischi del sistema operativo e dei dati.
 
 Archiviazione di Azure e Database SQL di Azure applicano la crittografia dei dati inattivi per impostazione predefinita e molti servizi offrono la crittografia come opzione. È possibile usare Azure Key Vault per mantenere il controllo delle chiavi che accedono e ai dati e li crittografano. Per altre informazioni, vedere [Supporto per il modello di crittografia dei provider di risorse di Azure](encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Procedure consigliate**: usare la crittografia per ridurre i rischi correlati all'accesso non autorizzato ai dati.   
+**Procedura consigliata**: usare la crittografia per ridurre i rischi correlati all'accesso non autorizzato ai dati.   
 **Dettagli**: crittografare le unità prima di scrivere dati sensibili.
 
 Le organizzazioni che non applicano la crittografia dei dati sono più esposte a problemi di riservatezza dei dati. Utenti non autorizzati, ad esempio, potrebbero rubare dati negli account compromessi o ottenere l'accesso non autorizzato ai dati codificati in ClearFormat. Le aziende devono anche dimostrare di operare in modo conforme e di implementare i controlli di sicurezza appropriati per aumentare la sicurezza dei dati e per rispettare normative di settore.
@@ -102,13 +102,13 @@ Per lo spostamento dei dati tra l'infrastruttura locale e Azure, è opportuno co
 Di seguito sono indicate le procedure consigliate specifiche per l'uso di Gateway VPN di Azure, HTTPS e SSL/TLS.
 
 **Procedura consigliata**: proteggere l'accesso da più workstation dislocate localmente in una rete virtuale di Azure.   
-**Dettagli**: usare [VPN da sito a sito](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
+**Dettagli**: usare una [VPN da sito a sito](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
 **Procedura consigliata**: proteggere l'accesso da una singola workstation dislocata localmente a una rete virtuale di Azure.   
-**Dettagli**: usare [VPN da punto a sito](/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+**Dettagli**: usare una [VPN da punto a sito](/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
 **Procedura consigliata**: spostare i set di dati più grandi tramite un collegamento WAN ad alta velocità dedicato.   
-**Dettagli**: usare [ExpressRoute](/azure/expressroute/expressroute-introduction). Se si decide di usare ExpressRoute, è possibile anche crittografare i dati a livello di applicazione usando [SSL/TLS](https://support.microsoft.com/kb/257591) o altri protocolli per una maggiore protezione.
+**Dettagli**: usare [ExpressRoute](/azure/expressroute/expressroute-introduction). Se si sceglie di usare ExpressRoute, è anche possibile crittografare i dati a livello di applicazione usando SSL/TLS o altri protocolli per una maggiore protezione.
 
 **Procedura consigliata**: interagire con Archiviazione di Azure tramite il portale di Azure.   
 **Dettagli**: tutte le transazioni avvengono via HTTPS. È anche possibile usare l' [API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd179355.aspx) su HTTPS per interagire con [archiviazione di Azure](https://azure.microsoft.com/services/storage/).
@@ -128,7 +128,7 @@ Questa soluzione di protezione delle informazioni favorisce il controllo dei dat
 È consigliabile:
 
 - [Distribuire Azure Information Protection](/azure/information-protection/deployment-roadmap) nell'organizzazione.
-- Applicare etichette che rispecchino i requisiti aziendali. Ad esempio:  applicare un'etichetta denominata "strettamente confidenziale" a tutti i documenti e i messaggi di posta elettronica che contengono dati top secret che necessitano di essere classificati e protetti. Solo gli utenti autorizzati potranno quindi accedere a questi dati, con le eventuali restrizioni specificate dall'utente.
+- Applicare etichette che rispecchino i requisiti aziendali. Ad esempio: applicare un'etichetta denominata "strettamente confidenziale" a tutti i documenti e i messaggi di posta elettronica che contengono dati top secret che necessitano di essere classificati e protetti. Solo gli utenti autorizzati potranno quindi accedere a questi dati, con le eventuali restrizioni specificate dall'utente.
 - Configurare la [registrazione e l'analisi dell'utilizzo del servizio Azure RMS](/azure/information-protection/log-analyze-usage) in modo da monitorare come l'organizzazione usa il servizio di protezione.
 
 Le organizzazioni che sono carenti a livello di [classificazione dei dati](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e di protezione dei file potrebbero essere più soggette alla perdita di dati o a un loro utilizzo improprio. Con un'adeguata protezione dei file, è possibile analizzare i flussi di dati per ottenere informazioni dettagliate sulle attività aziendali, rilevare comportamenti a rischio e adottare misure correttive, tenere traccia dell'accesso ai documenti e così via.

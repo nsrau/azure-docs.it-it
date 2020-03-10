@@ -6,15 +6,15 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 1bac04bbb67c7472de92c6da322121bafc20a560
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.subservice: imaging
+ms.openlocfilehash: 15a3b39b1466ffec87971b8f054ca916567d89d7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695439"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944950"
 ---
-# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Anteprima: Creare una VM Linux con Azure Image Builder
+# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Anteprima: creare una VM Linux con Azure Image Builder
 
 Questo articolo illustra come creare un'immagine Linux personalizzata usando il generatore di immagini di Azure e l'interfaccia della riga di comando di Azure. L'esempio in questo articolo usa tre diversi [personalizzatori](image-builder-json.md#properties-customize) per personalizzare l'immagine:
 
@@ -22,7 +22,7 @@ Questo articolo illustra come creare un'immagine Linux personalizzata usando il 
 - Shell (inline): esegue comandi specifici. In questo esempio, i comandi inline includono la creazione di una directory e l'aggiornamento del sistema operativo.
 - File: copia un [file da GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) in una directory nella macchina virtuale.
 
-È anche possibile specificare un `buildTimeoutInMinutes`oggetto. Il valore predefinito è 240 minuti ed è possibile aumentare il tempo di compilazione per consentire le compilazioni a esecuzione prolungata.
+È anche possibile specificare un `buildTimeoutInMinutes`. Il valore predefinito è 240 minuti ed è possibile aumentare il tempo di compilazione per consentire le compilazioni a esecuzione prolungata.
 
 Per configurare l'immagine verrà usato un modello Sample. JSON. Il file con estensione JSON usato è il seguente: [helloImageTemplateLinux. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
@@ -75,7 +75,7 @@ imageName=myBuilderImage
 runOutputName=aibLinux
 ```
 
-Creare una variabile per l'ID sottoscrizione. È possibile ottenerlo usando `az account show | grep id`.
+Creare una variabile per l'ID sottoscrizione. Questa operazione può essere usata `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -91,7 +91,7 @@ az group create -n $imageResourceGroup -l $location
 ## <a name="set-permissions-on-the-resource-group"></a>Impostare le autorizzazioni per il gruppo di risorse
 Assegnare l'autorizzazione ' collaboratore ' al generatore immagini per creare l'immagine nel gruppo di risorse. Senza le autorizzazioni appropriate, la compilazione dell'immagine avrà esito negativo. 
 
-Il `--assignee` valore è l'ID di registrazione dell'app per il servizio Generatore di immagini. 
+Il valore `--assignee` è l'ID di registrazione dell'app per il servizio Generatore di immagini. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -114,14 +114,14 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-È possibile modificare questo esempio. JSON in base alle esigenze. Ad esempio, è possibile aumentare il valore di `buildTimeoutInMinutes` per consentire le compilazioni a esecuzione prolungata. È possibile modificare il file in Cloud Shell usando un editor di testo `vi`come.
+È possibile modificare questo esempio. JSON in base alle esigenze. Ad esempio, è possibile aumentare il valore di `buildTimeoutInMinutes` per consentire le compilazioni a esecuzione prolungata. È possibile modificare il file in Cloud Shell usando un editor di testo, ad esempio `vi`.
 
 ```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
 
 > [!NOTE]
-> Per l'immagine di origine, è sempre necessario [specificare una versione](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), non `latest`è possibile usare.
+> Per l'immagine di origine, è sempre necessario [specificare una versione](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), non è possibile usare `latest`.
 >
 > Se si aggiunge o modifica il gruppo di risorse in cui viene distribuita l'immagine, è necessario assicurarsi che le [autorizzazioni siano impostate per il gruppo di risorse](#set-permissions-on-the-resource-group).
 
@@ -140,7 +140,7 @@ az resource create \
 
 Se viene completata correttamente, viene restituito un messaggio di operazione riuscita e viene creato un elemento del modello di configurazione del generatore di immagini nella $imageResourceGroup. È possibile visualizzare il gruppo di risorse nel portale se si Abilita "Mostra tipi nascosti".
 
-In background, Image Builder crea anche un gruppo di risorse di gestione temporanea nella sottoscrizione. Image Builder usa il gruppo di risorse di staging per la compilazione dell'immagine. Il nome del gruppo di risorse avrà il formato seguente: `IT_<DestinationResourceGroup>_<TemplateName>`.
+In background, Image Builder crea anche un gruppo di risorse di gestione temporanea nella sottoscrizione. Image Builder usa il gruppo di risorse di staging per la compilazione dell'immagine. Il nome del gruppo di risorse sarà nel formato: `IT_<DestinationResourceGroup>_<TemplateName>`.
 
 > [!IMPORTANT]
 > Non eliminare direttamente il gruppo di risorse di staging. Se si elimina l'artefatto del modello di immagine, il gruppo di risorse di staging verrà eliminato automaticamente. Per ulteriori informazioni, vedere la sezione relativa alla [pulizia](#clean-up) alla fine di questo articolo.
@@ -203,7 +203,7 @@ Si noterà che l'immagine è stata personalizzata con un messaggio del giorno no
 *******************************************************
 ```
 
-Al `exit` termine, digitare per chiudere la connessione SSH.
+Al termine, digitare `exit` quando si chiude la connessione SSH.
 
 ## <a name="check-the-source"></a>Controllare l'origine
 

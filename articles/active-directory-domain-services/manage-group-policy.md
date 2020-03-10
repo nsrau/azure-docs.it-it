@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: bce71355eef19ec3cc85525033274f57b1a3e0b9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613575"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946414"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Amministrare Criteri di gruppo in un dominio gestito Azure AD Domain Services
 
@@ -42,7 +42,11 @@ Per completare questo articolo, sono necessari i privilegi e le risorse seguenti
 * Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
 
 > [!NOTE]
-> Poiché non è possibile [accedere ai controller di dominio in Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), non è possibile creare e usare un archivio centrale per i modelli amministrativi di criteri di gruppo in un dominio gestito. [SYSVOL non è incluso nella sincronizzazione dei Azure ad Connect locali](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), quindi non è possibile creare un archivio centrale locale e sincronizzarlo per Azure AD DS tramite Azure ad.
+> È possibile usare Criteri di gruppo Modelli amministrativi copiando i nuovi modelli nella workstation di gestione. Copiare i file con estensione *ADMX* in `%SYSTEMROOT%\PolicyDefinitions` e copiare i file con *estensione adml* specifici delle impostazioni locali in `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, dove `Language-CountryRegion` corrisponde alla lingua e all'area dei file con *estensione adml* .
+>
+> Ad esempio, copiare la versione in inglese Stati Uniti dei file con *estensione adml* nella cartella `\en-us`.
+>
+> In alternativa, è possibile archiviare centralmente il modello di Criteri di gruppo amministrativo nei controller di dominio che fanno parte del dominio gestito Azure AD DS. Per ulteriori informazioni, vedere [How to create and manage the Central Store for Criteri di gruppo modelli amministrativi in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="install-group-policy-management-tools"></a>Installare gli strumenti di gestione di Criteri di gruppo
 
@@ -54,7 +58,7 @@ Per creare e configurare Criteri di gruppo oggetto (GPO), è necessario installa
 1. Nella pagina **Prima di iniziare** dell'*aggiunta guidata ruoli e funzionalità* selezionare **Avanti**.
 1. Per *Tipo di installazione* lasciare selezionata l'opzione **Installazione basata su ruoli o basata su funzionalità** e selezionare **Avanti**.
 1. Nella pagina **Selezione server** scegliere la macchina virtuale corrente dal pool di server, ad esempio *MyVM.aaddscontoso.com*, quindi fare clic su **Avanti**.
-1. Nella pagina **Ruoli server** fare clic su **Avanti**.
+1. Nella pagina **Ruoli del server** fare clic su **Avanti**.
 1. Nella pagina **Funzionalità**, selezionare **Gestione Criteri di gruppo**.
 
     ![Installare ' Criteri di gruppo Management ' dalla pagina funzionalità](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)

@@ -7,14 +7,14 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028887"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252572"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Avvio rapido: Creare un endpoint privato con il portale di Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Guida introduttiva: Creare un endpoint privato con il portale di Azure
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. Questa guida di avvio rapido illustrerà come creare una VM in una rete virtuale di Azure e un server di database SQL con un endpoint privato di Azure usando il portale di Azure. Si potrà quindi accedere in modo sicuro al server di database SQL dalla VM.
 
@@ -28,26 +28,22 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la VM usata per accedere alla risorsa Collegamento privato (in questo esempio, un server SQL in Azure).
 
-### <a name="create-the-virtual-network"></a>Creare la rete virtuale
-
+## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
 
 In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la VM usata per accedere alla risorsa Collegamento privato.
 
-1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
-1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
+In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
 
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork*. |
-    | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Subscription | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Location | Selezionare **Stati Uniti centro-occidentali**.|
-    | Subnet - Nome | Immettere *mySubnet*. |
-    | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
-    |||
-1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
+| Parametro                   | valore                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | Stati Uniti centro-occidentali    |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machine"></a>Creare la macchina virtuale
 

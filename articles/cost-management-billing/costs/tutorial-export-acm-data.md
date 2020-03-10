@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 40846de9ee8eec3225a05e3c2c68c3ad5af02042
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 04228a5f3f7e0b10e3cd881043af7861bb9fb347
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201017"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251128"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -29,8 +29,8 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare un'esportazione giornaliera
 > * Verificare che i dati vengano raccolti
 
-## <a name="prerequisites"></a>Prerequisites
-L'esportazione dati è disponibile per vari tipi di account di Azure, inclusi i clienti con [Contratto Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Contratto del cliente Microsoft](get-started-partners.md). Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Sono supportati gli ambiti o le autorizzazioni di Azure seguenti per ogni sottoscrizione per l'esportazione di dati per utente e gruppo. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+## <a name="prerequisites"></a>Prerequisiti
+L'esportazione dati è disponibile per vari tipi di account di Azure, inclusi i clienti con [Contratto Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Contratto del cliente Microsoft](get-started-partners.md). Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md). Sono supportati gli ambiti o le autorizzazioni di Azure seguenti per ogni sottoscrizione per l'esportazione di dati per utente e gruppo. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 - Proprietario: può creare, modificare o eliminare esportazioni pianificate per una sottoscrizione.
 - Collaboratore: può creare, modificare o eliminare le proprie esportazioni pianificate. Può modificare il nome delle esportazioni pianificate create da altri.
@@ -39,6 +39,8 @@ L'esportazione dati è disponibile per vari tipi di account di Azure, inclusi i 
 Per gli account di archiviazione di Azure:
 - Sono necessarie autorizzazioni in scrittura per modificare l'account di archiviazione configurato, indipendentemente dalle autorizzazioni per l'esportazione.
 - L'account di archiviazione di Azure deve essere configurato per l'archiviazione BLOB o file.
+
+Se si ha una nuova sottoscrizione, non è possibile usare immediatamente le funzionalità di Gestione costi. Potrebbero essere necessarie fino a 48 ore prima di poter usarle usare tutte.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: c1cced862bee1ec4579f3e6e5145968dec7613e4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1c5dd5ebd5023b75aad5dabf6a721a1193a6224d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500563"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272212"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -42,6 +42,7 @@ Piani di servizio:
 - **Database di Azure per PostgreSQL**: in una prenotazione sono inclusi solo i costi di calcolo. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati al server di database PostgreSQL.
 - **Database di Azure per MariaDB**: in una prenotazione sono inclusi solo i costi di calcolo. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati al server di database MariaDB.
 - **Esplora dati di Azure**: in una prenotazione sono inclusi gli addebiti di ricarico. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati ai cluster.
+- **Azure Cache for Redis**: in una prenotazione sono inclusi solo i costi delle risorse di calcolo. Non sono inclusi gli addebiti per le funzionalità di rete o archiviazione associate alle istanze della cache Redis.
 - **Managed Disks SSD Premium**: viene effettuata una prenotazione per uno SKU del disco specificato. 
 
 Piani software:

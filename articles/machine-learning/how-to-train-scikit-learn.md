@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 08/02/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: d61e33568297e6f72aca0ab736f8a14f1758ffa1
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: bdd2cc400c3df75742689258caea8cb87ee8ccc6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255121"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942265"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Creazione di modelli Scikit-learn su larga scala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Gli script di esempio in questo articolo vengono usati per classificare le immag
 
 Che tu stia eseguendo il training di un modello Scikit-learn di machine learning da zero o che crei un modello esistente nel cloud, puoi usare Azure Machine Learning per scalare in orizzontale processi di training open source con risorse di calcolo elastiche per il cloud. Con Azure Machine Learning è possibile creare, distribuire, eseguire la versione e monitorare i modelli a livello di produzione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Eseguire questo codice in uno degli ambienti seguenti:
  - Azure Machine Learning istanza di calcolo: nessun download o installazione necessaria
@@ -40,7 +40,7 @@ Eseguire questo codice in uno degli ambienti seguenti:
     - [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
     - Scaricare il set di dati e il file di script di esempio 
         - [set di dati Iris](https://archive.ics.uci.edu/ml/datasets/iris)
-        - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
+        - [train_iris. py](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
     - È anche possibile trovare una [versione di Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) completata di questa guida nella pagina degli esempi di GitHub. Il notebook include una sezione espansa che illustra l'ottimizzazione di iperparametri intelligenti e il recupero del modello migliore in base alle metriche primarie.
 
 ## <a name="set-up-the-experiment"></a>Configurare l'esperimento
@@ -180,7 +180,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Registrare il modello nell'area di lavoro con il codice seguente. Specificando i parametri `model_framework`, `model_framework_version`e `resource_configuration`, la distribuzione del modello senza codice diventa disponibile. In questo modo è possibile distribuire direttamente il modello come servizio Web dal modello registrato e l'oggetto `ResourceConfiguration` definisce la risorsa di calcolo per il servizio Web.
+Registrare il modello nell'area di lavoro con il codice seguente. Specificando i parametri `model_framework`, `model_framework_version`e `resource_configuration`, la distribuzione del modello senza codice diventa disponibile. In questo modo è possibile distribuire direttamente il modello come servizio Web dal modello registrato e l'oggetto [`ResourceConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py) definisce la risorsa di calcolo per il servizio Web.
 
 ```Python
 from azureml.core import Model
@@ -199,7 +199,7 @@ Il modello appena registrato può essere distribuito esattamente come qualsiasi 
 
 ### <a name="preview-no-code-model-deployment"></a>Anteprima Distribuzione del modello senza codice
 
-Anziché la route di distribuzione tradizionale, è anche possibile usare la funzionalità di distribuzione senza codice (anteprima) per Scikit-learn. La distribuzione del modello senza codice è supportata per tutti i tipi di modello Scikit-learn predefiniti. Registrando il modello come illustrato in precedenza con i parametri `model_framework`, `model_framework_version`e `resource_configuration`, è possibile usare semplicemente la funzione statica `deploy()` per distribuire il modello.
+Anziché la route di distribuzione tradizionale, è anche possibile usare la funzionalità di distribuzione senza codice (anteprima) per Scikit-learn. La distribuzione del modello senza codice è supportata per tutti i tipi di modello Scikit-learn predefiniti. Registrando il modello come illustrato in precedenza con i parametri `model_framework`, `model_framework_version`e `resource_configuration`, è possibile usare semplicemente la funzione statica [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) per distribuire il modello.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])

@@ -4,17 +4,17 @@ description: Questa esercitazione illustra come pianificare e controllare i cost
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/23/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 3b479f85475be6409a6fa6621357400e954d22c8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: f5943e37267a79ad342fbd9afe0256a4ca7182e6
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582390"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251267"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -36,11 +36,13 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare e modificare i budget con PowerShell
 > * Creare un budget con un modello di Azure Resource Manager
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Sono supportati i budget per diversi tipi di account Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Per visualizzare i budget, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
+Sono supportati i budget per diversi tipi di account Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md). Per visualizzare i budget, è necessario effettuare almeno l'accesso in lettura per l'account Azure.
 
- Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. Non è tuttavia possibile creare budget per gli account di fatturazione EA.
+Se si ha una nuova sottoscrizione, non è possibile creare immediatamente un budget o usare altre funzionalità di Gestione costi. Potrebbero essere necessarie fino a 48 ore prima di poter usarle usare tutte.
+
+Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. Non è tuttavia possibile creare budget per gli account di fatturazione EA.
 
 Le autorizzazioni o gli ambiti di Azure riportati di seguito sono supportati per i budget per ogni sottoscrizione, in base a utente e gruppo. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 

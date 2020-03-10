@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a0e6d96f2e3d2686bdf96e5d7e25bf801f0fa9e5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: c3452fc68f7add40979513d3e3956f1c93e327f0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303274"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943955"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Baseline della sicurezza di Azure per HDInsight
 
@@ -91,7 +91,7 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1,5: registrare i pacchetti di rete e i log di flusso
 
-**Linee guida**: abilitare il gruppo di sicurezza di rete (NSG) per i log di NSG collegati alla subnet usata per proteggere il cluster HDInsight di Azure. Registrare i log dei flussi di NSG in un account di archiviazione di Azure per generare record di flusso. Se necessario per l'analisi dell'attività anomala, abilitare l'acquisizione di pacchetti di Azure Network Watcher.
+**Linee guida**: abilitare i log dei flussi del gruppo di sicurezza di rete (NSG) per il NSG collegato alla subnet usata per proteggere il cluster HDInsight di Azure. Registrare i log dei flussi di NSG in un account di archiviazione di Azure per generare record di flusso. Se necessario per l'analisi dell'attività anomala, abilitare l'acquisizione di pacchetti di Azure Network Watcher.
 
 
 Come abilitare i log dei flussi di NSG:

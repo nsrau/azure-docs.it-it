@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273974"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933753"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
 
@@ -102,7 +102,7 @@ Per creare una definizione del processo, seguire questa procedura.
 
    3. Nella sottosezione **Filtro** immettere la directory radice contenente i dati di interesse nel formato _\DirectoryRadice\Dati_. Le lettere di unità, ad esempio _\C:\Dati_, non sono supportate. È inoltre possibile aggiungere qualsiasi filtro file qui.
 
-   4. Il servizio di trasformazione dati funziona sui dati inseriti in Azure tramite snapshot. Quando si esegue questo processo, è possibile scegliere di completare un backup a ogni esecuzione del processo (per lavorare sui dati più recenti) o usare l'ultimo backup esistente nel cloud (se si lavora con alcuni dati archiviati).
+   4. Il servizio di trasformazione dei dati funziona solo con lo snapshot più recente dei dati spostati in Azure.
 
    5. Fare clic su **OK**.
 
@@ -150,6 +150,11 @@ Per spostare i dati da StorSimple all'account di archiviazione specificato nella
 4. Per monitorare il processo, passare a **Processi** in StorSimple Data Manager. Oltre al monitoraggio nel pannello **Processi** è possibile anche restare in ascolto sulla coda di archiviazione in cui viene aggiunto un messaggio ogni volta che un file viene spostato da StorSimple all'account di archiviazione.
 
     ![Avviare l'esecuzione del processo 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+
+### <a name="view-logs-after-job-completion"></a>Visualizzare i log dopo il completamento del processo
+
+Al termine di un processo, è possibile visualizzare lo stato del processo. Lo stato del processo può essere **succeeded**, **parzialmente riuscito** e **non riuscito**. È possibile visualizzare l'elenco dei file copiati correttamente e i file che non sono stati copiati. Questi elenchi sono disponibili in un contenitore denominato **"StorSimple-Data-Manager-Joblogs"** all'interno dell'account di archiviazione di destinazione. All'interno di questo contenitore è possibile cercare una cartella con lo stesso nome della definizione del processo. In questo modo verrà creata una cartella per ogni esecuzione del processo che conterrà gli elenchi. Il nome di questa cartella sarà il GUID del processo, che è possibile ottenere dalla pagina dei dettagli del processo. In alternativa, nella maggior parte dei casi viene visualizzato un collegamento per i log di copia all'interno della pagina processi.
+Sono disponibili 2 set di file CSV che verranno visualizzati in questa cartella. Tutti i file che iniziano con **copiedfilelist...** conterranno l'elenco dei file copiati correttamente. Tutti i file che iniziano con **failedfilelist...** contengono file che non possono essere copiati, insieme a un messaggio di errore.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

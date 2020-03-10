@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827312"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251318"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
-L'API Analisi del testo è un servizio basato su cloud che garantisce l'elaborazione avanzata in linguaggio naturale su testo non elaborato e include quattro funzioni principali: analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua e riconoscimento delle entità.
+L'API Analisi del testo è un servizio basato su cloud che garantisce l'elaborazione avanzata in linguaggio naturale su testo non elaborato e include quattro funzioni principali: analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua e riconoscimento di entità denominate.
 
 L'API fa parte di [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/), una raccolta di algoritmi di Machine Learning e intelligenza artificiale disponibili nel cloud per i progetti di sviluppo.
 
@@ -51,7 +51,7 @@ Il flusso di lavoro è semplice: vengono inviati i dati da analizzare e vengono 
 
 2. [Formulare una richiesta](how-tos/text-analytics-how-to-call-api.md#json-schema) contenente i dati come testo non elaborato non strutturato in JSON.
 
-3. Pubblicare la richiesta nell'endpoint stabilito durante l'iscrizione, aggiungendo la risorsa desiderata: analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua o identificazione dell'entità.
+3. Pubblicare la richiesta nell'endpoint stabilito durante l'iscrizione, aggiungendo la risorsa desiderata: analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua o identificazione di entità denominate.
 
 4. Trasmettere o archiviare la risposta in locale. A seconda della richiesta, i risultati sono un punteggio sentiment, una raccolta di frasi chiave estratte o un codice della lingua.
 
@@ -83,7 +83,7 @@ Questa sezione è stata spostata in un articolo separato per una migliore rintra
 
 Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elaborati. Il limite corrente è di 5.120 caratteri per ogni documento. Se è necessario analizzare documenti di dimensioni maggiori, è possibile suddividerli in blocchi più piccoli.
 
-| Limite | Valore |
+| Limite | valore |
 |------------------------|---------------|
 | Dimensioni massime di un singolo documento | 5\.120 caratteri misurati da [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Dimensioni massime dell'intera richiesta | 1 MB |

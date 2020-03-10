@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c8e254b2ceb040b487de1cfaac6e4d8670d8b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e0830d470d359b12c23a6cd0430075c94c7a06a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430957"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205099"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Airtable
 
@@ -31,9 +30,9 @@ Questa esercitazione descrive come integrare Airtable con Azure Active Directory
 * Abilitare gli utenti per l'accesso automatico ad Airtable con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -46,6 +45,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Airtable supporta l'accesso SSO avviato da **SP e IDP**
 * Airtable supporta il provisioning utenti **JIT**
+* Dopo aver configurato Airtable, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
@@ -94,6 +94,17 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Fare clic su **Salva**.
 
+1. L'applicazione Airtable prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
+
+    ![image](common/default-attributes.png)
+
+1. Oltre quelli elencati in precedenza, l'applicazione Airtable prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
+
+    | Nome | Attributo di origine|
+    | ------------ | --------- |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:2.5.4.42 | user.givenname |
+
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
@@ -134,7 +145,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-airtable-sso"></a>Configurare l'accesso Single Sign-On di Airtable
 
-Seguire le istruzioni fornite nel [collegamento](https://support.airtable.com/hc/articles/360037475234) per configurare l'accesso Single Sign-On sul lato **AirTable**.
+Seguire le istruzioni fornite nel [collegamento](https://support.airtable.com/hc/articles/360037475234) per configurare l'accesso Single Sign-On sul lato **Airtable**.
 
 ### <a name="create-airtable-test-user"></a>Creare l'utente di test di Airtable
 
@@ -150,8 +161,8 @@ Quando si fa clic sul riquadro di Airtable nel pannello di accesso, si dovrebbe 
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Provare Airtable con Azure AD](https://aad.portal.azure.com/)

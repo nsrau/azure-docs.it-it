@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3fb18b6afb2fc32ba8cc07c46a9a4f5a026d07e2
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: d6dba6f68238327c1c5c51c75cc5a65ceec2838f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402290"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942376"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -43,7 +43,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | --- | --- | --- |
 | **Australia Government** | Australia centrale, Australia centrale 2 |Canberra, Canberra2 |
 | **Europa** | Francia centrale, Francia meridionale, Germania settentrionale, Germania centro-occidentale, Europa settentrionale, Norvegia orientale, Norvegia occidentale, Svizzera settentrionale, Svizzera occidentale, Regno Unito occidentale, Regno Unito meridionale, Europa occidentale |Amsterdam, Amsterdam2, Copenaghen, Dublino, Francoforte, Ginevra, Londra, London2, Marsiglia, Milano, Monaco, Newport (Galles), Oslo, Parigi, Stavanger, Stoccolma, Zurigo, Monaco |
-| **America del Nord** | Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
+| **America del Nord** | Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto, Vancouver |
 | **Asia** | Asia orientale, Asia sudorientale | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | India occidentale, India centrale, India Meridionale |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Giappone** | Giappone occidentale, Giappone orientale |Osaka, Tokyo, Tokyo2 |
@@ -137,6 +137,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Tokyo** | [TY4 Equinix](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Giappone orientale | 10G, 100G | Aryaka Networks, AT & T NetBond, BBIX, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Giappone Inc.-IIJ, Megaport, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Tokyo2** | [A Tokyo](https://www.attokyo.com/) | 2 | Giappone orientale | 10G, 100G | |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada centrale | 10G, 100G | AL & T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX REACH Megaport, Telus, Verizon, Zayo |
+| **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | n/d | 10G, 100G | |
 | **Washington DC** | [DC2 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Stati Uniti orientali, Stati Uniti orientali 2 | 10G, 100G | Aryaka Networks, AT & T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, intercloud, IX REACH, Level 3 Communications, Megaport, Neutronia Networks, NTT Communications, Orange, PacketFabric, SES , Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | Stati Uniti orientali, Stati Uniti orientali 2 | 10G, 100G | CenturyLink Cloud Connect, Coresite, Intelsat, Viasat, Zayo | 
 | **Zurigo** | [ZUR2 Interxion](https://www.interxion.com/Locations/zurich/) | 1 | Svizzera settentrionale | 10G, 100G | Intercloud, Interxion, Megaport, Swisscom |

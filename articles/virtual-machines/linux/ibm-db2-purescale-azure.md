@@ -1,31 +1,27 @@
 ---
 title: IBM DB2 pureScale in Azure
 description: Questo articolo illustra un'architettura per l'esecuzione di un ambiente IBM DB2 pureScale in Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
 manager: edprice
 editor: edprice
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 4012048100bbed2229c45434ee4a27dfe9b952e7
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530077"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945047"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale in Azure
 
 L'ambiente IBM DB2 pureScale rappresenta un cluster database per Azure con disponibilità e scalabilità elevate in sistemi operativi Linux. Questo articolo illustra un'architettura per l'esecuzione di DB2 pureScale in Azure.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Le aziende dispongono di piattaforme RDBMS (database Relational Database Management System) tradizionali utilizzate a lungo per soddisfare le proprie esigenze di elaborazione delle transazioni online (OLTP). Ultimamente molte stanno eseguendo la migrazione dei loro ambienti di database basati su mainframe in Azure per espandere la capacità, ridurre i costi e mantenere una stabile struttura dei costi operativi. La migrazione rappresenta spesso il primo passo nella direzione della modernizzazione di una piattaforma legacy. 
 
@@ -44,7 +40,7 @@ Per decidere più facilmente l'architettura DB2 pureScale più adatta al proprio
 > [!NOTE]
 > Questo articolo descrive un solo approccio alla migrazione di DB2, ma ne esistono anche altri. È ad esempio possibile eseguire DB2 pureScale anche in ambienti locali virtualizzati. IBM supporta DB2 su Microsoft Hyper-V in varie configurazioni. Per altre informazioni, vedere [DB2 pureScale virtualization architecture](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/r0061462.html) (Architettura di virtualizzazione di DB2 pureScale) in IBM Knowledge Center.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Per supportare livelli elevati di disponibilità e scalabilità in Azure, è possibile usare un'architettura di dati condivisi ampliabile per DB2 pureScale. La migrazione eseguita dall'utente ha usato l'architettura di esempio seguente.
 

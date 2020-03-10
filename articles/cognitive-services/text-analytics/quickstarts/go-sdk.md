@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo per Go | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Analisi del testo per Go | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento avvio rapido si rileva la lingua usando la libreria client di Analisi del testo per Go di Servizi cognitivi di Azure.
 services: cognitive-services
@@ -8,32 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/29/2020
+ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 5623be028cfe10c0ea6786b24bf75ae2bf9c5255
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 0b4495616c750b2b3e8431e011d71ae8671af1ef
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560785"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912642"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Avvio rapido: Usare la libreria client di Analisi del testo per Go
+# <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Guida introduttiva: Usare la libreria client di Analisi del testo per Go
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [Pacchetto (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [Esempi](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 > [!NOTE]
 > Questo argomento di avvio rapido si applica solo alla versione 2.1 di Analisi del testo. Attualmente non è disponibile una libreria client v3 per Go.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/)
 * Versione più recente di [Go](https://golang.org/dl/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. Questa operazione verrà eseguita più avanti nell'avvio rapido.
+    * È possibile usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
-
-### <a name="create-a-text-analytics-azure-resource"></a>Creare una risorsa di Azure per Analisi del testo 
-
-[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### <a name="create-a-new-go-project"></a>Creare un nuovo progetto Go
 

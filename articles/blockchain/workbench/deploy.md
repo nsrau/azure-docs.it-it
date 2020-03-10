@@ -4,12 +4,12 @@ description: Come distribuire l'anteprima di Azure blockchain Workbench
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189221"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943194"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Distribuire l'anteprima di Azure blockchain Workbench
 
@@ -135,7 +135,7 @@ Al termine della distribuzione di Blockchain Workbench, un nuovo gruppo di risor
 
     ![Sezione Essentials del servizio app](media/deploy/app-service.png)
 
-Per associare un nome di dominio personalizzato a Blockchain Workbench, vedere [Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico](../../app-service/web-sites-traffic-manager-custom-domain-name.md).
+Per associare un nome di dominio personalizzato a Blockchain Workbench, vedere [Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico](../../app-service/configure-domain-traffic-manager.md).
 
 ## <a name="azure-ad-configuration-script"></a>Script di configurazione di Azure AD
 

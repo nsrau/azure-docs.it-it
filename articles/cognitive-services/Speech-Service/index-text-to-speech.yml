@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2020
   ms.author: dapine
-  ms.openlocfilehash: 11fbb549409afd78f77e194fe45fa0d7626f75a7
-  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+  ms.openlocfilehash: 9070577c07cb826d10b911689f456d64709450b7
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/06/2020
-  ms.locfileid: "78674470"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943362"
 landingContent:
 - title: Introduzione
   linkLists:
@@ -59,10 +59,6 @@ landingContent:
       url: how-to-custom-voice-create-voice.md
     - text: Registrare esempi vocali
       url: record-custom-voice-samples.md
-    - text: Linee guida per la denominazione delle parole chiave personalizzate
-      url: speech-devices-sdk-kws-guidelines.md
-    - text: Individuazione di parole chiave personalizzate
-      url: speech-devices-sdk-create-kws.md
     - text: Controllo di Voce personalizzata
       url: concepts-gating-overview.md
     - text: Distribuzione della tecnologia sintetica

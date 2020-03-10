@@ -4,12 +4,12 @@ description: Informazioni sulle porte e sugli indirizzi necessari per controllar
 services: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: d69921ce23e961879fea6be68838f86bfcc703d0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b40415fa78b48d506800049e72c864fb3cab3e29
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191300"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946406"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster in Azure Kubernetes Service (AKS)
 
@@ -34,7 +34,7 @@ Per aumentare la sicurezza del cluster AKS, è possibile che si desideri limitar
 
 > [!IMPORTANT]
 > Quando si usa il firewall di Azure per limitare il traffico in uscita e creare una route definita dall'utente (UDR) per forzare tutto il traffico in uscita, assicurarsi di creare una regola DNAT appropriata nel firewall per consentire correttamente il traffico in ingresso. L'uso del firewall di Azure con un UDR interrompe la configurazione in ingresso a causa del routing asimmetrico. Il problema si verifica se la subnet AKS ha una route predefinita che passa all'indirizzo IP privato del firewall, ma si usa un servizio di bilanciamento del carico pubblico-ingress o Kubernetes di tipo: LoadBalancer). In questo caso, il traffico del servizio di bilanciamento del carico in ingresso viene ricevuto tramite l'indirizzo IP pubblico, ma il percorso di ritorno passa attraverso l'indirizzo IP privato del firewall. Poiché il firewall è con stato, Elimina il pacchetto restituito perché il firewall non è a conoscenza di una sessione stabilita. Per informazioni su come integrare il firewall di Azure con il servizio di bilanciamento del carico in ingresso o servizio, vedere [integrare il firewall di Azure con azure Load Balancer standard](https://docs.microsoft.com/azure/firewall/integrate-lb).
-> È possibile bloccare il traffico per la porta TCP 9000 e la porta TCP 22 usando una regola di rete tra gli IP del nodo di lavoro in uscita e l'IP per il server API.
+> È possibile bloccare il traffico per la porta TCP 9000, la porta TCP 22 e la porta UDP 1194 usando una regola di rete tra gli IP del nodo di lavoro in uscita e l'IP per il server API.
 
 In AKS sono disponibili due set di porte e indirizzi:
 
@@ -50,7 +50,7 @@ Per un cluster AKS sono necessarie le seguenti regole di rete/porte in uscita:
 
 * Porta TCP *443*
 * TCP [IPAddrOfYourAPIServer]: la porta 443 è obbligatoria se si dispone di un'app che deve comunicare con il server API.  Questa modifica può essere impostata dopo la creazione del cluster.
-* Porta TCP *9000* e la porta TCP *22* per il Pod anteriore del tunnel per comunicare con l'estremità del tunnel nel server API.
+* Porta TCP *9000*, porta TCP *22* e porta UDP *1194* per il Pod anteriore del tunnel per comunicare con l'estremità del tunnel nel server API.
     * Per ottenere informazioni più specifiche, vedere gli indirizzi * *. HPC.\<location\>. azmk8s.io* e * *. tun.\<location\>. azmk8s.io* nella tabella seguente.
 * Porta UDP *123* per la sincronizzazione dell'ora NTP (Network Time Protocol) (nodi Linux).
 * La porta UDP *53* per DNS è necessaria anche se si dispone di pod che accedono direttamente al server API.
@@ -60,29 +60,34 @@ Sono necessarie le seguenti regole di FQDN/applicazione:
 > [!IMPORTANT]
 > * **. blob.Core.Windows.NET e aksrepos.azurecr.io** non sono più richieste regole FQDN per il blocco in uscita.  Per i cluster esistenti, [eseguire un'operazione di aggiornamento del cluster][aks-upgrade] usando il comando `az aks upgrade` per rimuovere queste regole.
 
+> [!IMPORTANT]
+> *. cdn.mscr.io è stato sostituito da *. data.mcr.microsoft.com per le aree del cloud pubblico di Azure. Aggiornare le regole del firewall esistenti per rendere effettive le modifiche.
+
 - Azure Global
 
-| Nome di dominio completo                       | Porta      | Utilizzo      |
+| Nome di dominio completo                       | Porta      | Uso      |
 |----------------------------|-----------|----------|
-| *. HPC. percorso\<\>. azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
-| *. tun. percorso\<\>. azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| *. HPC. percorso\<\>. azmk8s.io | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Questo indirizzo è obbligatorio per la comunicazione del server API > < node. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| *. tun. percorso\<\>. azmk8s.io | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Questo indirizzo è obbligatorio per la comunicazione del server API > < node. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| *.cdn.mscr.io       | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
 | mcr.microsoft.com          | HTTPS:443 | Questo indirizzo è necessario per accedere alle immagini in Microsoft Container Registry. Questo registro contiene immagini o grafici di terze parti (ad esempio, Moby e così via) necessari per il funzionamento del cluster durante l'aggiornamento e la scalabilità del cluster |
-| *.cdn.mscr.io              | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
+| *. data.mcr.microsoft.com             | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
 | management.azure.com       | HTTPS:443 | Questo indirizzo è obbligatorio per le operazioni GET/PUT Kubernetes. |
 | login.microsoftonline.com  | HTTPS:443 | Questo indirizzo è necessario per l'autenticazione Azure Active Directory. |
 | ntp.ubuntu.com             | UDP: 123   | Questo indirizzo è necessario per la sincronizzazione dell'ora NTP nei nodi Linux. |
 | packages.microsoft.com     | HTTPS:443 | Questo indirizzo è il repository dei pacchetti Microsoft usato per le operazioni *apt-get* memorizzate nella cache.  I pacchetti di esempio includono Moby, PowerShell e l'interfaccia della riga di comando di Azure. |
-| acs-mirror.azureedge.net   | HTTPS:443 | Questo indirizzo è per il repository necessario per installare i file binari necessari, ad esempio kubenet e Azure CNI. |
+| acs-mirror.azureedge.net      | HTTPS:443 | Questo indirizzo è per il repository necessario per installare i file binari necessari, ad esempio kubenet e Azure CNI. |
 
 - 21Vianet per Azure Cina
 
-| Nome di dominio completo                       | Porta      | Utilizzo      |
+| Nome di dominio completo                       | Porta      | Uso      |
 |----------------------------|-----------|----------|
-| *. HPC. percorso\<\>. cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
-| *. tun. percorso\<\>. cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| *. HPC. percorso\<\>. cx.prod.service.azk8s.cn | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Questo indirizzo è obbligatorio per la comunicazione del server API > < node. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| *. tun. percorso\<\>. cx.prod.service.azk8s.cn | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Questo indirizzo è obbligatorio per la comunicazione del server API > < node. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
 | *. azk8s.cn        | HTTPS:443 | Questo indirizzo è necessario per scaricare i file binari e le immagini necessari|
 | mcr.microsoft.com          | HTTPS:443 | Questo indirizzo è necessario per accedere alle immagini in Microsoft Container Registry. Questo registro contiene immagini o grafici di terze parti (ad esempio, Moby e così via) necessari per il funzionamento del cluster durante l'aggiornamento e la scalabilità del cluster |
-| *.cdn.mscr.io              | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
+| *.cdn.mscr.io       | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
+| *. data.mcr.microsoft.com             | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
 | management.chinacloudapi.cn       | HTTPS:443 | Questo indirizzo è obbligatorio per le operazioni GET/PUT Kubernetes. |
 | login.chinacloudapi.cn  | HTTPS:443 | Questo indirizzo è necessario per l'autenticazione Azure Active Directory. |
 | ntp.ubuntu.com             | UDP: 123   | Questo indirizzo è necessario per la sincronizzazione dell'ora NTP nei nodi Linux. |
@@ -90,17 +95,18 @@ Sono necessarie le seguenti regole di FQDN/applicazione:
 
 - Azure Government
 
-| Nome di dominio completo                       | Porta      | Utilizzo      |
+| Nome di dominio completo                       | Porta      | Uso      |
 |----------------------------|-----------|----------|
-| *. HPC. percorso\<\>. cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
-| *. tun. percorso\<\>. cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | Questo indirizzo è l'endpoint del server API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| *. HPC. percorso\<\>. cx.aks.containerservice.azure.us | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Questo indirizzo è obbligatorio per la comunicazione del server API > < node. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
+| *. tun. percorso\<\>. cx.aks.containerservice.azure.us | HTTPS: 443, TCP: 22, TCP: 9000, UDP: 1194 | Questo indirizzo è obbligatorio per la comunicazione del server API > < node. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
 | mcr.microsoft.com          | HTTPS:443 | Questo indirizzo è necessario per accedere alle immagini in Microsoft Container Registry. Questo registro contiene immagini o grafici di terze parti (ad esempio, Moby e così via) necessari per il funzionamento del cluster durante l'aggiornamento e la scalabilità del cluster |
-| *.cdn.mscr.io              | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
+|*.cdn.mscr.io              | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
+| *. data.mcr.microsoft.com             | HTTPS:443 | Questo indirizzo è necessario per l'archiviazione di un sistema di archiviazione con supporto per la rete per la distribuzione di contenuti (CDN) di Azure. |
 | management.usgovcloudapi.net       | HTTPS:443 | Questo indirizzo è obbligatorio per le operazioni GET/PUT Kubernetes. |
 | login.microsoftonline.us  | HTTPS:443 | Questo indirizzo è necessario per l'autenticazione Azure Active Directory. |
 | ntp.ubuntu.com             | UDP: 123   | Questo indirizzo è necessario per la sincronizzazione dell'ora NTP nei nodi Linux. |
 | packages.microsoft.com     | HTTPS:443 | Questo indirizzo è il repository dei pacchetti Microsoft usato per le operazioni *apt-get* memorizzate nella cache.  I pacchetti di esempio includono Moby, PowerShell e l'interfaccia della riga di comando di Azure. |
-| acs-mirror.azureedge.net   | HTTPS:443 | Questo indirizzo è per il repository necessario per installare i file binari necessari, ad esempio kubenet e Azure CNI. |
+| acs-mirror.azureedge.net      | HTTPS:443 | Questo indirizzo è per il repository necessario per installare i file binari necessari, ad esempio kubenet e Azure CNI. |
 
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Indirizzi e porte consigliati facoltativi per i cluster AKS
 
@@ -108,7 +114,7 @@ Le seguenti regole di rete/porte in uscita sono facoltative per un cluster AKS:
 
 Per il corretto funzionamento dei cluster AKS sono consigliate le seguenti regole per il nome di dominio completo/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | Questo indirizzo consente ai nodi del cluster Linux di scaricare le patch di sicurezza e gli aggiornamenti necessari. |
 
@@ -116,7 +122,7 @@ Per il corretto funzionamento dei cluster AKS sono consigliate le seguenti regol
 
 Per i cluster AKS per i quali è abilitata la GPU sono necessarie le seguenti regole di FQDN/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | nvidia.github.io | HTTPS:443 | Questo indirizzo viene usato per l'installazione e il funzionamento corretto dei driver nei nodi basati su GPU. |
 | us.download.nvidia.com | HTTPS:443 | Questo indirizzo viene usato per l'installazione e il funzionamento corretto dei driver nei nodi basati su GPU. |
@@ -126,10 +132,10 @@ Per i cluster AKS per i quali è abilitata la GPU sono necessarie le seguenti re
 
 Per i cluster AKS in cui è abilitato il monitoraggio di Azure per i contenitori sono necessarie le seguenti regole di FQDN/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
-| dc.services.visualstudio.com | HTTPS:443  | Questo è per le metriche corrette e per il monitoraggio dei dati di telemetria con monitoraggio di Azure. |
-| *.ods.opinsights.azure.com    | HTTPS:443 | Viene usato da monitoraggio di Azure per l'inserimento dei dati di log Analytics. |
+| dc.services.visualstudio.com | HTTPS:443    | Questo è per le metriche corrette e per il monitoraggio dei dati di telemetria con monitoraggio di Azure. |
+| *.ods.opinsights.azure.com    | HTTPS:443    | Viene usato da monitoraggio di Azure per l'inserimento dei dati di log Analytics. |
 | *.oms.opinsights.azure.com | HTTPS:443 | Questo indirizzo viene usato da omsagent, che viene usato per autenticare il servizio log Analytics. |
 |*.microsoftonline.com | HTTPS:443 | Viene usato per l'autenticazione e l'invio di metriche a monitoraggio di Azure. |
 |*.monitoring.azure.com | HTTPS:443 | Questa operazione viene usata per inviare i dati delle metriche a monitoraggio di Azure. |
@@ -138,7 +144,7 @@ Per i cluster AKS in cui è abilitato il monitoraggio di Azure per i contenitori
 
 Per i cluster AKS con la Azure Dev Spaces abilitata sono necessarie le seguenti regole di FQDN/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Questo indirizzo viene usato per eseguire il pull di immagini Linux alpine e di altro Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Questo indirizzo viene usato per eseguire il pull delle immagini Helm/Tiller |
@@ -152,11 +158,11 @@ Per i cluster AKS con la Azure Dev Spaces abilitata sono necessarie le seguenti 
 
 Le seguenti regole di dominio completo/applicazione sono necessarie per i cluster AKS per i quali è abilitato il criterio di Azure.
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Questo indirizzo viene usato per il corretto funzionamento di criteri di Azure. (attualmente in anteprima in AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Questo indirizzo viene usato per eseguire il pull dei criteri predefiniti da GitHub per assicurare il corretto funzionamento di criteri di Azure. (attualmente in anteprima in AKS) |
-| *. GK. percorso\<\>. azmk8s.io | HTTPS:443   | Componente aggiuntivo di criteri di Azure che comunica all'endpoint di controllo gatekeeper in esecuzione nel server master per ottenere i risultati del controllo. |
+| *. GK. percorso\<\>. azmk8s.io | HTTPS:443    | Componente aggiuntivo di criteri di Azure che comunica all'endpoint di controllo gatekeeper in esecuzione nel server master per ottenere i risultati del controllo. |
 | dc.services.visualstudio.com | HTTPS:443 | Componente aggiuntivo di criteri di Azure che invia i dati di telemetria all'endpoint di Application Insights. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Richiesto dai nodi basati su Windows Server (in anteprima pubblica) abilitato
@@ -166,7 +172,7 @@ Le seguenti regole di dominio completo/applicazione sono necessarie per i cluste
 
 Per i cluster AKS basati su Windows Server sono necessarie le seguenti regole di FQDN/applicazione:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Per installare i file binari correlati a Windows |
 | mp.microsoft.com, www<span></span>. msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Per installare i file binari correlati a Windows |

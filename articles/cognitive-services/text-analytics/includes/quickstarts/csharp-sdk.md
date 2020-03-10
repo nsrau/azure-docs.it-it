@@ -1,20 +1,20 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo per C# | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Analisi del testo per C# | Microsoft Docs'
 description: Introduzione alla libreria client di Analisi del testo per C#
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 02/26/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 81d69f2274abf075be2f97b0edc67af2eea62327
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b7c4bac7523cdec36beac64e2cd204588b0935fb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614496"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155427"
 ---
 <a name="HOLTop"></a>
 
@@ -28,12 +28,13 @@ ms.locfileid: "77614496"
 
 ---
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * L'[IDE di Visual Studio](https://visualstudio.microsoft.com/vs/)
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. Questa operazione verrà eseguita più avanti nell'avvio rapido.
+    * È possibile usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -44,6 +45,20 @@ Usando l'IDE di Visual Studio, creare una nuova app console .NET Core. Verrà cr
 #### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
 Installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Azure.AI.TextAnalytics`. Selezionare la versione `1.0.0-preview.2`, quindi **Installa**. È anche possibile usare la [console di gestione pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
+> [!TIP]
+> Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), che contiene gli esempi di codice di questo argomento. 
+
+#### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
+
+Installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia** e cercare `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Fare clic sulla voce e selezionare **Installa**. È anche possibile usare la [console di gestione pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
+> [!TIP]
+> Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/samples/TextAnalytics/synchronous/Program.cs), che contiene gli esempi di codice di questo argomento. 
+
+---
+
+#### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
 Aprire il file *program.cs* e aggiungere le direttive `using` seguenti:
 
@@ -82,8 +97,6 @@ static void Main(string[] args)
 ```
 
 #### <a name="version-21"></a>[Versione 2.1](#tab/version-2)
-
-Installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia** e cercare `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Fare clic sulla voce e selezionare **Installa**. È anche possibile usare la [console di gestione pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 Aprire il file *program.cs* e aggiungere le direttive `using` seguenti:
 

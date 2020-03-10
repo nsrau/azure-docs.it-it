@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/08/2020
+ms.openlocfilehash: 2d04de420f743e4fef4cff4bd2912559dae0886a
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930237"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934178"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Trasformazione Selezione flusso di dati mapping
 
@@ -55,6 +55,11 @@ Tuttavia, se si desidera aggiungere regole personalizzate, sarà necessario fare
 Quando si sceglie il mapping basato su regole, si indica ad ADF di valutare l'espressione corrispondente in modo che corrisponda alle regole dei criteri in ingresso e di definire i nomi dei campi in uscita. È possibile aggiungere qualsiasi combinazione di mapping di campi e basati su regole. I nomi dei campi vengono quindi generati in fase di esecuzione da ADF in base ai metadati in ingresso provenienti dall'origine. È possibile visualizzare i nomi dei campi generati durante il debug e utilizzando il riquadro di anteprima dei dati.
 
 Altre informazioni sui criteri di ricerca sono disponibili nella [documentazione relativa ai modelli di colonna](concepts-data-flow-column-pattern.md).
+
+### <a name="use-rule-based-mapping-to-parameterize-the-select-transformation"></a>Usare il mapping basato su regole per parametrizzare la trasformazione Select
+È possibile parametrizzare il mapping dei campi nella trasformazione selezione usando il mapping basato su regole. Utilizzare la parola chiave ```name``` per controllare i nomi delle colonne in ingresso rispetto a un parametro. Se, ad esempio, si dispone di un parametro del flusso di dati denominato ```mycolumn``` è possibile creare una singola regola di trasformazione SELECT che esegue sempre il mapping del nome di colonna impostato ```mycolumn``` a un nome di campo in questo modo:
+
+```name == $mycolumn```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver utilizzato SELECT per rinominare, riordinare e utilizzare le colonne alias, utilizzare la [trasformazione sink](data-flow-sink.md) per inserire i dati in un archivio dati.

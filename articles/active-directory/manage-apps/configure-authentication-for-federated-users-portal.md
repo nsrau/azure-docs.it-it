@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367888"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943434"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
@@ -150,7 +150,7 @@ Verrà usato un cmdlet Azure AD PowerShell per esaminare in modo dettagliato alc
 - Elenco delle applicazioni per cui sono configurati i criteri.
 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 Negli esempi seguenti è possibile creare, aggiornare, collegare ed eliminare criteri su entità servizio di un'applicazione in Azure AD.
 
 1.  Per iniziare, scaricare la versione di anteprima dei cmdlet Azure AD PowerShell più recente. 
@@ -258,7 +258,7 @@ Usare l'esempio precedente per ottenere l'**ObjectID** dei criteri e quello dell
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Passaggio 2: rimuovere l'assegnazione dei criteri dall'entità servizio dell'applicazione  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Passaggio 3: verificare la rimozione elencando le entità servizio a cui sono assegnati i criteri 

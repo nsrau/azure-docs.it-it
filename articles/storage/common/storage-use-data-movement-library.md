@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 5b8654500fd697685b38e4f51ba1069e0cf6ccfc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509003"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942913"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Trasferire dati con la libreria di Spostamento dati
 
@@ -32,7 +32,7 @@ In questo documento viene spiegato come creare un'applicazione console di .NET C
 - Copiare file dall'URL all'archivio BLOB.
 - Copiare da archivio BLOB ad archivio BLOB.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Un [account di archiviazione di Azure](storage-account-create.md)
@@ -42,7 +42,7 @@ In questo documento viene spiegato come creare un'applicazione console di .NET C
 1. Consultare la [guida all'installazione di .NET Core](https://www.microsoft.com/net/core) per installare .NET Core. Quando si seleziona l'ambiente, scegliere l'opzione della riga di comando.
 2. Dalla riga di comando creare una directory per il progetto. Passare a questa directory, quindi digitare `dotnet new console -o <sample-project-name>` per creare un progetto console C#.
 3. Aprire la directory in Visual Studio Code. Questo passaggio può essere eseguito rapidamente tramite la riga di comando digitando `code .` in Windows.
-4. Installare l'[estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) dal marketplace di Visual Studio Code. Riavviare Visual Studio Code.
+4. Installare l'[estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) dal marketplace di Visual Studio Code. Riavviare Visual Studio Code.
 5. A questo punto compariranno due prompt. Un prompt permette di aggiungere le "risorse necessarie per compilare ed eseguire il debug". Fare clic su "Sì". L'altro prompt consente di ripristinare le dipendenze non risolte. Fare clic su "Ripristina".
 6. Modificare `launch.json` in `.vscode` per usare il terminale esterno come una console. Questa impostazione deve essere impostata su `"console": "externalTerminal"`
 7. Visual Studio Code consente di eseguire il debug delle applicazioni di .NET Core. Premere `F5` per eseguire l'applicazione e verificare che l'installazione funzioni. Dovrebbe essere visualizzato "Hello World!" sulla console.

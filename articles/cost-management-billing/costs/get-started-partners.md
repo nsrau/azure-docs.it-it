@@ -4,17 +4,17 @@ description: Questo articolo illustra in che modo i partner usano le funzionalit
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117598"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245459"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -41,7 +41,7 @@ Ecco un esempio che illustra i costi per un solo cliente.
 
 Tutte le funzionalità disponibili in Gestione costi di Azure sono disponibili anche con le API REST. Usare le API per automatizzare le attività di gestione dei costi.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per i partner Gestione costi di Azure è disponibile a livello nativo solo per le sottoscrizioni esistenti nel piano di Azure.
 
@@ -140,18 +140,14 @@ Se il criterio relativo ai costi è impostato su **Sì**, gli utenti della sotto
 
 Quando i criteri di visibilità dei costi sono abilitati, per tutti i servizi con utilizzo delle sottoscrizioni sono visualizzati i costi calcolati applicando le tariffe con pagamento in base al consumo. Per l'utilizzo della prenotazione gli addebiti sono pari a zero per i costi effettivi e ammortizzati. Gli acquisti e gli entitlement non sono associati a una sottoscrizione specifica. Quindi, gli acquisti non vengono visualizzati nell'ambito della sottoscrizione.
 
-Per visualizzare i costi per il tenant del cliente, aprire **Gestione dei costi e fatturazione** e selezionare l'account di fatturazione pertinente del Contratto Microsoft Partner.
 
-![Selezionare un account di fatturazione](./media/get-started-partners/select-billing-account.png)
+### <a name="view-customer-costs"></a>Visualizzare i costi dei clienti
 
-In **Fatturazione** selezionare **Sottoscrizioni Azure** e quindi selezionare un cliente.
-
-![Selezionare cliente di una sottoscrizione di Azure](./media/get-started-partners/subscriptions-select-customer.png)
-
-Selezionare **Analisi dei costi** e iniziare a esaminare i costi.
-L'analisi dei costi, i budget e gli avvisi sono disponibili per gli ambiti RBAC di sottoscrizione e del gruppo di risorse con costi basati sulle tariffe con pagamento in base al consumo.
+Per visualizzare i costi per il tenant del cliente, aprire **Gestione dei costi e fatturazione**. Selezionare **Analisi dei costi**, quindi impostare l'ambito sulla sottoscrizione del tenant del cliente per iniziare a esaminare i costi.
 
 ![Visualizzare l'analisi dei costi come cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+L'analisi dei costi, i budget e gli avvisi sono disponibili per gli ambiti RBAC di sottoscrizione e del gruppo di risorse con costi basati sulle tariffe con pagamento in base al consumo.
 
 Le visualizzazioni ammortizzate e i costi effettivi per le istanze riservate negli ambiti RBAC indicano addebiti pari a zero. I costi delle istanze riservate vengono visualizzati solo negli ambiti di fatturazione in cui sono stati effettuati gli acquisti.
 

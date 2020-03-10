@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 4c8f3e7e47f9c8f924faf513d984d5474c105038
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834787"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939254"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Set di impostazioni di versione e di rilevamento negli esperimenti
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Scenari di controllo delle versioni tipiche:
 * Quando sono disponibili nuovi dati per la ripetizione del training
 * Quando si applicano approcci diversi alla preparazione dei dati o alla progettazione delle funzionalità
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per eseguire questa esercitazione, è necessario avere:
 
@@ -60,6 +60,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
+È anche possibile registrare una nuova versione di un set di dati in 
 
 ### <a name="retrieve-a-dataset-by-name"></a>Recuperare un set di dati in base al nome
 
@@ -120,7 +121,7 @@ dataset2.register(workspace = workspace,
 
 È possibile usare un set di dati come input e output di ogni passaggio della pipeline Machine Learning. Quando si eseguono nuovamente le pipeline, l'output di ogni passaggio della pipeline viene registrato come nuova versione del set di dati.
 
-Poiché le pipeline di Machine Learning popolano l'output di ogni passaggio in una nuova cartella ogni volta che la pipeline viene rieseguita, i set di risultati con versione sono riproducibili.
+Poiché le pipeline di Machine Learning popolano l'output di ogni passaggio in una nuova cartella ogni volta che la pipeline viene rieseguita, i set di risultati con versione sono riproducibili. Altre informazioni sui [set di impostazioni nelle pipeline](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -169,7 +170,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-È anche possibile trovare i `input_datasets` dagli esperimenti usando [Azure Machine Learning Studio](https://ml.azure.com/). 
+È anche possibile trovare la `input_datasets` dagli esperimenti usando https://ml.azure.com/. 
 
 La figura seguente mostra dove trovare il set di dati di input di un esperimento in Azure Machine Learning Studio. Per questo esempio, passare al riquadro **Experiments (esperimenti** ) e aprire la scheda **Properties (proprietà** ) per un'esecuzione specifica dell'esperimento, `keras-mnist`.
 
@@ -183,7 +184,9 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Dopo la registrazione, è possibile visualizzare l'elenco dei modelli registrati con il set di dati usando Python o [Azure Machine Learning Studio](https://ml.azure.com/). La vista seguente si trova nel riquadro **set di impostazioni** in **Asset**. Selezionare il set di dati e quindi selezionare la scheda **modelli** per un elenco dei modelli registrati con il set di dati. 
+Dopo la registrazione, è possibile visualizzare l'elenco dei modelli registrati con il set di dati usando Python o passare a https://ml.azure.com/.
+
+La vista seguente si trova nel riquadro **set di impostazioni** in **Asset**. Selezionare il set di dati e quindi selezionare la scheda **modelli** per un elenco dei modelli registrati con il set di dati. 
 
 ![Modelli di set di dati di input](./media/how-to-version-track-datasets/dataset-models.png)
 

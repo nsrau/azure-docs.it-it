@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a31894719863b16cc92f7e5bf4d7c85944c8850e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8fa8ca50a8d8cae7543c6aacb84fa57bc2f9c3a4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721303"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945211"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault estensione della macchina virtuale per Linux
 
@@ -67,18 +67,18 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | Data |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.0 | INT |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | string |
 | requiredInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matrice di stringhe
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matrice di stringhe
 
 
 ## <a name="template-deployment"></a>Distribuzione del modello
@@ -102,6 +102,7 @@ La configurazione JSON per un'estensione della macchina virtuale deve essere ann
       "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
+          "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
@@ -193,7 +194,7 @@ Tenere presenti le restrizioni e i requisiti seguenti:
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una macchina virtuale specifica, eseguire il comando seguente tramite Azure PowerShell.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/06/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425351"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942887"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registrazione di informazioni di sicurezza combinate (anteprima)
 
@@ -47,7 +47,7 @@ Le pagine del profilo sono localizzate in base alle impostazioni della lingua de
 
 La registrazione combinata supporta le azioni e i metodi di autenticazione seguenti:
 
-|   | Iscriviti | Modifica | Elimina |
+|   | Register | Modifica | Delete |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sì (massimo 5) | No | Sì |
 | Altra app di autenticazione | Sì (massimo 5) | No | Sì |
@@ -55,9 +55,10 @@ La registrazione combinata supporta le azioni e i metodi di autenticazione segue
 | Telefono | Sì | Sì | Sì |
 | Telefono alternativo | Sì | Sì | Sì |
 | Telefono ufficio | No | No | No |
-| Indirizzo di posta elettronica | Sì | Sì | Sì |
+| Email | Sì | Sì | Sì |
 | Domande di sicurezza | Sì | No | Sì |
-| Password app | Sì | No | Sì |
+| Password dell'app | Sì | No | Sì |
+| Chiavi di sicurezza FIDO2<br />*Modalità gestita solo dalla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info)*| Sì | Sì | Sì |
 
 > [!NOTE]
 > Le password dell'app sono disponibili solo per gli utenti che sono stati applicati per Multi-Factor Authentication. Le password dell'app non sono disponibili per gli utenti abilitati per Multi-Factor Authentication tramite criteri di accesso condizionale.

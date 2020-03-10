@@ -2,23 +2,17 @@
 title: Distribuire le risorse nel tenant
 description: Viene descritto come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: d63697f3c140b5ad374607f1ecb00dad20e697de
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
-ms.translationtype: MT
+ms.date: 03/09/2020
+ms.openlocfilehash: aa72116c3e6e98293b28b2d4413fd1dafb1372d9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899139"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942732"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
 
-In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare risorse in:
-
-* [livello di sottoscrizione](deploy-to-subscription.md)
-* [livello gruppo di gestione](deploy-to-management-group.md)
-* livello del tenant (trattato in questo articolo)
-
-Si usano le distribuzioni a livello di tenant per eseguire azioni che hanno senso a tale livello, ad esempio l'assegnazione del [controllo degli accessi in base al ruolo o l'](../../role-based-access-control/overview.md) applicazione di [criteri](../../governance/policy/overview.md).
+Con la maturità dell'organizzazione, potrebbe essere necessario definire e assegnare i [criteri](../../governance/policy/overview.md) o i [controlli degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel tenant Azure ad. Con i modelli a livello di tenant, è possibile applicare i criteri in modo dichiarativo e assegnare ruoli a livello globale.
 
 ## <a name="supported-resources"></a>Risorse supportate
 
@@ -31,7 +25,7 @@ Si usano le distribuzioni a livello di tenant per eseguire azioni che hanno sens
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 
 Lo schema usato per le distribuzioni tenant è diverso dallo schema per le distribuzioni di gruppi di risorse.
 
@@ -41,10 +35,10 @@ Per i modelli, usare:
 https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
 ```
 
-Per i file di parametri, usare:
+Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribuzione. Per i file di parametri, usare:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="required-access"></a>Accesso richiesto
@@ -181,5 +175,4 @@ Nel [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sull'assegnazione dei ruoli, vedere [gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](template-syntax.md).
-* Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](template-functions.md).
+* È anche possibile distribuire modelli a livello di [sottoscrizione](deploy-to-subscription.md) o di [gruppo di gestione](deploy-to-management-group.md).

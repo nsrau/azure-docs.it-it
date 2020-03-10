@@ -1,20 +1,20 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo v3 per Node.js | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Analisi del testo v3 per Node.js | Microsoft Docs'
 description: Introduzione alla libreria client di Analisi del testo v3 per Node.js.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 02/26/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: dd8f8e415f2e83b6f08aa00953e42daecead7652
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 9f4c5e8d491bcff420e354657ff7302a22cd7583
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77372187"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155451"
 ---
 <a name="HOLTop"></a>
 
@@ -29,12 +29,13 @@ ms.locfileid: "77372187"
 
 ---
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org/).
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. Questa operazione verrà eseguita più avanti nell'avvio rapido.
+    * È possibile usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
 

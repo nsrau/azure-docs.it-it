@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: efe8c1a2726054c54934926f652e338797d4efa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776547"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945477"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticare Azure Spring cloud con Key Vault nelle azioni di GitHub
 Key Vault è un luogo sicuro per archiviare le chiavi. Gli utenti aziendali devono archiviare le credenziali per gli ambienti CI/CD nell'ambito che controllano. La chiave per ottenere le credenziali nell'insieme di credenziali delle chiavi deve essere limitata all'ambito della risorsa.  Ha accesso solo all'ambito dell'insieme di credenziali delle chiavi, non all'intero ambito di Azure. È come una chiave che può aprire solo una casella complessa e non una chiave master in grado di aprire tutte le porte di un edificio. Si tratta di un modo per ottenere una chiave con un'altra chiave, che risulta utile in un flusso di lavoro CICD. 
@@ -32,7 +32,6 @@ Con risultati:
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -49,7 +48,7 @@ Passare al dashboard **Key Vault** in portale di Azure, fare clic sul menu di **
 
 Copiare il nome delle credenziali, ad esempio `azure-cli-2020-01-19-04-39-02`. Aprire il menu **criteri di accesso** e fare clic sul collegamento **+ Aggiungi criteri di accesso** .  Selezionare `Secret Management` per **modello**, quindi selezionare **entità**. Incollare il nome delle credenziali nella casella **principale**/**Seleziona** input:
 
- ![Seleziona](./media/github-actions/key-vault2.png)
+ ![Select](./media/github-actions/key-vault2.png)
 
  Fare clic sul pulsante **Aggiungi** nella finestra di dialogo **Aggiungi criteri di accesso** , quindi fare clic su **Salva**.
 
@@ -69,7 +68,6 @@ Anche in questo caso, i risultati sono:
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"

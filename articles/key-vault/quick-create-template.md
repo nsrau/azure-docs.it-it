@@ -6,26 +6,27 @@ author: mumian
 manager: dougeby
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 09/17/2019
+ms.custom: mvc,subject-armqs
+ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: 0462039efa02998b41560d6c308653809875ab1c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 015ae2e8e36d4a563138051bce33f5d283bde789
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982124"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78297920"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault tramite un modello di Resource Manager
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un modello di Resource Manager
 
 [Azure Key Vault](./key-vault-overview.md) è un servizio cloud che offre un archivio sicuro per i segreti, ad esempio le chiavi, le password, i certificati e così via. Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Resource Manager per creare un insieme di credenziali delle chiavi e un segreto.
 
-Un [modello di Resource Manager](../azure-resource-manager/templates/overview.md) è un file JSON (JavaScript Object Notation) che definisce l'infrastruttura e la configurazione del progetto. Il modello usa una sintassi dichiarativa che consente di indicare ciò che si intende distribuire senza dover scrivere la sequenza dei comandi di programmazione per crearlo. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Resource Manager](/azure/azure-resource-manager/) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.keyvault/allversions).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
@@ -33,7 +34,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
     1. Eseguire il seguente comando di Azure PowerShell o dell'interfaccia della riga di comando di Azure selezionando **Prova** e quindi incollare lo script nel riquadro della shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.
 
-        # <a name="clitabcli"></a>[CLI](#tab/CLI)
+        # <a name="cli"></a>[CLI](#tab/CLI)
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
         read upn &&
@@ -41,7 +42,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
         echo "Press [ENTER] to continue ..."
         ```
 
-        # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+        # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
         ```azurepowershell-interactive
         $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
         (Get-AzADUser -UserPrincipalName $upn).Id
@@ -54,20 +55,24 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="create-a-vault-and-a-secret"></a>Creare un insieme di credenziali e un segreto
 
+### <a name="review-the-template"></a>Rivedere il modello
+
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
 
-[!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json" range="1-150" highlight="107-148":::
 
 Nel modello sono definite due risorse di Azure:
 
-* **Microsoft.KeyVault/vaults**: consente di creare un insieme di credenziali delle chiavi di Azure.
-* **Microsoft.KeyVault/vaults/secrets**: consente di creare un segreto dell'insieme di credenziali delle chiavi.
+* [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): crea un insieme di credenziali delle chiavi di Azure.
+* [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): crea un segreto dell'insieme di credenziali delle chiavi.
 
 Altri esempi di modelli di Azure Key Vault sono disponibili [qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
+### <a name="deploy-the-template"></a>Distribuire il modello
+
 1. Selezionare l'immagine seguente per accedere ad Azure e aprire un modello. Il modello crea un insieme di credenziali delle chiavi e un segreto.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
 2. Selezionare o immettere i valori seguenti.
 
@@ -90,11 +95,11 @@ Altri esempi di modelli di Azure Key Vault sono disponibili [qui](https://azure.
 
 Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azure, è anche possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="validate-the-deployment"></a>Convalidare la distribuzione
+## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
 È possibile usare il portale di Azure per controllare l'insieme di credenziali delle chiavi e il segreto oppure usare lo script dell'interfaccia della riga di comando di Azure o di Azure PowerShell seguente per elencare il segreto creato.
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter your key vault name:" &&
@@ -103,7 +108,7 @@ az keyvault secret list --vault-name $keyVaultName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $keyVaultName = Read-Host -Prompt "Enter your key vault name"
@@ -115,11 +120,11 @@ Write-Host "Press [ENTER] to continue..."
 
 L'output sarà simile al seguente:
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ![Modello di Resource Manager: integrazione di Key Vault e output della convalida nel portale per la distribuzione](./media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ![Modello di Resource Manager: integrazione di Key Vault e output della convalida nel portale per la distribuzione](./media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
@@ -127,9 +132,9 @@ L'output sarà simile al seguente:
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Altre guide introduttive ed esercitazioni relative a Key Vault si basano su questa guida introduttiva. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
-Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'istanza di Key Vault e le risorse correlate. Per eliminare il gruppo di risorse mediante l'interfaccia della riga di comando di Azure oppure Azure PowerShell:
+Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'istanza di Key Vault e le risorse correlate. Per eliminare il gruppo di risorse con l'interfaccia della riga di comando di Azure oppure con Azure PowerShell:
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -138,7 +143,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

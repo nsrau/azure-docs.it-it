@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 268e6c5a999244eb643990143d1102d129b7af68
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 71a330523f1d3393a365fec29fb66f5c9773b6cc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310057"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207065"
 ---
-# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Avvio rapido: Creare un'app Funzioni di Azure con Configurazione app di Azure
+# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app Funzioni di Azure con Configurazione app di Azure
 
 In questa guida di avvio rapido si incorpora il servizio Configurazione app di Azure in un'app Funzioni di Azure per centralizzare l'archiviazione e la gestione di tutte le impostazioni dell'applicazione separatamente dal codice.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro **Sviluppo di Azure**.
@@ -42,11 +42,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
-1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere i pacchetti NuGet seguenti al progetto. Se non è possibile trovarli, selezionare la casella di controllo **Includi versione preliminare**.
-
-    ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 3.0.0-preview-010550001-251 or later
-    ```
+1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere il pacchetto NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` al progetto. Se non è possibile trovarlo, selezionare la casella di controllo **Includi versione preliminare**.
 
 2. Aprire *Function1.cs* e aggiungere gli spazi dei nomi della configurazione .NET Core al provider di configurazione di Configurazione app.
 
@@ -54,6 +50,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+
 3. Aggiungere una proprietà `static` denominata `Configuration` per creare un'istanza singleton di `IConfiguration`. Aggiungere quindi un costruttore `static` per connettersi a Configurazione app chiamando `AddAzureAppConfiguration()`. Questa operazione consentirà di caricare la configurazione una sola volta all'avvio dell'applicazione. La stessa istanza di configurazione verrà usata per tutte le chiamate di Funzioni eseguite successivamente.
 
     ```csharp
@@ -66,6 +63,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
         Configuration = builder.Build();
     }
     ```
+
 4. Aggiornare il metodo `Run` in modo da leggere i valori dalla configurazione.
 
     ```csharp
@@ -76,7 +74,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
-            
+
         return message != null
             ? (ActionResult)new OkObjectResult(message)
             : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
@@ -90,14 +88,18 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
     ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
+
     Se si usa Windows PowerShell, eseguire il comando seguente:
 
     ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
+
     Se si usa macOS o Linux, eseguire il comando seguente:
 
+    ```bash
         export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 2. Premere F5 per testare la funzione. Se viene visualizzata, accettare la richiesta di Visual Studio di scaricare e installare gli strumenti dell'**interfaccia della riga di comando Azure Functions Core Tools**. Potrebbe essere necessario anche abilitare un'eccezione del firewall per consentire agli strumenti di gestire le richieste HTTP.
 

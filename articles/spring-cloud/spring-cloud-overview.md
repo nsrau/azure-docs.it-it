@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: overview
 ms.date: 11/4/2019
 ms.author: brendm
-ms.openlocfilehash: 87b7ac1e9de2087de6e0b9d72fb445ca515a2e32
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4426044b3608be0ded378f4f56cbec6bc1948d75
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277141"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273265"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Cos'è Azure Spring Cloud?
 
@@ -47,7 +47,7 @@ Azure Spring Cloud consente di ridimensionare i microservizi nel dashboard di Az
 
 ### <a name="monitor-your-application-using-distributed-tracing-and-azure-app-insights"></a>Monitorare l'applicazione con la traccia distribuita e Azure Application Insights
 
-Gli strumenti di traccia distribuita di Spring Cloud consentono agli sviluppatori di eseguire il debug e il monitoraggio delle complesse interconnessioni tra i microservizi nella rispettiva applicazione.  Integrando [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) con Azure [Application Insights](../azure-monitor/insights/insights-overview.md), Azure offre potenti funzionalità di traccia distribuita dal portale di Azure.  Per altre informazioni, completare questa [esercitazione](spring-cloud-tutorial-distributed-tracing.md).
+Gli strumenti di traccia distribuita di Spring Cloud consentono agli sviluppatori di eseguire il debug e il monitoraggio delle complesse interconnessioni tra i microservizi in un'applicazione.  Integrando [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) con Azure [Application Insights](../azure-monitor/insights/insights-overview.md), Azure offre potenti funzionalità di traccia distribuita dal portale di Azure.  Per altre informazioni, completare questa [esercitazione](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 69627c961d9224a124fda09f40901f837d627281
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887241"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932641"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -56,7 +56,7 @@ Un cluster può accedere a una combinazione di account di archiviazione diversi.
 * Quando si vogliono creare dati, è già stato caricato in un contenitore BLOB disponibile nel cluster.
 * Quando si preferisce isolare le varie parti della risorsa di archiviazione per motivi di sicurezza o per semplificare le attività di amministrazione.
 
-Per un cluster a 48 nodi si consigliano da 4 a 8 account di archiviazione. Anche se è possibile che lo spazio di archiviazione complessivo sia già sufficiente, ogni account di archiviazione fornisce larghezza di banda di rete aggiuntiva per i nodi di calcolo. Se si ha più di un account di archiviazione, usare un nome casuale per ognuno di essi, senza prefisso. La denominazione casuale ha lo scopo di diminuire le probabilità di colli di bottiglia di archiviazione (limitazione) e di errori di modo comune negli account. Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
+Per prestazioni ottimali, usare solo un contenitore per ogni account archiviazione.
 
 ## <a name="choose-a-cluster-type"></a>Scegliere un tipo di cluster
 
@@ -100,7 +100,7 @@ Per controllare i core disponibili, seguire questa procedura:
 2. Passare alla pagina **Panoramica** per il cluster HDInsight. 
 3. Nel menu a sinistra fare clic su **Limiti quota**.
 
-   La pagina Visualizza il numero di core in uso, il numero di core disponibili e i core totali.
+   La pagina mostra il numero di core in uso, il numero di core disponibili e i core totali.
 
 Se è necessario richiedere un aumento della quota, eseguire questa procedura:
 
@@ -118,7 +118,7 @@ Se è necessario richiedere un aumento della quota, eseguire questa procedura:
 1. Selezionare **Avanti: soluzioni > >** .
 1. Nella pagina **Dettagli** immettere una descrizione del problema, selezionare la gravità del problema, il metodo di contatto preferito e altri campi obbligatori.
 1. Selezionare **Avanti: esaminare + crea > >** .
-1. Nella scheda **Verifica e crea** selezionare **Crea**.
+1. Nella scheda **Rivedi e crea** selezionare **Crea**.
 
 > [!NOTE]  
 > Se occorre aumentare la quota di core HDInsight in un'area privata, [inviare una richiesta di aggiunta all'elenco elementi consentiti](https://aka.ms/canaryintwhitelist).

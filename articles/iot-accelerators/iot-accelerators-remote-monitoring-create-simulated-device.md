@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8babacfede6e13fde629492e1cd9f80af7f0e53f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250259"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943060"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Creare e testare un nuovo dispositivo simulato
 
@@ -30,7 +30,7 @@ Nel secondo scenario Contoso intende testare un nuovo dispositivo lampadina inte
 
 *Proprietà*
 
-| Name                     | Valori                      |
+| Nome                     | Valori                      |
 | ------------------------ | --------------------------- |
 | Colore                    | White (Bianco), Red (Rosso), Blue (Blu)            |
 | Brightness (Luminosità)               | Da 0 a 100                    |
@@ -40,7 +40,7 @@ Nel secondo scenario Contoso intende testare un nuovo dispositivo lampadina inte
 
 La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso di dati:
 
-| Name   | Valori      |
+| Nome   | Valori      |
 | ------ | ----------- |
 | Stato | "on", "off" |
 | Temperatura | Gradi F |
@@ -53,7 +53,7 @@ La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso
 
 La tabella seguente mostra le azioni supportate dal nuovo dispositivo:
 
-| Name        |
+| Nome        |
 | ----------- |
 | Switch on (Accendi)   |
 | Switch off (Spegni)  |
@@ -62,7 +62,7 @@ La tabella seguente mostra le azioni supportate dal nuovo dispositivo:
 
 La tabella seguente mostra lo stato iniziale del dispositivo:
 
-| Name                     | Valori |
+| Nome                     | Valori |
 | ------------------------ | -------|
 | Initial color (Colore iniziale)            | bianco  |
 | Initial brightness (Luminosità iniziale)       | 75     |
@@ -76,13 +76,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida pratica, sono necessari gli elementi seguenti:
 
 * Visual Studio Code. È possibile [scaricare Visual Studio Code per Mac, Linux e Windows](https://code.visualstudio.com/download).
 * .NET Core. È possibile scaricare [.NET Core per Mac, Linux e Windows](https://www.microsoft.com/net/download).
-* [C# per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C# per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * Postman. È possibile scaricare [Postman per Mac, Windows o Linux](https://www.getpostman.com/apps).
 * Un [hub IoT distribuito nella sottoscrizione di Azure in uso](../../articles/iot-hub/iot-hub-create-through-portal.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'hub IoT. È possibile ottenere la stringa di connessione nel portale di Azure.
 * Un database Cosmos DB che usi l'API SQL e che sia configurato per [coerenza assoluta](../../articles/cosmos-db/how-to-manage-database-account.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione del database Cosmos DB. È possibile ottenere la stringa di connessione nel portale di Azure.
@@ -123,7 +123,7 @@ In questa sezione si aggiunge un nuovo tipo di telemetria **Internal Temperature
 
 1. Copiare i file seguenti nella nuova cartella dalla copia scaricata del microservizio di simulazione dispositivi:
 
-    | Origine | Destination |
+    | Source (Sorgente) | Destination |
     | ------ | ----------- |
     | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |

@@ -3,19 +3,19 @@ title: Preparare i dati di test per il servizio di Riconoscimento vocale persona
 titleSuffix: Azure Cognitive Services
 description: Quando si esegue il test dell'accuratezza del riconoscimento vocale Microsoft o del training dei modelli personalizzati, saranno necessari dati audio e di testo. In questa pagina vengono illustrati i tipi di dati, come usarli e gestirli.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: erhopf
-ms.openlocfilehash: 6100ac6a6b01a7d0eac74b0e83539bf4e671cb89
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 03/09/2020
+ms.author: dapine
+ms.openlocfilehash: 969c1450966d2754e6e8f00126da52a1e88181fc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660410"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942698"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -55,22 +55,24 @@ I dati audio sono ottimali per il test dell'accuratezza del modello di sintesi v
 
 Usare questa tabella per assicurarsi che i file audio siano formattati correttamente per l'uso con Riconoscimento vocale personalizzato:
 
-| Proprietà | Valore |
-|----------|-------|
-| Formato file | RIFF (WAV) |
-| Frequenza di campionamento | 8\.000 Hz o 16.000 Hz |
-| Canali | 1 (mono) |
-| Lunghezza massima per audio | 2 ore |
-| Formato del campione | PCM, 16 bit |
-| Formato di archiviazione | zip |
-| Dimensione massima dell'archivio | 2 GB |
+| Proprietà                 | valore                 |
+|--------------------------|-----------------------|
+| Formato file              | RIFF (WAV)            |
+| Frequenza di campionamento              | 8\.000 Hz o 16.000 Hz |
+| Canali                 | 1 (mono)              |
+| Lunghezza massima per audio | 2 ore               |
+| Formato del campione            | PCM, 16 bit           |
+| Formato di archiviazione           | zip                  |
+| Dimensione massima dell'archivio     | 2 GB                  |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
 > Quando si caricano i dati di training e di test, le dimensioni del file zip non possono superare i 2 GB. Se sono necessari più dati per il training, suddividerli in più file con estensione zip e caricarli separatamente. Successivamente, è possibile scegliere di eseguire il training da *più* set di impostazioni. Tuttavia, è possibile eseguire il test solo da un *singolo* set di dati.
 
 Usare <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">Sox <span class="docon docon-navigate-external x-hidden-focus"></span> </a> per verificare le proprietà audio o convertire l'audio esistente nei formati appropriati. Di seguito sono riportati alcuni esempi di come è possibile eseguire ognuna di queste attività tramite la riga di comando di SoX:
 
-| Attività | Description | Comando SoX |
+| Attività | Descrizione | Comando SoX |
 |----------|-------------|-------------|
 | Controlla formato audio | Usare questo comando per controllare<br>formato del file audio. | `sox --i <filename>` |
 | Converti formato audio | Usare questo comando per convertire<br>file audio a canale singolo, a 16 bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -79,18 +81,20 @@ Usare <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">Sox <s
 
 Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microsoft durante l'elaborazione dei file audio, è necessario fornire le trascrizioni con etichetta umana (Word-by-Word) per il confronto. Sebbene la trascrizione con etichetta umana sia spesso dispendiosa in termini di tempo, è necessario valutare l'accuratezza e per eseguire il training del modello per i casi d'uso. Tenere presente che i miglioramenti apportati al riconoscimento saranno validi solo per i dati forniti. Per questo motivo, è importante che vengano caricate solo le trascrizioni di alta qualità.
 
-| Proprietà | Valore |
-|----------|-------|
-| Formato file | RIFF (WAV) |
-| Frequenza di campionamento | 8\.000 Hz o 16.000 Hz |
-| Canali | 1 (mono) |
+| Proprietà                 | valore                               |
+|--------------------------|-------------------------------------|
+| Formato file              | RIFF (WAV)                          |
+| Frequenza di campionamento              | 8\.000 Hz o 16.000 Hz               |
+| Canali                 | 1 (mono)                            |
 | Lunghezza massima per audio | 2 ore (test)/60 s (Training) |
-| Formato del campione | PCM, 16 bit |
-| Formato di archiviazione | zip |
-| Dimensioni massime zip | 2 GB |
+| Formato del campione            | PCM, 16 bit                         |
+| Formato di archiviazione           | zip                                |
+| Dimensioni massime zip         | 2 GB                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!NOTE]
-> Quando si caricano i dati di training e di test, le dimensioni del file zip non possono superare i 2 GB. È può eseguire il test solo da un *singolo* set di dati, assicurarsi di mantenerlo all'interno delle dimensioni del file appropriato.
+> Quando si caricano i dati di training e di test, le dimensioni del file zip non possono superare i 2 GB. È possibile eseguire il test solo da un *singolo* set di dati, assicurarsi di mantenerlo all'interno delle dimensioni del file appropriate. Inoltre, ogni file di training non può superare 60 secondi in caso contrario, si otterrà un errore.
 
 Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migliorare il riconoscimento è necessaria una quantità significativa di dati. In genere, è consigliabile fornire trascrizioni Word per parola per circa 10 o 1.000 ore di audio. Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di testo normale. Ogni riga del file delle trascrizioni deve contenere il nome di uno dei file audio ed essere seguita dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t).
 
@@ -130,7 +134,7 @@ Come materiale sussidiario generale, l'adattamento del modello è più efficace 
 
 Usare questa tabella per assicurarsi che il file di dati correlato per le espressioni sia formattato correttamente:
 
-| Proprietà | Valore |
+| Proprietà | valore |
 |----------|-------|
 | Codifica testo | UTF-8 BOM |
 | N. di espressioni per riga | 1 |
@@ -161,14 +165,14 @@ Il form vocale è la sequenza fonetica digitata. Può essere costituito da lette
 
 La pronuncia personalizzata è disponibile in inglese (`en-US`) e tedesco (`de-DE`). Questa tabella mostra i caratteri supportati per lingua:
 
-| Lingua | Impostazioni locali | Caratteri |
+| Linguaggio | Impostazioni locali | Caratteri |
 |----------|--------|------------|
-| Italiano | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| Inglese | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Tedesco | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Usare la tabella seguente per assicurarsi che il file di dati correlato per le pronunce sia formattato correttamente. I file di pronuncia sono di dimensioni ridotte e devono contenere solo pochi kilobyte.
 
-| Proprietà | Valore |
+| Proprietà | valore |
 |----------|-------|
 | Codifica testo | BOM UTF-8 (ANSI è supportato anche per l'inglese) |
 | numero di pronunce per riga | 1 |

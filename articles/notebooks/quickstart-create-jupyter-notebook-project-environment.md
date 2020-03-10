@@ -3,14 +3,14 @@ title: Creare un progetto di Azure Notebooks (anteprima) con un ambiente persona
 description: Creare un nuovo progetto Azure Notebooks (anteprima) configurato con un set specifico di pacchetti e script di avvio installati.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 999133dd7d9d792956f9a2c93ec218e458c921e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6388cb7997cac5bef25975043a13c4e080f288d4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647068"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196842"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Avvio rapido: Creare un progetto con un ambiente personalizzato in Azure Notebooks (anteprima)
+# <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Guida introduttiva: Creare un progetto con un ambiente personalizzato in Azure Notebooks (anteprima)
 
 Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, file di dati, documentazione, immagini e così via, inclusi in un ambiente configurabile con comandi specifici. Dato che l'ambiente viene definito con il progetto, l'utente che clona il progetto nel proprio account Azure Notebooks dispone di tutti i dati necessari per ricreare l'ambiente necessario.
 
@@ -51,11 +51,14 @@ Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, fil
 
 1. Il comando **+ Add** (+ Aggiungi) crea un passaggio definito da un'operazione e un file di destinazione selezionato tra i file del progetto. Sono supportate le operazioni seguenti:
 
-    | Operazione | Descrizione |
-    | --- | --- |
-    | Requirements.txt | I progetti Python definiscono le dipendenze in un file requirements.txt. Con questa opzione, selezionare il file appropriato dall'elenco dei file del progetto e selezionare anche la versione di Python nell'elenco a discesa aggiuntivo visualizzato. Se necessario, selezionare **Cancel** (Annulla) per tornare al progetto, caricare o creare il file, quindi tornare alla scheda **Project Settings** > **Environment** (Impostazioni progetto - Ambiente) e creare un nuovo passaggio. Quando questo passaggio è attivo, se si esegue un notebook nel progetto viene eseguito automaticamente `pip install -r <file>`. |
-    | Script della shell | Usare questa opzione per indicare uno script della shell bash (in genere un file con estensione *sh*) contenente tutti i comandi da eseguire per inizializzare l'ambiente. |
-    | Environment.yml | Un progetto di Python che usa Conda per la gestione di un ambiente usa un file *environments.yml* per descrivere le dipendenze. In questa opzione, selezionare il file appropriato dall'elenco di file del progetto. |
+   | Operazione | Descrizione |
+   | --- | --- |
+   | Requirements.txt | I progetti Python definiscono le dipendenze in un file requirements.txt. Con questa opzione, selezionare il file appropriato dall'elenco dei file del progetto e selezionare anche la versione di Python nell'elenco a discesa aggiuntivo visualizzato. Se necessario, selezionare **Cancel** (Annulla) per tornare al progetto, caricare o creare il file, quindi tornare alla scheda **Project Settings** > **Environment** (Impostazioni progetto - Ambiente) e creare un nuovo passaggio. Quando questo passaggio è attivo, se si esegue un notebook nel progetto viene eseguito automaticamente `pip install -r <file>`. |
+   | Script della shell | Usare questa opzione per indicare uno script della shell bash (in genere un file con estensione *sh*) contenente tutti i comandi da eseguire per inizializzare l'ambiente. |
+   | Environment.yml | Un progetto di Python che usa Conda per la gestione di un ambiente usa un file *environments.yml* per descrivere le dipendenze. In questa opzione, selezionare il file appropriato dall'elenco di file del progetto. |
+
+   > [!WARNING]
+   > Poiché si tratta di un servizio in anteprima in fase di sviluppo, esiste attualmente un problema noto per cui l'impostazione di `Environment.yml` non viene applicata al progetto come previsto. Il progetto e i notebook di Jupyter al suo interno non caricano attualmente il file dell'ambiente specificato.
 
 1. Per rimuovere eventuali passaggi di installazione, selezionare la **X** a destra del passaggio.
 

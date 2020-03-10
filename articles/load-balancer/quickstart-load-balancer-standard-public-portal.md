@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 2477d91ac885d4ef39df7b9246f7272d66c3f7ee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470191"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251869"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare una risorsa Load Balancer per bilanciare il carico delle macchine virtuali con il portale di Azure
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Guida introduttiva: Creare una risorsa Load Balancer per bilanciare il carico delle macchine virtuali con il portale di Azure
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico di macchine virtuali. Questa guida di avvio rapido illustra come bilanciare il carico delle macchine virtuali con una risorsa Load Balancer pubblica.
 
@@ -110,21 +110,20 @@ Una regola di bilanciamento del carico consente di definire come il traffico ver
 
 In questa sezione si crea una rete virtuale, si creano tre macchine virtuali per il pool back-end al servizio di bilanciamento del carico e quindi si installa IIS nelle macchine virtuali per testare il servizio di bilanciamento del carico.
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
-1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
+## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
 
-1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
+In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
 
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Nome | Immettere *myVNet*. |
-    | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Subscription | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare la risorsa esistente: *myResourceGroupSLB*. |
-    | Location | Selezionare **Europa occidentale**.|
-    | Subnet - Nome | Immettere *myBackendSubnet*. |
-    | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
-1. Accettare tutte le impostazioni predefinite e selezionare **Crea**.
+| Parametro                   | valore                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa occidentale      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 Gli SKU degli indirizzi IP pubblici e gli SKU di Load Balancer devono corrispondere. Per Load Balancer Standard, usare macchine virtuali con indirizzi IP Standard nel pool back-end. In questa sezione verranno create tre macchine virtuali(*myVM1*, *myVM2* e *myVM3*) con un indirizzo IP pubblico Standard in tre zone diverse (*Zona 1*, *Zona 2* e *Zona 3*) che verranno aggiunte successivamente al pool back-end della risorsa Load Balancer creata in precedenza. Se è stata selezionata l'opzione Basic, usare le macchine virtuali con indirizzi IP Basic.

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 02/01/2020
-ms.openlocfilehash: 20c93d214195f8fe389f4982e1d8b10998c7057d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.date: 03/09/2020
+ms.openlocfilehash: 97ce402045cfd2c990b457c5d4d06888cda632d5
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192388"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945919"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Scegliere tra i modelli di acquisto vCore e DTU
 
@@ -85,6 +85,11 @@ Per eseguire la conversione dal modello di acquisto basato su DTU al modello di 
 
 - Ogni DTU 100 nel livello standard richiede almeno 1 vCore nel livello di servizio per utilizzo generico.
 - Ogni 125 DTU nel livello Premium richiede almeno 1 vCore nel livello di servizio business critical.
+
+> [!NOTE]
+> Le linee guida per il ridimensionamento di DTU a vCore sono approssimative e vengono fornite per semplificare la stima iniziale dell'obiettivo di servizio del database di destinazione. La configurazione ottimale del database di destinazione dipende dal carico di lavoro. 
+> 
+> Il raggiungimento del rapporto prezzo/prestazioni ottimale può richiedere l'uso della flessibilità del modello vCore per regolare il numero di Vcore, la [generazione dell'hardware](sql-database-service-tiers-vcore.md#hardware-generations), i livelli di [servizio](sql-database-service-tiers-vcore.md#service-tiers) e di [calcolo](sql-database-service-tiers-vcore.md#compute-tiers) , nonché l'ottimizzazione di altri parametri di configurazione del database, ad esempio il [grado massimo di parallelismo](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 
 ## <a name="dtu-based-purchasing-model"></a>modello di acquisto basato su DTU
 

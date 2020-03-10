@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Etichettare moduli, eseguire il training di un modello e analizzare un modulo usando lo strumento di etichettatura campioni - Riconoscimento modulo'
+title: 'Guida introduttiva: Etichettare moduli, eseguire il training di un modello e analizzare un modulo usando lo strumento di etichettatura campioni - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà lo strumento di etichettatura campioni di Riconoscimento modulo per etichettare manualmente documenti modulo. Con i documenti etichettati, verrà quindi eseguito il training di un modello personalizzato, che verrà usato per estrarre coppie chiave-valore.
 author: PatrickFarley
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485353"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205824"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -35,12 +35,19 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurare lo strumento di etichettatura campioni
 
 Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Docker. Per configurare il contenitore Docker, seguire questa procedura. Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
-1. Installare prima di tutto Docker in un computer host. Il computer host può essere il computer locale ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/) o [Linux](https://docs.docker.com/install/)). In alternativa, è possibile usare un servizio di hosting Docker in Azure, ad esempio il [servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/index), [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/index) oppure un cluster Kubernetes [distribuito in Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). Il computer host deve soddisfare i requisiti hardware seguenti:
+1. Installare prima di tutto Docker in un computer host. Questa guida illustra come usare un computer locale come host. Se si vuole usare un servizio di hosting Docker in Azure, vedere la guida pratica [Distribuire lo strumento di etichettatura di esempio](../deploy-label-tool.md). 
+
+   Il computer host deve soddisfare i requisiti hardware seguenti:
 
     | Contenitore | Minima | Consigliato|
     |:--|:--|:--|
     |Strumento di etichettatura campioni|2 core, 4 GB di memoria|4 core, 8 GB di memoria|
-    
+
+   Installare Docker nel computer seguendo le istruzioni appropriate per il sistema operativo in uso: 
+   * [Windows](https://docs.docker.com/docker-for-windows/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Linux](https://docs.docker.com/install/).
+
 1. Ottenere il contenitore dello strumento di etichettatura campioni con il comando `docker pull`.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
@@ -116,17 +123,23 @@ Fare clic su **Run OCR on all files** (Esegui OCR su tutti i file) nel riquadro 
 
 ### <a name="apply-labels-to-text"></a>Applicare le etichette al testo
 
-Creare quindi le etichette e applicarle agli elementi del testo che dovranno essere riconosciuti dal modello.
+Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno essere riconosciuti dal modello.
 
-1. Usare prima di tutto il riquadro dell'editor di tag per creare i tag (etichette) da identificare.
+1. Usare prima di tutto il riquadro dell'editor di tag per creare i tag da identificare.
+  1. Fare clic su **+** per creare un nuovo tag.
+  1. Immettere il nome del tag.
+  1. Premere INVIO per salvare il tag.
 1. Nell'editor principale fare clic e trascinare una o più parole dagli elementi di testo evidenziati per selezionarle.
+1. Fare clic sul tag da applicare oppure premere il tasto corrispondente della tastiera. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
+    > [!Tip]
+    > Per l'etichettatura dei moduli, tenere presenti i suggerimenti seguenti.
+    > * È possibile applicare un unico tag a ogni elemento di testo selezionato.
+    > * Ogni tag può essere applicato una sola volta per pagina. Se un valore viene visualizzato più volte nella stessa pagina, creare tag diversi per ogni istanza. Ad esempio: "invoice# 1", "invoice# 2" e così via.
+    > * I tag non possono estendersi in più pagine.
+    > * Etichettare i valori così come appaiono nel modulo. Non provare a dividere un valore in due parti con due tag diversi. Ad esempio, un campo di indirizzo deve essere etichettato con un singolo tag anche se si estende su più righe.
+    > * Non includere le chiavi nei campi etichettati, ma solo i valori.
+    > * I dati delle tabelle dovrebbero essere rilevati automaticamente e saranno disponibili nel file JSON finale di output. Tuttavia, se il modello non riesce a rilevare tutti i dati di una tabella, è anche possibile etichettare manualmente questi campi. Assegnare un'etichetta diversa a ogni cella della tabella. Se i moduli includono tabelle con un numero variabile di righe, assicurarsi di etichettare almeno un modulo con la tabella più grande possibile.
 
-    > [!NOTE]
-    > Non è attualmente possibile selezionare il testo che si estende in più pagine.
-1. Fare clic sul tag da applicare oppure premere il tasto corrispondente della tastiera. È possibile applicare un unico tag a ogni elemento di testo selezionato e ogni tag può essere applicato solo una volta per pagina.
-
-    > [!TIP]
-    > I tasti numerici vengono assegnati come tasti di scelta rapida per i primi dieci tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
 
 Seguire la procedura descritta sopra per etichettare cinque moduli, quindi procedere con il passaggio successivo.
 

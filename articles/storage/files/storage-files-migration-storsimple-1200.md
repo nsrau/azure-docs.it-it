@@ -4,30 +4,26 @@ description: Informazioni su come eseguire la migrazione di un'appliance virtual
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4a32251b60066d6a85595e4d1b6c002f8587c01d
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 6863e7f8ef8e2f263cda824fd13186dc7b035454
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330941"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943604"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migrazione a Sincronizzazione file di Azure
 
-StorSimple serie 1200 è un'appliance virtuale eseguita in un data center locale. È possibile eseguire la migrazione dei dati da questo Appliance a un ambiente Sincronizzazione file di Azure. Questo articolo fornisce i passaggi necessari per la Knowledge base e le migrazioni per una migrazione corretta a Sincronizzazione file di Azure.
+StorSimple serie 1200 è un'appliance virtuale eseguita in un data center locale. È possibile eseguire la migrazione dei dati da questo Appliance a un ambiente Sincronizzazione file di Azure. Sincronizzazione file di Azure è il servizio di Azure a lungo termine predefinito e strategico a cui è possibile eseguire la migrazione delle appliance StorSimple.
 
-## <a name="storsimple"></a>StorSimple
+La serie StorSimple 1200 raggiungerà la [fine del ciclo di vita](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) nel 2022 dicembre.  È importante iniziare a pianificare la migrazione appena possibile. Questo articolo fornisce i passaggi necessari per la Knowledge base e le migrazioni per una migrazione corretta a Sincronizzazione file di Azure. 
 
-StorSimple è un prodotto Microsoft sospeso. Il supporto esteso per questo prodotto e il servizio cloud scade il 31 2022 dicembre. È importante iniziare subito a pianificare una migrazione di StorSimple.
-
-Sincronizzazione file di Azure è il servizio di Azure a lungo termine predefinito e strategico a cui è possibile eseguire la migrazione delle appliance StorSimple.
+## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
 > [!IMPORTANT]
 > Microsoft si impegna a supportare i clienti nella migrazione. Inviare tramite posta elettronica AzureFilesMigration@microsoft. com per un piano di migrazione personalizzato, nonché per assistenza durante la migrazione.
-
-## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
 Sincronizzazione file di Azure è un servizio cloud Microsoft basato su due componenti principali:
 
@@ -120,7 +116,7 @@ Il comando RoboCopy seguente richiamerà i file dall'archiviazione di Azure Stor
 Robocopy /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
-Background:
+Sfondo:
 
 :::row:::
    :::column span="1":::
@@ -186,7 +182,7 @@ Creare una condivisione nella cartella di Windows Server ed eventualmente modifi
 
 I criteri di spazio libero del volume di suddivisione in livelli nel cloud agiscono a livello di volume con potenzialmente più endpoint server sincronizzati. Se si dimentica di regolare lo spazio libero su un solo endpoint server, la sincronizzazione continuerà ad applicare la regola più restrittiva e tenterà di mantenere il 99% di spazio libero su disco, rendendo la cache locale non funziona come previsto. A meno che non si tratti dell'obiettivo di avere solo lo spazio dei nomi per un volume che contiene solo i dati di archiviazione a cui si accede raramente.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Il problema più probabile in cui è possibile eseguire è che il comando RoboCopy ha esito negativo con *"volume full"* sul lato server di Windows. In tal caso, la velocità di download è probabilmente migliore rispetto alla velocità di caricamento. La suddivisione in livelli nel cloud funziona una volta ogni ora per l'evacuazione del contenuto dal disco locale di Windows Server, sincronizzato.
 

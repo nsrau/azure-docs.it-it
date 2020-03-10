@@ -1,36 +1,26 @@
 ---
-title: Spostare una VM Linux in Azure
-description: Spostare una VM di Linux in un'altra sottoscrizione o in un altro gruppo di risorse di Azure nel modello di distribuzione di Resource Manager.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Spostare una VM con l'interfaccia della riga di comando di Azure
+description: Spostare una VM in un'altra sottoscrizione o gruppo di risorse di Azure usando l'interfaccia della riga di comando di Azure.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ba8a8cdc324f46e25f9665cfce0aa07fc948e88
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979032"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944594"
 ---
-# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Spostare una VM di Linux in un'altra sottoscrizione o in un altro gruppo di risorse
-Questo articolo illustra come spostare una macchina virtuale di Linux tra gruppi di risorse o sottoscrizioni. Lo spostamento di una VM tra sottoscrizioni può essere comodo se è stata creata una VM in una sottoscrizione personale e ora si desidera spostarla alla sottoscrizione dell'azienda.
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Spostare una macchina virtuale in un'altra sottoscrizione o gruppo di risorse
+Questo articolo illustra come spostare una macchina virtuale (VM) tra gruppi di risorse o sottoscrizioni. Lo spostamento di una VM tra sottoscrizioni può essere comodo se è stata creata una VM in una sottoscrizione personale e ora si desidera spostarla alla sottoscrizione dell'azienda.
 
 > [!IMPORTANT]
->Non è possibile spostare Azure Managed Disks in questa fase.
->
 >Nell'ambito dello spostamento vengono creati nuovi ID risorsa. Dopo aver spostato la macchina virtuale, sarà necessario aggiornare strumenti e script in modo che usino i nuovi ID risorsa.
 >
->
+
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Usare l'interfaccia della riga di comando di Azure per spostare una VM
 

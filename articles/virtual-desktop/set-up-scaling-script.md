@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: 353501912836e0f6706f20deed1c1d9d416f1ce6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: f88d8681bbb1cfc9482e84c467bbd514aed41764
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894508"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945245"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Ridimensionare gli host di sessione usando automazione di Azure
 
@@ -51,7 +51,7 @@ Tuttavia, lo strumento presenta anche le limitazioni seguenti:
 >[!NOTE]
 >Lo strumento di scalabilità controlla la modalità di bilanciamento del carico del pool host in cui viene ridimensionato. Lo imposta sul bilanciamento del carico per la prima volta per le ore di picco e di minore traffico.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare la configurazione dello strumento di scalabilità, assicurarsi che siano disponibili gli elementi seguenti:
 
@@ -83,7 +83,9 @@ Per prima cosa, è necessario un account di automazione di Azure per eseguire il
 3. Eseguire il cmdlet seguente per scaricare lo script per la creazione dell'account di automazione di Azure:
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
+     Set-Location -Path "c:\temp"
+     $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1"
+     Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
      ```
 
 4. Eseguire il cmdlet seguente per eseguire lo script e creare l'account di automazione di Azure:

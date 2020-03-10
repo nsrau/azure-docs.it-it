@@ -2,25 +2,19 @@
 title: Installazione di driver GPU serie N di Azure per Linux
 description: Informazioni su come installare driver GPU NVIDIA per macchine virtuali serie N che eseguono Linux in Azure
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035616"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944568"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -153,7 +147,7 @@ Per controllare lo stato del dispositivo GPU, eseguire una connessione SSH alla 
 
 Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU-Util** mostra 0% a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro GPU. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
 
-![Stato dei dispositivi NVIDIA](./media/n-series-driver-setup/smi.png)
+![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
 
 ## <a name="rdma-network-connectivity"></a>Connettività di rete RDMA
 
@@ -317,7 +311,7 @@ Per controllare lo stato del dispositivo GPU, eseguire una connessione SSH alla 
 
 Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU-Util** mostra 0% a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro GPU. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
 
-![Stato dei dispositivi NVIDIA](./media/n-series-driver-setup/smi-nv.png)
+![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>Server X11
@@ -359,7 +353,7 @@ fi
 
 Creare quindi una voce per lo script di aggiornamento in `/etc/rc.d/rc3.d`, in modo che venga richiamato come radice all'avvio.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 * È possibile impostare la modalità di persistenza tramite `nvidia-smi`. In questo modo l'output del comando sarà più veloce per l'esecuzione di query sulle schede. Per impostare la modalità di persistenza, eseguire `nvidia-smi -pm 1`. Si noti che se la macchina virtuale viene riavviata, l'impostazione della modalità scompare. È sempre possibile generare script che impostino la modalità affinché venga eseguita all'avvio.
 * Se i driver NVIDIA CUDA sono stati aggiornati alla versione più recente e si trova RDMA connectivcity non funziona più, [reinstallare i driver RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) per reistablish tale connettività. 

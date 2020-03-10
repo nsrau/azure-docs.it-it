@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
-ms.openlocfilehash: f34439b7750ca1858e71d4a36121eb65001fff50
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/09/2020
+ms.openlocfilehash: 693065046f92e0e9eade14c43e9942772440937d
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811263"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945411"
 ---
 # <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Eseguire la migrazione dal modello basato su DTU al modello basato su vCore
 
@@ -45,7 +45,7 @@ La tabella seguente fornisce indicazioni per scenari di migrazione specifici:
 |Scopo generico|Business Critical|Aggiornamento|È necessario eseguire prima la migrazione del database secondario|
 ||||
 
-\* ogni 100 DTU nel livello standard richiedono almeno 1 vCore e ogni 125 DTU nel livello Premium richiede almeno 1 vCore.
+\* come regola empirica, ogni 100 DTU nel livello standard richiede almeno 1 vCore e ogni 125 DTU nel livello Premium richiede almeno 1 vCore. Per altre informazioni, vedere il [modello di acquisto basato su vCore](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model).
 
 ## <a name="migrate-failover-groups"></a>Eseguire la migrazione dei gruppi di failover
 

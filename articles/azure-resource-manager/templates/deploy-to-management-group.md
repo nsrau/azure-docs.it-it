@@ -2,23 +2,17 @@
 title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: ae561468531b0c3fa584a02793c58ee64ca3610f
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: dc46762755718c798b4a7eed6f2dc6b8afce9b98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894883"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942761"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creazione di risorse a livello di gruppo di gestione
 
-In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare risorse in:
-
-* [livello di sottoscrizione](deploy-to-subscription.md)
-* livello del gruppo di gestione (trattato in questo articolo)
-* [livello tenant](deploy-to-tenant.md)
-
-Si utilizzano le distribuzioni a livello di gruppo di gestione per eseguire azioni che hanno senso a tale livello, ad esempio l'assegnazione del [controllo degli accessi in base al ruolo o l'](../../role-based-access-control/overview.md) applicazione di [criteri](../../governance/policy/overview.md).
+Con la maturità dell'organizzazione, potrebbe essere necessario definire e assegnare [criteri](../../governance/policy/overview.md) o [controlli degli accessi in base al ruolo](../../role-based-access-control/overview.md) per un gruppo di gestione. Con i modelli a livello di gruppo di gestione è possibile applicare i criteri in modo dichiarativo e assegnare i ruoli a livello di gruppo di gestione.
 
 ## <a name="supported-resources"></a>Risorse supportate
 
@@ -31,7 +25,7 @@ Si utilizzano le distribuzioni a livello di gruppo di gestione per eseguire azio
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 
 Lo schema usato per le distribuzioni di gruppi di gestione è diverso dallo schema per le distribuzioni di gruppi di risorse.
 
@@ -41,10 +35,10 @@ Per i modelli, usare:
 https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
 ```
 
-Per i file di parametri, usare:
+Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribuzione. Per i file di parametri, usare:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandi di distribuzione
@@ -169,5 +163,4 @@ Nell'esempio seguente viene assegnata una definizione dei criteri esistente al g
 
 * Per informazioni sull'assegnazione dei ruoli, vedere [gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Per un esempio di distribuzione delle impostazioni dell'area di lavoro per il Centro sicurezza di Azure, vedere [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](template-syntax.md).
-* Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](template-functions.md).
+* È anche possibile distribuire modelli a livello di [sottoscrizione](deploy-to-subscription.md) e [tenant](deploy-to-tenant.md).

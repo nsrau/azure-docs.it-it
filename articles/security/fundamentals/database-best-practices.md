@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72b15d77baedae318d4503f2d481b08202730459
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927998"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943651"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
 Questo articolo descrive le procedure consigliate per la sicurezza del database.
@@ -72,7 +72,7 @@ Se si usa l'autenticazione di SQL Server, è necessario:
 
 - Gestire autonomamente le credenziali sicure.
 - Proteggere le credenziali nella stringa di connessione.
-- (Potenzialmente) proteggere le credenziali trasmesse in rete dal server Web al database. Per altre informazioni, vedere [Procedura: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)) (Procedura: Connettersi a SQL Server usando l'autenticazione SQL in ASP.NET 2.0).
+- (Potenzialmente) proteggere le credenziali trasmesse in rete dal server Web al database. Per altre informazioni, vedere [How to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)) (Procedura: Connettersi a SQL Server usando l'autenticazione SQL in ASP.NET 2.0).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticazione di Azure Active Directory (AD)*
 L'autenticazione di Azure Active Directory è un meccanismo di connessione al database SQL di Azure e a [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite l'uso di identità in Azure AD. Con l'autenticazione di Azure AD è possibile gestire centralmente le identità degli utenti del database e di altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni.
@@ -95,7 +95,7 @@ Ecco alcuni vantaggi:
 I passaggi di configurazione includono le procedure seguenti per configurare e usare l'autenticazione di Azure AD.
 
 - Creare e popolare un'istanza di Azure AD.
-- Facoltativo: associare o cambiare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure.
+- Facoltativo: associare o modificare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure.
 - Creare un amministratore di Azure Active Directory per il database SQL di Azure o per [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Configurare i computer client.
 - Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD.
@@ -120,7 +120,7 @@ Poiché un utente autorizzato, ad esempio un amministratore della sicurezza o un
 Per altri modi di proteggere i dati, considerare quanto segue:
 
 - [Crittografia a livello di cella](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) per crittografare colonne specifiche o anche celle di dati con chiavi di crittografia diverse.
-- Funzionalità [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) che consente ai client di crittografare i dati sensibili contenuti nelle applicazioni client e di non rivelare mai le chiavi di crittografia al motore di database (database SQL o SQL Server). Di conseguenza, Always Encrypted consente di separare i proprietari dei dati (che possono visualizzarli) e le persone incaricate della gestione dei dati (che però non devono poter accedere ai dati).
+- Funzionalità [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) che consente ai client di crittografare i dati sensibili contenuti nelle applicazioni client e di non rivelare mai le chiavi di crittografia al motore di database (database SQL o SQL Server). Di conseguenza, Always Encrypted crea una separazione tra chi possiede i dati (e può visualizzarli) e chi gestisce i dati (ma non può accedervi).
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) che consente ai clienti di controllare l'accesso alle righe in una tabella di database in base alle caratteristiche dell'utente che esegue una query. Esempi di caratteristiche sono l'appartenenza a un gruppo e il contesto di esecuzione.
 
 Le organizzazioni che non usano la crittografia a livello di database sono potenzialmente più esposte ad attacchi che compromettono i dati presenti nei database SQL.
@@ -145,18 +145,18 @@ La protezione dalle minacce va oltre il rilevamento. La protezione del database 
 - Implementazione nel database di configurazioni protette che ne consentano la protezione.
 - Rilevamento e risposta alle minacce potenziali appena si verificano in modo da poter implementare rapidamente una risposta e una correzione.
 
-**Procedura consigliata**: individuare e classificare i dati sensibili presenti nei database e assegnare etichette a tali dati.   
-**Dettagli**: classificare i dati nel database SQL abilitando la funzionalità [Individuazione dati e classificazione](/azure/sql-database/sql-database-data-discovery-and-classification) nel database SQL di Azure. È possibile monitorare l'accesso ai dati sensibili nei report dei dashboard di Azure o nei report di download.
+**Procedura consigliata**: individuare, classificare ed etichettare i dati sensibili presenti nel database.   
+**Dettaglio**: classificare i dati nel database SQL abilitando l'[individuazione e la classificazione dei dati](/azure/sql-database/sql-database-data-discovery-and-classification) nel database SQL di Azure. È possibile monitorare l'accesso ai dati sensibili nei report dei dashboard di Azure o nei report di download.
 
-**Procedura consigliata**: tenere traccia delle vulnerabilità del database in modo da poter migliorare proattivamente la sicurezza del database.   
-**Dettagli**: usare il servizio [Valutazione della vulnerabilità](/azure/sql-database/sql-vulnerability-assessment) del database SQL di Azure che esegue la scansione delle potenziali vulnerabilità del database. Il servizio usa una knowledge base di regole che contrassegnano le vulnerabilità della sicurezza ed evidenziano le deviazioni dalle procedure consigliate, ad esempio errori di configurazione, autorizzazioni eccessive e dati sensibili non protetti.
+**Procedura consigliata**: registrare le vulnerabilità del database in modo da poter migliorare la sicurezza del database in modo proattivo.   
+**Dettaglio**: usare il servizio [Valutazione della vulnerabilità](/azure/sql-database/sql-vulnerability-assessment) del database SQL di Azure che esegue la scansione delle potenziali vulnerabilità del database. Il servizio usa una knowledge base di regole che contrassegnano le vulnerabilità della sicurezza ed evidenziano le deviazioni dalle procedure consigliate, ad esempio errori di configurazione, autorizzazioni eccessive e dati sensibili non protetti.
 
 Le regole si basano su procedure consigliate di Microsoft e si concentrano sui problemi di sicurezza che presentano maggiori rischi per il database e i preziosi dati in esso contenuti. Queste regole coprono sia i problemi a livello di database che quelli di sicurezza a livello di server, ad esempio le impostazioni del firewall del server e le autorizzazioni a livello di server. Tali regole rappresentano anche molti dei requisiti richiesti da organismi normativi per soddisfare i relativi standard di conformità.
 
 **Procedura consigliata**: abilitare il rilevamento delle minacce.  
-**Dettagli**:  abilitare la funzionalità [Rilevamento delle minacce](/azure/sql-database/sql-database-threat-detection) del database SQL di Azure per ottenere avvisi di sicurezza e consigli su come indagare sulle minacce e attenuarle. Vengono visualizzati avvisi su attività di database sospette, potenziali vulnerabilità e attacchi SQL injection, nonché anomalie negli accessi al database e nei modelli di query.
+**Dettaglio**: abilitare il [Rilevamento delle minacce](/azure/sql-database/sql-database-threat-detection) del database SQL di Azure per ottenere avvisi e consigli su come indagare sulle minacce e attenuarle. Vengono visualizzati avvisi su attività di database sospette, potenziali vulnerabilità e attacchi SQL injection, nonché anomalie negli accessi al database e nei modelli di query.
 
-[Advanced Threat Protection](/azure/sql-database/sql-advanced-threat-protection) è un pacchetto unificato di funzionalità di sicurezza SQL avanzate. Include i servizi citati in precedenza: Individuazione dati e classificazione, Valutazione della vulnerabilità e Rilevamento delle minacce. Consente di abilitare e gestire queste funzionalità da un'unica posizione.
+[Advanced Threat Protection](/azure/sql-database/sql-advanced-threat-protection) è un pacchetto unificato di funzionalità di sicurezza SQL avanzate. Include i servizi citati in precedenza, vale a dire individuazione e classificazione dei dati, valutazione della vulnerabilità e rilevamento delle minacce. Consente di abilitare e gestire queste funzionalità da un'unica posizione.
 
 L'abilitazione di queste funzionalità consente di:
 
@@ -166,10 +166,6 @@ L'abilitazione di queste funzionalità consente di:
 - Rilevare e rispondere a potenziali minacce.
 
 Il rilevamento delle minacce integra inoltre gli avvisi con il Centro sicurezza di Azure per offrire un punto di vista centralizzato dello stato della sicurezza di tutte le risorse di Azure.
-
-## <a name="enable-feature-restrictions"></a>Abilita restrizioni funzionalità
-
-I dati contenuti nei database possono essere esposti agli utenti malintenzionati usando vettori di attacco che sfruttano gli errori del database e i tempi di esecuzione delle query. Il database SQL di Azure offre diversi meccanismi di restrizione delle funzionalità per proteggere il database. Per altre informazioni, vedere [limitazioni delle funzionalità del database SQL](/azure/sql-database/sql-database-feature-restrictions).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre procedure consigliate per la sicurezza da usare nella progettazione, la distribuzione e la gestione di soluzioni cloud tramite Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](best-practices-and-patterns.md).

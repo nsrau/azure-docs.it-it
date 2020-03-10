@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 74b0fa4643907493904e77ce333d1ec1dba01f49
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727111"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942962"
 ---
 # <a name="azure-sql-database-security-features"></a>Funzionalità di sicurezza del database SQL di Azure    
 Il database SQL di Azure fornisce un servizio di database relazionale in Azure. Per proteggere i dati dei clienti e fornire le funzionalità avanzate di sicurezza che i clienti richiedono da un servizio di database relazionale, il database SQL include set specifici di funzionalità di sicurezza. Queste funzionalità si basano sui controlli ereditati da Azure.
@@ -75,7 +75,7 @@ L'isolamento del sistema operativo radice dalle VM guest e delle VM guest l'una 
 ### <a name="types-of-rules-on-firewalls"></a>Tipi di regole nei firewall
 Una regola viene definita come mostrato di seguito.
 
-{IP Security Response Center (Src), porta Src, IP destinazione, porta destinazione, protocollo destinazione, entrata/uscita, con stato/senza stato, timeout flusso con stato}.
+{Src IP, porta src, IP di destinazione, porta di destinazione, protocollo di destinazione, in/out, con stato/senza stato, timeout del flusso con stato}.
 
 I pacchetti SYN (Synchronous idle character) sono consentiti in entrata e in uscita solo se autorizzati da una regola. Per TCP, Azure usa regole senza stato il cui principio è che sono consentiti solo i pacchetti non SYN in entrata e in uscita dalla VM. Il presupposto di sicurezza è che qualsiasi stack host evita di ignorare un pacchetto non SYN se non ne ha mai visto uno in precedenza. Il protocollo TCP stesso è con stato e, in combinazione con la regola basata su SYN senza stato, adotta il comportamento generale di un'implementazione con stato.
 
@@ -104,5 +104,3 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)
-
-

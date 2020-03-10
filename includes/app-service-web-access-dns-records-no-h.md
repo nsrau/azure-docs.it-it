@@ -4,15 +4,15 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: d001d76bca5b9a0837349b6e05b3b0a271ea3a73
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.openlocfilehash: 66d3397fae24ee2546dae4eb5d7c9d188f9ede99
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179961"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944158"
 ---
 > [!NOTE]
-> È possibile usare DNS di Azure per configurare un nome DNS personalizzato per le app Web di Azure. Per altre informazioni, vedere [Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure](../articles/dns/dns-custom-domain.md#app-service-web-apps).
+> È possibile usare DNS di Azure per configurare un nome DNS personalizzato per il servizio app Azure. Per altre informazioni, vedere [Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure](../articles/dns/dns-custom-domain.md#app-service-web-apps).
 >
 >
 
@@ -29,4 +29,4 @@ La schermata seguente è un esempio di pagina di record DNS:
 Nello screenshot di esempio si seleziona **Aggiungi** per creare un record. Per alcuni provider esistono collegamenti diversi per aggiungere tipi di record diversi. Anche in questo caso, vedere la documentazione del provider.
 
 > [!NOTE]
-> Per alcuni provider, ad esempio GoDaddy, le modifiche ai record DNS vengono applicate solo dopo la selezione di un collegamento **Salva modifiche** separato. 
+> Per alcuni provider, ad esempio GoDaddy, le modifiche ai record DNS vengono applicate solo dopo la selezione di un collegamento separato di tipo **Salva modifiche**. 

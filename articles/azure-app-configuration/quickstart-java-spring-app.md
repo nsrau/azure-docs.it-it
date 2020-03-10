@@ -10,18 +10,18 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 172fe646b294ca511a22128094c56172c4268018
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2521adfda731c06c879f5cfeb6283567228bf664
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750304"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919363"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Avvio rapido: Creare un'app Java Spring con Configurazione app di Azure
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app Java Spring con Configurazione app di Azure
 
 In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app Java Spring per centralizzare l'archiviazione e la gestione delle impostazioni dell'applicazione separatamente dal codice.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) versione 8 supportato.
@@ -31,7 +31,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
+1. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
 
     | Chiave | valore |
     |---|---|
@@ -45,30 +45,42 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
 1. Passare a <https://start.spring.io/>.
 
-2. Specificare le opzioni seguenti:
+1. Specificare le opzioni seguenti:
 
-   * Generare un progetto **Maven** con **Java**.
-   * Specificare **Spring Boot** versione 2.0 o successiva.
-   * Specificare i nomi di **Group** (Gruppo) e **Artifact** (Artefatto) per l'applicazione.
-   * Aggiungere la dipendenza **Spring Web**.
+   - Generare un progetto **Maven** con **Java**.
+   - Specificare **Spring Boot** versione 2.0 o successiva.
+   - Specificare i nomi di **Group** (Gruppo) e **Artifact** (Artefatto) per l'applicazione.
+   - Aggiungere la dipendenza **Spring Web**.
 
-3. Dopo aver specificato le opzioni precedenti, selezionare **Genera progetto**. Quando richiesto, scaricare il progetto in un percorso nel computer locale.
+1. Dopo aver specificato le opzioni precedenti, selezionare **Genera progetto**. Quando richiesto, scaricare il progetto in un percorso nel computer locale.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
 1. Dopo l'estrazione dei file nel sistema locale, la semplice applicazione Spring Boot è pronta per la modifica. Individuare il file *pom.xml* nella directory radice dell'app.
 
-2. Aprire il file *pom.xml* in un editor di testo e aggiungere l'utilità di avvio Spring Cloud per la configurazione di Azure all'elenco di `<dependencies>`:
+1. Aprire il file *pom.xml* in un editor di testo e aggiungere l'utilità di avvio Spring Cloud per la configurazione di Azure all'elenco di `<dependencies>`:
+
+    **Spring Cloud 1.1.x**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.1.2</version>
     </dependency>
     ```
 
-3. Creare un nuovo file Java denominato *MessageProperties.java* nella directory del pacchetto dell'app. Aggiungere le righe seguenti:
+    **Spring Cloud 1.2.x**
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    ```
+
+1. Creare un nuovo file Java denominato *MessageProperties.java* nella directory del pacchetto dell'app. Aggiungere le righe seguenti:
 
     ```java
     package com.example.demo;
@@ -89,7 +101,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
     }
     ```
 
-4. Creare un nuovo file Java denominato *HelloController.java* nella directory del pacchetto dell'app. Aggiungere le righe seguenti:
+1. Creare un nuovo file Java denominato *HelloController.java* nella directory del pacchetto dell'app. Aggiungere le righe seguenti:
 
     ```java
     package com.example.demo;
@@ -112,7 +124,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
     }
     ```
 
-5. Aprire il file Java dell'applicazione principale e aggiungere `@EnableConfigurationProperties` per abilitare questa funzionalità.
+1. Aprire il file Java dell'applicazione principale e aggiungere `@EnableConfigurationProperties` per abilitare questa funzionalità.
 
     ```java
     import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -126,10 +138,28 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
     }
     ```
 
-6. Creare un nuovo file denominato `bootstrap.properties` nella directory di risorse dell'app e aggiungere le righe seguenti al file. Sostituire i valori di esempio con le proprietà appropriate per l'archivio di Configurazione app.
+1. Creare un nuovo file denominato `bootstrap.properties` nella directory di risorse dell'app e aggiungere le righe seguenti al file. Sostituire i valori di esempio con le proprietà appropriate per l'archivio di Configurazione app.
 
     ```CLI
-    spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
+    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    ```
+
+1. Impostare una variabile di ambiente denominata **APP_CONFIGURATION_CONNECTION_STRING** sulla chiave di accesso all'archivio di Configurazione app. Al prompt dei comandi eseguire questo comando e riavviare il prompt per rendere effettiva la modifica:
+
+    ```CLI
+        setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    ```
+
+    Se si usa Windows PowerShell, eseguire il comando seguente:
+
+    ```azurepowershell
+        $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    ```
+
+    Se si usa macOS o Linux, eseguire il comando seguente:
+
+    ```console
+        export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale

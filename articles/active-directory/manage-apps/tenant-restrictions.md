@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f73dd8dbef3f08cd4ea5841e4ec21bac2f55bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 70cdb4b42e835a9bfa03f4551ba25088ef8c5226
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276496"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942864"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usare le restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -60,7 +60,7 @@ Per usare le restrizioni dei tenant, i client devono essere in grado di connette
 
 La configurazione seguente è necessaria per abilitare le restrizioni dei tenant attraverso l'infrastruttura del proxy. Questa guida è generica, pertanto è consigliabile consultare la documentazione del fornitore del proxy per i passaggi di implementazione specifici.
 
-#### <a name="prerequisites"></a>prerequisiti
+#### <a name="prerequisites"></a>Prerequisites
 
 - Il proxy deve poter eseguire l'intercettazione SSL, inserire intestazioni HTTP e filtrare le destinazioni tramite URL/FQDN.
 
@@ -105,6 +105,9 @@ Sebbene la configurazione delle restrizioni dei tenant venga eseguita nell'infra
 
 L'amministratore del tenant specificato come tenant del contesto di accesso limitato può usare questo report per visualizzare gli accessi bloccati a causa dei criteri di restrizione del tenant, inclusa l'identità usata e l'ID della directory di destinazione. Gli accessi sono inclusi se nelle impostazioni del tenant la restrizione di accesso è impostata sul tenant dell'utente o sul tenant della risorsa.
 
+> [!NOTE]
+> Il report può contenere informazioni limitate, ad esempio l'ID della directory di destinazione, quando un utente che si trova in un tenant diverso dal tenant con restrizioni di accesso. In questo caso, le informazioni identificabili dall'utente, ad esempio nome e nome dell'entità utente, vengono mascherate per proteggere i dati utente in altri tenant.
+
 Come per gli altri report nel portale di Azure, è possibile usare i filtri per specificare l'ambito del report. È possibile filtrare in base a un intervallo di tempo, un utente, un'applicazione, un client o uno stato specifico. Se si seleziona il pulsante **colonne** , è possibile scegliere di visualizzare i dati con qualsiasi combinazione dei campi seguenti:
 
 - **Utente**
@@ -118,7 +121,7 @@ Come per gli altri report nel portale di Azure, è possibile usare i filtri per 
 - **Indirizzo IP**
 - **Client**
 - **Nome utente**
-- **Località**
+- **Posizione**
 - **ID tenant di destinazione**
 
 ## <a name="office-365-support"></a>Supporto di Office 365

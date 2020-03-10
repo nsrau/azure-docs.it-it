@@ -8,14 +8,14 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: e316da12345c0bf1ea3682dadb1a7a65f250747b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191094"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252539"
 ---
-# <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Avvio rapido: Creare un servizio Collegamento privato usando il portale di Azure
+# <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Collegamento privato usando il portale di Azure
 
 Un servizio Collegamento privato di Azure si riferisce a un servizio personalizzato gestito da Collegamento privato. È possibile concedere l'accesso a Collegamento privato al servizio o alla risorsa che opera dietro Azure Load Balancer Standard. I consumer del servizio possono accedervi privatamente dalle proprie reti virtuali. Questo argomento di avvio rapido illustra come creare un servizio Collegamento privato con il portale di Azure.
 
@@ -29,21 +29,22 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Prima di tutto, creare una rete virtuale. Quindi, creare un'istanza di Load Balancer interna da usare con il servizio Collegamento privato.
 
-### <a name="create-the-virtual-network"></a>Creare la rete virtuale
+## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
 
 In questa sezione si crea una rete virtuale. Si crea anche la subnet che ospiterà l'istanza di Load Balancer che accede al servizio Collegamento privato.
 
-1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
+In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
 
-1. Nel riquadro **Crea rete virtuale** immettere o selezionare questi valori:
+| Parametro                   | valore                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Stati Uniti orientali 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
 
-   - **Name**: Immettere **myVNet**.
-   - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere **MyResourceGroupLB** e selezionare **OK**.
-   - **Subnet** > **Nome**: Immettere **myBackendSubnet**.
-
-1. Selezionare **Create** (Crea).
-
-   ![Crea rete virtuale](../load-balancer/media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-a-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 

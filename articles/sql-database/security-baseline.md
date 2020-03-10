@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca8d0daf5b6d9bbad0d8fa24b4b150c5e6cd6b73
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300911"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943650"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Baseline della sicurezza di Azure per il database SQL di Azure
 
@@ -360,7 +360,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Responsabilità**: non applicabile
 
-## <a name="identity-and-access-control"></a>Controllo di identità e accesso
+## <a name="identity-and-access-control"></a>Gestione delle identità e controllo di accesso
 
 *Per altre informazioni, vedere [controllo di sicurezza: identità e controllo di accesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
@@ -812,10 +812,10 @@ Informazioni sul punteggio sicuro del Centro sicurezza di Azure: https://docs.mi
 **Linee guida**: usare Azure Resource Graph per eseguire query e individuare tutte le risorse (incluse le istanze di Azure SQL Server) nelle sottoscrizioni.  Assicurarsi di disporre delle autorizzazioni (lettura) appropriate nel tenant e di poter enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
 
 
-Sebbene le risorse di Azure classiche possano essere individuate tramite Graph di risorse, è consigliabile creare e usare Azure Resource Manager risorse in futuro.
+Sebbene le risorse di Azure classiche possano essere individuate tramite Azure Resource Graph, è consigliabile creare e usare Azure Resource Manager risorse in futuro.
 
 
-Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Come creare query con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 Come visualizzare le sottoscrizioni di Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
@@ -886,7 +886,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 Come configurare e gestire i criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Come creare query con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -1170,7 +1170,7 @@ Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di A
 
 **Responsabilità**: non applicabile
 
-## <a name="data-recovery"></a>Recupero dei dati
+## <a name="data-recovery"></a>Ripristino dei dati
 
 *Per altre informazioni, vedere [controllo di sicurezza: ripristino dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899440"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942638"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Supporto lingua e area geografica per l'API Analisi del testo
 
@@ -47,7 +47,7 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 > [!NOTE]
 > Per informazioni dettagliate sul supporto del linguaggio per l'anteprima pubblica di NER (Named Entity Recognition) v3, vedere [tipi di entità denominate](named-entity-types.md).
 
-| Lingua:              | Codice lingua | Valutazione | Frasi chiave | Riconoscimento di entità denominate | Collegamento di entità |       Note        |
+| Linguaggio              | Codice lingua | Valutazione | Frasi chiave | Riconoscimento di entità denominate | Collegamento di entità |       Note        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Arabo                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Ceco                 |     `cs`      |           |             |           ✔ \*           |                |                    |

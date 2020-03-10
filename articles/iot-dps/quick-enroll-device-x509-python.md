@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6f4457397f358d893a5735cc7401394adda8d62b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: ed51fb7589247b1a52930931ed297d4292b07ea6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605511"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921131"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Avvio rapido: Registrare i dispositivi X.509 nel servizio Device Provisioning con Python
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
 Questa guida di avvio rapido descrive come usare Python per creare un gruppo di registrazione a livello di codice che usa un certificato X.509 intermedio o CA radice. Un gruppo di registrazione controlla l'accesso al servizio di provisioning per i dispositivi che condividono un certificato di firma comune nella rispettiva catena di certificati. Il gruppo di registrazione viene creato usando Python Provisioning Service SDK e un'applicazione Python di esempio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Completamento dell'esercitazione [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

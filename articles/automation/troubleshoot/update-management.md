@@ -8,12 +8,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 359f78cabbe0372e6892695c092ae49b62df7bfa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227450"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944188"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -219,14 +219,17 @@ Questo errore può verificarsi per uno dei motivi seguenti:
 
 Quando applicabile, usare i [gruppi dinamici](../automation-update-management-groups.md) per le distribuzioni degli aggiornamenti. Inoltre:
 
-* Verificare che il computer esista ancora e che sia raggiungibile. Se non esiste, modificare la distribuzione e rimuovere il computer.
+* Verificare che il computer esista ancora e che sia raggiungibile. 
+* Se il computer non esiste, modificare la distribuzione e rimuovere il computer.
 * Vedere la sezione relativa alla [pianificazione della rete](../automation-update-management.md#ports) per un elenco di porte e indirizzi necessari per gestione aggiornamenti, quindi verificare che il computer soddisfi questi requisiti.
-* Eseguire la query seguente in Log Analytics per trovare i computer nell'ambiente in cui `SourceComputerId` è stato modificato. Cercare i computer con lo stesso valore di `Computer` ma con un valore `SourceComputerId` diverso. 
+* Verificare la connettività al ruolo di lavoro ibrido per Runbook usando la risoluzione dei problemi dell'agente di lavoro ibrido per Runbook Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi dell'agente di aggiornamento](update-agent-issues.md).
+* Eseguire la query seguente in Log Analytics per trovare i computer nell'ambiente per i quali `SourceComputerId` è stato modificato. Cercare i computer con lo stesso valore di `Computer` ma con un valore `SourceComputerId` diverso.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   Dopo aver individuato i computer interessati, modificare le distribuzioni degli aggiornamenti destinate a tali computer, quindi rimuoverli e aggiungerli di nuovo in modo che `SourceComputerId` rispecchi il valore corretto.
+
+* Dopo aver individuato i computer interessati, modificare le distribuzioni degli aggiornamenti destinate a tali computer, quindi rimuoverli e aggiungerli di nuovo in modo che `SourceComputerId` rispecchi il valore corretto.
 
 ## <a name="updates-nodeployment"></a>Scenario: gli aggiornamenti vengono installati senza una distribuzione
 
@@ -250,7 +253,7 @@ Per ulteriori informazioni, vedere [configurazione di aggiornamenti automatici](
 
 ### <a name="issue"></a>Problema
 
-Viene visualizzato il messaggio seguente:
+Viene visualizzato il messaggio di errore seguente:
 
 ```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
@@ -341,7 +344,7 @@ L'agente di aggiornamento (agente Windows Update in Windows; Gestione pacchetti 
 
 Provare a eseguire gli aggiornamenti localmente nel computer. In caso contrario, significa che si è verificato un errore di configurazione con l'agente di aggiornamento.
 
-Questo problema è spesso causato da problemi di configurazione di rete e firewall. Provare le operazioni seguenti:
+Questo problema è spesso causato da problemi di configurazione di rete e firewall. Attenersi alla procedura seguente:
 
 * Per Linux, consultare la documentazione appropriata per assicurarsi che sia possibile raggiungere l'endpoint di rete del repository del pacchetto.
 * Per Windows, verificare che la configurazione dell'agente come elencato negli [aggiornamenti non venga scaricata dall'endpoint Intranet (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).

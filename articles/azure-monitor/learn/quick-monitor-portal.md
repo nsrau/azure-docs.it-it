@@ -1,19 +1,18 @@
 ---
 title: Monitorare un'app Web ASP.NET con Azure Application Insights | Microsoft Docs
 description: Fornisce istruzioni per configurare rapidamente un'app Web ASP.NET per il monitoraggio con Application Insights
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 1aab9009c2c33522abdeae6ca865a35b9fc104e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ba7bca0756b4e2f6fdcb89208fe15e3517a9513
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900481"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661704"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET
 
@@ -69,7 +68,7 @@ Application Insights raccoglie i dati di telemetria per l'applicazione indipende
 
     ![Mappa delle applicazioni](media/quick-monitor-portal/05-appmap.png)
 
-3. Fare clic sull'icona di **App Analytics** ![Mappa delle applicazioni](media/quick-monitor-portal/app-viewinlogs-icon.png) **Visualizza in Log (Analisi)** in uno dei componenti dell'applicazione. Verrà aperta la finestra **Log (Analisi)** , che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
+3. Fare clic sull'icona **Analisi app** ![Mappa delle applicazioni](media/quick-monitor-portal/app-viewinlogs-icon.png) **Visualizza in Log (Analisi)** in uno dei componenti dell'applicazione. Verrà aperta la finestra **Log (Analisi)** , che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
 
     ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 

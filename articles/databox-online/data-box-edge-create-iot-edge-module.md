@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 3aa1190fb713c2fbdedcb1ce84a65d4263693827
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315824"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942550"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Sviluppare un C# modulo IOT Edge per spostare i file in data box Edge
 
@@ -21,7 +21,7 @@ Questo articolo illustra come creare un modulo di IoT Edge per la distribuzione 
 
 È possibile usare i moduli di Azure IoT Edge con Data Box Edge per trasformare i dati quando viene spostato in Azure. Il modulo usato in questo articolo implementa la logica per copiare un file da una condivisione locale in una condivisione cloud nel dispositivo Data Box Edge.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare un registro contenitori per archiviare e gestire i moduli, ossia immagini Docker.
@@ -40,7 +40,7 @@ Il dispositivo Data Box Edge può distribuire ed eseguire i moduli di IoT Edge. 
 
 Quando il file è nella condivisione cloud, viene caricato automaticamente nell'account di Archiviazione di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare di avere:
 
@@ -53,7 +53,7 @@ Prima di iniziare, verificare di avere:
 - Le risorse di sviluppo seguenti:
 
     - [Visual Studio Code](https://code.visualstudio.com/).
-    - [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+    - [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Estensione Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
     - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). È possibile che sia necessario creare un account per scaricare e installare il software.
@@ -63,11 +63,11 @@ Prima di iniziare, verificare di avere:
 Un Registro Azure Container è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. Due servizi molto diffusi per il registro Docker disponibili nel cloud sono il Registro Azure Container e Hub Docker. Questo articolo usa il Registro contenitori.
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-2. Selezionare **Crea una risorsa > Contenitori > Registro contenitori**. Fare clic su **Create**(Crea).
+2. Selezionare **Crea una risorsa > Contenitori > Registro contenitori**. Fare clic su **Crea**.
 3. Specificare:
 
    1. Un valore **Nome registro** all'interno di Azure contenente da 5 a 50 caratteri alfanumerici.
-   2. Scegliere una **Sottoscrizione**.
+   2. Scegliere una **sottoscrizione**.
    3. Scegliere un **gruppo di risorse** esistente oppure crearne uno nuovo.
    4. Selezionare un **percorso**. È consigliabile inserire la stessa posizione associata alla risorsa Data Box Edge.
    5. Impostare **Utente amministratore** su **Abilita**.
@@ -75,7 +75,7 @@ Un Registro Azure Container è un registro Docker privato in Azure nel quale è 
 
       ![Creare un registro contenitori](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
-4. Selezionare **Create**.
+4. Selezionare **Create** (Crea).
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
 
     ![Ottenere le chiavi di accesso](./media/data-box-edge-create-iot-edge-module/get-access-keys-1.png)
@@ -92,8 +92,8 @@ La procedura seguente consente di creare un progetto di modulo di IoT Edge basat
 Creare un modello di soluzione C# che è possibile personalizzare con il proprio codice.
 
 1. In Visual Studio Code selezionare **Visualizza > Riquadro comandi** per aprire il riquadro comandi di VS Code.
-2. Nel riquadro comandi immettere ed eseguire il comando **Azure: Accedere** e seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
-3. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: Nuova soluzione IoT Edge**. Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione:
+2. Nel riquadro comandi immettere ed eseguire il comando **Azure: Sign in** (Azure: Accedi) e seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
+3. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione:
 
     1. Selezionare la cartella in cui si vuole creare la soluzione.
     2. Specificare un nome per la soluzione o accettare quello predefinito **EdgeSolution**.
@@ -270,7 +270,7 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
 
     È possibile che venga visualizzato l'avviso seguente che può essere ignorato:
 
-    *Program.cs(77,44): avviso CS1998: Questo metodo asincrono non contiene operatori 'Await', pertanto verrà eseguito in modo sincrono. Provare a usare l'operatore 'await' per attendere chiamate ad API non di blocco oppure 'await Task.Run(...)' per effettuare elaborazioni basate sulla CPU in un thread in background.*
+    *Program. cs (77, 44): avviso CS1998: questo metodo asincrono non dispone degli operatori ' await ' e verrà eseguito in modo sincrono. Provare a usare l'operatore ' await ' per attendere le chiamate API non bloccanti oppure ' await Task. Run (...)' per eseguire operazioni con binding alla CPU in un thread in background.*
 
 4. È possibile visualizzare l'indirizzo completo dell'immagine del contenitore con tag nel terminale integrato di VS Code. L'indirizzo dell'immagine è costituito dalle informazioni presenti nel file module.json nel formato `<repository>:<version>-<platform>`. In questo articolo, dovrebbe essere simile a `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 

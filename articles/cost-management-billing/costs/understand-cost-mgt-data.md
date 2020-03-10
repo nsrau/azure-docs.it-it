@@ -4,23 +4,25 @@ description: Questo articolo fornisce informazioni sui dati inclusi in Gestione 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560610"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245381"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
 Questo articolo fornisce informazioni sui dati relativi ai costi e all'utilizzo di Azure, inclusi in Gestione costi di Azure. Viene illustrata la frequenza di elaborazione, raccolta, visualizzazione e chiusura dei dati. L'uso di Azure viene addebitato su base mensile. Sebbene i cicli di fatturazione siano periodi mensili, le date di inizio e fine del ciclo variano in base al tipo di sottoscrizione. La frequenza con cui Gestione costi riceve i dati sull'utilizzo varia a seconda di diversi fattori. Tali fattori includono il tempo necessario per l'elaborazione dei dati e la frequenza con cui i servizi di Azure generano i dati sull'utilizzo per il sistema di fatturazione.
 
 Gestione costi include tutti gli utilizzi e gli acquisti, incluse le prenotazioni e le offerte di terze parti per gli account Contratto Enterprise (EA). Gli account del Contratto del cliente Microsoft e le singole sottoscrizioni con tariffe con pagamento in base al consumo includono solo i servizi di Azure e di Marketplace. Il supporto e altri costi non sono inclusi. I costi vengono stimati fino a quando non viene generata una fattura e non vengono calcolati nei crediti.
+
+Se si ha una nuova sottoscrizione, non è possibile usare immediatamente le funzionalità di Gestione costi. Potrebbero essere necessarie fino a 48 ore prima di poter usarle usare tutte.
 
 ## <a name="supported-microsoft-azure-offers"></a>Offerte Microsoft Azure supportate
 

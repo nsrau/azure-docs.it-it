@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649279"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942939"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -105,7 +105,7 @@ Gli errori di backup sono comunemente causati dal fatto che alcuni file sono uti
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Come si rimuove un'intestazione dalla risposta HTTP?
 
-Per rimuovere le intestazioni dalla risposta HTTP, aggiornare il file web.config del sito. Per altre informazioni, vedere [Rimuovere intestazioni del server standard nei siti Web di Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Per rimuovere le intestazioni dalla risposta HTTP, aggiornare il file Web. config del sito. Per altre informazioni, vedere [Rimuovere intestazioni del server standard nei siti Web di Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>Il servizio app è conforme con lo standard PCI 3.0 e 3.1?
 
@@ -183,7 +183,7 @@ Nell'ambiente del servizio app, si ha il controllo totale sul traffico in ingres
 ### <a name="f12-console-output"></a>Output di console F12
 
 1. Selezionare la scheda **Console**.
-2. Per ogni scheda che contiene più di zero elementi, selezionare la scheda (**Errore**, **Avviso** o **Informazioni**). Se la scheda non è selezionata, l'icona corrispondente è grigia o nera quando si allontana il cursore da essa.
+2. Per ogni scheda che contiene più di zero elementi, selezionare la scheda (**Errore**, **Avviso** o **Informazioni**). Se la scheda non è selezionata, l'icona di tabulazione è grigia o nera quando si sposta il cursore.
 3. Fare clic con il pulsante destro del mouse nell'area dei messaggi del riquadro, quindi scegliere **Copia tutto**.
 4. Incollare il testo copiato in un file, quindi salvare il file.
 
@@ -212,7 +212,7 @@ Per altre informazioni, vedere [Come creare un ambiente del servizio app](enviro
 Talvolta, la creazione di un ambiente del servizio app ha esito negativo. In tal caso, viene visualizzato l'errore seguente nei log attività:
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period."}}
 ```
 
 Per risolvere questo problema, assicurarsi che nessuna delle condizioni seguenti sia vera:
@@ -248,7 +248,7 @@ Per eseguire il test di penetrazione, [inviare una richiesta](https://portal.msr
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Come si configura un nome di dominio personalizzato per un app We del servizio app che utilizza Gestione traffico?
 
-Per informazioni su come utilizzare un nome di dominio personalizzato con un'app del servizio app che utilizza Gestione traffico di Microsoft Azure per il bilanciamento del carico, vedere [Configurare un nome di dominio personalizzato per un'app Web di Azure con Gestione traffico](web-sites-traffic-manager-custom-domain-name.md).
+Per informazioni su come utilizzare un nome di dominio personalizzato con un'app del servizio app che utilizza Gestione traffico di Microsoft Azure per il bilanciamento del carico, vedere [Configurare un nome di dominio personalizzato per un'app Web di Azure con Gestione traffico](configure-domain-traffic-manager.md).
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Il certificato del servizio app è contrassegnato per illecito. Come posso risolvere il problema?
 
@@ -282,7 +282,7 @@ Per la documentazione dettagliata sull'autenticazione e l'autorizzazione nel ser
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Come si reindirizza il dominio predefinito *.azurewebsites.net al dominio personalizzato dell'app Web di Azure?
 
-Quando si crea un nuovo sito Web tramite le app Web in Azure, viene assegnato un dominio predefinito *nomesito*.azurewebsites.net al sito. Se si aggiunge un nome host personalizzato al sito e non si desidera che gli utenti possano accedere al dominio predefinito *.azurewebsites.net, è possibile reindirizzare l'URL predefinito. Per informazioni su come reindirizzare tutto il traffico dal dominio predefinito del sito Web al dominio personalizzato, vedere [Reindirizzare il dominio predefinito al dominio personalizzato nelle app Web di Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando si crea un nuovo sito Web tramite le app Web in Azure, viene assegnato un dominio predefinito *nomesito*.azurewebsites.net al sito. Se si aggiunge un nome host personalizzato al sito e non si vuole che gli utenti siano in grado di accedere al dominio predefinito *. azurewebsites.net, è possibile reindirizzare l'URL predefinito. Per informazioni su come reindirizzare tutto il traffico dal dominio predefinito del sito Web al dominio personalizzato, vedere [Reindirizzare il dominio predefinito al dominio personalizzato nelle app Web di Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Come si determina la versione di .NET installata nel servizio app?
 

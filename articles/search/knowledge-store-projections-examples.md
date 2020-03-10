@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: daaedf346bed78a93e0762a37687b623d25ef753
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77441970"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943674"
 ---
 # <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Proiezioni dell'archivio informazioni: come eseguire la modellazione e l'esportazione di arricchimenti
 
@@ -34,7 +34,7 @@ Se si ha familiarità con le [proiezioni](knowledge-store-projection-overview.md
 
 + Tabelle
 + Oggetti
-+ Files
++ File
 
 Le proiezioni delle tabelle vengono archiviate nell'archiviazione tabelle di Azure. Le proiezioni di oggetti e file vengono scritte nell'archivio BLOB, in cui le proiezioni di oggetti vengono salvate come file JSON e possono contenere contenuto del documento di origine, nonché qualsiasi output o arricchimento delle competenze. La pipeline di arricchimento può inoltre estrarre i file binari come le immagini, che vengono proiettati come proiezioni di file. Quando un oggetto binario viene proiettato come proiezione di oggetti, solo i metadati associati vengono salvati come BLOB JSON. 
 
@@ -671,7 +671,13 @@ Quando si definisce una proiezione, si verificano alcuni problemi comuni che pos
 
 Gli esempi in questo articolo illustrano i modelli comuni per la creazione di proiezioni. Ora che si dispone di una conoscenza approfondita dei concetti, è preferibile creare proiezioni per uno scenario specifico.
 
-Quando si esegue l'iterazione delle definizioni dell'archivio informazioni, prendere in considerazione l'arricchimento incrementale come passaggio successivo. L'arricchimento incrementale è basato sulla memorizzazione nella cache, che consente di riutilizzare eventuali arricchimenti che non sono altrimenti interessati da una modifica di competenze. Questa operazione è particolarmente utile per le pipeline che includono OCR e analisi delle immagini.
+Quando si esplorano nuove funzionalità, prendere in considerazione l'arricchimento incrementale come passaggio successivo. L'arricchimento incrementale è basato sulla memorizzazione nella cache, che consente di riutilizzare eventuali arricchimenti che non sono altrimenti interessati da una modifica di competenze. Questa operazione è particolarmente utile per le pipeline che includono OCR e analisi delle immagini.
 
 > [!div class="nextstepaction"]
 > [Introduzione all'arricchimento e alla memorizzazione nella cache incrementali](cognitive-search-incremental-indexing-conceptual.md)
+
+Per una panoramica sulle proiezioni, vedere altre informazioni sulle funzionalità, ad esempio gruppi e sezionamento, e su come [definirle in un insieme di competenze](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Proiezioni in un archivio informazioni](knowledge-store-projection-overview.md)
+

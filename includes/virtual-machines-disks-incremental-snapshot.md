@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 2316b52115cc23d11dfb26d951a7f1820f2737cc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77520723"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945694"
 ---
 Gli snapshot incrementali (anteprima) sono backup temporizzati per i dischi gestiti che, quando vengono eseguiti, sono costituiti solo da tutte le modifiche apportate dopo l'ultimo snapshot. Quando si tenta di scaricare o utilizzare in altro modo uno snapshot incrementale, viene utilizzato il VHD completo. Questa nuova funzionalità per gli snapshot dei dischi gestiti può consentire loro di essere più conveniente, perché non è più necessario archiviare l'intero disco con ogni singolo snapshot, a meno che non si scelga di. Analogamente agli snapshot regolari, è possibile usare gli snapshot incrementali per creare un disco gestito completo o, per creare uno snapshot regolare.
 
@@ -25,8 +25,7 @@ Gli snapshot incrementali offrono inoltre una funzionalità differenziale, dispo
 
 Attualmente sono supportate solo le aree seguenti:
 
-- Disponibile come offerta GA nelle aree Stati Uniti centro-occidentali, Canada orientale, Canada centrale.
-- Disponibile come anteprima pubblica nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Sud Asia orientale.
+- Disponibile come offerta di disponibilità generale nelle aree Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Canada orientale, Canada centrale, Europa settentrionale, Sud Asia orientale.
 
 ## <a name="restrictions"></a>Restrizioni
 - Attualmente non è possibile creare snapshot incrementali dopo aver modificato le dimensioni di un disco (solo durante l'anteprima).

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo per Ruby | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Analisi del testo per Ruby | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si rileva la lingua usando la libreria client di Analisi del testo per Ruby di Servizi cognitivi di Azure.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/29/2020
+ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: f34d4e50042f0fd05a224ff096c2b472224248f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992299"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919669"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Avvio rapido: Usare la libreria client di Analisi del testo per Ruby
+# <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Guida introduttiva: Usare la libreria client di Analisi del testo per Ruby
 
 Introduzione alla libreria client di Analisi del testo. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -35,16 +35,15 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 
 <a name="HOLTop"></a>
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/)
 * Versione corrente di [Ruby](https://www.ruby-lang.org/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. Questa operazione verrà eseguita più avanti nell'avvio rapido.
+    * È possibile usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
-
-### <a name="create-a-text-analytics-azure-resource"></a>Creare una risorsa di Azure per Analisi del testo 
-
-[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### <a name="create-a-new-ruby-application"></a>Creare una nuova applicazione Ruby
 

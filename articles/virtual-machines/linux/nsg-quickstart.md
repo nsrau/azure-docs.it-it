@@ -1,27 +1,22 @@
 ---
-title: Aprire le porte per una VM Linux con l'interfaccia della riga di comando di Azure
-description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l'interfaccia della riga di comando di Azure
-services: virtual-machines-linux
-documentationcenter: ''
+title: Aprire porte a una VM con l'interfaccia della riga di comando di Azure
+description: Informazioni su come aprire una porta o creare un endpoint per la macchina virtuale usando l'interfaccia della riga di comando di Azure.
 author: cynthn
 manager: gwallace
-editor: ''
-ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
-ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354040"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944550"
 ---
-# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una VM Linux con l'interfaccia della riga di comando di Azure
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una macchina virtuale con l'interfaccia della riga di comando di Azure
 
 Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta per una VM con l'interfaccia della riga di comando di Azure. 
 

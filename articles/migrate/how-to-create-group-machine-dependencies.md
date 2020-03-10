@@ -1,14 +1,14 @@
 ---
 title: Configurare la visualizzazione delle dipendenze in Azure Migrate
-description: Viene descritto come configurare la visualizzazione delle dipendenze in Azure Migrate server assessment.
+description: Questo articolo descrive come configurare la visualizzazione delle dipendenze in Azure Migrate server assessment.
 ms.topic: article
 ms.date: 2/24/2020
-ms.openlocfilehash: 054e2301160a885909630c2968863e5f9e25af69
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b75a38a376558946841d08ab7a9dbf730232e51
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916286"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78941031"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurare la visualizzazione delle dipendenze
 

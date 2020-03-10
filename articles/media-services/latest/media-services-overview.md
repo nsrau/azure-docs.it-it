@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 559050d11b6b85a9842c679b94e0e5b2fd5dd0f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987714"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299262"
 ---
 # <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
@@ -34,13 +34,13 @@ Gli SDK di Servizi multimediali v3 sono basati sulla [specifica OpenAPI (Swagger
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
+
+È importante ricordare che è necessario usare Servizi multimediali di Azure in conformità con tutte le leggi applicabili e non è possibile usare Servizi multimediali né qualsiasi altro servizio di Azure in un modo che violi i diritti di altri o possa arrecare danni ad altre persone.
+
+Prima di caricare un video o un'immagine in Servizi multimediali, è necessario avere tutti i diritti appropriati per il relativo uso, tra cui, se richiesto per legge, tutti i consensi necessari delle persone (se presenti) incluse nel video o nell'immagine, per l'uso, l'elaborazione e l'archiviazione dei loro dati in Servizi multimediali e in Azure. Alcune giurisdizioni possono imporre specifici requisiti legali per la raccolta, l'elaborazione online e l'archiviazione di determinate categorie di dati, ad esempio i dati biometrici. Prima di usare Servizi multimediali e Azure per l'elaborazione e l'archiviazione di dati soggetti a requisiti legali speciali, è necessario garantire la conformità a tali requisiti legali che possono essere applicabili al caso specifico.
+
+Per informazioni su conformità, privacy e sicurezza in Servizi multimediali, visitare il [Centro protezione](https://www.microsoft.com/trust-center/?rtc=1) Microsoft. Per informazioni sugli obblighi relativi alla privacy e sulle procedure di Microsoft per il trattamento e la conservazione dei dati, tra cui come eliminare i propri dati, vedere l'[informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement), le [condizioni per l'utilizzo dei servizi online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) e l'[addendum sull'elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) di Microsoft. Usando Servizi multimediali, si accetta di essere vincolati dalle condizioni per l'utilizzo dei servizi online, dall'addendum sull'elaborazione dati e dall'informativa sulla privacy.
  
-È importante ricordare che è necessario usare Servizi multimediali di Azure in conformità con tutte le leggi applicabili e non è possibile usare Servizi multimediali di Azure né qualsiasi altro servizio di Azure in un modo che violi i diritti di altri utenti o possa arrecare danni ad altri utenti. 
-
-Prima di caricare qualsiasi video/immagine, inclusi i dati biometrici, in Servizi multimediali per l'elaborazione e l'archiviazione, è necessario (1) avere tutti i diritti appropriati per i video e le immagini e (2) avere tutti i consensi appropriati dalle singole persone presenti nei video che consentono l'uso e l'archiviazione dei dati biometrici in Servizi multimediali. 
-
-Per informazioni sulla conformità, sulla privacy e sul modo in cui Microsoft protegge i dati in Servizi multimediali di Azure, visitare il [Centro protezione di Azure](https://www.microsoft.com/trust-center/?rtc=1). Per informazioni sugli obblighi relativi alla privacy e la gestione dei dati degli utenti da parte di Microsoft, vedere l'[informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement), le [condizioni per l'utilizzo dei servizi online](https://www.microsoft.com/licensing/product-licensing/products) e l'[addendum sull'elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) Microsoft. Le informazioni sulla conservazione e sull'eliminazione dei dati del cliente sono disponibili nell'addendum sull'elaborazione dati. Con Servizi multimediali di Azure, l'utente accetta di essere vincolato dalle condizioni per l'utilizzo dei servizi online, dall'addendum sull'elaborazione dati e dall'Informativa sulla privacy.
-
 ## <a name="what-can-i-do-with-media-services"></a>Cosa è possibile fare con Servizi multimediali?
 
 Servizi multimediali consente di creare un'ampia gamma di flussi di lavoro multimediali nel cloud. Di seguito vengono indicati alcuni esempi di ciò che è possibile fare con Servizi multimediali:
@@ -51,8 +51,8 @@ Servizi multimediali consente di creare un'ampia gamma di flussi di lavoro multi
 * Analizzare contenuti audio o video registrati. Per migliorare la soddisfazione dei clienti, le organizzazioni possono ad esempio eseguire la conversione della voce in testo scritto e creare indici di ricerca e dashboard. Possono quindi estrarre informazioni su reclami comuni, origini dei reclami e altri dati rilevanti.
 * Creare un servizio di sottoscrizione video ed eseguire lo streaming di contenuti protetti con DRM quando un cliente (ad esempio, uno studio cinematografico) deve limitare l'accesso e l'uso di opere proprietarie tutelate da copyright.
 * Distribuire contenuti offline per la riproduzione su aerei, treni e automobili. È possibile che un cliente debba scaricare contenuti sullo smartphone o sul tablet per la riproduzione durante la disconnessione dalla rete.
-* Implementare una piattaforma video di apprendimento didattico con Servizi multimediali di Azure e [API Servizi cognitivi di Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) per la conversione della voce in testo scritto, la traduzione in più lingue e così via.
-* Usare Servizi multimediali di Azure insieme alle [API Servizi cognitivi di Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) per aggiungere sottotitoli e didascalie ai video e soddisfare le esigenze di un pubblico più ampio, ad esempio persone con disabilità uditive o che vogliono leggere il contenuto in una lingua diversa.
+* Implementare una piattaforma video di apprendimento didattico con Servizi multimediali di Azure e [API Servizi cognitivi di Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) per la conversione della voce in testo scritto, la traduzione in più lingue e così via.
+* Usare Servizi multimediali di Azure insieme alle [API Servizi cognitivi di Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) per aggiungere sottotitoli e didascalie ai video e soddisfare le esigenze di un pubblico più ampio, ad esempio persone con disabilità uditive o che vogliono leggere il contenuto in una lingua diversa.
 * Abilitare la rete CDN di Azure per ottenere notevole scalabilità e gestire al meglio un carico elevato immediato, ad esempio all'inizio di un evento per il lancio di un prodotto.
 
 ## <a name="how-can-i-get-started-with-v3"></a>Come si procede per iniziare a usare v3? 
@@ -106,4 +106,3 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Informazioni sui concetti fondamentali](concepts-overview.md)
-

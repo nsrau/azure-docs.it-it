@@ -8,33 +8,32 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9ee5eec5a5c17e443fe71f0093f09c96cf81ece0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60fd5476d687d9f44aec885cdf888572e8e523a4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60754788"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946113"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire gli utenti in Azure Data Box Gateway 
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire gli utenti in Azure Data Box Gateway
 
 Questo articolo descrive come gestire gli utenti in Azure Data Box Gateway. È possibile gestire Azure Data Box Gateway dal portale di Azure o dall'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, modificare o eliminare utenti.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Aggiungere un utente
 > * Modificare un utente
-> * Eliminare un utente 
+> * Eliminare un utente
 
 ## <a name="about-users"></a>Informazioni sugli utenti
 
-Gli utenti possono accedere in sola lettura o con privilegi completi. Come indicano i nomi, gli utenti di sola lettura possono visualizzare solo i dati della condivisione. Gli utenti con privilegi completi possono leggere, modificare o eliminare i dati della condivisione e scrivere in tali condivisioni. 
+Gli utenti possono accedere in sola lettura o con privilegi completi. Come indicano i nomi, gli utenti di sola lettura possono visualizzare solo i dati della condivisione. Gli utenti con privilegi completi possono leggere, modificare o eliminare i dati della condivisione e scrivere in tali condivisioni.
 
- - **Utente con privilegi completi**: un utente locale con accesso completo. 
+ - **Utente con privilegi completi**: un utente locale con accesso completo.
  - **Utente di sola lettura**. un utente locale con accesso di sola lettura. Questi utenti sono associati alle condivisioni che consentono operazioni di sola lettura.
 
-Le autorizzazioni dell'utente vengono prima di tutto definite durante la creazione contemporanea di utente e condivisione. Dopo aver definito le autorizzazioni associate a un utente, è possibile modificarle con Esplora file. 
-
+Le autorizzazioni dell'utente vengono prima di tutto definite durante la creazione contemporanea di utente e condivisione. La modifica delle autorizzazioni a livello di condivisione non è attualmente supportata.
 
 ## <a name="add-a-user"></a>Aggiungere un utente
 
@@ -49,7 +48,7 @@ Seguire questa procedura nel portale di Azure per aggiungere un utente.
     ![Fare clic su Aggiungi utente](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
-    > Questi utenti sono riservati dal sistema e non devono essere usati: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+    > Questi utenti sono riservati dal sistema e non deve essere usati: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
 3. Dopo l'avvio e il completamento della creazione degli utenti si riceve una notifica. Dopo aver creato l'utente, dalla barra dei comandi, fare clic su **Aggiorna** per visualizzare l'elenco aggiornato degli utenti.
 

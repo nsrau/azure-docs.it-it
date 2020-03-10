@@ -2,23 +2,22 @@
 title: Che cos'è Apache Storm - Azure HDInsight
 description: Apache Storm permette di elaborare flussi di dati in tempo reale. Azure HDInsight permette di creare facilmente cluster Storm nel cloud di Azure. Con Visual Studio, è possibile creare soluzioni Storm con C# e poi distribuirle nei cluster Storm in HDInsight.
 author: hrasheed-msft
-ms.reviewer: jasonh
-keywords: casi d'uso di Apache Storm,cluster Storm,informazioni su Apache Storm
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: overview
-ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: b291d5babb0680f5f1a742efcf624a82c804de68
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: overview
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 03/02/2020
+ms.openlocfilehash: 24981c10985cd353fcd476f416e89c94ad6b6cc6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460008"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271891"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Che cos'è Apache Storm in Azure HDInsight?
 
-[Apache Storm](https://storm.apache.org/) è un sistema di calcolo distribuito, a tolleranza di errore e open source. È possibile usare Storm per elaborare i flussi di dati in tempo reale con [Apache Hadoop](https://hadoop.apache.org/). Le soluzioni Storm possono fornire anche l'elaborazione garantita dei dati che consente di ripetere l'operazione per i dati non elaborati correttamente la prima volta.
+[Apache Storm](https://storm.apache.org/) è un sistema di calcolo distribuito, a tolleranza di errore e open source. È possibile usare Storm per elaborare i flussi di dati in tempo reale con [Apache Hadoop](https://hadoop.apache.org/). Le soluzioni Storm possono fornire anche l'elaborazione garantita dei dati, che consente di ripetere l'operazione per i dati non elaborati correttamente la prima volta.
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>Perché usare Apache Storm in HDInsight?
 
@@ -34,13 +33,9 @@ Storm in HDInsight offre le funzionalità seguenti:
 
     * Supporta l'interfaccia Java Trident. È possibile creare topologie Storm che supportano l'elaborazione di tipo exactly-once dei messaggi, la persistenza transazionale del datastore e un insieme di operazioni di analisi di flusso di uso comune.
 
-* **Scalabilità dinamica**: È possibile aggiungere o rimuovere i nodi di lavoro senza impatto sull'esecuzione delle topologie Storm.
+* **Scalabilità dinamica**: È possibile aggiungere o rimuovere i nodi di lavoro senza impatto sull'esecuzione delle topologie Storm. È necessario disattivare e riattivare le topologie in esecuzione per sfruttare i vantaggi di nuovi nodi aggiunti tramite le operazioni di scalabilità.
 
-    * È necessario disattivare e riattivare le topologie in esecuzione per sfruttare i vantaggi di nuovi nodi aggiunti tramite le operazioni di scalabilità.
-
-* **Creare pipeline di flusso con più servizi di Azure**: Storm in HDInsight si integra con altri servizi di Azure, ad esempio Hub eventi, Database SQL, Archiviazione di Azure e Azure Data Lake Storage.
-
-    Per una soluzione di esempio che si integra con i servizi di Azure, vedere [Elaborare eventi di Hub eventi con Apache Storm in HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
+* **Creare pipeline di flusso con più servizi di Azure**: Storm in HDInsight si integra con altri servizi di Azure, ad esempio Hub eventi, Database SQL, Archiviazione di Azure e Azure Data Lake Storage. Per una soluzione di esempio che si integra con i servizi di Azure, vedere [Elaborare eventi di Hub eventi con Apache Storm in HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 Per un elenco delle società che usano Apache Storm per le loro soluzioni di analisi in tempo reale, vedere l'articolo relativo alle [società che usano Apache Storm](https://storm.apache.org/Powered-By.html).
 
@@ -72,19 +67,12 @@ La configurazione predefinita per i cluster Apache Storm prevede un solo nodo Ni
 
 ## <a name="ease-of-use"></a>Semplicità d'uso
 
-* __Connettività Secure Shell (SSH)__ : è possibile accedere ai nodi head del cluster Storm tramite Internet usando SSH. È possibile eseguire comandi direttamente nel cluster tramite SSH.
-
-  Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* __Connettività Web__: tutti i cluster HDInsight offrono l'interfaccia utente Web Ambari, che consente di monitorare, configurare e gestire facilmente i servizi nel cluster tramite l'interfaccia utente Web Ambari. I cluster Storm offrono anche l'interfaccia utente di Storm. che consente di monitorare e gestire le topologie Storm in esecuzione dal browser.
-
-  Per altre informazioni, vedere [Gestire HDInsight usando l'interfaccia utente Web Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e [Monitorare e gestire usando l'interfaccia utente di Apache Storm](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui).
-
-* __Azure PowerShell e interfaccia della riga di comando classica di Azure__: sia Azure PowerShell che l'interfaccia della riga di comando includono utilità della riga di comando che è possibile usare dal sistema client per operazioni con HDInsight e altri servizi di Azure.
-
-* __Integrazione di Visual Studio__: Strumenti Azure Data Lake per Visual Studio include modelli di progetto per la creazione di topologie Storm C# con il framework SCP.NET. Strumenti Data Lake include anche strumenti per distribuire, monitorare e gestire soluzioni con Storm in HDInsight.
-
-  Per altre informazioni, vedere [Sviluppare topologie C# per Storm con gli strumenti di HDInsight per Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+|Uso |Descrizione |
+|---|---|
+|Connettività Secure Shell (SSH)|è possibile accedere ai nodi head del cluster Storm tramite Internet usando SSH. È possibile eseguire comandi direttamente nel cluster tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).|
+|Connettività Web|tutti i cluster HDInsight offrono l'interfaccia utente Web Ambari, che consente di monitorare, configurare e gestire facilmente i servizi nel cluster tramite l'interfaccia utente Web Ambari. I cluster Storm offrono anche l'interfaccia utente di Storm. che consente di monitorare e gestire le topologie Storm in esecuzione dal browser. Per altre informazioni, vedere [Gestire HDInsight usando l'interfaccia utente Web Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e [Monitorare e gestire usando l'interfaccia utente di Apache Storm](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui).|
+|Azure PowerShell e interfaccia della riga di comando di Azure|Sia Azure PowerShell che l'interfaccia della riga di comando di Azure includono utilità della riga di comando che è possibile usare dal sistema client per operazioni con HDInsight e altri servizi di Azure.|
+|Integrazione di Visual Studio|Strumenti Azure Data Lake per Visual Studio include modelli di progetto per la creazione di topologie Storm C# con il framework SCP.NET. Strumenti Data Lake include anche strumenti per distribuire, monitorare e gestire soluzioni con Storm in HDInsight. Per altre informazioni, vedere [Sviluppare topologie C# per Storm con gli strumenti di HDInsight per Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).|
 
 ## <a name="integration-with-other-azure-services"></a>Integrazione con altri servizi di Azure
 
@@ -100,9 +88,7 @@ La configurazione predefinita per i cluster Apache Storm prevede un solo nodo Ni
 
 ## <a name="support"></a>Supporto
 
-Storm in HDInsight viene fornito con supporto continuo di livello aziendale. Storm in HDInsight offre anche un contratto di servizio con disponibilità del 99,9%. Questo significa che Microsoft garantisce che un cluster Storm avrà connettività esterna per almeno il 99,9% del tempo.
-
-Per altre informazioni, vedere il [supporto di Azure](https://azure.microsoft.com/support/options/).
+Storm in HDInsight viene fornito con supporto continuo di livello aziendale. Storm in HDInsight offre anche un contratto di servizio con disponibilità del 99,9%. Questo significa che Microsoft garantisce che un cluster Storm avrà connettività esterna per almeno il 99,9% del tempo. Per altre informazioni, vedere il [supporto di Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="apache-storm-use-cases"></a>Casi d'uso di Apache Storm
 
@@ -120,9 +106,7 @@ Per informazioni sugli scenari reali, vedere il documento [How companies are usi
 
 ## <a name="development"></a>Sviluppo
 
-Gli sviluppatori .NET possono progettare e implementare topologie in C# usando Strumenti Azure Data Lake per Visual Studio. È inoltre possibile creare topologie ibride che usano componenti Java e C#.
-
-Per altre informazioni, vedere [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+Gli sviluppatori .NET possono progettare e implementare topologie in C# usando Strumenti Azure Data Lake per Visual Studio. È inoltre possibile creare topologie ibride che usano componenti Java e C#. Per altre informazioni, vedere [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 È anche possibile sviluppare soluzioni Java usando l'IDE preferito. Per altre informazioni, vedere [Sviluppare topologie Java per Apache Storm in HDInsight](apache-storm-develop-java-topology.md).
 
@@ -132,9 +116,7 @@ Per sviluppare componenti Storm, è possibile usare anche Python. Per altre info
 
 ### <a name="guaranteed-message-processing"></a>Elaborazione garantita dei messaggi
 
-Apache Storm può offrire diversi livelli di elaborazione garantita dei messaggi. Un'applicazione Storm di base può ad esempio garantire un'elaborazione at-least-once, mentre [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) può garantire un'elaborazione exactly-once.
-
-Per altre informazioni, vedere la sezione sulle [garanzie relative all'elaborazione dati](https://storm.apache.org/about/guarantees-data-processing.html) nel sito Web apache.org.
+Apache Storm può offrire diversi livelli di elaborazione garantita dei messaggi. Un'applicazione Storm di base può ad esempio garantire un'elaborazione at-least-once, mentre [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) può garantire un'elaborazione exactly-once. Per altre informazioni, vedere la sezione sulle [garanzie relative all'elaborazione dati](https://storm.apache.org/about/guarantees-data-processing.html) nel sito Web apache.org.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 

@@ -3,12 +3,12 @@ title: Domande frequenti sulla migrazione di Azure Migrate server
 description: Risposte alle domande comuni sull'uso della migrazione del server Azure Migrate per eseguire la migrazione dei computer.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 273ef746e685afcf9f3654963dd9c6bd5b855b24
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 4d3638e930b4e12a29df4ab189ffb24ab248582b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927524"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939203"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrazione di Azure Migrate server: domande comuni
 
@@ -74,6 +74,19 @@ No. Azure Migrate supporta solo la migrazione a Managed Disks (HDD Standard, SSD
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Quante VM è possibile replicare contemporaneamente usando la migrazione senza agenti?
 
 Attualmente, è possibile eseguire la migrazione di VM 100 per ogni istanza di server vCenter simultaneamente. Eseguire la migrazione in batch di 10 macchine virtuali.
+
+## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Quando si esegue la migrazione di computer come server fisici?
+
+La migrazione di computer come se fossero server fisici è utile in diversi scenari:
+
+- Quando si esegue la migrazione di server fisici locali.
+- Se si esegue la migrazione di macchine virtuali virtualizzate da piattaforme come Xen, KVM.
+- Per eseguire la migrazione di macchine virtuali Hyper-V o VMware, se per qualche motivo non è possibile usare il processo di migrazione standard per [Hyper-v](tutorial-migrate-hyper-v.md)o [VMware](server-migrate-overview.md) Migration. Ad esempio, se non si esegue VMware vCenter e si usano solo host ESXi.
+- Per eseguire la migrazione in Azure di macchine virtuali attualmente in esecuzione in cloud privati
+- Se si vuole eseguire la migrazione di macchine virtuali in esecuzione in cloud pubblici, ad esempio Amazon Web Services (AWS) o Google Cloud Platform (GCP), in Azure.
+
+## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>È necessario VMware vCenter per eseguire la migrazione di macchine virtuali VMware?
+Per eseguire la migrazione di [macchine virtuali VMware](server-migrate-overview.md) con la migrazione senza agente o basata su agenti VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da server vCenter. Se non si dispone di server vCenter, è possibile eseguire la migrazione di macchine virtuali VMware eseguendone la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>Passaggi successivi
 

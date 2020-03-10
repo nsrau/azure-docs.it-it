@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: f5b02376111a3deba33cd5688330018bd7c370d8
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899217"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934195"
 ---
 # <a name="media-services-high-availability-encoding"></a>Codifica di disponibilità elevata di servizi multimediali 
 
@@ -42,8 +42,8 @@ Seguendo le linee guida e le procedure consigliate descritte nell'articolo, è p
     * [Microsoft. Azure. EVENTGRID SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (che supporta gli eventi di servizi multimediali in modo nativo).
 
     È anche possibile utilizzare gli eventi di griglia di eventi tramite funzioni di Azure.
-*    Quando si crea un [processo](transforms-jobs-concept.md):
-    
+* Quando si crea un [processo](transforms-jobs-concept.md):
+
     * Selezionare in modo casuale un account dall'elenco degli account attualmente in uso (questo elenco conterrà normalmente entrambi gli account, ma se vengono rilevati problemi potrebbe contenere solo un account). Se l'elenco è vuoto, viene generato un avviso in modo che un operatore possa esaminarlo.
     * Il materiale sussidiario generale è che è necessaria una [media reserved Unit](media-reserved-units-cli-how-to.md) per ogni [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) , a meno che non si usi [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) , in cui sono consigliate 3 media reserved Unit per JobOutput.
     * Ottenere il numero di media reserved Unit (MRU) per l'account scelto. Se il conteggio **media reserved Units** corrente non è già al valore massimo, aggiungere il numero di MRU necessari per il processo e aggiornare il servizio. Se la frequenza di invio del processo è elevata e si eseguono spesso query sul MRU per trovare il numero massimo, usare una cache distribuita per il valore con un timeout ragionevole.

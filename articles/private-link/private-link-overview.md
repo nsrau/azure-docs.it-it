@@ -1,46 +1,54 @@
 ---
 title: Che cos'è Collegamento privato di Azure?
-description: Informazioni su come usare Collegamento privato di Azure per accedere ai servizi PaaS di Azure, ad esempio Database SQL e Archiviazione di Azure, e ai servizi di clienti/partner ospitati in Azure tramite un endpoint privato nella rete virtuale.
+description: Panoramica su funzionalità, architettura e implementazione di Collegamento privato di Azure. Informazioni sul funzionamento di Endpoint privati di Azure e del servizio Collegamento privato di Azure e su come usarli.
 services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 01/09/2020
+ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: aea424d4e74f0744f5891a0d7b3b08008fa227b5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 710c5a780841135344d92e93a02f97963b36b09e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562038"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921391"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
-Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure, Azure Cosmos DB e Database SQL, e ai servizi di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È anche possibile creare un proprio [servizio Collegamento privato](private-link-service-overview.md) nella rete virtuale e distribuirlo privatamente ai clienti. Collegamento privato di Azure offre un'esperienza di configurazione e utilizzo coerente per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
+Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio:
+ 
+ - **Archiviazione di Azure**
+ - **Azure Cosmos DB**
+ - **Database SQL di Azure**
+
+Collegamento privato consente di accedere a servizi di clienti e partner ospitati tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
+
+Il traffico tra la rete virtuale e il servizio attraversa la rete del backbone Microsoft. L'esposizione del servizio sulla rete Internet pubblica non è più necessaria. È possibile creare un [servizio Collegamento privato](private-link-service-overview.md) personale nella rete virtuale e distribuirlo ai clienti. Collegamento privato di Azure offre un'esperienza coerente di configurazione e utilizzo per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
 
 > [!IMPORTANT]
-> Collegamento privato di Azure è ora una funzionalità disponibile a livello generale. L'endpoint privato e Collegamento privato (il servizio alla base di Load Balancer Standard) sono disponibili a livello generale. L'onboarding di soluzioni Azure PaaS diverse in Collegamento privato di Azure verrà eseguito in base a pianificazioni diverse. Per informazioni precise sullo stato di Azure PaaS in Collegamento privato, vedere [Disponibilità](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). Per informazioni sulle limitazioni note, vedere [Endpoint privato](private-endpoint-overview.md#limitations) e [Servizio Collegamento privato](private-link-service-overview.md#limitations). 
+> Collegamento privato di Azure è ora disponibile a livello generale. L'endpoint privato e Collegamento privato (il servizio alla base di Load Balancer Standard) sono disponibili a livello generale. L'onboarding di soluzioni Azure PaaS diverse in Collegamento privato di Azure verrà eseguito in base a pianificazioni diverse. Per informazioni accurate sullo stato di Azure PaaS in Collegamento privato, vedere la sezione sulla [disponibilità](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). Per informazioni sulle limitazioni note, vedere [Endpoint privato](private-endpoint-overview.md#limitations) e [Servizio Collegamento privato](private-link-service-overview.md#limitations). 
 
 ![Panoramica dell'endpoint privato](media/private-link-overview/private-endpoint.png)
 
 ## <a name="key-benefits"></a>Vantaggi principali
 Collegamento privato di Azure offre i vantaggi descritti di seguito.  
-- **Accesso privato ai servizi nella piattaforma Azure**: è possibile connettere la rete virtuale ai servizi in esecuzione in Azure privatamente senza che sia necessario un indirizzo IP pubblico nell'origine o nella destinazione. I provider di servizi possono offrirli privatamente nella propria rete virtuale e gli utenti possono accedere a tali servizi privatamente nella rete virtuale locale. La piattaforma di Collegamento privato gestirà la connettività tra l'utente e i servizi tramite la rete backbone di Azure. 
+- **Accesso privato ai servizi nella piattaforma Azure**: connettere la rete virtuale ai servizi in Azure senza un indirizzo IP pubblico all'origine o alla destinazione. I provider possono offrire i servizi nella loro rete virtuale e i clienti possono accedervi nella loro rete virtuale locale. La piattaforma di Collegamento privato gestirà la connettività tra l'utente e i servizi tramite la rete backbone di Azure. 
  
-- **Reti locali e con peering**: è possibile accedere ai servizi in esecuzione in Azure dall'ambiente locale tramite peering privato ExpressRoute/tunnel VPN (da locale) e reti virtuali con peering usando endpoint privati. Non è necessario configurare il peering pubblico o attraversare Internet per raggiungere il servizio. Questa possibilità offre un modo sicuro per eseguire la migrazione dei carichi di lavoro ad Azure.
+- **Reti locali e con peering**: accedere ai servizi in esecuzione in Azure dall'ambiente locale tramite peering privato ExpressRoute, tunnel VPN e reti virtuali con peering usando endpoint privati. Non è necessario configurare il peering pubblico o attraversare Internet per raggiungere il servizio. Collegamento privato offre un modo sicuro per eseguire la migrazione dei carichi di lavoro ad Azure.
  
-- **Protezione dall'esfiltrazione di dati**:  con Collegamento privato di Azure, l'endpoint privato nella rete virtuale viene associato a un'istanza specifica della risorsa PaaS del cliente anziché all'intero servizio. Usando l'endpoint privato, gli utenti possono connettersi solo alla risorsa specifica e non a qualsiasi altra risorsa nel servizio. Questo meccanismo predefinito offre protezione contro i rischi di esfiltrazione di dati. 
+- **Protezione dall'esfiltrazione di dati**: un endpoint privato viene mappato a un'istanza di una risorsa PaaS invece che all'intero servizio. Gli utenti possono connettersi solo alla risorsa specifica. L'accesso a qualsiasi altra risorsa del servizio è bloccato. Questo meccanismo offre protezione dai rischi di perdita dei dati. 
  
-- **Copertura globale**: è possibile connettersi privatamente a servizi in esecuzione in altre aree. La rete virtuale dell'utente può pertanto trovarsi nell'area A e connettersi a servizi con Collegamento privato nell'area B.  
+- **Copertura globale**: è possibile connettersi privatamente a servizi in esecuzione in altre aree. La rete virtuale dell'utente può pertanto trovarsi nell'area A e connettersi ai servizi con Collegamento privato nell'area B.  
  
-- **Estensione a servizi personalizzati**: la stessa esperienza e le stesse funzionalità possono essere sfruttate per offrire privatamente un servizio personalizzato agli utenti in Azure. Posizionando un servizio dietro Load Balancer Standard, è possibile abilitare tale servizio per Collegamento privato. L'utente potrà quindi connettersi direttamente al servizio usando un endpoint privato nella propria rete virtuale. È possibile gestire queste richieste di connessione con un semplice flusso di chiamate di approvazione. Collegamento privato di Azure funziona anche per utenti e servizi appartenenti a tenant di Active Directory diversi. 
+- **Estensione a servizi personalizzati**: la stessa esperienza e le stesse funzionalità possono essere sfruttate per offrire privatamente un servizio personalizzato agli utenti in Azure. Posizionando un servizio dietro Azure Load Balancer, è possibile abilitarlo per Collegamento privato. L'utente potrà quindi connettersi direttamente al servizio usando un endpoint privato nella propria rete virtuale. È possibile gestire queste richieste di connessione con un semplice flusso di chiamate di approvazione. Collegamento privato di Azure funziona anche per utenti e servizi appartenenti a tenant di Azure Active Directory diversi. 
 
 ## <a name="availability"></a>Disponibilità 
- La tabella seguente elenca i servizi Collegamento privato e le aree in cui sono disponibili. 
+ La tabella seguente elenca i servizi di Collegamento privato e le aree in cui sono disponibili. 
 
 |Scenario  |Servizi supportati  |Aree disponibili | Stato  |
 |:---------|:-------------------|:-----------------|:--------|
-|Collegamento privato per servizi di proprietà dei clienti|Servizi Collegamento privato dietro Load Balancer Standard | Tutte le aree pubbliche  | GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Collegamento privato per servizi di proprietà dei clienti|Servizi di Collegamento privato dietro Azure Load Balancer | Tutte le aree pubbliche  | GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
 |Collegamento privato per servizi PaaS di Azure   | Archiviazione di Azure        |  Tutte le aree pubbliche      | Anteprima <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
 |  | Azure Data Lake Storage Gen2        |  Tutte le aree pubbliche      | Anteprima <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
 |  |  database SQL di Azure         | Tutte le aree pubbliche      |   Anteprima <br/> [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
@@ -55,8 +63,15 @@ Per le notifiche più aggiornate, vedere la [pagina degli aggiornamenti relativi
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-Collegamento privato di Azure viene integrato con Monitoraggio di Azure per consentire di archiviare i log in un account di archiviazione, di trasmettere eventi all'hub eventi o di inviarli ai log di Monitoraggio di Azure. In Monitoraggio di Azure è possibile accedere alle informazioni seguenti. 
-- **Endpoint privato**: dati elaborati dall'endpoint privato (IN/OUT)
+Collegamento privato di Azure prevede l'integrazione con Monitoraggio di Azure. Questa combinazione consente:
+
+ - Archiviazione di log in un account di archiviazione.
+ - Streaming di eventi nell'hub eventi.
+ - Registrazione di Monitoraggio di Azure.
+
+In Monitoraggio di Azure è possibile accedere alle informazioni seguenti. 
+- **Endpoint privato**: 
+    - dati elaborati dall'endpoint privato (IN/OUT)
  
 - **Servizio Collegamento privato**:
     - Dati elaborati dal servizio Collegamento privato (IN/OUT)
@@ -75,12 +90,9 @@ Per informazioni sui limiti, vedere [Limiti di Collegamento privato di Azure](..
 Per informazioni, vedere [Contratto di servizio per Collegamento privato di Azure](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare un endpoint privato per il server di database SQL con il portale ](create-private-endpoint-portal.md)
-- [Creare un endpoint privato per il server di database SQL con PowerShell ](create-private-endpoint-powershell.md)
-- [Creare un endpoint privato per il server di database SQL con l'interfaccia della riga di comando ](create-private-endpoint-cli.md)
-- [Creare un endpoint privato per l'account di archiviazione con il portale ](create-private-endpoint-storage-portal.md)
-- [Creare un endpoint privato per l'account Azure Cosmos con il portale ](../cosmos-db/how-to-configure-private-endpoints.md)
-- [Creare un servizio Collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)
+
+- [Avvio rapido: Creare un endpoint privato con il portale di Azure](create-private-endpoint-portal.md)
+- [Avvio rapido: Creare un servizio Collegamento privato usando il portale di Azure](create-private-link-service-portal.md)
 
 
  

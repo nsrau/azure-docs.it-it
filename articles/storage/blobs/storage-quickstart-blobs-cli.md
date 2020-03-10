@@ -9,24 +9,26 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: 57ab56fe3028da9011e86c589209e7505e69e719
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 58532c6eb6e01a993bce7d6e22a7b5274a465963
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650914"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298185"
 ---
-# <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. È possibile usarla nel browser con Azure Cloud Shell. È anche possibile installarla in macOS, Linux o Windows ed eseguirla dalla riga di comando. Questa guida introduttiva spiega come usare l'interfaccia della riga di comando di Azure per caricare e scaricare dati in Archiviazione BLOB di Azure.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## <a name="install-the-azure-cli-locally"></a>Installare l'interfaccia della riga di comando di Azure in locale
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento di avvio rapido è necessario usare la versione 2.0.46 o successiva. Per determinare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -36,11 +38,13 @@ Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessar
 az login
 ```
 
+Per altre informazioni sull'autenticazione con l'interfaccia della riga di comando di Azure, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
+
 ## <a name="authorize-access-to-blob-storage"></a>Autorizzare l'accesso all'archiviazione BLOB
 
 È possibile autorizzare l'accesso all'archiviazione BLOB dall'interfaccia della riga di comando di Azure con le credenziali di Azure AD o usando la chiave di accesso dell'account di archiviazione. È consigliabile usare le credenziali di Azure AD. Questo articolo illustra come autorizzare le operazioni con l'archiviazione BLOB tramite Azure AD.
 
-I comandi dell'interfaccia della riga di comando di Azure per le operazioni sui dati dell'archiviazione BLOB supportano il parametro `--auth-mode`, che consente di specificare come autorizzare una determinata operazione. Impostare il parametro `--auth-mode` su `login` per concedere l'autorizzazione con le credenziali di Azure AD. Per altre informazioni, vedere [Eseguire i comandi dell'interfaccia della riga di comando di Azure con le credenziali di Azure AD per accedere ai dati BLOB o di code](../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+I comandi dell'interfaccia della riga di comando di Azure per le operazioni sui dati dell'archiviazione BLOB supportano il parametro `--auth-mode`, che consente di specificare come autorizzare una determinata operazione. Impostare il parametro `--auth-mode` su `login` per concedere l'autorizzazione con le credenziali di Azure AD. Per altre informazioni, vedere [Autorizzare l'accesso ai dati di BLOB o code con l'interfaccia della riga di comando di Azure](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Solo le operazioni sui dati dell'archiviazione BLOB supportano il parametro `--auth-mode`. Le operazioni di gestione, ad esempio la creazione di un gruppo di risorse o di un account di archiviazione, usano automaticamente le credenziali di Azure AD per l'autorizzazione.
 
@@ -149,7 +153,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse appartenenti a un gruppo non sono più necessarie, incluso l'account di archiviazione creato nella presente Guida di avvio rapido, è possibile eliminare il gruppo di risorse con il comando [az group delete](/cli/azure/group). È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
+Se si vogliono eliminare le risorse create come parte di questo argomento di avvio rapido, incluso l'account di archiviazione, eliminare il gruppo di risorse usando il comando [az group delete](/cli/azure/group). È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```azurecli
 az group delete \

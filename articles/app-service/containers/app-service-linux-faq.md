@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443857"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944079"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -86,7 +86,7 @@ Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una dell
 
    Se si verifica un errore che indica l'impossibilità di trovare il comando `curl`, assicurarsi di installare curl tramite `apt-get install curl` prima di eseguire il comando `curl` precedente.
 
-## <a name="language-support"></a>Supporto delle lingue
+## <a name="language-support"></a>Supporto per le lingue
 
 **Esistono impostazioni speciali o configurazioni specifiche da impostare se si vogliono usare Web Socket nell'applicazione Node.js?**
 
@@ -180,6 +180,10 @@ Di seguito vengono indicate le regole per determinare quale contenitore è acces
 Verrà addebitato il numero di ore di esecuzione dell'app con il normale prezzo del Servizio app di Azure.
 
 ## <a name="other-questions"></a>Altre domande
+
+**Cosa significa "la funzionalità richiesta non è disponibile nel gruppo di risorse"?**
+
+Questo messaggio può essere visualizzato quando si crea un'app Web usando Azure Resource Manager (ARM). In base a una limitazione corrente, per lo stesso gruppo di risorse non è possibile combinare app Windows e Linux nella stessa area.
 
 **Quali sono i caratteri supportati nei nomi delle impostazioni dell'applicazione?**
 

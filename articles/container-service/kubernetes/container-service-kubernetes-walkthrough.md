@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 5c182d6119f59daaf21e4b4e1304363eeb0c11e5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: cfd0f8a9a3180b14b4da9dc61e252054fe06628c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273491"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274183"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(DEPRECATO) - Distribuire cluster Kubernetes per contenitori Linux
 
@@ -21,13 +21,13 @@ ms.locfileid: "76273491"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-In questa guida introduttiva viene distribuito un cluster Kubernetes usando l'interfaccia della riga di comando di Azure. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet. 
+In questo argomento di avvio rapido viene distribuito un cluster Kubernetes con l'interfaccia della riga di comando di Azure. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet. 
 
 L'applicazione di esempio usata in questo documento è scritta in Python. I concetti e i passaggi descritti possono essere usati per distribuire un'immagine del contenitore in un cluster Kubernetes. Il codice, Dockerfile, e il file manifesto di Kubernetes creato in precedenza per questo progetto sono disponibili in [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
 ![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-Questa guida introduttiva presuppone una conoscenza di base dei concetti relativi a Kubernetes. Per informazioni dettagliate su Kubernetes, vedere la [documentazione di Kubernetes]( https://kubernetes.io/docs/home/).
+Questa guida introduttiva presuppone una conoscenza di base dei concetti relativi a Kubernetes. Per informazioni dettagliate in proposito, vedere la [documentazione di Kubernetes]( https://kubernetes.io/docs/home/).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -41,7 +41,7 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *westeurope*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
@@ -64,7 +64,7 @@ Output:
 
 Creare un cluster Kubernetes nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). L'esempio seguente crea un cluster denominato *myK8sCluster* con un nodo master Linux e tre nodi agente Linux.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
 
@@ -76,23 +76,23 @@ Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in
 
 Per gestire un cluster Kubernetes, usare [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), il client da riga di comando di Kubernetes. 
 
-Se si usa Azure CloudShell, kubectl è già installato. Se lo si vuole installare in locale, è possibile usare il comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
+Se si usa Azure Cloud Shell, kubectl è già installato. Se lo si vuole installare in locale, è possibile usare il comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
 Per configurare kubectl per connettersi al cluster Kubernetes, eseguire il comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes). Con questo passaggio si scaricano le credenziali e si configura l'interfaccia della riga di comando di Kubernetes per il loro uso.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
 Per verificare la connessione al cluster, usare il comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) per restituire un elenco di nodi del cluster.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 Output:
 
-```bash
+```output
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-14ad53a1-0    Ready                      10m       v1.6.6
 k8s-agent-14ad53a1-1    Ready                      10m       v1.6.6
@@ -169,13 +169,13 @@ spec:
 
 Usare il comando [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) per eseguire l'applicazione.
 
-```azurecli-interactive
+```console
 kubectl create -f azure-vote.yml
 ```
 
 Output:
 
-```bash
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -188,13 +188,13 @@ Mentre l'applicazione viene eseguita, viene creato un [servizio di Kubernetes](h
 
 Per monitorare lo stato, usare il comando [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) con l'argomento `--watch`.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 **EXTERNAL-IP** per il servizio *azure-vote-front* inizialmente viene visualizzato come *pending*. Dopo che l'indirizzo EXTERNAL-IP passa da *pending* a un *indirizzo IP*, usare `CTRL-C` per arrestare il processo kubectl watch. 
   
-```bash
+```output
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
@@ -206,7 +206,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ## <a name="delete-cluster"></a>Eliminare il cluster
 Quando il cluster non è più necessario, è possibile usare il comando [az group delete](/cli/azure/group#az-group-delete) per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 

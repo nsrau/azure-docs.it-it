@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b330b6176ba9cadc85fad81876caf2583021d503
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988635"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942987"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduzione agli archivi conoscenze in Ricerca cognitiva di Azure
 
@@ -147,3 +147,13 @@ L'approccio più semplice per la creazione di documenti arricchiti è [tramite i
 
 > [!div class="nextstepaction"]
 > [Creazione di un archivio informazioni con i post e REST](knowledge-store-create-rest.md)
+
+Per altre informazioni sulle proiezioni, sulle funzionalità e sul modo [in cui vengono definite in un skillt](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Proiezioni in un archivio informazioni](knowledge-store-projection-overview.md)
+
+Per un'esercitazione che illustra concetti di proiezioni avanzati, ad esempio sezionamento, data shaping e relazioni inline, iniziare a [definire proiezioni in un archivio informazioni](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Definire le proiezioni in un archivio informazioni](knowledge-store-projections-examples.md)

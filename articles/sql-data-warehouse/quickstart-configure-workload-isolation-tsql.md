@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 11/21/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2a6c5ca9f7d2ceaef08b28e78b38b94a459548f5
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.custom: azure-synapse
+ms.openlocfilehash: bd3ad98116b18a77a77e8f6f327689d0ebb7dd21
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304753"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200516"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Guida introduttiva: configurare l'isolamento del carico di lavoro tramite T-SQL
 
@@ -25,13 +25,13 @@ In questa Guida introduttiva verranno creati rapidamente un gruppo di carico di 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 > [!NOTE]
-> La creazione di un'istanza di SQL Data Warehouse può dare luogo a un nuovo servizio fatturabile.  Per altre informazioni, vedere [SQL Data Warehouse Prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creazione di un'istanza di SQL Analytics in Azure Synapse Analytics può risultare in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
  
-Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di SQL Data Warehouse con autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
+Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di SQL Analytics in Azure Synapse Analytics con autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -109,7 +109,7 @@ DROP USER [ELTLogin]
 
 Per le unità del data warehouse e i dati archiviati vengono addebitati costi. Le risorse di calcolo e archiviazione vengono fatturate separatamente.
 
-- Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. Quando si è pronti a lavorare con i dati, riprendere il calcolo.
+- Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il pool SQL non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. Quando si è pronti a lavorare con i dati, riprendere il calcolo.
 - Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse.
 
 Seguire questa procedura per pulire le risorse.
@@ -129,4 +129,4 @@ Seguire questa procedura per pulire le risorse.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - A questo punto è stato creato un gruppo di carico di lavoro. Eseguire alcune query come ELTLogin per verificarne le prestazioni. Vedere [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e il gruppo di carico di lavoro assegnato.
-- Per altre informazioni sulla gestione dei carichi di lavoro di Azure SQL Data Warehouse, vedere [Gestione dei carichi di lavoro](sql-data-warehouse-workload-management.md) e [Isolamento dei carichi di lavoro](sql-data-warehouse-workload-isolation.md).
+- Per altre informazioni sulla gestione dei carichi di lavoro di SQL Analytics, vedere [Gestione dei carichi di lavoro](sql-data-warehouse-workload-management.md) e [Isolamento dei carichi di lavoro](sql-data-warehouse-workload-isolation.md).

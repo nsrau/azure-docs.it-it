@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604058"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918758"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -39,7 +39,7 @@ Per garantire la protezione da questi problemi, Centro sicurezza offre gli strum
 
 -   **Migliorare il comportamento di sicurezza**: Centro sicurezza valuta l'ambiente e consente di comprendere lo stato delle risorse e se queste sono sicure.
 
--   **Proteggiti dalle minacce**: Centro sicurezza consente di valutare i carichi di lavoro e genera raccomandazioni per la prevenzione delle minacce e avvisi di rilevamento delle minacce.
+-   **Protezione dalle minacce**: Centro sicurezza valuta i carichi di lavoro e genera raccomandazioni per la prevenzione delle minacce e avvisi di sicurezza.
 
 -   **Protezione più rapida**: In Centro sicurezza, tutto viene eseguito con la velocità del cloud. Poiché è integrato in modo nativo, la distribuzione di Centro sicurezza è facile e consente di utilizzare il provisioning automatico e la protezione dei servizi di Azure.
 
@@ -51,7 +51,7 @@ Poiché Centro sicurezza è nativo in Azure, i servizi PaaS di Azure, come Servi
 
 Inoltre, Centro sicurezza protegge i server e le macchine virtuali non di Azure nel cloud o in locale, sia per i server di Windows che per quelli di Linux, installando Microsoft Monitoring Agent sui server stessi. Le macchine virtuali di Azure sono sottoposte a provisioning automatico in Centro sicurezza.
 
-Gli eventi raccolti dagli agenti e da Azure sono correlati nel motore di analisi della sicurezza per fornire raccomandazioni su misura (attività di protezione avanzata), che è necessario seguire per assicurarsi che i carichi di lavoro siano protetti, e avvisi di rilevamento delle minacce. È necessario esaminare gli avvisi appena possibile per assicurarsi che non siano in corso attacchi dannosi ai carichi di lavoro.
+Gli eventi raccolti dagli agenti e da Azure sono correlati nel motore di analisi della sicurezza per fornire raccomandazioni personalizzate (attività di protezione avanzata), che è necessario seguire per assicurarsi che i carichi di lavoro siano protetti, e avvisi di sicurezza. È necessario esaminare gli avvisi appena possibile per assicurarsi che non siano in corso attacchi dannosi ai carichi di lavoro.
 
 Se si abilita Centro sicurezza, i criteri di sicurezza incorporati al suo interno si riflettono in Criteri di Azure come iniziativa predefinita nella categoria Centro sicurezza. L'iniziativa predefinita viene automaticamente assegnata a tutte le sottoscrizioni registrate di Centro sicurezza (livello Gratuito o Standard). L'iniziativa predefinita contiene solo criteri di controllo. Per altre informazioni sui criteri di Centro sicurezza in Criteri di Azure, vedere [Utilizzo dei criteri di sicurezza](tutorial-security-policy.md).
 
@@ -107,9 +107,9 @@ La protezione dalle minacce di Centro sicurezza include un’analisi unificata d
 
 ![Raccomandazioni sugli attacchi di Centro sicurezza](media/security-center-intro/sc-attack-recommendation.png)
 
-### <a name="advanced-threat-protection"></a>Protezione avanzata dalle minacce
+### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integrazione con Microsoft Defender Advanced Threat Protection
 
-Centro sicurezza offre da subito l'integrazione nativa con Windows Defender Advanced Threat Protection. Ciò significa che senza alcuna configurazione, le macchine virtuali Windows e i server sono completamente integrati con le raccomandazioni e le valutazioni del Centro sicurezza. La protezione avanzata dalle minacce è disponibile anche a parte per macchine virtuali e server Linux.
+Centro sicurezza include l'integrazione nativa e automatica con Microsoft Defender Advanced Threat Protection. Quindi, senza alcuna configurazione, i computer Windows e Linux completamente integrati con le raccomandazioni e le valutazioni di Centro sicurezza.
 
 Inoltre, Centro sicurezza consente di automatizzare le policy di controllo delle applicazioni in ambienti server. I controlli adattivi delle applicazioni di Centro sicurezza consentono di inserire le app end-to-end in whitelist valide per i server Windows. Non è necessario creare le regole e verificare le violazioni, viene tutto effettuato automaticamente.
 
@@ -129,7 +129,7 @@ Centro sicurezza include funzionalità che consentono di classificare automatica
 
 ### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteggere i carichi di lavoro di cloud ibrido e IoT
 
-Il Centro sicurezza di Azure per IoT (Internet delle cose) semplifica la protezione carichi di lavoro ibrido offrendo visibilità unificata e controllo, prevenzione delle minacce adattiva, rilevamento delle minacce intelligente e risposta su carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. Per altre informazioni, vedere [Centro sicurezza di Azure per IOT](https://docs.microsoft.com/azure/asc-for-iot/).
+Centro sicurezza di Azure per IoT (Internet delle cose) semplifica la protezione di carichi di lavoro ibridi offrendo visibilità unificata e controllo, prevenzione delle minacce adattiva, oltre a protezione e risposta intelligenti per le minacce in tutti i carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. Per altre informazioni, vedere [Centro sicurezza di Azure per IOT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Protezione più rapida
 
@@ -146,6 +146,5 @@ Raccolta di log estesi: i registri di Windows e Linux sono tutti sfruttati dal m
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/free/).
-- Il Piano tariffario Gratuito del Centro sicurezza di Azure viene abilitato con la sottoscrizione di Azure. Per sfruttare i vantaggi della gestione della sicurezza avanzata e la funzionalità di rilevamento minacce, è necessario eseguire l'aggiornamento al piano tariffario Standard. È possibile provare gratuitamente il livello Standard. Per altre informazioni, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+- Con la sottoscrizione di Azure, viene abilitato il piano tariffario gratuito di Centro sicurezza. Per sfruttare i vantaggi della gestione della sicurezza avanzata e la funzionalità di protezione dalle minacce, è necessario eseguire l'aggiornamento al piano tariffario Standard. È possibile provare gratuitamente il piano Standard per 30 giorni. Per altre informazioni, vedere la [pagina dei prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 - Per attivare subito Centro sicurezza Standard, procedere come indicato in [Avvio rapido: Caricamento della sottoscrizione Azure in Centro sicurezza Standard](security-center-get-started.md).
-

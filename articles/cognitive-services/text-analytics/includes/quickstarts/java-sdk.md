@@ -1,32 +1,32 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo v3 per Java | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Analisi del testo v3 per Java | Microsoft Docs'
 description: Introduzione alla libreria client di Analisi del testo v3 per Java.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/11/2020
+ms.date: 02/26/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi
-ms.openlocfilehash: eeaef4a9970609c43c03cd784436796a6f8af174
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 79b4063d6b65d6861dd7864c4225e91f4ea5bc6d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211383"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155425"
 ---
 <a name="HOLTop"></a>
 
 [Documentazione di riferimento ](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Pacchetto (Maven)](https://oss.sonatype.org/#nexus-search;quick~com.azure) | [Esempi](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) versione 8 o successiva
-
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. Questa operazione verrà eseguita più avanti nell'avvio rapido.
+    * È possibile usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
 

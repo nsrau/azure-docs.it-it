@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462922"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388434"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -21,7 +21,7 @@ Il nome EventSource per la classe StatefulServiceBase dei servizi Reliable con s
 Esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e la [libreria TraceEvent di Microsoft](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Eventi
-| Nome evento | ID evento | Livello | Descrizione evento |
+| Nome evento | ID evento | Level | Descrizione evento |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informativo |Emesso quando l'attività RunAsync del servizio viene avviata |
 | StatefulRunAsyncCancellation |2 |Informativo |Emesso quando l'attività RunAsync del servizio viene annullata |
@@ -41,7 +41,7 @@ L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richie
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable Services definisce le categorie di contatori delle prestazioni seguenti:
 
-| Categoria | Description |
+| Category | Descrizione |
 | --- | --- |
 | Replicatore transazionale di Service Fabric |Contatori specifici di Replicatore transazionale di Service Fabric di Azure |
 | Service Fabric TStore |Contatori specifici di Azure Service Fabric TStore |
@@ -95,7 +95,7 @@ Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresent
 
 Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric Transactional Replicator`
 
- Nome contatore | Description |
+ Nome contatore | Descrizione |
 | --- | --- |
 | Operazioni di inizio transazione/sec | Numero di nuove transazioni di scrittura create al secondo.|
 | Operazioni di transazione/sec | Numero di operazioni di aggiunta/aggiornamento/eliminazione eseguite su raccolte Reliable Collections al secondo.|
@@ -108,7 +108,7 @@ Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Serv
 
 Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric TStore`
 
- Nome contatore | Description |
+ Nome contatore | Descrizione |
 | --- | --- |
 | Item Count | Il numero di elementi nell'archivio.|
 | Dimensione disco | Le dimensioni totali del disco, in byte, dei file di checkpoint per l'archivio.|

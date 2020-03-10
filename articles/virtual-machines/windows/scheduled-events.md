@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c4461856bd5eeb01eb84b0d39afef9507438f8d3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b3aa5d50822863e3aa46fcf9970e0b3e67a6f69
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920663"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944482"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: eventi pianificati per macchine virtuali Windows
 
@@ -45,7 +45,7 @@ Tramite gli eventi pianificati l'applicazione è in grado di sapere quando verr�
 
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 - [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (ad esempio, riavvio della macchina virtuale, migrazione in tempo reale o aggiornamenti con mantenimento della memoria per l'host)
-- Hardware danneggiato
+- La macchina virtuale è in esecuzione in un [hardware host danneggiato](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) per cui si prevede un errore a breve
 - Manutenzione avviata dall'utente (ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente)
 - Eliminazioni di istanze della [macchina virtuale](spot-vms.md) e del [set di scalabilità](../../virtual-machine-scale-sets/use-spot.md) spot
 
@@ -135,6 +135,9 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 | Ripetere la distribuzione | 10 minuti |
 | Hanno | 30 secondi |
 | Terminazione | [Configurabile dall'utente](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): da 5 a 15 minuti |
+
+> [!NOTE] 
+> In alcuni casi, Azure è in grado di stimare gli errori dell'host dovuti all'hardware danneggiato e tenterà di attenuare le interruzioni del servizio tramite la pianificazione di una migrazione. Le macchine virtuali interessate riceveranno un evento pianificato con un `NotBefore` che in genere è costituito da pochi giorni in futuro. Il tempo effettivo varia a seconda della valutazione del rischio di errore stimato. Azure tenta di dare preavviso di 7 giorni, quando possibile, ma il tempo effettivo varia e potrebbe essere inferiore se la stima è che è probabile che si verifichi un problema di hardware imminente. Per ridurre al minimo i rischi per il servizio in caso di errore dell'hardware prima che venga avviata la migrazione dal sistema, è consigliabile eseguire la ridistribuzione automatica della macchina virtuale non appena possibile.
 
 ### <a name="event-scope"></a>Ambito degli eventi     
 Gli eventi pianificati vengono recapitati a:

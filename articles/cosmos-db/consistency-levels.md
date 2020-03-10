@@ -6,20 +6,20 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 395b7bc31377fd771549a399032bad9d951ec804
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: b5d9df7a0afa9b4270f0eff643e083e5bccfceb8
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384931"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933691"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
-I database distribuiti che si basano sulla replica per garantire disponibilità elevata, bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiede agli sviluppatori di scegliere tra i due modelli di coerenza *estremi: coerenza* assoluta e coerenza *finale* . La linearizzabilità o il modello di coerenza forte è lo standard Gold della programmabilità dei dati. Ma aggiunge un prezzo di latenza maggiore (in stato stabile) e una disponibilità ridotta (durante gli errori). D'altra parte, la coerenza finale offre una maggiore disponibilità e prestazioni migliori, ma rende difficile programmare le applicazioni. 
+I database distribuiti che si basano sulla replica per garantire disponibilità elevata, bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiede agli sviluppatori di scegliere tra i due modelli di coerenza *estremi: coerenza assoluta e coerenza* *finale* . La linearizzabilità o il modello di coerenza forte è lo standard Gold della programmabilità dei dati. Ma aggiunge un prezzo di latenza maggiore (in stato stabile) e una disponibilità ridotta (durante gli errori). D'altra parte, la coerenza finale offre una maggiore disponibilità e prestazioni migliori, ma rende difficile programmare le applicazioni. 
 
 Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte che si collocano tra i due estremi. La coerenza assoluta e la coerenza finale si trovano alla fine dello spettro, ma sono disponibili molte opzioni di coerenza lungo lo spettro. Gli sviluppatori possono usare queste opzioni per eseguire scelte precise e compromessi granulari rispetto alla disponibilità e alle prestazioni elevate. 
 
-Con Azure Cosmos DB, gli sviluppatori possono scegliere tra cinque modelli di coerenza ben definiti nello spettro della coerenza. Dal più forte al più rilassato, i modelli includono *forte*,decadimento ristretto, *sessione*, *prefisso coerente*e coerenza *finale* . I modelli sono ben definiti e intuitivi e possono essere usati per scenari reali specifici. Ogni modello fornisce compromessi a livello di [disponibilità e prestazioni](consistency-levels-tradeoffs.md) ed è supportato dai contratti di contratto. Nell'immagine seguente vengono illustrati i diversi livelli di coerenza come uno spettro.
+Con Azure Cosmos DB, gli sviluppatori possono scegliere tra cinque modelli di coerenza ben definiti nello spettro della coerenza. Dal più forte al più rilassato, i modelli includono forte,decadimento *ristretto*, *sessione*, *prefisso coerente*e coerenza *finale* . I modelli sono ben definiti e intuitivi e possono essere usati per scenari reali specifici. Ogni modello fornisce [compromessi a livello di disponibilità e prestazioni](consistency-levels-tradeoffs.md) ed è supportato dai contratti di contratto. Nell'immagine seguente vengono illustrati i diversi livelli di coerenza come uno spettro.
 
 ![La coerenza come spettro](./media/consistency-levels/five-consistency-levels.png)
 
@@ -39,41 +39,41 @@ I contratti di servizio completi offerti da Azure Cosmos DB garantiscono che il 
 
 La semantica dei cinque livelli di coerenza è descritta qui:
 
-- **Assoluta**: La coerenza assoluta offre una garanzia della linearità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
+- **Forte**: la coerenza assoluta offre una garanzia della linearità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
 
-- **Decadimento ristretto**: è garantito che le operazioni di lettura rispettino la garanzia della coerenza del prefisso. È possibile che le letture ritardino dietro le Scritture al massimo *"K"* versioni (ad esempio, "aggiornamenti") di un elemento o di un intervallo di tempo *"T"* . In altre parole, quando si sceglie il decadimento ristretto, il "obsolescenza" può essere configurato in due modi: 
+  Il grafico seguente illustra la coerenza assoluta con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti orientali", quando si leggono i dati da altre aree, si ottiene il valore più recente:
+
+  ![video](media/consistency-levels/strong-consistency.gif)
+
+- Decadimento **delimitato**: le letture sono garantite per rispettare la garanzia di prefisso coerente. È possibile che le letture ritardino dietro le Scritture al massimo *"K"* versioni (ovvero "aggiornamenti") di un elemento o di un intervallo di tempo *"T"* . In altre parole, quando si sceglie il decadimento ristretto, il "obsolescenza" può essere configurato in due modi: 
 
   * Numero di versioni (*K*) dell'elemento
   * Intervallo di tempo (*T*) in base al quale le letture potrebbero ritardare le Scritture 
 
   Il decadimento ristretto offre un ordine globale totale tranne all'interno della "finestra di decadimento". La garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della finestra di obsolescenza. La coerenza assoluta ha la stessa semantica di quella offerta dall'obsolescenza associata. La finestra di obsolescenza è uguale a zero. L'obsolescenza associata è anche definita linearizzabilità posticipata. Quando un client esegue le operazioni di lettura all'interno di un'area che accetta Scritture, le garanzie fornite dalla coerenza con decadimento ristretto sono identiche a quelle garantite dalla coerenza assoluta.
 
-- **Sessione**:  All'interno di una singola sessione del client le letture sono garantite per rispettare il prefisso coerente (presupponendo una singola sessione di "writer"), letture monotone, scritture monotone, read-your-Scritture e scritture-follow-letture. I client al di fuori della sessione che esegue le Scritture visualizzeranno la coerenza finale.
+  Il decadimento ristretto viene spesso scelto da applicazioni distribuite a livello globale che prevedono latenze di scrittura ridotte, ma che richiedono la garanzia totale degli ordini globali Il decadimento ristretto è ideale per le applicazioni che includono la collaborazione e la condivisione di gruppi, il titolo di borsa, la pubblicazione-sottoscrizione/Accodamento e così via. Il grafico seguente illustra la coerenza con decadimento ristretto con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti orientali", le aree "Stati Uniti occidentali" e "Australia orientale" leggono il valore scritto in base al tempo massimo di ritardo configurato o al numero massimo di operazioni:
 
-- **Coerenza del prefisso**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza lacune. Il livello di coerenza del prefisso coerente garantisce che le letture non visualizzino mai le Scritture non ordinate.
+  ![video](media/consistency-levels/bounded-staleness-consistency.gif)
 
-- **Finale**: Non c'è garanzia di ordinamento per le letture. In assenza di altre scritture, le repliche finiscono per convergere.
+- **Session**: all'interno di una singola sessione client, è garantita l'onorare il prefisso coerente (presupponendo una singola sessione di "writer"), le letture monotone, le Scritture monotone, le operazioni di lettura e scrittura e le garanzie per le letture. I client al di fuori della sessione che esegue le Scritture visualizzeranno la coerenza finale.
 
-## <a name="consistency-levels-explained-through-baseball"></a>I livelli di coerenza spiegati attraverso il baseball
+  La coerenza di sessione è il livello di coerenza ampiamente utilizzato sia per l'area singola sia per le applicazioni distribuite a livello globale. Fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di coerenza in base alle esigenze delle applicazioni scritte per funzionare nel contesto di un utente. Il grafico seguente illustra la coerenza della sessione con le note musicali. L'area "Stati Uniti occidentali" e le aree "Stati Uniti orientali" usano la stessa sessione (sessione A) in modo che entrambi leggano i dati contemporaneamente. Mentre l'area "Australia orientale" utilizza "sessione B", riceve i dati in un secondo momento, ma nello stesso ordine delle Scritture.
 
-Come esempio, ecco uno scenario tratto dal baseball. Si immagini una sequenza di operazioni di scrittura che rappresentano il punteggio di una partita di baseball. Il punteggio inning per inning è descritto nel documento [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) (La coerenza dei dati replicati spiegata tramite il baseball). In questa ipotetica partita di baseball si sta svolgendo il settimo inning. È la dirittura del settimo inning. I visitatori sono dietro il punteggio da 2 a 5, come illustrato di seguito:
+  ![video](media/consistency-levels/session-consistency.gif)
 
-| | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Punti** |
-| - | - | - | - | - | - | - | - | - | - | - |
-| **Ospiti** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
-| **Locali** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
+- **Prefisso coerente**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le Scritture non vengano mai visualizzate in modo corretto.
 
-Un contenitore di Azure Cosmos include i totali di esecuzione per i visitatori e i team domestici. Nel corso della partita, garanzie di lettura diverse possono determinare la lettura di punteggi diversi da parte dei client. La tabella seguente elenca il set completo di punteggi che possono essere restituiti dalla lettura dei punteggi delle due squadre con ognuna delle cinque garanzie di coerenza. Il punteggio della squadra ospite viene elencato per primo. Possibili valori restituiti diversi sono separati da virgole.
+  Se queste sono state eseguite nell'ordine `A, B, C`, il client vede `A`, `A,B` o `A,B,C`, ma mai il fuori sequenza ad esempio `A,C` o `B,A,C`. Il prefisso coerente fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di ordine che soddisfano le esigenze degli scenari in cui l'ordine è importante. Il grafico seguente illustra la coerenza del prefisso di coerenza con le note musicali. In tutte le aree, le letture non visualizzano mai le Scritture non in ordine:
 
-| **Livello di coerenza** | **Punteggi (visitatori, Home)** |
-| - | - |
-| **Assoluto** | 2-5 |
-| **Obsolescenza associata** | Punteggi non aggiornati di un inning al massimo: 2-3, 2-4, 2-5 |
-| **Sessione** | <ul><li>Per il writer: 2-5</li><li> Per chiunque, eccetto il writer: 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5</li><li>Dopo la lettura 1-3: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
-| **Coerenza del prefisso** | 0-0, 0-1, 1-1, 1-2, 1-3, 2-3, 2-4, 2-5 |
-| **Finale** | 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5 |
+  ![video](media/consistency-levels/consistent-prefix.gif)
 
-## <a name="additional-reading"></a>Altre informazioni
+- **Eventuale**: non esiste alcuna garanzia di ordinamento per le letture. In assenza di altre scritture, le repliche finiscono per convergere.  
+La coerenza finale è la forma di coerenza più debole, perché un client può leggere i valori più vecchi di quelli precedentemente letti. La coerenza finale è ideale in cui l'applicazione non richiede alcuna garanzia di ordinamento. Gli esempi includono il numero di Retweet, mi piace o commenti non thread. Il grafico seguente illustra la coerenza finale con le note musicali.
+
+  ![video](media/consistency-levels/eventual-consistency.gif)
+
+## <a name="additional-reading"></a>Informazioni aggiuntive
 
 Per altre informazioni sui concetti di coerenza, vedere gli articoli seguenti:
 
