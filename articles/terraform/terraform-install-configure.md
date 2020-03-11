@@ -1,37 +1,27 @@
 ---
-title: Installare e configurare la bonifica per il provisioning delle risorse di Azure
-description: Informazioni su come installare e configurare Terraform per la creazione di risorse di Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: tomarchermsft
-manager: gwallace
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/20/2019
-ms.author: tarcher
-ms.openlocfilehash: 74728fb05e900c534580f1c8eaf14dd0e48fc42c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: MT
+title: 'Avvio rapido: Installare e configurare Terraform per il provisioning delle risorse di Azure'
+description: Questo argomento di avvio rapido illustra come installare e configurare Terraform per creare risorse di Azure
+keywords: azure devops terraform installare configurare
+ms.topic: quickstart
+ms.date: 03/09/2020
+ms.openlocfilehash: 82635f59ec8165add2046a230a040b06f89d9898
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77473129"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943510"
 ---
-# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installare e configurare la bonifica per il provisioning delle risorse di Azure
+# <a name="quickstart-install-and-configure-terraform-to-provision-azure-resources"></a>Guida introduttiva: Installare e configurare Terraform per il provisioning delle risorse di Azure
  
 Terraform offre un modo semplice per definire, visualizzare in anteprima e distribuire l'infrastruttura cloud usando un [linguaggio di creazione modelli semplice](https://www.terraform.io/docs/configuration/syntax.html). Questo articolo descrive la procedura da seguire per usare Terraform per effettuare il provisioning di risorse in Azure.
 
 Per altre informazioni su come usare Terraform con Azure, visitare l'[hub di Terraform](/azure/terraform).
 > [!NOTE]
-> Per il supporto specifico, contattare direttamente il servizio di bonifica usando uno dei canali della community:
+> Per il supporto specifico di Terraform, contattare direttamente Terraform usando uno dei relativi canali della community:
 >
->   • La [sezione di bonifica](https://discuss.hashicorp.com/c/terraform-core) del portale della community contiene domande, casi d'uso e modelli utili.
+>    * La [sezione Terraform](https://discuss.hashicorp.com/c/terraform-core) del portale della community contiene domande, casi d'uso e modelli utili.
 >
->   • Per domande relative al provider, visitare la sezione relativa ai [provider di bonifica](https://discuss.hashicorp.com/c/terraform-providers) del portale della community.
+>    * Per domande relative ai provider, visitare la sezione sui [provider di Terraform](https://discuss.hashicorp.com/c/terraform-providers) del portale della community.
 
 
 
@@ -54,7 +44,7 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Per consentire a Terraform di eseguire il provisioning di risorse in Azure, creare un'[entità servizio di Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). L'entità servizio concede agli script Terraform la possibilità di effettuare il provisioning di risorse nella sottoscrizione di Azure.
 
-Se si hanno più sottoscrizioni di Azure, eseguire prima una query sull'account con [AZ account list](/cli/azure/account#az-account-list) per ottenere un elenco di valori ID sottoscrizione e ID tenant:
+Se si hanno più sottoscrizioni di Azure, eseguire prima una query sull'account con [az account list](/cli/azure/account#az-account-list) per ottenere un elenco di valori di ID sottoscrizione e ID tenant:
 
 ```azurecli-interactive
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
@@ -104,6 +94,10 @@ Creare un file `test.tf` in una directory vuota e incollare al suo interno lo sc
 
 ```hcl
 provider "azurerm" {
+  # The "feature" block is required for AzureRM provider 2.x. 
+  # If you are using version 1.x, the "features" block is not allowed.
+  version = "~>2.0"
+  features {}
 }
 resource "azurerm_resource_group" "rg" {
         name = "testResourceGroup"

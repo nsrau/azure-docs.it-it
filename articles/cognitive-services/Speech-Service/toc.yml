@@ -45,10 +45,6 @@
           href: how-to-automatic-language-detection.md
         - name: Usare formati di input audio compressi
           href: how-to-use-codec-compressed-audio-input-streams.md
-        - name: Usare formati di input audio compressi (iOS)
-          href: how-to-use-codec-compressed-audio-input-streams-ios.md
-        - name: Usare formati di input audio compressi (Android)
-          href: how-to-use-codec-compressed-audio-input-streams-android.md
     - name: Personalizzazione
       items:
         - name: Preparazione dei dati
@@ -63,6 +59,10 @@
           href: how-to-custom-speech-deploy-model.md
         - name: Creare trascrizioni con etichette umane
           href: how-to-custom-speech-human-labeled-transcriptions.md
+        - name: Linee guida per la denominazione delle parole chiave personalizzate
+          href: speech-devices-sdk-kws-guidelines.md
+        - name: Individuazione di parole chiave personalizzate
+          href: speech-devices-sdk-create-kws.md
     - name: Informazioni di riferimento
       items:
         - name: API Speech SDK
@@ -156,10 +156,6 @@
               href: how-to-custom-voice-create-voice.md
             - name: Registrare esempi vocali
               href: record-custom-voice-samples.md
-            - name: Linee guida per la denominazione delle parole chiave personalizzate
-              href: speech-devices-sdk-kws-guidelines.md
-            - name: Individuazione di parole chiave personalizzate
-              href: speech-devices-sdk-create-kws.md
         - name: Creazione di contenuti audio
           items:
             - name: Creazione di contenuti audio
@@ -413,6 +409,12 @@
           items:
             - name: Domande frequenti sugli assistenti vocali
               href: faq-voice-assistants.md
+    - name: Parola chiave personalizzata
+      items:
+        - name: Linee guida per la denominazione delle parole chiave personalizzate
+          href: speech-devices-sdk-kws-guidelines.md
+        - name: Individuazione di parole chiave personalizzate
+          href: speech-devices-sdk-create-kws.md
 - name: Hosting
   expanded: false
   items:
@@ -445,8 +447,6 @@
           href: ship-application.md
     - name: Guida introduttiva
       items:
-        - name: Creare un progetto
-          href: quickstarts/create-project.md
         - name: Configurare Speech SDK
           href: quickstarts/setup-platform.md
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'

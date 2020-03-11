@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Microsoft Identity Platform (in precedenza Azure Active Directory per sviluppatori)
-summary: Microsoft Identity Platform è un'evoluzione della piattaforma per sviluppatori di Azure Active Directory (Azure AD). Consente agli sviluppatori di creare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare API Microsoft, come Microsoft Graph o API create dagli sviluppatori. È una piattaforma completa che include un servizio di autenticazione conforme agli standard OAuth 2.0 e OpenID Connect, librerie open source, registrazione e configurazione delle applicazioni, documentazione completa di riferimento e concettuale, esempi di avvio rapido, esempi di codice, esercitazioni e guide pratiche.
+title: Documentazione di Microsoft Identity Platform
+summary: Microsoft Identity Platform consente agli sviluppatori di compilare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare API Microsoft, come Microsoft Graph, o API create dagli sviluppatori. Questa piattaforma completa include un servizio di autenticazione conforme agli standard OAuth 2.0 e OpenID Connect, librerie open source, registrazione e configurazione delle applicazioni, documentazione completa di riferimento e concettuale, argomenti di avvio rapido, esempi di codice, esercitazioni e guide pratiche.
 metadata:
   ms.topic: landing-page
   ms.date: 06/22/2019
@@ -9,21 +9,21 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: ea67860d851e9228ca14c6e53c4831f8d6f34f17
-  ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+  ms.openlocfilehash: edc613b275d996ac8ef8ed4470529153fdcfbecb
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/13/2020
-  ms.locfileid: "77194539"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943469"
 landingContent:
 - title: Microsoft Identity Platform
   linkLists:
   - linkListType: overview
     links:
-    - text: Evoluzione di Microsoft Identity Platform
-      url: about-microsoft-identity-platform.md
     - text: Microsoft Identity Platform (v2.0)
       url: v2-overview.md
+    - text: Evoluzione di Microsoft Identity Platform
+      url: about-microsoft-identity-platform.md
     - text: Azure Active Directory per sviluppatori (v1.0)
       url: ../azuread-dev/v1-overview.md
   - linkListType: concept

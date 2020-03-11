@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Service Fabric
       href: service-fabric-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un'applicazione .NET
@@ -121,7 +121,7 @@
       href: service-fabric-content-roadmap.md
     - name: Scenari applicativi
       href: service-fabric-application-scenarios.md
-    - name: Architettura
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: Security
       items:
@@ -177,7 +177,7 @@
           items:
             - name: Panoramica di Reliable Actors
               href: service-fabric-reliable-actors-introduction.md
-            - name: Architettura
+            - name: Architecture
               href: service-fabric-reliable-actors-platform.md
             - name: Implementazione di funzionalità a livello di servizio
               href: service-fabric-reliable-actors-using.md
@@ -210,7 +210,7 @@
               href: service-fabric-manifest-example-container-app.md
         - name: Modello di hosting
           href: service-fabric-hosting-model.md
-        - name: 'Sicurezza delle applicazioni:'
+        - name: Sicurezza dell'applicazione
           href: service-fabric-application-and-service-security.md
         - name: Stato del servizio
           href: service-fabric-concepts-state.md
@@ -280,7 +280,7 @@
               href: service-fabric-cluster-nodetypes.md
             - name: Aggiornamento dei cluster in Azure
               href: service-fabric-cluster-upgrade.md
-            - name: Ridimensionamento
+            - name: Scalabilità
               href: service-fabric-cluster-scaling.md
             - name: Modelli di rete di cluster
               href: service-fabric-patterns-networking.md
@@ -290,13 +290,13 @@
               href: service-fabric-standalone-clusters-overview.md
             - name: Aggiornamento dei cluster autonomi
               href: service-fabric-cluster-upgrade-standalone.md
-            - name: Ridimensionamento
+            - name: Scalabilità
               href: service-fabric-cluster-scaling-standalone.md
         - name: Gestione risorse cluster
           items:
             - name: Panoramica di Gestione risorse cluster
               href: service-fabric-cluster-resource-manager-introduction.md
-            - name: Architettura
+            - name: Architecture
               href: service-fabric-cluster-resource-manager-architecture.md
             - name: Descrivere un cluster
               href: service-fabric-cluster-resource-manager-cluster-description.md
@@ -316,6 +316,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Bilanciare un cluster
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Subclustering
+              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: Limitazione
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Spostamento dei servizi
@@ -358,7 +360,7 @@
       href: concepts-managed-identity.md
     - name: Configurare le credenziali del repository di contenitori
       href: configure-container-repository-credentials.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Configurazione dell'ambiente di sviluppo
       items:
@@ -773,7 +775,7 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: Concedere l'accesso ad altre risorse di Azure
           href: how-to-grant-access-other-resources.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.servicefabric/
@@ -876,7 +878,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Domande frequenti
       href: service-fabric-common-questions.md
-    - name: Forum di MSDN
+    - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
     - name: Barriere per la distribuzione Azure Resource Manager
       href: service-fabric-azure-resource-manager-guardrails.md

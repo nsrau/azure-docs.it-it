@@ -1,5 +1,5 @@
 - name: Documentazione di Servizi cloud
-  href: index.md
+  href: index.yml
 - name: Panoramica
   items:
     - name: Informazioni su Servizi cloud

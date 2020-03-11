@@ -79,6 +79,8 @@
       href: sample-designer-datasets.md
     - name: Esempi end-to-end di MLOps
       href: 'https://github.com/microsoft/MLOps'
+    - name: Pipeline della finestra di progettazione
+      href: samples-designer.md
 - name: Concetti
   items:
     - name: Area di lavoro
@@ -216,30 +218,6 @@
           href: how-to-cicd-data-ingestion.md
     - name: Eseguire il training dei modelli
       items:
-        - name: Usare la finestra di progettazione
-          displayName: sample designer experiments
-          items:
-            - name: Prevedere il prezzo
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-basic.md
-            - name: Prevedere il prezzo (impostazioni avanzate)
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
-            - name: Prevedere il reddito
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-predict-income.md
-            - name: Prevedere il rischio di credito (impostazioni avanzate)
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-            - name: Prevedere la varianza
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-churn.md
-            - name: Prevedere i ritardi dei voli
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-flight-delay.md
-            - name: Classificazione del testo
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-text-classification.md
         - name: Usare le stime per Machine Learning
           items:
             - name: Creare oggetti estimator durante il training

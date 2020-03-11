@@ -337,7 +337,8 @@
               href: spot-portal.md
             - name: PowerShell
               href: spot-powershell.md
-            - name: Modello
+            - name: Modello ARM
+              displayName: Azure Resource Manager
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Codici di errore
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -349,16 +350,17 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Usare un modello con C#'
+        - name: 'Usare un modello di Azure Resource Manager con C#'
           href: csharp-template.md
+          displayName: Azure Resource Manager
         - name: Creare una VM con Chef
           href: ../../chef/chef-automation.md
         - name: Usare Java
           href: java.md
         - name: Usare Python
           href: python.md
-        - name: Usare un modello
-          displayName: 'Azure Resource Manager template, ARM'
+        - name: Usare un modello di Azure Resource Manager
+          displayName: Azure Resource Manager template
           href: ps-template.md
         - name: Connettersi a una macchina virtuale
           href: connect-logon.md
@@ -473,7 +475,8 @@
           href: change-drive-letter.md
         - name: Modificare il set di disponibilità
           href: change-availability-set.md
-        - name: Scaricare il modello
+        - name: Esportare un modello di Azure Resource Manager
+          displayName: Azure Resource Manager
           href: download-template.md
         - name: Agente VM di Azure
           href: ../extensions/agent-windows.md
@@ -543,7 +546,8 @@
               href: image-builder-gallery-update-image-version.md
             - name: Script per l'archiviazione
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Informazioni di riferimento sul modello
+            - name: Informazioni di riferimento sui modelli di Azure Resource Manager
+              displayName: Azure Resource Manager
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Risolvere problemi
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
@@ -620,7 +624,8 @@
               href: attach-managed-disk-portal.md
         - name: Scollegare un disco
           href: detach-disk.md
-        - name: Eseguire la distribuzione di dischi con un modello
+        - name: Distribuire dischi con un modello di Azure Resource Manager
+          displayName: Azure Resource Manager
           href: using-managed-disks-template-deployments.md
         - name: Abilitare i dischi condivisi
           href: disks-shared-enable.md
@@ -690,6 +695,7 @@
         - name: PowerShell
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: Modello di Azure Resource Manager
+          displayName: ARM
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: REST
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
@@ -743,7 +749,8 @@
       href: /azure/templates/microsoft.compute/allversions
 - name: Risorse
   items:
-    - name: Creare modelli
+    - name: Creare modelli di Azure Resource Manager
+      displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Sviluppare le proprie competenze con Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines

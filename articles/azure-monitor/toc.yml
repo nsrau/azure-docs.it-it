@@ -213,6 +213,8 @@
               items:
                 - name: JavaScript lato client
                   href: app/javascript.md
+                - name: Mappa di origine per JavaScript
+                  href: app/source-map-support.md
             - name: Riepilogo delle API di Application Insights
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -1005,6 +1007,8 @@
               href: platform/alerts-activity-log.md
             - name: Eseguire la migrazione di eventi di gestione negli avvisi del log attività
               href: platform/migrate-management-alerts.md
+            - name: Schema dei webhook
+              href: platform/activity-log-alerts-webhook.md
         - name: Avvisi sull'integrità del servizio nel log attività
           items:
             - name: Visualizzare le notifiche
@@ -1023,8 +1027,6 @@
               href: platform/alerts-common-schema-definitions.md
             - name: Integrare lo schema di avviso comune con App per la logica
               href: platform/alerts-common-schema-integrations.md
-            - name: Schema dei webhook
-              href: platform/activity-log-alerts-webhook.md
             - name: Comportamento degli avvisi SMS
               href: platform/alerts-sms-behavior.md
             - name: Limitazione della frequenza delle notifiche

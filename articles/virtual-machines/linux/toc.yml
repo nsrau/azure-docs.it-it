@@ -251,8 +251,8 @@
       items:
         - name: Usare l'interfaccia della riga di comando
           href: create-cli-complete.md
-        - name: Usare un modello
-          displayName: 'Azure Resource Manager, ARM'
+        - name: Usare un modello di Azure Resource Manager
+          displayName: Azure Resource Manager
           href: create-ssh-secured-vm-from-template.md
         - name: Usare l'API REST
           href: create-vm-rest-api.md
@@ -270,8 +270,9 @@
               href: spot-cli.md
             - name: Portale
               href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
-            - name: Modello
+            - name: Modello ARM
               href: spot-template.md
+              displayName: Azure Resource Manager
             - name: Codici di errore
               href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
     - name: Eseguire la migrazione dal modello di distribuzione classica ad Azure Resource Manager
@@ -462,8 +463,9 @@
               href: image-builder-overview.md
             - name: Utilizzare l'interfaccia della riga di comando di Azure
               href: image-builder.md
-            - name: Informazioni di riferimento sul modello
+            - name: Informazioni di riferimento sui modelli di Azure Resource Manager
               href: image-builder-json.md
+              displayName: 'ARM,Resource Manager'
             - name: Creare immagini per le raccolte
               href: image-builder-gallery.md
             - name: Aggiornare un'immagine esistente
@@ -631,7 +633,7 @@
               href: attach-disk-portal.md
         - name: Scollegare un disco
           href: detach-disk.md
-        - name: Eseguire la distribuzione di dischi con un modello
+        - name: Distribuire dischi con un modello di Azure Resource Manager
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
         - name: Abilitare i dischi condivisi
@@ -757,9 +759,10 @@
       href: /rest/api/compute
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.compute/allversions
+      displayName: ARM
 - name: Risorse
   items:
-    - name: Creare modelli
+    - name: Creare modelli di Azure Resource Manager
       displayName: 'Azure Resource Manager, ARM'
       href: /azure/azure-resource-manager/
     - name: Sviluppare le proprie competenze con Microsoft Learn

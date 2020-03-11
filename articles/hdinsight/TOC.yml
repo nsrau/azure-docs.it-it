@@ -708,6 +708,8 @@
               href: ./interactive-query/interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
             - name: Risoluzione dei problemi di Apache HIVE
               href: ./hdinsight-troubleshoot-hive.md
+            - name: I log di Apache Hive occupano tutto lo spazio su disco nel nodo head
+              href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
 - name: ML Services
   items:
     - name: Panoramica
@@ -824,7 +826,7 @@
           href: ./hdinsight-management-ip-addresses.md
         - name: Tag di servizio per Firewall di Azure
           href: ./hdinsight-service-tags.md
-        - name: Crittografia dischi con chiavi gestite dal cliente
+        - name: Crittografia del disco con chiavi gestite dal cliente
           href: ./disk-encryption.md
         - name: Sincronizzazione LDAP in Ranger e Apache Ambari
           href: ./domain-joined/ldap-sync.md
