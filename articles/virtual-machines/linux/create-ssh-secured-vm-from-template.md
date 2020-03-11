@@ -1,27 +1,17 @@
 ---
 title: Creare una VM Linux in Azure da un modello
 description: Procedura per usare l'interfaccia della riga di comando di Azure per creare una VM Linux da un modello di Gestione risorse
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf440542e8b16231514447ddcddca081b4b89368
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 581eadc60835b758f67ae616d4413800f1d6d718
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979043"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969521"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedura per creare una macchina virtuale Linux con i modelli di Azure Resource Manager
 
@@ -31,7 +21,7 @@ Informazioni su come creare una macchina virtuale (VM) Linux usando un modello d
 
 I modelli di Azure Resource Manager sono file JSON che definiscono l'infrastruttura e la configurazione della soluzione Azure. Usando il modello è possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita garantendo al contempo che le risorse vengano distribuite in uno stato coerente. Per altre informazioni sul formato del modello e sulla relativa costruzione, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager usando il portale di Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Per visualizzare la sintassi JSON per i tipi di risorse, vedere [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions) (Definire le risorse nei modelli di Azure Resource Manager).
 
-## <a name="create-a-virtual-machine"></a>Crea una macchina virtuale
+## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
 La creazione di una macchina virtuale di Azure include in genere due passaggi:
 

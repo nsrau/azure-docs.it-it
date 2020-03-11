@@ -1,20 +1,17 @@
 ---
-title: Distribuire host dedicati di Azure tramite l'interfaccia della riga di comando
+title: Distribuire macchine virtuali Linux in host dedicati usando l'interfaccia della riga di comando
 description: Distribuire le macchine virtuali in host dedicati usando l'interfaccia della riga di comando di Azure.
-services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f712d1be76a9bb3dc4856b9f1fa7c7b805296dea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483483"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970763"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Distribuire macchine virtuali in host dedicati usando l'interfaccia della riga di comando di Azure
  

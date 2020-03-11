@@ -1,26 +1,17 @@
 ---
 title: Esempi dell'interfaccia della riga di comando di Azure
 description: Esempi dell'interfaccia della riga di comando di Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: eda3154bb921a46bbe3b768713d4e72f1cc45d5f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 76803f8c3a703071eb733c5cfde65482ffd07f40
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036843"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970087"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Linux
 

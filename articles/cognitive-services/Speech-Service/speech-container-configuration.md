@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 03/09/2020
 ms.author: dapine
-ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dd5a531e4a979cba9c2a766c7774762a0427ad02
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816567"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037319"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
@@ -50,9 +50,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 - Portale di Azure: Panoramica **del discorso** , con etichetta `Endpoint`
 
-| Obbligatoria | name | Tipo di dati | Description |
+| Obbligatoria | Nome | Tipo di dati | Descrizione |
 | -------- | ---- | --------- | ----------- |
-| SÌ | `Billing` | Stringa | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
+| Sì | `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -78,10 +78,10 @@ I contenitori di sintesi vocale standard non usano i montaggi di input o output 
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](speech-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio docker e le autorizzazioni del percorso di montaggio dell'host.
 
-| Facoltativo | name | Tipo di dati | Description |
+| Facoltativo | Nome | Tipo di dati | Descrizione |
 | -------- | ---- | --------- | ----------- |
-| Non consentito | `Input` | Stringa | I contenitori di sintesi vocale standard non lo usano. I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](#volume-mount-settings).                                                                                    |
-| Facoltativo | `Output` | Stringa | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Non consentito | `Input` | string | I contenitori di sintesi vocale standard non lo usano. I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](#volume-mount-settings).                                                                                    |
+| Facoltativo | `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Impostazioni di montaggio del volume
 
@@ -115,7 +115,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
-| Placeholder | Value | Formato o esempio |
+| Segnaposto | valore | Formato o esempio |
 | ----------- | ----- | ----------------- |
 | **{API_KEY}** | Chiave dell'endpoint della risorsa `Speech` nella pagina chiavi di `Speech` di Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
 | **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella pagina Panoramica di Azure `Speech`. | Vedere [raccolta di parametri obbligatori](speech-container-howto.md#gathering-required-parameters) per esempi espliciti. |
@@ -123,14 +123,14 @@ Sostituire {_nome_argomento_} con i propri valori:
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](#billing-configuration-setting).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](#billing-configuration-setting).
 > Il valore di ApiKey è la **chiave** della pagina delle chiavi delle risorse vocali di Azure.
 
 ## <a name="speech-container-docker-examples"></a>Esempi di Docker del contenitore vocale
 
 Gli esempi di Docker seguenti sono per il contenitore di riconoscimento vocale.
 
-## <a name="speech-to-texttabstt"></a>[Riconoscimento vocale](#tab/stt)
+## <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>Esempio di base per la sintesi vocale
 
@@ -153,7 +153,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
+## <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
 ### <a name="basic-example-for-custom-speech-to-text"></a>Esempio di base per Riconoscimento vocale personalizzato-to-text
 
@@ -180,7 +180,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="text-to-speechtabtss"></a>[Sintesi vocale](#tab/tss)
+## <a name="text-to-speech"></a>[Sintesi vocale](#tab/tss)
 
 ### <a name="basic-example-for-text-to-speech"></a>Esempio di base per sintesi vocale
 
@@ -203,7 +203,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-text-to-speechtabctts"></a>[Sintesi vocale personalizzata](#tab/ctts)
+## <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
 ### <a name="basic-example-for-custom-text-to-speech"></a>Esempio di base per sintesi vocale personalizzata
 

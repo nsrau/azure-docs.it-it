@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7018100c830f22c3ed5e924b5096911b1f8135cb
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942333"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081829"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,8 +130,8 @@ Utilizzare un set di dati di convalida personalizzato se la suddivisione casuale
 ## <a name="compute-to-run-experiment"></a>Calcolo per eseguire l'esperimento
 
 Successivamente, determinare dove verrà eseguito il training del modello. Un esperimento di training di Machine Learning automatizzato può essere eseguito sulle risorse di calcolo seguenti:
-*   Nel computer locale, ad esempio un desktop locale o un computer portatile: in genere quando si dispone di set di dati di piccole dimensioni e si è ancora in fase di esplorazione.
-*   In un computer remoto nel cloud: l'[ambiente di calcolo gestito di Azure Machine Learning](concept-compute-target.md#amlcompute) è un servizio gestito che offre la possibilità di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure.
+*    Nel computer locale, ad esempio un desktop locale o un computer portatile: in genere quando si dispone di set di dati di piccole dimensioni e si è ancora in fase di esplorazione.
+*    In un computer remoto nel cloud: l'[ambiente di calcolo gestito di Azure Machine Learning](concept-compute-target.md#amlcompute) è un servizio gestito che offre la possibilità di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure.
 
     Per esempi di notebook con destinazioni di calcolo locali e remote, vedere il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) .
 
@@ -147,7 +147,7 @@ Per configurare l'esperimento di Machine Learning automatizzato sono disponibili
 
 Di seguito sono riportati alcuni esempi:
 
-1.  Esperimento di classificazione con AUC ponderato come metrica primaria con minuti di timeout dell'esperimento impostati su 30 minuti e 2 riduzioni di convalida incrociata.
+1.    Esperimento di classificazione con AUC ponderato come metrica primaria con minuti di timeout dell'esperimento impostati su 30 minuti e 2 riduzioni di convalida incrociata.
 
     ```python
     automl_classifier=AutoMLConfig(
@@ -159,7 +159,7 @@ Di seguito sono riportati alcuni esempi:
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  Di seguito è riportato un esempio di un esperimento di regressione impostato per terminare dopo 60 minuti con cinque riduzioni incrociate di convalida.
+2.    Di seguito è riportato un esempio di un esperimento di regressione impostato per terminare dopo 60 minuti con cinque riduzioni incrociate di convalida.
 
     ```python
     automl_regressor = AutoMLConfig(

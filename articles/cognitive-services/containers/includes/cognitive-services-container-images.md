@@ -6,14 +6,14 @@ manager: nitinme
 description: Due tabelle che rappresentano i registri dei contenitori, i repository e i nomi delle immagini per tutte le offerte di servizi cognitivi.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 7c229ea306d89f85fb37a68fc84e3e4f6770e5ad
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 55a3bb5f894d3ab753cfec64687abc9c7cae53cb
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866929"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082687"
 ---
 ### <a name="container-repositories-and-images"></a>Repository e immagini del contenitore
 
@@ -26,7 +26,7 @@ Le tabelle seguenti sono un elenco delle immagini di contenitori disponibili off
 
 Microsoft Container Registry (il Consorzio) pubblica tutti i contenitori "non controllati" disponibili pubblicamente per servizi cognitivi. I contenitori sono anche disponibili direttamente dall' [Hub Docker](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-| Servizio | Contenitore | Container Registry/repository/nome dell'immagine |
+| Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
 | [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
 | [Analisi del testo](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Estrazione frasi chiave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
@@ -37,7 +37,7 @@ Microsoft Container Registry (il Consorzio) pubblica tutti i contenitori "non co
 
 Il registro di anteprima del contenitore ospita tutti i contenitori "controllati" disponibili pubblicamente per servizi cognitivi. Questi contenitori richiedono una richiesta formale per accedervi tramite il registro contenitori.
 
-| Servizio | Contenitore | Container Registry/repository/nome dell'immagine |
+| Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
 | [Rilevamento anomalie](../../anomaly-detector/anomaly-detector-container-howto.md) | Rilevamento anomalie | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
 | [Visione artificiale](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lettura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |

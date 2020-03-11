@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3f7d7c9af807120457b119e0be047c7a342b961
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f6451507eb5a25f432c73468d0da0db1838c8c9a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378432"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082137"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -124,6 +124,7 @@ Avvertenza: se sono presenti account sincronizzati che devono avere password non
 
 > [!NOTE]
 > Questa funzionalità è disponibile in anteprima pubblica in questo momento.
+> Il comando di PowerShell Set-MsolPasswordPolicy non funziona nei domini federati. 
 
 #### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Anteprima pubblica della sincronizzazione delle password temporanee e "forzare la modifica della password all'accesso successivo"
 

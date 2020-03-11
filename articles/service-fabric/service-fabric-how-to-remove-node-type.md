@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661977"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969412"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Come rimuovere un tipo di nodo Service Fabric
 Questo articolo descrive come ridimensionare un cluster di Azure Service Fabric rimuovendo un tipo di nodo esistente da un cluster. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente. Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un cluster orizzontalmente rimuovendo un tipo di nodo (set di scalabilità di macchine virtuali) e tutti i relativi nodi.  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -31,7 +31,7 @@ Service Fabric "orchestra" le modifiche e gli aggiornamenti sottostanti in modo 
 
 Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo di nodo vengono immediatamente disattivati. Service Fabric non riesce a intercettare eventuali aggiornamenti al set di scalabilità dei nodi Bronze e tutte le macchine virtuali vengono immediatamente disattivate. Se nei nodi fossero presenti elementi con stato, i dati andrebbero persi. Poiché tutti i nodi di Service Fabric fanno parte dell'anello, anche se fossero presenti solo elementi senza stato, andrebbero comunque persi i dati di tutti i nodi vicini, con una destabilizzazione del cluster stesso.
 
-## <a name="remove-a-non-primary-node-type"></a>Rimuovere un tipo di nodo non primario
+## <a name="remove-a-node-type"></a>Rimuovere un tipo di nodo
 
 1. Prima di iniziare il processo, prestare attenzione a questi prerequisiti.
 
@@ -122,7 +122,7 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
     - Individuare il modello di Azure Resource Manager usato per la distribuzione.
     - Trovare la sezione relativa al tipo di nodo nella sezione Service Fabric.
     - Rimuovere la sezione corrispondente al tipo di nodo.
-    - Per i cluster di durabilità Silver e versioni successive, aggiornare la risorsa cluster nel modello e configurare i criteri di integrità per ignorare l'integrità dell'applicazione Fabric:/System aggiungendo `applicationDeltaHealthPolicies` come indicato di seguito. Il criterio seguente deve ignorare gli errori esistenti ma non consentire nuovi errori di integrità. 
+    - Solo per i cluster di durabilità Silver e versioni successive, aggiornare la risorsa cluster nel modello e configurare i criteri di integrità per ignorare l'integrità dell'applicazione Fabric:/System aggiungendo `applicationDeltaHealthPolicies` in cluster resource `properties` come indicato di seguito. Il criterio seguente deve ignorare gli errori esistenti ma non consentire nuovi errori di integrità. 
  
  
      ```json
@@ -158,7 +158,7 @@ Quando si rimuove un tipo di nodo Bronze, tutti i nodi appartenenti a quel tipo 
     },
     ```
 
-    Distribuire il modello di Azure Resource Manager modificato. \* * Questa operazione richiederà un po' di tempo, in genere fino a due ore. Con questo aggiornamento le impostazioni vengono modificate in InfrastructureService, pertanto è necessario riavviare il nodo. In questo caso `forceRestart` viene ignorato. 
+    - Distribuire il modello di Azure Resource Manager modificato. \* * Questa operazione richiederà un po' di tempo, in genere fino a due ore. Con questo aggiornamento le impostazioni vengono modificate in InfrastructureService, pertanto è necessario riavviare il nodo. In questo caso `forceRestart` viene ignorato. 
     Il parametro `upgradeReplicaSetCheckTimeout` specifica il tempo massimo in cui Service Fabric attende che una partizione sia in uno stato sicuro, se non è già in uno stato sicuro. Una volta superati i controlli di sicurezza per tutte le partizioni in un nodo, Service Fabric procede con l'aggiornamento su tale nodo.
     Il valore per il parametro `upgradeTimeout` può essere ridotto a 6 ore, ma è consigliabile usare per la massima sicurezza 12 ore.
 

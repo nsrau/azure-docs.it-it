@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587414"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082966"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
@@ -112,7 +112,7 @@ Dettagli TLV personalizzati:
 |  |4        |UINT32 (4 byte) che rappresenta il LINKID dell'endpoint privato. Codificato in formato little endian.|
 
  > [!NOTE]
- > Il provider di servizi è responsabile di assicurarsi che il servizio dietro il servizio di bilanciamento del carico standard sia configurato per analizzare l'intestazione del protocollo proxy in base alla [specifica](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) quando il protocollo proxy è abilitato nel servizio di collegamento privato. La richiesta avrà esito negativo se l'impostazione del protocollo proxy è abilitata nel servizio di collegamento privato e il servizio non è configurato per analizzare l'intestazione. Analogamente, la richiesta avrà esito negativo se il servizio prevede un'intestazione del protocollo proxy mentre l'impostazione non è abilitata nel servizio di collegamento privato. Quando è abilitata l'impostazione del protocollo proxy, l'intestazione del protocollo proxy sarà inclusa anche nei Probe di integrità HTTP/TCP dall'host alle macchine virtuali back-end, anche se nell'intestazione non saranno presenti informazioni sul client. 
+ > Il provider di servizi è responsabile di assicurarsi che il servizio dietro il servizio di bilanciamento del carico standard sia configurato per analizzare l'intestazione del protocollo proxy in base alla [specifica](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) quando il protocollo proxy è abilitato nel servizio di collegamento privato. La richiesta avrà esito negativo se l'impostazione del protocollo proxy è abilitata nel servizio di collegamento privato, ma il servizio del provider di servizi non è configurato per l'analisi dell'intestazione. Analogamente, la richiesta avrà esito negativo se il servizio del provider di servizi prevede un'intestazione del protocollo proxy mentre l'impostazione non è abilitata nel servizio di collegamento privato. Quando è abilitata l'impostazione del protocollo proxy, l'intestazione del protocollo proxy sarà inclusa anche nei Probe di integrità HTTP/TCP dall'host alle macchine virtuali back-end, anche se nell'intestazione non saranno presenti informazioni sul client. 
 
 ## <a name="limitations"></a>Limitazioni
 

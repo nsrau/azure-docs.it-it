@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544318"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080361"
 ---
 # <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
 
@@ -28,7 +28,7 @@ I dati in ACI vengono crittografati e decrittografati usando la crittografia AES
 |----|----|----|
 |    Operazioni di crittografia/decrittografia    |    Azure    |    Azure    |
 |    Archiviazione chiavi    |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure    |
-|    Responsabilità della rotazione delle chiavi    |    Microsoft    |    Cliente    |
+|    Responsabilità della rotazione delle chiavi    |    Microsoft    |    Customer    |
 |    Accesso alle chiavi    |    Solo Microsoft    |    Microsoft, cliente    |
 
 Il resto del documento illustra i passaggi necessari per crittografare i dati di distribuzione ACI con la chiave (chiave gestita dal cliente). 
@@ -41,6 +41,10 @@ Il resto del documento illustra i passaggi necessari per crittografare i dati di
 
 Il primo passaggio consiste nel verificare che il [tenant di Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) disponga di un'entità servizio assegnata per concedere le autorizzazioni al servizio istanze di contenitore di Azure. 
 
+> [!IMPORTANT]
+> Per eseguire il comando seguente e creare correttamente un'entità servizio, verificare di disporre delle autorizzazioni per creare entità servizio nel tenant.
+>
+
 Il seguente comando dell'interfaccia della riga di comando configurerà l'ambiente ACI SP nell'ambiente Azure:
 
 ```azurecli-interactive
@@ -48,6 +52,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
 L'output dell'esecuzione di questo comando dovrebbe mostrare un'entità servizio configurata con "displayName": "servizio istanza di contenitore di Azure".
+
+Nel caso in cui non sia possibile creare correttamente l'entità servizio:
+* Verificare di disporre delle autorizzazioni per eseguire questa operazione nel tenant
+* verificare se un'entità servizio esiste già nel tenant per la distribuzione in ACI. A tale scopo, è possibile eseguire `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` e utilizzare tale entità servizio.
 
 ### <a name="create-a-key-vault-resource"></a>Creare una risorsa Key Vault
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a4dd3247a9931de3ae2c699bdf7800407695c86
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586751"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080217"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure
 
@@ -21,7 +21,7 @@ L'arricchimento tramite intelligenza artificiale è una funzionalità dell'indic
 
 + Le competenze di **elaborazione in linguaggio naturale** includono il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), il [rilevamento della lingua](cognitive-search-skill-language-detection.md), l'[estrazione delle frasi chiave](cognitive-search-skill-keyphrases.md), la modifica del testo, il [rilevamento delle valutazioni](cognitive-search-skill-sentiment.md) e il [rilevamento delle informazioni personali](cognitive-search-skill-pii-detection.md). Con queste competenze, il testo non strutturato può assumere nuove forme, eseguendone il mapping come campi ricercabili e filtrabili in un indice.
 
-+ Le competenze di **elaborazione delle immagini** includono il [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione delle [caratteristiche visive](cognitive-search-skill-image-analysis.md), ad esempio il rilevamento del viso, l'interpretazione delle immagini o il loro riconoscimento (persone o luoghi famosi) o attributi come colori e orientamento. È possibile creare rappresentazioni testuali dei contenuti di immagini, ricercabili tramite tutte le funzionalità di query di Ricerca cognitiva di Azure.
++ Le competenze di **elaborazione delle immagini** includono il [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione delle [funzionalità visive](cognitive-search-skill-image-analysis.md), ad esempio il rilevamento facciale, l'interpretazione delle immagini, il riconoscimento delle immagini (persone famose e i punti di riferimento) o attributi come l' È possibile creare rappresentazioni testuali dei contenuti di immagini, ricercabili tramite tutte le funzionalità di query di Ricerca cognitiva di Azure.
 
 ![Diagramma della pipeline di arricchimento](./media/cognitive-search-intro/cogsearch-architecture.png "panoramica della pipeline di arricchimento")
 
@@ -131,7 +131,7 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 + [Esercitazione (richieste HTTP)](cognitive-search-tutorial-blob.md)
 + [Esempio: creazione di un'abilità personalizzata per l'arricchimento AIC#()](cognitive-search-create-custom-skill-example.md)
 
-Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che il numero di transazioni gratuite è limitato a 20 documenti al giorno. Per eseguire le lezioni più volte, eliminare e ricreare l'indicizzatore per reimpostare il contatore su zero.
+Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che il numero di transazioni gratuite è limitato a 20 documenti al giorno. Per eseguire più volte le lezioni, eliminare e ricreare l'indicizzatore per azzerare il contatore.
 
 **Passaggio 3: esaminare l'API**
 

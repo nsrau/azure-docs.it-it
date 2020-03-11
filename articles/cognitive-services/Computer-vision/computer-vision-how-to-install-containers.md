@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/10/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 383abc674674fc024052b2c04d3c538838b83856
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 530a8848eceecb1a15d14ce1fef2aa58a3ef5908
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394104"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081864"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installare ed eseguire i contenitori di lettura (anteprima)
 
@@ -154,71 +154,26 @@ Il `operation-location` è l'URL completo a cui è possibile accedere tramite HT
       "unit": "pixel",
       "lines": [
         {
-          "boundingBox": [
-            56,
-            39,
-            317,
-            50,
-            313,
-            134,
-            53,
-            123
-          ],
+          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
           "text": "Tabs VS",
           "words": [
             {
-              "boundingBox": [
-                90,
-                43,
-                243,
-                53,
-                243,
-                123,
-                94,
-                125
-              ],
+              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
               "text": "Tabs",
               "confidence": "Low"
             },
             {
-              "boundingBox": [
-                259,
-                55,
-                313,
-                62,
-                313,
-                122,
-                259,
-                123
-              ],
+              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
               "text": "VS"
             }
           ]
         },
         {
-          "boundingBox": [
-            221,
-            148,
-            417,
-            146,
-            417,
-            206,
-            227,
-            218
-          ],
+          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
           "text": "Spaces",
           "words": [
             {
-              "boundingBox": [
-                230,
-                148,
-                416,
-                141,
-                419,
-                211,
-                232,
-                218
-              ],
+              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
               "text": "Spaces"
             }
           ]

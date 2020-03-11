@@ -1,30 +1,19 @@
 ---
-title: Acquisire un'immagine di una VM Linux in Azure tramite l'interfaccia della riga di comando di Azure
+title: Acquisire un'immagine di una VM Linux usando l'interfaccia della riga di comando di Azure
 description: Acquisire un'immagine di una macchina virtuale di Azure da usare per le distribuzioni di massa tramite l'interfaccia della riga di comando di Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ed7d45fb9148bd441a3798c48be8b25e1da2b8c1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: HT
+ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78675697"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968350"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine di una macchina virtuale o un disco rigido virtuale
-
-<!-- generalize, image - extended version of the tutorial-->
 
 Per creare più copie di una macchina virtuale da usare in Azure, acquisire un'immagine della macchina virtuale o il disco rigido virtuale del sistema operativo. Per creare un'immagine per la distribuzione, è necessario rimuovere le informazioni sull'account personale. Nei passaggi seguenti si eseguirà il deprovisioning e la deallocazione di una macchina virtuale esistente e si procederà alla creazione di un'immagine. È possibile usare questa immagine per creare macchine virtuali in qualsiasi gruppo di risorse all'interno della sottoscrizione.
 

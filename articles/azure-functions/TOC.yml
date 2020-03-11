@@ -138,7 +138,7 @@
       displayName: best practice
     - name: Considerazioni sulle risorse di archiviazione
       href: storage-considerations.md
-      displayName: 'encryption, keys'
+      displayName: 'encryption, keys, mount, files'
     - name: Proxy di Funzioni
       href: functions-proxies.md
     - name: Opzioni di rete

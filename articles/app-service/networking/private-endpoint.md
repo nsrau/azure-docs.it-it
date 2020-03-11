@@ -1,6 +1,6 @@
 ---
-title: Connettersi privatamente a un'app Web e proteggere i dati exfiltration usando un endpoint privato di Azure
-description: Connettersi privatamente a un'app Web e proteggere i dati exfiltration usando un endpoint privato di Azure
+title: Connettersi privatamente a un'app Web usando un endpoint privato di Azure
+description: Connettersi privatamente a un'app Web usando un endpoint privato di Azure
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
@@ -8,24 +8,23 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: aa1fd341e60a71ad1ffbb535120e63db5a8bfd0b
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 893a7a2c7483fccc3bbc7bd198929f65917457b3
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851243"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036937"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso di endpoint privati per app Web di Azure (anteprima)
 
-È possibile usare un endpoint privato per l'app Web di Azure per consentire ai client che si trovano nella rete privata di accedere in modo sicuro all'app tramite un collegamento privato. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet di Azure. Il traffico di rete tra il client nella rete privata e l'app Web attraversa la VNET e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. Con l'endpoint privato, è possibile disabilitare i flussi di rete in uscita dalla subnet con NSG ed eliminare i rischi di perdita dei dati.
+È possibile usare un endpoint privato per l'app Web di Azure per consentire ai client che si trovano nella rete privata di accedere in modo sicuro all'app tramite un collegamento privato. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet di Azure. Il traffico di rete tra il client nella rete privata e l'app Web attraversa la VNET e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica.
 
 L'uso di un endpoint privato per l'app Web consente di:
 
 - Proteggere l'app Web configurando l'endpoint del servizio eliminando l'esposizione pubblica
-- Aumentare la sicurezza per il VNET consentendo di bloccare i dati exfiltration da VNET
 - Connettersi in modo sicuro all'app Web da reti locali che si connettono alla VNET usando un peering privato VPN o ExpressRoute.
 
-Se è necessaria una connessione sicura tra il VNET e l'app Web, endpoint servizio è la soluzione più semplice. Se è necessario proteggere i dati da exfiltration o da Route dall'ambiente locale, l'endpoint privato è la soluzione.
+Se è necessaria una connessione sicura tra il VNET e l'app Web, endpoint servizio è la soluzione più semplice. Se è necessario anche raggiungere l'app Web dall'ambiente locale tramite un gateway di Azure, un VNET con peering a livello di area o un VNET con peering globale, endpoint privato è la soluzione.  
 
 Per ulteriori informazioni sull' [endpoint di servizio][serviceendpoint]
 
@@ -36,20 +35,24 @@ Quando si crea un endpoint privato per l'app Web, fornisce una connettività sic
 La connessione tra l'endpoint privato e l'app Web usa un [collegamento privato][privatelink]protetto. L'endpoint privato viene usato solo per i flussi in ingresso nell'app Web. I flussi in uscita non utilizzeranno questo endpoint privato, ma è possibile inserire i flussi in uscita nella rete in una subnet diversa tramite la [funzionalità di integrazione VNET][vnetintegrationfeature].
 
 La subnet in cui si collega l'endpoint privato può includere altre risorse, non è necessaria una subnet vuota dedicata.
+È possibile distribuire un endpoint privato in un'area diversa da quella dell'app Web. 
+
 > [!Note]
 >La funzionalità di integrazione VNET non può usare la stessa subnet dell'endpoint privato. si tratta di una limitazione della funzionalità di integrazione di VNET
 
 Dal punto di vista della sicurezza:
 
 - Quando si Abilita l'endpoint di servizio per l'app Web, si disabilita l'accesso pubblico
-- È possibile abilitare più endpoint privati in altri reti virtuali e subnet
+- È possibile abilitare più endpoint privati in altre reti virtuali e subnet, incluso reti virtuali in altre aree
+- L'indirizzo IP della scheda di interfaccia di rete dell'endpoint privato deve essere dinamico, ma rimarrà invariato finché non si elimina l'endpoint privato
 - Alla scheda di interfaccia di rete dell'endpoint privato non può essere associato un NSG
-- La subnet che ospita l'endpoint privato può avere un NSG associato, ma è necessario disabilitare l'imposizione dei criteri di rete per l'endpoint privato. vedere [questo articolo] [disablesecuritype]. Di conseguenza, non è possibile filtrare in base a qualsiasi NSG di accesso all'endpoint privato.
+- La subnet che ospita l'endpoint privato può avere un NSG associato, ma è necessario disabilitare l'imposizione dei criteri di rete per l'endpoint privato. vedere [questo articolo][disablesecuritype]. Di conseguenza, non è possibile filtrare in base a qualsiasi NSG di accesso all'endpoint privato
 - Quando si Abilita l'endpoint privato per l'app Web, la configurazione delle [restrizioni di accesso][accessrestrictions] dell'app Web non viene valutata.
+- È possibile ridurre il rischio di exfiltration dei dati da VNET rimuovendo tutte le regole NSG in cui la destinazione è un tag Internet o i servizi di Azure. Tuttavia, se si aggiunge un endpoint del servizio app Web nella subnet, sarà possibile raggiungere qualsiasi app Web ospitata nello stesso timbro ed esposta a Internet.
 
-L'endpoint privato per l'app Web è disponibile per i livelli standard, PremiumV2 e isolated con un ambiente del servizio app esterno.
+L'endpoint privato per l'app Web è disponibile per il livello PremiumV2 e viene isolato con un ambiente del servizio app esterno.
 
-Nei log HTTP Web dell'app Web si noterà che l'indirizzo IP di origine del client è noto. È stato implementato il protocollo proxy TCP, che invia all'app Web l'indirizzo IP del client. Per altre informazioni, vedere [questo articolo][tcpproxy].
+Nei log HTTP Web dell'app Web è presente l'IP di origine del client. Il protocollo proxy TCP è stato implementato e l'inoltro all'app Web è la proprietà IP del client. Per altre informazioni, vedere [questo articolo][tcpproxy].
 
 ![Panoramica globale][1]
 
@@ -58,7 +61,7 @@ Nei log HTTP Web dell'app Web si noterà che l'indirizzo IP di origine del clien
 
 Poiché questa funzionalità è in anteprima, la voce DNS non viene modificata durante l'anteprima. È necessario gestire autonomamente la voce DNS nel server DNS privato o nella zona privata di DNS di Azure. Se è necessario usare un nome DNS personalizzato, è necessario aggiungere il nome personalizzato nell'app Web. Durante l'anteprima, il nome personalizzato deve essere convalidato come qualsiasi nome personalizzato, usando la risoluzione DNS pubblica. [riferimento tecnico per la convalida DNS personalizzata][dnsvalidation]
 
-## <a name="pricing"></a>Pricing
+## <a name="pricing"></a>Prezzi
 
 Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato di Azure][pricing].
 

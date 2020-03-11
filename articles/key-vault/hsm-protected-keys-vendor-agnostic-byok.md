@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 08a4330f4a786deca8ddb2f1c6803b29152e7f50
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207031"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080131"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importare chiavi con protezione HSM in Key Vault (anteprima)
 
@@ -45,7 +45,7 @@ Ecco una panoramica del processo. I passaggi specifici da completare sono descri
 * KEK deve trovarsi nello stesso insieme di credenziali delle chiavi in cui verrà importata la chiave di destinazione.
 * Quando il file BYOK viene caricato in Key Vault, un modulo di protezione hardware Key Vault usa la chiave privata KEK per decrittografare il materiale della chiave di destinazione e importarlo come chiave del modulo di protezione hardware. Questa operazione viene eseguita interamente all'interno di un modulo di protezione hardware Key Vault. La chiave di destinazione rimane sempre nel limite di protezione HSM.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 
@@ -58,9 +58,11 @@ La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 
 ## <a name="supported-hsms"></a>HSM supportati
 
-|Nome del fornitore del modulo di protezione hardware|Modelli HSM supportati|Ulteriori informazioni|
-|---|---|---|
-|Thales|Famiglia SafeNet Luna HSM 7 con firmware versione 7,3 o successiva| [Documentazione e strumento SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Nome fornitore|Tipo fornitore|Modelli HSM supportati|Ulteriori informazioni|
+|---|---|---|---|
+|Thales|Produttore|Famiglia SafeNet Luna HSM 7 con firmware versione 7,3 o successiva| [Documentazione e strumento SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Fortanix|Modulo di protezione hardware come servizio|Servizio di gestione delle chiavi a difesa automatica (SDKMS)|[Esportazione delle chiavi di SDKMS nei provider di servizi cloud per BYOK-Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+
 
 > [!NOTE]
 > Per importare chiavi HSM protette dalla famiglia di HSM nShield di nCipher, usare la [procedura BYOK legacy](hsm-protected-keys-legacy.md).

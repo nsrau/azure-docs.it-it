@@ -1,26 +1,18 @@
 ---
 title: Distribuire la prima app a Cloud Foundry in Microsoft Azure
 description: Distribuire un'applicazione a Cloud Foundry in Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 45ae8979a2617d4f380e417e3f0910182ebe145e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036835"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970064"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuire la prima app a Cloud Foundry in Microsoft Azure
 
@@ -39,7 +31,7 @@ Esistono diverse opzioni per la creazione di un ambiente Cloud Foundry in Azure:
 
 ## <a name="connect-to-the-cloud-controller"></a>Connettersi al controller del cloud
 
-Il controller del cloud è il punto di ingresso principale in un ambiente Cloud Foundry per la distribuzione e la gestione delle applicazioni. L'API del controller del cloud di base (CCAPI) è un'API REST, ma è accessibile attraverso vari strumenti. In questo caso si interagisce con l'interfaccia della riga di comando [Cloud Foundry][cf-cli]. È possibile installare l'interfaccia della riga di comando in Linux, MacOS o Windows, ma se si preferisce non installarla, è disponibile preinstallato nel [Azure cloud Shell][cloudshell-docs].
+Il controller del cloud è il punto di ingresso principale in un ambiente Cloud Foundry per la distribuzione e la gestione delle applicazioni. L'API del controller del cloud di base (CCAPI) è un'API REST, ma è accessibile attraverso vari strumenti. In questo caso si interagisce con l'interfaccia della riga di comando [Cloud Foundry][cf-cli]. È possibile installare l'interfaccia della riga di comando in Linux, macOS o Windows, ma se si preferisce non installarla, è disponibile preinstallato nel [Azure cloud Shell][cloudshell-docs].
 
 Per eseguire l'accesso, anteporre `api` al SYSTEMDOMAINURL ottenuto dalla distribuzione dal marketplace. Poiché la distribuzione predefinita usa un certificato autofirmato, è necessario includere anche l'istruzione `skip-ssl-validation`.
 
@@ -87,7 +79,7 @@ git clone https://github.com/cloudfoundry-samples/hello-spring-cloud
 cd hello-spring-cloud
 ```
 
-### <a name="build-the-application"></a>Compilare l'applicazione.
+### <a name="build-the-application"></a>Compilare l'applicazione
 
 Compilare l'app mediante [Apache Maven](https://maven.apache.org).
 

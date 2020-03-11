@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: d7f9527aa5aa3353dc9087f4bcc5f3a5fb241637
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 048e5072c592cf2de32e533014c99034572a1c47
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184554"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082898"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importare chiavi HSM protette per Key Vault
 
@@ -31,10 +31,19 @@ Questa funzionalità non è disponibile per Azure Cina 21Vianet.
 
 Il trasferimento di chiavi protette da HSM a Key Vault è supportato tramite due metodi diversi a seconda del HSM usato. Usare la tabella seguente per determinare il metodo da usare per la generazione di HSM e quindi trasferire le proprie chiavi protette da HSM da usare con Azure Key Vault. 
 
-|Nome del fornitore del modulo di protezione hardware|Modelli HSM supportati|Metodo di trasferimento della chiave HSM supportato|
-|---|---|---|
-|Thales|<ul><li>Famiglia SafeNet Luna HSM 7 con firmware versione 7,3 o successiva</li></ul>| [USA nuovo metodo BYOK (anteprima)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|nCipher|<ul><li>famiglia nShield di HSM</li></ul>|[USA metodo BYOK legacy](hsm-protected-keys-legacy.md)|
+|Nome produttore|Tipo fornitore|Modelli HSM supportati|Metodo di trasferimento della chiave HSM supportato|
+|---|---|---|---|
+|nCipher|Produttore|<ul><li>famiglia nShield di HSM</li></ul>|[USA metodo BYOK legacy](hsm-protected-keys-legacy.md)|
+|Thales|Produttore|<ul><li>Famiglia SafeNet Luna HSM 7 con firmware versione 7,3 o successiva</li></ul>| [USA nuovo metodo BYOK (anteprima)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|Modulo di protezione hardware come servizio|<ul><li>Servizio di gestione delle chiavi a difesa automatica (SDKMS)</li></ul>|[USA nuovo metodo BYOK (anteprima)](hsm-protected-keys-vendor-agnostic-byok.md)|
+
+
+
+
+
+
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

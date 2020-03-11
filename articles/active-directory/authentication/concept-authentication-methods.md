@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5a82c69575e82a7cf397955f08c3f114e449ba6b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848749"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968784"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
 
@@ -26,22 +26,22 @@ Nei criteri, gli amministratori possono definire quali metodi di autenticazione 
 
 Si consiglia agli amministratori di consentire agli utenti la selezione di un numero maggiore di metodi di autenticazione rispetto al limite minimo nel caso in cui non abbiano accesso a uno.
 
-|Metodo di autenticazione|Utilizzo|
+|Metodo di autenticazione|Uso|
 | --- | --- |
 | Password | Autenticazione a più fattori e SSPR |
 | Domande di sicurezza | Solo SSPR |
-| Indirizzo e-mail | Solo SSPR |
+| Indirizzo di posta elettronica | Solo SSPR |
 | App Microsoft Authenticator | Autenticazione a più fattori e SSPR |
 | Token hardware OATH | Anteprima pubblica per autenticazione a più fattori e SSPR |
-| SMS | Autenticazione a più fattori e SSPR |
+| sms | Autenticazione a più fattori e SSPR |
 | Chiamata vocale | Autenticazione a più fattori e SSPR |
-| Password app | Autenticazione a più fattori solo in alcuni casi |
+| Password dell'app | Autenticazione a più fattori solo in alcuni casi |
 
 ![Metodi di autenticazione in uso nella schermata di accesso](media/concept-authentication-methods/overview-login.png)
 
 |     |
 | --- |
-| I token hardware per multi-factor authentication e SSPR sono funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| I token hardware per multi-factor authentication e SSPR sono funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="password"></a>Password
@@ -113,7 +113,7 @@ La lunghezza massima di una domanda di sicurezza personalizzata è di 200 caratt
 * È possibile usare qualsiasi set di caratteri per definire domande e risposte, compresi i caratteri Unicode.
 * Il numero di domande definite deve essere maggiore o uguale al numero di domande necessarie per la registrazione.
 
-## <a name="email-address"></a>Indirizzo e-mail
+## <a name="email-address"></a>Indirizzo di posta elettronica
 
 L'indirizzo di posta elettronica è disponibile **solo per la reimpostazione della password di Azure AD in modalità self-service**.
 
@@ -156,25 +156,25 @@ Gli utenti possono avere una combinazione di un massimo di cinque token hardware
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Token hardware OATH (anteprima pubblica)
 
-OATH è uno standard aperto che specifica come vengono generati i codici per password monouso (OTP, One-Time Password). Azure AD supporterà l'uso di token OATH TOTP SHA-1 del tipo da 30 secondi o 60 secondi. I clienti possono procurarsi questi token dal fornitore preferito. Le chiavi segrete sono limitate a 128 caratteri, che potrebbero non essere compatibili con tutti i token. Le chiavi segrete devono essere codificate in Base32.
+OATH è uno standard aperto che specifica come vengono generati i codici per password monouso (OTP, One-Time Password). Azure AD supporterà l'uso di token OATH TOTP SHA-1 del tipo da 30 secondi o 60 secondi. I clienti possono procurarsi questi token dal fornitore preferito. Le chiavi segrete sono limitate a 128 caratteri, che potrebbero non essere compatibili con tutti i token. La chiave privata può contenere solo i caratteri *a-z* , *a-z* e digits *1-7*e deve essere codificata in Base32.
 
-![Caricamento dei token del GIURAmento nel pannello token del GIURAmento server di autenticazione a più fattori](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+![Caricamento dei token del GIURAmento nel pannello token del GIURAmento dell'autenticazione a più fattori](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+I token hardware del GIURAmento sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Dopo aver acquisito i token, è necessario caricarli in un formato di file con valori delimitati da virgole (CSV) includendo nome dell'entità utente, numero di serie, chiave privata, intervallo di tempo, produttore e modello come illustrato nell'esempio seguente.
+Dopo aver acquisito i token, è necessario caricarli in un formato di file con valori delimitati da virgole (CSV), tra cui l'UPN, il numero di serie, la chiave privata, l'intervallo di tempo, il produttore e il modello, come illustrato nell'esempio seguente:
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```
 
 > [!NOTE]
-> Assicurarsi di includere la riga di intestazione nel file CSV come indicato in precedenza.
+> Assicurarsi di includere la riga di intestazione nel file CSV.
 
-Dopo aver formattato correttamente il file CSV, un amministratore può quindi accedere al portale di Azure e passare ad **Azure Active Directory**, **Server MFA**, **Token OATH** e caricare il file CSV risultante.
+Una volta formattato correttamente come file CSV, un amministratore può quindi accedere al portale di Azure, passare a **Azure Active Directory** > **sicurezza** ** > l'** autenticazione a più fattori > i **token del giuramento**e caricare il file CSV risultante.
 
-A seconda delle dimensioni del file CSV, potrebbero essere richiesti alcuni minuti per l'elaborazione. Per ottenere lo stato corrente, fare clic sul pulsante **Aggiorna**. Se sono presenti errori nel file, si avrà la possibilità di scaricare un file CSV con gli eventuali errori per la risoluzione.
+A seconda delle dimensioni del file CSV, potrebbero essere richiesti alcuni minuti per l'elaborazione. Per ottenere lo stato corrente, fare clic sul pulsante **Aggiorna**. Se sono presenti errori nel file, si avrà la possibilità di scaricare un file CSV con gli eventuali errori per la risoluzione. I nomi dei campi nel file CSV scaricato sono diversi dalla versione caricata.
 
 Dopo aver risolto eventuali errori, l'amministratore può quindi attivare ogni chiave facendo clic su **Attiva** per il token da attivare e immettendo la password monouso visualizzata nel token.
 

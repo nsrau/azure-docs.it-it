@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/19/2018
+ms.date: 02/29/2020
 ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b39704b25c26998e16ca8080c4e44dd1adf6965c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b30469858a5dd83f7f5f707f74466302b3000510
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108225"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968718"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Risorse per la migrazione delle applicazioni ad Azure Active Directory
 
 Risorse di supporto per la migrazione dell'accesso e dell'autenticazione delle applicazioni ad Azure Active Directory (Azure AD). Partecipare a questo breve sondaggio (https://aka.ms/AppsMigrationFeedback) per fornire commenti e suggerimenti sull'esperienza di migrazione delle app ad Azure AD, inclusi eventuali ostacoli riscontrati per la migrazione, la necessità di strumenti/istruzioni o i motivi per cui mantenere il provider di identità locale). 
 
-| Resource  | Descrizione  |
+| Risorsa  | Descrizione  |
 |:-----------|:-------------|
 |[Migrazione delle app ad Azure AD](https://aka.ms/migrateapps/whitepaper) | Questo white paper presenta i vantaggi della migrazione e descrive come pianificare la migrazione in quattro fasi ben delineate: individuazione, classificazione, migrazione e gestione continua. Verranno fornite istruzioni dettagliate per riflettere sul processo e suddividere il progetto in parti facilmente utilizzabili. Nel documento vengono forniti collegamenti a importanti risorse di supporto per l'utente durante il processo. |
 |[Guida alla soluzione: migrazione delle app da Active Directory Federation Services (AD FS) ad Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Questa guida illustra in modo dettagliato le quattro fasi di pianificazione ed esecuzione del progetto di migrazione delle applicazioni descritto a un livello più generico nel white paper sulla migrazione. In questa guida si apprenderà come applicare queste fasi allo specifico scopo di spostare un'applicazione da Azure Directory Federated Services (AD FS) ad Azure AD.|
@@ -32,6 +32,6 @@ Risorse di supporto per la migrazione dell'accesso e dell'autenticazione delle a
 | [Piano di distribuzione: migrazione da AD FS all'autenticazione pass-through](https://aka.ms/ADFSTOPTADPDownload)|L'autenticazione pass-through di Azure AD consente agli utenti di accedere ad applicazioni sia locali sia basate sul cloud usando la stessa password. Questa funzionalità migliora l'esperienza degli utenti, che avranno una password in meno da ricordare. Inoltre, riduce i costi dell'help desk IT perché gli utenti, avendo una sola password da ricordare, sono meno portati a dimenticare la procedura di accesso. Quando gli utenti eseguono l'accesso tramite Azure AD, la funzionalità ne convalida direttamente le password rispetto ad Active Directory locale.|
 | [Piano di distribuzione: abilitazione di Single Sign-On in un'app SaaS con Azure AD](https://aka.ms/SSODPDownload) | Single Sign-On permette di accedere a tutte le app e le risorse necessarie per le attività aziendali consentendo di eseguire l'accesso una sola volta con un singolo account utente. Dopo aver eseguito l'accesso, l'utente può ad esempio spostarsi da Microsoft Office a SalesForce e successivamente a Box senza dover effettuare nuovamente l'autenticazione, ad esempio con la digitazione di una password. 
 | [Piano di distribuzione: estensione delle app ad Azure AD con il proxy dell'applicazione](https://aka.ms/AppProxyDPDownload)| Per poter accedere alle applicazioni locali dai portatili e da altri dispositivi dei dipendenti, sono sempre state necessarie reti private virtuali (VPN) o reti perimetrali. Queste soluzioni non sono solo complesse e difficili da proteggere, ma sono anche costose da configurare e gestire. Azure AD Application Proxy consente di accedere alle applicazioni locali più facilmente. |
-| [Piani di distribuzione](../fundamentals/active-directory-deployment-plans.md) | Trovare altri piani di distribuzione per la distribuzione di funzionalità, ad esempio multi-Factor authentication, l'accesso condizionale, il provisioning degli utenti, l'accesso SSO facile, la reimpostazione della password self-service e altro ancora! |
+| [Piani di distribuzione](../fundamentals/active-directory-deployment-plans.md) | Trova altri piani di distribuzione per la distribuzione di funzionalità quali l'autenticazione a più fattori, l'accesso condizionale, il provisioning degli utenti, l'accesso SSO facile, la reimpostazione della password self-service e altro ancora. |
 
 

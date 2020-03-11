@@ -4,23 +4,22 @@ description: Informazioni su come usare un modello di Resource Manager per crear
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 4/27/2018
+ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: c25886308b4f9560b336982b87bd4b38b306bcb2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4f840d3771c2520e239d8ff3416722429f9502f3
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668044"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037232"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creare un avviso di metrica classico con un modello di Resource Manager
-Questo articolo mostra come usare un [modello di Resource Manager di Azure](../../azure-resource-manager/templates/template-syntax.md) per configurare gli avvisi sulle metriche in Azure. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
-
-> [!NOTE]
+> [!WARNING]
 > 
-> Questo articolo descrive la creazione di **avvisi per metriche classiche**tramite modelli di Resource Manager. Se si vuole creare [avvisi per metriche più nuove](../../azure-monitor/platform/alerts-metric-near-real-time.md) tramite i modelli, [questo articolo](alerts-metric-create-templates.md) offre tutti i dettagli.
+> Questo articolo descrive la creazione di **avvisi per metriche classiche**tramite modelli di Resource Manager. Gli avvisi classici sono stati ritirati nel 2019 agosto e impostati per essere completamente deprecati nel 2020 giugno. Non è possibile creare nuovi avvisi classici pubblici di Azure. Alcune versioni regionali di Azure possono comunque avere l'opzione, ma è consigliabile creare avvisi delle [metriche più recenti](../../azure-monitor/platform/alerts-metric-near-real-time.md) usando i modelli, se possibile. [Questo articolo](alerts-metric-create-templates.md) fornisce i dettagli.
 >
 
+Questo articolo illustra come usare un modello di [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per configurare gli avvisi delle metriche di Azure classico. Consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione, per assicurarsi che tutte le risorse siano correttamente monitorate.
 
 I passaggi di base sono i seguenti:
 

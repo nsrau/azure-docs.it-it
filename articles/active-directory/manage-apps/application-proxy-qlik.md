@@ -14,17 +14,17 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bf71274d8eb1039254cafe48a34587199be724
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 2edf63da0fd09f829f936b54eb088c34dfe029a1
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263507"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036989"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy e Qlik Sense 
 Azure Active Directory Application Proxy e Qlik Sense hanno collaborato assieme per permettere di usare con facilità l'Application Proxy e fornire l'accesso remoto alla distribuzione Qlik Sense.  
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 Nella parte restante di questo scenario si presuppone che siano state eseguite le operazioni seguenti:
  
 - [Qlik Sense](https://community.qlik.com/docs/DOC-19822) è stato configurato. 
@@ -52,8 +52,8 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 ### <a name="application-2"></a>Applicazione n°2: 
 Seguire gli stessi passaggi usati per l'applicazione n°1, con le eccezioni seguenti: 
 
-**Passaggio 5**: l'URL interno deve ora corrispondere all'URL Qlik Sense con la porta di autenticazione usata dall'applicazione. Il valore predefinito è **4244** per HTTPS e **4248** per http per le versioni Qlik Sense precedenti al 2018 aprile. Il valore predefinito per le versioni di Qlik Sense dopo il 2018 aprile è **443** per HTTPS e **80** per http.  Ad esempio, **https&#58;//demo.qlik.com:4244**</br></br>**Passaggio 10:** non configurare SSO e lasciare il **Single Sign-On disabilitato** 
-
+**Passaggio 5**: l'URL interno deve ora corrispondere all'URL Qlik Sense con la porta di autenticazione usata dall'applicazione. Il valore predefinito è **4244** per HTTPS e **4248** per http per le versioni Qlik Sense precedenti al 2018 aprile. Il valore predefinito per le versioni di Qlik Sense dopo il 2018 aprile è **443** per HTTPS e **80** per http.  Ad esempio, **https&#58;//demo.qlik.com:4244**</br></br>
+**#10 passaggio:** Non configurare SSO e lasciare il **Single Sign-on disabilitato**
  
  
 ## <a name="testing"></a>Test 

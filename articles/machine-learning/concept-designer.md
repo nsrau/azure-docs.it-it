@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312431"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037634"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>Che cos'è Azure Machine Learning Designer? 
+# <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è Azure Machine Learning Designer (anteprima)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Azure Machine Learning Designer consente di connettere visivamente [set di impostazioni](#datasets) e [moduli](#module) in un'area di disegno interattiva per creare modelli di apprendimento automatico. Per informazioni su come iniziare a usare la finestra di progettazione, vedere [esercitazione: stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
@@ -95,7 +95,7 @@ Usare le risorse di calcolo dall'area di lavoro per eseguire la pipeline e ospit
 
 Le destinazioni di calcolo sono collegate all' [area di lavoro Azure Machine Learning](concept-workspace.md). È possibile gestire le destinazioni di calcolo nell'area di lavoro in [Azure Machine Learning Studio (classico)](https://ml.azure.com).
 
-## <a name="deploy"></a>Distribuzione
+## <a name="deploy"></a>Distribuire
 
 Per eseguire l'inferenza in tempo reale, è necessario distribuire una pipeline come **endpoint in tempo reale**. L'endpoint in tempo reale crea un'interfaccia tra un'applicazione esterna e il modello di assegnazione dei punteggi. Una chiamata a un endpoint in tempo reale restituisce i risultati della stima all'applicazione in tempo reale. Per effettuare una chiamata a un endpoint in tempo reale, passare la chiave API creata al momento della distribuzione dell'endpoint. L'endpoint è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
@@ -116,7 +116,7 @@ La finestra di progettazione crea lo stesso oggetto [PublishedPipeline](https://
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Passaggio dall'interfaccia visiva alla finestra di progettazione
 
-L'interfaccia visiva (anteprima) è stata aggiornata e ora è Azure Machine Learning Designer. La finestra di progettazione è stata riprogettata per l'uso di un back-end basato su pipeline che si integra completamente con le altre funzionalità di Azure Machine Learning. 
+L'interfaccia visiva (anteprima) è stata aggiornata e ora è Azure Machine Learning Designer (anteprima). La finestra di progettazione è stata riprogettata per l'uso di un back-end basato su pipeline che si integra completamente con le altre funzionalità di Azure Machine Learning. 
 
 In seguito a questi aggiornamenti, alcuni concetti e termini per l'interfaccia visiva sono stati modificati o rinominati. Per le modifiche concettuali più importanti, vedere la tabella seguente. 
 
@@ -135,13 +135,5 @@ In seguito a questi aggiornamenti, alcuni concetti e termini per l'interfaccia v
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Scopri le nozioni di base sull'analisi predittiva e l'apprendimento automatico con [l'esercitazione: stima del prezzo dell'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
-* Usare uno degli esempi e modificare il gruppo in base alle esigenze:
-
-- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito](how-to-designer-sample-classification-predict-income.md)
-- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Esempio 5-classificazione: varianza di stima](how-to-designer-sample-classification-churn.md)
-- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
-- [Esempio 7-classificazione di testo: set di dati di Wikipedia SP 500](how-to-designer-sample-text-classification.md)
+* Informazioni su come modificare gli [esempi di progettazione](samples-designer.md) esistenti per adattarli alle proprie esigenze.
 

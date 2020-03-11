@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d305f3354e7b1af6d43f31f0dd5fe9f54ef3e66f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 5d7c7d9f6d59ffd57ddb14f7c060d0a3f6f2a6eb
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242271"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967746"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -113,8 +113,8 @@ Consentire l'accesso agli URL seguenti:
 | URL | Uso |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure usa questi URL per verificare i certificati |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>* . microsoftonline-p.com<br>*. msauth.net<br>* . msauthimages.NET<br>*. msecnd.net<br>* . msftauth.NET<br>*. msftauthimages.net<br>* . phonefactor.NET<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | Il connettore usa questi URL durante il processo di registrazione. |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Il connettore usa questi URL per verificare i certificati |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>* . microsoftonline-p.com<br>*. msauth.net<br>* . msauthimages.NET<br>*. msecnd.net<br>* . msftauth.NET<br>*. msftauthimages.net<br>* . phonefactor.NET<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Il connettore usa questi URL durante il processo di registrazione. |
 
 Se il firewall o il proxy consente di configurare gli elenchi di Consenti DNS, è possibile consentire le connessioni a \*. msappproxy.net e \*. servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 
@@ -185,5 +185,5 @@ Se vengono visualizzati altri codici di risposta, ad esempio 407 o 502, signific
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-connectors.md)
+* [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
 * In caso di problemi di connettività del connettore, porre una domanda nel [forum di Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) o creare un ticket per il team di supporto Microsoft.

@@ -1,21 +1,17 @@
 ---
 title: Creazione e caricamento di un VHD Ubuntu Linux in Azure
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Ubuntu Linux.
-services: virtual-machines-linux
-documentationcenter: ''
 author: mimckitt
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1b343fef13127f2b74da92e6b2c5b51767e6e325
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: cbb10d544cb299e15022ae47f00d3887d03619c0
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251686"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970296"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparare una macchina virtuale Ubuntu per Azure
 
@@ -28,7 +24,7 @@ Ubuntu attualmente pubblica dischi rigidi virtuali di Azure ufficiali per il dow
 * Ubuntu 18.04/Bionic: [Bionic-server-cloudimg-amd64. vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 * Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/releases/cosmic/release/ubuntu-18.10-server-cloudimg-amd64.vhd.zip)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Ubuntu Linux in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Note sull'installazione di Ubuntu**
@@ -47,7 +43,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 
-2. Fare clic su **Connetti** per aprire la finestra della macchina virtuale.
+2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
 
 3. Sostituire i repository correnti nell'immagine per usare il repository di Azure di Ubuntu. La procedura varia leggermente in base alla versione di Ubuntu.
    

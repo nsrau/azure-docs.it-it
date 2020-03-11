@@ -12,20 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/23/2020
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: dac5f75216a8addcaa65407d945a06363e4cbf9d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: d408a862c18038f64b816bb54fc235d1b9d84179
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359514"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968219"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
 Servizi multimediali di Microsoft Azure può essere usato per codificare molti formati di file di origini multimediali. Tali formati vengono distribuiti tramite protocolli di streaming diversi, con o senza protezione del contenuto, per raggiungere tutti i dispositivi principali, ad esempio dispositivi iOS e Android. Tali client supportano protocolli diversi. iOS, ad esempio, richiede che i flussi vengano distribuiti nel formato HLS (HTTP Live Streaming), mentre i dispositivi Android supportano HLS e MPEG DASH.
 
 In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) rappresenta un servizio di generazione e creazione di pacchetti dinamici (just-in-time) in grado di distribuire contenuti live e on demand direttamente a un'app di riproduzione client. Usa uno dei protocolli multimediali comuni di streaming indicati nella sezione seguente. Creazione dinamica dei pacchetti è una funzionalità fornita con tutti gli endpoint di streaming (Standard o Premium).
+
+> [!NOTE]
+> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare le [risorse](assets-concept.md)V3, ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione (ad esempio, trasformazioni e processi), usare l' [API REST](https://aka.ms/ams-v3-rest-ref), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Per preparare i file di origine per la distribuzione
 
@@ -302,7 +305,4 @@ Per aprire un ticket di supporto, passare a [Nuova richiesta di supporto](https:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
-
-Informazioni su come [caricare, codificare ed eseguire lo streaming dei video](stream-files-tutorial-with-api.md).
+[Caricare, codificare ed eseguire lo streaming dei video](stream-files-tutorial-with-api.md)

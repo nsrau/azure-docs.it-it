@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a49c69b0f96add61501d9e2c5fc00ba564eba2a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4b1ccde2f1f92237978ab4e68acaa26393bbb9d8
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376671"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968072"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -35,7 +35,7 @@ Il primo passaggio consiste nell'accedere al portale di accesso personale, in cu
 
 **Ruolo prerequisiti:** Richiedente
 
-1. Cercare un messaggio di posta elettronica o un messaggio dal progetto o dal gestore di business che si sta utilizzando. Il messaggio di posta elettronica deve includere un collegamento al pacchetto di accesso a cui sarà necessario accedere. Il collegamento inizia con `myaccess`, include un hint di directory e termina con un ID pacchetto di accesso.
+1. Cercare un messaggio di posta elettronica o un messaggio dal progetto o dal gestore di business che si sta utilizzando. Il messaggio di posta elettronica deve includere un collegamento al pacchetto di accesso a cui sarà necessario accedere. Il collegamento inizia con `myaccess`, include un hint di directory e termina con un ID pacchetto di accesso.  Per il governo degli Stati Uniti, il dominio potrebbe essere `https://myaccess.microsoft.us`.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

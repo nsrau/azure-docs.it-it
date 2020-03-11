@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 11/08/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97d8d49b958293e3b51937cafc0874beb4f5ff4a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942226"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078473"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Eseguire il training di modelli con Azure Machine Learning usando l'oggetto Estimator
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Questo articolo è incentrato sui passaggi 4-5. Per i passaggi da 1 a 3, fare ri
 
 ### <a name="single-node-training"></a>Training su nodo singolo
 
-Usare un `Estimator` per un training su nodo singolo su risorse di calcolo remote in Azure per un modello scikit-learn. È necessario avere già creato l'oggetto [destinazione di calcolo](how-to-set-up-training-targets.md#amlcompute)`compute_target` e l'oggetto [datastore](how-to-access-data.md)`ds`.
+Usare un `Estimator` per un training su nodo singolo su risorse di calcolo remote in Azure per un modello scikit-learn. È necessario aver già creato l'oggetto di [destinazione di calcolo](how-to-set-up-training-targets.md#amlcompute) `compute_target` e l'oggetto [filedataset](how-to-create-register-datasets.md) `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -58,7 +58,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Questo frammento di codice specifica i parametri seguenti per il costruttore di `Estimator`.
 
-Parametro | Description
+Parametro | Descrizione
 --|--
 `source_directory`| Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale al calcolo remoto.
 `script_params`| Dizionario che specifica gli argomenti della riga di comando da passare allo script di training `entry_script`, sotto forma di coppie di `<command-line argument, value>`. Per specificare un flag dettagliato in `script_params`, utilizzare `<command-line argument, "">`.
@@ -110,7 +110,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Il codice precedente espone i nuovi parametri seguenti al costruttore di `Estimator`:
 
-Parametro | Description | Predefinito
+Parametro | Descrizione | Predefinito
 --|--|--
 `custom_docker_image`| Nome dell'immagine da usare. Specificare solo immagini disponibili in repository Docker pubblici (in questo caso Hub Docker). Per usare un'immagine da un repository Docker privato, usare invece il parametro `environment_definition` del costruttore. [Vedere l'esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Numero di nodi da usare per il processo di training. | `1`

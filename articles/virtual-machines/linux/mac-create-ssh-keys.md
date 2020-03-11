@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 9faa47e615217d62eade50a0c181dfda9ec9cd0a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: af18a32143ebc9db7be923b09de106b79022321f
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944788"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969047"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Azioni rapide: Creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure
 
@@ -65,7 +65,7 @@ ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z
 
 Se si copiano e si incollano i contenuti del file di chiave pubblica da usare nel portale di Azure o in un modello di Resource Manager, verificare di non copiare spazi finali. Per copiare una chiave pubblica in macOS, è possibile inviare tramite pipe il file di chiave pubblica a `pbcopy`. Analogamente, in Linux è possibile inviare tramite pipe il file di chiave pubblica a programmi come `xclip`.
 
-Per impostazione predefinita, la chiave pubblica che si inserisce nella macchina virtuale Linux in Azure viene archiviata in ~/.ssh/id_rsa.pub, a meno che non sia stato specificato un percorso diverso in fase di creazione della coppia di chiavi. Per usare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure) per creare la macchina virtuale con una chiave pubblica esistente, specificare il valore e, facoltativamente, il percorso della chiave pubblica usando il comando [az vm create](/cli/azure/vm#az-vm-create) con l'opzione `--ssh-key-value`. Nel comando seguente sostituire *VMname*, *RGname* e *keyFile* con i propri valori:
+Per impostazione predefinita, la chiave pubblica che si inserisce nella macchina virtuale Linux in Azure viene archiviata in ~/.ssh/id_rsa.pub, a meno che non sia stato specificato un percorso diverso in fase di creazione della coppia di chiavi. Per usare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure) per creare la macchina virtuale con una chiave pubblica esistente, specificare il valore e, facoltativamente, il percorso della chiave pubblica usando il comando [az vm create](/cli/azure/vm#az-vm-create) con l'opzione `--ssh-key-values`. Nel comando seguente sostituire *VMname*, *RGname* e *keyFile* con i propri valori:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub

@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1549a26022b8d593412a666228b07f05272d640c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945717"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968200"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -125,7 +125,6 @@ dependencies
 | render barchart  
 ```
 
-
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visualizzazione dell'utilizzo Application Insights nella fattura di Azure
 
 Azure fornisce una grande quantità di funzionalità utili in [Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) e nell'hub di fatturazione. Ad esempio, la funzionalità di analisi dei costi consente di visualizzare le spese per le risorse di Azure. L'aggiunta di un filtro per tipo di risorsa (a Microsoft. Insights/Components per Application Insights) consentirà di tenere traccia della spesa.
@@ -174,6 +173,14 @@ Per modificare il limite giornaliero, nella sezione **Configura** della risorsa 
 ![Regolazione del limite del volume dei dati di telemetria giornaliero](./media/pricing/pricing-003.png)
 
 Per [modificare il limite giornaliero tramite Azure Resource Manager](../../azure-monitor/app/powershell.md), la proprietà da modificare è la `dailyQuota`.  Tramite Azure Resource Manager è anche possibile impostare il `dailyQuotaResetTime` e la `warningThreshold`del Cap giornaliero.
+
+### <a name="create-alerts-for-the-daily-cap"></a>Crea avvisi per il limite giornaliero
+
+Il limite giornaliero Application Insights crea un evento nell'attività di Azure KOG quando i volumi di dati inseriti raggiungono il livello di avviso o il livello di limite giornaliero.  È possibile [creare un avviso in base a questi eventi del log attività](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). I nomi dei segnali per questi eventi sono:
+
+* Soglia di avviso limite giornaliero componente Application Insights raggiunta
+
+* Limite massimo giornaliero componente Application Insights raggiunto
 
 ## <a name="sampling"></a>campionamento
 Il [campionamento](../../azure-monitor/app/sampling.md) è un metodo che consente di ridurre la velocità con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi.

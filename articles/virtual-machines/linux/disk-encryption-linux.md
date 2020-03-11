@@ -2,17 +2,18 @@
 title: Scenari di crittografia dischi di Azure nelle macchine virtuali Linux
 description: Questo articolo fornisce istruzioni su come abilitare la crittografia del disco Microsoft Azure per le macchine virtuali Linux per diversi scenari
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4ccb4409bd9a41f390668cb94ef91b1b565421
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19dcfb96f29939fd92f49ba288ddb6d9264e0f9a
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358813"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970588"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di crittografia dischi di Azure nelle macchine virtuali Linux
 
@@ -193,7 +194,7 @@ Usare il cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/
 
 La tabella seguente elenca i parametri del modello di Resource Manager per macchine virtuali esistenti o in esecuzione:
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --- | --- |
 | vmName | Nome della macchina virtuale per eseguire l'operazione di crittografia. |
 | keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui deve essere caricata la chiave di crittografia. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o l'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 78ec5b6d330f03d78dcb4e798b23d588fd93398e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387204"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082605"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -33,7 +33,10 @@ Per provare a eseguire questa operazione, vedere gli articoli introduttivi segue
 |PowerShell    |[Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Interfaccia della riga di comando di Azure    |[Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con l'interfaccia della riga](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
-Se il proprio account dispone di uno spazio dei nomi gerarchico, in questa esercitazione verrà illustrato come connettere una sottoscrizione di griglia di eventi, una funzione di Azure e un [processo](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks: [esercitazione: usare eventi Azure Data Lake storage Gen2 per aggiornare una tabella Delta di databricks](data-lake-storage-events.md).
+Per visualizzare esempi dettagliati di reagire agli eventi di archiviazione BLOB tramite funzioni di Azure, vedere gli articoli seguenti:
+
+- [Esercitazione: usare eventi Azure Data Lake storage Gen2 per aggiornare una tabella Delta di databricks](data-lake-storage-events.md).
+- [Esercitazione: automatizzare il ridimensionamento delle immagini caricate con griglia di eventi](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
 > Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. Il tipo **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con Griglia di eventi.
@@ -53,7 +56,7 @@ Vedere l'articolo [dello schema degli eventi di archiviazione BLOB](../../event-
 > * Un esempio dei dati che la griglia di eventi invierà per ognuno di questi eventi.
 > * Scopo di ogni coppia chiave-valore visualizzata nei dati.
 
-## <a name="filtering-events"></a>Filtro di eventi
+## <a name="filtering-events"></a>Filtro degli eventi
 
 [Gli eventi BLOB possono essere filtrati](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) in base al tipo di evento, al nome del contenitore o al nome dell'oggetto che è stato creato/eliminato. I filtri in griglia di eventi corrispondono all'inizio o alla fine dell'oggetto in modo che gli eventi con un oggetto corrispondente vadano al Sottoscrittore.
 
@@ -93,7 +96,8 @@ Per le applicazioni che gestiscono gli eventi di archiviazione BLOB è consiglia
 > [!div class="checklist"]
 > * Dal momento che vi possono essere più sottoscrizioni configurate per instradare gli eventi allo stesso gestore eventi, è importante non presupporre che gli eventi derivino da un'origine specifica, ma controllare l'argomento del messaggio per assicurarsi che provengano dall'account di archiviazione previsto.
 > * Controllare anche che il tipo di evento che si verifica, eventType, sia un oggetto che si è preparati a elaborare e non presupporre che tutti gli eventi che si ricevono siano dei tipi previsti.
-> * Dal momento che i messaggi non arrivano in ordine e giungono con un po' di ritardo, usare i campi etag per verificare se le informazioni disponibili sugli oggetti sono ancora aggiornate.  È possibile usare anche i campi del sequencer per comprendere l'ordine degli eventi relativi a un oggetto specifico.
+> * Poiché i messaggi possono arrivare dopo un certo ritardo, usare i campi eTag per capire se le informazioni sugli oggetti sono ancora aggiornate. Per informazioni su come usare il campo ETag, vedere [gestione della concorrenza nell'archivio BLOB](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Poiché i messaggi possono arrivare senza ordine, utilizzare i campi di Sequencer per comprendere l'ordine degli eventi in un oggetto specifico. Il campo sequencer è un valore stringa che rappresenta la sequenza logica di eventi per un nome di BLOB particolare. È possibile usare il confronto di stringhe standard per comprendere la sequenza relativa di due eventi nello stesso nome di BLOB.
 > * Usare il campo blobType per capire il tipo di operazioni consentite sul BLOB e quali tipi di librerie client è consigliabile usare per accedere al BLOB. I valori validi sono `BlockBlob` o `PageBlob`. 
 > * Usare il campo URL con i costruttori `CloudBlockBlob` e `CloudAppendBlob` per accedere al BLOB.
 > * Ignorare i campi che non si conoscono. Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.

@@ -1,25 +1,17 @@
 ---
 title: Distribuire IBM DB2 pureScale in Azure
 description: Informazioni su come distribuire un'architettura di esempio usata di recente per eseguire la migrazione dall'ambiente IBM DB2 in esecuzione su z/OS a IBM DB2 pureScale in Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: c4db27b938934aafa350866991ff174cbdbed0ac
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291550"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968902"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuire IBM DB2 pureScale in Azure
 
@@ -27,7 +19,7 @@ Questo articolo illustra come distribuire un'[architettura di esempio](ibm-db2-p
 
 Per seguire le procedure di migrazione, vedere gli script di installazione nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub. Questi script sono basati sull'architettura per un tipico carico di lavoro OLTP (Online Transaction Processing) di medie dimensioni.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Introduzione
 
 Per distribuire questa architettura, scaricare ed eseguire lo script deploy.sh disponibile nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub.
 
@@ -79,9 +71,9 @@ Il repository GitHub include il file di risposta DB2server.rsp, che consente di 
 > [!NOTE]
 > Un file di risposta di esempio, DB2server.rsp, è incluso nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub. Se si usa questo file, è necessario modificarlo in modo che sia compatibile con l'ambiente in uso.
 
-| Nome schermata               | Campo                                        | Valore                                                                                                 |
+| Nome schermata               | Campo                                        | valore                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| Benvenuti                   |                                              | New Install (Nuova installazione)                                                                                           |
+| Schermata iniziale                   |                                              | New Install (Nuova installazione)                                                                                           |
 | Choose a Product (Scegliere un prodotto)          |                                              | DB2 Version 11.1.3.3. Server Editions with DB2 pureScale                                              |
 | Configurazione             | Directory                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Select the installation type (Selezionare il tipo di installazione)                 | Typical (Tipica)                                                                                               |

@@ -2,17 +2,17 @@
 title: Condividere un disco gestito di Azure tra macchine virtuali (anteprima)
 description: Informazioni sulla condivisione di Azure Managed disks in più macchine virtuali.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 848cdf24e427b5fcfd3aa26ed4301f5741552565
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 9f2aa2213faf092897b651d9d0e5f1cc641d52d9
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472078"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970362"
 ---
 # <a name="azure-shared-disks"></a>Dischi condivisi di Azure
 

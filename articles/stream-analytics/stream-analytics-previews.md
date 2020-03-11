@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 2/1/2020
-ms.openlocfilehash: aaff56ba1de69485d1c3b93bc7ed95ce1a3cbd88
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 3/9/2020
+ms.openlocfilehash: 3e99263f6bf472c256e1747b8567249bbd62a445
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983550"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969626"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funzionalità in anteprima di Analisi di flusso di Azure
 
@@ -33,13 +33,6 @@ Gli sviluppatori possono sfruttare la potenza di analisi di flusso di Azure per 
 
 Gli sviluppatori che creano moduli di analisi di flusso nel cloud o in IoT Edge possono scrivere C# o riutilizzare funzioni personalizzate e richiamarle direttamente nella query tramite [funzioni definite dall'utente](stream-analytics-edge-csharp-udf-methods.md).
 
-### <a name="managed-identity-authentication-with-power-bi"></a>Autenticazione dell'identità gestita con Power BI
-
-Analisi di flusso di Azure offre il supporto completo per l'autenticazione basata sulle identità gestite con Power BI per un'esperienza dinamica di dashboard.
-
-### <a name="anomaly-detection"></a>Rilevamento delle anomalie
-
-I modelli di Machine Learning di analisi di flusso di Azure offrono il supporto per il rilevamento di *picchi* e *DIP* oltre al rilevamento bidirezionale, lento positivo e rallentamento delle tendenze negative. Per altre informazioni, vedere [rilevamento delle anomalie in analisi di flusso di Azure](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="debug-query-steps-in-visual-studio"></a>Eseguire il debug di passaggi della query in Visual Studio
 

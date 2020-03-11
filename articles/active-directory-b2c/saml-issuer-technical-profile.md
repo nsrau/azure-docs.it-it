@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f038868e80b600c805a1f33a54f9d0032e81dab8
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: c35f85b9ec5d86d1cd61f165b891c576c06a03db
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933193"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967261"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un emittente di token SAML in un Azure Active Directory B2C criteri personalizzati
 
@@ -70,6 +70,12 @@ L'elemento CryptographicKeys contiene gli attributi seguenti:
 ## <a name="session-management"></a>Gestione delle sessioni
 
 Per configurare le sessioni SAML Azure AD B2C tra un'applicazione relying party, l'attributo dell'elemento `UseTechnicalProfileForSessionManagement`, fare riferimento alla sessione SSO [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) .
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Vedere l'articolo seguente per esempio di uso di un profilo tecnico dell'emittente SAML:
+
+- [Registrare un'applicazione SAML in Azure AD B2C](connect-with-saml-service-providers.md)
 
 
 

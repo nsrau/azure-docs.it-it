@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1cac52dcee91e57a22b6d18595b067de888aba73
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365384"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082464"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -255,12 +255,6 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 - Il controllo del database SQL di Azure è ottimizzato per le prestazioni & disponibilità. Durante un'attività molto elevata, il database SQL di Azure consente di continuare le operazioni e non può registrare alcuni eventi controllati.
 
 - Per la configurazione del controllo non modificabile nell'account di archiviazione, vedere [Allow protected Append Blobs writes](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes). Si noti che il nome del contenitore per il controllo è **sqldbauditlogs**.
-
-    > [!IMPORTANT]
-    > L'impostazione Consenti le scritture dei BLOB con aggiunta protetta nel periodo di conservazione basato sul tempo è attualmente disponibile e visibile solo nelle aree seguenti:
-    > - Stati Uniti orientali
-    > - Stati Uniti centro-meridionali
-    > - Stati Uniti occidentali 2
 
 
 ## <a id="subheading-7"></a>Gestire SQL Server di Azure e il controllo del database usando Azure PowerShell

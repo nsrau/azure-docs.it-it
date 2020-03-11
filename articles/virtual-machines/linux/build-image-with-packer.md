@@ -1,26 +1,18 @@
 ---
-title: Come creare immagini di macchine virtuali Linux di Azure con Packer
+title: Creare immagini di VM Linux di Azure con Packer
 description: Informazioni su come usare Packer per creare immagini di macchine virtuali di Linux in Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: a9f0750908123c236596683ec2ad6de505c46213
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 338541661b335e3d96a267f01590173f8ce8ee89
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036955"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969278"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Come usare Packer per creare immagini di macchine virtuali di Linux in Azure
 Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da un'immagine che ne definisce la distribuzione di Linux e la versione del sistema operativo. Le immagini possono includere applicazioni e configurazioni preinstallate. In Microsoft Azure Marketplace sono disponibili molte prime immagini e immagini di terze parti per gli ambienti applicativi e di distribuzione più diffusi. In alternativa, è possibile creare immagini personalizzate su misura per le proprie esigenze. Questo articolo illustra in dettaglio come definire e compilare immagini personalizzate in Azure tramite lo strumento open source [Packer](https://www.packer.io/).
@@ -72,7 +64,7 @@ Per compilare immagini, è necessario creare un modello come file JSON. Nel mode
 
 Creare un file con nome *ubuntu.json* e incollare al suo interno il contenuto seguente. Immettere valori personalizzati per i parametri seguenti:
 
-| .                           | Origine |
+| Parametro                           | Origine |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Prima riga di output da `az ad sp` create command - *appId* |
 | *client_secret*                     | Seconda riga di output da `az ad sp` create command - *password* |
@@ -229,7 +221,7 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Testare la macchina virtuale e NGINX
-È ora possibile aprire un Web browser e immettere `http://publicIpAddress` nella barra degli indirizzi. Fornire il proprio indirizzo IP pubblico dal processo di creazione della macchina virtuale. La pagina NGINX predefinita viene visualizzata come illustrato nell'esempio seguente:
+È ora possibile aprire un Web browser e immettere `http://publicIpAddress` bella barra degli indirizzi. Fornire il proprio indirizzo IP pubblico dal processo di creazione della macchina virtuale. La pagina NGINX predefinita viene visualizzata come illustrato nell'esempio seguente:
 
 ![Sito NGINX predefinito](./media/build-image-with-packer/nginx.png) 
 

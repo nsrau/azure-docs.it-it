@@ -16,25 +16,25 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a78a69301ab2ae637531f8643d9d57a8b44b563f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608930"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968737"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Verificare l'accesso di un pacchetto di accesso in Azure AD gestione dei diritti
 
 Azure AD gestione dei diritti semplifica il modo in cui le aziende gestiscono l'accesso a gruppi, applicazioni e siti di SharePoint. Questo articolo descrive come eseguire verifiche di accesso per altri utenti assegnati a un pacchetto di accesso come revisore designato.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per esaminare le assegnazioni dei pacchetti di accesso attivi degli utenti, è necessario soddisfare i prerequisiti per eseguire una verifica di accesso:
-- Azure AD P2 Premium
+- Azure AD Premium P2
 - Amministratore globale
 - Amministratore utente designato, proprietario del catalogo o gestione pacchetti di accesso
 
-Per ulteriori informazioni, vedere [requisiti di licenza](entitlement-management-overview.md#license-requirements).
+Per altre informazioni, vedere [Requisiti relativi alle licenze](entitlement-management-overview.md#license-requirements).
 
 
 ## <a name="open-the-access-review"></a>Aprire la verifica di accesso
@@ -47,7 +47,7 @@ Per trovare e aprire la verifica di accesso, attenersi alla procedura seguente:
 
 1. Fare clic sul collegamento **Verifica accesso utente** per aprire la verifica di accesso. 
 
-1. Se non si dispone del messaggio di posta elettronica, è possibile trovare le verifiche di accesso in sospeso passando direttamente a https://myaccess.microsoft.com.
+1. Se non si dispone del messaggio di posta elettronica, è possibile trovare le verifiche di accesso in sospeso passando direttamente a https://myaccess.microsoft.com.  Per il governo degli Stati Uniti, usare invece `https://myaccess.microsoft.us`.
 
 1. Fare clic su verifiche di **accesso** sulla barra di spostamento a sinistra per visualizzare un elenco delle verifiche di accesso in sospeso assegnate all'utente.
     

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 03/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 51bf005bdad4197120fed96894ac1cdd150738ee
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75935227"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079829"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>Scegliere una modalità di riconoscimento vocale
 
@@ -33,7 +33,7 @@ Alla fine di un'espressione riconosciuta, il servizio interrompe l'elaborazione 
 Per ulteriori informazioni sull'utilizzo della funzione `RecognizeOnceAsync`, vedere la [documentazione di .NET Speech SDK](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
-var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
+var result = await recognizer.RecognizeOnceAsync();
 ```
 
 ::: zone-end
@@ -72,7 +72,7 @@ Per altre lingue, vedere la [documentazione di riferimento per l'SDK di riconosc
 
 ## <a name="continuous"></a>Continuo
 
-Se è necessario un riconoscimento con esecuzione prolungata, usare le funzioni di arresto Start e corrispondenti per il riconoscimento continuo. La funzione Start avvierà e continuerà l'elaborazione di tutti gli enunciati fino a quando non si richiama la funzione stop o fino a quando non viene superato il tempo di inattività. Quando si usa la modalità continua, assicurarsi di eseguire la registrazione ai vari eventi che verranno attivati in seguito all'occorrenza. Ad esempio, l'evento "riconosciuto" viene generato quando si verifica il riconoscimento vocale. Per gestire il riconoscimento è necessario disporre di un gestore eventi. Un limite di 10 minuti di tempo totale di riconoscimento vocale per sessione viene applicato dal servizio di riconoscimento vocale.
+Se è necessario un riconoscimento con esecuzione prolungata, usare le funzioni di arresto Start e corrispondenti per il riconoscimento continuo. La funzione Start avvierà e continuerà l'elaborazione di tutti gli enunciati fino a quando non si richiama la funzione stop o fino a quando non viene superato il tempo di inattività. Quando si usa la modalità continua, assicurarsi di eseguire la registrazione ai vari eventi che verranno attivati in seguito all'occorrenza. Ad esempio, l'evento "riconosciuto" viene generato quando si verifica il riconoscimento vocale. Per gestire il riconoscimento è necessario disporre di un gestore eventi.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -88,10 +88,10 @@ recognizer.Recognized += (s, e) =>
 };
 
 // Start continuous speech recognition
-await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StartContinuousRecognitionAsync();
 
 // Stop continuous speech recognition
-await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StopContinuousRecognitionAsync();
 ```
 
 ::: zone-end

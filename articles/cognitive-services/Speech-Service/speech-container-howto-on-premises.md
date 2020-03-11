@@ -8,36 +8,36 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.author: dapine
-ms.openlocfilehash: 7874a6b274939c233dd1c4e6d146df2a9a409e65
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cd4ff97902b1ce3d1d5a0ea066608fd33e6bf697
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833998"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037091"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Usare i contenitori di servizi vocali con Kubernetes e Helm
 
 Un'opzione per gestire i contenitori di riconoscimento vocale in locale consiste nell'usare Kubernetes e Helm. Usando Kubernetes e Helm per definire le immagini del contenitore sintesi vocale e sintesi vocale, verrà creato un pacchetto Kubernetes. Questo pacchetto verrà distribuito in un cluster Kubernetes locale. Infine, si esaminerà come testare i servizi distribuiti e le varie opzioni di configurazione. Per altre informazioni sull'esecuzione di contenitori Docker senza orchestrazione Kubernetes, vedere [installare ed eseguire i contenitori dei servizi vocali](speech-container-howto.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 I prerequisiti seguenti prima di usare i contenitori di riconoscimento vocale in locale:
 
-|Obbligatorio|Finalità|
+|Obbligatoria|Scopo|
 |--|--|
 | Account Azure | Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare. |
 | Accesso Container Registry | Per consentire a Kubernetes di eseguire il pull delle immagini Docker nel cluster, sarà necessario accedere al registro contenitori. |
 | INTERFACCIA della riga di comando Kubernetes | L' [interfaccia][kubernetes-cli] della riga di comando di Kubernetes è necessaria per gestire le credenziali condivise dal registro contenitori. Kubernetes è necessario anche prima di Helm, ovvero Kubernetes Package Manager. |
-| INTERFACCIA della riga di comando | Come parte dell'installazione dell'[interfaccia della riga di comando di Helm][helm-install], sarà anche necessario inizializzare Helm, che installerà il [timone][tiller-install]. |
+| INTERFACCIA della riga di comando | Come parte [dell'installazione dell'][tiller-install]interfaccia della riga di comando di [Helm][helm-install] , sarà anche necessario inizializzare Helm, che installerà il timone. |
 |Risorsa vocale |Per usare questi contenitori, è necessario avere:<br><br>Una risorsa di Azure _vocale_ per ottenere la chiave di fatturazione e l'URI dell'endpoint di fatturazione associati. Entrambi i valori sono disponibili nelle pagine relative alla panoramica del **riconoscimento vocale** portale di Azure e alle pagine chiavi e sono necessari per avviare il contenitore.<br><br>**{API_KEY}** : chiave di risorsa<br><br>**{ENDPOINT_URI}** : esempio di URI dell'ENDPOINT: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>Configurazione del computer host consigliata
 
 Vedere i dettagli del [computer host del contenitore di servizi vocali][speech-container-host-computer] come riferimento. Questo *grafico Helm* calcola automaticamente i requisiti di CPU e memoria in base al numero di decodificazioni (richieste simultanee) specificate dall'utente. Inoltre, si adatta a seconda che le ottimizzazioni per l'input audio/testo siano configurate come `enabled`. Per impostazione predefinita, il grafico Helm, due richieste simultanee e la disabilitazione dell'ottimizzazione.
 
-| Servizio | CPU/contenitore | Memoria/contenitore |
+| Service | CPU/contenitore | Memoria/contenitore |
 |--|--|--|
 | **Riconoscimento vocale** | un decodificatore richiede almeno 1.150 millicore. Se la `optimizedForAudioFile` è abilitata, sono necessari 1.950 millicore. (impostazione predefinita: due decodificatori) | Obbligatorio: 2 GB<br>Limitato: 4 GB |
 | **Sintesi vocale** | una richiesta simultanea richiede un minimo di 500 millicore. Se la `optimizeForTurboMode` è abilitata, sono necessari 1.000 millicore. (impostazione predefinita: due richieste simultanee) | Obbligatorio: 1 GB<br> Limitato: 2 GB |

@@ -16,12 +16,12 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89a346f48856ea33ae5e27e3537f53dfa1ca3ae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608813"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967763"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Revisione automatica di un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -37,7 +37,7 @@ Per eseguire una verifica di accesso, è innanzitutto necessario aprire la verif
 
 1. Fare clic sul collegamento **Verifica accesso** .
 
-1. È anche possibile passare direttamente a https://myaccess.microsoft.com per trovare le verifiche di accesso in sospeso se non si riceve un messaggio di posta elettronica.
+1. È anche possibile passare direttamente a https://myaccess.microsoft.com per trovare le verifiche di accesso in sospeso se non si riceve un messaggio di posta elettronica.  Per il governo degli Stati Uniti, usare invece `https://myaccess.microsoft.us`.
 
 1. Fare clic su verifiche di **accesso** sulla barra di spostamento a sinistra per visualizzare un elenco delle verifiche di accesso in sospeso assegnate all'utente.
 
@@ -56,7 +56,7 @@ Dopo aver aperto la verifica di accesso, è possibile visualizzare l'accesso. Pe
 
 1.  Se si fa clic su **Sì**, potrebbe essere necessario includere un'istruzione di giustificazione nella casella **motivo** .
 
-1.  Fare clic su **Submit**.
+1.  Fare clic su **Submit** (Invia).
 
 È possibile tornare alla verifica se si cambia idea e si decide di modificare la risposta prima della fine della verifica.
 

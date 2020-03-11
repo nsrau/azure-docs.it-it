@@ -1,19 +1,19 @@
 ---
 title: Creare un account Marketplace commerciale nel centro per i partner
 description: Informazioni su come creare un account Marketplace commerciale nel centro per i partner.
-author: ChJenk
+author: qianw211
 manager: evansma
-ms.author: v-chjen
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 09/26/2019
-ms.openlocfilehash: df857fb938ade329a971578ac206f16f1357d7e5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 03/10/2020
+ms.openlocfilehash: 59f37585dfea08e9343cf052f680fd6e9531852b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838766"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968833"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
 
@@ -50,7 +50,7 @@ Usare questo metodo se non si ha familiarità con il centro per i partner e non 
 
 ### <a name="register-on-the-partner-center-enrollment-page"></a>Registrati nella pagina di registrazione del centro per i partner
 
-Esaminare le informazioni nella pagina [**di registrazione del centro per i partner Microsoft**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) e quindi eseguire la registrazione per un account.
+Esaminare le informazioni nella pagina [**di registrazione del centro per i partner Microsoft**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) e quindi eseguire la registrazione per un account.
 
 ### <a name="sign-in-with-a-work-account"></a>Accedere con un account aziendale
 

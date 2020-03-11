@@ -1,20 +1,19 @@
 ---
-title: Caricare un VHD in Azure usando l'interfaccia della riga di comando di Azure
+title: Caricare un VHD usando l'interfaccia della riga di comando di Azure
 description: Informazioni su come caricare un disco rigido virtuale in un disco gestito di Azure e copiare un disco gestito tra aree, usando l'interfaccia della riga di comando di Azure, tramite il caricamento diretto.
-services: virtual-machines-linux,storage
+services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
 ms.date: 09/20/2019
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 51c3933b5ee585c96ad81fe04d379b6771ae81e3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457602"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970332"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Caricare un VHD in Azure usando l'interfaccia della riga di comando di Azure
 
@@ -24,7 +23,7 @@ Se si fornisce una soluzione di backup per le macchine virtuali IaaS in Azure, s
 
 Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD standard e Managed disks SSD Premium. Non è ancora supportata per le unità SSD ultra.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)

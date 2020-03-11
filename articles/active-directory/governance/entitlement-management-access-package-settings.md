@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174410"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968756"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Condividi il collegamento per richiedere un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -41,7 +41,7 @@ Fino a quando il catalogo per il pacchetto di accesso è [abilitato per gli uten
 
     ![Panoramica del pacchetto di accesso - Collegamento del portale di Accesso personale](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    È importante copiare l'intero collegamento del portale di accesso personale quando lo si invia a un partner aziendale interno. In questo modo si garantisce che il partner ottenga l'accesso al portale della directory per effettuare la richiesta. Il collegamento inizia con `myaccess`, include un hint di directory e termina con un ID pacchetto di accesso.
+    È importante copiare l'intero collegamento del portale di accesso personale quando lo si invia a un partner aziendale interno. In questo modo si garantisce che il partner ottenga l'accesso al portale della directory per effettuare la richiesta. Il collegamento inizia con `myaccess`, include un hint di directory e termina con un ID pacchetto di accesso.  Per il governo degli Stati Uniti, viene `myaccess.microsoft.us`il dominio nel collegamento del portale My Access.
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

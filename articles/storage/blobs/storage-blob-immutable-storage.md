@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365383"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968057"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -68,7 +68,7 @@ Un criterio di conservazione basato sul tempo sbloccato è consigliato solo per 
 Ai criteri di conservazione si applicano i limiti seguenti:
 
 - Per un account di archiviazione, il numero massimo di contenitori con criteri non modificabili basati sul tempo bloccati è 10.000.
-- L'intervallo di conservazione minimo è di un giorno. Il valore massimo è 146.000 giorni (400 anni).
+- L'intervallo di conservazione minimo è di 1 giorno. Il valore massimo è 146.000 giorni (400 anni).
 - Per un contenitore, il numero massimo di modifiche per estendere un intervallo di conservazione per i criteri non modificabili basati sul tempo bloccato è 5.
 - Per un contenitore, un massimo di sette log di controllo dei criteri di conservazione basati sul tempo vengono conservati per un criterio bloccato.
 
@@ -84,15 +84,7 @@ Si supponga, ad esempio, che un utente crei un criterio di conservazione basato 
 
 I criteri di conservazione basati sul tempo sbloccati consentono l'abilitazione e la disabilitazione dell'impostazione `allowProtectedAppendWrites` in qualsiasi momento. Quando il criterio di conservazione basato sul tempo è bloccato, non è possibile modificare l'impostazione `allowProtectedAppendWrites`.
 
-I criteri di esenzione legale non possono abilitare `allowProtectedAppendWrites` e non consentono l'aggiunta di nuovi blocchi ai BLOB di Accodamento. Se viene applicata una tenuta legale a un criterio di conservazione basato sul tempo con `allowProtectedAppendWrites` abilitato, l'API *AppendBlock* non riuscirà fino a quando non viene sollevata la tenuta legale.
-
-> [!IMPORTANT] 
-> L'impostazione Consenti le scritture dei BLOB con aggiunta protetta nel periodo di conservazione basato sul tempo è attualmente disponibile nelle aree geografiche seguenti:
-> - Stati Uniti orientali
-> - Stati Uniti centro-meridionali
-> - Stati Uniti occidentali 2
->
-> Al momento, è consigliabile non abilitare `allowProtectedAppendWrites` in altre aree oltre a quelle specificate, in quanto potrebbero verificarsi errori intermittenti e influire sulla conformità per i BLOB di Accodamento. Per altre informazioni su come impostare e bloccare i criteri di conservazione basati sul tempo, vedere [Abilitazione di scritture di BLOB di Accodamento protette](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+I criteri di esenzione legale non possono abilitare `allowProtectedAppendWrites` e qualsiasi esenzione legale Annulla la proprietà' allowProtectedAppendWrites '. Se viene applicata una tenuta legale a un criterio di conservazione basato sul tempo con `allowProtectedAppendWrites` abilitato, l'API *AppendBlock* non riuscirà fino a quando non viene sollevata la tenuta legale.
 
 ## <a name="legal-holds"></a>Blocchi a fini giudiziari
 
@@ -140,7 +132,7 @@ No, è possibile usare una risorsa di archiviazione non modificabile con gli acc
 
 **È possibile applicare un criterio di conservazione legale e basato sul tempo?**
 
-Sì, un contenitore può avere contemporaneamente un criterio di conservazione e un criterio di conservazione basato sul tempo. Tutti i BLOB nel contenitore rimangono nello stato non modificabile finché non vengono rimossi tutti i blocchi a fini giudiziari, anche se il relativo periodo di conservazione effettivo è scaduto. Viceversa, un BLOB rimane in uno stato non modificabile fino alla scadenza del periodo di conservazione effettivo anche se sono stati rimossi tutti i blocchi a fini giudiziari.
+Sì, un contenitore può avere contemporaneamente un criterio di conservazione e un criterio di conservazione basato sul tempo; Tuttavia, l'impostazione ' allowProtectedAppendWrites ' non verrà applicata fino a quando non viene cancellata la tenuta legale. Tutti i BLOB nel contenitore rimangono nello stato non modificabile finché non vengono rimossi tutti i blocchi a fini giudiziari, anche se il relativo periodo di conservazione effettivo è scaduto. Viceversa, un BLOB rimane in uno stato non modificabile fino alla scadenza del periodo di conservazione effettivo anche se sono stati rimossi tutti i blocchi a fini giudiziari. 
 
 **I criteri di mantenimento sono validi solo per le procedure legali o esistono altri scenari di utilizzo?**
 
@@ -164,7 +156,7 @@ Sì, è possibile usare il comando Imposta livello BLOB per spostare i dati tra 
 
 **Che cosa accade se non si effettua il pagamento e il periodo di conservazione non è scaduto?**
 
-In caso di mancato pagamento, verranno applicati i normali criteri di conservazione dati previsti nei termini e nelle condizioni del contratto stipulato con Microsoft.
+In caso di mancato pagamento, verranno applicati i normali criteri di conservazione dati previsti nei termini e nelle condizioni del contratto stipulato con Microsoft. Per informazioni generali, vedere [gestione dei dati in Microsoft](https://www.microsoft.com/en-us/trust-center/privacy/data-management). 
 
 **È disponibile una versione di valutazione o un periodo di tolleranza per provare la funzionalità?**
 

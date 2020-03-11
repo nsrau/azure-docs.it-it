@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 106f83e4c8fdf33ac8752e5942dbb22a2df78693
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2703994d3fe8765662e6a0205d63cef9327e17a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840503"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080194"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
 
@@ -32,15 +32,15 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Description |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | defaultLanguageCode   |  Stringa che indica la lingua di restituzione. Il servizio restituisce i risultati di riconoscimento nella lingua specificata. Se questo parametro non è specificato, il valore predefinito è "en". <br/><br/>Le lingue supportate sono: <br/>*en* - Inglese (predefinito) <br/> *es* -spagnolo <br/> *ja* -giapponese <br/> *PT* -portoghese <br/> *zh* - Cinese semplificato|
-| visualFeatures |  Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li>*Adult* : rileva se l'immagine è pornografica (Mostra la nudità o un sex Act) o è cruenta (illustra violenza o sangue). Vengono rilevati anche contenuti sessuali (noti anche come contenuto).</li><li>*marchi* : rileva diversi marchi all'interno di un'immagine, inclusa la posizione approssimativa. La funzionalità visiva dei *marchi* è disponibile solo in inglese.</li><li> *categorie* : Categorizza il contenuto dell'immagine in base a una tassonomia definita nella documentazione dei servizi cognitivi [visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li> *colore* : determina il colore dell'accento, il colore dominante e se un'immagine è nera & bianco.</li><li>*Descrizione* : descrive il contenuto dell'immagine con una frase completa nelle lingue supportate.</li><li>*visi* : rileva se sono presenti visi. Se presente, genera coordinate, sesso ed età.</li><li>  *ImageType* : rileva se image è clip art o un disegno a linee.</li><li>  *oggetti* : rileva vari oggetti all'interno di un'immagine, inclusa la posizione approssimativa. La funzionalità visiva *oggetti* è disponibile solo in inglese.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole.|
+| visualFeatures |  Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li>*Adult* : rileva se l'immagine è pornografica (Mostra la nudità o un sex Act) o è cruenta (illustra violenza o sangue). Vengono rilevati anche contenuti sessuali (noti anche come contenuto).</li><li>*marchi* : rileva diversi marchi all'interno di un'immagine, inclusa la posizione approssimativa. La funzionalità visiva dei *marchi* è disponibile solo in inglese.</li><li> *categorie* : Categorizza il contenuto dell'immagine in base a una tassonomia definita nella documentazione dei servizi cognitivi [visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li>*Descrizione* : descrive il contenuto dell'immagine con una frase completa nelle lingue supportate.</li><li>*visi* : rileva se sono presenti visi. Se presente, genera coordinate, sesso ed età.</li><li> *oggetti* : rileva vari oggetti all'interno di un'immagine, inclusa la posizione approssimativa. La funzionalità visiva *oggetti* è disponibile solo in inglese.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole. Si noti che le funzionalità visive del *colore* e del *ImageType* sono state deprecate, ma questa funzionalità è ancora accessibile tramite un' [abilità personalizzata](https://go.microsoft.com/fwlink/?linkid=2121117).|
 | dettagli   | Matrice di stringhe che indica quali dettagli specifici del dominio restituire. I tipi di caratteristiche visive valide comprendono: <ul><li>*celebrità* : identifica le celebrità se rilevate nell'immagine.</li><li>*punti di riferimento* : identifica i punti di riferimento se vengono rilevati nell'immagine. </li></ul> |
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input      | Description                                          |
+| Nome input      | Descrizione                                          |
 |---------------|------------------------------------------------------|
 | image         | Tipo complesso. Attualmente funziona solo con il campo "/document/normalized_images", prodotto dall'indicizzatore di BLOB di Azure quando ```imageAction``` è impostato su un valore diverso da ```none```. Per altre informazioni, vedere [esempio](#sample-output).|
 
@@ -470,20 +470,6 @@ I parametri fanno distinzione tra maiuscole e minuscole.
             ]
           }
         ],
-        "color": {
-          "dominantColorForeground": "Brown",
-          "dominantColorBackground": "Brown",
-          "dominantColors": [
-            "Brown",
-            "Black"
-          ],
-          "accentColor": "873B59",
-          "isBwImg": false
-        },
-        "imageType": {
-          "clipArtType": 0,
-          "lineDrawingType": 0
-        },
         "objects": [
           {
             "rectangle": {
@@ -517,7 +503,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="error-cases"></a>Casi di errore
 Nei seguenti casi di errore, non viene estratto nessun elemento.
 
-| Codice di errore | Description |
+| Codice di errore | Descrizione |
 |------------|-------------|
 | NotSupportedLanguage | La lingua fornita non è supportata. |
 | InvalidImageUrl | L'URL dell'immagine è formattato in modo errato o non è accessibile.|
@@ -543,7 +529,7 @@ Se viene ricevuto un errore simile a `"One or more skills are invalid. Details: 
             ]
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

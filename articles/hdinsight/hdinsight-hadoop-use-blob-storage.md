@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192626"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037250"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
@@ -25,11 +25,11 @@ Questo articolo illustra come usare Archiviazione di Azure con i cluster HDInsig
 > [!IMPORTANT]  
 > Il tipo di account di archiviazione **BlobStorage** può essere usato solo come risorsa di archiviazione secondaria per i cluster HDInsight.
 
-| Tipo di account di archiviazione | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati |
-|----------------------|--------------------|-----------------------------|------------------------|
-| Archiviazione v2 (utilizzo generico V2)  | BLOB     | Standard                    | Accesso frequente, ad accesso sporadico, archivio\*   |
-| Archiviazione (utilizzo generico V1)   | BLOB     | Standard                    | N/D                    |
-| BlobStorage                    | BLOB     | Standard                    | Accesso frequente, ad accesso sporadico, archivio\*   |
+| Tipo di account di archiviazione | Servizi supportati | Livelli di prestazioni supportati |Livelli di prestazioni non supportati| Livelli di accesso supportati |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| Archiviazione v2 (utilizzo generico V2)  | BLOB     | Standard                    |Premium| Accesso frequente, ad accesso sporadico, archivio\*   |
+| Archiviazione (utilizzo generico V1)   | BLOB     | Standard                    |Premium| N/D                    |
+| BlobStorage                    | BLOB     | Standard                    |Premium| Accesso frequente, ad accesso sporadico, archivio\*   |
 
 Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Il contenitore predefinito include log di sistema e applicazioni. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 

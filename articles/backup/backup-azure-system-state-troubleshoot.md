@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi relativi al back
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: f311de435d813cb0e6f8a2c3d932e05d695603f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583300"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969568"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
 
@@ -137,7 +137,7 @@ Se il processo ha esito negativo, indica un problema di WSB che comporterebbe un
 
 | Sintomo | Risoluzione
 | -- | --
-| -Errore dell'agente MARS con messaggio di errore: il backup non è riuscito perché non è possibile aumentare il volume della copia shadow a causa di spazio su disco insufficiente nei volumi che contengono file di sistema <br/><br/> -Il registro errori/avvisi seguente è presente nei registri eventi di sistema di VolSnap: "spazio su disco insufficiente nel volume C: per aumentare l'archiviazione delle copie shadow per le copie shadow di C: a causa di questo errore, tutte le copie shadow del volume C: rischiano di essere eliminate" | -Liberare spazio nel volume evidenziato nel registro eventi in modo che sia disponibile spazio sufficiente per la crescita delle copie shadow mentre è in corso il backup. <br/><br/> -Durante la configurazione dello spazio di copia shadow è possibile limitare la quantità di spazio usata per la copia shadow. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| -Errore dell'agente MARS con messaggio di errore: il backup non è riuscito perché non è possibile aumentare il volume della copia shadow a causa di spazio su disco insufficiente nei volumi che contengono file di sistema <br/><br/> -Il registro errori/avvisi seguente è presente nei registri eventi di sistema di VolSnap: "spazio su disco insufficiente nel volume C: per aumentare l'archiviazione delle copie shadow per le copie shadow di C: a causa di questo errore, tutte le copie shadow del volume C: rischiano di essere eliminate" | -Liberare spazio nel volume evidenziato nel registro eventi in modo che sia disponibile spazio sufficiente per la crescita delle copie shadow mentre è in corso il backup. <br/><br/> -Durante la configurazione dello spazio di copia shadow è possibile limitare la quantità di spazio usata per la copia shadow. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Partizione EFI bloccata
 

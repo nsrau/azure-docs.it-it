@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 600ca893e6d6b81fe24626a99cc1f6de80efb3e8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368261"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082682"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -51,11 +51,11 @@ Se l'app non usa NPM, è possibile instrumentare direttamente le pagine Web con 
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(n){var o={config:n,initialize:!0},t=document,e=window,i="script";setTimeout(function(){var e=t.createElement(i);e.src=n.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",t.getElementsByTagName(i)[0].parentNode.appendChild(e)});try{o.cookie=t.cookie}catch(e){}function a(n){o[n]=function(){var e=arguments;o.queue.push(function(){o[n].apply(o,e)})}}o.queue=[],o.version=2;for(var s=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];s.length;)a("track"+s.pop());var r="Track",c=r+"Page";a("start"+c),a("stop"+c);var u=r+"Event";if(a("start"+u),a("stop"+u),a("addTelemetryInitializer"),a("setAuthenticatedUserContext"),a("clearAuthenticatedUserContext"),a("flush"),o.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===n.disableExceptionTracking||n.extensionConfig&&n.extensionConfig.ApplicationInsightsAnalytics&&!0===n.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){a("_"+(s="onerror"));var p=e[s];e[s]=function(e,n,t,i,a){var r=p&&p(e,n,t,i,a);return!0!==r&&o["_"+s]({message:e,url:n,lineNumber:t,columnNumber:i,error:a}),r},n.autoExceptionInstrumented=!0}return o}(
 {
   instrumentationKey:"INSTRUMENTATION_KEY"
 }
-);window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+);(window[aiName]=aisdk).queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -95,13 +95,14 @@ appInsights.trackTrace({message: 'This message will use a telemetry initializer'
 appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this is executed
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
+
 ## <a name="configuration"></a>Configurazione
 La maggior parte dei campi di configurazione è denominata in modo che sia possibile impostarla su false. Tutti i campi sono facoltativi tranne `instrumentationKey`.
 
-| Name | Default | Descrizione |
+| Nome | Predefinito | Descrizione |
 |------|---------|-------------|
-| instrumentationKey | null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
-| accountId | null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
+| instrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
+| accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
 | sessionRenewalMs | 1,8 milioni | Una sessione viene registrata se l'utente è inattivo per questo periodo di tempo in millisecondi. Il valore predefinito è 30 minuti. |
 | sessionExpirationMs | 86,4 milioni | Una sessione viene registrata se continua per questo periodo di tempo in millisecondi. Il valore predefinito è 24 ore |
 | maxBatchSizeInBytes | 10000 | Dimensioni massime del batch di telemetria. Se un batch supera questo limite, viene immediatamente inviato e viene avviato un nuovo batch |
@@ -125,16 +126,16 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 | disableFlushOnBeforeUnload | false | Valore predefinito false. Se true, il metodo Flush non verrà chiamato quando viene attivato l'evento onBeforeUnload |
 | enableSessionStorageBuffer | true | Valore predefinito true. Se true, il buffer con tutti i dati di telemetria non inviati viene archiviato nell'archiviazione della sessione. Il buffer viene ripristinato al caricamento della pagina |
 | isCookieUseDisabled | false | Valore predefinito false. Se true, l'SDK non archivia né legge i dati dai cookie.|
-| cookieDomain | null | Dominio cookie personalizzato. Questa operazione è utile se si desidera condividere Application Insights cookie tra sottodomini. |
+| cookieDomain | Null | Dominio cookie personalizzato. Questa operazione è utile se si desidera condividere Application Insights cookie tra sottodomini. |
 | isRetryDisabled | false | Valore predefinito false. Se false, riprovare su 206 (operazione parzialmente riuscita), 408 (timeout), 429 (troppe richieste), 500 (errore interno del server), 503 (servizio non disponibile) e 0 (offline, solo se rilevato) |
 | isStorageUseDisabled | false | Se true, l'SDK non archivia né legge i dati dall'archiviazione locale e della sessione. L'impostazione predefinita è false. |
 | isBeaconApiDisabled | true | Se false, l'SDK invierà tutti i dati di telemetria usando l' [API Beacon](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Valore predefinito false. Quando la scheda è chiusa, l'SDK invierà tutti i dati di telemetria rimanenti usando l' [API Beacon](https://www.w3.org/TR/beacon) |
-| sdkExtension | null | Imposta il nome dell'estensione SDK. Sono consentiti solo caratteri alfabetici. Il nome dell'estensione viene aggiunto come prefisso al tag ' ai. Internal. sdkVersion ' (ad esempio,' ext_javascript: 2.0.0'). Il valore predefinito è Null. |
+| sdkExtension | Null | Imposta il nome dell'estensione SDK. Sono consentiti solo caratteri alfabetici. Il nome dell'estensione viene aggiunto come prefisso al tag ' ai. Internal. sdkVersion ' (ad esempio,' ext_javascript: 2.0.0'). Il valore predefinito è Null. |
 | isBrowserLinkTrackingEnabled | false | L'impostazione predefinita è false. Se true, l'SDK tiene traccia di tutte le richieste di [browser link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
-| appId | null | AppId viene utilizzato per la correlazione tra le dipendenze AJAX che si verificano sul lato client con le richieste lato server. Quando l'API Beacon è abilitata, non può essere usata automaticamente, ma può essere impostata manualmente nella configurazione. Il valore predefinito è null |
+| appId | Null | AppId viene utilizzato per la correlazione tra le dipendenze AJAX che si verificano sul lato client con le richieste lato server. Quando l'API Beacon è abilitata, non può essere usata automaticamente, ma può essere impostata manualmente nella configurazione. Il valore predefinito è null |
 | enableCorsCorrelation | false | Se true, l'SDK aggiungerà due intestazioni (' Request-ID ' è request-context ') a tutte le richieste CORS per correlare le dipendenze AJAX in uscita con le richieste corrispondenti sul lato server. Il valore predefinito è false. |
-| namePrefix | undefined | Valore facoltativo che verrà usato come nome suffisso per localStorage e il nome del cookie.
+| namePrefix | Non definito | Valore facoltativo che verrà usato come nome suffisso per localStorage e il nome del cookie.
 | enableAutoRouteTracking | false | Rilevare automaticamente le modifiche del route nelle applicazioni a pagina singola (SPA). Se true, ogni modifica della route invierà una nuova visualizzazione a Application Insights. Anche le modifiche della route hash (`example.com/foo#bar`) vengono registrate come nuove visualizzazioni di pagina.
 | enableRequestHeaderTracking | false | Se true, vengono rilevate le intestazioni della richiesta di recupero & AJAX, il valore predefinito è false.
 | enableResponseHeaderTracking | false | Se true, vengono rilevate le intestazioni di risposta della richiesta di recupero & AJAX, il valore predefinito è false.
@@ -155,7 +156,7 @@ Attualmente si offre un plug-in [React](#react-extensions) separato che è possi
 
 ## <a name="explore-browserclient-side-data"></a>Esplorare i dati sul lato client e sul browser
 
-Per visualizzare i dati del browser/lato client, passare a **metriche** e aggiungere singole metriche a cui si è interessati: 
+Per visualizzare i dati del browser/lato client, passare a **metriche** e aggiungere singole metriche a cui si è interessati:
 
 ![](./media/javascript/page-view-load-time.png)
 
@@ -165,7 +166,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![](./media/javascript/browser.png)
 
-### <a name="performance"></a>Prestazioni 
+### <a name="performance"></a>Prestazioni
 
 ![](./media/javascript/performance-operations.png)
 
@@ -173,7 +174,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analytics 
+### <a name="analytics"></a>Analytics
 
 Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Con l'aggiunta di un `where` dichiarazione di `client_Type == "Browser"`, verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
  
@@ -194,7 +195,14 @@ dataset
 
 ### <a name="source-map-support"></a>Supporto della mappa di origine
 
-Il minimizzati stack dei dati di telemetria delle eccezioni può essere unminified nel portale di Azure. Tutte le integrazioni esistenti nel pannello Dettagli eccezione funzioneranno con il nuovo unminified stack. Il trascinamento della selezione della mappa di origine unminifying supporta tutti gli SDK JS esistenti e futuri (+ node. JS), pertanto non è necessario aggiornare la versione dell'SDK. Per visualizzare il stack unminified,
+Il minimizzati stack dei dati di telemetria delle eccezioni può essere unminified nel portale di Azure. Tutte le integrazioni esistenti nel pannello Dettagli eccezione funzioneranno con il nuovo unminified stack.
+
+#### <a name="link-to-blob-storage-account"></a>Collegamento all'account di archiviazione BLOB
+
+È possibile collegare la risorsa Application Insights al contenitore di archiviazione BLOB di Azure per unminify automaticamente gli stack di chiamate. Per iniziare, vedere [supporto automatico della mappa di origine](./source-map-support.md).
+
+### <a name="drag-and-drop"></a>Trascinare e rilasciare
+
 1. Selezionare un elemento di telemetria delle eccezioni nel portale di Azure per visualizzare i relativi dettagli della transazione end-to-end.
 2. Identificare i mapping di origine corrispondenti a questo stack di chiamate. La mappa di origine deve corrispondere al file di origine di un stack frame, ma con suffisso `.map`
 3. Trascinare e rilasciare i mapping di origine nello stack di chiamate nel portale di Azure ![](https://i.imgur.com/Efue9nU.gif)

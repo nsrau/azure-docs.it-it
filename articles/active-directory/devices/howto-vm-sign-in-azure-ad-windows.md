@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8fe33f78b96dbfe780c94fbddfc5c8821148279
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672599"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080093"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -152,7 +152,8 @@ Ora che è stata creata la macchina virtuale, è necessario configurare i criter
 
 > [!NOTE]
 > Per consentire a un utente di accedere alla VM tramite RDP, è necessario assegnare l'account di accesso dell'amministratore della macchina virtuale o del ruolo di accesso utente della macchina virtuale. Un utente di Azure con i ruoli proprietario o collaboratore assegnati a una macchina virtuale non dispone automaticamente dei privilegi necessari per accedere alla macchina virtuale tramite RDP. Questo consente di fornire la separazione controllata tra il set di persone che controllano le macchine virtuali e il set di persone che possono accedere alle macchine virtuali.
-' Esistono diversi modi per configurare le assegnazioni di ruolo per la macchina virtuale:
+
+È possibile configurare le assegnazioni di ruolo per la macchina virtuale in diversi modi:
 
 - Uso dell'esperienza del portale di Azure AD
 - Uso dell'esperienza Azure Cloud Shell
@@ -194,7 +195,7 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 - [Gestire l'accesso alle risorse di Azure usando RBAC e l'interfaccia della riga di comando](/azure/role-based-access-control/role-assignments-cli)
 - [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
 - [Gestire l'accesso alle risorse di Azure usando RBAC e Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
-'
+
 ## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
 
 È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso utente prima di autorizzare l'accesso alle macchine virtuali Windows in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'opzione "accesso alla macchina virtuale Windows di Azure" dall'opzione di assegnazione app Cloud o azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
@@ -363,4 +364,5 @@ Se Windows Hello for business non è stato distribuito e se questa opzione non �
 Condividi i tuoi commenti e suggerimenti su questa funzionalità di anteprima o segnala i problemi usandola nel [Forum dei commenti Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni su Azure Active Directory, vedere [che cos'è Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) '
+
+Per altre informazioni su Azure Active Directory, vedere [Informazioni su Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)

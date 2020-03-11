@@ -2,17 +2,18 @@
 title: Script di esempio di crittografia dischi di Azure
 description: Questo articolo è l'appendice per la crittografia del disco Microsoft Azure per le macchine virtuali Linux.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad0e3bbba729436c3a07f44d989a40f5349dfb3e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326357"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970518"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Script di esempio di crittografia dischi di Azure 
 
@@ -42,12 +43,12 @@ Se si ha già familiarità con i prerequisiti per Crittografia dischi di Azure, 
 La tabella seguente illustra i parametri che possono essere usati nello script di PowerShell: 
 
 
-|.|DESCRIZIONE|Obbligatorio?|
+|Parametro|Descrizione|Obbligatorio?|
 |------|------|------|
-|$resourceGroupName| Nome del gruppo di risorse a cui appartiene l'insieme di credenziali delle chiavi.  Verrà creato un nuovo gruppo di risorse con questo nome, se non esiste già.| true|
-|$keyVaultName|Nome dell'insieme di credenziali delle chiavi in cui inserire le chiavi di crittografia. Verrà creato un nuovo insieme con questo nome, se non esiste già.| true|
-|$location|Percorso dell'insieme di credenziali delle chiavi. Assicurarsi che l'insieme di credenziali delle chiavi e le macchine virtuali da crittografare si trovino nello stesso percorso. Ottenere un elenco di percorsi con `Get-AzLocation`.|true|
-|$subscriptionId|Identificatore della sottoscrizione di Azure da usare.  È possibile ottenere l'ID della sottoscrizione con `Get-AzSubscription`.|true|
+|$resourceGroupName| Nome del gruppo di risorse a cui appartiene l'insieme di credenziali delle chiavi.  Verrà creato un nuovo gruppo di risorse con questo nome, se non esiste già.| True|
+|$keyVaultName|Nome dell'insieme di credenziali delle chiavi in cui inserire le chiavi di crittografia. Verrà creato un nuovo insieme con questo nome, se non esiste già.| True|
+|$location|Percorso dell'insieme di credenziali delle chiavi. Assicurarsi che l'insieme di credenziali delle chiavi e le macchine virtuali da crittografare si trovino nello stesso percorso. Ottenere un elenco di percorsi con `Get-AzLocation`.|True|
+|$subscriptionId|Identificatore della sottoscrizione di Azure da usare.  È possibile ottenere l'ID della sottoscrizione con `Get-AzSubscription`.|True|
 |$aadAppName|Nome dell'applicazione Azure AD che verrà usata per scrivere segreti nell'insieme di credenziali delle chiavi. Viene creata una nuova applicazione con questo nome, se non esiste già. Se l'app esiste già, passare il parametro aadClientSecret allo script.|False|
 |$aadClientSecret|Segreto client dell'applicazione Azure AD che è stato creato in precedenza.|False|
 |$keyEncryptionKeyName|Nome della chiave di crittografia della chiave facoltativa nell'insieme di credenziali delle chiavi. Verrà creata una nuova chiave con questo nome, se non esiste già.|False|
@@ -85,7 +86,7 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 * (Per RHEL e CentOS) Disabilitare SELinux. Per disabilitare SELinux, vedere "4.4.2. Disabling SELinux" (4.4.2. Disabilitazione di SELinux) in [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Manuale dell'utente e dell'amministratore di SELinux) nella VM.
 * Dopo la disabilitazione di SELinux, riavviare la VM almeno una volta.
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 1. Creare una macchina virtuale usando una delle distribuzioni specificate in precedenza.
 
    Per CentOS 7.2, la crittografia del disco del sistema operativo è supportata tramite un'immagine speciale. Per usare questa immagine, specificare "7.2n" come SKU durante la creazione della VM:
@@ -370,7 +371,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   To
+   to
    ```bash
     if [ 1 ]; then
    ```

@@ -1,25 +1,17 @@
 ---
-title: Creare una macchina virtuale Linux con l'API REST di Azure
+title: Creare una VM Linux con l'API REST
 description: Informazioni su come creare una macchina virtuale Linux in Azure che usa l'autenticazione SSH e Managed Disks tramite l'API REST di Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: c1010bf4bde01920449e9252de563d79bfc61997
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036437"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970265"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
 
@@ -51,10 +43,10 @@ Oltre ai parametri `{subscription-id}` e `{resourceGroupName}`, è necessario sp
 
 Gli argomenti seguenti sono obbligatori:
 
-| Intestazione della richiesta   | DESCRIZIONE |
+| Intestazione della richiesta   | Descrizione |
 |------------------|-----------------|
 | *Content-Type:*  | Obbligatorio. Impostare su `application/json`. |
-| *Authorization:* | Obbligatorio. Impostare su un `Bearer`token di accesso[ ](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
+| *Authorization:* | Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
 
 Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Componenti di una richiesta/risposta dell'API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -62,10 +54,10 @@ Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Com
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-| Nome                       | obbligatori | digitare                                                                                | DESCRIZIONE  |
+| Nome                       | Obbligatoria | Type                                                                                | Descrizione  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | true     | stringa                                                                              | Percorso della risorsa. |
-| Nome                       |          | stringa                                                                              | Nome della macchina virtuale. |
+| posizione                   | True     | string                                                                              | Percorso della risorsa. |
+| name                       |          | string                                                                              | Nome della macchina virtuale. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Specifica le impostazioni hardware per la macchina virtuale. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Specifica le impostazioni di archiviazione per i dischi della macchina virtuale. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Specifica le impostazioni del sistema operativo per la macchina virtuale. |
@@ -136,7 +128,7 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| Nome        | digitare                                                                              | DESCRIZIONE |
+| Nome        | Type                                                                              | Descrizione |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |

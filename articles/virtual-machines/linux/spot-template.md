@@ -14,41 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 457f1008b75fe0605c0d2934f2de09937fac8d21
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 0e635fe7ce9b442a9cc8f0fdf614feef5a3a756a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162447"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082796"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Distribuire le VM spot usando un modello di Gestione risorse
 
 L'uso di [macchine virtuali con spot](spot-vms.md) consente di sfruttare la capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento, quando Azure necessita della capacità, l'infrastruttura di Azure eliminerà le VM spot. Quindi, le VM spot sono ottime per i carichi di lavoro in grado di gestire le interruzioni, ad esempio processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
-I prezzi per le VM spot sono variabili in base all'area e allo SKU. Per altre informazioni, vedere prezzi delle VM per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+I prezzi per le VM spot sono variabili in base all'area e allo SKU. Per altre informazioni, vedere prezzi delle VM per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 È possibile impostare un prezzo massimo che si è disposti a pagare, per ora, per la macchina virtuale. Il prezzo massimo per una VM spot può essere impostato in dollari USA (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.98765`sarebbe un prezzo massimo di $0,98765 USD all'ora. Se si imposta il prezzo massimo da `-1`, la macchina virtuale non verrà rimossa in base al prezzo. Il prezzo della macchina virtuale corrisponderà al prezzo corrente per spot o al prezzo di una macchina virtuale standard, che sempre è inferiore, purché siano disponibili capacità e quota. Per altre informazioni sull'impostazione del prezzo massimo, vedere [spot VM-prezzi](spot-vms.md#pricing).
 
 > [!IMPORTANT]
 > Le istanze di spot sono attualmente in anteprima pubblica.
-> Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
+## <a name="use-a-template"></a>Usare un modello
 
-
-## <a name="use-a-template"></a>Usare un modello 
-
-Per le distribuzioni di modelli di spot, usare`"apiVersion": "2019-03-01"` o versione successiva. Aggiungere le proprietà `priority`, `evictionPolicy` e `billingProfile` a nel modello: 
+Per le distribuzioni di modelli di spot, usare`"apiVersion": "2019-03-01"` o versione successiva. Aggiungere le proprietà `priority`, `evictionPolicy` e `billingProfile` a nel modello:
 
 ```json
-                "priority": "Spot",
-                "evictionPolicy": "Deallocate",
-                "billingProfile": {
-                    "maxPrice": -1
-                }
+"priority": "Spot",
+"evictionPolicy": "Deallocate",
+"billingProfile": {
+    "maxPrice": -1
+}
 ```
-
-
 
 Ecco un modello di esempio con le proprietà aggiunte per una VM spot. Sostituire i nomi delle risorse con i propri e `<password>` con una password per l'account amministratore locale nella macchina virtuale.
 
@@ -163,7 +160,7 @@ Ecco un modello di esempio con le proprietà aggiunte per una VM spot. Sostituir
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
-                }               
+                }
             }
         },
         {

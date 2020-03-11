@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5f481ebf219eea8ae31e9802144bbf771a24e8b8
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718359"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081778"
 ---
 # <a name="limits-and-quotas"></a>Limiti e quote
 
@@ -26,8 +26,8 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Progetti|2|100|
-|Immagini di training per progetto |5\.000|100.000|
-|Stime/mese|10.000 |Illimitato|
+|Immagini di training per progetto |5\.000|100,000|
+|Stime/mese|10,000 |Nessuna limitazione|
 |Tag/progetto|50|500|
 |Iterazioni |10|10|
 |Immagini con etichetta min per tag, classificazione (50 + consigliata) |5|5|
@@ -42,8 +42,8 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 |Altezza/Larghezza immagine massima in pixel|senza limiti|senza limiti|
 |Dimensioni max dell'immagine (caricamento dell'immagine di training) |6 MB|6 MB|
 |Dimensioni max dell'immagine (stima)|4 MB|4 MB|
-|Numero massimo di aree per l'immagine di training del rilevamento oggetti|200|200|
-|Numero massimo di tag per ogni immagine di classificazione|30|30|
+|Numero massimo di aree per l'immagine di training del rilevamento oggetti|300|300|
+|Numero massimo di tag per ogni immagine di classificazione|100|100|
 
 > [!NOTE]
 > Le immagini più piccole di 256 pixel verranno accettate ma ridimensionate.

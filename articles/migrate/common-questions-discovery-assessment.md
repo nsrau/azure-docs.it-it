@@ -3,12 +3,12 @@ title: Domande frequenti sull'individuazione, la valutazione e l'analisi delle d
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7733213f78452b3f35b835eec847ec837138b8e5
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: e46d1e6ee1dd404e6e040eb394e89dd86a3d4d8e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932699"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082116"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -68,6 +68,12 @@ Quando si crea una valutazione in Azure, a seconda della durata delle prestazion
 Se ad esempio si imposta la durata delle prestazioni su un giorno e il valore percentile sul 95 ° percentile, Azure Migrate Ordina i punti di campionamento di 15 minuti inviati dall'agente di raccolta per il giorno precedente in ordine crescente. Il valore del 95 ° percentile viene scelto come utilizzo effettivo.
 
 L'utilizzo del valore 95 ° percentile garantisce che gli outlier vengano ignorati. Gli outlier potrebbero essere inclusi se il Azure Migrate usa il 99 ° percentile. Per selezionare l'utilizzo di picco per il periodo senza gli outlier, impostare Azure Migrate per usare il 99 ° percentile.
+
+## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>In che modo le valutazioni basate sull'importazione sono diverse dalle valutazioni con l'origine di individuazione come appliance?
+
+Le valutazioni basate sull'importazione sono valutazioni create con computer importati in Azure Migrate usando un file CSV. Solo quattro campi sono obbligatori per l'importazione: nome del server, Core, memoria e sistema operativo. Ecco alcuni aspetti da considerare: 
+ - I criteri di conformità sono meno rigorosi nelle valutazioni basate sull'importazione sul parametro di tipo di avvio. Se il tipo di avvio non viene specificato, si presuppone che il computer disponga di un tipo di avvio BIOS e che il computer non sia contrassegnato come pronto in modo **condizionale**. Nelle valutazioni con l'origine di individuazione come appliance, la conformità è contrassegnata come **predisposta in modo condizionale** se il tipo di avvio è mancante. Questa differenza nel calcolo della conformità è dovuta al fatto che gli utenti potrebbero non disporre di tutte le informazioni sui computer nelle prime fasi della pianificazione della migrazione quando vengono eseguite le valutazioni basate sull'importazione. 
+ - Per le valutazioni di importazione basate sulle prestazioni viene utilizzato il valore di utilizzo fornito dall'utente per il dimensionamento corretto dei calcoli. Poiché il valore di utilizzo viene fornito dall'utente, le opzioni **Cronologia prestazioni** e **utilizzo percentile** sono disabilitate nelle proprietà di valutazione. Nelle valutazioni con l'origine di individuazione come appliance, il valore percentile scelto viene selezionato dai dati sulle prestazioni raccolti dal dispositivo.
 
 ## <a name="what-is-dependency-visualization"></a>Informazioni sulla visualizzazione delle dipendenze
 

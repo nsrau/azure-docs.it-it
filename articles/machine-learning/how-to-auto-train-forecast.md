@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 93695b407762766b0bdd40c9d99a0bf4965f59a8
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.date: 03/09/2020
+ms.openlocfilehash: d4e36c0d3838af85768453496a51ecd295c22b93
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328780"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081846"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ Gli Learner Time Series nativi sono forniti anche come parte del Machine Learnin
 
 La media (ARIMA) integrata in modalità autoregressiva è un metodo statistico noto per la previsione delle serie temporali. Questa tecnica di previsione viene comunemente utilizzata negli scenari di previsione a breve termine in cui i dati mostrano evidenze di tendenze quali i cicli, che possono essere imprevedibili e difficili da modellare o prevedere. Con ARIMA automatico i dati vengono trasformati in dati stazionari per ottenere risultati coerenti e affidabili.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 * Questo articolo presuppone una conoscenza di base della configurazione di un esperimento di Machine Learning automatizzato. Seguire l' [esercitazione](tutorial-auto-train-models.md) o le [procedure](how-to-configure-auto-train.md) per visualizzare i modelli di progettazione degli esperimenti automatici di base di machine learning.

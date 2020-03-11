@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 13c51f0db468c1591ca29de17f1744752589a1c8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/09/2020
+ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663746"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037534"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usare il client Apache Beeline con Apache Hive
 
@@ -54,6 +54,12 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 ```
 
 Sostituire `<username>` con il nome di un account nel dominio che disponga delle autorizzazioni per accedere al cluster. Sostituire `<AAD-DOMAIN>` con il nome del Azure Active Directory (AAD) a cui viene aggiunto il cluster. Usare una stringa maiuscola per il valore `<AAD-DOMAIN>`; in caso contrario, le credenziali non verranno trovate. Se necessario, controllare `/etc/krb5.conf` per i nomi dell'area di autenticazione.
+
+Per trovare l'URL JDBC da Ambari:
+
+1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, dove `CLUSTERNAME` è il nome del cluster. Verificare che HiveServer2 sia in esecuzione.
+
+1. Usare gli Appunti per copiare l'URL JDBC HiveServer2.
 
 ---
 
@@ -193,7 +199,7 @@ Questo esempio si basa sull'uso del client con estensione da una connessione SSH
 
     Queste istruzioni eseguono le azioni seguenti:
 
-    |Rendiconto |Descrizione |
+    |. |Descrizione |
     |---|---|
     |DROP TABLE|Se la tabella esiste, viene eliminata.|
     |CREA TABELLA ESTERNA|Crea una tabella **esterna** in hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.|
@@ -256,7 +262,7 @@ Si tratta di una continuazione dell'esempio precedente. Usare la procedura segue
 
     Queste istruzioni eseguono le azioni seguenti:
 
-    |Rendiconto |Descrizione |
+    |. |Descrizione |
     |---|---|
     |CREATE TABLE SE NON ESISTE|Se la tabella non esiste già, viene creata. Poiché non viene usata la parola chiave **External** , questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono totalmente gestite da Hive.|
     |ARCHIVIATO COME ORC|archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.|

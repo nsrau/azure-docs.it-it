@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: fc6d3bbe1580c4e6f7064c957a9d420555296231
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6c99cb15ef6874ef0efecb15eb99443904491209
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372573"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081935"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -73,12 +73,12 @@ Scaricare lo script **New-onpremisehybridworker. ps1** dal [PowerShell Gallery](
 | --------- | ------ | ----------- |
 | *AAResourceGroupName* | Obbligatorio | nome del gruppo di risorse associato all'account di Automazione. |
 | *AutomationAccountName* | Obbligatorio | nome dell'account di Automazione.
-| *Credenziali* | Facoltativa | Credenziali da utilizzare per l'accesso all'ambiente Azure. |
+| *Credenziali* | Facoltativo | Credenziali da utilizzare per l'accesso all'ambiente Azure. |
 | *HybridGroupName* | Obbligatorio | nome di un gruppo di ruoli di lavoro ibridi per runbook specificato come destinazione per i runbook che supportano questo scenario. |
-| *OMSResourceGroupName* | Facoltativa | nome del gruppo di risorse per l'area di lavoro Log Analytics. Se questo gruppo di risorse non è specificato, viene usato il valore di *AAResourceGroupName* . |
+| *OMSResourceGroupName* | Facoltativo | nome del gruppo di risorse per l'area di lavoro Log Analytics. Se questo gruppo di risorse non è specificato, viene usato il valore di *AAResourceGroupName* . |
 | *SubscriptionID* | Obbligatorio | Identificatore della sottoscrizione di Azure associata all'account di automazione. |
-| *TenantID* | Facoltativa | Identificatore dell'organizzazione tenant associato all'account di automazione. |
-| *WorkspaceName* | Facoltativa | Nome dell'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, lo script ne crea e configura una. |
+| *TenantID* | Facoltativo | Identificatore dell'organizzazione tenant associato all'account di automazione. |
+| *WorkspaceName* | Facoltativo | Nome dell'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, lo script ne crea e configura una. |
 
 > [!NOTE]
 > Quando si abilitano le soluzioni, automazione di Azure supporta solo determinate aree per collegare un'area di lavoro Log Analytics e un account di automazione. Per un elenco delle coppie di mapping supportate, vedere [mapping delle aree per l'account di automazione e l'area di lavoro log Analytics](how-to/region-mappings.md).
@@ -139,7 +139,13 @@ Heartbeat
 | where TimeGenerated > ago(30m)
 ```
 
-Nei risultati della ricerca verranno visualizzati i record heartbeat per il computer, a indicare che sono connessi e segnalati al servizio. Per impostazione predefinita, ogni agente trasmette un record heartbeat all'area di lavoro assegnata. È possibile verificare che l'agente abbia scaricato correttamente la soluzione di automazione quando dispone di una cartella denominata **AzureAutomationFiles** in **C:\Programmi\Microsoft Monitoring Agent\Agent**. Per verificare la versione del ruolo di lavoro ibrido per Runbook, passare a **C:\Programmi\Microsoft Monitoring Agent\Agent\AzureAutomation** e prendere nota della sottocartella **Version** .
+Nei risultati della ricerca verranno visualizzati i record heartbeat per il computer, a indicare che sono connessi e segnalati al servizio. Per impostazione predefinita, ogni agente trasmette un record heartbeat all'area di lavoro assegnata. 
+
+Per completare l'installazione e l'installazione dell'agente, attenersi alla procedura riportata di seguito.
+
+1. Abilitare la soluzione per l'onboarding del computer agente. Vedere caricare [i computer nell'area di lavoro](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
+2. Verificare che l'agente abbia scaricato correttamente la soluzione di automazione. Deve avere una cartella denominata **AzureAutomationFiles** in **C:\Programmi\Microsoft Monitoring Agent\Agent**. 
+3. Per verificare la versione del ruolo di lavoro ibrido per Runbook, passare a **C:\Programmi\Microsoft Monitoring Agent\Agent\AzureAutomation** e prendere nota della sottocartella **Version** .
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>Passaggio 4: installare l'ambiente Runbook e connettersi ad automazione di Azure
 

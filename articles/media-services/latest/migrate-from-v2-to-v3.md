@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/28/2020
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 2a670c7bce113de8854b33e407c7de2236edd794
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: ffbac18b3172dd0cd3d430bae5060be0a8d1bb21
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393494"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082319"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -31,7 +31,7 @@ Questo articolo descrive le modifiche introdotte in Servizi multimediali di Azur
 In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi multimediali v2](../previous/media-services-overview.md), è necessario rivedere le linee guida e considerazioni seguenti prima della migrazione alle API v3. L'API v3 include numerosi vantaggi e nuove funzionalità che migliorano l'esperienza di sviluppo e le funzionalità di Servizi multimediali. Tuttavia, come definito nella sezione [Problemi noti](#known-issues) di questo articolo, esistono anche alcune limitazioni causate da differenze tra le versioni delle API. Questa pagina viene aggiornata man mano che il team di Servizi multimediali apporta costanti miglioramenti alle API v3 e colma le lacune tra le versioni. 
 
 > [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli](live-events-outputs-concept.md) [Asset](assets-concept.md)V3, visualizzare (non gestire) v3, ottenere informazioni sull'accesso alle API. Per altri dettagli, vedere [domande frequenti](frequently-asked-questions.md#can-i-use-the-azure-portal-to-manage-v3-resources). 
 
 ## <a name="benefits-of-media-services-v3"></a>Vantaggi di Servizi multimediali v3
   
@@ -131,7 +131,13 @@ La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per s
 
 ## <a name="known-issues"></a>Problemi noti
 
-* Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-sdk), l'interfaccia della riga di comando o uno degli SDK supportati.
+*  Attualmente, è possibile utilizzare il [portale di Azure](https://portal.azure.com/) per:
+
+    * gestione [degli eventi live](live-events-outputs-concept.md)di servizi multimediali V3 
+    * visualizzare (non gestire) gli [Asset](assets-concept.md)V3, 
+    * [ottenere informazioni sull'accesso alle API](access-api-portal.md). 
+
+Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md)), usare l' [API REST](https://aka.ms/ams-v3-rest-ref), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
 * È necessario effettuare il provisioning di unità riservate di codifica nell'account per controllare la concorrenza e le prestazioni dei processi, in particolare quelli che includono l'analisi audio o video. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). È possibile gestire le unità riservate di codifica usando l'[interfaccia della riga di comando 2.0 per Servizi multimediali v3](media-reserved-units-cli-how-to.md), il [portale di Azure](../previous/media-services-portal-scale-media-processing.md) o le [API v2](../previous/media-services-dotnet-encoding-units.md). È necessario effettuare il provisioning delle unità riservate di codifica, indipendentemente dall'uso di Servizi multimediali v2 o delle API v3.
 * Le entità di Servizi multimediali create con l'API v3 non possono essere gestite dall'API v2.  
 * Non tutte le entità nell'API v2 vengono visualizzate automaticamente nell'API V3.  Di seguito sono riportati esempi di entità nelle due versioni incompatibili:  

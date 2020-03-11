@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: iainfou
-ms.openlocfilehash: 86097a8706956a768def107dd312c9a20c63c6ff
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 14b3292a08e9bb0a60710053cd0b7ffc9d0db115
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378444"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082341"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: creare e configurare un'istanza di Azure Active Directory Domain Services
 
@@ -136,7 +136,7 @@ Con la distribuzione di Azure AD DS completata, è ora possibile configurare la 
 
 1. La scheda **Panoramica** per il dominio gestito mostra alcuni **passaggi di configurazione necessari**. Il primo passaggio di configurazione consiste nell'aggiornare le impostazioni del server DNS per la rete virtuale. Una volta configurate correttamente le impostazioni DNS, questo passaggio non viene più visualizzato.
 
-    Gli indirizzi elencati sono i controller di dominio da usare nella rete virtuale. In questo esempio gli indirizzi sono *10.1.0.4* e *10.1.0.5*. In seguito questi indirizzi IP si possono trovare nella scheda **Proprietà**.
+    Gli indirizzi elencati sono i controller di dominio da usare nella rete virtuale. In questo esempio, gli indirizzi sono *10.0.1.4* e *10.0.1.5*. In seguito questi indirizzi IP si possono trovare nella scheda **Proprietà**.
 
     ![Configurare le impostazioni DNS per la rete virtuale con gli indirizzi IP di Azure AD Domain Services](./media/tutorial-create-instance/configure-dns.png)
 

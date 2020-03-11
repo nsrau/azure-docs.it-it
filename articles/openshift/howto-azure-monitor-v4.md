@@ -6,21 +6,24 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.openlocfilehash: 1a372ef12ef7b0afb06ed3c540daaee5e38c3374
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a784fc070400995c56d16a3bc264d589bcb1f64e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899165"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082847"
 ---
 # <a name="azure-monitor-integration-for-azure-red-hat-openshift-43"></a>Integrazione di monitoraggio di Azure per Azure Red Hat OpenShift 4,3
 
-> [!IMPORTANT]
-> Azure Red Hat OpenShift 4,3 è disponibile in versione di anteprima. Le funzionalità di anteprima sono self-service e vengono fornite così come sono e sono disponibili e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Pertanto, le funzionalità non sono destinate all'uso in produzione. 
+> [!IMPORTANT] 
+> Si noti che Azure Red Hat OpenShift 4,3 è attualmente disponibile solo in anteprima privata negli Stati Uniti orientali. L'accettazione dell'anteprima privata è riservata a un invito. Assicurarsi di registrare la sottoscrizione prima di provare ad abilitare questa funzionalità: registrazione dell' [Anteprima privata di Azure Red Hat OpenShift](https://aka.ms/aro-preview-register)
+
+> [!NOTE]
+> Le funzionalità di anteprima sono self-service e vengono fornite così come sono e sono disponibili e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Pertanto, le funzionalità non sono destinate all'uso in produzione.
 
 Questo articolo descrive come abilitare l'anteprima privata di monitoraggio di Azure per i contenitori per i cluster OpenShift 4,3 ospitati in locale o in qualsiasi ambiente cloud. Le stesse istruzioni si applicano anche per abilitare il monitoraggio per i cluster Azure Red Hat OpenShift (ARO) 4,3.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Helm 3](https://helm.sh/docs/intro/install/)
@@ -51,7 +54,7 @@ Eseguire lo script seguente con azureSubscriptionId, l'area dell'area di lavoro,
 bash onboarding_azuremonitor_for_containers.sh <azureSubscriptionId> <azureRegionforLogAnalyticsWorkspace> <clusterName> <kubeconfigContextNameOftheCluster>
 ```
 
-Ad esempio,
+Ad esempio:
 
 ```bash
  bash onboarding_azuremonitor_for_containers.sh 27ac26cf-a9f0-4908-b300-9a4e9a0fb205 eastus myocp42 admin 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396522"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967862"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -105,7 +105,7 @@ L'hub IoT applica altri limiti operativi:
 | Messaggistica da cloud a dispositivo<sup>1</sup> | La dimensione massima dei messaggi è 64 KB. Il numero massimo di messaggi in sospeso per il recapito è 50 per ogni dispositivo. |
 | Metodo diretto<sup>1</sup> | La dimensione massima del payload del metodo diretto è 128 KB. |
 | Configurazioni automatiche di dispositivi e moduli<sup>1</sup> | 100 configurazioni per hub SKU a pagamento. 20 configurazioni per hub SKU gratuito. |
-| IoT Edge le distribuzioni automatiche<sup>1</sup> | 20 moduli per distribuzione. 100 distribuzioni (incluse le distribuzioni su più livelli) per hub SKU a pagamento. 10 distribuzioni per hub SKU gratuito. |
+| IoT Edge le distribuzioni automatiche<sup>1</sup> | 50 moduli per distribuzione. 100 distribuzioni (incluse le distribuzioni su più livelli) per hub SKU a pagamento. 10 distribuzioni per hub SKU gratuito. |
 | Dispositivi gemelli<sup>1</sup> | Le sezioni dimensioni massime delle proprietà desiderate e delle proprietà segnalate sono 32 KB ognuna. La dimensione massima della sezione dei tag è 8 KB. |
 | Criteri di accesso condivisi | Il numero massimo di criteri di accesso condiviso è 16 |
 

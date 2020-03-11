@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3e25f55d82ba146f9076e38faf1e399c5228d947
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048697"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080387"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -150,6 +150,7 @@ I tipici errori di individuazione delle app sono riepilogati nella tabella.
 10004: "Impossibile individuare le applicazioni installate per < macchine > Windows/Linux". |  Le credenziali per l'accesso < macchine > Windows/Linux non sono state fornite nell'appliance.| Aggiungere una credenziale al dispositivo che ha accesso ai computer > < Windows/Linux.
 10005: "Impossibile accedere al server locale". | Le credenziali di accesso potrebbero essere errate. | Aggiornare le credenziali dell'appliance per assicurarsi di poter accedere al computer pertinente. 
 10006: "Impossibile accedere al server locale". | Questo problema può verificarsi se il sistema operativo del computer non è Windows o Linux.|  Usare solo l'individuazione delle app per Windows/Linux.
+10007: "Impossibile elaborare i metadati recuperati" | Si è verificato un errore interno durante il tentativo di deserializzare JSON | Contattare supporto tecnico Microsoft per una risoluzione
 9000/9001/9002: "Impossibile individuare le applicazioni installate nel server". | È possibile che gli strumenti VMware non siano installati o siano danneggiati. | Installare o reinstallare gli strumenti VMware nel computer pertinente e verificare che sia in esecuzione.
 9003: Impossibile individuare le applicazioni installate nel server ". | Questo problema può verificarsi se il sistema operativo del computer non è Windows o Linux. | Usare solo l'individuazione delle app per Windows/Linux.
 9004: "Impossibile individuare le applicazioni installate nel server". | Questo problema può verificarsi se la macchina virtuale è spenta. | Per l'individuazione, verificare che la macchina virtuale sia attiva.
@@ -158,9 +159,21 @@ I tipici errori di individuazione delle app sono riepilogati nella tabella.
 9008: "Impossibile recuperare le applicazioni installate nel server". | Potrebbe trattarsi di un errore interno.  | TF il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
 9009: "Impossibile recuperare le applicazioni installate nel server". | Può verificarsi se le impostazioni di controllo dell'account utente di Windows nel server sono restrittive e impedire l'individuazione delle applicazioni installate. | Cercare le impostazioni di controllo dell'account utente nel server e configurare l'impostazione UAC sul server su uno dei due livelli inferiori.
 9010: "Impossibile recuperare le applicazioni installate nel server". | Potrebbe trattarsi di un errore interno.  | TF il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
+9011: "il file da scaricare dal Guest non è stato trovato nella macchina virtuale guest" | Il problema può verificarsi a causa di un errore interno. | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+9012: "il contenuto del file di risultati è vuoto". | Il problema può verificarsi a causa di un errore interno. | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+9013: "viene creato un nuovo profilo temporaneo per ogni accesso alla macchina virtuale VMware" | Viene creato un nuovo profilo temporaneo per ogni accesso alla macchina virtuale | Verificare che il nome utente specificato nelle credenziali della macchina virtuale Guest sia in formato UPN.
+9015: "non è possibile connettersi alle macchine virtuali VMware a causa di privilegi insufficienti in vCenter" | Il ruolo operazioni Guest non è abilitato nell'account utente di vCenter | Verificare che il ruolo operazioni Guest sia abilitato nell'account utente di vCenter.
+9016: "non è possibile connettersi alle macchine virtuali VMware perché l'agente operativo guest è esterno ai dati" | Gli strumenti VMware non sono installati correttamente o non sono aggiornati. | Verificare che gli strumenti VMware siano installati correttamente e aggiornati.
+9017: "il file con metadati individuati non è stato trovato nella macchina virtuale". | Il problema può verificarsi a causa di un errore interno. | Contattare supporto tecnico Microsoft per una risoluzione.
+9018: "PowerShell non è installato nelle macchine virtuali guest". | PowerShell non è disponibile nella macchina virtuale guest. | Installare PowerShell nella macchina virtuale guest.
+9019: "Impossibile individuare a causa di errori dell'operazione della macchina virtuale guest" | L'operazione guest VMware non è riuscita nella macchina virtuale. | Verificare che le credenziali della macchina virtuale siano valide e che il nome utente specificato nelle credenziali della macchina virtuale Guest sia in formato UPN.
+9020: "autorizzazione per la creazione di file negata". | Il ruolo associato all'utente o i criteri di gruppo limitano l'utente a creare il file nella cartella | Controllare se l'utente Guest specificato dispone dell'autorizzazione Crea per il file nella cartella. Vedere **notifiche** in server assessment per il nome della cartella.
+9021: "autorizzazione Creazione file negata nel percorso temporaneo di sistema cartella". | La versione dello strumento VMware nella macchina virtuale non è supportata | Aggiornare la versione dello strumento VMware precedente a 10.2.0.
+9022: "ottenere l'accesso a un oggetto WMI negato". | Il ruolo associato all'utente o i criteri di gruppo limitano l'accesso dell'utente all'oggetto WMI. | Contattare il supporto tecnico Microsoft.
+9023: "il valore della variabile di ambiente SystemRoot è vuoto". | Non noto | Contattare il supporto tecnico Microsoft.
+9024: "il valore della variabile di ambiente TEMP è vuoto". | Non noto | Contattare il supporto tecnico Microsoft.
+9025: "PowerShell è danneggiato nelle VM guest". | Non noto | Reinstallare PowerShell nella macchina virtuale guest e verificare se PowerShell può essere eseguito nella macchina virtuale guest.
 8084: "Impossibile individuare le applicazioni a causa di un errore VMware: <Exception from VMware>" | Il Azure Migrate Appliance usa le API VMware per individuare le applicazioni. Questo problema può verificarsi se un'eccezione viene generata da server vCenter durante il tentativo di individuazione delle applicazioni. Il messaggio di errore di VMware viene visualizzato nel messaggio di errore visualizzato nel portale. | Cercare il messaggio nella documentazione di [VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e seguire i passaggi da eseguire per risolvere il problema. Se non è possibile risolvere il problema, contattare il supporto tecnico Microsoft.
-9012: "Impossibile individuare le applicazioni installate nel server" | Il problema può verificarsi a causa di un errore interno.  | Se il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
-9013: "Impossibile individuare le applicazioni installate nel server" | Un nuovo profilo temporaneo viene creato ogni volta che si accede alla macchina virtuale.  | Verificare che non sia stato creato un profilo temporaneo per l'utente Guest specificato.
 
 
 

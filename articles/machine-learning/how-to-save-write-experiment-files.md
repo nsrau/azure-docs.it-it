@@ -11,13 +11,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 197e93946a52303f312912e4ebd2487f8c1360b2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 03/10/2020
+ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536733"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078428"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dove salvare e scrivere file per esperimenti di Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ Quando si avvia l'esecuzione del training in una [destinazione di calcolo](how-t
 
 Prima di poter avviare un esperimento in una destinazione di calcolo o nel computer locale, è necessario assicurarsi che i file necessari siano disponibili per la destinazione di calcolo, ad esempio file di dipendenza e file di dati di cui è necessario eseguire il codice.
 
-Azure Machine Learning esegue gli script di training copiando l'intera cartella di script nel contesto di calcolo di destinazione e quindi crea uno snapshot. Il limite di archiviazione di snapshot dell'esperimento è 300 MB e/o 2000 file.
+Azure Machine Learning esegue gli script di training copiando l'intera cartella di script nel contesto di calcolo di destinazione e quindi crea uno snapshot. Il limite di archiviazione per gli snapshot dell'esperimento è di 300 MB e/o 2000 file.
 
 Per questo motivo, è consigliabile:
 

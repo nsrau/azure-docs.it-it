@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: b366262ce7849658eb84444d873956c25ab38804
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: af7bfe74d8df177650cea76a9bed7b0d7311f87e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78244652"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968989"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -33,7 +33,7 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 Questo articolo fornisce una panoramica e informazioni aggiuntive sullo streaming live con servizi multimediali e collegamenti ad altri articoli pertinenti.
  
 > [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare le [risorse](assets-concept.md)V3, ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione (ad esempio, trasformazioni e processi), usare l' [API REST](https://aka.ms/ams-v3-rest-ref), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
 
 ## <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
@@ -125,5 +125,6 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Avvio rapido streaming live] (live-events-wirecast-quickstart.md (
 * [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)
 * [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md)

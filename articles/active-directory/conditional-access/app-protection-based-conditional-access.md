@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d8cdb32e04f9ba1274291430ac230107f3150c6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298378"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080069"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere i criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con accesso condizionale
 
@@ -30,6 +30,9 @@ Questo articolo presenta due scenari per configurare i criteri di accesso condiz
 Nell'accesso condizionale queste app client sono note come protette con i criteri di protezione delle app. Altre informazioni sui criteri di protezione delle app sono disponibili nell'articolo [Panoramica dei criteri di protezione delle app](/intune/apps/app-protection-policy)
 
 Per un elenco delle app client idonee, vedere [requisito dei criteri di protezione delle app](concept-conditional-access-grant.md).
+
+> [!NOTE]
+>    La clausola OR viene usata all'interno del criterio per consentire agli utenti di usare le app che supportano i **criteri di protezione delle app require** o **Require client approvati** . Per altre informazioni sulle app che supportano il controllo Richiedi concessione dei **criteri di protezione delle app** , vedere Requisiti per i criteri di protezione delle [app](concept-conditional-access-grant.md).
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 1: le app di Office 365 richiedono app approvate con i criteri di protezione delle app
 
@@ -56,7 +59,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organ
 1. In **controlli di accesso** > **concedere**Selezionare le opzioni seguenti:
    - **Richiedi app client approvata**
    - **Richiedi i criteri di protezione delle app (anteprima)**
-   - **Richiedi tutti i controlli selezionati**
+   - **Richiedi uno dei controlli selezionati**
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -75,7 +78,7 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
    1. **App client (anteprima)** :
       1. Impostare **Configura** su **Sì**.
       1. Selezionare **app per dispositivi mobili e client desktop** e **client di Exchange ActiveSync**.
-1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
+1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi criteri di protezione delle app**e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -108,7 +111,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei cli
 1. In **controlli di accesso** > **concedere**Selezionare le opzioni seguenti:
    - **Richiedi app client approvata**
    - **Richiedi i criteri di protezione delle app (anteprima)**
-   - **Richiedi tutti i controlli selezionati**
+   - **Richiedi uno dei controlli selezionati**
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -125,7 +128,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei cli
    1. **App client (anteprima)** :
       1. Impostare **Configura** su **Sì**.
       1. Selezionare **app per dispositivi mobili e client desktop** e **client di Exchange ActiveSync**.
-1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
+1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi criteri di protezione delle app**e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 

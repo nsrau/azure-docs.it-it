@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903498"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970107"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB
 
@@ -23,7 +23,7 @@ Questo articolo illustra come impostare e gestire i criteri di immutabilità e l
 
 ## <a name="set-retention-policies-and-legal-holds"></a>Impostare i criteri di conservazione e le esenzioni legali
 
-### <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Creare un nuovo contenitore o selezionare un contenitore esistente per archiviare i BLOB che devono essere mantenuti nello stato non modificabile. Il contenitore deve trovarsi in un account di archiviazione BLOB o V2 per utilizzo generico.
 
@@ -59,11 +59,11 @@ Questo articolo illustra come impostare e gestire i criteri di immutabilità e l
 
 9. Per cancellare una tenuta legale, rimuovere il tag dell'identificatore di esenzione legale applicato.
 
-### <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 La funzionalità è inclusa nei gruppi di comandi seguenti: `az storage container immutability-policy` e `az storage container legal-hold`. Eseguire `-h` per visualizzare i comandi.
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -116,10 +116,10 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -Name $container -Tag <tag3>
 ```
 
-Creare o aggiornare i criteri di immutabilità:
+Crea o aggiorna i criteri di immutabilità basati sul tempo:
 
 ```powershell
-# Create an immutablity policy
+# Create a time-based immutablity policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -168,17 +168,23 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ## <a name="enabling-allow-protected-append-blobs-writes"></a>Abilitazione di scritture di BLOB Accodamento protetto
 
-A questo punto, è possibile accedere solo all'impostazione `allowProtectedAppendWrites` per i criteri di conservazione basati sul tempo tramite questo [collegamento del portale](https://aka.ms/immutableappendblobs)specifico. 
-
-> [!IMPORTANT] 
->  L'impostazione Consenti le scritture dei BLOB con aggiunta protetta nel periodo di conservazione basato sul tempo è attualmente disponibile e visibile solo nelle aree seguenti:
-> - Stati Uniti orientali
-> - Stati Uniti centro-meridionali
-> - Stati Uniti occidentali 2
->
-> Per altre informazioni, vedere [Consenti scritture di BLOB di Accodamento protette](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 ![Consenti scritture di Accodamento aggiuntive](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+La funzionalità è inclusa nei gruppi di comandi seguenti: `az storage container immutability-policy` e `az storage container legal-hold`. Eseguire `-h` per visualizzare i comandi.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```powershell
+# Create an immutablity policy with appends allowed
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
+```
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

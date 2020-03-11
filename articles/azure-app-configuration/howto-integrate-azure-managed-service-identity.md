@@ -7,12 +7,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 957fef32702f35b4b509d829eba6a41914c4fc53
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: ff69262a89d8112419ffe62cd391d003cb21adc1
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205858"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967622"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrazione con Identità gestite di Azure
 
@@ -33,7 +33,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Configurare l'app in modo da usare un'identità gestita per connettersi a Configurazione app.
 > * Facoltativamente, configurare l'app per l'uso di un'identità gestita quando ci si connette a Key Vault tramite una configurazione dell'app Key Vault riferimento.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione, sono necessari:
 
@@ -239,8 +239,6 @@ Passare all'app Web usando un browser per verificare che il contenuto sia stato 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
-
-![App in esecuzione nel servizio app](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 ## <a name="use-managed-identity-in-other-languages"></a>Usare l'identità gestita in altri linguaggi
 

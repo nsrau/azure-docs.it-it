@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c0b0c6ec68c818f107c7e3e3241e4acc0edb7
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: d00a8b84477226b68913f95c5121bbbdfc2eb09d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671731"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082259"
 ---
-# <a name="enable-on-premises-azure-active-password-protection"></a>Abilitare la protezione di Azure Active password locale
+# <a name="enable-on-premises-azure-active-directory-password-protection"></a>Abilitare la protezione Azure Active Directory password locale
 
 Spesso gli utenti creano password che usano parole locali comuni, ad esempio una scuola, un team sportivo o una persona famosa. Queste password sono facili da indovinare e vulnerabili dagli attacchi basati su dizionario. Per applicare password complesse nell'organizzazione, la protezione con password Azure Active Directory (Azure AD) fornisce un elenco di password vietate globali e personalizzate. Una richiesta di modifica della password ha esito negativo se è presente una corrispondenza nell'elenco delle password escluse.
 

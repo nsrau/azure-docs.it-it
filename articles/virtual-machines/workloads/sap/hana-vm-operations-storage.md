@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661295"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080309"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -107,7 +107,7 @@ Le raccomandazioni spesso superano i requisiti minimi di SAP come indicato in pr
 
 **Raccomandazione: le configurazioni consigliate per gli scenari di produzione sono simili alle seguenti:**
 
-| SKU di VM | RAM | Max velocità effettiva<br /> Velocità effettiva | /hana/data | /hana/log | /hana/shared | volume /root | /usr/sap | hana/backup |
+| SKU di VM | RAM | Max. velocità effettiva<br /> Velocità effettiva | /hana/data | /hana/log | /hana/shared | volume /root | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | M32ts | 192 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
@@ -149,7 +149,7 @@ La tabella seguente illustra una configurazione dei tipi di VM che i clienti usa
 
 Le raccomandazioni spesso superano i requisiti minimi di SAP come indicato in precedenza in questo articolo. Le raccomandazioni elencate costituiscono un compromesso tra le raccomandazioni relative alle dimensioni di SAP e la velocità effettiva massima di archiviazione fornita dai diversi tipi di VM.
 
-| SKU di VM | RAM | Max velocità effettiva<br /> Velocità effettiva | /hana/data and /hana/log<br /> con striping con LVM o MDADM | /hana/shared | volume /root | /usr/sap | hana/backup |
+| SKU di VM | RAM | Max. velocità effettiva<br /> Velocità effettiva | /hana/data and /hana/log<br /> con striping con LVM o MDADM | /hana/shared | volume /root | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
@@ -199,7 +199,7 @@ In questa configurazione i volumi/Hana/data e/Hana/log vengono conservati separa
 
 Le raccomandazioni spesso superano i requisiti minimi di SAP come indicato in precedenza in questo articolo. Le raccomandazioni elencate costituiscono un compromesso tra le raccomandazioni relative alle dimensioni di SAP e la velocità effettiva massima di archiviazione fornita dai diversi tipi di VM.
 
-| SKU di VM | RAM | Max velocità effettiva<br /> Velocità effettiva | volume/Hana/data | velocità effettiva di I/O/Hana/data | IOPS/Hana/data | volume/Hana/log | velocità effettiva di I/O/Hana/log | IOPS/Hana/log |
+| SKU di VM | RAM | Max. velocità effettiva<br /> Velocità effettiva | volume/Hana/data | velocità effettiva di I/O/Hana/data | IOPS/Hana/data | volume/Hana/log | velocità effettiva di I/O/Hana/log | IOPS/Hana/log |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E64s_v3 | 432 GiB | 1\.200 MB/s | 600 GB | 700 MBps | 7\.500 | 512 GB | 500 MBps  | 2\.000 |
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7\.500 | 256 GB | 250 MBps  | 2\.000 |
@@ -224,7 +224,7 @@ In questa configurazione, i volumi/Hana/data e/Hana/log sullo stesso disco. I va
 
 Le raccomandazioni spesso superano i requisiti minimi di SAP come indicato in precedenza in questo articolo. Le raccomandazioni elencate costituiscono un compromesso tra le raccomandazioni relative alle dimensioni di SAP e la velocità effettiva massima di archiviazione fornita dai diversi tipi di VM.
 
-| SKU di VM | RAM | Max velocità effettiva<br /> Velocità effettiva | Volume per/Hana/data e/log | /Hana/data e velocità effettiva di I/O del log | /Hana/data e IOPS log |
+| SKU di VM | RAM | Max. velocità effettiva<br /> Velocità effettiva | Volume per/Hana/data e/log | /Hana/data e velocità effettiva di I/O del log | /Hana/data e IOPS log |
 | --- | --- | --- | --- | --- | --- |
 | E64s_v3 | 432 GiB | 1\.200 MB/s | 1\.200 GB | 1\.200 MBps | 9\.500 | 
 | M32ts | 192 GiB | 500 MB/s | 512 GB | 400 MBps | 9\.500 | 
@@ -279,6 +279,9 @@ Quando si progetta l'infrastruttura per SAP in Azure, è necessario conoscere al
 I [limiti di velocità effettiva Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TIB della quota del volume sono:
 - Livello di archiviazione Premium-64 MiB/s  
 - Livello di archiviazione Ultra-128 MiB/s  
+
+> [!IMPORTANT]
+> Indipendentemente dalla capacità che si distribuisce in un singolo volume NFS, la velocità effettiva è prevista per un livello di scalabilità compreso tra 1.2 e 1,4 GB/sec, sfruttato da un consumer in una macchina virtuale. Questa operazione deve essere eseguita con l'architettura sottostante dell'offerta e e con i limiti della sessione Linux correlati intorno a NFS. I numeri di prestazioni e velocità effettiva, come documentato nell'articolo [risultati dei test di benchmark delle prestazioni per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) sono stati eseguiti su un volume NFS condiviso con più macchine virtuali client e come risultato con più sessioni. Questo scenario è diverso dallo scenario misurato in SAP. Dove misuriamo la velocità effettiva da una singola macchina virtuale a un volume NFS. ospitata in e.
 
 Per soddisfare i requisiti di velocità effettiva minima SAP per dati e log e in base alle linee guida per `/hana/shared`, le dimensioni consigliate sono le seguenti:
 
