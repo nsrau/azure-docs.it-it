@@ -2,22 +2,29 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/20/2019
+ms.date: 03/09/2020
 ms.author: tamram
-ms.openlocfilehash: 5ab03b682dd0ed1dc7b198e89c86e7a74c6275cd
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
-ms.translationtype: MT
+ms.openlocfilehash: 27617da97ced9ac775beae71e4c25202944b2aba
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67457397"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78941028"
 ---
+La tabella seguente descrive i limiti di capacità, scalabilità e prestazioni per l'archiviazione tabelle.
+
 | Risorsa | Destinazione |
 |----------|---------------|
+| Numero di tabelle in un account di archiviazione di Azure | Limitato solo dalla capacità dell'account di archiviazione |
+| Numero di partizioni in una tabella | Limitato solo dalla capacità dell'account di archiviazione |
+| Numero di entità in una partizione | Limitato solo dalla capacità dell'account di archiviazione |
 | Dimensioni massime di una singola tabella | 500 TiB |
-| Dimensioni massime di un'entità di tabella | 1 MiB |
-| Numero massimo di proprietà in un'entità di tabella | 255, che include tre proprietà di sistema: PartitionKey, RowKey e timestamp |
-| Dimensioni totali massime dei valori delle proprietà in un'entità | 1 MiB |
-| Dimensioni totali massime di una singola proprietà in un'entità | Varia in base al tipo di proprietà. Per ulteriori informazioni, vedere la pagina relativa ai **tipi di proprietà** in [informazioni sul modello di dati del servizio tabelle](/rest/api/storageservices/understanding-the-table-service-data-model). |
-| Numero massimo di criteri di accesso archiviati per tabella | 5 |
-| Frequenza massima di richieste per account di archiviazione | 20.000 transazioni al secondo, che presuppone una dimensione dell'entità di 1 KiB |
-| Velocità effettiva di destinazione per una singola partizione di tabella (1 KiB-entità) | Fino a 2.000 entità al secondo |
+| Dimensioni massime di una singola entità, inclusi tutti i valori delle proprietà | 1 MiB |
+| Numero massimo di proprietà di un'entità di tabella | 255 (incluse 3 proprietà di sistema: **PartitionKey**, **RowKey** e **Timestamp**) |
+| Dimensioni massime totali di una singola proprietà in un'entità | Varia in base al tipo di proprietà. Per altre informazioni, vedere **Tipi di proprietà** in [Informazioni sul modello di dati del servizio tabelle](/rest/api/storageservices/understanding-the-table-service-data-model). |
+| Dimensioni di **PartitionKey** | Una stringa di dimensioni fino a 1 KiB |
+| Dimensioni di **RowKey** | Una stringa di dimensioni fino a 1 KiB |
+| Dimensioni di una transazione di gruppi di entità | Una transazione può includere al massimo 100 entità e le dimensioni del payload devono essere inferiori a 4 MiB. Una transazione di gruppi di entità può includere un aggiornamento di un'entità una sola volta. |
+| Numero massimo di criteri di accesso archiviati per ogni tabella | 5 |
+| Frequenza massima di richieste per account di archiviazione | 20.000 transazioni al secondo, supponendo una dimensione delle entità di 1 KiB |
+| Velocità effettiva da raggiungere per partizione di tabella singola (entità di 1 KiB) | Fino a 2.000 entità al secondo |

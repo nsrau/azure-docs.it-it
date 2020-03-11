@@ -223,6 +223,9 @@
       href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Linguaggio di query di Analisi di flusso
   items:
+    - name: Panoramica del linguaggio di query di Analisi di flusso
+      href: /stream-analytics-query/stream-analytics-query-language-reference
+      maintainContext: true
     - name: Funzioni predefinite
       items:
         - name: Panoramica delle funzioni predefinite
@@ -391,7 +394,7 @@
             - name: Panoramica delle funzioni matematiche
               href: /stream-analytics-query/mathematical-functions-azure-stream-analytics
               maintainContext: true
-            - name: abs
+            - name: ABS
               href: /stream-analytics-query/abs-azure-stream-analytics
               maintainContext: true
             - name: CEILING
@@ -437,7 +440,7 @@
             - name: CHARINDEX
               href: /stream-analytics-query/charindex-azure-stream-analytics
               maintainContext: true
-            - name: CONCATENA
+            - name: CONCAT
               href: /stream-analytics-query/concat-azure-stream-analytics
               maintainContext: true
             - name: LEN
