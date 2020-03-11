@@ -1,16 +1,16 @@
 ---
-title: Risoluzione dei problemi
+title: risoluzione dei problemi
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Informazioni su come risolvere i problemi comuni durante l'abilitazione e l'uso di Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: fdb0d8afa55f87ae61213b189e9e24ec63bfcfb8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251115"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946108"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Risoluzione dei problemi di Azure Dev Spaces
 
@@ -52,13 +52,13 @@ Per ricreare il controller è possibile usare l'interfaccia della riga di comand
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Creazione del controller non riuscita a causa della lunghezza del nome del controller
 
-Il nome di un controller di Azure Dev Spaces non può contenere più di 31 caratteri. Se il nome del controller supera i 31 caratteri quando si abilitano gli spazi di sviluppo in un cluster AKS o si crea un controller, si riceverà un errore. Ad esempio,
+Il nome di un controller di Azure Dev Spaces non può contenere più di 31 caratteri. Se il nome del controller supera i 31 caratteri quando si abilitano gli spazi di sviluppo in un cluster AKS o si crea un controller, si riceverà un errore. Ad esempio:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Per risolvere questo problema, creare un controller con un nome alternativo. Ad esempio,
+Per risolvere questo problema, creare un controller con un nome alternativo. Ad esempio:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -159,7 +159,7 @@ Si supponga, ad esempio, di usare un comando Helm per eseguire l'intera applicaz
 
 Azure Dev Spaces può essere configurato per puntare a un _Dockerfile_ specifico all'interno del progetto. Se sembra che Azure Dev Spaces non usi il documento _Dockerfile_ previsto per compilare i contenitori, potrebbe essere necessario indicare in modo esplicito ad Azure Dev Spaces quale Dockerfile usare. 
 
-Per risolvere questo problema, aprire il file _azds. YAML_ che Azure Dev Spaces generato nel progetto. Configurazioni di aggiornamento *: develop: Build: dockerfile* in modo che punti al dockerfile che si vuole usare. Ad esempio,
+Per risolvere questo problema, aprire il file _azds. YAML_ che Azure Dev Spaces generato nel progetto. Configurazioni di aggiornamento *: develop: Build: dockerfile* in modo che punti al dockerfile che si vuole usare. Ad esempio:
 
 ```yaml
 ...
@@ -206,7 +206,7 @@ install:
 
 Si potrebbe verificare questo errore quando il codice del servizio non viene avviato. La causa è spesso nel codice utente. Per ottenere altre informazioni di diagnostica, abilitare la registrazione più dettagliata all'avvio del servizio.
 
-Dalla riga di comando usare il `--verbose` per abilitare la registrazione più dettagliata. È anche possibile specificare un formato di output usando `--output`. Ad esempio,
+Dalla riga di comando usare il `--verbose` per abilitare la registrazione più dettagliata. È anche possibile specificare un formato di output usando `--output`. Ad esempio:
 
 ```cmd
 azds up --verbose --output json
@@ -292,7 +292,7 @@ Provare a scaricare e installare la versione più recente dell'interfaccia della
 
 Questo errore può essere visualizzato durante l'esecuzione del debugger Visual Studio Code. È possibile che non si disponga dell'estensione C# vs code per installato nel computer di sviluppo. L' C# estensione include il supporto del debug per .NET Core (CoreCLR).
 
-Per risolvere questo problema, installare l' [estensione vs code per C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+Per risolvere questo problema, installare l' [estensione vs code per C# ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
 ### <a name="error-configured-debug-type-coreclr-is-not-supported"></a>Errore "il tipo di debug ' CoreCLR ' configurato non è supportato"
 
@@ -335,7 +335,7 @@ Per risolvere il problema:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Errore di autorizzazione "Microsoft. DevSpaces/Register/Action"
 
-Per gestire Azure Dev Spaces, è necessario l'accesso *Proprietario* o *Collaboratore* nella sottoscrizione di Azure. Se si sta tentando di gestire gli spazi di sviluppo e non si dispone dell'accesso come *proprietario* o *collaboratore* alla sottoscrizione di Azure associata, potrebbe essere visualizzato un errore di autorizzazione. Ad esempio,
+Per gestire Azure Dev Spaces, è necessario l'accesso *Proprietario* o *Collaboratore* nella sottoscrizione di Azure. Se si sta tentando di gestire gli spazi di sviluppo e non si dispone dell'accesso come *proprietario* o *collaboratore* alla sottoscrizione di Azure associata, potrebbe essere visualizzato un errore di autorizzazione. Ad esempio:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -391,7 +391,7 @@ Per aggiornare il ruolo RBAC dell'utente per il controller:
     * Per *ruolo*selezionare *collaboratore* o *proprietario*.
     * In *Assegna accesso a* selezionare *Utente, gruppo o entità servizio di Azure AD*.
     * Per *Select*, cercare l'utente a cui si vogliono concedere le autorizzazioni.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Risoluzione dei nomi DNS non completa l'operazione per un URL pubblico associato al servizio Dev Spaces
 
@@ -471,7 +471,7 @@ Dopo aver riavviato i pod, è possibile iniziare a usare lo spazio dei nomi esis
 
 Per abilitare Azure Dev Spaces in un cluster AKS per il quale il traffico in uscita dai nodi del cluster è limitato, è necessario consentire i nomi di dominio completi seguenti:
 
-| Nome di dominio completo                                    | Porta      | Utilizzo      |
+| Nome di dominio completo                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Per eseguire il pull di immagini Linux alpine e di altro Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Per estrarre le immagini Helm/Tiller|
@@ -491,7 +491,7 @@ Per risolvere il problema:
 
 Dopo [la rotazione dei certificati nel cluster AKS](../aks/certificate-rotation.md), alcune operazioni, ad esempio `azds space list` e `azds up` avranno esito negativo. È anche necessario aggiornare i certificati sul controller di Azure Dev Spaces dopo la rotazione dei certificati nel cluster.
 
-Per risolvere questo problema, assicurarsi che *kubeconfig* disponga dei certificati aggiornati usando `az aks get-credentials` quindi eseguire il comando `azds controller refresh-credentials`. Ad esempio,
+Per risolvere questo problema, assicurarsi che *kubeconfig* disponga dei certificati aggiornati usando `az aks get-credentials` quindi eseguire il comando `azds controller refresh-credentials`. Ad esempio:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>
