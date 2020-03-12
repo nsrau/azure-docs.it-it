@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 38ffd4931f318b15f1ac06fcfd742bde8e5c6838
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a127c8c77f97708729cf91d6ced214e98924fb6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772960"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943017"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Linux
 
@@ -57,7 +57,7 @@ La tabella seguente elenca gli scenari di sviluppo supportati per i **contenitor
 
 Questa esercitazione illustra i passaggi di sviluppo per Visual Studio Code. Se si preferisce usare Visual Studio, vedere le istruzioni riportate in [Usare Visual Studio 2019 per lo sviluppo e il debug di moduli per Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Un computer di sviluppo:
 
@@ -65,7 +65,7 @@ Un computer di sviluppo:
   * Assicurarsi che il computer di sviluppo supporti la virtualizzazione annidata. Questa funzionalità è necessaria per l'esecuzione di un motore di contenitore, che verrà installato nella sezione successiva.
 * Per lo sviluppo di moduli IoT Edge per dispositivi Linux, è possibile usare la maggior parte dei sistemi operativi in grado di eseguire un motore per i contenitori. Questa esercitazione usa un computer Windows, ma vengono sottolineate le differenze note in MacOS o Linux.
 * Installare [Git](https://git-scm.com/) per eseguire il pull dei pacchetti di modelli di moduli più avanti in questa esercitazione.  
-* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 Un dispositivo Azure IoT Edge in Linux:

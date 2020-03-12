@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e490f9a5b6801ed86ca7d594dfd6069a380d5fe5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1f4b3387375b52b28600590a099884277f3de63e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772292"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943027"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Esercitazione: Distribuire funzioni di Azure come moduli IoT Edge
 
@@ -39,7 +39,7 @@ La funzione di Azure creata in questa esercitazione filtra i dati relativi alla 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti:
 
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 
 Per sviluppare un modulo IoT Edge in Funzioni di Azure, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo:
 
-* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 ## <a name="create-a-function-project"></a>Creare un progetto per le funzioni

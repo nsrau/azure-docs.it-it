@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come compilare un'immagine del conten
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 51891d7b17fad7e438cc31652b6a0769d024e8e0
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252108"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398511"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 
@@ -95,8 +95,7 @@ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 
 L'output del comando [az acr build][az-acr-build] è simile al seguente. Vengono visualizzati il caricamento del codice sorgente ("context") in Azure e i dettagli dell'operazione `docker build` eseguita da ACR Tasks nel cloud. Dato che ACR Tasks usa `docker build` per compilare le immagini, è possibile iniziare a usare subito ACR Tasks senza apportare alcuna modifica ai documenti Dockerfile.
 
-```console
-$ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
+```output
 Packing source code into tar file to upload...
 Sending build context (4.813 KiB) to ACR...
 Queued a build with build ID: da1
@@ -244,17 +243,7 @@ az container create \
 
 Dato che il valore di `--dns-name-label` deve essere univoco in Azure, il comando precedente aggiunge il nome del registro contenitori all'etichetta del nome DNS del contenitore. L'output del comando visualizza il nome di dominio completo (FQDN) del contenitore, ad esempio:
 
-```console
-$ az container create \
->     --resource-group $RES_GROUP \
->     --name acr-tasks \
->     --image $ACR_NAME.azurecr.io/helloacrtasks:v1 \
->     --registry-login-server $ACR_NAME.azurecr.io \
->     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
->     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
->     --dns-name-label acr-tasks-$ACR_NAME \
->     --query "{FQDN:ipAddress.fqdn}" \
->     --output table
+```output
 FQDN
 ----------------------------------------------
 acr-tasks-myregistry.eastus.azurecontainer.io
@@ -272,8 +261,7 @@ az container attach --resource-group $RES_GROUP --name acr-tasks
 
 L'output di `az container attach` mostra per prima cosa lo stato del contenitore durante il pull dell'immagine e l'avvio, quindi associa STDOUT e STDERR della console locale a STDOUT e STDERR del contenitore.
 
-```console
-$ az container attach --resource-group $RES_GROUP --name acr-tasks
+```output
 Container 'acr-tasks' is in state 'Running'...
 (count: 1) (last timestamp: 2018-08-22 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
 (count: 1) (last timestamp: 2018-08-22 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"

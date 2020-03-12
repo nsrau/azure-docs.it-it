@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 5d84b1b951cd1a48a385083f5ce2e2aaf1cba8d7
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 78b9d81e20013db41693c24aa8c4a649c724c8b8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110638"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674421"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Esercitazione: Usare un dispositivo simulato per testare la connettività con l'hub IoT
 
@@ -31,13 +31,15 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Gli script dell'interfaccia della riga di comando eseguiti in questa esercitazione usano l'[estensione IoT di Microsoft Azure per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Per installare questa estensione, eseguire il comando dell'interfaccia della riga di comando seguente:
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 L'applicazione del simulatore di dispositivi in esecuzione in questa esercitazione è scritta con Node.js. È necessario disporre di Node.js v10.x.x o versioni successive nel computer di sviluppo.
 
@@ -103,7 +105,7 @@ Per reimpostare la chiave del dispositivo primaria per **MyTestDevice**, eseguir
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
 # Requires the IoT Extension for Azure CLI
-# az extension add --name azure-cli-iot-ext
+# az extension add --name azure-iot
 
 # Reset the primary device key for MyTestDevice
 az iot hub device-identity update --device-id MyTestDevice --set authentication.symmetricKey.primaryKey=$key --hub-name {YourIoTHubName}

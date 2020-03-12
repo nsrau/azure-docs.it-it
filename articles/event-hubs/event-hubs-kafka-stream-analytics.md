@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: d7b060a2b35ca41bf87b69be706284174d7b1012
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 8047ac5d3db2db230a00583e888a4afea3b282b9
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587159"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969363"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Esercitazione: Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -30,7 +30,7 @@ Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kaf
 Non è necessario modificare i client di protocollo o eseguire i propri cluster quando si usa l'endpoint di Kafka esposto da un hub eventi. Hub eventi di Azure supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html) Supporta anche versioni successive. 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti seguenti:
 
@@ -60,7 +60,7 @@ Quando si crea uno spazio dei nomi di Hub eventi di livello **Standard**, l'endp
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Passare a `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app` e aprire il file **TestDataReporter.java** in un editor di propria scelta. 
+5. Passare a `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/` e aprire il file **TestDataReporter.java** in un editor di propria scelta. 
 6. Impostare un commento per la riga di codice seguente:
 
     ```java

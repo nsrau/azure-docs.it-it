@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come configurare un'attività del Reg
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 3870bc70e9d18a3c1c854055cb0c27018554a556
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 4797dd1f1fe19b98ab94c4743ad4af3c43ce0627
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249975"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402867"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
@@ -99,7 +99,7 @@ az acr task create \
 
 Questa attività, simile a quella creata nell'[esercitazione precedente](container-registry-tutorial-build-task.md), indica ad ACR Tasks di attivare una compilazione dell'immagine quando viene eseguito il push di commit nel repository specificato da `--context`. Mentre il documento Dockerfile usato per creare l'immagine nell'esercitazione precedente specifica un'immagine di base pubblica (`FROM node:9-alpine`), il documento Dockerfile in questa attività, [Dockerfile-app][dockerfile-app], specifica un'immagine di base nello stesso registro:
 
-```Dockerfile
+```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
@@ -151,9 +151,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Se è stata completata l'esercitazione precedente e non è stato eliminato il registro, l'output visualizzato dovrebbe essere simile al seguente. Prendere nota del numero di esecuzioni delle attività e del valore di ID esecuzione più recente per poter confrontare l'output dopo l'aggiornamento dell'immagine di base nella sezione successiva.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK            PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da6       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T23:07:22Z  00:00:38
@@ -168,7 +166,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 In questa sezione si simula l'applicazione di una patch del framework nell'immagine di base. Modificare **Dockerfile-base** e aggiungere una "a" dopo il numero di versione definito in `NODE_VERSION`:
 
-```Dockerfile
+```dockerfile
 ENV NODE_VERSION 9.11.2a
 ```
 
@@ -190,9 +188,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 L'output è simile al seguente. Il valore di TRIGGER per l'ultima compilazione eseguita sarà "Image Update", che indica che l'attività è stata avviata dall'attività rapida dell'immagine di base.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
 da8       taskhelloworld  Linux       Succeeded  Image Update  2018-09-17T23:11:50Z  00:00:33

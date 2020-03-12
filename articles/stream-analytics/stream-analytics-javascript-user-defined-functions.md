@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: feb0361b460f5b18b5a8aaa585332e2179023458
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426054"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851173"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
@@ -125,7 +125,7 @@ Qualsiasi altro tipo (ad esempio, una funzione o un errore) | Non supportato (ri
 
 Il linguaggio JavaScript distingue tra maiuscole/minuscole e le maiuscole e le minuscole dei campi oggetto nel codice JavaScript devono corrispondere alle maiuscole e alle minuscole dei campi nei dati in ingresso. Notare che i processi con livello di compatibilità 1.0 convertiranno i campi dall'istruzione SQL SELECT in modo che siano in minuscolo. Nel livello di compatibilità 1.1 e superiore, i campi dall'istruzione SELECT avranno le stesse maiuscole e minuscole come specificate nella query SQL.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Gli errori di runtime in JavaScript sono considerati irreversibili ed esposti tramite il log attività. Per recuperare il log, nel portale di Azure passare al processo e selezionare **Log attività**.
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Altri modelli della funzione JavaScript definita dall'utente
@@ -147,7 +147,7 @@ SELECT
     DataString,
     DataValue,
     HexValue,
-    UDF.json_stringify(input) As InputEvent
+    UDF.jsonstringify(input) As InputEvent
 INTO
     output
 FROM

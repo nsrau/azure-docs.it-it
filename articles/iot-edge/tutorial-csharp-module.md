@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c13d6ed773b582e1ca59ec31de9101fa1541dcb5
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 53e1863f6f3421a6d8df9112f463f16443cff93e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759961"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943054"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C# per dispositivi Linux
 
@@ -47,7 +47,7 @@ Usare la tabella seguente per informazioni sulle opzioni disponibili per lo svil
 >[!NOTE]
 >Il supporto per i dispositivi Linux ARM64 è disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per altre informazioni, vedere [Sviluppare ed eseguire il debug di moduli IoT Edge ARM64 in Visual Studio Code (anteprima)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo, [Sviluppare un modulo IoT Edge per un dispositivo Linux](tutorial-develop-for-linux.md). Dopo aver completato questa esercitazione, saranno già stati soddisfatti i prerequisiti seguenti:
 
@@ -59,7 +59,7 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 
 Per completare queste esercitazioni, preparare i prerequisiti aggiuntivi seguenti nel computer di sviluppo:
 
-* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 ## <a name="create-a-module-project"></a>Creare un progetto di modulo

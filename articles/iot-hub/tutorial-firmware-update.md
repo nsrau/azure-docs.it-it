@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: ba94c9f2af737af3ae1ebcccf6685643a54da237
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: fdd2eb2ca1a0e6b93cd3f7a75beeb8057a4ea19c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110695"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674375"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Esercitazione: Implementare un processo di aggiornamento del firmware del dispositivo
 
@@ -36,7 +36,7 @@ In questa esercitazione si completano le attività seguenti:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Node.js. È necessario disporre di Node.js v10.x.x o versioni successive nel computer di sviluppo.
 
@@ -63,7 +63,7 @@ hubname=tutorial-iot-hub
 location=centralus
 
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Create a resource group
 az group create --name tutorial-iot-hub-rg --location $location

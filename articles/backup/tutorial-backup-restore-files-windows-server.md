@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come usare Agente servizi di ripristi
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
-ms.openlocfilehash: 5958f6574f8c559bae8f500b1cb555e96e007d0e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171811"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672954"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperare i file da Azure in un'istanza di Windows Server
 
@@ -21,7 +21,7 @@ Backup di Azure consente il ripristino dei singoli elementi dai backup di Window
 > * selezione di un punto di ripristino
 > * Ripristinare gli elementi da un punto di ripristino
 
-Questa esercitazione presuppone che sia già stata eseguita la procedura per [eseguire il backup di un'istanza di Windows Server in Azure](backup-configure-vault.md) e sia abbia a disposizione almeno un backup dei file di Windows Server in Azure.
+Questa esercitazione presuppone che sia già stata eseguita la procedura per [eseguire il backup di un'istanza di Windows Server in Azure](backup-windows-with-mars-agent.md) e sia abbia a disposizione almeno un backup dei file di Windows Server in Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Avviare il ripristino di singoli elementi
 

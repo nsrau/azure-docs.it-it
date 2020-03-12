@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779328f4c21afb4392663e6f8840749ea505c529
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242429"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897772"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con PureCloud by Genesys
 
@@ -123,9 +123,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione PureCloud by Genesys prevede inoltre il passaggio di altri attributi nella risposta SAML, come illustrato nella tabella seguente. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base alle esigenze.
 
-    | NOME | Attributo di origine|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |
-    | Email | user.userprinicipalname |
+    | Email | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
@@ -148,7 +148,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si imposterà B.Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PureCloud by Genesys.
 
@@ -210,7 +210,7 @@ Per consentire agli utenti di Azure AD di accedere a PureCloud by Genesys, è ne
 
     ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure05.png)
 
-    a. Nella casella **Nome completo** immettere il nome di un utente. Ad esempio:  **B.simon**.
+    a. Nella casella **Nome completo** immettere il nome di un utente. Ad esempio: **B.simon**.
 
     b. Nella casella **Posta elettronica** immettere l'indirizzo di posta elettronica dell'utente, ad esempio **b.simon\@contoso.com**.
 

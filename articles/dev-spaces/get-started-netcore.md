@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: e23685d410b2d663efde8c530be01adaab637bf8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252432"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942499"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Creare uno spazio di sviluppo Kubernetes: Visual Studio Code e .NET Core con Azure Dev Spaces
 
@@ -81,7 +81,7 @@ Immettere il comando seguente dell'interfaccia della riga di comando di Azure, u
 Per gli sviluppatori di .NET Core e Node.js che usano VS Code sono disponibili funzionalità avanzate, come il debug Kubernetes.
 
 1. Se [VS Code](https://code.visualstudio.com/Download) non è disponibile, installarlo.
-1. Scaricare e installare le estensioni [Azure Dev Spaces di Visual Studio](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). Per ogni estensione fare clic su Installa nella pagina del Marketplace dell'estensione e di nuovo in VS Code.
+1. Scaricare e installare le estensioni [Azure Dev Spaces di Visual Studio](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp). Per ogni estensione fare clic su Installa nella pagina del Marketplace dell'estensione e di nuovo in VS Code.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Creare un'app Web in esecuzione in un contenitore
 

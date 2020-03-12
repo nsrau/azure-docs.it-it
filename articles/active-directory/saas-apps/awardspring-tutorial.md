@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d397d179a3f5bd50479e76c04e5eb709a3ef1f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260736"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897804"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con AwardSpring
 
@@ -64,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con AwardSpring usando un utente
 Per configurare e testare l'accesso SSO di Azure AD con AwardSpring, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di AwardSpring](#configure-awardspring-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di AwardSpring](#create-awardspring-test-user)** : per avere una controparte di B.Simon in AwardSpring collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -104,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | Nome | user.givenname |
     | Cognome | user.surname |
     | Email | user.mail |
-    | Username | user.userprinicipalname |
+    | Username | user.userprincipalname |
     | StudentID | <ID studente> |
 
     > [!NOTE]
@@ -135,7 +135,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad AwardSpring.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **AwardSpring**.
+1. Nell'elenco di applicazioni selezionare **AwardSpring**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -154,7 +154,7 @@ Per configurare l'accesso Single Sign-On sul lato **AwardSpring**, è necessario
 
 ### <a name="create-awardspring-test-user"></a>Creare l'utente di test di AwardSpring
 
-In questa sezione viene creato un utente di nome B.Simon in AwardSpring. AwardSpring supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in AwardSpring, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B.Simon in AwardSpring. AwardSpring supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in AwardSpring, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
 > Se è necessario creare un utente manualmente, contattare il [team di supporto di AwardSpring](maito:support@awardspring.com).
@@ -163,7 +163,7 @@ In questa sezione viene creato un utente di nome B.Simon in AwardSpring. AwardSp
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di AwardSpring nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di AwardSpring per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di AwardSpring nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione AwardSpring per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

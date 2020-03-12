@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 44d1c6e5b119ae0639398c8be69ab7fb0d50fcf4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3d1b5ea9a9f78bc8a83159a34026d58d7a8cc89b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772208"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944279"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati sul perimetro con database di SQL Server
 
@@ -35,7 +35,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione è necessario aver completato l'esercitazione precedente per configurare l'ambiente di sviluppo per i contenitori Linux: [Sviluppare moduli IoT Edge per i dispositivi Linux](tutorial-develop-for-linux.md). Completando tale esercitazione, saranno soddisfatti i prerequisiti seguenti:
 
@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 
 In questa esercitazione si usa un modulo di Funzioni di Azure per inviare dati a SQL Server. Per sviluppare un modulo IoT Edge con Funzioni di Azure, installare i prerequisiti aggiuntivi seguenti nel computer di sviluppo:
 
-* [Estensione C# per Visual Studio Code (con tecnologia OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [Estensione C# per Visual Studio Code (con tecnologia OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 ## <a name="create-a-function-project"></a>Creare un progetto per le funzioni

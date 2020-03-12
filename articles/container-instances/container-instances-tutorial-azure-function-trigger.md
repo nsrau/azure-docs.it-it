@@ -4,12 +4,12 @@ description: Creare una funzione di PowerShell serverless, attivata tramite HTTP
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9dbb22a2449e4c41bff802ab827da4489fc7ffeb
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196536"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331026"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Esercitazione: Usare una funzione di Azure attivata tramite HTTP per creare un gruppo di contenitori
 
@@ -42,7 +42,7 @@ Questo articolo presuppone che il progetto venga pubblicato con il nome *myfunct
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Abilitare un'identità gestita di Azure nell'app per le funzioni
 
-Abilitare ora un'[identità gestita](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) assegnata dal sistema nell'app per le funzioni. L'host di PowerShell che esegue l'app può eseguire automaticamente l'autenticazione usando questa identità, consentendo alle funzioni di eseguire azioni nei servizi di Azure per cui è stato concesso l'accesso all'identità. In questa esercitazione concedere all'identità gestita le autorizzazioni per creare risorse nel gruppo di risorse dell'app per le funzioni. 
+Abilitare ora un'[identità gestita](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) assegnata dal sistema nell'app per le funzioni. L'host di PowerShell che esegue l'app può eseguire automaticamente l'autenticazione usando questa identità, consentendo alle funzioni di eseguire azioni nei servizi di Azure per cui è stato concesso l'accesso all'identità. In questa esercitazione concedere all'identità gestita le autorizzazioni per creare risorse nel gruppo di risorse dell'app per le funzioni. 
 
 Usare prima di tutto il comando [az group show][az-group-show] per ottenere l'ID del gruppo di risorse dell'app per le funzioni e archiviarlo in una variabile di ambiente. Questo esempio presuppone che il comando venga eseguito in una shell Bash.
 

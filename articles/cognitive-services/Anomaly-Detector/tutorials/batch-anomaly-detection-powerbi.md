@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b486aaf0ce33e31433c2c3d0f7a1ff2c7089132
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448859"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402656"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Power BI
 
@@ -28,14 +28,14 @@ In questa esercitazione si apprenderà come:
 > * Integrare Power BI Desktop con l'API Rilevamento anomalie per il rilevamento anomalie in batch
 > * Visualizzare le anomalie trovate all'interno dei dati, inclusi i valori previsti e quelli rilevati, e i limiti di rilevamento anomalie.
 
-## <a name="prerequisites"></a>Prerequisites
-
+## <a name="prerequisites"></a>Prerequisiti
+* Una [sottoscrizione di Azure](https://azure.microsoft.com/free/)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponibile gratuitamente.
 * Un file di Excel (con estensione xlsx) contenente i punti dati delle serie temporali. I dati di esempio per questa guida di avvio rapido sono disponibili in [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962).
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. Questa operazione verrà eseguita più avanti nell'avvio rapido.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
-
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## <a name="load-and-format-the-time-series-data"></a>Caricare e formattare i dati della serie temporale
 

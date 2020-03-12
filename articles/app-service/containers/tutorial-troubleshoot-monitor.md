@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
-ms.openlocfilehash: c4aee7c7e78c6799874194697fb3bc9c4aa33b38
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227987"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399523"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Esercitazione: Risolvere i problemi di un'app del servizio app con Monitoraggio di Azure
 
@@ -127,7 +127,7 @@ Questa azione ha esito negativo e genera un errore `HTTP 500` che non è stato t
 
 Verranno ora visualizzati i log disponibili nell'area di lavoro Log Analytics. 
 
-Fare clic su questo [collegamento dell'area di lavoro Log Analytics](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) per accedere all'area di lavoro nel portale di Azure.
+Fare clic su questo [collegamento dell'area di lavoro Log Analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) per accedere all'area di lavoro nel portale di Azure.
 
 Nel portale di Azure selezionare l'area di lavoro Log Analytics.
 
