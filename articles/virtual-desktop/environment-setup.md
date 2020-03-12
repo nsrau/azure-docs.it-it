@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 23bf9be8e3e5f1c52546faa9ed5171c140eba59a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+manager: lizross
+ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676632"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127910"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente di Desktop virtuale Windows
 
 Desktop virtuale di Windows è un servizio che consente agli utenti di accedere in modo semplice e sicuro ai propri desktop e RemoteApp virtualizzati. In questo argomento viene illustrata la struttura generale dell'ambiente desktop virtuale di Windows.
 
-## <a name="tenants"></a>tenant
+## <a name="tenants"></a>Tenant
 
 Il tenant desktop virtuale di Windows è l'interfaccia principale per la gestione dell'ambiente desktop virtuale di Windows. Ogni tenant di desktop virtuale di Windows deve essere associato al Azure Active Directory contenente gli utenti che accederanno all'ambiente. Dal tenant desktop virtuale di Windows, è possibile iniziare a creare pool host per eseguire i carichi di lavoro degli utenti.
 

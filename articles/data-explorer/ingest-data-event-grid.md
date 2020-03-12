@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424984"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096424"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
@@ -26,7 +26,7 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per
 
 Questo articolo illustra come impostare una sottoscrizione di griglia di [eventi di Azure](/azure/event-grid/overview) e come indirizzare gli eventi ad Azure Esplora dati tramite un hub eventi. Per iniziare, è necessario avere un account di archiviazione con una sottoscrizione di Griglia di eventi che invia notifiche a Hub eventi di Azure. Si creerà quindi una connessione dati a Griglia di eventi e si esaminerà il flusso di dati attraverso l'intero sistema.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Creare un [account Azure gratuito](https://azure.microsoft.com/free/).
 * [Un cluster e un database](create-cluster-database-portal.md).
@@ -44,7 +44,7 @@ Questo articolo illustra come impostare una sottoscrizione di griglia di [eventi
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Name | *test-grid-connection* | Il nome della griglia di eventi da creare.|
+    | Nome | *test-grid-connection* | Il nome della griglia di eventi da creare.|
     | Schema di eventi | *Schema griglia di eventi* | Lo schema da usare per la griglia di eventi. |
     | Tipo di argomento | *Account di archiviazione* | Il tipo di argomento della griglia di eventi. |
     | Risorsa argomento | *gridteststorage* | nome dell'account di archiviazione. |
@@ -118,11 +118,11 @@ Connettersi ora alla griglia di eventi da Azure Esplora dati, in modo che il flu
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportate: zip e GZip |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOH, SCSV, TSV, RAW e TXT. Opzioni di compressione supportate: zip e GZip |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
     | | |
     
-## <a name="generate-sample-data"></a>Generare dati di esempio
+## <a name="generate-sample-data"></a>Generare i dati di esempio
 
 Dopo aver connesso Esplora dati di Azure e l'account di archiviazione, è possibile creare i dati di esempio e caricarli nella risorsa di archiviazione BLOB.
 
@@ -150,13 +150,32 @@ Salvare i dati in un file e caricarlo con questo script:
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Per ottenere le migliori prestazioni di inserimento, le dimensioni non *compresse* dei BLOB compressi inviati per l'inserimento devono essere comunicate. Poiché le notifiche di griglia di eventi contengono solo i dettagli di base, le informazioni sulle dimensioni devono essere comunicate in modo esplicito. Le informazioni sulle dimensioni non compresse possono essere fornite impostando la proprietà `rawSizeBytes` sui metadati del BLOB con le dimensioni dei dati non *compressi* in byte.
+
+### <a name="ingestion-properties"></a>Proprietà di inserimento
+
+È possibile specificare le [Proprietà](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) di inserimento dell'inserimento di BLOB tramite i metadati del BLOB.
+
+È possibile impostare queste proprietà:
+
+|**Proprietà** | **Descrizione proprietà**|
+|---|---|
+| `rawSizeBytes` | Dimensioni dei dati non elaborati (non compressi). Per avro/ORC/parquet, questa è la dimensione prima che venga applicata la compressione specifica del formato.|
+| `kustoTable` |  Nome della tabella di destinazione esistente. Esegue l'override del `Table` impostato nel pannello `Data Connection`. |
+| `kustoDataFormat` |  Formato dati. Esegue l'override del `Data format` impostato nel pannello `Data Connection`. |
+| `kustoIngestionMappingReference` |  Nome del mapping di inserimento esistente da usare. Esegue l'override del `Column mapping` impostato nel pannello `Data Connection`.|
+| `kustoIgnoreFirstRecord` | Se è impostato su `true`, kusto ignora la prima riga del BLOB. Usare i dati in formato tabulare (CSV, TSV o simile) per ignorare le intestazioni. |
+| `kustoExtentTags` | Stringa che rappresenta i [tag](/azure/kusto/management/extents-overview#extent-tagging) che verranno collegati all'extent risultante. |
+| `kustoCreationTime` |  Esegue l'override [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) per il BLOB, formattato come stringa ISO 8601. Da usare per il riempimento. |
 
 > [!NOTE]
 > Azure Esplora dati non eliminerà i BLOB dopo l'inserimento.

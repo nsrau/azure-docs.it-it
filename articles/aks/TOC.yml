@@ -56,7 +56,7 @@
       href: tutorial-kubernetes-scale.md
     - name: '6: Aggiornare l''applicazione'
       href: tutorial-kubernetes-app-update.md
-    - name: '7: Aggiornare il cluster'
+    - name: 7 - Aggiornare il cluster
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concetti
   items:
@@ -64,7 +64,7 @@
       href: concepts-clusters-workloads.md
     - name: Accesso e identità
       href: concepts-identity.md
-    - name: Sicurezza
+    - name: Security
       href: concepts-security.md
       items: null
     - name: Rete
@@ -216,7 +216,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Controllare le distribuzioni con Criteri di Azure (anteprima)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
-        - name: Aggiornare le credenziali dell'entità servizio del cluster
+        - name: Aggiornare le credenziali del cluster
           href: update-credentials.md
         - name: Limitare e controllare il traffico in uscita del cluster
           href: limit-egress-traffic.md

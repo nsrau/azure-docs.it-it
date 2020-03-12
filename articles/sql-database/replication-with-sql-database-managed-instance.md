@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: fd881142e0260d313e197d5e40ae25a2621646df
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372474"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096213"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
@@ -53,7 +53,7 @@ La configurazione di un'istanza gestita per fungere da server di pubblicazione e
  > I database singoli e in pool nel database SQL di Azure possono essere usati solo come sottoscrittori. 
 
 
-## <a name="features"></a>database elastico
+## <a name="features"></a>Funzionalità
 
 Supporto:
 
@@ -81,9 +81,9 @@ Sarà anche necessario [configurare una macchina virtuale di Azure per la connes
 
 ## <a name="3---create-azure-storage-account"></a>3: creare un account di archiviazione di Azure
 
-[Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro e quindi creare una [condivisione file](../storage/files/storage-how-to-create-file-share.md) nell'account di archiviazione. 
+[Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro e quindi creare una [condivisione file](../storage/files/storage-how-to-create-file-share.md) al suo interno. 
 
-Copiare il percorso della condivisione file nel formato: `\\storage-account-name.file.core.windows.net\file-share-name`
+Copiare il percorso della condivisione file nel formato `\\storage-account-name.file.core.windows.net\file-share-name`
 
 Esempio: `\\replstorage.file.core.windows.net\replshare`
 
@@ -91,7 +91,7 @@ Copiare le chiavi di accesso alle archiviazione nel formato: `DefaultEndpointsPr
 
 Esempio: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
-Per altre informazioni, vedere [gestire le chiavi di accesso all'account di archiviazione](../storage/common/storage-account-keys-manage.md). 
+Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-keys-manage.md). 
 
 ## <a name="4---create-a-publisher-database"></a>4-creare un database del server di pubblicazione
 
@@ -185,7 +185,7 @@ EXEC sp_adddistpublisher
 ```
 
    > [!NOTE]
-   > Assicurarsi di usare solo le barre rovesciate (`\`) per il parametro del file_storage. L'uso di una barra (`/`) può causare un errore durante la connessione alla condivisione file. 
+   > Assicurarsi di usare solo le barre rovesciate (`\`) per il parametro del file_storage. L'uso di una barra (`/`) può generare un errore durante la connessione alla condivisione file. 
 
 Questo script configura un server di pubblicazione locale nell'istanza gestita, aggiunge un server collegato e crea un set di processi per la SQL Server Agent. 
 
@@ -260,8 +260,8 @@ EXEC sp_addpushsubscription_agent
   @subscriber_security_mode = 0,
   @subscriber_login = N'$(target_username)',
   @subscriber_password = N'$(target_password)',
-  @job_login = N'$(target_username)',
-  @job_password = N'$(target_password)';
+  @job_login = N'$(username)',
+  @job_password = N'$(password)';
 
 -- Initialize the snapshot
 EXEC sp_startpublication_snapshot
@@ -292,15 +292,15 @@ Riavviare tutti e tre gli agenti per applicare le modifiche.
 
 ## <a name="10---test-replication"></a>10-replica di test
 
-Una volta configurata la replica, è possibile eseguirne il test inserendo i nuovi elementi nel server di pubblicazione e osservando la propagazione delle modifiche al Sottoscrittore. 
+Dopo aver configurato la replica, è possibile testarla inserendo nuovi elementi nel server di pubblicazione e osservando le modifiche che si propagano nel sottoscrittore. 
 
-Eseguire il frammento di codice T-SQL seguente per visualizzare le righe nel Sottoscrittore:
+Eseguire il frammento di codice T-SQL seguente per visualizzare le righe nel sottoscrittore:
 
 ```sql
 select * from dbo.ReplTest
 ```
 
-Eseguire il frammento di codice T-SQL seguente per inserire righe aggiuntive nel server di pubblicazione, quindi controllare di nuovo le righe nel Sottoscrittore. 
+Eseguire il frammento di codice T-SQL seguente per inserire righe aggiuntive nel server di pubblicazione, quindi controllarle di nuovo nel sottoscrittore. 
 
 ```sql
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')

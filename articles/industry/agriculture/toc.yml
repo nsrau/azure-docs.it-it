@@ -9,6 +9,8 @@
       href: generate-soil-moisture-map-in-azure-farmbeats.md
     - name: Inserire dati di telemetria cronologici
       href: ingest-historical-telemetry-data-in-azure-farmbeats.md
+    - name: Eseguire query sui dati di telemetria inseriti
+      href: query-telemetry-data-from-azure-farmbeats.md
 - name: Concetti
   items:
     - name: Modelli di integrazione

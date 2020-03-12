@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 72534225acffa176d248901f363100955e36c6f6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/10/2020
+ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898922"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095539"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -29,9 +29,9 @@ La tabella seguente riepiloga i servizi di archiviazione di Azure supportati con
 | Servizio di archiviazione | Tipo di account | Tipo di spazio dei nomi | Servizi supportati | Livelli di prestazioni supportati | Livelli di accesso supportati | HDInsight Version | Tipo di cluster |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Utilizzo generico v2 | Gerarchico (filesystem) | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti tranne Spark 2,1 e 2,2|
-|Archiviazione di Azure| Utilizzo generico v2 | Oggetto | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutte |
-|Archiviazione di Azure| Utilizzo generico v1 | Oggetto | BLOB | Standard | N/D | Tutte | Tutte |
-|Archiviazione di Azure| Archiviazione BLOB * * | Oggetto | BLOB in blocchi | Standard | Frequente, ad accesso sporadico, archivio | Tutte | Tutte |
+|Archiviazione di Azure| Utilizzo generico v2 | Oggetto | BLOB | Standard | Frequente, ad accesso sporadico, archivio | 3.6+ | Tutti |
+|Archiviazione di Azure| Utilizzo generico v1 | Oggetto | BLOB | Standard | N/D | Tutti | Tutti |
+|Archiviazione di Azure| Archiviazione BLOB * * | Oggetto | BLOB in blocchi | Standard | Frequente, ad accesso sporadico, archivio | Tutti | Tutti |
 |Azure Data Lake Storage Gen1| N/D | Gerarchico (filesystem) | N/D | N/D | N/D | solo 3,6 | Tutti tranne HBase |
 
 \* * Per i cluster HDInsight, solo gli account di archiviazione secondari possono essere di tipo BlobStorage e il BLOB di pagine non è un'opzione di archiviazione supportata.
@@ -46,14 +46,14 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere 
 |---|---|---|---|
 | 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen2 | No |
-| 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | Sì |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sì |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
 | 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
-| 4.0 | Data Lake Storage Gen1 | Any | No |
+| 4.0 | Data Lake Storage Gen1 | Qualsiasi | No |
+| 4.0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | No |
 
 \* = Può trattarsi di uno o più account Data Lake Storage Gen2, purché tutti i set di impostazioni usino la stessa identità gestita per l'accesso al cluster.
 
@@ -220,7 +220,7 @@ Data Lake Storage Gen1 usa Azure Active Directory per l'autenticazione e gli ele
 
 | **Funzionalità** | **Descrizione** |
 | --- | --- |
-| Autenticazione |Data Lake Storage Gen1 si integra con Azure Active Directory (Azure AD) per la gestione delle identità e degli accessi per tutti i dati in esso archiviati. Grazie a questa integrazione, Data Lake Storage Gen1 usufruisce di tutte le funzionalità di Azure AD. Queste funzionalità includono l'autenticazione a più fattori, l'accesso condizionale, il controllo degli accessi in base al ruolo, il monitoraggio dell'utilizzo delle applicazioni, il monitoraggio della sicurezza e gli avvisi e così via. Data Lake Storage Gen1 supporta il protocollo OAuth 2.0 per l'autenticazione nell'interfaccia REST. Vedere [Autenticazione con Azure Data Lake Storage Gen1 tramite Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
+| Authentication |Data Lake Storage Gen1 si integra con Azure Active Directory (Azure AD) per la gestione delle identità e degli accessi per tutti i dati in esso archiviati. Grazie a questa integrazione, Data Lake Storage Gen1 usufruisce di tutte le funzionalità di Azure AD. Queste funzionalità includono l'autenticazione a più fattori, l'accesso condizionale, il controllo degli accessi in base al ruolo, il monitoraggio dell'utilizzo delle applicazioni, il monitoraggio della sicurezza e gli avvisi e così via. Data Lake Storage Gen1 supporta il protocollo OAuth 2.0 per l'autenticazione nell'interfaccia REST. Vedere [Autenticazione con Azure Data Lake Storage Gen1 tramite Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
 | Controllo di accesso |Data Lake Storage Gen1 offre il controllo di accesso mediante il supporto delle autorizzazioni di tipo POSIX esposte dal protocollo WebHDFS. Gli elenchi di controllo di accesso possono essere abilitati nella cartella radice, nelle sottocartelle e nei singoli file. Per altre informazioni sul funzionamento degli ACL nel contesto di Data Lake Storage Gen1, vedere [Controllo di accesso in Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
 | Crittografia |Data Lake Storage Gen1 offre anche la crittografia per i dati archiviati nell'account. Le impostazioni della crittografia vengono specificate durante la creazione di un account Data Lake Storage Gen1. È possibile scegliere di crittografare i dati oppure di fare a meno della crittografia. Per altre informazioni, vedere [Crittografia in Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Per istruzioni su come specificare una configurazione relativa alla crittografia, vedere [Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md). |
 

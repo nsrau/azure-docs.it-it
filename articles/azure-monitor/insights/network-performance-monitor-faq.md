@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654434"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096221"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -172,7 +172,7 @@ Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qua
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm).
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
 Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono al traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non tenta di individuare più hop.
@@ -183,7 +183,7 @@ Un hop può non rispondere a una richiesta traceroute in almeno uno degli scenar
 * I dispositivi di rete non consentano il traffico ICMP_TTL_EXCEEDED.
 * Un firewall sta bloccando la risposta ICMP_TTL_EXCEEDED dal dispositivo di rete.
 
-Quando uno degli endpoint si trova in Azure, traceroute mostra hop non identificati perché Azure ndrastructure non rivela l'identità al traceroute. 
+Quando uno degli endpoint si trova in Azure, traceroute mostra hop non identificati perché l'infrastruttura di Azure non rivela l'identità a traceroute. 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Ricevo avvisi per i test non integri, ma i valori elevati non sono visualizzati nel grafico della perdita e della latenza di NPM. Ricerca per categorie verificare che cos'è non integro?
 NPM genera un avviso se la latenza end-to-end tra l'origine e la destinazione supera la soglia per qualsiasi percorso tra di essi. Alcune reti hanno più percorsi che connettono la stessa origine e la stessa destinazione. NPM genera un avviso se il percorso non è integro. La perdita e la latenza visualizzate nei grafici sono il valore medio per tutti i percorsi, quindi è possibile che non venga visualizzato il valore esatto di un singolo percorso. Per capire dove è stata superata la soglia, cercare la colonna "sottotipo" nell'avviso. Se il problema è causato da un percorso, il valore del sottotipo sarà NetworkPath (per i test di performance monitor), EndpointPath (per i test di monitoraggio della connettività del servizio) e ExpressRoutePath (per i test di monitoraggio di Expressroute). 
@@ -209,7 +209,7 @@ Ad esempio: hop-A, B, C. AvgHopLatency-10, 15, 20. Ciò significa che l'origine 
 Questa situazione può verificarsi se il firewall dell'host o il firewall intermedio (firewall di rete o gruppo di sicurezza di rete di Azure) blocca le comunicazioni tra l'agente di origine e la destinazione attraverso la porta usata da Monitoraggio prestazioni rete per il monitoraggio. Per impostazione predefinita, viene usata la porta 8084, a meno che il cliente non abbia modificato l'impostazione.
 
 * Per verificare che il firewall dell'host non blocchi le comunicazioni sulla porta richiesta, visualizzare lo stato di integrità dei nodi di origine e di destinazione dalla visualizzazione seguente: Monitoraggio prestazioni rete -> Configurazione -> Nodi. 
-  Se i nodi non sono integri, visualizzare le istruzioni e adottare le misure correttive. Se i nodi sono integri, proseguire con il passaggio b più avanti.
+  Se i nodi non sono integri, visualizzare le istruzioni e adottare le misure correttive. Se i nodi sono integri, proseguire con il passaggio b desiderato.
 * Per verificare che un firewall di rete intermedio o un gruppo di sicurezza di rete di Azure non blocchi le comunicazioni sulla porta richiesta, eseguire l'utilità PsPing di terze parti usando le istruzioni seguenti:
   * L'utilità PsPing è disponibile [qui](https://technet.microsoft.com/sysinternals/psping.aspx) per il download. 
   * Eseguire il comando seguente dal nodo di origine.
@@ -224,7 +224,7 @@ I percorsi di rete tra il nodo A e il B possono essere diversi da quelli tra il 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Per quale motivo non tutti i circuiti e le connessioni di peering di ExpressRoute vengono individuati?
 NPM individua ora i circuiti ExpressRoute e le connessioni di peering in tutte le sottoscrizioni a cui l'utente ha accesso. Scegliere tutte le sottoscrizioni in cui sono collegate risorse di ExpressRoute e abilitare il monitoraggio per ogni risorsa individuata. NPM cerca gli oggetti di connessione durante l'individuazione di un peering privato, verificare quindi se il peering è associato a una rete virtuale.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Cosa significa?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Che cosa significa?
 
 Può verificarsi uno scenario in cui è presente una connessione integra tra il nodo locale e quello di Azure, ma il traffico non passa attraverso il circuito ExpressRoute configurato per il monitoraggio tramite Monitoraggio prestazioni rete. 
 

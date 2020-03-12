@@ -3,12 +3,12 @@ title: Eseguire le funzioni di Azure da un pacchetto
 description: Far eseguire le funzioni dal runtime di Funzioni di Azure tramite il montaggio di un file di pacchetto di distribuzione che contiene i file di progetto dell'app per le funzioni.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3ae287939f22469b03f0e10f184f067274464905
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921114"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087026"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
 
@@ -91,6 +91,7 @@ Per ulteriori informazioni, vedere gli articoli seguenti.
 - I formati tar e gzip non sono supportati.
 - Questa funzionalità non è composta dalla cache locale.
 - Per migliorare le prestazioni di avvio a freddo, usare l'opzione zip locale (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- L'esecuzione dal pacchetto non è compatibile con l'opzione di personalizzazione della distribuzione (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`). l'istruzione di compilazione verrà ignorata durante la distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

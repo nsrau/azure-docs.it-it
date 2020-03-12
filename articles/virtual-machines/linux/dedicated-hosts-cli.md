@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: f712d1be76a9bb3dc4856b9f1fa7c7b805296dea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970763"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127687"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Distribuire macchine virtuali in host dedicati usando l'interfaccia della riga di comando di Azure
  
@@ -24,7 +24,7 @@ Assicurarsi di aver installato l'interfaccia della riga di comando di Azure vers
 ## <a name="limitations"></a>Limitazioni
 
 - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-- La versione iniziale supporta la serie di VM seguente: DSv3, ESv3, FSv2, LSv2 e MSv2. 
+- Le dimensioni e i tipi di hardware disponibili per gli host dedicati variano in base all'area. Per altre informazioni, vedere la pagina relativa ai [prezzi](https://aka.ms/ADHPricing) per gli host.
  
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse 
@@ -77,7 +77,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Creazione di un host 
 
-A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.  Sono supportati i valori SKU seguenti: DSv3_Type1 e ESv3_Type1.
+A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.  
 
 Per altre informazioni sugli SKU e i prezzi degli host, vedere [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing).
 

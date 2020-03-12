@@ -151,9 +151,9 @@
               href: container-registry-tutorial-build-task.md
             - name: 2b - Attività in più passaggi in caso di commit del codice
               href: container-registry-tutorial-multistep-task.md
-            - name: 3a - Compilare in caso di aggiornamento dell'immagine di base
+            - name: 3a- Compilare in caso di aggiornamento dell'immagine di base
               href: container-registry-tutorial-base-image-update.md
-            - name: 3b - Compilare in caso di aggiornamento dell'immagine di base privata
+            - name: 3b- Compilare in caso di aggiornamento dell'immagine di base privata
               href: container-registry-tutorial-private-base-image-update.md
             - name: 4 - Compilare in base a una pianificazione
               href: container-registry-tasks-scheduled.md
@@ -181,6 +181,8 @@
               href: container-registry-tasks-authentication-key-vault.md
         - name: Creare un'immagine con Buildpacks (anteprima)
           href: container-registry-tasks-pack-build.md
+        - name: Visualizzare i log delle attività
+          href: container-registry-tasks-logs.md
 - name: Informazioni di riferimento
   expanded: false
   items:

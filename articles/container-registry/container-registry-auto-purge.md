@@ -3,12 +3,12 @@ title: Elimina i tag e i manifesti
 description: Usare un comando Purge per eliminare più tag e manifesti da un registro contenitori di Azure in base all'età e a un filtro tag e, facoltativamente, pianificare le operazioni di ripulitura.
 ms.topic: article
 ms.date: 08/14/2019
-ms.openlocfilehash: 0ec1f5f6f5c3c572b8558c971b58e46cce36e3fd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f9d86b628bdd0ce0db3067b02a47517d8aadcba3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923099"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087324"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Ripulire automaticamente le immagini da un registro contenitori di Azure
 
@@ -47,7 +47,7 @@ Specificare come minimo quanto segue quando si esegue `acr purge`:
 
 Per ulteriori parametri, eseguire `acr purge --help`. 
 
-`acr purge` supporta altre funzionalità dei comandi delle attività ACR, incluse le [variabili Run](container-registry-tasks-reference-yaml.md#run-variables) e i [log di esecuzione delle attività](container-registry-tasks-overview.md#view-task-logs) , che vengono trasmessi e salvati per il recupero successivo.
+`acr purge` supporta altre funzionalità dei comandi delle attività ACR, incluse le [variabili Run](container-registry-tasks-reference-yaml.md#run-variables) e i [log di esecuzione delle attività](container-registry-tasks-logs.md) , che vengono trasmessi e salvati per il recupero successivo.
 
 ### <a name="run-in-an-on-demand-task"></a>Eseguire in un'attività su richiesta
 

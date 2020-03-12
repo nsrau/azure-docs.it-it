@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606567"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117284"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Sicurezza e protezione dei dati per Azure Data Box Disk
 
@@ -34,7 +34,7 @@ Il diagramma seguente indica il flusso dei dati attraverso la soluzione Azure Da
 
 ## <a name="security-features"></a>Funzionalità di sicurezza
 
-Data Box Disk offre una soluzione sicura per la protezione dei dati, garantendo che solo le entità autorizzate possano visualizzare, modificare o eliminare i dati. Le funzionalità di sicurezza per questa soluzione riguardano sia i dischi che il servizio associato a garantire la sicurezza dei dati archiviati. 
+Data Box Disk offre una soluzione sicura per la protezione dei dati, garantendo che solo le entità autorizzate possano visualizzare, modificare o eliminare i dati. Le funzionalità di sicurezza per questa soluzione riguardano sia i dischi che il servizio associato a garantire la sicurezza dei dati archiviati.
 
 ### <a name="data-box-disk-protection"></a>Protezione di Data Box Disk
 
@@ -48,7 +48,7 @@ Il servizio Data Box Disk è protetto dalle funzionalità seguenti:
 
 I dati in ingresso e in uscita da Data Box Disk sono protetti dalle funzionalità seguenti:
 
-- Crittografia BitLocker dei dati sempre applicata. 
+- Crittografia BitLocker dei dati sempre applicata.
 - Cancellazione sicura dei dati dal disco dopo aver completato il caricamento dei dati in Azure. La cancellazione dei dati viene eseguita in conformità con gli standard NIST 800-88r1.
 
 ### <a name="data-box-service-protection"></a>Protezione del servizio Data Box
@@ -56,10 +56,9 @@ I dati in ingresso e in uscita da Data Box Disk sono protetti dalle funzionalit�
 Il servizio Data Box è protetto dalle funzionalità seguenti.
 
 - Per l'accesso al servizio Data Box Disk, l'organizzazione deve avere una sottoscrizione di Azure che include Data Box Disk. La sottoscrizione determina le funzionalità a cui si può accedere nel portale di Azure.
-- Dato che il servizio Data Box è ospitato in Azure, viene protetto dalle funzionalità di sicurezza di Azure. Per altre informazioni sulle funzionalità di sicurezza fornite da Microsoft Azure, andare in [Centro protezione Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
+- Dato che il servizio Data Box è ospitato in Azure, viene protetto dalle funzionalità di sicurezza di Azure. Per altre informazioni sulle funzionalità di sicurezza fornite da Microsoft Azure, andare in [Centro protezione Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - Data Box Disk archivia la passkey del disco usata per sbloccare il disco nel servizio. 
-- Il servizio Data Box Disk archivia i dettagli e lo stato dell'ordine nel servizio. Queste informazioni vengono eliminate quando l'ordine viene eliminato. 
-
+- Il servizio Data Box Disk archivia i dettagli e lo stato dell'ordine nel servizio. Queste informazioni vengono eliminate quando l'ordine viene eliminato.
 
 ## <a name="managing-personal-data"></a>Gestione dei dati personali
 
@@ -77,7 +76,7 @@ Azure Data Box Disk raccoglie e visualizza informazioni personali nei principali
   - Indirizzo
   - city
   - CAP
-  - Stato
+  - State
   - Paese/provincia/area geografica
   - ID unità
   - Numero di account del vettore
@@ -92,6 +91,6 @@ Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Ce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Rivedere i [requisiti di Data Box Disk](data-box-disk-system-requirements.md).
+- Rivedere i [requisiti per Data Box Disk](data-box-disk-system-requirements.md).
 - Comprendere i [limiti di Data Box Disk](data-box-disk-limits.md).
 - Distribuire rapidamente [Azure Data Box Disk](data-box-disk-quickstart-portal.md) nel portale di Azure.

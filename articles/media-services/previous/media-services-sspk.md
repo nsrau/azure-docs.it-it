@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 67507dc571b3fab93e61e70c1e8282ee5c0a4630
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301387"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096704"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenza per Microsoft® Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>Panoramica
@@ -91,10 +91,10 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
+* Guangzhou Shikun Electronics., Ltd.
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
-* iWEDIA S.A. 
 * Liberty Global Services BV
 * MediaTek Inc.
 * MStar Co, Ltd.

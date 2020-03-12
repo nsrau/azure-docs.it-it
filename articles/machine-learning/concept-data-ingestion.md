@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303121"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086881"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Inserimento di dati in Azure Machine Learning
 
@@ -26,7 +26,7 @@ In questo articolo vengono illustrati i vantaggi e gli svantaggi delle seguenti 
 
 L'inserimento dei dati è il processo in cui i dati non strutturati vengono estratti da una o più origini e quindi preparati per il training dei modelli di machine learning. È anche un tempo molto intenso, soprattutto se eseguito manualmente e se si dispone di grandi quantità di dati da più origini. L'automazione di questa operazione consente di liberare risorse e garantisce che i modelli usino i dati più recenti e applicabili.
 
-È consigliabile valutare inizialmente l'uso di Azure Data Factory (ADF), perché è appositamente compilato per estrarre, caricare e trasformare i dati. Se non è possibile soddisfare i requisiti usando ADF, è possibile usare Python SDK per sviluppare una soluzione di codice personalizzata oppure usare ADF e Python SDK insieme per creare un flusso di lavoro di inserimento dati complessivo che soddisfi le proprie esigenze.
+Azure Data Factory (ADF) è progettato appositamente per estrarre, caricare e trasformare i dati, tuttavia Python SDK consente di sviluppare una soluzione di codice personalizzata per le attività di inserimento dei dati di base. Se non sono necessarie, è anche possibile usare ADF e Python SDK insieme per creare un flusso di lavoro di inserimento dati complessivo che soddisfi le proprie esigenze. 
 
 ## <a name="use-azure-data-factory"></a>Usare Azure Data Factory
 
@@ -52,6 +52,8 @@ Questi passaggi e il diagramma seguente illustrano il flusso di lavoro di inseri
 
 
     ![Inserimento di dati ADF](media/concept-data-ingestion/data-ingest-option-one.svg)
+    
+Informazioni su come creare una pipeline di inserimento dei dati per Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md).
 
 ## <a name="use-the-python-sdk"></a>Usare Python SDK 
 

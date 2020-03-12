@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: 6f4e0744aad5f053cdda0a52b382ad3c86982c2f
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.date: 03/11/2020
+ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904980"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127644"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi per gli ambienti di Integration Services (ISEs) in app per la logica di Azure
 
@@ -19,7 +19,7 @@ App per la logica di Azure si basa su archiviazione di Azure per archiviare e [c
 
 Quando si crea un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per ospitare le app per la logica e si desidera un maggiore controllo sulle chiavi di crittografia usate da archiviazione di Azure, è possibile configurare, usare e gestire la propria chiave usando [Azure Key Vault](../key-vault/key-vault-overview.md). Questa funzionalità è nota anche come "Bring Your Own Key" (BYOK) e la chiave è detta "chiave gestita dal cliente".
 
-Questo argomento illustra come configurare e specificare la propria chiave di crittografia da usare quando si crea ISE. 
+Questo argomento illustra come configurare e specificare la propria chiave di crittografia da usare quando si crea ISE usando l'API REST di app per la logica. Per la procedura generale per creare un ISE tramite l'API REST di app per la logica, vedere [creare un ambiente del servizio di integrazione (ISE) usando l'API REST di app per la logica](../logic-apps/create-integration-service-environment-rest-api.md).
 
 ## <a name="considerations"></a>Considerazioni
 
@@ -33,9 +33,9 @@ Questo argomento illustra come configurare e specificare la propria chiave di cr
 
 * Entro *30 minuti* dopo l'invio della richiesta HTTPS put per la creazione di ISE, è necessario [concedere l'accesso all'insieme di credenziali delle chiavi all'identità assegnata dal sistema di ISE](#identity-access-to-key-vault). In caso contrario, la creazione di ISE non riesce e genera un errore di autorizzazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* Gli stessi [prerequisiti](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) e [requisiti per abilitare l'accesso per ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) come quando si crea un ISE nel portale di Azure
 
 * Un insieme di credenziali delle chiavi di Azure con le proprietà **Elimina temporaneamente** e non **Ripulisci** abilitate
 
@@ -43,7 +43,7 @@ Questo argomento illustra come configurare e specificare la propria chiave di cr
 
 * Nell'insieme di credenziali delle chiavi, una chiave creata con i valori delle proprietà seguenti:
 
-  | Proprietà | Valore |
+  | Proprietà | valore |
   |----------|-------|
   | **Tipo chiave** | RSA |
   | **Dimensioni della chiave RSA** | 2048 |
@@ -66,6 +66,15 @@ Per creare ISE chiamando l'API REST di app per la logica, effettuare questa rich
 
 > [!IMPORTANT]
 > Per la versione dell'API REST di app per la logica 2019-05-01 è necessario effettuare una richiesta HTTP PUT per i connettori ISE.
+
+Il completamento della distribuzione richiede in genere entro due ore. In alcuni casi, la distribuzione potrebbe richiedere fino a quattro ore. Per controllare lo stato della distribuzione, nella [portale di Azure](https://portal.azure.com)della barra degli strumenti di Azure selezionare l'icona notifiche, che consente di aprire il riquadro notifiche.
+
+> [!NOTE]
+> Se la distribuzione non riesce o si elimina ISE, Azure potrebbe richiedere fino a un'ora prima di rilasciare le subnet. Questo ritardo significa che potrebbe essere necessario attendere prima di riutilizzare tali subnet in un altro ISE.
+>
+> Se si elimina la rete virtuale, Azure richiede in genere fino a due ore prima di rilasciare le subnet, ma questa operazione potrebbe richiedere più tempo. 
+> Quando si eliminano le reti virtuali, assicurarsi che non ci siano risorse ancora connesse. 
+> Vedere [eliminare la rete virtuale](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 ### <a name="request-header"></a>Intestazione della richiesta
 

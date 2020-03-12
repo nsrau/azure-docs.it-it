@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 5a6a96f478c4402a830cc522657f56cfd11fa56f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4f30bf112175742566c2957d78154e5a7abd1733
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821816"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096857"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -65,7 +65,7 @@ I [gruppi di failover automatico](sql-database-auto-failover-group.md#auto-failo
 |:---------------------------------------------| :-------------- | :----------------|
 | Failover automatico                           |     No          |      Sì         |
 | Eseguire contemporaneamente il failover di più database  |     No          |      Sì         |
-| Aggiornare la stringa di connessione dopo il failover      |     Sì         |      No          |
+| L'utente deve aggiornare la stringa di connessione dopo il failover      |     Sì         |      No          |
 | Istanza gestita supportata                   |     No          |      Sì         |
 | Può trovarsi nella stessa area del database primario             |     Sì         |      No          |
 | Più repliche                            |     Sì         |      No          |
@@ -85,10 +85,10 @@ Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il
 
 Metodi di ripristino diversi offrono livelli diversi di RPO e RTO. È possibile scegliere un metodo di ripristino specifico oppure utilizzare una combinazione di metodi per ottenere il ripristino completo dell'applicazione. Nella tabella seguente vengono confrontati RPO e RTO di ogni opzione di ripristino. I gruppi di failover automatico semplificano la distribuzione e l'uso della replica geografica e aggiungono le funzionalità aggiuntive, come descritto nella tabella seguente.
 
-| Metodo Recovery | RTO | RPO |
+| Metodo di ripristino | RTO | RPO |
 | --- | --- | --- | 
-| Ripristino geografico dai backup con replica geografica | 12 ore | 1 h |
-| Gruppi di failover automatico | 1 h | 5 s |
+| Ripristino geografico dai backup con replica geografica | 12 ore | 1 ora |
+| Gruppi di failover automatico | 1 ora | 5 s |
 | Failover manuale del database | 30 s | 5 s |
 
 > [!NOTE]

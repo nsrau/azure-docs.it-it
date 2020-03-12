@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 9f3fd59fa040ab46a5fc4ef8272a17cba4c631b8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 764567bffd2a08ebb5beb17e3063998848b3f110
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925774"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127329"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Eseguire la migrazione delle risorse IaaS a Azure Resource Manager entro il 1 ° marzo 2023 
 
@@ -23,7 +23,7 @@ In 2014 è stata avviata la IaaS su Azure Resource Manager e sono state migliora
 
 Attualmente, circa il 90% delle VM IaaS USA Azure Resource Manager. Se si usano le risorse di IaaS tramite Azure Service Manager (ASM), iniziare a pianificare la migrazione adesso e completarla entro il 1 ° marzo 2023 per sfruttare i vantaggi offerti da [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/).
 
-Le macchine virtuali classiche seguiranno i [criteri del ciclo](https://support.microsoft.com/help/30881/modern-lifecycle-policy) di vita moderni per la deprecazione.
+Le macchine virtuali classiche seguiranno i [criteri del ciclo](https://support.microsoft.com/help/30881/modern-lifecycle-policy) di vita moderni per il ritiro.
 
 ## <a name="how-does-this-affect-me"></a>Quali sono le conseguenze di questa operazione? 
 
@@ -31,7 +31,7 @@ Le macchine virtuali classiche seguiranno i [criteri del ciclo](https://support.
 2) A partire dal 1 ° marzo 2023 i clienti non saranno più in grado di avviare macchine virtuali IaaS con Azure Service Manager e le eventuali ancora in esecuzione o allocate verranno arrestate e deallocate. 
 2) Il 1 ° marzo 2023, le sottoscrizioni che non hanno eseguito la migrazione a Azure Resource Manager verranno informati sulle sequenze temporali per l'eliminazione di tutte le macchine virtuali classiche rimanenti.  
 
-I servizi e le funzionalità di Azure seguenti **non** saranno interessati dal ritiro: 
+I servizi e le funzionalità di Azure seguenti **NON** saranno interessati da questo ritiro: 
 - Servizi cloud 
 - Account di archiviazione **non** usati dalle VM classiche 
 - Reti virtuali (reti virtuali) **non** usate dalle VM classiche. 

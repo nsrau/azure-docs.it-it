@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: b2ec9fd70d1eb64c5968de0312941bfbc98d3033
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2a5d1178bd6dbd6f7cfdd2ec2af17b78836a38d7
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670526"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096725"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origini dei dati di monitoraggio per monitoraggio di Azure
 Monitoraggio di Azure è basato su una [piattaforma di dati di monitoraggio comune](data-platform.md) che include [log](data-platform-logs.md) e [metriche](data-platform-metrics.md). La raccolta dei dati in questa piattaforma consente di analizzare i dati di più risorse insieme usando un set comune di strumenti in monitoraggio di Azure. I dati di monitoraggio possono anche essere inviati ad altre posizioni per supportare determinati scenari e alcune risorse possono scrivere in altre posizioni prima di poter essere raccolti in log o metriche.
@@ -72,8 +72,8 @@ Il [log attività di Azure](platform-logs-overview.md) include i record di integ
 |:---|:---|
 | Log attività | Il log attività viene raccolto nel proprio archivio dati che è possibile visualizzare dal menu monitoraggio di Azure o da usare per creare gli avvisi del log attività. | [Eseguire una query sul log attività nel portale di Azure](activity-log-view.md#azure-portal) |
 | Log di Monitoraggio di Azure | Configurare i log di monitoraggio di Azure per raccogliere il log attività per analizzarlo con altri dati di monitoraggio. | [Raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure](activity-log-collect.md) |
-| Archiviazione di Azure | Esportare il log attività in archiviazione di Azure per l'archiviazione. | [Archiviare il log attività](activity-log-export.md#archive-activity-log)  |
-| Hub eventi | Trasmettere il log attività ad altre posizioni usando gli hub eventi | [Trasmettere il log attività a hub eventi](activity-log-export.md#stream-activity-log-to-event-hub). |
+| Archiviazione di Azure | Esportare il log attività in archiviazione di Azure per l'archiviazione. | [Archiviare il log attività](resource-logs-collect-storage.md)  |
+| Hub eventi | Trasmettere il log attività ad altre posizioni usando gli hub eventi | [Trasmettere il log attività a hub eventi](resource-logs-stream-event-hubs.md). |
 
 ### <a name="azure-service-health"></a>Integrità dei servizi di Azure
 [Integrità dei servizi di Azure](../../service-health/service-health-overview.md) presenta informazioni sull'integrità dei servizi di Azure nella sottoscrizione su cui si basano l'applicazione e le risorse in uso.
@@ -150,7 +150,7 @@ Il monitoraggio dettagliato delle applicazioni in monitoraggio di Azure viene es
 ![Raccolta di dati dell'applicazione](media/data-sources/applications.png)
 
 
-### <a name="application-data"></a>Dati applicazione
+### <a name="application-data"></a>Dati dell'applicazione
 Quando si abilita Application Insights per un'applicazione mediante l'installazione di un pacchetto di strumentazione, questo servizio raccoglie le metriche e i log relativi alle prestazioni e al funzionamento dell'applicazione. Application Insights archivia i dati raccolti nella stessa piattaforma dati di monitoraggio di Azure utilizzata da altre origini dati. Include strumenti completi per l'analisi di questi dati, ma è anche possibile analizzarli con dati provenienti da altre origini usando strumenti come Esplora metriche e Log Analytics.
 
 | Destination | Descrizione | Riferimento |

@@ -3,12 +3,12 @@ title: Creare un'immagine con Buildpack nativo del cloud
 description: Usare il comando AZ ACR Pack Build per compilare un'immagine del contenitore da un'app e eseguire il push in Azure Container Registry, senza usare un Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 9cd1ae464213027cba3012c93c0ca3894c804750
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c42bde6bbab5973094302a2d41f004d7600bdf9e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456129"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087084"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilare ed eseguire il push di un'immagine da un'app usando una Buildpack nativa cloud
 
@@ -30,7 +30,7 @@ Specificare come minimo quanto segue quando si esegue `az acr pack build`:
 * Uno dei [percorsi di contesto supportati](container-registry-tasks-overview.md#context-locations) per le attività ACR, ad esempio una directory locale, un repository GitHub o un archivio remoto
 * Nome di un'immagine del compilatore Buildpack adatta per l'applicazione. Azure Container Registry memorizza nella cache le immagini di generatore, ad esempio `cloudfoundry/cnb:0.0.34-cflinuxfs3` per compilazioni più veloci.  
 
-`az acr pack build` supporta altre funzionalità dei comandi delle attività ACR, incluse le [variabili Run](container-registry-tasks-reference-yaml.md#run-variables) e i [log di esecuzione delle attività](container-registry-tasks-overview.md#view-task-logs) , che vengono trasmessi e salvati per il recupero successivo.
+`az acr pack build` supporta altre funzionalità dei comandi delle attività ACR, incluse le [variabili Run](container-registry-tasks-reference-yaml.md#run-variables) e i [log di esecuzione delle attività](container-registry-tasks-logs.md) , che vengono trasmessi e salvati per il recupero successivo.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Esempio: compilare un'immagine node. js con Cloud Foundry Builder
 

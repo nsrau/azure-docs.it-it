@@ -1,23 +1,18 @@
 ---
-title: Distribuire host dedicati di Azure usando il portale di Azure
-description: Distribuire le macchine virtuali in host dedicati usando il portale di Azure.
-services: virtual-machines-windows
+title: Distribuire host dedicati di Azure tramite il portale
+description: Distribuire le macchine virtuali in host dedicati usando il portale.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b6f5e155b76535c4d9e0080983d5f54cec3adb01
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833930"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086941"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuire macchine virtuali in host dedicati tramite il portale
 
@@ -25,7 +20,7 @@ Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di A
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
-## <a name="create-a-vm"></a>Creare una VM
+## <a name="create-a-vm"></a>Creare una macchina virtuale
 
 1. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 1. Nella pagina **Nuovo**, in **Più comuni**, selezionare **Windows Server 2016 Datacenter**.
@@ -40,11 +35,30 @@ Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di A
 1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi + Crea** nella parte inferiore della pagina.
 1. Quando viene visualizzato il messaggio che la convalida è stata superata, selezionare **Crea**.
 
+## <a name="add-an-existing-vm"></a>Aggiungere una macchina virtuale esistente 
+
+È possibile aggiungere una macchina virtuale di uscita a un host dedicato, ma la VM deve essere prima di tutto Stop\Deallocated. Prima di spostare una macchina virtuale in un host dedicato, verificare che la configurazione della macchina virtuale sia supportata:
+
+- Le dimensioni della macchina virtuale devono essere nella stessa famiglia di dimensioni dell'host dedicato. Se, ad esempio, l'host dedicato è DSv3, è possibile che le dimensioni della macchina virtuale siano Standard_D4s_v3, ma non una Standard_A4_v2. 
+- La macchina virtuale deve trovarsi nella stessa area dell'host dedicato.
+- La macchina virtuale non può far parte di un gruppo di posizionamento di prossimità. Rimuovere la macchina virtuale dal gruppo di posizionamento vicino prima di trasferirla in un host dedicato. Per altre informazioni, vedere [spostare una macchina virtuale da un gruppo di posizionamento vicino](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- La macchina virtuale non può trovarsi in un set di disponibilità.
+- Se la macchina virtuale si trova in una zona di disponibilità, deve corrispondere alla stessa zona di disponibilità del gruppo host. Le impostazioni della zona di disponibilità per la macchina virtuale e il gruppo host devono corrispondere.
+
+Spostare la macchina virtuale in un host dedicato usando il [portale](https://portal.azure.com).
+
+1. Aprire la pagina per la macchina virtuale.
+1. Selezionare **Arresta** per stop\deallocate la macchina virtuale.
+1. Scegliere **configurazione** dal menu a sinistra.
+1. Selezionare un gruppo host e un host nei menu a discesa.
+1. Al termine, selezionare **Salva** nella parte superiore della pagina.
+1. Dopo che la macchina virtuale è stata aggiunta all'host, scegliere **Panoramica** dal menu a sinistra.
+1. Nella parte superiore della pagina selezionare **Avvia** per riavviare la macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per ulteriori informazioni, vedere Cenni preliminari sugli [host dedicati](dedicated-hosts.md) . 
 
-- È disponibile un [modello di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), che usa sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile un modello di esempio [, che](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)USA sia le zone che i domini di errore per la resilienza massima in un'area.
 
 - È inoltre possibile distribuire un host dedicato utilizzando [Azure PowerShell](dedicated-hosts-powershell.md).

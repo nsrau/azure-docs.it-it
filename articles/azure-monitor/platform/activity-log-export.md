@@ -8,11 +8,11 @@ ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379528"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096287"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o in hub eventi di Azure
 
@@ -30,7 +30,7 @@ L'archiviazione del log attività in un account di archiviazione è utile se si 
 * **Trasmettere a sistemi di telemetria e registrazione di terze parti** : in futuro, la funzionalità di trasmissione di Hub eventi di Azure diventerà il meccanismo di invio del log attività a soluzioni di analisi dei log e SIEM di terze parti.
 * **Creare una piattaforma di telemetria e registrazione personalizzata** : se si ha già una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi consentono di inserire il log attività con la massima flessibilità.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="storage-account"></a>Account di archiviazione
 Se si sta archiviando il log attività, è necessario [creare un account di archiviazione](../../storage/common/storage-account-create.md) , se non ne è già presente uno. Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se si archiviano anche log e metriche in un account di archiviazione, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
@@ -119,7 +119,7 @@ Se esiste già un profilo di log, prima di tutto è necessario rimuovere il prof
 
     | Proprietà | Obbligatoria | Descrizione |
     | --- | --- | --- |
-    | Name |Sì |Nome del profilo di log. |
+    | Nome |Sì |Nome del profilo di log. |
     | StorageAccountId |No |ID risorsa dell'account di archiviazione in cui deve essere salvato il log attività. |
     | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa con formato: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
@@ -164,10 +164,10 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
     | --- | --- | --- |
     | name |Sì |Nome del profilo di log. |
     | storage-account-id |Sì |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-    | posizioni |Sì |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
-    | giorni |Sì |Numero di giorni per cui devono essere conservati gli eventi, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro Enabled deve essere impostato su false. |
-    |enabled | Sì |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
-    | categorie |Sì |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
+    | locations |Sì |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
+    | days |Sì |Numero di giorni per cui devono essere conservati gli eventi, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro Enabled deve essere impostato su false. |
+    |Enabled | Sì |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
+    | Categorie |Sì |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 
 

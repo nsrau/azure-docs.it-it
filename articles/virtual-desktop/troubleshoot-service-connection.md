@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: 81ba2b3b5834e06922f694d6eb5338465bfb0ab7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+manager: lizross
+ms.openlocfilehash: 57d5198cb54dc096fb09bb52d76539b1e4bbc1f2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975457"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127453"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connessioni al servizio desktop virtuale Windows
 
 Usare questo articolo per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows.
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 È possibile inviare commenti e suggerimenti e discutere il servizio desktop virtuale di Windows con il team del prodotto e altri membri della community attiva presso la [community di tecnologia desktop virtuale di Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
@@ -51,11 +52,11 @@ Se lo stato dell'host è `NoHeartBeat`, significa che la macchina virtuale non r
 ```powershell
 SessionHostName          LastHeartBeat     AllowNewSession    Status 
 ---------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True  Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True  Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True  NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True  NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True  NoHeartBeat 
+WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
+WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
+WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
 ```
 
 Per correggere lo stato noheartbeat, è possibile eseguire alcune operazioni.

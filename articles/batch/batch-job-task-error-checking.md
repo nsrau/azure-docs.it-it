@@ -5,14 +5,14 @@ services: batch
 author: mscurrell
 ms.service: batch
 ms.topic: article
-ms.date: 12/01/2019
+ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: c4e36d76bf85b9715a817dbeb7c690aa77f8d978
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852185"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087003"
 ---
 # <a name="job-and-task-error-checking"></a>Controllo degli errori di attività e processi
 
@@ -72,6 +72,17 @@ In tutti i casi, è necessario verificare la presenza di errori e informazioni s
 È necessario considerare l'effetto degli errori delle attività nel processo e le dipendenze delle attività.  È possibile specificare la proprietà [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) per un'attività per configurare un'azione per le dipendenze e per il processo.
 - Per le dipendenze, [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) controlla se le attività dipendenti dall'attività non riuscita sono bloccate o vengono eseguite.
 - Per il processo, [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) controlla se l'attività non riuscita conduce il processo disabilitato, terminato o lasciato invariato.
+
+### <a name="task-command-line-failures"></a>Errori della riga di comando dell'attività
+
+Quando viene eseguita la riga di comando dell'attività, l'output viene scritto `stderr.txt` e `stdout.txt`. Inoltre, l'applicazione può scrivere nei file di log specifici dell'applicazione.
+
+Se il nodo del pool in cui è ancora in esecuzione un'attività, è possibile ottenere e visualizzare i file di log. Ad esempio, il portale di Azure elenca e può visualizzare i file di log per un'attività o un nodo del pool. Più API consentono inoltre di elencare e ottenere i file delle attività, ad esempio [ottenere da un'attività](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
+
+Poiché i pool e i nodi del pool sono spesso temporanei, i nodi vengono continuamente aggiunti ed eliminati, è consigliabile che i file di log siano salvati in modo permanente. [I file di output delle attività](https://docs.microsoft.com/azure/batch/batch-task-output-files) rappresentano un modo pratico per salvare i file di log in archiviazione di Azure.
+
+### <a name="output-file-failures"></a>Errori file di output
+Per ogni caricamento di file, il servizio Batch scrive due file di log nel nodo di calcolo, `fileuploadout.txt` e `fileuploaderr.txt`. È possibile esaminare questi file di log per ottenere ulteriori informazioni su un errore specifico. Nei casi in cui non si è mai tentato di caricare il file, ad esempio perché non è stato possibile eseguire l'attività stessa, questi file di log non esistono.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

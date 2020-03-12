@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bd5c026da27c68e249532b70629ba01afea655fe
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 14ba5f270138db22a76fd697b264046e22577427
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513066"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086740"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Esercitazione: usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze
 
@@ -46,7 +46,9 @@ Questa esercitazione illustra come:
 > * Creare una StreamingLocator con i criteri di flusso specificati.
 > * Creare un URL usato per la riproduzione del file.
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
@@ -186,7 +188,7 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri
+Estrai
 
 > [!div class="nextstepaction"]
 > [Protezione con AES-128](protect-with-aes128.md)

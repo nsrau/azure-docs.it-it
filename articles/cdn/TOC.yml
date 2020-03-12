@@ -85,7 +85,7 @@
           items:
             - name: Contenuto Web di Azure
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Archivio BLOB di Azure
+            - name: Archiviazione BLOB di Azure
               href: cdn-manage-expiration-of-blob-content.md
         - name: Autenticazione tramite token
           href: cdn-token-auth.md
@@ -102,6 +102,8 @@
     - name: Analisi
       href: cdn-log-analysis.md
       items:
+        - name: Log non elaborati HTTP
+          href: enable-raw-logs.md
         - name: Log di diagnostica di Azure
           href: cdn-azure-diagnostic-logs.md
         - name: Strumenti di analisi per la rete CDN di Azure da Verizon
@@ -134,7 +136,7 @@
           href: cdn-troubleshoot-compression.md
         - name: Autorità di certificazione consentite
           href: cdn-troubleshoot-allowed-ca.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sul motore regole standard
       href: cdn-standard-rules-engine-reference.md

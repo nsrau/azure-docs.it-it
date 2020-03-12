@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: ee641a694371ffd3fbc691a05edac707e37e959d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+manager: lizross
+ms.openlocfilehash: a2ff3f6fa9896e45ecd6ab40d40d46a046edf1cb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607337"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127382"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Risolvere i problemi relativi alle macchine virtuali Windows 7 in Desktop virtuale Windows
 
@@ -39,7 +40,7 @@ Se il desktop virtuale di Windows non riesce a trovare le credenziali degli uten
 
 Per correggere l'errore, aggiungere l'utente al gruppo di utenti Desktop remoto:
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 2. Selezionare la macchina virtuale in cui è stato visualizzato il messaggio di errore.
 3. Selezionare **Esegui un comando**.
 4. Eseguire il comando seguente con `<username>` sostituito con il nome dell'utente che si desidera aggiungere:

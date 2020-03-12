@@ -5,20 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246219"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128719"
 ---
 ## <a name="limitations"></a>Limitazioni
 
 - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-- Sono supportate le serie di macchine virtuali seguenti: DSv3, ESv3 e Fsv2. 
 
 ## <a name="benefits"></a>Vantaggi 
 
@@ -89,7 +88,7 @@ Per ulteriori informazioni, vedere la pagina relativa alle [quote vCPU per le ma
 
 La versione di valutazione gratuita e gli abbonamenti MSDN non hanno una quota per gli host dedicati di Azure.
 
-## <a name="pricing"></a>Pricing
+## <a name="pricing"></a>Prezzi
 
 Gli utenti vengono addebitati in base all'host dedicato, indipendentemente dal numero di macchine virtuali distribuite. Nell'istruzione mensile viene visualizzato un nuovo tipo di risorsa fatturabile degli host. Le macchine virtuali in un host dedicato verranno comunque visualizzate nell'istruzione, ma con un prezzo pari a 0.
 
@@ -101,17 +100,15 @@ Per altre informazioni, vedere [prezzi di host dedicati di Azure](https://aka.ms
 
 È anche possibile risparmiare sui costi con un' [istanza riservata di host dedicati di Azure](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
-## <a name="vm-families-and-hardware-generations"></a>Gruppi di macchine virtuali e generazioni hardware
+## <a name="sizes-and-hardware-generations"></a>Dimensioni e generazioni hardware
 
-Uno SKU viene definito per un host e rappresenta la serie di dimensioni e il tipo di VM. È possibile combinare più macchine virtuali di dimensioni diverse all'interno di un singolo host, purché siano delle stesse serie di dimensioni. Il tipo è la generazione hardware attualmente disponibile nell'area.
+Uno SKU viene definito per un host e rappresenta la serie di dimensioni e il tipo di VM. È possibile combinare più macchine virtuali di dimensioni diverse all'interno di un singolo host, purché siano delle stesse serie di dimensioni. 
 
-Diverse `types` per la stessa serie di VM proverranno da diversi fornitori di CPU e con diverse generazioni di CPU e numero di core.
+Il *tipo* è la generazione dell'hardware. Tipi di hardware diversi per la stessa serie di VM proverranno da diversi fornitori di CPU e con diverse generazioni di CPU e numero di core. 
 
-Per altre informazioni, vedere la pagina relativa ai [prezzi](https://aka.ms/ADHPricing) per gli host.
+Le dimensioni e i tipi di hardware variano in base all'area. Per altre informazioni, vedere la pagina relativa ai [prezzi](https://aka.ms/ADHPricing) per gli host.
 
-Gli host dedicati supportano i SKU\types host seguenti: DSv3_Type1 e ESv3_Type1
 
- 
 ## <a name="host-life-cycle"></a>Ciclo di vita dell'host
 
 

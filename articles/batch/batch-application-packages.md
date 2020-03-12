@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6cad3b3b01a98462e37a4b4b96ba02a1b61a5f62
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025929"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086215"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
 
@@ -42,10 +42,10 @@ Per *applicazione* in Azure Batch si intende un set di file binari con versione 
 
 ![Diagramma di alto livello di applicazioni e pacchetti applicazione][1]
 
-### <a name="applications"></a>Applicazioni
+### <a name="applications"></a>APPLICAZIONI
 Un'applicazione in Batch contiene uno o più pacchetti dell'applicazione e specifica le opzioni di configurazione per l'applicazione. Un'applicazione può ad esempio specificare la versione predefinita del pacchetto dell'applicazione da installare nei nodi di calcolo e se i pacchetti possono essere aggiornati o eliminati.
 
-### <a name="application-packages"></a>Pacchetti delle applicazioni
+### <a name="application-packages"></a>Pacchetti dell'applicazione
 Un pacchetto dell'applicazione è un file zip contenente i file binari e i file di supporto dell'applicazione necessari per le attività di esecuzione dell'applicazione. Ogni pacchetto dell’applicazione rappresenta una versione specifica dell'applicazione.
 
 È possibile specificare i pacchetti dell'applicazione a livello di pool e di attività. È possibile specificare uno o più di questi pacchetti ed eventualmente una versione quando si crea un pool o un'attività.
@@ -90,13 +90,11 @@ Il servizio Batch usa l'account di archiviazione associato per archiviare i pacc
 
 È consigliabile creare un account di archiviazione da usare *specificamente* con l'account Batch e selezionarlo qui. Dopo aver creato un account di archiviazione, è possibile collegarlo all'account Batch usando la finestra **Account di archiviazione**.
 
-> [!NOTE] 
-> Non è attualmente possibile usare i pacchetti dell'applicazione con un account di archiviazione di Azure configurato con [regole del firewall](../storage/common/storage-network-security.md).
-> 
+> [!IMPORTANT] 
+> - Non è attualmente possibile usare i pacchetti dell'applicazione con un account di archiviazione di Azure configurato con [regole del firewall](../storage/common/storage-network-security.md).
+> - Non è possibile usare un account di archiviazione di Azure con **lo spazio dei nomi gerarchico** impostato su **abilitato** per i pacchetti dell'applicazione.
 
 Il servizio Batch usa Archiviazione di Azure per archiviare i pacchetti dell'applicazione come BLOB in blocchi. Viene [addebitato il costo normale][storage_pricing] per i dati BLOB in blocchi e le dimensioni di ogni pacchetto non possono superare le dimensioni massime del BLOB in blocchi. Per altre informazioni, vedere [obiettivi di scalabilità e prestazioni per archiviazione di Azure per gli account di archiviazione](../storage/blobs/scalability-targets.md). Controllare la dimensione e il numero dei pacchetti dell'applicazione e rimuovere periodicamente i pacchetti obsoleti per ridurre al minimo il costo.
-> 
-> 
 
 ### <a name="view-current-applications"></a>Visualizzare le applicazioni correnti
 Per visualizzare le applicazioni nell'account Batch, fare clic sulla voce di menu **Applicazioni** nel menu di sinistra mentre l'**account Batch** è aperto.
@@ -150,7 +148,7 @@ Questo campo specifica l'ID della nuova applicazione, che è soggetto alle regol
 * Deve essere univoco nell’account Batch.
 * Mantiene le maiuscole/minuscole e non fa distinzione tra maiuscole e minuscole.
 
-**Versione**
+**Version**
 
 Questo campo specifica la versione del pacchetto dell'applicazione che si sta caricando. Le stringhe della versione sono soggette alle regole di convalida seguenti:
 
@@ -225,7 +223,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Se la distribuzione di un pacchetto dell'applicazione non riesce per qualsiasi motivo, il servizio batch contrassegna il nodo come [inutilizzabile][net_nodestate] e nessuna attività è pianificata per l'esecuzione in tale nodo. In questo caso è necessario **riavviare** il nodo per reinizializzare la distribuzione del pacchetto. Il riavvio del nodo consente anche di pianificarne di nuovo le attività.
+> Se la distribuzione di un pacchetto dell'applicazione non riesce per qualsiasi motivo, il servizio batch contrassegna il nodo come [inutilizzabile][net_nodestate]e nessuna attività è pianificata per l'esecuzione in tale nodo. In questo caso è necessario **riavviare** il nodo per reinizializzare la distribuzione del pacchetto. Il riavvio del nodo consente anche di pianificarne di nuovo le attività.
 > 
 > 
 

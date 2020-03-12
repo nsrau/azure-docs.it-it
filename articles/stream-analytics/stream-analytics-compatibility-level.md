@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/10/2020
+ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201799"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087851"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -25,11 +25,9 @@ Il livello di compatibilità controlla il comportamento di runtime di un process
 
 Analisi di flusso di Azure supporta attualmente tre livelli di compatibilità:
 
-* 1,0-comportamento precedente
-* 1,1-comportamento predefinito
+* 1,0: livello di compatibilità originale, introdotto durante la disponibilità generale di analisi di flusso di Azure diversi anni fa.
+* 1,1-comportamento precedente
 * 1,2-comportamento più recente con i miglioramenti più recenti
-
-Il livello di compatibilità 1,0 originale è stato introdotto durante la disponibilità generale di analisi di flusso di Azure diversi anni fa.
 
 Quando si crea un nuovo processo di analisi di flusso, è consigliabile crearlo usando il livello di compatibilità più recente. Iniziare la progettazione del processo basandosi sui comportamenti più recenti, per evitare di aggiungere modifiche e complessità in un secondo momento.
 

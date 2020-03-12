@@ -1,59 +1,111 @@
 ---
-title: Come creare un ticket di supporto
-description: Come creare un ticket di supporto in Azure sinapsi Analytics.
+title: Aumenta la quota di richieste e Ottieni supporto
+description: Come creare una richiesta di supporto nel portale di Azure di Azure sinapsi Analytics. La quota di richieste aumenta o ottiene il supporto per la risoluzione dei problemi.
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 03/10/2020
+author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9623a878ea009ec7363501c09c324baa6d0fa7ad
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 88cc737fddfdd896575227e036df087c13a4d0f6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195688"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130191"
 ---
-# <a name="how-to-create-a-support-ticket-for-azure-synapse-analytics"></a>Come creare un ticket di supporto per Azure sinapsi Analytics
-Se si verificano problemi con l'analisi delle sinapsi di Azure, creare un ticket di supporto in modo che il team di supporto tecnico possa fornire assistenza.
+# <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Aumentare la quota di richieste e ottenere supporto per analisi sinapsi di Azure
+
+Questo articolo descrive come inviare un ticket di supporto nel portale di Azure di Azure sinapsi Analytics. Questo processo consente di richiedere un aumento della quota o di inviare una richiesta di supporto tecnico per il team di supporto tecnico.
 
 ## <a name="create-a-support-ticket"></a>Creare un ticket di supporto
-1. Aprire il [portale di Azure](https://portal.azure.com/).
-1. Nella schermata iniziale fare clic sulla scheda **Guida e supporto**.
-   
-    ![Guida e supporto tecnico](./media/sql-data-warehouse-get-started-create-support-ticket/main-page.png)
+
+Usare la procedura seguente per creare una nuova richiesta di supporto dal portale di Azure per l'analisi delle sinapsi di Azure.
+
+1. Scegliere **Guida e supporto**dal menu [portale di Azure](https://portal.azure.com) .
+
+   ![Il collegamento alla guida e al supporto tecnico](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
+
+
+1. In **Guida e supporto**selezionare **nuova richiesta di supporto**.
+
+    ![Crea una nuova richiesta di supporto](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
 
 1. Esaminare il [piano di supporto di Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
-   
+
    * Il supporto per **fatturazione, quote e gestione delle sottoscrizioni** è disponibile per tutti i livelli.
    * Il supporto per la **correzione delle interruzioni** viene fornito tramite il supporto tecnico [Developer](https://azure.microsoft.com/support/plans/developer/), [standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)o [Premier](https://azure.microsoft.com/support/plans/premier/) . I problemi in garanzia si verificano quando i clienti usano Azure ed è ragionevolmente probabile che il problema sia provocato da Microsoft.
-   * I servizi di **mentoring** e di **consulenza** per sviluppatori sono disponibili ai livelli di supporto [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) e [Premier](https://azure.microsoft.com/support/plans/premier/) . 
-     
-     Se si dispone di un piano di supporto tecnico Premier, è anche possibile segnalare SQL Data Warehouse problemi correlati nel [portale di Microsoft Premier Online](https://premier.microsoft.com/). Vedere i [piani di supporto di Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) per altre informazioni sui vari piani di supporto, inclusi ambito, tempi di risposta, prezzi e così via.  Per domande frequenti sul supporto tecnico di Azure, vedere [domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
-1. Nella pagina **Guida e supporto** selezionare **nuova richiesta di supporto**. Selezionare un tipo di problema dal menu a discesa. Quindi continuare a compilare le informazioni nella scheda **nozioni di base** . Immettere un **Riepilogo** del problema e quindi selezionare un **tipo di problema** dal menu e selezionare Salva.
+   * I servizi di **mentoring** e di **consulenza** per sviluppatori sono disponibili ai livelli di supporto [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) e [Premier](https://azure.microsoft.com/support/plans/premier/) .
 
-    ![Guida e supporto tecnico](./media/sql-data-warehouse-get-started-create-support-ticket/issue-type.png)
+   Se si dispone di un piano di supporto tecnico Premier, è anche possibile segnalare problemi di analisi sinapsi di Azure nel [portale di Microsoft Premier Online](https://premier.microsoft.com/). Vedere i [piani di supporto di Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) per altre informazioni sui vari piani di supporto, inclusi ambito, tempi di risposta, prezzi e così via.  Per domande frequenti sul supporto tecnico di Azure, vedere [domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+
+1. Per **tipo di problema**selezionare il tipo di problema appropriato. Per risolvere i problemi relativi alle interruzioni, selezionare **tecnico**. Per le richieste di aumento della quota, selezionare i **limiti di servizio e sottoscrizione (quote)** .
+
+   ![Selezionare un tipo di problema](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-issue-type.png)  
 
    > [!NOTE]
-   > Per impostazione predefinita, ogni server SQL, ad esempio myserver.database.windows.net, ha una **quota DTU** pari a 45.000. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota creando un ticket di supporto e selezionando *Quota* come tipo di richiesta. Per calcolare le esigenze di DTU, moltiplicare 7,5 per il totale [DWU](sql-data-warehouse-overview-what-is.md) necessario. Se, ad esempio, si vogliono ospitare due DW6000 in una istanza di SQL Server, è necessario richiedere una quota di DTU pari a 90.000.  È possibile visualizzare l'utilizzo di DTU attuale nel pannello SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. 
-   > 
+   > Il resto di questo articolo è incentrato sulle richieste di aumento della quota. Tuttavia, è anche possibile selezionare **tecnico** qui per richieste di supporto per la risoluzione dei problemi. Se si seleziona **tecnico**, viene richiesto di fornire un riepilogo e quindi di identificare un tipo di problema selezionando **Seleziona tipo di problema**. È possibile che vengano visualizzate soluzioni che consentono di risolvere il problema. Se le soluzioni presentate non consentono di risolvere il problema, fare clic su **Avanti: dettagli** e completare il modulo per inviare il ticket di supporto.
 
-1. È possibile che vengano visualizzate soluzioni che consentono di risolvere il problema. Se le soluzioni presentate non risolvono il problema, fare clic su **Avanti: dettagli**. Inviare i dettagli del problema e le informazioni di contatto. Selezionare **Avanti: esaminare + creare**
-dettagli ![](./media/sql-data-warehouse-get-started-create-support-ticket/details.png)
+1. Per le richieste di aumento della quota, selezionare **Azure sinapsi Analytics** per il **tipo di quota**. Quindi selezionare **Avanti: soluzioni > >** .
 
-    
-1. Esaminare le informazioni e selezionare **Crea** nella parte inferiore del modulo per inviare la richiesta di supporto.
+   ![Selezionare un tipo di quota](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
+
+1. Nella finestra dei **Dettagli** selezionare **specificare i dettagli** per immettere informazioni aggiuntive.
+
+   ![Collegamento "fornire i dettagli"](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
+
+## <a name="quota-request-types"></a>Tipi di richiesta di quota
+
+Se si fa clic su **Fornisci dettagli** , viene visualizzata la finestra **Dettagli quota** che consente di aggiungere ulteriori informazioni. Le sezioni seguenti descrivono le diverse richieste di quota disponibili per analisi sinapsi di Azure.
+
+### <a name="data-warehouse-units-dwus-per-server"></a>Unità di data warehouse (DWU) per server
+
+Usare la procedura seguente per richiedere un aumento di DWU per server.
+
+1. Selezionare le **unità di data warehouse (DTU) per** tipo di quota server.
+
+1. Nell'elenco di **risorse** selezionare la risorsa di destinazione.
+
+1. Nel campo **Richiedi quota** immettere il nuovo limite DWU che si sta richiedendo.
+
+   ![Dettagli quota DWU](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
+
+### <a name="servers-per-subscription"></a>Server per sottoscrizione
+
+Usare la procedura seguente per richiedere un aumento del numero di server per sottoscrizione.
+
+1. Selezionare il tipo di quota **Server per sottoscrizione** .
+
+1. Nell'elenco **location (percorso** ) selezionare l'area di Azure da usare. La quota è per sottoscrizione in ogni area.
+
+1. Nel campo **nuova quota** immettere la richiesta per il numero massimo di server in tale area.
+
+   ![Dettagli quota server](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
+
+### <a name="enable-subscription-access-to-a-region"></a>Abilitare l'accesso alla sottoscrizione a un'area
+
+Alcuni tipi di offerte non sono disponibili in ogni area. Potrebbe essere visualizzato un errore simile al seguente:
+
+`This location is not available for subscription`
+
+Se la sottoscrizione richiede l'accesso in una determinata area, usare l'opzione **altra richiesta di quota** per richiedere l'accesso. Nella richiesta specificare i dettagli dell'offerta e dello SKU che si vuole abilitare per l'area. Per esplorare le opzioni offerte e SKU, vedere [prezzi di Azure sinapsi Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+
+![Altri dettagli quota](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
+
+## <a name="submit-your-request"></a>Inviare la richiesta
+
+Il passaggio finale consiste nel compilare i dettagli rimanenti della richiesta di supporto del database SQL. Fare quindi clic su **Avanti: rivedere + crea > >** e, dopo aver esaminato i dettagli della richiesta, fare clic su **Crea** per inviare la richiesta.
 
 ## <a name="monitor-a-support-ticket"></a>Monitorare un ticket di supporto
+
 Dopo aver inviato la richiesta di supporto, il team di supporto di Azure contatterà l'utente. Per controllare i dettagli e lo stato della richiesta, fare clic su **Tutte le richieste di supporto** nel dashboard.
 
 ![Controlla stato](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
 ## <a name="other-resources"></a>Altre risorse
-È anche possibile connettersi con la community di SQL Data Warehouse in [stack overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) o tramite il [Forum di Azure SQL data warehouse MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
 
- 
+È anche possibile connettersi con la community di Azure sinapsi Analytics in [stack overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) o tramite il [forum MSDN di Azure SQL data warehouse](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
+

@@ -1,5 +1,5 @@
 ---
-title: Distribuire Esplora dati di Azure nella rete virtuale (anteprima)
+title: Distribuire Esplora dati di Azure nella rete virtuale
 description: Informazioni su come distribuire Esplora dati di Azure nella rete virtuale
 author: basaba
 ms.author: basaba
@@ -7,14 +7,14 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e845b44c51b7611cd3f23f8b33e6576aced2d6ca
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 5a2731e26ba4f371177cf2ae649f0695f27e6304
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851459"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096759"
 ---
-# <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuire Esplora dati di Azure nella rete virtuale (anteprima)
+# <a name="deploy-azure-data-explorer-into-your-virtual-network"></a>Distribuire Esplora dati di Azure nella rete virtuale
 
 Questo articolo illustra le risorse presenti quando si distribuisce un cluster di Esplora dati di Azure in una rete virtuale di Azure personalizzata. Queste informazioni consentiranno di distribuire un cluster in una subnet nella rete virtuale (VNet). Per altre informazioni sulle reti virtuali di Azure, vedere [che cos'è rete virtuale di Azure?](/azure/virtual-network/virtual-networks-overview)
 
@@ -25,9 +25,6 @@ Azure Esplora dati supporta la distribuzione di un cluster in una subnet nella r
 * Applicare le regole del [gruppo di sicurezza di rete](/azure/virtual-network/security-overview) (NSG) nel traffico del cluster di Esplora dati di Azure.
 * Connettere la rete locale alla subnet del cluster Esplora dati di Azure.
 * Proteggere le origini della connessione dati ([Hub eventi](/azure/event-hubs/event-hubs-about) e [griglia di eventi](/azure/event-grid/overview)) con gli endpoint del [servizio](/azure/virtual-network/virtual-network-service-endpoints-overview).
-
-> [!NOTE]
-> L'integrazione e la distribuzione della rete virtuale sono in modalità di anteprima. Per abilitare questa funzionalità, aprire un [ticket di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="access-your-azure-data-explorer-cluster-in-your-vnet"></a>Accedere al cluster di Esplora dati di Azure in VNet
 
@@ -48,7 +45,7 @@ Le dimensioni della subnet usata per ospitare un cluster di Esplora dati di Azur
 
 Il numero totale di indirizzi IP:
 
-| Utilizzo | Numero di indirizzi |
+| Uso | Numero di indirizzi |
 | --- | --- |
 | Servizio motore | 1 per istanza |
 | Servizio di gestione dati | 2 |
@@ -78,8 +75,8 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | **Uso**   | **From**   | **To**   | **Protocollo**   |
 | --- | --- | --- | --- |
 | Gestione  |[Indirizzi di gestione ADX](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | Subnet ADX: 443  | TCP  |
-| Monitoraggio dello stato  | [Indirizzi di monitoraggio dell'integrità di ADX](#health-monitoring-addresses)  | Subnet ADX: 443  | TCP  |
-| Comunicazione interna ADX  | Subnet ADX: tutte le porte  | Subnet ADX: tutte le porte  | Tutte  |
+| Monitoraggio dell’integrità  | [Indirizzi di monitoraggio dell'integrità di ADX](#health-monitoring-addresses)  | Subnet ADX: 443  | TCP  |
+| Comunicazione interna ADX  | Subnet ADX: tutte le porte  | Subnet ADX: tutte le porte  | Tutti  |
 | Consenti bilanciamento del carico di Azure in ingresso (Probe di integrità)  | AzureLoadBalancer  | Subnet ADX: 80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>Configurazione NSG in uscita
@@ -93,7 +90,7 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Download della configurazione di monitoraggio di Azure  | Subnet ADX  | [Indirizzi endpoint di configurazione di monitoraggio di Azure](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
 | Active Directory (se applicabile) | Subnet ADX | AzureActiveDirectory: 443 | TCP |
 | Autorità di certificazione | Subnet ADX | Internet: 80 | TCP |
-| Comunicazione interna  | Subnet ADX  | Subnet ADX: tutte le porte  | Tutte  |
+| Comunicazione interna  | Subnet ADX  | Subnet ADX: tutte le porte  | Tutti  |
 | Porte usate per `sql\_request` e `http\_request` plug-in  | Subnet ADX  | Internet: personalizzato  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>Indirizzi IP rilevanti
@@ -253,7 +250,7 @@ crl3.digicert.com:80
 
 Per l'area **Stati Uniti occidentali** , ad esempio, è necessario definire i seguenti UdR:
 
-| Name | Prefisso indirizzo | Hop successivo |
+| Nome | Prefisso indirizzo | Hop successivo |
 | --- | --- | --- |
 | ADX_Management | 13.64.38.225/32 | Internet |
 | ADX_Monitoring | 23.99.5.162/32 | Internet |
@@ -264,7 +261,7 @@ Per distribuire un cluster di Azure Esplora dati nella rete virtuale, usare il [
 
 Questo modello consente di creare il cluster, la rete virtuale, la subnet, il gruppo di sicurezza di rete e gli indirizzi IP pubblici.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 In questa sezione viene illustrato come risolvere i problemi di connettività, funzionamento e creazione di cluster per un cluster distribuito nella [rete virtuale](/azure/virtual-network/virtual-networks-overview).
 

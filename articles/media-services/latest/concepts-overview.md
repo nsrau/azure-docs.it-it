@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5bb480181c244ee03b6ec9c2a2f5f7783c72f394
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: bdc0af39e3f3a06da6c06ddc384efe44dd678ea3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251411"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087928"
 ---
 # <a name="media-services-concepts"></a>Concetti relativi a servizi multimediali
 
@@ -26,7 +26,9 @@ Questo argomento fornisce una breve panoramica dei concetti e della terminologia
 Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamentali descritti in questi argomenti.
 
 > [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> Attualmente, è possibile usare il [portale di Azure](https://portal.azure.com/) per: gestire [gli eventi live](live-events-outputs-concept.md)di servizi multimediali [v3, visualizzare](assets-concept.md)(non gestire) v3, [ottenere informazioni sull'accesso alle API](access-api-portal.md). Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md)), usare l' [API REST](https://aka.ms/ams-v3-rest-ref), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="media-services-v3-terminology"></a>Terminologia di servizi multimediali V3
 

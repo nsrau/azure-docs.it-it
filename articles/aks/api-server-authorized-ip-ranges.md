@@ -4,12 +4,12 @@ description: Informazioni su come proteggere il cluster usando un intervallo di 
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 80a8504e42eda966554d0151f54668015cf7ee83
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 593f9e0b335e6f4d62c76ce92f833ff4e9143372
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596710"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126613"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
@@ -59,6 +59,8 @@ az aks create \
 > - Indirizzo IP pubblico del firewall
 > - Qualsiasi intervallo che rappresenta le reti da cui verrà amministrato il cluster
 > - Se si usa Azure Dev Spaces nel cluster AKS, è necessario consentire [intervalli aggiuntivi in base all'area geografica][dev-spaces-ranges].
+
+> Il limite massimo per il numero di intervalli IP che è possibile specificare è 3500. 
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Specificare gli IP in uscita per il servizio di bilanciamento del carico SKU standard
 

@@ -4,14 +4,15 @@ description: Distribuire le macchine virtuali in host dedicati usando il portale
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 01/09/2020
+ms.workload: infrastructure
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 5af09cf7ef6c811a239a64c5c6349c3625316177
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: HT
+ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970746"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086743"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuire macchine virtuali in host dedicati tramite il portale
 
@@ -38,6 +39,26 @@ Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di A
 1. Quando viene visualizzato il messaggio che la convalida è stata superata, selezionare **Crea**.
 
 La distribuzione della macchina virtuale richiederà alcuni minuti.
+
+## <a name="add-an-existing-vm"></a>Aggiungere una macchina virtuale esistente 
+
+È possibile aggiungere una macchina virtuale di uscita a un host dedicato, ma la VM deve essere prima di tutto Stop\Deallocated. Prima di spostare una macchina virtuale in un host dedicato, verificare che la configurazione della macchina virtuale sia supportata:
+
+- Le dimensioni della macchina virtuale devono essere nella stessa famiglia di dimensioni dell'host dedicato. Se, ad esempio, l'host dedicato è DSv3, è possibile che le dimensioni della macchina virtuale siano Standard_D4s_v3, ma non una Standard_A4_v2. 
+- La macchina virtuale deve trovarsi nella stessa area dell'host dedicato.
+- La macchina virtuale non può far parte di un gruppo di posizionamento di prossimità. Rimuovere la macchina virtuale dal gruppo di posizionamento vicino prima di trasferirla in un host dedicato. Per altre informazioni, vedere [spostare una macchina virtuale da un gruppo di posizionamento vicino](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- La macchina virtuale non può trovarsi in un set di disponibilità.
+- Se la macchina virtuale si trova in una zona di disponibilità, deve corrispondere alla stessa zona di disponibilità del gruppo host. Le impostazioni della zona di disponibilità per la macchina virtuale e il gruppo host devono corrispondere.
+
+Spostare la macchina virtuale in un host dedicato usando il [portale](https://portal.azure.com).
+
+1. Aprire la pagina per la macchina virtuale.
+1. Selezionare **Arresta** per stop\deallocate la macchina virtuale.
+1. Scegliere **configurazione** dal menu a sinistra.
+1. Selezionare un gruppo host e un host nei menu a discesa.
+1. Al termine, selezionare **Salva** nella parte superiore della pagina.
+1. Dopo che la macchina virtuale è stata aggiunta all'host, scegliere **Panoramica** dal menu a sinistra.
+1. Nella parte superiore della pagina selezionare **Avvia** per riavviare la macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b65310569e95173b88dd0aa0dfe1dbacd86cc8fc
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614228"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126714"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Modificare lo SKU per un dominio gestito Azure AD Domain Services esistente
 
-In Azure Active Directory Domain Services (Azure AD DS), le prestazioni e le funzionalità disponibili sono basate sul tipo di SKU. Queste differenze tra le funzionalità includono la frequenza di backup o il numero massimo di trust tra foreste in uscita unidirezionali (attualmente in anteprima). Si seleziona uno SKU quando si crea il dominio gestito ed è possibile cambiare SKU in base alle esigenze aziendali modificate dopo la distribuzione del dominio gestito. Le modifiche ai requisiti aziendali potrebbero includere la necessità di backup più frequenti o la creazione di trust tra foreste aggiuntivi. Per ulteriori informazioni sui limiti e sui prezzi dei diversi SKU, vedere la pagina relativa ai [concetti relativi a sku Azure AD DS][concepts-sku] e alle pagine relative ai [prezzi di Azure AD DS][pricing] .
+In Azure Active Directory Domain Services (Azure AD DS), le prestazioni e le funzionalità disponibili sono basate sul tipo di SKU. Queste differenze tra le funzionalità includono la frequenza di backup o il numero massimo di trust tra foreste in uscita unidirezionali (attualmente in anteprima). Si seleziona uno SKU quando si crea il dominio gestito ed è possibile attivare o disattivare gli SKU in base alle esigenze aziendali modificate dopo la distribuzione del dominio gestito. Le modifiche ai requisiti aziendali potrebbero includere la necessità di backup più frequenti o la creazione di trust tra foreste aggiuntivi. Per ulteriori informazioni sui limiti e sui prezzi dei diversi SKU, vedere la pagina relativa ai [concetti relativi a sku Azure AD DS][concepts-sku] e alle pagine relative ai [prezzi di Azure AD DS][pricing] .
 
 Questo articolo illustra come modificare lo SKU per un dominio gestito di Azure AD DS esistente usando il portale di Azure.
 
@@ -36,9 +36,12 @@ Per completare questo articolo, sono necessari i privilegi e le risorse seguenti
 
 ## <a name="sku-change-limitations"></a>Limitazioni della modifica dello SKU
 
-Esistono alcune limitazioni per l'operazione di modifica dello SKU se si usa una foresta di risorse (attualmente in anteprima) e sono stati creati trust tra foreste in uscita unidirezionali da Azure AD DS a un ambiente di servizi di dominio Active Directory locale. Gli SKU *Premium* e *Enterprise* definiscono un limite per il numero di trust che è possibile creare. Non è possibile passare a uno SKU con un limite massimo inferiore rispetto al momento della configurazione.
+È possibile modificare o ridurre gli SKU dopo la distribuzione del dominio gestito di Azure AD DS. Tuttavia, se si usa una foresta di risorse (attualmente in anteprima) e sono stati creati trust tra foreste in uscita unidirezionali da Azure AD DS a un ambiente di servizi di dominio Active Directory locale, esistono alcune limitazioni per l'operazione di modifica dello SKU. Gli SKU *Premium* e *Enterprise* definiscono un limite per il numero di trust che è possibile creare. Non è possibile passare a uno SKU con un limite massimo inferiore rispetto al momento della configurazione.
 
-Se, ad esempio, sono stati creati due trust tra foreste nello SKU *Premium* , non è possibile passare allo SKU *standard* . Lo SKU *standard* non supporta i trust tra foreste. In alternativa, se sono stati creati sette Trust nello SKU *Premium* , non è possibile passare allo SKU *Enterprise* . Lo SKU *Enterprise* supporta un massimo di cinque trust.
+Ad esempio:
+
+* Se sono stati creati due trust tra foreste nello SKU *Premium* , non è possibile passare allo SKU *standard* . Lo SKU *standard* non supporta i trust tra foreste.
+* In alternativa, se sono stati creati sette Trust nello SKU *Premium* , non è possibile passare allo SKU *Enterprise* . Lo SKU *Enterprise* supporta un massimo di cinque trust.
 
 Per ulteriori informazioni su questi limiti, vedere la pagina relativa ai [limiti e alle funzionalità di SKU di Azure AD DS][concepts-sku].
 

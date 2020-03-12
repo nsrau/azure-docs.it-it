@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b90b6f8eabbda229fbed4dcef6a5d863ea721faf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659136"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096787"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Preparare la modifica del formato ai log della piattaforma di monitoraggio di Azure archiviati in un account di archiviazione
 
 > [!WARNING]
-> Se si inviano [log delle risorse di Azure o metriche a un account di archiviazione usando le impostazioni di diagnostica](resource-logs-collect-storage.md) o i [log attività in un account di archiviazione usando profili di log](activity-log-export.md), il formato dei dati nell'account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Le impostazioni di seguito descrivono l'impatto della modifica e come aggiornare gli strumenti per gestire il nuovo formato.
+> Se si inviano [log delle risorse di Azure o metriche a un account di archiviazione usando le impostazioni di diagnostica](resource-logs-collect-storage.md) o i [log attività in un account di archiviazione usando profili di log](resource-logs-collect-storage.md), il formato dei dati nell'account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Le impostazioni di seguito descrivono l'impatto della modifica e come aggiornare gli strumenti per gestire il nuovo formato.
 >
 
 ## <a name="what-changed"></a>Cosa è cambiato

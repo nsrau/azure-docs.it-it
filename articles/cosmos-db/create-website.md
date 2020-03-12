@@ -4,17 +4,17 @@ description: Informazioni su come distribuire un account Azure Cosmos DB, app We
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901925"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128379"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Web del servizio app di Azure tramite un modello di Azure Resource Manager
-Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), un'app Web del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
+Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), l'app Web del [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
 
 Con il modello di Azure Resource Manager è possibile automatizzare facilmente la distribuzione e la configurazione delle risorse di Azure.  Questa esercitazione illustra come distribuire un'applicazione Web e configurare automaticamente le informazioni relative alla connessione dell'account Azure Cosmos DB.
 
@@ -25,7 +25,7 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 > [!TIP]
 > Anche se questa esercitazione non presuppone alcuna esperienza nell'uso di JSON o dei modelli di Azure Resource Manager, se si vogliono modificare i modelli o le opzioni di distribuzione cui viene fatto riferimento, è necessario conoscere ciascuna di queste aree.
 > 
@@ -121,11 +121,11 @@ Congratulazioni! È stata completata la distribuzione di Azure Cosmos DB, di un'
 * Per altre informazioni sulle app Web del servizio app di Azure, vedere [qui](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [qui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
-## <a name="whats-changed"></a>Modifiche introdotte
+## <a name="whats-changed"></a>Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Nessun pagamento, nessun impegno.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 

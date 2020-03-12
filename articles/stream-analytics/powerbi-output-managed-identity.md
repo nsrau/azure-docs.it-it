@@ -1,25 +1,25 @@
 ---
-title: Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI output (anteprima)
+title: Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI output
 description: Questo articolo descrive come usare identità gestite per autenticare il processo di analisi di flusso di Azure per Power BI output.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/10/2020
+ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459684"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086335"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI (anteprima)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI
 
-[L'autenticazione dell'identità gestita per l'](../active-directory/managed-identities-azure-resources/overview.md) output Power bi è disponibile per l'analisi di flusso di Azure come anteprima. Questo consente ai processi di analisi di flusso di accedere direttamente a un'area di lavoro all'interno dell'account Power BI. Questa funzionalità consente di automatizzare completamente le distribuzioni dei processi di analisi di flusso, perché non è più necessario per consentire a un utente di accedere in modo interattivo a Power BI tramite il portale di Azure. Inoltre, i processi a esecuzione prolungata che scrivono in Power BI sono ora più supportati, poiché non sarà necessario riautorizzare periodicamente il processo.
+[Autenticazione dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'output in Power bi consente ai processi di analisi di flusso di accedere direttamente a un'area di lavoro all'interno dell'account di Power bi. Questa funzionalità consente di automatizzare completamente le distribuzioni dei processi di analisi di flusso, perché non è più necessario per consentire a un utente di accedere in modo interattivo a Power BI tramite il portale di Azure. Inoltre, i processi a esecuzione prolungata che scrivono in Power BI sono ora più supportati, poiché non sarà necessario riautorizzare periodicamente il processo.
 
 Questo articolo illustra come abilitare l'identità gestita per gli output Power BI di un processo di analisi di flusso tramite la portale di Azure e tramite una distribuzione di Azure Resource Manager.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare questa funzionalità, è necessario quanto segue:
 

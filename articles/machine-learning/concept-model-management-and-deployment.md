@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6671b9c83ab71b4a92fe36d647e5a4e4d781154e
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250867"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096174"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -70,11 +70,6 @@ I modelli registrati sono identificati dal nome e dalla versione. Ogni volta che
 
 Non è possibile eliminare un modello registrato utilizzato in una distribuzione attiva.
 Per altre informazioni, vedere la sezione relativa alla registrazione di un modello nell'articolo [Distribuire modelli](how-to-deploy-and-where.md#registermodel).
-
-### <a name="profile-models"></a>Modelli di profilo
-
-Azure Machine Learning possono essere utili per comprendere i requisiti di CPU e memoria del servizio che verrà creato durante la distribuzione del modello. Il profiling testa il servizio che esegue il modello e restituisce informazioni quali l'utilizzo della CPU, l'utilizzo della memoria e la latenza della risposta. Fornisce inoltre una raccomandazione per CPU e memoria basata sull'utilizzo delle risorse.
-Per ulteriori informazioni, vedere la sezione relativa alla profilatura di [deploy Models](how-to-deploy-and-where.md#profilemodel).
 
 ### <a name="package-and-debug-models"></a>Modelli di pacchetti ed debug
 

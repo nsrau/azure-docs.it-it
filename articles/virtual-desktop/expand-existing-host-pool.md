@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
-ms.openlocfilehash: 354ee312099902372863ce2ea636d2f9f9943d5c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+manager: lizross
+ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566426"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127903"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
 
@@ -76,13 +77,13 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
 
 Tutti i valori in questa sezione devono corrispondere a quanto specificato al momento della creazione del pool host e delle VM host della sessione, ad eccezione degli *utenti desktop predefiniti*:
 
-1.  Per *Subscription (sottoscrizione*) selezionare la sottoscrizione in cui è stato creato per la prima volta il pool host.
-2.  Per *gruppo di risorse*selezionare lo stesso gruppo di risorse in cui si trovano le VM host della sessione del pool host esistente.
-3.  Per *area*selezionare la stessa area in cui si trovano le VM host della sessione del pool host esistente.
-4.  Per *nome Hostpool*immettere il nome del pool host esistente.
-5.  Per *tipo di desktop*selezionare il tipo di desktop che corrisponde al pool host esistente.
-6.  Per *gli utenti desktop predefiniti*, immettere un elenco delimitato da virgole di eventuali utenti aggiuntivi che si desidera accedere ai client desktop virtuali Windows e accedere a un desktop al termine dell'offerta di Azure Marketplace. Se, ad esempio, si desidera assegnare l'accesso user3@contoso.com e user4@contoso.com, immettere user3@contoso.comuser4@contoso.com.
-7.  Selezionare **Avanti: Configura macchina virtuale**.
+1.    Per *Subscription (sottoscrizione*) selezionare la sottoscrizione in cui è stato creato per la prima volta il pool host.
+2.    Per *gruppo di risorse*selezionare lo stesso gruppo di risorse in cui si trovano le VM host della sessione del pool host esistente.
+3.    Per *area*selezionare la stessa area in cui si trovano le VM host della sessione del pool host esistente.
+4.    Per *nome Hostpool*immettere il nome del pool host esistente.
+5.    Per *tipo di desktop*selezionare il tipo di desktop che corrisponde al pool host esistente.
+6.    Per *gli utenti desktop predefiniti*, immettere un elenco delimitato da virgole di eventuali utenti aggiuntivi che si desidera accedere ai client desktop virtuali Windows e accedere a un desktop al termine dell'offerta di Azure Marketplace. Se, ad esempio, si desidera assegnare l'accesso user3@contoso.com e user4@contoso.com, immettere user3@contoso.comuser4@contoso.com.
+7.    Selezionare **Avanti: Configura macchina virtuale**.
 
 >[!NOTE]
 >Ad eccezione degli *utenti desktop predefiniti*, tutti i campi devono corrispondere esattamente a quanto è stato configurato nel pool host esistente. Se è presente una mancata corrispondenza che comporterà un nuovo pool host.

@@ -5,17 +5,17 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 03/11/2020
+ms.openlocfilehash: 13f48a9e0bc3ed8f8c4d5f1b7da4b6c03f54cdf8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664315"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129965"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure (anteprima)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure
 
-[L'autenticazione dell'identità gestita per l'](../active-directory/managed-identities-azure-resources/overview.md) output nell'archiviazione BLOB di Azure è disponibile per l'analisi di flusso di Azure come anteprima. Questo consente ai processi di analisi di flusso di accedere direttamente a un account di archiviazione anziché usare una stringa di connessione. Oltre a una maggiore sicurezza, questa funzionalità consente anche di scrivere i dati in un account di archiviazione in una rete virtuale (VNET) in Azure.
+[Autenticazione dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'output nell'archiviazione BLOB di Azure consente ai processi di analisi di flusso di accedere direttamente a un account di archiviazione invece di usare una stringa di connessione. Oltre a una maggiore sicurezza, questa funzionalità consente anche di scrivere i dati in un account di archiviazione in una rete virtuale (VNET) in Azure.
 
 Questo articolo illustra come abilitare l'identità gestita per gli output del BLOB di un processo di analisi di flusso tramite il portale di Azure e tramite una distribuzione di Azure Resource Manager.
 

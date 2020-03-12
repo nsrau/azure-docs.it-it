@@ -206,11 +206,15 @@
   items:
     - name: Introduzione
       items:
+        - name: Creare un account - Portale
+          href: create-account-portal.md
         - name: Creare un account - Interfaccia della riga di comando
           href: create-account-cli-how-to.md
           displayName: storage
         - name: Reimpostare le credenziali dell'account - Interfaccia della riga di comando
           href: cli-reset-account-credentials.md
+        - name: Accedere alle API - Portale
+          href: access-api-portal.md
         - name: Accedere alle API - Interfaccia della riga di comando
           href: access-api-cli-how-to.md
         - name: Ridimensionare le Media Reserved Unit - Interfaccia della riga di comando

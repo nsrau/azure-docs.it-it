@@ -5,14 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/10/2020
 ms.author: helohr
-ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+manager: lizross
+ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201782"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127581"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -159,7 +160,7 @@ In qualità di partner di integrazione certificata, liquit consente di accelerar
 
 Login VSI è un provider di servizi a valore aggiunto per desktop virtuale Windows e un partner Microsoft per la distribuzione di software per il test delle prestazioni delle applicazioni in ambienti desktop virtuali Windows. I clienti che trasferiscono i propri servizi aziendali locali a desktop virtuale Windows usano Login VSI Enterprise Edition per valutare e mantenere prestazioni ottimali, scalabilità e disponibilità di Windows 10 Enterprise multisessione, Windows 10 Enterprise e Windows 7 abilitato con le applicazioni aziendali critiche.
 
-- [Accedere al sito Web del partner](https://www.loginvsi.com).
+- [Accedere al sito Web del partner](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
 ## <a name="nerdio"></a>Nerdio
 
@@ -253,6 +254,16 @@ TriCerat offre una soluzione di gestione della stampa superiore per desktop virt
 Con triCerat, la stampa è facile in Windows Virtual Desktop e versioni successive. Il software triCerat consente agli amministratori di connettere facilmente le stampanti locali al cloud, estendendo la gestione della stampa aziendale da ambienti tradizionali a nuove aree di lavoro moderne.
 
 - [Accedere al sito Web del partner](https://www.tricerat.com/microsoft-printing).
+
+## <a name="vast-limits"></a>limiti vasti
+
+![logo dei limiti vast](./media/partners/vast-limits.png)
+
+i limiti vasti, la società uberAgent, offrono visibilità nelle distribuzioni di desktop virtuali Windows. Crea software per l'IT aziendale perché sa come i professionisti IT pensano e quali sono gli strumenti necessari. I suoi prodotti consentono ai professionisti IT di essere più efficienti fornendo loro esattamente le informazioni necessarie per svolgere il proprio lavoro; niente di più.
+
+uberAgent è un prodotto di monitoraggio e analisi progettato per i computer degli utenti finali che non solo raccoglie i dati, ma fornisce ai clienti le informazioni più importanti. uberAgent dispone di metriche proprie, che coprono aspetti chiave dell'esperienza utente, delle prestazioni delle applicazioni e della sicurezza degli endpoint, che indicano tutto ciò che è necessario sapere sulle VM desktop virtuali Windows senza influire sulla densità utente dei sistemi. uberAgent semplifica la risoluzione dei problemi, supporta il dimensionamento e fornisce informazioni importanti per la sicurezza delle informazioni.
+
+- [Vai al sito Web del partner](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
 
 ## <a name="workspot"></a>WORKSPOT
 

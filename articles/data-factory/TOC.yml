@@ -479,6 +479,8 @@
           href: control-flow-webhook-activity.md
     - name: Trasformazioni del flusso di dati
       items:
+        - name: Panoramica della trasformazione
+          href: data-flow-transformation-overview.md
         - name: Aggregate
           href: data-flow-aggregate.md
         - name: Alter Row

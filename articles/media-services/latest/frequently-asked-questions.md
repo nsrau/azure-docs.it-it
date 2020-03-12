@@ -9,24 +9,28 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2619293bf3641cdca370ff528a87ae879460a3b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977727"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086788"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
 Questo articolo contiene le risposte alle domande frequenti su Servizi multimediali di Azure (AMS) v3.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Quali ruoli di Azure possono eseguire azioni sulle risorse di servizi multimediali di Azure? 
 
 Vedere [controllo degli accessi in base al ruolo (RBAC) per gli account di servizi multimediali](rbac-overview.md).
+
+### <a name="how-do-you-stream-to-apple-ios-devices"></a>Come si esegue lo streaming su dispositivi Apple iOS?
+
+Assicurarsi di avere "(format = m3u8-aapl)" alla fine del percorso (dopo la parte "/manifest" dell'URL) per indicare al server di origine di streaming di restituire il contenuto HLS per l'utilizzo nei dispositivi Apple iOS nativi. per informazioni dettagliate, vedere [distribuzione di contenuto](dynamic-packaging-overview.md).
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>Come si esegue la configurazione di Media Reserved Units?
 
@@ -38,13 +42,17 @@ Per informazioni dettagliate, vedere [Ridimensionamento dell'elaborazione di con
 
 Usare [Trasformazioni](https://docs.microsoft.com/rest/api/media/transforms) per configurare attività comuni relative alla codifica o all'analisi dei video. Ogni **trasformazione** descrive un recipe o un flusso di lavoro di attività per l'elaborazione dei file video o audio. Un [processo](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva a servizi multimediali di applicare la **trasformazione** a un video di input o a un contenuto audio specifico. Dopo aver creato la trasformazione, è possibile inviare i processi usando le API di Servizi multimediali o uno degli SDK pubblicati. Per altre informazioni, vedere [Trasformazioni e processi](transforms-jobs-concept.md).
 
+### <a name="i-uploaded-encoded-and-published-a-video-what-would-be-the-reason-the-video-does-not-play-when-i-try-to-stream-it"></a>Ho caricato, codificato e pubblicato un video. Quale può essere il motivo per cui il video non viene riprodotto quando provo a trasmetterlo in streaming?
+
+Uno dei motivi più comuni è che non si ha l'endpoint di streaming da cui si tenta di riprodurlo nello stato Running.
+
 ### <a name="how-does-pagination-work"></a>Come funziona la paginazione?
 
 Quando si usa la paginazione, usare sempre il collegamento seguente per enumerare la raccolta e non dipendere da una determinata dimensione di pagina. Per informazioni dettagliate ed esempi, vedere [Filtro, ordinamento, restituzione di più pagine](entities-overview.md).
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quali funzionalità non sono ancora disponibili in servizi multimediali di Azure V3?
 
-Per informazioni dettagliate, vedere [gap delle funzionalità rispetto alle API v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+Per informazioni dettagliate, vedere [gap delle funzionalità rispetto alle API v2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual è il processo di trasferimento di un account di servizi multimediali tra le sottoscrizioni?  
 
@@ -79,8 +87,8 @@ Per altre informazioni, vedere [proteggere il contenuto usando la crittografia d
 1. Per la produzione, è necessario disporre di un servizio token di sicurezza (STS) (servizio Web) che rilascia il token JWT su una richiesta HTTPS. Per i test, è possibile usare il codice illustrato nel metodo **GetTokenAsync** definito in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Dopo l'autenticazione di un utente, il lettore dovrà richiedere al servizio token di sicurezza tale token e assegnarlo come valore del token. È possibile usare l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Per un esempio di esecuzione del servizio token di sicurezza, con una chiave di crittografia simmetrica e asimmetrica, vedere [ https://aka.ms/jwt ](https://aka.ms/jwt). 
-* Per un esempio di lettore basato su Azure Media Player con tale token JWT, vedere [ https://aka.ms/amtest ](https://aka.ms/amtest) (espandere il collegamento "player_settings" per visualizzare l'input del token).
+* Per un esempio di esecuzione del servizio token di sicurezza, con una chiave di crittografia simmetrica e asimmetrica, vedere [https://aka.ms/jwt](https://aka.ms/jwt). 
+* Per un esempio di lettore basato su Azure Media Player con tale token JWT, vedere [https://aka.ms/amtest](https://aka.ms/amtest) (espandere il collegamento "player_settings" per visualizzare l'input del token).
 
 ### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Come si autorizzano le richieste di streaming di video con la crittografia AES?
 
@@ -90,7 +98,7 @@ Nel servizio token di sicurezza, a seconda del profilo dell'utente, aggiungere a
 
 Usare le API di servizi multimediali di Azure per la configurazione del recapito di licenze/chiavi e la crittografia degli asset (come illustrato in [questo esempio](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
-Per scoprire di più, vedi:
+Per altre informazioni, vedere:
 
 - [Panoramica della protezione del contenuto](content-protection-overview.md)
 - [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](design-multi-drm-system-with-access-control.md)
@@ -120,19 +128,25 @@ I clienti spesso investono in una farm di server licenze nel proprio data center
 * Non è più necessario configurare il servizio di distribuzione delle licenze in Servizi multimediali. È sufficiente fornire gli URL di acquisizione delle licenze (per PlayReady, Widevine e FairPlay) quando si configura ContentKeyPolicies.
 
 > [!NOTE]
-> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+> Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="media-services-v2-vs-v3"></a>Servizi multimediali v2 e v3 
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>È possibile usare il portale di Azure per gestire le risorse della versione v3?
 
-Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+Attualmente, è possibile utilizzare il [portale di Azure](https://portal.azure.com/) per:
+
+* gestione [degli eventi live](live-events-outputs-concept.md)di servizi multimediali V3 
+* visualizzare (non gestire) gli [Asset](assets-concept.md)V3, 
+* [ottenere informazioni sull'accesso alle API](access-api-portal.md). 
+
+Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md)), usare l' [API REST](https://aka.ms/ams-v3-rest-ref), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>È presente un concetto AssetFile nella versione v3?
 
 Le entità AssetFile sono state rimosse dall'API AMS per separare Servizi multimediali dalla dipendenza da Storage SDK. Le informazioni che appartengono a Storage SDK vengono ora conservate in Storage e non in Servizi multimediali. 
 
-Per altre informazioni, vedere [Eseguire la migrazione a Servizi multimediali v3](migrate-from-v2-to-v3.md).
+Per altre informazioni, vedere [Eseguire la migrazione a Servizi multimediali v3](media-services-v2-vs-v3.md).
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Dove è finita la crittografia di archiviazione lato client?
 

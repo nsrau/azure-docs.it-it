@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 77f526470204204ef2a801575bb4e8d7e364ffed
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6130c934f9a718baab840dae714222e4153bfcf6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260156"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126350"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1,0 e 1,1 da usare con cache di Azure per Redis
 
@@ -19,7 +19,7 @@ ms.locfileid: "76260156"
 
 Come parte di questo sforzo, verranno apportate le modifiche seguenti alla cache di Azure per redis:
 
-* **Fase 1:** Verrà configurata la versione minima predefinita di TLS come 1,2 per le istanze di cache appena create.  A questo punto le istanze di cache esistenti non verranno aggiornate.  Se necessario, sarà possibile ripristinare [la versione minima di TLS](cache-configure.md#access-ports) a 1,0 o 1,1 per compatibilità con le versioni precedenti.  Questa modifica può essere eseguita tramite la portale di Azure o altre API di gestione.
+* **Fase 1:** Verrà configurata la versione minima predefinita di TLS come 1,2 per le istanze di cache appena create. (Questo è stato usato come TLS 1,0). A questo punto le istanze di cache esistenti non verranno aggiornate. Se necessario, sarà possibile ripristinare [la versione minima di TLS](cache-configure.md#access-ports) a 1,0 o 1,1 per compatibilità con le versioni precedenti. Questa modifica può essere eseguita tramite la portale di Azure o altre API di gestione.
 * **Fase 2:** Verrà interrotto il supporto delle versioni di TLS 1,0 e 1,1. Dopo questa modifica, l'applicazione dovrà usare TLS 1,2 o versione successiva per comunicare con la cache.
 
 Inoltre, nell'ambito di questa modifica, verrà rimosso il supporto per i gruppi di crittografia meno recenti e non sicuri.  Quando la cache è configurata con una versione minima di TLS 1,2, i gruppi di crittografia supportati saranno limitati a quanto segue.
@@ -33,8 +33,8 @@ Le date in cui queste modifiche diventano effettive sono:
 
 | Cloud               | Data di inizio fase 1 | Data di inizio della fase 2 |
 |---------------------|--------------------|--------------------|
-| Azure (globale)      |  13 gennaio, 2020  | 31 marzo 2020     |
-| Azure per enti pubblici    |  13 marzo, 2020    | 11 maggio 2020       |
+| Azure (globale)      |  13 gennaio 2020  | 31 marzo 2020     |
+| Azure Government    |  13 marzo, 2020    | 11 maggio 2020       |
 | Azure Germania       |  13 marzo, 2020    | 11 maggio 2020       |
 | Azure Cina         |  13 marzo, 2020    | 11 maggio 2020       |
 
@@ -87,21 +87,27 @@ Il nodo Redis e IORedis usano TLS 1,2 per impostazione predefinita.
 
 ### <a name="php"></a>PHP
 
-Il predazione di PHP 7 non funziona perché PHP 7 supporta solo TLS 1,0. In PHP 7.2.1 o versioni precedenti, predazione usa TLS 1,0 o 1,1 per impostazione predefinita. È possibile specificare TLS 1,2 quando si crea l'istanza del client:
+#### <a name="predis"></a>Predis
+ 
+* Versioni precedenti a PHP 7: predazione supporta solo TLS 1,0. Queste versioni non funzionano con TLS 1,2; per usare TLS 1,2, è necessario eseguire l'aggiornamento.
+ 
+* Da PHP 7,0 a PHP 7.2.1: predazione usa solo TLS 1,0 o 1,1 per impostazione predefinita. Per usare TLS 1,2, è possibile usare la soluzione alternativa seguente. Specificare TLS 1,2 quando si crea l'istanza del client:
 
-``` PHP
-$redis=newPredis\Client([
-    'scheme'=>'tls',
-    'host'=>'host',
-    'port'=>6380,
-    'password'=>'password',
-    'ssl'=>[
-        'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
-    ],
-]);
-```
+  ``` PHP
+  $redis=newPredis\Client([
+      'scheme'=>'tls',
+      'host'=>'host',
+      'port'=>6380,
+      'password'=>'password',
+      'ssl'=>[
+          'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
+      ],
+  ]);
+  ```
 
-In PHP 7,3 o versioni successive, predazione usa la versione più recente di TLS.
+* PHP 7,3 e versioni successive: predazione usa la versione più recente di TLS.
+
+#### <a name="phpredis"></a>PhpRedis
 
 PhpRedis non supporta TLS in alcuna versione di PHP.
 

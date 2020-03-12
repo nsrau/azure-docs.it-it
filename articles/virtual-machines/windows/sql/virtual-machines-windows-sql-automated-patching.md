@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b48ccede9ca3330d356fa75d4df34789e31eb916
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 292f3e8819f6f9f4b2989423814e02dfcfb4bfdb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350754"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127673"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Applicazione automatica delle patch per SQL Server nelle macchine virtuali di Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.locfileid: "75350754"
 L'applicazione automatica delle patch stabilisce un periodo di manutenzione per una macchina virtuale di Azure su cui è in esecuzione SQL Server. Gli aggiornamenti automatici possono essere installati solo durante questo periodo di manutenzione. Per SQL Server, questa restrizione verifica che gli aggiornamenti di sistema e i riavvii associati vengano eseguiti nel momento migliore per il database. 
 
 > [!IMPORTANT]
-> Vengono installati solo gli aggiornamenti di Windows e SQL Server contrassegnati come **importanti** . Altri aggiornamenti di SQL Server, ad esempio gli aggiornamenti cumulativi, devono essere installati manualmente. 
+> Vengono installati solo gli aggiornamenti di Windows e SQL Server contrassegnati come **importanti** o **critici** . Altri aggiornamenti di SQL Server, ad esempio i Service Pack e gli aggiornamenti cumulativi che non sono contrassegnati come **importanti** o **critici** , devono essere installati manualmente. 
 
 L'applicazione automatica delle patch dipende dall' [estensione dell'agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per usare l'applicazione automatica delle patch, tenere in considerazione i seguenti prerequisiti:
 
 **Sistema operativo**:
@@ -66,7 +66,7 @@ Per usare l'applicazione automatica delle patch, tenere in considerazione i segu
 ## <a name="settings"></a>Impostazioni
 Nella seguente tabella sono descritte le opzioni che possono essere configurate per l'applicazione automatica delle patch. I passaggi di configurazione effettivi variano a seconda che venga usato il portale di Azure o i comandi di Windows PowerShell di Azure.
 
-| Impostazione | Valori possibili | Description |
+| Impostazione | Valori possibili | Descrizione |
 | --- | --- | --- |
 | **Applicazione automatica delle patch** |Enable/Disable (disabilitato) |Abilita o disabilita l'applicazione automatica delle patch per una macchina virtuale di Azure. |
 | **Pianificazione della manutenzione** |Ogni giorno, lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica |Pianificazione per il download e l'installazione degli aggiornamenti di Windows, SQL Server e Microsoft per la macchina virtuale. |

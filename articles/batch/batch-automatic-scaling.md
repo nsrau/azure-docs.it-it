@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 9f4831fd60038a2265990c0774106a5ea2f98a5a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672049"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086274"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula automatica per la scalabilità dei nodi di calcolo in un pool di batch
 
@@ -89,7 +89,7 @@ $NodeDeallocationOption = taskcompletion;
 
 Questo esempio crea un pool che inizia con 25 nodi con priorità bassa. Ogni volta che un nodo con priorità bassa viene interrotto, viene sostituito con un nodo dedicato. Come nel primo esempio, la variabile `maxNumberofVMs` impedisce al pool di superare 25 VM. Questo esempio è utile per sfruttare le macchine virtuali con priorità bassa, garantendo al tempo stesso l'esecuzione di un numero fisso di interruzioni per la durata del pool.
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 
 Nelle formule di scalabilità automatica è possibile usare sia **variabili definite dal servizio** sia **variabili definite dall'utente**. Le variabili definite dal servizio sono incorporate nel servizio Batch. Alcune sono in lettura/scrittura e altre di sola lettura. Le variabili definite dall'utente vengono configurate dall'utente. Nella formula di esempio della sezione precedente `$TargetDedicatedNodes` e `$PendingTasks` sono variabili definite dal servizio. Le variabili `startingNumberOfVMs` e `maxNumberofVMs` sono definite dall'utente.
 
@@ -128,7 +128,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 | $NetworkInBytes |Numero di byte in ingresso. |
 | $NetworkOutBytes |Numero di byte in uscita. |
 | $SampleNodeCount |Conteggio dei nodi di calcolo. |
-| $ActiveTasks |Numero di attività che sono pronte per l'esecuzione, ma non sono ancora in esecuzione. Il conteggio $ActiveTasks include tutte le attività che si trovano in stato attivo e le cui dipendenze sono state soddisfatte. Tutte le attività che sono nello stato attivo, ma per le quali le dipendenze non sono state soddisfatte vengono escluse dal conteggio per $ActiveTasks.|
+| $ActiveTasks |Numero di attività che sono pronte per l'esecuzione, ma non sono ancora in esecuzione. Il conteggio $ActiveTasks include tutte le attività che si trovano in stato attivo e le cui dipendenze sono state soddisfatte. Tutte le attività che sono nello stato attivo, ma per le quali le dipendenze non sono state soddisfatte vengono escluse dal conteggio per $ActiveTasks. Per un'attività a istanze diverse, $ActiveTasks includerà il numero di istanze impostate nell'attività.|
 | $RunningTasks |Numero di attività nello stato in corso di esecuzione. |
 | $PendingTasks |La somma di $ActiveTasks e $RunningTasks. |
 | $SucceededTasks |Numero di attività completate correttamente. |
@@ -152,7 +152,7 @@ Questi sono i tipi supportati in una formula:
 * string
 * timestamp, è una struttura composta che contiene i membri seguenti:
 
-  * anno
+  * year
   * month (1-12)
   * day (1-31)
   * weekday (in formato numero, ad esempio 1 per lunedì)
@@ -222,7 +222,7 @@ Queste **funzioni** predefinite sono disponibili per consentire la definizione d
 | time(string dateTime="") |timestamp |Restituisce il timestamp dell'ora corrente se non vengono passati parametri oppure il timestamp della stringa dateTime, se è stata passata. I formati dateTime supportati sono W3C-DTF e RFC 1123. |
 | val(doubleVec v, double i) |double |Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero. |
 
-Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Ad esempio,
+Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Ad esempio:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -238,11 +238,11 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Metodo | Descrizione |
 | --- | --- |
-| GetSample() |Il metodo `GetSample()` restituisce un vettore relativo ai campioni di dati.<br/><br/>Un campione rappresenta 30 secondi di dati di metrica. In altre parole i campioni vengono raccolti ogni 30 secondi, ma come indicato di seguito si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Di conseguenza, i campioni per un determinato periodo di tempo potrebbero non essere tutti disponibili per la valutazione da parte di una formula.<ul><li>`doubleVec GetSample(double count)`<br/>Specifica il numero di campioni da ottenere tra quelli raccolti più di recente.<br/><br/>`GetSample(1)` restituisce l'ultimo campione disponibile. Per le metriche come `$CPUPercent` non deve tuttavia essere usato perché non è possibile sapere *quando* è stato raccolto il campione. Potrebbe essere recente o risultare molto meno recente a causa di problemi di sistema. In questi casi è preferibile usare un intervallo di tempo, come illustrato di seguito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta di dati di esempio. Facoltativamente specifica anche la percentuale di campioni che deve essere disponibile nell'intervallo di tempo richiesto.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` restituisce 20 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi 10 minuti. Se l'ultimo minuto della cronologia non è disponibile, vengono tuttavia restituiti solo 18 campioni. In questo caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` avrà esito negativo poiché è disponibile solo il 90% dei campioni.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` avrà esito positivo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta dei dati, con un'ora di inizio e un'ora di fine.<br/><br/>Come indicato in precedenza, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. È necessario tenere presente questo ritardo quando si usa il metodo `GetSample`. Vedere `GetSamplePercent` riportato di seguito. |
+| GetSample() |Il metodo `GetSample()` restituisce un vettore relativo ai campioni di dati.<br/><br/>Un campione rappresenta 30 secondi di dati di metrica. In altre parole i campioni vengono raccolti ogni 30 secondi, ma come indicato di seguito si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Di conseguenza, i campioni per un determinato periodo di tempo potrebbero non essere tutti disponibili per la valutazione da parte di una formula.<ul><li>`doubleVec GetSample(double count)`<br/>Specifica il numero di campioni da ottenere tra quelli raccolti più di recente.<br/><br/>`GetSample(1)` restituisce l'ultimo campione disponibile. Per le metriche come `$CPUPercent` non deve tuttavia essere usato perché non è possibile sapere *quando* è stato raccolto il campione. Potrebbe essere recente o risultare molto meno recente a causa di problemi di sistema. In questi casi è preferibile usare un intervallo di tempo, come illustrato di seguito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta di dati di esempio. Facoltativamente specifica anche la percentuale di campioni che deve essere disponibile nell'intervallo di tempo richiesto.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` restituisce 20 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi 10 minuti. Se l'ultimo minuto della cronologia non è disponibile, vengono tuttavia restituiti solo 18 campioni. In questo caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` avrà esito negativo poiché è disponibile solo il 90% dei campioni.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` avrà esito positivo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta dei dati, con un'ora di inizio e un'ora di fine.<br/><br/>Come indicato in precedenza, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. È necessario tenere presente questo ritardo quando si usa il metodo `GetSample`. Vedere `GetSamplePercent` di seguito. |
 | GetSamplePeriod() |Restituisce il periodo dei campioni raccolti in un set di dati campione cronologici. |
 | Count() |Restituisce il numero totale di campioni nella cronologia dei dati di metrica. |
 | HistoryBeginTime() |Restituisce il timestamp del campione di dati disponibile meno recente per la metrica. |
-| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Ad esempio,<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico. |
+| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Ad esempio:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Campioni, percentuale di campioni e metodo *GetSample()*
 L'operazione di base per il funzionamento di una formula di ridimensionamento automatico consiste nell'ottenere i dati di metrica relativi a risorse ed attività e quindi l'adeguamento delle dimensioni del pool in base a tali dati. Di conseguenza, è importante conoscere a fondo la modalità di interazione delle formule di scalabilità automatica con i dati di metrica (campioni).
@@ -267,7 +267,7 @@ A tale scopo, usare `GetSample(interval look-back start, interval look-back end)
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. Ad esempio,
+Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. Ad esempio:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -472,7 +472,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Abilitare la scalabilità automatica in un pool esistente
 
-Ogni SDK per Batch offre un modo per abilitare la scalabilità automatica, Ad esempio,
+Ogni SDK per Batch offre un modo per abilitare la scalabilità automatica, Ad esempio:
 
 * [BatchClient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (batch .NET)
 * [Abilitare la scalabilità automatica in un pool][rest_enableautoscale] (API REST)

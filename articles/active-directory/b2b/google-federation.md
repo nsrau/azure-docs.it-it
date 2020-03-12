@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/1/2019
+ms.date: 03/05/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272887"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126677"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
@@ -55,25 +55,24 @@ Prima di tutto creare un nuovo progetto nella console di Google Developers per o
    
    ![Screenshot che mostra una nuova pagina di progetto per Google](media/google-federation/google-new-project.png)
 
-3. Assicurarsi che il nuovo progetto sia selezionato nel menu dei progetti. Aprire quindi il menu in alto a sinistra e selezionare **APIs & Services** (API e servizi) > **Credentials** (Credenziali).
+3. Assicurarsi che il nuovo progetto sia selezionato nel menu dei progetti. In **api & Services**selezionare la **schermata di consenso OAuth**.
 
-   ![Screenshot che mostra l'opzione di credenziali API Google](media/google-federation/google-api.png)
- 
-4. Scegliere la scheda **OAuth consent screen** (Schermata consenso OAuth) e immettere un **Application name** (Nome applicazione). Lasciare invariate le altre impostazioni.
+4. Selezionare **External**, quindi selezionare **Crea**. 
+5. Nella **schermata di consenso OAuth**immettere un nome per l' **applicazione**. Lasciare invariate le altre impostazioni.
 
    ![Screenshot che mostra l'opzione della schermata di consenso di Google OAuth](media/google-federation/google-oauth-consent-screen.png)
 
-5. Scorrere fino alla sezione **Authorized domains** (Domini autorizzati) e immettere microsoftonline.com.
+6. Scorrere fino alla sezione **Authorized domains** (Domini autorizzati) e immettere microsoftonline.com.
 
    ![Screenshot che illustra la sezione domini autorizzati](media/google-federation/google-oauth-authorized-domains.png)
 
-6. Selezionare **Salva**.
+7. Selezionare **Salva**.
 
-7. Scegliere la scheda **credenziali** . Nel menu **Crea credenziali** scegliere **ID client OAuth**.
+8. Scegliere **credenziali**. Dal menu **Create credentials** (Crea credenziali) scegliere **OAuth client ID** (ID client OAuth).
 
    ![Screenshot che mostra l'opzione Crea credenziali di Google APIs](media/google-federation/google-api-credentials.png)
 
-8. In **Application type** (Tipo di applicazione) scegliere **Web application** (Applicazione Web) e quindi in **Authorized redirect URIs** (URI di reindirizzamento autorizzati) immettere gli URI seguenti:
+9. In **Application type** (Tipo di applicazione) scegliere **Web application** (Applicazione Web) e quindi in **Authorized redirect URIs** (URI di reindirizzamento autorizzati) immettere gli URI seguenti:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(dove `<directory id>` è l'ID directory)
    
@@ -82,7 +81,7 @@ Prima di tutto creare un nuovo progetto nella console di Google Developers per o
 
    ![Screenshot che mostra la sezione relativa agli URI di reindirizzamento autorizzati](media/google-federation/google-create-oauth-client-id.png)
 
-9. Selezionare **Create**. Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
+10. Selezionare **Create** (Crea). Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
 
    ![Screenshot che mostra l'ID client OAuth e il segreto client](media/google-federation/google-auth-client-id-secret.png)
 
@@ -99,7 +98,7 @@ Si imposteranno ora l'ID client e il segreto client di Google immettendoli nel p
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>Per configurare la federazione con Google tramite PowerShell
 1. Installare la versione più recente del modulo di Azure AD PowerShell per Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. Eseguire il comando seguente: `Connect-AzureAD`.
+2. Eseguire questo comando: `Connect-AzureAD`.
 3. Al prompt di accesso, accedere con l'account di amministratore globale gestito.  
 4. Eseguire il comando seguente: 
    

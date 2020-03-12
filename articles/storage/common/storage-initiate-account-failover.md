@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7529cfbd0ab75d0113e5cea666bc04aa1b15d30b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 76e34736238273f2af3fccae0ac2b5ed0ff491f0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157711"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128338"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Avviare un failover dell'account di archiviazione (anteprima)
 
@@ -29,9 +29,8 @@ Questo articolo illustra come avviare un failover per l'account di archiviazione
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Prima di poter eseguire un failover sull'account di archiviazione, assicurarsi di avere eseguito i passaggi seguenti:
+Prima di poter eseguire un failover dell'account nell'account di archiviazione, verificare di aver eseguito il passaggio seguente:
 
-- Registrarsi all'anteprima del failover dell'account. Per informazioni sulla registrazione, vedere [Informazioni sull'anteprima](storage-disaster-recovery-guidance.md#about-the-preview).
 - Verificare che l'account di archiviazione sia configurato per usare l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. Per altre informazioni sull'archiviazione con ridondanza geografica, vedere [ridondanza di archiviazione di Azure](storage-redundancy.md).
 
 ## <a name="important-implications-of-account-failover"></a>Implicazioni importanti del failover dell'account
@@ -44,7 +43,7 @@ Dopo il failover, il tipo di account di archiviazione viene convertito automatic
 
 Dopo avere nuovamente abilitato l'archiviazione con ridondanza geografica per l'account di archiviazione, Microsoft inizia la replica dei dati dell'account nella nuova area secondaria. La durata della replica dipende dalla quantità di dati da replicare.  
 
-## <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+## <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Per avviare un failover dell'account dal portale di Azure, seguire questa procedura:
 
@@ -60,7 +59,7 @@ Per avviare un failover dell'account dal portale di Azure, seguire questa proced
 
     ![Screenshot che mostra la finestra di dialogo di conferma per un failover dell'account](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per usare PowerShell per avviare un failover dell'account, è necessario installare prima di tutto il modulo di anteprima 6.0.1. Per installare il modulo, seguire questa procedura:
 
@@ -97,7 +96,7 @@ Per avviare un failover dell'account da PowerShell, usare il comando seguente:
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+## <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Usare l'interfaccia della riga di comando di Azure per avviare un failover dell'account, usare i comandi seguenti:
 

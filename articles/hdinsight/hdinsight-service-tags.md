@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/05/2019
-ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/10/2020
+ms.openlocfilehash: a72753d5553e79a8ed28c3afcc7e54af6c2d230c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435466"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117228"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Tag di servizio del gruppo di sicurezza di rete (NSG) per Azure HDInsight
 
@@ -40,7 +40,7 @@ Il modo più semplice per iniziare a usare i tag di servizio con il cluster HDIn
 
 1. Dall'elenco a discesa **tag servizio di origine** selezionare **HDInsight**.
 
-    ![portale di Azure Aggiungi tag servizio](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+    ![portale di Azure Aggiungi tag servizio](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
 Questo tag contiene gli indirizzi IP dei servizi di gestione e integrità per tutte le aree in cui HDInsight è disponibile e garantisce che il cluster sia in grado di comunicare con i servizi di integrità e gestione necessari indipendentemente dalla posizione in cui vengono creati.
 
@@ -54,10 +54,10 @@ Per scoprire quali tag di servizio aggiungere per la propria area, leggere le se
 
 Se si preferisce l'opzione due dei tag del servizio e il cluster si trova in una delle aree elencate in questa tabella, è sufficiente aggiungere un singolo tag di servizio regionale al gruppo di sicurezza di rete.
 
-| Paese | Area | Tag servizio |
+| Country | Region | Tag servizio |
 | ---- | ---- | ---- |
 | Australia | Australia orientale | HDInsight. AustraliaEast |
-| &nbsp; | Australia sudorientale | HDInsight. AustraliaSoutheast |
+| &nbsp; | Australia sud-orientale | HDInsight. AustraliaSoutheast |
 | &nbsp; | Australia centrale | HDInsight. AustraliaCentral |
 | Cina | Cina orientale 2 | HDInsight. ChinaEast2 |
 | &nbsp; | Cina settentrionale 2 | HDInsight. ChinaNorth2 |
@@ -66,16 +66,17 @@ Se si preferisce l'opzione due dei tag del servizio e il cluster si trova in una
 | &nbsp; | Stati Uniti centro-occidentali | HDInsight. WestCentralUS |
 | Canada | Canada orientale | HDInsight. CanadaEast |
 | Brasile | Brasile meridionale | HDInsight. BrazilSouth |
-| Corea | Corea centrale | HDInsight. KoreaCentral |
+| Corea del Sud | Corea centrale | HDInsight. KoreaCentral |
 | &nbsp; | Corea meridionale | HDInsight. KoreaSouth |
 | India | India centrale | HDInsight. CentralIndia |
 | &nbsp; | India meridionale | HDInsight. SouthIndia |
 | Giappone | Giappone occidentale | HDInsight. JapanWest |
 | Francia | Francia centrale| HDInsight. FranceCentral |
 | Regno Unito | Regno Unito meridionale | HDInsight. UKSouth |
-| Azure per enti pubblici | DOD Central   | HDInsight. USDoDCentral |
+| Azure Government | DOD Central   | HDInsight. USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight. USGovTexas |
 | &nbsp; | DOD est | HDInsight. USDoDEast |
+| &nbsp; | USGov Arizona | HDInsight. USGovArizona |
 
 ### <a name="use-multiple-regional-service-tags"></a>Usare più tag di servizio internazionali
 
@@ -93,7 +94,7 @@ Ad esempio, se il cluster viene creato nell'area `East US 2`, sarà necessario a
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Paese | Area | Tag servizio |
+| Country | Region | Tag servizio |
 | ---- | ---- | ---- |
 | Stati Uniti | Stati Uniti orientali 2 | HDInsight. EastUS2 |
 | &nbsp; | Stati Uniti centrali | HDInsight. Centralus |

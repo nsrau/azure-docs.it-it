@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227074"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126694"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -29,7 +29,7 @@ Anziché visualizzare la richiesta di una password dopo l'immissione di un nome 
 > [!NOTE]
 > Questa funzionalità è stata rilevata nell'app Microsoft Authenticator da marzo 2017, quindi è possibile che, quando il criterio è abilitato per una directory, gli utenti possano riscontrare immediatamente questo flusso e visualizzare un messaggio di errore se non sono stati abilitati dai criteri. Tenere presente queste informazioni e preparare gli utenti per questa modifica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Multi-Factor Authentication di Azure, con notifiche push consentite come metodo di verifica 
 - Accertarsi che sia installata la versione più recente di Microsoft Authenticator nei dispositivi che eseguono iOS 8.0 o versione successiva oppure Android 6.0 o versione successiva.
@@ -62,7 +62,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 1. In **Microsoft Authenticator**scegliere **Abilita l'accesso tramite telefono** dal menu a discesa account
 1. Seguire le istruzioni nell'app per completare la registrazione per l'accesso tramite telefono senza password. 
 
-Le organizzazioni possono indirizzare gli utenti all'articolo [accesso con il telefono, non alla password](../user-help/microsoft-authenticator-app-phone-signin-faq.md) per ulteriori interventi di configurazione nell'app Microsoft Authenticator e abilitazione dell'accesso tramite telefono.
+Le organizzazioni possono indirizzare gli utenti all'articolo [accesso con il telefono, non alla password](../user-help/microsoft-authenticator-app-phone-signin-faq.md) per ulteriori interventi di configurazione nell'app Microsoft Authenticator e abilitazione dell'accesso tramite telefono. Per applicare queste impostazioni, potrebbe essere necessario disconnettersi e accedere di nuovo al tenant. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Accedi con credenziali senza password
 
@@ -90,7 +90,7 @@ Se un utente dispone di una verifica di accesso tramite telefono senza password 
 
 Gli utenti finali abilitati per l'autenticazione a più fattori tramite il server Azure multi-factor authentication locale di un'organizzazione possono comunque creare e usare una sola credenziale di accesso con telefono senza password. Se l'utente tenta di aggiornare più installazioni (più di 5) di Microsoft Authenticator con le credenziali create, questa modifica può determinare un errore.  
 
-### <a name="device-registration"></a>Registrazione dispositivo
+### <a name="device-registration"></a>Registrazione del dispositivo
 
 Uno dei prerequisiti per creare la nuova credenziale avanzata è che il dispositivo, in cui è installata l'app Microsoft Authenticator, deve essere registrato anche all'interno del tenant di Azure AD a un singolo utente. A causa delle restrizioni di registrazione del dispositivo correnti, un dispositivo può essere registrato solo in un singolo tenant. A causa di questa limitazione, nell'app Microsoft Authenticator può essere abilitato per l'accesso tramite telefono un solo account aziendale o dell'istituto di istruzione.
 

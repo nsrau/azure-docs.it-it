@@ -11,92 +11,55 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2019
+ms.date: 03/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6b262baddd10c9d0dff4b196b733972b97d99872
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 183b81134b2fe72a539cc6460a05d828342aafbb
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552985"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086517"
 ---
-# <a name="monitor-identity-and-access-preview"></a>Monitorare identità e accesso (anteprima)
+# <a name="monitor-identity-and-access"></a>Monitorare identità e accesso
+
+> [!TIP]
+> Dal 2020 marzo, le raccomandazioni relative all'identità e all'accesso del Centro sicurezza di Azure sono incluse in tutte le sottoscrizioni del piano tariffario gratuito. Se si dispone di sottoscrizioni per il livello gratuito, il Punteggio sicuro sarà influenzato dal fatto che non sono stati valutati in precedenza per la sicurezza dell'accesso e delle identità. 
+
 Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
 
-Questo articolo illustra la pagina di **identità e accesso** della sezione relativa alla sicurezza delle risorse del Centro sicurezza di Azure.
+Il perimetro di sicurezza si è evoluto da perimetro di rete a perimetro di identità. La sicurezza consiste sempre meno nel difendere la rete e sempre più nel difendere i dati e nel gestire la sicurezza di app e utenti. Attualmente, con il trasferimento nel cloud di una maggiore quantità di dati e app, l'identità diventa il nuovo perimetro.
 
-Per un elenco completo delle raccomandazioni che è possibile visualizzare in questa pagina, vedere le indicazioni relative a [identità e accesso](recommendations-reference.md#recs-identity).
+Il monitoraggio delle attività associate alle identità consente di intraprendere azioni proattive prima che si verifichi un evento imprevisto o azioni reattive per bloccare un tentativo di attacco. Esempi di raccomandazioni che è possibile vedere nella sezione relativa alla sicurezza delle risorse di **identità e accesso** nel centro sicurezza di Azure includono:
 
-> [!NOTE]
-> La funzionalità di monitoraggio dell'identità e dell'accesso è disponibile in anteprima e solo per il livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
->
+- L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
+- Per la sottoscrizione devono essere designati al massimo 3 proprietari
+- Gli account deprecati devono essere rimossi dalla sottoscrizione
+- Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
 
-L'identità deve essere il piano di controllo per l'organizzazione e la protezione delle identità deve essere la priorità più alta. Il perimetro di sicurezza si è evoluto da perimetro di rete a perimetro di identità. La sicurezza consiste sempre meno nel difendere la rete e sempre più nel difendere i dati e nel gestire la sicurezza di app e utenti. Attualmente, con il trasferimento nel cloud di una maggiore quantità di dati e app, l'identità diventa il nuovo perimetro.
-
-Il monitoraggio delle attività associate alle identità consente di intraprendere azioni proattive prima che si verifichi un evento imprevisto o azioni reattive per bloccare un tentativo di attacco. Il dashboard Identità e accesso visualizza consigli, ad esempio:
-
-- Abilitare MFA per gli account con privilegi nella sottoscrizione
-- Rimuovere gli account esterni con autorizzazioni di scrittura dalla sottoscrizione
-- Rimuovere account esterni con privilegi dalla sottoscrizione
+Per un elenco completo delle raccomandazioni che è possibile visualizzare, vedere le [indicazioni relative a identità e accesso](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
 > Se la sottoscrizione include più di 600 account, il Centro sicurezza non è in grado di applicare i consigli relativi all'identità per la sottoscrizione. Le raccomandazioni che non vengono eseguite sono elencate di seguito in "valutazioni non disponibili".
 Il Centro sicurezza non è in grado di applicare i consigli relativi all'identità per gli agenti di amministrazione di un partner Cloud Solution Provider (CSP).
 >
 
-## <a name="monitor-identity-and-access"></a>Monitorare identità e accesso
 
-Aprire l'elenco dei problemi di accesso e identità identificati selezionando **identity & Access** dalla barra laterale del Centro sicurezza (in **risorse**) o dalla pagina panoramica. 
+Tutte le indicazioni relative a identità e accesso sono disponibili all'interno di due controlli di sicurezza nella pagina **raccomandazioni** :
 
-In **Identità e accesso** sono presenti due schede:
+- Gestire l'accesso e le autorizzazioni 
+- Abilitare MFA
 
-- **Panoramica**: consigli identificati dal Centro sicurezza.
-- **Sottoscrizioni**: elenco delle sottoscrizioni e stato di sicurezza corrente di ognuna.
+![I due controlli di sicurezza con le raccomandazioni relative a identità e accesso](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
 
-[Accesso ![identità &](./media/security-center-identity-access/identity-dashboard.png)](./media/security-center-identity-access/identity-dashboard.png#lightbox)
 
-### <a name="overview-section"></a>Sezione Panoramica
-In **Panoramica** è presente un elenco di consigli. La prima colonna elenca la raccomandazione. La seconda colonna visualizza il numero totale di sottoscrizioni interessate dal consiglio. La terza colonna indica la gravità del problema.
+## <a name="enable-multi-factor-authentication-mfa"></a>Abilita multi-factor authentication (autenticazione a più fattori)
 
-1. Selezionare un consiglio. Verrà visualizzata la finestra raccomandazioni con i seguenti elementi:
+Per abilitare l'autenticazione a più fattori, è necessario disporre [delle autorizzazioni tenant di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
 
-   - Descrizione del consiglio
-   - Elenco delle sottoscrizioni non integre e integre
-   - Elenco di risorse non analizzate a causa di una valutazione non riuscita o del fatto che la risorsa è all'interno di una sottoscrizione in esecuzione a livello gratuito e non viene quindi valutata
+- Se si ha un'edizione Premium di AD, abilitare l'autenticazione a più fattori usando [l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 
-    [finestra consigli ![](./media/security-center-identity-access/select-subscription.png)](./media/security-center-identity-access/select-subscription.png#lightbox)
+- Gli utenti di AD Free Edition possono abilitare le **impostazioni predefinite di sicurezza** in Azure Active Directory come descritto nella [documentazione di Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) , ma la raccomandazione del Centro sicurezza per abilitare l'autenticazione a più fattori verrà comunque visualizzata.
 
-1. Per altri dettagli, selezionare una sottoscrizione nell'elenco.
-
-### <a name="subscriptions-section"></a>Sezione Sottoscrizioni
-In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna elenca le sottoscrizioni. La seconda colonna visualizza il numero totale di consigli per ogni sottoscrizione. La terza colonna indica il livello di gravità dei problemi.
-
-[scheda Sottoscrizioni ![](./media/security-center-identity-access/subscriptions.png)](./media/security-center-identity-access/subscriptions.png#lightbox)
-
-1. Seleziona una sottoscrizione. Viene aperta una visualizzazione di riepilogo con tre schede:
-
-   - **Consigli**: in base alle valutazioni non riuscite eseguite dal Centro sicurezza.
-   - **Valutazioni superate**: elenco di valutazioni superate eseguite dal Centro sicurezza.
-   - **Valutazioni non disponibili**: elenco di valutazioni la cui esecuzione non è riuscita a causa di un errore o perché la sottoscrizione ha più di 600 account.
-
-   In **Consigli** è presente un elenco di consigli per la sottoscrizione selezionata, con l'indicazione del livello di gravità per ogni consiglio.
-
-   [![consigli per la sottoscrizione Select](./media/security-center-identity-access/recommendations.png)](./media/security-center-identity-access/recommendations.png#lightbox)
-
-1. Selezionare un consiglio per una descrizione di questo, l'elenco delle sottoscrizioni non integre e integre e l'elenco delle risorse non analizzate.
-
-   [Descrizione ![della raccomandazione](./media/security-center-identity-access/designate.png)](./media/security-center-identity-access/designate.png#lightbox)
-
-   In **Valutazioni superate** è presente un elenco di valutazioni superate.  Il livello di gravità di tali valutazioni è sempre di colore verde.
-
-   [valutazioni ![superate](./media/security-center-identity-access/passed-assessments.png)](./media/security-center-identity-access/passed-assessments.png#lightbox)
-
-1. Selezionare una valutazione superata dall'elenco per visualizzare la descrizione di questa e un elenco di sottoscrizioni integre. Per le sottoscrizioni non integre è presente una scheda che elenca tutte le sottoscrizioni non riuscite.
-
-   [valutazioni ![superate](./media/security-center-identity-access/remove.png)](./media/security-center-identity-access/remove.png#lightbox)
-
-> [!NOTE]
-> Se sono stati creati criteri di accesso condizionale che richiedono l'autenticazione a più fattori ma sono state impostate esclusioni, la valutazione dell'autenticazione a più fattori del Centro sicurezza considera i criteri non conformi, perché consente ad alcuni utenti di accedere ad Azure senza autenticazione a più fattori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui suggerimenti applicabili ad altri tipi di risorse di Azure, vedere gli articoli seguenti:

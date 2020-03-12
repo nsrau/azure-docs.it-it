@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 49a63be8e8ac3752006d531f4541cb3c2904c3e3
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+manager: lizross
+ms.openlocfilehash: 1dc5d54fa24217c91e14a8f37e092888b2bb6474
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539621"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127872"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -46,7 +47,7 @@ Le soluzioni Microsoft esistenti e legacy per i profili utente sono state affron
 
 La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei profili utente precedenti.
 
-| Tecnologia | Impostazioni moderne | Impostazioni Win32 | Impostazioni del sistema operativo | Dati utente | Supportato nello SKU del server | Archiviazione back-end in Azure | Archiviazione back-end locale | Supporto delle versioni | Ora di accesso successiva |Note|
+| Tecnologia | Impostazioni moderne | Impostazioni Win32 | Impostazioni del sistema operativo | Dati utente | Supportato nello SKU del server | Archiviazione back-end in Azure | Archiviazione back-end locale | Supporto versione | Ora di accesso successiva |Note|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
 | **Dischi del profilo utente (UPD)** | Sì | Sì | Sì | Sì | Sì | No | Sì | Win 7 + | Sì | |
 | **Profilo utente mobile (RUP), modalità manutenzione** | No | Sì | Sì | Sì | Sì| No | Sì | Win 7 + | No | |
@@ -58,7 +59,7 @@ La tabella seguente illustra i vantaggi e le limitazioni delle tecnologie dei pr
 
 UPD richiede [spazi di archiviazione diretta (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) per soddisfare i requisiti di prestazioni. UPD usa il protocollo SMB (Server Message Block). Il profilo viene copiato nella macchina virtuale in cui viene registrato l'utente. UPD con S2D è la soluzione consigliata per desktop virtuale di Windows.  
 
-#### <a name="cost"></a>Costo
+#### <a name="cost"></a>Costi
 
 Sebbene i cluster S2D raggiungano le prestazioni necessarie, il costo è costoso per i clienti aziendali, ma è particolarmente costoso per i clienti di piccole e medie imprese (SMB). Per questa soluzione, le aziende pagano i dischi di archiviazione, insieme al costo delle macchine virtuali che usano i dischi per una condivisione.
 

@@ -3,12 +3,12 @@ title: Panoramica delle Attività del Registro Azure Container
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 ms.topic: article
 ms.date: 01/22/2020
-ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615945"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087279"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -124,15 +124,11 @@ Per impostazione predefinita, le attività ACR compilano immagini per il sistema
 | Linux | amd64<br/>ARM<br/>arm64<br/>386 |
 | Windows | amd64 |
 
-## <a name="view-task-logs"></a>Visualizzare i log delle attività
+## <a name="view-task-output"></a>Visualizzare l'output dell'attività
 
-Ogni esecuzione di attività genera l'output del log che è possibile esaminare per determinare se i passaggi dell'attività sono stati eseguiti correttamente. Se si usa il comando [AZ ACR Build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)o [AZ ACR task run](/cli/azure/acr/task#az-acr-task-run) per attivare l'attività, l'output del log per l'esecuzione dell'attività viene trasmesso alla console e archiviato anche per un successivo recupero. Quando un'attività viene attivata automaticamente, ad esempio da un commit del codice sorgente o da un aggiornamento di un'immagine di base, i log delle attività vengono archiviati solo. Visualizzare i log per un'attività eseguita nel portale di Azure o usare il comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
+Ogni esecuzione di attività genera l'output del log che è possibile esaminare per determinare se i passaggi dell'attività sono stati eseguiti correttamente. Quando si attiva un'attività manualmente, l'output del log per l'esecuzione dell'attività viene trasmesso alla console e archiviato anche per il recupero successivo. Quando un'attività viene attivata automaticamente, ad esempio da un commit del codice sorgente o da un aggiornamento di un'immagine di base, i log delle attività vengono archiviati solo. Visualizzare i log di esecuzione nell'portale di Azure o usare il comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
 
-Per impostazione predefinita, i dati e i log per le esecuzioni delle attività in un registro vengono conservati per 30 giorni e quindi eliminati automaticamente. Se si vogliono archiviare i dati per un'esecuzione di attività, abilitare l'archiviazione usando il comando [AZ ACR task update-Run](/cli/azure/acr/task#az-acr-task-update-run) . Nell'esempio seguente viene abilitata l'archiviazione per l'esecuzione dell'attività *CF11* *nel registro di*sistema del registro di sistema.
-
-```azurecli
-az acr task update-run --registry myregistry --run-id cf11 --no-archive false
-```
+Vedere altre informazioni sulla [visualizzazione e la gestione dei log attività](container-registry-tasks-logs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

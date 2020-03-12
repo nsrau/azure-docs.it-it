@@ -8,12 +8,12 @@ ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: 0f62fb835fdd2353557a4aff47128bb94ba91a31
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851502"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128403"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -56,9 +56,6 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
   | **Aggiorna file** | No | Non applicabile |
   ||||
 
-  > [!NOTE]
-  > Per caricare file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura per la cartella radice sul server SFTP.
-
 * I trigger SFTP-SSH non supportano la suddivisione in blocchi del messaggio. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 15 MB o inferiori. Per ottenere file di dimensioni superiori a 15 MB, seguire invece questo modello:
 
   1. Usare un trigger SFTP-SSH che restituisce solo le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
@@ -79,7 +76,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) nella configurazione di SSH sul server SFTP.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -130,7 +127,7 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Ad esempio,
+   Ad esempio:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 

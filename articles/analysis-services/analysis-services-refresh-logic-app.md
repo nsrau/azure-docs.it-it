@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572331"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126946"
 ---
 # <a name="refresh-with-logic-apps"></a>Eseguire l'aggiornamento con App per la logica
 
@@ -19,16 +19,16 @@ Usando le app per la logica e le chiamate REST, è possibile eseguire operazioni
 
 Per altre informazioni sull'uso delle API REST con Azure Analysis Services, vedere [aggiornamento asincrono con l'API REST](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido.  Gli esempi in questo articolo utilizzeranno un'entità servizio (SPN) per l'autenticazione Azure Analysis Services. Per altre informazioni, vedere [creare un'entità servizio usando portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="design-the-logic-app"></a>Progettare l'app per la logica
 
 > [!IMPORTANT]
-> Gli esempi seguenti presuppongono che il firewall Azure Analysis Services sia disabilitato.  Se il firewall è abilitato, l'indirizzo IP pubblico dell'iniziatore della richiesta deve essere inserito nell'elenco elementi consentiti nel firewall Azure Analysis Services. Per ulteriori informazioni sugli intervalli IP delle app per la logica per area, vedere [limiti e informazioni di configurazione per app per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> Gli esempi seguenti presuppongono che il firewall Azure Analysis Services sia disabilitato. Se il firewall è abilitato, l'indirizzo IP pubblico dell'initiator della richiesta deve essere inserito nell'elenco elementi consentiti nel firewall Azure Analysis Services. Per altre informazioni sugli intervalli IP delle app per la logica di Azure per area, vedere [limiti e informazioni di configurazione per app per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 #### <a name="create-a-service-principal-spn"></a>Creare un'entità servizio (SPN)
 
@@ -62,15 +62,15 @@ Questo passaggio verrà popolato con l'URL HTTP POST dopo il salvataggio dell'ap
 
 Configurare l'attività HTTP come indicato di seguito:
 
-|Proprietà  |Valore  |
+|Proprietà  |valore  |
 |---------|---------|
 |**Metodo**     |POST         |
-|**URI**     | https://*l'area Server*/Servers/*AAS nome server*/models/*il nome del database*/refreshes <br /> <br /> Ad esempio: https: \//westus. asazure. Windows. NET/Servers/MyServer/Models/AdventureWorks/refreshs|
+|**URI**     | https://*l'area Server*/Servers/*AAS nome server*/models/*il nome del database*/refreshes <br /> <br /> Ad esempio: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
 |**Intestazioni**     |   Content-Type, Application/JSON <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Per altre informazioni sulla forma del corpo della richiesta, vedere [aggiornamento asincrono con l'API REST-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
-|**Autenticazione**     |Autenticazione OAuth Active Directory         |
+|**autenticazione**     |Autenticazione OAuth Active Directory         |
 |**Inquilino**     |Compilare il Azure Active Directory TenantId         |
-|**Destinatari**     |https://*. asazure. Windows. NET         |
+|**Destinatari**     |https://*.asazure.windows.net         |
 |**ID client**     |Immettere il nome dell'entità servizio ClientID         |
 |**Tipo di credenziale**     |Segreto         |
 |**Segreto**     |Immettere il segreto del nome dell'entità servizio         |
@@ -116,4 +116,4 @@ Salvare l'app per la logica.
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Esempi](analysis-services-samples.md)  
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

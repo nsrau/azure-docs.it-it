@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8d40dd09144bddc41347947c0123988530f93f90
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d18fdee85bd0fbabe68fe9890c4a2dc74366041d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945413"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096655"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Impostazioni di connettività SQL di Azure
 > [!NOTE]
@@ -77,49 +77,6 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ```
 
-## <a name="minimal-tls-version"></a>Versione minima di TLS 
-La versione minima di TLS consente al cliente di controllare la versione di [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) per la SQL Server di Azure.
-
-È consigliabile impostare una versione minima di TLS su 1,2. Per i clienti con applicazioni che si basano su una versione precedente di TLS, è consigliabile impostare la versione minima di TLS in base ai requisiti delle applicazioni. Per i clienti che si basano sulle applicazioni per la connessione tramite una connessione non crittografata, è consigliabile non impostare alcuna versione minima di TLS. Per ulteriori informazioni, vedere [considerazioni su TLS per la connettività del database SQL](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
-
-Dopo aver impostato una versione minima di TLS, i tentativi di accesso da client che usano una versione TLS inferiore alla versione minima del server TLS avranno esito negativo con l'errore seguente:
-
-```output
-Error 47072
-Login failed with invalid TLS version
-```
-
-## <a name="set-minimal-tls-version-via-powershell"></a>Impostare una versione minima di TLS tramite PowerShell
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici. Lo script seguente richiede il [modulo Azure PowerShell](/powershell/azure/install-az-ps).
-
-Lo script di PowerShell seguente illustra come `Get` e `Set` la proprietà della **versione minima di TLS** a livello di server logico:
-
-```powershell
-#Get the Public Network Access property
-(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
-
-# Update Public Network Access to Disabled
-$SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
-
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
-```
-
-## <a name="set-minimal-tls-version-via-azure-cli"></a>Impostare una versione minima di TLS tramite l'interfaccia della riga
-> [!IMPORTANT]
-> Tutti gli script in questa sezione richiedono l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-### <a name="azure-cli-in-a-bash-shell"></a>INTERFACCIA della riga di comando di Azure in una shell bash
-Il seguente script dell'interfaccia della riga di comando Mostra come modificare l'impostazione **minima della versione di TLS** in una shell bash:
-
-```azurecli-interactive
-# Get current setting for Minimal TLS Version
-az sql server show -n sql-server-name -g sql-server-group --query "minimalTlsVersion"
-
-# Update setting for Minimal TLS Version
-az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVersion="1.2"
-```
 
 ## <a name="connection-policy"></a>Criteri di connessione
 I [criteri di connessione](sql-database-connectivity-architecture.md#connection-policy) determinano la modalità di connessione dei client ad Azure SQL Server. 

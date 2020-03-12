@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484418"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096050"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -44,7 +44,7 @@ No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a
 Sì. Tutte le funzionalità di accesso condizionale, tra cui Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'autenticazione pass-through supporta "Alternate ID" come nome utente, al posto di "userPrincipalName"?
-Per un extent limitato, l'autenticazione pass-through supporta l'ID alternativo come nome utente quando viene configurato in Azure AD Connect. Come prerequisito, Azure AD Connect richiede per la sincronizzazione dell'attributo `UserPrincipalName` di Active Directory locale ad Azure AD. In questo modo il `UserPrincipalName` nell'istanza locale di AD e Azure AD diventeranno identici. Se si vuole usare un altro attributo per eseguire la sincronizzazione da AD locale come UPN per Azure AD, sarà necessario usare la sincronizzazione dell'hash delle password o la AD FS. Per altre informazioni, vedere [Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento all'informativa sul supporto contenuta nella documentazione dell'applicazione specifica.
+L'accesso con un valore non UPN, ad esempio un indirizzo di posta elettronica alternativo, è attualmente testato in anteprima privata per l'autenticazione pass-through (PTA) e la sincronizzazione dell'hash delle password (pH).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La sincronizzazione dell'hash delle password agisce da fallback per l'autenticazione pass-through?
 

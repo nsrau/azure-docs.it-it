@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6f49529b0599f36ae4a26939bbbe171a45a1a53a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081829"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127199"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Opzioni di configurazione disponibili nell'apprendimento automatico:
 * Esplorare le metriche del modello
 * Registrare e distribuire modelli
 
-Se si preferisce un'esperienza senza codice, è anche possibile [creare esperimenti automatici di Machine Learning in Azure Machine Learning Studio](how-to-create-portal-experiments.md).
+Se si preferisce un'esperienza senza codice, è anche possibile [creare esperimenti automatici di Machine Learning in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## <a name="select-your-experiment-type"></a>Selezionare il tipo di esperimento
 
@@ -174,7 +174,7 @@ Di seguito sono riportati alcuni esempi:
 
 I tre valori di parametro `task` diversi (il terzo tipo di attività è `forecasting`e usa un pool di algoritmi simile come attività `regression`) determina l'elenco dei modelli da applicare. Usare i parametri `whitelist` o `blacklist` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) per ([classificazione](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [previsione](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)e [regressione](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
 
-Il servizio di convalida di ML automatizzato richiede che `experiment_timeout_minutes` sia impostato su un timeout minimo di 15 minuti per evitare errori di timeout degli esperimenti.
+Il servizio di convalida di Machine Learning automatico richiede che `experiment_timeout_minutes` sia impostato su un timeout minimo di 15 minuti per evitare errori di timeout degli esperimenti.
 
 ### <a name="primary-metric"></a>Metrica primaria
 La metrica primaria determina la metrica da utilizzare durante il training del modello per l'ottimizzazione. La metrica disponibile che è possibile selezionare è determinata dal tipo di attività scelto e la tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
@@ -191,7 +191,7 @@ Informazioni sulle definizioni specifiche di queste metriche per [comprendere i 
 
 ### <a name="data-featurization"></a>Conteggi dati
 
-In ogni esperimento di Machine Learning automatizzato, i dati vengono [ridimensionati e normalizzati automaticamente](concept-automated-ml.md#preprocess) per aiutare *determinati* algoritmi sensibili alle funzionalità con diverse scale.  Tuttavia, è anche possibile abilitare conteggi aggiuntivi, ad esempio l'imputazione, la codifica e la trasformazione dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#featurization).
+In ogni esperimento di Machine Learning automatizzato, i dati vengono [ridimensionati e normalizzati automaticamente](concept-automated-ml.md#preprocess) per aiutare *determinati* algoritmi sensibili alle funzionalità con diverse scale.  Tuttavia, è anche possibile abilitare conteggi aggiuntivi, ad esempio l'imputazione, la codifica e la trasformazione dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-use-automated-ml-for-ml-models.md#featurization).
 
 Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `featurization`. Nella tabella seguente vengono illustrate le impostazioni accettate per conteggi nella [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -199,7 +199,7 @@ Quando si configurano gli esperimenti, è possibile abilitare l'impostazione ava
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica che deve essere utilizzato il passaggio conteggi personalizzato. [Informazioni su come personalizzare conteggi](how-to-configure-auto-train.md#customize-feature-engineering).|
 |`"featurization": 'off'`| Indica che il passaggio conteggi non deve essere eseguito automaticamente.|
-|`"featurization": 'auto'`| Indica che come parte della pre-elaborazione, [i passaggi di dati Guardrails e conteggi](how-to-create-portal-experiments.md#advanced-featurization-options) vengono eseguiti automaticamente.|
+|`"featurization": 'auto'`| Indica che come parte della pre-elaborazione, [i passaggi di dati Guardrails e conteggi](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) vengono eseguiti automaticamente.|
 
 > [!NOTE]
 > I passaggi automatici di conteggi Machine Learning, ovvero la normalizzazione delle funzionalità, la gestione dei dati mancanti, la conversione di testo in numeri e così via, diventano parte del modello sottostante. Quando si usa il modello per le stime, gli stessi passaggi conteggi applicati durante il training vengono applicati automaticamente ai dati di input.

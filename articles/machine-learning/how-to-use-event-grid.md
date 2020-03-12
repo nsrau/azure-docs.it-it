@@ -9,26 +9,30 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: 8a9dc92baf47242af502862edebffe686263dd5d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.date: 03/11/2020
+ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399672"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129703"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Creare flussi di lavoro di machine learning basati su eventi (anteprima)
 
-[Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/) supporta eventi Azure Machine Learning. Ad esempio, è possibile usare gli eventi dal completamento dell'esecuzione, dalla registrazione del modello, dalla distribuzione del modello e dal rilevamento della tendenza dei dati nell'ambito di un'area di lavoro.
+[Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/) supporta eventi Azure Machine Learning. È possibile sottoscrivere e utilizzare eventi quali lo stato di esecuzione modificato, il completamento, la registrazione del modello, la distribuzione del modello e il rilevamento della tendenza dei dati all'interno di un'area di lavoro.
 
-Per ulteriori informazioni, vedere [Azure Machine Learning l'integrazione con griglia di eventi](concept-event-grid-integration.md) e lo [schema di griglia di eventi di Azure Machine Learning](/azure/event-grid/event-schema-machine-learning).
+Per ulteriori informazioni sui tipi di evento, vedere [Azure Machine Learning l'integrazione con griglia di eventi](concept-event-grid-integration.md) e lo [schema di griglia di eventi di Azure Machine Learning](/azure/event-grid/event-schema-machine-learning).
 
 Usare griglia di eventi per abilitare scenari comuni, ad esempio:
 
-* Invia messaggi di posta elettronica al termine dell'esecuzione
+* Invia messaggi di posta elettronica in caso di errore di esecuzione ed esecuzione completata
 * Usare una funzione di Azure dopo la registrazione di un modello
 * Streaming di eventi da Azure Machine Learning a diversi endpoint
 * Attivare una pipeline ML quando viene rilevata la deriva
+
+> [!NOTE] 
+> Attualmente, gli eventi runStatusChanged vengono attivati solo quando lo stato dell'esecuzione **non è riuscito**
+>
 
 ## <a name="prerequisites"></a>Prerequisites
 * Accesso come collaboratore o proprietario all'area di lavoro Azure Machine Learning per cui si creeranno gli eventi.
@@ -43,13 +47,14 @@ Usare griglia di eventi per abilitare scenari comuni, ad esempio:
 
 1. Consente di selezionare il tipo di evento da utilizzare. La schermata seguente, ad esempio, ha selezionato __modello registrato__, __modello distribuito__, __esecuzione completata__e __Drift del set di dati rilevato__:
 
-    ![Aggiungi-tipo-evento](./media/how-to-use-event-grid/add-event-type.png)
+    ![Aggiungi-tipo-evento](./media/how-to-use-event-grid/add-event-type-updated.png)
 
 1. Selezionare l'endpoint in cui pubblicare l'evento. Nella schermata seguente l' __Hub eventi__ è l'endpoint selezionato:
 
     ![Select-event-handler](./media/how-to-use-event-grid/select-event-handler.png)
 
 Una volta confermata la selezione, fare clic su __Crea__. Dopo la configurazione, questi eventi verranno inseriti nell'endpoint.
+
 
 ### <a name="configure-eventgrid-using-the-cli"></a>Configurare EventGrid usando l'interfaccia della riga di comando
 
@@ -76,13 +81,17 @@ az eventgrid event-subscription create \
   --subject-begins-with "models/mymodelname"
 ```
 
+## <a name="filter-events"></a>Filtrare gli eventi
+
+Quando si configurano gli eventi, è possibile applicare filtri per attivare solo i dati specifici degli eventi. Nell'esempio seguente, per gli eventi di stato di esecuzione modificati è possibile filtrare in base ai tipi di esecuzione. L'evento viene attivato solo quando i criteri vengono soddisfatti. Fare riferimento allo [schema della griglia di eventi Azure Machine Learning](/azure/event-grid/event-schema-machine-learning) per informazioni sui dati degli eventi che è possibile filtrare in base a. 
+
+1. Passare alla portale di Azure, selezionare una nuova sottoscrizione o una nuova sottoscrizione esistente. 
+
+1. Selezionare la scheda filtri e scorrere verso il basso fino a filtri avanzati. Nella **chiave** e nel **valore** specificare i tipi di proprietà che si desidera filtrare in base a. Qui è possibile vedere che l'evento viene attivato solo quando il tipo di esecuzione è un'esecuzione di pipeline o un passaggio della pipeline.  
+
+    :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filtrare gli eventi":::
+
 ## <a name="sample-scenarios"></a>Scenari di esempio
-
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Usare funzioni di Azure per distribuire un modello basato sui tag
-
-Un oggetto modello di Azure Machine Learning contiene parametri in cui è possibile trasformare le distribuzioni tramite pivot, ad esempio il nome del modello, la versione, il tag e la proprietà. L'evento di registrazione del modello può attivare un endpoint ed è possibile usare una funzione di Azure per distribuire un modello in base al valore di tali parametri.
-
-Per un esempio, vedere il repository [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) e seguire i passaggi nel file **Leggimi** .
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>Usare un'app per la logica per inviare avvisi di posta elettronica
 
@@ -100,7 +109,7 @@ Sfrutta le [app](https://docs.microsoft.com/azure/logic-apps/) per la logica di 
 
     ![Select-Event-runcomplete](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
-1. È anche possibile aggiungere filtri per attivare solo l'app per la logica in un subset di tipi di evento. Nello screenshot seguente viene usato un __filtro__ di prefisso __/datadriftID/runs/__ .
+1. È possibile usare il metodo di filtro nella sezione precedente o aggiungere filtri per attivare solo l'app per la logica in un subset di tipi di evento. Nello screenshot seguente viene usato un __filtro__ di prefisso __/datadriftID/runs/__ .
 
     ![Filtra-eventi](./media/how-to-use-event-grid/filtering-events.png)
 
@@ -164,6 +173,11 @@ A questo punto la pipeline data factory viene attivata quando si verifica la ten
 
 ![visualizzazione in area di lavoro](./media/how-to-use-event-grid/view-in-workspace.png)
 
+### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Usare funzioni di Azure per distribuire un modello basato sui tag
+
+Un oggetto modello di Azure Machine Learning contiene parametri in cui è possibile trasformare le distribuzioni tramite pivot, ad esempio il nome del modello, la versione, il tag e la proprietà. L'evento di registrazione del modello può attivare un endpoint ed è possibile usare una funzione di Azure per distribuire un modello in base al valore di tali parametri.
+
+Per un esempio, vedere il repository [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) e seguire i passaggi nel file **Leggimi** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

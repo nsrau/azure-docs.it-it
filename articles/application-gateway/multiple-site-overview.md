@@ -4,19 +4,19 @@ description: Questo articolo offre una panoramica del supporto di più siti in u
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/7/2020
+ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: ac9dd31e01b1915642951aeddb10d3eae118d943
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: c43ac0923e0d3d76c25657f4870a0a0431bc8b6e
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523782"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096438"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 
-L'hosting di più siti consente di configurare più di un'applicazione Web sulla stessa porta di un gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente, il gateway applicazione gestisce il traffico per contoso.com e fabrikam.com da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
+L'hosting di più siti consente di configurare più di un'applicazione Web sulla stessa porta di un gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente il gateway applicazione gestisce il traffico per `contoso.com` e `fabrikam.com` da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
@@ -25,7 +25,7 @@ L'hosting di più siti consente di configurare più di un'applicazione Web sulla
 
 Per le richieste `http://contoso.com` viene eseguito il routing verso ContosoServerPool mentre per le richieste `http://fabrikam.com` viene eseguito il routing verso FabrikamServerPool.
 
-Analogamente, la stessa distribuzione del gateway applicazione può ospitare due sottodomini dello stesso dominio padre. Gli esempi di uso di sottodomini possono includere `http://blog.contoso.com` e `http://app.contoso.com` ospitati in una singola distribuzione del gateway applicazione.
+Analogamente, è possibile ospitare più sottodomini dello stesso dominio padre nella stessa distribuzione del gateway applicazione. È ad esempio possibile ospitare `http://blog.contoso.com` e `http://app.contoso.com` in una singola distribuzione del gateway applicazione.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Intestazioni host e indicazione nome server (SNI)
 
@@ -35,11 +35,17 @@ Per abilitare l'hosting di più siti nella stessa infrastruttura sono disponibil
 2. Usare il nome host per ospitare più applicazioni Web nello stesso indirizzo IP.
 3. Usare porte diverse per ospitare più applicazioni Web nello stesso indirizzo IP.
 
-Un gateway applicazione ottiene attualmente un singolo indirizzo IP pubblico su cui rimane in ascolto del traffico. Di conseguenza, non è attualmente possibile supportare più applicazioni ognuna con il proprio indirizzo IP. Il gateway applicazione supporta l'hosting di più applicazioni ognuna in ascolto su porte diverse, ma in questo scenario le applicazioni dovrebbero accettare traffico su porte non standard e questa non è in genere una configurazione desiderata. Il gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più siti Web nello stesso indirizzo IP pubblico e nella stessa porta. I siti ospitati nel gateway applicazione possono supportare anche l'offload SSL con l'estensione TLS dell'indicazione nome server (SNI). In questo scenario il browser client e la Web farm back-end devono quindi supportare HTTP/1.1 e l'estensione TLS definita nella specifica RFC 6066.
+Il gateway applicazione attualmente supporta un solo indirizzo IP pubblico in cui è in ascolto del traffico. Quindi, più applicazioni, ognuna con un proprio indirizzo IP non è attualmente supportata. 
+
+Il gateway applicazione supporta più applicazioni ognuna in ascolto su porte diverse, ma questo scenario richiede che le applicazioni accettino il traffico sulle porte non standard. Spesso non si tratta di una configurazione desiderata.
+
+Il gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più siti Web nello stesso indirizzo IP pubblico e nella stessa porta. I siti ospitati nel gateway applicazione possono supportare anche l'offload SSL con l'estensione TLS dell'indicazione nome server (SNI). In questo scenario il browser client e la Web farm back-end devono quindi supportare HTTP/1.1 e l'estensione TLS definita nella specifica RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Elemento di configurazione del listener
 
-L'elemento di configurazione HTTPListener esistente è stato migliorato per supportare gli elementi del nome host e dell'indicazione nome server usati dal gateway applicazione per instradare il traffico al pool back-end appropriato. L'esempio di codice seguente è il frammento dell'elemento HttpListeners del file modello.
+Gli elementi di configurazione HTTPListener esistenti sono stati migliorati per supportare gli elementi nome host e indicazione nome server. Viene usato dal gateway applicazione per instradare il traffico al pool back-end appropriato. 
+
+L'esempio di codice seguente è il frammento di un elemento HttpListeners di un file modello:
 
 ```json
 "httpListeners": [
@@ -81,7 +87,7 @@ Per una distribuzione basata su modello end-to-end, vedere il [modello di Resour
 
 ## <a name="routing-rule"></a>Regola di routing
 
-Nella regola di routing non è necessaria alcuna modifica. È ancora necessario scegliere la regola di routing "Basic" per collegare il listener del sito appropriato al pool di indirizzi back-end corrispondente.
+Non sono necessarie modifiche nella regola di routing. È ancora necessario scegliere la regola di routing "Basic" per collegare il listener del sito appropriato al pool di indirizzi back-end corrispondente.
 
 ```json
 "requestRoutingRules": [

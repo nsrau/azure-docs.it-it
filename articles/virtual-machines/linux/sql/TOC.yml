@@ -10,6 +10,8 @@
   items:
     - name: Configurazione del gruppo di disponibilità di VM RHEL di Azure con STONITH
       href: sql-server-linux-rhel-ha-stonith-tutorial.md
+    - name: Configurare il listener del gruppo di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure
+      href: sql-server-linux-rhel-ha-listener-tutorial.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
