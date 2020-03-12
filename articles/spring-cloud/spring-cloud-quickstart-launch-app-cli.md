@@ -1,19 +1,19 @@
 ---
-title: "Avvio rapido: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure"
+title: "Guida introduttiva: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure"
 description: In questo argomento di avvio rapido viene distribuita un'applicazione di esempio in Azure Spring Cloud con l'interfaccia della riga di comando di Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 1e30da0844efa48f64a5e2501c79d2167ca4be92
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 48d05dad45a5ff4c561f492e424b53c918998c7c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431257"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945447"
 ---
-# <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Avvio rapido: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Guida introduttiva: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure
 
 Azure Spring Cloud consente di eseguire facilmente un'applicazione di microservizi basata su Spring Boot in Azure.
 
@@ -28,7 +28,7 @@ Seguendo questo argomento di avvio rapido, si apprenderà come:
 > * Distribuire ogni microservizio
 > * Assegnare un endpoint pubblico per l'applicazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 >[!Note]
 > Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
@@ -74,7 +74,7 @@ az extension add --name spring-cloud
 4. Aprire una finestra dell'interfaccia della riga di comando di Azure ed eseguire i comandi seguenti per effettuare il provisioning di un'istanza di Azure Spring Cloud.
 
     ```azurecli
-        az spring-cloud create -n <service name> -g <resource group name>
+        az spring-cloud create -n <service instance name> -g <resource group name>
     ```
 
     La distribuzione dell'istanza del servizio richiede circa cinque minuti.
@@ -82,7 +82,7 @@ az extension add --name spring-cloud
 5. Impostare i nomi predefiniti del gruppo di risorse e del cluster usando i comandi seguenti:
 
     ```azurecli
-        az configure --defaults group=<service group name>
+        az configure --defaults group=<resource group name>
         az configure --defaults spring-cloud=<service instance name>
     ```
 
@@ -93,8 +93,8 @@ az extension add --name spring-cloud
 
 Aggiornare il server di configurazione con la posizione del repository Git per il progetto:
 
-```git
-az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics-config
+```azurecli
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
 
 > [!div class="nextstepaction"]
@@ -158,7 +158,7 @@ az spring-cloud app show --name gateway | grep url
 ```
 Windows:
 ```azurecli
-az spring-cloud app show --name gateway | findstr url
+az spring-cloud app show -s <service name> -g <resource group> -n gateway -o table
 ```
 3. Passare all'URL specificato dal comando precedente per eseguire l'applicazione PiggyMetrics.
     ![Screenshot di PiggyMetrics in esecuzione](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)

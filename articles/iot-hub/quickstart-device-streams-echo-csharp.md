@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: cf182e55e172b308a288c741640538ab680e1103
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 64af62cb6c2c56ca8c7e67e2f1467d4a7e8335a0
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462089"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675528"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Avvio rapido: Comunicare con un'applicazione del dispositivo in C# tramite i flussi dispositivo dell'hub IoT (anteprima)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C# tramite i flussi dispositivo dell'hub IoT (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -28,7 +28,7 @@ I [flussi dispositivo dell'hub IoT](./iot-hub-device-streams-overview.md) consen
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * L'anteprima dei flussi del dispositivo è attualmente supportata solo per gli hub IoT creati nelle aree seguenti:
   * Stati Uniti centrali
@@ -47,8 +47,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 * Aggiungere l'estensione Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell eseguendo il comando seguente. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 * [Scaricare gli esempi di C# per Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) ed estrarre l'archivio ZIP. È necessario averlo sia sul lato dispositivo che sul lato servizio.
 

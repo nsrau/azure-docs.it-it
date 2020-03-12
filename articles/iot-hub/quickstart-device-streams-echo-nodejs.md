@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3bc5dc754509260591acf7c5d5809d5e85794d9b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 0757c5eb8639e4a864b049adc92c97a7cf69adba
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471925"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675500"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Avvio rapido: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
+# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
 In questa guida di avvio rapido si esegue un'applicazione sul lato servizio e si configura la comunicazione tra un dispositivo e il servizio usando flussi del dispositivo. I flussi del dispositivo dell'hub IoT di Azure consentono alle applicazioni di servizio e del dispositivo di comunicare in modo sicuro e adatto al firewall. Durante l'anteprima pubblica, l'SDK Node.js supporta solo flussi del dispositivo sul lato servizio. Di conseguenza, questa guida introduttiva illustra solo le istruzioni per eseguire l'applicazione sul lato servizio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento di [Comunicare con app del dispositivo in C tramite i flussi del dispositivo dell'hub IoT](./quickstart-device-streams-echo-c.md) o [Comunicare con app del dispositivo in C# tramite i flussi del dispositivo dell'hub IoT](./quickstart-device-streams-echo-csharp.md).
 
@@ -55,8 +55,10 @@ L'hub IoT di Microsoft Azure supporta attualmente i flussi dispositivo come [fun
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 

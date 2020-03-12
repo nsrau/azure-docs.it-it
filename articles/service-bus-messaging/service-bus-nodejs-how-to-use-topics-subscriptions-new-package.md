@@ -1,6 +1,6 @@
 ---
 title: Usare gli argomenti e le sottoscrizioni del bus di servizio o di Azure con Node.js
-description: "Avvio rapido: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un'app Node.js."
+description: "Guida introduttiva: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un'app Node.js."
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -14,21 +14,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: 348a6a50583594d3e608bb16fcef65879b595e67
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6088b4c54ed16c5ef46d2c0671e619884cad29d4
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263320"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330618"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Avvio rapido: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto azure/service-bus
-> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node.js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
-
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto azure/service-bus
 Questa esercitazione illustra come scrivere un programma Node.js per inviare messaggi a un argomento del bus di servizio e ricevere messaggi da una sottoscrizione del bus di servizio usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Questo pacchetto usa il [protocollo AMQP 1.0 ](service-bus-amqp-overview.md) più veloce, mentre il precedente pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usava le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 - Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Se non si hanno un argomento e una sottoscrizione da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare argomenti e sottoscrizioni](service-bus-quickstart-topics-subscriptions-portal.md) per creare argomenti e sottoscrizioni. Prendere nota della stringa di connessione per l'istanza del bus di servizio e dei nomi dell'argomento e della sottoscrizione creati. Questi valori verranno usati negli esempi.
 

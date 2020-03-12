@@ -13,21 +13,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 9db359d8331859e3eebf345d91fe5dc6e66c0d4c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c2e24e9dea2c8463294c85f04c9e4d7d2da17261
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774585"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330652"
 ---
-# <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Avvio rapido: Come usare le code del bus di servizio con Node.js e il pacchetto azure/service-bus
-> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node.js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
-
+# <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Guida introduttiva: Come usare le code del bus di servizio con Node.js e il pacchetto azure/service-bus
 Questa esercitazione illustra come scrivere un programma NodeJS per inviare e ricevere messaggi da una coda del bus di servizio usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Questo pacchetto usa il [protocollo AMQP 1.0 ](service-bus-amqp-overview.md) più veloce, mentre il precedente pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usava le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 - Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una. Prendere nota della stringa di connessione per l'istanza del bus di servizio e del nome della coda creata. Questi valori verranno usati negli esempi.
 

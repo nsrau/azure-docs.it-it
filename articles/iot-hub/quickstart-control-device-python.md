@@ -10,20 +10,20 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/09/2020
-ms.openlocfilehash: bd9d7f9d261ac9f5f433abbfc2e5f5ac36a8f1b0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 0ff404e4b13fdb3e174387c17064c5ae58acd246
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470820"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675557"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Avvio rapido: Controllare un dispositivo connesso a un hub IoT (Python)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
 In questa guida di avvio rapido si usa un metodo diretto per controllare un dispositivo simulato connesso all'hub IoT di Azure. L'hub IoT è un servizio di Azure che consente di gestire i dispositivi IoT dal cloud e inserire volumi elevati di dati di telemetria dei dispositivi nel cloud per l'archiviazione o l'elaborazione. È possibile usare metodi diretti per modificare in remoto il comportamento di un dispositivo connesso all'hub IoT. Questa guida di avvio rapido usa due applicazioni Python: un'applicazione del dispositivo simulato che risponde ai metodi diretti chiamati da un'applicazione back-end e un'applicazione back-end che chiama i metodi diretti sul dispositivo simulato.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -40,8 +40,10 @@ In questa guida di avvio rapido si usa un metodo diretto per controllare un disp
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 

@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'istanza di Azure Data Factory con Python"
+title: "Guida introduttiva: Creare un'istanza di Azure Data Factory con Python"
 description: Creare una data factory di Azure per copiare i dati da una posizione dell'archivio BLOB di Azure a un'altra posizione.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 1f799c8f2e2b209e9939845047c61d50bc1a244d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3b8edd249b19a61f8c80eb5b8c9df25754d4f070
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898541"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399503"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Avvio rapido: Creare una data factory e una pipeline con Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Guida introduttiva: Creare una data factory e una pipeline con Python
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -32,7 +32,7 @@ Azure Data Factory è un servizio di integrazione di dati basato sul cloud che c
 
 che inseriscono dati provenienti da archivi diversi. Le pipeline elaborano o trasformano i dati usando servizi di calcolo, ad esempio Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Le pipeline pubblicano i dati di output in archivi dati, ad esempio Azure SQL Data Warehouse per le applicazioni business intelligence (BI).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -379,9 +379,9 @@ def main():
     act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
-    dsin_ref = DatasetReference(ds_name)
-    dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name, inputs=[dsin_ref], outputs=[
+    dsin_ref = DatasetReference(reference_name=ds_name)
+    dsOut_ref = DatasetReference(reference_name=dsOut_name)
+    copy_activity = CopyActivity(name=act_name, inputs=[dsin_ref], outputs=[
                                  dsOut_ref], source=blob_source, sink=blob_sink)
 
     # Create a pipeline with the copy activity

@@ -15,24 +15,22 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: fee7ff6ffbd18cf514ce1bfda81aca727ed362c3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7ee3939c1a1b450f2458267ab0b70e3924a4869b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773518"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330601"
 ---
-# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Avvio rapido: Usare le code del bus di servizio in Azure con Node.js e il pacchetto azure-sb
-
-> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node.js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
-
+# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Guida introduttiva: Usare le code del bus di servizio in Azure con Node.js e il pacchetto azure-sb
 Questa esercitazione illustra come creare applicazioni Node.js per inviare e ricevere messaggi da una coda del bus di servizio di Azure usando il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb). Gli esempi sono scritti in JavaScript e usano il [modulo di Azure](https://www.npmjs.com/package/azure) per Node.js che internamente usa il pacchetto azure-sb.
 
-Il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). L'esperienza può risultare più rapida usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) che impiega il [protocollo AMQP 1.0](service-bus-amqp-overview.md) più veloce. Per altre informazioni sul nuovo pacchetto, vedere [Come usare le code del bus di servizio con Node.js e il pacchetto @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), in caso contrario continuare a leggere questo articolo per sapere come usare il pacchetto [azure](https://www.npmjs.com/package/azure).
+> [!IMPORTANT]
+> Il pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usa le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). L'esperienza può risultare più rapida usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) che impiega il [protocollo AMQP 1.0](service-bus-amqp-overview.md) più veloce. 
+> 
+> Per altre informazioni sul nuovo pacchetto, vedere [Come usare le code del bus di servizio con Node.js e il pacchetto @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), in caso contrario continuare a leggere questo articolo per sapere come usare il pacchetto [azure](https://www.npmjs.com/package/azure).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 - Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una.
     1. Leggere la breve **panoramica** delle **code** del bus di servizio. 

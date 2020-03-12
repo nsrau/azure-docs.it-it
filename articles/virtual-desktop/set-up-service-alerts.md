@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-ms.openlocfilehash: 8c062c1ce8e938ac426a10c41161eb7e28f3dcba
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 2834ba924fa9c29d955c38fbaeb45ab23e5c4e9b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368761"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127705"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Esercitazione: Configurare gli avvisi dei servizi
 
@@ -25,7 +26,7 @@ In questa esercitazione si apprenderà come:
 
 Per altre informazioni sull'integrità dei servizi di Azure, vedere la [documentazione del servizio di integrità dei servizi di Azure](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - [Esercitazione: Creare un tenant in Desktop virtuale Windows](tenant-setup-azure-active-directory.md)
 - [Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell](create-service-principal-role-powershell.md)

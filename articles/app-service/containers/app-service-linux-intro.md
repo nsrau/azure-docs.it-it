@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 381f1486f13907aa52558029789e49bc4e5c4961
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 65352b8f8f85f5e7a2e25ae99d5ca3368ad78711
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687606"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126522"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
@@ -42,11 +42,11 @@ Il Servizio app in Linux supporta diverse immagini incorporate per aumentare la 
 * Console di base
 * SSH
 
-## <a name="scaling"></a>Ridimensionamento
+## <a name="scaling"></a>Scalabilità
 
 * I clienti possono aumentare e ridurre le prestazioni delle app Web modificando il livello nel [piano di servizio app](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
-## <a name="locations"></a>Località
+## <a name="locations"></a>Percorsi
 
 Controllare il [dashboard dello stato di Azure](https://azure.microsoft.com/status).
 
@@ -58,7 +58,7 @@ In Linux il servizio app è supportato solo nei piani di servizio app [Gratuito,
 
 In base a una limitazione corrente, non è possibile combinare app di Windows e Linux per lo stesso gruppo di risorse nella stessa area.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 > [!NOTE]
 > È disponibile una nuova funzionalità di registrazione integrata con [Monitoraggio di Azure (anteprima)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview). 
@@ -91,7 +91,7 @@ Per altre informazioni sul Servizio app in Linux, vedere:
 * [Configurare gli ambienti di gestione temporanea nel servizio app](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Abilitare la distribuzione continua di hub Docker](app-service-linux-ci-cd.md)
 
-È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+È possibile pubblicare domande e dubbi nel [forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

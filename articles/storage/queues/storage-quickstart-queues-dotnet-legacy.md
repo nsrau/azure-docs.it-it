@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Usare Archiviazione di Azure v11 per .NET per gestire una coda'
+title: 'Guida introduttiva: Usare Archiviazione di Azure v11 per .NET per gestire una coda'
 description: Questa guida introduttiva illustra come usare la libreria client di Archiviazione di Azure per .NET per creare una coda e aggiungervi messaggi. Si apprenderà quindi come leggere ed elaborare i messaggi dalla coda.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: f51038b1e79a699c15ad2fd969d75c09a2530f6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d5e8250a75cc26d4b9843875f71325e163ef23b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457614"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943550"
 ---
-# <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Avvio rapido: Usare Azure Storage SDK v11 per .NET per gestire una coda
+# <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Guida introduttiva: Usare Azure Storage SDK v11 per .NET per gestire una coda
 
 Questo argomento di avvio rapido illustra come usare la libreria client di Archiviazione di Azure versione 11 per .NET per creare una coda e aggiungervi messaggi. Si apprenderà quindi come leggere ed elaborare i messaggi dalla coda. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -35,7 +35,7 @@ Per informazioni sulla scelta tra .NET Core e .NET Framework, vedere [Scegliere 
 ### <a name="linux"></a>Linux
 
 - Installare [.NET Core per Linux](https://www.microsoft.com/net/download/linux)
-- Facoltativamente, installare [Visual Studio Code](https://www.visualstudio.com/) e l'[estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+- Facoltativamente, installare [Visual Studio Code](https://www.visualstudio.com/) e l'[estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### <a name="macos"></a>macOS
 

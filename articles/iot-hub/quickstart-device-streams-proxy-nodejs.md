@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: f7dfa1bf391e4affba52fc40a8c22ea9b5f4b4df
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: c372a0a09fd3143f570aa4b316c9191e617c69e2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470684"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675449"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Avvio rapido: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy Node.js (anteprima)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy Node.js (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
 In questa guida di avvio rapido si abilita l'invio di traffico SSH (Secure Shell) e RDP (Remote Desktop Protocol) al dispositivo tramite un flusso del dispositivo. I flussi del dispositivo dell'hub IoT di Azure consentono alle applicazioni di servizio e del dispositivo di comunicare in modo sicuro e adatto al firewall. Questa guida di avvio rapido illustra l'esecuzione di un'applicazione proxy Node.js eseguita sul lato servizio. Durante l'anteprima pubblica, l'SDK Node.js supporta solo i flussi del dispositivo sul lato servizio. Di conseguenza, questo argomento di avvio rapido include le istruzioni per eseguire solo l'applicazione proxy locale del servizio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento di [Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C](./quickstart-device-streams-proxy-c.md) o [Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C#](./quickstart-device-streams-proxy-csharp.md).
 
@@ -55,8 +55,10 @@ L'hub IoT di Microsoft Azure supporta attualmente i flussi dispositivo come [fun
 Aggiungere l'estensione Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell eseguendo il comando seguente. L'estensione IoT aggiunge i comandi specifici dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 

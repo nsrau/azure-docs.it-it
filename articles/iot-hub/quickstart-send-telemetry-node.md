@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Inviare dati di telemetria ad Azure IoT (Node.js)'
+title: 'Guida introduttiva: Inviare dati di telemetria ad Azure IoT (Node.js)'
 description: In questa guida introduttiva si eseguono due applicazioni Node.js di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: wesmc7777
 manager: philmea
@@ -10,20 +10,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: a1d7585a30a67ebaf743c3f1987040a8413578b4
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 8b99cf08e0e47ab99deb443a0fefee6ba0d61a88
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470515"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675379"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Node.js)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
  In questa guida di avvio rapido si inviano dati di telemetria da un'applicazione del dispositivo simulato, tramite l'hub IoT di Azure, a un'applicazione back-end per l'elaborazione. L'hub IoT è un servizio di Azure che consente di acquisire volumi elevati di dati di telemetria dai dispositivi IoT nel cloud per l'archiviazione o l'elaborazione. Questa guida di avvio rapido usa due applicazioni Node.js già scritte: una per l'invio dei dati di telemetria e una per la relativa lettura dall'hub. Prima di eseguire queste due applicazioni, creare un hub IoT e registrare un dispositivo con l'hub.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -46,8 +46,10 @@ node --version
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 

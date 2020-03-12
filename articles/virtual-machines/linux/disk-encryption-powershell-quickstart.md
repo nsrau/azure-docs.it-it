@@ -3,15 +3,16 @@ title: Creare e crittografare una macchina virtuale Linux con Azure PowerShell
 description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare e crittografare una macchina virtuale Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 14cdd1e15212141e8c631b589c9c470bbdfe38a9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a2cb8919ac0752c42f22e064d6201c7120fbc9b6
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829024"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970540"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Guida introduttiva: Creare e crittografare una macchina virtuale Linux in Azure con Azure PowerShell
 

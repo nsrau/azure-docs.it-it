@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Inviare dati di telemetria dall'hub IoT di Azure con Java"
+title: "Guida introduttiva: Inviare dati di telemetria dall'hub IoT di Azure con Java"
 description: In questa guida introduttiva si eseguono due applicazioni Java di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: wesmc7777
 manager: philmea
@@ -10,20 +10,20 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 1059e5a1ac215fecf02deec123fdd2973d321b39
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: db2783844f41d1bb1c12f1dd41fd336a38c82e7e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470582"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675658"
 ---
-# <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Avvio rapido: Inviare dati di telemetria a un hub IoT di Azure e leggerli con un'applicazione Java
+# <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Guida introduttiva: Inviare dati di telemetria a un hub IoT di Azure e leggerli con un'applicazione Java
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 In questa guida di avvio rapido si inviano dati di telemetria all'hub IoT di Azure e si leggono tali dati con un'applicazione Java. L'hub IoT è un servizio di Azure che consente di acquisire volumi elevati di dati di telemetria dai dispositivi IoT nel cloud per l'archiviazione o l'elaborazione. Questa guida di avvio rapido usa due applicazioni Java già scritte: una per l'invio dei dati di telemetria e una per la relativa lettura dall'hub. Prima di eseguire queste due applicazioni, creare un hub IoT e registrare un dispositivo con l'hub.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -54,8 +54,10 @@ mvn --version
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 

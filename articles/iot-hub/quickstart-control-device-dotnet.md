@@ -10,14 +10,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 3e01f02026bfd788c398e580a78812d1a69f8f1d
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 740cb3a046514ffee9b2151315133220465878cf
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108941"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673464"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Avvio rapido: Controllare un dispositivo connesso a un hub IoT (.NET)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -33,7 +33,7 @@ La guida introduttiva usa due applicazioni .NET già scritte.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
 
@@ -48,8 +48,10 @@ dotnet --version
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 Se non è già stato fatto, scaricare gli esempi di C# per Azure IoT da https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip ed estrarre l'archivio ZIP.
 

@@ -10,20 +10,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 6c7428a4f34f0be64423c42efc06667cb18aa025
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: e239f8c6a7738500176b84589f2032636eeb71e5
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471279"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675435"
 ---
-# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Avvio rapido: inviare dati di telemetria IoT da un dispositivo Android
+# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Guida introduttiva: inviare dati di telemetria IoT da un dispositivo Android
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 In questa guida di avvio rapido si inviano dati di telemetria a un hub IoT di Azure da un'applicazione Android in esecuzione su un dispositivo fisico o simulato. L'hub IoT è un servizio di Azure che consente di acquisire volumi elevati di dati di telemetria dai dispositivi IoT nel cloud per l'archiviazione o l'elaborazione. Questa guida di avvio rapido usa un'applicazione Android già scritta per inviare i dati di telemetria, che verranno letti dall'hub IoT con Azure Cloud Shell. Prima di eseguire questa applicazione, creare un hub IoT e registrare un dispositivo con l'hub.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -40,8 +40,10 @@ In questa guida di avvio rapido si inviano dati di telemetria a un hub IoT di Az
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 

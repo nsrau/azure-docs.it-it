@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Controllare un dispositivo da Azure IoT (Node.js)'
+title: 'Guida introduttiva: Controllare un dispositivo da Azure IoT (Node.js)'
 description: In questa guida introduttiva vengono eseguite due applicazioni Node.js di esempio. Una è un'applicazione back-end che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
 author: wesmc7777
 manager: philmea
@@ -10,20 +10,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 3a1a37a1517000734a06caa191c353ade5f72def
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 29c6964ff2e0ce1b8ffb0964640bc460e6143902
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470854"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674284"
 ---
-# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Avvio rapido: Usare Node.js per controllare un dispositivo connesso a un hub IoT di Azure
+# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Guida introduttiva: Usare Node.js per controllare un dispositivo connesso a un hub IoT di Azure
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
 In questa guida di avvio rapido si usa un metodo diretto per controllare un dispositivo simulato connesso all'hub IoT di Azure. Hub IoT è un servizio di Azure che consente di gestire i dispositivi IoT dal cloud e di acquisire volumi elevati di dati di telemetria dai dispositivi nel cloud per l'archiviazione o l'elaborazione. È possibile usare metodi diretti per modificare in remoto il comportamento di un dispositivo connesso all'hub IoT. Questa guida di avvio rapido usa due applicazioni Node.js: un'applicazione del dispositivo simulato che risponde ai metodi diretti chiamati da un'applicazione back-end e un'applicazione back-end che chiama i metodi diretti sul dispositivo simulato.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -46,8 +46,10 @@ node --version
 Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
