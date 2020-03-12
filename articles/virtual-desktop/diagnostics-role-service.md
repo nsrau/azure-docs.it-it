@@ -5,14 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 03/10/2020
 ms.author: helohr
-ms.openlocfilehash: 9c907052f10fa7d1cfd1ff79e981fdccef874ee5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+manager: lizross
+ms.openlocfilehash: ce85fb70e1480ad285eee78fe20faa8d77b9a147
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383654"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127928"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificare e diagnosticare i problemi
 
@@ -34,23 +35,66 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 Diagnostica desktop virtuali Windows utilizza un solo cmdlet di PowerShell, ma contiene molti parametri facoltativi che consentono di limitare e isolare i problemi. Le sezioni seguenti elencano i cmdlet che è possibile eseguire per diagnosticare i problemi. La maggior parte dei filtri può essere applicata insieme. I valori elencati tra parentesi quadre, ad esempio `<tenantName>`, devono essere sostituiti con i valori che si applicano alla situazione.
 
-### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Recuperare le attività di diagnostica nel tenant
+>[!IMPORTANT]
+>La funzionalità di diagnostica è per la risoluzione dei problemi per singolo utente. Per tutte le query che usano PowerShell devono essere inclusi i parametri *-username* o *-ActivityID* . Per le funzionalità di monitoraggio, usare Log Analytics. Per altre informazioni su come inviare i dati di diagnostica all'area di lavoro, vedere [usare log Analytics per la funzionalità di diagnostica](diagnostics-log-analytics.md) . 
 
-È possibile recuperare le attività diagnostiche immettendo il cmdlet **Get-RdsDiagnosticActivities** . Il cmdlet di esempio seguente restituirà un elenco di attività di diagnostica, ordinate dalla più recente alla meno recente.
+### <a name="filter-diagnostic-activities-by-user"></a>Filtrare le attività di diagnostica per utente
 
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName>
-```
-
-Analogamente ad altri cmdlet di PowerShell per desktop virtuali di Windows, è necessario usare il parametro **-TenantName** per specificare il nome del tenant che si vuole usare per la query. Il nome del tenant è applicabile a quasi tutte le query di attività diagnostiche.
-
-### <a name="retrieve-detailed-diagnostic-activities"></a>Recuperare attività diagnostiche dettagliate
-
-Il parametro **-detailed** fornisce dettagli aggiuntivi per ogni attività diagnostica restituita. Il formato di ogni attività varia a seconda del tipo di attività. Il parametro **-detailed** può essere aggiunto a qualsiasi query **Get-RdsDiagnosticActivities** , come illustrato nell'esempio seguente.
+Il parametro **-username** restituisce un elenco di attività diagnostiche avviate dall'utente specificato, come illustrato nel cmdlet di esempio seguente.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
 ```
+
+Il parametro **-username** può anche essere combinato con altri parametri di filtro facoltativi.
+
+### <a name="filter-diagnostic-activities-by-time"></a>Filtrare le attività di diagnostica per ora
+
+È possibile filtrare l'elenco di attività diagnostiche restituite con i parametri **-StartTime** e **-EndTime** . Il parametro **-StartTime** restituirà un elenco di attività diagnostiche a partire da una data specifica, come illustrato nell'esempio seguente.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018"
+```
+
+Il parametro **-EndTime** può essere aggiunto a un cmdlet con il parametro **-StartTime** per specificare un periodo di tempo specifico per cui si desidera ricevere i risultati. Il cmdlet di esempio seguente restituirà un elenco di attività di diagnostica comprese tra il 1 ° agosto e il 10 agosto.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018" -EndTime "08/10/2018"
+```
+
+I parametri **-StartTime** e **-EndTime** possono anche essere combinati con altri parametri di filtro facoltativi.
+
+### <a name="filter-diagnostic-activities-by-activity-type"></a>Filtrare le attività di diagnostica in base al tipo di attività
+
+È anche possibile filtrare le attività di diagnostica in base al tipo di attività con il parametro **-ActivityType** . Il cmdlet seguente restituirà un elenco di connessioni degli utenti finali:
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -ActivityType Connection
+```
+
+Il cmdlet seguente restituirà un elenco di attività di gestione amministratore:
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
+```
+
+Il cmdlet **Get-RdsDiagnosticActivities** attualmente non supporta la specifica del feed come ActivityType.
+
+### <a name="filter-diagnostic-activities-by-outcome"></a>Filtrare le attività di diagnostica per risultato
+
+È possibile filtrare l'elenco di attività diagnostiche restituite in base al risultato con il parametro **-outcome** . Il cmdlet di esempio seguente restituirà un elenco di attività di diagnostica riuscite.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -Outcome Success
+```
+
+Il cmdlet di esempio seguente restituirà un elenco di attività di diagnostica non riuscite.
+
+```powershell
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
+```
+
+Il parametro **-outcome** può anche essere combinato con altri parametri di filtro facoltativi.
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Recuperare un'attività diagnostica specifica in base all'ID attività
 
@@ -68,63 +112,13 @@ Per visualizzare i messaggi di errore per un'attività non riuscita, è necessar
 Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
 ```
 
-### <a name="filter-diagnostic-activities-by-user"></a>Filtrare le attività di diagnostica per utente
+### <a name="retrieve-detailed-diagnostic-activities"></a>Recuperare attività diagnostiche dettagliate
 
-Il parametro **-username** restituisce un elenco di attività diagnostiche avviate dall'utente specificato, come illustrato nel cmdlet di esempio seguente.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
-```
-
-Il parametro **-username** può anche essere combinato con altri parametri di filtro facoltativi.
-
-### <a name="filter-diagnostic-activities-by-time"></a>Filtrare le attività di diagnostica per ora
-
-È possibile filtrare l'elenco di attività diagnostiche restituite con i parametri **-StartTime** e **-EndTime** . Il parametro **-StartTime** restituirà un elenco di attività diagnostiche a partire da una data specifica, come illustrato nell'esempio seguente.
+Il parametro **-detailed** fornisce dettagli aggiuntivi per ogni attività diagnostica restituita. Il formato di ogni attività varia a seconda del tipo di attività. Il parametro **-detailed** può essere aggiunto a qualsiasi query **Get-RdsDiagnosticActivities** , come illustrato nell'esempio seguente.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018"
+Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> -Detailed
 ```
-
-Il parametro **-EndTime** può essere aggiunto a un cmdlet con il parametro **-StartTime** per specificare un periodo di tempo specifico per cui si desidera ricevere i risultati. Il cmdlet di esempio seguente restituirà un elenco di attività di diagnostica comprese tra il 1 ° agosto e il 10 agosto.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018" -EndTime "08/10/2018"
-```
-
-I parametri **-StartTime** e **-EndTime** possono anche essere combinati con altri parametri di filtro facoltativi.
-
-### <a name="filter-diagnostic-activities-by-activity-type"></a>Filtrare le attività di diagnostica in base al tipo di attività
-
-È anche possibile filtrare le attività di diagnostica in base al tipo di attività con il parametro **-ActivityType** . Il cmdlet seguente restituirà un elenco di connessioni degli utenti finali:
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Connection
-```
-
-Il cmdlet seguente restituirà un elenco di attività di gestione amministratore:
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
-```
-
-Il cmdlet **Get-RdsDiagnosticActivities** attualmente non supporta la specifica del feed come ActivityType.
-
-### <a name="filter-diagnostic-activities-by-outcome"></a>Filtrare le attività di diagnostica per risultato
-
-È possibile filtrare l'elenco di attività diagnostiche restituite in base al risultato con il parametro **-outcome** . Il cmdlet di esempio seguente restituirà un elenco di attività di diagnostica riuscite.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Success
-```
-
-Il cmdlet di esempio seguente restituirà un elenco di attività di diagnostica non riuscite.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
-```
-
-Il parametro **-outcome** può anche essere combinato con altri parametri di filtro facoltativi.
 
 ## <a name="common-error-scenarios"></a>Scenari di errore comuni
 

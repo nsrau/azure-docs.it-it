@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: a6a1371553ccd9b810ba4649af448fb8847d0ed8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1d8a42a4ec106418b481ac705d3ce1b33f58a312
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380738"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086510"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza-una guida di riferimento
 
@@ -25,7 +25,10 @@ Questo articolo elenca le raccomandazioni che è possibile vedere nel centro sic
 
 Per informazioni su come rispondere a queste indicazioni, vedere [correggere le raccomandazioni nel centro sicurezza di Azure](security-center-remediate-recommendations.md).
 
-Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza che sono state mitigate. Per definire la priorità delle raccomandazioni da risolvere per prima cosa, considerare la gravità di ciascuna di esse.
+Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza completate. Per decidere quali raccomandazioni risolvere prima, esaminare la gravità di ciascuna di esse e il relativo impatto potenziale sul punteggio sicuro.
+
+>[!TIP]
+> Se la descrizione di una raccomandazione dice "nessun criterio correlato", è in genere dovuto al fatto che la raccomandazione dipende da una raccomandazione diversa e dai *relativi* criteri. Ad esempio, la raccomandazione "errori di integrità di Endpoint Protection deve essere risolta...", si basa sulla raccomandazione che controlla se una soluzione Endpoint Protection è *installata* ("soluzione Endpoint Protection deve essere installata..."). L' *indicazione sottostante ha un* criterio. La limitazione dei criteri solo alla raccomandazione fondamentale semplifica la gestione dei criteri.
 
 ## <a name="recs-network"></a>Raccomandazioni sulla rete
 
@@ -106,7 +109,7 @@ Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza c
 |**Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità**|Le macchine virtuali per cui viene distribuita una soluzione di terze parti per la valutazione della vulnerabilità vengono costantemente controllate per individuare vulnerabilità del sistema operativo e delle applicazioni. Ogni volta che vengono individuate queste vulnerabilità, sono disponibili altre informazioni nell'ambito dell'indicazione.<br>(Criterio correlato: le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità)|Alto|N|Computer|
 |**Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte**|Risolvere le vulnerabilità nella configurazione della sicurezza dei computer per proteggerli da attacchi.<br>(Criteri correlati: è necessario correggere le vulnerabilità nella configurazione della sicurezza nei computer)|Basso|N|Computer|
 |**È consigliabile correggere le vulnerabilità nelle configurazioni della sicurezza dei contenitori**|Risolvere le vulnerabilità nella configurazione della sicurezza nei computer in cui è installato Docker per proteggerli da attacchi.<br>(Criteri correlati: è necessario correggere le vulnerabilità nelle configurazioni di sicurezza del contenitore)|Alto|N|Computer|
-|**È necessario risolvere i problemi di integrità di Endpoint Protection nei computer**|Per la protezione completa del Centro sicurezza, risolvere i problemi dell'agente di monitoraggio nei computer seguendo le istruzioni nella Guida alla risoluzione dei problemi.<br>(Nessun criterio correlato dipende dalla "installazione della soluzione Endpoint Protection nei computer")|Media|N|Computer|
+|**È necessario risolvere i problemi di integrità di Endpoint Protection nei computer**|Per la protezione completa del Centro sicurezza, risolvere i problemi dell'agente di monitoraggio nei computer seguendo le istruzioni nella Guida alla risoluzione dei problemi.<br>Questa raccomandazione dipende dalla raccomandazione "installa soluzione Endpoint Protection nei computer" e dai relativi criteri|Media|N|Computer|
 ||||||
 
 

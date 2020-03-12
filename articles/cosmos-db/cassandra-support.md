@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: HT
+ms.openlocfilehash: 0a2ace3f73379cff0b9289a8cebb10cb7930348d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623425"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128649"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
-Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API Cassandra di Azure Cosmos DB tramite i [driver](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) client open source Cassandra del [protocollo di trasmissione](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) Cassandra Query Language (CQL) v4. 
+Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API Cassandra di Azure Cosmos DB tramite i [driver](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) client open source Cassandra del [protocollo di trasmissione](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) Cassandra Query Language (CQL) v4. 
 
 Usando l'API Cassandra di Azure Cosmos DB, è possibile sfruttare i vantaggi delle API Apache Cassandra, nonché le funzionalità aziendali offerte da Azure Cosmos DB. Le funzionalità aziendali includono [distribuzione globale](distribute-data-globally.md), [partizionamento di scalabilità automatica orizzontale](partition-data.md), garanzie di disponibilità e latenza, crittografia dei dati inattivi, backup e molto altro ancora.
 
@@ -96,7 +96,7 @@ API Cassandra di Azure Cosmos DB supporta i tipi di funzioni CQL seguenti:
 
 ## <a name="cassandra-api-limits"></a>Limiti dell'API Cassandra
 
-API Cassandra di Azure Cosmos DB non ha nessun limite sulle dimensioni dei dati archiviati in una tabella. Possono essere archiviati centinaia di terabyte o petabyte di dati, a patto che siano rispettati i limiti della chiave di partizione. In modo analogo, ogni entità o riga equivalente non prevede limiti per il numero di colonne. La dimensione totale dell'entità non deve tuttavia superare i 2 MB. I dati per chiave di partizione non possono superare i 20 GB, come in tutte le altre API.
+API Cassandra di Azure Cosmos DB non ha nessun limite sulle dimensioni dei dati archiviati in una tabella. Possono essere archiviati centinaia di terabyte o petabyte di dati, a patto che siano rispettati i limiti della chiave di partizione. In modo analogo, ogni entità o riga equivalente non prevede limiti per il numero di colonne. La dimensione totale dell'entità non deve tuttavia superare i 2 MB. I dati per ogni chiave di partizione non possono superare i 20 GB come in tutte le altre API.
 
 ## <a name="tools"></a>Strumenti 
 
@@ -145,6 +145,8 @@ Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account AP
 
 * CREATE KEYSPACE (le impostazioni di replica per questo comando vengono ignorate)
 * CREA TABELLA 
+* CREATE INDEX (senza specificare il nome dell'indice e gli indici bloccati completi non ancora supportati)
+* CONSENTI FILTRO
 * MODIFICA TABELLA 
 * USA 
 * INSERT 
@@ -179,7 +181,7 @@ Azure Cosmos DB supporta il controllo degli accessi in base al ruolo per il prov
 
 ## <a name="keyspace-and-table-options"></a>Opzioni di Keyspace e tabella
 
-Le opzioni del comando "Create Keyspace" relative a nome di area, classe, fattore di replica e data center vengono attualmente ignorate. Il sistema usa il metodo di replica della [distribuzione globale](global-dist-under-the-hood.md) sottostante di Azure Cosmos DB per aggiungere le aree. Se è necessaria la presenza di dati di più aree, è possibile abilitarla a livello di account con PowerShell, l'interfaccia della riga di comando o il portale. Per altre informazioni, vedere l'articolo su [come aggiungere aree](how-to-manage-database-account.md#addremove-regions-from-your-database-account). L'opzione durable_writes non può essere disabilitata perché Azure Cosmos DB assicura che ogni scrittura sia durevole. In ogni area Azure Cosmos DB replica i dati nel set di repliche composto da quattro repliche. La [configurazione](global-dist-under-the-hood.md) di questo set di repliche non può essere modificata.
+Le opzioni del comando "Create Keyspace" relative a nome di area, classe, fattore di replica e data center vengono attualmente ignorate. Il sistema usa il metodo di replica [globale della distribuzione](global-dist-under-the-hood.md) Azure Cosmos DB sottostante per aggiungere le aree. Se è necessaria la presenza di dati di più aree, è possibile abilitarla a livello di account con PowerShell, l'interfaccia della riga di comando o il portale. Per altre informazioni, vedere l'articolo su [come aggiungere aree](how-to-manage-database-account.md#addremove-regions-from-your-database-account). L'opzione durable_writes non può essere disabilitata perché Azure Cosmos DB assicura che ogni scrittura sia durevole. In ogni area Azure Cosmos DB replica i dati nel set di repliche composto da quattro repliche. La [configurazione](global-dist-under-the-hood.md) di questo set di repliche non può essere modificata.
  
 Tutte le opzioni vengono ignorate durante la creazione della tabella, ad eccezione di gc_grace_seconds, che deve essere impostata su zero.
 Keyspace e tabella includono un'altra opzione, denominata "cosmosdb_provisioned_throughput", con un valore minimo di 400 UR/s. Le unità elaborate di Keyspace possono essere condivise tra più tabelle e sono utili per gli scenari in cui nessuna tabella utilizza quelle di cui è stato effettuato il provisioning. Il comando Alter Table consente di cambiare le unità elaborate con provisioning tra le aree. 

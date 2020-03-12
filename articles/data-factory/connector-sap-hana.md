@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/17/2020
 ms.openlocfilehash: fa165c21622110bb18476efdebf3264a11e26ad7
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431102"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79125992"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -47,7 +47,7 @@ In particolare, il connettore SAP HANA supporta:
 > [!TIP]
 > Per copiare dati **in** un archivio dati SAP HANA, usare il connettore ODBC generico. Per i dettagli, vedere [Sink SAP HANA](connector-odbc.md#sap-hana-sink). Si noti che i servizi collegati per i connettori SAP HANA e ODBC sono associati a tipi diversi e pertanto non possono essere riusati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare questo connettore SAP HANA, è necessario:
 
@@ -270,31 +270,31 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 
 | Tipo di dati di SAP HANA | Tipo di dati provvisori di Data Factory |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String                         |
+| ALPHANUM           | string                         |
 | bigint             | Int64                          |
 | BINARY             | Byte[]                         |
-| Bintext            | String                         |
+| Bintext            | string                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | String                         |
+| CLOB               | string                         |
 | DATE               | Datetime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | String                         |
-| NVARCHAR           | String                         |
+| NCLOB              | string                         |
+| NVARCHAR           | string                         |
 | real               | Single                         |
 | SECONDDATE         | Datetime                       |
-| SHORTTEXT          | String                         |
+| SHORTTEXT          | string                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
-| TEXT               | String                         |
+| TEXT               | string                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | String                         |
+| VARCHAR            | string                         |
 | timestamp          | Datetime                       |
 | VARBINARY          | Byte[]                         |
 

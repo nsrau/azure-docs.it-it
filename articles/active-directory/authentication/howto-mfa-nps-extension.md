@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b3cd858653d54ae622758d218bb887d94bceb697
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378123"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086397"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -29,7 +29,7 @@ Quando si usa l'estensione dei criteri di rete per di Azure MFA, il flusso di au
 1. Il **Server NAS/VPN** riceve le richieste dei client VPN e le converte in richieste RADIUS per il Server dei criteri di rete. 
 2. Il **Server dei criteri di rete** si connette ad Active Directory per eseguire l'autenticazione principale per le richieste RADIUS e, al completamento dell'operazione, passa la richiesta alle estensioni installate.  
 3. L'**estensione di Server dei criteri di rete** attiva una richiesta di autenticazione secondaria per Azure MFA. Dopo che l'estensione riceve la risposta e se la richiesta di verifica MFA ha esito positivo, la richiesta di autenticazione viene completata, fornendo al server di Server dei criteri di rete i token di sicurezza che includono un'attestazione MFA, emessa dal servizio token di sicurezza di Azure.  
-4. **Azure MFA** comunica con Azure Active Directory per recuperare i dettagli dell'utente ed esegue l'autenticazione secondaria grazie al metodo di verifica configurato per l'utente.
+4. **Azure** multi-factor authentication comunica con Azure Active Directory per recuperare i dettagli dell'utente ed esegue l'autenticazione secondaria usando un metodo di verifica configurato per l'utente.
 
 Il diagramma seguente illustra questo flusso di richiesta di autenticazione ad alto livello: 
 
@@ -43,7 +43,7 @@ L'estensione di Server dei criteri di rete gestisce automaticamente la ridondanz
 
 I server VPN indirizzano le richieste di autenticazione, quindi è necessario essere a conoscenza dei nuovi Server dei criteri di rete abilitati per Azure MFA.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 L'estensione di Server dei criteri di rete è progettata per funzionare con l'infrastruttura esistente. Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili.
 
@@ -165,7 +165,7 @@ Quando si aggiorna un'installazione di estensione NPS esistente, per evitare il 
 
 Il programma di installazione crea uno script di PowerShell in questa posizione: `C:\Program Files\Microsoft\AzureMfa\Config` (dove C:\ è l'unità di installazione). Ogni volta che viene eseguito, lo script di PowerShell esegue le azioni seguenti:
 
-- Creare il certificato autofirmato.
+- Creare un certificato autofirmato.
 - Associare la chiave pubblica del certificato all'entità servizio su Azure AD.
 - Archiviare il certificato nell'archivio certificati del computer locale.
 - Concedere l'accesso alla chiave privata del certificato all'utente di rete.
@@ -200,7 +200,7 @@ Per i clienti che usano il cloud di Azure per enti pubblici, è necessario esegu
 1. Aprire l' **Editor del registro di sistema** nel server NPS.
 1. Accedere a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Impostare i valori chiave seguenti:
 
-    | Chiave del Registro di sistema       | Valore |
+    | Chiave del Registro di sistema       | valore |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
@@ -238,7 +238,7 @@ Dopo aver abilitato MFA per un client RADIUS utilizzando l'estensione di Server 
 
 Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire cosa succede quando questi tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema *REQUIRE_USER_MATCH* nel percorso del registro di sistema *HKLM\Software\Microsoft\AzureMFA* per controllare il comportamento della funzionalità. Questa impostazione non ha un'unica opzione di configurazione:
 
-| Chiave | Valore | Default |
+| Chiave | valore | Predefinito |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 
@@ -246,13 +246,13 @@ Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è r
 
 È possibile scegliere di creare questa chiave e impostarla su FALSE, durante il caricamento degli utenti che potrebbero non essere ancora registrati per Azure MFA. Poiché l'impostazione della chiave consente agli utenti che non sono registrati all'MFA di accedere, è necessario rimuovere la chiave prima di passare all'ambiente di produzione.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="nps-extension-health-check-script"></a>Script di controllo integrità estensione NPS
 
-Lo script seguente è disponibile nella raccolta TechNet per eseguire i passaggi di base del controllo di integrità durante la risoluzione dei problemi relativi all'estensione NPS.
+Lo script seguente è disponibile per eseguire i passaggi di base del controllo integrità durante la risoluzione dei problemi relativi all'estensione NPS.
 
-[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter. ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -334,6 +334,8 @@ Per verificare se si dispone di un certificato valido, controllare l'archivio ce
 Ulteriori indicazioni sulla risoluzione dei problemi e le possibili soluzioni sono disponibili nell'articolo [risolvere i messaggi di errore dall'estensione NPS per Azure multi-factor authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+- [Panoramica e configurazione del server dei criteri di rete in Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 
 - Configurare gli ID alternativi per l'accesso o impostare un elenco di eccezioni per gli indirizzi IP che non devono eseguire la verifica in due passaggi in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md) (Opzioni di configurazione avanzate per l'estensione del server dei criteri di rete per Multi-Factor Authentication).
 

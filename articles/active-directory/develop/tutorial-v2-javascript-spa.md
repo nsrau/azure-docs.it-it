@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5657a2d2c348b371f81aed74c92e52b5199cdc61
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 51a456a05e1d41057e80b92e44f997e1b52cb132
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377410"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129004"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -28,6 +28,9 @@ Questa guida illustra come un'applicazione a pagina singola JavaScript consente 
 - Accedere agli account personali, nonché agli account aziendali e dell'istituto di istruzione 
 - Acquisire un token di accesso
 - Chiamare l'API Microsoft Graph o altre API che richiedono token di accesso generati dall'*endpoint di Microsoft Identity Platform*
+
+>[!NOTE]
+> Se non si ha familiarità con la piattaforma di identità Microsoft, è consigliabile iniziare con gli [utenti di accesso e ottenere un token di accesso in una guida introduttiva a JavaScript Spa](quickstart-v2-javascript.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 
@@ -57,7 +60,7 @@ Questa guida usa la libreria seguente:
 
 ## <a name="set-up-your-web-server-or-project"></a>Impostare il server Web o il progetto
 
-> Si preferisce scaricare questo progetto di esempio? Eseguire una delle operazioni seguenti:
+> Si preferisce scaricare questo progetto di esempio? Effettuare una delle operazioni seguenti:
 > 
 > - Per eseguire il progetto con un server Web locale, ad esempio Node.js, [scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
@@ -65,7 +68,7 @@ Questa guida usa la libreria seguente:
 >
 > Per configurare l'esempio di codice prima di eseguirlo, procedere con il [passaggio di configurazione](#register-your-application).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Per eseguire l'esercitazione, è necessario un server Web locale, ad esempio [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -351,7 +354,7 @@ Aggiungere il codice seguente al file `index.html` tra i tag `<script></script>`
 >
 > #### <a name="set-a-redirect-url-for-visual-studio"></a>Impostare l'URL di reindirizzamento per Visual Studio
 > Per ottenere l'URL di reindirizzamento per Visual Studio, procedere come segue:
-> 1. Selezionare il progetto in Esplora soluzioni.
+> 1. In Esplora soluzioni selezionare il progetto.
 >
 >    Si aprirà la finestra **Proprietà**. In caso contrario, premere F4.
 >
@@ -404,7 +407,7 @@ Se non si usa Visual Studio, assicurarsi che il server Web sia stato avviato.
 
 Se si usa Visual Studio, selezionare la soluzione del progetto e premere F5 per eseguire il progetto. Il browser si aprirà all'indirizzo http://<span></span>localhost:{porta} e dovrebbe essere visibile il pulsante **Accedi**.
 
-## <a name="test-your-application"></a>Eseguire il test dell'applicazione
+## <a name="test-your-application"></a>Testare l'applicazione
 
 Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Verrà chiesto di accedere con l'endpoint Microsoft Identity Platform:
 

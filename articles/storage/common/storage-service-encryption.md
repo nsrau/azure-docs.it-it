@@ -10,11 +10,11 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 86d6a63601036abdde4ee7ae73114566d749feca
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
-ms.translationtype: MT
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77082826"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130083"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia di archiviazione di Azure per dati inattivi
 
@@ -46,9 +46,9 @@ La tabella seguente confronta le opzioni di gestione delle chiavi per la crittog
 |                                        |    Chiavi gestite da Microsoft                             |    Chiavi gestite dal cliente                                                                                                                        |    Chiavi fornite dal cliente                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Operazioni di crittografia/decrittografia    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Servizi di archiviazione di Azure supportati    |    Tutte                                                |    Archiviazione BLOB, File di Azure<sup>1, 2</sup>                                                                                                               |    Archiviazione BLOB                                                                  |
-|    Archiviazione chiavi                         |    Archivio chiavi Microsoft    |    Azure Key Vault                                                                                                                              |    Azure Key Vault o qualsiasi altro archivio chiavi                                                                 |
-|    Responsabilità della rotazione delle chiavi         |    Microsoft                                          |    Cliente                                                                                                                                     |    Cliente                                                                      |
+|    Servizi di archiviazione di Azure supportati    |    Tutti                                                |    Archiviazione BLOB, File di Azure<sup>1, 2</sup>                                                                                                               |    Archiviazione BLOB                                                                  |
+|    Archiviazione chiavi                         |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure                                                                                                                              |    Azure Key Vault o qualsiasi altro archivio chiavi                                                                 |
+|    Responsabilità della rotazione delle chiavi         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    Uso della chiave                           |    Microsoft                                          |    Portale di Azure, API REST provider di risorse di archiviazione, librerie di gestione archiviazione di Azure, PowerShell, interfaccia della riga di comando        |    API REST di archiviazione di Azure (archiviazione BLOB), librerie client di archiviazione di Azure    |
 |    Accesso alle chiavi                          |    Solo Microsoft                                     |    Microsoft, cliente                                                                                                                    |    Solo cliente                                                                 |
 

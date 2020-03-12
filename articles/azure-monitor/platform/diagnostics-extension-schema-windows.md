@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 3adf4b59c0605859ada75577c083094541815984
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384136"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129165"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schema dell'estensione di diagnostica Windows
 Diagnostica di Azure estensione è un agente di monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle risorse di calcolo di Azure. Questo articolo descrive in dettaglio lo schema usato per la configurazione dell'estensione di diagnostica nelle macchine virtuali Windows e in altre risorse di calcolo.
@@ -506,7 +506,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 ```
 
 > [!NOTE]
-> La definizione di sink di monitoraggio di Azure per la configurazione pubblica presenta due proprietà, *PrincipalId* e *Secret*. Questi sono necessari solo per le macchine virtuali classiche e i servizio cloud classici. Queste proprietà non devono essere usate per altre risorse.
+> La definizione di sink di monitoraggio di Azure per la configurazione privata ha due proprietà, *PrincipalId* e *Secret*. Questi sono necessari solo per le macchine virtuali classiche e i servizio cloud classici. Queste proprietà non devono essere usate per altre risorse.
 
 
 ```json

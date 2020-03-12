@@ -6,19 +6,22 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 02/24/2020
-ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/11/2020
+ms.openlocfilehash: 1a6b50456a5dc3ff89fe7b513f406dc68bd2401e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381930"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128989"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
 Il mapping di flussi di dati in Azure Data Factory offrire un'interfaccia senza codice per progettare, distribuire e orchestrare le trasformazioni dei dati su larga scala. Se non si ha familiarità con il mapping di flussi di dati, vedere [Panoramica del flusso di dati di mapping](concepts-data-flow-overview.md).
 
 Quando si progettano e si testano i flussi di dati dall'esperienza utente di ADF, assicurarsi di attivare la modalità di debug per eseguire i flussi di dati in tempo reale senza attendere il riscaldamento di un cluster. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
+
+In questo video vengono illustrati alcuni intervalli di esempio che trasformano i dati con flussi di dati:
+> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw]
 
 ## <a name="monitoring-data-flow-performance"></a>Monitoraggio delle prestazioni del flusso di dati
 
@@ -70,7 +73,7 @@ In **Opzioni di origine** nella trasformazione origine le impostazioni seguenti 
 * L'impostazione di una query consente di filtrare le righe nell'origine prima che arrivino nel flusso di dati per l'elaborazione. Questo può rendere più veloce l'acquisizione iniziale dei dati. Se si usa una query, è possibile aggiungere hint di query facoltativi per il database SQL di Azure, ad esempio READ UNCOMMITTED.
 * Read uncommitted fornirà risultati più veloci per le query sulla trasformazione origine
 
-![Origine](media/data-flow/source4.png "Origine")
+![Origine](media/data-flow/source4.png "Source (Sorgente)")
 
 ### <a name="sink-batch-size"></a>Dimensioni batch sink
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396445"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127184"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -95,9 +95,9 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensio
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Pre-elaborazione avanzata: conteggi facoltativo
 
-Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad esempio Guardrails dati, codifica e trasformazioni. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#featurization). Abilitare questa impostazione con:
+Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad esempio Guardrails dati, codifica e trasformazioni. [Scopri di più su cosa è incluso conteggi](how-to-use-automated-ml-for-ml-models.md#featurization). Abilitare questa impostazione con:
 
-+ Azure Machine Learning Studio: abilitare **conteggi automatici** nella sezione **Visualizza configurazione aggiuntiva** [con questi passaggi](how-to-create-portal-experiments.md#create-and-run-experiment).
++ Azure Machine Learning Studio: abilitare **conteggi automatici** nella sezione **Visualizza configurazione aggiuntiva** [con questi passaggi](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 + Python SDK: specifica `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` per la [classe`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
@@ -153,7 +153,7 @@ Il modello **C** rappresenta un caso chiaro di overfitting; l'accuratezza del tr
 
 ## <a name="classification--regression"></a>Regressione & di classificazione
 
-Classificazione e regressione sono i tipi più comuni di attività di machine learning. Entrambi sono tipi di apprendimento supervisionato in cui i modelli imparano a usare i dati di training e applicano tali informazioni ai nuovi dati. Azure Machine Learning offre featurizations in modo specifico per queste attività, ad esempio featurizers del testo Deep Neural Network per la classificazione. Altre informazioni sulle [Opzioni di conteggi](how-to-create-portal-experiments.md#featurization). 
+Classificazione e regressione sono i tipi più comuni di attività di machine learning. Entrambi sono tipi di apprendimento supervisionato in cui i modelli imparano a usare i dati di training e applicano tali informazioni ai nuovi dati. Azure Machine Learning offre featurizations in modo specifico per queste attività, ad esempio featurizers del testo Deep Neural Network per la classificazione. Altre informazioni sulle [Opzioni di conteggi](how-to-use-automated-ml-for-ml-models.md#featurization). 
 
 L'obiettivo principale dei modelli di classificazione è quello di stimare le categorie a cui rientreranno i nuovi dati in base alle informazioni sui dati di training. Esempi di classificazione comuni includono rilevamento delle frodi, riconoscimento della grafia e rilevamento degli oggetti.  Scopri di più e Vedi un esempio di [classificazione con Machine Learning automatizzato](tutorial-train-models-with-aml.md).
 
@@ -286,7 +286,7 @@ Vedere gli esempi e informazioni su come creare modelli usando Machine Learning 
 + Seguire l' [esercitazione: eseguire automaticamente il training di un modello di regressione con Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configurare le impostazioni per l'esperimento di training automatico:
-  + In Azure Machine Learning Studio [usare questa procedura](how-to-create-portal-experiments.md).
+  + In Azure Machine Learning Studio [usare questa procedura](how-to-use-automated-ml-for-ml-models.md).
   + Con Python SDK, [seguire questa procedura](how-to-configure-auto-train.md).
 
 + Per informazioni su come eseguire il training automatico usando i dati delle serie temporali, [seguire questa procedura](how-to-auto-train-forecast.md).

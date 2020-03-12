@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 86dbcee7150adacd0e961dbe07cf66ad117d2041
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386973"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128472"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB supporta due modalità di indicizzazione:
 
 Per impostazione predefinita, i criteri di indicizzazione sono impostati su `automatic`. Per ottenere questo risultato, impostare la proprietà `automatic` nei criteri di indicizzazione su `true`. Impostando questa proprietà su `true` si consente ad Azure CosmosDB di indicizzare automaticamente i documenti man mano che vengono scritti.
 
-## <a name="including-and-excluding-property-paths"></a>Inclusione ed esclusione dei percorsi delle proprietà
+## <a id="include-exclude-paths"></a>Inclusione ed esclusione dei percorsi delle proprietà
 
 Un criterio di indicizzazione personalizzato può specificare percorsi di proprietà inclusi o esclusi in modo esplicito dall'indicizzazione. Ottimizzando il numero di percorsi indicizzati, è possibile ridurre la quantità di spazio di archiviazione usato dal contenitore e migliorare la latenza delle operazioni di scrittura. Questi percorsi vengono definiti seguendo [il metodo descritto nella sezione Panoramica dell'indicizzazione](index-overview.md#from-trees-to-property-paths) con le aggiunte seguenti:
 
@@ -75,7 +75,7 @@ Tutti i criteri di indicizzazione devono includere il percorso radice `/*` come 
 
 - Per i percorsi con caratteri regolari che includono caratteri alfanumerici e _ (carattere di sottolineatura), non è necessario eseguire l'escape della stringa di percorso intorno alle virgolette doppie (ad esempio, "/Path/?"). Per i percorsi con altri caratteri speciali, è necessario eseguire l'escape della stringa di percorso intorno alle virgolette doppie (ad esempio, "/\"percorso-ABC\"/?"). Se si prevede che nel percorso siano presenti caratteri speciali, è possibile evitare ogni percorso per la sicurezza. Dal punto di vista funzionale, non fa alcuna differenza se si Escape ogni percorso rispetto a quelli che contengono caratteri speciali.
 
-- Per impostazione predefinita, la proprietà di sistema "ETag" viene esclusa dall'indicizzazione, a meno che l'eTag non venga aggiunto al percorso incluso per l'indicizzazione.
+- Per impostazione predefinita, la proprietà di sistema "_etag" viene esclusa dall'indicizzazione, a meno che l'eTag non venga aggiunto al percorso incluso per l'indicizzazione.
 
 Quando si includono ed escludono i percorsi, è possibile che si verifichino gli attributi seguenti:
 

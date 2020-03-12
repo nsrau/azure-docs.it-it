@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
-ms.openlocfilehash: 4149e90e07bbcd03a0df41060b42b8902b89e774
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: a2af1e87ce7b17183ae09fb02b2652a04f585e84
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396208"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128995"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Accesso ai dati in Azure Machine Learning
 
@@ -58,7 +58,7 @@ Servizi di archiviazione di Azure supportati che possono essere registrati come 
 + File system di Databricks
 + Database di Azure per MySQL
 
-### <a name="datasets"></a>Dataset
+### <a name="datasets"></a>Set di dati
 
 [Creare un set](how-to-create-register-datasets.md) di dati Azure Machine Learning per interagire con i dati negli archivi dati e comprimere i dati in un oggetto utilizzabile per le attività di machine learning. Registrare il set di dati nell'area di lavoro per condividerlo e riutilizzarlo in diversi esperimenti senza complessi di inserimento di dati.
 
@@ -83,7 +83,7 @@ Con i set di elementi, è possibile eseguire numerose attività di machine learn
 
 + Eseguire il [training di modelli di Machine Learning](how-to-train-with-datasets.md).
 + Utilizzare set di impostazioni in 
-     + [esperimenti di Machine Learning automatici](how-to-create-portal-experiments.md)
+     + [esperimenti di Machine Learning automatici](how-to-use-automated-ml-for-ml-models.md)
      + [finestra di progettazione](tutorial-designer-automobile-price-train-score.md#import-data) 
 + Accedere ai set di impostazioni per l'assegnazione dei punteggi con l'inferenza batch nelle [pipeline di Machine Learning](how-to-create-your-first-pipeline.md).
 + Creare un [progetto di assegnazione di etichette dati](#label).

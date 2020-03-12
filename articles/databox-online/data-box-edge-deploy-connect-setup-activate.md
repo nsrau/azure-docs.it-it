@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf2aa9bc1234f8bc92829b107d1a788b75d56a6b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 144c59c8bc24e8e10584702ec6cd48f7aa8c15c1
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384680"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129066"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Esercitazione: connettere, configurare e attivare Azure Data Box Edge 
 
@@ -47,7 +47,7 @@ Prima di configurare il dispositivo Data Box Edge, assicurarsi di:
 3. Aprire una finestra del browser e accedere all'interfaccia utente Web locale del dispositivo all'indirizzo `https://192.168.100.10`.  
     È possibile che questa operazione richieda alcuni minuti dopo averla abilitata nel dispositivo. 
 
-    Viene visualizzato un messaggio di errore o di avviso in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web. 
+    Viene visualizzato un errore o un avviso che indica la presenza di un problema con il certificato di sicurezza del sito Web. 
    
     ![Messaggio di errore del certificato di sicurezza del sito Web](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
@@ -101,6 +101,11 @@ Il dashboard visualizza le diverse impostazioni necessarie per configurare e reg
    c. Se si usa l'autenticazione, immettere un nome utente e una password.
 
    d. Per convalidare e applicare le impostazioni del proxy Web configurate, selezionare **Applica impostazioni**.
+   
+   > [!NOTE]
+   > I file proxy-auto config (PAC) non sono supportati. Un file PAC definisce il modo in cui i Web browser e altri agenti utente possono scegliere automaticamente il server proxy appropriato (metodo di accesso) per recuperare un determinato URL.
+   > I proxy che tentano di intercettare e leggere tutto il traffico (quindi firmare nuovamente tutti gli elementi con la propria certificazione) non sono compatibili perché il certificato del proxy non è attendibile.
+   > In genere i proxy trasparenti funzionano correttamente con Azure Data Box Edge.
 
 4. (Facoltativo) Nel riquadro sinistro selezionare **Impostazioni ora**, quindi configurare il fuso orario e i server NTP primario e secondario per il dispositivo.  
     I server NTP sono obbligatori in quanto il dispositivo deve sincronizzare l'ora e consentire l'autenticazione con i provider del servizio cloud.
