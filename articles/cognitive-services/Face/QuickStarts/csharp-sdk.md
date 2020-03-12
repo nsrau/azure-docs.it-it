@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Libreria client dell'API Viso per .NET"
+title: "Guida introduttiva: Libreria client dell'API Viso per .NET"
 description: Questo argomento di avvio rapido illustra come usare la libreria client di Viso per .NET.
 services: cognitive-services
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a9fb77ea30aa101653d50e7833876dbec6362093
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e51937dfe2afa0e92ce98b4c305555b53896e5f1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930138"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78401772"
 ---
-# <a name="quickstart-face-client-library-for-net"></a>Avvio rapido: Libreria client dell'API Viso per .NET
+# <a name="quickstart-face-client-library-for-net"></a>Guida introduttiva: Libreria client dell'API Viso per .NET
 
 Introduzione alla libreria client dell'API Viso per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -30,7 +30,7 @@ Usare la libreria client dell'API Viso per .NET per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Esempi](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -64,7 +64,7 @@ dotnet build
 
 L'output di compilazione non deve contenere alcun avviso o errore. 
 
-```console
+```output
 ...
 Build succeeded.
  0 Warning(s)

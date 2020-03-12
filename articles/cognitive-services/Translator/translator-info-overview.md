@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 8f27e8e8693fc5d1d3e432b78f2877d71274f146
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f6b55163440b25bf69c76e9b1217c439b0884d5d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978476"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331043"
 ---
 # <a name="what-is-the-translator-text-api"></a>Informazioni sull'API Traduzione testuale
 
 L'API Traduzione testuale è facile da integrare in applicazioni, siti Web, strumenti e soluzioni. Consente di aggiungere esperienze utente multilingue in [oltre 60 lingue](languages.md) e può essere usata in qualsiasi piattaforma hardware con qualsiasi sistema operativo per la traduzione da testo a testo in una lingua.
 
-L'API Traduzione testuale fa parte della raccolta [API Servizi cognitivi](https://docs.microsoft.com/azure/#pivot=products&panel=ai) di Azure di algoritmi di apprendimento automatico e algoritmi AI nel cloud ed è facilmente utilizzabile nei progetti di sviluppo.
+L'API Traduzione testuale fa parte della raccolta [API Servizi cognitivi](https://docs.microsoft.com/azure/?pivot=products&panel=ai) di Azure di algoritmi di apprendimento automatico e algoritmi AI nel cloud ed è facilmente utilizzabile nei progetti di sviluppo.
 
 ## <a name="about-microsoft-translator"></a>Informazioni su Microsoft Translator
 
@@ -30,7 +30,7 @@ Microsoft Translator è un servizio di traduzione automatica basato sul cloud. I
 
 Traduzione vocale, basato sull'API Traduzione testuale, è disponibile anche tramite il [servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina le funzionalità dell'API Traduzione vocale e del Servizio riconoscimento vocale personalizzato (anteprima) in un unico servizio completamente personalizzabile. Il servizio Voce sta sostituendo l'API Traduzione vocale, che verrà ritirato il 15 ottobre 2019.
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Lingue supportate
 
 Microsoft Translator fornisce supporto multilingue per la traduzione, la traslitterazione, il rilevamento delle lingue e i dizionari. Per un elenco completo, vedere il [supporto per le lingue](language-support.md) o accedere all'elenco a livello di codice con l'[API REST](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
