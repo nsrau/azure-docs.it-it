@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 04cc9048271d653bd77fd7f2707c8f510ea8c29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c76701ce74aafcccdbb2f1a2454f9528b52fc096
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61456556"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136228"
 ---
 # <a name="deprecated-container-management-with-docker-swarm"></a>(DEPRECATO) Gestione dei contenitori con Docker Swarm
 
@@ -69,9 +69,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ## <a name="deploy-containers-by-using-docker-compose"></a>Distribuire contenitori con Docker Compose
 È possibile usare Docker Compose per l'automazione della distribuzione e la configurazione di più contenitori. A questo scopo, assicurarsi che sia stato creato un tunnel SSH (Secure Shell) e che sia stata impostata la variabile DOCKER_HOST (vedere i prerequisiti riportati in precedenza).
 
-Creare un file docker-compose.yml nel sistema locale. A questo scopo, usare questo [esempio](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+Creare un file docker-compose.yml nel sistema locale. A tale scopo, usare l'esempio seguente:
 
-```bash
+```dockerfile
 web:
   image: adtd/web:0.1
   ports:

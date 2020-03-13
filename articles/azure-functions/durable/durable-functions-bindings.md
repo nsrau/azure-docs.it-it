@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410209"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278220"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associazioni per Funzioni permanenti (Funzioni di Azure)
 
@@ -87,7 +87,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> L'oggetto `context` in JavaScript non rappresenta DurableOrchestrationContext, ma il contesto della [funzione nel suo complesso](../functions-reference-node.md#context-object). È possibile accedere ai metodi di orchestrazione tramite la proprietà `df` dell'oggetto `context`.
+> L'oggetto `context` in JavaScript non rappresenta DurableOrchestrationContext, ma il contesto della [funzione nel suo complesso](../functions-reference-node.md#context-object). È possibile accedere ai metodi di orchestrazione tramite la proprietà `context` dell'oggetto `df`.
 
 > [!NOTE]
 > Gli orchestratori JavaScript devono usare `return`. La libreria `durable-functions` provvede alla chiamata del metodo `context.done`.

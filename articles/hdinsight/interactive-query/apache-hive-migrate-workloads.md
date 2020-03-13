@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: eceb4b312476d701ec8ce4eb0ce4886621824b3a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ec96189185a06c1fcbd95eed6216ade47f3089c3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841592"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214653"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro hive di Azure HDInsight 3,6 a HDInsight 4,0
 
@@ -39,33 +39,81 @@ Creare una nuova copia del Metastore esterno. Se si usa un Metastore esterno, un
 
 Se si usa il Metastore interno, è possibile usare le query per esportare le definizioni degli oggetti nel metastore Hive e importarle in un nuovo database.
 
+Una volta completato lo script, si presuppone che il cluster precedente non verrà più utilizzato per l'accesso a una delle tabelle o dei database a cui si fa riferimento nello script.
+
+> [!NOTE]
+> Nel caso di tabelle ACID, viene creata una nuova copia dei dati sotto la tabella.
+
 1. Connettersi al cluster HDInsight usando un [client Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Connettersi a HiveServer2 con il [client](../hadoop/apache-hadoop-use-hive-beeline.md) dell'utente corrente dalla sessione ssh aperta immettendo il comando seguente:
 
     ```hiveql
-    for d in `beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show databases;"`; do echo "create database $d; use $d;" >> alltables.sql; for t in `beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show tables;"` ; do ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
+    for d in `beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show databases;"`; 
+    do
+        echo "Scanning Database: $d"
+        echo "create database if not exists $d; use $d;" >> alltables.hql; 
+        for t in `beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show tables;"`;
+        do
+            echo "Copying Table: $t"
+            ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;"`;
+
+            echo "$ddl;" >> alltables.hql;
+            lowerddl=$(echo $ddl | awk '{print tolower($0)}')
+            if [[ $lowerddl == *"'transactional'='true'"* ]]; then
+                if [[ $lowerddl == *"partitioned by"* ]]; then
+                    # partitioned
+                    raw_cols=$(beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;" | tr '\n' ' ' | grep -io "CREATE TABLE .*" | cut -d"(" -f2- | cut -f1 -d")" | sed 's/`//g');
+                    ptn_cols=$(beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table $t;" | tr '\n' ' ' | grep -io "PARTITIONED BY .*" | cut -f1 -d")" | cut -d"(" -f2- | sed 's/`//g');
+                    final_cols=$(echo "(" $raw_cols "," $ptn_cols ")")
+
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "create external table ext_$t $final_cols TBLPROPERTIES ('transactional'='false');";
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "insert into ext_$t select * from $t;";
+                    staging_ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table ext_$t;"`;
+                    dir=$(echo $staging_ddl | grep -io " LOCATION .*" | grep -m1 -o "'.*" | sed "s/'[^-]*//2g" | cut -c2-);
+
+                    parsed_ptn_cols=$(echo $ptn_cols| sed 's/ [a-z]*,/,/g' | sed '$s/\w*$//g');
+                    echo "create table flattened_$t $final_cols;" >> alltables.hql;
+                    echo "load data inpath '$dir' into table flattened_$t;" >> alltables.hql;
+                    echo "insert into $t partition($parsed_ptn_cols) select * from flattened_$t;" >> alltables.hql;
+                    echo "drop table flattened_$t;" >> alltables.hql;
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "drop table ext_$t";
+                else
+                    # not partitioned
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "create external table ext_$t like $t TBLPROPERTIES ('transactional'='false');";
+                    staging_ddl=`beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "show create table ext_$t;"`;
+                    dir=$(echo $staging_ddl | grep -io " LOCATION .*" | grep -m1 -o "'.*" | sed "s/'[^-]*//2g" | cut -c2-);
+
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "insert into ext_$t select * from $t;";
+                    echo "load data inpath '$dir' into table $t;" >> alltables.hql;
+                    beeline -u "jdbc:hive2://localhost:10001/$d;transportMode=http" --showHeader=false --silent=true --outputformat=tsv2 -e "drop table ext_$t";
+                fi
+            fi
+            echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t;" >> alltables.hql;
+        done;
+    done
     ```
 
-    Questo comando genera un file denominato **AllTables. SQL**. Poiché non è possibile eliminare o ricreare il database predefinito, rimuovere `create database default;` istruzione in **AllTables. SQL**.
+    Questo comando genera un file denominato **AllTables. HQL**.
 
-1. Uscire dalla sessione SSH. Immettere quindi un comando SCP per scaricare localmente **AllTables. SQL** .
+1. Uscire dalla sessione SSH. Immettere quindi un comando SCP per scaricare **AllTables. HQL** in locale.
 
     ```bash
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:alltables.sql c:/hdi
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:alltables.hql c:/hdi
     ```
 
-1. Caricare **AllTables. SQL** nel *nuovo* cluster HDInsight.
+1. Caricare **AllTables. HQL** nel *nuovo* cluster HDInsight.
 
     ```bash
-    scp c:/hdi/alltables.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
+    scp c:/hdi/alltables.hql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
 1. Quindi usare SSH per connettersi al *nuovo* cluster HDInsight. Eseguire il codice seguente dalla sessione SSH:
 
     ```bash
-    beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" -i alltables.sql
+    beeline -u "jdbc:hive2://localhost:10001/;transportMode=http" -i alltables.hql
     ```
+
 
 ## <a name="upgrade-metastore"></a>Aggiorna Metastore
 
@@ -73,7 +121,7 @@ Una volta completata la **copia** del Metastore, eseguire uno script di aggiorna
 
 Usare i valori nella tabella più avanti. Sostituire `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` con i valori appropriati per il metastore Hive **copiato** , separati da spazi. Non includere ". database.windows.net" quando si specifica il nome del server SQL.
 
-|Proprietà | Valore |
+|Proprietà | valore |
 |---|---|
 |Tipo di script|- Personalizzato|
 |Nome|Aggiornamento hive|
@@ -176,7 +224,7 @@ In HDInsight 4,0, HiveCLI è stato sostituito da. HiveCLI è un client di parsim
 
 In HDInsight 3,6, il client GUI per interagire con il server hive è la visualizzazione hive di Ambari. HDInsight 4,0 non viene fornito con la visualizzazione Ambari. Per i clienti è stato fornito un modo per usare Data Analytics Studio (DAS), che non è un servizio HDInsight di base. DAS non viene fornito con i cluster HDInsight predefiniti e non è un pacchetto supportato ufficialmente. Tuttavia, è possibile installare DAS nel cluster usando un' [azione script](../hdinsight-hadoop-customize-cluster-linux.md) come indicato di seguito:
 
-|Proprietà | Valore |
+|Proprietà | valore |
 |---|---|
 |Tipo di script|- Personalizzato|
 |Nome|DAS|

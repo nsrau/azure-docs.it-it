@@ -3,12 +3,12 @@ title: Configura collegamento privato
 description: Configurare un endpoint privato in un registro contenitori e abilitare un collegamento privato in una rete virtuale locale
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: b7dcf2d1eb1a77ea8b9660318ed2a7d4ec183b42
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 57c2a59ad8b16c39c7c577173feae68dcb263277
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128393"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203356"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configurare il collegamento privato di Azure per un registro contenitori di Azure 
 
@@ -28,7 +28,14 @@ Questa funzionalità è disponibile nel livello di servizio del registro conteni
 ## <a name="prerequisites"></a>Prerequisites
 
 * Per usare i passaggi dell'interfaccia della riga di comando di Azure in questo articolo è consigliabile usare l'interfaccia della riga di comando di Azure versione 2.2.0 Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli]. In alternativa, eseguire in [Azure cloud Shell](../cloud-shell/quickstart.md).
-* Se non si ha già un registro contenitori, crearne uno (livello Premium obbligatorio) ed effettuare il push di un'immagine di esempio, ad esempio `hello-world` dall'hub docker. Ad esempio, usare l' [portale di Azure][quickstart-portal] o l' [interfaccia][quickstart-cli] della riga di comando di Azure per creare un registro. 
+* Se non si ha già un registro contenitori, crearne uno (livello Premium obbligatorio) ed effettuare il push di un'immagine di esempio, ad esempio `hello-world` dall'hub docker. Ad esempio, usare l' [portale di Azure][quickstart-portal] o l' [interfaccia][quickstart-cli] della riga di comando di Azure per creare un registro.
+* Se si vuole configurare l'accesso al registro di sistema usando un collegamento privato in un'altra sottoscrizione di Azure, è necessario registrare il provider di risorse per Container Registry di Azure nella sottoscrizione. Ad esempio:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of private link>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 Gli esempi dell'interfaccia della riga di comando di Azure in questo articolo usano le variabili di ambiente seguenti. Sostituire i valori appropriati per l'ambiente in uso. Tutti gli esempi sono formattati per la shell bash:
 

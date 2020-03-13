@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621062"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276894"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -22,15 +22,15 @@ Per i modelli di esempio, vedere:
 - [App per le funzioni in un piano a consumo]
 - [App per le funzioni in un piano di servizio app di Azure]
 
-## <a name="required-resources"></a>Risorse obbligatorie
+## <a name="required-resources"></a>Risorse necessarie
 
 Una distribuzione di funzioni di Azure è in genere costituita da queste risorse:
 
-| Resource                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |   |
+| Risorsa                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | Un'app per le funzioni                                                                     | Obbligatoria    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | Un account di [archiviazione di Azure](../storage/index.yml)                                   | Obbligatoria    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Componente [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facoltativa    | [Microsoft. Insights/Components](/azure/templates/microsoft.insights/components)         |   |
+| Componente [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facoltativo    | [Microsoft. Insights/Components](/azure/templates/microsoft.insights/components)         |   |
 | [Piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup> Un piano di hosting è necessario solo quando si sceglie di eseguire l'app per le funzioni in un [piano Premium](./functions-premium-plan.md) (in anteprima) o in un [piano di servizio app](../app-service/overview-hosting-plans.md).
@@ -212,7 +212,7 @@ Se si definisce in modo esplicito il piano a consumo, sarà necessario impostare
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 In Windows un piano a consumo richiede due impostazioni aggiuntive nella configurazione del sito: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Queste proprietà consentono di configurare l'account di archiviazione e il percorso in cui vengono archiviati il codice dell'app per le funzioni e la configurazione.
 

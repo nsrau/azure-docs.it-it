@@ -11,11 +11,11 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602577"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283537"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per risorse e flussi di lavoro Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -297,12 +297,12 @@ I servizi Web supportano anche l'autenticazione basata su token, ma solo per le 
 
 ### <a name="token-based-web-service-authentication"></a>Autenticazione del servizio Web basata su token
 
-Quando si Abilita l'autenticazione basata su token per un servizio Web, gli utenti devono presentare un token Web JSON Azure Machine Learning al servizio Web per accedervi. Il token scade dopo un intervallo di tempo specificato ed è necessario aggiornarlo per continuare a effettuare chiamate.
+Quando si Abilita l'autenticazione basata su token per un servizio Web, gli utenti devono presentare un token Web JSON Azure Machine Learning al servizio Web per accedervi. Il token scade dopo un periodo di tempo specificato e deve essere aggiornato per continuare a eseguire chiamate.
 
 * Per impostazione predefinita, l'autenticazione del token è **disabilitata** quando si esegue la distribuzione nel servizio Azure Kubernetes.
 * L'autenticazione del token **non è supportata** quando si esegue la distribuzione in istanze di contenitore di Azure.
 
-Per controllare l'autenticazione basata su token, usare il parametro `token_auth_enabled` quando si crea o si aggiorna una distribuzione.
+Per controllare l'autenticazione tramite token, usare il parametro `token_auth_enabled` quando si crea o si aggiorna una distribuzione.
 
 Se è abilitata l'autenticazione basata su token, è possibile usare il metodo `get_token` per recuperare un token JSON Web (JWT) e l'ora di scadenza del token:
 
@@ -312,7 +312,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> È necessario richiedere un nuovo token dopo l'`refresh_by` tempo del token. Se è necessario aggiornare i token all'esterno di Python SDK, un'opzione consiste nell'usare l'API REST con l'autenticazione dell'entità servizio per effettuare periodicamente la chiamata `service.get_token()`, come illustrato in precedenza.
+> Al termine della durata del token `refresh_by`, sarà necessario richiedere un nuovo token. Se è necessario aggiornare i token all'esterno di Python SDK, un'opzione consiste nell'usare l'API REST con l'autenticazione dell'entità servizio per effettuare periodicamente la chiamata `service.get_token()`, come illustrato in precedenza.
 >
 > Si consiglia di creare l'area di lavoro Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes. 
 >

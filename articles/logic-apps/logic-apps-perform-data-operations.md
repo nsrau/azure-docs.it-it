@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358897"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283940"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
 
@@ -50,7 +50,7 @@ Queste azioni consentono di operare sui dati in formato JSON (JavaScript Object 
 
 Per creare trasformazioni JSON più complesse, vedere [Eseguire trasformazioni JSON avanzate con un modello Liquid](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -200,7 +200,7 @@ Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della col
 
    `item()?['<array-property-name>']`
 
-   Ad esempio,
+   Ad esempio:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ Nella definizione JSON dell'azione, all'interno della matrice di `columns`, impo
    }
    ```
 
-   Ad esempio,
+   Ad esempio:
 
    ```json
    "Create_CSV_table": {
@@ -351,7 +351,7 @@ Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della col
 
    `item()?['<array-property-name>']`
 
-   Ad esempio,
+   Ad esempio:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ Nella definizione JSON dell'azione, all'interno della matrice di `columns`, impo
    }
    ```
 
-   Ad esempio,
+   Ad esempio:
 
    ```json
    "Create_HTML_table": {

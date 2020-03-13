@@ -4,11 +4,11 @@ description: Le valutazioni e gli effetti di Criteri di Azure determinano la con
 ms.date: 02/01/2019
 ms.topic: how-to
 ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873149"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280638"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -53,13 +53,13 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
 
 L'analisi supporta la valutazione delle risorse in una sottoscrizione o in un gruppo di risorse. Avviare un'analisi per ambito con un comando **POST** dell'API REST usando le strutture URI seguenti:
 
-- Sottoscrizione
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- Gruppo di risorse
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -71,7 +71,7 @@ La chiamata restituisce uno stato **202-Accepted**. L'intestazione della rispost
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}` viene generato in modo statico per l'ambito richiesto. Se un ambito sta già eseguendo un'analisi su richiesta, non viene avviata una nuova analisi. Al contrario, alla nuova richiesta viene fornito lo stesso URI `{ResourceContainerGUID}` di **posizione** per lo stato. Un comando **GET** dell'API REST per l'URI di **Posizione** restituisce un **202-accepted** mentre è in corso la valutazione. Quando l'analisi di valutazione è stata completata, restituisce uno stato **200 OK**. Il corpo di un'analisi completata è una risposta JSON con lo stato:
+`{ResourceContainerGUID}` viene generato in modo statico per l'ambito richiesto. Se un ambito sta già eseguendo un'analisi su richiesta, non viene avviata una nuova analisi. Alla nuova richiesta viene invece fornito lo stesso URI del **percorso** di `{ResourceContainerGUID}` per lo stato. Un comando **GET** dell'API REST per l'URI di **Posizione** restituisce un **202-accepted** mentre è in corso la valutazione. Quando l'analisi di valutazione è stata completata, restituisce uno stato **200 OK**. Il corpo di un'analisi completata è una risposta JSON con lo stato:
 
 ```json
 {
@@ -86,10 +86,10 @@ La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Vero | Non conforme |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Conformità |
-| Novità | Audit, AuditIfNotExist\* | Vero | Non conforme |
-| Novità | Audit, AuditIfNotExist\* | Falso | Conformità |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
+| Nuovo | Audit, AuditIfNotExist\* | True | Non conforme |
+| Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
 
 \* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE.
 Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
@@ -115,7 +115,7 @@ Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non
 
 ![Esempio di conformità dei criteri dalla pagina conformità](../media/getting-compliance-data/simple-compliance.png)
 
-## <a name="portal"></a>di Microsoft Azure
+## <a name="portal"></a>Portale
 
 Il portale di Azure illustra un'esperienza grafica di visualizzazione e comprensione dello stato di conformità nell'ambiente in uso. Nella pagina **Criteri** l'opzione **Panoramica** fornisce i dettagli per gli ambiti disponibili sulla conformità dei criteri e delle iniziative. Oltre allo stato di conformità e al conteggio per assegnazione, contiene un grafico che mostra la conformità negli ultimi sette giorni. La pagina **Conformità** contiene buona parte di queste stesse informazioni (eccetto il grafico), ma fornisce altre opzioni di ordinamento e applicazione di filtri.
 
@@ -244,7 +244,7 @@ Per brevità, la risposta di esempio seguente è stata tagliata in una singola r
 }
 ```
 
-### <a name="view-events"></a>Visualizza eventi
+### <a name="view-events"></a>Visualizzare eventi
 
 Quando si crea o si aggiorna una risorsa, viene generato un risultato di valutazione dei criteri. I risultati sono chiamati _eventi criteri_. Usare l'Uri seguente per visualizzare gli eventi criteri recenti associati alla sottoscrizione.
 

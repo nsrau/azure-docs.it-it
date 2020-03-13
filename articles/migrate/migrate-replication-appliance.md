@@ -4,18 +4,18 @@ description: Informazioni sull'appliance di replica di Azure Migrate per la migr
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901567"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245863"
 ---
 # <a name="replication-appliance"></a>Appliance di replica
 
 Questo articolo descrive l'appliance di replica usato dallo strumento di [migrazione del Server Azure migrate:](migrate-services-overview.md#azure-migrate-server-migration-tool) quando si esegue la migrazione di VM VMware, computer fisici e macchine virtuali del cloud privato/pubblico in Azure, usando la migrazione basata su agenti. 
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 L'appliance di replica viene distribuita quando si configura la migrazione basata su agente di macchine virtuali VMware o server fisici. Viene distribuito come singolo computer locale, come macchina virtuale VMware o server fisico. Esegue:
 
@@ -58,7 +58,7 @@ Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Do
 Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443 <br>- Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
 **Impostazioni di rete** |
-Tipo di indirizzo IP | Statica
+Tipo di indirizzo IP | Statico
 Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati)
 Tipo di scheda di interfaccia di rete | VMXNET3
 
@@ -110,7 +110,7 @@ Server di elaborazione | Il server di elaborazione riceve i dati di replica, li 
     - Il server di elaborazione riceve i dati della replica, li ottimizza e li crittografa, quindi li invia ad Archiviazione di Azure attraverso la porta 443 in uscita.
 5. I dati di replica registrano il primo terreno in un account di archiviazione della cache in Azure. Questi log vengono elaborati e i dati vengono archiviati in un disco gestito di Azure.
 
-![Architettura](./media/migrate-replication-appliance/architecture.png)
+![Architecture](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Aggiornamenti Appliance
 

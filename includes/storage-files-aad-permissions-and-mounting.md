@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 7246a072c1bf2253b822fca53b0b69700c66221d
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565256"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208241"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Assegnare le autorizzazioni di accesso a un'identità
 
@@ -26,7 +26,7 @@ Sono stati introdotti tre ruoli predefiniti di Azure per la concessione di autor
 - **Storage file data SMB Share collaboratore con privilegi elevati** consente di leggere, scrivere, eliminare e modificare le autorizzazioni NTFS nelle condivisioni file di archiviazione di Azure tramite SMB.
 
 > [!IMPORTANT]
-> Per il controllo amministrativo completo di una condivisione file, inclusa la possibilità di assegnare un ruolo a un'identità, è necessario usare la chiave dell'account di archiviazione. Il controllo amministrativo non è supportato con le credenziali di Azure AD.
+> Il controllo amministrativo completo di una condivisione file, inclusa la possibilità di assumere la proprietà di un file, richiede l'uso della chiave dell'account di archiviazione. Il controllo amministrativo non è supportato con le credenziali di Azure AD.
 
 È possibile usare la portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure per assegnare i ruoli predefiniti all'identità Azure AD di un utente per concedere autorizzazioni a livello di condivisione.
 

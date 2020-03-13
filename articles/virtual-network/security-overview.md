@@ -14,11 +14,11 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 3837b2af31ddab3c35abf877a74f980bd34e933d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267477"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280222"
 ---
 # <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 <a name="network-security-groups"></a>

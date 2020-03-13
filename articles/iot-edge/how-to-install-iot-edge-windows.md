@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
 ms.openlocfilehash: e3f55f9be28a8b53f012e111e43ba1f495b1d585
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395706"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285058"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installare il runtime di Azure IoT Edge in Windows
 
@@ -33,7 +33,7 @@ Una configurazione con contenitori Linux su sistemi Windows non è una configura
 
 Per informazioni su ciò che è incluso nella versione più recente di IoT Edge, vedere [Azure IOT Edge versioni](https://github.com/Azure/azure-iotedge/releases).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Usare questa sezione per verificare se il dispositivo Windows in uso può supportare IoT Edge e per prepararlo per un motore del contenitore prima dell'installazione.
 
@@ -236,7 +236,7 @@ Nelle sezioni precedenti sono stati introdotti alcuni scenari di installazione c
 
 Il comando deploy-IoTEdge Scarica e distribuisce il daemon di sicurezza IoT Edge e le relative dipendenze. Il comando di distribuzione accetta questi parametri comuni, tra gli altri. Per l'elenco completo, usare il comando `Get-Help Deploy-IoTEdge -full`.  
 
-| Parametro | Valori accettati | Comments |
+| Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** o **Linux** | Se non viene specificato alcun sistema operativo contenitore, il valore predefinito è Windows.<br><br>Per i contenitori di Windows, IoT Edge usa il motore di contenitori di Moby incluso nell'installazione. Per i contenitori Linux, è necessario installare un motore del contenitore prima di avviare l'installazione. |
 | **Proxy** | URL proxy | Includere questo parametro se il dispositivo deve passare attraverso un server proxy per accedere a Internet. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
@@ -248,10 +248,10 @@ Il comando deploy-IoTEdge Scarica e distribuisce il daemon di sicurezza IoT Edge
 
 Il comando Initialize-IoTEdge configura IoT Edge con la stringa di connessione del dispositivo e i dettagli operativi. Gran parte delle informazioni generate da questo comando viene quindi archiviata nel file iotedge\config.yaml. Il comando di inizializzazione accetta questi parametri comuni, tra gli altri. Per l'elenco completo, usare il comando `Get-Help Initialize-IoTEdge -full`.
 
-| Parametro | Valori accettati | Comments |
+| Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |
-| **Manuale** | None | **Parametro opzionale**. Se non viene specificato alcun tipo di provisioning, Manual è il valore predefinito.<br><br>Dichiara che si fornirà una stringa di connessione del dispositivo per effettuare il provisioning del dispositivo manualmente. |
-| **Dps** | None | **Parametro opzionale**. Se non viene specificato alcun tipo di provisioning, Manual è il valore predefinito.<br><br>Dichiara che si forniranno un ID ambito del servizio Device Provisioning (DPS) e l'ID registrazione del dispositivo per effettuare il provisioning tramite DPS.  |
+| **Manuale** | nessuno | **Parametro opzionale**. Se non viene specificato alcun tipo di provisioning, Manual è il valore predefinito.<br><br>Dichiara che si fornirà una stringa di connessione del dispositivo per effettuare il provisioning del dispositivo manualmente. |
+| **Dps** | nessuno | **Parametro opzionale**. Se non viene specificato alcun tipo di provisioning, Manual è il valore predefinito.<br><br>Dichiara che si forniranno un ID ambito del servizio Device Provisioning (DPS) e l'ID registrazione del dispositivo per effettuare il provisioning tramite DPS.  |
 | **DeviceConnectionString** | Una stringa di connessione da un dispositivo IoT Edge registrato in un hub IoT, tra virgolette singole | **Obbligatorio** per l'installazione manuale. Se non si specifica una stringa di connessione nei parametri di script, ne verrà richiesta una durante l'installazione. |
 | **ScopeId** | Un ID ambito da un'istanza del servizio Device Provisioning associata all'hub IoT. | **Obbligatorio** per l'installazione di DPS. Se non si specifica un ID ambito nei parametri di script, ne verrà richiesto uno durante l'installazione. |
 | **RegistrationId** | Un ID registrazione generato dal dispositivo | **Obbligatorio** per l'installazione di DPS se si usa il TPM o l'attestazione della chiave simmetrica. |
@@ -264,7 +264,7 @@ Il comando Initialize-IoTEdge configura IoT Edge con la stringa di connessione d
 
 ### <a name="update-iotedge"></a>Update-IoTEdge
 
-| Parametro | Valori accettati | Comments |
+| Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** o **Linux** | Se non viene specificato alcun sistema operativo del contenitore, il valore predefinito è Windows. Per i contenitori Windows, nell'installazione verrà incluso un motore del contenitore. Per i contenitori Linux, è necessario installare un motore del contenitore prima di avviare l'installazione. |
 | **Proxy** | URL proxy | Includere questo parametro se il dispositivo deve passare attraverso un server proxy per accedere a Internet. Per altre informazioni, vedere [Configurare un dispositivo IoT Edge per comunicare tramite un server proxy](how-to-configure-proxy-support.md). |
@@ -274,7 +274,7 @@ Il comando Initialize-IoTEdge configura IoT Edge con la stringa di connessione d
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
-| Parametro | Valori accettati | Comments |
+| Parametro | Valori accettati | Commenti |
 | --------- | --------------- | -------- |
 | **Forzare** | none | Questo flag forza la disinstallazione nel caso in cui il tentativo precedente di disinstallazione non abbia avuto esito positivo.
 | **RestartIfNeeded** | none | Questo flag consente allo script di disinstallazione di riavviare il computer senza chiedere conferma, se necessario. |

@@ -10,11 +10,11 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
 ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252077"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283927"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo Azure Machine Learning?
 

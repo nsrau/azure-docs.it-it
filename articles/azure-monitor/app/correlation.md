@@ -7,11 +7,11 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367659"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276127"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -48,9 +48,9 @@ Nei risultati tutti gli elementi di telemetria condividono l'elemento `operation
 | itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Pagina Stock                |              | STYz               | STYz         |
-| dipendenza | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
+| dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
 | richiesta    | GET /Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
-| dipendenza | GET /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
+| dependency | GET /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
 
 Quando la chiamata `GET /api/stock/value` viene effettuata a un servizio esterno, è necessario conoscerne l'identità per poter impostare il campo `dependency.target` in modo appropriato. Quando il servizio esterno non supporta il monitoraggio, `target` è impostato sul nome host del servizio (ad esempio, `stock-prices-api.com`). Tuttavia, se il servizio viene identificato restituendo un'intestazione HTTP predefinita, `target` contiene l'identità del servizio che consente Application Insights di compilare una traccia distribuita eseguendo una query sui dati di telemetria di tale servizio.
 

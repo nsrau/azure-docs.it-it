@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 55a4aa066739203f8697fb4c9083869f5a05ef4f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372891"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282666"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -21,7 +21,7 @@ Questa guida è destinata a professionisti IT, analisti della sicurezza delle in
 
 Il Centro sicurezza usa il Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
 
-## <a name="troubleshooting-guide"></a>Guida alla risoluzione dei problemi
+## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
 Questa guida illustra come risolvere i problemi correlati al Centro sicurezza.
 
@@ -86,7 +86,7 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 | Stato di monitoraggio | Descrizione | Procedura per la risoluzione |
 |---|---|---|
 | Installazione dell'agente in sospeso | L'installazione di Microsoft Monitoring Agent è ancora in esecuzione.  L'installazione può richiedere alcune ore. | Attendere il completamento dell'installazione automatica. |
-| Stato dell'alimentazione disattivato | La macchina virtuale è stata arrestata.  Microsoft Monitoring Agent può essere installato solo su una VM in esecuzione. | Riavviare la macchina virtuale. |
+| Stato dell'alimentazione disattivato | La macchina virtuale è stata arrestata.  Microsoft Monitoring Agent può essere installato solo su una VM in esecuzione. | Riavviare la VM. |
 | L'agente di macchine virtuali di Azure è mancante o non valido | Microsoft Monitoring Agent non è stato ancora installato.  Un agente di macchine virtuali di Azure è necessario per l'installazione dell'estensione da parte del Centro sicurezza. | Installare, reinstallare o aggiornare l'agente di macchine virtuali di Azure sulla VM. |
 | Lo stato della VM non è pronto per l'installazione  | Microsoft Monitoring Agent non è ancora installato perché la VM non è pronta per l'installazione. La macchina virtuale non è pronta per l'installazione a causa di un problema con l'agente di macchine virtuali o con il provisioning della VM. | Controllare lo stato della VM. Tornare a **Macchine virtuali** nel portale e selezionare la VM per ottenere informazioni sullo stato. |
 |L'installazione non è riuscita - Errore generale | Microsoft Monitoring Agent è stato installato ma l'operazione non è riuscita a causa di un errore. | [Installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) o disinstallare l'estensione in modo che il Centro sicurezza possa provare a reinstallarla. |

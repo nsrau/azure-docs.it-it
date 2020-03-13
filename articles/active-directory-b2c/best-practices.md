@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6c737af85e2a7205dca6a56174dfda565da1410d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304394"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136160"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggerimenti e procedure consigliate per Azure Active Directory B2C
 
 Le procedure consigliate e le raccomandazioni seguenti illustrano alcuni aspetti principali dell'integrazione di Azure Active Directory (Azure AD) B2C in ambienti applicativi nuovi o esistenti.
 
-## <a name="fundamentals"></a>Fundamentals
+## <a name="fundamentals"></a>Nozioni fondamentali
 
 |  |  |
 |--|--|
@@ -51,7 +51,7 @@ Durante la fase di implementazione, prendere in considerazione i consigli seguen
 
 |  |  |
 |--|--|
-| Modificare i criteri personalizzati con l'estensione Azure AD B2C per Visual Studio Code | Scarica Visual Studio Code e questa estensione compilata [dalla community da Visual Studio Code Marketplace]((https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)). Sebbene non sia un prodotto Microsoft ufficiale, l'estensione Azure AD B2C per Visual Studio Code include diverse funzionalità che consentono di semplificare l'utilizzo di criteri personalizzati. |
+| Modificare i criteri personalizzati con l'estensione Azure AD B2C per Visual Studio Code | Scarica Visual Studio Code e questa estensione compilata [dalla community da Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Sebbene non sia un prodotto Microsoft ufficiale, l'estensione Azure AD B2C per Visual Studio Code include diverse funzionalità che consentono di semplificare l'utilizzo di criteri personalizzati. |
 | Informazioni su come risolvere i problemi Azure AD B2C | Informazioni su come [risolvere i problemi relativi ai criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante lo sviluppo. Informazioni sul flusso di autenticazione normale e su come usare gli strumenti per individuare anomalie ed errori. Ad esempio, usare [Application Insights](troubleshoot-with-application-insights.md) per esaminare i log di output dei percorsi utente. |
 | Sfrutta la nostra libreria di modelli di criteri personalizzati collaudati | [Esempi](https://github.com/azure-ad-b2c/samples) per diversi percorsi utente avanzati per la gestione delle identità e degli accessi Azure ad B2C clienti (CIAM). |
 

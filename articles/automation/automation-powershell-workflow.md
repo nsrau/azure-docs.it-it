@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372407"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278688"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Informazioni sui concetti chiave del flusso di lavoro di PowerShell per i runbook di Automazione
 
@@ -39,9 +39,9 @@ Per aggiungere parametri al flusso di lavoro, utilizzare la parola chiave **Para
 
 Il codice del flusso di lavoro di PowerShell è quasi identico al relativo codice di script, fatta eccezione per alcune modifiche significative.  Le sezioni seguenti descrivono le modifiche che è necessario apportare a uno script di PowerShell per l'esecuzione in un flusso di lavoro.
 
-### <a name="activities"></a>Attività
+### <a name="activities"></a>attività
 
-Un'attività è un'operazione specifica in un flusso di lavoro. Così come uno script è costituito da uno o più comandi, un flusso di lavoro è costituito da una o più attività eseguite in sequenza. Il flusso di lavoro di Windows PowerShell converte automaticamente molti dei cmdlet di Windows PowerShell in attività quando esegue un flusso di lavoro. Quando si specifica uno di questi cmdlet in un runbook, l'attività corrispondente viene eseguita da Windows Workflow Foundation. I cmdlet senza un'attività corrispondente vengono eseguiti automaticamente dal flusso di lavoro di Windows PowerShell in un'attività [InlineScript](#inlinescript) . Esiste un set di cmdlet esclusi che non è possibile utilizzare in un flusso di lavoro, a meno di non includerli esplicitamente in un blocco InlineScript. Per altri dettagli su questi concetti, vedere l'articolo relativo all' [uso di attività in flussi di lavoro di script](https://technet.microsoft.com/library/jj574194.aspx).
+Un'attività è un'operazione specifica in un flusso di lavoro. Così come uno script è costituito da uno o più comandi, un flusso di lavoro è costituito da una o più attività eseguite in sequenza. Il flusso di lavoro di Windows PowerShell converte automaticamente molti dei cmdlet di Windows PowerShell in attività quando esegue un flusso di lavoro. Quando si specifica uno di questi cmdlet in un runbook, l'attività corrispondente viene eseguita da Windows Workflow Foundation. I cmdlet senza un'attività corrispondente vengono eseguiti automaticamente dal flusso di lavoro di Windows PowerShell in un'attività [InlineScript](#inlinescript) . Esiste un set di cmdlet che sono esclusi e non possono essere usati in un flusso di lavoro, a meno che non vengano inclusi in modo esplicito in un blocco InlineScript. Per altri dettagli su questi concetti, vedere l'articolo relativo all' [uso di attività in flussi di lavoro di script](https://technet.microsoft.com/library/jj574194.aspx).
 
 Le attività dei flussi di lavoro condividono un set di parametri comuni per configurare il proprio funzionamento. Per informazioni dettagliate sui parametri comuni dei flussi di lavoro, vedere [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
@@ -220,7 +220,7 @@ Workflow Copy-Files
 > [!NOTE]
 > Si sconsiglia l'esecuzione di Runbook figlio in parallelo poiché è stato dimostrato che potrebbe causare risultati inaffidabili. L'output dal runbook figlio talvolta non viene visualizzato e le impostazioni di un runbook figlio possono influire sugli altri runbook figlio paralleli. È possibile che variabili come $VerbosePreference, $WarningPreference e altre non vengano propagate ai runbook figlio. Se poi il runbook figlio modifica questi valori, potrebbe non essere possibile ripristinarli correttamente dopo una chiamata.
 
-## <a name="checkpoints"></a>Punti di controllo
+## <a name="checkpoints"></a>Checkpoint
 
 Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro.  È possibile impostare un checkpoint in un flusso di lavoro con l'attività **Checkpoint-Workflow** . Automazione di Azure dispone di una funzionalità denominata [condivisione equa](automation-runbook-execution.md#fair-share), in cui qualsiasi Runbook eseguito per 3 ore viene scaricato per consentire l'esecuzione di altre manuali operativi. Infine, il Runbook scaricato verrà ricaricato e, in tal caso, riprenderà l'esecuzione dall'ultimo checkpoint effettuato in Runbook. Per garantire che il Runbook venga completato, è necessario aggiungere Checkpoint a intervalli che vengono eseguiti per meno di 3 ore. Se durante ogni esecuzione viene aggiunto un nuovo checkpoint e se il Runbook viene eliminato dopo 3 ore a causa di un errore, il Runbook verrà ripreso per un periodo illimitato.
 

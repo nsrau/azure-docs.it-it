@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
 ms.openlocfilehash: 0b7c5b42ac6291c6687337ba8d6a9d35830b9bda
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78924745"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281015"
 ---
 # <a name="authenticating-access-to-event-grid-resources"></a>Autenticazione dell'accesso alle risorse di griglia di eventi
 

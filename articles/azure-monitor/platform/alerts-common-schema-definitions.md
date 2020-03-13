@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: b0b398be919364b5a146e86ca1a1790674bb7d01
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395751"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275022"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
@@ -75,7 +75,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 |:---|:---|
 | alertId | GUID che identifica in modo univoco l'istanza di avviso. |
 | alertRule | Nome della regola di avviso che ha generato l'istanza di avviso. |
-| Severity | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
+| Gravità | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
 | signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: metrica, log o log attività. |
 | monitorCondition | Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su **attivato**. Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su **risolto**.   |
 | monitoringService | Il servizio di monitoraggio o la soluzione che ha generato l'avviso. I campi per il contesto dell'avviso sono determinati dal servizio di monitoraggio. |

@@ -4,11 +4,11 @@ description: Informazioni sullo sviluppo di funzioni con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769031"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276751"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -331,7 +331,7 @@ Si richiama questa funzione su un HttpRequest. Scrive più valori nell'archiviaz
 
  Queste sono definite in `azure-functions-java-library`. Si tratta di tipi helper che funzionano con le funzioni HttpTrigger.
 
-| Tipo specializzato      |       Obiettivo        | Uso tipico                  |
+| Tipo specializzato      |       Destinazione        | Utilizzo tipico                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Trigger HTTP     | Ottiene metodi, intestazioni o query |
 | `HttpResponseMessage` | Associazione di output HTTP | Restituisce uno stato diverso da 200   |

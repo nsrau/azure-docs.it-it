@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c90278eccf889595378d3b6b07de2468910c660c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 5b05cd31a1747da0170556003e7a8534752e2fde
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080877"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137195"
 ---
 # <a name="use-the-azure-portal-to-create-a-media-services-account"></a>Usare il portale di Azure per creare un account di servizi multimediali
 
@@ -54,8 +54,6 @@ Per completare l'esercitazione, è necessario un account Azure. Per informazioni
     
 1. Selezionare **Aggiungi al dashboard** per visualizzare lo stato della distribuzione di account.
 1. Fare clic su **Crea** nella parte inferiore del form.
-   
-    Dopo che l'account è stato creato, viene caricata la pagina della panoramica. Nella tabella dell'endpoint di streaming, l'account avrà un endpoint di streaming predefinito nello stato **interrotto** . 
 
     Quando l'account di Servizi multimediali viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) e della [crittografia dinamica](content-protection-overview.md), l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato in **esecuzione** . 
 

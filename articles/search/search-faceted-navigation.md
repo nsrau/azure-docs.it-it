@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5f4435ca213584fff84f3ddad9bda6f7e06628a1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390342"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283160"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Come implementare l'esplorazione in base a facet in Azure ricerca cognitiva
 
@@ -21,7 +21,7 @@ L'esplorazione in base a facet è un meccanismo di filtro che consente un'esplor
 
  ![Demo sul portale del processo di ricerca cognitiva di Azure](media/search-faceted-navigation/azure-search-faceting-example.png "Demo sul portale del processo di ricerca cognitiva di Azure")
 
-L'esplorazione in base a facet è un punto di partenza alternativo per la ricerca. Offre una valida alternativa all'immissione manuale di espressioni di ricerca complesse. I facet consentono di trovare ciò che si sta cercando con una percentuale di successo accertata. In qualità di sviluppatore, i facet consentono di esporre i criteri di ricerca più utili per spostarsi nell'indice di ricerca. Nelle applicazioni di vendita online, l'esplorazione in base a facet si basa spesso sulle marche, sui reparti (scarpe per bambini), sulla taglia, sul prezzo, sulla popolarità e sulle classificazioni. 
+L'esplorazione in base a facet è un punto di partenza alternativo per la ricerca. Offre una valida alternativa all'immissione manuale di espressioni di ricerca complesse. I facet consentono di trovare ciò che si sta cercando, garantendo allo stesso tempo che non si ottengano risultati pari a zero. In qualità di sviluppatore, i facet consentono di esporre i criteri di ricerca più utili per spostarsi nell'indice di ricerca. Nelle applicazioni per la vendita al dettaglio in linea, l'esplorazione in base a facet è spesso basata su marchi, reparti (scarpe per bambini), dimensioni, prezzo, popolarità e valutazioni. 
 
 L'implementazione dell'esplorazione in base a facet si distingue tra le tecnologie di ricerca. In Azure ricerca cognitiva l'esplorazione in base a facet viene creata in fase di query, usando i campi precedentemente attribuiti nello schema.
 
@@ -34,16 +34,16 @@ Nello sviluppo di applicazioni la scrittura di codice che crea query costituisce
 ## <a name="sample-code-and-demo"></a>Demo e codice di esempio
 Questo articolo usa un portale di ricerca dei processi come esempio. L'esempio viene implementato come applicazione MVC ASP.NET.
 
-- Vedere e testare la demo di lavoro online in [Azure ricerca cognitiva Job Portal demo](http://azjobsdemo.azurewebsites.net/).
+- Vedere e testare la demo di lavoro online in [Azure ricerca cognitiva Job Portal demo](https://aka.ms/azjobsdemo).
 
 - Scaricare il codice dal [repository di esempi di Azure su GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-## <a name="get-started"></a>Attività iniziali
-Se non si ha familiarità con lo sviluppo di funzionalità di ricerca, per comprendere l'esplorazione in base a facet, tenere presente che mostra le diverse possibilità di ricerca autodeterminata. Si tratta di un tipo di esperienza di ricerca drill-down, basata su filtri predefiniti usati per limitare rapidamente i risultati di ricerca tramite semplici azioni in un solo clic. 
+## <a name="get-started"></a>Introduzione
+Se non si ha familiarità con lo sviluppo di funzionalità di ricerca, per comprendere l'esplorazione in base a facet, tenere presente che mostra le diverse possibilità di ricerca autodeterminata. Si tratta di un tipo di esperienza di ricerca di drill-down, basata su filtri predefiniti, che consente di ridurre rapidamente i risultati della ricerca tramite azioni di punta e clic. 
 
 ### <a name="interaction-model"></a>Modello di interazione
 
-L'esperienza di ricerca dell'esplorazione in base a facet è iterativa. Pertanto, è opportuno iniziare con il concepirlo come una sequenza di query create in risposta ad azioni dell'utente.
+L'esperienza di ricerca per l'esplorazione in base a facet è iterativa, quindi è necessario iniziare a comprenderla come sequenza di query che si svolgono in risposta alle azioni dell'utente.
 
 Il punto di partenza è una pagina dell'applicazione che consente un'esplorazione in base a facet, in genere sul perimetro. L'esplorazione in base a facet è spesso una struttura ad albero, con caselle di controllo per ogni valore o testo selezionabile. 
 
@@ -78,9 +78,9 @@ Le espressioni di ricerca complesse comportano una riduzione delle prestazioni d
 Per comprendere meglio in che modo un filtro aggiunge maggiore precisione, confrontare un'espressione di ricerca complessa che includa un'espressione di filtro:
 
 -   `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
--   `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
+-   `GET /indexes/hotel/docs?search=lodging&$filter=City eq 'Seattle' and Parking and Type ne 'motel'`
 
-Entrambe le query sono valide, ma la seconda è migliore se si stanno cercando non motel con parcheggio in Seattle.
+Entrambe le query sono valide, ma la seconda è superiore se si sta cercando non Motels con parcheggio a Seattle.
 -   La prima query si basa su tali parole specifiche non indicate nei campi stringa come nome, descrizione e qualsiasi altro campo contenente dati disponibili per la ricerca.
 -   La seconda query consente di cercare le corrispondenze precise sui dati strutturati e probabilmente più accurate.
 
@@ -107,9 +107,9 @@ Nelle sezioni seguenti verrà esaminata più in dettaglio la compilazione di ogn
 
 ## <a name="build-the-index"></a>Compilare l'indice
 L'esplorazione in base a facet viene abilitata per ogni campo singolarmente, tramite l'attributo di indice: `"Facetable": true`.  
-Tutti i tipi di campo che possono essere usati in esplorazione in base a facet sono `Facetable` per impostazione predefinita. Tali tipi di campo includono `Edm.String`, `Edm.DateTimeOffset` e tutti i tipi di campo numerico (ossia, tutti i tipi di campo consentono un'esplorazione in base a facet tranne `Edm.GeographyPoint`, che non può essere usato nell'esplorazione in base a facet). 
+Tutti i tipi di campo che possono essere usati in esplorazione in base a facet sono `Facetable` per impostazione predefinita. Tali tipi di campo includono `Edm.String`, `Edm.DateTimeOffset`e tutti i tipi di campo numerici (essenzialmente, tutti i tipi di campo sono facet, tranne `Edm.GeographyPoint`, che non possono essere utilizzati nell'esplorazione in base a facet). 
 
-Durante la creazione di un indice, è consigliabile disattivare in modo esplicito l'esplorazione in base a facet per i campi che non devono mai essere usati come un facet.  In particolare, i campi stringa per i valori singleton, ad esempio un nome di prodotto o ID, devono essere impostati su `"Facetable": false` per impedirne l'uso accidentale (e inefficace) nell'esplorazione in base a facet. La disattivazione dell'esplorazione in base a facet, laddove non necessaria, consente di mantenere ridotte le dimensioni dell'indice e in genere di migliorare le prestazioni.
+Durante la creazione di un indice, è consigliabile disattivare in modo esplicito l'esplorazione in base a facet per i campi che non devono mai essere usati come un facet.  In particolare, i campi stringa per i valori singleton, ad esempio un nome di prodotto o ID, devono essere impostati su `"Facetable": false` per impedirne l'uso accidentale (e inefficace) nell'esplorazione in base a facet. La disattivazione di facet non è più necessaria perché consente di ridurre le dimensioni dell'indice e in genere migliora le prestazioni.
 
 Di seguito è riportata una parte dello schema per l'app di esempio Job Portal Demo, senza alcuni attributi per ridurre le dimensioni:
 
@@ -139,7 +139,7 @@ Di seguito è riportata una parte dello schema per l'app di esempio Job Portal D
 }
 ```
 
-Come risulta dallo schema di esempio, `Facetable` è disattivato per i campi stringa che non devono essere usati come facet, ad esempio i valori ID. La disattivazione dell'esplorazione in base a facet, laddove non necessaria, consente di mantenere ridotte le dimensioni dell'indice e in genere di migliorare le prestazioni.
+Come si può notare nello schema di esempio, `Facetable` è disattivato per i campi stringa che non devono essere usati come facet, ad esempio i valori ID. La disattivazione di facet non è più necessaria perché consente di ridurre le dimensioni dell'indice e in genere migliora le prestazioni.
 
 > [!TIP]
 > Come procedura consigliata, includere il set completo di attributi dell'indice per ogni campo. Benché `Facetable` sia attivato per impostazione predefinita per quasi tutti i campi, l'impostazione intenzionale di ogni attributo consentono di valutare le implicazioni di ogni decisione di schema. 
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Un parametro di query del facet è impostato su un campo e a seconda del tipo di dati usati, può essere ulteriormente dotato di parametri in un elenco delimitato da virgole che includa `count:<integer>`, `sort:<>`, `interval:<integer>` e `values:<list>`. Durante l'impostazione di intervalli è supportato un elenco di valori per i dati numerici. Per informazioni dettagliate sull'utilizzo, vedere [eseguire ricerche nei documenti (API di Azure ricerca cognitiva)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .
 
-Insieme ai facet, la richiesta formulata dall'applicazione deve anche permettere la creazione di filtri per limitare il set di documenti candidato in base alla selezione di un valore di facet. Per uno store di biciclette, l'esplorazione in base a facet fornisce indicazioni a domande su *colore, produttore e tipi di bicicletta disponibili*. Il filtro risponde a domande come *Quali biciclette sono mountain bike rosse in questa fascia di prezzo?* . Quando si fa clic su "Red" per indicare che devono essere visualizzati solo i prodotti rossi, la query successiva inviata dall'applicazione include `$filter=Color eq ‘Red’`.
+Insieme ai facet, la richiesta formulata dall'applicazione deve anche permettere la creazione di filtri per limitare il set di documenti candidato in base alla selezione di un valore di facet. Per uno store di biciclette, l'esplorazione in base a facet fornisce indicazioni a domande su *colore, produttore e tipi di bicicletta disponibili*. Il filtro risponde a domande come *Quali biciclette sono mountain bike rosse in questa fascia di prezzo?* . Quando si fa clic su "Red" per indicare che devono essere visualizzati solo i prodotti rossi, la query successiva inviata dall'applicazione include `$filter=Color eq 'Red'`.
 
 Il frammento di codice seguente della pagina `JobsSearch.cs` aggiunge il Business Title selezionato al filtro, se si seleziona un valore dal facet Business Title.
 
@@ -270,7 +270,7 @@ Se si compila l'elenco di facet dinamicamente in base all'input dell'utente non 
 ### <a name="filtering-tips"></a>Suggerimenti per i filtri
 **Aumentare la precisione della ricerca con i filtri**
 
-Usare i filtri. Se si usano solo le espressioni di ricerca, lo stemming può comportare la restituzione di un documento che non dispone del valore di facet esatto in uno dei relativi campi.
+Usare i filtri. Se si utilizzano solo espressioni di ricerca, lo stemming può causare la restituzione di un documento che non dispone del valore del facet preciso in nessuno dei campi.
 
 **Aumentare le prestazioni della ricerca con i filtri**
 
@@ -297,7 +297,7 @@ In generale, se si ritiene che i risultati dei facet siano costantemente troppo 
 
 Per ogni campo di esplorazione in base a facet nella struttura di spostamento, esiste un limite predefinito di 10 valori. Questa impostazione predefinita risulta utile per le strutture di navigazione perché mantiene l'elenco di valori a un livello gestibile. È possibile sostituire il valore predefinito assegnando un valore per il conteggio.
 
-* `&facet=city,count:5` specifica che solo le prime 5 città incluse nei risultati migliori vengono restituite come risultato di facet. Si consideri una query di esempio con un termine di ricerca di "aeroporto" e 32 corrispondenze. Se la query specifica `&facet=city,count:5`, solo le prime cinque città univoche con il maggior numero di documenti nei risultati della ricerca vengono incluse nei risultati del facet.
+* `&facet=city,count:5` specifica che solo le prime 5 città incluse nei risultati migliori vengono restituite come risultato di facet. Si consideri una query di esempio con un termine di ricerca "Airport" e 32 corrispondenze. Se la query specifica `&facet=city,count:5`, solo le prime cinque città univoche con il maggior numero di documenti nei risultati della ricerca vengono incluse nei risultati del facet.
 
 Si noti la distinzione tra i risultati di facet e i risultati della ricerca. I risultati della ricerca sono tutti i documenti che corrispondono alla query. I risultati facet sono le corrispondenze per ogni valore del facet. Nell'esempio vengono restituiti nomi di città non presenti nell'elenco di classificazione dei facet, 5 nel nostro esempio. I risultati che vengono filtrati tramite l'esplorazione in base a facet diventano visibili quando si cancellano i facet o si scelgono altri facet oltre a città. 
 
@@ -309,11 +309,11 @@ Si noti la distinzione tra i risultati di facet e i risultati della ricerca. I r
 * `&facet=City,count:12`<br/>
   In una query di facet, è possibile impostare il conteggio su un valore.  Il valore predefinito è 10, ma è possibile impostarlo a un livello superiore o inferiore. L'impostazione `count:12` consente di recuperare le 12 corrispondenze principali nei risultati di facet per numero di documenti.
 * "`@odata.count`"<br/>
-  Nella risposta alla query, questo valore indica il numero di elementi corrispondenti nei risultati della ricerca. In media, è maggiore della somma di tutti i facet risultati combinati, a causa della presenza di elementi che corrispondono al termine di ricerca, ma senza corrispondenze di valore del facet.
+  Nella risposta alla query, questo valore indica il numero di elementi corrispondenti nei risultati della ricerca. In media, è maggiore della somma di tutti i risultati di facet combinati, a causa della presenza di elementi che corrispondono al termine di ricerca, ma non hanno corrispondenze con valori di facet.
 
 **Ottenere i conteggi nei risultati di facet**
 
-Quando si aggiunge un filtro a una query in base a facet, è possibile mantenere l'istruzione facet (ad esempio, `facet=Rating&$filter=Rating ge 4`). Tecnicamente, facet=Rating non è necessaria, ma mantenerla permette di restituire i conteggi dei valori di facet per le classificazioni a 4 stelle e superiori. Ad esempio, se si fa clic su "4" e la query include un filtro per maggiore o uguale a "4", i conteggi vengono restituiti per ciascuna valutazione uguale a 4 e superiore.  
+Quando si aggiunge un filtro a una query in base a facet, è possibile mantenere l'istruzione facet (ad esempio, `facet=Rating&$filter=Rating ge 4`). Tecnicamente, facet = rating non è necessario, ma mantenendolo restituisce i conteggi dei valori di facet per le classificazioni 4 e successive. Ad esempio, se si fa clic su "4" e la query include un filtro per maggiore o uguale a "4", i conteggi vengono restituiti per ciascuna valutazione uguale a 4 e superiore.  
 
 **Verificare di ottenere conteggi di facet accurati**
 
@@ -357,7 +357,7 @@ Per filtrare i documenti in base a un intervallo selezionato, è possibile usare
 <a name="geofacets"></a> 
 
 ## <a name="filter-based-on-distance"></a>Filtro basato sulla distanza
-È comune vedere filtri che consentono di scegliere un negozio, un ristorante o una destinazione in base alla prossimità alla posizione corrente. Questo tipo di filtro potrebbe somigliare all'esplorazione in base a facet, ma è semplicemente un filtro. Viene menzionato per coloro che cercano in particolare consigli di implementazione per tale problema particolare di progettazione.
+È comune vedere i filtri che consentono di scegliere un negozio, un ristorante o una destinazione in base alla vicinanza alla località corrente. Sebbene questo tipo di filtro possa apparire come l'esplorazione in base a facet, si tratta semplicemente di un filtro. Viene menzionato per coloro che cercano in particolare consigli di implementazione per tale problema particolare di progettazione.
 
 Sono disponibili due funzioni geospaziali in Azure ricerca cognitiva, **Geo. distance** e **Geo. Intersects**.
 
@@ -371,7 +371,7 @@ Sono disponibili due funzioni geospaziali in Azure ricerca cognitiva, **Geo. dis
 ## <a name="try-the-demo"></a>Provare la demo
 La demo del portale dei processi di Azure ricerca cognitiva contiene gli esempi a cui si fa riferimento in questo articolo.
 
--   Vedere e testare la demo di lavoro online in [Azure ricerca cognitiva Job Portal demo](https://azjobsdemo.azurewebsites.net/).
+-   Vedere e testare la demo di lavoro online in [Azure ricerca cognitiva Job Portal demo](https://aka.ms/azjobsdemo).
 
 -   Scaricare il codice dal [repository di esempi di Azure su GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 

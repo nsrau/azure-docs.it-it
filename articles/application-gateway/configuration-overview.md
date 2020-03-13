@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: MT
+ms.openlocfilehash: f42be2a3075d313a490703562761a5df13542c85
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913260"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279221"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -163,7 +163,7 @@ Per configurare una pagina di errore globale personalizzata, vedere [configurazi
 
 ### <a name="ssl-policy"></a>Criteri SSL
 
-È possibile centralizzare la gestione dei certificati SSL e ridurre l'overhead di decrittografia della crittografia per un server farm back-end. La gestione centralizzata di SSL consente anche di specificare criteri SSL centrali adatti ai requisiti di sicurezza. È possibile scegliere criteri SSL *predefiniti, predefiniti*o *personalizzati* .
+È possibile centralizzare la gestione dei certificati SSL e ridurre l'overhead di decrittografia della crittografia per un server farm back-end. La gestione centralizzata di SSL consente anche di specificare criteri SSL centrali adatti ai requisiti di sicurezza. È possibile scegliere criteri SSL *predefined* *predefiniti, predefiniti*o *personalizzati* .
 
 Configurare i criteri SSL per controllare le versioni del protocollo SSL. È possibile configurare un gateway applicazione per usare una versione minima del protocollo per gli handshake TLS da TLS 1.0, TLS 1.1 e TLS 1.2. Per impostazione predefinita, SSL 2,0 e 3,0 sono disabilitati e non sono configurabili. Per altre informazioni, vedere [Panoramica dei criteri SSL del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
@@ -340,7 +340,7 @@ Se, ad esempio, si specifica *www.contoso.com* nell'impostazione **nome host** ,
 
 ## <a name="back-end-pool"></a>Pool back-end
 
-È possibile puntare un pool back-end a quattro tipi di membri back-end: una macchina virtuale specifica, un set di scalabilità di macchine virtuali, un indirizzo IP/FQDN o un servizio app. Ogni pool back-end può puntare a più membri dello stesso tipo. Il riferimento a membri di tipi diversi nello stesso pool back-end non è supportato.
+È possibile puntare un pool back-end a quattro tipi di membri back-end: una macchina virtuale specifica, un set di scalabilità di macchine virtuali, un indirizzo IP/FQDN o un servizio app. 
 
 Dopo aver creato un pool back-end, è necessario associarlo a una o più regole di routing delle richieste. È inoltre necessario configurare i probe di integrità per ogni pool back-end nel gateway applicazione. Quando viene soddisfatta una condizione della regola di routing richieste, il gateway applicazione lo trasmette ai server integri (come determinato dai Probe di integrità) nel pool back-end corrispondente.
 

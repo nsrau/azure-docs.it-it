@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
 ms.openlocfilehash: 21efb16cf519d4bcad520af1c7d8818f36a77218
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373081"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275035"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Connettere i computer Windows a monitoraggio di Azure
 
@@ -71,7 +71,7 @@ I passaggi seguenti installano e configurano l'agente Log Analytics in Azure e i
 
 1. Nell'area di lavoro Log Analytics, dalla pagina **Server Windows** a cui si è passati in precedenza, selezionare la versione appropriata da scaricare in **Scarica agente Windows** a seconda dell'architettura del processore del sistema operativo Windows.   
 2. Eseguire il programma di installazione per installare l'agente nel computer in uso.
-2. Nella pagina inizialefare clic su **Avanti**.
+2. Nella pagina di **benvenuto** fare clic su **Avanti**.
 3. Nella pagina **Condizioni di licenza** leggere la licenza e quindi fare clic su **Accetto**.
 4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 5. Nella pagina **Opzioni di installazione dell'agente** scegliere di connettere l'agente ad Azure Log Analytics e quindi fare clic su **Avanti**.   

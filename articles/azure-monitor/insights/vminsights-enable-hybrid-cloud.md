@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
 ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669625"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275139"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) per un ambiente ibrido
 
@@ -68,7 +68,7 @@ Dependency Agent viene installato nei server Linux con *InstallDependencyAgent-L
 | Parametro | Descrizione |
 |:--|:--|
 | -help | Ottenere un elenco delle opzioni della riga di comando. |
-| -s | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
+| -S | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
 | --check | Controllare le autorizzazioni e il sistema operativo senza installare l'agente. |
 
 Ad esempio, per eseguire il programma di installazione con il parametro `-help`, immettere **installdependencyagent-linux64. bin-Help**.
@@ -79,7 +79,7 @@ Se Dependency Agent non si avvia, controllare i log per vedere le informazioni d
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 
-| Files | Location |
+| File | Location |
 |:--|:--|
 | File core | /opt/microsoft/dependency-agent |
 | File di log | /var/opt/microsoft/dependency-agent/log |
@@ -223,7 +223,7 @@ Per usare l'interfaccia della riga di comando di Azure, è prima necessario inst
     ```
    Dopo avere abilitato il monitoraggio, possono essere necessari circa 10 minuti prima di poter visualizzare lo stato di integrità e le metriche per il computer ibrido.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="vm-doesnt-appear-on-the-map"></a>La macchina virtuale non viene visualizzata nella mappa
 

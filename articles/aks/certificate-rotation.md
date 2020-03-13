@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3c22f63b7085c7ab8d6b54e383528568dc9c12e7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9ae8f5072573dcc91dd3e8bdcd08968790f6444d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917034"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205204"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ AKS genera e usa i certificati, le autorità di certificazione e gli account di 
 * Il client `kubectl` dispone di un certificato per la comunicazione con il cluster AKS.
 
 > [!NOTE]
-> I cluster AKS creati prima del 2019 marzo hanno certificati che scadono dopo due anni. Tutti i cluster creati dopo il 2019 marzo o qualsiasi cluster con i relativi certificati ruotati hanno certificati che scadono dopo 30 anni. Per verificare quando è stato creato il cluster, usare `kubectl get nodes` per visualizzare l' *età* dei pool di nodi.
+> I cluster AKS creati prima del 2019 marzo hanno certificati che scadono dopo due anni. Tutti i cluster creati dopo il 2019 marzo o qualsiasi cluster con i relativi certificati ruotati hanno certificati della CA del cluster che scadono dopo 30 anni. Tutti gli altri certificati scadono dopo due anni. Per verificare quando è stato creato il cluster, usare `kubectl get nodes` per visualizzare l' *età* dei pool di nodi.
 > 
 > Inoltre, è possibile controllare la data di scadenza del certificato del cluster. Ad esempio, il comando seguente Visualizza i dettagli del certificato per il cluster *myAKSCluster* .
 > ```console

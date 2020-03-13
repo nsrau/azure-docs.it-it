@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: e318e5f9b192b9f857a0b97d076ce4cc87cfb73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277466"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
@@ -32,13 +32,17 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 
 ## <a name="example"></a>Esempio
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che usa un trigger della coda del bus di servizio e un'associazione di output SendGrid.
 
-### <a name="synchronous"></a>Synchronous
+### <a name="synchronous"></a>Sincrono
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -62,9 +66,13 @@ public class OutgoingEmail
 }
 ```
 
-### <a name="asynchronous"></a>Asynchronous
+### <a name="asynchronous"></a>Asincrona
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static async void Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -92,7 +100,7 @@ public class OutgoingEmail
 
 È possibile omettere l'impostazione della proprietà `ApiKey` dell'attributo se si dispone della chiave API in un'impostazione applicazione denominata "AzureWebJobsSendGridApiKey".
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 L'esempio seguente mostra un'associazione di output di SendGrid in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione.
 
@@ -151,7 +159,7 @@ public class Message
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente mostra un'associazione di output di SendGrid in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione.
 
@@ -193,7 +201,7 @@ module.exports = function (context, input) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Nell'esempio seguente viene illustrata una funzione attivata tramite HTTP che invia un messaggio di posta elettronica utilizzando l'associazione SendGrid. È possibile specificare i valori predefiniti nella configurazione dell'associazione. Ad esempio, l'indirizzo di posta elettronica *da* viene configurato in *Function. JSON*. 
 
@@ -250,7 +258,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
     return func.HttpResponse(f"Sent")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L'esempio seguente usa l'annotazione `@SendGridOutput` dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un messaggio di posta elettronica usando l'associazione di output SendGrid.
 
@@ -306,7 +314,7 @@ public class HttpTriggerSendGrid {
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs).
 
@@ -324,19 +332,19 @@ public static void Run(
 
 Per un esempio completo, vedere l'[esempio in C#](#example).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Gli attributi non sono supportati C# dallo script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Gli attributi non sono supportati da Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L'annotazione [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) consente di configurare in modo dichiarativo l'associazione SendGrid fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#example) e di [configurazione](#configuration) .
 
@@ -346,16 +354,16 @@ L'annotazione [SendGridOutput](https://github.com/Azure/azure-functions-java-lib
 
 La tabella seguente elenca le proprietà di configurazione dell'associazione disponibili nel file *Function. JSON* e l'attributo/annotazione `SendGrid`.
 
-| *Function. JSON* (proprietà) | Proprietà attribute/annotation | Descrizione | Facoltativa |
+| *Function. JSON* (proprietà) | Proprietà attribute/annotation | Descrizione | Facoltativo |
 |--------------------------|-------------------------------|-------------|----------|
 | type |n/d| Il valore deve essere impostato su `sendGrid`.| No |
 | direction |n/d| Il valore deve essere impostato su `out`.| No |
 | name |n/d| Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è `$return` quando viene restituito un solo valore. | No |
 | apiKey | ApiKey | Il nome di un'impostazione dell'app che contiene la chiave API. Se non è impostato, il nome predefinito dell'impostazione dell'app è *AzureWebJobsSendGridApiKey*.| No |
-| a| Per | Indirizzo e-mail del destinatario. | Sì |
-| from| From | Indirizzo di posta elettronica del mittente. |  Sì |
-| subject| Subject | Oggetto del messaggio di posta elettronica. | Sì |
-| testo| Text | Contenuto del messaggio di posta elettronica. | Sì |
+| to| A | Indirizzo e-mail del destinatario. | Sì |
+| da| From | Indirizzo di posta elettronica del mittente. |  Sì |
+| subject| Oggetto | Oggetto del messaggio di posta elettronica. | Sì |
+| text| Text | Contenuto del messaggio di posta elettronica. | Sì |
 
 Le proprietà facoltative possono avere valori predefiniti definiti nell'associazione e aggiunti o sottoposti a override a livello di codice.
 
@@ -381,9 +389,9 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```  
 
-|Proprietà  |Default | Descrizione |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
-|from|n/d|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
+|da|n/d|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

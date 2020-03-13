@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286645"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284785"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicare con l'hub Internet delle cose usando il protocollo AMQP
 
@@ -26,10 +26,10 @@ Per connettersi a un hub Internet delle cose usando AMQP, un client può usare l
 
 Per il client del servizio sono necessarie le informazioni seguenti:
 
-| Informazioni | Value |
+| Informazioni | valore |
 |-------------|--------------|
 | Nome host dell'hub Internet | `<iot-hub-name>.azure-devices.net` |
-| Nome chiave | `service` |
+| Nome della chiave | `service` |
 | Chiave di accesso | Chiave primaria o secondaria associata al servizio |
 | Firma di accesso condiviso | Una firma di accesso condiviso di breve durata nel formato seguente: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Per ottenere il codice per la generazione della firma, vedere [controllare l'accesso all'hub](./iot-hub-devguide-security.md#security-token-structure)Internet.
 
@@ -65,7 +65,7 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 
 Per informazioni sullo scambio di messaggi da cloud a dispositivo tra il servizio e l'hub Internet e tra il dispositivo e l'hub Internet, vedere [inviare messaggi da cloud a dispositivo dall'hub](iot-hub-devguide-messages-c2d.md)Internet. Il client del servizio usa due collegamenti per inviare messaggi e ricevere commenti e suggerimenti per i messaggi inviati in precedenza dai dispositivi, come descritto nella tabella seguente:
 
-| Creato da | Tipo di collegamento | Percorso collegamento | Descrizione |
+| Creato da | Tipo collegamento | Percorso collegamento | Descrizione |
 |------------|-----------|-----------|-------------|
 | Service | Collegamento al mittente | `/messages/devicebound` | I messaggi da cloud a dispositivo destinati ai dispositivi vengono inviati al collegamento dal servizio. I messaggi inviati tramite questo collegamento hanno la proprietà `To` impostata sul percorso del collegamento del ricevitore del dispositivo di destinazione, `/devices/<deviceID>/messages/devicebound`. |
 | Service | Collegamento ricevitore | `/messages/serviceBound/feedback` | Messaggi di feedback di completamento, rifiuto e abbandono che provengono da dispositivi ricevuti su questo collegamento dal servizio. Per altre informazioni sui messaggi di feedback, vedere [inviare messaggi da cloud a dispositivo da un hub](./iot-hub-devguide-messages-c2d.md#message-feedback)Internet. |
@@ -128,11 +128,11 @@ for msg in batch:
 
 Come illustrato nel codice precedente, un messaggio di feedback da cloud a dispositivo ha un tipo di contenuto *Application/vnd. Microsoft. iothub. feedback. JSON*. È possibile usare le proprietà nel corpo JSON del messaggio per dedurre lo stato di recapito del messaggio originale:
 
-* La chiave `statusCode` nel corpo del feedback presenta uno dei valori seguenti: *Success*, *expired*, *DeliveryCountExceeded*, *rejected*o *eliminato*.
+* Il `statusCode` di chiave nel corpo del feedback ha uno dei valori seguenti: *Success*, *expired*, *DeliveryCountExceeded*, *rejected*o *depuliti*.
 
-* La chiave `deviceId` nel corpo del feedback ha l'ID del dispositivo di destinazione.
+* Il `deviceId` chiave nel corpo del feedback ha l'ID del dispositivo di destinazione.
 
-* La chiave `originalMessageId` nel corpo del feedback ha l'ID del messaggio da cloud a dispositivo originale inviato dal servizio. È possibile usare questo stato di recapito per correlare i feedback ai messaggi da cloud a dispositivo.
+* Il `originalMessageId` chiave nel corpo del feedback ha l'ID del messaggio da cloud a dispositivo originale inviato dal servizio. È possibile usare questo stato di recapito per correlare i feedback ai messaggi da cloud a dispositivo.
 
 ### <a name="receive-telemetry-messages-service-client"></a>Ricevere messaggi di telemetria (client del servizio)
 
@@ -222,7 +222,7 @@ Per connettersi a un hub Internet delle cose usando AMQP, un dispositivo può us
 
 Per il client del dispositivo sono necessarie le informazioni seguenti:
 
-| Informazioni | Value |
+| Informazioni | valore |
 |-------------|--------------|
 | Nome host dell'hub Internet | `<iot-hub-name>.azure-devices.net` |
 | Chiave di accesso | Chiave primaria o secondaria associata al dispositivo |
@@ -259,7 +259,7 @@ send_client = uamqp.SendClient(uri, debug=True)
 
 I percorsi di collegamento seguenti sono supportati come operazioni del dispositivo:
 
-| Creato da | Tipo di collegamento | Percorso collegamento | Descrizione |
+| Creato da | Tipo collegamento | Percorso collegamento | Descrizione |
 |------------|-----------|-----------|-------------|
 | Dispositivi | Collegamento ricevitore | `/devices/<deviceID>/messages/devicebound` | I messaggi da cloud a dispositivo destinati ai dispositivi sono ricevuti su questo collegamento da ogni dispositivo di destinazione. |
 | Dispositivi | Collegamento al mittente | `/devices/<deviceID>/messages/events` | I messaggi da dispositivo a cloud inviati da un dispositivo vengono inviati tramite questo collegamento. |

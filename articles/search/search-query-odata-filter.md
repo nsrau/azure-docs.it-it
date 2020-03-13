@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390333"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282887"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintassi di $filter OData in Azure ricerca cognitiva
 
@@ -130,7 +130,7 @@ Trovare tutti gli alberghi con il parcheggio incluso e la posizione in cui tutte
 
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
 
-Trovare tutti gli alberghi di lusso o che includono il parcheggio e con una classificazione 5:  
+Trovare tutti gli alberghi di lusso o con parcheggio incluso e di categoria 5 o superiore:  
 
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
 

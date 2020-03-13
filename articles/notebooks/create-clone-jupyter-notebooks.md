@@ -4,11 +4,11 @@ description: Azure Notebooks progetti di anteprima gestiscono una raccolta di no
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646246"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280573"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Creare e clonare progetti in Azure Notebooks anteprima
 
@@ -26,7 +26,7 @@ Nel dashboard **My Projects** (Progetti personali) all'indirizzo `https://notebo
 
 Le operazioni che è possibile eseguire in un dashboard variano a seconda che si sia eseguito o meno l'accesso con l'account proprietario dell'ID utente:
 
-| Comando | Disponibile per | Description |
+| Comando | Disponibile per | Descrizione |
 | --- | --- | --- |
 | **Esegui** | Proprietario | Avvia il server di progetto e apre la cartella di progetto in Jupyter. In genere, prima si accede alla cartella del progetto e quindi si avvia un notebook da questa posizione. |
 | **Scaricare** | Chiunque | Scarica una copia del progetto selezionato come file ZIP. |
@@ -57,7 +57,7 @@ Se non si dispone di un progetto di Azure Notebooks, è possibile creare un coll
 
 Quando si usa il comando **+ New Project** (+ Nuovo progetto), Azure Notebooks consente di visualizzare una finestra popup **Create New Project** (Crea nuovo progetto). In questa finestra popup immettere le informazioni seguenti e quindi selezionare **Create** (Crea):
 
-| Campo | Description |
+| Campo | Descrizione |
 | --- | --- |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. Ad esempio, "My Notebook Project". |
 | ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto (il formato è `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Questo ID può utilizzare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un [ID di progetto riservato](#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
@@ -70,10 +70,10 @@ Le seguenti parole riservate non possono essere utilizzate da soli come ID proge
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| informazioni | account | amministrazione | api | Blog di | classe |
+| informazioni | account | amministrazione | api | del team | Aula |
 | content | dashboard | esplorare | Domande frequenti | help | html |
-| home | import | library | management | novità | notebook |
-| Notebooks | pdf | anteprima | prezzi | Profilo | ricerca |
+| home | import | library | management | Nuovo | notebook |
+| Notebooks | pdf | preview | prezzi | Profilo | ricerca |
 | status | support | test | | | |
 
 Se si tenta di usare una di queste parole come ID progetto, i popup **Crea nuovo progetto** e **Impostazioni progetto** indicano che "ID libreria è un identificatore riservato".
@@ -84,9 +84,9 @@ Poiché un ID progetto fa anche parte dell'URL di un progetto, il software ad Bl
 
 È possibile importare facilmente un intero repository GitHub pubblico come un progetto, comprendente tutti i dati e i file *README.md*. Usare il comando **Upload GitHub Repo** (Carica repository GitHub), specificare i dettagli seguenti nella finestra popup e quindi selezionare **Import** (Importa):
 
-| Campo | Description |
+| Campo | Descrizione |
 | --- | --- |
-| Repository GitHub | Nome del repository di origine in github.com. Ad esempio, per clonare i notebook di Jupyter per Servizi cognitivi di Azure all'indirizzo [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), immettere "Microsoft/cognitive-services-notebooks".  |
+| GitHub repository (Repository GitHub) | Nome del repository di origine in github.com. Ad esempio, per clonare i notebook di Jupyter per Servizi cognitivi di Azure all'indirizzo [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), immettere "Microsoft/cognitive-services-notebooks".  |
 | Clone recursively (Clona in modo ricorsivo) | I repository GitHub possono contenere più repository figlio. Impostare questa opzione se si vuole clonare il repository padre e tutti gli elementi figlio. Poiché un repository può avere molti figli, lasciare questa opzione deselezionata se non si è certi che sia necessaria. |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. |
 | ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto (il formato è `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Questo ID può utilizzare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un [ID di progetto riservato](#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |

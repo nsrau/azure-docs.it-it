@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 0bb4157ff77ef57f377ba0c6a08bfe8529f663f4
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 618bc5719e3629d37567d8ac77594e7734f82a09
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169281"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204427"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Servizio Azure Batch per i processi di Azure Machine Learning Studio (classico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 L'elaborazione di pool di Batch in Machine Learning fornisce la scalabilità gestita dal cliente per il servizio di esecuzione Batch di Azure Machine Learning. L'elaborazione batch classica per l'apprendimento automatico avviene in un ambiente multi-tenant, limitando il numero di processi simultanei che è possibile inviare, e i processi vengono accodati in base alla modalità First-In-First-Out. Non è quindi possibile prevedere con precisione quando verrà eseguito il processo.
 
@@ -111,4 +113,4 @@ Se si crea un pool Batch con 4 macchine virtuali e lo si elimina dopo 12 ore, al
 
 | **Usare l'elaborazione di pool Batch quando**    | **Usare l'elaborazione di batch classica quando**  |
 |---|---|
-|È necessario eseguire un numero elevato di processi<br>Oppure<br/>È necessario che i processi vengano eseguiti immediatamente<br/>Oppure<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>e<br/> non è necessario che i processi vengano eseguiti immediatamente |
+|È necessario eseguire un numero elevato di processi<br>Oppure<br/>È necessario che i processi vengano eseguiti immediatamente<br/>Oppure<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>e<br/> Non è necessario che i processi vengano eseguiti immediatamente |

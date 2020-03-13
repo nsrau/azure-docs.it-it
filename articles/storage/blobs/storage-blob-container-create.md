@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372211"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135939"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Creare o eliminare un contenitore in archiviazione di Azure con .NET
 
-I BLOB in archiviazione di Azure sono organizzati in contenitori. Prima di caricare un BLOB, è necessario innanzitutto creare un contenitore. Questo articolo illustra come creare ed eliminare contenitori con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage/client).
+I BLOB in archiviazione di Azure sono organizzati in contenitori. Prima di caricare un BLOB, è necessario innanzitutto creare un contenitore. Questo articolo illustra come creare ed eliminare contenitori con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="name-a-container"></a>Assegnare un nome a un contenitore
 
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Operazione di creazione del contenitore](/rest/api/storageservices/create-container)
 - [Delete Container operation](/rest/api/storageservices/delete-container) (Operazione di eliminazione contenitore)

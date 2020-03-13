@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: afd466e0266cf2d95f95eb8536943f5856c26a58
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: d958c2d32c16874676f46bb216067fe2d7bbe784
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365380"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280976"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida per programmatori .NET per hub eventi di Azure (pacchetto Microsoft. Azure. EventHubs legacy)
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
 
 > [!WARNING]
-> Questa guida è destinata al vecchio pacchetto **Microsoft. Azure. EventHubs** . Si consiglia di [eseguire la migrazione](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md) del codice per usare il pacchetto [Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md) più recente.  
+> Questa guida è destinata al vecchio pacchetto **Microsoft. Azure. EventHubs** . Si consiglia di [eseguire la migrazione](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) del codice per usare il pacchetto [Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md) più recente.  
 
 
 ## <a name="event-publishers"></a>Autori di eventi
@@ -29,7 +29,7 @@ L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.
 
 Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient][] e [EventData][]. [EventHubClient][] offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati (proprietà) e le informazioni di intestazione (SystemProperties) sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 Le classi .NET che supportano Hub eventi vengono fornite con il pacchetto NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). È possibile eseguire l'installazione tramite Esplora soluzioni di Visual Studio o la [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. A tale scopo, eseguire il comando seguente nella finestra della [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
 ```shell

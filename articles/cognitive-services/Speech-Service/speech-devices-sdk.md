@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 43d08b466076672587e7f6545193e326283c0031
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 40179c7d421a26fd9a77b435668f75ec6fde8ab1
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330788"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136974"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Informazioni su Speech Devices SDK
 
@@ -39,7 +39,7 @@ Speech Devices SDK consente un'ampia gamma di scenari abilitati per la voce, ad 
 
 Per Android, i dispositivi scaricano la versione più recente di [Android Speech Devices SDK](https://aka.ms/sdsdk-download-android).
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 Per Windows, l'applicazione di esempio viene fornita come applicazione Java multipiattaforma. Scaricare la versione più recente di [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
 L'applicazione è compilata con il pacchetto Speech SDK ed Eclipse Java IDE (v4) in Windows a 64 bit. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
@@ -49,7 +49,7 @@ L'applicazione è compilata con il pacchetto Speech SDK ed Eclipse Java IDE (v4)
 Per Linux, l'applicazione di esempio viene fornita come applicazione Java multipiattaforma. Scaricare la versione più recente di [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
 L'applicazione viene compilata con il pacchetto Speech SDK e Eclipse Java IDE (v4) su Linux a 64 bit (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8). Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
-Sono disponibili file binari aggiuntivi per supportare i dispositivi imminenti, [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2)e [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter).
+Sono disponibili file binari aggiuntivi per supportare i dispositivi imminenti, [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter)e [GGEC speaker](https://aka.ms/sdsdk-download-speaker).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

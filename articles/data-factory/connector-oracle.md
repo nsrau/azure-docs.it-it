@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423811"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244511"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -49,13 +49,13 @@ In particolare, questo connettore Oracle supporta:
 > [!Note]
 > Il server proxy Oracle non è supportato.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
 Il runtime di integrazione fornisce un driver Oracle incorporato. Non è pertanto necessario installare manualmente un driver quando si copiano dati da e in Oracle.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,7 +72,7 @@ Il servizio collegato Oracle supporta le proprietà seguenti:
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 >[!TIP]
->Se viene ricevuto un errore, "ORA-01025: parametro UPI non compreso nell'intervallo" e la versione di Oracle è 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione. quindi riprovare.
+>Se viene ricevuto un errore, "ORA-01025: parametro UPI non compreso nell'intervallo" e la versione di Oracle è 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione. Quindi riprovare.
 
 Ulteriori proprietà di connessione che è possibile impostare nella stringa di connessione in base al caso:
 
@@ -350,25 +350,25 @@ Quando si copiano dati da e in Oracle, vengono applicati i mapping seguenti. Per
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive) |
-| CHAR |String |
-| CLOB |String |
+| CHAR |string |
+| CLOB |string |
 | DATE |Datetime |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
-| LONG |String |
+| LONG |string |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |string |
+| NCLOB |string |
 | NUMBER |Decimal, String (se la precisione > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |string |
 | RAW |Byte[] |
-| ROWID |String |
+| ROWID |string |
 | timestamp |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
+| TIMESTAMP WITH LOCAL TIME ZONE |string |
+| TIMESTAMP WITH TIME ZONE |string |
 | UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |string |
+| XML |string |
 
 > [!NOTE]
 > I tipi di dati INTERVAL YEAR TO MONTH e INTERVAL DAY TO SECOND non sono supportati.

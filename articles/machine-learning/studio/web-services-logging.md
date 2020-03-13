@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427406"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217854"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio (classico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 In questo documento vengono fornite informazioni sulla funzionalità di registrazione dei servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive, oltre a un numero di errore e un messaggio, che consentono di risolvere i problemi relativi alle chiamate alle API Machine Learning Studio (classiche).  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Come abilitare la registrazione per un servizio Web
@@ -61,7 +64,7 @@ In questo documento vengono fornite informazioni sulla funzionalità di registra
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Effetti dell'abilitazione della registrazione
-Quando la registrazione è abilitata, tutti i dati di diagnostica e gli errori originati dall'endpoint del servizio Web vengono registrati nel contenitore BLOB **ml-diagnostics** nell'account di archiviazione di Azure collegato all'area di lavoro dell'utente. Tale contenitore contiene tutte le informazioni di diagnostica per tutti gli endpoint del servizio Web di tutte le aree di lavoro associate all'account di archiviazione.
+Quando è abilitata la registrazione, la diagnostica e gli errori dall'endpoint del servizio Web vengono registrati nel contenitore BLOB **ml-Diagnostics** nell'account di archiviazione di Azure collegato all'area di lavoro dell'utente. Tale contenitore contiene tutte le informazioni di diagnostica per tutti gli endpoint del servizio Web di tutte le aree di lavoro associate all'account di archiviazione.
 
 I log possono essere visualizzati tramite uno dei diversi strumenti disponibili per l'esplorazione degli account di archiviazione di Azure. Il modo più semplice per visualizzarli è passare all'account di archiviazione nel portale di Azure e fare clic su **Contenitori** e quindi sul contenitore **ml-diagnostics**.  
 
@@ -80,7 +83,7 @@ Il nome di ogni BLOB riporta un prefisso nel formato seguente:
 
 Dove _Tipo di log_ corrisponde a uno dei valori seguenti:  
 
-* batch  
+* o batch  
 * punteggio/richieste  
 * punteggio/init  
 

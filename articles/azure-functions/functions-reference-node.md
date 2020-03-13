@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare funzioni con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 345df8e1ea88caa6f8dbe941245c1f989c3e81c6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584490"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276829"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -363,6 +363,7 @@ L'oggetto (risposta) `context.res` ha le proprietà seguenti:
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
 | _isRaw_   | Indica che la formattazione viene ignorata per la risposta.    |
 | _Stato_  | Codice di stato HTTP della risposta.                     |
+| _cookie_ | Matrice di oggetti cookie HTTP impostati nella risposta. Un oggetto cookie HTTP ha una `name`, `value`e altre proprietà del cookie, ad esempio `maxAge` o `sameSite`. |
 
 ### <a name="accessing-the-request-and-response"></a>Accesso a richiesta e risposta 
 

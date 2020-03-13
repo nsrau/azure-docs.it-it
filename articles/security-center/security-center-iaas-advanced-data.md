@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/11/2019
 ms.author: memildin
 ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617102"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282731"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Sicurezza dei dati avanzata per SQL Server in macchine virtuali di Azure (anteprima)
 La protezione avanzata dei dati per SQL Server in macchine virtuali di Azure è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. Questa funzionalità di anteprima include funzionalità per l'identificazione e la mitigazione di potenziali vulnerabilità del database e per il rilevamento di attività anomale che potrebbero indicare minacce per il database. 

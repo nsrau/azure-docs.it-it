@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 32912f0aef91bd4a7c831a82d1e83f00a1e0f131
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379559"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283108"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Come indicizzare i documenti nell'archivio BLOB di Azure con Azure ricerca cognitiva
 
@@ -233,7 +233,7 @@ Se sono presenti sia `indexedFileNameExtensions` che `excludedFileNameExtensions
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controllo delle parti di BLOB da indicizzare
 
-Il parametro di configurazione `dataToExtract` permette di controllare quali parti dei BLOB vengono indicizzate. Può accettare i valori seguenti:
+Il parametro di configurazione `dataToExtract` permette di controllare quali parti dei BLOB vengono indicizzate. I valori possibili sono i seguenti:
 
 * `storageMetadata`: specifica che vengono indicizzati solo [i metadati specificati dall'utente e le proprietà BLOB standard](../storage/blobs/storage-properties-metadata.md).
 * `allMetadata`: specifica che vengono indicizzati i metadati di archiviazione e i [metadati specifici del tipo di contenuto](#ContentSpecificMetadata) estratti dal contenuto BLOB.
@@ -281,7 +281,7 @@ Azure ricerca cognitiva limita le dimensioni dei BLOB indicizzati. Questi limiti
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Ad esempio,
+È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Ad esempio:
 
     {
       ... other parts of indexer definition
@@ -289,16 +289,56 @@ Azure ricerca cognitiva limita le dimensioni dei BLOB indicizzati. Questi limiti
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indicizzazione incrementale e rilevamento delle eliminazioni
+
 Quando si configura un indicizzatore BLOB per l'esecuzione in base a una pianificazione, vengono reindicizzati solo i BLOB modificati, come determinato dal timestamp `LastModified` del BLOB.
 
 > [!NOTE]
 > Non è necessario specificare un criterio di rilevamento delle modifiche perché l'indicizzazione incrementale viene abilitata automaticamente.
 
-Per supportare l'eliminazione di documenti, usare un approccio di "eliminazione temporanea". Se si eliminano completamente i BLOB, i documenti corrispondenti non verranno rimossi dall'indice della ricerca. Effettuare invece la procedura seguente:  
+Per supportare l'eliminazione di documenti, usare un approccio di "eliminazione temporanea". Se si eliminano completamente i BLOB, i documenti corrispondenti non verranno rimossi dall'indice della ricerca.
 
-1. Aggiungere una proprietà dei metadati personalizzata al BLOB per indicare ad Azure ricerca cognitiva che è stata eliminata logicamente
-2. Configurare un criterio di rilevamento eliminazione temporanea nell'origine dati
-3. Dopo che l'indicizzatore ha elaborato il BLOB (come indicato dall'API di stato dell'indicizzatore), è possibile eliminare fisicamente il BLOB
+Esistono due modi per implementare l'approccio di eliminazione temporanea. Entrambi sono descritti di seguito.
+
+### <a name="native-blob-soft-delete-preview"></a>Eliminazione temporanea BLOB nativi (anteprima)
+
+> [!IMPORTANT]
+> Il supporto per l'eliminazione temporanea dei BLOB nativi è in anteprima. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](https://docs.microsoft.com/azure/search/search-api-preview). Attualmente non è disponibile alcun portale o supporto per .NET SDK.
+
+In questo metodo si userà la funzionalità di [eliminazione temporanea BLOB nativa](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) offerta dall'archiviazione BLOB di Azure. Se l'origine dati include un set di criteri di eliminazione temporanea nativo e l'indicizzatore trova un BLOB che è stato passato a uno stato di eliminazione temporanea, l'indicizzatore rimuoverà tale documento dall'indice.
+
+Eseguire la procedura descritta di seguito:
+1. Abilitare l' [eliminazione temporanea nativa per l'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). È consigliabile impostare i criteri di conservazione su un valore molto superiore rispetto alla pianificazione dell'intervallo dell'indicizzatore. In questo modo, se si verifica un problema durante l'esecuzione dell'indicizzatore o se si dispone di un numero elevato di documenti da indicizzare, l'indicizzatore potrebbe elaborare i BLOB eliminati temporaneamente. Gli indicizzatori di Azure ricerca cognitiva elimineranno un documento dall'indice solo se elabora il BLOB mentre si trova in uno stato di eliminazione temporanea.
+1. Configurare i criteri di rilevamento dell'eliminazione temporanea dei BLOB nativi nell'origine dati. Di seguito è illustrato un esempio. Poiché questa funzionalità è in anteprima, è necessario usare l'API REST di anteprima.
+1. Eseguire l'indicizzatore o impostare l'indicizzatore per l'esecuzione in base a una pianificazione. Quando l'indicizzatore viene eseguito ed elabora il BLOB, il documento verrà rimosso dall'indice.
+
+    ```
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : null },
+        "dataDeletionDetectionPolicy" : {
+            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+        }
+    }
+    ```
+
+#### <a name="reindexing-undeleted-blobs"></a>Reindicizzazione di BLOB non eliminati
+
+Se si elimina un BLOB dall'archiviazione BLOB di Azure con l'eliminazione temporanea nativa abilitata nell'account di archiviazione, il BLOB passerà a uno stato di eliminazione temporanea che consente di annullare l'eliminazione del BLOB entro il periodo di memorizzazione. Quando un'origine dati di Azure ricerca cognitiva dispone di un criterio di eliminazione temporanea BLOB nativo e l'indicizzatore elabora un BLOB eliminato temporaneamente, questo documento verrà rimosso dall'indice. Se il BLOB viene **annullato** in un secondo momento, l'indicizzatore non Reindicizza sempre tale BLOB. Questo perché l'indicizzatore determina i BLOB da indicizzare in base al timestamp `LastModified` del BLOB. Quando viene annullata l'eliminazione di un BLOB eliminato temporaneamente, il timestamp `LastModified` non viene aggiornato, quindi se l'indicizzatore ha già elaborato BLOB con `LastModified` timestamp più recenti rispetto al BLOB non eliminato, il BLOB non eliminato non verrà reindicizzato. Per assicurarsi che un BLOB non eliminato venga reindicizzato, è necessario salvare nuovamente i metadati del BLOB. Non è necessario modificare i metadati, ma il salvataggio dei metadati aggiornerà il timestamp `LastModified` del BLOB in modo che l'indicizzatore sappia che è necessario reindicizzare questo BLOB.
+
+### <a name="soft-delete-using-custom-metadata"></a>Eliminazione temporanea mediante metadati personalizzati
+
+In questo metodo si utilizzerà una proprietà dei metadati personalizzata per indicare quando è necessario rimuovere un documento dall'indice di ricerca.
+
+Eseguire la procedura descritta di seguito:
+
+1. Aggiungere una proprietà dei metadati personalizzata al BLOB per indicare ad Azure ricerca cognitiva che viene eliminato logicamente.
+1. Configurare un criterio di rilevamento della colonna di eliminazione temporanea nell'origine dati. Di seguito è illustrato un esempio.
+1. Dopo che l'indicizzatore ha elaborato il BLOB ed eliminato il documento dall'indice, è possibile eliminare il BLOB per l'archiviazione BLOB di Azure.
 
 Il criterio illustrato sotto, ad esempio, considera l'eliminazione di un BLOB se ha una proprietà di metadati `IsDeleted` con il valore `true`:
 
@@ -310,13 +350,17 @@ Il criterio illustrato sotto, ad esempio, considera l'eliminazione di un BLOB se
         "name" : "blob-datasource",
         "type" : "azureblob",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
+        "container" : { "name" : "my-container", "query" : null },
         "dataDeletionDetectionPolicy" : {
             "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",     
             "softDeleteColumnName" : "IsDeleted",
             "softDeleteMarkerValue" : "true"
         }
-    }   
+    }
+
+#### <a name="reindexing-undeleted-blobs"></a>Reindicizzazione di BLOB non eliminati
+
+Se si imposta un criterio di rilevamento della colonna di eliminazione temporanea nell'origine dati, quindi si aggiunge la proprietà dei metadati personalizzati a un BLOB con il valore del marcatore, quindi si esegue l'indicizzatore, l'indicizzatore rimuoverà il documento dall'indice. Se si vuole reindicizzare il documento, è sufficiente modificare il valore dei metadati dell'eliminazione temporanea per il BLOB ed eseguire di nuovo l'indicizzatore.
 
 ## <a name="indexing-large-datasets"></a>Indicizzazione di set di dati di grandi dimensioni
 

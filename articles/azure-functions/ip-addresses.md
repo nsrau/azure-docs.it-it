@@ -4,11 +4,11 @@ description: Informazioni su come trovare gli indirizzi IP in ingresso e in usci
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612888"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276491"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 

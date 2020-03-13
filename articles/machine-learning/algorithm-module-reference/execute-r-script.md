@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 1cf8c208e83950706278e2cff5d13951393eec8f
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037136"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140774"
 ---
 # <a name="execute-r-script"></a>Execute R Script
 
@@ -97,13 +97,16 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-Dopo che la pipeline è stata inviata correttamente, è possibile visualizzare l'anteprima dell'immagine nel pannello di destra del modulo ![immagine caricata](media/module/upload-image-in-r-script.png)
+Dopo che la pipeline è stata inviata correttamente, è possibile visualizzare l'anteprima dell'immagine nel pannello di destra del modulo
+
+[!div class="mx-imgBorder"]
+![immagine caricata](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Come configurare Execute R script
 
 Il modulo **Execute R script** contiene codice di esempio che è possibile usare come punto di partenza. Per configurare il modulo **Execute R script** , fornire un set di input e codice da eseguire.
 
-![Modulo R](media/module/upload-image-in-r-script.png)
+![Modulo R](media/module/execute-r-script.png)
 
 I set di dati archiviati nella finestra di progettazione vengono convertiti automaticamente in un frame di dati R quando vengono caricati con questo modulo.
 
@@ -123,25 +126,25 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
 
     Per iniziare, la casella di testo **script R** viene prepopolata con il codice di esempio, che è possibile modificare o sostituire.
     
-```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main
+    # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
+    # The entry point function can contain up to two input arguments:
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
 
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
+    # If a zip file is connected to the third input port, it is
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
 
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
 
  * Lo script deve contenere una funzione denominata `azureml_main`, che rappresenta il punto di ingresso per questo modulo.
 
@@ -174,9 +177,9 @@ Esistono diversi modi per estendere la pipeline usando uno script R personalizza
 
 Il modulo **Execute r script** supporta i file di script r arbitrari come input. A tale scopo, è necessario caricarli nell'area di lavoro come parte del file ZIP.
 
-1. Per caricare un file ZIP contenente codice R nell'area di lavoro, fare clic su **nuovo**, quindi su **set di dati**e infine selezionare **da file locale** e l'opzione **file zip** .  
+1. Per caricare un file ZIP contenente codice R nell'area di lavoro, passare alla pagina **set** di dati, fare clic su **Crea set di dati**, quindi selezionare **da file locale** e l'opzione tipo di set di dati **file** .  
 
-1. Verificare che il file compresso sia disponibile nell'elenco **set di impostazioni salvati** .
+1. Verificare che il file compresso sia disponibile nell'elenco **My Datasets** in **DataSets** Category nell'albero del modulo sinistro.
 
 1.  Connettere il set di dati alla porta di input del **bundle di script** .
 

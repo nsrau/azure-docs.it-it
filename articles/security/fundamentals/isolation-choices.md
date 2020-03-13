@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359070"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280313"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.

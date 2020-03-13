@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2f774401f32ff02ced690173c418dafc4c789b5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 178f56354120bf7a65c51f1c9cf54e34bd011d97
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278801"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137289"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versioni API in Azure ricerca cognitiva
 
@@ -37,7 +37,7 @@ Di seguito è riportato uno snapshot delle versioni correnti di tutte le interfa
 | [API REST del servizio](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Disponibile a livello generale |
 | [API REST del servizio 2019-05-06-Preview](search-api-preview.md) |2019-05-06-anteprima |Anteprima |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Disponibile a livello generale |
-| [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponibile a livello generale |
+| [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) |2020-03-13|Disponibile a livello generale |
 
 Per le API REST, è necessario includere il parametro `api-version` a ogni chiamata. L'uso di `api-version` facilita l'identificazione di una versione specifica, ad esempio un'API di anteprima. L'esempio seguente illustra come viene specificato il parametro `api-version` :
 

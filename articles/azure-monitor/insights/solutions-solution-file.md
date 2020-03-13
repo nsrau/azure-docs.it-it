@@ -8,11 +8,11 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395612"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275178"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -124,7 +124,7 @@ Di seguito viene mostrata la struttura dei parametri standard, che è possibile 
 
 Per fare riferimento ai valori di parametro negli altri elementi della soluzione si usa la sintassi **parameters('nome parametro')** .  Per accedere, ad esempio, al nome dell'area di lavoro, usare **parameters('workspaceName')**
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 Le [variabili](../../azure-resource-manager/templates/template-syntax.md#variables) sono valori che verranno usati nella parte rimanente della soluzione di gestione.  Questi valori non sono esposti all'utente che esegue l'installazione della soluzione.  La loro funzione è quella di offrire all'autore un'unica posizione in cui gestire i valori che possono essere usati più volte all'interno della soluzione. È consigliabile inserire eventuali valori specifici della soluzione in variabili anziché impostarli come hardcoded nell'elemento **resources**.  In questo modo, il codice risulta più leggibile ed è possibile modificare facilmente questi valori nelle versioni successive.
 
 Di seguito è riportato un esempio di elemento **variables** con i parametri tipici usati nelle soluzioni.
@@ -219,7 +219,7 @@ L'entità **plan** della risorsa soluzione ha le proprietà descritte nella tabe
 |:--- |:--- |
 | name |Nome della soluzione. |
 | version |Versione della soluzione determinata dall'autore. |
-| prodotto |Stringa univoca che identifica la soluzione. |
+| product |Stringa univoca che identifica la soluzione. |
 | publisher |Autore della soluzione. |
 
 

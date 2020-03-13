@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ca4051e56f7d51ac7ac5fbe534cb8fc536d64a68
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b43169b59425e97b0aa614eb64a5c86c20179a8d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368686"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136817"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introduzione ad Azure Maps Android SDK
 
 Il Android SDK mappe di Azure è una libreria di mappa vettoriale per Android. Questo articolo illustra i processi di installazione delle mappe di Azure Android SDK e il caricamento di una mappa.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure
 
@@ -109,7 +109,7 @@ Il passaggio successivo per la creazione dell'applicazione consiste nell'install
     * Impostare le informazioni di autenticazione di Mappe di Azure
     * Ottenere l'istanza del controllo mappa nel metodo **OnCreate**
 
-    L'impostazione delle informazioni di autenticazione nella classe `AzureMaps` a livello globale mediante i metodi `setSubscriptionKey` o `setAadProperties` lo rende necessario, pertanto non sarà necessario aggiungere le informazioni di autenticazione a ogni visualizzazione. 
+    Se si impostano le informazioni di autenticazione globalmente nella classe `AzureMaps` usando il metodo `setSubscriptionKey` o `setAadProperties`, si evita di dover aggiungere tali informazioni in ogni visualizzazione. 
 
     Il controllo mappa contiene i propri metodi del ciclo di vita per la gestione del ciclo di vita OpenGL di Android. Questi metodi del ciclo di vita devono essere chiamati direttamente dall'attività contenitore. Affinché l'app chiami correttamente i metodi del ciclo di vita del controllo mappa, è necessario eseguire l'override dei metodi del ciclo di vita seguenti nell'attività che contiene il controllo mappa. È necessario chiamare il rispettivo metodo di controllo map. 
 
@@ -273,7 +273,7 @@ Un elenco completo delle lingue e delle visualizzazioni a livello di area suppor
 Informazioni su come aggiungere dati sovrapposti sulla mappa:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di simbolo a una mappa Android](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
+> [Aggiungere un livello di simbolo a una mappa Android](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere forme a una mappa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

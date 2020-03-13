@@ -9,14 +9,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 1b76147ac48d0bfb7b7bb1302e33b21e5ababb77
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 3f22ce3b1fb750e33e35d35ee1fe5ad1893abcfd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169069"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204137"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Application Lifecycle Management in Azure Machine Learning Studio (versione classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Azure Machine Learning Studio (classico) è uno strumento per lo sviluppo di esperimenti di Machine Learning che vengono operativi nella piattaforma cloud di Azure. Si tratta di una specie di fusione del servizio cloud scalabile e dell'IDE di Visual Studio in un'unica piattaforma. È possibile incorporare le procedure di Application Lifecycle Management Standard (ALM) dalle diverse risorse per l'esecuzione e la distribuzione automatiche in Azure Machine Learning Studio (versione classica). Questo articolo descrive alcune opzioni e approcci.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

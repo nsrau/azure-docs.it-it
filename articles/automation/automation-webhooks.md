@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: 043350db2c5372fc81fbb2b68155a4ac75457208
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373422"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278402"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
 
@@ -30,10 +30,10 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 
 | Proprietà | Descrizione |
 |:--- |:--- |
-| Name |Nome del webhook. È possibile specificare qualsiasi nome desiderato, perché non è esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
+| Nome |Nome del webhook. È possibile specificare qualsiasi nome desiderato, perché non è esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 | URL |URL del webhook. Si tratta dell'indirizzo univoco chiamato da un client con un HTTP POST per avviare il Runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente a un sistema di terze parti di richiamare Runbook senza ulteriore autenticazione. Per questo motivo, è consigliabile considerare l'URL come una password. Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure durante la creazione del webhook. Prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
-| Data scadenza | Data di scadenza del webhook, dopo la quale non può più essere utilizzata. È possibile modificare la data di scadenza dopo la creazione del webhook, purché il webhook non sia scaduto. |
-| Abilitato | Impostazione che indica se il webhook è abilitato per impostazione predefinita al momento della creazione. Se si imposta questa proprietà su disabled, nessun client può usare il webhook. È possibile impostare questa proprietà quando si crea il webhook o qualsiasi altro momento dopo la relativa creazione. |
+| Expiration date | Data di scadenza del webhook, dopo la quale non può più essere utilizzata. È possibile modificare la data di scadenza dopo la creazione del webhook, purché il webhook non sia scaduto. |
+| Attivato | Impostazione che indica se il webhook è abilitato per impostazione predefinita al momento della creazione. Se si imposta questa proprietà su disabled, nessun client può usare il webhook. È possibile impostare questa proprietà quando si crea il webhook o qualsiasi altro momento dopo la relativa creazione. |
 
 ## <a name="parameters-used-when-the-webhook-starts-a-runbook"></a>Parametri usati quando il webhook avvia un Runbook
 
@@ -118,10 +118,10 @@ Il client riceve uno dei codici restituiti seguenti dalla richiesta POST.
 
 | Codice | Text | Descrizione |
 |:--- |:--- |:--- |
-| 202 |Accettato |La richiesta è stata accettata e il Runbook è stato accodato. |
-| 400 |Richiesta non valida |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li>  </ul> |
+| 202 |Accepted |La richiesta è stata accettata e il Runbook è stato accodato. |
+| 400 |Bad Request |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li>  </ul> |
 | 404 |Non trovato |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook non è stato trovato.</li> <li>Il runbook non è stato trovato.</li> <li>L'account non è stato trovato.</li>  </ul> |
-| 500 |Errore interno del server |L'URL è valido, ma si è verificato un errore. Inviare di nuovo la richiesta. |
+| 500 |Internal Server Error |L'URL è valido, ma si è verificato un errore. Inviare di nuovo la richiesta. |
 
 Supponendo che la richiesta abbia esito positivo, la risposta del webhook contiene l'ID processo in formato JSON, come illustrato di seguito. Contiene un singolo ID processo, ma il formato JSON consente possibili miglioramenti futuri.
 

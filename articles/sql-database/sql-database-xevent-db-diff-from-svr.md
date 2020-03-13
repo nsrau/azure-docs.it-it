@@ -3,7 +3,7 @@ title: Eventi estesi
 description: Vengono descritti gli eventi estesi (XEvent) in Database SQL di Azure e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822307"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213955"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -34,7 +34,7 @@ Per altre informazioni sugli eventi estesi, per il database SQL di Azure e Micro
 - [Quick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventi estesi](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 In questo argomento si presuppone che si dispone già di una conoscenza di:
 
@@ -83,22 +83,22 @@ La funzionalità degli eventi estesi è supportata da diverse [viste del catalog
 
 | Nome della<br/>vista del catalogo | Descrizione |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Restituisce una riga per ogni azione su ogni evento di una sessione di eventi. |
+| **sys.database_event_session_actions** |Restituisce una riga per ogni azione su ogni evento di una sessione dell'evento. |
 | **sys.database_event_session_events** |Restituisce una riga per ogni evento in una sessione di eventi. |
 | **sys.database_event_session_fields** |Restituisce una riga per ogni colonna personalizzabile impostata in modo esplicito su eventi e destinazioni. |
-| **sys.database_event_session_targets** |Restituisce una riga per ogni destinazione di evento per una sessione di eventi. |
+| **sys.database_event_session_targets** |Restituisce una riga per ogni destinazione di evento per una sessione eventi. |
 | **sys.database_event_sessions** |Restituisce una riga per ogni sessione di eventi nel database SQL del database. |
 
 In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_* . Il modello del nome è simile a **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>[DMV](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>[DMV](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
 
 | Nome della DMV | Descrizione |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Restituisce informazioni sulle azioni della sessione di eventi. |
-| **sys.dm_xe_database_session_events** |Restituisce informazioni sugli eventi della sessione. |
+| **sys.dm_xe_database_session_event_actions** |Restituisce informazioni sulle azioni di sessione di evento. |
+| **sys.dm_xe_database_session_events** |Restituisce informazioni sugli eventi di sessione. |
 | **sys.dm_xe_database_session_object_columns** |Mostra i valori di configurazione per gli oggetti associati a una sessione. |
 | **sys.dm_xe_database_session_targets** |Restituisce informazioni sulle destinazioni della sessione. |
 | **sys.dm_xe_database_sessions** |Restituisce una riga per ogni sessione di eventi con ambito nel database corrente. |
@@ -142,7 +142,7 @@ SELECT
 ```
 
 
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>&nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Destinazioni per le sessioni di eventi del database SQL
 
@@ -194,7 +194,7 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 - [Cmdlet di Archiviazione di Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md) : fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
 - [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREARE CREDENZIALI (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREARE LA SESSIONE DI EVENTI (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 

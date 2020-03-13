@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f93bea240ee3f139c9be84199d116f9f3f231261
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682735"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281522"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-create-pipelines.md)
 > * [Versione 2 (corrente)](../concepts-pipelines-activities.md)
 
@@ -92,7 +92,7 @@ Osserviamo più da vicino come viene definita una pipeline nel formato JSON. La 
 }
 ```
 
-| Tag | Descrizione | Obbligatorio |
+| Tag | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | name |Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono consentiti i caratteri seguenti: ".", "+", "?", "/", "<", ">", "\*", "%", "&", ":", "\\"</li></ul> |Sì |
 | description | Specificare il testo descrittivo che illustra lo scopo della pipeline. |Sì |
@@ -130,7 +130,7 @@ Nella sezione delle **attività** possono essere definite una o più attività. 
 
 La tabella seguente descrive le proprietà all'interno della definizione JSON dell'attività:
 
-| Tag | Descrizione | Obbligatorio |
+| Tag | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sì |
 | description | Testo descrittivo per il tipo o lo scopo dell'attività |Sì |

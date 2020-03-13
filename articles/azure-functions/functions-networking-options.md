@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.openlocfilehash: d8c3357325eadefec7bb97faba5d600e9c6793a9
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945578"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276712"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 

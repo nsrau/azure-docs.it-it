@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226554"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276504"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -31,7 +31,7 @@ Si considerino gli esempi seguenti di come implementare funzioni diverse.
 | Arriva un nuovo messaggio di coda che esegue una funzione per scrivere in un'altra coda. | <sup>*</sup> della coda | *Nessuno* | <sup>*</sup> della coda |
 |Un processo pianificato legge il contenuto dell'archiviazione BLOB e crea un nuovo documento Cosmos DB. | Timer | Archiviazione BLOB | Cosmos DB |
 |La griglia di eventi viene usata per leggere un'immagine dall'archiviazione BLOB e un documento da Cosmos DB per inviare un messaggio di posta elettronica. | Griglia di eventi | Archiviazione BLOB e Cosmos DB | SendGrid |
-| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | http | *Nessuno* | Microsoft Graph |
+| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | HTTP | *Nessuno* | Microsoft Graph |
 
 <sup>\*</sup> Rappresenta le code diverse
 

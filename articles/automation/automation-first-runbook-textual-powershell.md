@@ -7,11 +7,11 @@ ms.subservice: process-automation
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: b9808ddc3b61b0055642c5a0f2a82b0dc7553b33
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384849"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278909"
 ---
 # <a name="my-first-powershell-runbook"></a>Il primo runbook PowerShell
 

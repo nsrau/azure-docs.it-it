@@ -12,11 +12,11 @@ ms.date: 03/10/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 530a8848eceecb1a15d14ce1fef2aa58a3ef5908
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081864"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220248"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installare ed eseguire i contenitori di lettura (anteprima)
 

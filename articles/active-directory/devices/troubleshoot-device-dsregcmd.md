@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 676a1dd2435d17db2151bdf21f1989e7f182701b
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707945"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136484"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Risoluzione dei problemi relativi ai dispositivi tramite il comando dsregcmd
 
@@ -29,7 +29,7 @@ Questa sezione elenca i parametri di stato di join del dispositivo. La tabella s
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Stato del dispositivo |
 | ---   | ---   | ---   | ---   |
 | YES | NO | NO | Azure AD aggiunto |
-| NO | NO | YES | Account di dominio |
+| NO | NO | YES | Aggiunto a un dominio |
 | YES | NO | YES | Aggiunto AD ibrido |
 | NO | YES | YES | Unitamente a DRS locale |
 
@@ -81,7 +81,7 @@ Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD a
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>Dettagli del tenant
+## <a name="tenant-details"></a>Dettagli tenant
 
 Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD aggiunto (non Azure AD registrato). Questa sezione elenca i dettagli del tenant comune quando un dispositivo viene aggiunto al Azure AD.
 
@@ -211,8 +211,16 @@ Questa sezione esegue vari test per facilitare la diagnosi degli errori di join.
 - **Test di configurazione di Active Directory:** -il test legge e verifica se l'oggetto SCP è configurato correttamente nella foresta ad locale. Gli errori in questo test potrebbero causare errori di join nella fase di individuazione con il codice di errore 0x801c001d.
 - **Test DRS Discovery:** -test ottiene gli endpoint DRS dall'endpoint dei metadati di individuazione ed esegue una richiesta di autenticazione utente. Gli errori in questo test potrebbero causare errori di join nella fase di individuazione.
 - **Test di connettività DRS:** -test esegue un test di connettività di base per l'endpoint DRS.
-- **Test di acquisizione dei token:** -test tenta di ottenere un token di autenticazione Azure ad se il tenant utente è federato. Gli errori in questo test potrebbero causare errori di join nella fase di autenticazione. Se l'autenticazione non riesce, il join di sincronizzazione verrà tentato come fallback, a meno che il fallback non venga disabilitato esplicitamente con una chiave del registro di sistema
-- **Fallback per Sync-join:** -impostare su "Enabled" se la chiave del registro di sistema, per impedire il fallback per sincronizzare il join con errori di autenticazione, non è presente. Questa opzione è disponibile in Windows 10 1803 e versioni successive.
+- **Test di acquisizione dei token:** -test tenta di ottenere un token di autenticazione Azure ad se il tenant utente è federato. Gli errori in questo test potrebbero causare errori di join nella fase di autenticazione. Se l'autenticazione non riesce, il join di sincronizzazione verrà tentato come fallback, a meno che il fallback non venga disabilitato esplicitamente con le impostazioni della chiave del registro di sistema seguenti
+```
+    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+    Value: FallbackToSyncJoin
+    Type:  REG_DWORD
+    Value: 0x0 -> Disabled
+    Value: 0x1 -> Enabled
+    Default (No Key): Enabled
+ ```
+- **Fallback per Sync-join:** -impostare su "Enabled" se la chiave del registro di sistema precedente, per impedire il fallback per sincronizzare il join con errori di autenticazione, non è presente. Questa opzione è disponibile in Windows 10 1803 e versioni successive.
 - **Registrazione precedente:** ora in cui si è verificato il tentativo di join precedente. Vengono registrati solo i tentativi di join non riusciti.
 - **Fase di errore:** -la fase del join in cui è stata interrotta. I valori possibili sono pre-check, Discovery, auth, join.
 - **ErrorCode client:** -codice di errore client restituito (HRESULT).

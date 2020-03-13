@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fb2da8acb0aa4d105f23ab5d1ad42f08a6ae722c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d9650db601426cef195c27e6eb874ec26cf13bb8
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595243"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137680"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creare e gestire uno snapshot BLOB in .NET
 
-Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Gli snapshot sono utili per il backup dei BLOB. Questo articolo illustra come creare e gestire snapshot BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage/client).
+Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Gli snapshot sono utili per il backup dei BLOB. Questo articolo illustra come creare e gestire snapshot BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-blob-snapshots"></a>Informazioni sugli snapshot BLOB
 

@@ -5,11 +5,11 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485132"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276738"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per gli sviluppatori di PowerShell per funzioni di Azure
 

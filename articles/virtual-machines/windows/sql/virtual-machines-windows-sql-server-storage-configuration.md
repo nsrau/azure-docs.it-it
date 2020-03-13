@@ -14,11 +14,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981743"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243198"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 
@@ -28,7 +28,7 @@ Questo argomento illustra come viene configurata l'archiviazione da Azure per le
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare le impostazioni di configurazione automatica dell'archiviazione, la macchina virtuale deve avere le caratteristiche seguenti:
 
@@ -123,10 +123,10 @@ Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://
 
 Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM di SQL.
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | --- | --- |
 | Dimensioni di striping |256 KB (data warehousing); 64 KB (transazionale) |
-| Dimensioni dei dischi |1 TB ciascuno |
+| Dimensione disco |1 TB ciascuno |
 | Cache |Lettura |
 | Dimensioni allocazione |Dimensioni delle unità di allocazione NTFS = 64 KB |
 | Ripristino | Recupero con registrazione minima (nessuna resilienza) |
@@ -140,9 +140,9 @@ Azure usa le impostazioni seguenti per creare il pool di archiviazione nelle VM 
 
 La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di lavoro e le ottimizzazioni corrispondenti:
 
-| Tipo di carico di lavoro | Description | Ottimizzazioni |
+| Tipo di carico di lavoro | Descrizione | Ottimizzazioni |
 | --- | --- | --- |
-| **Generale** |Impostazione predefinita che supporta la maggior parte dei carichi di lavoro |Nessuno |
+| **Generale** |Impostazione predefinita che supporta la maggior parte dei carichi di lavoro |nessuno |
 | **Elaborazione transazionale** |Ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali |Flag di traccia 1117<br/>Flag di traccia 1118 |
 | **Data warehousing** |Ottimizza l'archiviazione per i carichi di lavoro di analisi e creazione di report |Flag di traccia 610<br/>Flag di traccia 1117 |
 

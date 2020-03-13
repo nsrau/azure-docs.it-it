@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381476"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280534"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integrazione di Azure Active Directory per Azure Red Hat OpenShift
 
@@ -92,15 +92,20 @@ Per informazioni dettagliate sulla creazione di una nuova applicazione Azure AD,
 
 ## <a name="add-api-permissions"></a>Aggiungere autorizzazioni API
 
-1. Nella sezione **Gestisci** fare clic su **autorizzazioni API**.
-2. Fare clic su **Aggiungi autorizzazione** e selezionare **Azure Active Directory grafico** , quindi **autorizzazioni delegate**. 
-3. Espandere **utente** nell'elenco seguente e abilitare l'autorizzazione **User. Read** . Se **User. Read** è abilitato per impostazione predefinita, verificare che si tratta dell'autorizzazione **Azure Active Directory Graph** **utente. read**, *non* dell'autorizzazione **Microsoft Graph** **utente. Read**.
+[//]: # (Non modificare in Microsoft Graph. Non funziona con Microsoft Graph.)
+1. Nella sezione **Gestisci** fare clic su **autorizzazioni API**
+2. Fare clic su **Aggiungi autorizzazione** e selezionare **Azure Active Directory grafico** , quindi **autorizzazioni delegate**.
+> [!NOTE]
+> Assicurarsi di aver selezionato "Azure Active Directory Graph" e non il riquadro "Microsoft Graph".
+
+3. Espandere **utente** nell'elenco seguente e abilitare l'autorizzazione **User. Read** . Se **User. Read** è abilitato per impostazione predefinita, assicurarsi che sia il **Azure Active Directory** utente dell'autorizzazione Graph **. Read**.
 4. Scorrere verso l'alto e selezionare le **autorizzazioni dell'applicazione**.
-5. Espandere **directory** nell'elenco seguente e abilitare **Directory. ReadAll**
+5. Espandere **directory** nell'elenco seguente e abilitare **Directory. ReadAll**.
 6. Fare clic su **Aggiungi autorizzazioni** per accettare le modifiche.
 7. Il pannello autorizzazioni API dovrebbe ora visualizzare sia *User. Read* che *Directory. ReadAll*. Si noti la colonna avviso nella colonna **consenso dell'amministratore** accanto a *Directory. ReadAll*.
 8. Se si è l' *amministratore della sottoscrizione di Azure*, fare clic su **concedi il consenso dell'amministratore per il *nome della sottoscrizione***  . Se non si è l' *amministratore della sottoscrizione di Azure*, richiedere il consenso dell'amministratore.
-![screenshot del pannello autorizzazioni API. Sono state aggiunte le autorizzazioni User. Read e directory. ReadAll. il consenso dell'amministratore è necessario per directory. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+
+![Screenshot del pannello delle autorizzazioni dell'API. Sono state aggiunte le autorizzazioni User. Read e directory. ReadAll. il consenso dell'amministratore è necessario per directory. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
 > La sincronizzazione del gruppo Administrators del cluster funzionerà solo dopo che è stato concesso il consenso. Viene visualizzato un cerchio verde con un segno di spunta e un messaggio "concesso per *nome sottoscrizione*" nella colonna *autorizzazione amministratore richiesta* .

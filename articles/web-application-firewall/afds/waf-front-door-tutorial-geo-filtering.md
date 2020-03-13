@@ -5,15 +5,15 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: dd9c3f972a2b598c0c03db2cb80986c08900c609
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517124"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135871"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configurare un criterio WAF per il filtro geografico per la porta anteriore
 
@@ -21,7 +21,7 @@ Questa esercitazione mostra come usare Azure PowerShell per creare un criterio d
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare a configurare un criterio di filtro geografico, impostare l'ambiente di PowerShell e creare un profilo Frontdoor.
 ### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
@@ -113,4 +113,4 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sul [web application firewall di Azure](../overview.md).
-- Informazioni su [come creare una Frontdoor](../../frontdoor/quickstart-create-front-door.md).
+- Informazioni su come [creare una Frontdoor](../../frontdoor/quickstart-create-front-door.md).

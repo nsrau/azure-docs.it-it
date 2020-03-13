@@ -4,11 +4,11 @@ description: Inserire alcune righe di codice nell'app desktop o per dispositivi,
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362014"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276361"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 

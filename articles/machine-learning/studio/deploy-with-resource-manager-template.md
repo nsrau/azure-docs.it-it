@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: f05ef9472f11a5025e9856cfb207cc0859f24c3e
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 34333d4fe6e9b34a0c8b56cca8123f4ed93a917a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169359"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218111"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Distribuire un'area di lavoro Azure Machine Learning Studio (classica) con Azure Resource Manager
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 L'uso di un modello di distribuzione Azure Resource Manager consente di risparmiare tempo perché è possibile distribuire in modo scalabile i componenti interconnessi con un meccanismo di convalida e di ripetizione dei tentativi. Per configurare le aree di lavoro di Azure Machine Learning Studio (classica), ad esempio, è necessario innanzitutto configurare un account di archiviazione di Azure e quindi distribuire l'area di lavoro. Si immagini di doverlo fare manualmente per centinaia di aree di lavoro. Un'alternativa più semplice consiste nell'usare un modello di Azure Resource Manager per distribuire un'area di lavoro di studio (classica) e tutte le relative dipendenze. Questo articolo illustra il processo in dettaglio. Per una panoramica generale di Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
@@ -84,10 +86,10 @@ Salvare questo modello come file mlworkspace.json in c:\temp\.
 * Installare i moduli per Azure Resource Manager e Azure Service Management
 
 ```powershell
-# Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
+# Install the Azure Resource Manager modules from the PowerShell Gallery (press "A")
 Install-Module Az -Scope CurrentUser
 
-# Install the Azure Service Management modules from the PowerShell Gallery (press “A”)
+# Install the Azure Service Management modules from the PowerShell Gallery (press "A")
 Install-Module Azure -Scope CurrentUser
 ```
 
@@ -112,7 +114,7 @@ $rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central
 $rg
 ```
 
-Verificare che il provisioning del gruppo di risorse venga effettuato correttamente. **ProvisioningState** deve essere "Succeeded".
+Verificare che il provisioning del gruppo di risorse venga effettuato correttamente. **ProvisioningState** deve essere "succeeded".
 Il nome del gruppo di risorse viene usato dal modello per generare il nome dell'account di archiviazione. Il nome dell'account di archiviazione deve essere di lunghezza compresa tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.
 
 ![Gruppo di risorse](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)

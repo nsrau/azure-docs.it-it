@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: c006aa8c46864b78ae46aa9c351605cca1d1e425
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388575"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277570"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Trigger Azure Cosmos DB per funzioni di Azure 2. x
 
@@ -236,11 +236,12 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Facoltativo) Se impostato, definisce, in millisecondi, l'intervallo di rinnovo per tutti i lease per le partizioni attualmente occupate da un'istanza. Il valore predefinito è 17000 (17 secondi).
 |**checkpointFrequency**| **CheckpointFrequency**| (Facoltativo) Se impostato, definisce, in millisecondi, l'intervallo tra i checkpoint dei lease. Il valore predefinito è sempre dopo ogni chiamata di funzione.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| Opzionale Se impostata, questa proprietà imposta il numero massimo di elementi ricevuti per ogni chiamata di funzione. Se le operazioni nella raccolta monitorata vengono eseguite tramite stored procedure, l' [ambito della transazione](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) viene mantenuto durante la lettura di elementi dal feed delle modifiche. Di conseguenza, il numero di elementi ricevuti potrebbe essere superiore al valore specificato, in modo che gli elementi modificati dalla stessa transazione vengano restituiti come parte di un batch atomico.
-|**startFromBeginning**| **StartFromBeginning**| Opzionale Questa opzione indica al trigger di leggere le modifiche dall'inizio della cronologia delle modifiche della raccolta anziché partire dall'ora corrente. La lettura dall'inizio funziona solo la prima volta che il trigger viene avviato, come nelle esecuzioni successive, i checkpoint sono già archiviati. L'impostazione di questa opzione su `true` quando sono già stati creati lease non ha alcun effetto.
+|**startFromBeginning**| **StartFromBeginning**| Opzionale Questa opzione indica al trigger di leggere le modifiche dall'inizio della cronologia delle modifiche della raccolta anziché partire dall'ora corrente. La lettura dall'inizio funziona solo la prima volta che il trigger viene avviato, come nelle esecuzioni successive, i checkpoint sono già archiviati. L'impostazione di questa opzione su `true` quando sono già stati creati lease non ha alcun effetto. |
+|**preferredLocations**| **PreferredLocations**| Opzionale Definisce le posizioni preferite (aree) per gli account di database con replica geografica nel servizio Azure Cosmos DB. I valori devono essere separati da virgole. Ad esempio, "Stati Uniti orientali, Stati Uniti centro-meridionali, Europa settentrionale". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 Il trigger richiede una seconda raccolta usata per archiviare i _lease_ nelle partizioni. Sia la raccolta monitorata che la raccolta che contiene i lease deve essere disponibile affinché il trigger funzioni.
 

@@ -5,15 +5,15 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: eb91dfd5d774e591d3c3c3964668dcc626086181
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c49892f97d9c15efcaecccb6133c67133e81c87
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512574"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137561"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Cos'è il filtro geografico in un dominio per il servizio Frontdoor di Azure?
 
@@ -21,7 +21,7 @@ Per impostazione predefinita, il servizio Frontdoor di Azure risponde alle richi
 
 I criteri WAF includono in genere un set di regole personalizzate. Una regola è costituita da condizioni di corrispondenza, un'azione e una priorità. Nella condizione di corrispondenza si definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza.  Per la regola di filtro geografico, la variabile di corrispondenza è REMOTE_ADDR, l'operatore è GeoMatch e il valore è il codice di due lettere del paese che interessa. È possibile combinare una condizione GeoMatch e una condizione di corrispondenza stringa REQUEST_URI per creare una regola di filtro geografico basato sul percorso.
 
-È possibile configurare criteri di filtro geografico per il proprio Frontdoor usando [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) oppure il nostro [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+È possibile configurare un criterio di filtro geografico per la porta anteriore usando il portale di Azure, [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) o il [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="country-code-reference"></a>Riferimento per gli indicativi dei paesi
 
@@ -35,7 +35,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | AM | Armenia|
 | AO | Angola|
 | AR | Argentina|
-| AS | Samoa americane|
+| AS | Isole Samoa americane|
 | AT | Austria|
 | AU | Australia|
 | AZ | Azerbaigian|
@@ -169,7 +169,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | RO | Romania|
 | RS | Serbia|
 | RU | Federazione russa|
-| RW | Ruanda|
+| LS | Ruanda|
 | SA | Arabia Saudita|
 | SD | Sudan|
 | SE | Svezia|
@@ -208,4 +208,4 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulla [sicurezza del livello dell'applicazione con Frontdoor](../../frontdoor/front-door-application-security.md).
-- Informazioni su [come creare una Frontdoor](../../frontdoor/quickstart-create-front-door.md).
+- Informazioni su come [creare una Frontdoor](../../frontdoor/quickstart-create-front-door.md).

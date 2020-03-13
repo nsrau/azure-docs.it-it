@@ -12,14 +12,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468168"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217765"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Machine Learning Studio (classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
 I codici di errore seguenti possono essere restituiti da un'operazione in un servizio Web Azure Machine Learning Studio (classico).
  
@@ -27,7 +29,7 @@ I codici di errore seguenti possono essere restituiti da un'operazione in un ser
  
 È stato specificato un argomento non valido.
  
-Questa classe di errori indica che un argomento specificato nel codice non è valido. Potrebbe trattarsi di una credenziale o della località di una risorsa di archiviazione di Azure oppure un elemento passato al servizio Web. Esaminare il campo "code" dell'errore nella sezione "details" per la individuare l'argomento specifico non valido.
+Questa classe di errori indica che un argomento specificato nel codice non è valido. Potrebbe trattarsi di una credenziale o della località di una risorsa di archiviazione di Azure oppure un elemento passato al servizio Web. Esaminare il campo "codice" dell'errore nella sezione "dettagli" per diagnosticare quale argomento specifico non è valido.
  
 | Codice di errore | Messaggio utente |
 | ---------- |--------------|
@@ -209,7 +211,7 @@ Si è verificato un errore interno durante l'esecuzione.
  
 ## <a name="internalerrorsystemlowonmemory-http-status-code-500"></a>InternalErrorSystemLowOnMemory (codice di stato HTTP 500)
  
-Si è verificato un errore interno durante l'esecuzione. La memoria del sistema è insufficiente. Riprova più tardi.
+Si è verificato un errore interno durante l'esecuzione. La memoria del sistema è insufficiente. Riprovare.
  
  
 ## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError (codice di stato HTTP 500)

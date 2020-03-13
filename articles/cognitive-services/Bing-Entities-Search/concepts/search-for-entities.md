@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883698"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220314"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Ricerca di entità con l'API Ricerca entità Bing
 
@@ -296,7 +296,7 @@ Di seguito è riportato un esempio che include una regola `LicenseAttribution`.
 
 ![Attribuzione di licenze](../media/cognitive-services-bing-entities-api/licenseattribution.png)
 
-L'avviso di licenza visualizzato deve includere un collegamento ipertestuale al sito Web che contiene informazioni sulla licenza. In genere l'utente rende il nome della licenza un collegamento ipertestuale. Ad esempio, se l'avviso è **Text under CC-BY-SA license** (Testo nella licenza CC-BY-SA) è il nome della licenza, CC-BY-SA viene reso un collegamento ipertestuale.
+L'avviso di licenza visualizzato deve includere un collegamento ipertestuale al sito Web che contiene informazioni sulla licenza. In genere l'utente rende il nome della licenza un collegamento ipertestuale. Ad esempio, se l'avviso è **Text under CC-BY-SA license** (Testo nella licenza CC-BY-SA) e CC-BY-SA è il nome della licenza, rendere CC-BY-SA come collegamento ipertestuale.
 
 ### <a name="link-and-text-attribution"></a>Attribuzione di collegamento e testo
 

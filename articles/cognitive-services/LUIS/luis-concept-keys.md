@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969347"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220963"
 ---
 # <a name="authoring-and-runtime-keys"></a>Chiavi di creazione e runtime
 
@@ -44,7 +44,7 @@ Quando si avvia per la prima volta l'uso di LUIS, viene creata automaticamente u
 
 LUIS consente tre tipi di risorse di Azure: 
  
-|Chiave|Finalità|`kind` di servizi cognitivi|`type` di servizi cognitivi|
+|Chiave|Scopo|`kind` di servizi cognitivi|`type` di servizi cognitivi|
 |--|--|--|--|
 |[Chiave di creazione](#programmatic-key)|Accesso e gestione dei dati dell'applicazione con la creazione, il training, la pubblicazione e il test. Creare una chiave LUIS authoring se si prevede di creare a livello di codice le app LUIS.<br><br>Lo scopo della chiave `LUIS.Authoring` è consentire di:<br>* gestione a livello di codice di app e modelli di Language Understanding, tra cui formazione e pubblicazione<br> * controllare le autorizzazioni per la risorsa di creazione assegnando gli utenti al [ruolo Collaboratore](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
 |[Chiave di stima](#prediction-endpoint-runtime-key)| Richieste endpoint di stima query. Creare una chiave di stima LUIS prima che l'app client richieda stime oltre le richieste 1.000 fornite dalla risorsa iniziale. |`LUIS`|`Cognitive Services`|
@@ -125,7 +125,7 @@ Il proprietario e tutti i collaboratori possono accedere per creare l'app.
 |Modificare il modello|
 |Pubblica|
 |Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md)|
-|Fai il training|
+|Eseguire il training|
 
 <a name="prediction-endpoint-runtime-key"></a>
 

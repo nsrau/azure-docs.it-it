@@ -4,11 +4,11 @@ description: Documentazione di riferimento per il file host.json di Funzioni di 
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 2b00e2343e0959e07b195e2e98c6719a1893b8c8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769609"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277050"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 
@@ -136,11 +136,11 @@ Impostazioni di configurazione per il [trigger e le associazioni Azure Cosmos DB
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |GatewayMode|Gateway|La modalità di connessione usata dalla funzione durante la connessione al servizio di Azure Cosmos DB. Le opzioni sono `Direct` e `Gateway`|
 |Protocollo|Https|Il protocollo di connessione usato dalla funzione durante la connessione al servizio di Azure Cosmos DB.  Leggere [qui per una spiegazione di entrambe le modalità](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|N/D|Prefisso di lease da usare in tutte le funzioni in un'app.|
+|leasePrefix|n/d|Prefisso di lease da usare in tutte le funzioni in un'app.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -188,7 +188,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |Enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
@@ -211,7 +211,7 @@ Impostazione di configurazione per i [trigger e le associazioni http](functions-
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|Quando è abilitata, questa impostazione determina la pipeline di elaborazione della richiesta per il controllo periodico delle prestazioni dei contatori del sistema, ad esempio connessioni/thread/processi/memoria/CPU e così via. Se uno di questi contatori supera una soglia massima predefinita (80%), le richieste verranno rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.|
 |maxConcurrentRequests|non vincolato (`-1`)|Numero massimo di funzioni HTTP che verranno eseguite in parallelo. Ciò consente di controllare la concorrenza e pertanto di semplificare la gestione dell'uso delle risorse. Ad esempio, si potrebbe avere una funzione HTTP che usa numerose risorse di sistema (memoria/CPU/socket) in modo che causi problemi quando la concorrenza è troppo elevata. Oppure potrebbe essere presente una funzione che invia richieste a un servizio di terze parti e tali chiamate devono essere a frequenza limitata. In questi casi potrebbe risultare utile l'applicazione di una limitazione.|
@@ -249,11 +249,11 @@ Controlla le operazioni di filtro per i log scritti da un [oggetto ILogger](func
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
-|categoryFilter|N/D|Specifica il filtro per categoria| 
+|categoryFilter|n/d|Specifica il filtro per categoria| 
 |defaultLevel|Informazioni|Per tutte le categorie non è state specificate nella matrice `categoryLevels`, inviare i log a questo livello e oltre per Application Insights.| 
-|categoryLevels|N/D|Una matrice di categorie che specifica il livello di log minimo per l'invio ad Application Insights per ogni categoria. La categoria specificata qui controlla tutte le categorie che iniziano con lo stesso valore, e i valori più lunghi hanno la precedenza. Nel file di esempio precedente *host.json*, tutte le categorie che iniziano "Host.Aggregator" eseguono il log al livello `Information`. Tutte le altre categorie che iniziano con "Host", ad esempio "Host.Executor", eseguono il log al livello `Error`.| 
+|categoryLevels|n/d|Una matrice di categorie che specifica il livello di log minimo per l'invio ad Application Insights per ogni categoria. La categoria specificata qui controlla tutte le categorie che iniziano con lo stesso valore, e i valori più lunghi hanno la precedenza. Nel file di esempio precedente *host.json*, tutte le categorie che iniziano "Host.Aggregator" eseguono il log al livello `Information`. Tutte le altre categorie che iniziano con "Host", ad esempio "Host.Executor", eseguono il log al livello `Error`.| 
 
 ## <a name="queues"></a>queues
 
@@ -271,7 +271,7 @@ Impostazione di configurazione per i [trigger e le associazioni per code di arch
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |maxPollingInterval|60000|L'intervallo massimo, in millisecondi, tra i polling di coda.| 
 |visibilityTimeout|0|L'intervallo di tempo tra i tentativi se l'elaborazione di un messaggio ha esito negativo.| 
@@ -290,9 +290,9 @@ Impostazione di configurazione per l' [associazione di output SendGrind](functio
     }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
-|da|N/D|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
+|da|n/d|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -308,10 +308,10 @@ Impostazione di configurazione per i [trigger e le associazioni dei bus di servi
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. | 
-|prefetchCount|N/D|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
+|prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
 |autoRenewTimeout|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.| 
 
 ## <a name="singleton"></a>singleton
@@ -330,13 +330,13 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Il periodo per cui vengono eseguiti blocchi a livello di funzione. I blocchi si rinnovano automaticamente.| 
 |listenerLockPeriod|00:01:00|Il periodo per cui vengono acquisiti blocchi di listener.| 
 |listenerLockRecoveryPollingInterval|00:01:00|L'intervallo di tempo utilizzato per il ripristino di blocco listener se non è stato possibile acquisire un blocco di listener all'avvio.| 
 |lockAcquisitionTimeout|00:01:00|La quantità massima di tempo per cui il runtime tenterà di acquisire un blocco.| 
-|lockAcquisitionPollingInterval|N/D|L'intervallo tra i tentativi di acquisizione di un blocco.| 
+|lockAcquisitionPollingInterval|n/d|L'intervallo tra i tentativi di acquisizione di un blocco.| 
 
 ## <a name="tracing"></a>tracing
 
@@ -353,7 +353,7 @@ Le impostazioni di configurazione per i log creati usando un oggetto `TraceWrite
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |consoleLevel|info|Il livello di traccia per la registrazione della console. Le opzioni sono: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|Il livello di traccia per la registrazione di file. Le opzioni sono `never`, `always`, `debugOnly`.| 

@@ -7,11 +7,11 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368961"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277726"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Trigger di griglia di eventi di Azure per funzioni di Azure
 
@@ -21,7 +21,7 @@ Per informazioni sui dettagli di configurazione e configurazione, vedere la [Pan
 
 ## <a name="example"></a>Esempio
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Per un esempio di trigger HTTP, vedere [ricevere eventi in un endpoint HTTP](../event-grid/receive-events.md).
 
@@ -76,7 +76,7 @@ namespace Company.Function
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione.
 
@@ -128,7 +128,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di trigger in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione.
 
@@ -159,7 +159,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione.
 
@@ -200,7 +200,7 @@ def main(event: func.EventGridEvent):
     logging.info('Python EventGrid trigger processed an event: %s', result)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -269,7 +269,7 @@ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs).
 
@@ -285,19 +285,19 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 Per un esempio completo, vedere l'esempio in C#.
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Gli attributi non sono supportati C# dallo script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Gli attributi non sono supportati da Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L'annotazione [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) consente di configurare in modo dichiarativo un'associazione di griglia di eventi fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#example) e di [configurazione](#configuration) .
 
@@ -315,7 +315,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="usage"></a>Uso
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 In funzioni di Azure 1. x, è possibile usare i tipi di parametro seguenti per il trigger griglia di eventi:
 
@@ -329,7 +329,7 @@ In funzioni di Azure 2. x e versioni successive è anche possibile usare il tipo
 > [!NOTE]
 > In Funzioni v1, se si prova a eseguire l'associazione a `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, il compilatore mostrerà un messaggio che segnala che il parametro è deprecato e suggerisce di usare `Microsoft.Azure.EventGrid.Models.EventGridEvent`. Per usare il tipo più recente, fare riferimento al pacchetto NuGet [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) e specificare il nome completo del tipo `EventGridEvent` anteponendo il prefisso `Microsoft.Azure.EventGrid.Models`.
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 In funzioni di Azure 1. x, è possibile usare i tipi di parametro seguenti per il trigger griglia di eventi:
 
@@ -343,15 +343,15 @@ In funzioni di Azure 2. x e versioni successive è anche possibile usare il tipo
 > [!NOTE]
 > In Funzioni v1, se si prova a eseguire l'associazione a `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, il compilatore mostrerà un messaggio che segnala che il parametro è deprecato e suggerisce di usare `Microsoft.Azure.EventGrid.Models.EventGridEvent`. Per usare il tipo più recente, fare riferimento al pacchetto NuGet [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) e specificare il nome completo del tipo `EventGridEvent` anteponendo il prefisso `Microsoft.Azure.EventGrid.Models`. Per informazioni su come fare riferimento a pacchetti NuGet in una funzione script C#, vedere [Uso dei pacchetti NuGet](functions-reference-csharp.md#using-nuget-packages)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'istanza di griglia di eventi è disponibile tramite il parametro configurato nella proprietà `name` del file *Function. JSON* .
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L'istanza di griglia di eventi è disponibile tramite il parametro configurato nella proprietà `name` del file *Function. JSON* , tipizzata come `func.EventGridEvent`.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L'istanza dell'evento di griglia di eventi è disponibile tramite il parametro associato all'attributo `EventGridTrigger`, tipizzato come `EventSchema`. Per altri dettagli, vedere l' [esempio](#example) .
 

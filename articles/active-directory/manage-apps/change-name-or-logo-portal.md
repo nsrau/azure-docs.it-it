@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3dfe0f8788275dd4403b6c9cad99a8eb09e479b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d23849df75d1ab239eb269b462abb21df196e7e5
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274726"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138502"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Modificare il nome o il logo di un'applicazione aziendale in Azure Active Directory
 
@@ -42,7 +42,7 @@ Modificare il nome o il logo per un'applicazione aziendale personalizzata in Azu
 7. In selezione file selezionare il file desiderato come nuovo logo. Il nome del file viene visualizzato nella casella sotto l'immagine del logo corrente.
 
    > [!NOTE]
-   > Azure richiede che l'immagine del logo sia un file PNG e applica limiti a larghezza, altezza e dimensioni del file.
+   > Azure richiede che l'immagine del logo sia un file PNG e applica limiti a larghezza, altezza e dimensioni del file. Il logo personalizzato deve avere una dimensione esatta di 215 &times; 215 pixel e in formato PNG. Si consiglia di usare uno sfondo a tinta unita senza trasparenza nel logo dell'applicazione per apparire più adatto agli utenti.
 8. Selezionare **Salva**. Se si sceglie un nuovo logo, l'immagine del campo del **logo** viene modificata per riflettere il nuovo file del logo.
 
 ## <a name="next-steps"></a>Passaggi successivi

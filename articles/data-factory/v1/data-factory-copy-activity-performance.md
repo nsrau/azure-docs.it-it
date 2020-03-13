@@ -13,11 +13,11 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438931"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281938"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
@@ -205,12 +205,12 @@ Attualmente non è possibile copiare dati tra due archivi dati locali usando un 
 ### <a name="configuration"></a>Configurazione
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se i dati devono essere inseriti in un archivio BLOB di Azure di staging prima del caricamento in un archivio dati di destinazione. Se si imposta **enableStaging** su TRUE, specificare le proprietà aggiuntive elencate nella tabella seguente. Se non è già disponibile, è necessario creare un servizio collegato alla firma di accesso condiviso di archiviazione o di Archiviazione di Azure per lo staging.
 
-| Proprietà | Description | Valore predefinito | Obbligatorio |
+| Proprietà | Descrizione | Valore predefinito | Obbligatoria |
 | --- | --- | --- | --- |
-| **enableStaging** |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |Falso |No |
+| **enableStaging** |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
 | **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
 | **path** |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore in cui archiviare i dati temporanei. <br/><br/> Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
-| **enableCompression** |Specifica se è necessario comprimere i dati prima di copiarli nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |Falso |No |
+| **enableCompression** |Specifica se è necessario comprimere i dati prima di copiarli nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No |
 
 Di seguito è riportata una definizione di esempio di attività di copia con le proprietà descritte nella tabella precedente:
 
@@ -277,7 +277,7 @@ Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copi
 **Monitoraggio e scalabilità verticale/orizzontale del gateway**: un singolo gateway logico con uno o più nodi del gateway può consentire più esecuzioni di attività di copia contemporaneamente. È possibile visualizzare lo snapshot quasi in tempo quasi reale dell'utilizzo delle risorse, ad esempio CPU, memoria, rete (ingresso/uscita) e così via, in un computer gateway oltre che il numero di processi simultanei in esecuzione rispetto ai limiti nel portale di Azure. Vedere [Monitorare il gateway nel portale](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Se si hanno necessità complesse di spostamento di dati ibridi, con un numero elevato di esecuzioni di attività di copia simultanee o con un volume elevato di dati da copiare, prendere in considerazione la possibilità di [aumentare le prestazioni o sfruttare la scalabilità orizzontale del gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) in modo da utilizzare al meglio la risorsa o effettuare il provisioning di più risorse a supporto della copia.
 
 ## <a name="considerations-for-the-source"></a>Considerazioni sull'origine
-### <a name="general"></a>Informazioni di carattere generale
+### <a name="general"></a>Generale
 Assicurarsi che l'archivio dati sottostante non sia sovraccarico a causa di altri carichi di lavoro in esecuzione in o su di esso.
 
 Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottimizzazione](#performance-reference) specifici degli archivi dati, per comprendere meglio le caratteristiche delle prestazioni degli archivi dati e come ridurre al minimo i tempi di risposta e ottimizzare la velocità effettiva.
@@ -299,7 +299,7 @@ Se si copiano dati da un archivio BLOB a SQL Data Warehouse, valutare l'uso di *
 * Per i **database relazionali locali** come SQL Server e Oracle, in cui è necessario usare **Gateway di gestione dati**, vedere la sezione Considerazioni su Gateway di gestione dati.
 
 ## <a name="considerations-for-the-sink"></a>Considerazioni sul sink
-### <a name="general"></a>Informazioni di carattere generale
+### <a name="general"></a>Generale
 Assicurarsi che l'archivio dati sottostante non sia sovraccarico a causa di altri carichi di lavoro in esecuzione in o su di esso.
 
 Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottimizzazione](#performance-reference) specifici per gli archivi dati, per comprendere meglio le caratteristiche delle prestazioni degli archivi dati e come ridurre al minimo i tempi di risposta e ottimizzare la velocità effettiva.
@@ -413,7 +413,7 @@ In tal caso, la compressione dati bzip2 potrebbe rallentare l'intera pipeline. I
 
 ![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>Riferimento
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:
 
 * Archiviazione BLOB di Azure: [obiettivi di scalabilità e prestazioni per](../../storage/blobs/scalability-targets.md) l'archiviazione BLOB e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB](../../storage/blobs/storage-performance-checklist.md).

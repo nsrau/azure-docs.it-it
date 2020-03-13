@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eab332f102b9e39981e2d8ed6e84f73fada87a1a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981677"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282133"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -30,7 +30,7 @@ ms.locfileid: "75981677"
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare i dati da e in Archiviazione BLOB di Azure. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 È possibile copiare i dati da qualsiasi archivio dati di origine supportato all'archivio BLOB di Azure o dall'archivio BLOB di Azure a qualsiasi archivio dati sink supportato. La tabella seguente contiene un elenco degli archivi dati supportati come origini o sink dall'attività di copia. È ad esempio possibile spostare dati **da** un database di SQL Server o un database SQL di Azure **a** una risorsa di archiviazione BLOB di Azure. È anche possibile copiare dati **da** Archiviazione BLOB di Azure **a** un'istanza di Azure SQL Data Warehouse o una raccolta Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -49,7 +49,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 >
 > L'attività di copia non elimina i dati dall'origine dopo che i dati sono stati correttamente copiati nella destinazione. Se è necessario eliminare i dati di origine dopo una copia con esito positivo, creare un'[attività personalizzata](data-factory-use-custom-activities.md) per eliminare i dati e usare l'attività nella pipeline. Per un esempio, vedere l'[esempio di eliminazione di BLOB o cartella in GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un archivio BLOB di Azure usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Questo articolo include una [procedura dettagliata](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage)per la creazione di una pipeline per copiare dati da un percorso di un archivio BLOB di Azure al percorso di un altro archivio BLOB di Azure. Per un'esercitazione sulla creazione di una pipeline per copiare dati da un archivio BLOB di Azure a un database SQL di Azure, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
@@ -81,7 +81,7 @@ Data Factory supporta i valori di tipo basati su .NET conformi a CLS per specifi
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureBlob** presenta le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |Sì |
 | fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: `Data.<Guid>.txt` (ad esempio: data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt |No |
@@ -127,13 +127,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 **BlobSource** supporta le seguenti proprietà della sezione **typeProperties**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No |
 
 **BlobSink** supporta le proprietà della sezione **typeProperties** seguenti:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |<b>PreserveHierarchy:</b> mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente. <br/><br/><b>MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
 
@@ -173,7 +173,7 @@ In questa sezione viene descritto il comportamento derivante dell'operazione di 
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Procedura dettagliata: Usare la copia guidata per copiare i dati in/da una risorsa di archiviazione BLOB
 Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di Azure. In questa procedura dettagliata gli archivi dati sia di origine che di destinazione sono di tipo archivio BLOB di Azure. La pipeline in questa procedura dettagliata copia i dati da una cartella a un'altra cartella nello stesso contenitore BLOB. Questa procedura dettagliata è volutamente semplice perché illustra le impostazioni o le proprietà quando si usa l'archivio BLOB come origine o come sink.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 1. Creare un **account di archiviazione di Azure** per utilizzo generico, se necessario. In questa procedura dettagliata si usa l'archivio BLOB come archivio dati sia di **origine** che di **destinazione**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../../storage/common/storage-account-create.md) per informazioni su come crearne uno.
 2. Creare un contenitore BLOB denominato **adfblobconnector** nell'account di archiviazione.
 4. Creare una cartella denominata **input** nel contenitore **adfblobconnector**.

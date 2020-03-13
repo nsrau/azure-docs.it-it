@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 0cdff3ac6eb2faed0c0b6b8796fdb3b6b0411018
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202086"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277362"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Trigger di archiviazione BLOB di Azure per funzioni di Azure
 
@@ -40,7 +40,7 @@ Un altro approccio all'elaborazione dei BLOB consiste nello scrivere messaggi de
 
 ## <a name="example"></a>Esempio
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `samples-workitems`.
 
@@ -56,7 +56,7 @@ La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` 
 
 Per ulteriori informazioni sull'attributo `BlobTrigger`, vedere [attributi e annotazioni](#attributes-and-annotations).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 L'esempio seguente illustra un'associazione di trigger di BLOB in un file *Function. JSON* e il codice che usa l'associazione. La funzione scrive un log quando un BLOB viene aggiunto o aggiornato nel [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)`samples-workitems`.
 
@@ -103,7 +103,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `samples-workitems`.
 
@@ -137,7 +137,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice Python](functions-reference-python.md) che usa l'associazione. La funzione scrive un log quando un BLOB viene aggiunto o aggiornato nel [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)`samples-workitems`.
 
@@ -174,7 +174,7 @@ def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Questa funzione scrive un log quando un BLOB viene aggiunto o aggiornato nel contenitore `myblob`.
 
@@ -196,7 +196,7 @@ public void run(
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi](functions-dotnet-class-library.md) usare i seguenti attributi per configurare un trigger di BLOB:
 
@@ -252,19 +252,19 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 * L'attributo `StorageAccount` applicato alla classe.
 * L'account di archiviazione predefinito per l'app per le funzioni (impostazione dell'app "AzureWebJobsStorage").
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Gli attributi non sono supportati C# dallo script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Gli attributi non sono supportati da Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L'attributo `@BlobTrigger` viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
 
@@ -286,23 +286,23 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="usage"></a>Uso
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Accedere ai dati BLOB usando `context.bindings.<NAME>` dove `<NAME>` corrisponde al valore definito in *Function. JSON*.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Accedere ai dati BLOB tramite il parametro tipizzato come [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L'attributo `@BlobTrigger` viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
 
@@ -352,15 +352,15 @@ Se il BLOB è denominato *{20140101}-soundfile.mp3*, il valore della variabile `
 
 ## <a name="metadata"></a>Metadati
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -369,11 +369,11 @@ module.exports = function (context, myBlob) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 I metadati non sono disponibili in Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 I metadati non sono disponibili in Java.
 

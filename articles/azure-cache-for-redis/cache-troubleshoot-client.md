@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523340"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277947"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Risolvere i problemi relativi al lato client di cache di Azure per Redis
 

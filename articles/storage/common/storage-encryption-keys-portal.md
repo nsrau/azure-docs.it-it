@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f592872e67ff8559060706ddb3b1e45839b6acaf
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 5f091341bee65d17b42e289bab1192142d095637
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665459"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136126"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente con Azure Key Vault usando il portale di Azure
 
@@ -94,7 +94,7 @@ Per modificare la chiave usata per la crittografia di archiviazione di Azure, se
 
 ## <a name="disable-customer-managed-keys"></a>Disabilitare le chiavi gestite dal cliente
 
-Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene quindi crittografato con le chiavi gestite da Microsoft. Per disabilitare le chiavi gestite dal cliente, attenersi alla seguente procedura:
+Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene nuovamente crittografato con le chiavi gestite da Microsoft. Per disabilitare le chiavi gestite dal cliente, attenersi alla seguente procedura:
 
 1. Passare all'account di archiviazione e visualizzare le impostazioni di **crittografia** .
 1. Deselezionare la casella di controllo accanto all'impostazione **Usa una chiave personalizzata** .

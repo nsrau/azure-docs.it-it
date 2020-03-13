@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6342e6a75c8397712e028874b4d727bf3d6f5ff4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 98326d23f5aca1264bc47168cc25b427c3db331d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087115"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135956"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gestire in modo sicuro l'ambiente Python in Azure HDInsight con azione script
 
@@ -22,7 +22,7 @@ ms.locfileid: "77087115"
 
 HDInsight include due installazioni di Python predefinite nel cluster Spark, Anaconda Python 2,7 e Python 3,5. In alcuni casi, i clienti devono personalizzare l'ambiente Python, ad esempio l'installazione di pacchetti Python esterni o un'altra versione di Python. Questo articolo illustra la procedura consigliata per gestire in modo sicuro gli ambienti Python per un cluster [Apache Spark](https://spark.apache.org/) in HDInsight.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -51,7 +51,7 @@ Il cluster HDInsight Spark viene creato con l'installazione di Anaconda. Nel clu
 
 | |Python 2.7|Python 3.5|
 |----|----|----|
-|Percorso|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
+|Path|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark|Impostazione predefinita su 2,7|N/D|
 |Livy|Impostazione predefinita su 2,7|N/D|
 |Jupyter|Kernel PySpark|Kernel PySpark3|
@@ -74,12 +74,38 @@ Il cluster HDInsight dipende dall'ambiente Python incorporato, sia Python 2,7 ch
 
     Per un elenco completo dei pacchetti disponibili, è possibile eseguire una ricerca nell'[indice di pacchetto](https://pypi.python.org/pypi). È anche possibile ottenere un elenco dei pacchetti disponibili da altre origini. Per esempio, è possibile installare pacchetti resi disponibili tramite [conda-forge](https://conda-forge.org/feedstocks/).
 
-    -   `seaborn` è il nome del pacchetto che si desidera installare.
-    -   `-n py35new` specificare il nome dell'ambiente virtuale che viene appena creato. Assicurarsi di modificare il nome corrispondente in base alla creazione dell'ambiente virtuale.
+    Usare il comando seguente se si vuole installare una libreria con la versione più recente:
+    
+    - Usa canale conda:
 
-    ```bash
-    sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
-    ```
+        -   `seaborn` è il nome del pacchetto che si desidera installare.
+        -   `-n py35new` specificare il nome dell'ambiente virtuale che viene appena creato. Assicurarsi di modificare il nome corrispondente in base alla creazione dell'ambiente virtuale.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
+        ```
+
+    - In alternativa, usare il repository PyPi, modificare `seaborn` e `py35new` corrispondente:
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        ```        
+
+    Usare il comando seguente se si vuole installare una libreria con una versione specifica:
+
+    - Usa canale conda:
+
+        -   `numpy=1.16.1` corrisponde al nome e alla versione del pacchetto che si desidera installare.
+        -   `-n py35new` specificare il nome dell'ambiente virtuale che viene appena creato. Assicurarsi di modificare il nome corrispondente in base alla creazione dell'ambiente virtuale.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
+        ```
+
+    - In alternativa, usare il repository PyPi, modificare `numpy==1.16.1` e `py35new` corrispondente:
+
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        ```
 
     Se non si conosce il nome dell'ambiente virtuale, è possibile connettersi tramite SSH al nodo head del cluster ed eseguire `/usr/bin/anaconda/bin/conda info -e` per mostrare tutti gli ambienti virtuali.
 

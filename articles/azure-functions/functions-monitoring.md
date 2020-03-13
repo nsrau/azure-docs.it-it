@@ -5,11 +5,11 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292927"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276868"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -92,7 +92,7 @@ Per informazioni su come usare Application Insights, vedere la [documentazione s
 
 Le aree di Application Insights seguenti possono essere utili quando si valutano il comportamento, le prestazioni e gli errori nelle funzioni:
 
-| Scheda | Description |
+| Scheda | Descrizione |
 | ---- | ----------- |
 | **[Fallimenti](../azure-monitor/app/asp-net-exceptions.md)** |  Creare grafici e avvisi in base agli errori di funzione e alle eccezioni del server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori nelle dipendenze non vengono visualizzati, a meno che non si implementino i dati di telemetria personalizzati |
 | **[Prestazioni](../azure-monitor/app/performance-counters.md)** | Analizzare i problemi di prestazioni. |
@@ -119,9 +119,9 @@ requests
 
 Le tabelle disponibili vengono visualizzate nella scheda **schema** a sinistra. Nelle tabelle seguenti è possibile trovare i dati generati dalle chiamate alla funzione:
 
-| Tabella | Description |
+| Tabella | Descrizione |
 | ----- | ----------- |
-| **traces** | Log creati dal runtime e dal codice della funzione. |
+| **tracce** | Log creati dal runtime e dal codice della funzione. |
 | **requests** | Una richiesta per ogni chiamata di funzione. |
 | **exceptions** | Tutte le eccezioni generate dal runtime. |
 | **customMetrics** | Numero di chiamate con esito positivo e negativo, frequenza di esito positivo e durata. |
@@ -163,7 +163,7 @@ Il logger di funzioni di Azure include anche un *livello di registrazione* con o
 |Avviso     | 3 |
 |Errore       | 4 |
 |Critico    | 5 |
-|Nessuno        | 6 |
+|nessuno        | 6 |
 
 Il livello di registrazione `None` è illustrato nella sezione successiva. 
 
@@ -337,7 +337,7 @@ Application Insights dispone di una funzionalità di [campionamento](../azure-mo
 
 Usare il parametro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) nelle funzioni anziché il parametro `TraceWriter`. I log creati usando `TraceWriter` passano a Application Insights, ma `ILogger` consente di eseguire la [registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Con un oggetto `ILogger` è possibile chiamare i [metodi di estensione su ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) `Log<level>` per creare i log. Il codice seguente scrive `Information` logs con la categoria "function. < YOUR_FUNCTION_NAME >. Utente ".
+Con un oggetto `ILogger`, viene chiamato `Log<level>` [metodi di estensione in ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) per creare i log. Il codice seguente scrive `Information` logs con la categoria "function. < YOUR_FUNCTION_NAME >. Utente ".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)

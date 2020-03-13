@@ -5,11 +5,11 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: cc1e100a0c2e652ab081869409fd24dbf88017a3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230891"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277024"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
 
@@ -63,7 +63,7 @@ Per configurare la distribuzione continua per un'app per le funzioni esistente, 
 
 6. Esaminare tutti i dettagli e quindi fare clic su **fine** per completare la configurazione della distribuzione.
 
-    ![summary](./media/functions-continuous-deployment/summary.png)
+    ![Summary](./media/functions-continuous-deployment/summary.png)
 
 Al termine del processo, tutto il codice dall'origine specificata viene distribuito nell'app. A questo punto, le modifiche apportate all'origine della distribuzione attivano una distribuzione di tali modifiche nell'app per le funzioni in Azure.
 

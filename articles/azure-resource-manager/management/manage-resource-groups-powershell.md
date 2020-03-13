@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248359"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gestire i gruppi di risorse Azure Resource Manager tramite Azure PowerShell
 
@@ -58,7 +58,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Get-AzResourceGroup -Name $resourceGroupName
 ```
 
-## <a name="delete-resource-groups"></a>Elimina gruppi di risorse
+## <a name="delete-resource-groups"></a>Eliminare i gruppi di risorse
 
 Il seguente script di PowerShell Elimina un gruppo di risorse:
 

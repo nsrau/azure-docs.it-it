@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161568"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276907"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-In questo esempio, sostituire `<RESOURCE_GROUP>` con il gruppo di risorse e `<PLAN_NAME>` con un nome per il piano univoco nel gruppo di risorse. Specificare una [`<REGION>`supportata ](#regions). Per creare un piano Premium che supporta Linux, includere l'opzione `--is-linux`.
+In questo esempio, sostituire `<RESOURCE_GROUP>` con il gruppo di risorse e `<PLAN_NAME>` con un nome per il piano univoco nel gruppo di risorse. Specificare una [`<REGION>`supportata ](https://azure.microsoft.com/global-infrastructure/services/?products=functions). Per creare un piano Premium che supporta Linux, includere l'opzione `--is-linux`.
 
 Dopo aver creato il piano, è possibile usare il comando [AZ functionapp create](/cli/azure/functionapp#az-functionapp-create) per creare l'app per le funzioni. Nel portale vengono creati contemporaneamente il piano e l'app. Per un esempio di script dell'interfaccia della riga di comando di Azure completo, vedere [creare un'app per le funzioni in un piano Premium](scripts/functions-cli-create-premium-plan.md).
 
@@ -65,7 +65,7 @@ Altre istanze di calcolo vengono aggiunte automaticamente per l'app usando la st
 
 ### <a name="longer-run-duration"></a>Durata dell'esecuzione più lunga
 
-Per una singola esecuzione, le funzioni di Azure in un piano a consumo sono limitate a 10 minuti.  Nel piano Premium, per la durata dell'esecuzione viene impostato un valore predefinito di 30 minuti per impedire l'esecuzione di Runaway. Tuttavia, è possibile [modificare la configurazione host. JSON](./functions-host-json.md#functiontimeout) per eseguire questa 60 minuti per le app del piano Premium.
+Per una singola esecuzione, le funzioni di Azure in un piano a consumo sono limitate a 10 minuti.  Nel piano Premium, per la durata dell'esecuzione viene impostato un valore predefinito di 30 minuti per impedire l'esecuzione di Runaway. Tuttavia, è possibile [modificare la configurazione host. JSON](./functions-host-json.md#functiontimeout) per rendere questa operazione non vincolata per le app del piano Premium (garantita 60 minuti).
 
 ## <a name="plan-and-sku-settings"></a>Impostazioni del piano e dello SKU
 
@@ -99,44 +99,42 @@ L'esecuzione in un computer con una maggiore quantità di memoria non significa 
 
 Ad esempio, un'app per le funzioni JavaScript è vincolata dal limite di memoria predefinito in node. js. Per aumentare il limite di memoria fisso, aggiungere l'impostazione dell'app `languageWorkers:node:arguments` con un valore di `--max-old-space-size=<max memory in MB>`.
 
-## <a name="regions"></a>Regioni
+## <a name="region-max-scale-out"></a>Scale Out area massima
 
-Di seguito sono elencate le aree attualmente supportate per ogni sistema operativo.
+Di seguito sono riportati i valori di scalabilità orizzontale massimi attualmente supportati per un singolo piano in ogni area e configurazione del sistema operativo. Per richiedere un aumento, aprire un ticket di supporto.
+
+Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australia centrale| ✔<sup>1</sup> | |
-|Australia centrale 2| ✔<sup>1</sup> | |
-|Australia orientale| ✔ | ✔<sup>1</sup> |
-|Australia sud-orientale | ✔ | ✔<sup>1</sup> |
-|Brasile meridionale| ✔<sup>2</sup> | ✔<sup>1</sup> |
-|Canada centrale| ✔ | ✔<sup>1</sup> |
-|Stati Uniti centrali| ✔ | ✔<sup>1</sup> |
-|Asia orientale| ✔ | ✔<sup>1</sup> |
-|Stati Uniti orientali | ✔ | ✔<sup>1</sup> |
-|Stati Uniti orientali 2| ✔ | ✔<sup>1</sup> |
-|Francia centrale| ✔ | ✔<sup>1</sup> |
-|Germania centro-occidentale| ✔ | |
-|Giappone orientale| ✔ | ✔<sup>1</sup> |
-|Giappone occidentale| ✔ | ✔<sup>1</sup> |
-|Corea centrale| ✔ | ✔<sup>1</sup> |
-|Stati Uniti centro-settentrionali| ✔ | ✔<sup>1</sup> |
-|Europa settentrionale| ✔ | ✔<sup>1</sup> |
-|Norvegia orientale| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|Stati Uniti centro-meridionali| ✔ | ✔<sup>1</sup> |
-|India meridionale | ✔ | |
-|Asia sud-orientale| ✔ | ✔<sup>1</sup> |
-|Regno Unito meridionale| ✔ | ✔<sup>1</sup> |
-|Regno Unito occidentale| ✔ | ✔<sup>1</sup> |
-|Europa occidentale| ✔ | ✔<sup>1</sup> |
-|India occidentale| ✔ | ✔<sup>1</sup> |
-|Stati Uniti centro-occidentali| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|Stati Uniti occidentali| ✔ | ✔<sup>1</sup> |
-|Stati Uniti occidentali 2| ✔ | ✔<sup>1</sup> |
-
-<sup>1</sup> Scalabilità orizzontale massima limitata a 20 istanze.  
-<sup>2</sup> Scalabilità orizzontale massima limitata a 60 istanze.
-
+|Australia centrale| 20 | Non disponibile |
+|Australia centrale 2| 20 | Non disponibile |
+|Australia orientale| 100 | 20 |
+|Australia sud-orientale | 100 | 20 |
+|Brasile meridionale| 60 | 20 |
+|Canada centrale| 100 | 20 |
+|Stati Uniti centrali| 100 | 20 |
+|Asia orientale| 100 | 20 |
+|Stati Uniti orientali | 100 | 20 |
+|Stati Uniti orientali 2| 100 | 20 |
+|Francia centrale| 100 | 20 |
+|Germania centro-occidentale| 100 | Non disponibile |
+|Giappone orientale| 100 | 20 |
+|Giappone occidentale| 100 | 20 |
+|Corea centrale| 100 | 20 |
+|Stati Uniti centro-settentrionali| 100 | 20 |
+|Europa settentrionale| 100 | 20 |
+|Norvegia orientale| 20 | 20 |
+|Stati Uniti centro-meridionali| 100 | 20 |
+|India meridionale | 100 | Non disponibile |
+|Asia sud-orientale| 100 | 20 |
+|Regno Unito meridionale| 100 | 20 |
+|Regno Unito occidentale| 100 | 20 |
+|Europa occidentale| 100 | 20 |
+|India occidentale| 100 | 20 |
+|Stati Uniti centro-occidentali| 20 | 20 |
+|Stati Uniti occidentali| 100 | 20 |
+|Stati Uniti occidentali 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

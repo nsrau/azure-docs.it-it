@@ -3,12 +3,12 @@ title: Guida di riferimento per gli sviluppatori Python per Funzioni di Azure
 description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 1b94cb51bcb4e2634cdb04c389efbab44bb024bb
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 30f40db33b6aa8b40202c023f301265565257180
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206334"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276686"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -65,16 +65,16 @@ La struttura di cartelle consigliata per un progetto di funzioni Python è simil
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -89,19 +89,47 @@ La cartella principale del progetto (\_\_app\_\_) può contenere i file seguenti
 
 Ogni funzione ha il proprio file di codice e il file di configurazione delle associazioni (function.json). 
 
-Il codice condiviso deve essere mantenuto in una cartella separata in \_\_app\_\_. Per fare riferimento a moduli nella cartella SharedCode, si può usare la sintassi seguente:
-
-```python
-from __app__.SharedCode import myFirstHelperFunction
-```
-
-Per fare riferimento a moduli locali a una funzione, è possibile usare la sintassi di importazione relativa, come indicato di seguito:
-
-```python
-from . import example
-```
-
 Quando si distribuisce il progetto in un'app per le funzioni in Azure, l'intero contenuto della cartella principale del progetto ( *\_\_app\_\_* ) deve essere incluso nel pacchetto, ma non nella cartella. Si consiglia di mantenere i test in una cartella separata dalla cartella del progetto, in questo esempio `tests`. In questo modo si impedisce la distribuzione del codice di test con l'app. Per ulteriori informazioni, vedere [unit testing](#unit-testing).
+
+## <a name="import-behavior"></a>Importare il comportamento
+
+È possibile importare moduli nel codice della funzione utilizzando riferimenti espliciti relativi e assoluti. In base alla struttura di cartelle illustrata in precedenza, le importazioni seguenti funzionano dal file di funzione *\_\_app\_\_\my\_prima\_funzione\\_\_init\_\_. py*:
+
+```python
+from . import example #(explicit relative)
+```
+
+```python
+from ..shared_code import my_first_helper_function #(explicit relative)
+```
+
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+Le importazioni seguenti *non funzionano* nello stesso file:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+Il codice condiviso deve essere mantenuto in una cartella separata in *\_\_app\_\_* . Per fare riferimento ai moduli nella cartella *shared\_code* , è possibile usare la sintassi seguente:
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## <a name="triggers-and-inputs"></a>Trigger e input
 
@@ -158,7 +186,7 @@ def main(req: func.HttpRequest,
 Quando viene richiamata questa funzione, la richiesta HTTP viene passata alla funzione come `req`. Una voce verrà recuperata dall'archivio BLOB di Azure in base all' _ID_ nell'URL della route e resa disponibile come `obj` nel corpo della funzione.  In questo caso, l'account di archiviazione specificato è la stringa di connessione trovata nell'impostazione dell'app AzureWebJobsStorage, che è lo stesso account di archiviazione usato dall'app per le funzioni.
 
 
-## <a name="outputs"></a>Outputs
+## <a name="outputs"></a>Output
 
 Gli output possono essere espressi sia nel valore restituito che nei parametri di output. Se è presente un solo output, è consigliabile usare il valore restituito. Per più output, è necessario usare invece i parametri di output.
 
@@ -306,7 +334,7 @@ Il FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato dalle funzioni d
 
 Per ottenere il contesto di chiamata di una funzione durante l'esecuzione, includere l'argomento [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) nella firma. 
 
-Ad esempio,
+Ad esempio:
 
 ```python
 import azure.functions
@@ -366,7 +394,18 @@ Per lo sviluppo locale, le impostazioni dell'applicazione vengono [mantenute nel
 
 ## <a name="python-version"></a>Versione Python 
 
-Attualmente, funzioni di Azure supporta sia Python 3.6. x che 3.7. x (distribuzioni CPython ufficiali). Quando viene eseguito localmente, il runtime usa la versione di Python disponibile. Per richiedere una versione specifica di Python quando si crea l'app per le funzioni in Azure, usare l'opzione `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) . La modifica della versione è consentita solo per la creazione app per le funzioni.  
+Funzioni di Azure supporta le seguenti versioni di Python:
+
+| Versione di Funzioni | Versioni di<sup>*</sup> Python |
+| ----- | ----- |
+| 3.x | 3.8<br/>3,7<br/>3.6 |
+| 2.x | 3,7<br/>3.6 |
+
+<sup>*</sup> Distribuzioni CPython ufficiali
+
+Per richiedere una versione specifica di Python quando si crea l'app per le funzioni in Azure, usare l'opzione `--runtime-version` del comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) . La versione del runtime di funzioni è impostata dall'opzione `--functions-version`. La versione di Python viene impostata quando l'app per le funzioni viene creata e non può essere modificata.  
+
+Quando viene eseguito localmente, il runtime usa la versione di Python disponibile. 
 
 ## <a name="package-management"></a>Gestione dei pacchetti
 
@@ -629,7 +668,7 @@ Questo metodo HTTP viene usato dai Web browser per negoziare l'elenco di origini
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le seguenti risorse:
 
 * [Documentazione dell'API del pacchetto di funzioni di Azure](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)

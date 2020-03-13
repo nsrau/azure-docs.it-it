@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231461"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278194"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostica in Durable Functions in Azure
 
@@ -309,7 +309,7 @@ Done!
 
 ## <a name="custom-status"></a>Stato personalizzato
 
-Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato personalizzato per la funzione di agente di orchestrazione. Questo stato viene fornito tramite l'API della query sullo stato HTTP o l'API `IDurableOrchestrationClient.GetStatusAsync`. Lo stato di un'orchestrazione personalizzato consente di eseguire il monitoraggio in modo più completo per le funzioni dell'agente di orchestrazione. Il codice della funzione dell'agente di orchestrazione, ad esempio, può includere chiamate `IDurableOrchestrationContext.SetCustomStatus` per aggiornare lo stato di avanzamento per un'operazione con esecuzione prolungata. Un client, ad esempio una pagina Web o un sistema esterno, può eseguire una query periodicamente sulle API di query dello stato HTTP per ottenere informazioni più dettagliate. Un esempio che usa `IDurableOrchestrationContext.SetCustomStatus` viene indicato di seguito:
+Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l'API della query sullo stato HTTP o l'API `IDurableOrchestrationClient.GetStatusAsync`. Lo stato di un'orchestrazione personalizzato consente di eseguire il monitoraggio in modo più completo per le funzioni dell'agente di orchestrazione. Il codice della funzione dell'agente di orchestrazione, ad esempio, può includere chiamate `IDurableOrchestrationContext.SetCustomStatus` per aggiornare lo stato di avanzamento per un'operazione con esecuzione prolungata. Un client, ad esempio una pagina Web o un sistema esterno, può eseguire una query periodicamente sulle API di query dello stato HTTP per ottenere informazioni più dettagliate. Un esempio che usa `IDurableOrchestrationContext.SetCustomStatus` viene indicato di seguito:
 
 ### <a name="precompiled-c"></a>C# precompilato
 

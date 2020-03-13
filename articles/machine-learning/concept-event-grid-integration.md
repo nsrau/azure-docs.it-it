@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
-ms.openlocfilehash: 5ec953ace6bb9583c622f89cfcd0196482b1c683
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8a975487c68a21b2c8b6fa2f07d86c312243f12
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541751"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139046"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>USA eventi Azure Machine Learning (anteprima)
 
@@ -36,12 +36,13 @@ Per ulteriori informazioni sulle origini eventi e i gestori eventi, vedere infor
 
 Azure Machine Learning fornisce eventi nei vari punti del ciclo di vita di Machine Learning: 
 
-| Tipo di evento | Description |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Generato quando viene completata l'esecuzione di un esperimento di Machine Learning |
 | `Microsoft.MachineLearningServices.ModelRegistered` | Generato quando un modello di apprendimento automatico viene registrato nell'area di lavoro |
 | `Microsoft.MachineLearningServices.ModelDeployed` | Generato quando viene completata una distribuzione di un servizio di inferenza con uno o più modelli |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | Generato quando viene completato un processo di rilevamento della deriva dei dati per due set di dati |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | Generato quando lo stato di un'esecuzione viene modificato, attualmente generato solo quando uno stato di esecuzione è' failed ' |
 
 ## <a name="subscribe-to-machine-learning-events"></a>Sottoscrivere eventi di Machine Learning
 
@@ -61,6 +62,7 @@ Griglia di eventi di Azure supporta i filtri oggetto basati su __inizia con__ e 
 | `Microsoft.MachineLearningServices.ModelRegistered` | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
 | `Microsoft.MachineLearningServices.ModelDeployed` | `endpoints/{serviceId}` | `endpoints/my_sklearn_aks` |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
 ### <a name="advanced-filtering"></a>Filtro avanzato
 

@@ -4,11 +4,11 @@ description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375059"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276231"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticare eccezioni nelle app Web con Application Insights
 Le eccezioni nell'applicazione Web attiva vengono segnalate da [Application Insights](../../azure-monitor/app/app-insights-overview.md). È possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.

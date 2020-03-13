@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28a9de63bb04a95fc2e655b05727963feaa3ec40
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599184"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137629"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carico di lavoro SAP negli scenari supportati da macchine virtuali di Azure
 La progettazione di un'architettura di sistemi SAP NetWeaver, Business One, `Hybris` o S/4HANA in Azure offre molte opportunità diverse per diverse architetture e strumenti da usare per ottenere una distribuzione scalabile, efficiente e a disponibilità elevata. Tuttavia, a seconda del sistema operativo o del sistema DBMS utilizzato, esistono restrizioni. Inoltre, non tutti gli scenari supportati in locale sono supportati nello stesso modo in Azure. In questo documento vengono illustrate le configurazioni di disponibilità elevata e le configurazioni a disponibilità elevata supportate e le architetture con le macchine virtuali di Azure in modo esclusivo. Per gli scenari supportati con le [istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), vedere l'articolo [scenari supportati per le istanze large di Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
@@ -66,7 +66,8 @@ Questo tipo di distribuzione DBMS è supportato per:
 - SQL Server in Windows
 - IBM DB2. Trovare i dettagli nell'articolo [più istanze (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
 - Per Oracle. Per informazioni dettagliate, vedere la [Nota di supporto sap #1778431](https://launchpad.support.sap.com/#/notes/1778431) e le note SAP correlate
-- Per SAP HANA, più istanze in una macchina virtuale, SAP chiama questo metodo di distribuzione MCOS, è supportato. Per informazioni dettagliate, vedere l'articolo SAP [più sistemi di SAP Hana in un host (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/en-US/b2751fd43bec41a9a14e01913f1edf18.html)
+- Per SAP HANA, più istanze in una macchina virtuale, SAP chiama questo metodo di distribuzione MCOS, è supportato. Per informazioni dettagliate, vedere l'articolo SAP [più sistemi di SAP HANA in un host (MCOS)] (https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
+- /b2751fd43bec41a9a14e01913f1edf18.html)
 
 Eseguendo più istanze di database in un host, è necessario assicurarsi che le diverse istanze non siano in competizione per le risorse e quindi superino i limiti di risorse fisiche della macchina virtuale. Questa operazione è particolarmente valida per la memoria in cui è necessario limitare la memoria che tutti gli utenti che condividono la VM possono allocare. Questo potrebbe anche essere vero per le risorse della CPU che possono essere sfruttate dalle diverse istanze di database. A tutti i sistemi DBMS indicati sono associate configurazioni che consentono di limitare l'allocazione di memoria e le risorse della CPU a livello di istanza.
 Per ottenere supporto per una configurazione di questo tipo per le macchine virtuali di Azure, è previsto che i dischi o i volumi usati per i file di log di dati e log/rollforward dei database gestiti dalle diverse istanze siano separati. In alternativa, in altre parole, i file di log o log/rollforward dei database gestiti da un'istanza di DBMS diversa non dovrebbero condividere gli stessi dischi o volumi. 
@@ -121,6 +122,8 @@ Per le macchine virtuali di Azure, le configurazioni a disponibilità elevata se
 
 > [!IMPORTANT]
 > Per nessuno degli scenari descritti in precedenza, sono supportate configurazioni di più istanze di DBMS in una macchina virtuale. Indica che in ogni caso è possibile distribuire una sola istanza di database per ogni macchina virtuale e proteggerla con i metodi di disponibilità elevata descritti. La protezione di più istanze di DBMS nello stesso cluster di failover di Windows o pacemaker **non** è supportata in questo momento. Oracle Data Guard è inoltre supportato solo per i casi di distribuzione a istanza singola per macchina virtuale. 
+
+Vari sistemi di database consentono di ospitare più database in un'istanza di DBMS. Come nel caso di SAP HANA, più database possono essere ospitati in più contenitori di database (MDC). Per i casi in cui queste configurazioni con più database funzionano all'interno di una risorsa cluster di failover, queste configurazioni sono supportate. Le configurazioni non supportate sono casi in cui sono necessarie più risorse cluster. Come per le configurazioni in cui definire più gruppi di disponibilità SQL Server, in un'unica istanza di SQL Server.
 
 
 ![Configurazione di disponibilità elevata DBMS](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)

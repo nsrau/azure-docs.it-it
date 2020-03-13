@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d9cf78f3cc5399a9e974cd9b4f0b3f24c80dacce
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943650"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214131"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Baseline della sicurezza di Azure per il database SQL di Azure
 
@@ -238,13 +238,12 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 Inoltre, è possibile trasmettere dati di telemetria di diagnostica di Azure SQL in Analisi SQL di Azure, una soluzione cloud che monitora le prestazioni di database SQL di Azure, pool elastici e istanze gestite su larga scala e in più sottoscrizioni. Può aiutare a raccogliere e visualizzare le metriche sulle prestazioni del Database SQL di Azure e ha la funzionalità di intelligence integrata per la risoluzione dei problemi.
 
-
 Come configurare il controllo per il database SQL di Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 
-Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure:
+Come raccogliere le metriche e i log delle risorse con monitoraggio di Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 

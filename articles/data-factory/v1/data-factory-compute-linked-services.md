@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667755"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281548"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 > [!NOTE]
@@ -119,7 +119,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 > 
 
 ### <a name="properties"></a>Proprietà
-| Proprietà                     | Descrizione                              | Obbligatorio |
+| Proprietà                     | Descrizione                              | Obbligatoria |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | Impostare la proprietà type su **HDInsightOnDemand**. | Sì      |
 | clusterSize                  | Numero di nodi del ruolo di lavoro e di dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head, oltre al numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core. Un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4\*4 = 16 core per i nodi del ruolo di lavoro + 2\*4 = 8 core per i nodi head. Per informazioni dettagliate sul livello Standard_D3, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sì      |
@@ -142,7 +142,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 ### <a name="advanced-properties"></a>Proprietà avanzate
 Per la configurazione granulare del cluster HDInsight on demand, è anche possibile specificare le proprietà seguenti:
 
-| Proprietà               | Descrizione                              | Obbligatorio |
+| Proprietà               | Descrizione                              | Obbligatoria |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Specifica i parametri di configurazione di base (core-site.xml) per il cluster HDInsight da creare. | No       |
 | hBaseConfiguration     | Specifica i parametri di configurazione HBase (hbase-site.xml) per il cluster HDInsight. | No       |
@@ -195,7 +195,7 @@ Per la configurazione granulare del cluster HDInsight on demand, è anche possib
 ### <a name="node-sizes"></a>Dimensioni dei nodi
 Per specificare le dimensioni dei nodi head, di dati e ZooKeeper, usare le proprietà seguenti: 
 
-| Proprietà          | Descrizione                              | Obbligatorio |
+| Proprietà          | Descrizione                              | Obbligatoria |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Imposta le dimensioni del nodo head. Il valore predefinito è **Standard_D3**. Per informazioni dettagliate, vedere [Specificare le dimensioni dei nodi](#specify-node-sizes). | No       |
 | dataNodeSize      | Imposta le dimensioni del nodo di dati. Il valore predefinito è **Standard_D3**. | No       |
@@ -255,11 +255,11 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 ```
 
 ### <a name="properties"></a>Proprietà
-| Proprietà          | Descrizione                              | Obbligatorio |
+| Proprietà          | Descrizione                              | Obbligatoria |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Impostare la proprietà type su **HDInsight**. | Sì      |
 | clusterUri        | L'URI del cluster HDInsight.        | Sì      |
-| Nome utente          | Nome dell'account utente da usare per connettersi a un cluster HDInsight esistente. | Sì      |
+| username          | Nome dell'account utente da usare per connettersi a un cluster HDInsight esistente. | Sì      |
 | password          | La password per l'account utente.   | Sì      |
 | linkedServiceName | Nome del servizio collegato di archiviazione che fa riferimento all'archivio BLOB usato dal cluster HDInsight. <p>Attualmente non è possibile specificare un servizio collegato Data Lake Store per questa proprietà. Se il cluster HDInsight ha accesso a Data Lake Store, è possibile accedere ai dati in Data Lake Store da script Hive o Pig. </p> | Sì      |
 
@@ -303,7 +303,7 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 ```
 
 ### <a name="properties"></a>Proprietà
-| Proprietà          | Descrizione                              | Obbligatorio |
+| Proprietà          | Descrizione                              | Obbligatoria |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Impostare la proprietà type su **AzureBatch**. | Sì      |
 | accountName       | Nome dell'account Batch.         | Sì      |
@@ -330,9 +330,9 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 ```
 
 ### <a name="properties"></a>Proprietà
-| Proprietà   | Descrizione                              | Obbligatorio |
+| Proprietà   | Descrizione                              | Obbligatoria |
 | ---------- | ---------------------------------------- | -------- |
-| Tipo       | Impostare la proprietà type su **AzureML**. | Sì      |
+| Type       | Impostare la proprietà type su **AzureML**. | Sì      |
 | mlEndpoint | L’URL del batch punteggio.                   | Sì      |
 | apiKey     | Modello dell'area di lavoro pubblicato di API.     | Sì      |
 
@@ -341,7 +341,7 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 
 La tabella seguente descrive le proprietà generiche usate nella definizione JSON:
 
-| Proprietà                 | Descrizione                              | Obbligatorio                                 |
+| Proprietà                 | Descrizione                              | Obbligatoria                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | type                 | Impostare la proprietà type su **AzureDataLakeAnalytics**. | Sì                                      |
 | accountName          | Nome dell'account Data Lake Analytics.  | Sì                                      |
@@ -360,7 +360,7 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 
-| Proprietà                | Descrizione                              | Obbligatorio |
+| Proprietà                | Descrizione                              | Obbligatoria |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | ID client dell'applicazione.     | Sì      |
 | servicePrincipalKey | Chiave dell'applicazione.           | Sì      |
@@ -388,10 +388,10 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 #### <a name="user-credential-authentication"></a>Autenticazione basata su credenziali utente
 Per l'autenticazione delle credenziali utente per Data Lake Analytics, specificare le proprietà seguenti:
 
-| Proprietà          | Descrizione                              | Obbligatorio |
+| Proprietà          | Descrizione                              | Obbligatoria |
 | :---------------- | :--------------------------------------- | :------- |
-| autorizzazione | Nell'editor di Data Factory selezionare il pulsante **Autorizza**. Immettere le credenziali che assegnano l'URL dell'autorizzazione generato automaticamente a questa proprietà. | Sì      |
-| sessionId     | ID sessione OAuth dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì      |
+| authorization | Nell'editor di Data Factory selezionare il pulsante **Autorizza**. Immettere le credenziali che assegnano l'URL dell'autorizzazione generato automaticamente a questa proprietà. | Sì      |
+| sessionID     | ID sessione OAuth dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì      |
 
 **Esempio: autenticazione basata su credenziali utente**
 ```json

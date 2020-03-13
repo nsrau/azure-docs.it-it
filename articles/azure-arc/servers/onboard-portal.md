@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8bde9a9e9227f0c8715b38a9a376fad3015c7bf3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 7465ec4ef717f709aacb5e543a8f1cf4fa37bfb5
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586258"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139012"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connettere macchine virtuali ibride ad Azure dal portale di Azure
 
@@ -56,6 +56,7 @@ Lo script per automatizzare il download e l'installazione e stabilire la conness
 ## <a name="install-and-validate-the-agent-on-windows"></a>Installare e convalidare l'agente in Windows
 
 ### <a name="install-manually"></a>Eseguire l'installazione manuale
+
 È possibile installare manualmente l'agente Connected Machine eseguendo il pacchetto di Windows Installer *AzureConnectedMachineAgent.msi*. 
 
 > [!NOTE]

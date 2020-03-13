@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793224"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282822"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipi di query e composizione in ricerca cognitiva di Azure
 
@@ -33,7 +33,7 @@ L'esempio seguente è una query rappresentativa costruita nell' [API REST](https
 }
 ```
 
-+ **`queryType`** imposta il parser, ovvero il parser di [query semplice predefinito](search-query-simple-examples.md) (ottimale per la ricerca full-text) o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per costrutti di query avanzati come le espressioni regolari, la ricerca per prossimità, fuzzy e ricerca con caratteri jolly, per citarne alcune.
++ **`queryType`** imposta il parser, ovvero il parser di [query semplice predefinito](search-query-simple-examples.md) (ottimale per la ricerca full-text) o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per i costrutti di query avanzati come le espressioni regolari, la ricerca per prossimità, la ricerca fuzzy e con caratteri jolly, per citarne alcuni.
 
 + **`search`** fornisce la corrispondenza ai criteri, in genere testo ma spesso accompagnato da operatori booleani. I termini singoli autonomi sono query *termine*. Le query in più parti racchiuse tra virgolette sono query *frasi chiave*. La ricerca può essere non definita, come in **`search=*`** , ma è più probabile che sia costituita da termini, frasi e operatori simili a quanto visualizzato nell'esempio.
 
@@ -80,7 +80,7 @@ Tutti gli altri parametri di ricerca sono facoltativi. Per l'elenco completo deg
 
 La tabella seguente elenca le API e i metodi basati su strumenti per inviare query.
 
-| Metodologia | Description |
+| Metodologia | Descrizione |
 |-------------|-------------|
 | [Esplora ricerche (portale)](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. Consigliato per l'esplorazione, il test e la convalida. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
 | [Postazione o altri strumenti REST](search-get-started-postman.md) | Gli strumenti di test Web sono un'ottima scelta per formulare le chiamate REST. L'API REST supporta tutte le operazioni possibili in Azure ricerca cognitiva. Questo articolo illustra come configurare un'intestazione e un corpo di richiesta HTTP per l'invio di richieste ad Azure ricerca cognitiva.  |
@@ -111,7 +111,7 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 Azure ricerca cognitiva supporta un'ampia gamma di tipi di query. 
 
-| Tipo di query | Utilizzo | Altre informazioni ed esempi |
+| Tipo di query | Uso | Altre informazioni ed esempi |
 |------------|--------|-------------------------------|
 | Ricerca di testo in formato libero | Parametro di ricerca ed entrambi i parser| La ricerca full-text scansiona uno o più termini in tutti i campi *ricercabili* dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. L'esempio nella sezione introduttiva è di ricerca full-text.<br/><br/>La ricerca full-text viene sottoposta ad analisi del testo usando l'analizzatore Lucene standard (per impostazione predefinita) per rendere tutti i termini minuscoli, rimuovere parole non significative, ad esempio "il". È possibile sostituire l'impostazione predefinita con [analizzatori di lingua diversa dall'inglese](index-add-language-analyzers.md#language-analyzer-list) oppure [analizzatori specializzati indipendenti dalla lingua](index-add-custom-analyzers.md#AnalyzerTable) che modificano l'analisi del testo. Ad esempio [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) gestisce l'intero contenuto di un campo come un token singolo. Ciò è utile per i dati come i codici postali, gli ID e alcuni nomi di prodotto. | 
 | Ricerca filtrata | [Espressione di filtro OData](query-odata-filter-orderby-syntax.md) ed entrambi i parser | Le query filtro valutano un'espressione booleana su tutti i campi *filtrabili* in un indice. Contrariamente alla ricerca, una query filtro corrisponde al contenuto esatto di un campo, inclusa la distinzione tra maiuscole e minuscole nei campi della stringa. Un'altra differenza è che le query filtro vengono espresse nella sintassi di OData. <br/>[Esempio di espressione filtro](search-query-simple-examples.md#example-3-filter-queries) |
@@ -157,7 +157,7 @@ Se si vuole che Azure ricerca cognitiva restituisca i risultati ordinati in base
 ### <a name="hit-highlighting"></a>Evidenziazione dei risultati
 In ricerca cognitiva di Azure, l'accento sulla parte esatta dei risultati della ricerca che corrispondono alla query di ricerca è semplificato usando i parametri **`highlight`** , **`highlightPreTag`** e **`highlightPostTag`** . È possibile specificare i campi *ricercabili* con il testo corrispondente evidenziato, nonché specificare i tag di stringa esatti da accodare all'inizio e alla fine del testo corrispondente restituito da Azure ricerca cognitiva.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Funzionamento della ricerca full-text in Azure ricerca cognitiva (architettura di analisi delle query)](search-lucene-query-architecture.md)
 + [Esplora ricerche](search-explorer.md)

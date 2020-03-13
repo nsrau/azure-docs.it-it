@@ -7,11 +7,11 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367693"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275776"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilare le app di Servizio app di Azure attive con Application Insights
 
@@ -43,7 +43,7 @@ Application Insights Profiler è preinstallato come parte del runtime di servizi
 Application Insights Profiler possibile abilitare la creazione di impostazioni dell'app per il servizio app Azure. La pagina con le opzioni illustrate in precedenza crea automaticamente le impostazioni dell'app. Tuttavia, è possibile automatizzare la creazione di queste impostazioni usando un modello o altri metodi. Queste impostazioni funzioneranno anche se la risorsa Application Insights si trova in una sottoscrizione diversa dal servizio app Azure.
 Di seguito sono riportate le impostazioni necessarie per abilitare il profiler:
 
-|Impostazione app    | Valore    |
+|Impostazione app    | valore    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey per la risorsa Application Insights    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

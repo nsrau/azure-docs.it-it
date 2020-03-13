@@ -4,11 +4,11 @@ description: La configurazione del servizio include il modo in cui vengono tratt
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623715"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219357"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configurare il ciclo di apprendimento della personalizzazione
 
@@ -26,7 +26,7 @@ Configurare il servizio per l'uso dei premi del ciclo di apprendimento. Le modif
 > [!div class="mx-imgBorder"]
 > ![configurare i valori Reward per il ciclo di feedback](media/settings/configure-model-reward-settings.png)
 
-|Valore|Scopo|
+|valore|Scopo|
 |--|--|
 |Reward wait time (Tempo di attesa ricompense)|Imposta l'intervallo di tempo durante il quale Personalizza esperienze raccoglierà i valori delle ricompense per una chiamata a Classifica, a partire dal momento in cui si verifica tale chiamata. Questo valore viene impostato chiedendo: "per quanto tempo è necessario che il Personalizzatore attenda le chiamate dei premi?" Qualsiasi ricompensa arrivi dopo questo intervallo verrà registrata ma non verrà usata per l'apprendimento.|
 |Default reward (Ricompensa predefinita)|Se Personalizza esperienze non riceve chiamate per le ricompense durante l'intervallo di Reward Wait Time associato a una chiamata a Classifica, verrà assegnata la ricompensa predefinita. Per impostazione predefinita, e nella maggior parte degli scenari, la ricompensa predefinita è zero (0).|
@@ -60,7 +60,7 @@ La **frequenza di aggiornamento del modello** determina la frequenza con cui vie
 
 Dopo avere modificato questo valore, assicurarsi di selezionare **Salva**.
 
-## <a name="data-retention"></a>Mantenimento dei dati
+## <a name="data-retention"></a>Conservazione dei dati
 
 **Data retention period** (Periodo di conservazione dati) imposta il numero di giorni in cui Personalizza esperienze mantiene i log dei dati. I log dei dati passati sono necessari per eseguire le [valutazioni offline](concepts-offline-evaluation.md), usate per misurare l'efficacia di Personalizza esperienze e per ottimizzare i criteri di apprendimento.
 

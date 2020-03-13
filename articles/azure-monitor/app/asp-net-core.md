@@ -4,11 +4,11 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 5028d95ef784b0d309880d0d05371cd42f627d7d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362063"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276309"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -30,14 +30,14 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 > [!NOTE]
 > Se si usa ASP.NET Core 3,0 insieme a Application Insights, usare la versione [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o successiva. Questa è l'unica versione che supporta ASP.NET Core 3,0.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Applicazione ASP.NET Core funzionante. Se è necessario creare un'applicazione ASP.NET Core, seguire questa [esercitazione ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started/).
 - Chiave di strumentazione Application Insights valida. Questa chiave è necessaria per inviare i dati di telemetria a Application Insights. Se è necessario creare una nuova risorsa Application Insights per ottenere una chiave di strumentazione, vedere [creare una risorsa di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Abilitare la telemetria lato server Application Insights (Visual Studio)
 
-1. Apri il progetto in Visual Studio.
+1. Aprire il progetto in Visual Studio.
 
     > [!TIP]
     > Se lo si desidera, è possibile configurare il controllo del codice sorgente per il progetto in modo che sia possibile tenere traccia di tutte le modifiche apportate Application Insights. Per abilitare il controllo del codice sorgente, selezionare **File** > **Aggiungi al controllo del codice sorgente**.
@@ -103,7 +103,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Ad esempio,
+    Ad esempio:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -199,7 +199,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Elenco completo delle impostazioni in `ApplicationInsightsServiceOptions`
 
-|Impostazione | Descrizione | Default
+|Impostazione | Descrizione | Predefinito
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Abilita/Disabilita la funzionalità LiveMetrics | true
 |EnableAdaptiveSampling | Abilita/Disabilita il campionamento adattivo | true

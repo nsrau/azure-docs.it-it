@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846278"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282978"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti dei servizi in Azure ricerca cognitiva
 
@@ -46,7 +46,7 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici e al
 
 ## <a name="index-limits"></a>Limiti per gli indici
 
-| Gruppi | Gratis | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Risorsa | Gratuito | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di indici |3 |5 o 15 |50 |200 |200 |1000 per partizione o 3000 per servizio |10 |10 |
 | Numero massimo di campi semplici per indice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -84,7 +84,7 @@ Se il portale indica un limite di documenti, il servizio è stato creato prima d
 
 Per i servizi soggetti a limiti per i documenti, si applicano i limiti massimi seguenti:
 
-|  Gratis | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10,000 |1&nbsp;milioni |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
 
@@ -107,12 +107,12 @@ Per limitare la dimensione del documento, è necessario escludere dalla richiest
 Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabilità al servizio nel suo complesso, ma i set di dati di dimensioni maggiori potrebbero richiedere più tempo di indicizzazione rispetto al massimo consentito. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
 
 
-| Gruppi | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Risorsa | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/D |10 |10 |
 | Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
-| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Senza limiti |Senza limiti |
+| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Nessun limite |Nessun limite |
 | Pianificazione minima | 5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti | 5 minuti |
 | Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |24 ore |24 ore |
 | Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |2 ore |2 ore |
@@ -136,7 +136,7 @@ Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabili
 
 Il numero massimo di mappe sinonime consentite varia in base al piano tariffario. Ogni regola può avere fino a 20 espansioni, in cui un'espansione è un termine equivalente. Ad esempio, se si specifica "Cat", l'associazione con "Kitty", "Feline" e "Felis" (il genere per Cats) viene conteggiata come 3 espansioni.
 
-| Gruppi | Gratis | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mappe sinonimo massime |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Numero massimo di regole per mappa |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |

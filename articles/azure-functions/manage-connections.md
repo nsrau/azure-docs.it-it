@@ -4,11 +4,11 @@ description: Informazioni su come evitare i problemi di prestazioni in Funzioni 
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370463"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276452"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in funzioni di Azure
 

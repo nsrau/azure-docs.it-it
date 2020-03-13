@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712674"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279754"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
 
@@ -72,14 +72,14 @@ I passaggi che seguono presuppongono la disponibilità di una VM per visualizzar
    A differenza dell'interfaccia di rete **myVMVMNic**, l'interfaccia di rete **myVMVMNic2** non ha un gruppo di sicurezza di rete associato. Ogni interfaccia di rete e subnet può avere un NSG associato oppure nessuno. Il gruppo di sicurezza di rete associato a ogni interfaccia di rete o subnet può essere lo stesso o un altro. Lo stesso gruppo di sicurezza di rete può essere associato a un numero qualsiasi di interfacce di rete e subnet.
 
 Anche se le regole di sicurezza valide sono state visualizzate tramite la macchina virtuale, è possibile visualizzarle anche tramite:
-- **Interfaccia di rete**: informazioni su come [visualizzare un'interfaccia di rete](virtual-network-network-interface.md#view-network-interface-settings).
-- **Gruppo di sicurezza di rete**: informazioni su come [visualizzare un gruppo di sicurezza di rete](manage-network-security-group.md#view-details-of-a-network-security-group).
+- **Una singola interfaccia di rete**: informazioni su come [visualizzare un'interfaccia di rete](virtual-network-network-interface.md#view-network-interface-settings).
+- **Un singolo gruppo di sicurezza di rete**: informazioni su come [visualizzare un gruppo di sicurezza di rete](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnosi tramite PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure eseguendo PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell, versione 1.0.0 o versione successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
 Ottenere le regole di sicurezza effettive per un'interfaccia di rete con [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
 
@@ -156,9 +156,9 @@ Nell'output precedente il nome dell'interfaccia di rete è *myVMVMNic interface*
 
 Indipendentemente dall'uso di [PowerShell](#diagnose-using-powershell) o dell'[interfaccia della riga di comando di Azure](#diagnose-using-azure-cli) per diagnosticare il problema, l'output restituito contiene le informazioni seguenti:
 
-- **NetworkSecurityGroup**: ID del gruppo di sicurezza di rete.
+- **NetworkSecurityGroup**: l'ID del gruppo di sicurezza di rete.
 - **Association**: valore che determina se il gruppo di sicurezza di rete è associato a un elemento *NetworkInterface* o *Subnet*. Se un NSG è associato a entrambi, l'output viene restituito con **NetworkSecurityGroup**, **Association** e **EffectiveSecurityRules**, per ogni NSG. Se il gruppo di sicurezza di rete viene associato o se viene eliminata la sua associazione appena prima di eseguire il comando per visualizzare le regole di sicurezza, potrebbe essere necessario attendere qualche secondo prima che la modifica sia effettiva nell'output del comando.
-- **EffectiveSecurityRules**: la spiegazione di ogni proprietà è riportata in [Creare una regola di sicurezza](manage-network-security-group.md#create-a-security-rule). I nomi delle regole preceduti da *defaultSecurityRules/* indicano regole di sicurezza predefinite che esistono in ogni NSG. I nomi delle regole preceduti da *securityRules/* indicano le regole che sono state create. Le regole che specificano un [tag del servizio](security-overview.md#service-tags), come ad esempio **Internet**, **VirtualNetwork** e **AzureLoadBalancer** per le proprietà **destinationAddressPrefix** oppure **sourceAddressPrefix**, hanno anche valori per la proprietà **expandedDestinationAddressPrefix**. La proprietà **expandedDestinationAddressPrefix** include tutti i prefissi di indirizzo rappresentati dal tag di servizio.
+- **EffectiveSecurityRules**: una spiegazione di ogni proprietà dettagliata in [Creare una regola di sicurezza](manage-network-security-group.md#create-a-security-rule). I nomi delle regole preceduti da *defaultSecurityRules/* indicano regole di sicurezza predefinite che esistono in ogni NSG. I nomi delle regole preceduti da *securityRules/* indicano le regole che sono state create. Le regole che specificano un [tag del servizio](security-overview.md#service-tags), come ad esempio **Internet**, **VirtualNetwork** e **AzureLoadBalancer** per le proprietà **destinationAddressPrefix** oppure **sourceAddressPrefix**, hanno anche valori per la proprietà **expandedDestinationAddressPrefix**. La proprietà **expandedDestinationAddressPrefix** include tutti i prefissi di indirizzo rappresentati dal tag di servizio.
 
 Se vengono visualizzate regole duplicate nell'output, il motivo è che un gruppo di sicurezza di rete è associato sia all'interfaccia di rete che alla subnet. Entrambi i gruppi di sicurezza di rete hanno le stesse regole predefinite e potrebbero avere altre regole duplicate, se sono state create le stesse regole personalizzate in entrambi gli NSG.
 
@@ -168,16 +168,16 @@ Se vengono visualizzate regole duplicate nell'output, il motivo è che un gruppo
 
 Indipendentemente dall'uso del [portale di Azure](#diagnose-using-azure-portal), di [PowerShell](#diagnose-using-powershell), o dell'[interfaccia della riga di comando di Azure](#diagnose-using-azure-cli) per diagnosticare il problema presentato nello [scenario](#scenario) di questo articolo, la soluzione consiste nel creare una regola di sicurezza di rete con le proprietà seguenti:
 
-| Proprietà                | Value                                                                              |
+| Proprietà                | valore                                                                              |
 |---------                |---------                                                                           |
-| `Source`                  | Qualsiasi                                                                                |
+| Source (Sorgente)                  | Qualsiasi                                                                                |
 | Intervalli di porte di origine      | Qualsiasi                                                                                |
 | Destination             | L'indirizzo IP della VM, un intervallo di indirizzi IP o tutti gli indirizzi nella subnet. |
 | Intervalli di porte di destinazione | 80                                                                                 |
-| Protocol                | TCP                                                                                |
-| Azione                  | CONSENTI                                                                              |
+| Protocollo                | TCP                                                                                |
+| Azione                  | Allow                                                                              |
 | Priorità                | 100                                                                                |
-| NOME                    | Allow-HTTP-All                                                                     |
+| Nome                    | Allow-HTTP-All                                                                     |
 
 Dopo aver creato la regola, la porta 80 può ricevere comunicazioni in ingresso da Internet, perché la priorità della regola è superiore rispetto alla regola di sicurezza predefinita denominata *DenyAllInBound*, che impedisce il traffico. Informazioni su come [creare una regola di sicurezza](manage-network-security-group.md#create-a-security-rule). Se più NSG sono associati sia all'interfaccia di rete che alla subnet, è necessario creare la stessa regola in tutti gli NSG.
 

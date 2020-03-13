@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460753"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282783"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Creare un indice di base in Azure ricerca cognitiva
 
@@ -145,7 +145,7 @@ La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte
 Quando si definisce lo schema, è necessario specificare il nome, tipo e gli attributi di ogni campo nell'indice. Il tipo di campo classifica i dati archiviati in quel campo. Gli attributi sono impostati nei singoli campi per specificare come viene usato il campo. La tabella seguente enumera gli attributi che è possibile specificare.
 
 ### <a name="data-types"></a>Tipi di dati
-| Tipo | Description |
+| Type | Descrizione |
 | --- | --- |
 | *Edm.String* |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | *Collection(Edm.String)* |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
@@ -166,7 +166,7 @@ Altri attributi determinano la modalità di utilizzo di un campo in un'applicazi
 
 Le API usate per compilare un indice hanno comportamenti predefiniti variabili. Per le [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la maggior parte degli attributi è abilitata per impostazione predefinita (ad esempio, la **ricerca** e il **recupero** sono true per i campi di stringa) ed è spesso necessario impostarli solo se si desidera disattivarli. Per .NET SDK, il valore opposto è true. Per le proprietà non impostate in modo esplicito, per impostazione predefinita viene disabilitato il comportamento di ricerca corrispondente, a meno che non venga abilitato in modo specifico.
 
-| Attributo | Description |
+| Attributo | Descrizione |
 | --- | --- |
 | `key` |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
 | `retrievable` |Specifica se il campo può essere restituito nel risultato di una ricerca. |
@@ -190,7 +190,7 @@ Gli indici che supportano filtro e ordinamento sono proporzionalmente più grand
 > [!Note]
 > L'architettura di archiviazione è considerata un dettaglio di implementazione di Azure ricerca cognitiva e può cambiare senza preavviso. Non è garantito che il comportamento attuale verrà mantenuto in futuro.
 
-## <a name="suggesters"></a>Suggerimenti
+## <a name="suggesters"></a>Componenti per il suggerimento
 Un componente di suggerimento è una sezione dello schema che definisce quali campi in un indice vengono utilizzati per supportare le query con completamento automatico nelle ricerche. In genere, le stringhe di ricerca parziali vengono inviate ai [Suggerimenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) mentre l'utente digita una query di ricerca e l'API restituisce un set di documenti o frasi suggerite. 
 
 I campi aggiunti a uno strumento suggerimenti vengono usati per compilare i termini di ricerca con completamento automatico. Tutti i termini di ricerca vengono creati durante l'indicizzazione e archiviati separatamente. Per altre informazioni sulla creazione di una struttura per uno strumento suggerimenti, vedere [Aggiungere strumenti suggerimenti](index-add-suggesters.md).

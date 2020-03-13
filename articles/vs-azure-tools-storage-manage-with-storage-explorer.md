@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891369"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279793"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 
@@ -23,9 +23,9 @@ Microsoft Azure Storage Explorer è un'app autonoma che semplifica l'uso dei dat
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Le seguenti versioni di Windows supportano Storage Explorer:
 
@@ -35,13 +35,13 @@ Le seguenti versioni di Windows supportano Storage Explorer:
 
 Per tutte le versioni di Windows, Storage Explorer richiede .NET Framework 4.6.2 o versione successiva.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 Le versioni seguenti del supporto macOS Storage Explorer:
 
 * macOS 10,12 Sierra e versioni successive
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Storage Explorer è disponibile nell' [Archivio di snap](https://snapcraft.io/storage-explorer) per le distribuzioni più comuni di Linux. Si consiglia di usare l'archivio di snap per questa installazione. Lo snap Storage Explorer installa tutte le relative dipendenze e gli aggiornamenti quando le nuove versioni vengono pubblicate nell'archivio di snap.
 
@@ -55,8 +55,8 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Storage Explorer è disponibile anche come download di *. tar. gz* . È necessario installare le dipendenze manualmente. Di seguito sono riportate le distribuzioni di Linux supportate dall'installazione di *. tar. gz* :
 
-* Ubuntu 18,04 x64
-* Ubuntu 16,04 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 L'installazione di *. tar. gz* potrebbe funzionare in altre distribuzioni, ma solo queste sono ufficialmente supportate.

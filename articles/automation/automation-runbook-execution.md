@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6a51e57bd2411c19dfd5e7740f9e918d0bd09e27
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372546"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278649"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -224,10 +224,10 @@ Nella tabella seguente vengono descritti gli stati possibili per un processo.
 
 | Stato | Descrizione |
 |:--- |:--- |
-| Operazione completata |Il processo è stato completato. |
+| Completi |Il processo è stato completato. |
 | Operazione non riuscita |Impossibile compilare un Runbook grafico o un flusso di lavoro PowerShell. Non è stato possibile avviare uno script di PowerShell Runbook oppure il processo ha restituito un'eccezione. Vedere [tipi di Runbook di automazione di Azure](automation-runbook-types.md).|
 | Failed, waiting for resources |Il processo non è riuscito perché ha raggiunto il limite di [condivisione equa](#fair-share) tre volte iniziando ogni volta dallo stesso checkpoint o dall'inizio del runbook. |
-| Accodato |Il processo è in attesa che le risorse di un ruolo di lavoro di automazione diventino disponibili per poter essere avviate. |
+| Queued |Il processo è in attesa che le risorse di un ruolo di lavoro di automazione diventino disponibili per poter essere avviate. |
 | Avvio in corso |Il processo è stato assegnato a un computer di lavoro e il sistema lo sta avviando. |
 | Resuming |Il sistema sta riprendendo il processo dopo che è stato sospeso. |
 | In esecuzione |Il processo è in esecuzione. |

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e83ecb3888ed4b19933233f3ab511d1e86fb37af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721575"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136991"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni relative alla pagina che forniscono dati o informazioni ai risultati della ricerca vengono specificate tramite le richieste di [documenti di ricerca](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio ricerca cognitiva di Azure. 
@@ -25,7 +25,7 @@ Per generare rapidamente una pagina di ricerca per il client, esplorare le opzio
 + Usare il [Generatore di applicazioni](search-create-app-portal.md) nel portale per creare una pagina HTML con una barra di ricerca, l'esplorazione in base a facet e l'area dei risultati.
 + Per creare un client funzionale, seguire l'esercitazione [creare la prima app in C# ](tutorial-csharp-create-first-app.md) .
 
-Alcuni esempi di codice includono un'interfaccia front-end Web, disponibile qui: [app demo di New York City Jobs](https://azjobsdemo.azurewebsites.net/), [codice di esempio JavaScript con un sito demo live](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Alcuni esempi di codice includono un'interfaccia front-end Web, disponibile qui: [app demo di New York City Jobs](https://aka.ms/azjobsdemo), [codice di esempio JavaScript con un sito demo live](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi della richiesta, vedere [API REST di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice).

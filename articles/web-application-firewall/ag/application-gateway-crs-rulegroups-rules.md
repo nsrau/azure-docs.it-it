@@ -9,11 +9,11 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075365"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279247"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regole e gruppi di regole CRS del Web Application Firewall
 
@@ -40,7 +40,7 @@ WAF protegge dalle vulnerabilità Web seguenti:
 
 CRS 3,1 include 13 gruppi di regole, come illustrato nella tabella seguente. Ogni gruppo contiene più regole, che possono essere disabilitate.
 
-|Gruppo di regole|DESCRIZIONE|
+|Gruppo di regole|Descrizione|
 |---|---|
 |**[Generale](#general-31)**|Gruppo generale|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Metodi di blocco (PUT, PATCH)|
@@ -60,7 +60,7 @@ CRS 3,1 include 13 gruppi di regole, come illustrato nella tabella seguente. Ogn
 
 CRS 3,0 include 12 gruppi di regole, come illustrato nella tabella seguente. Ogni gruppo contiene più regole, che possono essere disabilitate.
 
-|Gruppo di regole|DESCRIZIONE|
+|Gruppo di regole|Descrizione|
 |---|---|
 |**[Generale](#general-30)**|Gruppo generale|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Metodi di blocco (PUT, PATCH)|
@@ -79,7 +79,7 @@ CRS 3,0 include 12 gruppi di regole, come illustrato nella tabella seguente. Ogn
 
 CRS 2.2.9 include 10 gruppi di regole, come illustrato nella tabella seguente. Ogni gruppo contiene più regole, che possono essere disabilitate.
 
-|Gruppo di regole|DESCRIZIONE|
+|Gruppo di regole|Descrizione|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|Proteggi da violazioni del protocollo (ad esempio caratteri non validi o GET con il corpo della richiesta)|
 |**[crs_21_protocol_anomalies](#crs21)**|Proteggi da informazioni di intestazione non corrette|
@@ -94,26 +94,26 @@ CRS 2.2.9 include 10 gruppi di regole, come illustrato nella tabella seguente. O
 
 Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Application Firewall nel gateway applicazione.
 
-# <a name="owasp-31tabowasp31"></a>[OWASP 3,1](#tab/owasp31)
+# <a name="owasp-31"></a>[OWASP 3,1](#tab/owasp31)
 
 ## <a name="owasp31"></a>Set di regole
 
-### <a name="general-31"></a> <p x-ms-format-detection="none">General</p>
+### <a name="general-31"></a> <p x-ms-format-detection="none">Generale</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |200004|Possibile limite multiparte senza corrispondenza.|
 
 ### <a name="crs911-31"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |911100|Metodo non consentito da criteri|
 
 
 ### <a name="crs913-31"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |913100|Trovato agente utente associato ad analisi della sicurezza|
 |913101|Trovato agente utente associato a client HTTP generico/di scripting|
@@ -124,7 +124,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs920-31"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |920100|Riga della richiesta HTTP non valida|
 |920120|Tentativo di bypass dati multipart/form-data|
@@ -176,7 +176,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs921-31"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |921110|Attacco di tipo HTTP Request Smuggling|
 |921120|Attacco di tipo HTTP Response Splitting|
@@ -190,7 +190,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |930100|Attacco di tipo Path Traversal (/../)|
 |930110|Attacco di tipo Path Traversal (/../)|
@@ -199,7 +199,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |931100|Possibile attacco di tipo Remote File Inclusion (RFI): parametro URL con indirizzo IP|
 |931110|Possibile attacco di tipo Remote File Inclusion (RFI): nome parametro vulnerabile a RFI comune usato con payload URL|
@@ -208,7 +208,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |932100|Esecuzione comando remoto: inserimento comandi UNIX|
 |932105|Esecuzione comando remoto: inserimento comandi UNIX|
@@ -226,7 +226,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs933-31"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |933100|Attacco PHP injection: trovato tag di apertura/chiusura|
 |933110|Attacco PHP injection: trovato caricamento file script PHP|
@@ -245,7 +245,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |941100|Rilevato attacco XSS tramite libinjection|
 |941101|Rilevato attacco XSS tramite libinjection|
@@ -277,7 +277,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs942-31"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |942100|Rilevato attacco SQL injection tramite libinjection|
 |942110|Attacco SQL injection: rilevato test di inserimento comune|
@@ -326,7 +326,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |943100|Possibile attacco di tipo Session Fixation: impostazione valori cookie in HTML|
 |943110|Possibile attacco di tipo Session Fixation: nome parametro SessionID con referrer fuori dominio|
@@ -334,32 +334,32 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs944-31"></a> <p x-ms-format-detection="none">RICHIESTA-944-APPLICAZIONE-ATTACCO-SESSIONE-JAVA</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |944120|Possibile esecuzione del payload e esecuzione del comando remoto|
 |944130|Classi Java sospette|
 |944200|Exploit della deserializzazione Java Apache Commons|
 
-# <a name="owasp-30tabowasp30"></a>[OWASP 3.0](#tab/owasp30)
+# <a name="owasp-30"></a>[OWASP 3,0](#tab/owasp30)
 
 ## <a name="owasp30"></a>Set di regole
 
-### <a name="general-30"></a> <p x-ms-format-detection="none">General</p>
+### <a name="general-30"></a> <p x-ms-format-detection="none">Generale</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |200004|Possibile limite multiparte senza corrispondenza.|
 
 ### <a name="crs911-30"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |911100|Metodo non consentito da criteri|
 
 
 ### <a name="crs913-30"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |913100|Trovato agente utente associato ad analisi della sicurezza|
 |913110|Trovata intestazione della richiesta associata ad analisi della sicurezza|
@@ -369,7 +369,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |920100|Riga della richiesta HTTP non valida|
 |920130|Impossibile analizzare corpo della richiesta|
@@ -415,7 +415,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs921-30"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |921100|Attacco di tipo HTTP Request Smuggling|
 |921110|Attacco di tipo HTTP Request Smuggling|
@@ -430,7 +430,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |930100|Attacco di tipo Path Traversal (/../)|
 |930110|Attacco di tipo Path Traversal (/../)|
@@ -439,7 +439,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |931100|Possibile attacco di tipo Remote File Inclusion (RFI): parametro URL con indirizzo IP|
 |931110|Possibile attacco di tipo Remote File Inclusion (RFI): nome parametro vulnerabile a RFI comune usato con payload URL|
@@ -448,7 +448,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |932120|Esecuzione comandi in remoto: trovato comando di Windows PowerShell|
 |932130|Esecuzione comandi in remoto: trovata espressione shell Unix|
@@ -459,7 +459,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs933-30"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |933100|Attacco PHP injection: trovato tag di apertura/chiusura|
 |933110|Attacco PHP injection: trovato caricamento file script PHP|
@@ -475,7 +475,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |941100|Rilevato attacco XSS tramite libinjection|
 |941110|Filtro XSS, categoria 1: vettore tag script|
@@ -502,7 +502,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs942-30"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |942100|Rilevato attacco SQL injection tramite libinjection|
 |942110|Attacco SQL injection: rilevato test di inserimento comune|
@@ -534,19 +534,19 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |943100|Possibile attacco di tipo Session Fixation: impostazione valori cookie in HTML|
 |943110|Possibile attacco di tipo Session Fixation: nome parametro SessionID con referrer fuori dominio|
 |943120|Possibile attacco di tipo Session Fixation: nome parametro SessionID senza referrer|
 
-# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+# <a name="owasp-229"></a>[2.2.9 OWASP](#tab/owasp2)
 
 ## <a name="owasp229"></a>Set di regole
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960911|Riga della richiesta HTTP non valida|
 |981227|Errore Apache: URI non valido nella richiesta|
@@ -572,7 +572,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs21"></a> crs_21_protocol_anomalies
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960008|Richiesta senza intestazione host|
 |960007|Intestazione host vuota|
@@ -585,7 +585,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960209|Nome argomento troppo lungo|
 |960208|Valore argomento troppo lungo|
@@ -596,7 +596,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960032|Metodo non consentito da criteri|
 |960010|Tipo di contenuto della richiesta non consentito da criteri|
@@ -606,7 +606,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs35"></a> crs_35_bad_robots
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |990002|La richiesta indica che è stata eseguita l'analisi della sicurezza sul sito|
 |990901|La richiesta indica che è stata eseguita l'analisi della sicurezza sul sito|
@@ -615,7 +615,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs40"></a> crs_40_generic_attacks
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |960024|Avviso di rilevamento anomalie metacaratteri: caratteri non alfanumerici ripetitivi|
 |950008|Inserimento di tag ColdFusion non documentati|
@@ -644,7 +644,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |981231|Rilevata sequenza commenti SQL|
 |981260|Identificata codifica esadecimale SQL|
@@ -681,7 +681,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |973336|Filtro XSS, categoria 1: vettore tag script|
 |973338|Filtro XSS, categoria 3: vettore URI Javascript|
@@ -786,13 +786,13 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |950103|Attacco di tipo Path Traversal|
 
 ### <a name="crs45"></a> crs_45_trojans
 
-|ID regola|DESCRIZIONE|
+|ID regola|Descrizione|
 |---|---|
 |950110|Accesso backdoor|
 |950921|Accesso backdoor|

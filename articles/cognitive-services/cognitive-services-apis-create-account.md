@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
 ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482866"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219478"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creare una risorsa di servizi cognitivi usando il portale di Azure
 
@@ -23,7 +23,7 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure valida- [crearne una gratuita](https://azure.microsoft.com/free/).
 
@@ -31,7 +31,7 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure.
 
 1. Crea una risorsa.
 
-    #### <a name="multi-service-resourcetabmultiservice"></a>[Risorsa multiservizio](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Risorsa multiservizio](#tab/multiservice)
     
     La risorsa multiservizio è denominata **Servizi cognitivi** nel portale. [Creare una risorsa Servizi cognitivi](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
@@ -39,15 +39,15 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure.
     
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | Visione artificiale  | Content Moderator                                    | Viso               | Comprensione del linguaggio (LUIS) | Text Analytics   |
+    | Visione artificiale  | Content Moderator                                    | Viso               | Language Understanding (LUIS) | Text Analytics   |
     | Traduzione testuale  | Ricerca Bing V7 <br>(Web, immagini, notizie, video, oggetti visivi) | Ricerca personalizzata Bing | Ricerca entità Bing            | Suggerimenti automatici Bing |
     | Controllo ortografico Bing |                                                      |                    |                               |                  |
     
-    #### <a name="single-service-resourcetabsingleservice"></a>[Risorsa a servizio singolo](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Risorsa a servizio singolo](#tab/singleservice)
 
     Usare i collegamenti seguenti per creare una risorsa per i servizi cognitivi disponibili:
 
-    | Visione                      | Sintesi vocale                  | Lingua                          | Decisione             | Cerca                 |
+    | Visione                      | Sintesi vocale                  | Linguaggio                          | Decisione             | Ricerca                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
     | [Visione artificiale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Servizi Voce](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Lettore immersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Rilevamento anomalie](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [API Ricerca Bing V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
     | [Servizio visione artificiale personalizzato](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Riconoscimento del parlante](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Ricerca personalizzata Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
@@ -58,33 +58,33 @@ Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure.
 
 3. Nella pagina **Crea** specificare le informazioni seguenti:
 
-    #### <a name="multi-service-resourcetabmultiservice"></a>[Risorsa multiservizio](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Risorsa multiservizio](#tab/multiservice)
 
     |    |    |
     |--|--|
     | **Nome** | Nome descrittivo per la risorsa di Servizi cognitivi. Ad esempio, *MyCognitiveServicesResource*. |
     | **Sottoscrizione** | Selezionare una delle sottoscrizioni di Azure disponibili. |
-    | **Località** | Posizione dell'istanza di Servizi cognitivi. Posizioni diverse possono introdurre latenza, ma non hanno alcun impatto sulla disponibilità di runtime della risorsa. |
-    | **Pricing tier** | Il costo dell'account Servizi cognitivi dipende dalle opzioni scelte e dall'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
+    | **Posizione** | Posizione dell'istanza di Servizi cognitivi. Posizioni diverse possono introdurre latenza, ma non hanno alcun impatto sulla disponibilità di runtime della risorsa. |
+    | **Piano tariffario** | Il costo dell'account Servizi cognitivi dipende dalle opzioni scelte e dall'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
     | **Gruppo di risorse** | Il gruppo di risorse di Azure che conterrà la risorsa Servizi cognitivi. È possibile creare un nuovo gruppo o aggiungerla a un gruppo già esistente. |
 
     ![Schermata di creazione risorsa](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
-    Fare clic su **Create**(Crea).
+    Fare clic su **Crea**.
 
-    #### <a name="single-service-resourcetabsingleservice"></a>[Risorsa a servizio singolo](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Risorsa a servizio singolo](#tab/singleservice)
 
     |    |    |
     |--|--|
     | **Nome** | Nome descrittivo per la risorsa di Servizi cognitivi. Ad esempio, *TextAnalyticsResource*. |
     | **Sottoscrizione** | Selezionare una delle sottoscrizioni di Azure disponibili. |
-    | **Località** | Posizione dell'istanza di Servizi cognitivi. Posizioni diverse possono introdurre latenza, ma non hanno alcun impatto sulla disponibilità di runtime della risorsa. |
-    | **Pricing tier** | Il costo dell'account Servizi cognitivi dipende dalle opzioni scelte e dall'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
+    | **Posizione** | Posizione dell'istanza di Servizi cognitivi. Posizioni diverse possono introdurre latenza, ma non hanno alcun impatto sulla disponibilità di runtime della risorsa. |
+    | **Piano tariffario** | Il costo dell'account Servizi cognitivi dipende dalle opzioni scelte e dall'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
     | **Gruppo di risorse** | Il gruppo di risorse di Azure che conterrà la risorsa Servizi cognitivi. È possibile creare un nuovo gruppo o aggiungerla a un gruppo già esistente. |
 
     ![Schermata di creazione risorsa](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-    Fare clic su **Create**(Crea).
+    Fare clic su **Crea**.
 
     ***
 

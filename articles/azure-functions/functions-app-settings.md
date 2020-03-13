@@ -4,11 +4,11 @@ description: Documentazione di riferimento per le impostazioni o le variabili di
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963700"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277830"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -36,7 +36,7 @@ Stringa di connessione dell’account di archiviazione facoltativo per l'archivi
 
 |Chiave|Valore di esempio|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName =<name>; AccountKey =<key>|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
 > [!NOTE]
 > Per migliorare le prestazioni e l'esperienza, il runtime versione 2. x e versioni successive USA APPINSIGHTS_INSTRUMENTATIONKEY e Application Insights per il monitoraggio anziché `AzureWebJobsDashboard`.
@@ -189,7 +189,7 @@ I valori validi sono un URL che si risolve nel percorso di un file di pacchetto 
 
 Per impostazione predefinita, i proxy di funzioni usano un collegamento per inviare chiamate API dai proxy direttamente alle funzioni della stessa app per le funzioni, anziché creare una nuova richiesta HTTP. Questa impostazione consente di disabilitare tale comportamento.
 
-|Chiave|Valore|Description|
+|Chiave|valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno più inviate direttamente alla funzione e verranno invece indirizzate di nuovo al front-end HTTP per il app per le funzioni|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Si tratta del valore predefinito. Le chiamate con un URL back-end che punta a una funzione nella app per le funzioni locale verranno indirizzate direttamente a tale funzione|
@@ -199,7 +199,7 @@ Per impostazione predefinita, i proxy di funzioni usano un collegamento per invi
 
 Questa impostazione permette di controllare se %2F viene decodificato come barre nei parametri di route quando vengono inseriti nell'URL di back-end. 
 
-|Chiave|Valore|Description|
+|Chiave|valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|I parametri di route con barre codificate saranno decodificati. `example.com/api%2ftest` diventerà `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Questo è il comportamento predefinito. Tutti i parametri di route saranno trasmessi senza modifiche|

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769626"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278168"
 ---
 # <a name="http-api-reference"></a>Informazioni di riferimento sulle API HTTP
 
@@ -18,7 +18,7 @@ L'estensione Durable Functions espone un set di API HTTP predefinite che possono
 
 Per tutte le API HTTP implementate dall'estensione sono necessari i parametri seguenti. Il tipo di dati di tutti i parametri è `string`.
 
-| Parametro        | Tipo di parametro  | Description |
+| Parametro        | Tipo di parametro  | Descrizione |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Stringa di query    | Nome dell'[hub attività](durable-functions-task-hubs.md). Se non specificato, viene usato il nome dell'hub attività dell'app per le funzioni corrente. |
 | **`connection`** | Stringa di query    | **Nome** della stringa di connessione per l'account di archiviazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni. |
@@ -54,7 +54,7 @@ POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo              | Tipo di parametro  | Description |
+| Campo              | Tipo di parametro  | Descrizione |
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | Nome della funzione dell'agente di orchestrazione da avviare. |
 | **`instanceId`**   | URL             | Parametro facoltativo. ID dell'istanza di orchestrazione. Se non specificato, la funzione dell'agente di orchestrazione inizierà con un ID istanza casuale. |
@@ -82,7 +82,7 @@ Content-Length: 83
 
 Il payload di risposta per i case **HTTP 202** è un oggetto JSON con i campi seguenti:
 
-| Campo                       | Description                          |
+| Campo                       | Descrizione                          |
 |-----------------------------|--------------------------------------|
 | **`id`**                    |ID dell'istanza di orchestrazione. |
 | **`statusQueryGetUri`**     |URL di stato dell'istanza di orchestrazione. |
@@ -144,7 +144,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo                   | Tipo di parametro  | Description |
+| Campo                   | Tipo di parametro  | Descrizione |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | ID dell'istanza di orchestrazione. |
 | **`showInput`**         | Stringa di query    | Parametro facoltativo. Se impostato su `false`, l'input della funzione non verrà incluso nel payload della risposta.|
@@ -166,7 +166,7 @@ Possono essere restituiti diversi valori di codice di stato.
 
 Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON con i campi seguenti:
 
-| Campo                 | Tipo di dati | Description |
+| Campo                 | Tipo di dati | Descrizione |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | Stato di runtime dell'istanza. I valori includono *In esecuzione*, *In sospeso*, *Non riuscito*, *Annullato*, *Terminato*, *Completato*. |
 | **`input`**           | JSON      | Dati JSON usati per inizializzare l'istanza. Questo campo è `null` quando il parametro della stringa di query `showInput` è impostato su `false`.|
@@ -272,7 +272,7 @@ GET /runtime/webhooks/durableTask/instances?
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo                   | Tipo di parametro  | Description |
+| Campo                   | Tipo di parametro  | Descrizione |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | ID dell'istanza di orchestrazione. |
 | **`showInput`**         | Stringa di query    | Parametro facoltativo. Se impostato su `false`, l'input della funzione non verrà incluso nel payload della risposta.|
@@ -370,7 +370,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo             | Tipo di parametro  | Description |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 
@@ -383,7 +383,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 Il payload di risposta per il case **HTTP 200** è un oggetto JSON con il campo seguente:
 
-| Campo                  | Tipo di dati | Description |
+| Campo                  | Tipo di dati | Descrizione |
 |------------------------|-----------|-------------|
 | **`instancesDeleted`** | integer   | Numero di istanze eliminate. Per il caso a istanza singola, questo valore deve sempre essere `1`. |
 
@@ -427,7 +427,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo                 | Tipo di parametro  | Description |
+| Campo                 | Tipo di parametro  | Descrizione |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | Stringa di query    | Filtra l'elenco delle istanze eliminate create in corrispondenza o dopo il timestamp ISO8601 specificato.|
 | **`createdTimeTo`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze eliminate che sono state create in corrispondenza o prima del timestamp ISO8601 specificato.|
@@ -445,7 +445,7 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 Il payload di risposta per il case **HTTP 200** è un oggetto JSON con il campo seguente:
 
-| Campo                   | Tipo di dati | Description |
+| Campo                   | Tipo di dati | Descrizione |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | integer   | Numero di istanze eliminate. |
 
@@ -483,7 +483,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo             | Tipo di parametro  | Description |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`eventName`**   | URL             | Nome dell'evento atteso dall'istanza di orchestrazione di destinazione. |
@@ -538,7 +538,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo             | Tipo di parametro  | Description |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`reason`**      | Stringa di query    | Facoltativa. Motivo dell'interruzione dell'istanza di orchestrazione. |
@@ -587,7 +587,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo             | Tipo di parametro  | Description |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`reason`**      | Stringa di query    | Facoltativa. Motivo del ripristino dell'istanza di orchestrazione. |
@@ -629,7 +629,7 @@ POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo             | Tipo di parametro  | Description |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`entityName`**  | URL             | Nome (tipo) dell'entità. |
 | **`entityKey`**   | URL             | Chiave (ID univoco) dell'entità. |
@@ -718,7 +718,7 @@ GET /runtime/webhooks/durabletask/entities/{entityName}
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
 
-| Campo                       | Tipo di parametro  | Description |
+| Campo                       | Tipo di parametro  | Descrizione |
 |-----------------------------|-----------------|-------------|
 | **`entityName`**            | URL             | Facoltativa. Quando specificato, filtra l'elenco di entità restituite in base al nome dell'entità (senza distinzione tra maiuscole e minuscole). |
 | **`fetchState`**            | Stringa di query    | Parametro facoltativo. Se impostato su `true`, lo stato dell'entità verrà incluso nel payload della risposta. |

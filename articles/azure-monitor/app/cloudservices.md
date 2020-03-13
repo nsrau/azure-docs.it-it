@@ -4,18 +4,18 @@ description: Monitorare i ruoli Web e di lavoro in modo efficace con Application
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362011"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276192"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] possibile monitorare le [app del servizio cloud di Azure](https://azure.microsoft.com/services/cloud-services/) per disponibilità, prestazioni, errori e utilizzo combinando i dati di Application Insights SDK con [diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) i dati dei servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
 
 ![Dashboard panoramica](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Prima di iniziare, è necessario disporre di quanto segue:
 
 * Una sottoscrizione di [Azure](https://azure.com). Accedere con l'account Microsoft per Windows, Xbox Live o altri servizi cloud Microsoft. 

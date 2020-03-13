@@ -4,11 +4,11 @@ description: Le definizioni di criteri di Azure hanno diversi effetti che determ
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544131"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281184"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -162,7 +162,7 @@ Per la proprietà **Operation** sono disponibili le opzioni seguenti:
 |-|-|
 |addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
 |Add |Aggiunge il tag e il valore definiti alla risorsa. |
-|Rimuovi |Rimuove il tag definito dalla risorsa. |
+|Rimuovere |Rimuove il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Modificare esempi
 
@@ -540,7 +540,7 @@ Esempio: regola di controllo dell'ammissione di Gatekeeper V2 per consentire sol
 
 ## <a name="layering-policies"></a>Livelli dei criteri
 
-Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio,
+Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio:
 
 - Criterio 1
   - Limita la posizione delle risorse a "westus"

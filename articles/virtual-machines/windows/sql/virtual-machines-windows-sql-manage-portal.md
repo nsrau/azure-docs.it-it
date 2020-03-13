@@ -14,11 +14,11 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 244ad7d079fd7baf25f8079557576c42d25ca785
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102055"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243211"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gestire SQL Server VM in Azure usando il portale di Azure
 
@@ -27,7 +27,7 @@ Nella [portale di Azure](https://portal.azure.com)la risorsa **macchine virtuali
 ![Risorsa macchine virtuali SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
 
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Si consiglia di usare la risorsa **macchine virtuali SQL** per visualizzare e gestire le macchine virtuali SQL Server in Azure. Attualmente, tuttavia, la risorsa **macchine virtuali SQL** non supporta la gestione della [fine del supporto](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server macchine virtuali. Per gestire le impostazioni per la fine del supporto SQL Server macchine virtuali, usare invece la [scheda di configurazione](#access-the-sql-server-configuration-tab) deprecata SQL Server. 
 - La risorsa **macchine virtuali SQL** è disponibile solo per SQL Server macchine virtuali [registrate con il provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md). 
@@ -39,7 +39,7 @@ Per accedere alla risorsa **macchine virtuali SQL** , eseguire le operazioni seg
 1. Aprire il [portale di Azure](https://portal.azure.com). 
 1. Selezionare **Tutti i servizi**. 
 1. Immettere **macchine virtuali SQL** nella casella di ricerca.
-1. (Facoltativo): Selezionare la stella accanto a **macchine virtuali SQL** per aggiungere questa opzione al menu **Preferiti** . 
+1. (Facoltativo): selezionare la stella accanto a **macchine virtuali SQL** per aggiungere questa opzione al menu **Preferiti** . 
 1. Selezionare **macchine virtuali SQL**. 
 
    ![Trova SQL Server macchine virtuali in tutti i servizi](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
@@ -59,12 +59,12 @@ Per accedere alla risorsa **macchine virtuali SQL** , eseguire le operazioni seg
 ## <a name="access-the-sql-server-configuration-tab"></a>Accedere alla scheda configurazione SQL Server
 La scheda **configurazione SQL Server** è stata deprecata. Attualmente, è l'unico metodo per gestire la [fine del supporto](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server macchine virtuali e SQL Server macchine virtuali che non sono state [registrate con il provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
 
-Per accedere alla scheda di **configurazione SQL Server** deprecata, passare alla risorsa **macchine virtuali** . Seguire questa procedura:
+Per accedere alla scheda di **configurazione SQL Server** deprecata, passare alla risorsa **macchine virtuali** . Eseguire la procedura descritta di seguito:
 
 1. Aprire il [portale di Azure](https://portal.azure.com). 
 1. Selezionare **Tutti i servizi**. 
 1. Immettere **macchine virtuali** nella casella di ricerca.
-1. (Facoltativo): Selezionare la stella accanto a **macchine virtuali** per aggiungere questa opzione al menu **Preferiti** . 
+1. (Facoltativo): selezionare la stella accanto alle **macchine virtuali** per aggiungere questa opzione al menu **Preferiti** . 
 1. Selezionare **Macchine virtuali**. 
 
    ![Cerca macchine virtuali](media/virtual-machines-windows-sql-manage-portal/vm-search.png)
@@ -76,7 +76,7 @@ Per accedere alla scheda di **configurazione SQL Server** deprecata, passare all
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere i seguenti articoli: 
+Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Domande frequenti per SQL Server in una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-faq.md)

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: a3583a5efd120733ce7f6b71a7594b5636593f99
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373492"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279962"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Annotazioni per il controller di ingresso del gateway applicazione 
 

@@ -4,11 +4,11 @@ description: Impostare manualmente il monitoraggio di Application Insights per u
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374906"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276049"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 

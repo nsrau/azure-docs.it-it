@@ -3,12 +3,12 @@ title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
 description: Questo articolo illustra come usare il dashboard di panoramica dell'insieme di credenziali di servizi di ripristino per monitorare e gestire gli insiemi di credenziali dei servizi di ripristino.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b57d6eff5f5dfa2163962a47eee079d7e26257b5
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586445"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136957"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -49,7 +49,7 @@ Il dashboard **Panoramica** dell'insieme di credenziali di Servizi di ripristino
 La sezione Monitoraggio mostra i risultati delle query **Avvisi di backup** e **Processi di backup** predefinite. I riquadri di Monitoraggio forniscono informazioni aggiornate su:
 
 * Avvisi critici e avvertenze per i processi di backup (nelle ultime 24 ore)
-* Stato del controllo preliminare per le VM di Azure: per informazioni complete sullo stato del controllo preliminare, vedere il [blog sullo stato del controllo preliminare di backup](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/).
+* Stato di verifica preliminare per le macchine virtuali di Azure. Per informazioni complete sullo stato di verifica preliminare, vedere [backup pre-check status](#backup-pre-check-status).
 * I processi di backup in corso e i processi non riusciti (nelle ultime 24 ore).
 
 I riquadri di Utilizzo forniscono:
@@ -62,6 +62,22 @@ Fare clic sui riquadri (a eccezione di Archivio backup) per aprire il menu assoc
 ![Menu Avvisi di backup filtrato per gli avvisi critici](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
 Il menu Avvisi di backup nell'immagine precedente viene filtrato per: stato attivo, gravità critica e intervallo di tempo corrispondente alle 24 ore precedenti.
+
+### <a name="backup-pre-check-status"></a>Stato del controllo preliminare di backup
+
+I controlli preliminari di backup controllano la configurazione delle VM per individuare eventuali problemi che possono influire negativamente sui backup. Queste informazioni vengono aggregate in modo che sia possibile visualizzarle direttamente dal dashboard dell'insieme di credenziali dei servizi di ripristino e fornire consigli per le misure correttive per garantire la corretta esecuzione di backup coerenti con i file o coerenti con l'applicazione. Non richiedono alcuna infrastruttura e non hanno costi aggiuntivi.  
+
+I controlli preliminari di backup vengono eseguiti come parte delle operazioni di backup pianificate per le macchine virtuali di Azure. Concludono con uno degli Stati seguenti:
+
+* **Passato**: questo stato indica che la configurazione della macchina virtuale deve condurre a backup completati e non è necessario eseguire alcuna azione correttiva.
+* **Avviso**: questo stato indica uno o più problemi nella configurazione della macchina virtuale che *potrebbero* causare errori di backup. Sono disponibili procedure *consigliate* per garantire la riuscita dei backup. Se, ad esempio, non è installato l'agente VM più recente, i backup non vengono eseguiti in modo intermittente. Questa situazione fornirebbe uno stato di avviso.
+* **Critico**: questo stato indica uno o più problemi critici nella configurazione della macchina *virtuale che comporteranno* errori di backup e fornirà i passaggi *necessari* per garantire il corretto backup. Un problema di rete, ad esempio, causato da un aggiornamento alle regole NSG di una macchina virtuale, provocherà l'esito negativo dei backup, in quanto impedisce alla macchina virtuale di comunicare con il servizio backup di Azure. Questa situazione fornirebbe uno stato critico.
+
+Attenersi alla procedura seguente per iniziare a risolvere gli eventuali problemi segnalati dai controlli preliminari di backup per i backup delle VM nell'insieme di credenziali di servizi di ripristino.
+
+* Selezionare il riquadro **stato del controllo preliminare di backup (VM di Azure)** nel dashboard dell'insieme di credenziali di servizi di ripristino.
+* Selezionare una macchina virtuale con uno stato di verifica preliminare del backup **critico** o **avviso**. Questa azione apre il riquadro dei **Dettagli della macchina virtuale** .
+* Selezionare la notifica del riquadro nella parte superiore del riquadro per visualizzare la descrizione del problema di configurazione e i passaggi correttivi.
 
 ## <a name="manage-backup-alerts"></a>Gestire gli avvisi di backup
 
@@ -272,4 +288,3 @@ Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione u
 
 * [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 * Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
-

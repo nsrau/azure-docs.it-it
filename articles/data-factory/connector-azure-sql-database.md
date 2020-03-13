@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: def57dc125a148abd330643fc5848a35cd3b52bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 03/12/2020
+ms.openlocfilehash: f7cfcb8a9cb99a85fd59f9366ba2ec031da9699b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991007"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243601"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
 
@@ -48,7 +48,7 @@ Per l'attività di copia, questo connettore del database SQL di Azure supporta l
 > Se si copiano i dati usando Azure Data Factory Integration Runtime, configurare un [firewall di azure SQL Server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) in modo che i servizi di Azure possano accedere al server.
 > Se si copiano i dati usando un runtime di integrazione self-hosted, configurare il firewall di Azure SQL Server per consentire l'intervallo di indirizzi IP appropriato. Questo intervallo include l'IP del computer usato per connettersi al database SQL di Azure.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -58,7 +58,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per un servizio collegato al database SQL di Azure sono supportate queste proprietà:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **AzureSqlDatabase**. | Sì |
 | connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database SQL di Azure per la proprietà **connectionString**. <br/>È anche possibile inserire una password o una chiave dell'entità servizio in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
@@ -215,11 +215,11 @@ Per utilizzare l'autenticazione di identità gestita, attenersi alla seguente pr
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [DataSets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
 
 Per il set di dati del database SQL di Azure sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlTable**. | Sì |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
@@ -255,12 +255,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati dal database SQL di Azure, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **AzureSqlSource**. Il tipo "sqlSource" è ancora supportato per la compatibilità con le versioni precedenti. | Sì |
 | sqlReaderQuery | Questa proprietà usa la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. | No |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No |
 | storedProcedureParameters | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri stored procedure. | No |
+| isolationLevel | Specifica il comportamento di blocco delle transazioni per l'origine SQL. I valori consentiti sono: **ReadCommitted** (impostazione predefinita), **READUNCOMMITTED**, **RepeatableRead**, **Serializable**, **snapshot**. Per ulteriori informazioni, fare riferimento a [questo documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | No |
 
 **Punti da notare:**
 
@@ -361,7 +362,7 @@ GO
 
 Per copiare i dati nel database SQL di Azure, nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su **AzureSqlSink**. Il tipo "sqlsink" è ancora supportato per la compatibilità con le versioni precedenti. | Sì |
 | writeBatchSize | Numero di righe da inserire nella tabella SQL *per batch*.<br/> Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No |
@@ -577,7 +578,7 @@ Le impostazioni specifiche del database SQL di Azure sono disponibili nella sche
 
 **Livello di isolamento**: il valore predefinito per le origini SQL nel flusso di dati di mapping è READ UNCOMMITTED. È possibile modificare il livello di isolamento in uno dei seguenti valori:
 * Read Committed
-* Read uncommitted
+* Read Uncommitted
 * Repeatable Read
 * Serializable
 * Nessuno (ignora il livello di isolamento)
@@ -615,23 +616,23 @@ Quando i dati vengono copiati da o nel database SQL di Azure, i mapping seguenti
 | BINARY |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| Data |Data e ora |
-| Datetime |Data e ora |
-| datetime2 |Data e ora |
+| Data |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
-| int |Int32 |
+| INT |Int32 |
 | money |Decimal |
 | NCHAR |String, Char[] |
 | ntext |String, Char[] |
 | NUMERIC |Decimal |
 | NVARCHAR |String, Char[] |
-| real |Singolo |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Data e ora |
+| smalldatetime |Datetime |
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Oggetto |
@@ -639,7 +640,7 @@ Quando i dati vengono copiati da o nel database SQL di Azure, i mapping seguenti
 | time |TimeSpan |
 | timestamp |Byte[] |
 | TINYINT |Byte |
-| UNIQUEIDENTIFIER |GUID |
+| UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | Xml |Xml |

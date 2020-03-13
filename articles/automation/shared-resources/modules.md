@@ -9,11 +9,11 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e300bc0f29808215673407d21b65fe329e50ad45
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930429"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278337"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in automazione di Azure
 
@@ -82,7 +82,7 @@ Di seguito è riportato un elenco di cmdlet nel modulo `Orchestrator.AssetManage
 >Questi cmdlet interni sono disponibili in un ruolo di lavoro ibrido per Runbook Windows, non sono disponibili in un ruolo di lavoro ibrido per Runbook Linux. Usare i moduli [AzureRM. Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) o [AZ](../az-modules.md) corrispondenti per manuali operativi in esecuzione direttamente nel computer o nelle risorse dell'ambiente. 
 >
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

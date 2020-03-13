@@ -3,7 +3,7 @@ title: Codice del file evento XEvent
 description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Database SQL di Azure. Archiviazione di Azure è una parte necessaria di questo scenario.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: 00f31bdf147c4711715cd600fa8a8fd4bac2162a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a9bf28fb1b3c5278d25b417fc646d2ad3d6f1abc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422483"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213984"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL
 
@@ -34,7 +34,7 @@ Questo argomento presenta un esempio di codice in due fasi:
   - per assegnare il contenitore di Archiviazione di Azure a una destinazione del file evento.
   - Per creare e avviare la sessione dell'evento e così via.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -503,7 +503,7 @@ Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft 
   
   - Nessun account di Archiviazione di Azure deve essere coinvolto.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazione di Azure, vedere:
 
@@ -511,7 +511,7 @@ Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazi
 - [Denominazione e riferimento a contenitori, BLOB e metadati](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Lavorare con il contenitore radice](https://msdn.microsoft.com/library/azure/ee395424.aspx)
 - [Lezione 1: Creare criteri di accesso archiviati e la firma di accesso condiviso in un contenitore di Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [Lezione 2: Creare una credenziale di SQL Server usando una firma di accesso condiviso](https://msdn.microsoft.com/library/dn466435.aspx)
+  - [Lezione 2: Creare credenziali di SQL Server usando una firma di accesso condiviso](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Eventi estesi per Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!-- Image references. -->

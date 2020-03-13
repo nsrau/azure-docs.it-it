@@ -5,17 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 1d91813e0f39207bcf7768de89600a6bdee0fc53
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.date: 03/11/2020
+ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358995"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284200"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gestire l'ambiente Integration Services (ISE) in app per la logica di Azure
 
-Per verificare lo stato di integrità della rete per l' [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) e gestire le app per la logica, le connessioni, gli account di integrazione e i connettori presenti in ISE, seguire i passaggi descritti in questo argomento. Per aggiungere questi elementi a ISE, vedere [aggiungere elementi all'ambiente del servizio di integrazione](../logic-apps/add-artifacts-integration-service-environment-ise.md).
+Questo articolo illustra come eseguire attività di gestione per l' [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), ad esempio:
+
+* Gestire le risorse, ad esempio le app per la logica, le connessioni, gli account di integrazione e i connettori in ISE.
+* Controllare l'integrità della rete di ISE.
+* Aggiungere la capacità, riavviare ISE o eliminare ISE, attenersi alla procedura descritta in questo argomento. Per aggiungere questi elementi a ISE, vedere [aggiungere elementi all'ambiente del servizio di integrazione](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## <a name="view-your-ise"></a>Visualizza ISE
 
@@ -97,6 +101,83 @@ Nel menu ISE selezionare **integrità rete**in **Impostazioni**. Questo riquadro
 
 1. Per rimuovere gli account di integrazione da ISE quando non sono più necessari, selezionare gli account di integrazione e quindi selezionare **Elimina**.
 
+<a name="add-capacity"></a>
+
+## <a name="add-ise-capacity"></a>Aggiungere la capacità di ISE
+
+L'unità di base Premium ISE ha una capacità fissa, quindi se è necessaria una velocità effettiva maggiore, è possibile aggiungere altre unità di scala, durante la creazione o in seguito. Lo SKU Developer non include la possibilità di aggiungere unità di scala.
+
+1. Nella [portale di Azure](https://portal.azure.com)passare a ISE.
+
+1. Per esaminare le metriche di utilizzo e delle prestazioni per ISE, scegliere **Panoramica**dal menu ISE.
+
+   ![Visualizzazione dell'utilizzo per ISE](./media/ise-manage-integration-service-environment/integration-service-environment-usage.png)
+
+1. In **Impostazioni**selezionare **scale out (scalabilità orizzontale**). Nel riquadro **Configura** selezionare una delle opzioni seguenti:
+
+   * [**Scalabilità manuale**](#manual-scale): ridimensionare in base al numero di unità di elaborazione che si vuole usare.
+   * [**Scalabilità automatica personalizzata**](#custom-autoscale): ridimensionare in base alle metriche delle prestazioni selezionando i diversi criteri e specificando le condizioni di soglia per la riunione di questi criteri.
+
+   ![Selezionare il tipo di ridimensionamento desiderato](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+
+<a name="manual-scale"></a>
+
+### <a name="manual-scale"></a>Scalabilità manuale
+
+1. Dopo aver selezionato la **scalabilità manuale**, per **capacità aggiuntiva**Selezionare il numero di unità di scala che si desidera utilizzare.
+
+   ![Selezionare il tipo di ridimensionamento desiderato](./media/ise-manage-integration-service-environment/select-manual-scale-out-units.png)
+
+1. Al termine, selezionare **Salva**.
+
+<a name="custom-autoscale"></a>
+
+### <a name="custom-autoscale"></a>Scalabilità automatica personalizzata
+
+1. Dopo aver selezionato il **ridimensionamento automatico personalizzato**, per **Nome impostazione di scalabilità**automatica specificare un nome per l'impostazione e, facoltativamente, selezionare il gruppo di risorse di Azure a cui appartiene l'impostazione.
+
+   ![Specificare il nome per l'impostazione di scalabilità automatica e selezionare il gruppo di risorse](./media/ise-manage-integration-service-environment/select-custom-autoscale.png)
+
+1. Per la condizione **predefinita** , selezionare **scalabilità in base a una metrica** o **scala per un numero di istanze specifico**.
+
+   * Se si sceglie basato su istanza, immettere il numero per le unità di elaborazione, ovvero un valore compreso tra 0 e 10.
+
+   * Se si sceglie basato su metrica, attenersi alla procedura seguente:
+
+     1. Nella sezione **regole** selezionare **Aggiungi una regola**.
+
+     1. Nel riquadro **regola di scalabilità** impostare i criteri e l'azione da intraprendere quando la regola viene attivata.
+
+     1. Per i **limiti dell'istanza**, specificare i valori seguenti:
+
+        * **Minimum**: numero minimo di unità di elaborazione da usare
+        * **Massimo**: numero massimo di unità di elaborazione da usare
+        * **Impostazione predefinita**: se si verificano problemi durante la lettura delle metriche delle risorse e la capacità corrente è inferiore alla capacità predefinita, la scalabilità automatica aumenta fino al numero predefinito di unità di elaborazione. Tuttavia, se la capacità corrente supera la capacità predefinita, la scalabilità automatica non viene ridimensionata.
+
+1. Per aggiungere un'altra condizione, selezionare **Aggiungi condizione di ridimensionamento**.
+
+1. Al termine delle impostazioni di scalabilità automatica, salvare le modifiche.
+
+<a name="restart-ISE"></a>
+
+## <a name="restart-ise"></a>Riavviare ISE
+
+Se si modificano le impostazioni del server DNS o del server DNS, è necessario riavviare ISE in modo che ISE possa rilevare tali modifiche. Il riavvio di uno SKU Premium ISE non comporta tempi di inattività dovuti alla ridondanza e ai componenti che si riavviano uno alla volta durante il riciclo. Tuttavia, uno SKU dello sviluppatore ISE presenta tempi di inattività perché non esiste alcuna ridondanza. Per altre informazioni, vedere [SKU di ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+
+1. Nella [portale di Azure](https://portal.azure.com)passare a ISE.
+
+1. Scegliere **Panoramica**dal menu ISE. Sulla barra degli strumenti Panoramica **riavviare**.
+
+   ![Riavviare l'ambiente del servizio di integrazione](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
+
+<a name="delete-ise"></a>
+
+## <a name="delete-ise"></a>Elimina ISE
+
+Prima di eliminare un ISE non più necessario o un gruppo di risorse di Azure che contiene un ISE, verificare di non avere criteri o blocchi nel gruppo di risorse di Azure che contiene queste risorse o nella rete virtuale di Azure, perché questi elementi possono bloccare l'eliminazione.
+
+Dopo aver eliminato l'ISE, potrebbe essere necessario attendere fino a 9 ore prima di provare a eliminare la rete virtuale o le subnet di Azure.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [connettersi alle reti virtuali di Azure da app per la logica isolate](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Aggiungere risorse agli ambienti del servizio di integrazione](../logic-apps/add-artifacts-integration-service-environment-ise.md)

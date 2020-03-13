@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ac8fe2e5bf1c338fa67619a675225eb80256c3f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75691000"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135905"
 ---
 # <a name="list-blob-containers-with-net"></a>Elencare i contenitori BLOB con .NET
 
-Quando si elencano i contenitori in un account di archiviazione di Azure dal codice, è possibile specificare diverse opzioni per gestire il modo in cui i risultati vengono restituiti dall'archiviazione di Azure. Questo articolo illustra come elencare i contenitori usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage/client).  
+Quando si elencano i contenitori in un account di archiviazione di Azure dal codice, è possibile specificare diverse opzioni per gestire il modo in cui i risultati vengono restituiti dall'archiviazione di Azure. Questo articolo illustra come elencare i contenitori usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## <a name="understand-container-listing-options"></a>Informazioni sulle opzioni relative all'elenco di contenitori
 
@@ -98,7 +98,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Elencare i contenitori](/rest/api/storageservices/list-containers2)
 [enumerare le risorse BLOB](/rest/api/storageservices/enumerating-blob-resources)

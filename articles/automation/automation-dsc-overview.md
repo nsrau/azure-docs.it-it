@@ -11,11 +11,11 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 787cade13a0636bb25afa1d4043a977f512484f9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372357"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278922"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Panoramica di Configurazione stato di Automazione di Azure
 
@@ -41,7 +41,7 @@ Dal portale di Azure o da PowerShell è possibile gestire tutte le configurazion
 
 I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro Log Analytics. Per informazioni su come inviare i dati sullo stato della configurazione dello stato nell'area di lavoro Log Analytics, vedere [inoltrare i dati dei report di configurazione dello stato di automazione di Azure ai log di monitoraggio](automation-dsc-diagnostics.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Quando si usa la configurazione dello stato di automazione di Azure (DSC), considerare i requisiti seguenti.
 

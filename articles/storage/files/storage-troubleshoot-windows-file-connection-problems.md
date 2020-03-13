@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 207a3a6c59012154d547bbd224782b90e1046c6a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597967"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136906"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -43,6 +43,14 @@ Se nell'account di archiviazione sono configurate regole di rete virtuale o del 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
 Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti**. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Motivo 3: le autorizzazioni a livello di condivisione non sono corrette quando si usa l'autenticazione basata su identità
+
+Se gli utenti accedono alla condivisione file di Azure usando l'autenticazione Active Directory (AD) o Azure Active Directory Domain Services (Azure AD DS), l'accesso alla condivisione file avrà esito negativo con l'errore "accesso negato" se le autorizzazioni a livello di condivisione non sono corrette. 
+
+### <a name="solution-for-cause-3"></a>Soluzione per la causa 3
+
+Per aggiornare le autorizzazioni a livello di condivisione, vedere [assegnare le autorizzazioni di accesso a un'identità](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Errore 53, Errore 67 o Errore 87 quando si prova a montare o smontare una condivisione file di Azure

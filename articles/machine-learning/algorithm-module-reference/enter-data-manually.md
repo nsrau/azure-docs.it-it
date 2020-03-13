@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 736b128e5207e58220afa69b4cf5dc4e8fea4a26
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268766"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140808"
 ---
 # <a name="enter-data-manually-module"></a>Immettere manualmente i dati del modulo
 
@@ -62,13 +62,13 @@ Questo modulo può essere utile in scenari come i seguenti:
   
     -   **ARFF**: incollare un file di formato ARFF esistente. Se si digitano direttamente i valori, assicurarsi di aggiungere i campi intestazione facoltativa e attributo obbligatorio all'inizio dei dati. 
     
-        Ad esempio, è possibile aggiungere le righe di intestazione e di attributo seguenti a un elenco semplice. L'intestazione di colonna verrebbe `SampleText`.
+        Ad esempio, è possibile aggiungere le righe di intestazione e di attributo seguenti a un elenco semplice. L'intestazione di colonna verrebbe `SampleText`. Si noti che il tipo stringa non è supportato.
     
         ```text
-        % Title: SampleText.ARFF  
-        % Source: Enter Data module  
-        @ATTRIBUTE SampleText STRING  
-        @DATA  
+        % Title: SampleText.ARFF
+        % Source: Enter Data module
+        @ATTRIBUTE SampleText NUMERIC
+        @DATA
         \<type first data row here>  
         ```
 

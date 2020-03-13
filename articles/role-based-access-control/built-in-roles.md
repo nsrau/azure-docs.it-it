@@ -1,6 +1,6 @@
 ---
 title: Ruoli predefiniti di Azure per RBAC di Azure
-description: Descrive i ruoli predefiniti di Azure per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Elenca Actions, NotActions, DataActions e NotDataActions.
+description: Questo articolo descrive i ruoli predefiniti di Azure per il controllo degli accessi in base al ruolo (RBAC) di Azure. Elenca le azioni, le notact, le azioni dataactions e NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/18/2020
+ms.date: 03/12/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b7b944880074b64f6a9e66e177082e52632e9c9d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 5b6da05f07636f6a6dde16cf6d8061629a72adfa
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205892"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281106"
 ---
 # <a name="azure-built-in-roles"></a>Ruoli predefiniti di Azure
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](overview.md) include diversi ruoli predefiniti di Azure che è possibile assegnare a utenti, gruppi, entità servizio e identità gestite. Le assegnazioni di ruolo sono il modo in cui si controlla l'accesso alle risorse di Azure. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati di Azure](custom-roles.md).
+Il [controllo degli accessi in base al ruolo di Azure (RBAC)](overview.md) include diversi ruoli predefiniti di Azure che è possibile assegnare a utenti, gruppi, entità servizio e identità gestite. Le assegnazioni di ruolo sono il modo in cui si controlla l'accesso alle risorse di Azure. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati di Azure](custom-roles.md).
 
-Questo articolo illustra i ruoli predefiniti per le risorse di Azure, che sono in continua evoluzione. Per ottenere i ruoli più recenti, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list). Se si cercano ruoli di amministratore per Azure Active Directory, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Questo articolo illustra i ruoli predefiniti per le risorse di Azure, che sono in continua evoluzione. Per ottenere i ruoli più recenti, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list). Per informazioni sui ruoli di amministratore per Azure Active Directory (Azure AD), vedere autorizzazioni per i ruoli [di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="descriptions-and-ids"></a>Descrizioni e ID
 
-La tabella seguente fornisce una breve descrizione e l'ID univoco di ogni ruolo predefinito. Fare clic sul nome del ruolo per vedere l'elenco di `Actions`, `NotActions`, `DataActions` e `NotDataActions` per ogni ruolo. Per informazioni sul significato di queste azioni e su come si applicano ai piani di gestione e ai piani dati, vedere [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md).
+La tabella seguente fornisce una breve descrizione e l'ID univoco di ogni ruolo predefinito. Selezionare il nome del ruolo per visualizzare l'elenco di `Actions`, `NotActions`, `DataActions`e `NotDataActions` per ogni ruolo. Per informazioni sul significato di queste azioni e su come si applicano ai piani di gestione e ai piani dati, vedere [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
@@ -77,10 +77,10 @@ La tabella seguente fornisce una breve descrizione e l'ID univoco di ogni ruolo 
 > | [Accesso al nodo membro blockchain (anteprima)](#blockchain-member-node-access-preview) | Consente l'accesso ai nodi membro blockchain | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | [Collaboratore di progetto](#blueprint-contributor) | Può gestire le definizioni di progetto, ma non assegnarle. | 41077137-E803-4205-871C-5a86e6a753b4 |
 > | [Operatore di progetto](#blueprint-operator) | Consente di assegnare progetti pubblicati esistenti, ma non di creare nuovi progetti. Nota: questa operazione funziona solo se l'assegnazione viene eseguita con un'identità gestita assegnata dall'utente. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
-> | [Collaboratore endpoint rete CDN](#cdn-endpoint-contributor) | Può gestire gli endpoint della rete CDN, ma non può concedere l'accesso ad altri utenti. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
-> | [Lettore endpoint rete CDN](#cdn-endpoint-reader) | Può visualizzare gli endpoint della rete CDN, ma non può apportare modifiche. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
-> | [Collaboratore profilo rete CDN](#cdn-profile-contributor) | Può gestire i profili e i rispettivi endpoint della rete CDN, ma non può concedere l'accesso ad altri utenti. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
-> | [Lettore profilo rete CDN](#cdn-profile-reader) | Può visualizzare i profili e i rispettivi endpoint della rete CDN, ma non può apportare modifiche. | 8f96442b-4075-438f-813d-ad51ab4019af |
+> | [Collaboratore endpoint rete CDN](#cdn-endpoint-contributor) | Consente di gestire gli endpoint della rete CDN, ma non di concedere l'accesso ad altri utenti. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
+> | [Lettore endpoint rete CDN](#cdn-endpoint-reader) | Consente di visualizzare gli endpoint della rete CDN, ma non di apportare modifiche. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
+> | [Collaboratore profilo rete CDN](#cdn-profile-contributor) | Consente di gestire i profili della rete CDN e i relativi endpoint, ma non di concedere l'accesso ad altri utenti. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
+> | [Lettore profilo rete CDN](#cdn-profile-reader) | Consente di visualizzare i profili della rete CDN e i relativi endpoint, ma non di apportare modifiche. | 8f96442b-4075-438f-813d-ad51ab4019af |
 > | [Collaboratore reti virtuali classiche](#classic-network-contributor) | Consente di gestire le reti classiche, ma non di accedervi. | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 > | [Collaboratore account di archiviazione classico](#classic-storage-account-contributor) | Consente di gestire gli account di archiviazione classici, ma non di accedervi. | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 > | [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione classico](#classic-storage-account-key-operator-service-role) | Gli operatori della chiave dell'account di archiviazione classico sono autorizzati a elencare e rigenerare le chiavi negli account di archiviazione classici | 985d6b00-f706-48f5-a6fe-d0ca12fb668d |
@@ -176,7 +176,7 @@ La tabella seguente fornisce una breve descrizione e l'ID univoco di ogni ruolo 
 ## <a name="general"></a>Generale
 
 
-### <a name="contributor"></a>Contributor
+### <a name="contributor"></a>Collaboratore
 
 Consente di gestire tutto tranne che per concedere l'accesso alle risorse.
 
@@ -1059,7 +1059,7 @@ Consente di gestire le macchine virtuali classiche, ma non di accedervi né di g
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.",
+  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "name": "d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "permissions": [
@@ -2052,7 +2052,7 @@ Consente di gestire le istanze gestite di SQL e la configurazione di rete richie
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage SQL Managed Instances and required network configuration, but can’t give access to others.",
+  "description": "Lets you manage SQL Managed Instances and required network configuration, but can't give access to others.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "name": "4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "permissions": [
@@ -2322,7 +2322,7 @@ Consente di gestire i server e i database SQL, ma non di accedervi né di gestir
 }
 ```
 
-## <a name="developer-tools"></a>Strumenti sviluppatori
+## <a name="developer-tools"></a>Strumenti per sviluppatori
 
 
 ### <a name="app-configuration-data-owner"></a>Proprietario dati di configurazione dell'app
@@ -2711,7 +2711,7 @@ Consente di gestire le registrazioni di Azure Stack.
 }
 ```
 
-## <a name="identity"></a>Identity
+## <a name="identity"></a>Identità
 
 
 ### <a name="managed-identity-contributor"></a>Managed Identity Contributor (Collaboratore per identità gestita)
@@ -2820,7 +2820,7 @@ Legge e assegna l'identità assegnata all'utente
 }
 ```
 
-## <a name="integration"></a>Integration
+## <a name="integration"></a>Integrazione
 
 
 ### <a name="api-management-service-contributor"></a>Collaboratore servizio Gestione API
@@ -3853,10 +3853,7 @@ Può gestire le definizioni di progetto, ma non assegnarle.
 
 ### <a name="blueprint-operator"></a>Operatore Blueprint
 
-Consente di assegnare progetti pubblicati esistenti, ma non di creare nuovi progetti. 
-
-> [!NOTE] 
-> Questa operazione funziona solo se l'assegnazione viene eseguita con un'identità gestita assegnata dall'utente.
+Consente di assegnare progetti pubblicati esistenti, ma non di creare nuovi progetti. Nota: questa operazione funziona solo se l'assegnazione viene eseguita con un'identità gestita assegnata dall'utente.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4316,6 +4313,8 @@ Può leggere tutti i dati del monitoraggio e modificare le impostazioni di monit
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft. AlertsManagement/smartDetectorAlertRules/* |  |
+> | Microsoft. AlertsManagement/actionRules/* |  |
+> | Microsoft. AlertsManagement/smartGroups/* |  |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
@@ -4359,7 +4358,9 @@ Può leggere tutti i dati del monitoraggio e modificare le impostazioni di monit
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
         "Microsoft.WorkloadMonitor/notificationSettings/*",
-        "Microsoft.AlertsManagement/smartDetectorAlertRules/*"
+        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
+        "Microsoft.AlertsManagement/actionRules/*",
+        "Microsoft.AlertsManagement/smartGroups/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -5296,7 +5297,7 @@ Consente di individuare e leggere le proprietà degli ancoraggi spaziali nell'ac
 
 ### <a name="cdn-endpoint-contributor"></a>Collaboratore endpoint rete CDN
 
-Può gestire gli endpoint della rete CDN, ma non può concedere l'accesso ad altri utenti.
+Consente di gestire gli endpoint della rete CDN, ma non di concedere l'accesso ad altri utenti.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5322,7 +5323,7 @@ Può gestire gli endpoint della rete CDN, ma non può concedere l'accesso ad alt
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "name": "426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "permissions": [
@@ -5350,7 +5351,7 @@ Può gestire gli endpoint della rete CDN, ma non può concedere l'accesso ad alt
 
 ### <a name="cdn-endpoint-reader"></a>Lettore endpoint rete CDN
 
-Può visualizzare gli endpoint della rete CDN, ma non può apportare modifiche.
+Consente di visualizzare gli endpoint della rete CDN, ma non di apportare modifiche.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5376,7 +5377,7 @@ Può visualizzare gli endpoint della rete CDN, ma non può apportare modifiche.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN endpoints, but can’t make changes.",
+  "description": "Can view CDN endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "name": "871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "permissions": [
@@ -5404,7 +5405,7 @@ Può visualizzare gli endpoint della rete CDN, ma non può apportare modifiche.
 
 ### <a name="cdn-profile-contributor"></a>Collaboratore profilo rete CDN
 
-Può gestire i profili e i rispettivi endpoint della rete CDN, ma non può concedere l'accesso ad altri utenti.
+Consente di gestire i profili della rete CDN e i relativi endpoint, ma non di concedere l'accesso ad altri utenti.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5430,7 +5431,7 @@ Può gestire i profili e i rispettivi endpoint della rete CDN, ma non può conce
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN profiles and their endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN profiles and their endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "name": "ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "permissions": [
@@ -5458,7 +5459,7 @@ Può gestire i profili e i rispettivi endpoint della rete CDN, ma non può conce
 
 ### <a name="cdn-profile-reader"></a>Lettore profilo rete CDN
 
-Può visualizzare i profili e i rispettivi endpoint della rete CDN, ma non può apportare modifiche.
+Consente di visualizzare i profili della rete CDN e i relativi endpoint, ma non di apportare modifiche.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5484,7 +5485,7 @@ Può visualizzare i profili e i rispettivi endpoint della rete CDN, ma non può 
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN profiles and their endpoints, but can’t make changes.",
+  "description": "Can view CDN profiles and their endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8f96442b-4075-438f-813d-ad51ab4019af",
   "name": "8f96442b-4075-438f-813d-ad51ab4019af",
   "permissions": [
@@ -5718,7 +5719,7 @@ Consente di gestire i profili di Gestione traffico, ma non di controllare chi è
 }
 ```
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 
 ### <a name="azure-sentinel-contributor"></a>Collaboratore sentinella di Azure
@@ -5731,7 +5732,7 @@ Collaboratore sentinella di Azure
 > | **Actions** |  |
 > | Microsoft. SecurityInsights/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
-> | Microsoft.OperationalInsights/workspaces/read | Ottiene un'area di lavoro esistente |
+> | Microsoft.OperationalInsights/workspaces/*/read | Visualizzare i dati di log Analytics |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
 > | Microsoft.OperationsManagement/solutions/read | Ottiene soluzione OMS esistente |
 > | Microsoft.OperationalInsights/workspaces/query/read | Esegue query sui dati nell'area di lavoro |
@@ -5763,7 +5764,7 @@ Collaboratore sentinella di Azure
       "actions": [
         "Microsoft.SecurityInsights/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5797,7 +5798,8 @@ Lettore sentinella di Azure
 > | **Actions** |  |
 > | Microsoft. SecurityInsights/*/Read |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
-> | Microsoft.OperationalInsights/workspaces/read | Ottiene un'area di lavoro esistente |
+> | Microsoft.OperationalInsights/workspaces/*/read | Visualizzare i dati di log Analytics |
+> | Microsoft. OperationalInsights/Workspaces/LinkedServices/Read | Ottiene i servizi collegati nell'area di lavoro specificata. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Ottiene una query di ricerca salvata |
 > | Microsoft.OperationsManagement/solutions/read | Ottiene soluzione OMS esistente |
 > | Microsoft.OperationalInsights/workspaces/query/read | Esegue query sui dati nell'area di lavoro |
@@ -5829,7 +5831,8 @@ Lettore sentinella di Azure
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
+        "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5863,8 +5866,9 @@ Risponditore sentinella di Azure
 > | **Actions** |  |
 > | Microsoft. SecurityInsights/*/Read |  |
 > | Microsoft. SecurityInsights/Cases/* |  |
+> | Microsoft. SecurityInsights/Incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
-> | Microsoft.OperationalInsights/workspaces/read | Ottiene un'area di lavoro esistente |
+> | Microsoft.OperationalInsights/workspaces/*/read | Visualizzare i dati di log Analytics |
 > | Microsoft. OperationalInsights/aree di lavoro/origini dati/lettura | Ottiene le origini dati in un'area di lavoro. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Ottiene una query di ricerca salvata |
 > | Microsoft.OperationsManagement/solutions/read | Ottiene soluzione OMS esistente |
@@ -5897,8 +5901,9 @@ Risponditore sentinella di Azure
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/cases/*",
+        "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
@@ -6655,6 +6660,7 @@ Può visualizzare i servizi di backup, ma non può apportare modifiche.
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Ottiene lo stato dell'operazione per una determinata operazione |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Elenca tutte le finalità di protezione del backup |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Restituisce i dettagli di utilizzo di un insieme di credenziali di Servizi di ripristino. |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Convalida le funzioni |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
@@ -6709,7 +6715,8 @@ Può visualizzare i servizi di backup, ma non può apportare modifiche.
         "Microsoft.RecoveryServices/operations/read",
         "Microsoft.RecoveryServices/locations/operationStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read",
-        "Microsoft.RecoveryServices/Vaults/usages/read"
+        "Microsoft.RecoveryServices/Vaults/usages/read",
+        "Microsoft.RecoveryServices/locations/backupValidateFeatures/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -7843,7 +7850,7 @@ Consente di gestire i siti Web (non i piani Web), ma non di accedervi.
 }
 ```
 
-## <a name="other"></a>Altro
+## <a name="other"></a>Altri
 
 
 ### <a name="biztalk-contributor"></a>Collaboratore BizTalk

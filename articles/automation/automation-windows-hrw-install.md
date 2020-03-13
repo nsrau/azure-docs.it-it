@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6c99cb15ef6874ef0efecb15eb99443904491209
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081935"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278454"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 

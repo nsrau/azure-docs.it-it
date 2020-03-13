@@ -6,11 +6,11 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372995"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278675"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 
@@ -61,7 +61,7 @@ Quando un computer viene aggiunto alle soluzioni Gestione aggiornamenti o Rileva
 
 Passare all'area di lavoro Log Analytics e selezionare **ricerche salvate** in **generale**. Le due ricerche salvate usate da queste soluzioni sono indicate nella tabella seguente:
 
-|Name     |Category  |Alias  |
+|Nome     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Aggiornamenti        | Updates__MicrosoftDefaultComputerGroup         |
@@ -141,7 +141,7 @@ Se è stata usata la soluzione per avviare e arrestare VM durante gli orari di m
 
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
-* Variabili
+* variables
 
 In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro Log Analytics. Nell'area di lavoro selezionare **account di automazione** in **risorse correlate**. Nella pagina account di automazione selezionare **Scollega account**.
 

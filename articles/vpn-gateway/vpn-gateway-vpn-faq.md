@@ -5,16 +5,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016749"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279884"
 ---
-# <a name="vpn-gateway-faq"></a>Domande frequenti su Gateway VPN
+# <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
 ## <a name="connecting"></a>Connessione a reti virtuali
 
@@ -168,6 +168,10 @@ Questo comportamento è previsto per gateway VPN basate su criteri (anche note c
 Sono supportati server RRAS (Routing e Accesso remoto) in Windows Server 2012 per la configurazione da sito a sito cross-premise.
 
 Con il gateway dovrebbero funzionare anche altre soluzioni software VPN, purché siano conformi alle implementazioni di IPSec standard del settore. Per istruzioni sulla configurazione e sull'assistenza, contattare il fornitore del software.
+
+## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>Ricerca per categorie modificare il tipo di autenticazione per le connessioni da punto a sito?
+
+È possibile modificare il metodo di autenticazione per le connessioni da punto a sito passando alla sezione **configurazione da punto a sito** nel gateway VPN e selezionando il pulsante di opzione desiderato. Le opzioni correnti sono **certificato di Azure, autenticazione RADIUS e Azure Active Directory**. Si noti che i client correnti **potrebbero non essere in grado di connettersi** dopo la modifica fino a quando il nuovo profilo non è stato scaricato e configurato nel client.
 
 ## <a name="P2S"></a>Da punto a sito con l'autenticazione del certificato nativa di Azure
 

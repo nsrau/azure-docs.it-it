@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 03/06/2020
 ms.author: victorh
-ms.openlocfilehash: 27048a8464fc7380a5c11ab6bbb543e35c089774
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ad3289d9b93421df6776c685325f388d552bdba4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919601"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279234"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -65,6 +65,8 @@ Vedere l' [ordine di elaborazione del listener](https://docs.microsoft.com/azure
 ### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>Dove è possibile trovare l'indirizzo IP e il DNS del gateway applicazione?
 
 Se si usa un indirizzo IP pubblico come endpoint, le informazioni sull'indirizzo IP e sul DNS sono disponibili nella risorsa indirizzo IP pubblico. In alternativa, trovarlo nel portale, nella pagina Panoramica per il gateway applicazione. Se si usano indirizzi IP interni, trovare le informazioni nella pagina panoramica.
+
+Per lo SKU V2 aprire la risorsa IP pubblico e selezionare **Configuration (configurazione**). Il campo **etichetta nome DNS (facoltativo)** è disponibile per configurare il nome DNS.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quali sono le impostazioni per il timeout keep-alive e il timeout di inattività TCP?
 
@@ -130,7 +132,7 @@ No. Le istanze vengono distribuite tra domini di aggiornamento e domini di error
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Il gateway applicazione supporta l'esaurimento delle connessioni?
 
-Sì. È possibile impostare lo svuotamento della connessione per modificare i membri all'interno di un pool back-end senza alcuna distorsione. Per altre informazioni, vedere [la sezione svuotamento della connessione del gateway applicazione](overview.md#connection-draining).
+Sì. È possibile impostare lo svuotamento della connessione per modificare i membri all'interno di un pool back-end senza alcuna distorsione. Per altre informazioni, vedere [la sezione svuotamento della connessione del gateway applicazione](features.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>È possibile modificare le dimensioni di un'istanza da medie a grandi senza interruzioni?
 
@@ -410,7 +412,7 @@ Tuttavia, se si vuole usare il gateway applicazione V2 con solo IP privato, è p
 Configurazione di NSG di esempio per accesso solo IP privato: ![la configurazione del gateway applicazione V2 NSG solo per l'accesso IP privato](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Il cookie di affinità del gateway applicazione supporta l'attributo navigava sullostesso sito?
-Sì, l' [aggiornamento V80](https://chromiumdash.appspot.com/schedule) del [browser Chromium](https://www.chromium.org/Home) ha introdotto un mandato su cookie HTTP senza l'attributo navigava sullostesso sito da considerare come navigava sullostesso sito = LAX. Ciò significa che il cookie di affinità del gateway applicazione non verrà inviato dal browser in un contesto di terze entità. Per supportare questo scenario, il gateway applicazione inserisce un altro cookie denominato *ApplicationGatewayAffinityCORS* oltre al cookie *ApplicationGatewayAffinity* esistente.  Questi cookie sono simili, ma al cookie *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi: *navigava sullostesso sito = None; Sicurezza*. Questi attributi gestiscono sessioni permanenti anche per le richieste tra origini. Per ulteriori informazioni, vedere la [sezione affinità basata su cookie](configuration-overview.md#cookie-based-affinity) .
+Sì, l' [aggiornamento V80](https://chromiumdash.appspot.com/schedule) del [browser Chromium](https://www.chromium.org/Home) ha introdotto un mandato su cookie HTTP senza l'attributo navigava sullostesso sito da considerare come navigava sullostesso sito = LAX. Ciò significa che il cookie di affinità del gateway applicazione non verrà inviato dal browser in un contesto di terze parti. Per supportare questo scenario, il gateway applicazione inserisce un altro cookie denominato *ApplicationGatewayAffinityCORS* oltre al cookie *ApplicationGatewayAffinity* esistente.  Questi cookie sono simili, ma al cookie *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi: *navigava sullostesso sito = None; Sicurezza*. Questi attributi gestiscono sessioni permanenti anche per le richieste tra origini. Per ulteriori informazioni, vedere la [sezione affinità basata su cookie](configuration-overview.md#cookie-based-affinity) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

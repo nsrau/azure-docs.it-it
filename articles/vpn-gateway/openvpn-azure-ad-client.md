@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: fc48b0ae9cf4162b4b9abba14c6e909ca091fd23
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3559a139ff89c949ee691310ae25af7d6950abdf
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251608"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138961"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurare un client VPN per le connessioni del protocollo OpenVPN P2S: autenticazione Azure AD
 
@@ -50,33 +50,33 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Evidenziare il profilo client VPN che si vuole esportare, selezionare il **...** e quindi selezionare **Esporta**.
 
-    ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![esportare](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Selezionare il percorso in cui si desidera salvare il profilo, lasciare il nome del file così com'è, quindi selezionare **Salva** per salvare il file XML.
 
-    ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![esportare](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>Per importare un profilo client
 
 1. Nella pagina selezionare **Importa**.
 
-    ![importare](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. Individuare il file XML del profilo e selezionarlo. Con il file selezionato, selezionare **Apri**.
 
-    ![importare](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Specificare il nome del profilo e selezionare **Salva**.
 
-    ![importare](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Selezionare **Connetti** per connettersi alla VPN.
 
-    ![importare](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. Una volta stabilita la connessione, l'icona diventerà verde mostrerà lo stato **Connesso**.
 
-    ![importare](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![import](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="delete"></a>Per eliminare un profilo client
 
@@ -92,23 +92,23 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Nella pagina selezionare **+** , quindi **+ Aggiungi**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. Inserire le informazioni di connessione. Se non si è certi dei valori, contattare l'amministratore. Dopo aver compilato i valori, selezionare **Salva**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Selezionare **Connetti** per connettersi alla VPN.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. Selezionare le credenziali appropriate e quindi fare clic su **continua**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Una volta stabilita la connessione, l'icona diventerà verde e si **disconnetterà**.
 
-    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![connessione](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="autoconnect"></a>Per connettersi automaticamente
 
@@ -184,6 +184,10 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 </clientconfig>
 </azvpnprofile>
 ```
+
+> [!NOTE]
+> Il client Azure AD OpenVPN usa le voci della tabella dei criteri di risoluzione dei nomi DNS, che significa che i server DNS non saranno elencati nell'output di `ipconfig /all`. Per confermare le impostazioni DNS in uso, vedere [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) in PowerShell.
+>
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Ricerca per categorie aggiungere route personalizzate al client VPN?
 

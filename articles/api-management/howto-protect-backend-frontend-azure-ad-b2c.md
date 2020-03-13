@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ae776fc3fb1f9eb4b7fa9747f2769dcccb25e042
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967627"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136347"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteggere il back-end SPA con OAuth 2,0, Azure Active Directory B2C e gestione API di Azure
 
@@ -250,7 +250,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
 
    > [!NOTE]
    > La sezione seguente è facoltativa e non si applica al livello di **consumo** , che non supporta il portale per sviluppatori.
-   > Se non si intende usare il portale per sviluppatori o non è possibile usarlo perché si usa il livello di consumo, ignorare questo passaggio e passare direttamente a ["compilare la Spa JavaScript per utilizzare l'API"](##build-the-javascript-spa-to-consume-the-api).
+   > Se non si intende usare il portale per sviluppatori o non è possibile usarlo perché si usa il livello di consumo, ignorare questo passaggio e passare direttamente a ["compilare la Spa JavaScript per utilizzare l'API"](#build-the-javascript-spa-to-consume-the-api).
 
 ## <a name="optional-configure-the-developer-portal"></a>Opzionale Configurare il portale per sviluppatori
 

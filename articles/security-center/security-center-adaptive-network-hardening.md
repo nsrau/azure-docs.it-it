@@ -1,6 +1,6 @@
 ---
 title: Protezione avanzata della rete adattiva nel centro sicurezza di Azure | Microsoft Docs
-description: Scopri come eseguire la protezione avanzata in base ai modelli di traffico effettivi, alle regole dei gruppi di sicurezza di rete (NSG) e a migliorare ulteriormente il tuo comportamento di sicurezza.
+description: Informazioni su come usare i modelli di traffico effettivi per rafforzare le regole dei gruppi di sicurezza di rete (NSG) e migliorare ulteriormente il comportamento di sicurezza.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2019
+ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: bc610fa1d7a5fa1a10db3298164404b92d5d9f85
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559285"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139590"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata della rete adattiva nel centro sicurezza di Azure
 Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza di Azure.
@@ -30,10 +30,12 @@ La protezione avanzata della rete adattiva fornisce consigli per rafforzare ulte
 
 Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.20.30.10/24 sulla porta 22. La raccomandazione per la protezione avanzata della rete adattiva, basata sull'analisi, consiste nel limitare l'intervallo e consentire il traffico da 140.23.30.10/29, ovvero un intervallo di indirizzi IP più restrittivo e negare tutto il traffico a tale porta.
 
-![visualizzazione protezione avanzata della rete](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+>[!TIP]
+> Le raccomandazioni per la protezione avanzata della rete adattiva sono supportate solo su porte specifiche. Per l'elenco completo, vedere [quali sono le porte supportate?](#which-ports-are-supported) di seguito. 
 
-> [!NOTE]
-> Le raccomandazioni per la protezione avanzata della rete adattiva sono supportate nelle seguenti porte: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
+
+![Visualizzazione protezione avanzata della rete](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualizzare gli avvisi e le regole di protezione avanzata della rete adattiva
 
@@ -73,7 +75,7 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
     ![Imponi regole](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 
 
-### Modificare una regola <a name ="modify-rule"></a>
+### Modificare una regola <a name ="modify-rule"> </a>
 
 Potrebbe essere necessario modificare i parametri di una regola consigliata. Ad esempio, potrebbe essere necessario modificare gli intervalli IP consigliati.
 
@@ -106,7 +108,7 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
 
     ![Applica regola](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### Aggiungi una nuova regola <a name ="add-rule"></a>
+### Aggiungi una nuova regola <a name ="add-rule"> </a>
 
 È possibile aggiungere una regola "Consenti" non consigliata dal centro sicurezza.
 
@@ -129,7 +131,7 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
     ![Applica regola](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### Eliminare una regola <a name ="delete-rule"></a>
+### Eliminare una regola <a name ="delete-rule"> </a>
 
 Quando necessario, è possibile eliminare una regola consigliata per la sessione corrente. Ad esempio, è possibile determinare che l'applicazione di una regola consigliata potrebbe bloccare il traffico legittimo.
 
@@ -139,11 +141,72 @@ Quando necessario, è possibile eliminare una regola consigliata per la sessione
 
     ![regole di protezione avanzata](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 
-
-
-
-
-
-
  
 
+## <a name="which-ports-are-supported"></a>Quali sono le porte supportate?
+
+Le raccomandazioni per la protezione avanzata della rete adattiva sono supportate solo su porte specifiche. Questa tabella contiene l'elenco completo:
+
+|Porta|Protocollo|Servizio associato|
+|:---:|:----:|:----|
+|13|UDP|Servizio giorno|
+|17|UDP|Protocollo QOTD|
+|19|UDP|Protocollo addebito|
+|22|TCP|SSH|
+|23|TCP|Telnet|
+|53|UDP|DNS|
+|69|UDP|TFTP|
+|81|TCP|Potenzialmente dannoso (nodo di uscita TOR)|
+|111|TCP/UDP|RPC|
+|119|TCP|NNTP|
+|123|UDP|NTP|
+|135|TCP/UDP|Mapper di endpoint; RPC DCE|
+|137|TCP/UDP|Nome NetBIOS servizio|
+|138|TCP/UDP|Servizio datagrammi NetBIOS|
+|139|TCP|Servizio di sessione NetBIOS|
+|161|TCP/UDP|SNMP|
+|162|TCP/UDP|SNMP|
+|389|TCP|LDAP|
+|445|TCP|SMB|
+|512|TCP|Rexec|
+|514|TCP|Shell remota|
+|593|TCP/UDP|RPC HTTP|
+|636|TCP|LDAP|
+|873|TCP|Rsync|
+|1433|TCP|MS SQL|
+|1434|UDP|MS SQL|
+|1900|UDP|SSDP|
+|1900|UDP|SSDP|
+|2049|TCP/UDP|NFS|
+|2301|TCP|Servizio di gestione Compaq|
+|2323|TCP|nfsd 3D|
+|2381|TCP|Servizio di gestione Compaq|
+|3268|TCP|LDAP|
+|3306|TCP|MySQL|
+|3389|TCP|RDP|
+|4333|TCP|mSQL|
+|5353|UDP|mDNS|
+|5432|TCP|PostgreSQL|
+|5555|TCP|Personal Agent; HP OmniBack|
+|5800|TCP|VNC|
+|5900|TCP|Framebuffer remoto; VNC|
+|5900|TCP|VNC|
+|5985|TCP|Windows PowerShell|
+|5986|TCP|Windows PowerShell|
+|6379|TCP|Redis|
+|6379|TCP|Redis|
+|7000|TCP|Cassandra|
+|7001|TCP|Cassandra|
+|7199|TCP|Cassandra|
+|8081|TCP|CosmosDB Amministratore proxy Sun|
+|8089|TCP|Splunk|
+|8545|TCP|Potenzialmente dannoso (Cryptominer)|
+|9042)|TCP|Cassandra|
+|9160|TCP|Cassandra|
+|9300|TCP|Elasticsearch|
+|11211|UDP|Memcached|
+|16379|TCP|Redis|
+|26379|TCP|Redis|
+|27017)|TCP|MongoDB|
+|37215|TCP|Potenzialmente dannoso|
+||||

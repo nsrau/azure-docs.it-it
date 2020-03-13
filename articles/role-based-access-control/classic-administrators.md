@@ -15,11 +15,11 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720657"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243484"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -89,7 +89,7 @@ Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali s
 
 1. Aggiungere un segno di spunta accanto al coamministratore che si desidera rimuovere.
 
-1. Fare clic su **Rimuovi accesso**.
+1. Scegliere **Rimuovi**.
 
 1. Nella finestra di messaggio visualizzata fare clic su **Sì**.
 
@@ -142,7 +142,7 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Fare clic su **Proprietà**.
+1. Scegliere **Proprietà**.
 
     L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account**.
 

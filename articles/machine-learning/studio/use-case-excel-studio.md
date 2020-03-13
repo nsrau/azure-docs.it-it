@@ -10,22 +10,24 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 5831f83d8cd38cc07c64fdc398405c3a70935485
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 85bae9bfc10460b51935c6eb1e14e3a3dd816a8c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169080"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217806"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrare Analytics da Excel a Azure Machine Learning Studio (versione classica)
 
-> *Kate Baroni* e *Ben Boatman* sono architetti di soluzioni aziendali in Microsoft Data Insights Center of Excellence. Questo articolo descrive l'esperienza di migrazione di una suite di analisi di regressione esistente a una soluzione basata sul cloud usando Azure Machine Learning Studio (classico).
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+> *Kate Baroni* e *ben barcaiolo* sono architetti di soluzioni aziendali in Microsoft Data Insights Center of Excellence. Questo articolo descrive l'esperienza di migrazione di una suite di analisi di regressione esistente a una soluzione basata sul cloud usando Azure Machine Learning Studio (classico).
 
 ## <a name="goal"></a>Obiettivo
 
 Il progetto è iniziato con due obiettivi prefissati: 
 
-1. Usare l'analisi predittiva per migliorare la precisione delle proiezioni dei ricavi mensili dell'organizzazione. 
+1. Usare l'analisi predittiva per migliorare la precisione delle proiezioni dei ricavi mensili dell'organizzazione 
 2. Usare Azure Machine Learning Studio (classico) per confermare, ottimizzare, aumentare la velocità e la scalabilità dei risultati. 
 
 Come molte aziende, anche questa organizzazione esegue un processo di previsione dei ricavi mensile. Il nostro piccolo team di analisti aziendali è stato incaricato di usare Azure Machine Learning Studio (classico) per supportare il processo e migliorare la precisione delle previsioni. Per diversi mesi, il team ha raccolto dati da più origini e ha eseguito diversi attributi dei dati usando l'analisi statistica per identificare gli attributi chiave rilevanti per la previsione delle vendite di servizi. Il passaggio successivo prevedeva la creazione di prototipi di modelli di regressione statistica basati sui dati in Excel. In poche settimane è stato prodotto un modello di regressione di Excel con prestazioni superiori rispetto ai processi correnti di previsione finanziaria e di campo. Questo è diventato il risultato di previsione di base. 
@@ -132,8 +134,8 @@ La possibilità di trasferire la previsione analitica predittiva da studio (clas
 ## <a name="resources"></a>Risorse
 Di seguito sono elencate alcune risorse per agevolare l'uso della regressione: 
 
-* Regressione in Excel. Se non è mai stata provata la regressione in Excel, questa esercitazione la spiega in modo molto chiaro: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* Regressione e previsione. Tyler Chessman ha scritto un articolo di blog in cui spiega come fare previsioni di serie temporali in Excel, che contiene una valida descrizione di base della regressione lineare. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
+* Regressione in Excel. Se non è mai stata tentata la regressione in Excel, questa esercitazione consente di semplificare: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
+* Regressione e previsione. Tyler Chessa ha scritto un articolo di Blog che spiega come eseguire previsioni di serie temporali in Excel, che contiene una descrizione della regressione lineare. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * Regressione lineare Ordinary Least Squares: difetti, problemi e ostacoli. Per un'introduzione e una discussione sulla regressione: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->

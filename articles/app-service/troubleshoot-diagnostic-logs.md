@@ -1,19 +1,19 @@
 ---
-title: Abilitare la funzionalità di registrazione diagnostica
+title: Abilitare la registrazione diagnostica
 description: Informazioni su come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione e su come accedere alle informazioni registrate da Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985935"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280469"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Azure offre diagnostica integrata per facilitare il debug di un'[app del servizio app](overview.md). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione. Viene anche descritto come accedere alle informazioni registrate da Azure.
 
 L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com) e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -23,7 +23,7 @@ L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com)
 >
 >
 
-|Tipo|Piattaforma|Percorso|Description|
+|Type|Piattaforma|Location|Descrizione|
 |-|-|-|-|
 | Registrazione di applicazioni | Windows, Linux | File system del servizio app e/o BLOB di archiviazione di Azure | Registra i messaggi generati dal codice dell'applicazione. I messaggi possono essere generati dal framework Web scelto oppure dal codice dell'applicazione usando direttamente il modello di registrazione standard della lingua. A ogni messaggio viene assegnata una delle seguenti categorie: **Critical**, **Error**, **warning**, **info**, **debug**e **Trace**. È possibile selezionare il livello di dettaglio desiderato per la registrazione impostando il livello di gravità quando si Abilita la registrazione dell'applicazione.|
 | Registrazione del server Web| Windows | file system del servizio app o BLOB di archiviazione di Azure| Dati della richiesta HTTP non elaborati nel [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). Ogni messaggio di log include dati quali il metodo HTTP, l'URI della risorsa, l'indirizzo IP del client, la porta client, l'agente utente, il codice di risposta e così via. |
@@ -57,9 +57,9 @@ L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore
 
 Consente di selezionare il **livello**o il livello dei dettagli da registrare. La tabella seguente illustra le categorie di log incluse in ogni livello:
 
-| Livello | Categorie incluse |
+| Level | Categorie incluse |
 |-|-|
-|**Disabilitato** | Nessuno |
+|**Disabilitato** | nessuno |
 |**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
 |**Warning** | Avviso, Errore, Errore critico|
 |**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
@@ -163,7 +163,7 @@ Per le app Linux/contenitore, il file ZIP contiene i log di output della console
 
 Per le app di Windows, il file ZIP contiene il contenuto della directory *D:\Home\LogFiles* nel servizio app file System. Presenta la struttura seguente:
 
-| Tipo di log | Directory | Description |
+| Tipo di log | Directory | Descrizione |
 |-|-|-|
 | **Log applicazioni** |*/LogFiles/Application/* | Contiene uno o più file di testo. Il formato dei messaggi di log dipende dal provider di registrazione usato. |
 | **Tracce richieste non riuscite** | */LogFiles/W3SVC#########/* | Contiene i file XML e un file XSL. È possibile visualizzare i file XML formattati nel browser. |
@@ -182,14 +182,14 @@ Con la nuova [integrazione di monitoraggio di Azure](https://aka.ms/appsvcblog-a
 
 La tabella seguente illustra i tipi di log e le descrizioni supportati: 
 
-| Tipo di log | Supporto di Windows | Supporto per Linux (Docker) | Description |
+| Tipo di log | supporto per Windows | Supporto per Linux (Docker) | Descrizione |
 |-|-|-|
-| AppServiceConsoleLogs | Da definire | Sì | Output standard e errore standard |
+| AppServiceConsoleLogs | TBA | Sì | Output standard e errore standard |
 | AppServiceHTTPLogs | Sì | Sì | Web Server Logs |
 | AppServiceEnvironmentPlatformLogs | Sì | Sì | Ambiente del servizio app: ridimensionamento, modifiche di configurazione e log di stato|
 | AppServiceAuditLogs | Sì | Sì | Attività di accesso tramite FTP e Kudu |
-| AppServiceFileAuditLogs | Da definire | Sì | Modifiche ai file tramite FTP e Kudu |
-| AppServiceAppLogs | Da definire | Java SE & Tomcat | Log applicazioni |
+| AppServiceFileAuditLogs | TBA | Sì | Modifiche ai file tramite FTP e Kudu |
+| AppServiceAppLogs | TBA | Java SE & Tomcat | Log applicazioni |
 
 ## <a name="nextsteps"></a> Passaggi successivi
 * [Eseguire query sui log con monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)

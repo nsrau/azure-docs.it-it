@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372004"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277999"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -22,16 +22,16 @@ Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilit
 Per determinare se è necessario un ridimensionamento è possibile monitorare le metriche seguenti.
 
 * Carico server Redis
-* Utilizzo memoria
-* Larghezza di banda di rete
-* Utilizzo CPU
+* Utilizzo della memoria
+* Larghezza di banda della rete
+* Utilizzo di CPU
 
 Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile ridimensionare la cache in base a un piano tariffario superiore o inferiore che sia adatto all'applicazione. Per altre informazioni su come determinare il tipo di piano tariffario della cache appropriato, vedere l'articolo relativo all' [offerta e alle dimensioni di Cache Redis da usare](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
 ## <a name="scale-a-cache"></a>Ridimensionare una cache
 Per ridimensionare la cache, [accedere alla cache](cache-configure.md#configure-azure-cache-for-redis-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Ridimensionare** nel **menu Risorsa**.
 
-![Scala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Scalabilità](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selezionare il piano tariffario desiderato nel pannello **Seleziona piano tariffario** e fare clic su **Seleziona**.
 

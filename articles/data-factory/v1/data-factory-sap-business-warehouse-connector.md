@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387558"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281054"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Spostare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -66,7 +66,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatoria
 server | Nome del server in cui si trova l'istanza di SAP BW. | string | Sì
 systemNumber | Numero del sistema SAP BW. | Numero decimale a due cifre rappresentato come stringa. | Sì
 clientId | ID del client nel sistema SAP BW. | Numero decimale a tre cifre rappresentato come stringa. | Sì
-nomeutente | Nome dell'utente che ha accesso al server SAP | string | Sì
+username | Nome dell'utente che ha accesso al server SAP | string | Sì
 password | Password per l'utente. | string | Sì
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP BW locale. | string | Sì
 encryptedCredential | Stringa di credenziali crittografata. | string | No
@@ -291,27 +291,27 @@ Quando si spostano dati da SAP BW, vengono usati i mapping seguenti tra i tipi S
 Tipo di dati nel dizionario ABAP | Tipo di dati .NET
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | String
-CLNT | String
+CHAR | string
+CLNT | string
 CURR | Decimal
-CUKY | String
+CUKY | string
 DEC | Decimal
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | Int
-LANG | String
-LCHR | String
+LANG | string
+LCHR | string
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | String
-UNITÀ | String
-DATS | String
-NUMC | String
-TIMS | String
+STRING | string
+UNITÀ | string
+DATS | string
+NUMC | string
+TIMS | string
 
 > [!NOTE]
 > Per eseguire il mapping dal set di dati di origine alle colonne del set di dati sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

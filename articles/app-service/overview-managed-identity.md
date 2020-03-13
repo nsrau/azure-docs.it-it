@@ -3,15 +3,15 @@ title: Identità gestite
 description: Informazioni su come funzionano le identità gestite in app Azure servizio e funzioni di Azure, come configurare un'identità gestita e generare un token per una risorsa back-end.
 author: mattchenderson
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 03/04/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 3e414e40cb92f5c7e8c2e1d083419d57e06a0995
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 6e3169f2bfcba0a02af1490f875cbab8a14d02f6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161920"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280027"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -22,9 +22,9 @@ Questo argomento illustra come creare un'identità gestita per le applicazioni d
 
 All'applicazione possono essere concessi due tipi di identità: 
 - Un'**identità assegnata dal sistema** viene associata all'applicazione e viene eliminata in caso di eliminazione dell'app. A un'app può essere associata una sola identità assegnata dal sistema.
-- Un'**identità assegnata dall'utente** è una risorsa di Azure autonoma che può essere assegnata all'app. Un'app può avere più identità assegnate dall'utente.
+- Un' **identità assegnata dall'utente** è una risorsa di Azure autonoma che può essere assegnata all'app. Un'app può avere più identità assegnate dall'utente.
 
-## <a name="adding-a-system-assigned-identity"></a>Aggiunta di un'identità assegnata dal sistema
+## <a name="add-a-system-assigned-identity"></a>Aggiungere un'identità assegnata dal sistema
 
 La creazione di un'app con un'identità assegnata dal sistema richiede l'impostazione di una proprietà aggiuntiva nell'applicazione.
 
@@ -47,12 +47,12 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 Per configurare un'identità gestita usando l'interfaccia della riga di comando di Azure, è necessario usare il comando `az webapp identity assign` su un'applicazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
 
 - Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
-- Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
+- Usare il Azure Cloud Shell incorporato tramite il pulsante "prova", che si trova nell'angolo superiore destro di ogni blocco di codice riportato di seguito.
 - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
 
 La procedura seguente consente di creare di un'app Web e assegnarle un'identità usando l'interfaccia della riga di comando:
 
-1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire l'applicazione:
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si vuole distribuire l'applicazione:
 
     ```azurecli-interactive
     az login
@@ -146,10 +146,10 @@ Quando viene creato, il sito ha le proprietà aggiuntive seguenti:
 }
 ```
 
-Dove `<TENANTID>` e `<PRINCIPALID>` vengono sostituiti con GUID. La proprietà tenantId identifica a quale tenant AAD appartiene l'identità. La proprietà principalId è un identificatore univoco per la nuova identità dell'applicazione. In AAD, l'entità servizio ha lo stesso nome assegnato all'istanza di Servizio App o Funzioni di Azure.
+La proprietà tenantId identifica a quale tenant AAD appartiene l'identità. La proprietà principalId è un identificatore univoco per la nuova identità dell'applicazione. In AAD, l'entità servizio ha lo stesso nome assegnato all'istanza di Servizio App o Funzioni di Azure.
 
 
-## <a name="adding-a-user-assigned-identity"></a>Aggiunta di un'identità assegnata dall'utente
+## <a name="add-a-user-assigned-identity"></a>Aggiungere un'identità assegnata dall'utente
 
 La creazione di un'app con un'identità assegnata dall'utente richiede la creazione dell'identità e quindi l'aggiunta dell'identificatore di risorsa corrispondente alla configurazione dell'app.
 
@@ -230,15 +230,17 @@ Quando viene creato, il sito ha le proprietà aggiuntive seguenti:
 }
 ```
 
-Dove `<PRINCIPALID>` e `<CLIENTID>` vengono sostituiti con GUID. La proprietà principalId è un identificatore univoco per l'identità che viene usato per l'amministrazione di AAD. clientId è un identificatore univoco per la nuova identità dell'applicazione, che viene usato per specificare l'identità da usare durante le chiamate di runtime.
+PrincipalId è un identificatore univoco per l'identità usata per l'amministrazione di AAD. ClientID è un identificatore univoco per la nuova identità dell'applicazione usata per specificare l'identità da usare durante le chiamate di Runtime.
 
 
-## <a name="obtaining-tokens-for-azure-resources"></a>Ottenimento di token per le risorse di Azure
+## <a name="obtain-tokens-for-azure-resources"></a>Ottenere i token per le risorse di Azure
 
 Un'app può usare la propria identità gestita per ottenere i token per accedere ad altre risorse protette da AAD, ad esempio Azure Key Vault. Questi token rappresentano le applicazioni che accedono alla risorsa e non un utente specifico dell'applicazione. 
 
+Potrebbe essere necessario configurare la risorsa di destinazione per consentire l'accesso dall'applicazione. Ad esempio, se si richiede un token per accedere a Key Vault, è necessario assicurarsi di avere aggiunto un criterio di accesso che include l'identità dell'applicazione. In caso contrario, le chiamate a Key Vault verranno rifiutate, anche se includono il token. Per altre informazioni sulle risorse che supportano i token di Azure Active Directory, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
 > [!IMPORTANT]
-> Potrebbe essere necessario configurare la risorsa di destinazione per consentire l'accesso dall'applicazione. Ad esempio, se si richiede un token per accedere a Key Vault, è necessario assicurarsi di avere aggiunto un criterio di accesso che include l'identità dell'applicazione. In caso contrario, le chiamate a Key Vault verranno rifiutate, anche se includono il token. Per altre informazioni sulle risorse che supportano i token di Azure Active Directory, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+> I servizi back-end per le identità gestite gestiscono una cache per ogni URI di risorsa per circa 8 ore. Se si aggiornano i criteri di accesso di una determinata risorsa di destinazione e si recupera immediatamente un token per tale risorsa, è possibile continuare a ottenere un token memorizzato nella cache con autorizzazioni obsolete fino alla scadenza del token. Attualmente non è possibile forzare l'aggiornamento di un token.
 
 È disponibile un semplice protocollo REST per ottenere un token del Servizio App e di Funzioni di Azure. Questo può essere usato per tutte le applicazioni e i linguaggi. Per .NET e Java, Azure SDK fornisce un'astrazione su questo protocollo e facilita un'esperienza di sviluppo locale.
 
@@ -301,7 +303,7 @@ Content-Type: application/json
 
 ### <a name="code-examples"></a>Esempi di codice
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!TIP]
 > Per i linguaggi .NET è anche possibile usare [Microsoft.Azure.Services.AppAuthentication](#asal) invece di creare la richiesta manualmente.
@@ -317,7 +319,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const rp = require('request-promise');
@@ -333,7 +335,7 @@ const getToken = function(resource, cb) {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 import os
@@ -352,7 +354,7 @@ def get_bearer_token(resource_uri):
     return access_token
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -411,9 +413,9 @@ Per le applicazioni e le funzioni Java, il modo più semplice per usare un'ident
     ```
 
 
-## <a name="remove"></a>Rimozione di un'identità
+## <a name="remove"></a>Rimuovere un'identità
 
-Un'identità assegnata dal sistema può essere rimossa disabilitando la funzionalità tramite il portale, PowerShell o l'interfaccia della riga di comando nello stesso modo in cui è stata creata. Le identità assegnate dall'utente possono essere rimosse separatamente. Per rimuovere tutte le identità, nel protocollo di modello REST/ARM, questa operazione viene eseguita impostando il tipo su "None":
+Un'identità assegnata dal sistema può essere rimossa disabilitando la funzionalità tramite il portale, PowerShell o l'interfaccia della riga di comando nello stesso modo in cui è stata creata. Le identità assegnate dall'utente possono essere rimosse separatamente. Per rimuovere tutte le identità, impostare il tipo su "None" nel [modello ARM](#using-an-azure-resource-manager-template):
 
 ```json
 "identity": {

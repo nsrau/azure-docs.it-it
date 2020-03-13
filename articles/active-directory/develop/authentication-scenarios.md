@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3ec965318da1361454b4a6bb78ed7147562b5fea
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194996"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138519"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 

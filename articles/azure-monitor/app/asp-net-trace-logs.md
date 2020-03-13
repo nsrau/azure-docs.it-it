@@ -4,11 +4,11 @@ description: Eseguire ricerche nei log generati da Trace, NLog o Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665987"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276270"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Esplorare i log di traccia .NET/.NET Core e Python in Application Insights
 
@@ -131,14 +131,14 @@ Per ogni origine è possibile impostare i parametri seguenti:
 ## <a name="use-the-trace-api-directly"></a>Usare direttamente l'API Trace
 È possibile chiamare direttamente l'API di traccia di Application Insights. Gli adattatori di registrazione usano questa API.
 
-Ad esempio,
+Ad esempio:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio è possibile codificare dati POST.
 
-È anche possibile aggiungere un livello di gravità al messaggio. Analogamente ad altri dati di telemetria, è possibile aggiungere valori di proprietà per filtrare o cercare set di tracce diversi. Ad esempio,
+È anche possibile aggiungere un livello di gravità al messaggio. Analogamente ad altri dati di telemetria, è possibile aggiungere valori di proprietà per filtrare o cercare set di tracce diversi. Ad esempio:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -180,7 +180,7 @@ Ad esempio, è possibile:
 >Se l'applicazione invia una grande quantità di dati e si usa Application Insights SDK per ASP.NET versione 2.0.0-beta3 o successiva, la funzionalità di *campionamento adattivo* può funzionare e inviare solo una parte dei dati di telemetria. [Altre informazioni sul campionamento.](../../azure-monitor/app/sampling.md)
 >
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 ### <a name="how-do-i-do-this-for-java"></a>Come procedere per Java?
 Usare gli [adattatori log Java](../../azure-monitor/app/java-trace-logs.md).
 

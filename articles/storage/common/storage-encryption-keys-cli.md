@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bf21cd27fa290b9b9b863803aef043eccc815573
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: fcb4636263843143e685de2e3d2a27bf87cc5a90
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912709"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137408"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
@@ -120,11 +120,21 @@ Quando si crea una nuova versione di una chiave, è necessario aggiornare l'acco
 
 Per modificare la chiave usata per la crittografia di archiviazione di Azure, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) come illustrato in [configurare la crittografia con chiavi gestite dal cliente](#configure-encryption-with-customer-managed-keys) e specificare il nome e la versione della nuova chiave. Se la nuova chiave si trova in un insieme di credenziali delle chiavi diverso, aggiornare anche l'URI dell'insieme di credenziali delle chiavi.
 
+## <a name="revoke-customer-managed-keys"></a>Revocare le chiavi gestite dal cliente
+
+Se si ritiene che una chiave possa essere stata compromessa, è possibile revocare le chiavi gestite dal cliente rimuovendo i criteri di accesso di Key Vault. Per revocare una chiave gestita dal cliente, chiamare il comando [AZ Key Vault Delete-Policy](/cli/azure/keyvault#az-keyvault-delete-policy) , come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
+
+```azurecli-interactive
+az keyvault delete-policy \
+    --name <key-vault> \
+    --object-id $storage_account_principal
+```
+
 ## <a name="disable-customer-managed-keys"></a>Disabilitare le chiavi gestite dal cliente
 
-Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene quindi crittografato con le chiavi gestite da Microsoft. Per disabilitare le chiavi gestite dal cliente, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) e impostare il `--encryption-key-source parameter` su `Microsoft.Storage`, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
+Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene nuovamente crittografato con le chiavi gestite da Microsoft. Per disabilitare le chiavi gestite dal cliente, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) e impostare il `--encryption-key-source parameter` su `Microsoft.Storage`, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
 
-```powershell
+```azurecli-interactive
 az storage account update
     --name <storage-account> \
     --resource-group <resource_group> \

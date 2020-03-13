@@ -3,7 +3,7 @@ title: Utilizzare Integrità risorse di Azure per monitorare l'integrità del da
 description: Usare Integrità risorse di Azure per monitorare l'integrità dei database SQL, diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse e ottenere il supporto necessario.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 1cf14c9e133b7e6e3e0b5219eb9e16bd3a0178dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821167"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208879"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Usare Integrità risorse di Azure per risolvere i problemi di connettività del database SQL di Azure
 
@@ -50,11 +50,11 @@ Lo stato **Non disponibile** indica che Integrità risorse ha rilevato errori di
 
 ![Non disponibile](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>Sconosciuto
+### <a name="unknown"></a>Unknown
 
 Lo stato **Sconosciuto** indica che Integrità risorse non ha ricevuto informazioni sulla risorsa per più di 10 minuti. Sebbene questo stato non sia un'indicazione definitiva dello stato della risorsa, è un punto dati importante nel processo di risoluzione dei problemi. Se la risorsa viene eseguita come previsto, il suo stato viene aggiornato in Disponibile dopo alcuni minuti. Se si verificano problemi con la risorsa, lo stato di integrità Sconosciuto può indicare che la risorsa è stata interessata da un evento nella piattaforma.
 
-![Sconosciuto](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
+![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Informazioni cronologiche
 

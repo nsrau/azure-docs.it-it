@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78297845"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138944"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Accedere agli account con l'app Microsoft Authenticator
 
@@ -112,7 +112,7 @@ In un dispositivo iOS:
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Accedere usando la verifica a due fattori per l'account
 
-Il metodo standard di verifica a due fattori richiede l'immissione del nome utente e della password nel dispositivo a cui si sta effettuando l'accesso, quindi scegliere se l'app Microsoft Authenticator riceve Microsoft Authenticator app. In un dispositivo Android, questi codici di verifica sono disponibili nella schermata account. In un dispositivo iOS, questi codici di verifica sono disponibili nella schermata **account** o nella visualizzazione a schermo intero di un account, a seconda del tipo di account. La verifica a due fattori per l'account viene attivata durante l'aggiunta dell'account all'app Microsoft Authenticator.
+Il metodo standard di verifica a due fattori richiede l'immissione del nome utente e della password nel dispositivo a cui si sta effettuando l'accesso. Si apre quindi l'app Microsoft Authenticator e si digita il codice generato in modo casuale per l'account nella casella **immettere il codice** . In un dispositivo Android, questi codici di verifica sono disponibili nella schermata **account** . In un dispositivo iOS, questi codici di verifica sono disponibili nella schermata **account** o nella visualizzazione a schermo intero di un account, a seconda del tipo di account. La verifica a due fattori per l'account viene attivata durante l'aggiunta dell'account all'app Microsoft Authenticator.
 
 >[!Note]
 >Se l'account aziendale o dell'istituto di istruzione o l'account personale non è visibile nella schermata **Account** dell'app Microsoft Authenticator, significa che l'account non è stato aggiunto all'app Microsoft Authenticator. Per aggiungere l'account, vedere [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md) o [Aggiungere gli account personali](user-help-auth-app-add-personal-ms-account.md).

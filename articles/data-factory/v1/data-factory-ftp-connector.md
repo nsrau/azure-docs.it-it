@@ -13,11 +13,11 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387503"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281405"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -39,7 +39,7 @@ Se si spostano dati da un server FTP **locale** in un archivio dati cloud, ad es
 
 È possibile installare il gateway nello stesso computer locale o nella VM IaaS come server FTP. È tuttavia consigliabile installare il gateway in un computer separato o in una macchina virtuale IaaS distinta per evitare conflitti tra le risorse e ottenere prestazioni migliori. Quando si installa il gateway in un computer separato, questo deve poter accedere al server FTP.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine FTP usando diversi strumenti o API.
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata di Data Factory**. Per una procedura dettagliata, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
@@ -62,12 +62,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente descrive gli elementi JSON specifici di un servizio collegato FTP.
 
-| Proprietà | Descrizione | Obbligatoria | Default |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | type |Impostare su FtpServer. |Sì |&nbsp; |
 | host |Specificare il nome o indirizzo IP del server FTP. |Sì |&nbsp; |
 | authenticationType |Specificare il tipo di autenticazione. |Sì |Di base, anonimo |
-| nomeutente |Specificare l'utente che ha accesso al server FTP. |No |&nbsp; |
+| username |Specificare l'utente che ha accesso al server FTP. |No |&nbsp; |
 | password |Specificare la password per l'utente (nome utente). |No |&nbsp; |
 | encryptedCredential |Specificare le credenziali crittografate per accedere al server FTP. |No |&nbsp; |
 | gatewayName |Specificare il nome del gateway in Gateway di gestione dati per connettersi a un server FTP locale. |No |&nbsp; |
@@ -205,7 +205,7 @@ Nell'attività di copia con origine di tipo **FileSystemSource**, nella sezione 
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| ricorsive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
+| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Esempio JSON: copiare i dati dal server FTP in BLOB di Azure
 Questo esempio illustra come copiare dati dal server FTP in Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati direttamente in uno qualsiasi dei sink indicati nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), usando l'attività di copia in Data Factory.

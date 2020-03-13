@@ -11,11 +11,11 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391443"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219434"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Che cos'è un'area di lavoro di Custom Translator?
 

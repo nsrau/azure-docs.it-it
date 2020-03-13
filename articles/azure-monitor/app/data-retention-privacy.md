@@ -4,11 +4,11 @@ description: Informativa sulla conservazione e sulla privacy
 ms.topic: conceptual
 ms.date: 09/29/2019
 ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368040"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275997"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione dei dati in Application Insights
 
@@ -49,7 +49,7 @@ Esistono tre origini dati:
 Le categorie principali sono:
 
 * [Dati di telemetria del server Web](../../azure-monitor/app/asp-net.md): richieste HTTP,  URI, tempo impiegato per elaborare la richiesta, codice di risposta, indirizzo IP del client, `Session id`.
-* [Pagine Web](../../azure-monitor/app/javascript.md): numero di pagine, utenti e sessioni, tempo di caricamento della pagina, Eccezioni. chiamate AJAX.
+* [Pagine Web](../../azure-monitor/app/javascript.md): numero di pagine, utenti e sessioni, tempo di caricamento della pagina, eccezioni, chiamate AJAX.
 * Contatori delle prestazioni: memoria, CPU, IO, occupazione della rete.
 * Contesto client e server: sistema operativo, impostazioni locali, tipo di dispositivo, browser, risoluzione dello schermo.
 * [Eccezioni](../../azure-monitor/app/asp-net-exceptions.md) e arresti anomali: **dump dello stack**, `build id`, tipo di CPU. 
@@ -247,15 +247,15 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 
 | Azione | Classi di dati raccolte (vedere la tabella seguente) |
 | --- | --- |
-| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Richieste<br/>**Eccezioni**<br/>Sessione<br/>utenti |
+| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Eccezioni**<br/>sessione<br/>users |
 | [Installare Status Monitor in IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>Sessione<br/>utenti |
+| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>sessione<br/>users |
 | [Aggiungere JavaScript SDK a una pagina Web][client] |ClientContext <br/>Inferred<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Definire le proprietà predefinite][apiproperties] |**Properties** in tutti gli eventi standard e personalizzati |
 | [Chiama TrackMetric][api] |Valori numerici<br/>**Proprietà** |
 | [Traccia di chiamata *][api] |Nome evento<br/>**Proprietà** |
 | [Chiama Trackexception][api] |**Eccezioni**<br/>Dump dello stack<br/>**Proprietà** |
-| SDK non riesce a raccogliere dati. Ad esempio, <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
+| SDK non riesce a raccogliere dati. Ad esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
 
 Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 
@@ -266,7 +266,7 @@ Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 | **Proprietà** |**Qualsiasi dato, in base al codice** |
 | DeviceContext |`Id`, IP, impostazioni locali, modello di dispositivo, rete, tipo di rete, nome OEM, risoluzione dello schermo, istanza del ruolo, nome del ruolo, tipo di dispositivo |
 | ClientContext |Sistema operativo, impostazioni locali, lingua, rete, risoluzione della finestra. |
-| Sessione |`session id` |
+| sessione |`session id` |
 | ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. |
 | Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser. |
 | Metriche |Nome e valore della metrica. |
@@ -274,11 +274,11 @@ Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 | PageViews |URL e nome della pagina o della schermata. |
 | Client perf |URL/nome pagina, tempo di caricamento del browser. |
 | Ajax |Chiamate HTTP dalla pagina Web al server |
-| Richieste |URL, durata, codice di risposta. |
+| Requests |URL, durata, codice di risposta. |
 | Dependencies |Tipo (SQL, HTTP,...), stringa di connessione o URI, Sync/async, Duration, Success, istruzione SQL (con Status Monitor) |
 | **Eccezioni** |Tipo, **messaggio**, stack di chiamate, file di origine, numero di riga, `thread id` |
 | Crashes |`Process id`, `parent process id`, `crash thread id`; patch applicazione, `id`, compilazione;  tipo di eccezione, indirizzo, motivo; simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU |
-| Traccia |**Messaggio** e livello di gravità. |
+| Trace |**Messaggio** e livello di gravità. |
 | Perf counters |Tempo processore, memoria disponibile, frequenza di richieste, frequenza di eccezioni, byte privati del processo, velocità di I/O, durata richiesta, lunghezza coda richiesta. |
 | Disponibilità |Codice di risposta del test Web, durata di ogni passo del test, nome del test, timestamp, esito positivo, tempo di risposta, posizione del test |
 | Diagnostica di SDK |Messaggio di traccia o eccezione |

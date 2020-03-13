@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
 ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395387"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275243"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 
@@ -97,7 +97,7 @@ Gli utenti possono selezionare tutti i server che appartengono a un gruppo e sce
 
 Per creare un gruppo, selezionare il computer o i computer che si desidera aggiungere all'elenco dei computer e fare clic su **Add to group** (Aggiungi al gruppo).
 
-![Crea gruppo](media/service-map/machine-groups-create.png)
+![Creare un gruppo](media/service-map/machine-groups-create.png)
 
 È possibile quindi scegliere **Crea nuovo** e assegnare un nome al gruppo.
 
@@ -154,7 +154,7 @@ Fare clic sui puntini di sospensione accanto al nome del gruppo nell'elenco del 
 
 Alcuni processi svolgono ruoli particolari nei computer: server Web, server applicazioni, database e così via. Mapping dei servizi annota le caselle relative a processi e computer con icone di ruolo, per consentire di identificare rapidamente il ruolo di un processo o un server.
 
-| Icona per il ruolo | Descrizione |
+| Icona del ruolo | Descrizione |
 |:--|:--|
 | ![Server Web](media/service-map/role-web-server.png) | Server Web |
 | ![Server app](media/service-map/role-application-server.png) | Server applicazioni |
@@ -552,7 +552,7 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 
 Altre informazioni sulle [ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi di installazione o esecuzione di Mapping dei servizi, questa sezione può essere d'aiuto. Se si non riesce a risolvere il problema, contattare il supporto tecnico Microsoft.
 

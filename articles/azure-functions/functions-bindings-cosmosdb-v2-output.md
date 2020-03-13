@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 9360a90b457f99cb9c15deda80dce8233069100d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606555"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277765"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Binding di output Azure Cosmos DB per funzioni di Azure 2. x
 
@@ -574,6 +574,8 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` è true, definisce il percorso della chiave di partizione per la raccolta creata.|
 |**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` è true, definisce la [velocità effettiva](../cosmos-db/set-throughput.md) della raccolta creata.|
 |**connectionStringSetting**    |**ConnectionStringSetting** |Nome dell'impostazione app contenente la stringa di connessione di Azure Cosmos DB.        |
+|**preferredLocations**| **PreferredLocations**| Opzionale Definisce le posizioni preferite (aree) per gli account di database con replica geografica nel servizio Azure Cosmos DB. I valori devono essere separati da virgole. Ad esempio, "Stati Uniti orientali, Stati Uniti centro-meridionali, Europa settentrionale". |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| Opzionale Quando è impostato su `true` insieme a `PreferredLocations`, può sfruttare le [Scritture](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in più aree nel servizio Azure Cosmos DB. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
