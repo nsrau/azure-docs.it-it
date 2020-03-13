@@ -12,6 +12,8 @@
       href: ./servers/onboard-portal.md
     - name: Connettere i computer su larga scala usando un'entità servizio
       href: ./servers/onboard-service-principal.md
+    - name: Connettere i computer ad Azure Arc con PowerShell DSC
+      href: ./servers/onboard-dsc.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure Connected Machine Agent

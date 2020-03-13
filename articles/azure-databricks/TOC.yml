@@ -31,43 +31,8 @@
   items:
     - name: Introduzione
       items:
-        - name: Panoramica sui dati
-          href: /azure/databricks/getting-started/data
-          maintainContext: true
         - name: Concetti di Azure Databricks
           href: /azure/databricks/getting-started/concepts
-          maintainContext: true
-        - name: Set di dati di Azure Databricks
-          href: /azure/databricks/getting-started/databricks-datasets
-          maintainContext: true
-        - name: Apache Spark
-          items:
-            - name: Panoramica di Apache Spark
-              href: /azure/databricks/getting-started/spark/index
-              maintainContext: true
-            - name: Introduzione ad Apache Spark
-              href: /azure/databricks/getting-started/spark/quick-start
-              maintainContext: true
-            - name: Dataframe
-              href: /azure/databricks/getting-started/spark/dataframes
-              maintainContext: true
-            - name: Set di dati
-              href: /azure/databricks/getting-started/spark/datasets
-              maintainContext: true
-            - name: Machine Learning
-              href: /azure/databricks/getting-started/spark/machine-learning
-              maintainContext: true
-            - name: Structured Streaming
-              href: /azure/databricks/getting-started/spark/streaming
-              maintainContext: true
-            - name: Passaggi successivi
-              href: /azure/databricks/getting-started/spark/next
-              maintainContext: true
-        - name: Training e domande frequenti
-          href: /azure/databricks/getting-started/training-faq
-          maintainContext: true
-        - name: Browser supportati
-          href: /azure/databricks/getting-started/supported-browsers
           maintainContext: true
     - name: Runtime di Databricks
       items:
@@ -220,6 +185,9 @@
       maintainContext: true
     - name: Data
       items:
+        - name: Panoramica sui dati
+          href: /azure/databricks/getting-started/data
+          maintainContext: true
         - name: Database e tabelle
           href: /azure/databricks/data/tables
           maintainContext: true
@@ -310,6 +278,9 @@
               maintainContext: true
         - name: File system di Databricks (DBFS)
           href: /azure/databricks/data/databricks-file-system
+          maintainContext: true
+        - name: Set di dati di Azure Databricks
+          href: /azure/databricks/getting-started/databricks-datasets
           maintainContext: true
         - name: FileStore
           href: /azure/databricks/data/filestore
@@ -731,6 +702,9 @@
           maintainContext: true
         - name: RStudio in Azure Databricks
           href: /azure/databricks/spark/latest/sparkr/rstudio
+          maintainContext: true
+        - name: Shiny in Azure Databricks
+          href: /azure/databricks/spark/latest/sparkr/shiny
           maintainContext: true
     - name: Machine Learning
       items:
@@ -1385,6 +1359,9 @@
             - name: Assicurare idempotenza
               href: /azure/databricks/kb/jobs/jobs-idempotency
               maintainContext: true
+            - name: I processi a esecuzione prolungata generano errori con il passthrough delle credenziali
+              href: /azure/databricks/kb/jobs/azure-long-job-failed-auth
+              maintainContext: true
         - name: Librerie
           items:
             - name: Non è possibile disinstallare la libreria dall'interfaccia utente
@@ -1494,6 +1471,12 @@
               maintainContext: true
             - name: Eseguire query SQL
               href: /azure/databricks/kb/python/sql-in-python
+              maintainContext: true
+            - name: Usare l'API HDFS per leggere i file in Python
+              href: /azure/databricks/kb/python/hdfs-to-read-files
+              maintainContext: true
+            - name: Fine del ciclo di vita di Python 2
+              href: /azure/databricks/kb/python/python-2-eol
               maintainContext: true
         - name: R con Spark
           items:
@@ -1650,6 +1633,35 @@
       href: /azure/templates/microsoft.databricks/workspaces
 - name: Risorse
   items:
+    - name: Apache Spark
+      items:
+        - name: Panoramica di Apache Spark
+          href: /azure/databricks/getting-started/spark/index
+          maintainContext: true
+        - name: Introduzione ad Apache Spark
+          href: /azure/databricks/getting-started/spark/quick-start
+          maintainContext: true
+        - name: Dataframe
+          href: /azure/databricks/getting-started/spark/dataframes
+          maintainContext: true
+        - name: Set di dati
+          href: /azure/databricks/getting-started/spark/datasets
+          maintainContext: true
+        - name: Machine Learning
+          href: /azure/databricks/getting-started/spark/machine-learning
+          maintainContext: true
+        - name: Structured Streaming
+          href: /azure/databricks/getting-started/spark/streaming
+          maintainContext: true
+        - name: Passaggi successivi
+          href: /azure/databricks/getting-started/spark/next
+          maintainContext: true
+    - name: Training e domande frequenti
+      href: /azure/databricks/getting-started/training-faq
+      maintainContext: true
+    - name: Browser supportati
+      href: /azure/databricks/getting-started/supported-browsers
+      maintainContext: true
     - name: Note sulla versione
       items:
         - name: Piattaforma

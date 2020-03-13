@@ -1,27 +1,37 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Genomica di Microsoft
+summary: Informazioni sul modo in cui Genomica di Microsoft potenzia il sequenziamento del genoma con un'implementazione cloud dell'allineatore di Burrows-Wheeler (Burrows-Wheeler Aligner, BWA) e del toolkit di analisi del genoma (Genome Analysis Toolkit, GATK) per l'analisi secondaria.
 metadata:
   title: Documentazione di Genomica di Microsoft
-  meta.description: Learn how Microsoft Genomics can power genome sequencing using a cloud implementation of the Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK) for secondary analysis.
+  description: Informazioni sul modo in cui Genomica di Microsoft potenzia il sequenziamento del genoma con un'implementazione cloud dell'allineatore di Burrows-Wheeler (Burrows-Wheeler Aligner, BWA) e del toolkit di analisi del genoma (Genome Analysis Toolkit, GATK) per l'analisi secondaria.
   services: genomics
-  author: grhuynh
-  manager: cgronlun
-  ms.author: grhuynh
   ms.service: genomics
   ms.topic: landing-page
-  ms.date: 12/07/2017
-abstract:
-  description: 'Informazioni sul modo in cui Genomica di Microsoft potenzia il sequenziamento del genoma con un''implementazione cloud dell''allineatore di Burrows-Wheeler (Burrows-Wheeler Aligner, BWA) e del toolkit di analisi del genoma (Genome Analysis Toolkit, GATK) per l''analisi secondaria.'
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: Inviare un flusso di lavoro tramite il servizio di Genomica di Microsoft.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/helix-blue-orange.svg
-            text: Inviare un flusso di lavoro
-            href: quickstart-run-genomics-workflow-portal
+  author: grhuynh
+  ms.author: grhuynh
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 36b5898aca2f019351aaeda8438fb6771a09b6c4
+  ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/12/2020
+  ms.locfileid: "79137042"
+landingContent:
+- title: Introduzione
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Cos'è Genomica di Microsoft?
+      url: overview-what-is-genomics.md
+    - text: Domande frequenti
+      url: frequently-asked-questions-genomics.md
+  - linkListType: quickstart
+    links:
+    - text: Eseguire un flusso di lavoro di esempio
+      url: quickstart-run-genomics-workflow-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usare input di file FASTQ
+      url: quickstart-input-pair-fastq.md
+    - text: Usare input di file BAM
+      url: quickstart-input-bam.md

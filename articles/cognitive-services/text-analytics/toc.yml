@@ -50,6 +50,8 @@
       href: named-entity-types.md
     - name: Supporto di lingua e area geografica
       href: language-support.md
+    - name: Offset per il testo
+      href: concepts/text-offsets.md
 - name: Guide pratiche
   items:
     - name: Chiamare l'API Analisi del testo

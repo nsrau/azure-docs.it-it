@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: SDK
       items:
-        - name: 'Uso di C#'
-          href: quickstarts/entity-sdk-csharp-quickstart.md
-        - name: Uso di Node.js
-          href: quickstarts/entity-sdk-node-quickstart.md
-        - name: Uso di Python
-          href: quickstarts/entity-sdk-python-quickstart.md
-        - name: Uso di Java
-          href: quickstarts/entity-sdk-java-quickstart.md
+        - name: Librerie client di Ricerca entità Bing
+          href: ./quickstarts/client-libraries.md
 - name: Esercitazioni
   items:
     - name: Creare app Web a pagina singola
@@ -42,7 +36,7 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search'
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Ridimensionare e ritagliare le anteprime
       maintainContext: true
@@ -53,7 +47,7 @@
       href: concepts/search-for-entities.md
     - name: Invio delle richieste di ricerca
       href: concepts/sending-requests.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
       href: ../Bing-Web-Search/use-display-requirements.md
@@ -80,7 +74,7 @@
       href: 'https://cognitive.uservoice.com/forums/601036-bing-entity-search-api'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=bing+entity+search'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'

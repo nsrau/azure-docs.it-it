@@ -80,6 +80,8 @@
           items:
             - name: Limitare l'accesso con la rete virtuale (anteprima)
               href: container-registry-vnet.md
+            - name: Integrazione con Collegamento privato di Azure (anteprima)
+              href: container-registry-private-link.md
             - name: Accedere dietro a un firewall
               href: container-registry-firewall-access-rules.md
             - name: Authentication
@@ -102,8 +104,10 @@
               href: container-registry-repository-scoped-permissions.md
             - name: Attendibilità del contenuto
               href: container-registry-content-trust.md
-            - name: Analisi di immagini con il Centro sicurezza (anteprima)
+            - name: Analisi di immagini con il Centro sicurezza
               href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+            - name: Crittografare i dati dei registri (anteprima)
+              href: container-registry-customer-managed-keys.md
         - name: Registri e altri servizi di Azure
           expanded: false
           items:

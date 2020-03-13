@@ -125,6 +125,8 @@
       href: event-grid-tutorial.md
     - name: Ricevere notifiche tramite Griglia di eventi e App per la logica
       href: event-grid-logicapps.md
+    - name: Ruotare i segreti per le risorse di un utente singolo
+      href: tutorial-rotation.md
     - name: Integrazione con Criteri di Azure
       href: azure-policy.md
     - name: Integrazione con il servizio di collegamento privato di Azure (anteprima)

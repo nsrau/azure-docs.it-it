@@ -71,13 +71,9 @@
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
         - name: Procedure consigliate per la sicurezza
           href: sql-database-security-best-practice.md
-        - name: Gestione degli accessi
-          items:
-            - name: Controllo di accesso
-              href: sql-database-control-access.md
-            - name: Account di accesso e utenti
-              href: sql-database-manage-logins.md
-        - name: Authentication
+        - name: 'Account di accesso, account utente, ruoli e autorizzazioni'
+          href: sql-database-manage-logins.md
+        - name: Autenticazione di Azure AD
           href: sql-database-aad-authentication.md
           items:
             - name: Configurare l'autorizzazione di Azure AD
@@ -86,6 +82,8 @@
               href: sql-database-ssms-mfa-authentication.md
             - name: Configurare l'autenticazione a più fattori
               href: sql-database-ssms-mfa-authentication-configure.md
+            - name: Accesso condizionale
+              href: sql-database-conditional-access.md
         - name: Protezione dei dati
           items:
             - name: Transparent Data Encryption (TDE)
@@ -108,12 +106,12 @@
                   href: sql-database-always-encrypted.md
                 - name: Usare Azure Key Vault
                   href: sql-database-always-encrypted-azure-key-vault.md
-        - name: 'Monitoraggio, registrazione e controllo'
+        - name: Controllo
           items:
-            - name: Controllo
-              items:
-                - name: Introduzione al controllo del database SQL
-                  href: sql-database-auditing.md
+            - name: Introduzione al controllo del database SQL
+              href: sql-database-auditing.md
+            - name: Formato del log di controllo
+              href: sql-database-audit-log-format.md
         - name: Gestione della sicurezza
           items:
             - name: Sicurezza dei dati avanzata
@@ -140,18 +138,12 @@
                   href: sql-database-vnet-service-endpoint-rule-powershell.md
             - name: Collegamento privato
               href: sql-database-private-endpoint-overview.md
-            - name: Formato del log di controllo
-              href: sql-database-audit-log-format.md
-            - name: Accesso condizionale
-              href: sql-database-conditional-access.md
         - name: Sicurezza dell'istanza gestita
           items:
             - name: Proteggere gli endpoint pubblici
               href: sql-database-managed-instance-public-endpoint-securely.md
             - name: Controllo delle istanze gestite
               href: sql-database-managed-instance-auditing.md
-        - name: Baseline di sicurezza
-          href: security-baseline.md
     - name: Connessione ed esecuzione di query
       href: sql-database-connect-query.md
       items:
@@ -240,36 +232,40 @@
           href: sql-database-monitoring-tuning-index.yml
         - name: Panoramica di monitoraggio e ottimizzazione
           href: sql-database-monitor-tune-overview.md
-        - name: Monitoraggio delle prestazioni
+        - name: Advisor per database e Informazioni dettagliate prestazioni query
           items:
-            - name: Monitoraggio di Analisi SQL di Azure
-              href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql'
-            - name: Registrazione dei dati di telemetria di diagnostica
-              href: sql-database-metrics-diag-logging.md
-        - name: Prestazioni intelligenti
-          items:
-            - name: Ottimizzazione automatica
-              href: sql-database-automatic-tuning.md
-            - name: Intelligent Insights nelle prestazioni
-              href: sql-database-intelligent-insights.md
-            - name: Azioni e consigli per l'ottimizzazione
-              href: sql-database-performance.md
             - name: Consigli sulle prestazioni di Database Advisor
               href: sql-database-advisor.md
-        - name: Monitorare e ottimizzare il database
+            - name: Analisi delle prestazioni della query
+              href: sql-database-query-performance.md
+        - name: Ottimizzazione automatica
+          href: sql-database-automatic-tuning.md
+        - name: Intelligent Insights e Analisi SQL
           items:
-            - name: Ottimizzazione manuale
+            - name: Intelligent Insights nelle prestazioni
+              href: sql-database-intelligent-insights.md
+            - name: Registrazione dei dati di telemetria di diagnostica
+              href: sql-database-metrics-diag-logging.md
+            - name: Usare il log di diagnostica di Intelligent Insights
+              href: sql-database-intelligent-insights-use-diagnostics-log.md
+            - name: Risolvere i problemi delle prestazioni con Intelligent Insights
+              href: sql-database-intelligent-insights-troubleshoot-performance.md
+            - name: Analitica SQL
+              href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql'
+        - name: Monitoraggio e ottimizzazioni manuali
+          items:
+            - name: Identificare i problemi di prestazioni delle query
+              href: sql-database-identify-query-performance-issues.md
+            - name: Indicazioni per l'ottimizzazione di applicazioni e database
               href: sql-database-performance-guidance.md
             - name: Usare le viste a gestione dinamica per monitorare le prestazioni
               href: sql-database-monitoring-with-dmvs.md
-            - name: Usare Query Store per monitorare le prestazioni
-              href: sql-database-operate-query-store.md
-            - name: Risolvere i problemi delle prestazioni con Intelligent Insights
-              href: sql-database-intelligent-insights-troubleshoot-performance.md
-            - name: Usare il log di diagnostica di Intelligent Insights
-              href: sql-database-intelligent-insights-use-diagnostics-log.md
             - name: Monitorare lo spazio OLTP in memoria
               href: sql-database-in-memory-oltp-monitoring.md
+            - name: Diagnostica delle prestazioni dell'iperscalabilità
+              href: sql-database-hyperscale-performance-diagnostics.md
+            - name: Gestione risorse in pool elastici densi
+              href: sql-database-elastic-pool-resource-management.md
             - name: Eventi estesi
               items:
                 - name: Eventi estesi
@@ -278,10 +274,6 @@
                   href: sql-database-xevent-code-event-file.md
                 - name: 'Eventi estesi: buffer circolare'
                   href: sql-database-xevent-code-ring-buffer.md
-        - name: Diagnostica delle prestazioni dell'iperscalabilità
-          href: sql-database-hyperscale-performance-diagnostics.md
-        - name: Gestione risorse in pool elastici densi
-          href: sql-database-elastic-pool-resource-management.md
     - name: Scalabilità
       items:
         - name: Documentazione sulla scalabilità
@@ -538,8 +530,6 @@
               href: sql-database-resource-limits-database-server.md
             - name: Architettura della connettività
               href: sql-database-connectivity-architecture.md
-            - name: Impostazioni della connettività
-              href: sql-database-connectivity-settings.md
         - name: Sincronizzazione dei dati
           items:
             - name: Agente di sincronizzazione dati
@@ -552,10 +542,6 @@
               href: sql-database-best-practices-data-sync.md
             - name: Risolvere i problemi di sincronizzazione dei dati
               href: sql-database-troubleshoot-data-sync.md
-        - name: Monitoraggio delle prestazioni
-          items:
-            - name: Informazioni dettagliate prestazioni query
-              href: sql-database-query-performance.md
         - name: Differenze con T-SQL
           href: sql-database-transact-sql-information.md
         - name: Funzionalità
