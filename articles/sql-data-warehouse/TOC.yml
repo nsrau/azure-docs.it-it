@@ -94,7 +94,7 @@
         - name: Controllo di accesso
           items:
             - name: Panoramica
-              href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+              href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Sicurezza a livello di colonna
               href: column-level-security.md
             - name: Sicurezza a livello di riga
@@ -357,7 +357,7 @@
       items:
         - name: Connettività
           href: sql-data-warehouse-troubleshoot-connectivity.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Tipi di regole di confronto del database
       href: sql-data-warehouse-reference-collation-types.md

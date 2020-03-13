@@ -117,18 +117,12 @@
   items:
     - name: Operazioni del cluster
       items:
-        - name: Creare un cluster AKS
-          href: '/cli/azure/aks#az-aks-create'
-          maintainContext: true
         - name: Ridimensionare un cluster del servizio Azure Container
           href: scale-cluster.md
         - name: Aggiornare un cluster del servizio Azure Container
           href: upgrade-cluster.md
         - name: Elaborare gli aggiornamenti del sistema operativo del nodo
           href: node-updates-kured.md
-        - name: Eliminare un cluster del servizio Azure Container
-          href: '/cli/azure/aks#az-aks-delete'
-          maintainContext: true
         - name: Integrare un Registro Azure Container con un cluster del servizio Azure Kubernetes
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
