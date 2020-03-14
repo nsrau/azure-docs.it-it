@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367097"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257875"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurare il server di configurazione per il ripristino di emergenza da server fisici ad Azure
 

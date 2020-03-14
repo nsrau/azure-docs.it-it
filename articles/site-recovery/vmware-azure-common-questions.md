@@ -8,11 +8,11 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362834"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257446"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
 
@@ -50,7 +50,7 @@ L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie
 
 Sì, i clienti di Microsoft Software Assurance possono usare [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione in Azure o per usare Azure per il ripristino di emergenza.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="what-access-to-vmware-servers-does-site-recovery-need"></a>Quale accesso ai server VMware Site Recovery necessario?
 
@@ -73,7 +73,7 @@ No, Site Recovery non intercetta i dati replicati e non contiene informazioni su
 
 Site Recovery è certificata per ISO 27001:2013 e 27018, HIPAA e DPA. È in fase di valutazione di SOC2 e FedRAMP JAB.
 
-## <a name="pricing"></a>Pricing
+## <a name="pricing"></a>Prezzi
 
 ### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Ricerca per categorie calcolare le tariffe approssimative per il ripristino di emergenza di VMware?
 
@@ -188,7 +188,7 @@ No, Site Recovery non supporta la replica nell'archiviazione di Azure nelle reti
 
 ## <a name="component-upgrade"></a>Aggiornamento componenti
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>La versione dell'agente di servizi Mobility o del server di configurazione è obsoleta e l'aggiornamento non è riuscito. Quale operazione devo eseguire?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>La versione dell'agente di servizi Mobility o del server di configurazione è obsoleta e l'aggiornamento non è riuscito. Cosa devo fare?
 
 Site Recovery segue il modello di supporto N-4. [Altre](https://aka.ms/asr_support_statement) informazioni su come eseguire l'aggiornamento da versioni molto obsolete.
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 2190bfd1a260d7b866fedc1f7c699faef2431a93
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380985"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254001"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 

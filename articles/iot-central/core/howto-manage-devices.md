@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: dfbfd65223ddad5e8a20958d62ef86b5aa16af43
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391672"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271577"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
@@ -124,7 +124,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
 1. Selezionare i dispositivi che si desidera esportare, quindi selezionare l'azione **Esporta** .
 
-    ![Export](./media/howto-manage-devices/export1a.png)
+    ![Esportazione](./media/howto-manage-devices/export1a.png)
 
 
 1. Verrà avviato il processo di esportazione. È possibile tenere traccia dello stato usando il pannello operazioni del dispositivo.

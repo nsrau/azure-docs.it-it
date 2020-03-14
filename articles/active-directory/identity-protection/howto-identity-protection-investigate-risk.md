@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253481"
 ---
 # <a name="how-to-investigate-risk"></a>Procedura: analizzare i rischi
 

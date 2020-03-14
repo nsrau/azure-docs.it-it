@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cc8ccbbde56b57af684ad47840002a846bdcd8c0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0af476b69f2effd836fe76d62059259076c16f53
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827958"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214149"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > * Aumentare le prestazioni del database in risposta al carico maggiore
 > * Eseguire il provisioning di un tenant in un database a tenant singolo
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 * È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
@@ -47,11 +47,11 @@ La gestione delle prestazioni dei database comprende la compilazione e l'analisi
 * Per evitare di dover monitorare manualmente le prestazioni, è consigliabile **impostare l'attivazione di avvisi quando i database superano i normali intervalli**.
 * Per rispondere alle fluttuazioni a breve termine delle dimensioni di calcolo di un database, **è possibile scegliere un livello superiore o inferiore di DTU**. Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del database**. Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
 * Per rispondere a fluttuazioni a più lungo termine o a variazioni del numero di tenant, **è possibile spostare singoli tenant in un altro database**.
-* Per rispondere ad aumenti del carico a breve termine per *singoli* tenant, **è possibile rimuovere singoli tenant da un database e assegnare loro specifiche dimensioni di calcolo**. Non appena il carico si riduce di nuovo, il tenant può essere reinserito nel database multi-tenant. Quando questo tipo di comportamento è noto in anticipo, i tenant possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri tenant nel database multi-tenant. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
+* Per rispondere ad aumenti del carico a breve termine per *singoli* tenant, **è possibile rimuovere singoli tenant da un database e assegnare loro specifiche dimensioni di calcolo**. Non appena il carico si riduce di nuovo, il tenant può essere reinserito nel database multi-tenant. Quando questo è noto in anticipo, i tenant possono essere spostati preventivamente per garantire che il database disponga sempre delle risorse necessarie e per evitare l'influsso di altri tenant nel database multi-tenant. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono utili quando si usano molte risorse.
 
-Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare i [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) . Si tratta di un servizio di Azure separato che fornisce analisi su log di diagnostica e telemetria emessi raccolti in un'area di lavoro Log Analytics. I log di monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi e possono essere usati per eseguire query e impostare avvisi.
+Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare i [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) . Si tratta di un servizio di Azure separato che fornisce analisi su log emessi raccolti in un'area di lavoro Log Analytics. I log di monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi e possono essere usati per eseguire query e impostare avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 

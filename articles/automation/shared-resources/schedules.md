@@ -10,11 +10,11 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c4898ba62abdc42d95b77b9a77387bfe71fb4771
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386479"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252662"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
 
@@ -126,7 +126,7 @@ Un runbook può essere collegato a più pianificazioni e a una pianificazione po
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-powershell"></a>Per collegare una pianificazione a un runbook con PowerShell
 
-È possibile usare il cmdlet [Register AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) per collegare una pianificazione. È possibile specificare valori per i parametri del runbook con il parametro Parameters. Per altre informazioni su come specificare i valori dei parametri, vedere [Avvio di un runbook in Automazione di Azure](../automation-starting-a-runbook.md).
+È possibile usare il cmdlet [Register AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) per collegare una pianificazione. È possibile specificare i valori per i parametri del runbook con il parametro Parameters. Per altre informazioni su come specificare i valori dei parametri, vedere [Avvio di un runbook in Automazione di Azure](../automation-starting-a-runbook.md).
 I comandi di esempio seguenti mostrano come collegare una pianificazione a un runbook usando un cmdlet di Azure Resource Manager con parametri.
 
 ```azurepowershell-interactive

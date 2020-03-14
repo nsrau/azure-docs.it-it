@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361348"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248138"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
 I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione. Questo argomento offre informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come distribuirli in Azure.

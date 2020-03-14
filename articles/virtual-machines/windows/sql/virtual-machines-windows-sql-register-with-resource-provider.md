@@ -15,11 +15,11 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388785"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243185"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -57,7 +57,7 @@ Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del provider di 
 <iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Vantaggi del provider di risorse VM SQL durante l'installazione automatica di SQL Server in Azure-video Microsoft Channel 9"></iframe>
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario: 
 
@@ -455,7 +455,7 @@ Sì. SQL Server istanze del cluster di failover in una macchina virtuale di Azur
 Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Server in una macchina virtuale di Azure con il provider di risorse VM SQL se si partecipa a una configurazione del gruppo di disponibilità Always On.
 
 **Qual è il costo per la registrazione con il provider di risorse VM SQL o con l'aggiornamento alla modalità di gestibilità completa?**
-Nessuno Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
+No. Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
 
 **Qual è l'effetto sulle prestazioni dell'utilizzo delle diverse modalità di gestibilità?**
 Non vi è alcun effetto quando si utilizzano le modalità *noagent* e la gestibilità *leggera* . Quando si usa la modalità di gestibilità *completa* di due servizi installati nel sistema operativo, l'effetto è minimo. Questi possono essere monitorati tramite Gestione attività e visualizzati nella console dei servizi Windows incorporata. 

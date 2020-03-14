@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 45abd904ea95cf8e68583ba5630a485af59479ec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327265"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220347"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Installare ed eseguire contenitori di rilevatori di anomalie (anteprima)
 
@@ -30,11 +30,11 @@ Per informazioni dettagliate sulle API, vedere:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di usare i contenitori dei rilevatori di anomalie, è necessario soddisfare i prerequisiti seguenti:
 
-|obbligatori|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -73,7 +73,7 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Usare il comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore.
 
-| Contenitore: | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
 
@@ -162,7 +162,7 @@ Usare l'host, http://localhost:5000, per le API del contenitore.
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si esegue il contenitore con un punto di [montaggio](anomaly-detector-container-configuration.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore.
 
@@ -180,7 +180,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](ano
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati illustrati i concetti e il flusso di lavoro per il download, l'installazione e l'esecuzione di contenitori di rilevamento anomalie. In sintesi:
 

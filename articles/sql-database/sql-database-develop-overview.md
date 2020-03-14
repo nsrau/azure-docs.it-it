@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082446"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257004"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 
@@ -32,7 +32,7 @@ Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve t
 
 È possibile sfruttare strumenti open source come [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) e [Visual Studio Code](https://code.visualstudio.com/). Inoltre, il database SQL di Azure interagisce con gli strumenti Microsoft come [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). È anche possibile usare il portale di Azure, PowerShell e le API REST, per aumentare la produttività.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 L'accesso al database SQL di Azure è protetto con account di accesso e firewall. Il database SQL di Azure supporta utenti e account di accesso per l'autenticazione di SQL Server e [Azure Active Directory](sql-database-aad-authentication.md). Gli account di accesso di AAD sono disponibili solo nell'istanza gestita. 
 

@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 02/25/2020
 ms.author: juliako
 ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359313"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251349"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
 
@@ -32,7 +32,7 @@ Servizi multimediali genera i tipi di evento correlati al **processo** descritti
 
 ### <a name="monitoring-job-state-changes"></a>Monitoraggio delle modifiche dello stato del processo
 
-| Tipo evento | Descrizione |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| Ottiene un evento per tutte le modifiche dello stato del processo. |
 | Microsoft.Media.JobScheduled| Ottiene un evento quando il processo passa allo stato pianificato. |
@@ -52,7 +52,7 @@ Ogni **processo** avrà un livello superiore rispetto a **JobOutput**, quindi gl
 
 I messaggi di errore in `JobFinished`, `JobCanceled``JobError` output dei risultati aggregati per ogni output del processo, al termine di tutti. Mentre gli eventi di output del processo vengono attivati al termine di ogni attività. Se, ad esempio, si dispone di un output di codifica, seguito da un output di analisi video, si ottengono due eventi che vengono generati come eventi di output del processo prima che venga generato l'evento JobFinished finale con i dati aggregati.
 
-| Tipo evento | Descrizione |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| Ottiene un evento per tutte le modifiche dello stato di output del processo. |
 | Microsoft.Media.JobOutputScheduled| Ottiene un evento quando l'output del processo passa allo stato pianificato. |
@@ -66,7 +66,7 @@ Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 
 ### <a name="monitoring-job-output-progress"></a>Monitoraggio dello stato dell'output del processo
 
-| Tipo evento | Descrizione |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| Questo evento indica lo stato di avanzamento dell'elaborazione del processo, da 0% a 100%. Il servizio cerca di inviare un evento se il valore dello stato di avanzamento è aumentato del 5% o più oppure se sono passati più di 30 secondi dall'ultimo evento (heartbeat). Il valore dello stato di avanzamento non parte necessariamente dallo 0% né raggiunge necessariamente il 100% e non vi è garanzia di un aumento a una velocità costante nel tempo. Non usare questo evento per determinare se l'elaborazione è stata completata. A tale scopo, usare gli eventi di modifica dello stato.|
 
@@ -80,7 +80,7 @@ Servizi multimediali genera anche i tipi di evento **live** descritti di seguito
 
 Gli eventi a livello di flusso vengono generati per singolo flusso o connessione. Ogni evento ha un parametro `StreamId` che identifica la connessione o il flusso. Ogni flusso o connessione dispone di una o più tracce di tipi diversi. Ad esempio, una connessione da un codificatore può avere una traccia audio e quattro tracce video. I tipi di evento di flusso sono i seguenti:
 
-| Tipo evento | Descrizione |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | Il tentativo di connessione del codificatore viene rifiutato. |
 | Microsoft.Media.LiveEventEncoderConnected | Il codificatore stabilisce una connessione con l'evento live. |
@@ -97,7 +97,7 @@ Gli eventi a livello di traccia vengono generati per singola traccia.
 
 I tipi di evento a livello di traccia sono:
 
-| Tipo evento | Descrizione |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Il server dei contenuti multimediali elimina il blocco di dati perché è troppo tardi o presenta un timestamp sovrapposto. Il timestamp del nuovo blocco di dati è minore rispetto all'ora di fine del blocco di dati precedente. |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Il server dei contenuti multimediali riceve il primo blocco di dati per ogni traccia nel flusso o nella connessione. |
@@ -206,7 +206,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| output | Array | Ottiene gli output del processo.|
+| outputs | Array | Ottiene gli output del processo.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
@@ -662,7 +662,7 @@ Un evento presenta i seguenti dati di primo livello:
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. Ad esempio, "Microsoft.Media.JobStateChange". |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
-| dati | object | Dati dell'evento di Servizi multimediali. |
+| data | object | Dati dell'evento di Servizi multimediali. |
 | dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 

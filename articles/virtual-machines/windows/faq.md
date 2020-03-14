@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: 64aeaf412bc8af242a9d3184a3c1f0fa0ee4809e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161767"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243328"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Domande frequenti sulle Macchine virtuali Windows
 Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Windows create in Azure mediante il modello di distribuzione di Gestione risorse. Per la versione di Linux di questo argomento, vedere [domande frequenti su macchine virtuali Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

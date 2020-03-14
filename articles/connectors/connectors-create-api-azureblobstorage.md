@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358745"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247358"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creare e gestire i BLOB nell'archiviazione BLOB di Azure usando app per la logica di Azure
 
@@ -37,7 +37,7 @@ Se non si ha familiarità con le app per la logica, leggere [Informazioni su App
 
   * Seguire il trigger con l'azione **Ottieni contenuto BLOB** di archiviazione BLOB di Azure, che legge il file completo e USA in modo implicito la suddivisione in blocchi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -121,13 +121,13 @@ Questo esempio ottiene solo i contenuti di un BLOB. Per visualizzare i contenuti
 
 1. Quando viene richiesto di creare la connessione, fornire le seguenti informazioni:
 
-   | Proprietà | Obbligatoria | Valore | Descrizione |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Connection Name** (Nome connessione) | Sì | <*nome connessione*> | Nome creato per la connessione |
    | **Storage Account** | Sì | <*storage-account*> | Selezionare l'account di archiviazione dall'elenco. |
    ||||
 
-   Ad esempio,
+   Ad esempio:
 
    ![Creare una connessione all'account di archiviazione BLOB di Azure](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 

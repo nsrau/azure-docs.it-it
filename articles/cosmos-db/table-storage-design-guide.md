@@ -9,11 +9,11 @@ author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
 ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395652"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246474"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di archiviazione tabelle di Azure: tabelle scalabili ed efficienti
 
@@ -51,7 +51,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -71,11 +71,11 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
-<td>Jun</td>
+<td>Giu</td>
 <td>Cao</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -108,7 +108,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -195,12 +195,12 @@ Negli esempi seguenti si presuppone che l'archiviazione tabelle memorizzi le ent
 
 | Nome colonna | Tipo di dati |
 | --- | --- |
-| `PartitionKey` (nome del reparto) |String |
-| `RowKey` (ID dipendente) |String |
-| `FirstName` |String |
-| `LastName` |String |
+| `PartitionKey` (nome del reparto) |string |
+| `RowKey` (ID dipendente) |string |
+| `FirstName` |string |
+| `LastName` |string |
 | `Age` |Integer |
-| `EmailAddress` |String |
+| `EmailAddress` |string |
 
 Ecco alcune linee guida generali per la progettazione di query di archiviazione tabelle. La sintassi di filtro usata negli esempi seguenti è dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -663,7 +663,7 @@ In un database relazionale, in genere si normalizzano i dati per rimuovere la du
 ![Rappresentazione grafica dell'entità Department e dell'entità Employee][16]
 
 #### <a name="solution"></a>Soluzione
-Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio,  
+Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:  
 
 ![Rappresentazione grafica dell'entità denormalizzata e combinata del reparto][17]
 
@@ -1138,7 +1138,7 @@ L'archiviazione tabelle è un archivio tabelle *senza schema* . Ciò significa c
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1158,7 +1158,7 @@ L'archiviazione tabelle è un archivio tabelle *senza schema* . Ciò significa c
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1195,7 +1195,7 @@ L'archiviazione tabelle è un archivio tabelle *senza schema* . Ciò significa c
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1231,7 +1231,7 @@ Ogni entità deve avere ancora valori `PartitionKey`, `RowKey`e `Timestamp`, ma 
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1253,7 +1253,7 @@ Ogni entità deve avere ancora valori `PartitionKey`, `RowKey`e `Timestamp`, ma 
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1294,7 +1294,7 @@ Ogni entità deve avere ancora valori `PartitionKey`, `RowKey`e `Timestamp`, ma 
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo trascorso</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>

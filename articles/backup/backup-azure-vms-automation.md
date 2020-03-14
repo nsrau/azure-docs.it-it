@@ -4,11 +4,11 @@ description: Viene descritto come eseguire il backup e il ripristino di macchine
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 733a06a84aa170f1361ea74d126ec9752586fce2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363854"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247982"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 

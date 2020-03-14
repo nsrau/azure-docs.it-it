@@ -8,11 +8,11 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662282"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248775"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione ad Azure Esplora metriche
 
@@ -44,7 +44,7 @@ Per creare un grafico delle metriche, da una risorsa, un gruppo di risorse, una 
 > [!NOTE]
 > Usare il pulsante **Aggiungi metrica** e ripetere questi passaggi per visualizzare più metriche tracciate nello stesso grafico. Per più grafici in una visualizzazione, selezionare il pulsante **Aggiungi grafico** nella parte superiore.
 
-## <a name="select-a-time-range"></a>Seleziona intervallo tempo
+## <a name="select-a-time-range"></a>Selezionare un intervallo di tempo
 
 Per impostazione predefinita, il grafico mostra le ultime 24 ore di dati della metrica. Usare il pannello **selezione ora** per modificare l'intervallo di tempo, ingrandire o ridurre il grafico. 
 

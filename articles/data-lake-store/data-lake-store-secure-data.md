@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361393"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260306"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protezione dei dati archiviati in Azure Data Lake Storage Gen1
 La protezione dei dati in Azure Data Lake Storage Gen1 prevede tre passaggi.  Il controllo degli accessi in base al ruolo e gli elenchi di controllo di accesso devono essere impostati in modo da consentire completamente l'accesso ai dati per utenti e gruppi di sicurezza.
@@ -29,7 +29,7 @@ La protezione dei dati in Azure Data Lake Storage Gen1 prevede tre passaggi.  Il
 
 Questo articolo fornisce istruzioni sull'uso del portale di Azure per eseguire le attività appena descritte. Per informazioni dettagliate sull'implementazione della sicurezza a livello dati e account da parte di Data Lake Storage Gen1, vedere [Sicurezza in Azure Data Lake Storage Gen1](data-lake-store-security-overview.md). Per informazioni dettagliate sull'implementazione degli elenchi di controllo di accesso (ACL) in Data Lake Storage Gen1, vedere [Controllo di accesso in Data Lake Storage Gen1](data-lake-store-access-control.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -72,9 +72,9 @@ Quando si assegnano utenti o gruppi di sicurezza agli account Data Lake Storage 
 
 4. Se si vuole aggiungere un gruppo/utente non elencato nel pannello **Aggiungi autorizzazioni**, è possibile invitarlo digitandone l'indirizzo e-mail nella casella di testo **Seleziona** e quindi selezionandolo nell'elenco.
    
-    ![Aggiungere un gruppo di sicurezza](./media/data-lake-store-secure-data/adl.add.user.2.png "Aggiunta di un gruppo di sicurezza")
+    ![Aggiungere un gruppo di sicurezza](./media/data-lake-store-secure-data/adl.add.user.2.png "Aggiungere un gruppo di sicurezza")
    
-5. Fare clic su **Save**. Il gruppo di sicurezza dovrebbe essere ora aggiunto all'elenco, come illustrato di seguito.
+5. Fare clic su **Salva**. Il gruppo di sicurezza dovrebbe essere ora aggiunto all'elenco, come illustrato di seguito.
    
     ![Gruppo di sicurezza aggiunto](./media/data-lake-store-secure-data/adl.add.user.3.png "Gruppo di sicurezza aggiunto")
 
@@ -130,7 +130,7 @@ L'accesso ai dati è invariato e continua a essere gestito tramite gli ACL di ac
 1. Nel pannello dell'account Data Lake Storage Gen1, fare clic su **Controllo di accesso (IAM)** . 
    
     ![Assegnare un gruppo di sicurezza a un account Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assegnare un gruppo di sicurezza a un account Data Lake Storage Gen1")
-2. Nel pannello **Controllo di accesso (IAM)** fare clic su uno o più gruppi di sicurezza che si vuole rimuovere. Fare clic su **Rimuovi accesso**.
+2. Nel pannello **Controllo di accesso (IAM)** fare clic su uno o più gruppi di sicurezza che si vuole rimuovere. Scegliere **Rimuovi**.
    
     ![Gruppo di sicurezza rimosso](./media/data-lake-store-secure-data/adl.remove.group.png "Gruppo di sicurezza rimosso")
 

@@ -8,11 +8,11 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598256"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255119"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 [File di Azure](storage-files-introduction.md) può essere distribuito in due modi principali: montando direttamente le condivisioni file di Azure senza server o memorizzando nella cache le condivisioni file di Azure in locale usando sincronizzazione file di Azure. L'opzione di distribuzione scelta cambia gli elementi che è necessario prendere in considerazione durante la pianificazione della distribuzione. 

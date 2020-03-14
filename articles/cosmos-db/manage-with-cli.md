@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: mjbrown
 ms.openlocfilehash: 325840f8961fac49e599f1aa567ad8d4137820b4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364478"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251882"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
 

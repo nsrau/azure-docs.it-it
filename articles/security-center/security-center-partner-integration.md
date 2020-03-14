@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
 ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392492"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245382"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.

@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.date: 1/24/2020
 ms.author: raiye
 ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344532"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273111"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.

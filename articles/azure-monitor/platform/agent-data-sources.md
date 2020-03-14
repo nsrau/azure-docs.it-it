@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393583"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249100"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Origini dati degli agenti in Monitoraggio di Azure
 I dati che Monitoraggio di Azure raccoglie dagli agenti sono definiti dalle origini dati configurate.  I dati degli agenti vengono archiviati come [dati di log](data-platform-logs.md) con un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7bca36bdb41c5800a8718f76d48afcfde6f9333e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820935"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208845"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Informazioni sull'opzione database singolo del database SQL di Azure
 
@@ -25,7 +25,7 @@ L'opzione di distribuzione database singolo crea un database nel database SQL di
 > [!IMPORTANT]
 > Il database singolo è una delle tre opzioni di distribuzione per il database SQL di Azure. Le altre due sono i [pool elastici](sql-database-elastic-pool.md) e l'[istanza gestita](sql-database-managed-instance.md).
 > [!NOTE]
-> Per un glossario di termini relativi al database SQL di Azure, vedere [SQL Database terms glossary](sql-database-glossary-terms.md) (Glossario di termini relativi al database SQL)
+> Per un glossario di termini relativi al database SQL di Azure, vedere [Glossario dei termini relativi al database SQL](sql-database-glossary-terms.md)
 
 ## <a name="dynamic-scalability"></a>Scalabilità dinamica
 
@@ -37,7 +37,7 @@ Un database singolo può essere spostato all'interno o all'esterno di un [pool e
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 
-Usare gli strumenti di [monitoraggio delle prestazioni](sql-database-performance.md) e di [ avviso](sql-database-insights-alerts-portal.md) predefiniti combinati con le classificazioni delle prestazioni. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Database SQL può anche [generare log di metrica e diagnostica](sql-database-metrics-diag-logging.md) per facilitare il monitoraggio.
+Usare gli strumenti di [monitoraggio delle prestazioni](sql-database-performance.md) e di [ avviso](sql-database-insights-alerts-portal.md) predefiniti combinati con le classificazioni delle prestazioni. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Inoltre, il database SQL può [emettere metriche e log delle risorse](sql-database-metrics-diag-logging.md) per semplificare il monitoraggio.
 
 ## <a name="availability-capabilities"></a>Funzionalità per la disponibilità
 
@@ -50,7 +50,7 @@ Inoltre, alcune funzionalità e sintassi non sono affatto supportate, perché il
 
 Per altre informazioni, vedere [Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL](sql-database-transact-sql-information.md).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](sql-database-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
 

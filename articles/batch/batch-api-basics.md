@@ -15,11 +15,11 @@ ms.date: 08/29/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 4d6c4ff06783489ea7b6c3488cf6746d579b4c6a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025946"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247683"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -120,7 +120,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
 * Criteri di pianificazione attività
 * Stato delle comunicazioni dei nodi di calcolo
 * Attività di avvio per i nodi di calcolo
-* Pacchetti delle applicazioni
+* Pacchetti dell'applicazione
 * Configurazione di rete
 
 Ognuna di queste sezioni è descritta in modo più dettagliato nelle sezioni seguenti.
@@ -205,7 +205,7 @@ L'abilitazione della comunicazione tra nodi influisca anche sul posizionamento d
 
 L' *attività di avvio* facoltativa viene eseguita in ogni nodo aggiunto al pool e ogni volta che si riavvia o si ricrea l'immagine del nodo. L'attività di avvio è utile soprattutto per preparare i nodi di calcolo per l'esecuzione di attività, ad esempio l'installazione delle applicazioni eseguite dalle attività nei nodi di calcolo.
 
-### <a name="application-packages"></a>Pacchetti delle applicazioni
+### <a name="application-packages"></a>Pacchetti dell'applicazione
 
 È possibile specificare [pacchetti dell'applicazione](#application-packages) da distribuire nei nodi di calcolo del pool. I pacchetti dell'applicazione consentono una distribuzione e un controllo delle versioni più semplici delle applicazioni eseguite dalle attività. I pacchetti dell'applicazione specificati per un pool vengono installati in ogni nodo di calcolo aggiunto al pool e ogni volta che un nodo viene riavviato o ne viene ricreata l'immagine.
 
@@ -335,7 +335,7 @@ Un'[attività a istanze multiple](batch-mpi.md) è un'attività configurata per 
 
 Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando la libreria Batch .NET, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](batch-mpi.md).
 
-### <a name="task-dependencies"></a>Dipendenze delle attività
+### <a name="task-dependencies"></a>Dipendenze dell'attività
 
 Le [relazioni tra attività](batch-task-dependencies.md), come suggerito dal nome, consentono di specificare che un'attività dipende dal completamento di altre attività prima della rispettiva esecuzione. Questa funzionalità fornisce il supporto nelle situazioni in cui un'attività di tipo "downstream" utilizza l'output di un'attività di tipo "upstream" oppure quando un'attività upstream esegue un'inizializzazione richiesta da un'attività downstream. Per usare questa funzionalità, prima è necessario abilitare le relazioni tra attività nel processo batch. Quindi, per ogni attività che dipende da un altro (o molti altri), è necessario specificare le attività da cui dipende l'attività.
 
@@ -390,7 +390,7 @@ La directory radice contiene la struttura di directory seguente:
 >
 >
 
-## <a name="application-packages"></a>Pacchetti delle applicazioni
+## <a name="application-packages"></a>Pacchetti dell'applicazione
 
 La funzionalità relativa ai [pacchetti dell'applicazione](batch-application-packages.md) consente di gestire e distribuire con facilità le applicazioni ai nodi di calcolo nei pool. È possibile caricare e gestire più versioni delle applicazioni eseguite dalle attività, inclusi i relativi file binari e i file di supporto, quindi distribuire automaticamente una o più applicazioni nei nodi di calcolo del pool.
 

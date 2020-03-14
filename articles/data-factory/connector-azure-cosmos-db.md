@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
 ms.openlocfilehash: 7096b429145a54b5a09fe38eb8099c4ff24ac452
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395911"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243614"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Cosmos DB (API SQL) utilizzando Azure Data Factory
 
@@ -48,7 +48,7 @@ Data Factory si integra con la [libreria dell'executor bulk di Azure Cosmos DB](
 > [!TIP]
 > Il [video sulla migrazione dei dati](https://youtu.be/5-SRNiC_qOU) illustra la procedura di copia dei dati da Archiviazione BLOB di Azure ad Azure Cosmos DB. Il video presenta inoltre alcune considerazioni generali sull'ottimizzazione delle prestazioni per l'inserimento di dati in Azure Cosmos DB.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

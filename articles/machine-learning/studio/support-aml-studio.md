@@ -9,14 +9,16 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: ee4ef451888638c0ba33d7938c88b836b28f3fe5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f7146db33368877b8eb029e106559477376c5953
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894636"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217899"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Ottenere supporto e formazione per Azure Machine Learning Studio (versione classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Questo articolo fornisce informazioni su come ottenere altre informazioni sulle Azure Machine Learning Studio (classico) e ottenere supporto per i problemi e le domande.
 

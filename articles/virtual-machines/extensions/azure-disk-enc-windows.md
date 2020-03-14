@@ -14,19 +14,19 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 8435663dcf92e2617ea2fe9218649e94243272d2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073216"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250647"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Crittografia dischi di Azure per Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Crittografia dischi di Azure sfrutta BitLocker per fornire la crittografia completa del disco nelle macchine virtuali Azure con Windows.  Questa soluzione è integrata con Azure Key Vault per gestire le chiavi di crittografia dei dischi e i segreti nella sottoscrizione dell'insieme di credenziali delle chiavi. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure per macchine virtuali Linux](../linux/disk-encryption-overview.md), in particolare le sezioni seguenti:
 
@@ -136,21 +136,21 @@ Utilizzo di `AADClientCertificate`:
 
 | Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | stringa |
-| type | AzureDiskEncryptionForLinux | stringa |
-| typeHandlerVersion | 1,1, 2,2 | stringa |
+| apiVersion | 2015-06-15 | Data |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 1,1, 2,2 | string |
 | (schema 1,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 1,1) AADClientSecret | Password | stringa |
-| (schema 1,1) AADClientCertificate | thumbprint | stringa |
+| (schema 1,1) AADClientSecret | password | string |
+| (schema 1,1) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | stringa | 
-| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | stringa |
-| KeyEncryptionKeyURL | URL | stringa |
-| KeyVaultURL | URL | stringa |
-| opzionale Passphrase | Password | stringa | 
-| SequenceVersion | uniqueidentifier | stringa |
-| VolumeType | Sistema operativo, dati, tutti | stringa |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| opzionale Passphrase | password | string | 
+| SequenceVersion | UNIQUEIDENTIFIER | string |
+| VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 Per un esempio di distribuzione del modello, vedere [ Creare una nuova macchina virtuale Windows crittografata dall'immagine della raccolta](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
@@ -161,13 +161,13 @@ Le istruzioni sono disponibili nella versione più recente della [documentazione
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 Vedere la [guida alla risoluzione dei problemi di Crittografia dischi di Azure](../../security/azure-security-disk-encryption-tsg.md).
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità della macchina virtuale per Windows](features-windows.md).

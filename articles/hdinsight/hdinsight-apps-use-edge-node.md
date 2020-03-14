@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/27/2020
 ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386464"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272604"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight
 
@@ -80,9 +80,9 @@ In questa sezione si userà un modello di Resource Manager per aggiungere un nod
     |Proprietà |Descrizione |
     |---|---|
     |Subscription|selezionare la sottoscrizione di Azure usata per creare il cluster.|
-    |Gruppo di risorse|selezionare il gruppo di risorse usato per il cluster HDInsight esistente.|
+    |Resource group|selezionare il gruppo di risorse usato per il cluster HDInsight esistente.|
     |Location|selezionare la località del cluster HDInsight esistente.|
-    |Nome del cluster|immettere il nome di un cluster HDInsight esistente.|
+    |Cluster Name|immettere il nome di un cluster HDInsight esistente.|
 
 1. Verificare **di accettare i termini e le condizioni indicati in precedenza**, quindi selezionare **Acquista** per creare il nodo perimetrale.
 
@@ -104,9 +104,9 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
     |Proprietà |Descrizione |
     |---|---|
     |Subscription|selezionare la sottoscrizione di Azure usata per creare il cluster.|
-    |Gruppo di risorse|creare un nuovo gruppo di risorse usato per il cluster.|
+    |Resource group|creare un nuovo gruppo di risorse usato per il cluster.|
     |Location|Selezionare una posizione per il gruppo di risorse.|
-    |Nome del cluster|immettere un nome per il nuovo cluster da creare.|
+    |Cluster Name|immettere un nome per il nuovo cluster da creare.|
     |Nome utente dell'account di accesso del cluster|immettere il nome utente HTTP di Hadoop.  Il nome predefinito è **admin**.|
     |Password di accesso al cluster|immettere la password utente HTTP di Hadoop.|
     |Nome utente SSH|immettere il nome utente SSH. Il nome predefinito è **sshuser**.|

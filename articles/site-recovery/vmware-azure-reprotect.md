@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362918"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257173"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Riprotezione da Azure al sito locale
 

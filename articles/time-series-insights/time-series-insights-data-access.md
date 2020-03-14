@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359994"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254352"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concedere l'accesso ai dati in un ambiente
 

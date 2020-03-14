@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362133"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268184"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -81,6 +81,9 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
   voglio **visualizzare una funzionalità specifica aggiunta a file di Azure. È possibile aggiungerla?**  
     Il team di File di Azure è interessato a tutti i commenti e i suggerimenti dei clienti sul servizio offerto. Gli utenti sono invitati a votare le richieste di funzionalità in [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). Il team di File di Azure farà il possibile per soddisfare le richieste di nuove funzionalità.
 
+  **File di Azure supporta il blocco di file?**  
+    Sì, File di Azure supporta completamente il blocco di file di tipo SMB/Windows, [vedere i dettagli](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
+    
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
 * <a id="afs-region-availability"></a>
@@ -211,6 +214,11 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
     Sì, è possibile abilitare l'autenticazione Azure AD DS o AD in una condivisione file gestita da sincronizzazione file di Azure. Le modifiche apportate agli ACL NTFS di directory/file nei file server locali verranno suddivise a livelli File di Azure e viceversa.
 
+* <a id="ad-aad-smb-files"></a>
+**come è possibile verificare se è stata abilitata l'autenticazione di Active Directory nell'account di archiviazione e le informazioni sul dominio di Active Directory?**
+
+    È possibile fare riferimento alle istruzioni fornite [qui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) per verificare se file di Azure l'autenticazione di Active Directory è abilitata nell'account di archiviazione e recuperare le informazioni sul dominio di Active Directory.
+    
 * <a id="encryption-at-rest"></a>
 **Come è possibile garantire che la condivisione file di Azure usi la crittografia dei dati inattivi?**  
 

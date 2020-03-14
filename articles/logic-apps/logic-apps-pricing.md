@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358941"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270459"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -64,7 +64,7 @@ Un [ *ambiente Integration Services* (ISE)](../logic-apps/connect-virtual-networ
 
   Per altre informazioni sui limiti dell'account di integrazione, vedere [limiti e configurazione delle app](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)per la logica. Più avanti in questo argomento sono disponibili ulteriori informazioni sui [livelli di account di integrazione e sul relativo modello di determinazione dei prezzi](#integration-accounts) .
 
-Se si sceglie lo SKU Premium ISE, l'unità di base ha una capacità fissa. Se è necessaria una velocità effettiva maggiore, è possibile [aggiungere altre unità di scala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), durante la creazione o successivamente. Lo SKU Developer ISE non è in grado di aggiungere altre unità di scala. Le app per la logica eseguite in ISE non incorrono sui costi di conservazione dei dati.
+Se si sceglie lo SKU Premium ISE, l'unità di base ha una capacità fissa. Se è necessaria una velocità effettiva maggiore, è possibile [aggiungere altre unità di scala](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), durante la creazione o successivamente. Lo SKU Developer ISE non è in grado di aggiungere altre unità di scala. Le app per la logica eseguite in ISE non incorrono sui costi di conservazione dei dati.
 
 Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps)per la logica.
 
@@ -125,7 +125,7 @@ Per scegliere tra un account di integrazione gratuito, Basic o standard, esamina
 
 <a name="data-retention"></a>
 
-## <a name="data-retention"></a>Mantenimento dei dati
+## <a name="data-retention"></a>Conservazione dei dati
 
 Fatta eccezione per le app per la logica eseguite in un ambiente Integration Services (ISE), tutti gli input e gli output archiviati nella cronologia di esecuzione dell'app per la logica vengono fatturati in base al [periodo di memorizzazione](logic-apps-limits-and-config.md#run-duration-retention-limits)dell'app per la logica. Le app per la logica eseguite in ISE non incorrono sui costi di conservazione dei dati. Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps)per la logica.
 

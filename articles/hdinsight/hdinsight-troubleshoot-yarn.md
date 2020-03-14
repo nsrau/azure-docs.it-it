@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895266"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272201"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN di Apache Hadoop usando Azure HDInsight
 
@@ -26,7 +26,7 @@ Seguire questa procedura in Ambari per creare una nuova coda YARN e bilanciare l
 
 In questo esempio è stata modificata la capacità dal 50% al 25% per due code esistenti (**predefinita** e **thriftsvr**), in modo da consentire alla nuova coda (Spark) di avere una capacità del 50%.
 
-| Coda | Capacità | Capacità massima |
+| Coda | Capacity | Capacità massima |
 | --- | --- | --- |
 | default | 25% | 50% |
 | thrftsvr | 25% | 50% |

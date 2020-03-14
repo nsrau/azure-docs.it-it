@@ -4,11 +4,11 @@ description: Questo articolo illustra come eseguire il backup di SQL Server in A
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462582"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273241"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -78,37 +78,37 @@ In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo
 
 **Tipo di backup** | **Node**
     --- | ---
-    Completa | Primaria
+    Full | Primaria
     Differenziale | Primaria
-    Log |  Primaria
+    File di log |  Primaria
     Completo solo copia |  Primaria
 
 * **Preferenza di backup: solo secondario**
 
 **Tipo di backup** | **Node**
 --- | ---
-Completa | Primaria
+Full | Primaria
 Differenziale | Primaria
-Log |  Secondaria
-Completo solo copia |  Secondaria
+File di log |  Secondari
+Completo solo copia |  Secondari
 
 * **Preferenza di backup: secondaria**
 
 **Tipo di backup** | **Node**
 --- | ---
-Completa | Primaria
+Full | Primaria
 Differenziale | Primaria
-Log |  Secondaria
-Completo solo copia |  Secondaria
+File di log |  Secondari
+Completo solo copia |  Secondari
 
 * **Nessuna preferenza di backup**
 
 **Tipo di backup** | **Node**
 --- | ---
-Completa | Primaria
+Full | Primaria
 Differenziale | Primaria
-Log |  Secondaria
-Completo solo copia |  Secondaria
+File di log |  Secondari
+Completo solo copia |  Secondari
 
 ## <a name="set-vm-permissions"></a>Impostare le autorizzazioni della VM
 

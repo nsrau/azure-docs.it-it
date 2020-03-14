@@ -3,12 +3,12 @@ title: Funzionalità di sicurezza per proteggere i carichi di lavoro cloud
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f89d9ab3ef373ecd9a7d15ef4ec9b2109750f8de
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395570"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248073"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza che consentono di proteggere i carichi di lavoro cloud che usano backup di Azure
 
@@ -178,24 +178,23 @@ A tale scopo, seguire questa procedura:
 1. Seguire i passaggi per [disabilitare l'eliminazione](#disabling-soft-delete)temporanea.
 2. Nel portale di Azure passare all'insieme di credenziali, passare a **elementi di backup**e scegliere la macchina virtuale eliminata temporaneamente.
 
-![Scegliere una macchina virtuale temporaneamente eliminata](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Scegliere una macchina virtuale temporaneamente eliminata](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 3. Selezionare l'opzione **Annulla eliminazione**.
 
-![Scegli Annulla eliminazione](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
+   ![Scegli Annulla eliminazione](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 4. Verrà visualizzata una finestra. Selezionare **Annulla eliminazione**.
 
-![Selezionare Annulla eliminazione](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Selezionare Annulla eliminazione](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
 5. Scegliere **Elimina dati di backup** per eliminare definitivamente i dati di backup.
 
-![Scegliere Elimina dati di backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Scegliere Elimina dati di backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
 
-![Digitare il nome dell'elemento di backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digitare il nome dell'elemento di backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica informa che i dati di backup sono stati eliminati.
 
@@ -268,6 +267,10 @@ Backup di Azure consente di eseguire il backup di macchine virtuali di Azure con
 ### <a name="backup-of-encrypted-vms"></a>Backup di macchine virtuali crittografate
 
 È possibile eseguire il backup e il ripristino di macchine virtuali di Azure (VM) Windows o Linux con dischi crittografati tramite il servizio backup di Azure. Per istruzioni, vedere [eseguire il backup e il ripristino di macchine virtuali crittografate con backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+
+## <a name="private-endpoints"></a>Endpoint privati
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="other-security-features"></a>Altre funzionalità di sicurezza
 

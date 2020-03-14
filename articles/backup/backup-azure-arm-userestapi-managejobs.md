@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395577"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273527"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Tenere traccia dei processi di backup e ripristino con l'API REST
 
@@ -45,9 +45,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>Risposta
 
-|Name  |Type  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 - OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Risposta di esempio
 

@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
 ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252196"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250179"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Anteprima: controllare gli aggiornamenti con il controllo manutenzione e l'interfaccia della riga di comando di Azure
 

@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
 ms.openlocfilehash: 05698596f966f879da1affc58af0122d08d519ff
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191875"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256237"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Guida introduttiva: importare un file BACPAC in un database nel database SQL di Azure
 

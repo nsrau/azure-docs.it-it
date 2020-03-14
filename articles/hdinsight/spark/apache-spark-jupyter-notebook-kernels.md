@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389693"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272084"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernel per il notebook di Jupyter nei cluster Apache Spark in Azure HDInsight
 
@@ -26,7 +26,7 @@ I cluster HDInsight Spark forniscono kernel che è possibile usare con il notebo
 
 In questo articolo viene illustrato come usare questi kernel e i vantaggi che ne derivano.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -73,12 +73,12 @@ Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyt
    | --- | --- | --- |
    | help |`%%help` |Genera una tabella di tutti i magic disponibili con esempi e descrizioni |
    | info |`%%info` |Visualizza informazioni sulla sessione per l'endpoint Livy corrente |
-   | configura |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura i parametri per la creazione di una sessione. Il flag force (-f) è obbligatorio se è già stata creata una sessione, affinché tale sessione venga eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come una stringa JSON e devono essere nella riga successiva al magic, come illustrato nella colonna di esempio. |
+   | CONFIGURA |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura i parametri per la creazione di una sessione. Il flag force (-f) è obbligatorio se è già stata creata una sessione, affinché tale sessione venga eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come una stringa JSON e devono essere nella riga successiva al magic, come illustrato nella colonna di esempio. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Esegue una query Hive su sqlContext. Se viene passato il parametro `-o` , il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati [Pandas](https://pandas.pydata.org/) . |
-   | locali |`%%local`<br>`a=1` |Tutto il codice presente nelle righe successive viene eseguito localmente. Il codice deve essere un codice python2 valido anche indipendentemente dal kernel usato. Quindi, anche se si selezionano kernel **PySpark3** o **Spark** durante la creazione del notebook, se si usa il `%%local` Magic in una cella, tale cella deve avere solo codice python2 valido. |
+   | local |`%%local`<br>`a=1` |Tutto il codice presente nelle righe successive viene eseguito localmente. Il codice deve essere un codice python2 valido anche indipendentemente dal kernel usato. Quindi, anche se si selezionano kernel **PySpark3** o **Spark** durante la creazione del notebook, se si usa il `%%local` Magic in una cella, tale cella deve avere solo codice python2 valido. |
    | log |`%%logs` |Visualizza i log per la sessione Livy corrente. |
    | delete |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Non è possibile eliminare la sessione avviata per il kernel stesso. |
-   | pulizia |`%%cleanup -f` |Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
+   | cleanup |`%%cleanup -f` |Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
 
    > [!NOTE]  
    > Oltre ai magic aggiunti dal kernel PySpark, è possibile anche usare i [magic IPython incorporati](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), tra cui `%%sh`. È possibile usare il magic `%%sh` per eseguire script e il blocco del codice nel nodo head del cluster.
@@ -92,8 +92,8 @@ Il magic `%%sql` supporta parametri diversi che è possibile usare per controlla
 | Parametro | Esempio | Descrizione |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Usare questo parametro per salvare in modo permanente il risultato della query nel contesto Python %%local come frame di dati [Pandas](https://pandas.pydata.org/) . Il nome della variabile del frame di dati è il nome della variabile specificato. |
-| -q |`-q` |Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare il contenuto di una cella e si vuole semplicemente acquisirla come frame di dati, usare `-q -o <VARIABLE>`. Se si vogliono disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL come un'istruzione `CREATE TABLE`, usare `-q` senza specificare un argomento `-o`. |
-| -m |`-m <METHOD>` |Dove **METHOD** è **take** o **sample**. L'impostazione predefinita è **take**. Se il metodo è **take**, il kernel sceglie gli elementi dall'inizio del set di dati dei risultati specificato da MAXROWS, descritto più avanti in questa tabella. Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r` descritto di seguito in questa tabella. |
+| -Q |`-q` |Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare il contenuto di una cella e si vuole semplicemente acquisirla come frame di dati, usare `-q -o <VARIABLE>`. Se si vogliono disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL come un'istruzione `CREATE TABLE`, usare `-q` senza specificare un argomento `-o`. |
+| -M |`-m <METHOD>` |Dove **METHOD** è **take** o **sample**. L'impostazione predefinita è **take**. Se il metodo è **take**, il kernel sceglie gli elementi dall'inizio del set di dati dei risultati specificato da MAXROWS, descritto più avanti in questa tabella. Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r` descritto di seguito in questa tabella. |
 | -r |`-r <FRACTION>` |Qui **FRACTION** è un numero a virgola mobile compreso tra 0,0 e 1,0. Se il metodo di campionamento per la query SQL è `sample`, il kernel campiona automaticamente in modo casuale la frazione specificata degli elementi del set di risultati. Se si esegue una query SQL con gli argomenti `-m sample -r 0.01`, ad esempio, viene campionato in modo casuale l'1% delle righe dei risultati. |
 | -n |`-n <MAXROWS>` |**MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se **MaxRows** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non è limitato. |
 

@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jeconnoc
-ms.openlocfilehash: 0e47bde280e9483f3c265e0d3147eadcbb128612
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 778943dad9a04632797d5d9165b6f1f9a3eb9850
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271004"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248255"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -26,7 +26,7 @@ Una coppia locale è costituita da due aree all'interno della stessa area geogra
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Alcuni servizi di Azure sfruttano ulteriormente le aree abbinate per garantire la continuità aziendale e proteggersi dalla perdita di dati.  Azure offre diverse [soluzioni di archiviazione](/storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) che sfruttano le aree abbinate per garantire la disponibilità dei dati. Ad esempio, l' [archiviazione con ridondanza geografica](/storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) di Azure replica automaticamente i dati in un'area secondaria, assicurando che i dati siano durevoli anche nel caso in cui l'area primaria non sia recuperabile. 
+Alcuni servizi di Azure sfruttano ulteriormente le aree abbinate per garantire la continuità aziendale e proteggersi dalla perdita di dati.  Azure offre diverse [soluzioni di archiviazione](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) che sfruttano le aree abbinate per garantire la disponibilità dei dati. Ad esempio, l' [archiviazione con ridondanza geografica](./storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) di Azure replica automaticamente i dati in un'area secondaria, assicurando che i dati siano durevoli anche nel caso in cui l'area primaria non sia recuperabile. 
 
 Si noti che non tutti i servizi di Azure replicano automaticamente i dati, né tutti i servizi di Azure eseguono automaticamente il fallback da un'area non riuscita alla propria coppia.  In questi casi, il recupero e la replica devono essere configurati dal cliente.
 

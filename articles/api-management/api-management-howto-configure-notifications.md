@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375096"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244069"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
 
 Gestione API consente di configurare notifiche per eventi specifici nonché di configurare modelli di posta elettronica da usare per comunicare con gli amministratori e gli sviluppatori di un'istanza di Gestione API. In questo articolo viene illustrato come configurare notifiche per gli eventi disponibili e viene offerta una panoramica sulla configurazione di modelli di posta elettronica usati per tali eventi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Se non si dispone di un'istanza del servizio Gestione API, completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 

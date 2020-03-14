@@ -3,7 +3,7 @@ title: Codice del buffer circolare XEvent
 description: Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l'uso della destinazione del buffer circolare nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 7adffac045ddb2ba369993b1b805e3ce2304fb38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822325"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213975"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL
 
@@ -40,7 +40,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 7. Elimina la destinazione del buffer circolare, per rilasciare le relative risorse.
 8. Elimina la sessione dell'evento e la tabella dimostrativa.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.
@@ -339,7 +339,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 ```
 
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 L'argomento principale per gli eventi estesi in un database SQL di Azure è:
 

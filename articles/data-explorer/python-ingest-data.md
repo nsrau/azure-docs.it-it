@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 91401031945d0ec3ac22fc8cbcea8ba73580ee50
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379855"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251726"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Inserire dati usando la libreria di Esplora dati di Azure per Python
 

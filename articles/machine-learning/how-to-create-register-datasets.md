@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 003924c42a1a7e428a3a11f21a4cfe782c12e859
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 778f6b8d133ddb21f918d65a9d8aecd8b2205b08
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255788"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283771"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
@@ -32,8 +32,7 @@ Con Azure Machine Learning set di impostazioni è possibile:
 
 * Condividere i dati e collaborare con altri utenti.
 
-## <a name="prerequisites"></a>Prerequisiti
-
+## <a name="prerequisites"></a>Prerequisites
 Per creare e usare i set di impostazioni, è necessario:
 
 * Una sottoscrizione di Azure. Se non si ha un account, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
@@ -44,6 +43,16 @@ Per creare e usare i set di impostazioni, è necessario:
 
 > [!NOTE]
 > Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+
+## <a name="compute-size-guidance"></a>Linee guida per le dimensioni di calcolo
+
+Quando si crea un set di dati, verificare la potenza di elaborazione del calcolo e le dimensioni dei dati in memoria. Le dimensioni dei dati nell'archiviazione non corrispondono alle dimensioni dei dati in un frame di dati. Ad esempio, i dati nei file CSV possono espandersi fino a 10 volte in un frame di dati, quindi un file CSV da 1 GB può diventare 10 GB in un frame di dati. 
+
+Il fattore principale è la dimensione del set di dati in memoria, ad esempio un frame di dati. È consigliabile che le dimensioni di calcolo e la potenza di elaborazione includano 2x le dimensioni della RAM. Quindi, se il frame di dataframe è 10 GB, è necessario disporre di una destinazione di calcolo con più di 20 GB di RAM per garantire che il frame di frame possa adattarsi alla memoria ed essere elaborato. Se i dati sono compressi, possono espandersi ulteriormente; 20 GB di dati relativamente sparsi archiviati in formato parquet compresso possono espandersi fino a circa 800 GB di memoria. Poiché i file parquet archiviano i dati in un formato a colonne, se è necessaria solo la metà delle colonne, è sufficiente caricare circa 400 GB di memoria.
+ 
+Se si usano Pandas, non c'è alcun motivo per avere più di 1 vCPU, perché questo è tutto ciò che verrà usato. È possibile parallelizzare facilmente a molti vCPU in un singolo Azure Machine Learning istanza/nodo di calcolo tramite Modin e Dask/Ray e scalabilità orizzontale in un cluster di grandi dimensioni, se necessario, semplicemente modificando `import pandas as pd` a `import modin.pandas as pd`. 
+ 
+Se non è possibile ottenere un valore Virtual sufficientemente grande per i dati, sono disponibili due opzioni: usare un Framework come Spark o Dask per eseguire l'elaborazione sulla memoria insufficiente dei dati, ovvero il frame di dati viene caricato nella partizione RAM per partizione ed elaborato, con il risultato finale raccolta alla fine. Se questo è troppo lento, Spark o Dask consentono di scalare in orizzontale un cluster che può essere ancora usato in modo interattivo. 
 
 ## <a name="dataset-types"></a>Tipi di set di dati
 
@@ -57,9 +66,9 @@ Per altre informazioni sulle modifiche future dell'API, vedere [avviso di modifi
 
 ## <a name="create-datasets"></a>Creare set di dati
 
-Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nella posizione esistente, non viene addebitato alcun costo aggiuntivo per l'archiviazione. È possibile creare set di dati sia `TabularDataset` che `FileDataset` tramite Python SDK o https://ml.azure.com.
+Creando un set di dati, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. Poiché i dati rimangono nella posizione esistente, non viene addebitato alcun costo aggiuntivo per l'archiviazione. È possibile creare set di dati sia `TabularDataset` che `FileDataset` tramite Python SDK o in https://ml.azure.com.
 
-Affinché i dati siano accessibili da parte di Azure Machine Learning, è necessario creare i set di dati da percorsi in [archivi dati di Azure](how-to-access-data.md) o URL Web pubblici.
+Affinché i dati siano accessibili da parte di Azure Machine Learning, è necessario creare i set di dati da percorsi in [archivi dati di Azure](how-to-access-data.md) o URL Web pubblici. 
 
 ### <a name="use-the-sdk"></a>Usare l'SDK
 
@@ -70,7 +79,6 @@ Per creare set di dati da un [archivio dati di Azure](how-to-access-data.md) usa
 2. Creare il set di dati facendo riferimento a percorsi nell'archivio dati.
 > [!Note]
 > È possibile creare un set di dati da più percorsi in più archivi dati. Non esiste un limite fisso per il numero di file o le dimensioni dei dati da cui è possibile creare un set di dati. Tuttavia, per ogni percorso dati verranno inviate alcune richieste al servizio di archiviazione per verificare se punta a un file o a una cartella. Questo sovraccarico può causare un peggioramento delle prestazioni o degli errori. Un set di dati che fa riferimento a una cartella con 1000 di file in viene considerato come riferimento a un percorso dati. Per ottenere prestazioni ottimali, è consigliabile creare un set di dati che fa riferimento a meno di 100 percorsi negli archivi dati.
-
 
 #### <a name="create-a-tabulardataset"></a>Creare un TabularDataset
 
@@ -110,7 +118,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Rimasti|Pclass|Name|Sesso|Tempo trascorso|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
+| |PassengerId|Rimasti|Pclass|Nome|Sesso|Age|SibSp|Parch|Ticket|Tariffe|Abitacolo|Intrapreso
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
@@ -138,7 +146,7 @@ datastore = workspace.get_default_datastore()
 
 # upload the local file from src_dir to the target_path in datastore
 datastore.upload(src_dir='data', target_path='data')
-create a dataset referencing the cloud location
+# create a dataset referencing the cloud location
 dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
 ```
 
@@ -201,7 +209,7 @@ Per creare un set di dati in studio:
 1. Selezionare **tabulare** o **file** per tipo di set di dati.
 1. Selezionare **Avanti** per aprire il modulo **archivio dati e selezione file** . In questo modulo è possibile selezionare la posizione in cui salvare il set di dati dopo la creazione, nonché selezionare i file di dati da usare per il set di dati. 
 1. Selezionare **Avanti** per popolare i moduli **Impostazioni e anteprima** e **schema** ; vengono popolate in modo intelligente in base al tipo di file ed è possibile configurare ulteriormente il set di dati prima della creazione in questi moduli. 
-1. Selezionare **Avanti** per esaminare il modulo **Conferma dettagli** . Controllare le selezioni e creare un profilo dati facoltativo per il set di dati. Altre informazioni sulla [profilatura dei dati](how-to-create-portal-experiments.md#profile). 
+1. Selezionare **Avanti** per esaminare il modulo **Conferma dettagli** . Controllare le selezioni e creare un profilo dati facoltativo per il set di dati. Altre informazioni sulla [profilatura dei dati](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Selezionare **Crea** per completare la creazione del set di dati.
 
 ## <a name="register-datasets"></a>Registrare i set di impostazioni
@@ -252,7 +260,7 @@ Selezionare un set di dati selezionando il relativo riquadro. È possibile filtr
 
 ![Scegliere il set di dati](./media/how-to-create-register-datasets/open-datasets-2.png)
 
-Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati Public Holidays è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Selezionare **Crea**.
+Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati Public Holidays è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Selezionare **Create** (Crea).
 
 ![Imposta parametri set di dati e crea set di dati](./media/how-to-create-register-datasets/open-datasets-3.png)
 

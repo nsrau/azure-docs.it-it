@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380891"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254742"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usare il servizio Gestione dispositivi StorSimple per monitorare i componenti hardware e lo stato
 
@@ -81,30 +81,30 @@ La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure
 
 | Componente | Modulo | Type | Location | Unità sostituibile sul campo (FRU)? | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| Unità in slot [0-11] |Unità disco |Fisico |Shared |Sì |Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale. |
-| Sensore di temperatura ambientale |Chassis |Fisico |Shared |No |Misura la temperatura all'interno dello chassis. |
-| Sensore di temperatura piano intermedio |Chassis |Fisico |Shared |No |Misura la temperatura del piano intermedio. |
-| Allarme acustico |Chassis |Fisico |Shared |No |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
-| Chassis |Chassis |Fisico |Shared |Sì |Indica la presenza di uno chassis. |
-| Impostazioni chassis |Chassis |Fisico |Shared |No |Fa riferimento al pannello anteriore dello chassis. |
-| Sensori di tensione linea |PCM |Fisico |Shared |No |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
-| Sensori di corrente linea |PCM |Fisico |Shared |No |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
-| Sensori di temperatura in PCM |PCM |Fisico |Shared |No |Numerosi sensori di temperatura come i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
-| Alimentazione [0-1] |PCM |Fisico |Shared |Sì |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
-| Raffreddamento [0-1] |PCM |Fisico |Shared |Sì |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
-| Batteria [0-1] |PCM |Fisico |Shared |Sì |Viene visualizzata una riga per ognuno dei moduli della batteria di backup inseriti nel PCM. |
-| Metis |N/D |Logiche |Shared |N/D |Visualizza lo stato delle batterie: se devono essere messe in carica e se si stanno avvicinando alla fine del ciclo di vita. |
-| Cluster |N/D |Logiche |Shared |N/D |Visualizza lo stato del cluster creato tra i due moduli controller integrato. |
-| nodo cluster |N/D |Logiche |Shared |N/D |Indica lo stato del controller come parte del cluster. |
-| Quorum del cluster |N/D |Logiche | |N/D |Indica la presenza dell'appartenenza di maggioranza del disco nel pool di archiviazione di unità disco rigido. |
-| Spazio dati unità disco rigido |N/D |Logiche |Shared |N/D |Lo spazio di archiviazione utilizzato per i dati nel pool di archiviazione di unità disco rigido (HDD). |
-| Spazio di gestione di unità disco rigido |N/D |Logiche |Shared |N/D |Lo spazio riservato nel pool di archiviazione di unità disco rigido per le attività di gestione. |
-| Spazio quorum unità disco rigido |N/D |Logiche |Shared |N/D |Lo spazio riservato nel pool di archiviazione di unità disco rigido per il quorum del cluster. |
-| Spazio sostituzione unità disco rigido |N/D |Logiche |Shared |N/D |Lo spazio riservato nel pool di archiviazione di unità disco rigido per la sostituzione del controller. |
-| Spazio dati unità SSD |N/D |Logiche |Shared |N/D |Lo spazio di archiviazione utilizzato per i dati nel pool di archiviazione di unità SSD. |
-| Spazio NVRAM SSD |N/D |Logiche |Shared |N/D |Lo spazio di archiviazione nel pool di archiviazione di unità SSD dedicato per la logica NVRAM. |
-| Pool di archiviazione di unità disco rigido |N/D |Logiche |Shared |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
-| Pool di archiviazione di unità SSD |N/D |Logiche |Shared |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo SSD. |
+| Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale. |
+| Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |
+| Sensore di temperatura piano intermedio |Chassis |Fisico |Condiviso |No |Misura la temperatura del piano intermedio. |
+| Allarme acustico |Chassis |Fisico |Condiviso |No |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
+| Chassis |Chassis |Fisico |Condiviso |Sì |Indica la presenza di uno chassis. |
+| Impostazioni chassis |Chassis |Fisico |Condiviso |No |Fa riferimento al pannello anteriore dello chassis. |
+| Sensori di tensione linea |PCM |Fisico |Condiviso |No |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
+| Sensori di corrente linea |PCM |Fisico |Condiviso |No |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
+| Sensori di temperatura in PCM |PCM |Fisico |Condiviso |No |Numerosi sensori di temperatura come i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
+| Alimentazione [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
+| Raffreddamento [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
+| Batteria [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ognuno dei moduli della batteria di backup inseriti nel PCM. |
+| Metis |N/D |Logico |Condiviso |N/D |Visualizza lo stato delle batterie: se devono essere messe in carica e se si stanno avvicinando alla fine del ciclo di vita. |
+| Cluster |N/D |Logico |Condiviso |N/D |Visualizza lo stato del cluster creato tra i due moduli controller integrato. |
+| Nodo del cluster |N/D |Logico |Condiviso |N/D |Indica lo stato del controller come parte del cluster. |
+| Quorum del cluster |N/D |Logico | |N/D |Indica la presenza dell'appartenenza di maggioranza del disco nel pool di archiviazione di unità disco rigido. |
+| Spazio dati unità disco rigido |N/D |Logico |Condiviso |N/D |Lo spazio di archiviazione utilizzato per i dati nel pool di archiviazione di unità disco rigido (HDD). |
+| Spazio di gestione di unità disco rigido |N/D |Logico |Condiviso |N/D |Lo spazio riservato nel pool di archiviazione di unità disco rigido per le attività di gestione. |
+| Spazio quorum unità disco rigido |N/D |Logico |Condiviso |N/D |Lo spazio riservato nel pool di archiviazione di unità disco rigido per il quorum del cluster. |
+| Spazio sostituzione unità disco rigido |N/D |Logico |Condiviso |N/D |Lo spazio riservato nel pool di archiviazione di unità disco rigido per la sostituzione del controller. |
+| Spazio dati unità SSD |N/D |Logico |Condiviso |N/D |Lo spazio di archiviazione utilizzato per i dati nel pool di archiviazione di unità SSD. |
+| Spazio NVRAM SSD |N/D |Logico |Condiviso |N/D |Lo spazio di archiviazione nel pool di archiviazione di unità SSD dedicato per la logica NVRAM. |
+| Pool di archiviazione di unità disco rigido |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
+| Pool di archiviazione di unità SSD |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo SSD. |
 | Controller [0-1] [stato] |I/O |Fisico |Controller |Sì |Visualizza lo stato del controller e se è in modalità attiva o standby all'interno dello chassis. |
 | Sensori di temperatura nel controller |I/O |Fisico |Controller |No |Numerosi sensori di temperatura, ad esempio modulo I/O, temperatura CPU, sensori DIMM e PCIe hanno lo stato visualizzato, che indica se la temperatura rilevata è compresa o meno nella tolleranza. |
 | Espansore SAS |I/O |Fisico |Controller |No |Indica lo stato dell'espansore SCSI associato seriale (SAS), che viene utilizzato per connettere al controller l'archiviazione integrata. |
@@ -122,18 +122,18 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 
 | Componente | Modulo | Type | Location | FRU? | Descrizione |
 | --- | --- | --- | --- | --- | --- |
-| Unità in slot [0-11] |Unità disco |Fisico |Shared |Sì |Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD. |
-| Sensore di temperatura ambientale |Chassis |Fisico |Shared |No |Misura la temperatura all'interno dello chassis. |
-| Sensore di temperatura piano intermedio |Chassis |Fisico |Shared |No |Misura la temperatura del piano intermedio. |
-| Allarme acustico |Chassis |Fisico |Shared |No |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
-| Chassis |Chassis |Fisico |Shared |Sì |Indica la presenza di uno chassis. |
-| Impostazioni chassis |Chassis |Fisico |Shared |No |Fa riferimento alle operazioni o al pannello anteriore dello chassis. |
-| Sensori di tensione linea |PCM |Fisico |Shared |No |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
-| Sensori di corrente linea |PCM |Fisico |Shared |No |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
-| Sensori di temperatura in PCM |PCM |Fisico |Shared |No |Numerosi sensori di temperatura, ad esempio i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
-| Alimentazione [0-1] |PCM |Fisico |Shared |Sì |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
-| Raffreddamento [0-1] |PCM |Fisico |Shared |Sì |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
-| Archiviazione locale [HDD] |N/D |Logiche |Shared |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
+| Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD. |
+| Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |
+| Sensore di temperatura piano intermedio |Chassis |Fisico |Condiviso |No |Misura la temperatura del piano intermedio. |
+| Allarme acustico |Chassis |Fisico |Condiviso |No |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
+| Chassis |Chassis |Fisico |Condiviso |Sì |Indica la presenza di uno chassis. |
+| Impostazioni chassis |Chassis |Fisico |Condiviso |No |Fa riferimento alle operazioni o al pannello anteriore dello chassis. |
+| Sensori di tensione linea |PCM |Fisico |Condiviso |No |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
+| Sensori di corrente linea |PCM |Fisico |Condiviso |No |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
+| Sensori di temperatura in PCM |PCM |Fisico |Condiviso |No |Numerosi sensori di temperatura, ad esempio i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
+| Alimentazione [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
+| Raffreddamento [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
+| Archiviazione locale [HDD] |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
 | Controller [0-1] [stato] |I/O |Fisico |Controller |Sì |Visualizza lo stato dei controller nel modulo EBOD. |
 | Sensori di temperatura in EBOD |I/O |Fisico |Controller |No |Numerosi sensori di temperatura di ogni controller hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
 | Espansore SAS |I/O |Fisico |Controller |No |Indica lo stato dell'espansore SAS, che viene utilizzato per connettere al controller l'archiviazione integrata. |

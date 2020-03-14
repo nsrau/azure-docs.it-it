@@ -1,27 +1,17 @@
 ---
 title: Selezionare immagini di VM Linux con l'interfaccia della riga di comando di Azure
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per determinare il server di pubblicazione, l'offerta, la SKU e la versione delle immagini di macchine virtuali del Marketplace.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4dd51640c4eeda2ec99c14812a534ee506faeda
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392002"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250309"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
 
@@ -310,7 +300,7 @@ Output:
 }
 ```
 
-Eseguendo un comando analogo per l'immagine RabbitMQ certificata da Bitnami vengono mostrate le proprietà `plan` seguenti: `name`, `product` e `publisher`. (Alcune immagini hanno anche una proprietà `promotion code`.) Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
+Eseguendo un comando analogo per l'immagine RabbitMQ certificata da Bitnami vengono mostrate le proprietà `plan` seguenti: `name`, `product` e `publisher`. Alcune immagini hanno anche una proprietà `promotion code`. Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest

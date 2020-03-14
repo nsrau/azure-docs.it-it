@@ -10,11 +10,11 @@ ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 137623e4c52d24061aec8ec11fca0fc02ca54c7f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372607"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252688"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 

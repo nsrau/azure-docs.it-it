@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: dd8be482009e067bf9016cc8e351fc42a2db39c7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196111"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271733"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -120,6 +120,7 @@ I moduli crittografici usati da Key Vault, moduli di protezione hardware o softw
 -   **ES384** - ECDSA per digest e chiavi SHA-384 creati con la curva P-384. Questo algoritmo è descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES512** - ECDSA per digest e chiavi SHA-512 creati con la curva P-521. Questo algoritmo è descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
 
+
 ###  <a name="rsa-algorithms"></a>Algoritmi RSA  
  Gli identificatori di algoritmo seguenti sono supportati con le chiavi RSA e RSA-HSM in Key Vault.  
 
@@ -130,6 +131,9 @@ I moduli crittografici usati da Key Vault, moduli di protezione hardware o softw
 
 #### <a name="signverify"></a>SIGN//VERIFY
 
+-   **PS256** -RSASSA-PSS con sha-256 e maschera MGF1 con sha-256, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS384** -RSASSA-PSS con sha-384 e maschera MGF1 con sha-384, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS512** -RSASSA-PSS con sha-512 e maschera MGF1 con sha-512, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **RS256**: RSASSA-PKCS-v1_5 tramite SHA-256. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-256 e deve avere una lunghezza di 32 byte.  
 -   **RS384**: RSASSA-PKCS-v1_5 tramite SHA-384. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-384 e deve avere una lunghezza di 48 byte.  
 -   **RS512**: RSASSA-PKCS-v1_5 tramite SHA-512. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-512 e deve avere una lunghezza di 64 byte.  
