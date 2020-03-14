@@ -4,11 +4,11 @@ description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle 
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: f7fefecddaf50feda247dd711505aef1b4f206f0
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254325"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274528"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -44,7 +44,7 @@ Quando si usano Azure Resource Manager e i gruppi di risorse di Azure, si applic
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## <a name="active-directory-limits"></a>Limiti di Active Directory
+## <a name="active-directory-limits"></a>Limiti relativi ad Active Directory
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 

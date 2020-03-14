@@ -1,32 +1,32 @@
 ---
 title: Impostare le variabili di ambiente nell'istanza del contenitore
-description: Informazioni su come impostare le variabili di ambiente nei contenitori eseguiti nelle istanze di contenitore di Azure
+description: Informazioni su come impostare le variabili di ambiente nei contenitori eseguiti in Istanze di Azure Container
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379141"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247228"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Impostare le variabili di ambiente nelle istanze di contenitore
 
-L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di fornire la configurazione dinamica dell'applicazione o dello script eseguito dal contenitore. È simile all'argomento della riga di comando `--env` per `docker run`. 
+L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. È simile all'argomento della riga di comando `--env` per `docker run`. 
 
-Per impostare le variabili di ambiente in un contenitore, specificarle quando si crea un'istanza di contenitore. Questo articolo illustra esempi di impostazione delle variabili di ambiente quando si avvia un contenitore con l'interfaccia della riga di comando di [Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e il [portale di Azure](#azure-portal-example). 
+Per impostare le variabili di ambiente in un contenitore, specificarle quando si crea un'istanza del contenitore. Questo articolo illustra esempi di impostazione delle variabili di ambiente quando si avvia un contenitore con l'interfaccia della riga di comando di [Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e il [portale di Azure](#azure-portal-example). 
 
 Se ad esempio si esegue l'immagine del contenitore Microsoft [ACI-WordCount][aci-wordcount] , è possibile modificarne il comportamento specificando le seguenti variabili di ambiente:
 
-*NumWords*: numero di parole inviate a stdout.
+*NumWords*: il numero di parole inviate a STDOUT.
 
-*MinLength*: numero minimo di caratteri in una parola affinché venga conteggiata. Un numero più elevato ignora le parole comuni come "of" e "The".
+*MinLength*: il numero minimo di caratteri in una parola perché venga contata. Un numero più alto ignora le parole comuni, ad esempio "di" e "il".
 
-Se è necessario passare i segreti come variabili di ambiente, istanze di contenitore di Azure supporta [i valori sicuri per i](#secure-values) contenitori Windows e Linux.
+Se è necessario passare segreti come variabili di ambiente, Istanze di Azure Container supporta [valori sicuri](#secure-values) per i contenitori sia Windows che Linux.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando Azure
+## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando di Azure
 
 Per visualizzare l'output predefinito del contenitore [ACI-WordCount][aci-wordcount] , eseguirlo prima con il comando [AZ container create][az-container-create] (nessuna variabile di ambiente specificata):
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Per modificare l'output, avviare un secondo contenitore con l'argomento `--environment-variables` aggiunto, specificando i valori per le variabili *NumWords* e *minLength* . In questo esempio si presuppone che l'interfaccia della riga di comando sia in esecuzione in una shell bash o in Azure Cloud Shell. Se si usa il prompt dei comandi di Windows, specificare le variabili con virgolette doppie, ad esempio `--environment-variables "NumWords"="5" "MinLength"="8"`.
+Per modificare l'output, avviare un secondo contenitore con l'argomento `--environment-variables` aggiunto, specificando i valori per le variabili *NumWords* e *MinLength*. (In questo esempio si presuppone che l'interfaccia della riga di comando sia eseguita in una shell di Bash o in Azure Cloud Shell. Se si usa il prompt dei comandi di Windows, specificare le variabili con le virgolette doppie, ad esempio `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -56,7 +56,7 @@ az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-L'output dei contenitori Mostra come è stato modificato il comportamento dello script del secondo contenitore impostando le variabili di ambiente.
+L'output dei contenitori mostra come si è modificato il comportamento di script del secondo contenitore impostando le variabili di ambiente.
 
 **mycontainer1**
 ```output
@@ -83,7 +83,7 @@ L'output dei contenitori Mostra come è stato modificato il comportamento dello 
 
 ## <a name="azure-powershell-example"></a>Esempio di Azure PowerShell
 
-L'impostazione delle variabili di ambiente in PowerShell è simile all'interfaccia della riga di comando, ma usa l'`-EnvironmentVariable` argomento della riga di comando.
+L'impostazione delle variabili di ambiente in PowerShell è simile all'interfaccia della riga di comando, ma usa l'argomento della riga di comando `-EnvironmentVariable`.
 
 Per prima cosa, avviare il contenitore [ACI-WordCount][aci-wordcount] nella configurazione predefinita con il comando [New-AzContainerGroup][new-Azcontainergroup] :
 
@@ -94,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Eseguire quindi il comando [New-AzContainerGroup][new-Azcontainergroup] seguente. Questo valore specifica le variabili di ambiente *NumWords* e *minLength* dopo aver popolato una variabile di matrice, `envVars`:
+Eseguire quindi il comando [New-AzContainerGroup][new-Azcontainergroup] seguente. che specifica le variabili di ambiente *NumWords* e *MinLength* dopo avere popolato un variabile di matrice, `envVars`:
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -113,7 +113,7 @@ Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupNam
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
 ```
 
-L'output per ogni contenitore Mostra come è stato modificato lo script eseguito dal contenitore impostando le variabili di ambiente.
+L'output di ogni contenitore mostra come si è modificato lo script eseguito dal contenitore impostando le variabili di ambiente.
 
 ```console
 PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -139,7 +139,7 @@ PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -Conta
 Azure:\
 ```
 
-## <a name="azure-portal-example"></a>Esempio di portale di Azure
+## <a name="azure-portal-example"></a>Esempio del portale di Azure
 
 Per impostare le variabili di ambiente quando si avvia un contenitore nella portale di Azure, specificarle nella pagina **Avanzate** quando si crea il contenitore.
 
@@ -147,23 +147,23 @@ Per impostare le variabili di ambiente quando si avvia un contenitore nella port
 2. In **variabili di ambiente**immettere `NumWords` con un valore `5` per la prima variabile e immettere `MinLength` con il valore `8` per la seconda variabile. 
 1. Selezionare **Verifica + crea** per verificare e quindi distribuire il contenitore.
 
-![Pagina del portale che mostra le caselle di testo e il pulsante Abilita variabile di ambiente][portal-env-vars-01]
+![Pagina del portale che mostra il pulsante di abilitazione e le caselle di testo delle variabili di ambiente][portal-env-vars-01]
 
-Per visualizzare i log del contenitore, in **Impostazioni** selezionare **contenitori**, quindi **log**. Analogamente all'output illustrato nelle sezioni precedenti dell'interfaccia della riga di comando e di PowerShell, è possibile vedere come il comportamento dello script è stato modificato dalle variabili di ambiente. Vengono visualizzate solo cinque parole, ciascuna con una lunghezza minima di otto caratteri.
+Per visualizzare i log del contenitore, in **Impostazioni** selezionare **contenitori**, quindi **log**. Analogamente all'output illustrato nelle sezioni precedenti sull'interfaccia della riga di comando e PowerShell, è possibile visualizzare come il comportamento dello script è stato modificato dalle variabili di ambiente. Vengono visualizzate solo cinque parole, ognuna con una lunghezza minima di otto caratteri.
 
-![Portale che mostra l'output del log del contenitore][portal-env-vars-02]
+![Portale che visualizza l'output del log del contenitore][portal-env-vars-02]
 
 ## <a name="secure-values"></a>Valori sicuri
 
-Gli oggetti con valori sicuri hanno lo scopo di conservare informazioni riservate, ad esempio password o chiavi per l'applicazione. L'uso di valori sicuri per le variabili di ambiente è più sicuro e più flessibile che includerlo nell'immagine del contenitore. Un'altra opzione consiste nell'usare i volumi segreti, descritti in [montare un volume segreto in istanze di contenitore di Azure](container-instances-volume-secret.md).
+Gli oggetti con valori sicuri sono progettati per contenere informazioni riservate, ad esempio le password o le chiavi per le applicazioni. L'uso di valori sicuri per le variabili di ambiente è sia più sicuro che più flessibile rispetto all'inclusione nell'immagine del contenitore. Un'altra opzione consiste nell'usare volumi segreti, come descritto in [Montare un volume segreto in Istanze di Azure Container](container-instances-volume-secret.md).
 
-Le variabili di ambiente con valori sicuri non sono visibili nelle proprietà del contenitore. è possibile accedere ai relativi valori solo dall'interno del contenitore. Ad esempio, le proprietà del contenitore visualizzate nel portale di Azure o nell'interfaccia della riga di comando di Azure visualizzano solo il nome di una variabile sicura, non il relativo valore.
+Le variabili di ambiente con valori sicuri non sono visibili nelle proprietà del contenitore: i relativi valori sono accessibili solo dall'interno del contenitore. Ad esempio, le proprietà del contenitore visualizzate nel portale di Azure o nell'interfaccia della riga di comando di Azure mostrano solo il nome della variabile sicura e non il suo valore.
 
-Impostare una variabile di ambiente protetta specificando la proprietà `secureValue` anziché l'`value` normale per il tipo della variabile. Le due variabili definite nell'YAML seguente illustrano i due tipi di variabili.
+Impostare una variabile di ambiente sicura, specificando la proprietà `secureValue` anziché il normale `value` per il tipo di variabile. Le due variabili definite nel file YAML seguente illustrano i due tipi di variabili.
 
-### <a name="yaml-deployment"></a>Distribuzione YAML
+### <a name="yaml-deployment"></a>Distribuzione con file YAML
 
-Creare un file di `secure-env.yaml` con il frammento di codice seguente.
+Creare un file `secure-env.yaml` con il frammento seguente.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -190,7 +190,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Eseguire il comando seguente per distribuire il gruppo di contenitori con YAML (modificare il nome del gruppo di risorse secondo necessità):
+Eseguire il comando seguente per distribuire il gruppo di contenitori con YAML (modificare il nome del gruppo di risorse in base alle esigenze):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file secure-env.yaml
@@ -204,7 +204,7 @@ Eseguire il comando [AZ container Show][az-container-show] per eseguire una quer
 az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
 ```
 
-La risposta JSON Mostra sia la chiave che il valore della variabile di ambiente non protetta, ma solo il nome della variabile di ambiente protetta:
+La risposta JSON mostra sia la chiave che il valore della variabile di ambiente non sicura, ma solo il nome della variabile di ambiente sicura:
 
 ```json
 [
@@ -229,7 +229,7 @@ Con il comando [AZ container Exec][az-container-exec] , che consente l'esecuzion
 az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-Una volta aperta una shell interattiva all'interno del contenitore, è possibile accedere al valore della variabile `SECRET`:
+Dopo aver aperto una shell interattiva all'interno del contenitore, è possibile accedere al valore della variabile `SECRET`:
 
 ```console
 root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET

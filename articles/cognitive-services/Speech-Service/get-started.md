@@ -12,11 +12,11 @@ ms.date: 02/26/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
 ms.openlocfilehash: f74e3ea3d20ad2666b434e009cf62add6f88d200
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913668"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219665"
 ---
 # <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
 

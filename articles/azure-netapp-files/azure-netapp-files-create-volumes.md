@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/01/2019
 ms.author: b-juche
 ms.openlocfilehash: 9e8817f802ca1d73ca0f6bfa2b32b1b14b37d7da
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773552"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274086"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creare un volume NFS per Azure NetApp Files
 
@@ -36,7 +36,7 @@ Azure NetApp Files supporta i volumi NFS (NFSv3 e NFSv 4.1) e SMBv3. L'utilizzo 
 * Scelta della versione NFS da usare  
   NFSv3 è in grado di gestire un'ampia gamma di casi d'uso ed è comunemente distribuito nella maggior parte delle applicazioni aziendali. È necessario convalidare la versione (NFSv3 o NFSv 4.1) richiesta dall'applicazione e creare il volume utilizzando la versione appropriata. Ad esempio, se si usa [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), è consigliabile bloccare i file con NFSv 4.1 su NFSv3. 
 
-* Sicurezza  
+* Security  
   Il supporto per BITS in modalità UNIX (lettura, scrittura ed esecuzione) è disponibile per NFSv3 e NFSv 4.1. Per il montaggio dei volumi NFS è necessario l'accesso a livello di radice nel client NFS.
 
 * Utente/gruppo locale e supporto LDAP per NFSv 4.1  
@@ -86,7 +86,7 @@ Azure NetApp Files supporta i volumi NFS (NFSv3 e NFSv 4.1) e SMBv3. L'utilizzo 
         
         Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni VNET è possibile delegare una sola subnet a Azure NetApp Files.   
  
-        ![Creazione di un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Creare un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 

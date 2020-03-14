@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 4c89489964410104726b65e1b1fc3577945ce14a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388775"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249880"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisiti per la creazione di Gruppi di disponibilità Always On in SQL Server in macchine virtuali di Azure
 
@@ -48,7 +48,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 
 3. Digitare **gruppo di risorse** nella finestra di ricerca del **Marketplace**.
 
-   ![Gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Fare clic su **Gruppo di risorse**.
 5. Fare clic su **Crea**.
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
@@ -56,7 +56,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
 9. Verificare che l'opzione **Aggiungi al dashboard** sia selezionata. Questa impostazione facoltativa inserisce un collegamento per il gruppo di risorse nel dashboard del portale di Azure.
 
-   ![Gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
 10. Fare clic su **Crea** per creare il gruppo di risorse.
 
@@ -80,7 +80,7 @@ Per creare la rete virtuale:
 
     La tabella seguente descrive le impostazioni per la rete virtuale:
 
-   | **Campo** | Valore |
+   | **Campo** | valore |
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Spazio degli indirizzi** |10.33.0.0/24 |
@@ -120,7 +120,7 @@ La nuova rete virtuale ha una subnet, denominata **admin**. I controller di domi
 
 La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
-| **Campo** | Valore |
+| **Campo** | valore |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
 | **Spazio degli indirizzi** |Questo valore dipende dagli spazi indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/16. |
@@ -157,7 +157,7 @@ Dopo aver creato la rete, le subnet e i set di disponibilità, si è pronti per 
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Creare le macchine virtuali per i controller di dominio
 Per creare e configurare i controller di dominio, tornare al gruppo di risorse **SQL-HA-RG** .
 
-1. Fare clic su **Add**. 
+1. Fare clic su **Aggiungi**. 
 2. Digitare **Windows Server 2016 Datacenter**.
 3. Fare clic su **Windows Server 2016 Datacenter**. In **Windows Server 2016 Datacenter** verificare che il modello di distribuzione sia **Resource Manager** e quindi fare clic su **Crea**. 
 
@@ -173,7 +173,7 @@ Ripetere i passaggi precedenti per creare due macchine virtuali. Assegnare un no
 
 La tabella seguente descrive le impostazioni per queste due macchine:
 
-| **Campo** | Valore |
+| **Campo** | valore |
 | --- | --- |
 | **Nome** |Primo controller di dominio: *ad-primary-dc*.</br>Secondo controller di dominio: *ad-secondary-dc*. |
 | **Tipo di disco VM** |SSD |
@@ -189,7 +189,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Indirizzo IP pubblico** |*Lo stesso nome della VM* |
 | **Gruppo di sicurezza di rete** |*Lo stesso nome della VM* |
 | **Set di disponibilità** |adavailabilityset </br>**Domini di errore**:2 </br>**Domini di aggiornamento**:2|
-| **Diagnostica** |Abilitato |
+| **Diagnostica** |Attivato |
 | **Account di archiviazione di diagnostica** |*Creato automaticamente* |
 
    >[!IMPORTANT]
@@ -204,14 +204,14 @@ Nei passaggi seguenti configurare la macchina virtuale **ad-primary-dc** come co
 
 1. Nel portale aprire il gruppo di risorse **SQL-HA-RG** e selezionare la macchina virtuale **ad-primary-dc**. In **ad-primary-dc** fare clic su **Connetti** per aprire un file RDP per l'accesso desktop remoto.
 
-    ![Connessione a una macchina virtuale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
+    ![Connettersi a una macchina virtuale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
 2. Accedere con l'account amministratore ( **\DomainAdmin**) e la password (**Contoso!0000**) configurati.
-3. Per impostazione predefinita, verrà visualizzato il dashboard **Server Manager**.
+3. Per impostazione predefinita, verrà visualizzato il dashboard **Server Manager** .
 4. Fare clic sul collegamento **Aggiungi ruoli e funzionalità** sul dashboard.
 
     ![Server Manager - Aggiungere ruoli](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/22-addfeatures.png)
 5. Selezionare **Avanti** fino a visualizzare la sezione **Ruoli server**.
-6. Selezionare i ruoli **Servizi di dominio Active Directory** e **Server DNS**. Quando richiesto, aggiungere eventuali funzionalità aggiuntive necessarie per questi ruoli.
+6. Selezionare i ruoli **Active Directory Domain Services** e **Server DNS**. Quando richiesto, aggiungere eventuali funzionalità aggiuntive necessarie per questi ruoli.
 
    > [!NOTE]
    > Windows visualizza un avviso per indicare che non è presente alcun indirizzo IP statico. Se si sta eseguendo il test della configurazione, fare clic su **Continua**. Per gli scenari di produzione, impostare l'indirizzo IP come statico nel portale di Azure o [usare PowerShell per impostare l'indirizzo IP statico della macchina virtuale del controller di dominio](../../../virtual-network/virtual-networks-reserved-private-ip.md).
@@ -221,13 +221,13 @@ Nei passaggi seguenti configurare la macchina virtuale **ad-primary-dc** come co
     ![Finestra di dialogo Aggiungi ruoli](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/23-addroles.png)
 7. Fare clic su **Avanti** fino a raggiungere la sezione **Conferma**. Selezionare la casella di controllo **Riavvia automaticamente il server di destinazione se necessario**.
 8. Fare clic su **Installa**.
-9. Dopo l'installazione delle funzionalità, tornare al dashboard **Server Manager**.
-10. Selezionare la nuova opzione **Servizi di dominio Active Directory** nel riquadro di sinistra.
+9. Dopo l'installazione delle funzionalità, tornare al dashboard **Server Manager** .
+10. Selezionare la nuova opzione **Servizi di dominio di Active Directory** nel riquadro di sinistra.
 11. Fare clic sul collegamento **Altro** sulla barra di avviso gialla.
 
     ![Finestra di dialogo Active Directory Domain Services nella macchina virtuale di Server DNS](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/24-addsmore.png)
-12. Nella colonna **Azione** della finestra di dialogo **Tutti i server - Dettagli attività** fare clic su **Alza di livello il server a controller di dominio**.
-13. Nella **Configurazione guidata Servizi di dominio Active Directory** usare i seguenti valori:
+12. Nella colonna **Azione** della finestra di dialogo **Dettagli attività tutti i server** fare clic su **Alza di livello il server a controller di dominio**.
+13. Nella **Configurazione guidata Servizi di dominio di Active Directory**, usare i seguenti valori:
 
     | **Page** | Impostazione |
     | --- | --- |
@@ -261,7 +261,7 @@ Dopo aver creato il primo controller di dominio e attivato il DNS sul primo serv
 
 3. Fare clic su **Personalizzato** e digitare l'indirizzo IP privato del controller di dominio primario.
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ### <a name="configure-the-second-domain-controller"></a>Configurare il secondo controller di dominio
 Dopo il riavvio del controller di dominio primario, è possibile configurare il secondo controller di dominio. Questo passaggio facoltativo serve a garantire una disponibilità elevata. Seguire questi passaggi per configurare il secondo controller di dominio:
@@ -272,7 +272,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 4. In **Centro connessioni di rete e condivisione** scegliere l'interfaccia di rete.
    ![Interfaccia di rete](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/26-networkinterface.png)
 
-5. Fare clic su **Proprietà**.
+5. Scegliere **Proprietà**.
 6. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su **Proprietà**.
 7. Selezionare **Utilizza i seguenti indirizzi server DNS** e specificare l'indirizzo del controller di dominio primario in **Server DNS preferito**.
 8. Fare clic su **OK** e quindi su **Chiudi** per eseguire il commit delle modifiche. A questo punto è possibile aggiungere la macchina virtuale a **corp.contoso.com**.
@@ -285,11 +285,11 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 
     ![Server Manager - Aggiungere ruoli](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/22-addfeatures.png)
 11. Selezionare **Avanti** fino a visualizzare la sezione **Ruoli server**.
-12. Selezionare i ruoli **Servizi di dominio Active Directory** e **Server DNS**. Quando richiesto, aggiungere eventuali funzionalità aggiuntive necessarie per questi ruoli.
-13. Dopo l'installazione delle funzionalità, tornare al dashboard **Server Manager**.
-14. Selezionare la nuova opzione **Servizi di dominio Active Directory** nel riquadro di sinistra.
+12. Selezionare i ruoli **Active Directory Domain Services** e **Server DNS**. Quando richiesto, aggiungere eventuali funzionalità aggiuntive necessarie per questi ruoli.
+13. Dopo l'installazione delle funzionalità, tornare al dashboard **Server Manager** .
+14. Selezionare la nuova opzione **Servizi di dominio di Active Directory** nel riquadro di sinistra.
 15. Fare clic sul collegamento **Altro** sulla barra di avviso gialla.
-16. Nella colonna **Azione** della finestra di dialogo **Tutti i server - Dettagli attività** fare clic su **Alza di livello il server a controller di dominio**.
+16. Nella colonna **Azione** della finestra di dialogo **Dettagli attività tutti i server** fare clic su **Alza di livello il server a controller di dominio**.
 17. In **Configurazione distribuzione** selezionare **Aggiungi un controller di dominio a un dominio esistente**.
     ![Configurazione distribuzione](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Fare clic su **Seleziona**.
@@ -299,7 +299,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 
     >[!NOTE]
     >Nella pagina **Opzioni DNS** è possibile che venga visualizzato un avviso indicante che non è possibile creare una delega per questo server DNS. È possibile ignorare questo avviso in ambienti non di produzione.
-22. Fare clic su **Avanti** fino a quando non viene visualizzato il controllo **Prerequisiti**. Fare clic quindi su **Installa**.
+22. Fare clic su **Avanti** fino a quando non viene visualizzato il controllo **Prerequisiti**. Fare clic su **Installa**.
 
 Quando il server completa le modifiche alla configurazione, riavviare il server.
 
@@ -313,8 +313,8 @@ Nei passaggi successivi vengono configurati gli account Active Directory (AD). L
 
 | |Account di installazione<br/> |sqlserver-0 <br/>Account del servizio SQL Agent e SQL Server |sqlserver-1<br/>Account del servizio SQL Agent e SQL Server
 | --- | --- | --- | ---
-|**Nome** |Installa |SQLSvc1 | SQLSvc2
-|**Utente SamAccountName** |Installa |SQLSvc1 | SQLSvc2
+|**Nome** |Installazione |SQLSvc1 | SQLSvc2
+|**Utente SamAccountName** |Installazione |SQLSvc1 | SQLSvc2
 
 Usare i passaggi seguenti per creare ogni account.
 
@@ -331,7 +331,7 @@ Usare i passaggi seguenti per creare ogni account.
 6. Ripetere i passaggi precedenti per ognuno dei tre account.
 
 ### <a name="grant-the-required-permissions-to-the-installation-account"></a>Concedere le autorizzazioni necessarie all'account di installazione
-1. Nel **Centro di amministrazione di Active Directory** selezionare **corp (local)** nel riquadro di sinistra. Quindi nel riquadro di destra **Attività** fare clic su **Proprietà**.
+1. Nel **Centro di amministrazione di Active Directory** selezionare **corp (local)** nel riquadro di sinistra. Nel riquadro **Attività** a destra fare quindi clic su **Proprietà**.
 
     ![Proprietà utente CORP](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/31-addcproperties.png)
 2. Selezionare **Estensioni**, quindi fare clic sul pulsante **Avanzate** nella scheda **Sicurezza**.
@@ -342,7 +342,7 @@ Usare i passaggi seguenti per creare ogni account.
 6. Selezionare la casella di controllo **Create Computer objects** (Crea oggetti computer).
 
      ![Autorizzazioni utente Corp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/33-addpermissions.png)
-7. Fare clic su **OK** e quindi fare di nuovo clic su **OK**. Chiudere la finestra delle proprietà di **corp**.
+7. Fare clic su **OK** e quindi di nuovo su **OK**. Chiudere la finestra delle proprietà di **corp**.
 
 Dopo aver completato la configurazione di Active Directory e degli oggetti utente, creare due macchine virtuali di SQL Server e una macchina virtuale server di controllo. Aggiungere quindi tutte e tre le macchine virtuali al dominio.
 
@@ -391,8 +391,8 @@ A questo punto è possibile aggiungere la macchina virtuale a **corp.contoso.com
 4. Nella sezione **Nome computer** fare clic su **Cambia**.
 5. Selezionare la casella di controllo **Dominio** e digitare **corp.contoso.com** nella casella di testo. Fare clic su **OK**.
 6. Nella finestra di dialogo popup **Sicurezza di Windows** specificare le credenziali per l'account amministratore di dominio predefinito (**CORP\DomainAdmin**) e la password (**Contoso!0000**).
-7. Quando viene visualizzato il messaggio di benvenuto nel dominio corp.contoso.com, fare clic su **OK**.
-8. Fare clic su **Chiudi**, quindi fare clic su **Riavvia ora** nella finestra di dialogo popup.
+7. uando viene visualizzato il messaggio di benvenuto nel dominio corp.contoso.com, fare clic su **OK**.
+8. Fare clic su **Chiudi** e quindi su **Riavvia ora** nella finestra di dialogo popup.
 
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>Aggiungere l'utente Corp\Install come amministratore in ogni VM del cluster
 
@@ -404,10 +404,10 @@ Dopo l'avvio di ogni macchina virtuale come membro del dominio, aggiungere **COR
 
 2. In **Server Manager** selezionare **Strumenti**, quindi fare clic su **Gestione computer**.
 3. Nella finestra **Gestione computer** espandere **Utenti e gruppi locali**, quindi selezionare **Gruppi**.
-4. Fare doppio clic sul gruppo **Administrators**.
-5. Nella finestra di dialogo delle proprietàdi Administrators fare clic sul pulsante **Aggiungi**.
-6. Immettere l'utente **CORP\Install**, quindi fare clic su **OK**.
-7. Fare clic su **OK** per chiudere la finestra di dialogo delle proprietà diAdministrators.
+4. Fare doppio clic sul gruppo **Administrators** .
+5. Nella finestra di dialogo **Proprietà Administrators** fare clic su pulsante **Aggiungi**.
+6. Immettere l'utente **CORP\Install** e quindi fare clic su **OK**.
+7. Fare clic su **OK** per chiudere la finestra di dialogo **Proprietà Administrators**.
 8. Ripetere i passaggi precedenti in **sqlserver-1** e **cluster-fsw**.
 
 ### <a name="setServiceAccount"></a>Impostare gli account del servizio SQL Server

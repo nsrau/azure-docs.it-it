@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562361"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251258"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
@@ -150,7 +150,7 @@ Un singolo endpoint di streaming può trasmettere video sia live che su richiest
 
     Si consideri uno scenario in cui i clienti stanno principalmente controllando i contenuti live, ma solo occasionalmente controllano i contenuti su richiesta e vengono serviti dallo stesso endpoint di streaming. Il basso utilizzo del contenuto su richiesta occupa lo spazio della cache che verrebbe salvato meglio per il contenuto Live. In questo scenario si consiglia di servire il contenuto Live da un endpoint di streaming e il contenuto della coda lunga da un altro endpoint di streaming. Ciò consentirà di migliorare le prestazioni del contenuto dell'evento Live.
     
-## <a name="scaling-streaming-with-cdn"></a>Ridimensionamento dei flussi con la rete CDN
+## <a name="scaling-streaming-with-cdn"></a>Ridimensionamento dello streaming con la rete CDN
 
 Vedere gli articoli seguenti:
 

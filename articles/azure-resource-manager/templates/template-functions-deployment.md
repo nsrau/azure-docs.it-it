@@ -4,11 +4,11 @@ description: Informazioni sulle funzioni che è possibile usare in un modello di
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207282"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274268"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
 
@@ -77,7 +77,7 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
 
 Quando si [distribuisce in una sottoscrizione di Azure](deploy-to-subscription.md) anziché in un gruppo di risorse, l'oggetto restituito include una proprietà `location`. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno.
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
 
@@ -133,7 +133,7 @@ L'esempio precedente restituisce l'oggetto seguente:
 
 Per un modello a livello di sottoscrizione che usa la funzione di distribuzione, vedere la [funzione di distribuzione per sottoscrizione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). La distribuzione si esegue con i comandi `az deployment create` o `New-AzDeployment`.
 
-## <a name="environment"></a>ambiente
+## <a name="environment"></a>environment
 
 `environment()`
 
@@ -247,7 +247,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 Il valore del parametro specificato.
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esempio seguente il nome del sito Web viene impostato sul valore del parametro passato durante la distribuzione.
 
@@ -326,17 +326,17 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
-| stringOutput | String | option 1 |
+| stringOutput | string | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Oggetto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | String | option 1 |
+| crossOutput | string | option 1 |
 
 Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azure Resource Manager modello](template-parameters.md).
 
-## <a name="variables"></a>variabili
+## <a name="variables"></a>variables
 
 `variables(variableName)`
 
@@ -346,13 +346,13 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| variableName |Sì |String |Nome della variabile da restituire. |
+| variableName |Sì |string |Nome della variabile da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Valore della variabile specificata.
+Il valore della variabile specificata.
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Per semplificare il modello creando valori complessi una sola volta, si usano in genere le variabili. Nell'esempio seguente viene creato un nome univoco per un account di archiviazione.
 
@@ -418,11 +418,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Valore |
+| Nome | Type | valore |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
+| exampleOutput1 | string | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
+| exampleOutput3 | string | myVariable |
 | exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
 Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).

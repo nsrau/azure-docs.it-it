@@ -15,11 +15,11 @@ ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138337"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246357"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e il portale di Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "77138337"
 
 Se è necessario assegnare ruoli di amministratore in Azure Active Directory, vedere [visualizzare e assegnare ruoli di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 
@@ -131,7 +131,7 @@ In controllo degli accessi in base al ruolo di Azure è possibile rimuovere un'a
 
    ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-portal/remove-role-assignment-select.png)
 
-1. Fare clic su **Rimuovi accesso**.
+1. Scegliere **Rimuovi**.
 
    ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-portal/remove-role-assignment.png)
 

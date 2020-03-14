@@ -4,17 +4,17 @@ description: Informazioni sul supporto per la valutazione di Hyper-V con Azure M
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 9c1228992d71e56b9118e88967478e619c14959a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834468"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245811"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matrice di supporto per la valutazione di Hyper-V
 
 Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la valutazione delle macchine virtuali Hyper-V con [Azure migrate: server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Per informazioni sulla migrazione di macchine virtuali Hyper-V in Azure, vedere la matrice di [supporto](migrate-support-matrix-hyper-v-migration.md)per la migrazione.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Per valutare i computer locali per la migrazione ad Azure con questo articolo, è necessario aggiungere lo strumento Azure Migrate: server Assessment a un progetto Azure Migrate. Si distribuisce il [dispositivo Azure migrate](migrate-appliance.md). L'appliance individua continuamente i computer locali e invia i dati di configurazione e delle prestazioni in Azure. Dopo l'individuazione del computer, si raccolgono i computer individuati in gruppi ed è stata eseguita una valutazione per un gruppo.
 

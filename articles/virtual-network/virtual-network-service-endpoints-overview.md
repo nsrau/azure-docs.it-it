@@ -14,11 +14,11 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 72c2c90f7a71bd9bf251adb492168fa5d2baa60a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380130"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244784"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
@@ -139,7 +139,7 @@ Alcuni servizi di Azure, ad esempio gli account di archiviazione di Azure, posso
 
 I criteri dell'endpoint del servizio VNet consentono di filtrare il traffico di rete virtuale ai servizi di Azure. Questo filtro consente solo risorse specifiche del servizio di Azure sugli endpoint di servizio. I criteri degli endpoint di servizio forniscono un controllo granulare dell'accesso per il traffico di rete virtuale verso i servizi di Azure. Per ulteriori informazioni, vedere [criteri di endpoint del servizio rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
 
-## <a name="faqs"></a>domande frequenti
+## <a name="faqs"></a>Domande frequenti
 
 Per domande frequenti, vedere [domande frequenti sull'endpoint di servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints).
 

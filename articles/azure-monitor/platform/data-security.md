@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
 ms.openlocfilehash: 0ac169060f7ba0e58aeb3e36e3af1629b6453fc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362076"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274866"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
 Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](../../security/fundamentals/trust-center.md).  
@@ -21,7 +21,7 @@ Questo articolo illustra il modo in cui i dati vengono raccolti, elaborati e pro
 Il servizio Log Analytics gestisce i dati basati sul cloud in modo sicuro usando i metodi seguenti:
 
 * Separazione dei dati
-* Mantenimento dei dati
+* Conservazione dei dati
 * Sicurezza fisica
 * Gestione di eventi imprevisti
 * Conformità
@@ -49,7 +49,7 @@ Non è consigliabile impostare in modo esplicito l'agente perché usi solo il pr
 ## <a name="data-segregation"></a>Separazione dei dati
 Dopo essere stati inseriti nel servizio Log Analytics, i dati vengono mantenuti separati logicamente in ogni componente del servizio. Tutti i dati vengono contrassegnati in base all'area di lavoro. Tale contrassegno persiste per tutto il ciclo di vita dei dati e viene applicato a ogni livello del servizio. I dati sono archiviati in un database dedicato nel cluster di archiviazione nell'area selezionata.
 
-## <a name="data-retention"></a>Mantenimento dei dati
+## <a name="data-retention"></a>Conservazione dei dati
 I dati di ricerca nei log indicizzati vengono archiviati e conservati in base al piano tariffario. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 Microsoft conserva i dati secondo i termini del [contratto di sottoscrizione](https://azure.microsoft.com/support/legal/subscription-agreement/).  L'eliminazione dei dati del cliente non comporta la distruzione delle unità fisiche.  
@@ -59,9 +59,9 @@ La tabella seguente elenca alcune delle soluzioni disponibili e propone alcuni e
 | **Soluzione** | **Tipi di dati** |
 | --- | --- |
 | Capacity and Performance |Dati e metadati sulle prestazioni |
-| Gestione aggiornamenti |Metadati e dati di stato |
+| Gestione degli aggiornamenti |Metadati e dati di stato |
 | Log Management |Log eventi definiti dall'utente, log eventi di Windows e/o log di IIS |
-| Rilevamento delle modifiche |Inventario software, metadati di daemon dei servizi di Windows e Linux e metadati di file Windows/Linux |
+| Rilevamento modifiche |Inventario software, metadati di daemon dei servizi di Windows e Linux e metadati di file Windows/Linux |
 | SQL and Active Directory Assessment |Dati WMI, dati del Registro di sistema, dati sulle prestazioni e risultati delle visualizzazioni a gestione dinamica di SQL Server |
 
 La tabella seguente mostra esempi di tipi di dati:
@@ -70,10 +70,10 @@ La tabella seguente mostra esempi di tipi di dati:
 | --- | --- |
 | Avviso |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configurazione |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Evento |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** Log Analytics raccoglie gli eventi scritti con campi personalizzati nel registro eventi di Windows. |
+| Event |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Nota:** Log Analytics raccoglie gli eventi scritti con campi personalizzati nel registro eventi di Windows. |
 | Metadati |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Prestazioni |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| Stato |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Sicurezza fisica
 Il servizio Log Analytics è gestito da personale Microsoft e tutte le attività vengono registrate e possono essere controllate. Log Analytics viene gestito come servizio di Azure e soddisfa tutti i requisiti di conformità e di sicurezza di Azure. È possibile verificare i dettagli sulla sicurezza fisica delle risorse di Azure a pagina 18 della [panoramica della sicurezza in Microsoft Azure](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). I diritti di accesso fisici per proteggere le aree vengono modificati nell'arco della giornata lavorativa per chi non è più responsabile del servizio Log Analytics, includendo il trasferimento e la chiusura. Altre informazioni sull'infrastruttura fisica globale sono disponibili nei [data center di Microsoft](https://azure.microsoft.com/global-infrastructure/).

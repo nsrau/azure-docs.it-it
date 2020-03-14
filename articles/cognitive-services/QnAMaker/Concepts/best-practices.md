@@ -4,11 +4,11 @@ description: Usare queste procedure consigliate per migliorare la knowledge base
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370110"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220776"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 
@@ -73,7 +73,7 @@ Esistono alcune domande specifiche per i bot che fanno parte del set di dati chi
 * operazioni consentite
 * Quanti anni hai?
 * Chi ti ha creato?
-* Hello
+* Ciao
 
 ### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>Aggiunta di una Chit-Chat personalizzata con un tag di metadati
 
@@ -105,7 +105,7 @@ Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabil
 |Query originale|Query alternative|Modifica|
 |--|--|--|
 |È disponibile il parcheggio?|Si dispone di parcheggio?|struttura della frase|
- |Ciao|È<br>Salve!|stile delle parole o gergo|
+ |Ciao|Ehi<br>Salve!|stile delle parole o gergo|
 
 <a name="use-metadata-filters"></a>
 

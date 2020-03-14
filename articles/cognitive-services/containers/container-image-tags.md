@@ -10,11 +10,11 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: dapine
 ms.openlocfilehash: eed2223dbfeee307b552cdd010530f27c379f5fe
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082364"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219445"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Tag dell'immagine del contenitore di servizi cognitivi di Azure
 

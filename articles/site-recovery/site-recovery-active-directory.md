@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362759"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257810"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurare il ripristino di emergenza per Active Directory e DNS
 
@@ -22,7 +22,7 @@ Le applicazioni aziendali, ad esempio SharePoint, Dynamics AX e SAP, dipendono d
 
 Questo articolo spiega come creare una soluzione di ripristino di emergenza per Active Directory. Include i prerequisiti e le istruzioni di failover. È necessario conoscere Active Directory e Site Recovery prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se si esegue la replica in Azure, [preparare le risorse di Azure](tutorial-prepare-azure.md), inclusi una sottoscrizione, una rete virtuale di Azure, un account di archiviazione e un insieme di credenziali di Servizi di ripristino.
 * Verificare i [requisiti di supporto](site-recovery-support-matrix-to-azure.md) per tutti i componenti.

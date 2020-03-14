@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365984"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254885"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Sostituzione di un controller EBOD nel dispositivo StorSimple
 
@@ -82,7 +82,7 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
     **Figura 3** Chiusura del chiavistello del modulo EBOD
 4. Riconnettere i cavi. Utilizzare la configurazione esatta presente prima della sostituzione. Vedere il diagramma e la tabella seguenti per informazioni dettagliate su come connettere i cavi.
    
-    ![Cavo del dispositivo 4U per l'alimentazione](./media/storsimple-ebod-controller-replacement/IC770723.png)
+    ![Cablare il dispositivo 4U per l'alimentazione](./media/storsimple-ebod-controller-replacement/IC770723.png)
    
     **Figura 4**. Ricollegamento dei cavi
    

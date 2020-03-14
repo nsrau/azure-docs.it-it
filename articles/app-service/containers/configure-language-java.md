@@ -11,11 +11,11 @@ ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 455ebcb28ea6cc8b43431f96a4bc3929a759c2d0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373820"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280092"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
@@ -497,7 +497,7 @@ Per usare Tomcat con Redis, è necessario configurare l'app per l'uso di un'impl
 
 1. Aprire un terminale bash e usare `<variable>=<value>` per impostare ognuna delle variabili di ambiente seguenti.
 
-    | Variable                 | Valore                                                                      |
+    | Variabile                 | valore                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | Nome del gruppo di risorse contenente l'istanza del servizio app.       |
     | WEBAPP_NAME              | Nome dell'istanza del servizio app.                                     |
@@ -634,7 +634,7 @@ Le build Azul Zulu Enterprise di OpenJDK sono distribuzioni di OpenJDK gratuite,
 
 Ai pacchetti JDK supportati vengono automaticamente applicate patch con cadenza trimestrale, a gennaio, aprile, luglio e ottobre di ogni anno.
 
-### <a name="security-updates"></a>Aggiornamenti della protezione
+### <a name="security-updates"></a>Aggiornamenti per la sicurezza
 
 Le patch e le correzioni per le principali vulnerabilità della sicurezza verranno rilasciate da Azul Systems non appena disponibili. Una vulnerabilità "principale" viene definita da un punteggio di base pari o superiore a 9,0 in [NIST Common Vulnerability Scoring System, versione 2](https://nvd.nist.gov/cvss.cfm).
 

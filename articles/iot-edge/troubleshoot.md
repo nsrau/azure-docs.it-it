@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 98d75f75a985fca3448becab216ad6570d948468
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772238"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284824"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -373,7 +373,7 @@ Azure IoT Edge consente la comunicazione da un server locale al cloud di Azure u
 
 Sebbene IoT Edge offra una configurazione avanzata per la protezione del runtime e dei moduli distribuiti di Azure IoT Edge, dipende comunque dal computer e dalla configurazione di rete sottostanti. Di conseguenza, è fondamentale assicurarsi che le regole di rete e del firewall appropriate siano configurate per la comunicazione tra Edge e cloud. La tabella seguente può essere usata come linea guida per le regole del firewall di configurazione per i server sottostanti in cui è ospitato Azure IoT Edge Runtime:
 
-|Protocollo|Porta|In ingresso|In uscita|Guida|
+|Protocollo|Porta|In ingresso|In uscita|Materiale sussidiario|
 |--|--|--|--|--|
 |MQTT|8883|BLOCCATO (impostazione predefinita)|BLOCCATO (impostazione predefinita)|<ul> <li>Configurare i dati in uscita in modo che siano Aperti quando si usa MQTT come protocollo di comunicazione.<li>1883 per MQTT non è supportato da IoT Edge. <li>Le connessioni in ingresso devono essere bloccate.</ul>|
 |AMQP|5671|BLOCCATO (impostazione predefinita)|APERTO (impostazione predefinita)|<ul> <li>Protocollo di comunicazione predefinito per IoT Edge. <li> Deve essere configurato per essere Aperto se Azure IoT Edge non è configurato per altri protocolli supportati o AMQP è il protocollo di comunicazione desiderato.<li>5672 per AMQP non è supportato da IoT Edge.<li>Bloccare questa porta quando Azure IoT Edge usa un protocollo supportato dall'hub IoT diverso.<li>Le connessioni in ingresso devono essere bloccate.</ul></ul>|
@@ -403,7 +403,7 @@ Nell'esempio precedente il server DNS viene impostato su un servizio DNS accessi
 
 Inserire `daemon.json` nella posizione corretta per la piattaforma:
 
-| Piattaforma | Percorso |
+| Piattaforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Windows host con i contenitori di Windows | `C:\ProgramData\iotedge-moby\config` |

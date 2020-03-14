@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 01/22/2020
-ms.openlocfilehash: 267779afc749fccba41935741630a759576d6e77
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 03/11/2020
+ms.openlocfilehash: a8f62a24ff2c6571b5267fdbf4f23bd9e05ee499
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515021"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255756"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto vCore
 
@@ -38,7 +38,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni di calcolo|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
 |:--- | --: |--: |--: |--: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
-|VCore min-max|0.5-1|0.5-2|0,5-4|0,75-6|1.0-8|
+|VCore min-max|0,5-1|0,5-2|0,5-4|0,75-6|1.0-8|
 |Memoria min-max (GB)|2.02-3|2.05-6|2.10-12|2,25-18|3.00-24|
 |Ritardo di pausa automatico minimo (minuti)|60|60|60|60|60|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
@@ -46,7 +46,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|512|1024|1024|1024|1536|
 |Dimensioni massime del log (GB)|154|307|307|307|461|
 |Dimensioni massime dati TempDB (GB)|32|64|128|192|256|
-|Tipo di risorse di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|320|640|1280|1920|2560|
 |Velocità massima log (MBps)|3.8|7.5|15|22,5|30|
@@ -72,7 +72,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|1536|3072|3072|3072|
 |Dimensioni massime del log (GB)|461|461|461|922|
 |Dimensioni massime dati TempDB (GB)|320|384|448|512|
-|Tipo di risorse di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|3200|3840|4480|5120|
 |Velocità massima log (MBps)|30|30|30|30|
@@ -91,7 +91,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 
 |Livello di prestazioni|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
 |:--- | --: |--: |--: |---: | --: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
 |[RBPEX](sql-database-service-tier-hyperscale.md#compute) Dimensioni|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|
@@ -100,8 +100,9 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (TB)|100 |100 |100 |100 |100 |100|
 |Dimensioni massime del log (TB)|1 |1 |1 |1 |1 |1 |
 |Dimensioni massime dati TempDB (GB)|32|64|96|128|160|192|
-|Tipo di risorse di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
+|Tipo di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Numero massimo di IOPS dati *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Velocità massima log (MBps)|105 |105 |105 |105 |105 |105 |
 |Latenza di I/O (approssimativa)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
@@ -115,7 +116,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 
 |Livello di prestazioni|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
 |:--- | ---: |--: |--: | --: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|159,5|
 |[RBPEX](sql-database-service-tier-hyperscale.md#compute) Dimensioni|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|
@@ -124,8 +125,9 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (TB)|100 |100 |100 |100 |100 |100 |
 |Dimensioni massime del log (TB)|1 |1 |1 |1 |1 |1 |
 |Dimensioni massime dati TempDB (GB)|224|256|288|320|512|768|
-|Tipo di risorse di archiviazione| [Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
+|Tipo di archiviazione| [Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Numero massimo di IOPS dati *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Velocità massima log (MBps)|105 |105 |105 |105 |105 |105 |
 |Latenza di I/O (approssimativa)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
@@ -152,8 +154,9 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (TB)|100 |100 |100 |100 |100 |100 |100|
 |Dimensioni massime del log (TB)|1 |1 |1 |1 |1 |1 |1 |
 |Dimensioni massime dati TempDB (GB)|64|128|192|256|320|384|448|
-|Tipo di risorse di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
+|Tipo di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Numero massimo di IOPS dati *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Velocità massima log (MBps)|105 |105 |105 |105 |105 |105 |105 |
 |Latenza di I/O (approssimativa)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|1000|1200|1400|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
@@ -178,8 +181,9 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (TB)|100 |100 |100 |100 |100 |100 |100 |
 |Dimensioni massime del log (TB)|1 |1 |1 |1 |1 |1 |1 |
 |Dimensioni massime dati TempDB (GB)|512|576|640|768|1024|1280|2560|
-|Tipo di risorse di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
+|Tipo di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Numero massimo di IOPS dati *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Velocità massima log (MBps)|105 |105 |105 |105 |105 |105 |105 |
 |Latenza di I/O (approssimativa)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1600|1800|2000|2400|3200|4000|8000|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
@@ -208,7 +212,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 
 |Dimensioni di calcolo|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
@@ -216,7 +220,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|1024|1024|1536|1536|1536|3072|
 |Dimensioni massime del log (GB)|307|307|461|461|461|922|
 |Dimensioni massime dati TempDB (GB)|32|64|96|128|160|192|
-|Tipo di risorse di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|320|640|960|1280|1600|1920|
 |Velocità massima log (MBps)|3,75|7.5|11,25|15|18,75|22,5|
@@ -233,7 +237,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 
 |Dimensioni di calcolo|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|159,5|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
@@ -241,7 +245,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|3072|3072|3072|3072|4096|4096|
 |Dimensioni massime del log (GB)|922|922|922|922|1229|1229|
 |Dimensioni massime dati TempDB (GB)|224|256|288|320|512|768|
-|Tipo di risorse di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)
 |Numero massimo di IOPS dati *|2240|2560|2880|3200|5120|7680|
 |Velocità massima log (MBps)|26,3|30|30|30|30|30|
@@ -268,7 +272,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Dimensioni massime del log (GB)|307|307|461|461|461|922|922|
 |Dimensioni massime dati TempDB (GB)|64|128|192|256|320|384|384|
-|Tipo di risorse di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|640|1280|1920|2560|3200|3840|4480|
 |Velocità massima log (MBps)|7.5|15|22,5|30|30|30|30|
@@ -293,7 +297,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
 |Dimensioni massime dati TempDB (GB)|512|576|640|768|1024|1280|2560|
-|Tipo di risorse di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|5120|5760|6400|7680|10240|12800|25600|
 |Velocità massima log (MBps)|30|30|30|30|30|30|30|
@@ -320,7 +324,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|4096|
 |Dimensioni massime del log (GB)|1024|
 |Dimensioni massime dati TempDB (GB)|333|
-|Tipo di risorse di archiviazione|Unità SSD remota|
+|Tipo di archiviazione|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Numero massimo di IOPS dati *|12.800|
 |Velocità massima log (MBps)|30|
@@ -343,12 +347,12 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 
 |Dimensioni di calcolo|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|1|2|3|4|5|6|
-|Tipo di risorse di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|1024|
 |Dimensioni massime del log (GB)|307|307|307|307|307|307|
 |Dimensioni massime dati TempDB (GB)|32|64|96|128|160|192|
@@ -369,12 +373,12 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 
 |Dimensioni di calcolo|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|Quarta generazione|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|159,5|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|7|8|9,5|11|20|36|
-|Tipo di risorse di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|1024|
 |Dimensioni massime del log (GB)|307|307|307|307|307|307|
 |Dimensioni massime dati TempDB (GB)|224|256|288|320|512|768|
@@ -401,11 +405,11 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |vCore|2|4|6|8|10|12|14|
 |Memoria (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|1,57|3,14|4,71|6,28|8,65|11,02|13,39|
+|Archiviazione OLTP in memoria (GB)|1,57|3.14|4,71|6,28|8,65|11,02|13,39|
 |Dimensioni massime dei dati (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Dimensioni massime del log (GB)|307|307|461|461|461|922|922|
 |Dimensioni massime dati TempDB (GB)|64|128|192|256|320|384|448|
-|Tipo di risorse di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati *|8000|16.000|24,000|32.000|40.000|48.000|56.000|
 |Velocità massima log (MBps)|24|48|72|96|96|96|96|
@@ -431,7 +435,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Dimensioni massime del log (GB)|922|922|922|1229|1229|1229|1229|
 |Dimensioni massime dati TempDB (GB)|512|576|640|768|1024|1280|2560|
-|Tipo di risorse di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati *|64.000|72.000|80.000|96.000|128.000|160.000|204.800|
 |Velocità massima log (MBps)|96|96|96|96|96|96|96|
@@ -459,7 +463,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è attualmente 
 |Dimensioni massime dei dati (GB)|4096|
 |Dimensioni massime del log (GB)|2048|
 |Dimensioni massime dati TempDB (GB)|4096|
-|Tipo di risorse di archiviazione|SSD locale|
+|Tipo di archiviazione|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di IOPS dati *|160.000|
 |Velocità massima log (MBps)|264|

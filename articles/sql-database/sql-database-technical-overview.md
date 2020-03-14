@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd9e41418eac670bd1cb52be40dbd25c17af6fac
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360080"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255691"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
@@ -68,7 +68,7 @@ Il database SQL offre i seguenti modelli di acquisto:
 Il database SQL di Azure offre tre livelli di servizio progettati per diversi tipi di applicazioni:
 - Livello di servizio [per utilizzo generico/standard](sql-database-service-tier-general-purpose.md) progettato per i carichi di lavoro comuni. Offre opzioni di calcolo e di archiviazione bilanciate e orientate al budget.
 - Livello di servizio [business critical/Premium](sql-database-service-tier-business-critical.md) progettato per le applicazioni OLTP con frequenza di transazioni elevata e I/O con latenza minima. Offre la massima resilienza agli errori usando diverse repliche isolate.
-- Livello di servizio con [iperscalabilità](sql-database-service-tier-hyperscale.md) progettato per database OLTP di grandi dimensioni e la possibilità di ridimensionare automaticamente le risorse di calcolo e ridimensionare l'archiviazione. 
+- Livello di servizio con [iperscalabilità](sql-database-service-tier-hyperscale.md) progettato per database OLTP di grandi dimensioni e la possibilità di ridimensionare automaticamente le risorse di calcolo e ridimensionare l'archiviazione.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -76,7 +76,7 @@ Per molte aziende e applicazioni, la possibilità di creare singoli database e a
 
    ![Immagine che mostra i pool elastici nelle edizioni Basic, standard e Premium](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Con i pool elastici non è necessario concentrarsi sul ridimensionamento delle prestazioni del database in base alla fluttuazione della richiesta delle risorse. I database in pool utilizzano le risorse relative alle prestazioni del pool elastico in base alla necessità. I database in pool utilizzano ma non superano i limiti del pool, quindi il costo rimane prevedibile, indipendentemente dall'utilizzo dei singoli database.
+Con i pool elastici, non è necessario concentrarsi sulla connessione delle prestazioni del database in base alla variazione della richiesta di risorse. I database in pool utilizzano le risorse relative alle prestazioni del pool elastico in base alla necessità. I database in pool utilizzano ma non superano i limiti del pool, quindi il costo rimane prevedibile anche se l'utilizzo del singolo database non lo è.
 
 È possibile [aggiungere e rimuovere database nel pool](sql-database-elastic-pool-manage-portal.md), ridimensionando l'app da un numero limitato di database a migliaia, il tutto entro un budget controllato. È anche possibile controllare le risorse minime e massime disponibili per i database nel pool, per garantire che nessun database nel pool usi tutte le risorse del pool e che ogni database in pool disponga di una quantità minima di risorse garantita. Per altre informazioni sui modelli di progettazione per le applicazioni SaaS (Software as a Service) che usano i pool elastici, vedere [modelli di progettazione per applicazioni SaaS multi-tenant con il database SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
@@ -95,7 +95,7 @@ Il database SQL di Azure offre funzionalità avanzate di monitoraggio e risoluzi
  - Funzionalità di monitoraggio predefinite fornite dalla versione più recente di SQL Server motore di database. Consentono di trovare informazioni dettagliate sulle prestazioni in tempo reale. 
  - Funzionalità di monitoraggio PaaS fornite da Azure che consentono di monitorare e risolvere i problemi di un numero elevato di istanze di database.
 
-[Query Store](sql-database-operate-query-store.md), una funzionalità predefinita di monitoraggio SQL Server, registra le prestazioni delle query in tempo reale e consente di identificare i potenziali problemi di prestazioni e i principali consumer di risorse. Le indicazioni e l'ottimizzazione automatica forniscono consigli sulle query con prestazioni regressioni e indici mancanti o duplicati. L'ottimizzazione automatica nel database SQL consente di applicare manualmente gli script che possono risolvere i problemi o consentire al database SQL di applicare la correzione. Il database SQL può anche testare e verificare che la correzione offra un certo vantaggio e mantenere o annullare la modifica a seconda del risultato. Oltre a Query Store e alle funzionalità di ottimizzazione automatica, è possibile usare [DMV e XEvent](sql-database-monitoring-with-dmvs.md) standard per monitorare le prestazioni del carico di lavoro.
+[Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), una funzionalità predefinita di monitoraggio SQL Server, registra le prestazioni delle query in tempo reale e consente di identificare i potenziali problemi di prestazioni e i principali consumer di risorse. Le indicazioni e l'ottimizzazione automatica forniscono consigli sulle query con prestazioni regressioni e indici mancanti o duplicati. L'ottimizzazione automatica nel database SQL consente di applicare manualmente gli script che possono risolvere i problemi o consentire al database SQL di applicare la correzione. Il database SQL può anche testare e verificare che la correzione offra un certo vantaggio e mantenere o annullare la modifica a seconda del risultato. Oltre a Query Store e alle funzionalità di ottimizzazione automatica, è possibile usare [DMV e XEvent](sql-database-monitoring-with-dmvs.md) standard per monitorare le prestazioni del carico di lavoro.
 
 Azure offre strumenti [integrati di monitoraggio delle prestazioni](sql-database-performance.md) e [avvisi](sql-database-insights-alerts-portal.md) , combinati con valutazioni delle prestazioni, che consentono di monitorare lo stato di migliaia di database. Grazie a questi strumenti, è possibile valutare rapidamente l'effetto della scalabilità verso l'alto o verso il basso, in base alle esigenze di prestazioni correnti o proiettate. Database SQL può anche [generare log di metrica e diagnostica](sql-database-metrics-diag-logging.md) per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
 
@@ -157,7 +157,7 @@ Molti dei nostri partner che eseguono [app SaaS multi-tenant](sql-database-desig
 
 ### <a name="adaptive-query-processing"></a>Elaborazione di query adattive
 
-È possibile utilizzare l' [elaborazione di query adattive](/sql/relational-databases/performance/intelligent-query-processing), inclusa l'esecuzione Interleaved per le funzioni con valori di tabella con più istruzioni, il feedback delle concessioni di memoria in modalità batch e i join adattivi in modalità batch. Ognuna di queste funzionalità di elaborazione di query adattiva applica tecniche di "apprendimento e adattamento" simili e consente di agevolare ulteriormente la risoluzione dei problemi di prestazioni correlati a problemi di ottimizzazione delle query storicamente difficili da gestire.
+È possibile utilizzare l' [elaborazione di query adattive](/sql/relational-databases/performance/intelligent-query-processing), inclusa l'esecuzione Interleaved per le funzioni con valori di tabella con più istruzioni, il feedback delle concessioni di memoria in modalità batch e i join adattivi in modalità batch. Ognuna di queste funzionalità di elaborazione di query adattive applica tecniche di apprendimento e adattamento simili, che consentono di risolvere ulteriormente i problemi di prestazioni correlati a problemi di ottimizzazione delle query in modo cronologico.
 
 ## <a name="advanced-security-and-compliance"></a>Sicurezza e conformità avanzate
 

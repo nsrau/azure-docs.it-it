@@ -8,11 +8,11 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374188"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243848"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Panoramica dell'architettura di rete degli ambienti del servizio app
 Gli ambienti del servizio app vengono sempre creati all'interno di una subnet di una [rete virtuale][virtualnetwork] . le app in esecuzione in un ambiente del servizio app possono comunicare con gli endpoint privati che si trovano all'interno della stessa topologia di rete virtuale.  Poiché i clienti possono bloccare alcune parti dell'infrastruttura di rete virtuale, è importante conoscere i tipi di flusso delle comunicazioni di rete che avvengono con un ambiente del servizio app.

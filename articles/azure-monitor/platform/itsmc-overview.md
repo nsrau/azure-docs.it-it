@@ -7,11 +7,11 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672226"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274541"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -178,20 +178,20 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - ID Service Desk
-- Stato
+- State
 - Urgenza
 - Impatto
 - Priorità
 - Riassegnazione
-- Creato da
-- Risolto da
-- Chiuso da
-- Origine
-- Assigned To
+- Created By (Creato da)
+- Resolved By (Risolto da)
+- Closed By (Chiuso da)
+- Source (Sorgente)
+- Assegnato a
 - Category
 - Titolo
 - Descrizione
-- Data creazione
+- Data di creazione
 - Data di chiusura
 - Data di risoluzione
 - Data ultima modifica
@@ -205,22 +205,22 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 **Fields**
 - ServiceDeskConnectionName
 - ID Service Desk
-- Creato da
-- Chiuso da
-- Origine
-- Assigned To
+- Created By (Creato da)
+- Closed By (Chiuso da)
+- Source (Sorgente)
+- Assegnato a
 - Titolo
 - Type
 - Category
-- Stato
+- State
 - Riassegnazione
 - Conflict Status (Stato di conflitto)
 - Urgenza
 - Priorità
 - Rischio
 - Impatto
-- Assigned To
-- Data creazione
+- Assegnato a
+- Data di creazione
 - Data di chiusura
 - Data ultima modifica
 - Data richiesta
@@ -236,21 +236,21 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Campo Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| IncidentState_s | Stato |
+| IncidentState_s | State |
 | Urgency_s |Urgenza |
 | Impact_s |Impatto|
 | Priority_s | Priorità |
 | CreatedBy_s | Aperto da |
 | ResolvedBy_s | Risolto da|
 | ClosedBy_s  | Chiuso da |
-| Source_s| Tipo contatto |
+| Source_s| Tipo di contatto |
 | AssignedTo_s | Assegnato a  |
 | Category_s | Category |
 | Title_s|  Breve descrizione |
 | Description_s|  Note |
 | CreatedDate_t|  Aperto |
 | ClosedDate_t| closed|
-| ResolvedDate_t|Risolte|
+| ResolvedDate_t|Risolto|
 | Computer  | Elemento di configurazione |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dati di output per una richiesta di modifica ServiceNow
@@ -258,19 +258,19 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| CreatedBy_s | Autore richiesta |
+| CreatedBy_s | Richiesto da |
 | ClosedBy_s | Chiuso da |
 | AssignedTo_s | Assegnato a  |
 | Title_s|  Breve descrizione |
 | Type_s|  Type |
 | Category_s|  Category |
-| CRState_s|  Stato|
+| CRState_s|  State|
 | Urgency_s|  Urgenza |
 | Priority_s| Priorità|
 | Risk_s| Rischio|
 | Impact_s| Impatto|
 | RequestedDate_t  | Data richiesta |
-| ClosedDate_t | Data chiusura |
+| ClosedDate_t | Data di chiusura |
 | PlannedStartDate_t  |     Data di inizio pianificata |
 | PlannedEndDate_t  |   Data di fine pianificata |
 | WorkStartDate_t  | Data di inizio effettiva |

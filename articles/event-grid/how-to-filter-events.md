@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 58da209c68449d3a28b08f52ec575f7db520f121
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514545"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244342"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrare gli eventi per Griglia di eventi
 

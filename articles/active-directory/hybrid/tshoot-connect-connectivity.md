@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375976"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253598"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -93,9 +93,9 @@ Se viene visualizzato il messaggio **Impossibile effettuare la connessione al se
 Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Errore | Testo degli errori | Commento |
+| Errore | Testo dell'errore | Comment |
 | --- | --- | --- |
-| 403 |Non consentito |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
+| 403 |Accesso negato |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
 | 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che questa impostazione sia configurata in Machine. config. Assicurarsi inoltre di utilizzare gli account di dominio per l'utente che esegue la procedura guidata e per l'account del servizio. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Impostazione del timeout di inattività del proxy

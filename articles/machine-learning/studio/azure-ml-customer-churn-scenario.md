@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 79a7b157d5daf8940aba454808c65ed433cfe29c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 4cf918abae51ca330054ef86e57095d29a21a37a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169004"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204529"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analizzare la varianza dei clienti usando Azure Machine Learning Studio (versione classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## <a name="overview"></a>Panoramica
 In questo articolo viene presentata un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilato utilizzando Azure Machine Learning Studio (versione classica). L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene inoltre misurata l'accuratezza dei modelli compilati usando Machine Learning e vengono poi valutate direzioni di sviluppo ulteriore.  
 

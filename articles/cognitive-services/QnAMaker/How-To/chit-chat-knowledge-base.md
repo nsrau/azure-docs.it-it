@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901202"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220710"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Aggiungere chit chat a una knowledge base
 
@@ -31,7 +31,7 @@ Per la query utente di `When is your birthday?`, ogni personalità ha una rispos
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalità|Esempio|
 |--|--|
-|Professionale|Age non è effettivamente applicabile all'utente.|
+|Professional|Age non è effettivamente applicabile all'utente.|
 |Gentile|Non ho realmente un tempo.|
 |Spiritoso|Sono privo di età.|
 |Occuparsi|Non ho un periodo di tempo.|
@@ -39,14 +39,14 @@ Per la query utente di `When is your birthday?`, ogni personalità ha una rispos
 ||
 
 
-## <a name="language-support"></a>Supporto delle lingue
+## <a name="language-support"></a>Supporto per le lingue
 
 I set di dati Chit-Chat sono supportati nelle seguenti lingue:
 
 |Linguaggio|
 |--|
 |Cinese|
-|Italiano|
+|Inglese|
 |Francese|
 |Germania|
 |Italiano|
@@ -86,6 +86,6 @@ Selezionare la KB e passare alla pagina **Impostazioni**. L'origine di una chit 
 > [!div class="nextstepaction"]
 > [Importare una knowledge base](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Vedi anche 
+## <a name="see-also"></a>Vedere anche 
 
 [Panoramica di QnA Maker](../Overview/overview.md)

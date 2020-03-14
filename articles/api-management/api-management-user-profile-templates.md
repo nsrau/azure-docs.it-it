@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374407"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243952"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelli di profilo utente in Gestione API di Azure
 In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, ad esempio [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings) localizzate, [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
@@ -97,7 +97,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controls  
+### <a name="controls"></a>Controlli  
  Questo modello potrebbe non usare i [controlli di pagina](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modello di dati  
@@ -316,7 +316,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controls  
+### <a name="controls"></a>Controlli  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
@@ -479,7 +479,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controls  
+### <a name="controls"></a>Controlli  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [app-actions](api-management-page-controls.md#app-actions)  
@@ -606,7 +606,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </a>  
 ```  
   
-### <a name="controls"></a>Controls  
+### <a name="controls"></a>Controlli  
  Questo modello potrebbe non usare i [controlli di pagina](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modello di dati  

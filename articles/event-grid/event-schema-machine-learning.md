@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
-ms.openlocfilehash: 5f2d23b3fe33691d37dc00b2d4e79036293252d9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132880"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79202145"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Schema di eventi di griglia di eventi di Azure per Azure Machine Learning
 
@@ -24,12 +24,13 @@ Per un elenco degli script e delle esercitazioni di esempio, vedere [origine eve
 
 Azure Machine Learning emette i tipi di evento seguenti:
 
-| Tipo evento | DESCRIZIONE |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft. MachineLearningServices. ModelRegistered | Generato quando una nuova versione del modello o del modello è stata registrata correttamente. |
 | Microsoft. MachineLearningServices. ModelDeployed | Generato quando i modelli sono stati distribuiti correttamente in un endpoint. |
 | Microsoft. MachineLearningServices. RunCompleted | Generato quando un'esecuzione è stata completata correttamente. |
 | Microsoft. MachineLearningServices. DatasetDriftDetected | Generato quando il monitoraggio della deriva del set di dati rileva la deriva. |
+| Microsoft. MachineLearningServices. RunStatusChanged | Generato quando lo stato di un'esecuzione diventa ' failed '. |
 
 ## <a name="the-contents-of-an-event-response"></a>Contenuto di una risposta di evento
 
@@ -148,66 +149,117 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento.
 }]
 ```
 
+### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Evento Microsoft. MachineLearningServices. RunStatusChanged
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "experiments/0fa9dfaa-cba3-4fa7-b590-23e48548f5c1/runs/AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+  "eventType": "Microsoft.MachineLearningServices.RunCompleted",
+  "eventTime": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "ExperimentName": "automl-local-regression",
+    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "RunType": null,
+    "RunTags": {},
+    "RunProperties": {
+        "runTemplate": "automl_child",
+        "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
+        "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
+        "training_percent": "100",
+        "predicted_cost": "0.062226144097381045",
+        "iteration": "5",
+        "run_template": "automl_child",
+        "run_preprocessor": "StandardScalerWrapper",
+        "run_algorithm": "LassoLars",
+        "conda_env_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/conda_env_v_1_0_0.yml",
+        "model_name": "AutoMLad912b2d65",
+        "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
+        "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
+    },
+   "RunStatus": "failed"
+   },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+```
+
+
+
+
 ## <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | digitare | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | stringa | Identificatore univoco dell'evento. |
-| data | oggetto | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | string | Identificatore univoco dell'evento. |
+| data | object | Dati relativi all'evento di archiviazione BLOB. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Proprietà | digitare | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| ModelName | stringa | Nome del modello registrato. |
-| ModelVersion | int | Versione del modello registrato. |
-| ModelTags | oggetto | Tag del modello registrato. |
-| ModelProperties | oggetto | Proprietà del modello registrato. |
+| ModelName | string | Nome del modello registrato. |
+| ModelVersion | string | Versione del modello registrato. |
+| ModelTags | object | Tag del modello registrato. |
+| ModelProperties | object | Proprietà del modello registrato. |
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Proprietà | digitare | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| ServiceName | stringa | Nome del servizio distribuito. |
-| ServiceComputeType | stringa | Tipo di calcolo (ad esempio, ACI, AKS) del servizio distribuito. |
-  | ModelIds | stringa | Elenco delimitato da virgole di ID modello. ID dei modelli distribuiti nel servizio. |
-| ServiceTags | oggetto | Tag del servizio distribuito. |
-| ServiceProperties | oggetto | Proprietà del servizio distribuito. |
+| ServiceName | string | Nome del servizio distribuito. |
+| ServiceComputeType | string | Tipo di calcolo (ad esempio, ACI, AKS) del servizio distribuito. |
+  | ModelIds | string | Elenco delimitato da virgole di ID modello. ID dei modelli distribuiti nel servizio. |
+| ServiceTags | object | Tag del servizio distribuito. |
+| ServiceProperties | object | Proprietà del servizio distribuito. |
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Proprietà | digitare | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| ExperimentId | stringa | ID dell'esperimento a cui appartiene l'esecuzione. |
-| Experimentname | stringa | Nome dell'esperimento a cui appartiene l'esecuzione. |
-| RunId | stringa | ID dell'esecuzione completata. |
-| RunType | stringa | Tipo di esecuzione dell'esecuzione completata. |
-| RunTags | oggetto | Tag dell'esecuzione completata. |
-| RunProperties | oggetto | Proprietà dell'esecuzione completata. |
+| ExperimentId | string | ID dell'esperimento a cui appartiene l'esecuzione. |
+| Experimentname | string | Nome dell'esperimento a cui appartiene l'esecuzione. |
+| RunId | string | ID dell'esecuzione completata. |
+| RunType | string | Tipo di esecuzione dell'esecuzione completata. |
+| RunTags | object | Tag dell'esecuzione completata. |
+| RunProperties | object | Proprietà dell'esecuzione completata. |
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Proprietà | digitare | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| DataDriftId | stringa | ID del monitoraggio della deriva dati che ha attivato l'evento. |
-| Datadriftname | stringa | Nome del monitoraggio della deriva dati che ha attivato l'evento. |
-| RunId | stringa | ID dell'esecuzione che ha rilevato la deriva dei dati. |
-| BaseDatasetId | stringa | ID del set di dati di base utilizzato per rilevare la deriva. |
-| TargetDatasetId | stringa | ID del set di dati di destinazione utilizzato per rilevare la deriva. |
+| DataDriftId | string | ID del monitoraggio della deriva dati che ha attivato l'evento. |
+| Datadriftname | string | Nome del monitoraggio della deriva dati che ha attivato l'evento. |
+| RunId | string | ID dell'esecuzione che ha rilevato la deriva dei dati. |
+| BaseDatasetId | string | ID del set di dati di base utilizzato per rilevare la deriva. |
+| TargetDatasetId | string | ID del set di dati di destinazione utilizzato per rilevare la deriva. |
 | DriftCoefficient | double | Risultato coefficiente che ha generato l'evento. |
-| StartTime | datetime | Ora di inizio della serie temporale del set di dati di destinazione che ha provocato il rilevamento della deviazione.  |
-| EndTime | datetime | Ora di fine della serie temporale del set di dati di destinazione che ha generato il rilevamento della deviazione. |
+| StartTime | Datetime | Ora di inizio della serie temporale del set di dati di destinazione che ha provocato il rilevamento della deviazione.  |
+| EndTime | Datetime | Ora di fine della serie temporale del set di dati di destinazione che ha generato il rilevamento della deviazione. |
 
+### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
+
+| Proprietà | Type | Descrizione |
+| -------- | ---- | ----------- |
+| ExperimentId | string | ID dell'esperimento a cui appartiene l'esecuzione. |
+| Experimentname | string | Nome dell'esperimento a cui appartiene l'esecuzione. |
+| RunId | string | ID dell'esecuzione completata. |
+| RunType | string | Tipo di esecuzione dell'esecuzione completata. |
+| RunTags | object | Tag dell'esecuzione completata. |
+| RunProperties | object | Proprietà dell'esecuzione completata. |
+| RunStatus | string | Stato dell'esecuzione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

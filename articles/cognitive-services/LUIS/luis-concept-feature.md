@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
 ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280907"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220996"
 ---
 # <a name="machine-learned-features"></a>Funzionalità acquisite dal computer 
 
@@ -87,7 +87,7 @@ Un'entità (A) deve essere aggiunta come caratteristica a un'altra entità (B) q
 Se, ad esempio, viene rilevata l'entità via Address (A), la ricerca dell'indirizzo (a) aggiunge il peso alla stima per l'entità Address Shipping (B). 
 
 ## <a name="best-practices"></a>Procedure consigliate
-Informazioni sulle [procedure consigliate](luis-concept-best-practices.md).
+Apprendere le [procedure consigliate](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

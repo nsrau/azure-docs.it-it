@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366751"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254859"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
 
@@ -77,7 +77,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
 1. Passare al servizio Gestione dispositivi StorSimple, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**. Elenca le credenziali di un qualsiasi account di archiviazione esistente associate al servizio Gestione dispositivi StorSimple.
-3. Fare clic su **Add**.
+3. Fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi credenziali dell'account di archiviazione** seguire questa procedura:
    
     1. Per **Sottoscrizione** selezionare **Altro**.
@@ -88,7 +88,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
    
     4. Per abilitare SSL, fare clic sul pulsante **Abilita** per creare un canale sicuro per la comunicazione di rete tra il servizio Gestione dispositivi StorSimple e il cloud. Fare clic sul pulsante **Disabilita** solo se si opera all'interno di un cloud privato.
    
-    5. Fare clic su **Add**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
+    5. Fare clic su **Aggiungi**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
 
 5. La credenziale dell'account di archiviazione appena creata viene visualizzata nel pannello del servizio Gestione dispositivi StorSimple in **Credenziali dell'account di archiviazione**.
    
@@ -110,7 +110,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
     ![Salvare le credenziali dell'account di archiviazione modificate](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
-4. Quando viene richiesta la conferma, fare clic su **Sì**. 
+4. Alla richiesta di conferma fare clic su **Sì**. 
 
     ![Confermare le modifiche](./media/storsimple-8000-manage-storage-accounts/editstorageacct4.png)
 
@@ -169,12 +169,12 @@ Al termine della sincronizzazione della chiave, si riceve una notifica.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Per sincronizzare le chiavi per gli account di archiviazione esterni alla sottoscrizione del servizio
 1. Nella pagina **Servizi** fare clic sulla scheda **Configura**.
-2. Fare clic su **Aggiungi/Modifica account di archiviazione**.
-3. Nella finestra di dialogo eseguire le operazioni seguenti:
+2. Fare clic su **Aggiungi/modifica account di archiviazione**.
+3. Nella finestra di dialogo procedere come segue:
    
    1. Selezionare l'account di archiviazione con la chiave di accesso che si desidera aggiornare.
    2. Sarà necessario aggiornare la chiave di accesso di archiviazione nel servizio Gestione dispositivi StorSimple. In questo caso, è possibile visualizzare la chiave di accesso di archiviazione. Immettere la nuova chiave nella casella **Chiave di accesso dell'account di archiviazione**. 
-   3. Fare clic su Salva per salvare le modifiche. La chiave di accesso dell’account di archiviazione appare aggiornata.
+   3. Salvare le modifiche. La chiave di accesso dell’account di archiviazione appare aggiornata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-8000-security.md).

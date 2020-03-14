@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818973"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256185"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -91,7 +91,7 @@ Per altre informazioni sul ripristino di emergenza, vedere: [Azure SQL Db Disast
 
 Il database SQL tiene in gran conto sicurezza e privacy. La sicurezza nel database SQL è disponibile a livello di database e di piattaforma e risulta più comprensibile se suddivisa in vari livelli. A ogni livello è possibile controllare e garantire la sicurezza ottimale dell'applicazione. I livelli sono:
 
-- Identità e autenticazione ([autenticazione di Windows/SQL e autenticazione di Azure Active Directory [AAD]](sql-database-control-access.md)).
+- Autenticazione & identità (autenticazione[SQL e autenticazione Azure Active Directory [AAD]](sql-database-manage-logins.md)).
 - Attività di monitoraggio ([controllo](sql-database-auditing.md) e [rilevamento delle minacce](sql-database-threat-detection.md)).
 - Protezione dei dati effettivi ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controllo dell'accesso ai dati sensibili e con privilegi ([sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) e [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)).
@@ -100,10 +100,10 @@ Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-cen
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Quali metodi di autenticazione degli utenti vengono offerti nel database SQL
 
-Nel database SQL sono disponibili [due metodi di autenticazione](sql-database-control-access.md#authentication):
+Nel database SQL sono disponibili due metodi di autenticazione:
 
 - [Autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
-- Autenticazione in SQL
+- [Autenticazione SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (AD) è un servizio di gestione centralizzato delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. AAD supporta l'[autenticazione a più fattori (MFA, Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) e, con [un paio di clic](../active-directory/hybrid/how-to-connect-install-express.md), AAD può essere integrato in Windows Server Active Directory. L'autenticazione SQL Server funziona esattamente come in passato. Fornendo un nome utente/password è possibile autenticare gli utenti in qualsiasi database in un determinato server di database SQL. In questo modo, il database SQL e SQL Data Warehouse possono anche offrire l'autenticazione a più fattori e gli account utente guest all'interno di un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
 
@@ -172,7 +172,7 @@ Per proteggere i dati sensibili in elaborazione e inattivi, il database SQL incl
 |---|---|---|
 |**Intervallo di crittografia**|End-to-end|Dati inattivi|
 |**Il server di database può accedere ai dati sensibili**|No|Sì, poiché la crittografia è per i dati inattivi|
-|**Operazioni T-SQL consentite**|Confronto delle uguaglianze|L'intera superficie di attacco T-SQL è disponibile|
+|**Operazioni T-SQL consentite**|Confronto di uguaglianza|L'intera superficie di attacco T-SQL è disponibile|
 |**Modifiche all'app richieste per usare la funzionalità**|Minime|Estremamente minime|
 |**Granularità di crittografia**|A livello di colonna|A livello di database|
 ||||
@@ -189,7 +189,7 @@ La [sicurezza a livello di riga](/sql/relational-databases/security/row-level-se
 
 Sono disponibili opzioni di gestione delle chiavi per Always Encrypted (crittografia lato client) e Transparent Data Encryption (crittografia dei dati inattivi). È consigliabile ruotare periodicamente le chiavi di crittografia. La frequenza di rotazione deve essere allineata alle normative interne e ai requisiti di conformità dell'organizzazione.
 
-#### <a name="transparent-data-encryption-tde"></a>Transparent data encryption (TDE)
+#### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
 
 In TDE è presente una gerarchia a due chiavi. I dati in ogni database utente vengono crittografati con una chiave di crittografia simmetrica AES 256 univoca per il database, che a sua volta viene crittografata da una chiave master asimmetrica RSA 2048 univoca per il server. La chiave master può essere gestita:
 
@@ -226,7 +226,7 @@ ExpressRoute consente anche di raddoppiare il limite di larghezza di banda acqui
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Il database SQL è conforme ai requisiti normativi e in che modo questo facilita la conformità dell'organizzazione
 
-Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di Conformità soddisfatte dal database SQL, visitare il [Centro protezione Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) ed eseguire il drill-down nelle conformità importanti per l'organizzazione per verificare se il database SQL è incluso nei servizi conformi di Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
+Il database SQL è conforme a un intervallo di compliancies normativi. Per visualizzare il set più recente di compliancies che sono stati soddisfatti dal database SQL, visitare il [Centro protezione Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) ed eseguire il drill-down dei compliancies importanti per l'organizzazione per verificare se il database SQL è incluso nei servizi conformi di Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitoraggio e manutenzione intelligenti del database dopo la migrazione
 
@@ -274,11 +274,11 @@ Da questo grafico è anche possibile configurare avvisi per risorsa. Questi avvi
 
 È possibile eseguire una query nella DMV [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) per restituire la cronologia delle statistiche sull'uso delle risorse dell'ultima ora e la vista del catalogo di sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per restituire la cronologia degli ultimi 14 giorni.
 
-#### <a name="query-performance-insight"></a>Informazioni dettagliate sulle prestazioni delle query
+#### <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query
 
 [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) consente di visualizzare una cronologia delle query principali a livello di uso delle risorse e le query con esecuzione prolungata per un database specifico. È possibile identificare rapidamente le query principali in base all'uso delle risorse, alla durata e alla frequenza di esecuzione. È possibile tenere traccia delle query e rilevare la regressione. Questa funzionalità richiede che [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) sia abilitato e attivo per il database.
 
-![Informazioni dettagliate sulle prestazioni delle query](./media/sql-database-manage-after-migration/query-performance-insight.png)
+![Informazioni dettagliate prestazioni query](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Analisi SQL di Azure (anteprima) nei log di monitoraggio di Azure
 
@@ -302,7 +302,7 @@ Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per o
 
 |**Livello di servizio**|**Scenari di casi di utilizzo comuni**|
 |---|---|
-|**Basic**|Applicazioni con alcuni utenti e un database senza requisiti elevati di concorrenza, scalabilità e prestazioni. |
+|**Base**|Applicazioni con alcuni utenti e un database senza requisiti elevati di concorrenza, scalabilità e prestazioni. |
 |**Standard**|Applicazioni con requisiti elevati di concorrenza, scalabilità e prestazioni abbinati a richieste I/O medie o ridotte. |
 |**Premium**|Applicazioni con numerosi utenti simultanei ed elevate richieste di CPU/memoria e I/O. Le app sensibili alla latenza con concorrenza e velocità effettiva elevate possono sfruttare il livello Premium. |
 |||

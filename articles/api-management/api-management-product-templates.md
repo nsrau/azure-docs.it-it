@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374439"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243926"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelli di prodotto in Gestione API di Azure
 
@@ -70,7 +70,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controls  
+### <a name="controls"></a>Controlli  
  Il modello `Product list` può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
@@ -197,7 +197,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 {% endif %}  
 ```  
   
-### <a name="controls"></a>Controls  
+### <a name="controls"></a>Controlli  
  Il modello `Product list` può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [subscribe-button](api-management-page-controls.md#subscribe-button)  
@@ -208,7 +208,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |--------------|----------|-----------------|  
 |Prodotto|[Prodotto](api-management-template-data-model-reference.md#Product)|Il prodotto specificato.|  
 |IsDeveloperSubscribed|boolean|Indica se l'utente corrente è sottoscritto a questo prodotto.|  
-|SubscriptionState|numero|Stato della sottoscrizione. Gli stati possibili sono elencati di seguito:<br /><br /> -   `0 - suspended`: la sottoscrizione è bloccata e il sottoscrittore non può chiamare le API del prodotto.<br />-   `1 - active`: la sottoscrizione è attiva.<br />-   `2 - expired`: la sottoscrizione ha raggiunto la data di scadenza ed è stata disattivata.<br />-   `3 - submitted`: la richiesta di sottoscrizione è stata eseguita dallo sviluppatore, ma non è ancora stata approvata o rifiutata.<br />-   `4 - rejected`: la richiesta di sottoscrizione è stata rifiutata da un amministratore.<br />-   `5 - cancelled`: la sottoscrizione è stata annullata dallo sviluppatore o dall'amministratore.|  
+|SubscriptionState|d'acquisto|Stato della sottoscrizione. Gli stati possibili sono elencati di seguito:<br /><br /> -   `0 - suspended`: la sottoscrizione è bloccata e il sottoscrittore non può chiamare le API del prodotto.<br />-   `1 - active`: la sottoscrizione è attiva.<br />-   `2 - expired`: la sottoscrizione ha raggiunto la data di scadenza ed è stata disattivata.<br />-   `3 - submitted`: la richiesta di sottoscrizione è stata eseguita dallo sviluppatore, ma non è ancora stata approvata o rifiutata.<br />-   `4 - rejected`: la richiesta di sottoscrizione è stata rifiutata da un amministratore.<br />-   `5 - cancelled`: la sottoscrizione è stata annullata dallo sviluppatore o dall'amministratore.|  
 |Limiti|array|Questa proprietà è deprecata e non deve essere usata.|  
 |DelegatedSubscriptionEnabled|boolean|Indica se sia abilitata la [delega](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) per questa sottoscrizione.|  
 |DelegatedSubscriptionUrl|string|Se è abilitata la delega, indica l'URL della sottoscrizione delegata.|  

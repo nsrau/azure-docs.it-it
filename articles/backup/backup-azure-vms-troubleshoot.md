@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 8e29061becd9eb82dd04f3ed0db787542b29cbc7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: c087814d74032bfc39310690cb31e258fdb1e41e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363859"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247930"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -190,7 +190,7 @@ Questo garantirà che gli snapshot vengano creati tramite host invece che guest.
 | L'agente di macchine virtuali non è presente nella macchina virtuale. <br>Installare i prerequisiti necessari e l'agente di macchine virtuali. Quindi ripetere l'operazione. |Altre informazioni sull'[installazione dell'agente di macchine virtuali e su come convalidarla](#vm-agent). |
 | **Codice di errore**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Messaggio di errore**: l'operazione di snapshot non è riuscita a causa di un errore nella creazione di un canale di comunicazione di rete protetto. | <ol><li> Aprire l'editor del Registro di sistema eseguendo **regedit.exe** con privilegi elevati. <li> Identificare tutte le versioni di .NET Framework presenti nel sistema, disponibili nella gerarchia della chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Per ogni versione di .NET Framework presente nella chiave del Registro di sistema, aggiungere la chiave seguente: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Codice di errore**: ExtensionVCRedistInstallationFailure <br/> **Messaggio di errore**: l'operazione di snapshot non è riuscita a causa C++ di un errore di installazione di Visual Redistributable per Visual Studio 2012. | Passare a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e installare vcredist2013_x64.<br/>Verificare che il valore della chiave del registro di sistema che consente l'installazione del servizio sia impostato sul valore corretto. Ovvero, impostare il valore **iniziale** in **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** su **3** e non **4**. <br><br>Se i problemi di installazione persistono, riavviare il servizio di installazione eseguendo **MSIEXEC /UNREGISTER** e quindi **MSIEXEC /REGISTER** da un prompt dei comandi con privilegi elevati.  |
-
+| **Codice di errore**: UserErrorRequestDisallowedByPolicy <BR> **Messaggio di errore**: un criterio non valido è configurato nella macchina virtuale che impedisce l'operazione di snapshot. | Se si dispone di criteri di Azure che [governano i tag all'interno dell'ambiente](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), provare a modificare i criteri da un [effetto di negazione](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) a un effetto di [modifica](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)oppure creare manualmente il gruppo di risorse in base allo [schema di denominazione richiesto da backup di Azure](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 ## <a name="jobs"></a>Processi
 
 | Dettagli errore | Soluzione alternativa |

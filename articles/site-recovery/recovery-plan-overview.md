@@ -4,11 +4,11 @@ description: Informazioni sui piani di ripristino in Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396994"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257771"
 ---
 # <a name="about-recovery-plans"></a>Informazioni sui piani di ripristino
 
@@ -62,11 +62,11 @@ Con questa personalizzazione, ecco cosa accade quando si esegue un failover per 
 
 Il ripristino di applicazioni di grandi dimensioni può essere un'attività complessa. I passaggi manuali rendono il processo soggetto a errori e la persona che esegue il failover potrebbe non essere a conoscenza di tutti gli aspetti complessi delle app. È possibile usare un piano di ripristino per determinare l'ordine e automatizzare le azioni necessarie in ogni passaggio, usando i runbook di Automazione di Azure per il failover in Azure oppure gli script. Per le attività che non possono essere automatizzate, è possibile inserire pause per le azioni manuali nei piani di ripristino. Ci sono due tipi di attività che è possibile configurare:
 
-* **Attività nella macchina virtuale di Azure dopo il failover**: quando si esegue il failover in Azure, è in genere necessario eseguire azioni in modo da potersi connettere alla macchina virtuale dopo il failover. Ad esempio, 
+* **Attività nella macchina virtuale di Azure dopo il failover**: quando si esegue il failover in Azure, è in genere necessario eseguire azioni in modo da potersi connettere alla macchina virtuale dopo il failover. Ad esempio: 
     * Creare un indirizzo IP pubblico nella macchina virtuale.
     * Assegnare un gruppo di sicurezza di rete alla scheda di rete della macchina virtuale di Azure.
     * Aggiungere un servizio di bilanciamento del carico a un set di disponibilità.
-* **Attività nella macchina virtuale dopo il failover**: queste attività in genere riconfigurano l'app in esecuzione nel computer, in modo che continui a funzionare correttamente nel nuovo ambiente. Ad esempio,
+* **Attività nella macchina virtuale dopo il failover**: queste attività in genere riconfigurano l'app in esecuzione nel computer, in modo che continui a funzionare correttamente nel nuovo ambiente. Ad esempio:
     * Modificare la stringa di connessione del database all'interno del computer.
     * Modificare la configurazione o le regole del server Web.
 

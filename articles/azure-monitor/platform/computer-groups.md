@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373305"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274775"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
 I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito delle [query di log](../log-query/log-query-overview.md) a uno specifico set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
@@ -48,7 +48,7 @@ La tabella seguente descrive le proprietà che definiscono un gruppo di computer
 
 | Proprietà | Descrizione |
 |:---|:---|
-| Name   | Nome della query da visualizzare nel portale. |
+| Nome   | Nome della query da visualizzare nel portale. |
 | Alias di funzione | Alias univoco usato per identificare il gruppo di computer in una query. |
 | Category       | Categoria per l'organizzazione delle query nel portale. |
 
@@ -83,7 +83,7 @@ Prima di importare raccolte di Configuration Manager è necessario [connettere C
 
 Dopo l'importazione delle raccolte, nel menu sono elencati il numero dei computer per i quali sono state rilevate appartenenze a gruppi e il numero dei gruppi importati.  È possibile fare clic su uno di questi collegamenti per ottenere i record **ComputerGroup** con tali informazioni.
 
-## <a name="managing-computer-groups"></a>Gestione di gruppi di computer
+## <a name="managing-computer-groups"></a>Gestione dei gruppi di computer
 È possibile visualizzare i gruppi di computer creati tramite una query di log o tramite l'API di ricerca log dalle **Impostazioni avanzate** nell'area di lavoro Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer** e quindi **Gruppi salvati**.  
 
 Fare clic sulla **x** nella colonna **Rimuovi** per eliminare il gruppo di computer.  Fare clic sull'icona **Visualizza membri** in corrispondenza di un gruppo per eseguire la ricerca nei log del gruppo che ne restituisce i membri.  Non è possibile modificare un gruppo di computer. È necessario eliminarlo e quindi ricrearlo con le impostazioni modificate.

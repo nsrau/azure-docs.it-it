@@ -17,17 +17,17 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138386"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245642"
 ---
 # <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo per gli utenti Guest esterni usando RBAC di Azure e il portale di Azure
 
 Il [controllo degli accessi in base al ruolo di Azure](overview.md) consente una migliore gestione della sicurezza per le organizzazioni di grandi dimensioni e per le aziende di piccole e medie dimensioni che lavorano con collaboratori esterni, fornitori o freelance che necessitano dell'accesso a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. È possibile utilizzare le funzionalità di [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) per collaborare con utenti Guest esterni ed è possibile utilizzare il controllo degli accessi in base al ruolo per concedere solo le autorizzazioni necessarie agli utenti guest nell'ambiente in uso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 
@@ -155,7 +155,7 @@ Prima di rimuovere un utente Guest da una directory, è necessario rimuovere pri
 
    ![Rimuovi assegnazione di ruolo](./media/role-assignments-external-users/remove-role-assignment-select.png)
 
-1. Fare clic su **Rimuovi accesso**.
+1. Scegliere **Rimuovi**.
 
    ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-external-users/remove-role-assignment.png)
 
@@ -165,13 +165,13 @@ Prima di rimuovere un utente Guest da una directory, è necessario rimuovere pri
 
 1. Fare clic sull'utente guest che si desidera rimuovere.
 
-1. Scegliere **Elimina**.
+1. Fare clic su **Elimina**.
 
    ![Elimina utente Guest](./media/role-assignments-external-users/delete-guest-user.png)
 
 1. Nel messaggio di eliminazione visualizzato, fare clic su **Sì**.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="guest-user-cannot-browse-the-directory"></a>L'utente Guest non può esplorare la directory
 

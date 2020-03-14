@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
 ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980995"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245525"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure
 
@@ -56,7 +56,7 @@ Questo articolo contiene le risposte alle domande comuni sul controllo degli acc
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Assegnazioni di ruolo con entità di sicurezza sconosciuta
 
-Se si assegna un ruolo a un'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) e successivamente si elimina tale entità di sicurezza senza rimuovere l'assegnazione di ruolo, il tipo di entità di sicurezza per l'assegnazione di ruolo verrà elencato come **sconosciuto**. Lo screenshot seguente illustra un esempio nel portale di Azure. Il nome dell'entità di sicurezza è elencato come **identità eliminata** e l' **identità non esiste più**. 
+Se si assegna un ruolo a un'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) e successivamente si elimina tale entità di sicurezza senza rimuovere l'assegnazione di ruolo, il tipo di entità di sicurezza per l'assegnazione di ruolo verrà elencato come **sconosciuto**. Lo screenshot seguente mostra un esempio nell'portale di Azure. Il nome dell'entità di sicurezza è elencato come **identità eliminata** e l' **identità non esiste più**. 
 
 ![Gruppo di risorse per app Web](./media/troubleshooting/unknown-security-principal.png)
 

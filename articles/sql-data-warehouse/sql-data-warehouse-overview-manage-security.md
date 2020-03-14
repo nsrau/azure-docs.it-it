@@ -13,11 +13,11 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: 89ec405a348e3ace851fd5f5e17283a8036692a5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199411"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257355"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteggere un database in una sinapsi di Azure
 > [!div class="op_single_selector"]

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e2e752ec37f71ea501dcee586e7daf0fc950919d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 34c50795567615637e31446ad3dc51a5e1b355f6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822224"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214458"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il provisioning di un secondo pool elastico per bilanciare il carico delle attività dei database
 
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 * È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](saas-dbpertenant-get-started-deploy.md) (Distribuire ed esplorare l'applicazione del database per tenant SaaS Wingtip Tickets)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
@@ -52,11 +52,11 @@ I pool e i database nei pool devono essere monitorati per assicurarsi che rimang
 * Per evitare di dover monitorare manualmente le prestazioni, è consigliabile **impostare l'attivazione di avvisi quando i database o i pool escono dai normali intervalli**.
 * Per rispondere alle fluttuazioni a breve termine delle dimensioni di calcolo aggregate di un pool, è possibile **scegliere un livello superiore o inferiore di eDTU per il pool**. Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del pool**. Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
 * Per rispondere a fluttuazioni a lungo termine o a modifiche del numero di database, **è possibile spostare singoli database in altri pool**.
-* Per rispondere ad aumenti a breve termine del carico per *singoli* database, **è possibile rimuovere singoli database da un pool e assegnare loro dimensioni di calcolo singole**. Quando il carico si riduce di nuovo, il database può essere reinserito nel pool. Quando questo tipo di comportamento è noto in anticipo, i database possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri database nel pool. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
+* Per rispondere ad aumenti a breve termine del carico per *singoli* database, **è possibile rimuovere singoli database da un pool e assegnare loro dimensioni di calcolo singole**. Quando il carico si riduce di nuovo, il database può essere reinserito nel pool. Quando questo è noto in anticipo, i database possono essere spostati preventivamente per garantire che il database disponga sempre delle risorse necessarie e per evitare un effetto sugli altri database nel pool. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, il monitoraggio e gli avvisi sono disponibili per database e pool. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono altrettanto utili quando si usano molte risorse.
 
-Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare i [log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) . Si tratta di un servizio di Azure separato che fornisce analisi su log di diagnostica e telemetria emessi raccolti in un'area di lavoro Log Analytics. I log di monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi e possono essere usati per eseguire query e impostare avvisi.
+Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare i [log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) . Si tratta di un servizio di Azure separato che fornisce analisi su log emessi raccolti in un'area di lavoro Log Analytics. I log di monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi e possono essere usati per eseguire query e impostare avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
@@ -206,7 +206,7 @@ Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall 
 
 1. Esaminare il grafico **Monitoraggio pool elastico** e cercare il maggiore utilizzo di eDTU del pool. Dopo un paio di minuti, il carico elevato dovrebbe iniziare a comparire e il pool dovrebbe raggiungere velocemente l'utilizzo al 100%.
 2. Esaminare i dati in **Monitoraggio database elastico** che mostrano i database più attivi nell'ultima ora. Il database *contosoconcerthall* dovrebbe essere presto visualizzato come uno dei cinque database più attivi.
-3. **Fare clic sul** **grafico** Monitoraggio database elastico. Viene aperta la pagina **Utilizzo risorse database** in cui è possibile monitorare i singoli database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
+3. **Fare clic sul grafico monitoraggio database elastico** **chart** per aprire la pagina **utilizzo risorse database** in cui è possibile monitorare i database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
 4. Nell'elenco di database fare clic su **contosoconcerthall**.
 5. Fare clic su **Piano tariffario (piano DTU)** per aprire la pagina **Configura prestazioni** in cui è possibile impostare dimensioni di calcolo autonome per il database.
 6. Fare clic sulla scheda **Standard** per aprire le opzioni di scalabilità nel livello Standard.
@@ -218,7 +218,7 @@ Quando il carico elevato per il database contosoconcerthall diminuisce, è neces
 
 ## <a name="other-performance-management-patterns"></a>Altri modelli di gestione delle prestazioni
 
-**Scalabilità preventiva** Nell'esercizio precedente è stato illustrato come ridimensionare un database isolato quando si conosce il database su cui intervenire. Se il responsabile della gestione di Contoso Concert Hall avesse informato Wingtips dell'imminente vendita di biglietti, sarebbe stato possibile rimuovere preventivamente il database dal pool. In caso contrario, sarebbe stato probabilmente necessario un avviso per il pool o il database per ricevere una segnalazione della situazione. È meglio evitare di venire a conoscenza di un problema di questo tipo quando gli altri tenant nel pool si lamentano del calo di prestazioni. Se il tenant può prevedere il tempo per cui saranno necessarie risorse aggiuntive, inoltre, è possibile configurare un runbook di Automazione di Azure per spostare il database fuori dal pool e reinserirlo in base a una pianificazione definita.
+**Scalabilità preventiva** Nell'esercizio precedente è stato illustrato come ridimensionare un database isolato quando si conosce il database su cui intervenire. Se la gestione di Contoso Concert Hall avesse informato wingtips della vendita di biglietti imminenti, il database potrebbe essere stato spostato all'esterno del pool preventivamente. In caso contrario, sarebbe stato probabilmente necessario un avviso per il pool o il database per ricevere una segnalazione della situazione. È meglio evitare di venire a conoscenza di un problema di questo tipo quando gli altri tenant nel pool si lamentano del calo di prestazioni. Se il tenant può prevedere il tempo per cui saranno necessarie risorse aggiuntive, inoltre, è possibile configurare un runbook di Automazione di Azure per spostare il database fuori dal pool e reinserirlo in base a una pianificazione definita.
 
 **Scalabilità self-service dei tenant** Dato che la scalabilità richiede attività facilmente richiamabili tramite l'API di gestione, è possibile integrare in modo semplice funzioni di scalabilità dei database tenant nell'applicazione che interagisce con i tenant e offrirle come funzionalità del servizio SaaS. Ad esempio, fare in modo che i tenant possano amministrare in autonomia l'aumento o la riduzione delle prestazioni, eventualmente collegando anche queste operazioni in modo diretto alla fatturazione.
 

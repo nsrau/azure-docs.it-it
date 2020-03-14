@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842870"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283277"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduzione alla funzionalità di risoluzione dei problemi di connessione in Azure Network Watcher
 
@@ -29,7 +29,7 @@ La funzionalità di risoluzione dei problemi di connessione di Network Watcher c
 
 La tabella seguente illustra le proprietà restituite al termine dell'esecuzione della funzionalità di risoluzione dei problemi di connessione.
 
-|Proprietà  |Description  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |ConnectionStatus     | Lo stato del controllo della connettività. I risultati possibili sono **Reachable** e **Unreachable**.        |
 |AvgLatencyInMs     | Latenza media durante il controllo della connettività in millisecondi. Visualizzata solo se lo stato del controllo è reachable.        |
@@ -72,7 +72,7 @@ Di seguito è riportato un esempio di un problema rilevato in un hop.
 
 La funzionalità di risoluzione dei problemi di connessione restituisce i tipi di errore relativi alla connessione. La tabella seguente contiene un elenco dei tipi di errore attualmente restituiti.
 
-|Tipo  |Description  |
+|Type  |Descrizione  |
 |---------|---------|
 |CPU     | Utilizzo elevato della CPU.       |
 |Memoria     | Uso intensivo della memoria.       |

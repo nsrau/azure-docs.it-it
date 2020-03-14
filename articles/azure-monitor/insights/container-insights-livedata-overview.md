@@ -3,12 +3,12 @@ title: Visualizzare i dati in tempo reale (anteprima) con monitoraggio di Azure 
 description: Questo articolo descrive la visualizzazione in tempo reale di log di Kubernetes, eventi e metriche Pod senza usare kubectl in monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404747"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216556"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale
 
@@ -26,7 +26,7 @@ Per informazioni sulla configurazione o la risoluzione dei problemi relativi all
 
 ## <a name="live-data-preview-functionality-overview"></a>Panoramica della funzionalità dati in tempo reale (anteprima)
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
 ![Esempio di filtro del riquadro della console dati in tempo reale](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -65,7 +65,7 @@ Dopo l'autenticazione, il riquadro della console dati attivi (anteprima) verrà 
 
 Il titolo del riquadro Mostra il nome del Pod con il quale viene raggruppato il contenitore.
 
-## <a name="view-events"></a>Visualizza eventi
+## <a name="view-events"></a>Visualizzare eventi
 
 È possibile visualizzare i dati degli eventi in tempo reale generati dal motore di contenitori dalla visualizzazione **nodi**, **controller**, **contenitori**e **distribuzioni (anteprima)** quando si seleziona un contenitore, un pod, un nodo, un REPLICASET, un DaemonSet, un processo, un cronjob o una distribuzione. Per visualizzare gli eventi, seguire questa procedura.
 
@@ -84,7 +84,7 @@ Dopo l'autenticazione, il riquadro della console dati attivi (anteprima) verrà 
     
 Se l'oggetto selezionato era un contenitore, selezionare l'opzione **eventi** nel riquadro. Se è stato selezionato un nodo, un pod o un controller, la visualizzazione degli eventi viene selezionata automaticamente. 
 
-    ![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.png)  
+![Eventi visualizzazione riquadro Proprietà controller](./media/container-insights-livedata-overview/controller-properties-live-event.png)  
 
 Il titolo del riquadro Mostra il nome del Pod con il quale viene raggruppato il contenitore.
 

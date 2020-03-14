@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: e3937241724aab63f770ad56cbf96d2e1b45f00e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 96b3e602011f4d3f237f29ce9b2fcad8bd0b8300
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251363"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251388"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output Live in servizi multimediali
 
@@ -89,7 +89,7 @@ Quando si crea un evento live, è possibile specificare le opzioni seguenti:
 * Il nome dell'evento Live massimo è di 32 caratteri.
 * Il nome deve seguire questo modello [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-Vedere anche le [convenzioni di denominazione degli endpoint di streaming](streaming-endpoint-concept.md#naming-convention).
+Vedere anche [convenzioni di denominazione degli endpoint di streaming](streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > Per garantire l'univocità del nome dell'evento Live, è possibile generare un GUID, quindi rimuovere tutti i trattini e le parentesi graffe (se presenti). La stringa sarà univoca in tutti gli eventi live e la relativa lunghezza verrà garantita 32.
@@ -119,7 +119,7 @@ Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da 
 
     Usare le API seguenti per abilitare l'URL di Vanity e impostare il token di accesso su un GUID valido, ad esempio `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.  
 
-    |Lingua:|Abilita URL Vanity|Impostare il token di accesso|
+    |Linguaggio|Abilita URL Vanity|Impostare il token di accesso|
     |---|---|---|
     |REST|[Properties. vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--Vanity-URL](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--Access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|

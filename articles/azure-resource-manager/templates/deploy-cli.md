@@ -3,12 +3,12 @@ title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 64f60a6e15a0c51e5ee506340c064804f7588693
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 17307b1657afc133a7e1b1d7714363329573e48c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250652"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273904"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -24,13 +24,13 @@ La distribuzione può essere destinata a una sottoscrizione di Azure o a un grup
 
 Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Group Deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
 
-```azurecli
+```azurecli-interactive
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
 Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
 
-```azurecli
+```azurecli-interactive
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
@@ -103,7 +103,7 @@ Per passare i valori dei parametri, è possibile usare i parametri inline o un f
 
 Per passare i parametri inline, specificare i valori in `parameters`. Ad esempio, per passare una stringa e una matrice a un modello in una shell Bash, usare:
 
-```azurecli
+```azurecli-interactive
 az group deployment create \
   --resource-group testgroup \
   --template-file demotemplate.json \
@@ -114,7 +114,7 @@ Se si usa l'interfaccia della riga di comando di Azure con il prompt dei comandi
 
 È anche possibile ottenere i contenuti del file e fornire il contenuto come un parametro inline.
 
-```azurecli
+```azurecli-interactive
 az group deployment create \
   --resource-group testgroup \
   --template-file demotemplate.json \
@@ -150,7 +150,7 @@ az group deployment create \
 
 ## <a name="handle-extended-json-format"></a>Gestire il formato JSON esteso
 
-Per distribuire un modello con stringhe o commenti a più righe, è necessario usare l'opzione `--handle-extended-json-format`.  Ad esempio,
+Per distribuire un modello con stringhe o commenti a più righe, è necessario usare l'opzione `--handle-extended-json-format`.  Ad esempio:
 
 ```json
 {

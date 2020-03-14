@@ -4,11 +4,11 @@ description: È necessario pubblicare una Knowledge base. Una volta pubblicato, 
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843317"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220721"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Eseguire una query sulla Knowledge base per le risposte
 
@@ -24,7 +24,7 @@ La Knowledge base con formazione e [pubblicazione](/azure/cognitive-services/qna
 
 Il processo è illustrato nella tabella seguente.
 
-|Passaggio|Finalità|
+|Passaggio|Scopo|
 |--|--|
 |1|L'applicazione client invia la query utente all' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|QnA Maker pre-elabora la query utente con rilevamento della lingua, ortografia e Word breaker.|

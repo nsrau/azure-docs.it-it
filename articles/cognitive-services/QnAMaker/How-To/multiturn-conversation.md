@@ -4,11 +4,11 @@ description: Usare i prompt e il contesto per gestire il multiplo turno, noto co
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210415"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220622"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -108,7 +108,7 @@ Aggiungere una richiesta di completamento a una coppia di domande e risposte esi
 1. Nella riga per la **disconnessione**selezionare **Aggiungi richiesta di completamento**nella colonna **risposta** .
 1. Nei campi della finestra popup della **richiesta di completamento** immettere i valori seguenti:
 
-    |Campo|Valore|
+    |Campo|valore|
     |--|--|
     |Testo visualizzato|Immettere **Disattiva il dispositivo**. Si tratta di un testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto| Selezionare questa casella di controllo. Viene restituita una risposta solo se la domanda specifica il contesto.|
@@ -145,7 +145,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 1. Nella colonna **risposta** per questa domanda selezionare **Aggiungi richiesta di completamento**.
 1. In **prompt di completamento (anteprima)** creare una nuova richiesta di completamento immettendo i valori seguenti:
 
-    |Campo|Valore|
+    |Campo|valore|
     |--|--|
     |Testo visualizzato|*Creare un account di Windows*. Testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica il contesto.|

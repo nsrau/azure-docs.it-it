@@ -12,11 +12,11 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
 ms.openlocfilehash: ec1430e7dd79378473cce9dbb77bedecd14600c8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228271"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256783"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura di connettività per un'istanza gestita nel database SQL di Azure
 
@@ -103,24 +103,24 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regole di sicurezza in ingresso obbligatorie con configurazione della subnet assistita dal servizio 
 
-| Name       |Porta                        |Protocollo|Origine           |Destination|Azione|
+| Nome       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|mobili di Intune  |9000, 9003, 1438, 1440, 1452|TCP     |Oggetto SqlManagement    |MI SUBNET  |Consenti |
-|            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |Consenti |
-|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|MI SUBNET  |Consenti |
-|mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Consenti |
-|health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Consenti |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Oggetto SqlManagement    |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|MI SUBNET  |Allow |
+|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |Allow |
+|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regole di sicurezza obbligatorie in uscita con configurazione della subnet assistita dal servizio 
 
-| Name       |Porta          |Protocollo|Origine           |Destination|Azione|
+| Nome       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|mobili di Intune  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Consenti |
-|mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Consenti |
+|management  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
+|mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |Allow |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Route definite dall'utente con configurazione di subnet assistita da servizi 
 
-|Name|Prefisso indirizzo|Hop successivo|
+|Nome|Prefisso indirizzo|Hop successivo|
 |----|--------------|-------|
 |da subnet a vnetlocal|MI SUBNET|Rete virtuale|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -298,18 +298,18 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| Name       |Porta                        |Protocollo|Origine           |Destination|Azione|
+| Nome       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|mobili di Intune  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |MI SUBNET  |Consenti |
-|mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Consenti |
-|health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Consenti |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |MI SUBNET  |Allow |
+|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |MI SUBNET  |Allow |
+|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| Name       |Porta          |Protocollo|Origine           |Destination|Azione|
+| Nome       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|mobili di Intune  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Consenti |
-|mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Consenti |
+|management  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
+|mi_subnet   |Qualsiasi           |Qualsiasi     |MI SUBNET        |MI SUBNET  |Allow |
 
 > [!IMPORTANT]
 > Verificare che sia presente solo una regola in ingresso per le porte 9000, 9003, 1438, 1440, 1452 e una regola in uscita per le porte 443, 12000. Istanza gestita il provisioning tramite Azure Resource Manager distribuzioni non riuscirà se le regole in ingresso e in uscita vengono configurate separatamente per ogni porta. Se queste porte sono in regole separate, la distribuzione avrà esito negativo con codice di errore `VnetSubnetConflictWithIntendedPolicy`
@@ -323,7 +323,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="user-defined-routes"></a>route definite dall'utente
 
-|Name|Prefisso indirizzo|Hop successivo|
+|Nome|Prefisso indirizzo|Hop successivo|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|Rete virtuale|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

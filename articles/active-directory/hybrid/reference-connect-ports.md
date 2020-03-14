@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 611937a709152823ddc1b88b1a0befe4161217cd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375987"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253637"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
 Il documento seguente è un riferimento tecnico per fornire informazioni sulle porte e i protocolli necessari per l'implementazione di una soluzione ibrida di gestione delle identità. Usare la figura riportata di seguito e vedere la tabella corrispondente.
@@ -81,7 +81,7 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 La tabella seguente descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e Azure AD.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabella 6a - Autenticazione pass-through con SSO
-|Protocollo|Numero porta|Descrizione
+|Protocollo|Numero della porta|Descrizione
 | --- | --- | ---
 |HTTP|80|Abilitare il traffico HTTP in uscita per la convalida di sicurezza quale SSL. Serve anche per il funzionamento corretto dell'aggiornamento automatico del connettore.
 |HTTPS|443| Consentire il traffico HTTPS in uscita per operazioni quali l'abilitazione e disabilitazione della funzionalità, la registrazione di connettori, il download degli aggiornamenti del connettore e la gestione di tutte le richieste di accesso degli utenti.
@@ -90,7 +90,7 @@ La tabella seguente descrive le porte e i protocolli necessari per la comunicazi
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabella 6b - Sincronizzazione degli hash delle password con SSO
 
-|Protocollo|Numero porta|Descrizione
+|Protocollo|Numero della porta|Descrizione
 | --- | --- | ---
 |HTTPS|443| Abilitare la registrazione SSO (necessaria solo per il processo di registrazione SSO).
 
@@ -104,8 +104,8 @@ Questa tabella descrive le porte in uscita seguenti e i protocolli necessari per
 
 | Protocollo | Porte | Descrizione |
 | --- | --- | --- |
-| HTTPS |443 (TCP) |Inserimento in |
-| Bus di servizio di Azure |5671 (TCP) |Inserimento in |
+| HTTPS |443 (TCP) |In uscita |
+| Bus di servizio di Azure |5671 (TCP) |In uscita |
 
 La porta 5671 del bus di servizio di Azure non è più necessaria per la versione più recente dell'agente. La versione più recente dell'agente Azure AD Connect Health richiesta solo la porta 443.
 

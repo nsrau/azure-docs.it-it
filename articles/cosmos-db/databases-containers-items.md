@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767995"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246786"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utilizzare database, contenitori ed elementi in Azure Cosmos DB
 
@@ -74,13 +74,13 @@ Un contenitore di Azure Cosmos è specializzato in entità specifiche dell'API, 
 
 | Entità di Azure Cosmos | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- |
-|Contenitore Azure Cosmos DB | Contenitore | Tabella | Raccolta | Grafo | Tabella |
+|Contenitore Azure Cosmos DB | Contenitore | Tabella | Raccolta | Grafico | Tabella |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Proprietà di un contenitore Azure Cosmos DB
 
 Un contenitore di Azure Cosmos dispone di un set di proprietà definite dal sistema. A seconda dell'API usata, alcune proprietà potrebbero non essere direttamente esposte. Nella tabella seguente viene descritto l'elenco delle proprietà definite dal sistema:
 
-| Proprietà definita dal sistema | Generato dal sistema o configurabile dall'utente | Finalità | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
+| Proprietà definita dal sistema | Generato dal sistema o configurabile dall'utente | Scopo | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |RID \_ | Generato dal sistema | Identificatore univoco di contenitore | Sì | No | No | No | No |
 |\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No | No | No | No |
@@ -100,7 +100,7 @@ Un contenitore di Azure Cosmos supporta le operazioni seguenti quando si usa una
 | --- | --- | --- | --- | --- | --- | --- |
 | Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | ND | ND |
 | Leggere un contenitore | Sì | Sì | Sì | Sì | ND | ND |
-| Creare un nuovo contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Crea un nuovo contenitore | Sì | Sì | Sì | Sì | ND | ND |
 | Aggiornare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
 | Eliminare un contenitore | Sì | Sì | Sì | Sì | ND | ND |
 
@@ -110,13 +110,13 @@ A seconda dell'API usata, un elemento di Azure Cosmos può rappresentare un docu
 
 | Entità Cosmos | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- |
-|Elemento Azure Cosmos DB | Di documenti | Riga | Di documenti | Nodo o bordo | Elemento |
+|Elemento Azure Cosmos DB | Document | Riga | Document | Nodo o bordo | Elemento |
 
 ### <a name="properties-of-an-item"></a>Proprietà di un elemento
 
 Ogni elemento di Azure Cosmos presenta le seguenti proprietà definite dal sistema. A seconda dell'API usata, alcune di esse potrebbero non essere direttamente esposte.
 
-| Proprietà definita dal sistema | Generato dal sistema o configurabile dall'utente| Finalità | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
+| Proprietà definita dal sistema | Generato dal sistema o configurabile dall'utente| Scopo | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |RID \_ | Generato dal sistema | Identificatore univoco dell'elemento | Sì | No | No | No | No |
 |\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No | No | No | No |

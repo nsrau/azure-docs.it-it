@@ -4,11 +4,11 @@ description: Usare portale di Azure e gestione risorse di Azure per distribuire 
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 32c807b4881bc59b6bec0d26ab3664abdb200628
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485104"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274359"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
 

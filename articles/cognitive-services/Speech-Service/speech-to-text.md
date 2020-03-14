@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: erhopf
 ms.openlocfilehash: 8518f92a4f4df1686d4b338783a93d969e04d219
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379955"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219544"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 

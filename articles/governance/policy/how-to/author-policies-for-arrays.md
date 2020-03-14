@@ -4,11 +4,11 @@ description: Informazioni su come usare i parametri di matrice e le espressioni 
 ms.date: 11/26/2019
 ms.topic: how-to
 ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050076"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280664"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Modificare i criteri per le proprietà delle matrici nelle risorse di Azure
 
@@ -136,11 +136,11 @@ Il tentativo di creare la definizione di criteri tramite il portale di Azure gen
 
 - "Impossibile parametrizzare il criterio ' {GUID}' a causa di errori di convalida. Verificare che i parametri dei criteri siano definiti correttamente. L'eccezione interna ' risultato della valutazione dell'espressione del linguaggio ' [Parameters (' allowedLocations ')]' è di tipo ' array '. il tipo previsto è' String ' .'. "
 
-Il **tipo** di condizione previsto `equals` è _String_. Poiché **allowedLocations** è definito come _matrice_di tipi, il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con il `in` e la condizione `notIn`, il motore dei criteri prevede la _matrice_ di **tipi** nell'espressione del linguaggio. Per correggere questo messaggio di errore, modificare `equals` in `in` o `notIn`.
+Il **tipo** di condizione previsto `equals` è _String_. Poiché **allowedLocations** è definito come **type** _matrice_di tipi, il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con il `in` e la condizione `notIn`, il motore dei criteri prevede la _matrice_ di **tipi** nell'espressione del linguaggio. Per correggere questo messaggio di errore, modificare `equals` in `in` o `notIn`.
 
 ### <a name="evaluating-the--alias"></a>Valutazione dell'alias [*]
 
-Gli alias con **\[\*\]** allegati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **\[\*\]** rende possibile valutare ogni elemento della matrice singolarmente, con l'operatore logico and between. Esistono tre scenari standard in cui questa valutazione per elemento è utile in: nessuno _, nessuno_o _tutti_ gli elementi corrispondono. Per gli scenari complessi, usare [count](../concepts/definition-structure.md#count).
+Gli alias con **\[\*\]** allegati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **\[\*\]** rende possibile valutare ogni elemento della matrice singolarmente, con l'operatore logico and between. Esistono tre scenari standard in cui questa valutazione per elemento è utile in _None_: nessuno _, nessuno_o _tutti_ gli elementi corrispondono. Per gli scenari complessi, usare [count](../concepts/definition-structure.md#count).
 
 Il motore dei criteri attiva l' **effetto** in **quindi** solo quando la regola **if** restituisce true.
 Questo aspetto è importante per comprendere nel contesto del modo in cui **\[\*\]** valuta ogni singolo elemento della matrice.

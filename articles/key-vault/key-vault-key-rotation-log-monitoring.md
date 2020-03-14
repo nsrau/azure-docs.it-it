@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f7fbc82c08d89d73d671a49fb31b9d3cca01c721
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6962a264787bd8a55b6f6a2ebdb6eeb615c33d5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195516"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218407"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi
 
@@ -23,21 +23,16 @@ ms.locfileid: "78195516"
 
 Dopo aver creato un insieme di credenziali delle chiavi, è possibile iniziare a usarle per archiviare le chiavi e i segreti. Le applicazioni non devono più rendere persistenti le chiavi o i segreti, ma li richiederanno all'insieme di credenziali delle chiavi in base alle esigenze. Un insieme di credenziali delle chiavi consente di aggiornare le chiavi e i segreti senza influire sul comportamento dell'applicazione, che offre una vasta gamma di possibilità per la gestione delle chiavi e dei segreti.
 
->[!IMPORTANT]
-> Gli esempi inclusi in questo articolo vengono forniti solo a scopo illustrativo. Non sono destinati all'uso in produzione. 
+Questo articolo illustra come implementare una rotazione pianificata delle chiavi dell'account di archiviazione, monitorare i log di controllo dell'insieme di credenziali delle chiavi e generare avvisi quando vengono eseguite richieste impreviste. 
 
-Questo articolo illustra:
+Per prima cosa, è necessario creare un insieme di credenziali delle chiavi usando il metodo preferito:
 
-- Un esempio dell'uso dell'insieme di credenziali delle chiavi di Azure per archiviare un segreto. In questo articolo, il segreto archiviato è la chiave dell'account di archiviazione di Azure a cui accede un'applicazione. 
-- Come implementare una rotazione pianificata della chiave dell'account di archiviazione.
-- Come monitorare i log di controllo dell'insieme di credenziali delle chiavi e generare avvisi quando vengono eseguite richieste impreviste.
+- [Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure](quick-create-cli.md)
+- [Impostare e recuperare un segreto da Azure Key Vault usando Azure PowerShell](quick-create-powershell.md)
+- [Impostare e recuperare un segreto da Azure Key Vault usando portale di Azure](quick-create-portal.md)
 
-> [!NOTE]
-> Questo articolo non illustra in dettaglio la configurazione iniziale dell'insieme di credenziali delle chiavi. Per queste informazioni, vedere [Cos'è Azure Key Vault?](key-vault-overview.md). Per istruzioni sull'interfaccia della riga di comando multipiattaforma, vedere [manage Key Vault using the Azure CLI](key-vault-manage-with-cli2.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="set-up-key-vault"></a>Configurare l'insieme di credenziali delle chiavi
+## <a name="store-a-secret"></a>Archiviare un segreto
 
 Per consentire a un'applicazione di recuperare un segreto dall'insieme di credenziali delle chiavi, è prima necessario creare il segreto e caricarlo nell'insieme di credenziali.
 

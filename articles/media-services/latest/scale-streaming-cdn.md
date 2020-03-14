@@ -12,14 +12,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 90fa3b06e2696e9b45c333c75c8a8e117d5c0c96
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: e918f7ee64d4bc49d5da80bf9a3e7595555296dc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77563115"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203696"
 ---
-# <a name="scaling-streaming-with-cdn"></a>Ridimensionamento dei flussi con la rete CDN
+# <a name="scaling-streaming-with-cdn"></a>Ridimensionamento dello streaming con la rete CDN
 
 La rete per la distribuzione di contenuti (rete CDN) offre agli sviluppatori una soluzione globale per distribuire rapidamente contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione di tale contenuto nella cache in nodi fisici strategici ubicati in tutto il mondo.  
 
@@ -147,4 +147,5 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'esempio [in questo repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) illustra come avviare l'endpoint di streaming predefinito con .NET.
+* Assicurarsi di soddisfatti il documento dell' [endpoint di streaming (Origin)](streaming-endpoint-concept.md) .
+* L'esempio [in questo repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) illustra come avviare l'endpoint di streaming predefinito con .NET.

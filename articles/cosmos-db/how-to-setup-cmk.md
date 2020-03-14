@@ -4,15 +4,15 @@ description: Informazioni su come configurare le chiavi gestite dal cliente per 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 02b1009a69a8a408581ce23b3845881bba6bb51e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506055"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252012"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurare le chiavi gestite dal cliente per l'account Azure Cosmos con Azure Key Vault
 
@@ -187,6 +187,22 @@ New-AzResourceGroupDeployment `
     -accountName $accountName `
     -location $accountLocation `
     -keyVaultKeyUri $keyVaultKeyUri
+```
+
+### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
+
+Quando si crea un nuovo account Azure Cosmos tramite l'interfaccia della riga di comando di Azure, passare l'URI della chiave di Azure Key Vault copiato in precedenza sotto il parametro **--Key-URI** .
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --key-uri $keyVaultKeyUri
 ```
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti

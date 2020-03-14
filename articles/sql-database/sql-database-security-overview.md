@@ -1,5 +1,5 @@
 ---
-title: Informazioni generali sulla sicurezza
+title: Panoramica della sicurezza
 description: In questo argomento vengono fornite informazioni sulla sicurezza del database SQL di Azure e di SQL Server, incluse le differenze tra il cloud e SQL Server locale.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 348b8fc44628437cbbcfbcd39a26d048284aa60e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978581"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208860"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -46,7 +46,7 @@ Le [regole di rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md
 > [!IMPORTANT]
 > La gestione dei database e dei server di database in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 L'autenticazione è il processo atto a dimostrare che l'utente sia effettivamente chi dichiara di essere. Il database SQL di Azure supporta due tipi di autenticazione:
 
@@ -124,7 +124,7 @@ Il supporto [Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) 
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) è una funzionalità progettata per proteggere da accessi i dati sensibili archiviati in colonne specifiche del database (ad esempio, i numeri delle carte di credito o i numeri di identificazione nazionale o dati sulla base della _necessità di conoscere_). Sono inclusi gli amministratori del database o altri utenti con privilegi che sono autorizzati ad accedere al database per eseguire attività di gestione, ma che non hanno esigenza di accedere a dati particolari nelle colonne crittografate. I dati vengono sempre crittografati, ossia i dati crittografati vengono decrittografati solo per l'elaborazione da parte di applicazioni client con accesso alla chiave di crittografia.  La chiave di crittografia non viene mai esposta a SQL e può essere archiviata sia nell'[Archivio certificati di Windows](sql-database-always-encrypted.md) sia in [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="dynamic-data-masking"></a>Dynamic Data Masking
+### <a name="dynamic-data-masking"></a>Maschera dati dinamica
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
@@ -146,12 +146,12 @@ Individuazione dati e classificazione (attualmente in anteprima) offre funzional
 
 Per altre informazioni, vedere [Introduzione a Individuazione dati e classificazione](sql-database-data-discovery-and-classification.md).
 
-### <a name="compliance"></a>Adeguamento
+### <a name="compliance"></a>Conformità
 
 Oltre alle caratteristiche e alle funzionalità sopra descritte, che consentono all'applicazione di soddisfare vari requisiti di sicurezza, il database SQL di Azure è inoltre sottoposto a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere la [Microsoft Azure Centro protezione](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sull'uso delle funzionalità di controllo dell'accesso nel database SQL, vedere [Controllo dell'accesso](sql-database-control-access.md).
+- Per informazioni sull'utilizzo degli account di accesso, degli account utente, dei ruoli del database e delle autorizzazioni nel database SQL, vedere [gestire account utente e](sql-database-manage-logins.md)account di accesso.
 - Per informazioni sul controllo del database, vedere [SQL Database auditing](sql-database-auditing.md) (Controllo del database SQL).
 - Per informazioni sul rilevamento delle minacce, vedere [SQL Database threat detection](sql-database-threat-detection.md) (Rilevamento delle minacce nel database SQL).

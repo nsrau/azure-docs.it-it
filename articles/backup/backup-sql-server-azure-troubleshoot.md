@@ -4,11 +4,11 @@ description: Informazioni sulla risoluzione dei problemi relativi al backup di d
 ms.topic: troubleshooting
 ms.date: 06/18/2019
 ms.openlocfilehash: 7ebe76fde344b1dabca9a3aee2d0cc9e1edb8df4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392845"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247826"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -16,7 +16,7 @@ Questo articolo fornisce informazioni sulla risoluzione dei problemi per SQL Ser
 
 Per altre informazioni sul processo di backup e sulle limitazioni, vedere [informazioni su SQL Server backup in macchine virtuali di Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
-## <a name="sql-server-permissions"></a>Autorizzazioni SQL Server
+## <a name="sql-server-permissions"></a>Autorizzazioni di SQL Server
 
 Per configurare la protezione per un database di SQL Server in una macchina virtuale, è necessario installare l'estensione **AzureBackupWindowsWorkload** in tale macchina virtuale. Se si riceve l'errore **UserErrorSQLNoSysadminMembership**, significa che l'istanza di SQL Server non dispone delle autorizzazioni necessarie per il backup. Per correggere l'errore, seguire la procedura descritta in [impostare le autorizzazioni della macchina virtuale](backup-azure-sql-database.md#set-vm-permissions).
 
@@ -56,11 +56,11 @@ In alcuni casi, è possibile che si verifichino errori casuali nelle operazioni 
 
 1. In SQL sono inoltre disponibili alcune linee guida per l'utilizzo dei programmi antivirus. Per informazioni dettagliate, vedere [questo articolo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server).
 
-## <a name="error-messages"></a>Messaggi di errore
+## <a name="error-messages"></a>messaggi di errore
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| Severity | Descrizione | Possibili cause | Azione consigliata |
+| Gravità | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
 | Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
 

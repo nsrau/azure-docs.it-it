@@ -10,11 +10,11 @@ ms.date: 04/10/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: bbe38a9dc7be749b8e138ff3ca9ec4f06255b389
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022767"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247748"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
@@ -24,7 +24,7 @@ Quando si crea un pool di Azure Batch, è possibile eseguire il provisioning del
 
 Un pool di Azure Batch include impostazioni che consentono ai nodi di calcolo di comunicare tra loro, ad esempio per eseguire attività a istanze multiple. Queste impostazioni non richiedono una rete virtuale separata. Tuttavia, per impostazione predefinita, i nodi non possono comunicare con macchine virtuali che non fanno parte del pool di Azure Batch, ad esempio un server licenze o un file server. Per consentire ai nodi di calcolo del pool di comunicare in modo sicuro con altre macchine virtuali o con una rete locale, è possibile eseguire il provisioning del pool in una subnet di una rete virtuale di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * **Autenticazione**. Per usare una rete virtuale di Azure, l'API client di Batch deve usare l'autenticazione di Azure Active Directory (AD). Il supporto di Azure Batch per Azure AD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md). 
 

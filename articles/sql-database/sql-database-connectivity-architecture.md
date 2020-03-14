@@ -11,17 +11,22 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 07/02/2019
-ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/09/2020
+ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647680"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256419"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
+> [!NOTE]
+> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
-Questo articolo illustra non solo l'architettura della connettività del database SQL di Azure e di SQL Data Warehouse, ma anche il funzionamento dei diversi componenti per indirizzare il traffico a un'istanza di SQL di Azure. La funzione dei componenti di connettività è indirizzare il traffico di rete verso il database SQL di Azure o SQL Data Warehouse con client che si connettono dall'interno di Azure e client che si connettono dall'esterno di Azure. Questo articolo include anche alcuni esempi di script per modificare la modalità di connessione e propone alcune considerazioni sulla modifica delle impostazioni di connettività predefinite.
+> [!IMPORTANT]
+> Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. [Per un'istanza gestita](sql-database-managed-instance-connectivity-architecture.md), vedere Architettura di connettività.
+
+Questo articolo illustra l'architettura di diversi componenti che indirizzano il traffico di rete al database SQL di Azure o SQL Data Warehouse. Vengono inoltre illustrati i diversi criteri di connessione e il modo in cui i client si connettono da Azure e i client che si connettono dall'esterno di Azure. 
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
@@ -39,11 +44,11 @@ I passaggi seguenti descrivono come viene stabilita una connessione a un databas
 
 Il database SQL di Azure supporta le tre opzioni seguenti per l'impostazione dei criteri di connessione di un server di database SQL.
 
-- **Reindirizzamento (scelta consigliata):** I client stabiliscono connessioni direttamente al nodo che ospita il database, con conseguente riduzione della latenza e della velocità effettiva migliorata. Per le connessioni a usare questa modalità i client devono
-   - Consentire le comunicazioni in ingresso e in uscita dal client a tutti gli indirizzi IP di Azure nell'area sulle porte nell'intervallo 11000 11999.  
-   - Consentire le comunicazioni in ingresso e in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
+- **Reindirizzamento (scelta consigliata):** I client stabiliscono connessioni direttamente al nodo che ospita il database, con conseguente riduzione della latenza e della velocità effettiva migliorata. Per le connessioni per l'utilizzo di questa modalità, i client devono:
+   - Consentire le comunicazioni in uscita dal client a tutti gli indirizzi IP di Azure nell'area in porte nell'intervallo 11000 11999. Usare i tag di servizio per SQL per semplificare la gestione.  
+   - Consentire le comunicazioni in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
 
-- **Proxy:** In questa modalità, tutte le connessioni vengono inviate tramite proxy tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e della velocità effettiva ridotta. Per le connessioni per usare questa modalità, i client devono consentire le comunicazioni in ingresso e in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
+- **Proxy:** In questa modalità, tutte le connessioni vengono inviate tramite proxy tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e della velocità effettiva ridotta. Per le connessioni a usare questa modalità, i client devono consentire le comunicazioni in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
 
 - **Impostazione predefinita:** Si tratta dei criteri di connessione attivati in tutti i server dopo la creazione, a meno che i criteri di connessione non vengano modificati in modo esplicito in `Proxy` o `Redirect`. Il criterio predefinito è`Redirect` per tutte le connessioni client che provengono da Azure, ad esempio da una macchina virtuale di Azure, e `Proxy`per tutte le connessioni client che hanno origine all'esterno, ad esempio le connessioni dalla workstation locale.
 
@@ -101,6 +106,8 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Corea meridionale          | 52.231.200.86      |
 | Stati Uniti centro-settentrionali     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa settentrionale         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Norvegia orientale          | 51.120.96.0        |
+| Norvegia occidentale          | 51.120.216.0       |
 | Sudafrica settentrionale   | 102.133.152.0      |
 | Sudafrica occidentale    | 102.133.24.0       |
 | Stati Uniti centro-meridionali     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
@@ -115,78 +122,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Stati Uniti occidentali 2            | 13.66.226.202      |
 |                      |                    |
 
-## <a name="change-azure-sql-database-connection-policy"></a>Modificare il criterio di connessione del database SQL di Azure
 
-Per modificare il criterio di connessione del database SQL di Azure per un server di database SQL di Azure, usare il comando [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
-
-- Se il criterio di connessione è impostato su `Proxy`, tutti i pacchetti di rete passano attraverso il gateway del database SQL di Azure. Per questa impostazione, è necessario consentire il traffico in uscita solo per l'indirizzo IP del gateway del database SQL di Azure. L'uso dell'impostazione `Proxy` ha una latenza maggiore rispetto all'impostazione `Redirect`.
-- Se il criterio di connessione è impostato su `Redirect`, tutti i pacchetti di rete passano direttamente al cluster di database. Per questa impostazione, è necessario consentire il traffico in uscita verso più IP.
-
-## <a name="script-to-change-connection-settings-via-powershell"></a>Script per modificare le impostazioni di connessione tramite PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici. Lo script seguente richiede il [modulo Azure PowerShell](/powershell/azure/install-az-ps).
-
-Lo script di PowerShell seguente mostra come modificare il criterio di connessione.
-
-```powershell
-# Get SQL Server ID
-$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
-
-# Set URI
-$id="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
-
-# Update connection policy
-Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
-```
-
-## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script per modificare le impostazioni di connessione tramite l'interfaccia della riga di comando di Azure
-
-> [!IMPORTANT]
-> Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-### <a name="azure-cli-in-a-bash-shell"></a>INTERFACCIA della riga di comando di Azure in una shell bash
-
-> [!IMPORTANT]
-> Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-Il seguente script dell'interfaccia della riga di comando Mostra come modificare i criteri di connessione in una shell bash.
-
-```azurecli-interactive
-# Get SQL Server ID
-sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
-
-# Set URI
-ids="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-az resource show --ids $ids
-
-# Update connection policy
-az resource update --ids $ids --set properties.connectionType=Proxy
-```
-
-### <a name="azure-cli-from-a-windows-command-prompt"></a>CLI di Azure da un prompt dei comandi di Windows
-
-> [!IMPORTANT]
-> Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-Lo script CLI seguente mostra come modificare i criteri di connessione da un prompt dei comandi di Windows (con l'interfaccia della riga di comando di Azure installata).
-
-```azurecli
-# Get SQL Server ID and set URI
-FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
-
-# Get current connection policy
-az resource show --ids %sqlserverid%
-
-# Update connection policy
-az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

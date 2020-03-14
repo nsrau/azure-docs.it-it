@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349688"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282484"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
@@ -45,7 +45,7 @@ Le funzionalità di diagnostica fornite sono costituite da un set completo di ev
 
 Gli eventi vengono inviati tramite canali standard sia su Windows che su Linux e possono essere letti da qualsiasi strumento di monitoraggio che li supporti. La soluzione monitoraggio di Azure è log di monitoraggio di Azure. È possibile leggere altre informazioni sull' [integrazione dei log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md) , che include un dashboard operativo personalizzato per il cluster e alcune query di esempio da cui è possibile creare avvisi. Per altri concetti di monitoraggio del cluster, vedere [Monitoraggio del cluster e della piattaforma](service-fabric-diagnostics-event-generation-infra.md).
 
-### <a name="health-monitoring"></a>Monitoraggio dell'integrità
+### <a name="health-monitoring"></a>Monitoraggio dell’integrità
 La piattaforma Service Fabric include un modello di integrità che fornisce report di integrità estendibili sullo stato delle entità presenti in un cluster. Ogni nodo, applicazione, servizio, partizione, replica o istanza presenta uno stato di integrità costantemente aggiornabile, che può essere "OK", "Avviso" o "Errore". Gli eventi di Service Fabric possono essere definiti come operazioni eseguite dal cluster sulle varie entità, mentre l'integrità è uno stato che si applica a ogni entità. Ad ogni transizione dell'integrità di una particolare entità viene generato anche un evento. In questo modo è possibile configurare query e avvisi per gli eventi di integrità nello strumento di monitoraggio scelto, come avviene con qualsiasi altro evento. 
 
 Gli utenti possono inoltre eseguire l'override dell'integrità delle entità. Se l'applicazione è in fase di aggiornamento e non supera i test di convalida, è possibile scrivere nel servizio di monitoraggio dell'integrità di Service Fabric usando l'API Integrità per indicare che l'applicazione non è più integra, e Service Fabric ripristinerà automaticamente lo stato precedente all'aggiornamento. Per altre informazioni sul modello di integrità, vedere [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md).
