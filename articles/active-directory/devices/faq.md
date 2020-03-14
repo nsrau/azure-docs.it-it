@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f5345a96e333e0f75264880ee18a95c9ab8dd63c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185839"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262256"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "77185839"
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>D: il dispositivo è stato registrato di recente. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure? O perché il proprietario del dispositivo è contrassegnato come N/d per i dispositivi aggiunti a Azure Active Directory ibrido (Azure AD)?
 
 **R:** I dispositivi Windows 10 ibridi Azure AD aggiunti non vengono visualizzati in **dispositivi utente**.
-Usare la visualizzazione **Tutti i dispositivi** nel portale di Azure. In alternativa, è possibile usare un cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) di PowerShell.
+Usare la visualizzazione **Tutti i dispositivi** nel portale di Azure. In alternativa, è possibile usare un cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) di PowerShell.
 
 Sotto **Dispositivi utente** vengono elencati solo i dispositivi seguenti:
 
@@ -62,7 +62,7 @@ Sotto **Dispositivi utente** vengono elencati solo i dispositivi seguenti:
 - L'utente disabilita il dispositivo dal portale app personali. 
 - Un amministratore (o utente) Elimina o Disabilita il dispositivo nella portale di Azure o tramite PowerShell
 - Azure AD ibrido solo join: un amministratore rimuove l'ambito di sincronizzazione dei dispositivi dall'ambito di sincronizzazione risultante dall'eliminazione dei dispositivi da Azure AD
-- Aggiornamento Azure AD connettersi alla versione 1.4. XX. x. [Informazioni Azure ad Connect 1.4. XX. x e la scomparsa del dispositivo](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Aggiornamento Azure AD connettersi alla versione 1.4. XX. x. [Informazioni Azure ad Connect 1.4. XX. x e la scomparsa del dispositivo](/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 Vedere di seguito il modo in cui è possibile rettificare queste azioni.
@@ -128,7 +128,7 @@ Vedere di seguito il modo in cui è possibile rettificare queste azioni.
 **R:** È necessaria un'ora per applicare una revoca dal momento in cui il dispositivo Azure AD è contrassegnato come disabilitato.
 
 >[!NOTE] 
->Per quanto riguarda i dispositivi registrati, è consigliabile cancellarli per assicurare che gli utenti non possano accedere alle relative risorse. Per ulteriori informazioni, vedere [Informazioni sulla gestione dei dispositivi](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Per quanto riguarda i dispositivi registrati, è consigliabile cancellarli per assicurare che gli utenti non possano accedere alle relative risorse. Per ulteriori informazioni, vedere [Informazioni sulla gestione dei dispositivi](/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
@@ -180,13 +180,13 @@ Gli utenti eliminati o disabilitati che non hanno effettuato l'accesso in preced
 
 ### <a name="q-my-users-cant-search-printers-from-azure-ad-joined-devices-how-can-i-enable-printing-from-those-devices"></a>D: gli utenti non possono cercare stampanti da Azure AD dispositivi aggiunti. Come è possibile abilitare la stampa da tali dispositivi?
 
-**R:** Per distribuire le stampanti per i dispositivi Azure AD aggiunti, vedere [distribuire la stampa cloud ibrida di Windows Server con pre-autenticazione](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
+**R:** Per distribuire le stampanti per i dispositivi Azure AD aggiunti, vedere [distribuire la stampa cloud ibrida di Windows Server con pre-autenticazione](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
 
 ---
 
 ### <a name="q-how-do-i-connect-to-a-remote-azure-ad-joined-device"></a>D: Ricerca per categorie connettersi a un dispositivo remoto Azure AD aggiunto?
 
-**R:** Vedere [connettersi a un computer Azure Active Directory aggiunto in remoto](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
+**R:** Vedere [connettersi a un computer Azure Active Directory aggiunto in remoto](/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
@@ -220,7 +220,7 @@ Questo comportamento:
 
 ### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>D: perché vengono visualizzati gli *Oops... si è verificato un errore.* Quando si tenta di Azure AD aggiungere il PC?
 
-**R:** Questo errore si verifica quando si configura Azure Active Directory registrazione con Intune. Verificare che all'utente che cerca di aggiungere il PC ad Azure AD sia assegnata la licenza di Intune corretta. Per altre informazioni, vedere [Set up enrollment for Windows devices (Configurare la registrazione in blocco per i dispositivi Windows)](https://docs.microsoft.com/intune/windows-enroll).  
+**R:** Questo errore si verifica quando si configura Azure Active Directory registrazione con Intune. Verificare che all'utente che cerca di aggiungere il PC ad Azure AD sia assegnata la licenza di Intune corretta. Per altre informazioni, vedere [Set up enrollment for Windows devices (Configurare la registrazione in blocco per i dispositivi Windows)](/intune/windows-enroll).  
 
 ---
 
@@ -307,7 +307,7 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 
 **R:** Seguire questa procedura:
 
-1.  [Creare i criteri di conformità del dispositivo](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+1.  [Creare i criteri di conformità del dispositivo](/intune/compliance-policy-create-mac-os)
 1.  [Definire un criterio di accesso condizionale per i dispositivi macOS](../active-directory-conditional-access-azure-portal.md) 
 
 **Note:**

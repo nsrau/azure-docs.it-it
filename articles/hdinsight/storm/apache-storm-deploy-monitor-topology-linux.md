@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494963"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271902"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuire e gestire le topologie Apache Storm su Azure HDInsight
 
 In questo documento sono illustrati i concetti di gestione e monitoraggio delle topologie [Apache Storm](https://storm.apache.org/) in esecuzione su Storm in cluster HDInsight.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un cluster Apache Storm in HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **Storm** per **Tipo di cluster**.
 
@@ -40,7 +40,7 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 1. Avviare Visual Studio.
 
-1. Nella finestra **Start** selezionare **Crea un nuovo progetto**.
+1. Nella finestra **iniziale** selezionare **Crea un nuovo progetto**.
 
 1. Nella finestra **Crea un nuovo progetto** selezionare la casella di ricerca e immettere `Storm`. Quindi scegliere **Storm Sample** dall'elenco dei risultati e fare clic su **Next (avanti**).
 
@@ -172,7 +172,7 @@ L'interfaccia utente di Storm fornisce un'interfaccia Web per lavorare con le to
 
 Nella pagina principale dell'interfaccia utente di Storm sono disponibili le informazioni seguenti.
 
-| Sezione | Description |
+| Sezione | Descrizione |
 | --- | --- |
 | Riepilogo del cluster| informazioni di base sul cluster Storm. |
 | Riepilogo di Nimbus | Elenco di informazioni Nimbus di base. |
@@ -188,7 +188,7 @@ La pagina principale dell'interfaccia utente di Storm ha un aspetto simile a que
 
 Se si seleziona un collegamento nella sezione **Topology summary** , verranno visualizzate le informazioni seguenti sulla topologia.
 
-| Sezione | Description |
+| Sezione | Descrizione |
 | --- | --- |
 | Topology summary | informazioni di base sulla topologia. |
 | Azioni della topologia| Azioni di gestione che è possibile eseguire per la topologia. Le azioni disponibili sono descritte più avanti in questa sezione. |
@@ -205,9 +205,9 @@ La pagina di riepilogo della topologia Storm è simile a questa pagina Web:
 
 Nella sezione **azioni topologia** è possibile selezionare i pulsanti seguenti per eseguire un'azione:
 
-| Pulsante | Description |
+| Pulsante | Descrizione |
 | --- | --- |
-| Attiva | riprende l'elaborazione di una topologia disattivata. |
+| Activate | riprende l'elaborazione di una topologia disattivata. |
 | Disattivare | sospende una topologia in esecuzione. |
 | Ribilanciare | regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi nel cluster. Questa operazione consente alla topologia di regolare il parallelismo per compensare il numero aggiuntivo o ridotto dei nodi nel cluster.<br/><br/>Per altre informazioni, vedere <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of an Apache Storm topology</a> (Informazioni sul parallelismo di una topologia Apache Storm).
 | Kill | arresta una topologia Storm dopo il timeout specificato. |
@@ -219,7 +219,7 @@ Nella sezione **azioni topologia** è possibile selezionare i pulsanti seguenti 
 
 Se si seleziona un elemento nella sezione **Spouts** o **Bolts**, verranno visualizzate le informazioni seguenti:
 
-| Sezione | Description |
+| Sezione | Descrizione |
 | --- | --- |
 | Riepilogo componenti | informazioni di base sullo spout o sul bolt. |
 | Azioni componente | Pulsanti **debug e** **Interrompi debug** . |
@@ -249,13 +249,13 @@ L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibil
 
 È possibile trovare il nome di dominio completo (FQDN) per il nodo head del cluster in diversi modi:
 
-| FQDN (metodo di individuazione) | Description |
+| FQDN (metodo di individuazione) | Descrizione |
 | --- | --- |
-| Sessione SSH | Usare il comando `headnode -f` da una sessione SSH al cluster. |
+| Sessione SSH | usare il comando `headnode -f` da una sessione SSH al cluster. |
 | Ambari Web | Nella pagina Web del cluster Ambari (`https://CLUSTERNAME.azurehdinsight.net`) selezionare **Servizi** nella parte superiore della pagina, quindi selezionare **Storm**. Dalla scheda **Riepilogo** selezionare **Storm UI Server** (Server dell'interfaccia utente di Storm). Il nome FQDN del nodo che ospita l'API REST e l'interfaccia utente di Storm è visualizzato nella parte superiore della pagina. |
-| API REST Ambari | Usare il comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` per recuperare le informazioni sul nodo su cui sono in esecuzione l'interfaccia utente di Storm e l'API REST. Sostituire le due istanze di *clustername* con il nome del cluster. Quando richiesto, immettere la password per l'account utente (amministratore). Nella risposta, la voce "host_name" dell'output JSON contiene il nome di dominio completo (FQDN) del nodo. |
+| API REST Ambari | usare il comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` per recuperare informazioni sul nodo in cui sono in esecuzione l'interfaccia utente di Storm e l'API REST. Sostituire le due istanze di *clustername* con il nome del cluster. Quando richiesto, immettere la password per l'account utente (amministratore). Nella risposta, la voce "host_name" dell'output JSON contiene il nome di dominio completo (FQDN) del nodo. |
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 Le richieste all'API REST devono usare l' *autenticazione di base*, quindi è necessario usare il nome e la password dell'amministratore per il cluster HDInsight.
 

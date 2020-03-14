@@ -12,11 +12,11 @@ manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
 ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360287"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269133"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Sicurezza dei dati avanzata per il database SQL di Azure
 
@@ -58,7 +58,7 @@ Fare clic sulla scheda **Individuazione dati e classificazione** per visualizzar
 
 Per visualizzare e gestire le impostazioni di Sicurezza dei dati avanzata, passare a **Sicurezza dei dati avanzata** sotto l'intestazione **Sicurezza** per l'istanza gestita o il server di database SQL. In questa pagina è possibile abilitare o disabilitare gli annunci e modificare la valutazione della vulnerabilità e le impostazioni di Advanced Threat Protection per l'intero server di database SQL o istanza gestita.
 
-![Impostazioni server](./media/sql-advanced-protection/server_settings.png) 
+![Impostazioni del server](./media/sql-advanced-protection/server_settings.png) 
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. gestire le impostazioni ADS per un database SQL
 

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121744"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259474"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -264,18 +264,18 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Operazione | Attestazione necessaria | Ambito attestazione |
 | --- | --- | --- |
 | **Spazio dei nomi** | | |
-| Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
+| Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | **Registro di sistema del servizio** | | |
-| Enumerare i criteri privati |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
+| Enumerare i criteri privati |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | Iniziare l'attesa su uno spazio dei nomi del servizio |Attesa |Qualsiasi indirizzo dello spazio dei nomi |
-| Inviare messaggi a un listener in uno spazio dei nomi |Invia |Qualsiasi indirizzo dello spazio dei nomi |
+| Inviare messaggi a un listener in uno spazio dei nomi |Send |Qualsiasi indirizzo dello spazio dei nomi |
 | **Coda** | | |
-| Creare una coda |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare una coda |Gestire |Qualsiasi indirizzo valido della coda |
-| Enumerare le code |Gestire |/$Resources/Queues |
-| Ottenere la descrizione di una coda |Gestire |Qualsiasi indirizzo valido della coda |
-| Configurare le regole di autorizzazione per una coda |Gestire |Qualsiasi indirizzo valido della coda |
-| Effettuare un invio alla coda |Invia |Qualsiasi indirizzo valido della coda |
+| Creare una coda |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare una coda |Gestione |Qualsiasi indirizzo valido della coda |
+| Enumerare le code |Gestione |/$Resources/Queues |
+| Ottenere la descrizione di una coda |Gestione |Qualsiasi indirizzo valido della coda |
+| Configurare le regole di autorizzazione per una coda |Gestione |Qualsiasi indirizzo valido della coda |
+| Effettuare un invio alla coda |Send |Qualsiasi indirizzo valido della coda |
 | Ricevere messaggi da una coda |Attesa |Qualsiasi indirizzo valido della coda |
 | Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |Qualsiasi indirizzo valido della coda |
 | Rinviare un messaggio per il successivo recupero |Attesa |Qualsiasi indirizzo valido della coda |
@@ -284,25 +284,25 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Impostare lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
 | Pianificare il recapito ritardato di un messaggio, ad esempio [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Attesa | Qualsiasi indirizzo valido della coda
 | **Argomento** | | |
-| Creare un argomento |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
-| Enumerare gli argomenti |Gestire |/$Resources/Topics |
-| Ottenere la descrizione di un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
-| Configurare le regole di autorizzazione per un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
-| Effettuare un invio all'argomento |Invia |Qualsiasi indirizzo valido dell'argomento |
+| Creare un argomento |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare un argomento |Gestione |Qualsiasi indirizzo valido dell'argomento |
+| Enumerare gli argomenti |Gestione |/$Resources/Topics |
+| Ottenere la descrizione di un argomento |Gestione |Qualsiasi indirizzo valido dell'argomento |
+| Configurare le regole di autorizzazione per un argomento |Gestione |Qualsiasi indirizzo valido dell'argomento |
+| Effettuare un invio all'argomento |Send |Qualsiasi indirizzo valido dell'argomento |
 | **Sottoscrizione** | | |
-| Creare una sottoscrizione |Gestire |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare una sottoscrizione |Gestire |../myTopic/Subscriptions/mySubscription |
-| Enumerare le sottoscrizioni |Gestire |../myTopic/Subscriptions |
-| Ottenere la descrizione di una sottoscrizione |Gestire |../myTopic/Subscriptions/mySubscription |
+| Creare una sottoscrizione |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare una sottoscrizione |Gestione |../myTopic/Subscriptions/mySubscription |
+| Enumerare le sottoscrizioni |Gestione |../myTopic/Subscriptions |
+| Ottenere la descrizione di una sottoscrizione |Gestione |../myTopic/Subscriptions/mySubscription |
 | Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |../myTopic/Subscriptions/mySubscription |
 | Rinviare un messaggio per il successivo recupero |Attesa |../myTopic/Subscriptions/mySubscription |
 | Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |../myTopic/Subscriptions/mySubscription |
 | Ottenere lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
 | Impostare lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
 | **Regole** | | |
-| Creare una regola |Gestire |../myTopic/Subscriptions/mySubscription |
-| Eliminare una regola |Gestire |../myTopic/Subscriptions/mySubscription |
+| Creare una regola |Gestione |../myTopic/Subscriptions/mySubscription |
+| Eliminare una regola |Gestione |../myTopic/Subscriptions/mySubscription |
 | Enumerare le regole |Manage o Listen |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Passaggi successivi

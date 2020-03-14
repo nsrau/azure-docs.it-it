@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
-ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.date: 3/11/2020
+ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131958"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268704"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 
@@ -33,7 +33,7 @@ Il livello di calcolo senza server per un singolo database è parametrizzato da 
 - Il valore **minimo di Vcore** e il **numero massimo di Vcore** sono parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
 - Il **ritardo di sospensione** automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare l'autosospensione.
 
-### <a name="cost"></a>Costo
+### <a name="cost"></a>Costi
 
 - Il costo di un database senza server è la somma del costo di calcolo e dei costi di archiviazione.
 - Quando l'utilizzo delle risorse di calcolo è compreso tra i limiti minimo e massimo configurati, il costo di calcolo è basato su vCore e sulla memoria usata.
@@ -66,9 +66,9 @@ La tabella seguente riepiloga le differenze tra il livello di calcolo serverless
 | | **Calcolo serverless** | **Calcolo con provisioning** |
 |:---|:---|:---|
 |**Modello di utilizzo del database**| Utilizzo intermittente e non prevedibile con un utilizzo di calcolo medio inferiore nel tempo. |  Modelli di utilizzo più regolari con utilizzo di calcolo medio superiore nel tempo o più database con pool elastici.|
-| **Impegno per la gestione delle prestazioni** |MINUSC|Maggiore|
+| **Impegno per la gestione delle prestazioni** |Minore|Maggiore|
 |**Ridimensionamento delle risorse di calcolo**|Automatico|Manuale|
-|**Tempo di risposta per le risorse di calcolo**|Inferiore dopo periodi di inattività|Immediata|
+|**Tempo di risposta per le risorse di calcolo**|Inferiore dopo periodi di inattività|Immediato|
 |**Granularità della fatturazione**|Al secondo|All'ora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modello di acquisto e livello di servizio
@@ -124,9 +124,9 @@ La sospensione dell'autosospensione è temporaneamente bloccata durante la distr
 
 La ripresa automatica viene attivata se si verifica una delle condizioni seguenti in qualsiasi momento:
 
-|Caratteristica|Trigger di ripresa automatica|
+|Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Accesso|
+|Autenticazione e autorizzazione|Login|
 |Introduzione al rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
@@ -148,6 +148,10 @@ Se un database senza server viene sospeso, il primo account di accesso riprender
 ### <a name="latency"></a>Latenza
 
 La latenza per il riavvio e la sospensione di un database senza server è in genere un ordine di 1 minuto per il riavvio e 1-10 minuti di sospensione.
+
+### <a name="customer-managed-transparent-data-encryption-byok"></a>Transparent Data Encryption gestita dal cliente (BYOK)
+
+Se l'uso di [Transparent Data Encryption](transparent-data-encryption-byok-azure-sql.md) (BYOK) gestito dal cliente e il database senza server viene sospeso automaticamente quando si verifica l'eliminazione o la revoca della chiave, il database rimane nello stato di sospensione automatica.  In questo caso, quando si tenta di riprendere il database rimane sospeso fino a quando il relativo stato non passa a inaccessibile dopo circa 10 minuti.  Quando il database diventa inaccessibile, il processo di ripristino è identico a quello per i database di calcolo di cui è stato effettuato il provisioning.  Se il database senza server è online quando si verifica l'eliminazione o la revoca della chiave, anche il database diventa inaccessibile dopo circa 10 minuti o meno allo stesso modo dei database di calcolo con provisioning.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding nel livello di calcolo senza server
 

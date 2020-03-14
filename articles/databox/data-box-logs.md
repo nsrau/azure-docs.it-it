@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535165"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260020"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Registrazione degli eventi e di rilevamento per il Azure Data Box e Azure Data Box Heavy
 
@@ -24,10 +24,10 @@ Nella tabella seguente viene illustrato un riepilogo dei passaggi per l'ordine d
 | Fase Data Box Order       | Strumento di rilevamento e controllo                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Crea ordine               | [Configurare il controllo di accesso nell'ordine tramite RBAC](#set-up-access-control-on-the-order)                                                    |
-| Ordine elaborato            | [Tenere traccia dell'ordine](#track-the-order) <ul><li> Portale di Azure </li><li> Sito Web del vettore di spedizione </li><li>Notifiche tramite posta elettronica</ul> |
+| Ordine elaborato            | [Tenere traccia dell'ordine](#track-the-order) <ul><li> Portale di Azure </li><li> Sito Web del vettore di spedizione </li><li>Notifiche di posta elettronica</ul> |
 | Configurare il dispositivo              | Credenziali del dispositivo accesso ai [log attività](#query-activity-logs-during-setup) registrate                                              |
 | Copia dei dati nel dispositivo        | [Visualizzare i file *Error. XML* ](#view-error-log-during-data-copy) per la copia dei dati                                                             |
-| Prepara per la spedizione            | [Esaminare i file DBA](#inspect-bom-during-prepare-to-ship) o i file manifesto nel dispositivo                                      |
+| Preparare per la spedizione            | [Esaminare i file DBA](#inspect-bom-during-prepare-to-ship) o i file manifesto nel dispositivo                                      |
 | Caricamento dei dati in Azure       | [Esaminare i log di copia](#review-copy-log-during-upload-to-azure) per individuare eventuali errori durante il caricamento dei dati nel Data Center di Azure                         |
 | Cancellazione dei dati dal dispositivo   | [Visualizza la catena dei log di custodia](#get-chain-of-custody-logs-after-data-erasure) , inclusi i log di controllo e la cronologia degli ordini                |
 
@@ -64,7 +64,7 @@ Per ulteriori informazioni sull'utilizzo di RBAC suggerito, vedere [procedure co
 
 - Il Data Box arriva in locale in uno stato bloccato. È possibile usare le credenziali del dispositivo disponibili nell'portale di Azure per l'ordine.  
 
-    Quando viene configurata una Data Box, potrebbe essere necessario conoscere l'utente che ha eseguito l'accesso alle credenziali del dispositivo. Per determinare chi ha eseguito l'accesso al pannello delle **credenziali del dispositivo** , è possibile eseguire una query sui log attività.  Qualsiasi azione che prevede l'accesso ai **Dettagli del dispositivo > Pannello credenziali** viene registrato nei log attività `ListCredentials` come azione.
+    Quando viene configurata una Data Box, potrebbe essere necessario conoscere l'utente che ha eseguito l'accesso alle credenziali del dispositivo. Per determinare chi ha eseguito l'accesso al pannello delle **credenziali del dispositivo** , è possibile eseguire una query sui log attività.  Qualsiasi azione che prevede l'accesso ai **Dettagli del dispositivo > Pannello credenziali** viene registrato nei log attività come `ListCredentials` azione.
 
     ![Eseguire query sui log attività](media/data-box-logs/query-activity-log-1.png)
 
@@ -257,7 +257,7 @@ Il caricamento in Azure viene completato con avvisi se i dati contengono nomi di
 
 Di seguito è riportato un esempio di un log di copia in cui i contenitori che non sono conformi alle convenzioni di denominazione di Azure sono stati rinominati durante il caricamento dei dati in Azure.
 
-I nuovi nomi univoci per i contenitori sono nel `DataBox-GUID` formato e i dati per il contenitore vengono inseriti nel nuovo contenitore rinominato. Il log di copia specifica il vecchio e il nuovo nome del contenitore per il contenitore.
+I nuovi nomi univoci per i contenitori sono nel formato `DataBox-GUID` e i dati per il contenitore vengono inseriti nel nuovo contenitore rinominato. Il log di copia specifica il vecchio e il nuovo nome del contenitore per il contenitore.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -270,7 +270,7 @@ I nuovi nomi univoci per i contenitori sono nel `DataBox-GUID` formato e i dati 
 
 Di seguito è riportato un esempio di un log di copia in cui i BLOB o i file che non sono conformi alle convenzioni di denominazione di Azure sono stati rinominati durante il caricamento dei dati in Azure. I nuovi nomi di BLOB o file vengono convertiti in SHA256 digest del percorso relativo del contenitore e caricati nel percorso in base al tipo di destinazione. La destinazione può essere costituita da BLOB in blocchi, BLOB di pagine o File di Azure.
 
-`copylog` Specifica il vecchio e il nuovo BLOB o nome file e il percorso in Azure.
+Il `copylog` specifica il vecchio e il nuovo BLOB o nome file e il percorso in Azure.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
@@ -297,7 +297,7 @@ Dopo che i dati sono stati cancellati dai dischi Data Box in base alle linee gui
 
 ### <a name="audit-logs"></a>Log di controllo
 
-I log di controllo contengono informazioni su come accendere e accedere alle condivisioni nel Data Box o Data Box Heavy quando si trova all'esterno del Data Center di Azure. Questi log si trovano in:`storage-account/azuredatabox-chainofcustodylogs`
+I log di controllo contengono informazioni su come accendere e accedere alle condivisioni nel Data Box o Data Box Heavy quando si trova all'esterno del Data Center di Azure. Questi log si trovano in: `storage-account/azuredatabox-chainofcustodylogs`
 
 Di seguito è riportato un esempio di log di controllo da un Data Box:
 
@@ -352,9 +352,9 @@ The authentication information fields provide detailed information about this sp
 ```
 
 
-## <a name="download-order-history"></a>Scarica cronologia ordini
+## <a name="download-order-history"></a>Scaricare la cronologia ordini
 
-La cronologia degli ordini è disponibile in portale di Azure. Se l'ordine è completo e la pulizia del dispositivo (cancellazione dei dati dai dischi) è completa, passare all'ordine del dispositivo e passare a **Order**details. L'opzione **Scarica cronologia ordini** è disponibile. Per ulteriori informazioni, vedere [scaricare la cronologia degli ordini](data-box-portal-admin.md#download-order-history).
+La cronologia degli ordini è disponibile in portale di Azure. Se l'ordine è completo e la pulizia del dispositivo (cancellazione dei dati dai dischi) è completa, passare all'ordine del dispositivo e passare a **Order Details**. L'opzione **Scarica cronologia ordini** è disponibile. Per ulteriori informazioni, vedere [scaricare la cronologia degli ordini](data-box-portal-admin.md#download-order-history).
 
 Scorrendo la cronologia degli ordini, viene visualizzato quanto segue:
 

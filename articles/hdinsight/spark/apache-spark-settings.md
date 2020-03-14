@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397093"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272019"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurare le impostazioni di Apache Spark
 
@@ -140,7 +140,7 @@ Il codice riportato di seguito mostra come modificare la configurazione per un'a
 {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 ```
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Ci sono numerose impostazioni di configurazione principali che è necessario monitorare e modificare per garantire che i processi Spark vengano eseguiti in modo prevedibile e ad alte prestazioni. Queste impostazioni aiutano a determinare la migliore configurazione del cluster Spark per i carichi di lavoro specifici.  È anche necessario monitorare i processi Spark che comportano un'esecuzione prolungata e/o un consumo eccessivo di risorse.  Le sfide più comuni sono legate a un carico eccessivo sulla memoria a causa di configurazioni non corrette (in particolare in caso di executor di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane.
 

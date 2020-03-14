@@ -10,18 +10,18 @@ ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
 ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366207"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270316"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 
 Azure Machine Learning pipeline consentono di creare flussi di lavoro nei progetti di machine learning. Questi flussi di lavoro hanno diversi vantaggi: 
 
 + Semplicità
-+ Velocità
++ speed
 + Ripetibilità
 + Flessibilità
 + Controllo delle versioni e rilevamento

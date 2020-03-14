@@ -14,11 +14,11 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083991"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262815"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
@@ -78,7 +78,7 @@ con:
 
 - `policy` essere una delle stringhe precedenti, ad esempio `PolicySignUpSignIn`.
 - `ParentActivityOrWindow` è necessario per Android (attività) e facoltativa per altre piattaforme che supportano l'interfaccia utente padre, ad esempio Windows in Windows e UIViewController in iOS. Per ulteriori informazioni, vedere [la finestra di dialogo dell'interfaccia utente](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` è un metodo che trova un account per un determinato criterio. Ad esempio,
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` è un metodo che trova un account per un determinato criterio. Ad esempio:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -182,6 +182,6 @@ Un'opzione consiste nell'usare l'attestazione "Name" come nome utente preferito.
 
 Nell'esempio seguente vengono fornite ulteriori informazioni sull'acquisizione di token in modo interattivo con MSAL.NET per Azure AD B2C applicazioni.
 
-| Esempio | Platform | Descrizione|
+| Esempio | Piattaforma | Descrizione|
 |------ | -------- | -----------|
 |[Active-Directory-B2C-Novell-Native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Novell iOS, Novell Android, UWP | Una semplice app Novell Forms che illustra come usare MSAL.NET per autenticare gli utenti tramite Azure AD B2C e accedere a un'API Web con i token risultanti.|

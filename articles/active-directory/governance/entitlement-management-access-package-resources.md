@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376619"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261892"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -92,7 +92,7 @@ Per altre informazioni, vedere [confrontare gruppi](https://docs.microsoft.com/o
 
     |  |  |
     | --- | --- |
-    | Sicurezza | Utilizzato per concedere l'accesso alle risorse. |
+    | Security | Utilizzato per concedere l'accesso alle risorse. |
     | Distribuzione | Utilizzato per l'invio di notifiche a un gruppo di utenti. |
     | O365 | Gruppo Office 365 non abilitato per i team. Usato per la collaborazione tra utenti, all'interno e all'esterno dell'azienda. |
     | Team | Gruppo Office 365 abilitato per i team. Usato per la collaborazione tra utenti, all'interno e all'esterno dell'azienda. |
@@ -103,7 +103,7 @@ Per altre informazioni, vedere [confrontare gruppi](https://docs.microsoft.com/o
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un gruppo o un team](./media/entitlement-management-access-package-resources/group-role.png)
 
-1. Fare clic su **Add**.
+1. Fare clic su **Aggiungi**.
 
     Tutti gli utenti con assegnazioni esistenti al pacchetto di accesso diventeranno automaticamente membri di questo gruppo o team quando verranno aggiunti.
 
@@ -134,7 +134,7 @@ Di seguito sono riportate alcune considerazioni per la selezione di un'applicazi
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un'applicazione](./media/entitlement-management-access-package-resources/application-role.png)
 
-1. Fare clic su **Add**.
+1. Fare clic su **Aggiungi**.
 
     A tutti gli utenti con assegnazioni esistenti al pacchetto di accesso verrà automaticamente concesso l'accesso a questa applicazione al momento dell'aggiunta.
 
@@ -154,7 +154,7 @@ Azure AD possibile assegnare automaticamente agli utenti l'accesso a un sito di 
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un sito di SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
-1. Fare clic su **Add**.
+1. Fare clic su **Aggiungi**.
 
     A tutti gli utenti con assegnazioni esistenti al pacchetto di accesso verrà automaticamente concesso l'accesso al sito di SharePoint Online quando viene aggiunto.
 

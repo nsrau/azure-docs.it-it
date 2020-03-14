@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378470"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264232"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concetti relativi alla gestione di account utente, password e amministrazione in Azure Active Directory Domain Services
 
@@ -23,7 +23,7 @@ Quando si crea ed esegue un dominio gestito di Azure Active Directory Domain Ser
 
 Questo articolo concettuale illustra come amministrare un dominio gestito di Azure AD DS e il comportamento diverso degli account utente a seconda del modo in cui sono stati creati.
 
-## <a name="domain-management"></a>Gestione del dominio
+## <a name="domain-management"></a>Gestione dei domini
 
 In Azure AD DS, i controller di dominio che contengono tutte le risorse, ad esempio utenti e gruppi, le credenziali e i criteri, fanno parte del servizio gestito. Per la ridondanza, vengono creati due controller di dominio come parte di un dominio gestito Azure AD DS. Non è possibile accedere a questi controller di dominio per eseguire attività di gestione. Si crea invece una macchina virtuale di gestione aggiunta al dominio gestito di Azure AD DS, quindi si installano gli strumenti di gestione di servizi di dominio Active Directory regolari. Ad esempio, è possibile utilizzare gli snap-in di Centro di amministrazione di Active Directory o di Microsoft Management Console (MMC) come DNS o Criteri di gruppo oggetti.
 
@@ -46,9 +46,9 @@ Per ulteriori informazioni sulle differenze tra l'applicazione dei criteri passw
 
 ## <a name="password-hashes"></a>Hash delle password
 
-Per autenticare gli utenti nel dominio gestito, Azure AD DS necessita di hash delle password in un formato adatto per l'autenticazione NTLM (NT LAN Manager) e Kerberos. Azure AD non genera né archivia gli hash delle password nel formato necessario per l'autenticazione NTLM o Kerberos fino a quando non si Abilita Azure AD DS per il tenant. Per motivi di sicurezza, Azure AD non archivia anche le credenziali della password in formato testo non crittografato. Pertanto, Azure AD non è in grado di generare automaticamente questi hash di password NTLM o Kerberos in base alle credenziali esistenti degli utenti.
+Per autenticare gli utenti nel dominio gestito, Azure AD DS necessita dell'hash delle password in un formato idoneo per l'autenticazione NTLM (NT LAN Manager) e Kerberos. Azure AD non genera né archivia gli hash delle password nel formato necessario per l'autenticazione NTLM o Kerberos finché non si abilita Azure AD DS per il tenant. Per motivi di sicurezza, Azure AD non archivia nemmeno le credenziali di tipo password in un formato non crittografato. Azure AD quindi non può generare automaticamente questi hash delle password NTLM o Kerberos in base alle credenziali esistenti degli utenti.
 
-Per gli account utente solo cloud, gli utenti devono modificare le password prima di poter usare Azure AD DS. Questo processo di modifica della password causa la generazione e l'archiviazione degli hash delle password per l'autenticazione Kerberos e NTLM in Azure AD.
+Per gli account utente solo cloud, gli utenti devono cambiare le loro password prima di poter usare Azure AD DS. Con questo processo di modifica delle password, in Azure AD vengono generati e archiviati gli hash delle password per l'autenticazione Kerberos e NTLM.
 
 Per gli utenti sincronizzati da un ambiente Active Directory Domain Services locale usando Azure AD Connect, [abilitare la sincronizzazione degli hash delle password][hybrid-phs].
 
@@ -57,10 +57,10 @@ Per gli utenti sincronizzati da un ambiente Active Directory Domain Services loc
 >
 > Se le applicazioni legacy non usano l'autenticazione NTLM o binding semplici LDAP, è consigliabile disabilitare la sincronizzazione dell'hash delle password NTLM per Azure AD DS. Per altre informazioni, vedere disabilitare i pacchetti di [crittografia vulnerabili e la sincronizzazione degli hash delle credenziali NTLM][secure-domain].
 
-Una volta configurata correttamente, gli hash delle password utilizzabili vengono archiviati nel dominio gestito di Azure AD DS. Se si elimina il dominio gestito Azure AD DS, verranno eliminati anche gli hash di password archiviati in quel momento. Le informazioni sulle credenziali sincronizzate in Azure AD non possono essere riutilizzate se in un secondo momento si crea un dominio gestito Azure AD DS. è necessario riconfigurare la sincronizzazione dell'hash delle password per archiviare di nuovo gli hash delle password. In precedenza le VM appartenenti a un dominio o gli utenti non saranno in grado di autenticare immediatamente-Azure AD necessario generare e archiviare gli hash delle password nel nuovo dominio gestito Azure AD DS. Per ulteriori informazioni, vedere [processo di sincronizzazione dell'hash delle password per Azure AD DS e Azure ad Connect][azure-ad-password-sync].
+Dopo la corretta configurazione, gli hash delle password utilizzabili vengono archiviati nel dominio gestito di Azure AD DS. Se si elimina il dominio gestito di Azure AD DS, verranno eliminati anche gli hash delle password archiviati in quel momento. Le informazioni sulle credenziali sincronizzate in Azure AD non possono essere riutilizzate se in un secondo momento si crea un dominio gestito Azure AD DS. è necessario riconfigurare la sincronizzazione dell'hash delle password per archiviare di nuovo gli hash delle password. Le VM o gli utenti precedentemente aggiunti al domino non saranno in grado di eseguire immediatamente l'autenticazione. Azure AD deve generare e archiviare gli hash delle password nel nuovo dominio gestito di Azure AD DS. Per altre informazioni, vedere [Processo di sincronizzazione degli hash delle password per Azure AD DS e Azure AD Connect][azure-ad-password-sync].
 
 > [!IMPORTANT]
-> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti di servizi di dominio Active Directory locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito Azure AD DS per sincronizzare nuovamente gli oggetti con Azure AD.
+> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti AD DS locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito di Azure AD DS per sincronizzare gli oggetti con Azure AD.
 
 ## <a name="forests-and-trusts"></a>Foreste e trust
 
@@ -68,7 +68,7 @@ Una *foresta* è un costrutto logico usato da Active Directory Domain Services (
 
 In Azure AD DS la foresta contiene solo un dominio. Le foreste di servizi di dominio Active Directory locali contengono spesso molti domini. Nelle organizzazioni di grandi dimensioni, soprattutto dopo fusioni e acquisizioni, è possibile che si verifichino più foreste locali, ognuna delle quali contiene più domini.
 
-Per impostazione predefinita, un dominio gestito Azure AD DS viene creato come foresta *utente* . Questo tipo di foresta Sincronizza tutti gli oggetti da Azure AD, inclusi tutti gli account utente creati in un ambiente di servizi di dominio Active Directory locale. Gli account utente possono eseguire l'autenticazione direttamente nel dominio gestito di Azure AD DS, ad esempio per accedere a una macchina virtuale aggiunta a un dominio. Una foresta utente funziona quando gli hash delle password possono essere sincronizzati e gli utenti non usano metodi di accesso esclusivi come l'autenticazione con smart card.
+Per impostazione predefinita, un dominio gestito Azure AD DS viene creato come foresta *utente* . Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Gli account utente possono eseguire l'autenticazione direttamente nel dominio gestito di Azure AD DS, ad esempio per accedere a una macchina virtuale aggiunta a un dominio. Una foresta utente funziona quando gli hash delle password possono essere sincronizzati e gli utenti non usano metodi di accesso esclusivi come l'autenticazione con smart card.
 
 In una foresta di *risorse* Azure AD DS, gli utenti eseguono l'autenticazione su un *trust* tra foreste unidirezionale rispetto ai servizi di dominio Active Directory locali. Con questo approccio, gli oggetti utente e gli hash delle password non vengono sincronizzati con Azure AD DS. Gli oggetti e le credenziali utente esistono solo in servizi di dominio Active Directory locale. Questo approccio consente alle aziende di ospitare risorse e piattaforme applicative in Azure che dipendono dall'autenticazione classica, ad esempio LDAPs, Kerberos o NTLM, ma vengono rimossi eventuali problemi di autenticazione o problemi. Le foreste di risorse Azure AD DS sono attualmente in anteprima.
 
@@ -80,9 +80,9 @@ In Azure AD DS, le prestazioni e le funzionalità disponibili sono basate sullo 
 
 | Nome SKU   | Numero massimo oggetti | Frequenza di backup | Numero massimo di trust tra foreste in uscita |
 |------------|----------------------|------------------|----|
-| Standard   | Illimitato            | Ogni 7 giorni     | 0  |
-| Enterprise | Illimitato            | Ogni 3 giorni     | 5  |
-| Premium    | Illimitato            | giornaliera            | 10 |
+| Standard   | Nessuna limitazione            | Ogni 7 giorni     | 0  |
+| Enterprise | Nessuna limitazione            | Ogni 3 giorni     | 5  |
+| Premium    | Nessuna limitazione            | Giornaliera            | 10 |
 
 Prima di questi SKU Azure AD DS, è stato usato un modello di fatturazione basato sul numero di oggetti (account utente e computer) nel dominio gestito Azure AD DS. Non sono più disponibili prezzi variabili in base al numero di oggetti nel dominio gestito.
 

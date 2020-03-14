@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358839"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270576"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
@@ -22,7 +22,7 @@ Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non 
 > [!TIP]
 > Se è presente un trigger che riceve una matrice e si vuole eseguire un flusso di lavoro per ogni elemento della matrice, è possibile *eseguire il debatch* di tale matrice con la [proprietà **SplitOn** per il trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
@@ -173,7 +173,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    ![Configurare la pianificazione della ricorrenza](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Proprietà | Valore |
+   | Proprietà | valore |
    | -------- | ----- |
    | **Interval** | 1 | 
    | **Frequenza** | Giorno |
@@ -189,7 +189,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
    ![Impostare le proprietà della variabile](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Proprietà | Valore | Descrizione |
+   | Proprietà | valore | Descrizione |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | Nome della variabile | 
    | **Tipo** | Integer | Nome del tipo di dati della variabile | 
@@ -230,7 +230,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       ![Configurare le proprietà del messaggio di posta elettronica](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Proprietà | Valore | Descrizione |
+      | Proprietà | valore | Descrizione |
       | -------- | ----- | ----------- | 
       | **To** | *\<indirizzo di posta elettronica\@dominio >* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
       | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 

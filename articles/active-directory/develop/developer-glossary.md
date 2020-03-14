@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.openlocfilehash: ce98d2db86c87ac6aa8fa4872bc076714467d32f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697541"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263049"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossario per sviluppatori Microsoft Identity Platform
 
@@ -81,7 +81,7 @@ Per informazioni dettagliate, vedere le sezioni relative all' [endpoint di autor
 
 ## <a name="authorization-grant"></a>concessione di autorizzazione
 
-Credenziale che rappresenta l'[autorizzazione](#resource-owner) del [proprietario delle risorse](#authorization) ad accedere alle risorse protette, concessa a un'[applicazione client](#client-application). Un'applicazione client può usare uno dei [quattro tipi di concessione definiti dal framework di autorizzazione OAuth2][OAuth2-AuthZ-Grant-Types] per ottenere una concessione, a seconda del tipo di client/requisiti: "concessione del codice di autorizzazione", "concessione di credenziali client", "concessione implicita" e "concessione di credenziali per la password del proprietario della risorsa". A seconda del tipo di concessione di autorizzazione usato, la credenziale restituita al client è un [token di accesso](#access-token) o un [codice di autorizzazione](#authorization-code) successivamente scambiato con un token di accesso.
+Credenziale che rappresenta l' [autorizzazione](#authorization) del [proprietario della risorsa](#resource-owner) per accedere alle risorse protette, concesse a un' [applicazione client](#client-application). Un'applicazione client può usare uno dei [quattro tipi di concessione definiti dal framework di autorizzazione OAuth2][OAuth2-AuthZ-Grant-Types] per ottenere una concessione, a seconda del tipo di client/requisiti: "concessione del codice di autorizzazione", "concessione di credenziali client", "concessione implicita" e "concessione di credenziali per la password del proprietario della risorsa". A seconda del tipo di concessione di autorizzazione usato, la credenziale restituita al client è un [token di accesso](#access-token) o un [codice di autorizzazione](#authorization-code) successivamente scambiato con un token di accesso.
 
 ## <a name="authorization-server"></a>server di autorizzazione
 
@@ -109,7 +109,7 @@ Per altre informazioni, vedere [framework di consenso](consent-framework.md).
 
 ## <a name="id-token"></a>token ID
 
-Un [OpenID Connect][OpenIDConnect-ID-Token] [token di sicurezza](#security-token) fornito dal [server di autorizzazione](#authorization-server) [endpoint di autorizzazione](#authorization-endpoint), che contiene [attestazioni](#claim) relative all'autenticazione di un [proprietario della risorsa](#resource-owner) dell'utente finale. Analogamente a un token di accesso, i token ID sono rappresentati anche come [token Web JSON con firma digitale (JWT)][JWT]. A differenza di un token di accesso, tuttavia, le attestazioni di un token ID non vengono usate per scopi correlati all'accesso alle risorse e specificamente al controllo di accesso.
+Un [token di sicurezza](#security-token) [OpenID Connect][OpenIDConnect-ID-Token] fornito dall' [endpoint di autorizzazione](#authorization-endpoint)di un [server di autorizzazione](#authorization-server) che contiene [attestazioni](#claim) relative all'autenticazione di un [proprietario della risorsa](#resource-owner)dell'utente finale. Analogamente a un token di accesso, i token ID sono rappresentati anche come [token Web JSON con firma digitale (JWT)][JWT]. A differenza di un token di accesso, tuttavia, le attestazioni di un token ID non vengono usate per scopi correlati all'accesso alle risorse e specificamente al controllo di accesso.
 
 Per ulteriori informazioni, vedere il [riferimento al token della piattaforma Microsoft Identity][AAD-Tokens-Claims] .
 

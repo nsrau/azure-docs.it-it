@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: f49396331a31f7ca9eaf453dc8bf6880da2e0da8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613857"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265480"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gestire un dispositivo Azure Data Box Edge tramite Windows PowerShell
 
@@ -62,7 +62,7 @@ Per altre informazioni sui certificati, vedere [Azure IOT Edge Certificates](htt
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
-## <a name="reset-your-device"></a>Reset your device (Reimpostare il dispositivo)
+## <a name="reset-your-device"></a>Ripristinare il dispositivo
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 

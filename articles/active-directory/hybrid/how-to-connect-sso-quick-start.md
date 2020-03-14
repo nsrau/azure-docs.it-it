@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376140"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261203"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -142,15 +142,15 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 5. Fare clic su **OK** e quindi nuovamente su **OK**.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Passare a **Configurazione utente** > **criteri** > **Modelli amministrativi** > **componenti di Windows** > **Internet Explorer** ** >  > ** **pagina sicurezza** > **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Abilitare l'impostazione del criterio e quindi fare clic su **OK**.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opzione "Preferenza di Criteri di gruppo" - Procedura dettagliata
 
@@ -158,7 +158,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
 3. Passare a **Configurazione utente** > **Preferenze** > **Impostazioni di Windows** > **Registro di sistema** > **Nuovo** > **Elemento Registro di sistema**.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Immettere i valori seguenti nei campi appropriati e fare clic su **OK**.
    - **Percorso chiave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,9 +166,9 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
    - **Tipo di valore**: ***REG_DWORD***.
    - **Dati valore**: ***00000001***.
  
-     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
-     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Considerazioni sui browser
 

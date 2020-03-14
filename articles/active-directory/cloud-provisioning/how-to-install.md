@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620944"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263348"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
 Questo documento illustra il processo di installazione per l'agente di provisioning di Azure Active Directory (Azure AD) e come configurarlo inizialmente nella portale di Azure.
@@ -45,7 +45,7 @@ Per installare l'agente, attenersi alla seguente procedura.
    ![Schermata del pacchetto dell'agente di provisioning di Microsoft Azure AD Connect](media/how-to-install/install1.png)</br>
 
 1. Al termine di questa operazione, viene avviata la configurazione guidata. Accedere con l'account amministratore globale di Azure AD.
-1. Nella schermata **connetti Active Directory** selezionare **Aggiungi directory**. Accedere quindi con l'account amministratore Active Directory. Questa operazione aggiunge la directory locale. Fare clic su **Avanti**.
+1. Nella schermata **connetti Active Directory** selezionare **Aggiungi directory**. Accedere quindi con l'account amministratore Active Directory. Questa operazione aggiunge la directory locale. Selezionare **Avanti**.
 
    ![Schermata Connetti Active Directory](media/how-to-install/install3.png)</br>
 

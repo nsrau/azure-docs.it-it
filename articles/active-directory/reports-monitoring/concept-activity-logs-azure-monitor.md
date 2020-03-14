@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014510"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266546"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD log attività in monitoraggio di Azure
 
@@ -48,7 +48,7 @@ Usando questa funzionalità, è possibile instradare i log di accesso e i log di
 > I log attività di controllo e di accesso correlati a B2C non sono al momento supportati.
 >
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare questa funzionalità, sono necessari:
 
@@ -78,10 +78,10 @@ La tabella seguente contiene una stima del costo, a seconda delle dimensioni del
 
 | Categoria di log | Numero di utenti | Eventi al giorno | Volume di dati mensile (stima) | Costo mensile (stima) | Costo annuale (stima) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Audit | 100.000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
+| Audit | 100,000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
 | Audit | 1\.000 | 15.000 | 900 MB | $0,02 | $0,24 |
 | Accessi | 1\.000 | 34.800 | 4 GB | $0,13 | $1,56 |
-| Accessi | 100.000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 |
+| Accessi | 100,000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 |
  
 
 
@@ -102,7 +102,7 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Audit | 100.000 | 18 | 5\.400 | 10,8 MB | 43 | 371.520 | $10,83 |
+| Audit | 100,000 | 18 | 5\.400 | 10,8 MB | 43 | 371.520 | $10,83 |
 | Audit | 1\.000 | 0,1 | 52 | 104 KB | 1 | 8\.640 | $10,80 |
 | Accessi | 1\.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3\.611.520 | $11,06 |  
 
@@ -112,9 +112,9 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 
 | Categoria di log       | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo al mese in USD (est) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Controllo e accessi | 100.000         | 16,5 milioni     | 495 milioni                |  $1093,00                       |
-| Audit              | 100.000         | 1,5 milioni      | 45.000.000                 |  $246,66                     |
-| Accessi           | 100.000         | 15.000.000     | 450 milioni                |  $847,28                     |
+| Controllo e accessi | 100,000         | 16,5 milioni     | 495 milioni                |  $1093,00                       |
+| Audit              | 100,000         | 1,5 milioni      | 45.000.000                 |  $246,66                     |
+| Accessi           | 100,000         | 15.000.000     | 450 milioni                |  $847,28                     |
 
 
 

@@ -17,12 +17,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 64d8481200359b4a4421e3f3c99e4fc5a32ef23f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 88b61b29b1386f461620ad602a88d2d1253aa905
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159542"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262347"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -37,11 +37,10 @@ Microsoft Identity Platform implementa il protocollo di autorizzazione [OAuth 2.
 
 * Microsoft Graph: `https://graph.microsoft.com`
 * API Office 365 Mail: `https://outlook.office.com`
-* Azure AD Graph: `https://graph.windows.net`
 * Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> È consigliabile usare Microsoft Graph invece di Azure AD Graph, dell'API Office 365 Mail e così via.
+> Si consiglia vivamente di usare Microsoft Graph anziché l'API di posta elettronica di Office 365 e così via.
 
 Lo stesso vale per le risorse di terze parti integrate con Microsoft Identity Platform. Tali risorse possono anche definire un set di autorizzazioni che può essere usato per suddividere le funzionalità di tale risorsa in blocchi più piccoli. Ad esempio, [Microsoft Graph](https://graph.microsoft.com) ha definito le autorizzazioni per eseguire le attività seguenti, tra le altre:
 
@@ -123,7 +122,7 @@ Il parametro `scope` è un elenco di autorizzazioni delegate separate da spazi r
 Dopo che l'utente immette le proprie credenziali, l'endpoint della piattaforma di identità Microsoft verifica la presenza di un record corrispondente di *consenso dell'utente*. Se l'utente non ha acconsentito a nessuna delle autorizzazioni richieste in passato, né dispone di un amministratore autorizzato a queste autorizzazioni per conto dell'intera organizzazione, l'endpoint della piattaforma Microsoft Identity chiede all'utente di concedere le autorizzazioni richieste.
 
 > [!NOTE]
-> Attualmente, le autorizzazioni `offline_access` ("Mantieni l'accesso ai dati per cui hai concesso l'accesso a") e `user.read` ("Accedi e visualizza il profilo personale") vengono automaticamente incluse nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per il corretto funzionamento dell'app: `offline_access` consente all'app di accedere a token di aggiornamento, essenziali per le app Web e native, mentre `user.read` consente di accedere all'attestazione `sub`, permettendo al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni utente elementari.  
+>Attualmente, le autorizzazioni `offline_access` ("Mantieni l'accesso ai dati per cui hai concesso l'accesso a") e `user.read` ("Accedi e visualizza il profilo personale") vengono automaticamente incluse nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per il corretto funzionamento dell'app: `offline_access` consente all'app di accedere a token di aggiornamento, essenziali per le app Web e native, mentre `user.read` consente di accedere all'attestazione `sub`, permettendo al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni utente elementari.  
 
 ![Schermata di esempio che mostra il consenso dell'account di lavoro](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -166,16 +165,16 @@ Per un esempio di codice che implementa la procedura, vedere l'[esempio sugli am
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Richiedere le autorizzazioni nel portale di registrazione dell'app
 
-Le applicazioni sono in grado di rilevare le autorizzazioni necessarie (sia delegate che applicazione) nel portale di registrazione delle app.  Questo consente l'uso dell'ambito di `/.default` e dell'opzione "Concedi l'autorizzazione dell'amministratore" del portale di Azure.  In generale, è consigliabile assicurarsi che le autorizzazioni definite in modo statico per una determinata applicazione siano un superset delle autorizzazioni che verranno richieste in modo dinamico/incrementale.
+Le applicazioni sono in grado di rilevare le autorizzazioni necessarie (sia delegate che applicazione) nel portale di registrazione delle app.  In questo modo è possibile utilizzare l'ambito `/.default` e l'opzione "Concedi autorizzazione amministratore" del portale di Azure.  In generale, è consigliabile assicurarsi che le autorizzazioni definite in modo statico per una determinata applicazione siano un superset delle autorizzazioni che verranno richieste in modo dinamico/incrementale.
 
 > [!NOTE]
-Le autorizzazioni dell'applicazione possono essere richieste solo tramite l'uso di [`/.default`](#the-default-scope) , quindi se l'app richiede le autorizzazioni dell'applicazione, assicurarsi che siano elencate nel portale di registrazione delle app.  
+>Le autorizzazioni dell'applicazione possono essere richieste solo tramite l'uso di [`/.default`](#the-default-scope) , quindi se l'app richiede le autorizzazioni dell'applicazione, assicurarsi che siano elencate nel portale di registrazione delle app.
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Per configurare l'elenco delle autorizzazioni richieste in modo statico per un'applicazione
 
 1. Passare all'applicazione nell'esperienza [portale di Azure-registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) oppure [creare un'app](quickstart-register-app.md) , se non è già stata eseguita.
 2. Individuare la sezione **autorizzazioni API** e, all'interno delle autorizzazioni API, fare clic su Aggiungi un'autorizzazione.
-3. Selezionare la risorsa preferita (ad esempio **Microsoft Graph**) nell'elenco delle API disponibili e quindi aggiungere le autorizzazioni richieste dall'app.
+3. Selezionare **Microsoft Graph** dall'elenco delle API disponibili e quindi aggiungere le autorizzazioni richieste dall'app.
 3. **Salvare** la registrazione dell'app.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Consigliato: accedere all'utente nell'app
@@ -265,7 +264,7 @@ Per ulteriori informazioni sul protocollo OAuth 2,0 e su come ottenere i token d
 
 ## <a name="the-default-scope"></a>Ambito /.default
 
-È possibile usare l'ambito `/.default` per eseguire la migrazione delle app dall'endpoint v 1.0 all'endpoint della piattaforma Microsoft Identity. Si tratta di un ambito predefinito per ogni applicazione che fa riferimento all'elenco statico di autorizzazioni configurate nella registrazione dell'applicazione. Un valore `scope` di `https://graph.microsoft.com/.default` è funzionalmente identico a `resource=https://graph.microsoft.com` degli endpoint v1.0, vale a dire che richiede un token con gli ambiti in Microsoft Graph per cui l'applicazione è registrata nel portale di Azure.  Viene costruito usando l'URI di risorsa + `/.default` (ad esempio, se l'URI della risorsa è `https://contosoApp.com`, l'ambito richiesto verrà `https://contosoApp.com/.default`).  Vedere la [sezione sulle barre finali](#trailing-slash-and-default) per i casi in cui è necessario includere una seconda barra per richiedere correttamente il token.  
+È possibile usare l'ambito `/.default` per eseguire la migrazione delle app dall'endpoint v 1.0 all'endpoint della piattaforma Microsoft Identity. Si tratta di un ambito predefinito per ogni applicazione che fa riferimento all'elenco statico di autorizzazioni configurate nella registrazione dell'applicazione. Un valore `scope` di `https://graph.microsoft.com/.default` è funzionalmente identico a `resource=https://graph.microsoft.com` degli endpoint v1.0, vale a dire che richiede un token con gli ambiti in Microsoft Graph per cui l'applicazione è registrata nel portale di Azure.  Viene costruito usando l'URI di risorsa + `/.default` (ad esempio, se l'URI della risorsa è `https://contosoApp.com`, l'ambito richiesto verrà `https://contosoApp.com/.default`).  Vedere la [sezione sulle barre finali](#trailing-slash-and-default) per i casi in cui è necessario includere una seconda barra per richiedere correttamente il token.
 
 L'ambito/.default può essere usato in qualsiasi flusso OAuth 2,0, ma è necessario per il flusso di [credenziali client](v2-oauth2-client-creds-grant-flow.md)e [di flusso per conto di](v2-oauth2-on-behalf-of-flow.md) , nonché quando si usa l'endpoint di consenso dell'amministratore V2 per richiedere le autorizzazioni dell'applicazione.  
 
@@ -286,7 +285,7 @@ In questo esempio, l'utente (o un amministratore tenant) ha concesso al client l
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Esempio 2: l'utente non ha concesso le autorizzazioni tra il client e la risorsa
 
-In questo esempio non esiste alcun consenso per l'utente tra il client e Microsoft Graph. Il client è stato registrato per le autorizzazioni `user.read` e `contacts.read`, oltre che per l'ambito di Azure Key Vault `https://vault.azure.net/user_impersonation`. Quando il client richiede un token per `scope=https://graph.microsoft.com/.default`, l'utente visualizzerà una schermata di consenso per gli ambiti `user.read`, `contacts.read` e `user_impersonation` di Key Vault. Il token restituito avrà solo gli ambiti di `user.read` e di `contacts.read` e potrà essere utilizzato solo con Microsoft Graph. 
+In questo esempio non esiste alcun consenso per l'utente tra il client e Microsoft Graph. Il client è stato registrato per le autorizzazioni `user.read` e `contacts.read`, oltre che per l'ambito di Azure Key Vault `https://vault.azure.net/user_impersonation`. Quando il client richiede un token per `scope=https://graph.microsoft.com/.default`, l'utente visualizzerà una schermata di consenso per gli ambiti `user.read`, `contacts.read` e `user_impersonation` di Key Vault. Il token restituito avrà solo gli ambiti di `user.read` e di `contacts.read` e potrà essere utilizzato solo con Microsoft Graph.
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Esempio 3: l'utente ha acconsentito e il client richiede ambiti aggiuntivi
 
@@ -313,7 +312,7 @@ Questa operazione produce una schermata di consenso per tutte le autorizzazioni 
 
 Alcuni URI delle risorse hanno una barra finale (`https://contoso.com/` anziché `https://contoso.com`), che può causare problemi con la convalida dei token.  Questa situazione può verificarsi principalmente quando si richiede un token per gestione risorse di Azure (`https://management.azure.com/`), che ha una barra finale sull'URI della risorsa e ne richiede la presenza quando viene richiesto il token.  Pertanto, quando si richiede un token per `https://management.azure.com/` e si utilizza `/.default`, è necessario richiedere `https://management.azure.com//.default`. si noti la barra doppia. 
 
-In generale, se è stata convalidata l'emissione del token e il token viene rifiutato dall'API che la accetta, provare a aggiungere una seconda barra e a riprovare. Questo problema si verifica perché il server di accesso emette un token con i destinatari corrispondenti agli URI nel parametro `scope`, con `/.default` rimossi dalla fine.  Se viene rimossa la barra finale, il server di accesso elabora la richiesta e la convalida in base all'URI della risorsa, anche se non corrisponde più, perché non è standard e non deve essere basata sull'applicazione. 
+In generale, se è stata convalidata l'emissione del token e il token viene rifiutato dall'API che la accetta, provare a aggiungere una seconda barra e a riprovare. Questo problema si verifica perché il server di accesso emette un token con i destinatari corrispondenti agli URI nel parametro `scope`, con `/.default` rimossi dalla fine.  Se viene rimossa la barra finale, il server di accesso elabora la richiesta e la convalida in base all'URI della risorsa, anche se non corrisponde più, perché non è standard e non deve essere basata sull'applicazione.  
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Risoluzione dei problemi di autorizzazioni e consenso
 

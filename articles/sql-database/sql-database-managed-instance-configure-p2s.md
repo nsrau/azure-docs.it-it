@@ -12,17 +12,17 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
 ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818924"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268886"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Guida introduttiva: Configurare una connessione da punto a sito da un computer locale a un'istanza gestita di database SQL di Azure
 
 Questa guida introduttiva illustra come connettersi a un'istanza gestita di database SQL di Azure con [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) da un computer client locale tramite una connessione da punto a sito. Per informazioni sulle connessioni da punto a sito, vedere [Informazioni sulla VPN da punto a sito](../vpn-gateway/point-to-site-about.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 La guida introduttiva:
 
@@ -81,7 +81,7 @@ La guida introduttiva:
 1. Passare a **VPN** in **rete & Internet** nel computer client locale e selezionare la rete virtuale istanza gestita per stabilire una connessione a questa VNet. Nell'immagine seguente, la rete virtuale è denominata **MyNewVNet**.
 
     ![Connessione VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
-2. Selezionare **Connessione**.
+2. Selezionare **Connetti**.
 3. Nella finestra di dialogo, selezionare **Connessione**.
 
     ![Connessione VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  
@@ -105,5 +105,5 @@ Dopo la connessione, è possibile visualizzare i database di sistema e utente ne
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una guida introduttiva che illustra come connettersi da una macchina virtuale di Azure, vedere [Configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md).
-- Per una panoramica delle opzioni di connessione per le applicazioni, vedere [Connettere le applicazioni a un'istanza gestita](sql-database-managed-instance-connect-app.md).
+- Per una panoramica delle opzioni di connessione delle applicazioni, consultare [Connessione delle applicazioni a un'Istanza gestita](sql-database-managed-instance-connect-app.md).
 - Per ripristinare un database SQL Server esistente dal sistema locale a un'istanza gestita, è possibile usare il [Servizio Migrazione del database di Azure (DMS) per la migrazione](../dms/tutorial-sql-server-to-managed-instance.md) o il [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) per il ripristino da un file di backup del database.

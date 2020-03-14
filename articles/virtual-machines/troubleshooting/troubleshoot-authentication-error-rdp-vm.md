@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155619"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266975"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Risolvere gli errori di autenticazione quando si usa RDP per connettersi a una macchina virtuale di Azure
 
@@ -35,11 +35,11 @@ Si acquisisce uno screenshot di una macchina virtuale di Azure che mostra la sch
 
 ### <a name="error-message-2"></a>Messaggio di errore 2
 
-**Il computer remoto a cui si sta cercando di connettersi richiede l'autenticazione a livello di rete, ma non è possibile contattare il controller di dominio Windows per eseguire l'autenticazione. Se si è amministratori nel computer remoto, è possibile disabilitare l'autenticazione a livello di rete usando le opzioni della scheda Remoto nella finestra di dialogo Proprietà di sistema.**
+**Il computer remoto a cui si sta tentando di connettersi richiede Autenticazione a livello di rete (NLA), ma non è possibile contattare il controller di dominio Windows per eseguire NLA. Se si è un amministratore del computer remoto, è possibile disabilitare NLA usando le opzioni disponibili nella scheda Remote della finestra di dialogo Proprietà del sistema.**
 
 ### <a name="error-message-3-generic-connection-error"></a>Messaggio di errore 3 (errore di connessione generico)
 
-**Il computer non è in grado di connettersi al computer remoto. Provare a eseguire di nuovo la connessione. Se il problema persiste, contattare il proprietario del computer remoto o l'amministratore di rete.**
+**Il computer non è in grado di connettersi al computer remoto. Provare a connettersi di nuovo. se il problema persiste, contattare il proprietario del computer remoto o l'amministratore di rete.**
 
 ## <a name="cause"></a>Causa
 
@@ -124,7 +124,7 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="for-domain-joined-vms"></a>Per le macchine virtuali aggiunte a un dominio
 
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 Se la comunicazione fra il controller di dominio e la macchina virtuale è buona ma il controller di dominio non è sufficientemente integro da aprire una sessione RDP, è possibile provare a riavviarlo.
 
-Se il problema di comunicazione con il dominio non si è risolto con i comandi precedenti, è possibile aggiungere di nuovo la macchina virtuale al dominio. A tale scopo, effettuare le operazioni seguenti:
+Se il problema di comunicazione con il dominio non si è risolto con i comandi precedenti, è possibile aggiungere di nuovo la macchina virtuale al dominio. A questo scopo, seguire questa procedura:
 
 1. Creare uno script di nome Unjoin.ps1 usando il contenuto seguente, quindi distribuirlo come estensione script personalizzata nel portale di Azure:
 

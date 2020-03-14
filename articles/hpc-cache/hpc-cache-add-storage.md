@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990607"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271889"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -148,9 +148,9 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
 | Modello di utilizzo | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
 | ---- | ---- | ---- | ---- |
-| Lettura di scritture complesse e non frequenti | Lettura | Mai | Nessuno |
-| Scritture superiori al 15% | Lettura/Scrittura | Mai | 1 ora |
-| Client che ignorano la cache | Lettura | 30 secondi | Nessuno |
+| Lettura di scritture complesse e non frequenti | Lettura | Never | nessuno |
+| Scritture superiori al 15% | Lettura/Scrittura | Never | 1 ora |
+| Client che ignorano la cache | Lettura | 30 secondi | nessuno |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

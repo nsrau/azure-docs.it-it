@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c12e14b8b842e3ccf9f2bf9e0ab783d8852ee69b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659714"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259864"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
@@ -92,8 +92,9 @@ Per informazioni su quote e limiti, vedere [Limiti relativi al servizio app](../
 Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. Lo svantaggio è che la risposta alla prima richiesta dopo aver scaricato l'app Web richiede più tempo per consentire all'app Web di caricarsi e iniziare a gestire le risposte. Nei piani di servizio Basic e Standard, è possibile attivare l'impostazione **Sempre online** per mantenere l'app sempre caricata. In questo modo si evitano tempi di caricamento lunghi dopo l'inattività dell'app. Per modificare l'impostazione **Sempre online**:
 
 1. Nel portale di Azure passare all'app Web.
-2. Selezionare **Impostazioni dell'applicazione**.
-3. Per **Sempre online** selezionare **Sì**.
+2. Seleziona **configurazione**
+3. Selezionare **Impostazioni generali**.
+4. Per **Sempre online** selezionare **Sì**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>Come si abilita la traccia delle richieste non riuscite?
 

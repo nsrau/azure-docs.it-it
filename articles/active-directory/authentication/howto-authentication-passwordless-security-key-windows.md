@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378205"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263907"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory (anteprima)
 
@@ -115,7 +115,7 @@ Per i dispositivi non gestiti da Intune, è possibile installare un pacchetto di
 1. Assegnare un nome al progetto e prendere nota del percorso in cui è stato creato il progetto, quindi selezionare **Avanti**.
 1. Lasciare il *pacchetto di provisioning* selezionato come **flusso di lavoro del progetto selezionato** e selezionare **Avanti**.
 1. Selezionare *tutte le edizioni desktop di Windows* in **scegliere le impostazioni da visualizzare e configurare**, quindi fare clic su **Avanti**.
-1. Fare clic su **Fine**.
+1. Selezionare **Fine**.
 1. Nel progetto appena creato passare a impostazioni di **Runtime** > **WindowsHelloForBusiness** > **SecurityKeys** > **UseSecurityKeyForSignIn**.
 1. Impostare **UseSecurityKeyForSignIn** su *Enabled*.
 1. Selezionare **esporta** > **pacchetto di provisioning**

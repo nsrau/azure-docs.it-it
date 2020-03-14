@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376316"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261164"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
 Lo scopo di questo articolo è illustrare come apportare modifiche alla configurazione predefinita in Azure Active Directory (Azure AD) Connect Sync. Vengono illustrati i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
@@ -70,7 +70,7 @@ Per impostazione predefinita, l' [utilità di pianificazione](how-to-connect-syn
 5. Nella pagina **Transformations** (Trasformazioni) modificare **FlowType** in **Expression** (Espressione). Per **Target Attribute** (Attributo di destinazione) selezionare **givenName**. Per **Source** (Origine) immettere **PCase([givenName])** .
    ![Trasformazioni di regole in ingresso](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    Il motore di sincronizzazione fa distinzione tra maiuscole e minuscole sia nel nome della funzione che nel nome dell'attributo. Nel caso di un errore di digitazione, viene visualizzato un avviso quando si aggiunge la regola. È possibile salvare e continuare, ma è necessario riaprire e correggere la regola.
-6. Fare clic su **Aggiungi** per salvare la regola.
+6. Fare clic su **Add** (Aggiungi) per salvare la regola.
 
 La nuova regola personalizzata sarà visibile insieme alle altre regole di sincronizzazione nel sistema.
 
@@ -128,7 +128,7 @@ Per creare una regola con altri flussi di attributi, eseguire queste operazioni:
 5. Lasciare vuoto il campo **Join rules** (Regole di unione). In questo modo alla regola predefinita viene consentito di gestire tutte le unioni.
 6. In **Transformations** (Trasformazioni) creare i flussi seguenti:  
   ![Flusso dell'attributo 3](./media/how-to-connect-sync-change-the-configuration/attributeflowjp3.png)
-7. Fare clic su **Aggiungi** per salvare la regola.
+7. Fare clic su **Add** (Aggiungi) per salvare la regola.
 8. Passare a **Synchronization Service Manager**. In **Connectors**(Connettori) selezionare il connettore in cui è stata aggiunta la regola. Selezionare **Run** (Esegui) e quindi **Full Synchronization** (Sincronizzazione completa). Una sincronizzazione completa ricalcola tutti gli oggetti usando le regole correnti.
 
 Di seguito è riportato il risultato per lo stesso oggetto con questa regola personalizzata:  
@@ -262,19 +262,19 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 3. Fare clic sul pulsante **Aggiungi nuova regola** per creare una nuova regola in ingresso.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | valore | Dettagli |
     | --- | --- | --- |
-    | Name | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
+    | Nome | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
     | Descrizione | *Inserire una descrizione* |  |
     | Connected System | *Scegliere il connettore di AD locale* |  |
     | Connected System Object Type | **Utente** |  |
     | Metaverse Object Type | **Person** |  |
-    | Tipo collegamento | **Join** |  |
+    | Tipo di collegamento | **Join** |  |
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
 5. Passare alla scheda **Scoping filter** (Filtro di ambito) e aggiungere un **singolo gruppo di filtri di ambito** con la clausola seguente:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operatore | valore |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Utente\_ |
 
@@ -282,13 +282,13 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
 6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione desiderata. Ad esempio, se si è designato un attributo di AD locale non in uso, ad esempio extensionAttribute1, come attributo di origine di UserType, è possibile implementare un flusso di attributi diretto:
 
-    | Tipo di flusso | Attributo di destinazione | Origine | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Connessione diretta | UserType | extensionAttribute1 | Non selezionato | Aggiornamento |
 
     In un altro esempio si vuole ricavare il valore dell'attributo UserType da altre proprietà. Si desidera, ad esempio, sincronizzare tutti gli utenti come Guest se il relativo attributo userPrincipalName di AD locale termina con la parte di dominio <em>@partners.fabrikam123.org</em>. È possibile implementare un'espressione simile alla seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Origine | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Membro","Guest"),Error("UserPrincipalName non è presente per determinare UserType")) | Non selezionato | Aggiornamento |
 
@@ -304,19 +304,19 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 3. Fare clic sul pulsante **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | valore | Dettagli |
     | ----- | ------ | --- |
-    | Name | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
+    | Nome | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
     | Descrizione | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di AAD* ||
     | Connected System Object Type | **Utente** ||
     | Metaverse Object Type | **Person** ||
-    | Tipo collegamento | **Join** ||
+    | Tipo di collegamento | **Join** ||
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
 5. Passare alla scheda **Scoping filter** (Filtro di ambito) e aggiungere un singolo **gruppo di filtri di ambito** con le due clausole:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operatore | valore |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
     | cloudMastered | NOTEQUAL | True |
@@ -325,7 +325,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 6. Andare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Origine | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
     | Connessione diretta | UserType | UserType | Non selezionato | Aggiornamento |
 

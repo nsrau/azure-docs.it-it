@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 713217a933c646cc4d04759f5697bbc0312827ce
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823410"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268860"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Riferimento all'API di gestione per Istanza gestita di database SQL di Azure
 
@@ -32,7 +32,7 @@ Per una guida introduttiva che illustra come creare una Istanza gestita di datab
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
-Per creare e gestire istanze gestite del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere l'articolo su come [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
+Per creare e gestire istanze gestite del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Per gli script di esempio di PowerShell, vedere [script di avvio rapido: creare istanza gestita SQL di Azure con la libreria di PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
@@ -72,13 +72,13 @@ Per creare e gestire istanze gestite con l'[interfaccia della riga di comando di
 Per creare e gestire un database dell'istanza dopo la creazione dell'istanza gestita, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi usando il portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is), [Visual Studio Code](https://code.visualstudio.com/docs) o qualsiasi altro programma in grado di connettersi a un server di database SQL di Azure e di passare comandi Transact-SQL.
 
 > [!TIP]
-> Per le guide introduttive che mostrano che è necessario configurare e connettersi a un Istanza gestita usando SQL Server Management Studio in Microsoft Windows, vedere [Guida introduttiva: configurare una macchina virtuale di Azure per connettersi a una istanza gestita di database SQL di Azure e alla](sql-database-managed-instance-configure-vm.md) [Guida introduttiva: Configurare una connessione da punto a sito a una Istanza gestita di database SQL di Azure dall'ambiente locale](sql-database-managed-instance-configure-p2s.md).
+> Per le guide introduttive che mostrano che è necessario configurare e connettersi a un Istanza gestita usando SQL Server Management Studio in Microsoft Windows, vedere [Guida introduttiva: configurare una macchina virtuale di Azure per connettersi a un istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vm.md) e una [Guida introduttiva: configurare una connessione da punto a sito a un istanza gestita di database SQL di Azure dall'ambiente locale](sql-database-managed-instance-configure-p2s.md).
 > [!IMPORTANT]
 > Non è possibile creare o eliminare Istanza gestita usando Transact-SQL.
 
 | Comando | Descrizione |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea un nuovo database dell'istanza gestita. Per creare un nuovo database è necessario essere connessi al database master.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea un nuovo database dell'istanza gestita. È necessario essere connessi al database master per creare un nuovo database.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica un database dell'istanza gestita di database SQL di Azure.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>API REST: creare e gestire istanze gestite

@@ -4,18 +4,18 @@ description: Informazioni sul supporto per la migrazione di server fisici in Azu
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030237"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269549"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matrice di supporto per la migrazione di server fisici
 
 Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la migrazione dei server fisici con [Azure migrate: migrazione del server](migrate-services-overview.md#azure-migrate-server-migration-tool) . Per informazioni sulla valutazione dei server fisici per la migrazione in Azure, vedere la [matrice di supporto](migrate-support-matrix-physical.md)per la valutazione.
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 È possibile eseguire la migrazione di computer locali come server fisici utilizzando la replica basata su agenti. Con questo strumento è possibile eseguire la migrazione di un'ampia gamma di computer ad Azure:
 
@@ -60,7 +60,7 @@ Nella tabella viene riepilogato il supporto per i server fisici di cui si deside
 
 
 
-## <a name="replication-appliance-requirements"></a>Requisiti del dispositivo di replica
+## <a name="replication-appliance-requirements"></a>Requisiti dell'appliance di replica
 
 Se si configura manualmente l'appliance di replica in un server fisico, assicurarsi che sia conforme ai requisiti riepilogati nella tabella. Quando si configura l'appliance di replica Azure Migrate come macchina virtuale VMware usando il modello OVA fornito nell'hub Azure Migrate, l'Appliance viene configurata con Windows Server 2016 e soddisfa i requisiti di supporto. 
 
@@ -85,7 +85,7 @@ VHD condiviso | Non supportato. | Il controllo ha esito negativo se non supporta
 Disco FC | Non supportato. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportato. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **le app e le funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md) |
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **le app e le funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md). |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 

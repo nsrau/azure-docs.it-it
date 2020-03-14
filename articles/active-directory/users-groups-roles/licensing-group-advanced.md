@@ -16,17 +16,17 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376993"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266286"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
 
 Usare le informazioni e gli esempi seguenti per comprendere le licenze basate su gruppi di Azure Active Directory (Azure AD) in modo più dettagliato.
 
-## <a name="usage-location"></a>Posizione di utilizzo
+## <a name="usage-location"></a>Località di utilizzo
 
 Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà **Località di utilizzo** per l'utente. Nella [portale di Azure](https://portal.azure.com)è possibile specificare la posizione di utilizzo in **Impostazioni**&gt; **profilo** **utente** &gt;.
 
@@ -169,7 +169,7 @@ Quando una licenza di un gruppo viene modificata, Azure AD inizia ad applicare l
 
 2. Per visualizzare quando i gruppi hanno terminato l'elaborazione usare il valore di filtro *Finish applying group based license to users* (Termina l'applicazione delle licenze basate sui gruppi agli utenti).
    > [!TIP]
-   > In questo caso, il campo *Proprietà modificate* contiene un riepilogo dei risultati, utile per verificare rapidamente se l'elaborazione ha restituito errori. Esempio di output:
+   > In questo caso, il campo *Proprietà modificate* contiene un riepilogo dei risultati, utile per verificare rapidamente se l'elaborazione ha restituito errori. Output di esempio:
    > ```
    > Modified Properties
    > ...

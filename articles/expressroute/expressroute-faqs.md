@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361732"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264921"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -50,7 +50,15 @@ Sì. Dopo l'installazione, il circuito ExpressRoute consente di accedere ai serv
 
 ### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>In che modo reti virtuali si annuncia sul peering privato ExpressRoute?
 
-Il gateway di ExpressRoute annuncia lo *spazio di indirizzi* della VNet di Azure, non è possibile includere/escludere a livello di subnet. Si tratta sempre dello spazio degli indirizzi VNet annunciato. Inoltre, se viene usato il peering VNet e il VNet con peering ha abilitato "use Remote Gateway", verrà annunciato anche lo spazio degli indirizzi del VNet con peering.
+Il gateway di ExpressRoute annuncia gli *spazi di indirizzi* della VNet di Azure, non è possibile includere/escludere a livello di subnet. Si tratta sempre dello spazio degli indirizzi VNet annunciato. Inoltre, se viene usato il peering VNet e il VNet con peering ha abilitato "use Remote Gateway", verrà annunciato anche lo spazio degli indirizzi del VNet con peering.
+
+### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Quanti prefissi possono essere annunciati da un VNet locale al peering privato ExpressRoute?
+
+È disponibile un massimo di 200 prefissi annunciati in una singola connessione ExpressRoute o tramite il peering VNet con il transito del gateway. Se, ad esempio, si dispone di 199 di spazi di indirizzi in un singolo VNet connesso a un circuito ExpressRoute, tutti i 199 di tali prefissi verranno annunciati in locale. In alternativa, se si dispone di un VNet abilitato per consentire il transito del gateway con 1 spazio di indirizzi e 150 spoke reti virtuali abilitato con l'opzione "Consenti gateway remoto", il VNet distribuito con il gateway annuncia i prefissi 151 in locale.
+
+### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>Cosa accade se si supera il limite di prefisso per una connessione ExpressRoute?
+
+La connessione tra il circuito ExpressRoute e il gateway (e il reti virtuali con peering che usa il transito del gateway, se applicabile) si arresterà. Verrà ristabilito quando il limite del prefisso non verrà più superato.  
 
 ### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>È possibile filtrare le route provenienti dalla rete locale?
 

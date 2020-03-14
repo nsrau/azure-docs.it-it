@@ -3,12 +3,12 @@ title: Visualizzare le metriche in tempo reale con monitoraggio di Azure per i c
 description: Questo articolo descrive la visualizzazione in tempo reale delle metriche senza usare kubectl con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404941"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216570"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Come visualizzare le metriche in tempo reale
 
@@ -24,7 +24,7 @@ Questo articolo fornisce una panoramica dettagliata e consente di comprendere co
 
 Per informazioni sull'impostazione o la risoluzione dei problemi relativi alla funzionalità dati in tempo reale (anteprima), vedere la [Guida all'installazione](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Come funziona 
+## <a name="how-it-works"></a>Funzionamento 
 
 La funzionalità dati in tempo reale (anteprima) consente di accedere direttamente all'API Kubernetes e altre informazioni sul modello di autenticazione sono disponibili [qui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
@@ -34,7 +34,7 @@ Questa funzionalità consente di eseguire un'operazione di polling sugli endpoin
 
 L'intervallo di polling viene configurato dall'elenco a discesa **Imposta intervallo** , che consente di impostare il polling per i nuovi dati ogni 1, 5, 15 e 30 secondi. 
 
-![Intervallo di polling a discesa Go Live](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
+![Intervallo di polling a discesa Go Live](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
 >È consigliabile impostare l'intervallo di polling su un secondo durante la risoluzione di un problema per un breve periodo di tempo. Queste richieste possono influisca sulla disponibilità e sulla limitazione dell'API Kubernetes nel cluster. Successivamente, riconfigurare in un intervallo di polling più lungo. 

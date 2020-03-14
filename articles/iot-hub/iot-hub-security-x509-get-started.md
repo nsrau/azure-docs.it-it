@@ -9,17 +9,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457017"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271174"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurare la sicurezza X.509 nell'hub IoT di Azure
 
 Questa esercitazione illustra i passaggi necessari per proteggere l'hub Azure Internet con l' *autenticazione del certificato X. 509*. A scopo illustrativo, viene usato lo strumento open source OpenSSL per creare certificati localmente nel computer Windows. È consigliabile usare questa esercitazione solo a scopo di test. Per l'ambiente di produzione, è necessario acquistare i certificati da un'*autorità di certificazione (CA) radice*.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per questa esercitazione è necessario disporre delle risorse seguenti pronte:
 
@@ -140,7 +140,7 @@ In seguito verrà illustrato come creare un'applicazione C# per simulare il disp
     }
     ```
 
-1. Aggiungere infine le righe di codice seguenti alla funzione **Main** , sostituendo i segnaposto _Device-ID_, _il nome---_ -----------------------------------------
+1. Aggiungere infine le righe di codice seguenti alla funzione **Main** , sostituendo i segnaposto _Device-ID_, _il nome---_ ----------------------------------------- _absolute-path-to-your-device-pfx-file_
 
     ```csharp
     try

@@ -15,11 +15,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1197eb074b9afeb74c6793835455611ab784a83b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376500"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259721"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -44,7 +44,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Creare directory di Azure AD B2C | Tutti gli utenti non guest ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Creare applicazioni B2C | Amministratore globale | 
-Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore applicazione
+Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore di applicazioni
 Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore criteri B2C Framework dell'esperienza | 
 Creare, leggere, aggiornare ed eliminare provider di identità | Amministratore del provider di identità esterno | 
 Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | Amministratore flusso utente B2C | 
@@ -72,7 +72,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Configurare le proprietà aziendali | Amministratore globale | 
 
-## <a name="connect"></a>Connetti
+## <a name="connect"></a>Connessione
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
@@ -101,10 +101,10 @@ Visualizzare le metriche del servizio di sincronizzazione e gli avvisi | Lettore
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Gestione domini | Amministratore globale | 
+Gestire domini | Amministratore globale | 
 Leggere tutta la configurazione | Ruoli con autorizzazioni di lettura nella directory | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
-## <a name="domain-services"></a>Servizi del dominio
+## <a name="domain-services"></a>Servizi di dominio
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------

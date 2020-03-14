@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: b9e6d2d6cf602bca74c8899586eef0a8108fde3c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620720"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263335"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: Condizioni
 
@@ -41,12 +41,12 @@ Azure AD l'accesso condizionale supporta le piattaforme per dispositivi seguenti
 - Android
 - iOS
 - Windows Phone
-- WINDOWS
+- Windows
 - macOS
 
 Se si blocca l'autenticazione legacy usando la condizione di **altri client** , è anche possibile impostare la condizione della piattaforma del dispositivo.
 
-## <a name="locations"></a>Posizioni
+## <a name="locations"></a>Percorsi
 
 Quando si configura il percorso come condizione, le organizzazioni possono scegliere di includere o escludere percorsi. Queste località denominate possono includere le informazioni sulla rete IPv4 pubbliche, il paese o l'area geografica o anche aree sconosciute che non sono mappate a specifici paesi o aree geografiche. Solo gli intervalli IP possono essere contrassegnati come un percorso attendibile.
 
@@ -60,7 +60,7 @@ Altre informazioni sulle località sono disponibili nell'articolo, [Qual è la c
 
 Per impostazione predefinita, i criteri di accesso condizionale si applicano alle applicazioni basate su browser e alle applicazioni che utilizzano protocolli di autenticazione moderni. Oltre a queste applicazioni, gli amministratori possono scegliere di includere i client di Exchange ActiveSync e altri client che usano protocolli legacy.
 
-- Browser.
+- Browser
    - Sono incluse le applicazioni basate sul Web che usano protocolli quali SAML, WS-Federation, OpenID Connect o i servizi registrati come client Confidential OAuth.
 - App per dispositivi mobili e client desktop
    - Client di autenticazione moderni
@@ -72,7 +72,7 @@ Per impostazione predefinita, i criteri di accesso condizionale si applicano all
       - Questa opzione include i client che usano i protocolli di autenticazione di base/legacy che non supportano l'autenticazione moderna.
          - SMTP autenticato: usato dal POP e dal client IMAP per inviare messaggi di posta elettronica.
          - Individuazione automatica: usata dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.
-         - PowerShell per Exchange Online: usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [connettersi a Exchange Online PowerShell usando l'autenticazione a più fattori](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - PowerShell per Exchange Online: usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [connettersi a Exchange Online PowerShell usando l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
          - Servizi Web Exchange (EWS): un'interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.
          - IMAP4: usato dai client di posta elettronica IMAP.
          - MAPI su HTTP (MAPI/HTTP): usato da Outlook 2010 e versioni successive.
@@ -98,7 +98,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Phone | Microsoft Edge, Internet Explorer |
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
-| Windows Server 2012 R2 | Internet Explorer |
+| Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
@@ -114,19 +114,19 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 
 |    |    |
 | --- | --- |
-| Percorso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Nome | 1 |
 | Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS\://clients2.google.com/service/update2/crx |
+| data | ppnbnpeolgkicgegkbkbjmhlideopiji; HTTPS\://clients2.google.com/service/update2/crx |
 
 Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
 
 |    |    |
 | --- | --- |
-| Percorso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Nome | 1 |
 | Type | REG_SZ (String) |
-| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Questi browser supportano l'autenticazione del dispositivo, consentendo al dispositivo di essere identificato e convalidato rispetto a un criterio. Il controllo del dispositivo ha esito negativo se il browser è in esecuzione in modalità privata.
 
@@ -136,14 +136,14 @@ Le organizzazioni possono selezionare app per **dispositivi mobili e client desk
 
 Questa impostazione interessa i tentativi di accesso eseguiti dalle app per dispositivi mobili e client desktop seguenti:
 
-| App client | Servizio di destinazione | Platform |
+| App client | Servizio di destinazione | Piattaforma |
 | --- | --- | --- |
 | Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Office 365 Exchange Online | Windows 10 |
 | MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati.| Qualsiasi servizio app Mie app | Android e iOS |
 | Microsoft Team Services consente di controllare tutti i servizi che supportano Microsoft Teams e tutte le app client: Windows Desktop, iOS, Android, WP e Web Client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-| App Office 2016, Office 2013 (con autenticazione moderna), [client di sincronizzazione OneDrive](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), [client di sincronizzazione OneDrive](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
+| App Office 2016, Office 2013 (con autenticazione moderna), [client di sincronizzazione OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
+| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), [client di sincronizzazione OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (solo Word, Excel, PowerPoint e OneNote). | Office 365 SharePoint Online | macOS |
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | App Office per dispositivi mobili | Office 365 SharePoint Online | Android, iOS |
@@ -153,7 +153,7 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 | Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | App Outlook Mobile | Office 365 Exchange Online | Android, iOS |
 | App Power BI | servizio Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype for Business | Office 365 Exchange Online| Android, iOS |
+| Skype for Business Online | Office 365 Exchange Online| Android, iOS |
 | App Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
 ### <a name="exchange-activesync-clients"></a>Client Exchange ActiveSync

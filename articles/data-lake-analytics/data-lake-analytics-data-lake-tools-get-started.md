@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391830"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260345"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio
 
@@ -35,7 +35,7 @@ Questo articolo descrive come usare Visual Studio per creare account Azure Data 
 >    - [Per Visual Studio 2017 e 2019](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
 >    - [Per Visual Studio 2013 e 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * **Visual Studio**: sono supportate tutte le versioni ad eccezione della versione Express.
 
@@ -53,7 +53,7 @@ Per questa esercitazione è necessario che sia installato Data Lake Tools per Vi
 
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Connettersi a un account Azure Data Lake Analytics
 
-1. Apri Visual Studio.
+1. Aprire Visual Studio.
 
 1. Aprire **Esplora server** selezionando **Visualizza** > **Esplora server**.
 
@@ -124,7 +124,7 @@ Per visualizzare lo stato del processo più recente e aggiornare la schermata, s
 
 1. In **Esplora server**passare al processo inviato.
 
-1. Fare clic sulla scheda **Dati**.
+1. Fare clic sulla scheda **Dati** .
 
 1. Nella scheda **Output del processo** selezionare il file `"/data.csv"`.
 

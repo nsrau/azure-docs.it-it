@@ -4,11 +4,11 @@ description: Informazioni su come creare criteri di configurazione Guest di crit
 ms.date: 12/16/2019
 ms.topic: how-to
 ms.openlocfilehash: 8bd769b61ed87c9ded45ceca11586cfe105740c9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387233"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264583"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
@@ -171,7 +171,7 @@ Parametri del cmdlet `New-GuestConfigurationPackage`:
 
 - **Nome**: nome del pacchetto di configurazione Guest.
 - **Configurazione**: percorso completo del documento di configurazione DSC compilato.
-- **Path**: percorso della cartella di output. Questo parametro è facoltativo. Se non è specificato, il pacchetto viene creato nella directory corrente.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non è specificato, il pacchetto viene creato nella directory corrente.
 - **ChefProfilePath**: percorso completo del profilo INSPEC. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
 
 Il pacchetto completato deve essere archiviato in un percorso accessibile dalle macchine virtuali gestite. Gli esempi includono repository GitHub, un repository di Azure o archiviazione di Azure. Se si preferisce non rendere pubblico il pacchetto, è possibile includere un [token SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) nell'URL.

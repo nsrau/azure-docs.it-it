@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014522"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271642"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
 
@@ -119,7 +119,7 @@ Azure IoT Central archivia i dati dell'applicazione nel cloud. I dati archiviati
 
 Azure IoT Central usa un archivio di serie temporali per i dati di misura inviati dai dispositivi. Dati di serie temporali dei dispositivi utilizzati dal servizio di analisi.
 
-## <a name="analytics"></a>Analisi
+## <a name="analytics"></a>Analytics
 
 Il servizio di analisi è responsabile della generazione dei dati dei report personalizzati mostrati dall'applicazione. Un operatore può [personalizzare le analisi](howto-create-analytics.md) visualizzate nell'applicazione. Il servizio di analisi si basa su [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ed elabora i dati di misura inviati dai dispositivi.
 
@@ -154,7 +154,7 @@ In un'applicazione IoT Central di Azure è possibile [creare ed eseguire process
 
 Un [amministratore può definire le regole di accesso](howto-manage-users-roles.md) per un'applicazione IoT Central di Azure usando uno dei ruoli predefiniti oppure creando un ruolo personalizzato. I ruoli determinano le aree dell'applicazione a cui un utente può accedere e le azioni che possono eseguire.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Le funzionalità di sicurezza all'interno di Azure IoT Central includono:
 

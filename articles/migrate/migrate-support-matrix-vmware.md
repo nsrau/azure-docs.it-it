@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: Informazioni sul supporto per la valutazione di VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: b887508fb8e422bd83aa9d13e42085d7a6bd2283
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361958"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269588"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per VMware Assessment 
 
@@ -43,6 +43,7 @@ Oltre a individuare i computer, Azure Migrate: server assessment può individuar
 **credenziali vCenter** | Un account server vCenter con accesso in sola lettura e i privilegi abilitati per le macchine virtuali > operazioni Guest.
 **Credenziali VM** | Attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux.<br/><br/> Si crea un account utente Guest per macchine virtuali Windows e un account utente normale/normale (accesso non sudo) per tutte le macchine virtuali Linux.
 **Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera individuare. <br/> Se la versione degli strumenti VMware è compresa tra 9,10-10.2.0, assicurarsi di aggiornarla a oltre 10.2.0.
+**PowerShell** | Le macchine virtuali devono avere PowerShell versione 2,0 o successiva
 **Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali che si vuole individuare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
 **Limiti** | Per l'individuazione di app è possibile individuare fino a 10000 per ogni appliance. 
 
@@ -100,6 +101,7 @@ Questa opzione è attualmente in fase di anteprima. [Altre informazioni](how-to-
 **Account Linux** | Per la visualizzazione è necessario un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre di queste autorizzazioni per i file/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agenti VM** | Non è necessario alcun agente nelle VM.
 **Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera analizzare. <br/> Se la versione degli strumenti VMware è compresa tra 9,10-10.2.0, assicurarsi di aggiornarla a oltre 10.2.0.
+**PowerShell** | Le macchine virtuali devono avere PowerShell versione 2,0 o successiva
 **credenziali vCenter** | Un account server vCenter con accesso in sola lettura e i privilegi abilitati per le macchine virtuali > operazioni Guest.
 **Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali che si vuole analizzare, il Azure Migrate appliance deve essere in grado di connettersi alla porta TCP 443.
 

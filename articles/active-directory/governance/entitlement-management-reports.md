@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c98a583e2aa8ac679842e16d1c0cc36811db90de
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376759"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261736"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visualizzare report e log in Azure AD gestione dei diritti
 

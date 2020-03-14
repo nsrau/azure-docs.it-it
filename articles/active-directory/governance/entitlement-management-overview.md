@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Gestione entitlement -Azure AD
+title: Informazioni su Gestione entitlement - Azure AD
 description: Panoramica della gestione dei diritti Azure Active Directory e del modo in cui è possibile utilizzarla per gestire l'accesso a gruppi, applicazioni e siti di SharePoint Online per utenti interni ed esterni.
 services: active-directory
 documentationCenter: ''
@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932483"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261762"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -114,7 +114,7 @@ I pacchetti di accesso non sostituiscono altri meccanismi per l'assegnazione di 
 
 Per comprendere meglio la gestione dei diritti e la relativa documentazione, è possibile fare riferimento all'elenco di termini seguente.
 
-| Durata | Description |
+| Termine | Descrizione |
 | --- | --- |
 | pacchetto di accesso | Un bundle di risorse necessarie a un team o a un progetto e viene regolato con i criteri. Un pacchetto di accesso è sempre contenuto in un catalogo. È possibile creare un nuovo pacchetto di accesso per uno scenario in cui gli utenti devono richiedere l'accesso.  |
 | richiesta di accesso | Richiesta di accesso alle risorse in un pacchetto di accesso. Una richiesta viene in genere attraversata da un flusso di lavoro di approvazione.  Se approvata, l'utente richiedente riceve un'assegnazione del pacchetto di accesso. |

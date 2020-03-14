@@ -3,12 +3,12 @@ title: Supporto per la migrazione di VMware in Azure Migrate
 description: Informazioni sul supporto per la migrazione di macchine virtuali VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: eea2ef1f84e5c31dd18ea4ef65ccf2796231352b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9d8dc4dadc975a0fb69ea207f6062b72231460ef
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597984"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269510"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -35,7 +35,7 @@ Leggere [questo articolo](server-migrate-overview.md) per determinare il metodo 
 --- | ---
 **server VMware vCenter** | Versione 5,5, 6,0, 6,5 o 6,7.
 **VMware vSphere Host ESXI** | Versione 5,5, 6,0, 6,5 o 6,7.
-**autorizzazioni server vCenter** | La migrazione senza agenti usa l' [appliance di migrazione](migrate-appliance.md). Il dispositivo richiede le autorizzazioni seguenti:<br/><br/> - **datastore. browse**: consente l'esplorazione dei file di log della macchina virtuale per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **datastore. LowLevelFileOperations**: consente operazioni di lettura/scrittura/eliminazione/ridenominazione nel browser dell'archivio dati per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **virtualmachine. Configuration. DiskChangeTracking**: consente di abilitare o disabilitare il rilevamento delle modifiche dei dischi delle macchine virtuali per eseguire il pull dei blocchi di dati modificati tra gli snapshot.<br/><br/> - **virtualmachine. Configuration. DiskLease**: consente le operazioni di lease del disco per una macchina virtuale, per leggere il disco utilizzando VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **virtualmachine. provisioning. AllowDiskAccess**: (in particolare per vSphere 6,0 e versioni successive) consentire l'apertura di un disco in una macchina virtuale per l'accesso in lettura casuale sul disco usando VDDK.<br/><br/> - **virtualmachine. provisioning. AllowReadOnlyDiskAccess**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/>- **virtualmachine. provisioning. AllowVirtualMachineDownload**: consente operazioni di lettura nei file associati a una macchina virtuale, per scaricare i log e risolvere eventuali errori.<br/><br/> -* * VirtualMachine. SnapshotManagement. * * *: consente la creazione e la gestione di snapshot VM per la replica.<br/><br/> - **Virtual Machine. Interaction.** spegnimento: consente di spegnere la macchina virtuale durante la migrazione ad Azure.
+**autorizzazioni server vCenter** | La migrazione senza agenti usa l' [appliance di migrazione](migrate-appliance.md). Il dispositivo richiede le autorizzazioni seguenti:<br/><br/> - **datastore. browse**: consente l'esplorazione dei file di log della macchina virtuale per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **datastore. LowLevelFileOperations**: consente operazioni di lettura/scrittura/eliminazione/ridenominazione nel browser dell'archivio dati per risolvere i problemi di creazione ed eliminazione di snapshot.<br/><br/> - **virtualmachine. Configuration. DiskChangeTracking**: consente di abilitare o disabilitare il rilevamento delle modifiche dei dischi delle macchine virtuali per eseguire il pull dei blocchi di dati modificati tra gli snapshot.<br/><br/> - **virtualmachine. Configuration. DiskLease**: consente le operazioni di lease del disco per una macchina virtuale, per leggere il disco utilizzando VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **virtualmachine. provisioning. AllowDiskAccess**: (in particolare per vSphere 6,0 e versioni successive) consentire l'apertura di un disco in una macchina virtuale per l'accesso in lettura casuale sul disco usando VDDK.<br/><br/> - **virtualmachine. provisioning. AllowReadOnlyDiskAccess**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/> - **virtualmachine. provisioning. AllowDiskRandomAccess**: consente di aprire un disco in una macchina virtuale per leggere il disco usando VDDK.<br/><br/> - **virtualmachine. provisioning. AllowVirtualMachineDownload**: consente operazioni di lettura nei file associati a una macchina virtuale, per scaricare i log e risolvere eventuali errori.<br/><br/> -* * VirtualMachine. SnapshotManagement. * * *: consente la creazione e la gestione di snapshot VM per la replica.<br/><br/> - **Virtual Machine. Interaction.** spegnimento: consente di spegnere la macchina virtuale durante la migrazione ad Azure.
 
 
 

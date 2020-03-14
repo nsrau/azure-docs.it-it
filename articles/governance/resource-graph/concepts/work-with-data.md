@@ -4,11 +4,11 @@ description: Informazioni su come ottenere, formattare, pagina e ignorare i reco
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2c6aca0c468630cee79222bc77bdc20dc9d95b19
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304015"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259799"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -60,7 +60,7 @@ Nell'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/r
 
 ## <a name="paging-results"></a>Risultati di paging
 
-Quando è necessario suddividere un set di risultati in set di record più piccoli per l'elaborazione o perché un set di risultati supera il valore massimo consentito di _1000_ record restituiti, utilizzare il paging. L'[API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** fornisce i valori **resultTruncated** e **$skipToken** per indicare se un set di risultati è stato suddiviso.
+Quando è necessario suddividere un set di risultati in set di record più piccoli per l'elaborazione o perché un set di risultati supera il valore massimo consentito di _1000_ record restituiti, utilizzare il paging. L' [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** fornisce valori per indicare che un set di risultati è stato suddiviso: **resultTruncated** e **$skipToken**.
 **resultTruncated** è un valore booleano che informa il consumer se sono presenti record aggiuntivi non restituiti nella risposta. Questa condizione può essere identificata anche quando il valore della proprietà **count** è inferiore a quello della proprietà **totalRecords**. **totalRecords** definisce il numero di record che soddisfano la query.
 
 Quando **resultTruncated** è **true**, la proprietà **$skipToken** è impostata nella risposta. Questo valore viene usato con gli stessi valori di query e sottoscrizione per ottenere il set di record successivo che soddisfa la query.

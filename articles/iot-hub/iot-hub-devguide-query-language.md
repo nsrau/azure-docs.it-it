@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767727"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271135"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -457,13 +457,13 @@ Sono supportati gli operatori seguenti:
 
 Quando si eseguono query gemelle e di processi l'unica funzione supportata è:
 
-| Funzione | Description |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | IS_DEFINED(proprietà) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore (incluso `null`). |
 
 Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
-| Funzione | Description |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | ABS(x) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | EXP(x) | Restituisce il valore esponente dell'espressione numerica specificata (e^x). |
@@ -476,7 +476,7 @@ Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
 Nelle condizioni di route, sono supportate le funzioni di trasmissione e controllo seguenti:
 
-| Funzione | Description |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | AS_NUMBER | Converte la stringa di input in un numero. `noop` se l'input è un numero, `Undefined` se la stringa non rappresenta un numero.|
 | IS_ARRAY | Restituisce un valore booleano che indica se il tipo di espressione specificata è una matrice. |
@@ -490,7 +490,7 @@ Nelle condizioni di route, sono supportate le funzioni di trasmissione e control
 
 Nelle condizioni di route, sono supportate le funzioni di stringa seguenti:
 
-| Funzione | Description |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
 | LENGTH(x) | Restituisce il numero di caratteri dell'espressione stringa specificata.|

@@ -8,11 +8,11 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713185"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259825"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -53,7 +53,7 @@ Quando si aumenta o si riduce il numero di istanze, vengono aggiunti nuovi ruoli
 
 Per il funzionamento dell'ambiente del servizio app, l'ambiente del servizio app richiede che siano aperte le porte seguenti:
 
-| Utilizzo | From | Per |
+| Uso | From | A |
 |-----|------|----|
 | Gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
 |  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: tutte le porte | Subnet dell'ambiente del servizio app: tutte le porte
@@ -69,7 +69,7 @@ Per le comunicazioni tra Azure Load Balancer e la subnet dell'ambiente del servi
 
 Le altre porte di cui è necessario preoccuparsi sono le porte dell'applicazione:
 
-| Utilizzo | Porte |
+| Uso | Porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -89,7 +89,7 @@ L'ambiente del servizio app comunica con indirizzi Internet accessibili sulle po
 | DNS | 53 |
 | NTP | 123 |
 | CRL, aggiornamenti di Windows, dipendenze di Linux, servizi di Azure | 80/443 |
-| Azure SQL | 1433 | 
+| SQL di Azure | 1433 | 
 | Monitoraggio | 12000 |
 
 Le dipendenze in uscita sono elencate nel documento in cui viene descritto il [blocco del traffico in uscita ambiente del servizio app](./firewall-integration.md). L'ambiente del servizio app smette di funzionare se perde l'accesso alle relative dipendenze. Se questa condizione si prolunga nel tempo, l'ambiente del servizio app viene sospeso. 
@@ -134,7 +134,7 @@ Tutti questi indirizzi IP sono visibili nella portale di Azure dall'interfaccia 
    > [!NOTE]
    > Questi indirizzi IP non verranno modificati finché l'ambiente del servizio app resta operativo e in esecuzione.  Se l'ambiente del servizio app viene sospeso e ripristinato, gli indirizzi usati dall'ambiente del servizio app verranno modificati. Il motivo più comune per la sospensione di un ambiente del servizio app è il blocco dell'accesso della gestione in ingresso o il blocco dell'accesso a una dipendenza dell'ambiente del servizio app. 
 
-![indirizzi IP][3]
+![Indirizzi IP][3]
 
 ### <a name="app-assigned-ip-addresses"></a>Indirizzi IP assegnati alle app ###
 
@@ -166,7 +166,7 @@ Per il funzionamento di un ambiente del servizio app, è necessario che le voci 
 
 Non è necessario aggiungere la porta DNS perché il traffico verso DNS non è influenzato dalle regole NSG. Queste porte non includono le porte richieste dalle app per un uso corretto. Le porte di accesso alle app normali sono:
 
-| Utilizzo | Porte |
+| Uso | Porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |

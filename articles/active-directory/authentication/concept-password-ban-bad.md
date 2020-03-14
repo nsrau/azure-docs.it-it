@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848613"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263998"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
@@ -65,7 +65,7 @@ Ad esempio, si consideri un cliente denominato "contoso", che si basa a Londra, 
 
 Al contrario, è molto più efficiente e sicuro bloccare solo i termini di base della chiave:
 
-- "Contoso"
+- Contoso
 - Londra
 - Widget
 

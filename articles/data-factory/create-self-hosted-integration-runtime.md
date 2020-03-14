@@ -12,11 +12,11 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/18/2019
 ms.openlocfilehash: 0d04ea7d7003f274b252e057b7afced7759bfaae
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928517"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261216"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -34,7 +34,7 @@ Per creare e configurare un runtime di integrazione self-hosted, attenersi alle 
 
 ### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Creare un runtime di integrazione self-hosted tramite Azure PowerShell
 
-1. Per questa attività è possibile usare Azure PowerShell. Di seguito è fornito un esempio:
+1. Per questa attività è possibile usare Azure PowerShell. Esempio:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -102,7 +102,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 Ecco i dettagli dei parametri e delle proprietà dell'applicazione: 
 
-| Proprietà                                                    | Description                                                  | Obbligatoria |
+| Proprietà                                                    | Descrizione                                                  | Obbligatoria |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione specificata. | No       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione e il nome del nodo specificati. | No       |
@@ -148,12 +148,12 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 - Usare il runtime di integrazione self-hosted anche se l'archivio dati si trova nel cloud in una macchina virtuale di infrastruttura distribuita come servizio (IaaS) di Azure.
 - Le attività potrebbero non riuscire in un runtime di integrazione self-hosted installato in un server Windows per cui è abilitata la crittografia FIPS compatibile. Per risolvere questo problema, disabilitare la crittografia FIPS nel server. Per disabilitare la crittografia conforme a FIPS, modificare il valore della sottochiave del registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Le versioni supportate di Windows sono:
   + Windows 7 Service Pack 1
   + Windows 8.1
-  + Windows 10
+  + Windows 10
   + Windows Server 2008 R2 SP1
   + Windows Server 2012
   + Windows Server 2012 R2
@@ -202,7 +202,7 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 
     1. Selezionare **Registra**.
 
-## <a name="high-availability-and-scalability"></a>Disponibilità e scalabilità elevate
+## <a name="high-availability-and-scalability"></a>Disponibilità elevata e scalabilità
 
 È possibile associare un runtime di integrazione self-hosted a più computer locali o macchine virtuali in Azure. Questi computer sono chiamati nodi. È possibile avere fino a quattro nodi associati a un runtime di integrazione self-hosted. I vantaggi della presenza di più nodi nei computer locali in cui è installato un gateway per un gateway logico sono:
 
@@ -267,7 +267,7 @@ Per visualizzare un'introduzione e una dimostrazione di questa funzionalità, gu
 
 Per condividere un runtime di integrazione self-hosted con più data factory, vedere [creare un runtime di integrazione self-hosted condiviso](create-shared-self-hosted-integration-runtime-powershell.md) per informazioni dettagliate.
 
-### <a name="monitoring"></a>Monitorare
+### <a name="monitoring"></a>Monitoraggio
 
 #### <a name="shared-ir"></a>IR condiviso
 

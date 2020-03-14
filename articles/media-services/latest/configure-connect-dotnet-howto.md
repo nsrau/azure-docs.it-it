@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359492"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269809"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi all'API di servizi multimediali V3-.NET
 
 Questo articolo illustra come connettersi a servizi multimediali di Azure V3 .NET SDK usando il metodo di accesso dell'entità servizio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali
 - Installare uno strumento che si desidera utilizzare per lo sviluppo in .NET. I passaggi descritti in questo articolo illustrano come usare [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). È possibile utilizzare Visual Studio Code, vedere [utilizzo di C# ](https://code.visualstudio.com/docs/languages/csharp). In alternativa, è possibile usare un editor di codice diverso.

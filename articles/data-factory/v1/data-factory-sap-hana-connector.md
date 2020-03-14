@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387367"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265818"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Spostare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -60,8 +60,8 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | string | Sì
-authenticationType | Tipo di autenticazione. | specificata. "Basic" o "Windows" | Sì 
-nomeutente | Nome dell'utente che ha accesso al server SAP | string | Sì
+authenticationType | Tipo di autenticazione. | string. "Basic" o "Windows" | Sì 
+username | Nome dell'utente che ha accesso al server SAP | string | Sì
 password | Password per l'utente. | string | Sì
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | string | Sì
 encryptedCredential | Stringa di credenziali crittografata. | string | No
@@ -291,10 +291,10 @@ real | Single
 DOUBLE | Single
 DECIMAL | Decimal
 BOOLEAN | Byte
-VARCHAR | String
-NVARCHAR | String
+VARCHAR | string
+NVARCHAR | string
 CLOB | Byte[]
-ALPHANUM | String
+ALPHANUM | string
 BLOB | Byte[]
 DATE | Datetime
 TIME | TimeSpan

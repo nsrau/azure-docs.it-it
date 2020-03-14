@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442375"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260189"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema di Gateway di dati finestra Azure
+# <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema Azure Data Box Gateway
 
 Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Data Box Gateway e per i client che ci connettono ad Azure Data Box Gateway. Prima di distribuire Data Box Gateway è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
 
@@ -34,7 +34,7 @@ Il sistema host sottostante per Data Box Gateway deve essere in grado di dedicar
 | Processori virtuali (core)   | Minimo 4 |
 | Memoria  | Minimo 8 GB|
 | Disponibilità|Nodo singolo|
-| Dischi| Disco sistema operativo: 250 GB <br> Disco dati: almeno 2 TB, con thin provisioning e supportato da unità SSD|
+| Dischi| Disco del sistema operativo: 250 GB <br> Disco dati: almeno 2 TB, con thin provisioning e supportato da unità SSD|
 | Interfacce di rete|1 o più interfacce di rete virtuali|
 
 
@@ -59,7 +59,7 @@ Il sistema host sottostante per Data Box Gateway deve essere in grado di dedicar
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 
-## <a name="supported-storage-types"></a>Tipi di archiviazione supportati
+## <a name="supported-storage-types"></a>Tipi di archivio supportati
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
@@ -85,7 +85,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-azure-government"></a>Modelli URL per Azure per enti pubblici
+### <a name="url-patterns-for-azure-government"></a>Modelli di URL per Azure per enti pubblici
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
