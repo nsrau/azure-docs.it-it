@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 85403442119f73b363fee98a9c225b9c0ec18119
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e67a8f6b9cc175932b09e6f576148656dd9da9ba
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026861"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298819"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connessione ad Azure IoT Central
 
 Questo articolo presenta i concetti fondamentali relativi alla connettività dei dispositivi in Microsoft Azure IoT Central.
 
-Azure IoT Central USA il [servizio Device provisioning in hub Azure (DPS)](../../iot-dps/about-iot-dps.md) per gestire tutte le registrazioni e la connessione dei dispositivi.
+Azure IoT Central usa il [servizio Device Provisioning in hub IoT di Azure](../../iot-dps/about-iot-dps.md) per gestire la registrazione e la connessione di tutti i dispositivi.
 
-L'uso di DPS Abilita:
+Con il servizio Device Provisioning:
 
-- IoT Central per supportare il caricamento e la connessione di dispositivi su larga scala.
-- Per generare le credenziali del dispositivo e configurare i dispositivi offline senza registrare i dispositivi tramite IoT Central interfaccia utente.
+- IoT Central supporta l'onboarding e la connessione dei dispositivi su larga scala.
+- È possibile generare credenziali dei dispositivi e configurarli offline senza registrarli tramite l'interfaccia utente di IoT Central.
 - Dispositivi per la connessione tramite firme di accesso condiviso (SAS).
-- Dispositivi per la connessione utilizzando certificati X. 509 standard del settore.
-- È possibile usare ID dispositivo personalizzati per registrare i dispositivi in IoT Central. L'uso di ID dispositivo personalizzati semplifica l'integrazione con i sistemi back-Office esistenti.
-- Un unico modo coerente per connettere i dispositivi ai IoT Central.
+- I dispositivi si connettono tramite certificati X.509 standard di settore.
+- È possibile usare ID dispositivo personalizzati per registrare i dispositivi in IoT Central. L'uso di ID dispositivo personalizzati semplifica l'integrazione con i sistemi back-office esistenti.
+- È disponibile un singolo modo coerente per connettere i dispositivi a IoT Central.
 
 Questo articolo descrive i casi d'uso seguenti:
 
@@ -194,6 +194,9 @@ Quando un dispositivo reale si connette all'applicazione IoT Central, lo stato d
     - I dispositivi non sono registrati manualmente nella pagina **dispositivi** connessa con credenziali valide, ma senza specificare l'ID modello durante la registrazione.  
 L'operatore può associare un dispositivo a un modello dalla pagina **dispositivi** usando il pulsante **migra** .
 
+## <a name="best-practices"></a>Procedure consigliate 
+1.  Quando si usa DPS per connettere i dispositivi ai IoT Central, assicurarsi che la stringa di connessione del dispositivo (hub) non sia permanente o memorizzata nella cache. Per riconnettere i dispositivi, passare attraverso il normale flusso di registrazione del dispositivo DPS per ottenere la stringa di connessione del dispositivo corretta. Se la stringa di connessione viene memorizzata nella cache, il software del dispositivo rischia di avere una stringa di connessione non aggiornata negli scenari in cui IoT Central ha aggiornato l'hub di Azure. 
+
 ## <a name="sdk-support"></a>Supporto SDK
 
 Gli SDK per dispositivi di Azure offrono il modo più semplice per implementare il codice del dispositivo. Attualmente sono disponibili gli SDK seguenti:
@@ -213,7 +216,7 @@ Tutte le comunicazioni dei dispositivi con l'hub IoT usano le opzioni di connett
 
 La tabella seguente riepiloga le corrispondenze tra le funzionalità di dispositivo di Azure IoT Central e le funzionalità dell'hub IoT:
 
-| Azure IoT Central | Azure IoT Hub |
+| Azure IoT Central | Hub IoT Azure |
 | ----------- | ------- |
 | Misura: dati di telemetria | Messaggistica da dispositivo a cloud |
 | Proprietà dei dispositivi | Proprietà segnalate del dispositivo gemello |

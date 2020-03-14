@@ -4,14 +4,14 @@ description: Informazioni su come usare portale di Azure o l'interfaccia della r
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/16/2020
+ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5452f67a9da9a71a72c9387bc3e62d6735929984
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363425"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369387"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
 
@@ -136,7 +136,7 @@ Nelle sezioni precedenti è stato descritto come creare, visualizzare e gestire 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare avvisi delle metriche mediante modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
+- [Creare avvisi delle metriche mediante modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md).
 - [Comprendere il funzionamento degli avvisi delle metriche](alerts-metric-overview.md).
 - [Comprendere il funzionamento degli avvisi delle metriche con il tipo di condizione delle soglie dinamiche](alerts-dynamic-thresholds.md).
 - [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema) (Comprendere lo schema webhook per gli avvisi delle metriche)

@@ -3,12 +3,12 @@ title: Uso delle impostazioni di diagnostica per gli insiemi di credenziali dei 
 description: Articolo che descrive come usare i vecchi e i nuovi eventi di diagnostica per backup di Azure
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e3919d120e5f741af6cd30dd27e5a1dfa2b06cf2
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583946"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136940"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Uso delle impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino
 
@@ -56,7 +56,9 @@ Una volta che i dati passano nell'area di lavoro di LA, le tabelle dedicate per 
 
 Tradizionalmente, tutti i dati di diagnostica correlati al backup per un insieme di credenziali sono contenuti in un singolo evento denominato "AzureBackupReport". I sei eventi descritti in precedenza sono essenzialmente una scomposizione di tutti i dati contenuti in AzureBackupReport. 
 
-Attualmente, continuiamo a supportare l'evento AzureBackupReport per la compatibilità con le versioni precedenti, nei casi in cui gli utenti hanno query personalizzate esistenti su questo evento, ad esempio, avvisi del log personalizzati, visualizzazioni personalizzate e così via. Tuttavia, si consiglia di scegliere i nuovi eventi per tutte le nuove impostazioni di diagnostica nell'insieme di credenziali, poiché in questo modo i dati risultano molto più semplici da usare nelle query di log, offre una migliore individuabilità degli schemi e della relativa struttura, migliora le prestazioni in entrambi i sistemi di inserimento latenza e tempi di esecuzione delle query. Il supporto per l'uso della modalità di Diagnostica di Azure verrà eliminato gradualmente e quindi la scelta dei nuovi eventi potrebbe essere utile per evitare migrazioni complesse in un secondo momento.
+Attualmente, continuiamo a supportare l'evento AzureBackupReport per la compatibilità con le versioni precedenti, nei casi in cui gli utenti hanno query personalizzate esistenti su questo evento, ad esempio, avvisi del log personalizzati, visualizzazioni personalizzate e così via. Tuttavia, **si consiglia di passare ai nuovi eventi il prima possibile**, poiché in questo modo i dati risultano molto più semplici da usare nelle query di log, offre una migliore individuabilità degli schemi e della relativa struttura, migliora le prestazioni in base alla latenza di inserimento e ai tempi di esecuzione delle query. **Il supporto per l'uso della modalità di diagnostica di Azure verrà eliminato gradualmente e quindi la scelta dei nuovi eventi potrebbe essere utile per evitare migrazioni complesse in un secondo**momento.
+
+Usare i criteri predefiniti di backup di Azure per aggiungere una nuova impostazione di diagnostica con i 6 nuovi eventi, per tutti gli insiemi di credenziali in un ambito specifico: [configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
 È possibile scegliere di creare impostazioni di diagnostica separate per AzureBackupReport e i sei nuovi eventi, fino a quando non sarà stata eseguita la migrazione di tutte le query personalizzate per utilizzare i dati delle nuove tabelle. L'immagine seguente mostra un esempio di insieme di credenziali con due impostazioni di diagnostica. La prima impostazione, denominata **Setting1** , invia i dati dell'evento AzureBackupReport a un'area di lavoro la in modalità AzureDiagnostics. La seconda impostazione, denominata **Setting2** , invia i dati dei sei nuovi eventi di backup di Azure a un'area di lavoro la in modalità specifica della risorsa.
 

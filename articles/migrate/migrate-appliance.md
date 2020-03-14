@@ -4,11 +4,11 @@ description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzat
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1b1e35c3b7a9d98e57ec4261f6f913c370bbb365
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597542"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269575"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -107,8 +107,8 @@ Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance rac
 
 **Dati** | **Contatore** | **Impatto valutazione**
 --- | --- | ---
-Uso della CPU | cpu.usage.average | Costo/dimensioni VM consigliate
-Utilizzo della memoria | mem.usage.average | Costo/dimensioni VM consigliate
+Utilizzo CPU | cpu.usage.average | Costo/dimensioni VM consigliate
+Utilizzo memoria | mem.usage.average | Costo/dimensioni VM consigliate
 Velocità effettiva lettura disco (MB al secondo) | virtualDisk.read.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Velocità effettiva scritture disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Operazioni di lettura disco al secondo | virtualDisk.numberReadAveraged.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
@@ -139,8 +139,8 @@ Memoria (MB) | vm.Config.Hardware.MemoryMB
 Numero di dischi | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk). Count
 Elenco dimensioni disco | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk)
 Elenco schede di rete | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualEthernet). Count
-Uso della CPU | cpu.usage.average
-Utilizzo della memoria |mem.usage.average
+Utilizzo CPU | cpu.usage.average
+Utilizzo memoria |mem.usage.average
 **Dettagli per disco** | 
 Valore chiave disco | disk.Key
 Numero Dikunit | disk.UnitNumber
@@ -159,7 +159,7 @@ Indirizzi IPv6 | vm.Guest.Net
 Velocità effettiva lettura (MB al secondo) | net.received.average
 Velocità effettiva scrittura (MB al secondo) | net.transmitted.average
 **Dettagli percorso inventario** | 
-Nome | container.GetType().Name
+Name | container.GetType().Name
 Tipo di oggetto figlio | container.ChildType
 Informazioni di riferimento | container.MoRef
 Dettagli elemento padre | Container.Parent
@@ -243,7 +243,7 @@ L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il p
 4. Valutazione **e migrazione**: è ora possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure migrate Assessment server. Inoltre, è possibile avviare la migrazione di macchine virtuali VMware con Azure Migrate migrazione del server per orchestrare la replica di VM senza agenti.
 
 
-![Architecture](./media/migrate-appliance/architecture.png)
+![Architettura](./media/migrate-appliance/architecture.png)
 
 
 ## <a name="appliance-upgrades"></a>Aggiornamenti Appliance

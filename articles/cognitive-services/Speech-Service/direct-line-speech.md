@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: 230fbd14ce33b52b1e7a1f9cc9cd530ccdec169a
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562531"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367806"
 ---
-# <a name="about-direct-line-speech"></a>Informazioni sul discorso diretto sulla linea
+# <a name="what-is-direct-line-speech"></a>Che cos'è Direct Line Speech?
 
 **Direct Line Speech** è una soluzione end-to-end affidabile per la creazione di un assistente vocale flessibile ed estendibile. È basato su bot Framework e sul canale per la comunicazione diretta diretta, ottimizzato per l'interazione con il Voice-in e il Voice-out con i bot.
 
@@ -35,9 +35,9 @@ Per una guida completa e dettagliata sulla creazione di un semplice assistente v
 
 Sono inoltre disponibili guide introduttive progettate per l'esecuzione di codice e l'apprendimento rapido delle API. Questa tabella include un elenco di guide introduttive per Assistente vocale organizzate in base a linguaggio e piattaforma.
 
-| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
+| Guida rapida | Platform | Riferimento all'API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Sfoglia](https://aka.ms/csspeech/csharpref) |
+| C#, UWP | WINDOWS | [Sfoglia](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Sfoglia](https://aka.ms/csspeech/javaref) |
 | Java | Android | [Sfoglia](https://aka.ms/csspeech/javaref) |
 

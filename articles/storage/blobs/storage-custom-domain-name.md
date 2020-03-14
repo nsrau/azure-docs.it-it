@@ -9,16 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 892f8bb24da00f1bd5827725f40fdc4359be0937
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906566"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370475"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure
 
 È possibile eseguire il mapping di un dominio personalizzato a un endpoint del servizio BLOB o a un endpoint del [sito Web statico](storage-blob-static-website.md) . 
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Questo mapping funziona solo per i sottodomini, ad esempio: `www.contoso.com`. Se si vuole che l'endpoint Web sia disponibile nel dominio radice (ad esempio, `contoso.com`), è necessario usare la rete CDN di Azure. Per istruzioni, vedere la sezione [eseguire il mapping di un dominio personalizzato con HTTPS abilitato in](#enable-https) questo articolo. Poiché il passaggio a questa sezione di questo articolo per abilitare il dominio radice del dominio personalizzato, il passaggio all'interno di questa sezione per l'abilitazione di HTTPS è facoltativo. 
@@ -229,9 +231,9 @@ Per accedere a un modulo Web nel contenitore *myforms* nel sottodominio personal
 
 ### <a name="remove-a-custom-domain-mapping"></a>Rimuovere un mapping del dominio personalizzato
 
-Per rimuovere un mapping di dominio personalizzato, annullare la registrazione del dominio personalizzato. Utilizzare una delle procedure riportate di seguito.
+Per rimuovere un mapping di dominio personalizzato, annullare la registrazione del dominio personalizzato. Utilizzare una delle seguenti procedure.
 
-#### <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+#### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Per rimuovere l'impostazione di dominio personalizzato, eseguire le operazioni seguenti:
 
@@ -246,7 +248,7 @@ Per rimuovere l'impostazione di dominio personalizzato, eseguire le operazioni s
 
 Dopo la rimozione del dominio personalizzato, viene visualizzata una notifica del portale che l'account di archiviazione è stato aggiornato correttamente
 
-#### <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+#### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per rimuovere la registrazione di un dominio personalizzato, usare il comando [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) dell'interfaccia della riga di comando e quindi specificare una stringa vuota (`""`) per il valore dell'argomento `--custom-domain`.
 
@@ -268,7 +270,7 @@ Per rimuovere la registrazione di un dominio personalizzato, usare il comando [a
       --custom-domain ""
   ```
 
-#### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

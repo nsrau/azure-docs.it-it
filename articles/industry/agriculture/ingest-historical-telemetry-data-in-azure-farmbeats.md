@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0d220d1d88d9d761d9f0eba6187abefb372681be
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: d47fdb9461786d80d65ee2448cc983a7a8348ff2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131891"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298768"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -20,30 +20,29 @@ L'inserimento di dati cronologici da risorse di Internet delle cose, ad esempio 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di procedere con questo articolo, assicurarsi di aver installato FarmBeats e raccolto i dati cronologici dai dispositivi Internet delle cose.
-È anche necessario abilitare l'accesso ai partner come indicato nei passaggi seguenti.
+Prima di procedere con questo articolo, assicurarsi di aver installato FarmBeats e raccolto i dati cronologici dai dispositivi Internet delle cose. È anche necessario abilitare l'accesso ai partner come indicato nei passaggi seguenti.
 
 ## <a name="enable-partner-access"></a>Abilitare l'accesso ai partner
 
 È necessario abilitare l'integrazione dei partner nell'istanza di Azure FarmBeats. Questo passaggio crea un client che ha accesso all'istanza di Azure FarmBeats come partner del dispositivo e fornisce i valori seguenti, necessari nei passaggi successivi:
 
-- Endpoint API: si tratta dell'URL datahub, ad esempio, https://\<datahub >. azurewebsites. NET.
+- Endpoint API: si tratta dell'URL datahub, ad esempio, https://\<datahub >. azurewebsites. NET
 - ID tenant
 - ID client
 - Segreto client
 - Stringa di connessione EventHub
 
-Eseguire la procedura seguente.
+Esegui questi passaggi:
 
 >[!NOTE]
 > Per eseguire la procedura seguente, è necessario essere un amministratore.
 
 1. Scaricare il [file zip](https://aka.ms/farmbeatspartnerscriptv2)ed estrarlo nell'unità locale. Sarà presente un file all'interno del file zip.
-2. Accedere a https://portal.azure.com/ e passare a Azure Active Directory-> registrazioni per l'app
+2. Accedere a https://portal.azure.com/ e passare a **Azure Active Directory** > registrazioni per l' **app**.
 
-3. Fare clic sulla registrazione dell'app creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome di FarmBeats datahub.
+3. Selezionare la **registrazione dell'app** creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome di FarmBeats datahub.
 
-4. Fare clic su "esporre un'API"-> fare clic su "Aggiungi applicazione client" e immettere **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** e selezionare "autorizzazione ambito". In questo modo si concederà l'accesso all'interfaccia della riga di comando di Azure (Cloud Shell) per eseguire i passaggi seguenti.
+4. Selezionare **esporre un'API** > selezionare **Aggiungi un'applicazione client** e immettere **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** e selezionare **autorizzazione ambito**. In questo modo si concederà l'accesso all'interfaccia della riga di comando di Azure (Cloud Shell) per eseguire i passaggi seguenti:
 
 5. Aprire Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro della portale di Azure.
 
@@ -59,9 +58,9 @@ Eseguire la procedura seguente.
 
 8. Passare alla directory in cui è stato caricato il file. Per impostazione predefinita, i file vengono caricati nella home directory sotto il nome utente.
 
-9. Eseguire lo script seguente. Lo script richiede l'ID tenant che può essere ottenuto dalla pagina Panoramica di Azure Active Directory >.
+9. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto dalla **pagina di panoramica**di **Azure Active Directory** > .
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1   
 
@@ -70,9 +69,12 @@ Eseguire la procedura seguente.
 10. Seguire le istruzioni visualizzate per acquisire i valori per l' **endpoint API**, l' **ID tenant**, l' **ID client**, il **segreto client**e la **stringa di connessione EventHub**.
 ## <a name="create-device-or-sensor-metadata"></a>Crea metadati del dispositivo o del sensore
 
- Ora che si dispone delle credenziali necessarie, è possibile definire il dispositivo e i sensori. A tale scopo, creare i metadati chiamando le API FarmBeats. Si noti che sarà necessario chiamare le API come app client creata nella sezione precedente
+ Ora che si dispone delle credenziali necessarie, è possibile definire il dispositivo e i sensori. A tale scopo, creare i metadati chiamando le API FarmBeats. Assicurarsi di chiamare le API come app client creata nella sezione precedente.
 
- FarmBeats datahub include le API seguenti che consentono di creare e gestire i metadati del dispositivo o del sensore. Si noti che, come partner, è possibile accedere solo a leggere, creare e aggiornare i metadati. **L'eliminazione non è consentita da un partner.**
+ FarmBeats datahub include le API seguenti che consentono di creare e gestire i metadati del dispositivo o del sensore.
+
+ > [!NOTE]
+ > I partner possono accedere solo per leggere, creare e aggiornare i metadati. **l'opzione Delete è limitata al partner.**
 
 - /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, che può essere un gateway o un nodo.
 - /**dispositivo**: il dispositivo corrisponde a un dispositivo fisico presente nella farm.
@@ -284,6 +286,22 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 \"description\": \"Test Device 123\"}" *
 ```
 
+Di seguito è riportato un codice di esempio in Python. Il token di accesso utilizzato in questo esempio è lo stesso che viene ricevuto durante l'autenticazione.
+
+```python
+import requests
+import json
+
+# Got access token - Calling the Device Model API
+headers = {
+    "Authorization": "Bearer " + access_token,
+    "Content-Type" : "application/json"
+    }
+payload = '{"type" : "Node", "productCode" : "TestCode", "ports": [{"name": "port1","type": "Analog"}], "name" : "DummyDevice"}'
+response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=headers)
+```
+
+
 > [!NOTE]
 > Le API restituiscono ID univoci per ogni istanza creata. È necessario mantenere gli ID per inviare i messaggi di telemetria corrispondenti.
 
@@ -331,11 +349,11 @@ Convertire il formato dei dati cronologici del sensore in un formato canonico ch
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
         }
       ]
     }
@@ -392,8 +410,10 @@ Ecco un esempio di messaggio di telemetria:
 
 **Azione correttiva**:
 
-1. Assicurarsi che la registrazione del partner sia stata eseguita correttamente. è possibile verificarla selezionando datahub spavalderia, passare all'API/partner, eseguire un'operazione get e verificare se il partner è registrato. In caso contrario, seguire la [procedura descritta qui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere il partner.
+1. Assicurarsi di aver eseguito la registrazione del partner appropriata. per verificarlo, passare a datahub spavalderia, passare all'API/partner, eseguire un'operazione get e verificare se il partner è registrato. In caso contrario, seguire questa [procedura](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere il partner.
+
 2. Assicurarsi di aver creato i metadati (DeviceModel, Device, SensorModel, Sensor) usando le credenziali client del partner.
+
 3. Assicurarsi di aver usato il formato del messaggio di telemetria corretto (come specificato di seguito):
 
 ```json
@@ -407,11 +427,11 @@ Ecco un esempio di messaggio di telemetria:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }

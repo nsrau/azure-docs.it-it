@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2d353e6ccd7dad7be302a5f40c65012f32deba7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c82432a3d76a84eba1ad921d936b2f3ba064e2ae
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227115"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136834"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Creare la prima funzione con Java ed Eclipse 
 
@@ -42,7 +42,7 @@ Per sviluppare un'app per le funzioni con Java ed Eclipse, è necessario che sia
 1. Selezionare **Add Archetype** (Aggiungi archetipo) e aggiungere le voci per [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype Group ID (ID gruppo archetipo): com.microsoft.azure
     - Archetype Artifact ID (ID artefatto archetipo): azure-functions-archetype
-    - Versione: usare la versione più recente **1,22** dal [repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Versione: controllare e usare la versione più recente dal [repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Fare clic su **OK** e quindi su **Avanti**.  Assicurarsi di inserire i valori per tutti i campi inclusi `resourceGroup`, `appName`e `appRegion` (usare un diverso appName diverso da **Fabrikam-Function-20170920120101928**) e infine **terminare**.
     ![Eclipse Maven Create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  

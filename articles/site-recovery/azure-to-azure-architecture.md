@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 224b69ab571f934f0bd3b05bbdeb9dc4013f96bf
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759807"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371614"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -91,7 +91,7 @@ Site Recovery acquisisce snapshot nel modo seguente:
 1. Site Recovery acquisisce snapshot dei dati coerenti con l'arresto anomalo del sistema per impostazione predefinita, oltre a snapshot coerenti con l'app se si specifica una frequenza.
 2. Dagli snapshot vengono creati punti di ripristino che vengono archiviati in base alle impostazioni di conservazione dei criteri di replica.
 
-### <a name="consistency"></a>Coerenza
+### <a name="consistency"></a>Consistenza
 
 La tabella seguente illustra i vari tipi di coerenza.
 
@@ -135,6 +135,8 @@ Se l'accesso in uscita per le macchine virtuali è controllato tramite URL, cons
 | login.microsoftonline.com | Fornisce l'autenticazione e l'autorizzazione per gli URL del servizio Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Consente alla macchina virtuale di comunicare con il servizio Site Recovery. |
 | *.servicebus.windows.net | Consente alla macchina virtuale di scrivere i dati di diagnostica e monitoraggio di Site Recovery. |
+| *.vault.azure.net | Consente l'accesso per abilitare la replica per le macchine virtuali abilitate per ADE tramite il portale
+| *. automation.ext.azure.com | Consente l'abilitazione dell'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
@@ -145,19 +147,23 @@ Si noti che i dettagli relativi ai requisiti di connettività di rete sono dispo
 
 **Regola** |  **Dettagli** | **Tag di servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione. nome area\<
+Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione. nome area\<>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di destinazione. | EventsHub. nome area\<
+Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di destinazione. | EventsHub. nome area\<>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Site Recovery  | AzureSiteRecovery
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Key Vault (questo è necessario solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale) | AzureKeyVault
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al controller di automazione di Azure (necessario solo per abilitare l'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale) | GuestAndHybridManagement
 
 #### <a name="target-region-rules"></a>Regole dell'area di destinazione
 
 **Regola** |  **Dettagli** | **Tag di servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono agli account di archiviazione nell'area di destinazione | Archiviazione. nome area\<
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono agli account di archiviazione nell'area di destinazione | Archiviazione. nome area\<>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure AD  | AzureActiveDirectory
-Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di origine. | EventsHub. nome area\<
+Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di origine. | EventsHub. nome area\<>
 Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Site Recovery  | AzureSiteRecovery
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Key Vault (questo è necessario solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale) | AzureKeyVault
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al controller di automazione di Azure (necessario solo per abilitare l'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale) | GuestAndHybridManagement
 
 
 #### <a name="control-access-with-nsg-rules"></a>Controllare l'accesso con le regole NSG

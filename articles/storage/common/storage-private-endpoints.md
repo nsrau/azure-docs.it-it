@@ -1,31 +1,34 @@
 ---
-title: Uso di endpoint privati con archiviazione di Azure | Microsoft Docs
+title: Usare endpoint privati
+titleSuffix: Azure Storage
 description: Panoramica degli endpoint privati per l'accesso sicuro agli account di archiviazione dalle reti virtuali.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252656"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299057"
 ---
-# <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso di endpoint privati per archiviazione di Azure (anteprima)
+# <a name="use-private-endpoints-for-azure-storage"></a>Usare endpoint privati per archiviazione di Azure
 
 È possibile usare [endpoint privati](../../private-link/private-endpoint-overview.md) per gli account di archiviazione di Azure per consentire ai client in una rete virtuale (VNet) di accedere in modo sicuro ai dati tramite un [collegamento privato](../../private-link/private-link-overview.md). L'endpoint privato usa un indirizzo IP dello spazio di indirizzi VNet per il servizio dell'account di archiviazione. Il traffico di rete tra i client nella VNet e l'account di archiviazione attraversa il VNet e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica.
 
 L'uso di endpoint privati per l'account di archiviazione consente di:
+
 - Proteggere l'account di archiviazione configurando il firewall di archiviazione per bloccare tutte le connessioni nell'endpoint pubblico per il servizio di archiviazione.
 - Aumentare la sicurezza per la rete virtuale (VNet), consentendo di bloccare exfiltration di dati da VNet.
 - Connettersi in modo sicuro agli account di archiviazione da reti locali che si connettono alla VNet tramite [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [delle expressroute](../../expressroute/expressroute-locations.md) con peering privato.
 
-## <a name="conceptual-overview"></a>Panoramica dei concetti
+## <a name="conceptual-overview"></a>Informazioni generali
+
 ![Panoramica degli endpoint privati per archiviazione di Azure](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
 Un endpoint privato è un'interfaccia di rete speciale per un servizio di Azure nella [rete virtuale](../../virtual-network/virtual-networks-overview.md) (VNet). Quando si crea un endpoint privato per l'account di archiviazione, fornisce connettività sicura tra i client nella VNet e l'archiviazione. All'endpoint privato viene assegnato un indirizzo IP dall'intervallo di indirizzi IP della VNet. La connessione tra l'endpoint privato e il servizio di archiviazione usa un collegamento privato protetto.
@@ -43,7 +46,7 @@ I proprietari dell'account di archiviazione possono gestire le richieste di cons
 
 È possibile proteggere l'account di archiviazione in modo che accetti solo le connessioni da VNet, [configurando il firewall di archiviazione](storage-network-security.md#change-the-default-network-access-rule) per negare l'accesso tramite il relativo endpoint pubblico per impostazione predefinita. Non è necessaria una regola del firewall per consentire il traffico da un VNet con un endpoint privato, perché il firewall di archiviazione controlla solo l'accesso tramite l'endpoint pubblico. Gli endpoint privati si basano invece sul flusso di autorizzazioni per concedere alle subnet l'accesso al servizio di archiviazione.
 
-### <a name="private-endpoints-for-storage-service"></a>Endpoint privati per il servizio di archiviazione
+### <a name="private-endpoints-for-azure-storage"></a>Endpoint privati per archiviazione di Azure
 
 Quando si crea l'endpoint privato, è necessario specificare l'account di archiviazione e il servizio di archiviazione a cui si connette. È necessario un endpoint privato separato per ogni servizio di archiviazione in un account di archiviazione a cui è necessario accedere, ovvero [BLOB](../blobs/storage-blobs-overview.md), [Data Lake storage Gen2](../blobs/data-lake-storage-introduction.md), [file](../files/storage-files-introduction.md), [Code](../queues/storage-queues-introduction.md), [tabelle](../tables/table-storage-overview.md)o [siti web statici](../blobs/storage-blob-static-website.md).
 
@@ -51,8 +54,6 @@ Quando si crea l'endpoint privato, è necessario specificare l'account di archiv
 > Creare un endpoint privato separato per l'istanza secondaria del servizio di archiviazione per migliorare le prestazioni di lettura sugli account RA-GRS.
 
 Per l'accesso in lettura all'area secondaria con un account di archiviazione configurato per l'archiviazione con ridondanza geografica, sono necessari endpoint privati distinti per le istanze primarie e secondarie del servizio. Non è necessario creare un endpoint privato per l'istanza secondaria per il **failover**. L'endpoint privato si connette automaticamente alla nuova istanza primaria dopo il failover. Per altre informazioni sulle opzioni di ridondanza di archiviazione, vedere [ridondanza di archiviazione di Azure](storage-redundancy.md).
-
-#### <a name="resources"></a>Risorse
 
 Per informazioni più dettagliate sulla creazione di un endpoint privato per l'account di archiviazione, fare riferimento agli articoli seguenti:
 
@@ -111,8 +112,6 @@ I nomi di zona DNS consigliati per gli endpoint privati per i servizi di archivi
 | Servizio tabelle          | `privatelink.table.core.windows.net` |
 | Siti web statici        | `privatelink.web.core.windows.net`   |
 
-#### <a name="resources"></a>Risorse
-
 Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
 
 - [Risoluzione dei nomi per le risorse in reti virtuali di Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
@@ -124,16 +123,23 @@ Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato 
 
 ## <a name="known-issues"></a>Problemi noti
 
+Tenere presente i seguenti problemi noti sugli endpoint privati per archiviazione di Azure.
+
 ### <a name="copy-blob-support"></a>Copia supporto BLOB
 
-Durante l'anteprima, non sono supportati i comandi [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) emessi per gli account di archiviazione a cui si accede tramite endpoint privati quando l'account di archiviazione di origine è protetto da un firewall.
+Se l'account di archiviazione è protetto da un firewall e si accede all'account tramite endpoint privati, l'account non può fungere da origine di un'operazione di [copia del BLOB](/rest/api/storageservices/copy-blob) .
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Vincoli di accesso alle archiviazione per i client in reti virtuali con endpoint privati
 
-I client in reti virtuali con endpoint privati esistenti devono affrontare vincoli per l'accesso ad altri account di archiviazione con endpoint privati. Si supponga, ad esempio, che un VNet N1 disponga di un endpoint privato per un account di archiviazione a1 per, ad esempio, il servizio BLOB. Se l'account di archiviazione a2 ha un endpoint privato in un VNet N2 per il servizio BLOB, i client in VNet N1 devono accedere anche al servizio BLOB dell'account a2 usando un endpoint privato. Se per l'account di archiviazione a2 non sono presenti endpoint privati per il servizio BLOB, i client in VNet N1 possono accedere al servizio BLOB senza un endpoint privato.
+I client in reti virtuali con endpoint privati esistenti devono affrontare vincoli per l'accesso ad altri account di archiviazione con endpoint privati. Si supponga, ad esempio, che un VNet N1 disponga di un endpoint privato per un account di archiviazione a1 per l'archiviazione BLOB. Se l'account di archiviazione a2 ha un endpoint privato in un VNet N2 per l'archiviazione BLOB, i client in VNet N1 devono accedere anche all'archiviazione BLOB nell'account a2 usando un endpoint privato. Se l'account di archiviazione a2 non contiene endpoint privati per l'archiviazione BLOB, i client in VNet N1 possono accedere all'archiviazione BLOB in tale account senza un endpoint privato.
 
 Questo vincolo è il risultato delle modifiche DNS apportate quando l'account a2 crea un endpoint privato.
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regole del gruppo di sicurezza di rete per le subnet con endpoint privati
 
 Attualmente, non è possibile configurare le regole del [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) (NSG) e le route definite dall'utente per gli endpoint privati. Le regole NSG applicate alla subnet che ospita l'endpoint privato vengono applicate all'endpoint privato. Una soluzione alternativa limitata a questo problema consiste nell'implementare le regole di accesso per gli endpoint privati nelle subnet di origine, sebbene questo approccio potrebbe richiedere un sovraccarico di gestione superiore.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Configurare i firewall e le reti virtuali di Archiviazione di Azure](storage-network-security.md)
+- [Raccomandazioni sulla sicurezza per l'archiviazione BLOB](../blobs/security-recommendations.md)

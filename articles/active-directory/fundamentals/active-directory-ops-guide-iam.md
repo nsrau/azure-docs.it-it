@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 36b3857f8827f8a33e5fc0981b22a49128f7c193
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535327"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298615"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guida di riferimento alle operazioni di gestione delle identità e degli accessi Azure Active Directory
 
@@ -37,7 +37,7 @@ La gestione di Azure Active Directory richiede l'esecuzione continua delle attiv
 | Decidere chi ottiene Enterprise Mobility + Security licenze | Team operativo IAM |
 | Decidere chi ottiene le licenze di Office 365 | Team di produttività |
 | Decidere chi ottiene altre licenze, ad esempio Dynamics, VSO | Proprietario dell'applicazione |
-| Assegnare licenze | Team operativo IAM |
+| Assegnazione di licenze | Team operativo IAM |
 | Risoluzione dei problemi e correzione degli errori di assegnazione delle licenze | Team operativo IAM |
 | Effettuare il provisioning delle identità nelle applicazioni Azure AD | Team operativo IAM |
 
@@ -97,7 +97,7 @@ Se l'organizzazione non dispone di una strategia di ripristino di emergenza e di
 
 ![Screenshot della configurazione della modalità di gestione temporanea Azure AD Connect](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
-#### <a name="stay-current"></a>Mantieniti aggiornato
+#### <a name="stay-current"></a>Mantenersi aggiornati
 
 Microsoft Update Azure AD Connect regolarmente. Rimanere aggiornati per sfruttare i miglioramenti delle prestazioni, le correzioni di bug e le nuove funzionalità disponibili in ogni nuova versione.
 
@@ -170,7 +170,7 @@ Se attualmente si usa uno strumento, ad esempio [Microsoft Identity Manager](htt
 I proprietari delle risorse possono ritenere che il gruppo **tutti gli utenti** contenga solo i **dipendenti aziendali** quando possono effettivamente contenere sia i **dipendenti aziendali** che i **Guest**. Di conseguenza, è necessario prestare particolare attenzione quando si utilizza il gruppo **tutti gli utenti** per l'assegnazione dell'applicazione e si concede l'accesso a risorse quali il contenuto o le applicazioni di SharePoint.
 
 > [!IMPORTANT]
-> Se il gruppo **tutti gli utenti** è abilitato e usato per i criteri di accesso condizionale, l'assegnazione di app o risorse, assicurarsi di [proteggere il gruppo](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) se non si vuole includere utenti guest. Inoltre, è necessario correggere le assegnazioni di licenze creando e assegnando a gruppi che contengono solo **dipendenti aziendali** . D'altra parte, se si rileva che il gruppo **tutti gli utenti** è abilitato ma non usato per concedere l'accesso alle risorse, assicurarsi che le linee guida operative dell'organizzazione usino intenzionalmente tale gruppo, che include i **dipendenti aziendali** e i **Guest**.
+> Se il gruppo **tutti gli utenti** è abilitato e usato per i criteri di accesso condizionale, l'assegnazione di app o risorse, assicurarsi di [proteggere il gruppo](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) se non si vuole includere utenti guest. Inoltre, è necessario correggere le assegnazioni di licenze creando e assegnando a gruppi che contengono solo **dipendenti aziendali** . D'altra parte, se si rileva che il gruppo **tutti gli utenti** è abilitato ma non usato per concedere l'accesso alle risorse, assicurarsi che le linee guida operative dell'organizzazione usino intenzionalmente tale gruppo, che include i **dipendenti aziendali** e i **Guest**.
 
 ### <a name="automated-user-provisioning-to-apps"></a>Provisioning utenti automatizzato per le app
 
@@ -191,7 +191,7 @@ La frequenza di [sincronizzazione delta predefinita](https://docs.microsoft.com/
 - [Preparare gli attributi di directory per la sincronizzazione con Office 365 usando lo strumento IdFix-Office 365](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: risoluzione degli errori durante la sincronizzazione](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Esistono cinque aspetti di un'infrastruttura di identità sicura. Questo elenco ti aiuterà a trovare e intraprendere rapidamente le azioni necessarie per proteggere e gestire il ciclo di vita delle identità e dei rispettivi diritti nell'organizzazione.
 

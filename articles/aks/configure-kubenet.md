@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 9931c752d5ce33beb41dc00194c27d06b9469807
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 3fe1d36b859884ab19a645e5693c7e7931fe5c2c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595894"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368469"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -20,7 +20,7 @@ Con l' [interfaccia di rete del contenitore di Azure (CNI)][cni-networking], ogn
 
 Questo articolo illustra come usare le funzionalità di rete *kubenet* per creare e usare una subnet di rete virtuale per un cluster del servizio Azure Kubernetes. Per altre informazioni sulle opzioni di rete e le considerazioni, vedere [concetti di rete per Kubernetes e AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
 * Non creare più di un cluster servizio Azure Kubernetes nella stessa subnet.
@@ -84,7 +84,7 @@ Usare *Azure CNI* quando:
 
 - È disponibile uno spazio indirizzi IP adeguato.
 - La maggior parte delle comunicazioni dei pod avviene con risorse esterne al cluster.
-- Non si vogliono gestire i routing definiti dall'utente.
+- Non si vuole gestire UdR.
 - Sono necessarie funzionalità avanzate di AKS, ad esempio nodi virtuali o criteri di rete di Azure.  Usare i [criteri di rete di calice][calico-network-policies].
 
 Per ulteriori informazioni sulla scelta del modello di rete da utilizzare, vedere [confrontare i modelli di rete e il relativo ambito di supporto][network-comparisons].
@@ -118,9 +118,11 @@ az ad sp create-for-rbac --skip-assignment
 
 L'output di esempio seguente mostra l'ID applicazione e la password dell'entità servizio. Questi valori vengono usati in passaggi aggiuntivi per assegnare un ruolo all'entità servizio e quindi creare il cluster del servizio Azure Kubernetes:
 
-```console
-$ az ad sp create-for-rbac --skip-assignment
+```azurecli
+az ad sp create-for-rbac --skip-assignment
+```
 
+```output
 {
   "appId": "476b3636-5eda-4c0e-9751-849e70b5cfad",
   "displayName": "azure-cli-2019-01-09-22-29-24",

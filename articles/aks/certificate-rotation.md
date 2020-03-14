@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9ae8f5072573dcc91dd3e8bdcd08968790f6444d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f299b13baf5811b92bdc2e40b027868617d7574c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79205204"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368520"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati in Azure Kubernetes Service (AKS)
 
@@ -52,20 +52,20 @@ AKS genera e usa i certificati, le autorità di certificazione e gli account di 
 
 Usare [AZ AKS Get-credentials][az-aks-get-credentials] per accedere al cluster AKS. Questo comando consente inoltre di scaricare e configurare il certificato client di `kubectl` nel computer locale.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 Usare `az aks rotate-certs` per ruotare tutti i certificati, CA e SAs nel cluster.
 
-```console
+```azurecli
 az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 > [!IMPORTANT]
 > Potrebbero essere necessari fino a 30 minuti per il completamento del `az aks rotate-certs`. Se il comando ha esito negativo prima del completamento, usare `az aks show` per verificare che lo stato del cluster sia *rotazione del certificato*. Se il cluster si trova in uno stato di errore, rieseguire `az aks rotate-certs` per ruotare nuovamente i certificati.
 
-Verificare che i certificati precedenti non siano più validi eseguendo un comando `kubectl`. Poiché i certificati utilizzati da `kubectl`non sono stati aggiornati, verrà visualizzato un errore.  Ad esempio:
+Verificare che i certificati precedenti non siano più validi eseguendo un comando `kubectl`. Poiché i certificati utilizzati da `kubectl`non sono stati aggiornati, verrà visualizzato un errore.  Ad esempio,
 
 ```console
 $ kubectl get no
@@ -74,11 +74,11 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 
 Aggiornare il certificato usato da `kubectl` eseguendo `az aks get-credentials`.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Verificare che i certificati siano stati aggiornati eseguendo un comando `kubectl`, che ora avrà esito positivo. Ad esempio:
+Verificare che i certificati siano stati aggiornati eseguendo un comando `kubectl`, che ora avrà esito positivo. Ad esempio,
 
 ```console
 kubectl get no

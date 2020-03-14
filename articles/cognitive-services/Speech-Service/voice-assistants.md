@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 9219c9a72ce9e1cfba3504b0b8e16ade77f8a5e5
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79219533"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369897"
 ---
-# <a name="about-voice-assistants"></a>Informazioni sugli assistenti vocali
+# <a name="what-is-a-voice-assistant"></a>Che cos'è un assistente vocale?
 
 Gli assistenti vocali che usano il servizio riconoscimento vocale consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per le proprie applicazioni ed esperienze.
 
@@ -56,9 +56,9 @@ Indipendentemente dal fatto che si scelga [Direct Line Speech](direct-line-speec
 
 Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive per Assistente vocale, organizzate in base alla lingua.
 
-| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
+| Guida rapida | Platform | Riferimento all'API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Sfoglia](https://aka.ms/csspeech/csharpref) |
+| C#, UWP | WINDOWS | [Sfoglia](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Sfoglia](https://aka.ms/csspeech/javaref) |
 | Java | Android | [Sfoglia](https://aka.ms/csspeech/javaref) |
 

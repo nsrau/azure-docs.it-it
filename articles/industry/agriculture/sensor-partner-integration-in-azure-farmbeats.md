@@ -5,18 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 48a2ed5e4774ac07b4b8fa72a5ee0be86811cfb2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132836"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298734"
 ---
 # <a name="sensor-partner-integration"></a>Integrazione di partner di sensori
 
 Questo articolo fornisce informazioni sul componente Azure FarmBeats **Translator** , che consente l'integrazione del partner di sensori.
 
-Grazie a questo componente, i partner possono integrarsi con FarmBeats usando le API dell'hub dati FarmBeats e inviare dati di telemetria e dati del dispositivo ai clienti all'hub dati di FarmBeats. Una volta che i dati sono disponibili in FarmBeats, vengono visualizzati usando l'acceleratore FarmBeats e possono essere usati per la fusione dei dati e per la creazione di modelli di Machine Learning/intelligenza artificiale.
+Usando questo componente, i partner possono integrarsi con FarmBeats usando le API datahub di FarmBeats e inviare dati di telemetria e dati del dispositivo a FarmBeats datahub. Una volta che i dati sono disponibili in FarmBeats, vengono visualizzati usando l'acceleratore FarmBeats e possono essere usati per la fusione dei dati e per la creazione di modelli di Machine Learning/intelligenza artificiale.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -50,7 +50,7 @@ FarmBeats usa l'autenticazione Microsoft Azure Active Directory. App Azure ser
 
 Per altre informazioni, vedere [Azure Active Directory - Documentazione](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-FarmBeats Data Hub USA l'autenticazione della porta, che richiede le credenziali seguenti:
+FarmBeats datahub usa l'autenticazione della porta, che richiede le credenziali seguenti:
    - ID client
    - Segreto client
    - ID tenant
@@ -85,14 +85,14 @@ access_token = token_response.get('accessToken') 
 
 **Intestazioni di richiesta HTTP**
 
-Di seguito sono riportate le intestazioni di richiesta più comuni che è necessario specificare quando si effettua una chiamata API a FarmBeats Data Hub.
+Di seguito sono riportate le intestazioni di richiesta più comuni che è necessario specificare quando si effettua una chiamata API a FarmBeats datahub.
 
 
 **Intestazione** | **Descrizione ed esempio**
 --- | ---
-Content-Type | Formato della richiesta (Content-Type: Application/<format>). Per le API di FarmBeats Data Hub, il formato è JSON. Content-Type: application/json
+Content-Type | Formato della richiesta (Content-Type: Application/<format>). Per le API datahub di FarmBeats, il formato è JSON. Content-Type: application/json
 Autorizzazione | Specifica il token di accesso necessario per effettuare una chiamata API. Autorizzazione: Bearer < Access-token >
-Accetta | Formato della risposta. Per le API di FarmBeats Data Hub, il formato è JSON. Accept: Application/JSON
+Accetta | Formato della risposta. Per le API datahub di FarmBeats, il formato è JSON. Accept: Application/JSON
 
 **Richieste API**
 
@@ -119,7 +119,7 @@ JSON è un formato di dati comune indipendente dal linguaggio che fornisce una s
 
 ## <a name="metadata-specifications"></a>Specifiche dei metadati
 
-L'hub dati FarmBeats include le API seguenti che consentono ai partner di dispositivi di creare e gestire i metadati del dispositivo o del sensore.
+FarmBeats datahub include le API seguenti che consentono ai partner di dispositivi di creare e gestire i metadati del dispositivo o del sensore.
 
 - /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, ovvero gateway o nodo.
 - /**dispositivo**: il dispositivo corrisponde a un dispositivo fisico presente nella farm.
@@ -230,11 +230,11 @@ Il formato del messaggio canonico è il seguente:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -304,7 +304,7 @@ Dopo che i clienti hanno acquistato e distribuito dispositivi o sensori, possono
 
 ## <a name="unlink-farmbeats"></a>Scollega FarmBeats
 
-I partner dei dispositivi possono consentire ai clienti di scollegare un'integrazione FarmBeats esistente. Lo scollegamento di FarmBeats non deve eliminare i metadati del dispositivo o del sensore creati nell'hub dati FarmBeats. Lo scollegamento esegue le operazioni seguenti:
+I partner dei dispositivi possono consentire ai clienti di scollegare un'integrazione FarmBeats esistente. Lo scollegamento di FarmBeats non deve eliminare i metadati del dispositivo o del sensore creati in FarmBeats datahub. Lo scollegamento esegue le operazioni seguenti:
 
    - Arresta il flusso di telemetria.
    - Elimina e cancella le credenziali di integrazione nel partner del dispositivo.

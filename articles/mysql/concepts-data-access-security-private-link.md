@@ -1,19 +1,19 @@
 ---
-title: Collegamento privato per database di Azure per MySQL (anteprima)
+title: Collegamento privato-database di Azure per MySQL
 description: Informazioni sul funzionamento del collegamento privato per database di Azure per MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: d9738a1dca39e1b43f690bd65ff05d20b6a94fa1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/10/2020
+ms.openlocfilehash: c2cc4986542404281424286882c046dec39f5daf
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897507"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371291"
 ---
-# <a name="private-link-for-azure-database-for-mysql-preview"></a>Collegamento privato per database di Azure per MySQL (anteprima)
+# <a name="private-link-for-azure-database-for-mysql"></a>Collegamento privato per database di Azure per MySQL
 
 Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un endpoint privato. Il collegamento privato di Azure porta essenzialmente i servizi di Azure all'interno della rete virtuale privata (VNet). È possibile accedere alle risorse PaaS usando l'indirizzo IP privato come qualsiasi altra risorsa in VNet.
 
@@ -57,10 +57,7 @@ Per abilitare il collegamento privato sono necessari endpoint privati. Questa op
 * [CLI](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Processo di approvazione
-Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore di MySQL può gestire la connessione all'endpoint privato (PEC) al database di Azure per MySQL.
-
-> [!NOTE]
-> Attualmente, database di Azure per MySQL supporta solo l'approvazione automatica per l'endpoint privato.
+Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore di MySQL può gestire la connessione all'endpoint privato (PEC) al database di Azure per MySQL. Questa separazione dei compiti tra l'amministratore di rete e l'amministratore di database è utile per la gestione della connettività del database di Azure per MySQL. 
 
 * Passare alla risorsa del server database di Azure per MySQL nel portale di Azure. 
     * Selezionare le connessioni all'endpoint privato nel riquadro sinistro
@@ -83,7 +80,7 @@ Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore d
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Casi d'uso di collegamento privato per database di Azure per MySQL
 
-I client possono connettersi all'endpoint privato dalla stessa rete virtuale, da una rete virtuale con peering nella stessa area o tramite una connessione da rete virtuale a rete virtuale tra aree diverse. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
+I client possono connettersi all'endpoint privato dallo stesso VNet, VNet con peering nella stessa area o tramite una connessione da VNet a VNet tra le aree. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
 
 ![Selezionare la panoramica dell'endpoint privato](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 
@@ -109,6 +106,19 @@ Quando si usa un collegamento privato in combinazione con le regole del firewall
 * Se si configura il traffico pubblico o un endpoint di servizio e si creano endpoint privati, i diversi tipi di traffico in ingresso sono autorizzati dal tipo corrispondente di regola del firewall.
 
 * Se non si configura alcun traffico pubblico o endpoint di servizio e si creano endpoint privati, il database di Azure per MySQL sarà accessibile solo tramite gli endpoint privati. Se non si configura il traffico pubblico o un endpoint del servizio, dopo che tutti gli endpoint privati approvati sono stati rifiutati o eliminati, nessun traffico sarà in grado di accedere al database di Azure per MySQL.
+
+## <a name="deny-public-access-for-azure-database-for-mysql"></a>Negare l'accesso pubblico per database di Azure per MySQL
+
+Per fare affidamento solo sugli endpoint privati per l'accesso al database di Azure per MySQL, è possibile disabilitare l'impostazione di tutti gli endpoint pubblici, ad esempio [le regole del firewall](concepts-firewall-rules.md) e gli [endpoint di servizio VNet](concepts-data-access-and-security-vnet.md), impostando la configurazione di **accesso negato alla rete pubblica** sul server di database. 
+
+Quando questa impostazione è impostata su *Sì*, al database di Azure per MySQL sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su *No*, i client possono connettersi al database di Azure per MySQL in base alle impostazioni del firewall o dell'endpoint del servizio VNet. Inoltre, una volta impostato il valore di accesso alla rete privata, non è possibile aggiungere e/o aggiornare le regole di endpoint del servizio firewall e VNet esistenti.
+
+> [!Note]
+> Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per PostgreSQL-server singolo supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
+>
+> Questa impostazione non ha alcun effetto sulle configurazioni SSL e TLS per il database di Azure per MySQL.
+
+Per informazioni su come impostare l' **accesso negato alla rete pubblica** per il database di Azure per MySQL da portale di Azure, vedere [come configurare l'accesso negato alla rete pubblica](howto-deny-public-network-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

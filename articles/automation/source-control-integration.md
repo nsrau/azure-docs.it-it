@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: eef67ca8111983adb4d9994894ba215240daee6f
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: b0eed8fe9d548ee54698d187e192960bb3b44e44
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78253738"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368809"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -33,7 +33,7 @@ Automazione di Azure supporta tre tipi di controllo del codice sorgente:
 
 * Un repository del controllo del codice sorgente (GitHub o Azure Repos)
 * Un [account RunAs](manage-runas-account.md)
-* I [moduli di Azure più recenti](automation-update-azure-modules.md) nell'account di automazione, incluso il modulo **AZ. Accounts** (AZ Module equivalente di AzureRM. profile)
+* I [moduli di Azure più recenti](automation-update-azure-modules.md) nell'account di automazione, incluso il modulo `Az.Accounts` (AZ Module equivalente di `AzureRM.Profile`)
 
 > [!NOTE]
 > I processi di sincronizzazione del controllo del codice sorgente vengono eseguiti con l'account di automazione dell'utente e vengono fatturati alla stessa tariffa di altri processi di automazione.
@@ -54,15 +54,15 @@ Usare questa procedura per configurare il controllo del codice sorgente usando i
 
 3. Viene visualizzata una finestra del browser in cui viene chiesto di eseguire l'accesso. Seguire le istruzioni per completare l'autenticazione.
 
-4. Nella pagina di **Riepilogo del controllo del codice sorgente** usare i campi per inserire le proprietà del controllo del codice sorgente definite di seguito. Al termine, fare clic su **Salva**. 
+4. Nella pagina di riepilogo del controllo del codice sorgente usare i campi per inserire le proprietà del controllo del codice sorgente definite di seguito. Al termine, fare clic su **Salva**. 
 
     |Proprietà  |Descrizione  |
     |---------|---------|
     |Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente. Questo nome deve contenere solo lettere e numeri.        |
-    |Tipo di controllo del codice sorgente     | Tipo di meccanismo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
+    |Tipo di controllo del codice sorgente     | Tipo di meccanismo di controllo del codice sorgente. Le opzioni disponibili sono:</br> * GitHub</br>* Azure Repos (git)</br> * Azure Repos (TFVC)        |
     |Repository     | Nome del repository o del progetto. Vengono recuperati i primi 200 repository. Per cercare un repository, digitare il nome nel campo e fare clic **su Cerca in GitHub**.|
     |Ramo     | Ramo da cui eseguire il pull dei file di origine. La destinazione del ramo non è disponibile per il tipo di controllo del codice sorgente TFVC.          |
-    |Percorso cartella     | Cartella che contiene il manuali operativi da sincronizzare, ad esempio/runbooks. Solo manuali operativi nella cartella specificata sono sincronizzati. La ricorsione non è supportata.        |
+    |Percorso cartella     | Cartella che contiene il manuali operativi da sincronizzare, ad esempio **/runbooks**. Solo manuali operativi nella cartella specificata sono sincronizzati. La ricorsione non è supportata.        |
     |Sincronizzazione automatica<sup>1</sup>     | Impostazione che attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente.        |
     |Pubblica runbook     | Impostando su on se i manuali operativi vengono pubblicati automaticamente dopo la sincronizzazione dal controllo del codice sorgente e in caso contrario.           |
     |Descrizione     | Testo che specifica ulteriori dettagli sul controllo del codice sorgente.        |
@@ -72,7 +72,7 @@ Usare questa procedura per configurare il controllo del codice sorgente usando i
    ![Riepilogo del Controllo del codice sorgente](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> L'account di accesso per il repository del controllo del codice sorgente può essere diverso dall'account di accesso per il portale di Azure. Quando si configura il controllo del codice sorgente, verificare di avere eseguito l'accesso con l'account corretto per il repository del controllo del codice sorgente. In caso di dubbi, aprire una nuova scheda nel browser, disconnettersi da visualstudio.com o github.com e provare a connettersi di nuovo al controllo del codice sorgente.
+> L'account di accesso per il repository del controllo del codice sorgente può essere diverso dall'account di accesso per il portale di Azure. Quando si configura il controllo del codice sorgente, verificare di avere eseguito l'accesso con l'account corretto per il repository del controllo del codice sorgente. In caso di dubbi, aprire una nuova scheda nel browser, disconnettersi da **VisualStudio.com** o **github.com**e provare a connettersi di nuovo al controllo del codice sorgente.
 
 ### <a name="configure-source-control----powershell"></a>Configurare il controllo del codice sorgente-PowerShell
 
@@ -109,13 +109,13 @@ La tabella seguente definisce le autorizzazioni PAT minime necessarie per GitHub
 
 |Ambito  |Descrizione  |
 |---------|---------|
-|**repo**     |         |
-|repo:status     | Accedere allo stato del commit         |
-|repo_deployment      | Accedere allo stato della distribuzione         |
-|public_repo     | Accedere ai repository pubblici         |
-|**admin:repo_hook**     |         |
-|write:repo_hook     | Scrivere gli hook del repository         |
-|read:repo_hook|Leggere gli hook del repository|
+|**`repo`**     |         |
+|`repo:status`     | Accedere allo stato del commit         |
+|`repo_deployment`      | Accedere allo stato della distribuzione         |
+|`public_repo`     | Accedere ai repository pubblici         |
+|**`admin:repo_hook`**     |         |
+|`write:repo_hook`     | Scrivere gli hook del repository         |
+|`read:repo_hook`|Leggere gli hook del repository|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Autorizzazioni PAT minime per Azure Repos
 
@@ -134,9 +134,9 @@ Nell'elenco seguente sono definite le autorizzazioni PAT minime necessarie per A
 
 ## <a name="synchronizing"></a>Sincronizzazione in corso
 
-Eseguire le operazioni seguenti per eseguire la sincronizzazione con il controllo del codice sorgente. 
+Attenersi alla procedura seguente per eseguire la sincronizzazione con il controllo del codice sorgente. 
 
-1. Consente di selezionare l'origine della tabella nella pagina **controllo del codice sorgente** . 
+1. Consente di selezionare l'origine della tabella nella pagina controllo del codice sorgente. 
 
 2. Fare clic su **Avvia sincronizzazione** per avviare il processo di sincronizzazione. 
 
@@ -178,7 +178,7 @@ Eseguire le operazioni seguenti per eseguire la sincronizzazione con il controll
 
     ```
 
-6. Per la registrazione aggiuntiva è possibile selezionare **tutti i log** nella pagina Riepilogo del processo di sincronizzazione del **controllo del codice sorgente** . Queste voci di log aggiuntive possono aiutare a risolvere i problemi che possono verificarsi quando si usa il controllo del codice sorgente.
+6. Per la registrazione aggiuntiva è possibile selezionare **tutti i log** nella pagina Riepilogo del processo di sincronizzazione del controllo del codice sorgente. Queste voci di log aggiuntive possono aiutare a risolvere i problemi che possono verificarsi quando si usa il controllo del codice sorgente.
 
 ## <a name="disconnecting-source-control"></a>Disconnessione del controllo del codice sorgente
 
@@ -188,11 +188,11 @@ Per disconnettersi da un repository del controllo del codice sorgente:
 
 2. Selezionare il meccanismo di controllo del codice sorgente da rimuovere. 
 
-3. Nella pagina **Riepilogo del Controllo del codice sorgente** fare clic su **Elimina**.
+3. Nella pagina Riepilogo controllo del codice sorgente fare clic su **Elimina**.
 
 ## <a name="handling-encoding-issues"></a>Gestione dei problemi di codifica
 
-Se più persone modificano manuali operativi nel repository del controllo del codice sorgente usando Editor diversi, possono verificarsi problemi di codifica. Per ulteriori informazioni su questa situazione, vedere [cause comuni dei problemi di codifica](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Se più persone modificano manuali operativi nel repository del controllo del codice sorgente usando Editor diversi, possono verificarsi problemi di codifica. Per ulteriori informazioni su questa situazione, vedere [cause comuni dei problemi di codifica](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
 ## <a name="updating-the-pat"></a>Aggiornamento del PAT
 

@@ -12,14 +12,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 0ae545fd3ecafda74b90a6a4694dd6f506fb44b1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 144a3bc0d9e0499a238e4033d37d5e4d3fa61e05
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838813"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204060"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuire i servizi Web di Azure Machine Learning Studio (classico) che usano i moduli importazione dati e esportazione dati
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Quando si crea un esperimento predittivo, si aggiunge in genere un input e un output del servizio Web. Quando si distribuisce l'esperimento, i consumer possono inviare e ricevere dati dal servizio Web tramite gli input e gli output. Per alcune applicazioni, i dati del consumer possono essere disponibili da un feed di dati o risiedere già in un'origine dati esterna, ad esempio archiviazione BLOB di Azure. In questi casi non è necessario leggere e scrivere dati usando gli input e gli output del servizio Web . Gli utenti possono invece usare il servizio di esecuzione batch (BES) per leggere i dati dall'origine dati mediante un modulo Import Data e scrivere i risultati di assegnazione dei punteggi in una posizione dati diversa mediante un modulo Export Data.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d28a342359114e05545f15624a86a17f7d0d3365
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 028b186964643a08a4370741a3f1ff2ba33a4e85
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268366"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370305"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia di archiviazione di Azure per dati inattivi
 
@@ -46,9 +46,9 @@ La tabella seguente confronta le opzioni di gestione delle chiavi per la crittog
 |                                        |    Chiavi gestite da Microsoft                             |    Chiavi gestite dal cliente                                                                                                                        |    Chiavi fornite dal cliente                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Operazioni di crittografia/decrittografia    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Servizi di archiviazione di Azure supportati    |    Tutti                                                |    Archiviazione BLOB, File di Azure<sup>1, 2</sup>                                                                                                               |    Archiviazione BLOB                                                                  |
+|    Servizi di archiviazione di Azure supportati    |    Tutte                                                |    Archiviazione BLOB, File di Azure<sup>1, 2</sup>                                                                                                               |    Archiviazione BLOB                                                                  |
 |    Archiviazione chiavi                         |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure                                                                                                                              |    Azure Key Vault o qualsiasi altro archivio chiavi                                                                 |
-|    Responsabilità della rotazione delle chiavi         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
+|    Responsabilità della rotazione delle chiavi         |    Microsoft                                          |    Cliente                                                                                                                                     |    Cliente                                                                      |
 |    Uso della chiave                           |    Microsoft                                          |    Portale di Azure, API REST provider di risorse di archiviazione, librerie di gestione archiviazione di Azure, PowerShell, interfaccia della riga di comando        |    API REST di archiviazione di Azure (archiviazione BLOB), librerie client di archiviazione di Azure    |
 |    Accesso alle chiavi                          |    Solo Microsoft                                     |    Microsoft, cliente                                                                                                                    |    Solo cliente                                                                 |
 
@@ -102,7 +102,7 @@ Per informazioni su come usare le chiavi gestite dal cliente con Azure Key Vault
 
 Per abilitare le chiavi gestite dal cliente in un account di archiviazione, è necessario usare un Azure Key Vault per archiviare le chiavi. È necessario abilitare l' **eliminazione** temporanea e non **ripulire** le proprietà nell'insieme di credenziali delle chiavi.
 
-Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA della dimensione 2048. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ### <a name="rotate-customer-managed-keys"></a>Ruotare le chiavi gestite dal cliente
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754048"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299363"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guida alle procedure per pool di istanze del database SQL di Azure (anteprima)
 
@@ -41,7 +41,7 @@ La tabella seguente illustra le operazioni disponibili correlate ai pool di ista
 
 [Comandi di PowerShell](https://docs.microsoft.com/powershell/module/az.sql/) disponibili
 
-|Cmdlet |Description |
+|Cmdlet |Descrizione |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Crea un pool di istanze del database SQL di Azure. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Restituisce informazioni sul pool di istanze di SQL Azure. |
@@ -50,7 +50,7 @@ La tabella seguente illustra le operazioni disponibili correlate ai pool di ista
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Restituisce informazioni sull'utilizzo del pool di istanze SQL di Azure. |
 
 
-Per usare PowerShell, [installare la versione più recente di PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core)e seguire le istruzioni per [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Per usare PowerShell, [installare la versione più recente di PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)e seguire le istruzioni per [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 Per le operazioni correlate alle istanze sia all'interno di pool che a istanze singole, utilizzare i [comandi di istanza gestita](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances)standard, ma la proprietà *nome pool* di istanze deve essere popolata quando si utilizzano questi comandi per un'istanza in un pool.
 

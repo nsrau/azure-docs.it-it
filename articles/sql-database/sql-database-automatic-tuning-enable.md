@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299329"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica monitorare le query e migliorare le prestazioni del carico di lavoro
 
@@ -33,6 +33,13 @@ L'ottimizzazione automatica può essere abilitata a livello di server o di datab
 ## <a name="enable-automatic-tuning-on-server"></a>Abilitare l'ottimizzazione automatica nel server
 
 A livello di server è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitato), CREATE_INDEX (abilitato) e DROP_INDEX (disabilitato).
+
+> [!IMPORTANT]
+> A partire da marzo, 2020 le modifiche apportate alle impostazioni predefinite di Azure per l'ottimizzazione automatica diverranno effettive come segue:
+>
+> - Le nuove impostazioni predefinite di Azure verranno FORCE_LAST_GOOD_PLAN = Enabled, CREATE_INDEX = disabled e DROP_INDEX = disabled.
+> - I server esistenti senza preferenze di ottimizzazione automatica configurata verranno automaticamente configurati per EREDITAre le nuove impostazioni predefinite di Azure. Questo vale per tutti i clienti che dispongono attualmente di impostazioni server per l'ottimizzazione automatica in uno stato non definito.
+> - I nuovi server creati verranno automaticamente configurati in modo da EREDITAre le nuove impostazioni predefinite di Azure (a differenza di quanto prima quando la configurazione dell'ottimizzazione automatica era in uno stato non definito durante la creazione di un nuovo server).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -72,7 +79,7 @@ Si noti che al momento l'opzione DROP_INDEX non è compatibile con applicazioni 
 
 Dopo aver selezionato la configurazione desiderata, fare clic su **Applica**.
 
-### <a name="rest-api"></a>API REST
+### <a name="rest-api"></a>API Rest
 
 Per altre informazioni sull'uso dell'API REST per abilitare l'ottimizzazione automatica in un database singolo, vedere i [metodi HTTP UPDATE e GET per l'ottimizzazione automatica del database SQL](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
@@ -104,7 +111,7 @@ Per altre informazioni sulle opzioni di T-SQL per configurare l'ottimizzazione a
 
 L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a livello di database e in alcuni casi potrebbe non funzionare correttamente nel database. In questo caso, l'opzione di ottimizzazione viene disabilitata dal sistema. Nella maggior parte dei casi ciò accade perché Query Store non è abilitato o è in stato di sola lettura in un database specifico.
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Poiché l'ottimizzazione automatica è la funzionalità di Azure, per usarla è necessario usare i ruoli RBAC predefiniti di Azure. L'utilizzo dell'autenticazione SQL non sarà sufficiente per utilizzare la funzionalità da portale di Azure.
 

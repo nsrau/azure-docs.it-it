@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 53c9dea83fc6d413d7e82194696ffedabcc8cf7b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 14a6703b3e256d33ab3b18e1821587cc3eb293db
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830112"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79382134"
 ---
-È importante garantire la protezione delle macchine virtuali (VM) per le applicazioni che si intende eseguire. La protezione delle macchine virtuali può includere uno o più servizi o funzionalità di Azure che gestiscono l'accesso sicuro alle macchine virtuali e l'archiviazione sicura dei dati. Questo articolo contiene informazioni che permettono di mantenere sicure le macchine virtuali e le applicazioni.
+È importante proteggere le macchine virtuali (VM) per le applicazioni in esecuzione. La protezione delle macchine virtuali può includere uno o più servizi o funzionalità di Azure che gestiscono l'accesso sicuro alle macchine virtuali e l'archiviazione sicura dei dati. Questo articolo contiene informazioni che permettono di mantenere sicure le macchine virtuali e le applicazioni.
 
 ## <a name="antimalware"></a>Antimalware
 
@@ -21,9 +21,23 @@ L'attuale panorama delle minacce per gli ambienti cloud è dinamico e impone sem
 
 Con il [Centro sicurezza di Azure](../articles/security-center/security-center-intro.md) è possibile impedire, rilevare e gestire le minacce per le macchine virtuali. Il Centro sicurezza offre un monitoraggio di sicurezza integrato e gestione dei criteri per le sottoscrizioni di Azure, aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate ed è compatibile con un ampio ecosistema di soluzioni di sicurezza.
 
-L'accesso JIT al Centro sicurezza può essere usato nella distribuzione della macchina virtuale per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e al tempo stesso offrendo un facile accesso per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato e un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla le autorizzazioni di cui dispone l'utente per la macchina virtuale. Se l'utente dispone delle autorizzazioni corrette, la richiesta viene approvata e il Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte selezionate per un periodo di tempo limitato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. 
+L'accesso JIT del Centro sicurezza può essere applicato attraverso la distribuzione di VM per bloccare il traffico in ingresso verso le macchine virtuali di Azure, riducendo l'esposizione agli attacchi e fornendo un facile accesso per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato e un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla le autorizzazioni di cui dispone l'utente per la macchina virtuale. Se l'utente dispone delle autorizzazioni corrette, la richiesta viene approvata e il Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte selezionate per un periodo di tempo limitato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. 
 
 ## <a name="encryption"></a>Crittografia
+
+Per i dischi gestiti sono disponibili due metodi di crittografia. Crittografia a livello di sistema operativo, ovvero crittografia dischi di Azure e crittografia a livello di piattaforma, ovvero la crittografia lato server.
+
+### <a name="server-side-encryption"></a>Modello di crittografia lato server
+
+Azure Managed disks crittografa automaticamente i dati per impostazione predefinita quando vengono salvati nel cloud. La crittografia lato server consente di proteggere i dati e di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. I dati nei dischi gestiti di Azure vengono crittografati in modo trasparente usando la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)a 256 bit, una delle crittografie a blocchi più solide disponibili ed è conforme a FIPS 140-2.
+
+La crittografia non influisca sulle prestazioni dei dischi gestiti. Non sono previsti costi aggiuntivi per la crittografia.
+
+È possibile basarsi sulle chiavi gestite dalla piattaforma per la crittografia del disco gestito oppure è possibile gestire la crittografia usando le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una *chiave gestita dal cliente* da usare per crittografare e decrittografare tutti i dati nei dischi gestiti. 
+
+Per altre informazioni sulla crittografia lato server, vedere gli articoli per [Windows](../articles/virtual-machines/windows/disk-encryption.md) o [Linux](../articles/virtual-machines/linux/disk-encryption.md).
+
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Per migliorare la sicurezza e la conformità delle [macchine virtuali Windows](../articles/virtual-machines/windows/encrypt-disks.md) e delle [macchine virtuali Linux](../articles/virtual-machines/linux/disk-encryption-overview.md), i dischi virtuali in Azure possono essere crittografati. I dischi virtuali delle VM di Windows vengono crittografati a riposo mediante BitLocker. I dischi virtuali delle VM Linux vengono crittografati quando sono inattivi usando dm-crypt. 
 

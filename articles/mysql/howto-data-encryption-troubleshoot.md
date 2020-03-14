@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi di crittografia dei dati in database di Azure per MySQL
+title: Risolvere i problemi di crittografia dei dati-database di Azure per MySQL
 description: Informazioni su come risolvere i problemi di crittografia dei dati in database di Azure per MySQL
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 516f0b2080fc894ec00f222c712ffdea4ee74356
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851102"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297041"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Risolvere i problemi di crittografia dei dati in database di Azure per MySQL
 

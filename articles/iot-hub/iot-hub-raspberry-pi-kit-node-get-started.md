@@ -2,20 +2,20 @@
 title: Connettere Raspberry Pi all'hub delle cose di Azure nel cloud (node. js)
 description: Informazioni su come configurare e connettere Raspberry Pi all'hub Azure per l'invio di dati alla piattaforma cloud di Azure in questa esercitazione.
 author: wesmc7777
-manager: philmea
+manager: eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi invio dati al cloud, da raspberry pi al cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 03/13/2020
 ms.author: wesmc
-ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c32ae73f065aa5cd1d0dabec421d354684fbb3c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457108"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371503"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connettere Raspberry Pi ad Azure IoT Hub (Node. js)
 
@@ -131,7 +131,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 ### <a name="connect-the-sensor-to-pi"></a>Connettere il sensore a Pi
 
-Usare i cavi ponticello e la basetta sperimentale per connettere un LED e un sensore BME280 a Pi, come indicato di seguito. In assenza di un sensore, [ignorare questa sezione](#connect-pi-to-the-network).
+Usare i cavi ponticello e la basetta sperimentale per connettere un LED e un sensore BME280 a Pi, come indicato di seguito. Se non si dispone del sensore, [ignorare questa sezione](#connect-pi-to-the-network).
 
 ![La connessione di Raspberry Pi e del sensore](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -202,13 +202,13 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 3. Clonare l'applicazione di esempio.
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
+   git clone https://github.com/Azure-Samples/azure-iot-samples-node.git
    ```
 
 4. Installare tutti i pacchetti relativi all'esempio. L'installazione include Azure IoT SDK per dispositivi, la libreria del sensore BME280 e libreria di Pi per i collegamenti.
 
    ```bash
-   cd iot-hub-node-raspberrypi-client-app
+   cd azure-iot-samples-node/iot-hub/Tutorials/RaspberryPiApp
    npm install
    ```
 
@@ -256,6 +256,6 @@ Per altri modi per elaborare i dati inviati dal dispositivo, continuare con la s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore da inviare all'hub IoT.
+È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore e inviarli all'hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

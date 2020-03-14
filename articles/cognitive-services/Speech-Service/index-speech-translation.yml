@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentazione per la traduzione vocale
+title: Documentazione della traduzione vocale
 summary: Traduzione vocale da parte del servizio riconoscimento vocale consente la traduzione vocale e vocale in tempo reale di più linguaggi e la conversione da testo a testo dei flussi audio
 metadata:
   title: Documentazione per la traduzione vocale-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
@@ -10,16 +10,16 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: c45c16b4421bf48e5728f95e7043ef7ffc109c3a
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 742b9710fc7ab396aa906c956d6809df9440c78e
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562922"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79367976"
 landingContent:
-- title: Introduzione
+- title: Informazioni sulla traduzione vocale
   linkLists:
   - linkListType: overview
     links:
@@ -33,7 +33,7 @@ landingContent:
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: Tradurre la voce in voce
       url: quickstarts/translate-speech-to-speech.md
-- title: Guide dettagliate
+- title: Sviluppare con traduzione vocale
   linkLists:
   - linkListType: learn
     links:
@@ -47,9 +47,9 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Supporto per le lingue
+    - text: Supporto delle lingue
       url: language-support.md#speech-translation
-    - text: Prezzi
-      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
     - text: Domande frequenti sulla traduzione vocale
       url: https://www.microsoft.com/translator/business/faq/
+    - text: Prezzi per traduzione vocale
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

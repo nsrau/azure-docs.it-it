@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a367e4d98135b5d29c4a0e38363739ca2689dcab
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 158dd9d6a38cc1aaf7667c0b16518e23b3f7cecf
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127980"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366684"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuire una macchina virtuale Windows 7 in Desktop virtuale Windows
 
 Il processo di distribuzione di una macchina virtuale (VM) Windows 7 in un desktop virtuale Windows è leggermente diverso rispetto a quello delle macchine virtuali che eseguono versioni successive di Windows. Questa guida illustra come distribuire Windows 7.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, seguire le istruzioni riportate in [creare un pool di host con PowerShell](create-host-pools-powershell.md) per creare un pool di host. Successivamente, seguire le istruzioni riportate in [creare pool host in Azure Marketplace](create-host-pools-azure-marketplace.md#optional-assign-additional-users-to-the-desktop-application-group) per assegnare uno o più utenti al gruppo di applicazioni desktop.
 
@@ -35,7 +35,7 @@ Per configurare una macchina virtuale Windows 7 in un desktop virtuale Windows:
 4. Aggiungere l'account usato durante la connessione all'host con RDP al gruppo "Desktop remoto user". Se non si esegue questa operazione, potrebbe non essere possibile connettersi alla macchina virtuale dopo l'aggiunta al dominio Active Directory.
 5. Passare a Windows Update nella macchina virtuale.
 6. Installare tutti gli aggiornamenti di Windows nella categoria importante.
-7. Installare tutti gli aggiornamenti di Windows nella categoria facoltativa (esclusi i Language Pack). Viene installato l'aggiornamento di Remote Desktop Protocol 8,0 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)) necessario per completare queste istruzioni.
+7. Installare tutti gli aggiornamenti di Windows nella categoria facoltativa (esclusi i Language Pack). Viene installato l'aggiornamento di Remote Desktop Protocol 8,0 ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35387)) necessario per completare queste istruzioni.
 8. Aprire il Editor Criteri di gruppo locali e passare a **Configurazione Computer** > **modelli amministrativi** > **componenti** di Windows ** > Servizi Desktop remoto > host sessione Desktop remoto** ** > ** **ambiente sessione remota**.
 9. Abilitare i criteri Remote Desktop Protocol 8,0.
 10. Aggiungere questa macchina virtuale al dominio Active Directory.

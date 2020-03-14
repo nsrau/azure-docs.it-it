@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a677aaa891e21f4c9eeda02eebcb94e9d79a55ad
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771633"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368826"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definire le pipeline di Machine Learning in YAML
 
@@ -32,7 +32,7 @@ La tabella seguente elenca gli elementi che non sono attualmente supportati quan
 | DataTransferStep | Sì |
 | AutoMLStep | No |
 | HyperDriveStep | No |
-| ModuleStep | No |
+| ModuleStep | Sì |
 | MPIStep | No |
 | EstimatorStep | No |
 
@@ -40,7 +40,7 @@ La tabella seguente elenca gli elementi che non sono attualmente supportati quan
 
 Una definizione di pipeline usa le chiavi seguenti, che corrispondono alla classe [Pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py) :
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `name` | Descrizione della pipeline. |
 | `parameters` | Parametro/i alla pipeline. |
@@ -52,7 +52,7 @@ Una definizione di pipeline usa le chiavi seguenti, che corrispondono alla class
 
 La sezione `parameters` usa le chiavi seguenti, che corrispondono alla classe [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) :
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ---- | ---- |
 | `type` | Tipo del valore del parametro. I tipi validi sono `string`, `int`, `float`, `bool`o `datapath`. |
 | `default` | Valore predefinito. |
@@ -76,11 +76,11 @@ pipeline:
             default: 4
 ```
 
-## <a name="data-reference"></a>Riferimento ai dati
+## <a name="data-reference"></a>Riferimenti ai dati
 
 La sezione `data_references` usa le chiavi seguenti, che corrispondono a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py):
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `datastore` | Archivio dati a cui fare riferimento. |
 | `path_on_datastore` | Percorso relativo nell'archivio di backup per il riferimento ai dati. |
@@ -100,11 +100,11 @@ pipeline:
             path_on_datastore: "adla_sample/sample_input.csv"
 ```
 
-## <a name="steps"></a>Procedure
+## <a name="steps"></a>Passaggi
 
 I passaggi definiscono un ambiente di calcolo, insieme ai file da eseguire nell'ambiente. Per definire il tipo di un passaggio, usare la chiave di `type`:
 
-| Tipo di passaggio | Description |
+| Tipo di passaggio | Descrizione |
 | ----- | ----- |
 | `AdlaStep` | Esegue uno script U-SQL con Azure Data Lake Analytics. Corrisponde alla classe [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) . |
 | `AzureBatchStep` | Esegue processi utilizzando Azure Batch. Corrisponde alla classe [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) . |
@@ -114,7 +114,7 @@ I passaggi definiscono un ambiente di calcolo, insieme ai file da eseguire nell'
 
 ### <a name="adla-step"></a>Passaggio Anna
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `script_name` | Nome dello script U-SQL (relativo alla `source_directory`). |
 | `compute_target` | La destinazione di calcolo Azure Data Lake da usare per questo passaggio. |
@@ -165,7 +165,7 @@ pipeline:
 
 ### <a name="azure-batch-step"></a>Passaggio Azure Batch
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `compute_target` | La destinazione di calcolo Azure Batch da usare per questo passaggio. |
 | `inputs` | Gli input possono essere [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)o [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -219,7 +219,7 @@ pipeline:
 
 ### <a name="databricks-step"></a>Passaggio di databricks
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `compute_target` | La destinazione di calcolo Azure Databricks da usare per questo passaggio. |
 | `inputs` | Gli input possono essere [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)o [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -273,7 +273,7 @@ pipeline:
 
 ### <a name="data-transfer-step"></a>Passaggio trasferimento dati
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `compute_target` | La destinazione di calcolo Azure Data Factory da usare per questo passaggio. |
 | `source_data_reference` | Connessione di input utilizzata come origine delle operazioni di trasferimento dei dati. I valori supportati sono [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)o [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -317,7 +317,7 @@ pipeline:
 
 ### <a name="python-script-step"></a>Passaggio di script Python
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `compute_target` | Destinazione di calcolo da usare per questo passaggio. La destinazione di calcolo può essere un Azure Machine Learning calcolo, una macchina virtuale, ad esempio il Data Science VM, o HDInsight. |
 | `inputs` | Gli input possono essere [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)o [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -367,7 +367,7 @@ pipeline:
 
 Quando si definisce la pianificazione per una pipeline, può essere attivata da un archivio dati o ricorrente in base a un intervallo di tempo. Di seguito sono riportate le chiavi usate per definire una pianificazione:
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `description` | Descrizione della pianificazione. |
 | `recurrence` | Contiene le impostazioni di ricorrenza, se la pianificazione è ricorrente. |
@@ -398,7 +398,7 @@ Schedule:
 
 Quando si definisce una **pianificazione ricorrente**, usare le chiavi seguenti in `recurrence`:
 
-| Chiave YAML | Description |
+| Chiave YAML | Descrizione |
 | ----- | ----- |
 | `frequency` | Frequenza con cui si ripete la pianificazione. I valori validi sono `"Minute"`, `"Hour"`, `"Day"`, `"Week"`o `"Month"`. |
 | `interval` | Frequenza con cui viene attivata la pianificazione. Il valore integer è il numero di unità di tempo di attesa fino a quando la pianificazione non viene riattivata. |

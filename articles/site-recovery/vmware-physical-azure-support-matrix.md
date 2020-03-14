@@ -3,14 +3,14 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/21/2020
+ms.date: 2/24/2020
 ms.author: raynew
-ms.openlocfilehash: b7ace4f470a4e054be5d7f5945fc3e9c4f7d0810
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 05e60c5b008746bbfd72dbe7a2e14b18aa563671
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257043"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371393"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -55,7 +55,7 @@ Ruoli di Windows Server | Non abilitare Active Directory Domain Services; Intern
 Criteri di gruppo| - Impedisci accesso al prompt dei comandi <br/> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br/> - Logica di attendibilità per file allegati <br/> - Attiva l'esecuzione di script <br/> - [altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Assicurarsi di:<br/><br/> - Non avere un sito Web predefinito preesistente <br/> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Non avere un sito Web o un'app preesistente in ascolto sulla porta 443<br/>
 Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware)
-Tipo di indirizzo IP | Statico
+Tipo di indirizzo IP | Static
 Porte | 443 usato per l'orchestrazione del canale di controllo<br/>9443 per il trasporto dati
 
 ## <a name="replicated-machines"></a>Computer replicati
@@ -135,7 +135,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | 9,32 | Sono supportati tutti i [kerne
 
 **Componente** | **Supportato**
 --- | ---
-File system | ext3, ext4, XFS
+File system | ext3, ext4, XFS, BTRFS (condizioni applicabili in base a questa tabella)
 Gestore volumi | -LVM è supportato.<br/> -/boot in LVM è supportato dall' [aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/) (versione 9,20 del servizio Mobility) in poi. Non è supportata nelle versioni precedenti del servizio Mobility.<br/> -Non sono supportati più dischi del sistema operativo.
 Dispositivi di archiviazione paravirtualizzati | I dispositivi esportati da driver paravirtualizzati non sono supportati.
 Dispositivi di I/O a blocchi a code multiple | Non supportato.

@@ -3,39 +3,40 @@ title: Avvisi e notifiche di installazione (portale di Azure)
 description: Usare il portale di Azure per creare avvisi per il database SQL in grado di attivare notifiche o eventi di automazione quando vengono soddisfatte le condizioni specificate.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/02/2018
-ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 03/10/2020
+ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745944"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209525"
 ---
-# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Creare avvisi per il database SQL di Azure e il data warehouse usando il portale di Azure
+# <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Creare avvisi per database SQL di Azure e database di analisi delle sinapsi di Azure usando portale di Azure
 
-## <a name="overview"></a>Overview
-Questo articolo descrive come impostare gli avvisi per il database SQL di Azure e il data warehouse usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata. Questo articolo include anche le procedure consigliate per impostare i periodi di avviso.    
+## <a name="overview"></a>Panoramica
+
+Questo articolo illustra come configurare gli avvisi per i database singoli, in pool e data warehouse nel database SQL di Azure e in Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse) usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata. Questo articolo include anche le procedure consigliate per impostare i periodi di avviso.
 
 > [!IMPORTANT]
 > Questa funzionalità non è disponibile in Istanza gestita. Come alternativa è possibile usare SQL Agent per inviare avvisi tramite posta elettronica per alcune metriche basate su [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 È possibile ricevere avvisi basati su metriche di monitoraggio o eventi nei servizi Azure.
 
-* **Valori metrici** : l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta.    
+* **Valori metrici** : l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta.
 * **Eventi del log attività** : è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato numero di eventi.
 
 È possibile configurare un avviso affinché esegua le operazioni seguenti al momento dell'attivazione:
 
-* inviare un messaggio di posta elettronica all'amministratore e ai coamministratori del servizio
-* inviare un messaggio di posta elettronica ad altri indirizzi specificati
-* chiamare un webhook
+* Inviare notifiche di posta elettronica all'amministratore e ai coamministratori del servizio.
+* Inviare un messaggio di posta elettronica ad altri indirizzi specificati.
+* Chiamare un webhook
 
 È possibile configurare e ottenere informazioni sulle regole degli avvisi tramite
 
@@ -45,78 +46,29 @@ Questo articolo descrive come impostare gli avvisi per il database SQL di Azure 
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creare una regola di avviso in base a una metrica con il portale di Azure
+
 1. Nel [portale](https://portal.azure.com/), individuare la risorsa da monitorare e selezionarla.
-2. Selezionare **Avvisi (versione classica)** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.  
-   
-     ![Monitorare](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
+2. Selezionare **avvisi** nella sezione monitoraggio. Il testo e l'icona possono lievemente variare per le diverse risorse.  
+
+   ![Monitoraggio](media/sql-database-insights-alerts-portal/Alerts.png)
   
-   - **SOLO SQL DATA WAREHOUSE**: Fare clic sul grafo **Utilizzo di DWU**. Selezionare **Visualizza avvisi classici**
+3. Selezionare il pulsante **nuova regola di avviso** per aprire la pagina **Crea regola** .
+  ![Crea regola](media/sql-database-insights-alerts-portal/create-rule.png)
 
-3. Selezionare il pulsante **Aggiungi avviso per la metrica (classico)** e compilare i campi.
-   
-    ![Aggiungi avviso](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
-4. Assegnare alla regola di avviso un **Nome** e scegliere una **Descrizione**, che viene visualizzata anche nella notifica inviata tramite posta elettronica.
-5. Selezionare la **Metrica** da monitorare e quindi scegliere una **Condizione** e un valore **Soglia**. Scegliere inoltre il **Periodo** di tempo entro il quale la regola della metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Ad esempio, se si usa il periodo "PT5M" e l'avviso deve rilevare una CPU superiore all'80%, l'avviso si attiva quando la CPU **media** resta sopra all'80% per 5 minuti. Dopo la prima attivazione, l'avviso si attiverà di nuovo quando la CPU media è al di sotto dell'80% per più di 5 minuti. La CPU viene misurata ogni minuto. Consultare la tabella seguente per gli intervalli di tempo supportati e il tipo di aggregazione usato da ogni avviso. Non tutti gli avvisi usano il valore medio.   
-6. Selezionare la casella di controllo **Invia messaggio a proprietari, collaboratori e lettori** se si desidera che gli amministratori e i coamministratori ricevano un messaggio di posta elettronica quando si attiva l'avviso.
-7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, completare il campo **E-mail dell'amministratore aggiuntivo** . Separare più messaggi di posta elettronica con punti e virgola- *posta elettronica\@contoso. com; email2\@contoso.com*
-8. Inserire un URI valido nel campo **Webhook** per eseguire la chiamata quando viene attivato l'avviso.
-9. Al termine fare clic su **OK** per creare l'avviso.   
+4. Nella sezione **condizione** fare clic su **Aggiungi**.
+  ![definire la condizione](media/sql-database-insights-alerts-portal/create-rule.png)
+5. Nella pagina **Configura logica** per i segnali selezionare un segnale.
+  ![selezionare](media/sql-database-insights-alerts-portal/select-signal.png)segnale.
+6. Dopo aver selezionato un segnale, ad esempio **percentuale CPU**, viene visualizzata la pagina **Configura logica segnale** .
+  ![configurare la logica del segnale](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
+7. In questa pagina, configurare il tipo di soglia, l'operatore, il tipo di aggregazione, il valore soglia, la granularità delle aggregazioni e la frequenza di valutazione. Fare quindi clic su **Done**.
+8. Nella **regola crea**selezionare un **gruppo di azioni** esistente o crearne uno nuovo. Un gruppo di azione consente di definire l'azione da intraprendere quando si verifica una condizione di avviso.
+  ![definire il gruppo di azioni](media/sql-database-insights-alerts-portal/action-group.png)
 
-Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
+9. Definire un nome per la regola, fornire una descrizione facoltativa, scegliere un livello di gravità per la regola, scegliere se abilitare la regola al momento della creazione della regola, quindi fare clic su **Crea avviso regola** per creare l'avviso della regola metrica.
 
-## <a name="managing-your-alerts"></a>Gestione degli avvisi
-Dopo aver creato un avviso, è possibile selezionarlo e:
-
-* Visualizzare un grafico che mostra la soglia della metrica e i valori effettivi del giorno precedente.
-* Modificarlo o eliminarlo.
-* **Disabilitarlo** o **abilitarlo** per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
-
-
-## <a name="sql-database-alert-values"></a>Valori degli avvisi per il database SQL
-
-| Tipo di risorsa | Nome misurazione | Nome descrittivo | Tipo di aggregazione | Intervallo di tempo minimo per l'avviso|
-| --- | --- | --- | --- | --- |
-| Database SQL | cpu_percent | Percentuale CPU | Media | 5 minuti |
-| Database SQL | physical_data_read_percent | Percentuale di I/O di dati | Media | 5 minuti |
-| Database SQL | log_write_percent | Percentuale I/O registro | Media | 5 minuti |
-| Database SQL | dtu_consumption_percent | Percentuale di DTU | Media | 5 minuti |
-| Database SQL | archiviazione | Dimensioni totali database | Massimo | 30 minuti |
-| Database SQL | connection_successful | Connessioni riuscite | Totale | 10 minuti |
-| Database SQL | connection_failed | Connessioni non riuscite | Totale | 10 minuti |
-| Database SQL | blocked_by_firewall | Blocco da parte del firewall | Totale | 10 minuti |
-| Database SQL | deadlock | Deadlock | Totale | 10 minuti |
-| Database SQL | storage_percent | Percentuale di dimensioni del database | Massimo | 30 minuti |
-| Database SQL | xtp_storage_percent | Percentuale archiviazione OLTP interna alla memoria (anteprima) | Media | 5 minuti |
-| Database SQL | workers_percent | Percentuale ruoli di lavoro | Media | 5 minuti |
-| Database SQL | sessions_percent | Percentuale sessioni | Media | 5 minuti |
-| Database SQL | dtu_limit | Limite DTU | Media | 5 minuti |
-| Database SQL | dtu_used | Uso DTU | Media | 5 minuti |
-||||||
-| Pool elastico | cpu_percent | Percentuale CPU | Media | 10 minuti |
-| Pool elastico | physical_data_read_percent | Percentuale di I/O di dati | Media | 10 minuti |
-| Pool elastico | log_write_percent | Percentuale I/O registro | Media | 10 minuti |
-| Pool elastico | dtu_consumption_percent | Percentuale di DTU | Media | 10 minuti |
-| Pool elastico | storage_percent | Percentuale archiviazione | Media | 10 minuti |
-| Pool elastico | workers_percent | Percentuale ruoli di lavoro | Media | 10 minuti |
-| Pool elastico | eDTU_limit | Limite eDTU | Media | 10 minuti |
-| Pool elastico | storage_limit | Limite archiviazione | Media | 10 minuti |
-| Pool elastico | eDTU_used | Uso eDTU | Media | 10 minuti |
-| Pool elastico | storage_used | Risorse di archiviazione usate | Media | 10 minuti |
-||||||               
-| SQL Data Warehouse | cpu_percent | Percentuale CPU | Media | 10 minuti |
-| SQL Data Warehouse | physical_data_read_percent | Percentuale di I/O di dati | Media | 10 minuti |
-| SQL Data Warehouse | connection_successful | Connessioni riuscite | Totale | 10 minuti |
-| SQL Data Warehouse | connection_failed | Connessioni non riuscite | Totale | 10 minuti |
-| SQL Data Warehouse | blocked_by_firewall | Blocco da parte del firewall | Totale | 10 minuti |
-| SQL Data Warehouse | service_level_objective | Livello di servizio del database | Totale | 10 minuti |
-| SQL Data Warehouse | dwu_limit | Limite DWU | Massimo | 10 minuti |
-| SQL Data Warehouse | dwu_consumption_percent | Percentuale DWU | Media | 10 minuti |
-| SQL Data Warehouse | dwu_used | Uso DWU | Media | 10 minuti |
-||||||
-
+Entro 10 minuti, l'avviso è attivo e viene attivato come descritto in precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Leggere una panoramica del monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) che include anche i tipi di informazioni che è possibile raccogliere e monitorare.
+
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).
-* Leggere una [panoramica dei log di diagnostica](../azure-monitor/platform/platform-logs-overview.md) e sulla raccolta di metriche dettagliate e ad alta frequenza sul servizio.
-* Leggere una [panoramica della raccolta di metriche](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.

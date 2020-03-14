@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
-ms.openlocfilehash: 2786519bfc54b39c986ba57c78d9d6409a596351
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b871ccb5cb110cfc6154a415059541c4b94f4106
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129790"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137306"
 ---
 # <a name="query-ingested-telemetry-data"></a>Eseguire query sui dati di telemetria inseriti
 
@@ -108,8 +108,8 @@ I dati di telemetria vengono ricevuti in un EventHub e quindi elaborati e inseri
 
 Attenersi ai passaggi seguenti per visualizzare i dati in TSI
 
-1. Passare al portale di Azure-> gruppo di risorse DataHub FarmBeats-> fare clic su Time Series Insights ambiente (TSI-xxxx)-> criteri di accesso ai dati. Aggiungere un utente con accesso in lettura o collaboratore.
-2. Passare alla pagina Panoramica di Time Series Insights ambiente (TSI-xxxx) e fare clic sull'URL di Time Series Insights Explorer. A questo punto sarà possibile visualizzare i dati di telemetria inseriti.
+1. Passare al portale di Azure-> gruppo di risorse DataHub di FarmBeats-> selezionare ambiente Time Series Insights (TSI-xxxx)-> criteri di accesso ai dati. Aggiungere un utente con accesso in lettura o collaboratore.
+2. Passare alla pagina Panoramica di Time Series Insights ambiente (TSI-xxxx) e selezionare "URL Time Series Insights Explorer". A questo punto sarà possibile visualizzare i dati di telemetria inseriti.
 
 Oltre all'archiviazione, all'esecuzione di query e alla visualizzazione dei dati di telemetria, TSI consente anche l'integrazione in un dashboard Power BI. Altre informazioni sono disponibili [qui]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 

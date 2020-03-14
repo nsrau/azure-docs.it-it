@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulle trascrizioni di conversazione (anteprima)-servizio riconoscimento vocale
+title: Trascrizione conversazione (anteprima)-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: La trascrizione delle conversazioni è una soluzione di sintesi vocale che combina il riconoscimento vocale, l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come "diare") per fornire la trascrizione in tempo reale e/o asincrona di qualsiasi conversazione.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 8fc52428795b0dc8123d501dac9605c473f61456
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561069"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367823"
 ---
-# <a name="about-conversation-transcription-preview"></a>Informazioni sulla trascrizione delle conversazioni (anteprima)
+# <a name="what-is-conversation-transcription-preview"></a>Che cos'è la trascrizione delle conversazioni (anteprima)?
 
 La trascrizione delle conversazioni è una soluzione di [sintesi vocale](speech-to-text.md) che combina il riconoscimento vocale, l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come " _diare_") per fornire la trascrizione in tempo reale e/o asincrona di qualsiasi conversazione. La trascrizione delle conversazioni distingue gli speaker in una conversazione per determinare chi ha detto cosa e quando e rende più semplice per gli sviluppatori l'aggiunta di riconoscimento vocale alle applicazioni che eseguono la messa in funzione del MultiSpeaker.
 
@@ -63,7 +63,7 @@ La trascrizione delle conversazioni offre tre modalità di trascrizione:
 
 I dati audio vengono elaborati in tempo reale per restituire l'identificatore e la trascrizione. Selezionare questa modalità se il requisito della soluzione di trascrizione consiste nel fornire ai partecipanti di conversazioni una visualizzazione della trascrizione in tempo reale della conversazione in corso. Ad esempio, la compilazione di un'applicazione per rendere le riunioni più accessibili da parte di membri sordi e difficili da ascoltare è un caso d'uso ideale per la trascrizione in tempo reale.
 
-### <a name="asynchronous"></a>Asincrona
+### <a name="asynchronous"></a>Asynchronous
 
 I dati audio sono batch elaborati per restituire l'identificatore e la trascrizione del altoparlante. Selezionare questa modalità se il requisito della soluzione di trascrizione è fornire un'accuratezza più elevata senza visualizzazione della trascrizione in tempo reale. Se, ad esempio, si desidera compilare un'applicazione per consentire ai partecipanti della riunione di recuperare facilmente riunioni mancanti, utilizzare la modalità di trascrizione asincrona per ottenere risultati di trascrizione ad alta precisione.
 
@@ -71,7 +71,7 @@ I dati audio sono batch elaborati per restituire l'identificatore e la trascrizi
 
 I dati audio vengono elaborati in tempo reale per restituire l'identificatore e la trascrizione del altoparlante. Inoltre, viene creata una richiesta per ottenere una trascrizione ad alta precisione tramite l'elaborazione asincrona. Selezionare questa modalità se l'applicazione ha bisogno di trascrizione in tempo reale, ma richiede anche una trascrizione di accuratezza più elevata da usare in seguito alla conversazione o alla riunione.
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Supporto delle lingue
 
 Attualmente, la trascrizione delle conversazioni supporta "en-US" e "zh-CN" nelle aree seguenti: *centralus* e *eastasia*. Se è necessario un supporto aggiuntivo per le impostazioni locali, contattare la [funzionalità di trascrizione delle conversazioni](mailto:CTSFeatureCrew@microsoft.com).
 

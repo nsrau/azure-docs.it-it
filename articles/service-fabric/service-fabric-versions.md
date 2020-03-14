@@ -3,12 +3,12 @@ title: Versioni cluster supportate in Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: ea2dcc3da2f59aa00b12aedd181dc27df00e9d58
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 76a8137bbe42d8f693ac807f640a78fc4ec87c2e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252717"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370424"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 
@@ -37,7 +37,7 @@ Nella tabella seguente sono elencate le versioni di Service Fabric e le date di 
 | 6.3.* | 6.1.480.* |Versione 3.2 o precedente |31 marzo 2019  |
 | 6.4.* | 6.2.301.* |Versione 3.3 o precedente |15 settembre 2019 |
 | 6,5. * | 6.4.617.* |Minore o uguale alla versione 3,4 |1 maggio 2020 |
-| 7,0. * | 6.4.664. # |Minore o uguale alla versione 4,0 |Versione corrente, quindi nessuna data di fine |
+| 7,0. * | 7.0.466.* |Minore o uguale alla versione 4,0 |Versione corrente, quindi nessuna data di fine |
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
 Nella tabella seguente sono elencati i sistemi operativi supportati per le versioni di Service Fabric supportate.

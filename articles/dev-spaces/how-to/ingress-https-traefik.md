@@ -5,18 +5,18 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Informazioni su come configurare Azure Dev Spaces per l'uso di un controller di ingresso traefik personalizzato e configurare HTTPS usando il controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 6cac50ea9caeea42b0a7522dbeb5039a8461dd2c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 125e055ba2b2c9ccbd7b9e53d02850aa6a0e6350
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79259903"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366037"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usare un controller di ingresso traefik personalizzato e configurare HTTPS
 
 Questo articolo illustra come configurare Azure Dev Spaces per l'uso di un controller di ingresso traefik personalizzato. Questo articolo illustra anche come configurare il controller di ingresso personalizzato per l'uso di HTTPS.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha un account, è possibile [crearne uno gratuito][azure-account-create].
 * [L'interfaccia della riga di comando di Azure installata][az-cli].
@@ -29,14 +29,14 @@ Questo articolo illustra come configurare Azure Dev Spaces per l'uso di un contr
 
 Connettersi al cluster usando [kubectl][kubectl], il client da riga di comando Kubernetes. Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKS
 ```
 
 Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
@@ -81,7 +81,7 @@ traefik   LoadBalancer   10.0.205.78   MY_EXTERNAL_IP   80:32484/TCP,443:30620/T
 
 Aggiungere un *record a* nella zona DNS con l'indirizzo IP esterno del servizio traefik usando il comando [AZ network DNS record-set a Add-record][az-network-dns-record-set-a-add-record].
 
-```console
+```azurecli
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
@@ -260,13 +260,13 @@ Aggiornare l'applicazione di esempio usando `helm`:
 helm upgrade bikesharing . --namespace dev --atomic
 ```
 
-Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* . si noterà che si viene reindirizzati per l'uso di HTTPS. Si noti inoltre che la pagina viene caricata, ma il browser mostra alcuni errori. L'apertura della console del browser mostra che l'errore si riferisce a una pagina HTTPS che tenta di caricare le risorse HTTP. Ad esempio:
+Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* . si noterà che si viene reindirizzati per l'uso di HTTPS. Si noti inoltre che la pagina viene caricata, ma il browser mostra alcuni errori. L'apertura della console del browser mostra che l'errore si riferisce a una pagina HTTPS che tenta di caricare le risorse HTTP. Ad esempio,
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Per correggere l'errore, aggiornare [BikeSharingWeb/azds. YAML][azds-yaml] per usare *traefik* per *kubernetes.io/ingress.Class* e il dominio personalizzato per *$ (hostSuffix)* . Ad esempio:
+Per correggere l'errore, aggiornare [BikeSharingWeb/azds. YAML][azds-yaml] per usare *traefik* per *kubernetes.io/ingress.Class* e il dominio personalizzato per *$ (hostSuffix)* . Ad esempio,
 
 ```yaml
 ...

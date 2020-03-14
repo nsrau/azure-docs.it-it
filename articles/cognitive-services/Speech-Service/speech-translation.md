@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: a05a2bf81a278322bc4e07ed959aedb828c39b73
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f2f0b277fb9dc6270e9015b5bf3205cc8aceaa0a
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815468"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371240"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -31,21 +31,21 @@ Di seguito sono riportate le funzionalità disponibili tramite l'SDK vocale e le
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Traduzione vocale con risultati di riconoscimento. | SÌ | No |
-| Traduzione vocale. | SÌ | No |
-| Risultati del riconoscimento provvisorio e della traduzione. | SÌ | No |
+| Traduzione vocale con risultati di riconoscimento. | Sì | No |
+| Traduzione vocale. | Sì | No |
+| Risultati del riconoscimento provvisorio e della traduzione. | Sì | No |
 
 ## <a name="get-started-with-speech-translation"></a>Introduzione alla traduzione vocale
 
 Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive per la traduzione vocale organizzate in base alla lingua.
 
-| Avvio rapido | Piattaforma | Informazioni di riferimento sulle API |
+| Guida rapida | Platform | Riferimento all'API |
 |------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | WINDOWS | [Sfoglia](https://aka.ms/csspeech/csharpref) |
+| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | WINDOWS | [Sfoglia](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | WINDOWS | [Sfoglia](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | WINDOWS | [Sfoglia](https://aka.ms/csspeech/cppref)|
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Sfoglia](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -59,7 +59,7 @@ Se le applicazioni, gli strumenti o i prodotti usano la [API traduzione vocale](
 
 * [Eseguire la migrazione dalla API Traduzione vocale al servizio riconoscimento vocale](how-to-migrate-from-translator-speech-api.md)
 
-## <a name="reference-docs"></a>Documenti di riferimento
+## <a name="reference-docs"></a>Documentazione di riferimento
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)

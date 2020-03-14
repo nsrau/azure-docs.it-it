@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentazione di hosting
+title: Documentazione dell'hosting
 summary: I contenitori di servizi vocali sono disponibili per gli scenari di sintesi vocale e sintesi vocale, che comprendono modelli standard o personalizzati.
 metadata:
   title: Documentazione di hosting-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
@@ -10,32 +10,32 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: ead45759891d4b2a41a380c88cf32f4e504b6e2c
-  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+  ms.openlocfilehash: ff12c357ba273c6965b11db4eabc1890925439be
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/28/2020
-  ms.locfileid: "77920876"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79366701"
 landingContent:
-- title: Introduzione
+- title: Informazioni sull'hosting
   linkLists:
   - linkListType: concept
     links:
-    - text: Contenitori di servizi vocali
+    - text: Installare ed eseguire i contenitori di sintesi vocale
       url: speech-container-howto.md
-    - text: Contenitori di servizi vocali con Kubernetes
+    - text: Contenitori di sintesi vocale con Kubernetes e Helm
       url: speech-container-howto-on-premises.md
-    - text: Contenitori di servizi vocali in istanze di contenitore di Azure
+    - text: Contenitori di sintesi vocale in istanze di contenitore di Azure
       url: deploy-speech-on-container-instances.md
-- title: Guide dettagliate
+- title: Creazione e configurazione
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Creare una risorsa sintesi vocale di Azure
       url: get-started.md#new-resource
-    - text: Configurare i contenitori
+    - text: Configurare i contenitori di sintesi vocale
       url: speech-container-configuration.md
 - title: Riferimento
   linkLists:

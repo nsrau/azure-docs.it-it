@@ -1,23 +1,23 @@
 ---
-title: Come soddisfare i comandi personalizzati sul client con l'SDK di riconoscimento vocale
+title: Come eseguire i comandi da un client con l'SDK di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra come gestire le attività dei comandi personalizzati sul client con l'SDK di riconoscimento vocale.
+description: Questo articolo illustra come gestire le attività dei comandi personalizzati in un client con l'SDK di riconoscimento vocale.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/12/2020
 ms.author: donkim
-ms.openlocfilehash: b55bb1c8379cf0a80a95aa0ba1a29297154d5831
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156506"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367748"
 ---
-# <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Procedura: eseguire l'evasione dei comandi sul client con l'SDK di riconoscimento vocale (anteprima)
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Soddisfare i comandi da un client con l'SDK di riconoscimento vocale (anteprima)
 
 Per completare le attività usando un'applicazione di comandi personalizzati è possibile inviare payload personalizzati a un dispositivo client connesso.
 
@@ -49,7 +49,7 @@ Questo articolo descrive in modo dettagliato come creare un'applicazione client 
    > [!div class="mx-imgBorder"]
    > ![regola di completamento dell'attività di invio](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Impostazione | Valore consigliato | Description |
+   | Impostazione | Valore consigliato | Descrizione |
    | ------- | --------------- | ----------- |
    | Nome regola | UpdateDeviceState | Nome che descrive lo scopo della regola |
    | Condizioni | Parametro obbligatorio-`OnOff` e `SubjectDevice` | Condizioni che determinano quando la regola può essere eseguita |
@@ -131,7 +131,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>Prova
+## <a name="try-it-out"></a>Provare il servizio
 
 1. Avviare l'applicazione
 1. Selezionare Abilita microfono

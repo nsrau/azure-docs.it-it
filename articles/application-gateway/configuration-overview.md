@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: f42be2a3075d313a490703562761a5df13542c85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: ef82d748b67db736bc2294089cd92edd2adde4a7
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279221"
+ms.locfileid: "79297952"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -25,7 +25,7 @@ Questa immagine illustra un'applicazione con tre listener. I primi due sono list
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Rete virtuale di Azure e subnet dedicata
 
@@ -127,7 +127,7 @@ Scegliere HTTP o HTTPS:
 
 - Se si sceglie HTTP, il traffico tra il client e il gateway applicazione non è crittografato.
 
-- Scegliere HTTPS se si vuole la [terminazione SSL](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) o la [crittografia SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Il traffico tra il client e il gateway applicazione è crittografato. E la connessione SSL termina nel gateway applicazione. Se si desidera la crittografia SSL end-to-end, è necessario scegliere HTTPS e configurare l'impostazione **http back-end** . Ciò garantisce che il traffico venga nuovamente crittografato durante il trasferimento dal gateway applicazione al back-end.
+- Scegliere HTTPS se si vuole la [terminazione SSL](features.md#secure-sockets-layer-ssltls-termination) o la [crittografia SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Il traffico tra il client e il gateway applicazione è crittografato. E la connessione SSL termina nel gateway applicazione. Se si desidera la crittografia SSL end-to-end, è necessario scegliere HTTPS e configurare l'impostazione **http back-end** . Ciò garantisce che il traffico venga nuovamente crittografato durante il trasferimento dal gateway applicazione al back-end.
 
 Per configurare la terminazione SSL e la crittografia SSL end-to-end, è necessario aggiungere un certificato al listener per consentire al gateway applicazione di derivare una chiave simmetrica. Questa operazione è determinata dalla specifica del protocollo SSL. La chiave simmetrica viene usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato consente di esportare la chiave privata che il gateway usa per crittografare e decrittografare il traffico.
 

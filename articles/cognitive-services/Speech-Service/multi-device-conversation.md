@@ -1,5 +1,5 @@
 ---
-title: Informazioni su conversazione per più dispositivi (anteprima)-servizio riconoscimento vocale
+title: Conversazione per più dispositivi (anteprima)-servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560814"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371359"
 ---
-# <a name="about-multi-device-conversation-preview"></a>Informazioni su conversazione per più dispositivi (anteprima)
+# <a name="what-is-multi-device-conversation-preview"></a>Che cos'è la conversazione per più dispositivi (anteprima)?
 
 La **conversazione multi-dispositivo** semplifica la creazione di una conversazione vocale o di testo tra più client e coordina i messaggi inviati tra di essi.
 
@@ -75,8 +75,8 @@ Ogni client può inviare messaggi audio o istantanei. Il servizio userà il rico
 Una **conversazione** è una sessione avviata da un utente per l'aggiunta degli altri utenti partecipanti. Tutti i client si connettono alla conversazione usando il **codice di conversazione**di cinque lettere.
 
 Ogni conversazione crea metadati che includono:
--   Timestamp del momento in cui la conversazione è iniziata e terminata
--   Elenco di tutti i partecipanti alla conversazione, che include il nome alternativo e la lingua primaria scelti da ogni utente per l'input vocale o di testo.
+-    Timestamp del momento in cui la conversazione è iniziata e terminata
+-    Elenco di tutti i partecipanti alla conversazione, che include il nome alternativo e la lingua primaria scelti da ogni utente per l'input vocale o di testo.
 
 
 Esistono due tipi di utenti in una conversazione: **host** e **partecipante**.
@@ -98,7 +98,7 @@ Un **partecipante** è un utente che partecipa a una conversazione.
 > [!NOTE]
 > Ogni conversazione può avere fino a 100 partecipanti, di cui 10 possono essere pronunciate contemporaneamente in un determinato momento.
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Supporto delle lingue
 
 Quando si crea o si aggiunge una conversazione, ogni utente deve scegliere una **lingua primaria**: la lingua in cui verranno pronunciate e invierà messaggi istantanei e anche la lingua in cui verranno visualizzati i messaggi di altri utenti.
 

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 01fde82e69917f59f6519524c4c8828feb84a4f9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795960"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297833"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Esporre un server WebSocket al gateway applicazione
 
-Come descritto nella documentazione del gateway applicazione V2, [fornisce il supporto nativo per i protocolli WebSocket e http/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic). Si noti che per il gateway applicazione e il traffico in ingresso Kubernetes non è disponibile alcuna impostazione configurabile dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket.
+Come descritto nella documentazione del gateway applicazione V2, [fornisce il supporto nativo per i protocolli WebSocket e http/2](features.md#websocket-and-http2-traffic). Si noti che per il gateway applicazione e il traffico in ingresso Kubernetes non è disponibile alcuna impostazione configurabile dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket.
 
 La distribuzione di Kubernetes YAML seguente mostra la configurazione minima usata per distribuire un server WebSocket, che equivale alla distribuzione di un server Web normale:
 ```yaml
@@ -75,7 +75,7 @@ spec:
               servicePort: 80
 ```
 
-Dato che tutti i prerequisiti sono soddisfatti e si dispone di un gateway applicazione controllato da un ingresso Kubernetes nel servizio contenitore di applicazioni, la distribuzione precedente comporterebbe un server WebSocket esposto sulla porta 80 dell'IP pubblico del gateway applicazione e il `ws.contoso.com` dominio.
+Dato che tutti i prerequisiti sono soddisfatti e si dispone di un gateway applicazione controllato da un ingresso Kubernetes nel servizio contenitore di applicazioni, la distribuzione precedente comporterebbe un server WebSocket esposto sulla porta 80 dell'IP pubblico del gateway applicazione e il dominio `ws.contoso.com`.
 
 Il comando cURL seguente testa la distribuzione del server WebSocket:
 ```sh

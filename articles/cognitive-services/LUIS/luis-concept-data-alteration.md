@@ -4,11 +4,11 @@ description: Informazioni su come modificare i dati prima delle previsioni in La
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361139"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221095"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modificare i dati delle espressioni prima e durante la stima
 LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. Che includono la [correzione dell'ortografia](luis-tutorial-bing-spellcheck.md)e la correzione dei problemi di fuso orario per [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefiniti.
@@ -28,7 +28,7 @@ Per correggere gli errori di ortografia nell'espressione, LUIS usa l'[API Contro
 
 L'endpoint richiede due parametri per il funzionamento delle correzioni ortografiche:
 
-|Param|valore|
+|Param|Valore|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Chiave endpoint [API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
@@ -78,7 +78,7 @@ Quando un'app LUIS USA l'entità [datetimeV2](luis-reference-prebuilt-datetimev2
 ### <a name="endpoint-querystring-parameter"></a>Parametro queryString dell'endpoint
 Per correggere il fuso orario aggiungere il fuso orario dell'utente all'[endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) mediante il parametro `timezoneOffset`. Il valore di `timezoneOffset` deve essere il numero positivo o negativo che, in minuti, modifica l'ora.
 
-|Param|valore|
+|Param|Valore|
 |--|--|
 |`timezoneOffset`|numero positivo o negativo, in minuti|
 

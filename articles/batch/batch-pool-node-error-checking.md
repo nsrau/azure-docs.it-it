@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 95f7d4d03fbac6ec7c27630f1210ef999ddc776c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484129"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369268"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 
@@ -137,8 +137,21 @@ Le dimensioni dell'unità temporanea dipendono dalle dimensioni della macchina v
 
 Per i file scritti da ogni attività, è possibile specificare un periodo di conservazione per ogni attività che determina per quanto tempo i file delle attività vengono conservati prima di essere puliti automaticamente. Il tempo di conservazione può essere ridotto per ridurre i requisiti di archiviazione.
 
-Se lo spazio su disco temporaneo viene riempito, attualmente il nodo smetterà di eseguire le attività. In futuro verrà segnalato un [errore del nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) .
+Se il disco temporaneo esaurisce lo spazio (o è molto vicino allo spazio insufficiente), il nodo passerà allo stato [inutilizzabile](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) e verrà segnalato un errore del nodo (usare il collegamento già presente) che indica che il disco è pieno.
 
+### <a name="what-to-do-when-a-disk-is-full"></a>Operazioni da eseguire quando un disco è pieno
+
+Determinare il motivo per cui il disco è pieno: se non si è certi dello spazio occupato nel nodo, è consigliabile eseguire la modalità remota del nodo ed esaminare manualmente la posizione in cui lo spazio è andato. È anche possibile usare l'API per l' [elenco dei file batch](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) per esaminare i file nelle cartelle gestite da batch, ad esempio gli output delle attività. Si noti che questa API elenca solo i file nelle directory gestite da batch e se le attività hanno creato file altrove che non verranno visualizzati.
+
+Assicurarsi che tutti i dati necessari siano stati recuperati dal nodo o caricati in un archivio durevole. Tutta la mitigazione del problema relativo all'intero disco comporta l'eliminazione dei dati per liberare spazio.
+
+### <a name="recovering-the-node"></a>Ripristino del nodo
+
+1. Se il pool è un pool [C. loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) , è possibile ricreare l'immagine del nodo tramite l'API di rielaborazione del [batch](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). L'intero disco verrà pulito. La ricreazione dell'immagine non è attualmente supportata per i pool [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
+
+2. Se il pool è un [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), è possibile rimuovere il nodo dal pool usando l' [API Remove nodes](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Quindi, è possibile aumentare di nuovo il pool per sostituire il nodo errato con uno aggiornato.
+
+3.  Elimina i processi completati o le attività precedenti completate con i dati delle attività ancora presenti nei nodi. Per un suggerimento sui processi o sui dati delle attività nei nodi, è possibile esaminare la [raccolta RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) nel nodo o nei [file del nodo](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Eliminando il processo verranno eliminate tutte le attività del processo e l'eliminazione delle attività nel processo attiverà i dati nelle directory delle attività nel nodo da eliminare, liberando così spazio. Dopo aver liberato spazio sufficiente, riavviare il nodo e uscire dallo stato "inutilizzabile" e in "inattivo".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

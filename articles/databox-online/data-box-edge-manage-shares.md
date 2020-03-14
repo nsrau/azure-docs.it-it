@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 73bff460db8428332a92d8deb68bf062ca4134ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759193"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79212930"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Edge
 
@@ -23,10 +23,10 @@ Questo articolo descrive come gestire le condivisioni in Azure Data Box Edge. È
 
 Per trasferire i dati in Azure, è necessario creare le condivisioni in Azure Data Box Edge. Le condivisioni che si aggiungono nel dispositivo Data Box Edge possono essere condivisioni locali o condivisioni che eseguono il push dei dati nel cloud.
 
- - **Condivisioni locali**: usare queste condivisioni quando si vuole che i dati vengano elaborati in locale nel dispositivo.
- - **Condivisioni**: usare queste condivisioni quando si vuole eseguire automaticamente il push dei dati del dispositivo nell'account di archiviazione nel cloud. Tutte le funzioni del cloud, come **Aggiorna** e **Sincronizza chiavi di archiviazione**, si applicano a queste condivisioni.
+ - **Condivisioni locali**: usare queste condivisioni quando si desidera che i dati vengano elaborati localmente nel dispositivo.
+ - **Condivisioni**: usare queste condivisioni quando si desidera che i dati del dispositivo vengano inseriti automaticamente nell'account di archiviazione nel cloud. Tutte le funzioni del cloud, come **Aggiorna** e **Sincronizza chiavi di archiviazione**, si applicano a queste condivisioni.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Aggiungere una condivisione
@@ -52,6 +52,9 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 4. Specificare un **account di archiviazione** in cui risiede la condivisione. Nell'account di archiviazione viene creato un contenitore con il nome della condivisione, se non esiste già. Se esiste già un contenitore, viene usato quello.
 
 5. Dall'elenco a discesa **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. In questo esempio si vuole che i dati vengano trasferiti in Azure come **BLOB in blocchi**, quindi è questa l'opzione da selezionare. Se si sceglie **BLOB di pagine**, è necessario verificare che i dati siano allineati su 512 byte. Usare **Blob di pagine** per dischi VHD o VHDX, che sono sempre allineati su 512 byte.
+
+   > [!IMPORTANT]
+   > Verificare che l'account di archiviazione di Azure in uso non abbia criteri di immutabilità impostati su di esso se lo si usa con un dispositivo Azure Stack Edge o Data Box Gateway. Per altre informazioni, vedere [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Questo passaggio varia a seconda che si stia creando una condivisione SMB o NFS.
     - **Se si crea una condivisione SMB**: nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**. Se si crea un nuovo utente locale, compilare i campi **Nome utente**, **Password** e Conferma password. Vengono così assegnate le autorizzazioni all'utente locale. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
@@ -85,7 +88,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 6. Nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**.
 
-7. Selezionare **Create**. 
+7. Selezionare **Crea**. 
 
     ![Creare una condivisione locale](media/data-box-edge-manage-shares/add-local-share-2.png)
 
@@ -150,11 +153,11 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare una condivisione
 
     ![Selezionare condivisione](media/data-box-edge-manage-shares/delete-share-1.png)
 
-2. Fare clic su **Elimina**.
+2. Scegliere **Elimina**.
 
     ![Clic su Elimina](media/data-box-edge-manage-shares/delete-share-2.png)
 
-3. Alla richiesta di conferma fare clic su **Sì**.
+3. Quando viene richiesta la conferma, fare clic su **Sì**.
 
     ![Conferma dell'eliminazione](media/data-box-edge-manage-shares/delete-share-3.png)
 
@@ -171,21 +174,21 @@ La funzionalità di aggiornamento consente di aggiornare il contenuto di una con
 
 Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivisione.
 
-1.  Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
+1.   Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
 
     ![Selezionare condivisione](media/data-box-edge-manage-shares/refresh-share-1.png)
 
-2.  Fare clic su **Aggiorna**. 
+2.   Fare clic su **Aggiorna**. 
 
     ![Fare clic su Aggiorna](media/data-box-edge-manage-shares/refresh-share-2.png)
  
-3.  Alla richiesta di conferma fare clic su **Sì**. Viene avviato un processo di aggiornamento del contenuto della condivisione locale.
+3.   Quando viene richiesta la conferma, fare clic su **Sì**. Viene avviato un processo di aggiornamento del contenuto della condivisione locale.
 
     ![Confermare l'aggiornamento](media/data-box-edge-manage-shares/refresh-share-3.png)
  
-4.  Durante l'aggiornamento, l'opzione di aggiornamento non è disponibile nel menu di scelta rapida. Fare clic sulla notifica del processo per visualizzare lo stato del processo di aggiornamento.
+4.   Durante l'aggiornamento, l'opzione di aggiornamento non è disponibile nel menu di scelta rapida. Fare clic sulla notifica del processo per visualizzare lo stato del processo di aggiornamento.
 
-5.  Il tempo necessario per aggiornare dipende dal numero di file nel contenitore di Azure, nonché dai file nel dispositivo. Dopo aver completato l'aggiornamento, viene aggiornato il timestamp di condivisione. Anche se l'aggiornamento include gli errori parziali, l'operazione è considerata riuscita e il timestamp viene aggiornato. Anche i log degli errori di aggiornamento vengono aggiornati.
+5.   Il tempo necessario per aggiornare dipende dal numero di file nel contenitore di Azure, nonché dai file nel dispositivo. Dopo aver completato l'aggiornamento, viene aggiornato il timestamp di condivisione. Anche se l'aggiornamento include gli errori parziali, l'operazione è considerata riuscita e il timestamp viene aggiornato. Anche i log degli errori di aggiornamento vengono aggiornati.
 
     ![Timestamp aggiornato](media/data-box-edge-manage-shares/refresh-share-4.png)
  
@@ -202,7 +205,7 @@ Eseguire i passaggi seguenti nel portale di Azure per sincronizzare la chiave di
 
     ![Selezionare la condivisione con l'account di archiviazione appropriato](media/data-box-edge-manage-shares/sync-storage-key-1.png)
 
-2. Fare clic su **Sincronizza chiavi di archiviazione**. Fare clic sull'opzione **Sì** quando viene richiesta la conferma.
+2. Fare clic su **Sincronizza chiavi di archiviazione**. Fare clic su **Sì** alla richiesta di conferma.
 
      ![Selezionare Sincronizza chiavi di archiviazione](media/data-box-edge-manage-shares/sync-storage-key-2.png)
 

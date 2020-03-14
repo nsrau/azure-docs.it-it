@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/28/2019
-ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 7316415a0f0c423a8a37477020a4ffd0ec044d73
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269052"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369472"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -83,6 +83,7 @@ SecurityEvent
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
 | summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```
 
 Le query che contengono clausole [where](/azure/kusto/query/whereoperator) su una colonna valutata anziché su colonne fisicamente presenti nel set di dati perdono l'efficienza. Il filtro sulle colonne valutate impedisce alcune ottimizzazioni del sistema quando vengono gestiti set di dati di grandi dimensioni.
@@ -230,7 +231,7 @@ Perf
 ) on Computer
 ```
 
-Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio:
+Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio,
 
 ```Kusto
 Perf

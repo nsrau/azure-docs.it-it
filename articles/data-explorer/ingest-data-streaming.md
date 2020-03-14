@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 1857c1154af5e3de72803f297e8a3151b0dd7aeb
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297085"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
@@ -72,7 +72,7 @@ Sono disponibili due tipi di inserimento di flussi supportati:
 
 ## <a name="limitations"></a>Limitazioni
 
-* L'inserimento di flussi non supporta i [cursori di database](/azure/kusto/management/databasecursor) o il [mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/tables#create-ingestion-mapping) . 
+* L'inserimento di flussi non supporta i [cursori di database](/azure/kusto/management/databasecursor) o il [mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/create-ingestion-mapping-command) . 
 * Le prestazioni e la capacità di inserimento dei flussi vengono ridimensionate con dimensioni maggiori di macchine virtuali e cluster. Le inserimenti simultanei sono limitate a sei inserimenti per core. Ad esempio, per gli SKU a 16 core, ad esempio D14 e L16, il carico massimo supportato è 96 di inserimenti simultanei. Per due SKU principali, ad esempio D11, il carico massimo supportato è 12 inserimenti simultanei.
 * Il limite per le dimensioni dei dati per ogni richiesta di inserimento è 4 MB.
 * Gli aggiornamenti dello schema, ad esempio la creazione e la modifica di tabelle e mapping di inserimento, possono richiedere fino a cinque minuti per il servizio di inserimento di flussi.

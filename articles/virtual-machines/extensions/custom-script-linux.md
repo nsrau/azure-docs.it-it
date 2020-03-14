@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 2190bfd1a260d7b866fedc1f7c699faef2431a93
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 9a53cae61e48a8d0aa19b138d4084ca257ea705b
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254001"
+ms.locfileid: "79299244"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -49,7 +49,7 @@ Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archi
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
-### <a name="tips-and-tricks"></a>Suggerimenti e consigli
+### <a name="tips-and-tricks"></a>Suggerimenti
 * La percentuale di errori più elevata per questa estensione è dovuta a errori di sintassi nello script. Verificare che lo script venga eseguito senza errori e inserire nello script altre opzioni di registrazione, per trovare più facilmente i punti che causano errori.
 * Scrivere script idempotenti in modo che, se per errore vengono eseguiti più di una volta, non siano apportate modifiche al sistema.
 * Verificare che gli script non richiedano l'input dell'utente durante l'esecuzione.
@@ -110,12 +110,12 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati | 
+| Name | Valore/Esempio | Tipo di dati | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | Data |
+| apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
-| typeHandlerVersion | 2.1 | INT |
+| typeHandlerVersion | 2.1 | int |
 | fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (es.) | MyPythonScript.py Python \<> param1 | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
@@ -212,7 +212,7 @@ CustomScript usa l'agoritmo seguente per eseguire uno script.
 
 CustomScript (versione 2,1 in poi) supporta l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB o contenitori privati di archiviazione di Azure senza che l'utente debba passare segreti come i token SAS o le chiavi dell'account di archiviazione.
 
-Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) alla macchina virtuale o vmss in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o al BLOB di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) alla macchina virtuale o vmss in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o al BLOB di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
 Per usare l'identità assegnata dal sistema nella macchina virtuale di destinazione/VMSS, impostare il campo "managedidentity" su un oggetto JSON vuoto. 
 
@@ -376,7 +376,7 @@ az vm extension set \
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Quando viene eseguita l'estensione per script personalizzati, lo script viene creato o scaricato in una directory simile all'esempio seguente. Anche l'output del comando viene salvato in questa directory, nei file `stdout` e `stderr`.
 
 ```bash

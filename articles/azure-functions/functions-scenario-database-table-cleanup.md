@@ -4,12 +4,12 @@ description: Usare Funzioni di Azure per pianificare un'attività che si connett
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972235"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366811"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
@@ -43,7 +43,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 È necessario aver precedentemente pubblicato l'app in Azure. Se non è già stato fatto, [pubblicare l'app per le funzioni in Azure](functions-develop-vs.md#publish-to-azure).
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **pubblica** > **Gestisci impostazioni applicazione...** . Selezionare **Aggiungi impostazione**, in **Nome impostazione nuovo app**, digitare `sqldb_connection`e selezionare **OK**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **pubblica** > **modifica app Azure impostazioni del servizio**. Selezionare **Aggiungi impostazione**, in **Nome nuova impostazione app** digitare `sqldb_connection` e selezionare **OK**.
 
     ![Impostazioni applicazioni per l'app per le funzioni.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 

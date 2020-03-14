@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111431"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220303"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Cercare video con l'API Ricerca video Bing
 
@@ -128,7 +128,7 @@ Per impostazione predefinita, l'API Ricerca video riporta tutti i video pertinen
 Per ottenere risultati di ricerca da un dominio specifico, includere il [sito:](https://msdn.microsoft.com/library/ff795613.aspx) dell'operatore query, nella stringa di query.
 
 > [!NOTE]
-> A seconda della query, se si usa `site:`l'operatore query è possibile che i risultati contengano contenuti per adulti, indipendentemente dall'impostazione [Ricerca sicura](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.
+> A seconda della query, se si usa `site:`l'operatore query è possibile che i risultati contengano contenuti per adulti, indipendentemente dall'impostazione [Ricerca sicura](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si conosce il contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.
 
 Nel seguente esempio viene illustrato come ottenere video gratuiti da ContosoSailing.com, con una risoluzione pari a 720p o superiore e che sono stati individuati da Bing nell'ultimo mese.
 

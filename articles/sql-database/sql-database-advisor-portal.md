@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5462a03accb3420b3f0fcec4624734c8f6d68859
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811585"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214170"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
-È possibile usare il portale di Azure per trovare raccomandazioni per le prestazioni che consentono di ottimizzare le prestazioni del database SQL di Azure o per correggere eventuali problemi individuati nel carico di lavoro. La pagina **Raccomandazioni per le prestazioni** nel portale di Azure consente di trovare le raccomandazioni principali in base all'impatto potenziale. 
+È possibile usare il portale di Azure per trovare raccomandazioni per le prestazioni che consentono di ottimizzare le prestazioni del database SQL di Azure o per correggere eventuali problemi individuati nel carico di lavoro. La pagina **Raccomandazioni per le prestazioni** nel portale di Azure consente di trovare le raccomandazioni principali in base all'impatto potenziale.
 
 ## <a name="viewing-recommendations"></a>Visualizzazione delle raccomandazioni
 
@@ -40,23 +40,22 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 
 | Impatto | Descrizione |
 |:--- |:--- |
-| Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
-| Medio |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
-| Basso |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
-
+| Alta |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
+| Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
+| Bassa |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
 > [!NOTE]
 > Il database SQL di Azure deve monitorare le attività almeno per un giorno per poter individuare alcune raccomandazioni. Il database SQL di Azure può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari casuali di attività. Se non sono disponibili raccomandazioni, nella pagina **Performance recommendation** (Raccomandazione prestazioni) viene visualizzato un messaggio che ne spiega il motivo.
-> 
 
-È anche possibile visualizzare lo stato delle ultime operazioni storiche. Selezionare un'indicazione o lo stato per visualizzare altre informazioni.
+È anche possibile visualizzare lo stato delle ultime operazioni storiche. Selezionare un'indicazione o uno stato per visualizzare altre informazioni.
 
 Di seguito è riportato un esempio della raccomandazione "Crea indice" nel portale di Azure.
 
 ![Creare un indice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Applicazione delle raccomandazioni
-Il database SQL di Azure offre il controllo completo sull'attivazione delle raccomandazioni tramite una delle tre opzioni seguenti: 
+
+Il database SQL di Azure offre il controllo completo sull'attivazione delle raccomandazioni tramite una delle tre opzioni seguenti:
 
 * Applicare le singole indicazioni una alla volta.
 * Abilitare l'ottimizzazione automatica per applicare automaticamente le raccomandazioni.
@@ -67,12 +66,13 @@ Selezionare una raccomandazione per visualizzarne i dettagli e quindi fare clic 
 Il database rimane online mentre viene applicata la raccomandazione. Un database non viene mai portato offline per l'uso di una raccomandazione per le prestazioni o per l'ottimizzazione automatica.
 
 ### <a name="apply-an-individual-recommendation"></a>Applicare una singola indicazione
+
 È possibile leggere e accettare le indicazioni una alla volta.
 
 1. Nella pagina **Raccomandazioni** selezionare una raccomandazione.
 2. Nella pagina **Dettagli** fare clic sul pulsante **Applica**.
-   
-    ![Applica suggerimento](./media/sql-database-advisor-portal/apply.png)
+
+   ![Applica suggerimento](./media/sql-database-advisor-portal/apply.png)
 
 La raccomandazione selezionata verrà applicata nel database.
 
@@ -92,21 +92,20 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
 > [!NOTE]
 > Se è abilitata l'[ottimizzazione automatica](sql-database-automatic-tuning.md) del database SQL e se una raccomandazione è stata rimossa manualmente dall'elenco, tale raccomandazione non verrà mai applicata automaticamente. La rimozione di una raccomandazione è un modo pratico per gli utenti di abilitare l'ottimizzazione automatica nei casi che richiedono che non venga applicata una raccomandazione specifica.
 > Tale operazione può essere annullata aggiungendo nuovamente le raccomandazioni rimosse all'elenco selezionando l'opzione Annulla rimozione.
-> 
 
 ### <a name="enable-automatic-tuning"></a>Abilitare l'ottimizzazione automatica
+
 È possibile impostare il database SQL di Azure in modo che implementi automaticamente le raccomandazioni. Man mano che le raccomandazioni vengono rese disponibili, verranno applicate automaticamente. Come per tutte le raccomandazioni gestite dal servizio, se l'impatto sulle prestazioni è negativo le raccomandazioni verranno annullate.
 
 1. Nella pagina **Raccomandazioni** fare clic su **Automatizza**:
-   
-    ![Impostazioni di Advisor](./media/sql-database-advisor-portal/settings.png)
+
+   ![Impostazioni di Advisor](./media/sql-database-advisor-portal/settings.png)
 2. Selezionare le azioni da automatizzare:
-   
-    ![Indici consigliati](./media/sql-database-automatic-tuning-enable/server.png)
+
+   ![Indici consigliati](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Si noti che l'opzione **DROP_INDEX** non è attualmente compatibile con le applicazioni che usano cambi di partizione e hint di indice. 
->
+> Si noti che l'opzione **DROP_INDEX** non è attualmente compatibile con le applicazioni che usano cambi di partizione e hint di indice.
 
 Dopo aver selezionato la configurazione desiderata, fare clic su Applica.
 
@@ -114,7 +113,7 @@ Dopo aver selezionato la configurazione desiderata, fare clic su Applica.
 
 Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script**. Eseguire questo script nel database per applicare manualmente l'indicazione.
 
-*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Inoltre, le raccomandazioni applicate manualmente rimarranno attive e visualizzate nell'elenco di raccomandazioni per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla manualmente.
+*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Inoltre, le raccomandazioni applicate manualmente rimarranno attive e visualizzate nell'elenco di raccomandazioni per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla manualmente.
 
 ### <a name="canceling-recommendations"></a>Annullamento delle raccomandazioni
 
@@ -130,10 +129,10 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 | Stato | Descrizione |
 |:--- |:--- |
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
-| In esecuzione |La raccomandazione viene applicata. |
+| Executing |La raccomandazione viene applicata. |
 | Convalida in corso. |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
 | Success |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
-| Tipi di errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
+| Errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
 | Ripristino |La raccomandazione è stata applicata, ma è stata considerata non efficiente e verrà ripristinata automaticamente. |
 | Ripristinato |La raccomandazione è stata ripristinata. |
 
@@ -142,6 +141,7 @@ Fare clic su una raccomandazione in-process nell'elenco per visualizzare altre i
 ![Indici consigliati](./media/sql-database-advisor-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Ripristino di una raccomandazione
+
 Se sono state usate le raccomandazioni per le prestazioni per applicare la raccomandazione, ovvero non è stato eseguito manualmente lo script T-SQL, la raccomandazione annulla automaticamente la modifica se viene rilevato un impatto negativo sulle prestazioni. Se per qualsiasi motivo si vuole semplicemente annullare una raccomandazione, procedere come segue:
 
 1. Selezionare una raccomandazione applicata nell'area **Cronologia ottimizzazione** .
@@ -150,22 +150,25 @@ Se sono state usate le raccomandazioni per le prestazioni per applicare la racco
 ![Indici consigliati](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>Monitoraggio dell'impatto sulle prestazioni delle indicazioni relative agli indici
+
 Dopo aver implementato correttamente le raccomandazioni, attualmente, solo raccomandazioni relative alle operazioni sugli indici e alle query con parametri, fare clic su **Informazioni dettagliate query** nella pagina dei dettagli delle raccomandazioni per aprire [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) ed esaminare l'impatto sulle prestazioni delle query principali.
 
 ![Monitorare l'impatto sulle prestazioni](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Riepilogo
+
 Il database SQL di Azure fornisce raccomandazioni per migliorare le prestazioni del database SQL. Questa funzionalità offre script T-SQL e consente di ottimizzare il database e quindi di migliorare le prestazioni delle query.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare le prestazioni. I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. Database SQL di Azure continua a monitorare e offrire raccomandazioni potenzialmente utili per migliorare le prestazioni del database. 
+
+Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare le prestazioni. I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. Database SQL di Azure continua a monitorare e offrire raccomandazioni potenzialmente utili per migliorare le prestazioni del database.
 
 * Vedere [Ottimizzazione automatica](sql-database-automatic-tuning.md) per altre informazioni sull'ottimizzazione automatica nel database SQL di Azure.
 * Vedere le [Raccomandazioni per le prestazioni](sql-database-advisor.md) per una panoramica delle raccomandazioni per le prestazioni per il database SQL di Azure.
 * Vedere l'articolo [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) per informazioni sull'analisi dell'impatto sulle prestazioni delle query principali.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
+
 * [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)
-

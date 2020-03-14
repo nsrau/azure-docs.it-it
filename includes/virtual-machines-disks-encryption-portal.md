@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8d68d2e83bba055e92b99ee9294daf6f2395d8dc
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206302"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299508"
 ---
 ### <a name="portal"></a>Portal
 
@@ -49,9 +49,14 @@ Per configurare le chiavi gestite dal cliente per i dischi, è necessario creare
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Impostazione del set di crittografia del disco
 
-Per creare e configurare i set di crittografia del disco, è necessario usare il collegamento seguente: https://aka.ms/diskencryptionsets. La creazione del set di crittografia del disco non è ancora disponibile nel portale di Azure globale.
+Per creare e configurare i set di crittografia del disco, è necessario usare il collegamento seguente: https://aka.ms/diskencryptionsets. Se ci si trova nelle aree Microsoft Azure per enti pubblici, è necessario usare invece questo collegamento: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff). La creazione del set di crittografia del disco non è ancora disponibile nel portale di Azure globale.
 
-1. Aprire il [collegamento dei set di crittografia del disco](https://aka.ms/diskencryptionsets).
+1. Aprire il collegamento dei set di crittografia del disco appropriato per l'area geografica:
+
+    Aree pubbliche: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Aree di Azure per enti pubblici: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    
 1. Selezionare **+Aggiungi**.
 
     ![Screenshot della schermata principale del portale di crittografia del disco. Evidenziazione del pulsante Aggiungi](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
@@ -77,7 +82,12 @@ Due notifiche dovrebbero apparire e avere esito positivo. Questa operazione cons
 Ora che è stato creato e configurato l'insieme di credenziali delle chiavi e il set di crittografia del disco, è possibile distribuire una VM usando la crittografia.
 Il processo di distribuzione delle VM è simile al processo di distribuzione standard. le uniche differenze sono la necessità di distribuire la macchina virtuale nella stessa area delle altre risorse e di scegliere di usare una chiave gestita dal cliente.
 
-1. Aprire il [collegamento dei set di crittografia del disco](https://aka.ms/diskencryptionsets).
+1. Aprire il collegamento dei set di crittografia del disco appropriato per l'area geografica:
+
+    Aree pubbliche: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Aree di Azure per enti pubblici: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+
 1. Cercare le **macchine virtuali** e selezionare **+ Aggiungi** per creare una macchina virtuale.
 1. Nella scheda di **base** selezionare la stessa area del set di crittografia del disco e Azure Key Vault.
 1. Inserire gli altri valori nella scheda di **base** , come si desidera.
@@ -97,7 +107,12 @@ Per gestire e configurare la crittografia del disco nei dischi esistenti, è nec
 > [!CAUTION]
 > Per abilitare la crittografia dei dischi in qualsiasi disco collegato a una macchina virtuale, sarà necessario arrestare la macchina virtuale.
 
-1. Aprire il [collegamento dei set di crittografia del disco](https://aka.ms/diskencryptionsets).
+1. Aprire il collegamento dei set di crittografia del disco appropriato per l'area geografica:
+
+    Aree pubbliche: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Aree di Azure per enti pubblici: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    
 1. Passare a una macchina virtuale che si trova nella stessa area di uno dei set di crittografia del disco.
 1. Aprire la macchina virtuale e selezionare **Arresta**.
 

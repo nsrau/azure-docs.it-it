@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 79a4e423f7a2b6570234c958ac833cdf5c6a75e4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121408"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297918"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
 
@@ -25,7 +25,7 @@ Questa guida illustra come aggiungere archiviazione di Azure al servizio app in 
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.46 o successiva)
 - Un [servizio app esistente nell'app Linux](https://docs.microsoft.com/azure/app-service/containers/).
 - Un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
-- Una [condivisione file e una directory di Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
+- Una [condivisione file e una directory di Azure](../../storage/files/storage-how-to-use-files-cli.md).
 
 
 ## <a name="limitations-of-azure-storage-with-app-service"></a>Limitazioni di archiviazione di Azure con il servizio app

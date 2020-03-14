@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269120"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371555"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -32,7 +32,7 @@ Gli account di archiviazione per utilizzo generico v2 supportano le funzionalit�
 
 - BLOB (tutti i tipi: blocchi, accodamento, pagina)
 - Data Lake Gen2
-- File
+- Files
 - Dischi
 - Code
 - Tabelle
@@ -49,7 +49,7 @@ Gli account di archiviazione per utilizzo generico v2 offrono più livelli di ac
 Gli account di archiviazione per utilizzo generico V1 forniscono l'accesso a tutti i servizi di archiviazione di Azure, ma potrebbero non avere le funzionalità più recenti o i prezzi più bassi per Gigabyte. Gli account di archiviazione per utilizzo generico v1 supportano i servizi di archiviazione di Azure seguenti:
 
 - BLOB (tutti i tipi)
-- File
+- Files
 - Dischi
 - Code
 - Tabelle
@@ -108,7 +108,7 @@ I livelli di accesso disponibili sono i seguenti:
 
 - Livello **di accesso** frequente. Questo livello è ottimizzato per l'accesso frequente agli oggetti nell'account di archiviazione. L'accesso ai dati nel livello critico è più conveniente, mentre i costi di archiviazione sono maggiori. I nuovi account di archiviazione vengono creati nel livello ad accesso frequente per impostazione predefinita.
 - Livello **di accesso** sporadico. Questo livello è ottimizzato per l'archiviazione di grandi quantità di dati a cui si accede raramente e che vengono archiviati per almeno 30 giorni. L'archiviazione dei dati nel livello ad accesso sporadico è più conveniente, ma l'accesso a tali dati può risultare più costoso rispetto all'accesso ai dati nel livello critico.
-- Livello **Archivio** . Questo livello è disponibile solo per i singoli BLOB in blocchi e i BLOB di Accodamento. Il livello archivio è ottimizzato per i dati che possono tollerare diverse ore di latenza di recupero e che rimarranno nel livello di archiviazione per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati. Tuttavia, l'accesso a tali dati è più costoso rispetto all'accesso ai dati nei livelli ad accesso frequente o sporadico.
+- Livello **Archivio** . Questo livello è disponibile solo per i singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare diverse ore di latenza di recupero e che rimarranno nel livello di archiviazione per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati. Tuttavia, l'accesso a tali dati è più costoso rispetto all'accesso ai dati nei livelli ad accesso frequente o sporadico.
 
 Se viene apportata una modifica al modello di utilizzo dei dati, è possibile passare da un livello di accesso all'altro in qualsiasi momento. Per altre informazioni sui livelli di accesso, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 

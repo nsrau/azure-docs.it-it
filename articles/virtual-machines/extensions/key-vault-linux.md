@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8fa8ca50a8d8cae7543c6aacb84fa57bc2f9c3a4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: a4fb3ad2ce6225528910bbda9d98a38001242710
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945211"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298989"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault estensione della macchina virtuale per Linux
 
@@ -27,6 +27,10 @@ L'estensione della macchina virtuale Key Vault supporta le distribuzioni di Linu
 - Ubuntu-1804
 - Debian-9
 - SUSE-15 
+
+### <a name="supported-certificate-content-types"></a>Tipi di contenuto certificato supportati
+
+- #12 PKCS
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -67,18 +71,18 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati |
+| Name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | Data |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
-| typeHandlerVersion | 1.0 | INT |
+| typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | string |
 | requiredInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matrice di stringhe
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matrice di stringhe
 
 
 ## <a name="template-deployment"></a>Distribuzione del modello
@@ -194,7 +198,7 @@ Tenere presenti le restrizioni e i requisiti seguenti:
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una macchina virtuale specifica, eseguire il comando seguente tramite Azure PowerShell.
 

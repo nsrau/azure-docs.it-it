@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: bf36c0697b5e30c77610d30475be20adc18810cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 898dfe7a619981b93af98effa942fdecbeb42dde
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445582"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368129"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
-Il supporto del feed delle modifiche in Azure Cosmos DB funziona ascoltando un contenitore di Azure Cosmos per eventuali modifiche. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Le modifiche sono persistenti, possono essere elaborate in modo asincrono e incrementale e l'output può essere distribuito a uno o più consumer per l'elaborazione parallela. 
+Il supporto del feed di modifiche in Azure Cosmos DB ascolta eventuali modifiche in un contenitore di Azure Cosmos. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Le modifiche sono persistenti, possono essere elaborate in modo asincrono e incrementale e l'output può essere distribuito a uno o più consumer per l'elaborazione parallela. 
 
 Azure Cosmos DB è particolarmente adatto per le applicazioni IoT, di videogiochi, del settore della vendita al dettaglio e di registrazioni di operazioni. Uno schema progettuale comune in queste applicazioni prevede l'uso delle modifiche ai dati per attivare azioni aggiuntive. Esempi di azioni aggiuntive:
 
@@ -42,11 +42,15 @@ La funzionalità è attualmente supportata dalle API e dagli SDK client Cosmos D
 
 ## <a name="change-feed-and-different-operations"></a>Feed di modifiche e operazioni diverse
 
-Oggi, si vedranno tutte le operazioni nel feed di modifiche. La funzionalità con cui è possibile controllare il feed di modifiche per operazioni specifiche, ad esempio solo gli aggiornamenti e non gli inserimenti non è ancora disponibile. È possibile aggiungere un "soft marker" sull'elemento per aggiornamenti e filtrare in base a esso durante l'elaborazione di elementi nel feed di modifiche. Attualmente, le eliminazioni non vengono registrate nel feed di modifiche. In modo simile all'esempio precedente, è possibile aggiungere un soft marker per gli elementi da eliminare, ad esempio, è possibile aggiungere all'elemento un attributo denominato "eliminato" e impostarlo su "true" e impostare un TTL nell'elemento, in modo che possa essere eliminato automaticamente. È possibile leggere il feed delle modifiche per gli elementi cronologici (la modifica più recente corrispondente all'elemento, non include le modifiche intermedie), ad esempio gli elementi che sono stati aggiunti cinque anni fa. Se il documento non è stato eliminato, è possibile leggere il feed di modifiche fino all'origine del contenitore.
+Oggi, si vedranno tutte le operazioni nel feed di modifiche. La funzionalità con cui è possibile controllare il feed di modifiche per operazioni specifiche, ad esempio solo gli aggiornamenti e non gli inserimenti non è ancora disponibile. È possibile aggiungere un "marcatore soft" sull'elemento per gli aggiornamenti e applicare un filtro in base a tale elemento durante l'elaborazione di elementi nel feed delle modifiche. Il feed di modifiche attualmente non registra le eliminazioni. In modo simile all'esempio precedente, è possibile aggiungere un soft marker per gli elementi da eliminare, ad esempio, è possibile aggiungere all'elemento un attributo denominato "eliminato" e impostarlo su "true" e impostare un TTL nell'elemento, in modo che possa essere eliminato automaticamente. È possibile leggere il feed delle modifiche per gli elementi cronologici (la modifica più recente corrispondente all'elemento, non include le modifiche intermedie), ad esempio gli elementi che sono stati aggiunti cinque anni fa. Se il documento non è stato eliminato, è possibile leggere il feed di modifiche fino all'origine del contenitore.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Ordinamento degli elementi nel feed di modifiche
 
-Gli elementi nel feed di modifiche sono ordinati in base all'ora di modifica. Questo ordinamento è garantito soltanto per chiave di partizione logica.
+Gli elementi nel feed di modifiche sono ordinati in base all'ora di modifica. Questo ordinamento è garantito per ogni chiave di partizione logica.
+
+### <a name="consistency-level"></a>Livello di coerenza
+
+Quando si utilizza il feed delle modifiche in un livello di coerenza finale, è possibile che si verifichino eventi duplicati tra le operazioni di lettura del feed di modifiche successive (l'ultimo evento di un'operazione di lettura viene visualizzato come primo dei prossimi).
 
 ### <a name="change-feed-in-multi-region-azure-cosmos-accounts"></a>Feed di modifiche in più aree negli account Azure Cosmos
 

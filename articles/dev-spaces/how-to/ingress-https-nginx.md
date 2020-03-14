@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Informazioni su come configurare Azure Dev Spaces per l'uso di un controller di ingresso NGINX personalizzato e configurare HTTPS usando il controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 2debe6daf409200059f28aef52202223193e8f0c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 13b94d6079f665eeb5438b10b387360368b7a3ac
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389681"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366054"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usare un controller di ingresso NGINX personalizzato e configurare HTTPS
 
@@ -29,14 +29,14 @@ Questo articolo illustra come configurare Azure Dev Spaces per l'uso di un contr
 
 Connettersi al cluster usando [kubectl][kubectl], il client da riga di comando Kubernetes. Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKS
 ```
 
 Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
@@ -79,7 +79,7 @@ nginx-nginx-ingress-controller        LoadBalancer   10.0.19.39     MY_EXTERNAL_
 
 Aggiungere un *record a* nella zona DNS con l'indirizzo IP esterno del servizio nginx usando il comando [AZ network DNS record-set a Add-record][az-network-dns-record-set-a-add-record].
 
-```console
+```azurecli
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \

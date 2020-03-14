@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 03/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83133fed401dac51a8dd6a653ccfd86117e956ed
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 147a131eb79c74dc38c4217d167c7d65ee8a9274
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046451"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366173"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
@@ -42,7 +42,7 @@ Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell,
 
 ## <a name="activity-based-automatic-renewal"></a>Rinnovo automatico basato sulle attività
 
-Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi tra i servizi di Office 365 come Outlook, SharePoint, teams o Yammer. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente e il proprietario non riceve alcuna notifica di rinnovo.
+Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi nei servizi di Office 365 come Outlook, SharePoint o teams. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente e il proprietario non riceve alcuna notifica di rinnovo.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Attività che rinnovano automaticamente la scadenza del gruppo
 
@@ -62,7 +62,7 @@ Gli amministratori possono ottenere un elenco di gruppi rinnovati automaticament
 
 Di seguito sono elencati i ruoli che possono configurare e usare la scadenza per i gruppi di Office 365 in Azure AD.
 
-Ruolo | Autorizzazioni
+Role | Autorizzazioni
 -------- | --------
 Amministratore globale, amministratore del gruppo o amministratore utente | Questo ruolo consente di creare, leggere, aggiornare o eliminare le impostazioni dei criteri di scadenza per i gruppi di Office 365<br>Questo ruolo consente di rinnovare qualsiasi gruppo di Office 365
 Utente | Questo ruolo consente di rinnovare un gruppo di Office 365 di cui è proprietario<br>Questo ruolo consente di ripristinare un gruppo di Office 365 di cui è proprietario<br>Questo ruolo consente di leggere le impostazioni dei criteri di scadenza
@@ -134,7 +134,7 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
    Connect-AzureAD
    ```
 
-1. Configurare le impostazioni di scadenza usare il cmdlet New-AzureADMSGroupLifecyclePolicy per impostare la durata di tutti i gruppi di Office 365 nell'organizzazione Azure AD su 365 giorni. Le notifiche di rinnovo per i gruppi di Office 365 senza proprietari verranno inviate a emailaddress@contoso.com.
+1. Configurare le impostazioni di scadenza usare il cmdlet New-AzureADMSGroupLifecyclePolicy per impostare la durata di tutti i gruppi di Office 365 nell'organizzazione Azure AD su 365 giorni. Le notifiche di rinnovo per i gruppi di Office 365 senza proprietario verranno inviate a'emailaddress@contoso.com'
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -144,7 +144,7 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
 
    - ID dei criteri
    - La durata di tutti i gruppi di Office 365 nell'organizzazione Azure AD è impostata su 365 giorni
-   - Notifiche di rinnovo per i gruppi di Office 365 senza proprietari che verranno inviate a emailaddress@contoso.com
+   - Le notifiche di rinnovo per i gruppi di Office 365 senza proprietario verranno inviate a'emailaddress@contoso.com'.
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy

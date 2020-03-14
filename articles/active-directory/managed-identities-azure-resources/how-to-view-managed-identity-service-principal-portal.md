@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8f48f73248e2108e79b8e244ed0d7b51855092a
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: c12f15cc79d5329d028239ade4e18a853000bf01
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048144"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298598"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Visualizzare l'entità servizio di un'identità gestita nel portale di Azure
 
@@ -31,11 +31,11 @@ In questo articolo viene descritto come visualizzare l'entità servizio di un'id
  > [!NOTE] 
  > Le entità servizio sono applicazioni aziendali. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha già un account Azure, è possibile [registrarsi per ottenerne uno gratuito](https://azure.microsoft.com/free/).
-- Abilitare l'[identità assegnata dal sistema nella macchina virtuale](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) o nell'[applicazione](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
+- Abilitare l'[identità assegnata dal sistema nella macchina virtuale](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) o nell'[applicazione](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity).
 
 ## <a name="view-the-service-principal"></a>Visualizzare l'entità servizio
 

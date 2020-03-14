@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: f7d993799fed637fbec55afc8f06d90c8fc6910f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b0a4627d377f5fa9ca997d1cc96bc38b0a6c37f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726787"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217214"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedure consigliate per la protezione di database PaaS in Azure
 
@@ -30,7 +30,7 @@ Il database SQL di Azure e SQL Data Warehouse forniscono un servizio di database
 
 - Autenticazione di Azure Active Directory (invece di autenticazione di SQL Server)
 - Firewall SQL di Azure
-- Transparent data encryption (TDE)
+- Transparent Data Encryption (TDE)
 
 ## <a name="use-a-centralized-identity-repository"></a>Usare un repository delle identità centralizzato
 È possibile configurare i database SQL di Azure affinché usino uno tra due tipi di autenticazione:
@@ -68,7 +68,7 @@ Le restrizioni predefinite agli indirizzi IP di origine del database SQL consent
 
 Per altre informazioni sul firewall SQL di Azure e sulle restrizioni per gli indirizzi IP, vedere:
 
-- [Controllo di accesso per il database SQL di Azure e SQL Data Warehouse](../../sql-database/sql-database-control-access.md)
+- [Controllo di accesso per il database SQL di Azure e SQL Data Warehouse](../../sql-database/sql-database-manage-logins.md)
 - [Regole del firewall per il database SQL di Azure e SQL Data Warehouse](../../sql-database/sql-database-firewall-configure.md)
 
 
@@ -84,7 +84,7 @@ La crittografia a livello di applicazione deve essere usata anche per dati selet
 È possibile usare diverse precauzioni per proteggere il database, ad esempio la progettazione di un sistema sicuro, la crittografia di risorse riservate e la creazione di un firewall che protegga i server di database.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo sono state illustrate varie procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante il database SQL e SQL Data Warehouse. Per altre informazioni sulla protezione delle distribuzioni PaaS, vedere:
+In questo articolo sono state illustrate varie procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante il database SQL e SQL Data Warehouse. Per ulteriori informazioni sulla protezione delle distribuzioni PaaS, vedere:
 
 - [Protezione delle distribuzioni PaaS](paas-deployments.md)
 - [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante i Servizi app di Azure](paas-applications-using-app-services.md)

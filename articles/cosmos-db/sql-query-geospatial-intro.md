@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 0fe83b8e28b96f1d89a7c98cfe86a6e924f1bc49
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566348"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367585"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dati della località geospaziale e GeoJSON in Azure Cosmos DB
 
@@ -25,7 +25,10 @@ Questo articolo offre un'introduzione alla funzionalità geospaziale in Azure Co
 
 I dati spaziali descrivono la posizione e la forma degli oggetti nello spazio. Nella maggior parte delle applicazioni, questi corrispondono a oggetti sulla terra e a dati geospaziali. I dati spaziali possono essere utilizzati per rappresentare la posizione di una persona, un luogo di interesse o i confini di una città o di un lago. Casi d'uso comuni includono spesso query di prossimità, ad esempio, "trova tutti i negozi vicini alla mia posizione attuale".
 
-L'API SQL di Azure Cosmos DB supporta il tipo di dati **geography** . Il tipo **geography** rappresenta i dati in un sistema di coordinate terrestri.
+L'API SQL di Azure Cosmos DB supporta due tipi di dati spaziali: il tipo di dati **Geometry** e il tipo di dati **geography** .
+
+- Il tipo **Geometry** rappresenta i dati in un sistema di coordinate euclideo (piano)
+- Il tipo **geography** rappresenta i dati in un sistema di coordinate terrestri.
 
 ## <a name="supported-data-types"></a>Tipi di dati supportati
 
@@ -38,7 +41,7 @@ Azure Cosmos DB supporta i tipi di dati spaziali seguenti:
 - Polygon
 - MultiPolygon
 
-### <a name="points"></a>Punti
+### <a name="points"></a>punti
 
 Un **punto** indica una posizione singola nello spazio. Nei dati geospaziali, un punto rappresenta la posizione esatta, che può essere l'indirizzo di un negozio, un chiosco, un'automobile o una città.  Un punto viene rappresentato in GeoJSON (e Azure Cosmos DB) tramite la sua coppia di coordinate o longitudine e latitudine.
 
@@ -70,7 +73,11 @@ I tipi di dati spaziali possono essere incorporati in un documento di Azure Cosm
 }
 ```
 
-### <a name="points-in-geography-coordinate-system"></a>Punti nel sistema di coordinate geography
+### <a name="points-in-a-geometry-coordinate-system"></a>Punti in un sistema di coordinate geometrico
+
+Per il tipo di dati **Geometry** , la specifica GeoJSON specifica prima l'asse orizzontale e il secondo asse verticale.
+
+### <a name="points-in-a-geography-coordinate-system"></a>Punti in un sistema di coordinate geography
 
 Per il tipo di dati **geography** , la specifica GeoJSON specifica la longitudine First e la latitudine Second. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori della longitudine vengono misurati dal meridiano principale e sono compresi tra -180 e 180,0 gradi, mentre i valori della latitudine sono misurati dall'equatore e sono compresi tra -90,0 e 90,0 gradi.
 
@@ -125,20 +132,20 @@ Un **multipoligono** è una matrice di zero o più poligoni. I **multipoligoni**
 ```json
 {
     "type":"MultiPolygon",
-    "coordinates":[ [
+    "coordinates":[[[
         [52.0, 12.0],
         [53.0, 12.0],
         [53.0, 13.0],
         [52.0, 13.0],
         [52.0, 12.0]
-    ],
-    [
+        ]],
+        [[
         [50.0, 0.0],
         [51.0, 0.0],
         [51.0, 5.0],
         [50.0, 5.0],
         [50.0, 0.0]
-    ] ]
+        ]]]
 }
 ```
 

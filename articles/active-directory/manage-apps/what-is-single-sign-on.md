@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e24a4209869d4c47f8ac73e250699ec55d006296
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f46bcf412403d8f911e484e12a9d1f421b1666f0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786393"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366071"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
 
@@ -40,13 +40,13 @@ Questo diagramma di flusso aiuta a decidere quale metodo di accesso Single Sign-
 
 La tabella seguente include un riepilogo dei metodi di accesso Single Sign-On e collegamenti per maggiori dettagli.
 
-| Metodo di accesso Single Sign-On | Tipi di applicazioni | Quando usare questa opzione |
+| Metodo di accesso Single Sign-On | Tipi di applicazioni | Utilizzo |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | Solo cloud | Usare OAuth e OpenID Connect quando si sviluppa una nuova applicazione. Questo protocollo semplifica la configurazione dell'applicazione, ha SDK facili da usare e consente all'applicazione di usare MS Graph.
 | [SAML](#saml-sso) | Cloud e locale | Scegliere SAML laddove possibile per le applicazioni esistenti che non usano OAuth o OpenID Connect. SAML funziona per le applicazioni che eseguono l'autenticazione usando uno dei protocolli SAML.|
 | [Basato su password](#password-based-sso) | Cloud e locale | Scegliere il metodo basato su password quando l'applicazione esegue l'autenticazione con nome utente e password. L'accesso Single Sign-On basato su password consente l'archiviazione e la riproduzione delle password delle applicazioni protette usando un'estensione del Web browser o un'app per dispositivi mobili. Questo metodo usa il processo di accesso esistente fornito dall'applicazione, ma consente all'amministratore di gestire le password. |
 | [Collegato](#linked-sign-on) | Cloud e locale | Scegliere accesso collegato quando l'applicazione è configurata per Single Sign-On in un altro servizio del provider di identità. Questa opzione non aggiunge l'accesso Single Sign-On all'applicazione. L'applicazione potrebbe comunque avere già implementato l'accesso Single Sign-On usando un altro servizio, ad esempio Active Directory Federation Services.|
-| [Disabilitato](#disabled-sso) | Cloud e locale | Scegliere l'accesso Single Sign-On disabilitato se l'app non è pronta per essere configurata per Single Sign-On. Gli utenti devono immettere il nome utente e la password ogni volta che avviano l'applicazione.|
+| [Disabilitato](#disabled-sso) | Cloud e locale | Scegliere l'accesso Single Sign-On disabilitato se l'app non è pronta per essere configurata per Single Sign-On. Questa modalità è l'impostazione predefinita quando si crea l'app.|
 | [Autenticazione integrata di Windows](#integrated-windows-authentication-iwa-sso) | Solo in locale | Scegliere l'accesso Single Sign-On dell'autenticazione integrata di Windows per le applicazioni che usano l'[autenticazione integrata di Windows](/aspnet/web-api/overview/security/integrated-windows-authentication) o le applicazioni che riescono a riconoscere le attestazioni. Per l'autenticazione integrata di Windows, i connettori Application Proxy usano la delega vincolata Kerberos per autenticare gli utenti con l'applicazione. |
 | [Basato su intestazione](#header-based-sso) | Solo in locale | Usare l'accesso Single Sign-On basato su intestazione quando l'applicazione usa le intestazioni per l'autenticazione. L'accesso Single Sign-On basato su intestazione richiede PingAccess per Azure AD. Application Proxy usa Azure AD per autenticare l'utente e quindi passa il traffico attraverso il servizio del connettore.  |
 
@@ -54,7 +54,7 @@ La tabella seguente include un riepilogo dei metodi di accesso Single Sign-On e 
 
 Quando si sviluppano nuove applicazioni, usare protocolli moderni quali OAuth e OpenID Connect per ottenere la migliore esperienza Single Sign-On per l'app su più piattaforme di dispositivo. OAuth consente agli utenti o agli amministratori di [concedere il consenso](configure-user-consent.md) per le risorse protette, ad esempio [Microsoft Graph](/graph/overview). Sono disponibili [SDK](../develop/reference-v2-libraries.md) facili da adottare per l'app e l'app sarà pronta per l'uso [Microsoft Graph](/graph/overview).
 
-Per scoprire di più, vedi:
+Per altre informazioni, vedere:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
@@ -146,6 +146,8 @@ Usare la modalità di accesso Single Sign-On disabilitato:
 - Se non si è pronti a integrare questa applicazione con l'accesso Single Sign-On di Azure AD
 - In fase di test di altri aspetti dell'applicazione
 - Come livello di sicurezza per un'applicazione locale che non richiede l'autenticazione degli utenti. Con la modalità disabilitata, l'utente deve eseguire l'autenticazione.
+
+Si noti che, se l'applicazione è stata configurata per la Single Sign-On basata su SAML avviata da SP e la modalità SSO è stata modificata per disabilitarla, non verrà impedito agli utenti di accedere all'applicazione all'esterno del portale app. A tale scopo, è necessario [disabilitare la possibilità per gli utenti di eseguire l'accesso](disable-user-sign-in-portal.md)
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>SSO con autenticazione integrata di Windows
 

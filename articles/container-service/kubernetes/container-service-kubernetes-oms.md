@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3cb500d2f00d6657420d7f294a7318b339e1f81e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 02d04076ccc41d243a493838667f5e8cc6bfa5ac
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271065"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371155"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(DEPRECATO) Monitorare un cluster del servizio Azure Container con Log Analytics
 
@@ -28,8 +28,8 @@ Si presume anche che gli strumenti dell'interfaccia della riga di comando di Azu
 
 È possibile verificare se lo strumento `az` è installato eseguendo:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Se lo strumento `az` non è installato, le istruzioni sono disponibili [qui](https://github.com/azure/azure-cli#installation).
@@ -38,21 +38,24 @@ In alternativa, è possibile usare [Azure Cloud Shell](https://docs.microsoft.co
 È possibile verificare se lo strumento `kubectl` è installato eseguendo:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Se `kubectl` non è installato, è possibile eseguire:
-```console
-$ az acs kubernetes install-cli
+
+```azurecli
+az acs kubernetes install-cli
 ```
 
 Per verificare la presenza di chiavi kubernetes installate nello strumento di kubectl è possibile eseguire:
+
 ```console
-$ kubectl get nodes
+kubectl get nodes
 ```
 
 Se il comando precedente ha presentato degli errori, è necessario installare le chiavi di cluster kubernetes nello strumento di kubectl desiderato. A tale scopo, eseguire il comando seguente:
-```console
+
+```azurecli
 RESOURCE_GROUP=my-resource-group
 CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
@@ -83,7 +86,7 @@ Ecco il file [YAML di DaemonSet](https://github.com/Microsoft/OMS-docker/tree/ma
 Dopo avere aggiunto l'ID e la chiave dell'area di lavoro alla configurazione di DaemonSet, è possibile installare l'agente di Log Analytics nel cluster con lo strumento da riga di comando `kubectl`:
 
 ```console
-$ kubectl create -f oms-daemonset.yaml
+kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installazione dell'agente di Log Analytics tramite un segreto Kubernetes
@@ -94,16 +97,24 @@ Per proteggere l'ID e la chiave dell'area di lavoro Log Analytics è possibile u
   - Modello di segreto: secret-template.yaml
     - File DaemonSet YAML: omsagent-ds-secrets.yaml
 - Eseguire lo script. Lo script richiederà l'ID e la chiave primaria dell'area di lavoro Log Analytics. Inserirli e lo script creerà un file YAML del segreto in modo da poterlo eseguire.
-  ```
-  #> sudo bash ./secret-gen.sh
+
+  ```console
+  sudo bash ./secret-gen.sh
   ```
 
-  - Creare il pod dei segreti eseguendo l'istruzione seguente: ```kubectl create -f omsagentsecret.yaml```
+  - Creare il pod dei segreti eseguendo le operazioni seguenti:
+
+     ```console
+     kubectl create -f omsagentsecret.yaml
+     ```
 
   - Per verificare, eseguire quanto segue:
 
+  ```console
+  kubectl get secrets
   ```
-  root@ubuntu16-13db:~# kubectl get secrets
+
+  ```output
   NAME                  TYPE                                  DATA      AGE
   default-token-gvl91   kubernetes.io/service-account-token   3         50d
   omsagent-secret       Opaque                                2         1d
@@ -121,7 +132,11 @@ Per proteggere l'ID e la chiave dell'area di lavoro Log Analytics è possibile u
   KEY:    88 bytes
   ```
 
-  - Creare il DaemonSet dell'agente OMS eseguendo l'istruzione ```kubectl create -f omsagent-ds-secrets.yaml```
+  - Creare il set di daemon omsagent eseguendo il comando seguente:
+  
+  ```console
+  kubectl create -f omsagent-ds-secrets.yaml
+  ```
 
-### <a name="conclusion"></a>Conclusioni
+### <a name="conclusion"></a>Conclusione
 L'operazione è terminata. Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard di Log Analytics.

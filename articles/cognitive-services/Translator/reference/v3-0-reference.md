@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/14/2019
+ms.date: 3/13/2020
 ms.author: swmachan
-ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4180dc6127fb2d31465400b1b25fb7e2d68f4754
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123043"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369166"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -41,7 +41,7 @@ Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsof
 
 Per forzare la gestione della richiesta da parte di una specifica area geografica di Azure, impostare l'endpoint globale nella richiesta dell'API sull'endpoint di area desiderato:
 
-|DESCRIZIONE|Geografia di Azure|URL di base|
+|Descrizione|Geografia di Azure|URL di base|
 |:--|:--|:--|
 |Azure|Globale (non a livello di area)|   api.cognitive.microsofttranslator.com|
 |Azure|Stati Uniti|   api-nam.cognitive.microsofttranslator.com|
@@ -54,21 +54,78 @@ Sottoscrivere la [funzionalità multiservizio di API traduzione testuale o servi
 
 Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella descrive il modo in cui viene usato ogni:
 
-|Headers|DESCRIZIONE|
+|Intestazioni|Descrizione|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
 |Autorizzazione|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Usare con la sottoscrizione multiservizio di servizi cognitivi se si passa una chiave privata con più servizi.*<br/>Il valore è l'area della sottoscrizione multiservizio. Questo valore è facoltativo se non si utilizza una sottoscrizione multiservizio.|
+|Ocp-Apim-Subscription-Region|*Usare con servizi cognitivi e la risorsa di conversione regionale.*<br/>Il valore è l'area della risorsa per più servizi o per la conversione a livello di area. Questo valore è facoltativo quando si usa una risorsa di conversione globale.|
 
-###  <a name="secret-key"></a>Chiave privata
+###  <a name="secret-key"></a>Chiave segreta
 La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `Ocp-Apim-Subscription-Key`. Aggiungere l'intestazione `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` alla richiesta.
 
-### <a name="authorization-token"></a>Token di autorizzazione
+#### <a name="authenticating-with-a-global-resource"></a>Autenticazione con una risorsa globale
+
+Quando si usa una [risorsa di conversione globale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), è necessario includere un'intestazione per chiamare l'API di conversione.
+
+|Intestazioni|Descrizione|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
+
+Di seguito è riportato un esempio di richiesta per chiamare l'API Translator usando la risorsa di conversione globale
+
+```curl
+// Pass secret key using headers
+curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+#### <a name="authenticating-with-a-regional-resource"></a>Autenticazione con una risorsa a livello di area
+
+Quando si usa una [risorsa di conversione regionale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+Sono disponibili 2 intestazioni che è necessario chiamare l'API di conversione.
+
+|Intestazioni|Descrizione|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
+|Ocp-Apim-Subscription-Region| Il valore è l'area della risorsa di conversione. |
+
+Ecco una richiesta di esempio per chiamare l'API di conversione con la risorsa di conversione regionale
+
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+#### <a name="authenticating-with-a-multi-service-resource"></a>Autenticazione con una risorsa multiservizio
+
+Quando si usa una risorsa multiservizio di un servizio cognitivo. In questo modo è possibile usare una singola chiave privata per autenticare le richieste per più servizi. 
+
+Quando si usa una chiave privata a più servizi, è necessario includere due intestazioni di autenticazione con la richiesta. Sono disponibili 2 intestazioni che è necessario chiamare l'API di conversione.
+
+|Intestazioni|Descrizione|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la risorsa multiservizio.|
+|Ocp-Apim-Subscription-Region| Il valore è l'area della risorsa multiservizio. |
+
+L'area è obbligatoria per la sottoscrizione dell'API del testo multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione di testo quando si usa la chiave di sottoscrizione multiservizio e deve essere la stessa area selezionata al momento dell'iscrizione per la sottoscrizione multiservizio tramite il portale di Azure.
+
+Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `southafricanorth`e.
+
+Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
+
+### <a name="authenticating-with-an-access-token"></a>Autenticazione con un token di accesso
 In alternativa, è possibile scambiare la chiave privata con un token di accesso. Questo token viene incluso in ogni richiesta come intestazione `Authorization`. Per ottenere un token di autorizzazione, effettuare una richiesta `POST` all'URL seguente:
 
-| Environment     | URL servizio di autenticazione                                |
+| Tipo di risorsa     | URL servizio di autenticazione                                |
 |-----------------|-----------------------------------------------------------|
-| Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Global          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Regione o multiservizio | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 Di seguito sono riportati esempi di richieste per ottenere un token con una chiave privata:
 
@@ -88,22 +145,29 @@ Authorization: Bearer <Base64-access_token>
 
 Un token di autenticazione è valido per 10 minuti. Il token deve essere riutilizzato quando si effettuano più chiamate alle API di conversione. Tuttavia, se il programma effettua richieste all'API di traduzione in un periodo di tempo prolungato, il programma deve richiedere un nuovo token di accesso a intervalli regolari, ad esempio ogni 8 minuti.
 
-### <a name="multi-service-subscription"></a>Sottoscrizione multiservizio
+## <a name="virtual-network-support"></a>Supporto per reti virtuali
 
-L'ultima opzione di autenticazione prevede l'uso di una sottoscrizione multiservizio di un servizio cognitivo. In questo modo è possibile usare una singola chiave privata per autenticare le richieste per più servizi. 
+Il servizio Translator è ora disponibile con le funzionalità di rete virtuale in aree limitate (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP``global`). Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
-Quando si usa una chiave privata a più servizi, è necessario includere due intestazioni di autenticazione con la richiesta. La prima passa la chiave privata, mentre la seconda specifica l'area associata alla sottoscrizione. 
-* `Ocp-Apim-Subscription-Key`
-* `Ocp-Apim-Subscription-Region`
+Una volta attivata questa funzionalità, è necessario usare l'endpoint personalizzato per chiamare l'API di conversione. Non è possibile usare l'endpoint di conversione globale ("api.cognitive.microsofttranslator.com") e non è possibile eseguire l'autenticazione con un token di accesso.
 
-L'area è obbligatoria per la sottoscrizione dell'API del testo multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione di testo quando si usa la chiave di sottoscrizione multiservizio e deve essere la stessa area selezionata al momento dell'iscrizione per la sottoscrizione multiservizio tramite il portale di Azure.
+È possibile trovare l'endpoint personalizzato dopo aver creato la [risorsa di conversione](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 
-Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `southafricanorth`e.
+|Intestazioni|Descrizione|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
+|Ocp-Apim-Subscription-Region| Il valore è l'area della risorsa di conversione. Questo valore è facoltativo se la risorsa è `global`|
 
-Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
+Ecco una richiesta di esempio per chiamare l'API di conversione usando l'endpoint personalizzato
 
-Se si usa un bearer token, è necessario ottenere il token dall'endpoint di area: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
-
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
 
 ## <a name="errors"></a>Errori
 
@@ -124,7 +188,7 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
 
-| Codice | DESCRIZIONE |
+| Codice | Descrizione |
 |:----|:-----|
 | 400000| Uno degli input della richiesta non è valido.|
 | 400001| Il parametro "scope" non è valido.|
@@ -162,17 +226,17 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 408002| Timeout della richiesta in attesa del flusso in ingresso. Il client non ha prodotto una richiesta entro il tempo in cui il server è stato preparato per l'attesa. Il client può ripetere la richiesta senza modifiche in un secondo momento.|
 | 415000| L'intestazione Content-Type manca o non è valida.|
 | 429000, 429001, 429002| Il server ha rifiutato la richiesta perché il client ha superato i limiti di richiesta.|
-| 500000| Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
+| 500000| Errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
 | 503000| Il servizio è temporaneamente non disponibile. Riprovare. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
 
-## <a name="metrics"></a>Metrica 
+## <a name="metrics"></a>Metriche 
 Le metriche consentono di visualizzare le informazioni sull'utilizzo e sulla disponibilità del convertitore in portale di Azure, nella sezione metrica, come illustrato nella schermata seguente. Per altre informazioni, vedere [metriche dei dati e della piattaforma](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
 
 ![Metriche del traduttore](../media/translatormetrics.png)
 
 Questa tabella elenca le metriche disponibili con una descrizione del modo in cui vengono usate per monitorare le chiamate API di traduzione.
 
-| Metrica | DESCRIZIONE |
+| Metriche | Descrizione |
 |:----|:-----|
 | TotalCalls| Numero totale di chiamate API.|
 | TotalTokenCalls| Numero totale di chiamate API tramite il servizio token utilizzando il token di autenticazione.|

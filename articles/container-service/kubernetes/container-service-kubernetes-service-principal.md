@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3126339a1eb8ff9c0ef34a330333635d3d0f6433
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 40d4dc898efe6b719ec5e1f1ec0471a9677d3c95
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274359"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371121"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(DEPRECATO) Configurare un'entità servizio di Azure AD per un cluster Kubernetes in servizio Container
 
@@ -103,7 +103,7 @@ Analogamente alle altre opzioni di creazione del cluster Kubernetes, è possibil
 
 Il comando seguente crea un cluster Kubernetes e genera sia le chiavi SSH che le credenziali dell'entità servizio:
 
-```console
+```azurecli
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 

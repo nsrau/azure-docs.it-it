@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278376"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366837"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "79278376"
 
 ### <a name="create-a-runbook-with-powershell"></a>Creare un runbook con PowerShell
 
-È possibile usare il cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) per creare un [Runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks)vuoto. Usare il parametro *Type* per specificare uno dei tipi Runbook definiti per **New-AzAutomationRunbook**.
+È possibile usare il cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) per creare un [Runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks)vuoto. Usare il parametro `Type` per specificare uno dei tipi Runbook definiti per `New-AzAutomationRunbook`.
 
 Nell'esempio seguente viene illustrato come creare un nuovo Runbook vuoto.
 
@@ -75,7 +75,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ### <a name="import-a-runbook-from-a-script-file-with-windows-powershell"></a>Importare un Runbook da un file di script con Windows PowerShell
 
-Usare il cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) per importare un file di script come bozza Runbook del flusso di lavoro PowerShell. Se il Runbook esiste già, l'importazione ha esito negativo a meno che non si usi il parametro *Force* con il cmdlet.
+Usare il cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) per importare un file di script come bozza Runbook del flusso di lavoro PowerShell. Se il Runbook esiste già, l'importazione ha esito negativo a meno che non si usi il parametro `Force` con il cmdlet.
 
 Nell'esempio seguente viene illustrato come importare un file di script in un Runbook.
 
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testare un runbook
 
-Quando si testa un Runbook, viene eseguita la [Versione bozza](#publish-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia processo, ma i flussi di [output](automation-runbook-output-and-messages.md#output-stream) e di [avviso e di errore](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro di output del test. I messaggi nel [flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro di output solo se la variabile *VerbosePreference* ] (Automation-Runbook-output-and-Messages. MD # preferenza-variabili) è impostata su **continue (continua**).
+Quando si testa un Runbook, viene eseguita la [Versione bozza](#publish-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia processo, ma i flussi di [output](automation-runbook-output-and-messages.md#output-stream) e di [avviso e di errore](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro di output del test. I messaggi al [flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro di output solo se la variabile di `VerbosePreference`] (Automation-Runbook-output-and-Messages. MD # preferenza-variabili) è impostata su continua.
 
 Anche se si esegue la versione bozza, il runbook viene comunque eseguito normalmente ed effettua qualsiasi azione sulle risorse nell'ambiente. Per questo motivo, è necessario testare i runbook solo con risorse non di produzione.
 
@@ -113,7 +113,7 @@ Quando si crea o si importa un nuovo runbook, è necessario pubblicarlo prima di
 ### <a name="publish-a-runbook-in-the-azure-portal"></a>Pubblicare un Runbook nel portale di Azure
 
 1. Aprire il runbook nel portale di Azure.
-2. Fare clic su **Modifica**.
+2. Fare clic su **Edit**.
 3. Fare clic su **pubblica** e quindi su **Sì** in risposta al messaggio di verifica.
 
 ### <a name="publish-a-runbook-using-powershell"></a>Pubblicare un runbook con PowerShell

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0fd016e02c579f4e7230bd18d363cfe9a64c88eb
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79244264"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366105"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD
 
@@ -81,13 +81,9 @@ Il software senza patch è tuttora responsabile di un numero elevato di attacchi
 
 Per migliorare la sicurezza delle applicazioni pubblicate dal proxy applicazione di Azure AD, vengono bloccate l'indicizzazione e l'archiviazione delle applicazioni da parte dei robot dell'agente di ricerca Web. Ogni volta che un robot dell'agente di ricerca Web prova a recuperare le impostazioni dei robot per un'app pubblicata, il proxy applicazione risponde con un file robots.txt che include `User-agent: * Disallow: /`.
 
-### <a name="ddos-prevention"></a>Prevenzione DDoS
+#### <a name="azure-ddos-protection-service"></a>Servizio protezione DDoS di Azure
 
-Le applicazioni pubblicate mediante il proxy applicazione sono protette contro gli attacchi Distributed Denial di Service (DDoS).
-
-Il servizio Proxy applicazione monitora la quantità di traffico che tenta di raggiungere la rete e le applicazioni. Se il numero di dispositivi che richiedono l'accesso remoto alle applicazioni subisce un picco, Microsoft limita l'accesso alla rete. 
-
-Microsoft osserva i modelli di traffico delle singole applicazioni e della sottoscrizione interessata nel suo complesso. Se un'applicazione riceve un numero di richieste superiore rispetto al normale, le richieste di accesso all'applicazione vengono negate per un breve periodo di tempo. Se si riceve un numero di richieste superiore al normale per l'intera sottoscrizione, vengono negate le richieste di accesso a qualsiasi app. Questa misura preventiva impedisce che i server applicazioni vengano sovraccaricati da richieste di accesso remoto e consente agli utenti locali di continuare ad accedere alle proprie app. 
+Le applicazioni pubblicate tramite il proxy di applicazione sono protette da attacchi DDoS (Distributed Denial of Service). **Protezione DDoS di Azure** è un servizio offerto con la piattaforma Azure per proteggere le risorse di Azure da attacchi di tipo Denial of Service. Il livello di servizio **Basic** viene abilitato automaticamente, garantendo il monitoraggio del traffico always on e la mitigazione in tempo reale degli attacchi comuni a livello di rete. È disponibile anche un livello **standard** , che offre funzionalità aggiuntive di mitigazione ottimizzate in modo specifico per le risorse di rete virtuale di Azure. Per informazioni dettagliate, vedere [Panoramica di protezione DDoS di Azure standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>dietro le quinte
 

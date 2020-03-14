@@ -10,16 +10,16 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 9070577c07cb826d10b911689f456d64709450b7
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.openlocfilehash: 82499c16b6ad8cd8c1adfe27eeb7a0c842e37d1e
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/09/2020
-  ms.locfileid: "78943362"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79370407"
 landingContent:
-- title: Introduzione
+- title: Informazioni su sintesi vocale
   linkLists:
   - linkListType: overview
     links:
@@ -33,7 +33,7 @@ landingContent:
       url: quickstarts/text-to-speech-audio-file.md
     - text: Sintetizzare la voce da audio in formato lungo
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-- title: Guide dettagliate
+- title: Sviluppare con sintesi vocale
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -41,43 +41,27 @@ landingContent:
       url: speech-synthesis-markup.md
     - text: Migliorare la sintesi con Riconoscimento vocale personalizzato
       url: how-to-custom-voice.md
-    - text: Sintetizzare la voce con l'API di audio lungo
-      url: long-audio-api.md
     - text: Ottenere un elenco di voci con REST (Python)
       url: quickstart-python-get-text-to-speech-voices.md
     - text: Eseguire la sintesi vocale con REST (Python)
       url: quickstart-python-text-to-speech.md
-    - text: Migliorare la sintesi con la creazione di contenuto audio
-      url: how-to-audio-content-creation.md
   - linkListType: concept
     links:
     - text: Introduzione a Voce personalizzata
       url: how-to-custom-voice.md
-    - text: Preparare i dati vocali personalizzati
-      url: how-to-custom-voice-prepare-data.md
     - text: Creare e usare modelli di Voce personalizzata
       url: how-to-custom-voice-create-voice.md
-    - text: Registrare esempi vocali
-      url: record-custom-voice-samples.md
     - text: Controllo di Voce personalizzata
       url: concepts-gating-overview.md
-    - text: Distribuzione della tecnologia sintetica
-      url: concepts-guidelines-responsible-deployment-synthetic.md
-    - text: Linee guida sulla progettazione di informative
-      url: concepts-disclosure-guidelines.md
-    - text: Schemi progettuali per le informative
-      url: concepts-disclosure-patterns.md
 - title: Riferimento
   linkLists:
   - linkListType: reference
     links:
-    - text: Supporto per le lingue
-      url: language-support.md#text-to-speech
-    - text: Prezzi
-      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Supporto vocale standard
+      url: language-support.md#standard-voices
+    - text: Supporto per la voce neurale
+      url: language-support.md#neural-voices
     - text: Set fonetici SSML
       url: speech-ssml-phonetic-sets.md
-    - text: Codice di comportamento
-      url: https://aka.ms/custom-neural-code-of-conduct
-    - text: Informativa per speaker
-      url: https://aka.ms/disclosure-voice-talent
+    - text: Prezzi per sintesi vocale
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

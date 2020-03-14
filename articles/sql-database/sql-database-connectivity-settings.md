@@ -9,14 +9,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: d18fdee85bd0fbabe68fe9890c4a2dc74366041d
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: cd239106bfd3ac785cffbf1365f298da565179ec
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096655"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366088"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Impostazioni di connettività SQL di Azure
+> [!NOTE]
+> Le funzionalità sono disponibili solo negli **Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti centro-meridionali** con altre aree presto disponibili
+
 > [!NOTE]
 > Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 

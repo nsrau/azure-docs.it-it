@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 03f383bd6e44a55388e0bef6a38c4a1880d6f044
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 29fa294d2f384ae74c1184c6207648907cb99386
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268262"
+ms.locfileid: "79299108"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -392,7 +392,7 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 | Attività di Registro Azure Container | Microsoft.ContainerRegistry/registries | Le attività ACR possono accedere agli account di archiviazione durante la compilazione di immagini del contenitore. |
 | Data factory di Azure             | Microsoft.DataFactory/factories        | Consente l'accesso agli account di archiviazione tramite il runtime di ADF. |
 | Condivisione dati di Azure               | Microsoft. DataShare/accounts           | Consente l'accesso agli account di archiviazione tramite la condivisione di dati. |
-| App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
+| App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](/azure/logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate Azure Machine Learning scrivono l'output dell'esperimento, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da istanze specifiche del database SQL tramite la polibase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura di dati da un processo di streaming nell'archivio BLOB. Questa funzionalità è attualmente in anteprima. [Altre informazioni](/azure/stream-analytics/blob-output-managed-identity). |

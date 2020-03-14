@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: b26e54c7130469eee87a9237f4847f46cb3b7698
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ea0b173f12a1c80f276af3ce3f6222efaad07972
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75691036"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370628"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Supporto del feed delle modifiche nell'archivio BLOB di Azure (anteprima)
 
 Lo scopo del feed delle modifiche è fornire i log delle transazioni di tutte le modifiche apportate ai BLOB e ai metadati del BLOB nell'account di archiviazione. Il feed di modifiche fornisce un registro **ordinato**, **garantito**, **durevole**, non **modificabile**e di sola **lettura** di queste modifiche. Le applicazioni client possono leggere questi log in qualsiasi momento, in streaming o in modalità batch. Il feed delle modifiche consente di creare soluzioni efficienti e scalabili che elaborano gli eventi di modifica che si verificano nell'account di archiviazione BLOB a un costo ridotto.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Il feed delle modifiche viene archiviato come [BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in un contenitore speciale nell'account di archiviazione al costo dei [prezzi di BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) standard. È possibile controllare il periodo di conservazione di questi file in base ai requisiti (vedere le [condizioni](#conditions) della versione corrente). Gli eventi di modifica vengono aggiunti al feed delle modifiche come record nella specifica del formato [Apache avro](https://avro.apache.org/docs/1.8.2/spec.html) : un formato compatto, rapido e binario che fornisce strutture di dati avanzate con lo schema inline. Questo formato è largamente usato nell'ecosistema Hadoop, dall'analisi di flusso e da Azure Data Factory.
 
@@ -55,7 +57,7 @@ Ecco alcuni aspetti da tenere presenti quando si Abilita il feed delle modifiche
 > [!IMPORTANT]
 > Il feed delle modifiche è in anteprima pubblica ed è disponibile nelle aree **westcentralus** e **westus2** . Vedere la sezione [condizioni](#conditions) di questo articolo. Per iscriversi all'anteprima, vedere la sezione [registrare la sottoscrizione](#register) di questo articolo. Per poter abilitare il feed delle modifiche negli account di archiviazione, è necessario registrare la sottoscrizione.
 
-### <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Abilitare il feed delle modifiche nell'account di archiviazione usando portale di Azure:
 
@@ -69,7 +71,7 @@ Abilitare il feed delle modifiche nell'account di archiviazione usando portale d
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Abilitare il feed delle modifiche usando PowerShell:
 
@@ -99,7 +101,7 @@ Abilitare il feed delle modifiche usando PowerShell:
    Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
-### <a name="templatetabtemplate"></a>[Modello](#tab/template)
+### <a name="template"></a>[Modello](#tab/template)
 Usare un modello di Azure Resource Manager per abilitare il feed delle modifiche nell'account di archiviazione esistente tramite portale di Azure:
 
 1. Nella portale di Azure scegliere **Crea una risorsa**.
@@ -150,7 +152,7 @@ Vedere [elaborare i log dei feed delle modifiche nell'archivio BLOB di Azure](st
 
 ### <a name="segments"></a>Segmenti
 
-Il feed di modifiche è un log delle modifiche organizzate in *segmenti* orari, ma aggiunte e aggiornate a intervalli di pochi minuti. Questi segmenti vengono creati solo quando sono presenti eventi di modifica del BLOB che si verificano in quell'ora. Ciò consente all'applicazione client di utilizzare le modifiche che si verificano in intervalli di tempo specifici senza dover eseguire ricerche nell'intero log. Per altre informazioni, vedere le [specifiche](#specifications).
+Il feed di modifiche è un log delle modifiche organizzate in **hourly** *segmenti* orari, ma aggiunte e aggiornate a intervalli di pochi minuti. Questi segmenti vengono creati solo quando sono presenti eventi di modifica del BLOB che si verificano in quell'ora. Ciò consente all'applicazione client di utilizzare le modifiche che si verificano in intervalli di tempo specifici senza dover eseguire ricerche nell'intero log. Per altre informazioni, vedere le [specifiche](#specifications).
 
 Un segmento orario disponibile del feed di modifiche viene descritto in un file manifesto che specifica i percorsi dei file del feed delle modifiche per il segmento. L'elenco della directory virtuale `$blobchangefeed/idx/segments/` Mostra questi segmenti ordinati in base all'ora. Il percorso del segmento descrive l'inizio dell'intervallo di tempo orario rappresentato dal segmento. È possibile utilizzare tale elenco per filtrare i segmenti di log che interessano.
 
@@ -317,7 +319,7 @@ In questa sezione vengono descritti i problemi noti e le condizioni nell'antepri
 - Attualmente non è possibile visualizzare il contenitore **$blobchangefeed** quando si chiama l'API ListContainers e il contenitore non viene visualizzato in portale di Azure o Storage Explorer
 - Gli account di archiviazione che hanno avviato in precedenza un [failover dell'account](../common/storage-disaster-recovery-guidance.md) possono avere problemi con il file di log che non viene visualizzato. Eventuali failover futuri degli account potrebbero influito anche sul file di log durante l'anteprima.
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Qual è la differenza tra il feed delle modifiche e la registrazione Analisi archiviazione?
 I log di Analytics includono record di tutte le operazioni di lettura, scrittura, elenco ed eliminazione con richieste riuscite e non riuscite in tutte le operazioni. I log di analisi sono il massimo sforzo e non è garantito alcun ordine.

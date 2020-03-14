@@ -1,17 +1,17 @@
 ---
-title: Crittografia dei dati di database di Azure per MySQL con una chiave gestita dal cliente
+title: Crittografia dei dati con chiave gestita dal cliente-database di Azure per MySQL
 description: La crittografia dei dati del database di Azure per MySQL con una chiave gestita dal cliente consente di Bring Your Own Key (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210432"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299125"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di database di Azure per MySQL con una chiave gestita dal cliente
 

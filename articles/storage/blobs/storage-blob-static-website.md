@@ -8,16 +8,18 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: e9e2fe92939088420f973c5ca112b5f59d07f212
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 848fd89444281d82d6d0d1bfc4df15d499c09ee0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252678"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370492"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
 È possibile gestire il contenuto statico (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$Web*. L'hosting del contenuto in archiviazione di Azure consente di usare architetture senza server che includono [funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi di piattaforma distribuita come servizio (PaaS).
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE]
 > Se il sito dipende dal codice sul lato server, usare invece [app Azure servizio](/azure/app-service/overview) .
@@ -98,7 +100,7 @@ Non è possibile configurare le intestazioni come parte della funzionalità del 
 
 Se si vogliono usare le intestazioni per controllare la memorizzazione nella cache, vedere [controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con le regole di Caching](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
 
-## <a name="pricing"></a>Pricing
+## <a name="pricing"></a>Prezzi
 
 È possibile abilitare l'hosting di siti web statici gratuitamente. Viene addebitato solo l'archiviazione BLOB utilizzata dal sito e i costi operativi. Per altri dettagli sui prezzi di Archiviazione BLOB di Azure, consultare la [pagina dei prezzi di Archiviazione BLOB di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

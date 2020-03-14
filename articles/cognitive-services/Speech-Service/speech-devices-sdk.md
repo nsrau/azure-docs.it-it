@@ -1,5 +1,5 @@
 ---
-title: Informazioni sull'SDK dei dispositivi vocali-servizio riconoscimento vocale
+title: Speech Devices SDK-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Introduzione a Speech Devices SDK. Il servizio di riconoscimento vocale funziona con un'ampia gamma di dispositivi e origini audio. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 40179c7d421a26fd9a77b435668f75ec6fde8ab1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136974"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370645"
 ---
-# <a name="about-the-speech-devices-sdk"></a>Informazioni su Speech Devices SDK
+# <a name="what-is-the-speech-devices-sdk"></a>Che cos'è l'SDK per i dispositivi vocali?
 
 Il [servizio di riconoscimento vocale](overview.md) funziona con un'ampia gamma di dispositivi e origini audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
 
@@ -39,7 +39,7 @@ Speech Devices SDK consente un'ampia gamma di scenari abilitati per la voce, ad 
 
 Per Android, i dispositivi scaricano la versione più recente di [Android Speech Devices SDK](https://aka.ms/sdsdk-download-android).
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 Per Windows, l'applicazione di esempio viene fornita come applicazione Java multipiattaforma. Scaricare la versione più recente di [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
 L'applicazione è compilata con il pacchetto Speech SDK ed Eclipse Java IDE (v4) in Windows a 64 bit. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).

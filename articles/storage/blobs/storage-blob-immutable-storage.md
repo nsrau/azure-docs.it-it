@@ -9,18 +9,20 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a980c7bd068a463956191eece43ec1be233e7890
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255561"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367619"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
 L'archiviazione non modificabile per l'archiviazione BLOB di Azure consente agli utenti di archiviare oggetti dati cruciali per l'azienda in un WORM (scrivere una sola volta, leggere molti) stato. Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. Per la durata dell'intervallo di conservazione, è possibile creare e leggere i BLOB, ma non modificarli o eliminarli. L'archiviazione non modificabile è disponibile per gli account per utilizzo generico V1, per utilizzo generico V2, BlobStorage e BlockBlobStorage in tutte le aree di Azure.
 
 Per informazioni su come impostare e cancellare le condizioni legali o creare criteri di conservazione basati sul tempo usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure, vedere [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](storage-blob-immutability-policies-manage.md).
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="about-immutable-blob-storage"></a>Informazioni sull'archiviazione BLOB non modificabile
 

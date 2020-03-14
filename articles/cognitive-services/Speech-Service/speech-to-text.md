@@ -3,19 +3,19 @@ title: Servizio riconoscimento vocale vocale
 titleSuffix: Azure Cognitive Services
 description: La funzionalità di riconoscimento vocale consente la trascrizione in tempo reale dei flussi audio in testo. Le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare ed eseguire azioni su questo input di testo. Questo servizio funziona senza interruzioni con le funzionalità di sintesi vocale e traduzione vocale.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.author: erhopf
-ms.openlocfilehash: 8518f92a4f4df1686d4b338783a93d969e04d219
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/12/2020
+ms.author: dapine
+ms.openlocfilehash: c5befcade944ff481b5f55e3a4afe11672dad117
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79219544"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371257"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
@@ -24,9 +24,8 @@ Il riconoscimento vocale del servizio riconoscimento vocale, noto anche come ric
 Per impostazione predefinita, il servizio di sintesi vocale usa il modello di linguaggio universale. Questo modello è stato sottoposto a training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ideale per gli scenari di conversazione e di dettatura. Quando si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, di lingua e di pronuncia personalizzati. La personalizzazione è utile per risolvere il rumore di ambiente o il vocabolario specifico del settore.
 
 > [!NOTE]
-> Il riconoscimento vocale Bing è stato ritirato il 15 ottobre 2019. Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing o Riconoscimento vocale personalizzato, sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.
+> Il riconoscimento vocale Bing è stato ritirato il 15 ottobre 2019. Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing, sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.
 > - [Eseguire la migrazione dal riconoscimento vocale Bing al servizio riconoscimento vocale](how-to-migrate-from-bing-speech.md)
-> - [Eseguire la migrazione da Riconoscimento vocale personalizzato al servizio riconoscimento vocale](how-to-migrate-from-custom-speech-service.md)
 
 ## <a name="get-started-with-speech-to-text"></a>Introduzione alla sintesi vocale
 

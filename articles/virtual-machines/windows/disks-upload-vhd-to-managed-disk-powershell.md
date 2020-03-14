@@ -3,17 +3,17 @@ title: Caricare un disco rigido virtuale in Azure usando Azure PowerShell
 description: Informazioni su come caricare un disco rigido virtuale in un disco gestito di Azure e copiare un disco gestito tra aree, usando Azure PowerShell, tramite il caricamento diretto.
 author: roygara
 ms.author: rogarana
-ms.date: 05/06/2019
+ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 8a7e5243428eb88a2757b675c7d66dbfb3c66a30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 883fea1e25ded26c35e96d11edd8f417e96db30e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459994"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369557"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Caricare un disco rigido virtuale in Azure usando Azure PowerShell
 
@@ -27,7 +27,7 @@ Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD s
 
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare Azure PowerShell modulo](/powershell/azure/install-Az-ps).
-- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale [preparato per Azure](prepare-for-upload-vhd-image.md), archiviato localmente.
+- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale di dimensioni fisse [preparato per Azure](prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto
@@ -76,8 +76,6 @@ Questo caricamento ha la stessa velocità effettiva del [disco rigido standard](
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
-
-Se la firma di accesso condiviso scade durante il caricamento e non è ancora stato chiamato `revoke-access`, è possibile ottenere una nuova firma di accesso condiviso per continuare il caricamento usando `grant-access`.
 
 Una volta completato il caricamento e non è più necessario scrivere altri dati sul disco, revocare la firma di accesso condiviso. La revoca della firma di accesso condiviso modificherà lo stato del disco gestito e consentirà di aggiungere il disco a una macchina virtuale.
 

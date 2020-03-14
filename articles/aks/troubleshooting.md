@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: f0ad8d503b5280b8cba89d940b99dcd81da71ffc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252883"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368333"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -22,7 +22,7 @@ Quando si creano o gestiscono cluster del servizio Azure Kubernetes (AKS), in al
 Consultare la [guida ufficiale per la risoluzione dei problemi dei cluster di Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
 È disponibile anche una [guida alla risoluzione dei problemi](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) pubblicata da un tecnico Microsoft per la risoluzione dei problemi relativi a pod, nodi, cluster e altre funzionalità.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Durante la creazione o l’aggiornamento, viene visualizzato un errore di tipo “quota superata”. Cosa devo fare? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Durante la creazione o l’aggiornamento, viene visualizzato un errore di tipo “quota superata”. Come si deve procedere? 
 
 È necessario [richiedere i core](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
@@ -31,7 +31,7 @@ Consultare la [guida ufficiale per la risoluzione dei problemi dei cluster di Ku
 Il numero massimo di pod per nodo è 30 per impostazione predefinita se si distribuisce un cluster del servizio Azure Kubernetes nel portale di Azure.
 Il numero massimo di pod per nodo è 110 per impostazione predefinita se si distribuisce un cluster del servizio Azure Kubernetes nell’interfaccia della riga di comando di Azure. Assicurarsi di usare la versione più recente dell’interfaccia della riga di comando di Azure. Questa impostazione predefinita può essere modificata usando il flag `–-max-pods` nel comando `az aks create`.
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Viene visualizzato l'errore "insufficientSubnetSize" durante la distribuzione di un cluster del servizio Azure Kubernetes con funzionalità di rete avanzate. Cosa devo fare?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Viene visualizzato l'errore "insufficientSubnetSize" durante la distribuzione di un cluster del servizio Azure Kubernetes con funzionalità di rete avanzate. Come si deve procedere?
 
 Se si usa Azure CNI (Advanced Networking), AKS alloca gli indirizzi IP in base ai "Max-Pod" per ogni nodo configurato. In base ai pod massimi configurati per nodo, le dimensioni della subnet devono essere maggiori del prodotto del numero di nodi e dell'impostazione max pod per nodo. Nell'equazione seguente viene illustrato quanto segue:
 
@@ -39,7 +39,7 @@ Dimensioni della subnet > numero di nodi nel cluster, prendendo in considerazion
 
 Per altre informazioni, vedere [Pianificare l'indirizzamento IP per il cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Il pod è bloccato in modalità “CrashLoopBackOff”. Cosa devo fare?
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Il pod è bloccato in modalità “CrashLoopBackOff”. Come si deve procedere?
 
 Potrebbero esistere vari motivi per cui il modo rimane bloccato in tale modalità. Potrebbe essere opportuno verificare:
 
@@ -52,17 +52,17 @@ Per altre informazioni su come risolvere i problemi di pod, vedere [Debug delle 
 
 Purtroppo, l'abilitazione del controllo degli accessi in base al ruolo (RBAC) nei cluster esistenti non è al momento supportata. È necessario creare in modo esplicito nuovi cluster. Se si usa l'interfaccia della riga di comando, RBAC è abilitato per impostazione predefinita. Se si usa il portale del servizio Azure Kubernetes, nel flusso di lavoro di creazione è disponibile un pulsante che consente di abilitare RBAC.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>È stato creato un cluster con RBAC abilitato tramite l'interfaccia della riga di comando di Azure con le impostazioni predefinite o il portale di Azure e nel dashboard di Kubernetes vengono visualizzati diversi avvisi. Il dashboard non generava avvisi. Cosa devo fare?
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>È stato creato un cluster con RBAC abilitato tramite l'interfaccia della riga di comando di Azure con le impostazioni predefinite o il portale di Azure e nel dashboard di Kubernetes vengono visualizzati diversi avvisi. Il dashboard non generava avvisi. Come si deve procedere?
 
 Il motivo per cui vengono visualizzati avvisi nel dashboard è che ora il cluster è abilitato con RBAC e l'accesso è stato disabilitato per impostazione predefinita. In generale, questo approccio è considerato una procedura appropriata perché l'esposizione predefinita del dashboard a tutti gli utenti del cluster può comportare rischi per la sicurezza. Se si vuole comunque abilitare il dashboard, seguire le indicazioni riportate in questo [post di blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Non è possibile connettersi al dashboard. Cosa devo fare?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Non è possibile connettersi al dashboard. Come si deve procedere?
 
 Il modo più semplice per accedere al servizio all'esterno del cluster consiste nell'eseguire `kubectl proxy`, per inoltrare le richieste inviate a localhost sulla porta 8001 al server API Kubernetes. Da qui, il server API può usare un proxy per il servizio: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-Se non viene visualizzato il dashboard di Kubernetes, controllare se il pod `kube-proxy` è eseguito nello spazio dei nomi `kube-system`. Se non è esecuzione, eliminare il pod in modo che venga riavviato.
+Se il dashboard di Kubernetes non viene visualizzato, verificare se il Pod `kube-proxy` è in esecuzione nello spazio dei nomi `kube-system`. Se non è esecuzione, eliminare il pod in modo che venga riavviato.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Ricevo un messaggio di errore dal server: errore durante la connessione del back-end: Dial TCP... ". Cosa devo fare?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Ricevo un messaggio di errore dal server: errore durante la connessione del back-end: Dial TCP... ". Come si deve procedere?
 
 Verificare che il gruppo di sicurezza di rete predefinito non sia stato modificato e che sia la porta 22 che la 9000 siano aperte per la connessione al server API. Controllare se il Pod `tunnelfront` è in esecuzione nello spazio dei nomi *Kube-System* usando il comando `kubectl get pods --namespace kube-system`. In caso contrario, forzare l’eliminazione del pod per riavviarlo.
 
@@ -172,14 +172,14 @@ Verificare che le impostazioni non siano in conflitto con le porte in uscita, le
 
 In Kubernetes versione 1,10, MountVolume. WaitForAttach potrebbe non riuscire con il rimontaggio del disco di Azure.
 
-In Linux potrebbe essere visualizzato un errore di formato DevicePath errato. Ad esempio:
+In Linux potrebbe essere visualizzato un errore di formato DevicePath errato. Ad esempio,
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-In Windows, è possibile che venga visualizzato un errore di numero DevicePath (LUN) errato. Ad esempio:
+In Windows, è possibile che venga visualizzato un errore di numero DevicePath (LUN) errato. Ad esempio,
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -225,7 +225,7 @@ spec:
   >[!NOTE]
   > Poiché GID e UID sono montati come radice o 0 per impostazione predefinita. Se gid o UID sono impostati come non radice, ad esempio 1000, Kubernetes utilizzerà `chown` per modificare tutte le directory e i file del disco. Questa operazione può richiedere molto tempo e può facilitare il montaggio del disco.
 
-* Usare `chown` in initContainers per impostare GID e UID. Ad esempio:
+* Usare `chown` in initContainers per impostare GID e UID. Ad esempio,
 
 ```yaml
 initContainers:
@@ -239,7 +239,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Errore durante l'eliminazione di PersistentVolumeClaim del disco di Azure in uso da un pod
 
-Se si prova a eliminare un disco PersistentVolumeClaim di Azure che viene usato da un pod, potrebbe essere visualizzato un errore. Ad esempio:
+Se si prova a eliminare un disco PersistentVolumeClaim di Azure che viene usato da un pod, potrebbe essere visualizzato un errore. Ad esempio,
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -295,10 +295,10 @@ Se si usa una versione di Kubernetes che non ha la correzione per questo problem
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Disco di Azure in attesa di scollegarsi per un periodo illimitato
 
-In alcuni casi, se un'operazione di scollegamento del disco di Azure non riesce al primo tentativo, l'operazione di scollegamento non verrà ritentata e rimarrà collegata alla VM del nodo originale. Questo errore può verificarsi quando si trasferisce un disco da un nodo a un altro. Ad esempio:
+In alcuni casi, se un'operazione di scollegamento del disco di Azure non riesce al primo tentativo, l'operazione di scollegamento non verrà ritentata e rimarrà collegata alla VM del nodo originale. Questo errore può verificarsi quando si trasferisce un disco da un nodo a un altro. Ad esempio,
 
 ```console
-[Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
+[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
 ```
 
 Questo problema è stato risolto nelle versioni seguenti di Kubernetes:
@@ -348,12 +348,12 @@ Questo problema è stato risolto nelle versioni seguenti di Kubernetes:
 Se si usa una versione di Kubernetes che non ha la correzione per questo problema e la macchina virtuale del nodo è in uno stato di errore, è possibile attenuare il problema aggiornando manualmente lo stato della macchina virtuale usando uno dei seguenti:
 
 * Per un cluster basato su set di disponibilità:
-    ```console
+    ```azurecli
     az vm update -n <VM_NAME> -g <RESOURCE_GROUP_NAME>
     ```
 
 * Per un cluster basato su VMSS:
-    ```console
+    ```azurecli
     az vmss update-instances -g <RESOURCE_GROUP_NAME> --name <VMSS_NAME> --instance-id <ID>
     ```
 
@@ -468,13 +468,13 @@ Se la chiave dell'account di archiviazione è cambiata, è possibile che vengano
 
 È possibile attenuare il problema aggiornando manualmente il campo *azurestorageaccountkey* in Secret file di Azure con la chiave dell'account di archiviazione con codifica Base64.
 
-Per codificare la chiave dell'account di archiviazione in Base64, è possibile usare `base64`. Ad esempio:
+Per codificare la chiave dell'account di archiviazione in Base64, è possibile usare `base64`. Ad esempio,
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Per aggiornare il file Secret di Azure, usare `kubectl edit secret`. Ad esempio:
+Per aggiornare il file Secret di Azure, usare `kubectl edit secret`. Ad esempio,
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

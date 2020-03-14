@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5dcae83714ee3693288abf54afe8df7bb55dd578
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759824"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371444"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -52,6 +52,8 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale.
 *.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale.
+*.vault.azure.net | Consente l'accesso per abilitare la replica per le macchine virtuali abilitate per ADE tramite il portale
+*. automation.ext.azure.com | Consente l'abilitazione dell'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
@@ -63,6 +65,8 @@ Se si usa un NSG per controllare la connettività in uscita, questi tag del serv
 - Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
 - Creare una regola NSG basata su tag del servizio EventsHub per l'area di destinazione, consentendo l'accesso al monitoraggio Site Recovery.
 - Creare una regola NSG basata su tag del servizio AzureSiteRecovery per consentire l'accesso al servizio Site Recovery in qualsiasi area.
+- Creare una regola NSG basata su tag del servizio AzureKeyVault. Questa operazione è necessaria solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale.
+- Creare una regola NSG basata su tag del servizio GuestAndHybridManagement. Questa operazione è necessaria solo per abilitare l'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale.
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
 
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete

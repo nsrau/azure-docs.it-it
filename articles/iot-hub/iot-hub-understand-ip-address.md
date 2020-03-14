@@ -7,16 +7,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772154"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367568"
 ---
 # <a name="iot-hub-ip-addresses"></a>Indirizzi IP dell'hub Internet
 
-I prefissi degli indirizzi IP degli endpoint pubblici dell'hub Internet vengono pubblicati periodicamente sotto il [tag del servizio](../virtual-network/service-tags-overview.md) _AzureIoTHub_ . È possibile usare questi prefissi degli indirizzi IP per controllare la connettività tra l'hub Internet e i dispositivi o gli asset di rete per implementare un'ampia gamma di obiettivi di isolamento rete:
+I prefissi degli indirizzi IP degli endpoint pubblici dell'hub Internet vengono pubblicati periodicamente sotto il [tag del servizio](../virtual-network/service-tags-overview.md) _AzureIoTHub_ .
+
+> [!NOTE]
+> Per i dispositivi distribuiti all'interno di reti locali, l'hub Azure per la connettività VNET supporta l'integrazione con gli endpoint privati. Per altre informazioni, vedere [supporto dell'hub Internet per VNET](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) .
+
+
+È possibile usare questi prefissi degli indirizzi IP per controllare la connettività tra l'hub Internet e i dispositivi o gli asset di rete per implementare un'ampia gamma di obiettivi di isolamento rete:
 
 | Obiettivo | Scenari applicabili | Approccio |
 |------|-----------|----------|

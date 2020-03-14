@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: 92d6dccec3ce6483072a81c8739b65e81ce2c7fe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359944"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268574"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -106,10 +106,11 @@ Viene fatturata ogni ora per cui un database esiste usando il livello di servizi
 
 ### <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
 
-- Il provisioning dell'archiviazione può essere effettuato fino al limite massimo delle dimensioni tramite incrementi di 1 GB. Lo spazio di archiviazione dei dati minimo configurabile è 5 GB
-- Il provisioning dell'archiviazione per un database singolo può essere effettato aumentandone o diminuendone le dimensioni massime tramite il [portale di Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- Il database SQL alloca automaticamente il 30% di archiviazione aggiuntiva per i file di log e 32 GB per ogni vCore per TempDB, ma senza superare 384 GB. TempDB è disponibile in un'unità SSD collegata in tutti i livelli di servizio.
-- Il prezzo dell'archiviazione per un database singolo corrisponde alla somma delle dimensioni di archiviazione dei dati e degli spazi di archiviazione dei log moltiplicata per il prezzo unitario dell'archiviazione del livello di servizio. Il costo di TempDB è compreso nel prezzo dei vCore. Per informazioni dettagliate sul prezzo delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- È possibile eseguire il provisioning dell'archiviazione fino al limite massimo di dimensioni di archiviazione dati con incrementi di 1 GB. L'archiviazione dei dati minima configurabile è di 1 GB. Vedere le pagine relative al limite delle risorse per [database singoli](sql-database-vcore-resource-limits-single-databases.md) e [pool elastici](sql-database-vcore-resource-limits-elastic-pools.md) per i limiti di dimensioni massime per l'archiviazione dei dati in ogni obiettivo di servizio.
+- È possibile eseguire il provisioning dell'archiviazione dei dati per un singolo database aumentando o diminuendo le dimensioni massime usando il [portale di Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/update). Se il valore delle dimensioni massime viene specificato in byte, deve essere un multiplo di 1 GB (1073741824 byte).
+- La quantità di dati che può essere archiviata nei file di dati di un database è limitata dalle dimensioni massime di archiviazione dati configurate. Oltre a tale archiviazione, il database SQL alloca automaticamente il 30% di spazio di archiviazione da utilizzare per il log delle transazioni.
+- Il database SQL alloca automaticamente 32 GB per vCore per il database `tempdb`. `tempdb` si trova nell'archivio SSD locale in tutti i livelli di servizio.
+- Il prezzo di archiviazione per un singolo database o un pool elastico è la somma degli importi di archiviazione dei dati e dei log delle transazioni moltiplicati per il prezzo unitario di archiviazione del livello di servizio. Il costo di `tempdb` è incluso nel prezzo. Per informazioni dettagliate sui prezzi di archiviazione, vedere [prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).

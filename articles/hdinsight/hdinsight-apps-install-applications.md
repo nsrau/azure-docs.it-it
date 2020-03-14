@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: a7d83d2bc418e62bc2858e2a7fb35d2113640c83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 22d27d50a7d2c304e5d1a04a9a5eaa03d2f0bfa6
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272617"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366343"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight
 
@@ -39,12 +39,12 @@ L'elenco seguente mostra le applicazioni pubblicate:
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise per HDInsight supporta data wrangling a livello aziendale per qualsiasi scala di dati. Il costo dell'esecuzione di trifactora in Azure è costituito da una combinazione di costi di sottoscrizione trifacta oltre ai costi dell'infrastruttura di Azure per le macchine virtuali. |
 |[Piattaforma dati UniFi](https://unifisoftware.com/platform/) |Hadoop, HBase, Storm, Spark |La piattaforma di dati UniFi è una suite integrata di strumenti per i dati self-service progettati per consentire all'utente di business di affrontare le problematiche relative ai dati che spingono i ricavi incrementali, riducono i costi o la complessità operativa. |
 |[APM Unraveldata](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Districare l'app dati per il cluster HDInsight Spark. |
-|[Data Catalog di base per intelligenza artificiale](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |I cataloghi di contornamento, organizzano e governano i dati usando l'intelligenza artificiale per contrassegnare automaticamente i dati con termini aziendali. Il ricco catalogo aziendale di Waterline è un componente critico e di successo per il self-service di analisi, conformità, governance e iniziative di gestione dell'IT. |
+|[Data Catalog di base per intelligenza artificiale](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |I cataloghi di contornamento, organizzano e governano i dati usando l'intelligenza artificiale per contrassegnare automaticamente i dati con termini aziendali. Il catalogo con alfabetizzata aziendale è un componente fondamentale per l'analisi self-service, la conformità e la governance e le iniziative di gestione IT. |
 
 Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando classica di Azure e Azure PowerShell per distribuire il modello.  Vedere [Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Prerequisites
-Per installare applicazioni HDInsight in un cluster HDInsight esistente, è necessario un cluster HDInsight. Per crearne uno, vedere [Creare cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). È anche possibile installare applicazioni HDInsight quando si crea un cluster HDInsight.
+## <a name="prerequisites"></a>Prerequisiti
+Per installare applicazioni HDInsight in un cluster HDInsight esistente, è necessario un cluster HDInsight. Per crearne uno, vedere [Creare cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md). È anche possibile installare applicazioni HDInsight quando si crea un cluster HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Installare applicazioni in cluster esistenti
 La procedura seguente illustra come installare applicazioni HDInsight in un cluster HDInsight esistente.
@@ -53,7 +53,7 @@ La procedura seguente illustra come installare applicazioni HDInsight in un clus
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Dal menu a sinistra passare a **tutti i servizi** > **Analytics** > **cluster HDInsight**.
-3. Selezionare un cluster HDInsight dall'elenco.  Se non ci sono cluster disponibili, è necessario crearne uno.  Vedere [Creare cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+3. Selezionare un cluster HDInsight dall'elenco.  Se non ci sono cluster disponibili, è necessario crearne uno.  Vedere [Creare cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Nella categoria **Impostazioni** selezionare **applicazioni**. È possibile visualizzare un elenco di applicazioni installate nella finestra principale. 
    
     ![Menu del portale Applicazioni di HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
@@ -85,7 +85,7 @@ Il portale include un elenco delle applicazioni HDInsight installate per un clus
 
     |Proprietà | Descrizione |
     |---|---|
-    |Nome app |Nome dell'applicazione. |
+    |Nome app |Nome applicazione: |
     |Stato |Stato dell'applicazione. |
     |Pagina Web |URL dell'applicazione Web distribuita nel nodo perimetrale. Le credenziali sono le stesse usate per le credenziali utente HTTP configurate per il cluster. |
     |Endpoint SSH |È possibile usare SSH per connettersi al nodo perimetrale. Le credenziali SSH sono le stesse usate per le credenziali utente SSH configurate per il cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
@@ -98,7 +98,7 @@ Il portale include un elenco delle applicazioni HDInsight installate per un clus
 
 Le credenziali dell'endpoint HTTP sono le credenziali utente HTTP configurate per il cluster HDInsight. Le credenziali dell'endpoint SSH sono le credenziali SSH configurate per il cluster HDInsight.
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 Vedere [Risolvere i problemi di installazione](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
 ## <a name="next-steps"></a>Passaggi successivi

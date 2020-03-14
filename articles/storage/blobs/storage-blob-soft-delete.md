@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f0db35e188aeca4de7b74d6c3e4dfc45b349279a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 360930b708d6358692de2af7325701b73d5cf9c9
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972717"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370560"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure
 
 Archiviazione di Azure offre ora l'eliminazione temporanea per gli oggetti BLOB, per consentire di ripristinare più facilmente i dati nel caso in cui vengano erroneamente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-soft-delete-works"></a>Funzionamento dell'eliminazione temporanea
 
@@ -72,7 +74,7 @@ L'eliminazione temporanea non salva i dati in caso di eliminazioni di contenitor
 
 La tabella seguente illustra il comportamento previsto quando l'eliminazione temporanea è abilitata:
 
-| Operazione API REST | Tipo di risorsa | Description | Modifica del comportamento |
+| Operazione API REST | Tipo di risorsa | Descrizione | Modifica del comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Elimina](/rest/api/storagerp/StorageAccounts/Delete) | Account | Elimina l'account di archiviazione, inclusi tutti i contenitori e i BLOB contenuti al suo interno.                           | Nessuna modifica. I contenitori e i BLOB contenuti nell'account eliminato non sono recuperabili. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contenitore | Elimina il contenitore, inclusi tutti i BLOB contenuti al suo interno. | Nessuna modifica. I BLOB contenuti nell'account eliminato non sono recuperabili. |
@@ -146,11 +148,11 @@ Per altri dettagli sui prezzi per Archiviazione BLOB di Azure in generale, consu
 
 Quando si abilita inizialmente l'eliminazione temporanea, è consigliabile usare un periodo di conservazione ridotto per comprendere meglio in che modo la funzionalità influirà sui costi.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 La procedura seguente illustra come iniziare a usare l'eliminazione temporanea.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Abilitare l'eliminazione temporanea per i BLOB nell'account di archiviazione usando portale di Azure:
 
@@ -190,7 +192,7 @@ Dopo aver annullato l'eliminazione degli snapshot di un BLOB, è possibile fare 
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -227,7 +229,7 @@ Per trovare i criteri di conservazione dell'eliminazione temporanea corrente, us
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-# <a name="clitabazure-cli"></a>[CLI](#tab/azure-CLI)
+# <a name="cli"></a>[CLI](#tab/azure-CLI)
 
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
@@ -241,7 +243,7 @@ Per verificare se l'eliminazione temporanea è attivata, usare il comando seguen
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
@@ -259,7 +261,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="nettabnet"></a>[.NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
 
@@ -307,7 +309,7 @@ blockBlob.StartCopy(copySource);
 
 Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, è consigliabile attivare l'eliminazione temporanea. L'abilitazione dell'eliminazione temporanea per i dati sovrascritti frequentemente può comportare un aumento degli addebiti per la capacità di archiviazione e una latenza maggiore È possibile mitigare questo costo aggiuntivo e la latenza archiviando i dati sovrascritti di frequente in un account di archiviazione separato in cui l'eliminazione temporanea è disabilitata. 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 ### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Per quali servizi di archiviazione è possibile usare l'eliminazione temporanea?
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f939619cbbc69e9fc9cdbc4b2085a0b9d805511d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379879"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371206"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -37,7 +37,7 @@ Sintesi vocale dal servizio di riconoscimento vocale consente a applicazioni, st
 
 * Speech Synthesis Markup Language (SSML): linguaggio di markup basato su XML usato per personalizzare gli output di riconoscimento vocale. Con SSML è possibile modificare il pitch, aggiungere pause, migliorare la pronuncia, accelerare o rallentare la velocità di pronuncia, aumentare o diminuire il volume e attribuire più voci a un singolo documento. Vedere [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 Il servizio di sintesi vocale è disponibile tramite l'SDK di [riconoscimento vocale](speech-sdk.md). Sono disponibili diversi scenari comuni come guide introduttive, in diversi linguaggi e piattaforme:
 
@@ -72,7 +72,7 @@ Per informazioni dettagliate, vedere [prezzi](https://azure.microsoft.com/pricin
 > [!IMPORTANT]
 > Ogni carattere di lingua cinese, giapponese e coreano viene conteggiato come due caratteri per la fatturazione.
 
-## <a name="reference-docs"></a>Documenti di riferimento
+## <a name="reference-docs"></a>Documentazione di riferimento
 
 - [Speech SDK](speech-sdk.md)
 - [API REST: sintesi vocale](rest-text-to-speech.md)

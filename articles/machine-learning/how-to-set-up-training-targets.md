@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 209ed755a7ef83b67170ef75911f93cdda742caa
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156353"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368197"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Con Azure Machine Learning, è possibile eseguire il training del modello in un'
 È possibile creare e gestire una destinazione di calcolo usando il Azure Machine Learning SDK, Azure Machine Learning Studio, l'interfaccia della riga di comando di Azure o l'estensione Azure Machine Learning VS Code. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle collegandosi all'area di lavoro Azure Machine Learning.
  
 Questo articolo illustra come usare diverse destinazioni di calcolo per il training del modello.  I passaggi per tutte le destinazioni di calcolo seguono lo stesso flusso di lavoro:
-1. __Creare__ una destinazione di calcolo se non ne esiste già una.
+1. __Creare__ una destinazione di calcolo, se non ne è già presente una.
 2. __Collegare__ la destinazione di calcolo all'area di lavoro.
 3. __Configurare__ le destinazioni di calcolo affinché contengano l'ambiente Python e le dipendenze del pacchetto necessari per lo script.
 
@@ -89,7 +89,7 @@ Usare le sezioni seguenti per configurare queste destinazioni di calcolo:
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
-Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
+Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](#submit).
 
 ### <a id="amlcompute"></a>Ambiente di calcolo di Machine Learning
 
@@ -114,7 +114,7 @@ Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limi
   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
 
-Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
+Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](#submit).
 
 #### <a id="persistent"></a>Ambiente di calcolo permanente
 
@@ -136,7 +136,7 @@ Un ambiente di calcolo di Machine Learning permanente può essere usato nuovamen
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
-Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
+Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](#submit).
 
 
 ### <a id="vm"></a>Macchine virtuali remote
@@ -154,15 +154,30 @@ Per questo scenario usare Data Science Virtual Machine (DSVM) come macchina virt
 
 1. **Connetti**: per alleghi una macchina virtuale esistente come destinazione di calcolo, è necessario specificare il nome di dominio completo (FQDN), il nome utente e la password per la macchina virtuale. Nell'esempio sostituire \<fqdn> con il nome di dominio completo pubblico della macchina virtuale o l'indirizzo IP pubblico. Nel comando seguente sostituire \<username> e \<password> con il nome utente e la password SSH per la macchina virtuale.
 
+    > [!IMPORTANT]
+    > Le aree di Azure seguenti non supportano il fissaggio di una macchina virtuale tramite l'indirizzo IP pubblico della VM. Usare invece l'ID Azure Resource Manager della macchina virtuale con il parametro `resource_id`:
+    >
+    > * Stati Uniti Orientali
+    > * Stati Uniti occidentali 2
+    > * Stati Uniti centro-meridionali
+    >
+    > L'ID risorsa della macchina virtuale può essere costruito usando l'ID sottoscrizione, il nome del gruppo di risorse e il nome della macchina virtuale usando il formato stringa seguente: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
+
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -184,7 +199,7 @@ Per questo scenario usare Data Science Virtual Machine (DSVM) come macchina virt
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
-Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
+Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](#submit).
 
 ### <a id="hdinsight"></a>Azure HDInsight 
 
@@ -198,6 +213,15 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
 
 1. **Connetti**: per alleghi un cluster HDInsight come destinazione di calcolo, è necessario specificare il nome host, il nome utente e la password per il cluster HDInsight. Nell'esempio seguente viene usato l'SDK per associare un cluster all'area di lavoro. Nell'esempio sostituire \<clustername> con il nome del cluster. Sostituire \<username> e \<password> con un nuovo nome utente e una nuova password SSH il cluster.
 
+    > [!IMPORTANT]
+    > Le aree di Azure seguenti non supportano il fissaggio di un cluster HDInsight tramite l'indirizzo IP pubblico del cluster. Usare invece l'ID Azure Resource Manager del cluster con il parametro `resource_id`:
+    >
+    > * Stati Uniti Orientali
+    > * Stati Uniti occidentali 2
+    > * Stati Uniti centro-meridionali
+    >
+    > L'ID risorsa del cluster può essere costruito usando l'ID sottoscrizione, il nome del gruppo di risorse e il nome del cluster usando il formato stringa seguente: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
@@ -208,6 +232,11 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -225,7 +254,7 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
-Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
+Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](#submit).
 
 
 ### <a id="azbatch"></a>Azure Batch 
@@ -234,9 +263,9 @@ Azure Batch viene usato per eseguire in modo efficiente applicazioni parallele e
 
 Per aggiungere Azure Batch come destinazione di calcolo, è necessario usare Azure Machine Learning SDK e fornire le informazioni seguenti:
 
--   **Azure batch Calcolo nome**: nome descrittivo da usare per il calcolo nell'area di lavoro
--   **Nome account Azure batch**: il nome dell'account di Azure batch
--   **Gruppo di risorse**: il gruppo di risorse contenente l'account Azure batch.
+-    **Azure batch Calcolo nome**: nome descrittivo da usare per il calcolo nell'area di lavoro
+-    **Nome account Azure batch**: il nome dell'account di Azure batch
+-    **Gruppo di risorse**: il gruppo di risorse contenente l'account Azure batch.
 
 Il codice seguente illustra come aggiungere Azure Batch come destinazione di calcolo:
 
@@ -310,9 +339,9 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
     >[!NOTE]
     >Azure Machine Learning calcolo è l'unica risorsa di calcolo gestita che è possibile creare in Azure Machine Learning Studio.  Tutte le altre risorse di calcolo si possono collegare dopo averle create.
 
-1. Compilare il modulo. Specificare i valori per le proprietà necessarie, in particolare la **famiglia di macchine virtuali**e il **numero massimo di nodi** da usare per creare rapidamente l'ambiente di calcolo.  
+1. Compilare il form. Specificare i valori per le proprietà necessarie, in particolare la **famiglia di macchine virtuali**e il **numero massimo di nodi** da usare per creare rapidamente l'ambiente di calcolo.  
 
-1. Selezionare __Create__ (Crea).
+1. Selezionare __Crea__.
 
 
 1. Visualizzare lo stato dell'operazione di creazione selezionando la destinazione di calcolo dall'elenco:

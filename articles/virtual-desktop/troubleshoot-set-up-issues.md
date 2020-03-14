@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 17505084095eb8fbe46c20c7aa226131e128b286
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127429"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371597"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
@@ -145,7 +145,7 @@ Esempio di errore non elaborato:
 
 Per risolvere il problema, eseguire le operazioni seguenti:
 
-1. Aprire il portale di Azure e passare al pannello **reti virtuali** .
+1. Aprire il portale di Azure e passare alla scheda **reti virtuali** .
 2. Individuare il VNET, quindi selezionare **server DNS**.
 3. Il menu server DNS verrà visualizzato sul lato destro dello schermo. Nel menu selezionare **personalizzato**.
 4. Verificare che i server DNS elencati in personalizzato corrispondano al controller di dominio o al dominio Active Directory. Se il server DNS non è visibile, è possibile aggiungerlo immettendo il relativo valore nel campo **Aggiungi server DNS** .

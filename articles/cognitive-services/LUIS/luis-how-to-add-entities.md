@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383668"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220908"
 ---
 # <a name="add-entities-to-extract-data"></a>Aggiungere entità per estrarre i dati 
 
@@ -49,7 +49,7 @@ Usare la tabella seguente per comprendere quali entità devono creare o aggiunge
 |Entità elenco|Entità o dettagli finalità|
 |Entità di espressione regolare|Entità|
 |Entità pattern.any|Entità|
-|Entità predefinite|Entità|
+|Entità predefinita|Entità|
 |Entità di dominio predefinita|Entità|
 
 È possibile creare tutte le entità dalla pagina **entità** oppure creare un paio di entità nell'ambito dell'assegnazione di etichette all'entità nell'enunciato di esempio nella pagina dei dettagli dello **scopo** . È possibile _assegnare un'etichetta_ a un'entità solo in un enunciato di esempio dalla pagina dei **dettagli dello scopo** . 
@@ -89,7 +89,7 @@ Nell'elenco seguente vengono illustrati il nome canonico e i sinonimi.
 |Nome elemento elenco colori|Colori-sinonimi|
 |--|--|
 |Rosso|Crimson, Blood, Apple, Fire-Engine|
-|Blu|Sky, Azure, Cobalt|
+|Blue|Sky, Azure, Cobalt|
 |Verde|Kelly, limone|
 
 Utilizzare la procedura per creare un'entità elenco. Una volta creata l'entità dell'elenco, non è necessario etichettare espressioni di esempio in uno scopo. Gli elementi dell'elenco e i sinonimi vengono confrontati con il testo esatto. 

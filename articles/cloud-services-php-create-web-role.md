@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 82bb5f153a2c70d3b26f295925f8e48693bc49b9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 54410e1e70a2ec0d3a9e2f853dc9556cd05996ad
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146861"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297255"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Creare ruoli Web e di lavoro PHP
 
@@ -26,13 +26,13 @@ ms.locfileid: "71146861"
 
 Questa guida illustrerà come creare ruoli Web o di lavoro PHP in un ambiente di sviluppo Windows, scegliere una versione specifica di PHP tra le versioni incorporate disponibili, modificare la configurazione di PHP, abilitare le estensioni e, infine, eseguire la distribuzione in Azure. Verrà inoltre descritto come configurare un ruolo Web o di lavoro per l'uso del runtime PHP (con configurazione ed estensioni personalizzate) fornito dall'utente.
 
-Azure offre tre modelli di calcolo per l'esecuzione di applicazioni: Servizio app Azure, macchine virtuali di Azure e servizi cloud di Azure. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)* . In un servizio cloud un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato per ospitare applicazioni Web front-end. Un ruolo di lavoro può eseguire attività asincrone, con esecuzione prolungata o perpetue indipendenti dall'interazione o dall'input dell'utente.
+Azure offre tre modelli di calcolo per le applicazioni in esecuzione: Servizio App di Azure, Macchine virtuali di Azure e Servizi cloud di Azure. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)* . In un servizio cloud un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato per ospitare applicazioni Web front-end. Un ruolo di lavoro può eseguire attività asincrone, con esecuzione prolungata o perpetue indipendenti dall'interazione o dall'input dell'utente.
 
 Per altre informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo fornite da Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Download di Azure SDK per PHP
 
-[Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) è composto da diversi componenti. Questo articolo ne utilizzerà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+[Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) è composto da diversi componenti. Questo articolo ne userà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Creare un progetto di servizi cloud
 
@@ -59,53 +59,6 @@ Per un ruolo di lavoro, utilizzare il comando seguente:
 >
 >
 
-## <a name="specify-the-built-in-php-version"></a>Specificare la versione PHP incorporata
-
-Quando si aggiunge un ruolo Web o di lavoro PHO a un progetto, i file di configurazione del progetto verranno modificati in modo che PHP venga installato su ciascuna istanza Web o di lavoro dell'applicazione alla sua distribuzione. Per visualizzare la versione di PHP che verrà installata per impostazione predefinita, eseguire il comando seguente:
-
-    PS C:\myProject> Get-AzureServiceProjectRoleRuntime
-
-Il risultato del comando sopra riportato sarà simile al seguente. In questo esempio, il flag `IsDefault` è impostato su `true` per PHP 5.3.17, a indicare che questa sarà la versione di PHP installata per impostazione predefinita.
-
-```
-Runtime Version     PackageUri                      IsDefault
-------- -------     ----------                      ---------
-Node 0.6.17         http://nodertncu.blob.core...   False
-Node 0.6.20         http://nodertncu.blob.core...   True
-Node 0.8.4          http://nodertncu.blob.core...   False
-IISNode 0.1.21      http://nodertncu.blob.core...   True
-Cache 1.8.0         http://nodertncu.blob.core...   True
-PHP 5.3.17          http://nodertncu.blob.core...   True
-PHP 5.4.0           http://nodertncu.blob.core...   False
-```
-
-È possibile impostare la versione del runtime PHP su una qualsiasi delle versioni PHP elencate. Per impostare ad esempio la versione PHP (per un ruolo denominato `roleName`) su 5.4.0, usare il comando seguente:
-
-    PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
-
-> [!NOTE]
-> Le versioni PHP disponibili possono cambiare in futuro.
->
->
-
-## <a name="customize-the-built-in-php-runtime"></a>Personalizzare il runtime PHP incorporato
-
-L'utente dispone del controllo completo sulla configurazione del runtime PHP che viene installato eseguendo la procedura sopra illustrata, incluse le modifiche delle impostazioni `php.ini` e l'abilitazione delle estensioni.
-
-Per personalizzare il runtime PHP incorporato, eseguire la procedura seguente:
-
-1. Aggiungere una nuova cartella denominata `php` alla directory `bin` del ruolo Web in uso. Per un ruolo di lavoro, aggiungerlo alla directory radice del ruolo.
-2. Nella cartella `php` creare un'altra cartella denominata `ext`. Inserire tutti i file con estensione `.dll` (ad esempio `php_mongo.dll`) da abilitare in questa cartella.
-3. Aggiungere un file `php.ini` alla cartella `php`. Abilitare eventuali estensioni personalizzate e impostare qualsiasi direttiva PHP in questo file. Ad esempio, se si desidera attivare `display_errors` e abilitare l'estensione `php_mongo.dll` il contenuto del file `php.ini` sarà il seguente:
-
-        display_errors=On
-        extension=php_mongo.dll
-
-> [!NOTE]
-> Qualsiasi impostazione non esplicitamente impostata nel file `php.ini` fornito verrà automaticamente impostata sui valori predefiniti. Si tenga tuttavia presente che è possibile aggiungere un file `php.ini` completo.
->
->
-
 ## <a name="use-your-own-php-runtime"></a>Utilizzare il proprio runtime PHP
 
 In alcuni casi, invece di selezionare un runtime PHP incorporato e configurarlo come sopra descritto, può essere consigliabile fornire un proprio runtime PHP. È ad esempio possibile usare lo stesso runtime PHP in un ruolo Web o di lavoro usato nell'ambiente di sviluppo. In questo modo sarà più semplice garantire che il comportamento dell'applicazione non cambi nell'ambiente di produzione.
@@ -119,7 +72,7 @@ Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, se
 3. OPZIONALE Se il runtime PHP usa i [driver Microsoft per php per SQL Server][sqlsrv drivers], sarà necessario configurare il ruolo Web per installare [SQL Server Native Client 2012][sql native client] quando ne viene eseguito il provisioning. A tale scopo, aggiungere il [programma di installazione sqlncli.msi x64] nella cartella `bin` nella directory radice del ruolo Web. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non usa i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Definire un'attività di avvio per la configurazione di [Internet Information Services (IIS)][iis.net] per l'uso del runtime PHP per `.php` gestire le richieste di pagine. A tale scopo, aprire il file `setup_web.cmd` (nel file `bin` della directory radice del proprio ruolo Web) in un editor di testo e sostituirne il contenuto con lo script seguente:
+4. Definire un'attività di avvio per la configurazione di [Internet Information Services (IIS)][iis.net] per l'uso del runtime PHP per gestire le richieste per `.php` pagine. A tale scopo, aprire il file `setup_web.cmd` (nel file `bin` della directory radice del proprio ruolo Web) in un editor di testo e sostituirne il contenuto con lo script seguente:
 
     ```cmd
     @ECHO ON

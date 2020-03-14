@@ -1,21 +1,21 @@
 ---
-title: Collegamento privato per database di Azure per MariaDB (anteprima)
+title: Collegamento privato-database di Azure per MariaDB
 description: Informazioni sul funzionamento del collegamento privato per database di Azure per MariaDB.
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 92d7522c8382ded182c5f482df3f3d917b4b3a14
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/10/2020
+ms.openlocfilehash: b05a202537492fe54a76cf40a3b15987e099a7e3
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982377"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367721"
 ---
-# <a name="private-link-for-azure-database-for-mariadb-preview"></a>Collegamento privato per database di Azure per MariaDB (anteprima)
+# <a name="private-link-for-azure-database-for-mariadb"></a>Collegamento privato per database di Azure per MariaDB
 
-Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un endpoint privato. Il collegamento privato di Azure porta essenzialmente i servizi di Azure all'interno della rete virtuale privata (VNet). È possibile accedere alle risorse PaaS usando l'indirizzo IP privato come qualsiasi altra risorsa in VNet.
+Il collegamento privato consente di creare endpoint privati per database di Azure per MariaDB e di conseguenza fornisce i servizi di Azure all'interno della rete virtuale privata (VNet). L'endpoint privato espone un indirizzo IP privato che è possibile usare per connettersi al database di Azure per il server di database MariaDB proprio come qualsiasi altra risorsa in VNet.
 
 Per un elenco dei servizi PaaS che supportano la funzionalità di collegamento privato, vedere la [documentazione](https://docs.microsoft.com/azure/private-link/index)del collegamento privato. Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e una subnet specifiche.
 
@@ -58,10 +58,7 @@ Per abilitare il collegamento privato sono necessari endpoint privati. Questa op
 
 ### <a name="approval-process"></a>Processo di approvazione
 
-Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore può gestire la connessione all'endpoint privato (PEC) al database di Azure per MariaDB.
-
-> [!NOTE]
-> Attualmente, database di Azure per MariaDB supporta solo l'approvazione automatica per l'endpoint privato.
+Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore può gestire la connessione all'endpoint privato (PEC) al database di Azure per MariaDB. Questa separazione dei compiti tra l'amministratore di rete e l'amministratore di database è utile per la gestione della connettività del database di Azure per MariaDB. 
 
 * Passare alla risorsa del server database di Azure per MariaDB nel portale di Azure. 
     * Selezionare le connessioni all'endpoint privato nel riquadro sinistro
@@ -84,7 +81,7 @@ Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore p
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mariadb"></a>Casi d'uso di collegamento privato per database di Azure per MariaDB
 
-I client possono connettersi all'endpoint privato dalla stessa rete virtuale, da una rete virtuale con peering nella stessa area o tramite una connessione da rete virtuale a rete virtuale tra aree diverse. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
+I client possono connettersi all'endpoint privato dallo stesso VNet, VNet con peering nella stessa area o tramite una connessione da VNet a VNet tra le aree. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
 
 ![Selezionare la panoramica dell'endpoint privato](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 
@@ -110,6 +107,19 @@ Quando si usa un collegamento privato in combinazione con le regole del firewall
 * Se si configura il traffico pubblico o un endpoint di servizio e si creano endpoint privati, i diversi tipi di traffico in ingresso sono autorizzati dal tipo corrispondente di regola del firewall.
 
 * Se non si configura alcun traffico pubblico o endpoint di servizio e si creano endpoint privati, il database di Azure per MariaDB è accessibile solo tramite gli endpoint privati. Se non si configura il traffico pubblico o un endpoint del servizio, dopo che tutti gli endpoint privati approvati sono stati rifiutati o eliminati, nessun traffico sarà in grado di accedere al database di Azure per MariaDB.
+
+## <a name="deny-public-access-for-azure-database-for-mariadb"></a>Negare l'accesso pubblico per il database di Azure per MariaDB
+
+Se si vuole basarsi completamente solo sugli endpoint privati per accedere al database di Azure per MariaDB, è possibile disabilitare l'impostazione di tutti gli endpoint pubblici ([regole del firewall](concepts-firewall-rules.md) ed endpoint di [servizio VNet](concepts-data-access-security-vnet.md)) impostando la configurazione di **accesso negato alla rete pubblica** sul server di database. 
+
+Quando questa impostazione è impostata su *Sì*, al database di Azure per MariaDB sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su *No*, i client possono connettersi al database di Azure per MariaDB in base alle impostazioni del firewall o dell'endpoint del servizio VNet. Inoltre, una volta impostato il valore di accesso alla rete privata, non è possibile aggiungere e/o aggiornare le regole di endpoint del servizio firewall e VNet esistenti.
+
+> [!Note]
+> Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per PostgreSQL-server singolo supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
+>
+> Questa impostazione non ha alcun effetto sulle configurazioni SSL e TLS per il database di Azure per MariaDB.
+
+Per informazioni su come impostare l' **accesso negato alla rete pubblica** per il database di Azure per MariaDB da portale di Azure, vedere [come configurare l'accesso negato alla rete pubblica](howto-deny-public-network-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 20ac4fabdc5f0e70191d6886d43a5376bcf4cad5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0aa71e4b78df8087093f183b146c525d2a8a0f99
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586292"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366241"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funzionalità e strumenti per Azure Cloud Shell
 
@@ -69,26 +69,26 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 
 ## <a name="tools"></a>Strumenti
 
-|Category   |Nome   |
+|Category   |Name   |
 |---|---|
-|Strumenti di Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
+|Strumenti di Linux            |barra rovesciata<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Strumenti di Azure            |[Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) e [interfaccia della riga di comando classica di Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [INTERFACCIA della riga di comando funzioni di Azure](https://github.com/Azure/azure-functions-core-tools)<br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editor di testo           |codice (editor di Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Controllo del codice sorgente         |git                    |
 |Strumenti di compilazione            |make<br> maven<br> npm<br> pip         |
 |Contenitori             |[Computer Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [Interfaccia della riga di comando DC/OS](https://github.com/dcos/dcos-cli)         |
 |Database              |Client MySQL<br> Client PostgreSql<br> [Utilità sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Altri                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
+|Altro                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
-## <a name="language-support"></a>Supporto per le lingue
+## <a name="language-support"></a>Supporto delle lingue
 
-|Linguaggio   |Versione   |
+|Lingua:   |Versione   |
 |---|---|
 |.NET Core  |2.2.402       |
-|Go         |1.9        |
+|Vai         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
-|PowerShell |[7.0.0-RC. 2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (impostazione predefinita)|
 
 ## <a name="next-steps"></a>Passaggi successivi

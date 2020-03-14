@@ -4,14 +4,14 @@ description: Eseguire il push e il pull degli artefatti Open Container Initiativ
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 03/11/2020
 ms.author: stevelas
-ms.openlocfilehash: cb58a7ed51ae15d33ffdbb616c9b32ef03bcbfb7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456249"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371053"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Eseguire il push e il pull di un artefatto OCI usando un registro contenitori di Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "74456249"
 
 Per illustrare questa funzionalità, questo articolo illustra come usare lo strumento [OCI Registry As Storage (Oras)](https://github.com/deislabs/oras) per eseguire il push di un elemento di esempio, un file di testo, in un registro contenitori di Azure. Estrarre quindi l'artefatto dal registro di sistema. È possibile gestire un'ampia gamma di artefatti OCI in un registro contenitori di Azure usando diversi strumenti della riga di comando appropriati per ogni artefatto.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Registro Azure Container**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
 * **Strumento Oras** : scaricare e installare una versione di Oras corrente per il sistema operativo dal [repository GitHub](https://github.com/deislabs/oras/releases). Lo strumento viene rilasciato come archivio compresso (file di`.tar.gz`). Estrarre e installare il file utilizzando le procedure standard per il sistema operativo in uso.
@@ -66,10 +66,20 @@ echo "Here is an artifact!" > artifact.txt
 
 Usare il comando `oras push` per eseguire il push di questo file di testo nel registro. L'esempio seguente inserisce il file di testo di esempio nel repository `samples/artifact`. Il registro di sistema viene identificato con il nome completo del registro di sistema *MyRegistry.azurecr.io* (tutto in lettere minuscole). L'artefatto è contrassegnato `1.0`. Per impostazione predefinita, l'elemento ha un tipo non definito identificato dalla stringa del *tipo di supporto* che segue il nome del file `artifact.txt`. Vedere gli [artefatti OCI](https://github.com/opencontainers/artifacts) per altri tipi. 
 
+**Linux**
+
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
     --manifest-config /dev/null:application/vnd.unknown.config.v1+json \
     ./artifact.txt:application/vnd.unknown.layer.v1+txt
+```
+
+**Windows**
+
+```cmd
+.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
+    --manifest-config NUL:application/vnd.unknown.config.v1+json ^
+    .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
 L'output per un push riuscito è simile al seguente:

@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di nodi multipli per un 
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: cf127cc75377c3ca3a18cdeaedbc1d450d6c3826
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b7025b896a1bd156c448ccfcd0e9001c49146be4
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252844"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368282"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -93,9 +93,7 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 
 L'output di esempio seguente mostra che *mynodepool* è stato creato correttamente con tre nodi nel pool di nodi. Quando il cluster AKS è stato creato nel passaggio precedente, è stato creato un *nodepool1* predefinito con un numero di nodi pari a *2*.
 
-```console
-$ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
-
+```output
 [
   {
     ...
@@ -148,9 +146,11 @@ az aks nodepool upgrade \
 
 Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è in stato di *aggiornamento* a *1.15.7*:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -234,9 +234,11 @@ az aks nodepool scale \
 
 Elencare nuovamente lo stato dei pool di nodi usando il comando [AZ AKS node pool list][az-aks-nodepool-list] . L'esempio seguente mostra che *mynodepool* è nello stato di *ridimensionamento* con un nuovo conteggio di *5* nodi:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -284,9 +286,11 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name myn
 
 L'output di esempio seguente del comando [AZ AKS node pool list][az-aks-nodepool-list] Mostra che *mynodepool* è in stato di *eliminazione* :
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -337,9 +341,11 @@ az aks nodepool add \
 
 L'output di esempio seguente del comando [AZ AKS node pool list][az-aks-nodepool-list] Mostra che *gpunodepool* sta *creando* nodi con il *VmSize*specificato:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -375,8 +381,10 @@ Sono necessari alcuni minuti prima che il *gpunodepool* venga creato correttamen
 Sono ora disponibili due pool di nodi nel cluster, ovvero il pool di nodi predefinito creato inizialmente e il pool di nodi basato su GPU. Usare il comando [kubectl Get nodes][kubectl-get] per visualizzare i nodi nel cluster. L'output di esempio seguente mostra i nodi:
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
+```
 
+```output
 NAME                                 STATUS   ROLES   AGE     VERSION
 aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
 aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
@@ -431,8 +439,10 @@ kubectl apply -f gpu-toleration.yaml
 Sono necessari alcuni secondi per pianificare il Pod ed eseguire il pull dell'immagine NGINX. Usare il comando [Pod kubectl descrivere][kubectl-describe] per visualizzare lo stato del Pod. Il seguente output di esempio ridotto Mostra lo *SKU = GPU: NoSchedule* tolleration è applicato. Nella sezione Events l'utilità di pianificazione ha assegnato il pod al nodo basato su GPU *AKS-gpunodepool-28993262-vmss000000* :
 
 ```console
-$ kubectl describe pod mypod
+kubectl describe pod mypod
+```
 
+```output
 [...]
 Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
                  node.kubernetes.io/unreachable:NoExecute for 300s
@@ -563,9 +573,11 @@ az aks nodepool add \
 
 L'output di esempio seguente del comando [AZ AKS nodepool list][az-aks-nodepool-list] Mostra che *tagnodepool* sta *creando* nodi con il *tag*specificato:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...

@@ -1,26 +1,26 @@
 ---
-title: Collegamento privato per database di Azure per PostgreSQL-metodo di installazione dell'interfaccia della riga di comando per server singolo (anteprima)
+title: Collegamento privato-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server singolo
 description: Informazioni su come configurare un collegamento privato per database di Azure per PostgreSQL-server singolo dall'interfaccia della riga di comando di Azure
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d4288b901a0e6e132e32f8391d108e79861fc331
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562089"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371036"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo (anteprima) con l'interfaccia della riga di comando
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. In questo articolo si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una VM in una rete virtuale di Azure e un singolo server di database di Azure per PostgreSQL con un endpoint privato di Azure.
 
 > [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui il server singolo database di Azure per PostgreSQL supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
+> Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per PostgreSQL-server singolo supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per proseguire con questa guida, si richiedono:
 
@@ -38,7 +38,7 @@ Per poter creare le risorse, è prima necessario creare un gruppo di risorse in 
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Creazione di una rete virtuale
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *mySubnet*:
 
 ```azurecli-interactive
@@ -58,7 +58,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Creare la VM 
+## <a name="create-the-vm"></a>Creazione della VM 
 Creare una macchina virtuale con il comando az vm create. Quando richiesto, specificare la password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVM*: 
 ```azurecli-interactive
 az vm create \
@@ -143,7 +143,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
@@ -168,7 +168,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 4. In **nuova connessione**immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Tipo di server| Selezionare **PostgreSQL**.|
     | Nome server| Seleziona *mydemopostgresserver.privatelink.postgres.database.Azure.com* |

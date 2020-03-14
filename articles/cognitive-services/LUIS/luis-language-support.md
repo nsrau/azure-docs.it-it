@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361138"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220853"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -30,7 +30,7 @@ Se occorre un'applicazione client LUIS multilingue come una chatbot, sono dispon
 
 LUIS riconosce espressioni nelle lingue seguenti:
 
-| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
+| Lingua: |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
 | Arabo (anteprima-arabo standard moderno) |`ar-AR`|-|-|-|-|
@@ -77,7 +77,7 @@ Le lingue ibride combinano parole di due culture come l'inglese e il cinese. Que
 ## <a name="tokenization"></a>Tokenizzazione
 Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [token](luis-glossary.md#token) basati sulla cultura.
 
-|Linguaggio|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in formato token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
+|Lingua:|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in formato token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |Arabo|||||
 |Cinese||✔||✔|

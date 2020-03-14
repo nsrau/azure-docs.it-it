@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 52eb3bdb463389d075421661610b5ee94d14d77d
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3370c7ebb8e0253543e6b9cb6ce7614811fb5bd0
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037069"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140791"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -114,7 +114,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 }
 ```
 
-Dopo che la pipeline è stata inviata correttamente, è possibile visualizzare l'anteprima dell'immagine nel pannello di destra del modulo ![immagine caricata](media/module/upload-image-in-python-script.png)
+Dopo che la pipeline è stata inviata correttamente, è possibile visualizzare l'anteprima dell'immagine nel pannello di destra del modulo
+
+[!div class="mx-imgBorder"]
+![immagine caricata](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Come configurare Execute Python script
 
@@ -132,7 +135,7 @@ Il modulo **Execute Python script** contiene codice Python di esempio che è pos
 
     ![Esegui mappa di input Python](media/module/python-module.png)
 
-4. Per includere nuovi pacchetti o codice Python, aggiungere il file compresso contenente queste risorse personalizzate nel **bundle di script**. L'input per il **bundle di script** deve essere un file compresso caricato nell'area di lavoro come set di dati di tipo file. 
+4. Per includere nuovi pacchetti o codice Python, aggiungere il file compresso contenente queste risorse personalizzate nel **bundle di script**. L'input per il **bundle di script** deve essere un file compresso caricato nell'area di lavoro come set di dati di tipo file. È possibile caricare il set di dati nella pagina **set** di dati ed è possibile trascinare il modulo DataSet dall'elenco set di dati **personali** nell'albero del modulo a sinistra nella pagina Creazione e modifica della finestra di progettazione. 
 
     Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione della pipeline. Se l'archivio include una struttura di directory, la struttura viene mantenuta, ma è necessario anteporre una directory denominata **src** al percorso.
 

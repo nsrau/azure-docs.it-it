@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 34cbe5f23728c1fcff0555256575cc34b2b6a869
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079844"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299397"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
 
@@ -53,8 +53,6 @@ Tutti i dati privati che devono essere salvati in modo permanente da analisi di 
 * Query create e relative configurazioni  
 
 * Funzioni definite dall'utente 
-
-* Risultati del campionamento dei dati dagli input 
 
 * Checkpoint necessari per il runtime di analisi di flusso
 

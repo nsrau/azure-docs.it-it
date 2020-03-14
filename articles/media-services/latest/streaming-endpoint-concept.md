@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: c71643adf3b34954ea5ce020351559abbfc60fab
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79251258"
+ms.locfileid: "79298938"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
@@ -59,14 +59,14 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 
 ## <a name="comparing-streaming-types"></a>Confronto tra le tipologie di streaming
 
-Funzionalità|Standard|Premium
+Caratteristica|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
-Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
+Scala|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
 Filtro IP/G20/host personalizzato <sup>1</sup>|Sì|Sì
 Download progressivo|Sì|Sì
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.
@@ -102,7 +102,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
     - `media.azure.net`
     - `verifydns.media.azure.net`
 
-  - Cina:
+  - China:
 
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
@@ -116,7 +116,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
     > [!NOTE]
     > Gli endpoint di streaming che si trovano nella stessa data center non possono condividere lo stesso nome host personalizzato.
 
-    Attualmente, servizi multimediali non supporta SSL con domini personalizzati.
+    Attualmente Servizi multimediali non supporta SSL con domini personalizzati.
 
 - `maxCacheAge`: esegue l'override dell'intestazione di controllo della cache HTTP Max-Age predefinita impostata dall'endpoint di streaming nei frammenti del supporto e nei manifesti su richiesta. Il valore è impostato in secondi.
 - `resourceState` -
@@ -163,4 +163,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'esempio [in questo repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) illustra come avviare l'endpoint di streaming predefinito con .NET.
+[Gestire gli endpoint di streaming](manage-streaming-endpoints-howto.md)

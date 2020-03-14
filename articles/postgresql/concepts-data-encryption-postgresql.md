@@ -1,17 +1,17 @@
 ---
-title: Crittografia dei dati a server singolo del database di Azure per PostgreSQL con una chiave gestita dal cliente
+title: Crittografia dei dati con chiave gestita dal cliente-database di Azure per PostgreSQL-server singolo
 description: La crittografia dei dati a server singolo del database di Azure per PostgreSQL con una chiave gestita dal cliente consente di Bring Your Own Key (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 20e01e681c382e3c9c69f76c95a90f709f409d6a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198701"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297023"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati a server singolo del database di Azure per PostgreSQL con una chiave gestita dal cliente
 
@@ -32,9 +32,9 @@ Key Vault è un sistema di gestione delle chiavi esterne basato sul cloud. È a 
 La crittografia dei dati per il server singolo di database di Azure per PostgreSQL offre i vantaggi seguenti:
 
 * L'accesso ai dati è completamente controllato dalla possibilità di rimuovere la chiave e rendere inaccessibile il database 
-*   Controllo completo del ciclo di vita della chiave, inclusa la rotazione della chiave per l'allineamento con i criteri aziendali
-*   Gestione centralizzata e organizzazione delle chiavi in Azure Key Vault
-*   Possibilità di implementare la separazione dei compiti tra i responsabili della sicurezza e gli amministratori di database e di amministratore di sistema
+*    Controllo completo del ciclo di vita della chiave, inclusa la rotazione della chiave per l'allineamento con i criteri aziendali
+*    Gestione centralizzata e organizzazione delle chiavi in Azure Key Vault
+*    Possibilità di implementare la separazione dei compiti tra i responsabili della sicurezza e gli amministratori di database e di amministratore di sistema
 
 ## <a name="terminology-and-description"></a>Terminologia e descrizione
 

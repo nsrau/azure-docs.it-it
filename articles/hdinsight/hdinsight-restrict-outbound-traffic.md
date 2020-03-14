@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/11/2020
+ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646694"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370186"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster HDInsight di Azure con il firewall
 
@@ -26,12 +26,13 @@ Esistono diverse dipendenze che richiedono il traffico in ingresso. Il traffico 
 
 Le dipendenze del traffico in uscita HDInsight sono quasi completamente definite con FQDN, che non dispongono di indirizzi IP statici. La mancanza di indirizzi statici indica che i gruppi di sicurezza di rete (gruppi) non possono essere usati per bloccare il traffico in uscita da un cluster. Gli indirizzi cambiano abbastanza spesso che non è possibile configurare le regole in base alla risoluzione dei nomi corrente e usarle per configurare le regole NSG.
 
-La soluzione per la protezione degli indirizzi in uscita consiste nell'usare un dispositivo firewall in grado di controllare il traffico in uscita in base ai nomi di dominio. Il firewall di Azure può limitare il traffico HTTP e HTTPS in uscita in base al nome di dominio completo dei tag di destinazione o [FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags).
+La soluzione per la protezione degli indirizzi in uscita consiste nell'usare un dispositivo firewall in grado di controllare il traffico in uscita in base ai nomi di dominio. Il firewall di Azure può limitare il traffico HTTP e HTTPS in uscita in base al nome di dominio completo dei tag di destinazione o [FQDN](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configurazione del firewall di Azure con HDInsight
 
 Un riepilogo dei passaggi per bloccare l'uscita dal HDInsight esistente con il firewall di Azure è:
 
+1. Creare una subnet.
 1. Creazione di un firewall.
 1. Aggiungere regole dell'applicazione al firewall
 1. Aggiungere regole di rete al firewall.
@@ -61,27 +62,27 @@ Creare una raccolta di regole dell'applicazione che consenta al cluster di invia
 
     | Proprietà|  Valore|
     |---|---|
-    |Nome| FwAppRule|
+    |Name| FwAppRule|
     |Priorità|200|
-    |Azione|Allow|
+    |Azione|Consenti|
 
     **Sezione Tag FQDN**
 
-    | Nome | Indirizzo di origine | Tag FQDN | Note |
+    | Name | Indirizzo di origine | Tag FQDN | Note |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate e HDInsight | Obbligatorio per i servizi HDI |
 
     **Sezione FQDN di destinazione**
 
-    | Nome | Indirizzi di origine | Protocollo: porta | FQDN di destinazione | Note |
+    | Name | Indirizzi di origine | Protocollo: porta | FQDN di destinazione | Note |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Consente l'attività di accesso di Windows |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Consente l'attività di accesso di Windows |
-    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. NET | Sostituire `storage_account_name` con il nome dell'account di archiviazione effettivo. Se il cluster è supportato da WASB, aggiungere una regola per WASB. Per usare solo le connessioni HTTPS, verificare che l'account di archiviazione sia abilitato per il [trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) . |
+    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. NET | Sostituire `storage_account_name` con il nome dell'account di archiviazione effettivo. Se il cluster è supportato da WASB, aggiungere una regola per WASB. Per usare solo le connessioni HTTPS, verificare che l'account di archiviazione sia abilitato per il [trasferimento sicuro obbligatorio](../storage/common/storage-require-secure-transfer.md) . |
 
    ![Titolo: immettere i dettagli della raccolta regole dell'applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. Selezionare **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurare il firewall con le regole di rete
 
@@ -95,28 +96,28 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
 
     | Proprietà|  Valore|
     |---|---|
-    |Nome| FwNetRule|
+    |Name| FwNetRule|
     |Priorità|200|
-    |Azione|Allow|
+    |Azione|Consenti|
 
     **Sezione indirizzi IP**
 
-    | Nome | Protocollo | Indirizzi di origine | Indirizzi di destinazione | Porte di destinazione | Note |
+    | Name | Protocollo | Indirizzi di origine | Indirizzi di destinazione | Porte di destinazione | Note |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | Servizio Ora |
-    | Rule_2 | Qualsiasi | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se si usa Enterprise Security Package (ESP), aggiungere una regola di rete nella sezione indirizzi IP che consenta la comunicazione con AAD-DS per i cluster ESP. È possibile trovare gli indirizzi IP dei controller di dominio nella sezione AAD-DS nel portale |
+    | Rule_1 | UDP | * | * | 123 | Servizio ora |
+    | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se si usa Enterprise Security Package (ESP), aggiungere una regola di rete nella sezione indirizzi IP che consenta la comunicazione con AAD-DS per i cluster ESP. È possibile trovare gli indirizzi IP dei controller di dominio nella sezione AAD-DS nel portale |
     | Rule_3 | TCP | * | Indirizzo IP dell'account di Data Lake Storage | * | Se si usa Azure Data Lake Storage, è possibile aggiungere una regola di rete nella sezione indirizzi IP per risolvere un problema di SNI con ADLS Gen1 e Gen2. Questa opzione consente di instradare il traffico al firewall, il che potrebbe comportare costi più elevati per carichi di dati di grandi dimensioni, ma il traffico verrà registrato e controllabile nei log del firewall. Determinare l'indirizzo IP per l'account Data Lake Storage. È possibile usare un comando di PowerShell, ad esempio `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` per risolvere l'FQDN in un indirizzo IP.|
     | Rule_4 | TCP | * | * | 12000 | Opzionale Se si usa Log Analytics, creare una regola di rete nella sezione indirizzi IP per abilitare la comunicazione con l'area di lavoro di Log Analytics. |
 
     **Sezione Tag servizio**
 
-    | Nome | Protocollo | Indirizzi di origine | Tag di servizio | Porte di destinazione | Note |
+    | Name | Protocollo | Indirizzi di origine | Tag del servizio | Porte di destinazione | Note |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configurare una regola di rete nella sezione Tag del servizio per SQL che consentirà di registrare e controllare il traffico SQL, a meno che non siano stati configurati endpoint di servizio per SQL Server nella subnet HDInsight, che ignorerà il firewall. |
 
    ![Titolo: immettere la raccolta regole dell'applicazione](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. Selezionare **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
 ### <a name="create-and-configure-a-route-table"></a>Creare e configurare una tabella di route
 
@@ -154,7 +155,7 @@ Completare la configurazione della tabella di route:
 
 1. Nella schermata **associa subnet** selezionare la rete virtuale in cui è stato creato il cluster e la **Subnet** usata per il cluster HDInsight.
 
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Traffico di applicazioni di nodi perimetrali o personalizzate
 
@@ -182,7 +183,7 @@ Per informazioni sui limiti di scalabilità del firewall di Azure e sugli aument
 
 ## <a name="access-to-the-cluster"></a>Accesso al cluster
 
-Dopo aver configurato correttamente il firewall, è possibile usare l'endpoint interno (`https://CLUSTERNAME-int.azurehdinsight.net`) per accedere a Ambari dall'interno di VNET.
+Dopo aver configurato correttamente il firewall, è possibile usare l'endpoint interno (`https://CLUSTERNAME-int.azurehdinsight.net`) per accedere a Ambari dall'interno della rete virtuale.
 
 Per usare l'endpoint pubblico (`https://CLUSTERNAME.azurehdinsight.net`) o l'endpoint SSH (`CLUSTERNAME-ssh.azurehdinsight.net`), assicurarsi di avere le route corrette nella tabella di route e le regole NSG per evitare il problema di routing asimmetrico illustrato [qui](../firewall/integrate-lb.md). In particolare, in questo caso, è necessario consentire l'indirizzo IP del client nelle regole del NSG in ingresso e aggiungerlo anche alla tabella di route definita dall'utente con il set di hop successivo come `internet`. Se questa opzione non è configurata correttamente, verrà visualizzato un errore di timeout.
 

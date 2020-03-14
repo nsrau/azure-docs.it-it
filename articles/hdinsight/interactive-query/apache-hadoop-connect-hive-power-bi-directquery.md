@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: ea63b0784c0f8680e544179dfcd927f59336b3ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: adcd4d9e81eecad9540a4ef1be5e675f940ffb8d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467144"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367993"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualizzare i dati di Apache Hive Interactive query con Microsoft Power BI tramite query diretta in HDInsight
 
@@ -26,7 +26,7 @@ Questo articolo descrive come connettere Microsoft Power BI ai cluster Interacti
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo sono necessari gli elementi seguenti:
 
-* **Cluster HDInsight**. Il cluster può essere un cluster HDInsight con Apache Hive o un cluster Interactive Query, rilasciato di recente. Per la creazione dei cluster, vedere [Creare cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* **Cluster HDInsight**. Il cluster può essere un cluster HDInsight con Apache Hive o un cluster Interactive Query, rilasciato di recente. Per la creazione dei cluster, vedere [Creare cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . È possibile scaricarne una copia dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>Caricare i dati da HDInsight

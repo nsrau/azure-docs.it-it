@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: bf4c7e9fc623ad7dc74b6da943232d5c558d43a4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 86128953130fdb34c660f6e40ec24565ff93edb4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920264"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299227"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -23,7 +23,7 @@ L'estensione script personalizzata scarica ed esegue script sulle macchine virtu
 
 Questo documento descrive come usare l'estensione di script personalizzata con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 > [!NOTE]  
 > Non usare l'estensione script personalizzata per eseguire Update-AzVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
@@ -42,7 +42,7 @@ Se è necessario scaricare uno script esternamente, ad esempio da GitHub o da ar
 
 Se lo script si trova in un server locale, potrebbe essere necessario aprire altre porte del gruppo di sicurezza di rete e del firewall.
 
-### <a name="tips-and-tricks"></a>Suggerimenti e consigli
+### <a name="tips-and-tricks"></a>Suggerimenti
 
 * Il tasso di errore più elevato per questa estensione è dovuto a errori di sintassi nello script, testare l'esecuzione dello script senza errori e anche inserire altre attività di accesso nello script per semplificare la ricerca della posizione in cui si è verificato l'errore.
 * Scrivere script idempotente. In questo modo si garantisce che, in caso di esecuzione accidentale, non provocherà modifiche al sistema.
@@ -110,12 +110,12 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati |
+| Name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | Data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
-| typeHandlerVersion | 1,10 | INT |
+| typeHandlerVersion | 1,10 | int |
 | fileUris (es.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp  (esempio) | 123456789 | Intero a 32 bit |
 | commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
@@ -149,7 +149,7 @@ Le impostazioni pubbliche vengono inviate in testo non crittografato alla macchi
 
 CustomScript (versione 1,10 in poi) supporta l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB o contenitori privati di archiviazione di Azure senza che l'utente debba passare segreti come i token SAS o le chiavi dell'account di archiviazione.
 
-Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) alla macchina virtuale o vmss in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o al BLOB di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) alla macchina virtuale o vmss in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o al BLOB di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
 Per usare l'identità assegnata dal sistema nella macchina virtuale di destinazione/VMSS, impostare il campo "managedidentity" su un oggetto JSON vuoto. 
 
@@ -306,7 +306,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente:
 
@@ -330,7 +330,7 @@ dove `<n>` è un numero intero decimale che può variare nelle diverse esecuzion
 
 Quando si esegue il comando `commandToExecute`, nell'estensione viene impostata questa directory (ad esempio `...\Downloads\2`) come directory di lavoro attuale. In questo modo viene abilitato l'uso di percorsi relativi per individuare i file scaricati tramite la proprietà `fileURIs`. Nella tabella seguente sono riportati alcuni esempi.
 
-Poiché il percorso di download assoluto può variare nel tempo, quando è possibile è preferibile optare per percorsi relativi di script/file nella stringa `commandToExecute`. Ad esempio:
+Poiché il percorso di download assoluto può variare nel tempo, quando è possibile è preferibile optare per percorsi relativi di script/file nella stringa `commandToExecute`. Ad esempio,
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

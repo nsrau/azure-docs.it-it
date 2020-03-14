@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c00ab8a5e0d307d89ae483db55bdb0b1258ae6a4
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 72aefb8de57e27718b14dba6a6d82deb8b63466f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246416"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367279"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Modifica di runbook testuali in Automazione di Azure
 
@@ -59,7 +59,7 @@ Usare la procedura seguente per aprire un runbook per la modifica nell'editor di
 
 ### <a name="insert-an-asset-into-a-runbook"></a>Inserire un asset in un Runbook
 
-1. Nel canvas dell'editor di testo posizionare il cursore nel punto in cui si desidera inserire il codice per il runbook figlio.
+1. Nel controllo Canvas dell'editor di testo posizionare il cursore nel punto in cui si desidera inserire il codice per il Runbook figlio.
 2. Espandere il nodo **Asset** nel controllo della libreria.
 3. Espandere il nodo per il tipo di asset desiderato.
 4. Fare clic con il pulsante destro del mouse sul nome dell'asset da inserire e selezionare **Aggiungi a Canvas**. Per [Asset variabili](automation-variables.md)selezionare **Aggiungi "Ottieni variabile" all'area di disegno** o **Aggiungi "Imposta variabile" su Canvas**, a seconda che si desideri ottenere o impostare la variabile.
@@ -67,7 +67,7 @@ Usare la procedura seguente per aprire un runbook per la modifica nell'editor di
 
 ## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Modifica di un Runbook di automazione di Azure con Windows PowerShell
 
-Per modificare un runbook con Windows PowerShell, usare l'editor preferito e salvare il Runbook in un file con estensione ps1. È possibile usare il cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) per recuperare il contenuto di Runbook. È possibile usare il cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) per sostituire il Runbook bozza esistente con quello modificato.
+Per modificare un runbook con Windows PowerShell, usare l'editor preferito e salvare il Runbook in un file con estensione **ps1** . È possibile usare il cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) per recuperare il contenuto di Runbook. È possibile usare il cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) per sostituire il Runbook bozza esistente con quello modificato.
 
 ### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Recuperare il contenuto di un runbook con Windows PowerShell
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/08/2019
+ms.date: 3/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300069"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136518"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: fornire attestazioni facoltative all'app Azure AD
 
@@ -85,10 +85,10 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v 1.0, ma non sono
 | `pwd_exp`     | Ora di scadenza della password        | Data e ora in cui scade la password. |       |
 | `pwd_url`     | URL per la modifica della password             | URL che l'utente può visitare per cambiare la password.   |   |
 | `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non viene inclusa.   |  In base alle impostazioni degli [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) nell'autenticazione a più fattori.    |
-| `nickname`    | Nome alternativo                        | Nome aggiuntivo per l'utente. Il nome alternativo è separato dal primo o dal cognome. | 
-| `family_name` | Cognome                       | Fornisce il cognome, il cognome o il nome della famiglia dell'utente come definito nell'oggetto utente. <br>"family_name":"Miller" | Supportato in MSA e Azure AD   |
-| `given_name`  | Nome                      | Fornisce il primo o il nome "specificato" dell'utente, come impostato nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato in MSA e Azure AD  |
-| `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non si tratta di un identificatore permanente per l'utente, pertanto non deve essere usato per inserire dati. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. |
+| `nickname`    | Nome alternativo                        | Nome aggiuntivo per l'utente. Il nome alternativo è separato dal primo o dal cognome. Richiede l'ambito `profile`.| 
+| `family_name` | Cognome                       | Fornisce il cognome, il cognome o il nome della famiglia dell'utente come definito nell'oggetto utente. <br>"family_name":"Miller" | Supportato in MSA e Azure AD. Richiede l'ambito `profile`.   |
+| `given_name`  | Nome                      | Fornisce il primo o il nome "specificato" dell'utente, come impostato nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato in MSA e Azure AD.  Richiede l'ambito `profile`. |
+| `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non si tratta di un identificatore permanente per l'utente, pertanto non deve essere usato per inserire dati. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Proprietà aggiuntive delle attestazioni facoltative
 
@@ -117,12 +117,13 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
         }
     ```
 
-Questo oggetto OptionalClaims fa in modo che il token ID restituito al client includa un altro UPN con il tenant home aggiuntivo e informazioni sul tenant risorse. L'attestazione `upn` viene modificata nel token solo se l'utente è un Guest nel tenant (che usa un IDP diverso per l'autenticazione). 
+Questo oggetto OptionalClaims fa sì che il token ID restituito al client includa un'attestazione UPN con le informazioni aggiuntive sul tenant della risorsa e sul tenant Home. L'attestazione `upn` viene modificata nel token solo se l'utente è un Guest nel tenant (che usa un IDP diverso per l'autenticazione). 
 
 ## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 
 > [!IMPORTANT]
 > I token di accesso vengono **sempre** generati usando il manifesto della risorsa, non il client.  Quindi, nella richiesta `...scope=https://graph.microsoft.com/user.read...` la risorsa è l'API Microsoft Graph.  Il token di accesso viene quindi creato usando il manifesto dell'API Microsoft Graph, non il manifesto del client.  Se si modifica il manifesto per l'applicazione, i token per l'API Microsoft Graph non verranno mai diversi.  Per verificare che le modifiche apportate `accessToken` siano attive, richiedere un token per l'applicazione, non un'altra app.  
+
 
 È possibile configurare attestazioni facoltative per l'applicazione tramite l'interfaccia utente o il manifesto dell'applicazione.
 
@@ -207,7 +208,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 | `additionalProperties` | Raccolta (Edm.String) | Proprietà aggiuntive dell'attestazione. Se esiste una proprietà in questa raccolta, modificherà il comportamento dell'attestazione facoltativa specificata nella proprietà name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurazione delle attestazioni facoltative dell'estensione di directory
 
-Oltre al set di attestazioni facoltative standard, è anche possibile configurare i token per includere le estensioni. Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. Per un esempio, vedere la parte inferiore di questa pagina.
+Oltre al set di attestazioni facoltative standard, è anche possibile configurare i token per includere le estensioni. Per altre informazioni, vedere [la documentazione di Microsoft Graph extensionProperty](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) . si noti che lo schema e le estensioni Open non sono supportate dalle attestazioni facoltative, ma solo dalle estensioni di directory di tipo grafo di AAD. Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. Per un esempio, vedere la parte inferiore di questa pagina.
 
 > [!NOTE]
 > - Le estensioni dello schema di directory sono una funzionalità di solo Azure AD, quindi se il manifesto dell'applicazione richiede un'estensione personalizzata e un utente MSA accede all'app, queste estensioni non verranno restituite.
@@ -269,7 +270,7 @@ In questa sezione vengono illustrate le opzioni di configurazione in attestazion
    Se si vuole raggruppare nel token gli attributi di gruppo AD locali nella sezione attestazioni facoltative, specificare a quale tipo di token deve essere applicata l'attestazione facoltativa, il nome dell'attestazione facoltativa richiesta ed eventuali proprietà aggiuntive desiderate.  È possibile elencare più tipi di token:
 
    - idToken per il token ID OIDC
-   - accessToken per il token di accesso OAuth/OIDC
+   - accessToken per il token di accesso OAuth
    - Saml2Token per i token SAML.
 
    > [!NOTE]

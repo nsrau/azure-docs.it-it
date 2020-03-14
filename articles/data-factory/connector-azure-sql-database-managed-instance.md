@@ -10,13 +10,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/09/2019
-ms.openlocfilehash: e25b860417333d458bdde870d20968fce7dda715
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: cfa53d480120ec75623a6a372b258b63e6264f92
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892893"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136044"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiare dati da e verso l'Istanza gestita di database SQL di Azure con Azure Data Factory
 
@@ -41,16 +41,13 @@ In particolare il connettore dell'Istanza gestita di database SQL di Azure suppo
 >[!NOTE]
 >Istanza gestita di database SQL di Azure [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) non è attualmente supportata da questo connettore. Per aggirare il contenuto, è possibile usare un [connettore ODBC generico](connector-odbc.md) e un driver ODBC SQL Server tramite un runtime di integrazione self-hosted. Attenersi a [queste linee guida per il](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) download del driver ODBC e le configurazioni della stringa di connessione.
 
->[!NOTE]
->L'entità servizio e le autenticazioni di identità gestite attualmente non sono supportate da questo connettore. Per risolvere il errore, scegliere un connettore del database SQL di Azure e specificare manualmente il server dell'istanza gestita.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per accedere all' [endpoint pubblico](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)di istanza gestita di database SQL di Azure, è possibile usare una Azure Data Factory runtime di integrazione di Azure gestito. Assicurarsi di abilitare l'endpoint pubblico e consentire anche il traffico dell'endpoint pubblico nel gruppo di sicurezza di rete in modo che Azure Data Factory possa connettersi al database. Per ulteriori informazioni, vedere le [linee guida](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
 Per accedere all'endpoint privato Istanza gestita di database SQL di Azure, configurare un [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) in grado di accedere al database. Se si esegue il provisioning del runtime di integrazione self-hosted nella stessa rete virtuale dell'istanza gestita, verificare che il computer del runtime di integrazione si trovi in una subnet diversa da quella dell'istanza gestita. Se si effettua il provisioning del runtime di integrazione self-hosted in una rete virtuale diversa da quella dell'istanza gestita, è possibile usare un peering di rete virtuale o una rete virtuale per la connessione di rete virtuale. Per altre informazioni, vedere [Connettere un'applicazione a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-connect-app.md).
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -60,7 +57,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type deve essere impostata su **AzureSqlMI**. | Sì |
 | connectionString |Questa proprietà specifica le informazioni di **ConnectionString** necessarie per connettersi all'istanza gestita usando l'autenticazione SQL. Per altre informazioni, vedere gli esempi seguenti. <br/>La porta predefinita è 1433. Se si usa Istanza gestita di database SQL di Azure con un endpoint pubblico, specificare in modo esplicito la porta 3342.<br> È anche possibile inserire una password in Azure Key Vault. Se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Per ulteriori informazioni, vedere l'esempio JSON che segue la tabella e [archivia le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
@@ -133,13 +130,13 @@ Per usare l'autenticazione token dell'applicazione di Azure AD basata sull'entit
     - Chiave applicazione
     - ID tenant
 
-3. [Creare gli account di accesso](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) per l'identità gestita Azure Data Factory. In SQL Server Management Studio (SSMS) connettersi alla Istanza gestita utilizzando un account SQL Server che è un **amministratore**di sistema. Nel database **Master** eseguire il comando T-SQL seguente:
+3. [Creare gli account di accesso](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) per l'identità gestita Azure Data Factory. In SQL Server Management Studio (SSMS) connettersi all'istanza gestita con un account SQL Server di tipo **sysadmin**. Eseguire il codice T-SQL seguente nel database **master**:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-4. [Creare utenti di database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) per l'identità gestita del Azure Data Factory. Connettersi al database da o in cui si desidera copiare i dati, eseguire il comando T-SQL seguente: 
+4. [Creare utenti di database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) per l'identità gestita del Azure Data Factory. Connettersi al database da cui o in cui si vuole copiare i dati ed eseguire il codice T-SQL seguente: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
@@ -185,13 +182,13 @@ Per utilizzare l'autenticazione di identità gestita, attenersi alla seguente pr
 
 1. Seguire i passaggi per eseguire il [provisioning di un amministratore Azure Active Directory per il istanza gestita](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
-2. [Creare gli account di accesso](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) per l'identità gestita Azure Data Factory. In SQL Server Management Studio (SSMS) connettersi alla Istanza gestita utilizzando un account SQL Server che è un **amministratore**di sistema. Nel database **Master** eseguire il comando T-SQL seguente:
+2. [Creare gli account di accesso](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) per l'identità gestita Azure Data Factory. In SQL Server Management Studio (SSMS) connettersi all'istanza gestita con un account SQL Server di tipo **sysadmin**. Eseguire il codice T-SQL seguente nel database **master**:
 
     ```sql
     CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-3. [Creare utenti di database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) per l'identità gestita del Azure Data Factory. Connettersi al database da o in cui si desidera copiare i dati, eseguire il comando T-SQL seguente: 
+3. [Creare utenti di database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) per l'identità gestita del Azure Data Factory. Connettersi al database da cui o in cui si vuole copiare i dati ed eseguire il codice T-SQL seguente: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
@@ -229,7 +226,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per definire
 
 Per copiare dati da e verso Istanza gestita di database SQL di Azure, sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type del set di dati deve essere impostata su **AzureSqlMITable**. | Sì |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
@@ -265,12 +262,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per definire
 
 Per copiare dati da Istanza gestita di database SQL di Azure, nella sezione origine dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **SqlMISource**. | Sì |
 | sqlReaderQuery |Questa proprietà usa la query SQL personalizzata per leggere i dati. Un esempio è `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Questa proprietà definisce il nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
 | storedProcedureParameters |Questi parametri sono relativi alla stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e l'uso di maiuscole e minuscole dei parametri devono corrispondere a quelli dei parametri della stored procedure. |No |
+| isolationLevel | Specifica il comportamento di blocco delle transazioni per l'origine SQL. I valori consentiti sono: **ReadCommitted** (impostazione predefinita), **READUNCOMMITTED**, **RepeatableRead**, **Serializable**, **snapshot**. Per ulteriori informazioni, fare riferimento a [questo documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | No |
 
 **Tenere presente quanto segue:**
 
@@ -371,7 +369,7 @@ GO
 
 Per copiare dati in Istanza gestita di database SQL di Azure, nella sezione sink dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type del sink dell'attività di copia deve essere impostata su **SqlMISink**. | Sì |
 | writeBatchSize |Numero di righe da inserire nella tabella SQL *per batch*.<br/>I valori consentiti sono integer per il numero di righe. Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga.  |No |
@@ -575,12 +573,12 @@ Quando si copiano dati da o verso l'Istanza gestita di database SQL di Azure, ve
 | Tipi di dati dell'Istanza gestita di database SQL di Azure | Tipo di dati provvisorio di Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
-| BINARY |Byte[] |
+| binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| Data |Data e ora |
-| Datetime |Data e ora |
-| datetime2 |Data e ora |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -588,24 +586,24 @@ Quando si copiano dati da o verso l'Istanza gestita di database SQL di Azure, ve
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
-| NCHAR |String, Char[] |
+| nchar |String, Char[] |
 | ntext |String, Char[] |
-| NUMERIC |Decimal |
-| NVARCHAR |String, Char[] |
-| real |Singolo |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Data e ora |
+| smalldatetime |Datetime |
 | SMALLINT |Int16 |
-| SMALLMONEY |Decimal |
+| smallmoney |Decimal |
 | sql_variant |Oggetto |
-| text |String, Char[] |
+| testo |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | TINYINT |Int16 |
-| UNIQUEIDENTIFIER |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Xml |
+| xml |Xml |
 
 >[!NOTE]
 > Per i tipi di dati associati al tipo provvisorio Decimal, Azure Data Factory supporta attualmente la precisione fino a 28. Se si hanno dati che richiedono una precisione maggiore di 28, è consigliabile convertirli in una stringa in una query SQL.

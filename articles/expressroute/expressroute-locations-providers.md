@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: aa0deaf00a5121d50a2621d146ac83f97ee45df4
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 9da6125111a817a5546bfca047d19e64f3da5cd5
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081710"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298887"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -81,7 +81,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Amsterdam2** | [AMS8 Interxion](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa occidentale | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, Interxion, Orange, Vodafone |
 | **Atlanta** | [AT2 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | n/d | n/d | Equinix, Megaport |
 | **Auckland** | [Gruppo Vocus NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/d | 10G | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
-| **Bangkok** | [AIS](http://business.ais.co.th/solution/microsoft-azure.html?category=cloud) | 2 | n/d | 10G | AIS |
+| **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | n/d | 10G | AIS |
 | **Busan** | [LG CNS](https://www.lgcns.com/datacenter) | 2 | Corea meridionale | n/d | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale | 10G, 100G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale 2| 10G, 100G | CDC |
@@ -171,7 +171,7 @@ I cloud nazionali di Azure sono isolati tra loro e da Azure commerciale globale.
 
 Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn/home/features/expressroute/)
 
-### <a name="germany"></a>Germania
+### <a name="germany"></a>Germany
 | **Posizione** | **Provider di servizi** |
 | --- | --- |
 | **Berlino** |e-shelter, Megaport+, T-Systems |

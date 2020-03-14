@@ -1,18 +1,18 @@
 ---
 title: Creare un cluster Azure Red Hat OpenShift 4,3 | Microsoft Docs
-description: Creare un cluster con Azure Red Hat OpenShift 3,11
+description: Creare un cluster con Azure Red Hat OpenShift 4,3
 author: lamek
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
-ms.openlocfilehash: 3c336a1fbfb9f991ff824e8deafe84f3d899771d
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 23d7c950396c36925ce50d746195916292d360ad
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082830"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79201043"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Creare, accedere e gestire un cluster Azure Red Hat OpenShift 4,3
 
@@ -22,7 +22,7 @@ ms.locfileid: "79082830"
 > [!NOTE]
 > Le funzionalità di anteprima sono self-service e vengono fornite così come sono e sono disponibili e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Pertanto, le funzionalità non sono destinate all'uso in produzione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare un cluster Azure Red Hat OpenShift 4,3, è necessario quanto segue:
 
@@ -56,7 +56,7 @@ L'estensione `az aro` consente di creare, accedere ed eliminare i cluster OpenSh
 2. Eseguire il comando seguente per installare l'estensione `az aro`:
 
    ```console
-   az extension add --source https://arosvc.blob.core.windows.net/az-preview/aro-0.1.0-py2.py3-none-any.whl
+   az extension add -n aro --index https://az.aroapp.io/preview
    ```
 
 3. Verificare che l'estensione ARO sia registrata.

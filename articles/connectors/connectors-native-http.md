@@ -1,30 +1,47 @@
 ---
-title: Chiama endpoint HTTP e HTTPS
-description: Inviare le richieste in uscita agli endpoint HTTP e HTTPS usando app per la logica di Azure
+title: Chiamare gli endpoint di servizio tramite HTTP o HTTPS
+description: Inviare richieste HTTP o HTTPS in uscita agli endpoint di servizio da app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117981"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297203"
 ---
-# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Inviare chiamate in uscita agli endpoint HTTP o HTTPS usando app per la logica di Azure
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chiamare gli endpoint di servizio su HTTP o HTTPS da app per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione o il trigger http incorporato è possibile creare attività e flussi di lavoro automatizzati che inviano regolarmente richieste a qualsiasi endpoint HTTP o HTTPS. Per ricevere e rispondere invece alle chiamate HTTP o HTTPS in ingresso, usare il [trigger di richiesta o l'azione di risposta](../connectors/connectors-native-reqres.md)predefinita.
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione o il trigger http incorporato è possibile creare attività e flussi di lavoro automatizzati che inviano richieste agli endpoint di servizio tramite http o HTTPS. Ad esempio, è possibile monitorare l'endpoint del servizio per il sito Web controllando l'endpoint in base a una pianificazione specifica. Quando l'evento specificato si verifica in corrispondenza di tale endpoint, ad esempio quando il sito Web si arresta, l'evento attiva il flusso di lavoro dell'app per la logica ed esegue le azioni nel flusso di lavoro. Se invece si desidera ricevere e rispondere alle chiamate HTTPS in ingresso, utilizzare il trigger di richiesta incorporato [o l'azione di risposta](../connectors/connectors-native-reqres.md).
 
-Ad esempio, è possibile monitorare l'endpoint del servizio per il sito Web controllando l'endpoint in base a una pianificazione specificata. Quando si verifica un evento specifico in corrispondenza di tale endpoint, ad esempio quando il sito Web si arresta, l'evento attiva il flusso di lavoro dell'app per la logica ed esegue le azioni specificate.
+> [!NOTE]
+> In base alla funzionalità dell'endpoint di destinazione, il connettore HTTP supporta le versioni di Transport Layer Security (TLS) 1,0, 1,1 e 1,2. App per la logica negozia con l'endpoint usando la versione più elevata supportata possibile. Se, ad esempio, l'endpoint supporta 1,2, il connettore utilizza prima 1,2. In caso contrario, il connettore usa la versione successiva più elevata supportata.
 
-Per controllare o eseguire il *polling* di un endpoint in base a una pianificazione regolare, è possibile usare il trigger http come primo passaggio del flusso di lavoro. In ogni controllo, il trigger invia una chiamata o una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa da qualsiasi contenuto, dalla risposta alle azioni, nell'app per la logica.
+Per verificare o eseguire il *polling* di un endpoint in base a una pianificazione ricorrente, [aggiungere il trigger http](#http-trigger) come primo passaggio del flusso di lavoro. Ogni volta che il trigger controlla l'endpoint, il trigger chiama o invia una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa il contenuto dalla risposta dell'endpoint alle azioni nell'app per la logica.
 
-È possibile usare l'azione HTTP come qualsiasi altro passaggio nel flusso di lavoro per chiamare l'endpoint quando si desidera. La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro.
+Per chiamare un endpoint da qualsiasi altra parte del flusso di lavoro, [aggiungere l'azione http](#http-action). La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro.
 
-In base alla funzionalità dell'endpoint di destinazione, il connettore HTTP supporta le versioni di Transport Layer Security (TLS) 1,0, 1,1 e 1,2. App per la logica negozia con l'endpoint usando la versione più elevata supportata possibile. Se, ad esempio, l'endpoint supporta 1,2, il connettore utilizza prima 1,2. In caso contrario, il connettore usa la versione successiva più elevata supportata.
+> [!IMPORTANT]
+> Se un trigger o un'azione HTTP include queste intestazioni, app per la logica rimuove le intestazioni dal messaggio di richiesta generato senza visualizzare alcun avviso o errore:
+>
+> * `Accept-*`
+> * `Allow`
+> * `Content-*` con le eccezioni seguenti: `Content-Disposition`, `Content-Encoding`e `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Sebbene le app per la logica non interrompano il salvataggio di app per la logica che usano un trigger o un'azione HTTP con queste intestazioni, le app per la logica ignorano queste intestazioni.
+
+Questo articolo illustra come aggiungere un trigger o un'azione HTTP al flusso di lavoro dell'app per la logica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,13 +53,15 @@ In base alla funzionalità dell'endpoint di destinazione, il connettore HTTP sup
 
 * App per la logica da cui si vuole chiamare l'endpoint di destinazione. Per iniziare con il trigger HTTP, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare l'azione HTTP, avviare l'app per la logica con tutti i trigger desiderati. Questo esempio usa il trigger HTTP come primo passaggio.
 
+<a name="http-trigger"></a>
+
 ## <a name="add-an-http-trigger"></a>Aggiungere un trigger HTTP
 
 Questo trigger incorporato esegue una chiamata HTTP all'URL specificato per un endpoint e restituisce una risposta.
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota in progettazione app per la logica.
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere "http" come filtro. Dall'elenco **trigger** selezionare il trigger **http** .
+1. Nella casella di ricerca della finestra di progettazione selezionare **predefinito**. Nella casella di ricerca immettere `http` come filtro. Dall'elenco **trigger** selezionare il trigger **http** .
 
    ![Selezionare HTTP Trigger](./media/connectors-native-http/select-http-trigger.png)
 
@@ -63,6 +82,8 @@ Questo trigger incorporato esegue una chiamata HTTP all'URL specificato per un e
 
 1. Al termine, ricordarsi di salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
+<a name="http-action"></a>
+
 ## <a name="add-an-http-action"></a>Aggiungere un'azione HTTP
 
 Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un endpoint e restituisce una risposta.
@@ -75,7 +96,7 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere "http" come filtro. Nell'elenco **azioni** selezionare l'azione **http** .
+1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `http` come filtro. Nell'elenco **azioni** selezionare l'azione **http** .
 
    ![Selezionare l'azione HTTP](./media/connectors-native-http/select-http-action.png)
 
@@ -154,8 +175,8 @@ Di seguito sono riportate altre informazioni sugli output di un trigger o un'azi
 | Nome proprietà | Type | Descrizione |
 |---------------|------|-------------|
 | intestazioni | object | Intestazioni della richiesta |
-| body | object | oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
-| status code | int | Codice di stato della richiesta |
+| Corpo | object | oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| Codice di stato | int | Codice di stato della richiesta |
 |||
 
 | Codice di stato | Descrizione |

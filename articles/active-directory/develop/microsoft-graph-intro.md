@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 65465c6897853617f7f33a989f97d01fb0518a5e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c1b4390282f6d54178365714b1e2e665b4cf061
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304420"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136501"
 ---
 # <a name="microsoft-graph-api"></a>API Microsoft Graph
 
@@ -57,4 +57,4 @@ Quando si completa la Guida introduttiva, è disponibile un'app pronta per esser
 
 Microsoft Graph Explorer è uno strumento basato sul Web che è possibile usare per compilare e testare le richieste con Microsoft Graph API. È possibile accedere a Microsoft Graph Explorer all'indirizzo: `https://developer.microsoft.com/graph/graph-explorer`.
 
-Postazione è uno strumento che è possibile usare anche per compilare e testare le richieste usando le API Microsoft Graph. È possibile scaricare il post all'indirizzo: `https://www.getpostman.com/`. Per interagire con Microsoft Graph in un impostore, è possibile usare la raccolta di Microsoft Graph in postazione. Per altre informazioni, vedere [usare il post con l'API Microsoft Graph](https://docs.microsoft.comgraph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+Postazione è uno strumento che è possibile usare anche per compilare e testare le richieste usando le API Microsoft Graph. È possibile scaricare il post all'indirizzo: `https://www.getpostman.com/`. Per interagire con Microsoft Graph in un impostore, è possibile usare la raccolta di Microsoft Graph in postazione. Per altre informazioni, vedere [usare il post con l'API Microsoft Graph](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

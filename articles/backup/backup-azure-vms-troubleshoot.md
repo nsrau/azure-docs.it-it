@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: c087814d74032bfc39310690cb31e258fdb1e41e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247930"
+ms.locfileid: "79297391"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -24,7 +24,7 @@ Questa sezione descrive l'errore dell'operazione di backup della macchina virtua
 * Verificare che l'agente di macchine virtuali (WA Agent) sia la [versione più recente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Verificare che la versione del sistema operativo della VM Windows o Linux sia supportata. vedere la matrice di supporto per il [backup delle VM IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Verificare che un altro servizio di backup non sia in esecuzione.
-  * Per assicurarsi che non ci siano problemi di estensione dello snapshot, [disinstallare le estensioni per forzare il ricaricamento e quindi ripetere il backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+  * Per assicurarsi che non ci siano problemi di estensione dello snapshot, [disinstallare le estensioni per forzare il ricaricamento e quindi ripetere il backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
 * Verificare che la macchina virtuale abbia la connettività Internet.
   * Verificare che un altro servizio di backup non sia in esecuzione.
 * Da `Services.msc`verificare che il servizio **agente guest di Microsoft Azure** sia **in esecuzione**. Se il servizio **agente guest di Azure** non è presente, installarlo dal [backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
@@ -76,7 +76,7 @@ Messaggio di errore: installazione dell'estensione/operazione non riuscita a cau
 Codice di errore: ExtensionInstallationFailedMDTC <br/>
 Messaggio di errore: l'installazione dell'estensione non è riuscita con l'errore "COM+ non è riuscito a comunicare con Microsoft Distributed Transaction Coordinator <br/>
 
-L'operazione di backup non è riuscita a causa di un problema con l'applicazione di **sistema com+** del servizio Windows.  Per risolvere il problema, seguire questa procedura:
+L'operazione di backup non è riuscita a causa di un problema con l'applicazione di **sistema com+** del servizio Windows.  Per risolvere questo problema, effettuare le operazioni seguenti:
 
 * Provare a avviare/riavviare l' **applicazione di sistema com+** del servizio Windows (da un prompt dei comandi con privilegi elevati **-net start COMSysApp**).
 * Verificare che **Distributed Transaction Coordinator** servizio sia in esecuzione come account del **servizio di rete** . In caso contrario, modificarlo in modo che venga eseguito come account del **servizio di rete** e riavviare l' **applicazione di sistema com+** .
@@ -134,7 +134,7 @@ Se nella directory **MachineKeys** vengono visualizzate autorizzazioni diverse d
 Codice di errore: ExtensionStuckInDeletionState <br/>
 Messaggio di errore: lo stato dell'estensione non è supportato per l'operazione di backup
 
-Operazione di backup non riuscita a causa di uno stato incoerente dell'estensione di backup. Per risolvere il problema, seguire questa procedura:
+Operazione di backup non riuscita a causa di uno stato incoerente dell'estensione di backup. Per risolvere questo problema, effettuare le operazioni seguenti:
 
 * Verificare che l'agente Guest sia installato e reattivo
 * Dal portale di Azure passare a **macchina virtuale** > **tutte le impostazioni** > **estensioni**
@@ -195,25 +195,25 @@ Questo garantirà che gli snapshot vengano creati tramite host invece che guest.
 
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |
-| L'annullamento non è supportato per questo tipo di processo. <br>Attendere il completamento del processo. |nessuno |
+| L'annullamento non è supportato per questo tipo di processo. <br>Attendere il completamento del processo. |None |
 | Il processo non si trova in uno stato annullabile. <br>Attendere il completamento del processo. <br>**or**<br> Il processo selezionato non si trova in uno stato annullabile. <br>Attendere il completamento del processo. |È probabile che il processo sia quasi terminato. Attendere fino al termine dell'esecuzione del processo.|
 | Non è possibile annullare il processo perché non è in corso. <br>L'annullamento è supportato solo per i processi in corso. Provare ad annullare un processo in corso. |Questo errore si verifica a causa di uno stato temporaneo. Attendere un minuto e ripetere l'operazione di annullamento. |
-| Non è stato possibile annullare il processo. <br>Attendere il completamento del processo. |nessuno |
+| Non è stato possibile annullare il processo. <br>Attendere il completamento del processo. |None |
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristina
 
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |
 | Ripristino non riuscito con errore interno del cloud. |<ol><li>Il servizio cloud in cui si sta tentando di eseguire il ripristino è configurato con le impostazioni DNS. Verificare: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Se è presente un **indirizzo** configurato, significa che le impostazioni DNS sono configurate.<br> <li>Il servizio cloud che si sta tentando di ripristinare è configurato con **ReservedIP** e le macchine virtuali esistenti nel servizio cloud sono in stato di arresto. È possibile controllare che il servizio cloud abbia un IP riservato usando i cmdlet di PowerShell seguenti: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>Si sta tentando di ripristinare una macchina virtuale con le configurazioni di rete speciali seguenti nello stesso servizio cloud: <ul><li>Macchine virtuali con configurazione del servizio di bilanciamento del carico, interno ed esterno.<li>Macchine virtuali con più indirizzi IP riservati. <li>Macchine virtuali con più schede di rete. </ul><li>Selezionare un nuovo servizio cloud nell'interfaccia utente o vedere le [considerazioni sul ripristino](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) per le macchine virtuali con configurazioni di rete speciali.</ol> |
 | Il nome DNS selezionato è già utilizzato. <br>Specificare un nome DNS diverso e riprovare. |Il nome DNS fa riferimento al nome del servizio cloud, che in genere termina con **.cloudapp.net**. Questo nome deve essere univoco. Se si verifica questo errore, è necessario scegliere un altro nome di macchina virtuale durante il ripristino. <br><br> Questo errore viene visualizzato solo dagli utenti del portale di Azure. L'operazione di ripristino tramite PowerShell riesce perché ripristina solo i dischi e non crea la macchina virtuale. L'errore viene restituito quando la macchina virtuale viene creata in modo esplicito dall'utente dopo l'operazione di ripristino dei dischi. |
-| La configurazione della rete virtuale specificata non è corretta. <br>Specificare una configurazione della rete virtuale diversa e riprovare. |nessuno |
-| Il servizio cloud specificato usa un IP riservato che non corrisponde alla configurazione della macchina virtuale da ripristinare. <br>Specificare un servizio cloud diverso che non usa un IP riservato o scegliere un altro punto di ripristino da cui eseguire il ripristino. |nessuno |
-| Il servizio cloud ha raggiunto il limite per il numero di endpoint di input. <br>Ripetere l'operazione specificando un servizio cloud diverso o usando un endpoint esistente. |nessuno |
-| L'insieme di credenziali di Servizi di ripristino e l'account di archiviazione di destinazione si trovano in due aree diverse. <br>Verificare che l'account di archiviazione specificato nell'operazione di ripristino si trovi nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino. |nessuno |
-| L'account di archiviazione specificato per l'operazione di ripristino non è supportato. <br>Sono supportati solo account di archiviazione Basic/Standard con impostazioni di replica con ridondanza locale o con ridondanza geografica. Selezionare un account di archiviazione supportato. |nessuno |
+| La configurazione della rete virtuale specificata non è corretta. <br>Specificare una configurazione della rete virtuale diversa e riprovare. |None |
+| Il servizio cloud specificato usa un IP riservato che non corrisponde alla configurazione della macchina virtuale da ripristinare. <br>Specificare un servizio cloud diverso che non usa un IP riservato o scegliere un altro punto di ripristino da cui eseguire il ripristino. |None |
+| Il servizio cloud ha raggiunto il limite per il numero di endpoint di input. <br>Ripetere l'operazione specificando un servizio cloud diverso o usando un endpoint esistente. |None |
+| L'insieme di credenziali di Servizi di ripristino e l'account di archiviazione di destinazione si trovano in due aree diverse. <br>Verificare che l'account di archiviazione specificato nell'operazione di ripristino si trovi nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino. |None |
+| L'account di archiviazione specificato per l'operazione di ripristino non è supportato. <br>Sono supportati solo account di archiviazione Basic/Standard con impostazioni di replica con ridondanza locale o con ridondanza geografica. Selezionare un account di archiviazione supportato. |None |
 | Il tipo di account di archiviazione specificato per l'operazione di ripristino non è online. <br>Assicurarsi che l'account di archiviazione specificato nell'operazione di ripristino sia online. |Questo problema può essere provocato da un errore temporaneo in Archiviazione di Azure o da un'interruzione del servizio. Scegliere un altro account di archiviazione. |
-| È stata raggiunta la quota di gruppi di risorse. <br>Eliminare alcuni gruppi di risorse dal portale di Azure o contattare il supporto tecnico di Azure per aumentare i limiti. |nessuno |
-| La subnet selezionata non esiste. <br>Selezionare una subnet esistente. |nessuno |
+| È stata raggiunta la quota di gruppi di risorse. <br>Eliminare alcuni gruppi di risorse dal portale di Azure o contattare il supporto tecnico di Azure per aumentare i limiti. |None |
+| La subnet selezionata non esiste. <br>Selezionare una subnet esistente. |None |
 | Il servizio Backup non ha l'autorizzazione per accedere alle risorse nella sottoscrizione. |Per risolvere questo errore, ripristinare prima di tutto i dischi seguendo la procedura illustrata in [Ripristinare i dischi di cui è stato eseguito il backup](backup-azure-arm-restore-vms.md#restore-disks). Seguire quindi la procedura di PowerShell descritta in [Creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Il backup o il ripristino richiede del tempo

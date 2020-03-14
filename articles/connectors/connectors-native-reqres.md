@@ -1,20 +1,20 @@
 ---
-title: Ricevere e rispondere alle chiamate HTTPS
-description: Gestire le richieste e gli eventi HTTPS in tempo reale usando app per la logica di Azure
+title: Ricevere e rispondere alle chiamate tramite HTTPS
+description: Gestire le richieste HTTPS in ingresso da servizi esterni usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247280"
+ms.locfileid: "79297297"
 ---
-# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure
+# <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in app per la logica di Azure
 
 Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione di risposta o il trigger di richiesta incorporato è possibile creare attività e flussi di lavoro automatizzati che ricevono e rispondono alle richieste HTTPS in ingresso. Ad esempio, è possibile avere l'app per la logica:
 
@@ -36,7 +36,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'az
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per ottenere un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -202,6 +202,19 @@ Di seguito sono riportate altre informazioni sugli output del trigger di richies
 È possibile usare l'azione di risposta per rispondere con un payload (dati) a una richiesta HTTPS in ingresso, ma solo in un'app per la logica attivata da una richiesta HTTPS. È possibile aggiungere l'azione di risposta in qualsiasi punto del flusso di lavoro. Per ulteriori informazioni sulla definizione JSON sottostante per questo trigger, vedere il [tipo di azione risposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto. Supponendo che il flusso di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta dopo che questo tempo viene superato, l'app per la logica restituisce un `504 GATEWAY TIMEOUT` al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, l'app per la logica restituisce immediatamente una risposta `202 ACCEPTED` al chiamante.
+
+> [!IMPORTANT]
+> Se un'azione di risposta include queste intestazioni, app per la logica rimuove le intestazioni dal messaggio di risposta generato senza visualizzare alcun avviso o errore:
+>
+> * `Allow`
+> * `Content-*` con le eccezioni seguenti: `Content-Disposition`, `Content-Encoding`e `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Last-Modified`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Sebbene le app per la logica non interrompano il salvataggio di app per la logica con un'azione di risposta con queste intestazioni, le app per la logica ignorano queste intestazioni.
 
 1. Nella finestra di progettazione dell'app per la logica, sotto il passaggio in cui si vuole aggiungere un'azione di risposta, selezionare **nuovo passaggio**.
 

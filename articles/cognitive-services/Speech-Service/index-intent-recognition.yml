@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentazione sul riconoscimento preventivo
+title: Documentazione di Riconoscimento finalità
 summary: Il riconoscimento preventivo con i servizi di riconoscimento vocale e di Language Understanding (LUIS) consente la trascrizione in tempo reale dei flussi audio in testo, identificando allo stesso tempo entità e finalità.
 metadata:
   title: Documentazione sul riconoscimento preventivo-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
@@ -10,26 +10,26 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 278dc182b682615d621bfd8a891cc77591a511f1
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 63c830b20ad5a3bf322fe2402d72230a80399d45
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562845"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79371461"
 landingContent:
-- title: Introduzione
+- title: Informazioni sul riconoscimento preventivo
   linkLists:
   - linkListType: quickstart
     links:
     - text: Riconoscere la voce, le finalità e le entità
       url: quickstarts/intent-recognition.md
-- title: Guide dettagliate
+- title: Sviluppare con il riconoscimento preventivo
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Riconosci gli Intent vocali con LUIS eC#
+    - text: Riconoscere le finalità voce con LUIS e C#
       url: how-to-recognize-intents-from-speech-csharp.md
 - title: Riferimento
   linkLists:
@@ -39,7 +39,7 @@ landingContent:
       url: https://www.luis.ai
     - text: Risorse per sviluppatori LUIS
       url: ../luis/developer-reference-resource.md
-    - text: Supporto per le lingue
+    - text: Supporto delle lingue
       url: ../luis/luis-language-support.md#languages-supported
-    - text: Prezzi
+    - text: Prezzi per il riconoscimento preventivo
       url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services
