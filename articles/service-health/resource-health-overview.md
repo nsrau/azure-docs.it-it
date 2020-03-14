@@ -4,11 +4,11 @@ description: Panoramica su Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: f22b41e66f15dd12d973c5744870969fae795bc1
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78924946"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258200"
 ---
 # <a name="resource-health-overview"></a>Panoramica di Integrità risorse
  
@@ -50,7 +50,7 @@ Gli eventi non di piattaforma vengono attivati dalle azioni dell'utente. Gli ese
 
 ![Stato "non disponibile" per una macchina virtuale a causa di un evento non piattaforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>Unknown
+### <a name="unknown"></a>Sconosciuto
 
 *Unknown* significa che integrità risorse non ha ricevuto informazioni sulla risorsa per più di 10 minuti. Sebbene questo stato non sia un'indicazione definitiva dello stato della risorsa, è un punto dati importante per la risoluzione dei problemi.
 
@@ -60,7 +60,7 @@ Se si verificano problemi con la risorsa, lo stato di integrità *sconosciuto* p
 
 ![Stato * sconosciuto * per una macchina virtuale](./media/resource-health-overview/Unknown.png)
 
-### <a name="degraded"></a>Degraded
+### <a name="degraded"></a>Ridotto
 
 Ridotto *significa che* la risorsa ha rilevato una perdita di prestazioni, sebbene sia ancora disponibile per l'uso.
 
@@ -80,7 +80,7 @@ Se si ritiene che lo stato di integrità corrente non sia corretto, è possibile
 
 ![Elenco di eventi di Integrità risorse nelle ultime due settimane](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 
 Per aprire Integrità risorse per una risorsa:
 

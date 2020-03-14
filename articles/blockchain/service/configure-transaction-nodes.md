@@ -5,11 +5,11 @@ ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395246"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252259"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurare i nodi delle transazioni del servizio blockchain di Azure
 
@@ -37,10 +37,10 @@ Per aggiungere un nodo di transazione:
 
     | Impostazione | Descrizione |
     |---------|-------------|
-    | Nome | Nome del nodo di transazioni. Il nome viene usato per creare l'indirizzo DNS per l'endpoint del nodo di transazioni. Ad esempio: `newnode-myblockchainmember.blockchain.azure.com`. Il nome del nodo non può essere modificato dopo la creazione. |
+    | Name | Nome del nodo di transazioni. Il nome viene usato per creare l'indirizzo DNS per l'endpoint del nodo di transazioni. Ad esempio: `newnode-myblockchainmember.blockchain.azure.com`. Il nome del nodo non può essere modificato dopo la creazione. |
     | Password | Impostare una password complessa. Utilizzare la password per accedere all'endpoint del nodo della transazione con l'autenticazione di base.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
     Il provisioning del nuovo nodo di transazioni richiede circa 10 minuti. I nodi di transazione aggiuntivi comportano costi. Per altre informazioni sui costi, vedere [prezzi di Azure](https://aka.ms/ABSPricing).
 
@@ -69,9 +69,9 @@ Per concedere Azure AD controllo di accesso all'endpoint:
 
     | Impostazione | Azione |
     |---------|-------------|
-    | Ruolo | Selezionare **proprietario**, **collaboratore**o **lettore**.
+    | Role | Selezionare **proprietario**, **collaboratore**o **lettore**.
     | Assegna accesso a | Selezionare **Azure ad utente, gruppo o entità servizio**.
-    | Select | Cercare l'utente, il gruppo o l'entità servizio che si desidera aggiungere.
+    | Seleziona | Cercare l'utente, il gruppo o l'entità servizio che si desidera aggiungere.
 
 1. Selezionare **Save (Salva** ) per aggiungere l'assegnazione di ruolo.
 

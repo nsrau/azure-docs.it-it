@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: fe8ea4dfb4de45a1e09648ac51fe8d74f93a6b9e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979608"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280274"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
@@ -30,7 +30,7 @@ Azure effettua il routing automatico del traffico tra subnet di Azure, reti virt
 Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire le attività seguenti:
 
 * Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).<br>
-* Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.<br>
+* Se si usa il portale, aprire https://portal.azure.come accedere con l'account Azure.<br>
 * Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.<br>
 * Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.31 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
@@ -142,7 +142,7 @@ Se una tabella di route è associata a una subnet, non può essere eliminata. [A
 1. Immettere il valore **Prefisso indirizzo**, sotto forma di notazione CIDR, a cui si vuole indirizzare il traffico. Il prefisso non può essere duplicato in più di una route all'interno della tabella di route, ma può essere contenuto in un altro prefisso. Se, ad esempio, è stato definito 10.0.0.0/16 come prefisso di una route, è possibile definire un'altra route con il prefisso di indirizzo 10.0.0.0/24. Azure seleziona una route per il traffico in base all'algoritmo LPM (Longest Prefix Match). Per altre informazioni su come vengono selezionate le route in Azure, vedere [Panoramica del routing](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 1. Selezionare una voce per **Tipo hop successivo**. Per una descrizione dettagliata di tutti i tipi di hop successivi, vedere [Panoramica del routing](virtual-networks-udr-overview.md).
 1. Immettere un indirizzo IP per **Indirizzo hop successivo**. Se per *Indirizzo hop successivo* è stata selezionata la voce **Appliance virtuale**, è possibile immettere solo un indirizzo.
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 
 ### <a name="create-a-route---commands"></a>Creare una route-comandi
 
@@ -236,7 +236,7 @@ Le route valide per ogni interfaccia di rete associata a una macchina virtuale s
 
 Per eseguire attività nelle route e nelle tabelle di route, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Azione                                                          |   Nome                                                  |
+| Azione                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Leggere una tabella di route                                    |
 | Microsoft.Network/routeTables/write                             |   Creare o aggiornare una tabella di route                        |

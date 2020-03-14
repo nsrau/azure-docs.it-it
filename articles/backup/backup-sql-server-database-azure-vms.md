@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup di database di SQL
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7a6bae3a850b5e67af8da80a06b862e7e2e7561d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120843"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273332"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -17,7 +17,7 @@ SQL Server database sono carichi di lavoro di importanza critica che richiedono 
 
 Questo articolo illustra come eseguire il backup di un database di SQL Server in esecuzione in una macchina virtuale di Azure in un insieme di credenziali di servizi di ripristino di backup di Azure.
 
-L'articolo spiega come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
 >
@@ -97,6 +97,10 @@ Consentire gli intervalli di indirizzi IP | Nessun costo aggiuntivo | Complessit
 Usare i tag del servizio del gruppo di sicurezza di rete | Gestione semplificata perché le modifiche degli intervalli vengono unite automaticamente <br/><br/> Nessun costo aggiuntivo <br/><br/> | Utilizzabile solo con i gruppi di sicurezza di rete <br/><br/> Accesso consentito all'intero servizio
 Usare i tag FQDN di Firewall di Azure | Gestione semplificata perché i FQDN necessari vengono gestiti automaticamente | Utilizzabile solo con Firewall di Azure
 Usare un proxy HTTP | Singolo punto di accesso Internet alle VM <br/> | Costi aggiuntivi per l'esecuzione di una VM con il software proxy <br/> Non sono presenti indirizzi FQDN pubblicati, le regole Consenti saranno soggette alle modifiche degli indirizzi IP di Azure
+
+#### <a name="private-endpoints"></a>Endpoint privati
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Linee guida per la denominazione di database per backup di Azure
 
@@ -284,7 +288,7 @@ Se è necessario disabilitare la protezione automatica, selezionare il nome dell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile passare agli argomenti seguenti:
+Viene illustrato come:
 
 * [Ripristinare i database SQL Server sottoposti a backup](restore-sql-database-azure-vm.md)
 * [Gestire i database SQL Server sottoposti a backup](manage-monitor-sql-database-backup.md)

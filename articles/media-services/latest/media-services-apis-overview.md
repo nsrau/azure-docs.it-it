@@ -14,11 +14,11 @@ ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 4a3b699c90e1fefb834f8ddfe3a23fc2a97354ec
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186137"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251414"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Sviluppare con le API di servizi multimediali V3
 
@@ -49,7 +49,7 @@ Nella figura seguente i numeri rappresentano il flusso delle richieste in ordine
 
 1. Un'applicazione di livello intermedio richiede un token di accesso Azure AD con i parametri seguenti:  
 
-   * Endpoint del tenant di Azure AD.
+   * Endpoint tenant di Azure AD.
    * URI di risorsa per Servizi multimediali.
    * URI di risorsa per Servizi multimediali REST.
    * Azure AD valori dell'app: l'ID client e il segreto client.
@@ -60,7 +60,7 @@ Nella figura seguente i numeri rappresentano il flusso delle richieste in ordine
 4. Il livello intermedio invia una richiesta all'API REST di Servizi multimediali di Azure con il token di Azure AD.
 5. Il livello intermedio ottiene nuovamente i dati da Servizi multimediali.
 
-### <a name="samples"></a>Esempi
+### <a name="samples"></a>Samples
 
 Vedere gli esempi seguenti che illustrano come connettersi con Azure AD entità servizio:
 
@@ -118,7 +118,7 @@ L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.co
 > [!NOTE]
 > Gli SDK di servizi multimediali di Azure V3 non sono necessariamente thread-safe. Quando si sviluppa un'app multithread, è necessario aggiungere la propria logica di sincronizzazione dei thread per proteggere il client o usare un nuovo oggetto AzureMediaServicesClient per ogni thread. È anche necessario prestare attenzione ai problemi di multithreading introdotti da oggetti facoltativi forniti dal codice al client (ad esempio, un'istanza di HttpClient in .NET).
 
-|SDK|riferimento|
+|SDK|Riferimento|
 |---|---|
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[Informazioni di riferimento su .NET](https://aka.ms/ams-v3-dotnet-ref)|
 |[SDK per Java](https://aka.ms/ams-v3-java-sdk)|[Informazioni di riferimento su Java](https://aka.ms/ams-v3-java-ref)|
@@ -136,7 +136,7 @@ L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.co
 
 [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) è uno strumento disponibile per i clienti di Windows che vogliono informazioni su Servizi multimediali. AMSE è un'applicazione Winforms/C# che esegue operazioni di caricamento, download, codifica, streaming di VOD e contenuti live con Servizi multimediali. Lo strumento AMSE è stato pensato per i clienti che vogliono testare Servizi multimediali senza scrivere codice. Il codice AMSE viene fornito come risorsa per i clienti che vogliono sviluppare con Servizi multimediali.
 
-AMSE è un progetto open source il cui supporto viene fornito dalla community (i problemi possono essere segnalati a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft). Per ulteriori informazioni, vedere le domande [frequenti sul codice di comportamento](https://opensource.microsoft.com/codeofconduct/faq/) oppure contattare opencode@microsoft.com con altre domande o commenti.
+AMSE è un progetto open source il cui supporto viene fornito dalla community (i problemi possono essere segnalati a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Questo progetto ha adottato il [Codice di comportamento di Microsoft per l'open source](https://opensource.microsoft.com/codeofconduct/). Per ulteriori informazioni, vedere le domande [frequenti sul codice di comportamento](https://opensource.microsoft.com/codeofconduct/faq/) oppure contattare opencode@microsoft.com con altre domande o commenti.
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
 

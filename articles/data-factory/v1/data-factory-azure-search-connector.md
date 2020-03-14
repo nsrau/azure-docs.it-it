@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387362"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281561"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Eseguire il push dei dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -59,7 +59,7 @@ La tabella seguente fornisce le descrizioni degli elementi JSON specifici del se
 | -------- | ----------- | -------- |
 | type | La proprietà type deve essere impostata su **AzureSearch**. | Sì |
 | url | URL per il servizio di ricerca. | Sì |
-| Key | Chiave di amministrazione per il servizio di ricerca. | Sì |
+| key | Chiave di amministrazione per il servizio di ricerca. | Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
@@ -78,7 +78,7 @@ Per l'attività di copia, quando il sink è del tipo **AzureSearchIndexSink**, n
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).| Merge (impostazione predefinita)<br/>Caricamento| No |
+| WriteBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).| Merge (impostazione predefinita)<br/>Carica| No |
 | WriteBatchSize | Carica i dati nell'indice di ricerca quando la dimensione del buffer raggiunge writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property). | Da 1 a 1000. Il valore predefinito è 1000. | No |
 
 ### <a name="writebehavior-property"></a>Proprietà WriteBehavior
@@ -99,7 +99,7 @@ La tabella seguente specifica se un tipo di dati di ricerca cognitiva di Azure �
 
 | Tipo di dati ricerca cognitiva di Azure | Supportato in Azure ricerca cognitiva sink |
 | ---------------------- | ------------------------------ |
-| string | S |
+| String | S |
 | Int32 | S |
 | Int64 | S |
 | Double | S |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374493"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243939"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
 Questo argomento descrive le rappresentazioni di entità e tipi per elementi comuni usati nei modelli di dati per i modelli del portale per sviluppatori in Gestione API di Azure.  
@@ -90,9 +90,9 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Url`|URI|URI per l'applicazione.|  
 |`Version`|string|Informazioni sulla versione per l'applicazione.|  
 |`Requirements`|string|Descrizione dei requisiti dell'applicazione.|  
-|`State`|d'acquisto|Stato attuale dell'applicazione.<br /><br /> - 0 - Registrato<br /><br /> - 1 - Inviato<br /><br /> - 2 - Pubblicato<br /><br /> - 3 - Rifiutato<br /><br /> - 4 - Non pubblicato|  
+|`State`|numero|Stato attuale dell'applicazione.<br /><br /> - 0 - Registrato<br /><br /> - 1 - Inviato<br /><br /> - 2 - Pubblicato<br /><br /> - 3 - Rifiutato<br /><br /> - 4 - Non pubblicato|  
 |`RegistrationDate`|Datetime|Data e ora della registrazione dell'applicazione.|  
-|`CategoryId`|d'acquisto|Categoria dell'applicazione (finanza, intrattenimento e così via).|  
+|`CategoryId`|numero|Categoria dell'applicazione (finanza, intrattenimento e così via).|  
 |`DeveloperId`|string|Identificatore univoco dello sviluppatore che ha inviato l'applicazione.|  
 |`Attachments`|Raccolta di entità [allegato](#Attachment).|Tutti gli allegati per l'applicazione, ad esempio schermate o icone.|  
 |`Icon`|[Allegato](#Attachment)|Icona per l'applicazione.|  
@@ -129,7 +129,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
-|`Id`|d'acquisto|ID del commento.|  
+|`Id`|numero|ID del commento.|  
 |`CommentText`|string|Corpo del commento. Può includere HTML.|  
 |`DeveloperCompany`|string|Nome della società dello sviluppatore.|  
 |`PostedOn`|Datetime|Data e ora di pubblicazione del commento.|  
@@ -229,11 +229,11 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
-|`Page`|d'acquisto|Numero di pagina corrente.|  
-|`PageSize`|d'acquisto|Numero massimo di risultati da visualizzare in una singola pagina.|  
-|`TotalItemCount`|d'acquisto|Numero di elementi per la visualizzazione.|  
+|`Page`|numero|Numero di pagina corrente.|  
+|`PageSize`|numero|Numero massimo di risultati da visualizzare in una singola pagina.|  
+|`TotalItemCount`|numero|Numero di elementi per la visualizzazione.|  
 |`ShowAll`|boolean|Se si desidera mostrare tutti risultati in una singola pagina.|  
-|`PageCount`|d'acquisto|Numero di pagine dei risultati.|  
+|`PageCount`|numero|Numero di pagine dei risultati.|  
   
 ##  <a name="Parameter"></a>Parametro  
  Questa sezione descrive la rappresentazione di `parameter`.  
@@ -245,7 +245,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`value`|string|Valore del parametro.|  
 |`options`|matrice di valori string|Valori definiti per i valori del parametro di query.|  
 |`required`|boolean|Indica se il parametro è obbligatorio o no.|  
-|`kind`|d'acquisto|Se questo parametro è un parametro di percorso (1) o un parametro di stringa di query (2).|  
+|`kind`|numero|Se questo parametro è un parametro di percorso (1) o un parametro di stringa di query (2).|  
 |`typeName`|string|Tipo di parametro.|  
   
 ##  <a name="Product"></a>Prodotto  
@@ -254,12 +254,12 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco il prodotto all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `products/{pid}` dove `{pid}` è un identificatore di prodotto. Questa proprietà è di sola lettura.|  
-|`Title`|string|Nome del prodotto. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
+|`Title`|string|Nome del prodotto Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
 |`Description`|string|Descrizione del prodotto. Non deve essere vuoto. Può includere tag di formattazione HTML. La lunghezza massima consentita è di 1000 caratteri.|  
 |`Terms`|string|Condizioni per l'utilizzo del prodotto. Gli sviluppatori che tentano di sottoscrivere il prodotto vengono presentati e devono accettare queste condizioni prima di poter completare il processo di sottoscrizione.|  
-|`ProductState`|d'acquisto|Specifica se il prodotto è pubblicato o no. I prodotti pubblicati possono essere individuati dagli sviluppatori nel portale per sviluppatori. I prodotti non pubblicati sono visibili solo agli amministratori.<br /><br /> I valori consentiti per lo stato del prodotto sono:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|`ProductState`|numero|Specifica se il prodotto è pubblicato o no. I prodotti pubblicati possono essere individuati dagli sviluppatori nel portale per sviluppatori. I prodotti non pubblicati sono visibili solo agli amministratori.<br /><br /> I valori consentiti per lo stato del prodotto sono:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |`AllowMultipleSubscriptions`|boolean|Specifica se un utente può avere più sottoscrizioni al prodotto nello stesso momento.|  
-|`MultipleSubscriptionsCount`|d'acquisto|Numero massimo di sottoscrizioni per questo prodotto di cui può disporre contemporaneamente un utente.|  
+|`MultipleSubscriptionsCount`|numero|Numero massimo di sottoscrizioni per questo prodotto di cui può disporre contemporaneamente un utente.|  
   
 ##  <a name="Provider"></a>Provider  
  L'entità `provider` ha le proprietà seguenti:  
@@ -285,7 +285,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco la sottoscrizione all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `subscriptions/{sid}` dove `{sid}` è un identificatore di sottoscrizione. Questa proprietà è di sola lettura.|  
 |`ProductId`|string|Identificatore di risorsa per il prodotto relativo al prodotto sottoscritto. Il valore è un URL relativo valido nel formato `products/{pid}` dove `{pid}` è un identificatore di prodotto.|  
-|`ProductTitle`|string|Nome del prodotto. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
+|`ProductTitle`|string|Nome del prodotto Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
 |`ProductDescription`|string|Descrizione del prodotto. Non deve essere vuoto. Può includere tag di formattazione HTML. La lunghezza massima consentita è di 1000 caratteri.|  
 |`ProductDetailsUrl`|string|URL relativo per i dettagli del prodotto.|  
 |`state`|string|Stato della sottoscrizione. Gli stati possibili sono elencati di seguito:<br /><br /> - `0 - suspended`: la sottoscrizione è bloccata e il sottoscrittore non può chiamare le API del prodotto.<br /><br /> - `1 - active`: la sottoscrizione è attiva.<br /><br /> - `2 - expired`: la sottoscrizione ha raggiunto la data di scadenza ed è stata disattivata.<br /><br /> - `3 - submitted`: la richiesta di sottoscrizione è stata eseguita dallo sviluppatore, ma non è ancora stata approvata o rifiutata.<br /><br /> - `4 - rejected`: la richiesta di sottoscrizione è stata rifiutata da un amministratore.<br /><br /> - `5 - cancelled`: la sottoscrizione è stata annullata dallo sviluppatore o dall'amministratore.|  
@@ -296,8 +296,8 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`StartDate`|dateTime|Data di inizio per la sottoscrizione, in formato ISO 8601: `2014-06-24T16:25:00Z`.|  
 |`ExpirationDate`|dateTime|Data di scadenza per la sottoscrizione, in formato ISO 8601: `2014-06-24T16:25:00Z`.|  
 |`NotificationDate`|dateTime|Data di notifica per la sottoscrizione, in formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|`primaryKey`|string|Chiave di sottoscrizione primaria. La lunghezza massima consentita è di 256 caratteri.|  
-|`secondaryKey`|string|Chiave di sottoscrizione secondaria. La lunghezza massima consentita è di 256 caratteri.|  
+|`primaryKey`|string|Chiave di sottoscrizione primaria. La lunghezza massima è di 256 caratteri.|  
+|`secondaryKey`|string|Chiave di sottoscrizione secondaria. La lunghezza massima è di 256 caratteri.|  
 |`CanBeRenewed`|boolean|Se la sottoscrizione può essere rinnovata dall'utente corrente.|  
 |`HasExpired`|boolean|Se la sottoscrizione è scaduta.|  
 |`IsRejected`|boolean|Se la richiesta di sottoscrizione è stata negata.|  
@@ -350,9 +350,9 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|boolean|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`Password`|string|Password dell'account utente.|  
-|`PasswordVerdictLevel`|d'acquisto|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
+|`PasswordVerdictLevel`|numero|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`UserRegistrationTerms`|string|Condizioni che l'utente deve accettare prima dell'accesso.|  
-|`UserRegistrationTermsOptions`|d'acquisto|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
+|`UserRegistrationTermsOptions`|numero|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`ConsentAccepted`|boolean|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`Email`|string|Indirizzo di posta elettronica. Non deve essere vuoto e deve essere univoco all'interno dell'istanza del servizio. La lunghezza massima consentita è di 254 caratteri.|  
 |`FirstName`|string|Nome. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  

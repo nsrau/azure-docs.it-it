@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376296"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261099"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
@@ -123,7 +123,7 @@ Per impostare il filtro basato su dominio, seguire questa procedura:
 Per impostare il filtro basato su dominio, seguire questa procedura:
 
 1.  Avviare la procedura guidata di Azure AD Connect
-2.  Fare clic su **Configure**.
+2.  Fare clic su **Configura**.
 3.  Selezionare **Personalizza opzioni di sincronizzazione** e fare clic su **Avanti**.
 4.  Immettere le credenziali di Azure AD
 5.  Nella schermata **directory connesse** fare clic su **Avanti**.
@@ -140,11 +140,11 @@ Se il filtro basato su domini è stato aggiornato, è necessario aggiornare anch
     * sincronizzazione completa
     * Importazione differenziale
     * Sincronizzazione differenziale
-    * Esportazione
+    * Export
 3. Per ogni profilo modificare i domini **aggiunti** e **rimossi**.
     1. Per ognuno dei cinque profili, seguire questa procedura per ogni dominio **aggiunto**:
         1. Selezionare il profilo di esecuzione e fare clic su **New Step**.
-        2. Nel menu a discesa **Type** (Tipo) della pagina **Configure Step** (Configura passaggio) selezionare il tipo di passaggio con lo stesso nome del profilo da configurare. Quindi fare clic su **Next**.  
+        2. Nel menu a discesa **Type** (Tipo) della pagina **Configure Step** (Configura passaggio) selezionare il tipo di passaggio con lo stesso nome del profilo da configurare. Fare quindi clic su **Avanti**.  
         ![Profili di esecuzione del connettore 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. Nell'elenco a discesa **Partition** (Partizione) della pagina **Connector Configuration** (Configurazione connettore) selezionare il nome del dominio aggiunto al filtro basato su domini.  
         ![Profili di esecuzione del connettore 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -235,7 +235,7 @@ Nell'esempio seguente vengono filtrati (non sincronizzati) tutti gli utenti per 
 5. In **Scoping filter** (Filtro ambito) fare clic su **Add Group** (Aggiungi gruppo) e quindi fare clic su **Add Clause** (Aggiungi clausola). In **Attribute** (Attributo) selezionare **ExtensionAttribute15**. Verificare che il valore del campo **Operator** (Operatore) sia impostato su **EQUAL** (UGUALE) e quindi digitare **NoSync** nella casella **Value** (Valore). Fare clic su **Avanti**.  
    ![Ambito in ingresso 2](./media/how-to-connect-sync-configure-filtering/inbound2.png)  
 6. Lasciare vuote le regole **Join** e quindi fare clic su **Next**.
-7. Fare clic su **Add Transformation** (Aggiungi trasformazione), selezionare **Constant** per **FlowType** e **cloudFiltered** come **Target Attribute** (Attributo di destinazione). Nella casella di testo **Source** (Origine) digitare **True**. Fare clic su **Add** (Aggiungi) per salvare la regola.  
+7. Fare clic su **Add Transformation** (Aggiungi trasformazione), selezionare **Constant** per **FlowType** e **cloudFiltered** come **Target Attribute** (Attributo di destinazione). Nella casella di testo **Source** (Origine) digitare **True**. Fare clic su **Aggiungi** per salvare la regola.  
    ![Trasformazione in ingresso 3](./media/how-to-connect-sync-configure-filtering/inbound3.png)
 8. Per completare la configurazione, è necessario eseguire una **sincronizzazione completa**. Continuare a leggere la sezione [applicare e verificare le modifiche](#apply-and-verify-changes).
 
@@ -254,14 +254,14 @@ Nell'esempio seguente vengono sincronizzati solo gli oggetti per i quali l'attri
 5. In **Scoping filter** (Filtro ambito) fare clic su **Add Group** (Aggiungi gruppo) e quindi fare clic su **Add Clause** (Aggiungi clausola). In **Attribute** (Attributo) selezionare **department**. Verificare che il valore del campo Operato (Operatore) sia impostato su **EQUAL** (UGUALE) e quindi digitare **Sales** nella casella **Value** (Valore). Fare clic su **Avanti**.  
    ![Ambito in ingresso 5](./media/how-to-connect-sync-configure-filtering/inbound5.png)  
 6. Lasciare vuote le regole **Join** e quindi fare clic su **Next**.
-7. Fare clic su **Add Transformation** (Aggiungi trasformazione), selezionare **Constant** per **FlowType** e **cloudFiltered** come **Target Attribute** (Attributo di destinazione). Nella casella **Source** (Origine) digitare **False**. Fare clic su **Add** (Aggiungi) per salvare la regola.  
+7. Fare clic su **Add Transformation** (Aggiungi trasformazione), selezionare **Constant** per **FlowType** e **cloudFiltered** come **Target Attribute** (Attributo di destinazione). Nella casella **Source** (Origine) digitare **False**. Fare clic su **Aggiungi** per salvare la regola.  
    ![Trasformazione in ingresso 6](./media/how-to-connect-sync-configure-filtering/inbound6.png)  
    Questo è un caso particolare in cui cloudFiltered viene impostato in modo esplicito su **False**.
 8. Ora è necessario creare la regola di sincronizzazione catch-all. Assegnare alla regola un nome descrittivo, ad esempio "*In from AD - User Catch-all filter*". Selezionare la foresta corretta, quindi selezionare **User** (Utente) come **CS object type** (Tipo di oggetto CS) e **Person** (Persona) come **MV object type** (Tipo di oggetto MV). In **Link Type** (Tipo di collegamento) selezionare **Join** (Unisci). In **Precedence** (Precedenza) digitare un valore attualmente non usato da un'altra regola di sincronizzazione, ad esempio 99. È stato selezionato un valore di precedenza più alto (precedenza inferiore) rispetto alla regola di sincronizzazione precedente, ma è stato lasciato anche spazio per aggiungere in seguito più regole di sincronizzazione del filtro quando si vuole avviare la sincronizzazione di altri reparti. Fare clic su **Avanti**.  
    ![Descrizione in ingresso 7](./media/how-to-connect-sync-configure-filtering/inbound7.png)  
 9. Lasciare vuoto **Scoping filter** e fare clic su **Next**. Un filtro vuoto indica che la regola deve essere applicata a tutti gli oggetti.
 10. Lasciare vuote le regole **Join** e quindi fare clic su **Next**.
-11. Fare clic su **Add Transformation** (Aggiungi trasformazione), selezionare **Constant** per **FlowType** e **cloudFiltered** come **Target Attribute** (Attributo di destinazione). Nella casella **Source** (Origine) digitare **True**. Fare clic su **Add** (Aggiungi) per salvare la regola.  
+11. Fare clic su **Add Transformation** (Aggiungi trasformazione), selezionare **Constant** per **FlowType** e **cloudFiltered** come **Target Attribute** (Attributo di destinazione). Nella casella **Source** (Origine) digitare **True**. Fare clic su **Aggiungi** per salvare la regola.  
     ![Trasformazione in ingresso 3](./media/how-to-connect-sync-configure-filtering/inbound3.png)  
 12. Per completare la configurazione, è necessario eseguire una **sincronizzazione completa**. Continuare a leggere la sezione [applicare e verificare le modifiche](#apply-and-verify-changes).
 
@@ -279,7 +279,7 @@ In questo esempio si modifica il filtro in modo che vengano sincronizzati solo g
 5. Nel popup selezionare **Yes** (Sì) per creare una copia della regola.
 6. Nella pagina **Description** (Descrizione) modificare il campo **Precedence** (Precedenza) su un valore non usato, ad esempio 50.
 7. Fare clic su **Scoping filter** (Filtro ambito) nel riquadro di spostamento a sinistra e quindi fare clic su **Add clause** (Aggiungi clausola). In **Attribute** (Attributo) selezionare **mail**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). In **valore**digitare **\@contoso.com**, quindi fare clic su **Aggiungi clausola**. In **Attribute** (Attributo) selezionare **userPrincipalName**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). In **valore**digitare **\@contoso.com**.
-8. Fare clic su **Salva**.
+8. Fare clic su **Save**.
 9. Per completare la configurazione, è necessario eseguire una **sincronizzazione completa**. Continuare a leggere la sezione [applicare e verificare le modifiche](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Applicare e verificare le modifiche

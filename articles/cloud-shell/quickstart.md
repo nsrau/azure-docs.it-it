@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
 ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757389"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252129"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -58,7 +58,7 @@ Creare un nuovo gruppo di risorse negli Stati Uniti occidentali denominato "MyRG
 az group create --location westus --name MyRG
 ```
 
-### <a name="create-a-linux-vm"></a>Creare una macchina virtuale di Linux
+### <a name="create-a-linux-vm"></a>Creare una macchina virtuale Linux
 Creare una VM Ubuntu nel nuovo gruppo di risorse. L'interfaccia della riga di comando di Azure creerà chiavi SSH con cui configurerà la macchina virtuale. <br>
 
 ```azurecli-interactive

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: anavin
 ms.openlocfilehash: 66cbb843369dee103f102c9c743da544a833ccf1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646391"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244992"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Assegnare più indirizzi IP alle macchine virtuali usando il portale di Azure
 
@@ -55,7 +55,7 @@ Completare i passaggi in una delle sezioni che seguono, in base al tipo di indir
 Completare i passaggi seguenti per aggiungere un nuovo indirizzo IP privato:
 
 1. Completare i passaggi della sezione [Passaggi di base](#coreadd) di questo articolo.
-2. Scegliere **Aggiungi**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *IPConfig-4* con *10.0.0.7* come indirizzo IP privato *Statico* quindi fare clic su **OK**.
+2. Fare clic su **Add**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *IPConfig-4* con *10.0.0.7* come indirizzo IP privato *Statico* quindi fare clic su **OK**.
 
     > [!NOTE]
     > Quando si aggiunge un indirizzo IP statico, è necessario specificare un indirizzo valido e inutilizzato nella subnet a cui la scheda di rete è connessa. Se l'indirizzo selezionato non è disponibile, il portale visualizza una X per l'indirizzo IP ed è necessario selezionare un altro indirizzo.
@@ -87,7 +87,7 @@ Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa in
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Associare la risorsa indirizzo IP pubblico a una nuova configurazione IP
 
 1. Completare i passaggi della sezione [Passaggi di base](#coreadd) di questo articolo.
-2. Scegliere **Aggiungi**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *IPConfig-4*. Attivare l'opzione **Indirizzo IP pubblico** e selezionare una risorsa indirizzo IP pubblico esistente e disponibile dal riquadro **Scegli indirizzo IP pubblico**.
+2. Fare clic su **Add**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *IPConfig-4*. Attivare l'opzione **Indirizzo IP pubblico** e selezionare una risorsa indirizzo IP pubblico esistente e disponibile dal riquadro **Scegli indirizzo IP pubblico**.
 
     Dopo aver selezionato la risorsa indirizzo IP pubblico, fare clic su **OK** e il riquadro verrà chiuso. Se non si dispone di un indirizzo IP pubblico esistente, è possibile crearne uno completando la procedura descritta nella sezione [Creare una risorsa indirizzo IP pubblico](#create-public-ip) di questo articolo. 
 

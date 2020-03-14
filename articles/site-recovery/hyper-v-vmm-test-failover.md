@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362745"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257966"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
@@ -94,7 +94,7 @@ Se si desidera semplicemente verificare che una macchina virtuale possa eseguire
 Se le macchine virtuali che partecipano al failover di test usano DHCP, creare un server DHCP di test all'interno della rete isolata ai fini del failover di test.
 
 
-### <a name="prepare-active-directory"></a>Preparare Active Directory
+### <a name="prepare-active-directory"></a>Preparazione di Active Directory
 Per eseguire un failover di test per testare l'applicazione, è necessaria una copia dell'ambiente Active Directory di produzione nell'ambiente di test. Per altre informazioni, vedere le [considerazioni sul failover di test di Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
 ### <a name="prepare-dns"></a>Preparare DNS

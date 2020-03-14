@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: e3668718e27a3dcb545428637b34de51ec621c60
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: b7b8606f7f15f8d6fdd66681a1c7ade60ff506f3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169049"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217776"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Usare i set di impostazioni di esempio in Azure Machine Learning Studio (versione classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 [top]: #machine-learning-sample-datasets
 
 Quando si crea una nuova area di lavoro in Azure Machine Learning Studio (versione classica), per impostazione predefinita vengono inclusi diversi set di impostazioni e esperimenti di esempio. Molti di questi set di dati di esempio vengono usati dai modelli di esempio in [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/). Altri sono inclusi come esempi di diversi tipi di dati usati in genere per l'apprendimento automatico.
@@ -27,12 +30,12 @@ Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. La ta
 La parte rimanente di questi set di dati di esempio è disponibile nell'area di lavoro presente in **Saved Datasets** (Set di dati salvati). È possibile trovarlo nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento in Machine Learning Studio (classico).
 Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo all'area di disegno dell'esperimento.
 
-## <a name="datasets"></a>Set di dati
+## <a name="datasets"></a>Dataset
 
 <table>
 
 <tr>
-  <th>Nome del set di dati</th>
+  <th>Nome set di dati</th>
   <th>Descrizione del set di dati</th>
 </tr>
 

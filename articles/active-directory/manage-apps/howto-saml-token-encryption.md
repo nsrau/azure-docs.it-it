@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73148636"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365867"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Procedura: configurare Azure AD crittografia di token SAML (anteprima)
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procedura: configurare Azure AD crittografia di token SAML
 
 > [!NOTE]
 > La crittografia dei token è una funzionalità Premium di Azure Active Directory (Azure AD). Per altre informazioni sulle edizioni, le funzionalità e i prezzi di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -95,7 +95,7 @@ Quando si configura un oggetto keyCredential tramite Graph, PowerShell o il mani
 
 ### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Per configurare la crittografia dei token tramite Microsoft Graph
 
-1. Aggiornare l'oggetto `keyCredentials` dell'applicazione con un certificato X.509 per la crittografia. L'esempio seguente illustra come farlo.
+1. Aggiornare l'oggetto `keyCredentials` dell'applicazione con un certificato X.509 per la crittografia. Nell'esempio seguente viene illustrato come effettuare questa operazione.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>
@@ -111,7 +111,7 @@ Quando si configura un oggetto keyCredential tramite Graph, PowerShell o il mani
     }
     ```
 
-1. Identificare il certificato di crittografia attivo per la crittografia dei token. L'esempio seguente illustra come farlo.
+1. Identificare il certificato di crittografia attivo per la crittografia dei token. Nell'esempio seguente viene illustrato come effettuare questa operazione.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid> 
@@ -123,26 +123,21 @@ Quando si configura un oggetto keyCredential tramite Graph, PowerShell o il mani
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>Per configurare la crittografia dei token tramite PowerShell
 
-Questa funzionalità sarà disponibile a breve. 
+1. Usare la versione più recente del modulo Azure AD PowerShell per connettersi al tenant.
 
-<!--
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
-
-1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
+1. Impostare le impostazioni di crittografia del token usando il comando **[set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Read the token encryption settings using the following commands.
+1. Leggere le impostazioni di crittografia del token usando i comandi seguenti.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
-
--->
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Per configurare la crittografia dei token tramite il manifesto dell'applicazione
 

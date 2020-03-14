@@ -7,11 +7,11 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087167"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265506"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Ruoli e requisiti per Condivisione dati di Azure 
 
@@ -44,7 +44,7 @@ Per la condivisione basata su SQL, è necessario creare un utente SQL da un prov
 | |  |  |
 |---|---|---|
 |**Tipo di database SQL**|**provider di dati autorizzazione utente SQL**|**Autorizzazione utente SQL per consumer di dati**|
-|Database SQL di Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|database SQL di Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (in precedenza SQL Data Warehouse) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 

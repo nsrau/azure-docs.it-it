@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365842"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267586"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
 
@@ -38,7 +38,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
 1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
 2. Disimballare la scatola. La figura seguente illustra il dispositivo StorSimple disimballato.
    
-     ![Disimballare il dispositivo di archiviazione](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
+     ![Disimballaggio del dispositivo di archiviazione](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
     **Dispositivo di archiviazione disimballato**
    
@@ -100,7 +100,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 #### <a name="to-install-the-device-on-the-rails"></a>Per installare il dispositivo sulle guide
 1. Eseguire questo passaggio solo se non ci sono guide interne installate sul dispositivo. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.<br/>
    
-    ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Collegamento delle slitte delle guide al telaio dell'enclosure](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
     **Fissaggio delle slitte delle guide interne ai lati dello chassis**
    
@@ -114,7 +114,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 4. Fissare il gruppo guida agli elementi verticali del rack con due delle viti metriche fornite. Usare una vite per l'elemento anteriore e una per quello posteriore.
 5. Ripetere la procedura per l'altro gruppo guida.<br/>
    
-     ![Fissaggio delle slitte delle guide all'armadio rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Collegamento delle slitte delle guide all'armadio rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
     **Fissaggio dei gruppi guida esterna al rack**
    
@@ -153,7 +153,7 @@ Il passaggio successivo consiste nel cablare il dispositivo per l'alimentazione,
 ## <a name="cable-your-storsimple-8100-device"></a>Cablare il dispositivo StorSimple 8100
 In questo argomento vengono illustrate le procedure per cablare il dispositivo StorSimple 8100 per l'alimentazione, la connessione di rete e quella seriale.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * Il dispositivo di archiviazione, interamente disimballato e montato in rack.
@@ -191,18 +191,18 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    |   6 |Porte seriali |
 2. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. La configurazione aggiuntiva richiesta per una disponibilità elevata e prestazioni ottimali è indicata da linee tratteggiate.
 
-    ![Cablare il dispositivo 2U per la rete](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    ![Cavo del dispositivo 2U per la rete](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **Cablaggio di rete per il dispositivo**
 
    |Etichetta | Descrizione |
    |----- | ----------- |
-   | Una    | LAN con accesso a Internet |
-   | b    | Controller 0 |
+   | A    | LAN con accesso a Internet |
+   | B    | Controller 0 |
    | C    | PCM 0 |
    | D    | Controller 1 |
    | E    | PCM 1 |
-   | F, G | Hosts |
+   | F, G | Host |
    | 0-5  | Interfacce di rete |
 
 

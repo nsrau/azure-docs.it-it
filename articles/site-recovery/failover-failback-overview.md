@@ -4,11 +4,11 @@ description: Informazioni sul failover e sui problemi in Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362862"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281808"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Informazioni sul failover/failback del ripristino di emergenza locale
 

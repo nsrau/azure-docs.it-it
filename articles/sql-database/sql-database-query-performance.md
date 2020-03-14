@@ -1,6 +1,6 @@
 ---
-title: Informazioni dettagliate sulle prestazioni delle query
-description: Il monitoraggio delle prestazioni delle query identifica le query principali a livello di uso della CPU per un database SQL di Azure.
+title: Informazioni dettagliate prestazioni query
+description: Il monitoraggio delle prestazioni delle query identifica le query più dispendiose in termini di utilizzo della CPU e con esecuzione prolungata per database singoli e in pool nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,37 +10,33 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/03/2019
-ms.openlocfilehash: 56daca0aa817d03298bad971506402739d71482e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/10/2020
+ms.openlocfilehash: f5998fde6659715de4fcb533cb0f41a8939b1c48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821244"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214052"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Informazioni dettagliate prestazioni query per il database SQL di Azure
 
-La gestione e l'ottimizzazione delle prestazioni dei database relazionali richiedono tempo ed esperienza. Informazioni dettagliate prestazioni query fa parte della linea di prodotti per l'ottimizzazione delle prestazioni del database SQL di Azure. Consente di dedicare meno tempo alla risoluzione dei problemi di prestazioni del database, offrendo i vantaggi seguenti:​
+Informazioni dettagliate prestazioni query fornisce un'analisi intelligente delle query per i database singoli e in pool. Consente di identificare le prime query per consumo di risorse e con esecuzione prolungata nel carico di lavoro. Questo consente di trovare le query da ottimizzare per migliorare le prestazioni complessive del carico di lavoro e usare in modo efficiente la risorsa a cui si sta effettuando il pagamento. Informazioni dettagliate prestazioni query consente di dedicare meno tempo alla risoluzione dei problemi relativi alle prestazioni del database fornendo:
 
-* Informazioni più approfondite sull'utilizzo delle risorse del database (DTU).
-* Dettagli sulle query principali del database per CPU, durata e conteggio delle esecuzioni (potenziali candidati per l'ottimizzazione delle prestazioni).
-* Possibilità di eseguire il drill-down nei dettagli di una query, visualizzarne il testo e la cronologia dell'uso delle risorse.
-* Annotazioni che mostrano raccomandazioni sulle prestazioni da [Advisor per database SQL](sql-database-advisor.md).
+* Informazioni più approfondite sull'utilizzo delle risorse dei database (DTU)
+* Dettagli sulle query principali sul database in base alla CPU, alla durata e al numero di esecuzioni (potenziali candidati di ottimizzazione per miglioramenti delle prestazioni)
+* Possibilità di eseguire il drill-down nei dettagli di una query per visualizzare il testo della query e la cronologia dell'utilizzo delle risorse
+* Annotazioni che mostrano le raccomandazioni sulle prestazioni dagli [Advisor di database](sql-database-advisor.md)
 
-![Informazioni dettagliate sulle prestazioni delle query](./media/sql-database-query-performance/opening-title.png)
-
-> [!TIP]
-> Per il monitoraggio delle prestazioni di base con il database SQL di Azure, è consigliabile usare Informazioni dettagliate prestazioni query. Tenere presente le limitazioni del prodotto pubblicate in questo articolo. Per il monitoraggio avanzato delle prestazioni dei database su larga scala, è consigliabile [Analisi SQL di Azure](../azure-monitor/insights/azure-sql.md). Include funzionalità di intelligence integrate per automatizzare la risoluzione dei problemi di prestazioni. Per ottimizzare automaticamente alcuni dei problemi più comuni di prestazioni del database, è consigliabile l'[ottimizzazione automatica](sql-database-automatic-tuning.md).
+![Informazioni dettagliate prestazioni query](./media/sql-database-query-performance/opening-title.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Per impostazione predefinita, è abilitato automaticamente per tutti i database SQL di Azure. Se Query Store non è in esecuzione, il portale di Azure richiederà di abilitarlo.
 
 > [!NOTE]
-> Se nel portale viene visualizzato un messaggio che indica che Query Store non è configurato correttamente nel database, vedere [Ottimizzare la configurazione di Query Store](#optimize-the-query-store-configuration-for-query-performance-insight).
->
+> Se nel portale viene visualizzato un messaggio che indica che Query Store non è configurato correttamente nel database, vedere [Ottimizzare la configurazione di Query Store](#optimize-the-query-store-configuration).
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Sono necessarie le autorizzazioni di [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) seguenti per usare Informazioni dettagliate prestazioni query:
 
@@ -65,6 +61,11 @@ Query Performance Insight è facile da usare:
 
 > [!NOTE]
 > Per consentire al database SQL di eseguire il rendering delle informazioni in Informazioni dettagliate prestazioni query, Query Store deve acquisire un paio d'ore di dati. Se il database non ha alcuna attività o Query Store non è attivo in un determinato periodo, i grafici saranno vuoti quando si visualizza tale intervallo di tempo in Informazioni dettagliate prestazioni query. È possibile abilitare Query Store in qualsiasi momento, se non è in esecuzione. Per altre informazioni, vedere [Best practices with Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store) (Procedure consigliate per Query Store).
+>
+
+Per altri suggerimenti sulle prestazioni del database, selezionare [Raccomandazioni](sql-database-advisor.md) nel pannello di spostamento di Informazioni dettagliate prestazioni query.
+
+![Scheda Raccomandazioni](./media/sql-database-query-performance/ia.png)
 
 ## <a name="review-top-cpu-consuming-queries"></a>Esaminare le query principali a livello di uso della CPU
 
@@ -72,9 +73,9 @@ Per impostazione predefinita, alla prima apertura Informazioni dettagliate prest
 
 1. Selezionare o deselezionare le singole query per includerle o escluderle dal grafico usando le caselle di controllo.
 
-    La linea superiore visualizza la percentuale DTU complessiva per il database. Le barre mostrano la percentuale di uso della CPU per le query selezionate durante l'intervallo selezionato. Ad esempio, se è selezionata l'opzione **Settimana precedente**, ogni barra rappresenta un singolo giorno.
+   La linea superiore visualizza la percentuale DTU complessiva per il database. Le barre mostrano la percentuale di uso della CPU per le query selezionate durante l'intervallo selezionato. Ad esempio, se è selezionata l'opzione **Settimana precedente**, ogni barra rappresenta un singolo giorno.
 
-    ![Query principali](./media/sql-database-query-performance/top-queries.png)
+   ![Query principali](./media/sql-database-query-performance/top-queries.png)
 
    > [!IMPORTANT]
    > La linea DTU visualizzata viene aggregata in base a un valore massimo di consumo per periodi di un'ora. È pensata per consentire solo un confronto generale con le statistiche di esecuzione delle query. In alcuni casi, l'uso DTU può apparire troppo elevato rispetto alle query eseguite, ma la situazione potrebbe essere diversa.
@@ -192,7 +193,7 @@ In alcuni casi, un conteggio di esecuzioni molto elevato potrebbe causare l'aume
 
 Ad esempio, molti siti Web basati sui dati accedono in maniera massiccia al database per tutte le richieste dell'utente. Anche se il pool di connessioni è di supporto, il traffico di rete aumentato e il carico di elaborazione sul server di database possono rallentare le prestazioni. In generale, mantenere i round trip al minimo.
 
-Per identificare le query eseguite di frequente ("chatty"):
+Per identificare le query eseguite di frequente ("Chaty"):
 
 1. Aprire la scheda **Personalizzato** in Informazioni dettagliate prestazioni query per il database selezionato.
 2. Impostare le metriche su **Conteggio delle esecuzioni**.
@@ -217,7 +218,7 @@ In alcuni casi, a causa del livello di zoom, è possibile che le annotazioni vic
 
 Correlare le query e le azioni di ottimizzazione delle prestazioni può servire ad avere una migliore comprensione del carico di lavoro.
 
-## <a name="optimize-the-query-store-configuration-for-query-performance-insight"></a>Ottimizzare la configurazione di Query Store per Informazioni dettagliate prestazioni query
+## <a name="optimize-the-query-store-configuration"></a>Ottimizzare la configurazione del Query Store
 
 Durante l'uso di Informazioni dettagliate prestazioni query, possono essere visualizzati messaggi di errore di Query Store simili ai seguenti:
 
@@ -260,7 +261,7 @@ Esistono due tipi di criteri di conservazione:
 
 Per aumentare le dimensioni di Query Store, connettersi a un database tramite [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o il portale di Azure ed eseguire la query seguente. Sostituire `YourDB` con il nome del database.
 
-```T-SQL
+```SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
@@ -274,16 +275,6 @@ Applicando queste impostazioni, Query Store raccoglierà i dati di telemetria pe
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="summary"></a>Riepilogo
-
-Informazioni dettagliate prestazioni query semplifica la comprensione dell'impatto del carico di lavoro della query e la relativa correlazione all'uso delle risorse del database. Questa funzionalità permette di identificare le query che usano più risorse nel database e le query da ottimizzare prima che diventino un problema.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altri suggerimenti sulle prestazioni del database, selezionare [Raccomandazioni](sql-database-advisor.md) nel pannello di spostamento di Informazioni dettagliate prestazioni query.
-
-    ![Scheda Raccomandazioni](./media/sql-database-query-performance/ia.png)
-
-* Valutare se abilitare l'[ottimizzazione automatica](sql-database-automatic-tuning.md) per i problemi più comuni di prestazioni del database.
-* Informazioni su come [Intelligent Insights](sql-database-intelligent-insights.md) consente di risolvere automaticamente i problemi di prestazioni del database.
-* È consigliabile usare [Analisi SQL di Azure]( ../azure-monitor/insights/azure-sql.md) per il monitoraggio avanzato delle prestazioni di un numero elevato di database SQL, pool elastici e istanze gestite con funzionalità di intelligence incorporate.
+Si consiglia di usare [analisi SQL di Azure](../azure-monitor/insights/azure-sql.md) per il monitoraggio avanzato delle prestazioni di una vasta gamma di database singoli e in pool, pool elastici, istanze gestite e database di istanza.

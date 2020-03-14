@@ -4,11 +4,11 @@ description: Una QnA Maker Knowledge base è costituita da un set di set di doma
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389161"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219687"
 ---
 # <a name="importing-from-data-sources"></a>Importazione da origini dati
 
@@ -28,7 +28,7 @@ Il set di contenuti QnA Chit Chat è disponibile come origine dati di contenuto 
 
 L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file strutturato `.tsv` contenente domande e risposte. Queste informazioni consentono QnA Maker raggruppare i set di domande e risposte e di assegnarli a una determinata origine dati.
 
-| Domanda  | Risposta  | Source (Sorgente)| Metadati (1 chiave: 1 valore) |
+| Domanda  | Risposta  | Origine| Metadati (1 chiave: 1 valore) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
 ms.openlocfilehash: eac3850cfa0684bd1751cf7b88b4ff8e92667293
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373834"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284382"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -124,12 +124,12 @@ C'è un altro ruolo che non rientra nell'ambito dell'applicazione: l'amministrat
 
 Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli e l'applicazione.
 
-| Ruolo | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati |
+| Role | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati |
 | --- | --- | --- |
 | Team responsabile della sicurezza | Collaboratore di Key Vault | Chiavi: backup, create, delete, get, import, list, restore<br>Segreti: tutte le operazioni |
-| Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno |
-| Revisori | nessuno | Chiavi: list<br>Segreti: list<br><br> **Nota**: questa autorizzazione consente ai revisori di controllare gli attributi (tag, date di attivazione, date di scadenza) per le chiavi e i segreti non emessi nei log. |
-| Applicazione | nessuno | Chiavi: sign<br>Segreti: get |
+| Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | None |
+| Revisori | None | Chiavi: list<br>Segreti: list<br><br> **Nota**: questa autorizzazione consente ai revisori di controllare gli attributi (tag, date di attivazione, date di scadenza) per le chiavi e i segreti non emessi nei log. |
+| Applicazione | None | Chiavi: sign<br>Segreti: get |
 
 Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità App Web di Servizio app di Azure), sviluppatori e operatori necessitano dell'accesso `Contributor` a tali tipi di risorse. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.
 

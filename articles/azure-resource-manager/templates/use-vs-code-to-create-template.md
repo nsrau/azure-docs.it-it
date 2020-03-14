@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
 ms.openlocfilehash: 585e2773ea5d6af184f85e65b63d39b60d632146
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388126"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273631"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Usare Visual Studio Code per creare modelli di Azure Resource Manager
 

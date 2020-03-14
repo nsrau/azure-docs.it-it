@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190155"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259578"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
@@ -49,7 +49,7 @@ In questo articolo viene usata la terminologia seguente:
 
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
 
-## <a name="setup"></a>Configurazione
+## <a name="setup"></a>Programma di installazione
 
 Di seguito viene fornita una panoramica della procedura di configurazione dell'associazione tra gli spazi dei nomi.
 
@@ -64,14 +64,14 @@ Il processo di configurazione si articola nelle fasi seguenti:
 3. Creare l'associazione tra lo spazio dei nomi primario e quello secondario in modo da ottenere l'***alias***.
 
     >[!NOTE] 
-    > Se hai [eseguita la migrazione dello spazio dei nomi Service Bus di Azure Standard a Premium del Bus di servizio di Azure](service-bus-migrate-standard-premium.md), sarà necessario usare l'alias preesistente (ad esempio il Bus di servizio Standard dello spazio dei nomi stringa di connessione) per creare il ripristino di emergenza configurazione tramite il **PS/CLI** oppure **API REST**.
+    > Se è stata [eseguita la migrazione dello spazio dei nomi standard del bus di servizio di Azure a Premium di Azure Service Bus](service-bus-migrate-standard-premium.md), è necessario usare l'alias preesistente, ad esempio la stringa di connessione dello spazio dei nomi standard del bus di servizio, per creare la configurazione del ripristino di emergenza tramite l' **API REST** **/CLI** o REST.
     >
     >
-    > Questo avviene perché, durante la migrazione, il nome di tipo DNS/stringa di connessione dello spazio dei nomi Standard del Bus di servizio Azure stesso diventa un alias per lo spazio dei nomi Premium del Bus di servizio di Azure.
+    > Questo perché, durante la migrazione, la stringa di connessione dello spazio dei nomi standard del bus di servizio di Azure o il nome DNS stesso diventa un alias dello spazio dei nomi premium del bus di servizio di Azure.
     >
-    > Le applicazioni client devono usare questo alias (vale a dire Standard del Bus di servizio Azure dello spazio dei nomi stringa di connessione) per connettersi allo spazio dei nomi Premium in cui l'associazione di ripristino di emergenza è stata configurata.
+    > Le applicazioni client devono usare questo alias, ad esempio la stringa di connessione dello spazio dei nomi standard del bus di servizio di Azure, per connettersi allo spazio dei nomi premium in cui è stata configurata l'associazione del ripristino di emergenza.
     >
-    > Se si usa il portale per configurare la configurazione di ripristino di emergenza, il portale astrarrà questa avvertenza da parte dell'utente.
+    > Se si usa il portale per configurare la configurazione del ripristino di emergenza, il portale astrarre questa avvertenza dall'utente.
 
 
 4. Usare l'***alias*** ottenuto nel passaggio 3 per connettere le applicazioni client allo spazio dei nomi primario abilitato per il ripristino di emergenza geografico. Inizialmente, l'alias fa riferimento allo spazio dei nomi primario.
@@ -113,7 +113,7 @@ Se si commette un errore, ad esempio associando le aree non corrette durante la 
 
 Se si ha uno scenario in cui non è possibile modificare le connessioni di producer e consumer, è possibile riutilizzare il nome dello spazio dei nomi come nome dell'alias. Vedere il [codice di esempio su GitHub qui](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
-## <a name="samples"></a>Esempi
+## <a name="samples"></a>Samples
 
 Gli [esempi su GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostrano come configurare e avviare un failover. Questi esempi illustrano i concetti seguenti:
 

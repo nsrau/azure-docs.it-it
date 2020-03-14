@@ -3,12 +3,12 @@ title: Considerazioni sull'archiviazione per funzioni di Azure
 description: Informazioni sui requisiti di archiviazione di funzioni di Azure e sulla crittografia dei dati archiviati.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3bacc93ad6c1851d9165e8efb7d27b427050e6f0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190291"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276582"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerazioni sull'archiviazione per funzioni di Azure
 
@@ -56,6 +56,25 @@ Quando si rigenerano le chiavi di archiviazione, è necessario aggiornare la str
 Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](../storage/common/storage-service-encryption.md)inattivi.
 
 Per impostazione predefinita, i dati vengono crittografati con le chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente da usare per la crittografia dei dati di BLOB e file. Queste chiavi devono essere presenti in Azure Key Vault affinché le funzioni siano in grado di accedere all'account di archiviazione. Per altre informazioni, vedere [configurare chiavi gestite dal cliente con Azure Key Vault usando il portale di Azure](../storage/common/storage-encryption-keys-portal.md).  
+
+## <a name="mount-file-shares-linux"></a>Montare condivisioni file (Linux)
+
+È possibile montare condivisioni di File di Azure esistenti nelle app per le funzioni di Linux. Montando una condivisione nell'app per le funzioni di Linux è possibile sfruttare i modelli di machine learning esistenti o altri dati nelle funzioni. È possibile usare il comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) per montare una condivisione esistente nell'app per le funzioni di Linux. 
+
+In questo comando `share-name` è il nome della condivisione File di Azure esistente e `custom-id` può essere qualsiasi stringa che definisce in modo univoco la condivisione quando viene montata nell'app per le funzioni. Inoltre, `mount-path` è il percorso da cui viene eseguito l'accesso alla condivisione nell'app per le funzioni. `mount-path` deve essere nel formato `/dir-name`e non può iniziare con `/home`.
+
+Per un esempio completo, vedere gli script in [creare un'app per le funzioni Python e montare una condivisione file di Azure](scripts/functions-cli-mount-files-storage-linux.md). 
+
+Attualmente è supportata solo una `storage-type` di `AzureFiles`. È possibile montare solo cinque condivisioni a una determinata app per le funzioni. Il montaggio di una condivisione file può aumentare l'ora di avvio a freddo di almeno 200-300 ms o anche di più quando l'account di archiviazione si trova in un'area diversa.
+
+La condivisione montata è disponibile per il codice della funzione all'`mount-path` specificato. Ad esempio, quando `mount-path` è `/path/to/mount`, è possibile accedere alla directory di destinazione tramite file system API, come nell'esempio Python seguente:
+
+```python
+import os
+...
+
+files_in_share = os.listdir("/path/to/mount")
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

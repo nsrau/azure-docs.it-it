@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
 ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361343"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272734"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 
@@ -21,11 +21,11 @@ ms.locfileid: "78361343"
 
 Con la [portale di Azure](https://portal.azure.com)è possibile gestire i cluster di [Apache Hadoop](https://hadoop.apache.org/) in Azure HDInsight. Usare il selettore di schede precedente per informazioni sulla gestione di cluster Hadoop in HDInsight con altri strumenti.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Un cluster Apache Hadoop esistente in HDInsight.  Vedere [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Accedere a [https://portal.azure.com](https://portal.azure.com).
 
@@ -45,7 +45,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
 | Elemento| Descrizione |
 |---|---|
-|Spostamento|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
+|Sposta|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
 |Delete|elimina il cluster. |
 |Aggiorna|Aggiorna la vista.|
 
@@ -60,7 +60,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
     |Controllo di accesso (IAM)|usa le assegnazioni di ruolo.  Vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).|
     |Tag|consente di impostare coppie chiave/valore per definire una tassonomia personalizzata dei servizi cloud. Ad esempio, è possibile creare una chiave denominata **progetto**e usare un valore comune per tutti i servizi associati a un progetto specifico.|
     |Diagnostica e risoluzione dei problemi|visualizza informazioni sulla risoluzione dei problemi.|
-    |Guida introduttiva|visualizza informazioni utili per iniziare a usare HDInsight.|
+    |Guida rapida|visualizza informazioni utili per iniziare a usare HDInsight.|
     |Strumenti|informazioni della Guida per gli strumenti correlati a HDInsight.|
 
   - **Menu Impostazioni**  
@@ -72,7 +72,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
     |Accesso SSH + cluster|visualizza le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH). Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
     |Data Lake Storage Gen1|consente di configurare l'accesso a Data Lake Storage Gen1.  Vedere [Guida introduttiva: impostare i cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Account di archiviazione|visualizza gli account di archiviazione e le chiavi. Gli account di archiviazione vengono configurati durante il processo di creazione dei cluster.|
-    |APPLICAZIONI|consente di aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).|
+    |Applicazioni|consente di aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).|
     |Azioni script|esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).|
     |Metastore esterni|visualizza i metastore [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). I metastore possono essere configurati solo durante il processo di creazione dei cluster.|
     |Partner HDInsight|consente di aggiungere/rimuovere il partner HDInsight corrente.|
@@ -106,14 +106,14 @@ Dalla [home page del cluster](#homePage), selezionare **Proprietà** in **Impost
 |URL DEL CLUSTER|URL per l'interfaccia Web Ambari.|
 |Endpoint privato|Endpoint privato per il cluster.|
 |Secure Shell (SSH)|nome utente e nome host da usare per l'accesso al cluster tramite SSH.|
-|STATO|Uno dei seguenti: Aborted, accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, running, Error, Deleting, Deleted, timeout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued o ClusterCustomization.|
+|STATUS|Uno dei seguenti: Aborted, accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, running, Error, Deleting, Deleted, timeout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued o ClusterCustomization.|
 |AREA|località di Azure. Per informazioni sulle località di Azure supportate, vedere l'elenco a discesa **Area** in [Prezzi per HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |DATA DI CREAZIONE|data di distribuzione del cluster.|
 |SISTEMA OPERATIVO|può essere **Windows** o **Linux**.|
 |TYPE|Hadoop, HBase, Storm, Spark.|
 |Versione|Vedere [Versioni di HDInsight](hdinsight-component-versioning.md).|
 |Versione minima di TLS|Versione di TLS.|
-|SOTTOSCRIZIONE|nome della sottoscrizione.|
+|SOTTOSCRIZIONE|Nome sottoscrizione.|
 |ORIGINE DATI PREDEFINITA|file system predefinito del cluster.|
 |Dimensioni dei nodi del ruolo di lavoro|dimensioni selezionate dei nodi di lavoro nella macchina virtuale.|
 |Dimensioni del nodo head|dimensioni selezionate dei nodi head nella macchina virtuale.|
@@ -196,7 +196,7 @@ Dalla [home page del cluster](#homePage):
 1. Selezionare **SSH + Account di accesso del cluster** in **Impostazioni**.
 2. Selezionare **Reimposta credenziali**.
 3. Immettere e confermare una nuova password nelle caselle di testo.
-4. Selezionare **OK**.
+4. Scegliere **OK**.
 
 La password viene modificata in tutti i nodi del cluster.
 
@@ -219,10 +219,10 @@ La password viene modificata in tutti i nodi del cluster.
 4. Nella pagina **azioni script** selezionare **Invia nuova**.
 5. Nella pagina **Invia azione script** immettere le informazioni seguenti:
 
-   | Campo | valore |
+   | Campo | Valore |
    | --- | --- |
    | Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
-   | Nome |"Change ssh password" |
+   | Name |"Change ssh password" |
    | URI script Bash |L'URI per il file changepassword.sh |
    | Tipi di nodo: (Head, Worker, Nimbus, Supervisor o Zookeeper). |✓ per tutti i tipi di nodo elencati |
    | Parametri |Immettere il nome utente SSH e la nuova password. Deve essere presente uno spazio tra il nome utente e la password. |
@@ -242,7 +242,7 @@ In modalità Azure Resource Manager ogni cluster HDInsight viene creato con un g
 
 Per archiviare i dati, i cluster HDInsight usano un account di archiviazione di Azure o Azure Data Lake Storage. Ogni cluster HDInsight può avere un account di archiviazione predefinito e un numero di account di archiviazione collegati. Per elencare gli account di archiviazione, dalla [home page del cluster](#homePage) selezionare **Account di archiviazione** in **Impostazioni**.
 
-## <a name="monitor-jobs"></a>Monitorare i processi
+## <a name="monitor-jobs"></a>Monitoraggio dei processi
 
 Vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md#monitoring).
 

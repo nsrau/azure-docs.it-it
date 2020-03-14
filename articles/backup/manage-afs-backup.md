@@ -4,17 +4,17 @@ description: Questo articolo descrive le attività comuni per la gestione e il m
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382524"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247657"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gestire i backup di condivisioni file di Azure
 
 Questo articolo descrive le attività comuni per la gestione e il monitoraggio delle condivisioni file di Azure di cui è stato eseguito il [backup da backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview). Si apprenderà come eseguire le attività di gestione nell'insieme di credenziali di servizi di ripristino.
 
-## <a name="monitor-jobs"></a>Monitorare i processi
+## <a name="monitor-jobs"></a>Monitoraggio dei processi
 
 Quando si attiva un'operazione di backup o ripristino, il servizio di backup crea un processo per il rilevamento. È possibile monitorare lo stato di avanzamento di tutti i processi nella pagina **Processi di backup**.
 

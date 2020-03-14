@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 33705d0c9f2f405be733fd21c88cb83e96aec781
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218277"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio (versione classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 In questo argomento viene descritto come scegliere il set di iperparametri corretti per un algoritmo in Azure Machine Learning Studio (classico). Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
 
@@ -41,7 +43,7 @@ Il set di parametri può essere definito nella fase di inizializzazione del mode
 
 ![Albero delle decisioni a due classi con innalzamento, parametro singolo](./media/algorithm-parameters-optimize/fig2.png)
 
- In alternativa è possibile definire il punto massimo e minimo della griglia e il numero totale dei punti da generare con **Use Range Builder**. Per impostazione predefinita, i valori dei parametri vengono generati su una scala lineare. Ma se è selezionata l'opzione **Scala logaritmica**, i valori vengono generati in scala logaritmica (ovvero, il rapporto dei punti adiacenti è costante invece di rappresentare la loro differenza). Per i parametri Integer, è possibile definire un intervallo tramite un segno meno. Ad esempio, "1-10" indica che tutti i numeri interi compresi tra 1 e 10 (entrambi compresi) costituiscono il set di parametri. È supportata anche una modalità mista. Ad esempio, il set di parametri "1-10, 20, 50" include numeri interi da 1 a 10, 20 e 50.
+ In alternativa è possibile definire il punto massimo e minimo della griglia e il numero totale dei punti da generare con **Use Range Builder**. Per impostazione predefinita, i valori dei parametri vengono generati su una scala lineare. Ma se è selezionata l'opzione **Scala logaritmica**, i valori vengono generati in scala logaritmica (ovvero, il rapporto dei punti adiacenti è costante invece di rappresentare la loro differenza). Per i parametri Integer, è possibile definire un intervallo tramite un segno meno. Ad esempio, "1-10" significa che tutti i numeri interi compresi tra 1 e 10 (entrambi inclusi) formano il set di parametri. È supportata anche una modalità mista. Ad esempio, il set di parametri "1-10, 20, 50" includerà i numeri interi 1-10, 20 e 50.
 
 ![Albero delle decisioni a due classi con innalzamento, intervallo di parametri](./media/algorithm-parameters-optimize/fig3.png)
 

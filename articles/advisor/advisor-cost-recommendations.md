@@ -3,12 +3,12 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443117"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259695"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Ridurre i costi del servizio con Azure Advisor
 
@@ -46,6 +46,9 @@ Azure Advisor rileverà Azure Data Factory pipeline che hanno ripetutamente esit
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>USA snapshot standard per Managed Disks
 Per risparmiare il 60% dei costi, è consigliabile archiviare gli snapshot in Archiviazione Standard, indipendentemente dal tipo di archiviazione del disco padre. Questa opzione è l'opzione predefinita per gli snapshot Managed Disks. Azure Advisor identificherà gli snapshot archiviati con archiviazione Premium e consiglia di eseguire la migrazione dello snapshot dall'archiviazione Premium a quella standard. [Scopri di più sui prezzi dei dischi gestiti](https://aka.ms/aa_manageddisksnapshot_learnmore)
+
+## <a name="utilize-lifecycle-management"></a>Usare la gestione del ciclo di vita
+Azure Advisor utilizzeranno informazioni relative al numero di oggetti di archiviazione BLOB di Azure, alle dimensioni totali e alle transazioni per rilevare se uno o più account di archiviazione sono più adatti per abilitare la gestione del ciclo di vita ai dati di livello. Verrà richiesto di creare regole di gestione del ciclo di vita per eseguire automaticamente il livello di archiviazione dei dati ad accesso sporadico o Archivio per ottimizzare i costi di archiviazione mantenendo i dati nell'archiviazione BLOB di Azure per la compatibilità delle applicazioni.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Come accedere ai consigli sui costi in Azure Advisor
 

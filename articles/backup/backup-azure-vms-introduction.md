@@ -3,16 +3,22 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 67ff06e882ec61dff58922606469ac27a8bbf7fd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273215"
+ms.locfileid: "79297358"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
 Questo articolo descrive il modo in cui il [servizio backup di Azure](backup-introduction-to-azure-backup.md) esegue il backup di macchine virtuali (VM) di Azure.
+
+Backup di Azure offre backup indipendenti e isolati per prevenire la distruzione accidentale dei dati nelle macchine virtuali. I backup vengono archiviati in un insieme di credenziali di Servizi di ripristino con la gestione predefinita dei punti di ripristino. La configurazione e la scalabilità sono semplici, i backup sono ottimizzati ed è possibile eseguire facilmente il ripristino in base alle esigenze.
+
+Come parte del processo di backup, [viene effettuato uno snapshot](#snapshot-creation)e i dati vengono trasferiti nell'insieme di credenziali di servizi di ripristino senza alcun effetto sui carichi di lavoro di produzione. Lo snapshot offre diversi livelli di coerenza, come descritto [qui](#snapshot-consistency).
+
+Backup di Azure include anche offerte specializzate per carichi di lavoro di database come [SQL Server](backup-azure-sql-database.md) e [SAP Hana](sap-hana-db-about.md) che supportano i carichi di lavoro, offrono RPO di 15 minuti (obiettivo del punto di ripristino) e consentono il backup e il ripristino di singoli database.
 
 ## <a name="backup-process"></a>Processo di backup
 
@@ -66,7 +72,7 @@ Backup di Azure acquisisce gli snapshot in base alla pianificazione del backup.
   - Se gli script di pre e post-backup vengono eseguiti correttamente, backup di Azure contrassegna il punto di ripristino come coerente con l'applicazione. Tuttavia, quando si usano script personalizzati, si è responsabili della coerenza dell'applicazione.
   - [Altre](backup-azure-linux-app-consistent.md) informazioni su come configurare gli script.
 
-### <a name="snapshot-consistency"></a>Coerenza degli snapshot
+## <a name="snapshot-consistency"></a>Coerenza degli snapshot
 
 La tabella seguente illustra i diversi tipi di coerenza degli snapshot:
 

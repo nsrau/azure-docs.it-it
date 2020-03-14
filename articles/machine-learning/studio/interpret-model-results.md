@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 2d13385b63802bc0037c3fbe32cd38ed5caaf1c6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168593"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218057"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretare i risultati del modello in Azure Machine Learning Studio (classico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 In questo argomento viene illustrato come visualizzare e interpretare i risultati della stima in Azure Machine Learning Studio (classico). Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
 
 
@@ -115,7 +117,7 @@ Figura 7. Visualizzazione dei risultati del modulo Score Model nella classificaz
 
 **Interpretazione dei risultati**
 
-Le 16 colonne di sinistra rappresentano i valori funzione del set di test. Le colonne denominate Scored Probabilities for Class "XX" (Probabilità con punteggio per classe "XX") corrispondono alla colonna Scored Probabilities (Probabilità con punteggio) nella classificazione a due classi. Indicano infatti la probabilità che la voce corrispondente appartenga a una determinata classe. Per la prima voce, ad esempio, la probabilità che appartenga alla classe "A" è di 0,003571, quella che appartenga alla classe "B" è di 0,000451 e così via. L'ultima colonna, denominata Scored Labels (Etichette con punteggio), corrisponde alla colonna Scored Labels (Etichette con punteggio) nella classificazione a due classi: seleziona la classe con il valore Scored Probability più elevato come classe stimata per la voce corrispondente. Per la prima voce, ad esempio, l'etichetta stimata è "F" poiché la probabilità di appartenere alla classe "F" è quella più elevata (0,916995).
+Le 16 colonne di sinistra rappresentano i valori funzione del set di test. Le colonne denominate Scored Probabilities for Class "XX" (Probabilità con punteggio per classe "XX") corrispondono alla colonna Scored Probabilities (Probabilità con punteggio) nella classificazione a due classi. Indicano infatti la probabilità che la voce corrispondente appartenga a una determinata classe. Per la prima voce, ad esempio, è presente 0,003571 probabilità che si tratta di una "A", 0,000451 probabilità che si tratta di una "B" e così via. L'ultima colonna, denominata Scored Labels (Etichette con punteggio), corrisponde alla colonna Scored Labels (Etichette con punteggio) nella classificazione a due classi: seleziona la classe con il valore Scored Probability più elevato come classe stimata per la voce corrispondente. Per la prima voce, ad esempio, l'etichetta con punteggio è "F" poiché la probabilità più grande è "F" (0,916995).
 
 **Pubblicazione come servizio Web**
 
@@ -129,7 +131,7 @@ Figura 8. Codice R per l'estrazione delle etichette con punteggio e delle probab
 
 Figura 9. Esperimento finale di assegnazione dei punteggi per un problema di classificazione multiclasse relativo al riconoscimento delle lettere
 
-Dopo aver pubblicato ed eseguito il servizio Web, nonché aver immesso alcuni valori funzione di input, verrà restituito un risultato simile a quello della figura 10. Si stima che questa lettera scritta a mano, con le 16 funzioni estratte, appartenga alla classe "T" con una probabilità pari a 0,9715.
+Dopo aver pubblicato ed eseguito il servizio Web, nonché aver immesso alcuni valori funzione di input, verrà restituito un risultato simile a quello della figura 10. Questa lettera scritta con le relative 16 funzionalità estratte è stimata come "T" con probabilità 0,9715.
 
 ![Modulo del test di interpretazione del punteggio](./media/interpret-model-results/9_1.png)
 
@@ -177,13 +179,13 @@ Figura 14. Risultato del servizio Web del problema di regressione relativo al pr
 ## <a name="clustering"></a>Clustering
 **Esperimento di esempio**
 
-Per creare un esperimento di clustering verrà usato di nuovo il set di dati Iris. In questo caso è possibile escludere dal set di dati le etichette di classe, in modo che sia composto solo dalle caratteristiche e possa essere usato per il clustering. Verrà inoltre specificato che dovranno essere due i cluster da usare nel processo di training, ovvero i fiori verranno raggruppati in due classi. L'esperimento è illustrato nella figura 15.
+Si userà di nuovo il set di dati Iris per compilare un esperimento di clustering. In questo caso è possibile escludere dal set di dati le etichette di classe, in modo che sia composto solo dalle caratteristiche e possa essere usato per il clustering. Verrà inoltre specificato che dovranno essere due i cluster da usare nel processo di training, ovvero i fiori verranno raggruppati in due classi. L'esperimento è illustrato nella figura 15.
 
 ![Esperimento del problema relativo al clustering dei fiori Iris](./media/interpret-model-results/15.png)
 
 Figura 15. Esperimento del problema relativo al clustering dei fiori Iris
 
-Il clustering differisce dalla classificazione per il fatto che il set di dati di training non dispone di etichette verificate proprie. Il clustering raggruppa le istanze di set di dati di training in cluster distinti. Durante il processo di training, il modello etichetta le voci man mano che apprende le differenze tra le relative caratteristiche. In questo modo, il modello di training potrà essere usato per classificare ulteriormente voci future. In un problema di clustering, sono due le parti del risultato di particolare interesse ai fini dell'esperimento: la prima è etichettare il set di dati di training e la seconda classificare un nuovo set di dati nel modello di training.
+Il clustering è diverso dalla classificazione perché il set di dati di training non dispone di etichette di base. Il clustering raggruppa le istanze di set di dati di training in cluster distinti. Durante il processo di training, il modello etichetta le voci man mano che apprende le differenze tra le relative caratteristiche. In questo modo, il modello di training potrà essere usato per classificare ulteriormente voci future. In un problema di clustering, sono due le parti del risultato di particolare interesse ai fini dell'esperimento: la prima è etichettare il set di dati di training e la seconda classificare un nuovo set di dati nel modello di training.
 
 La prima parte del risultato può essere visualizzata facendo clic sulla porta di output sinistra di [Train clustering Model][train-clustering-model] e quindi su **Visualize (Visualizza**). La visualizzazione è illustrata nella figura 16.
 

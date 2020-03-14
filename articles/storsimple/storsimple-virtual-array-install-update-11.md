@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384840"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254482"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 1.1 nell'array virtuale StorSimple
 
@@ -76,7 +76,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento 1.1 da Microsoft Upda
    
     ![Cercare nel catalogo](./media/storsimple-virtual-array-install-update-11/download1.png)
 
-4. Fare clic su **Download**.
+4. Fare clic su **Download**
 
 5. Scaricare i due file in una cartella. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
 
@@ -103,7 +103,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
-2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Apply**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-11/update2m.png)
 

@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare insiemi di credenziali dei ser
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: eb7dcb4038260b1edac57a2163a1c0eae29ee452
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5eac302668c2f322390b38475860c77f1cd40d72
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363793"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247956"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -88,7 +88,15 @@ Per questo processo, esistono implicazioni relative ai prezzi a livello di archi
 >Prima di iniziare:
 >
 >- Esaminare la [matrice di supporto](backup-support-matrix.md#cross-region-restore) per un elenco di tipi e aree gestiti supportati.
->- La funzionalità di ripristino tra aree (CRR) è attualmente disponibile solo nelle aree seguenti: Stati Uniti centro-occidentali, Stati Uniti occidentali 2, Australia orientale e Australia sudorientale. 
+>- La funzionalità Ripristino tra aree (CRR) è attualmente disponibile solo nelle aree geografiche seguenti: 
+>    - Stati Uniti centro-occidentali
+>    - Stati Uniti occidentali 2
+>    - Australia orientale
+>    - Australia sud-orientale
+>    - Giappone orientale
+>    - Giappone occidentale
+>    - Asia sud-orientale
+>    - Regno Unito meridionale
 >- CRR è una funzionalità di consenso esplicito a livello di insieme di credenziali GRS (disattivata per impostazione predefinita).
 >- Usare il comando seguente per caricare la sottoscrizione per questa funzionalità:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

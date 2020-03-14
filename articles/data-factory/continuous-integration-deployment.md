@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 7c9f22d27351b0f57c5a0158821f347073ae60b4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dc0da82447b5df0735b16f46298a2f473ee61ea0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187818"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371376"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -60,7 +60,7 @@ Di seguito è riportata una panoramica di esempio del ciclo di vita CI/CD in un 
 
    ![Creazione di un modello personalizzato](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Selezionare **Carica file**e quindi selezionare il modello di gestione risorse generato.
+1. Selezionare **Carica file**e quindi selezionare il modello di gestione risorse generato. Si tratta del file **arm_template. JSON** che si trova nel file con estensione zip esportato nel passaggio 1.
 
    ![Modifica del modello](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -171,7 +171,7 @@ Esistono due modi per gestire i segreti:
 
     Il file dei parametri deve essere anche nel ramo di pubblicazione.
 
--  Aggiungere un' [attività Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) prima dell'attività di distribuzione Azure Resource Manager descritta nella sezione precedente:
+1. Aggiungere un' [attività Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) prima dell'attività di distribuzione Azure Resource Manager descritta nella sezione precedente:
 
     1.  Nella scheda **attività** , creare una nuova attività. Cercare **Azure Key Vault** e aggiungerlo.
 
@@ -179,9 +179,9 @@ Esistono due modi per gestire i segreti:
 
     ![Aggiungere un'attività Key Vault](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-   #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concedere le autorizzazioni all'agente di Azure Pipelines
+#### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concedere le autorizzazioni all'agente di Azure Pipelines
 
-   L'attività Azure Key Vault potrebbe non riuscire con un errore di accesso negato se non sono impostate le autorizzazioni corrette. Scaricare i log per la versione e individuare il file con estensione ps1 che contiene il comando per concedere le autorizzazioni all'agente Azure Pipelines. È possibile eseguire il comando direttamente. In alternativa, è possibile copiare l'ID entità dal file e aggiungere manualmente i criteri di accesso nel portale di Azure. `Get` e `List` sono le autorizzazioni minime necessarie.
+L'attività Azure Key Vault potrebbe non riuscire con un errore di accesso negato se non sono impostate le autorizzazioni corrette. Scaricare i log per la versione e individuare il file con estensione ps1 che contiene il comando per concedere le autorizzazioni all'agente Azure Pipelines. È possibile eseguire il comando direttamente. In alternativa, è possibile copiare l'ID entità dal file e aggiungere manualmente i criteri di accesso nel portale di Azure. `Get` e `List` sono le autorizzazioni minime necessarie.
 
 ### <a name="update-active-triggers"></a>Aggiornare i trigger attivi
 
@@ -471,7 +471,10 @@ Se si è in modalità GIT, è possibile eseguire l'override delle proprietà pre
 * Si utilizza l'integrazione continua/recapito continuo automatica e si desidera modificare alcune proprietà durante Gestione risorse distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita.
 * La Factory è talmente grande che il modello di Gestione risorse predefinito non è valido perché contiene un numero di parametri massimo consentito (256).
 
-In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato ARM-Template-Parameters-Definition. JSON nella cartella specificata come cartella radice per l'integrazione di git data factory. È necessario usare il nome esatto del file. Data Factory legge questo file da qualsiasi ramo attualmente attivo nel portale di Azure Data Factory, non solo dal ramo collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo collaborazione. Se non viene trovato alcun file, viene usato il modello predefinito.
+In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato **ARM-Template-Parameters-Definition. JSON** nella cartella specificata come cartella radice per l'integrazione di git data factory. È necessario usare il nome esatto del file. Data Factory legge questo file da qualsiasi ramo attualmente attivo nel portale di Azure Data Factory, non solo dal ramo collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo collaborazione. Se non viene trovato alcun file, viene usato il modello predefinito.
+
+> [!NOTE]
+> Un modello di parametrizzazione personalizzato non modifica il limite di parametri del modello ARM di 256. Consente di scegliere e diminuire il numero di proprietà con parametri.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintassi di un file dei parametri personalizzati
 
@@ -574,7 +577,7 @@ Ecco una spiegazione del modo in cui viene costruito il modello precedente, sudd
 * La proprietà `connectionString` verrà parametrizzata come valore `securestring`. Non avrà un valore predefinito. Avrà un nome di parametro abbreviato con il suffisso `connectionString`.
 * La proprietà `secretAccessKey` è un `AzureKeyVaultSecret`, ad esempio in un servizio collegato Amazon S3. Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
 
-#### <a name="datasets"></a>Set di dati
+#### <a name="datasets"></a>Dataset
 
 * Sebbene la personalizzazione specifica del tipo sia disponibile per i set di impostazioni, è possibile fornire la configurazione senza avere una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
 
@@ -657,7 +660,7 @@ Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",

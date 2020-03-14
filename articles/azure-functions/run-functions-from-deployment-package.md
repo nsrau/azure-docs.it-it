@@ -3,12 +3,12 @@ title: Eseguire le funzioni di Azure da un pacchetto
 description: Far eseguire le funzioni dal runtime di Funzioni di Azure tramite il montaggio di un file di pacchetto di distribuzione che contiene i file di progetto dell'app per le funzioni.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 3ae287939f22469b03f0e10f184f067274464905
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79087026"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365272"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
 
@@ -35,7 +35,7 @@ Per altre informazioni, vedere [questo annuncio](https://github.com/Azure/app-se
 
 Per abilitare l'esecuzione dell'app per le funzioni da un pacchetto, è sufficiente aggiungere un'impostazione `WEBSITE_RUN_FROM_PACKAGE` alle impostazioni dell'app per le funzioni. L'impostazione `WEBSITE_RUN_FROM_PACKAGE` deve avere almeno uno dei valori seguenti:
 
-| valore  | Descrizione  |
+| Valore  | Descrizione  |
 |---------|---------|
 | **`1`**  | Consigliato per le app per le funzioni in esecuzione in Windows. Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. Se non si [distribuisce con zip deploy](#integration-with-zip-deployment), questa opzione richiede che anche la cartella disponga di un file denominato `packagename.txt`. Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
 |**`<URL>`**  | Percorso di un file di pacchetto specifico da eseguire. Quando si usa l'archiviazione BLOB, è consigliabile usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per abilitare il runtime di Funzioni per l'accesso al pacchetto. È possibile usare [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file di pacchetto nell'account di archiviazione BLOB. Quando si specifica un URL, è necessario sincronizzare anche i [trigger](functions-deployment-technologies.md#trigger-syncing) dopo la pubblicazione di un pacchetto aggiornato. |
@@ -58,34 +58,8 @@ La [distribuzione zip][Zip deployment for Azure Functions] è una funzionalità 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-### <a name="use-key-vault-references"></a>USA riferimenti Key Vault
 
-Per una maggiore sicurezza, è possibile usare Key Vault riferimenti insieme all'URL esterno. In questo modo l'URL viene crittografato e consente di sfruttare Key Vault per la gestione e la rotazione dei segreti. Si consiglia di usare l'archiviazione BLOB di Azure per poter ruotare facilmente la chiave SAS associata. L'archivio BLOB di Azure è crittografato inattivo, in modo da garantire la sicurezza dei dati dell'applicazione quando non è distribuita nel servizio app.
-
-1. Creare un insieme di credenziali delle chiavi di Azure.
-
-    ```azurecli
-    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
-    ```
-
-1. Aggiungere l'URL esterno come segreto in Key Vault.
-
-    ```azurecli
-    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
-    ```
-
-1. Creare l'impostazione dell'app `WEBSITE_RUN_FROM_PACKAGE` e impostare il valore come riferimento Key Vault all'URL esterno.
-
-    ```azurecli
-    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
-    ```
-
-Per ulteriori informazioni, vedere gli articoli seguenti.
-
-- [Riferimenti Key Vault per il servizio app](../app-service/app-service-key-vault-references.md)
-- [Crittografia di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)
-
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 - L'esecuzione dal pacchetto rende `wwwroot` di sola lettura, pertanto verrà visualizzato un errore durante la scrittura di file in questa directory.
 - I formati tar e gzip non sono supportati.

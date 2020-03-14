@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 031423d72aecacc1feed692aaa32bcd1ff7efbab
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373070"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282705"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protezione dalle minacce nel Centro sicurezza di Azure
 
@@ -127,6 +127,10 @@ Il Centro sicurezza offre protezione dalle minacce a diversi livelli:
 
 Inoltre, il team globale dei ricercatori di sicurezza monitora costantemente il panorama delle minacce. Aggiungono avvisi e vulnerabilità specifici del contenitore Man mano che vengono individuati.
 
+> [!TIP]
+> È possibile simulare gli avvisi del contenitore seguendo le istruzioni riportate in [questo post di Blog](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+
+
 
 
 
@@ -208,6 +212,9 @@ Per altre informazioni, vedere:
 * [Come abilitare Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Elenco degli avvisi di protezione dalle minacce per archiviazione di Azure](alerts-reference.md#alerts-azurestorage)
 
+
+> [!TIP]
+> È possibile simulare gli avvisi di archiviazione di Azure seguendo le istruzioni riportate in [questo post di Blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
 
 
 

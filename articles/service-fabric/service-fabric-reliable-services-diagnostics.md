@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388434"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282263"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -23,9 +23,9 @@ Esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare 
 ## <a name="events"></a>Eventi
 | Nome evento | ID evento | Level | Descrizione evento |
 | --- | --- | --- | --- |
-| StatefulRunAsyncInvocation |1 |Informativo |Emesso quando l'attività RunAsync del servizio viene avviata |
-| StatefulRunAsyncCancellation |2 |Informativo |Emesso quando l'attività RunAsync del servizio viene annullata |
-| StatefulRunAsyncCompletion |3 |Informativo |Emesso quando l'attività RunAsync del servizio viene completata |
+| StatefulRunAsyncInvocation |1 |Informazioni |Emesso quando l'attività RunAsync del servizio viene avviata |
+| StatefulRunAsyncCancellation |2 |Informazioni |Emesso quando l'attività RunAsync del servizio viene annullata |
+| StatefulRunAsyncCompletion |3 |Informazioni |Emesso quando l'attività RunAsync del servizio viene completata |
 | StatefulRunAsyncSlowCancellation |4 |Avviso |Emesso quando l'annullamento dell'attività RunAsync del servizio richiede troppo tempo |
 | StatefulRunAsyncFailure |5 |Errore |Emesso quando l'attività RunAsync del servizio genera un'eccezione |
 
@@ -110,7 +110,7 @@ Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Serv
 
  Nome contatore | Descrizione |
 | --- | --- |
-| Item Count | Il numero di elementi nell'archivio.|
+| Conteggio elementi | Il numero di elementi nell'archivio.|
 | Dimensione disco | Le dimensioni totali del disco, in byte, dei file di checkpoint per l'archivio.|
 | Byte scritti/sec per il file di checkpoint | Il numero di byte scritti al secondo per il file di checkpoint più recente.|
 | Byte trasferiti su disco/sec per la copia | Il numero di byte letti (nella replica primaria) o scritti (in una replica secondaria) al secondo durante la copia nell'archivio.|

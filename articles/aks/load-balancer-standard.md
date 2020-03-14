@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
 ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374681"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252909"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
@@ -188,7 +188,7 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 L'output di esempio mostra il valore predefinito per *AllocatedOutboundPorts* e *IdleTimeoutInMinutes*. Il valore 0 per *AllocatedOutboundPorts* imposta il numero di porte in uscita che usano l'assegnazione automatica per il numero di porte in uscita in base alle dimensioni del pool back-end. Se, ad esempio, il cluster ha 50 o meno nodi, vengono allocate 1024 porte per ogni nodo.
 
-Provare a modificare l'impostazione di *allocatedOutboundPorts* o *IdleTimeoutInMinutes* se si prevede di affrontare l'esaurimento del SNAT in base alla configurazione predefinita precedente. Ogni indirizzo IP aggiuntivo Abilita 64.000 porte aggiuntive per l'allocazione, tuttavia il Load Balancer Standard di Azure non aumenta automaticamente le porte per nodo quando vengono aggiunti più indirizzi IP. È possibile modificare questi valori impostando i parametri *Load-Balancer-Outbound-Ports* e *Load-Balancer-Idle-timeout* . Ad esempio:
+Provare a modificare l'impostazione di *allocatedOutboundPorts* o *IdleTimeoutInMinutes* se si prevede di affrontare l'esaurimento del SNAT in base alla configurazione predefinita precedente. Ogni indirizzo IP aggiuntivo Abilita 64.000 porte aggiuntive per l'allocazione, tuttavia il Load Balancer Standard di Azure non aumenta automaticamente le porte per nodo quando vengono aggiunti più indirizzi IP. È possibile modificare questi valori impostando i parametri *Load-Balancer-Outbound-Ports* e *Load-Balancer-Idle-timeout* . Ad esempio,
 
 ```azurecli-interactive
 az aks update \
@@ -201,7 +201,7 @@ az aks update \
 > [!IMPORTANT]
 > È necessario [calcolare la quota necessaria][calculate-required-quota] prima di personalizzare *allocatedOutboundPorts* per evitare problemi di connettività o di ridimensionamento. Il valore specificato per *allocatedOutboundPorts* deve essere anche un multiplo di 8.
 
-Quando si crea un cluster, è anche possibile usare i parametri *Load-Balancer-Ports-Outbound-Ports* e *Load-Balancer-Idle-timeout* . Tuttavia, è necessario specificare anche Load-Balancer-Managed-Outbound- *IP-count*, *Load-Balancer-* Outbound-IP- *prefissi* .  Ad esempio:
+Quando si crea un cluster, è anche possibile usare i parametri *Load-Balancer-Ports-Outbound-Ports* e *Load-Balancer-Idle-timeout* . Tuttavia, è necessario specificare anche Load-Balancer-Managed-Outbound- *IP-count*, *Load-Balancer-* Outbound-IP- *prefissi* .  Ad esempio,
 
 ```azurecli-interactive
 az aks create \

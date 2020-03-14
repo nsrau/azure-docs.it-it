@@ -9,11 +9,11 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
 ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082605"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268496"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -56,7 +56,7 @@ Vedere l'articolo [dello schema degli eventi di archiviazione BLOB](../../event-
 > * Un esempio dei dati che la griglia di eventi invierà per ognuno di questi eventi.
 > * Scopo di ogni coppia chiave-valore visualizzata nei dati.
 
-## <a name="filtering-events"></a>Filtro degli eventi
+## <a name="filtering-events"></a>Filtro di eventi
 
 [Gli eventi BLOB possono essere filtrati](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) in base al tipo di evento, al nome del contenitore o al nome dell'oggetto che è stato creato/eliminato. I filtri in griglia di eventi corrispondono all'inizio o alla fine dell'oggetto in modo che gli eventi con un oggetto corrispondente vadano al Sottoscrittore.
 

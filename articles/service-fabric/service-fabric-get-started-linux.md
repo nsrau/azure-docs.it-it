@@ -4,11 +4,11 @@ description: Installare il runtime e l'SDK e creare un cluster di sviluppo local
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457900"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258434"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -167,8 +167,8 @@ Il runtime di Service Fabric fornito con l'installazione dell'SDK include i pacc
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | latest |
-RHEL | - | OpenJDK 1.8 | Implicito da npm | latest |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | più recenti |
+RHEL | - | OpenJDK 1.8 | Implicito da npm | più recenti |
 
 ## <a name="set-up-a-local-cluster"></a>Configurare un cluster locale
 Dopo aver completato l'installazione, avviare un cluster locale.
@@ -220,7 +220,7 @@ Service Fabric offre gli strumenti di scaffolding che consentono di creare appli
     sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
-Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfcontainer` o `yo azuresfguest`.
+Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfguest` o `yo azuresfcontainer`.
 
 ## <a name="set-up-net-core-20-development"></a>Configurare lo sviluppo .NET Core 2.0
 
@@ -267,7 +267,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse** .
 
-4. Selezionare **Aggiungi**.
+4. Fare clic su **Aggiungi**.
 
     ![Pagina relativa al software disponibile][sf-eclipse-plugin]
 

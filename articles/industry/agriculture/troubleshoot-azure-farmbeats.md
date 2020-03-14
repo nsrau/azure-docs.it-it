@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 20d07be99aa2f9881218f8d581ac8d429a1fe4d0
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705616"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298802"
 ---
-# <a name="troubleshoot"></a>Risolvere i problemi
+# <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Questo articolo fornisce soluzioni ai problemi comuni di Azure FarmBeats.
 
@@ -39,7 +39,7 @@ Per scaricare il file **deployer. log** , eseguire le operazioni seguenti:
 
 1. Passare al gruppo di risorse FarmBeats datahub.   
 2. Selezionare l' **Hub eventi** (DatafeedEventHubNamespace), quindi controllare il numero di messaggi in arrivo.
-3. Effettuare una delle operazioni seguenti:   
+3. Eseguire una delle operazioni seguenti:   
    - Se non sono presenti *messaggi in ingresso*, contattare il partner del dispositivo.  
    - Se sono presenti *messaggi in ingresso*, contattare farmbeatssupport@microsoft.com. Alleghi i log datahub e Accelerator e i dati di telemetria acquisiti.
 
@@ -51,7 +51,7 @@ Per informazioni su come scaricare i log, vedere la sezione ["raccogliere i log 
 
 **Azione correttiva**:
 
-1. Assicurarsi che la registrazione del partner sia stata eseguita correttamente. è possibile verificarla selezionando datahub spavalderia, passare all'API/partner, eseguire un'operazione get e verificare se il partner è registrato. In caso contrario, seguire la [procedura descritta qui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere il partner.
+1. Assicurarsi che la registrazione del partner sia stata eseguita correttamente. è possibile verificarla selezionando datahub spavalderia, passare all'API/partner, eseguire un'operazione get e verificare se il partner è registrato. In caso contrario, seguire questa [procedura](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere il partner.
 2. Assicurarsi di aver usato il formato di messaggio di telemetria corretto:
 
 ```json
@@ -65,11 +65,11 @@ Per informazioni su come scaricare i log, vedere la sezione ["raccogliere i log 
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -119,7 +119,7 @@ Durante l'eliminazione di un dispositivo, è possibile che si verifichi uno degl
 2. Eliminare il dispositivo specifico.  
 
     > [!NOTE]
-    > Non è possibile eliminare un dispositivo se sono associati sensori. Per altre informazioni su come eliminare i sensori associati, vedere la sezione "eliminare il sensore" in [ottenere i dati dei sensori dai partner di sensori](get-sensor-data-from-sensor-partner.md).
+    > Non è possibile eliminare un dispositivo se sono associati sensori. Per altre informazioni su come eliminare i sensori associati, vedere la sezione **Delete Sensor** in [ottenere i dati dei sensori dai partner di sensori](get-sensor-data-from-sensor-partner.md).
 
 
 ## <a name="issues-with-jobs"></a>Problemi relativi ai processi
@@ -138,7 +138,7 @@ Durante l'eliminazione di un dispositivo, è possibile che si verifichi uno degl
 
 **Messaggio**: "non sono stati trovati utenti corrispondenti".
 
-**Azione correttiva**: controllare l'ID di posta elettronica per cui si sta provando ad aggiungere un'assegnazione di ruolo. L'ID di posta elettronica deve corrispondere esattamente all'ID registrato per l'utente nella Active Directory. Se l'errore è permanente, aggiungere il messaggio di errore in un post nel forum di FarmBeats o contattare FarmBeatsSupport@microsoft.com.
+**Azione correttiva**: controllare l'ID di posta elettronica per cui si sta provando ad aggiungere un'assegnazione di ruolo. L'ID di posta elettronica deve corrispondere esattamente a quello dell'ID, registrato per l'utente nella Active Directory. Se l'errore è permanente, aggiungere il messaggio di errore in un post nel forum di FarmBeats o contattare FarmBeatsSupport@microsoft.com.
 
 ### <a name="unable-to-log-in-to-accelerator"></a>Non è possibile accedere al tasto di scelta rapida
 
@@ -162,7 +162,8 @@ Se l'errore è permanente, aggiungere il messaggio di errore in un post nel foru
 
 **Problema**: FarmBeats Accelerator non Visualizza la versione più recente, anche dopo l'aggiornamento di FarmBeatsDeployment.
 
-**Azione correttiva**: questo errore si verifica a causa della persistenza del servizio di lavoro nel browser. Eseguire le operazioni seguenti:
+**Azione correttiva**: questo errore si verifica a causa della persistenza del servizio di lavoro nel browser. eseguire le operazioni descritte di seguito.
+
 1. Chiudere tutte le schede del browser con tasto di scelta rapida aperto e chiudere la finestra del browser.
 2. Avviare una nuova istanza del browser e ricaricare l'URI del tasto di scelta rapida. Questa azione carica la nuova versione di Accelerator.
 
@@ -174,7 +175,8 @@ Se l'errore è permanente, aggiungere il messaggio di errore in un post nel foru
 
 **Azione correttiva**:
 
-Eseguire una delle operazioni seguenti:
+Esegui una delle operazioni seguenti:
+
 - Eseguire di nuovo il programma di installazione per l'aggiornamento di datahub con il nome utente e la password corretti.
 - Eseguire di nuovo il processo non riuscito oppure eseguire un processo di indici satellite per un intervallo di date compreso tra 5 e 7 giorni, quindi verificare se il processo ha avuto esito positivo.
 
@@ -198,6 +200,7 @@ Questo problema può verificarsi nel caso in cui vengano eseguite attività di m
 1. Se un processo o una pipeline ha esito negativo perché è in corso l'esecuzione della manutenzione, inviare nuovamente il processo tra qualche minuto. 
 
    Per informazioni sulle attività di manutenzione di Sentinel pianificate o non pianificate, visitare il sito di [notizie di Copernico Open Access Hub](https://scihub.copernicus.eu/news/) .  
+
 2. Eseguire di nuovo il processo non riuscito oppure eseguire un processo di indici satellite per un intervallo di date compreso tra 5 e 7 giorni, quindi verificare se il processo ha avuto esito positivo.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinella: è stato raggiunto il numero massimo di connessioni
@@ -207,6 +210,7 @@ Questo problema può verificarsi nel caso in cui vengano eseguite attività di m
 **Significato**: se un processo ha esito negativo perché è stato raggiunto il numero massimo di connessioni, viene usato lo stesso account Sentinel in un'altra distribuzione software.
 
 **Azione correttiva**: provare una delle seguenti operazioni:
+
 * Creare un nuovo account Sentinel, quindi eseguire di nuovo il programma di installazione per aggiornare datahub usando un nuovo nome utente e una password di Sentinel.  
 * Eseguire di nuovo il processo non riuscito o eseguire un processo di indici satellite per un intervallo di date compreso tra 5 e 7 giorni, quindi verificare se il processo ha avuto esito positivo.
 
@@ -218,6 +222,7 @@ Questo problema può verificarsi nel caso in cui vengano eseguite attività di m
 1. Se un processo o una pipeline ha esito negativo perché è in corso l'esecuzione della manutenzione, inviare nuovamente il processo tra qualche minuto. 
 
    Per informazioni sulle attività di manutenzione di Sentinel pianificate o non pianificate, visitare il sito di [notizie di Copernico Open Access Hub](https://scihub.copernicus.eu/news/) .  
+
 2. Eseguire di nuovo il processo non riuscito oppure eseguire un processo di indici satellite per un intervallo di date compreso tra 5 e 7 giorni, quindi verificare se il processo ha avuto esito positivo.
 
 ## <a name="collect-logs-manually"></a>Raccogli log manualmente
@@ -225,6 +230,7 @@ Questo problema può verificarsi nel caso in cui vengano eseguite attività di m
 [Installare e distribuire Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
 ### <a name="collect-azure-data-factory-job-logs-in-datahub"></a>Raccolta dei log dei processi di Azure Data Factory in datahub
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella casella di **ricerca** cercare il gruppo di risorse FarmBeats datahub.
 

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 8087baf7595bfd2497f97fbff4822b356cd1b146
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485637"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274567"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse Azure Resource Manager usando il portale di Azure
 
@@ -37,7 +37,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica una 
 2. Selezione **gruppi di risorse**
 
     ![aggiungere un gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
-3. Selezionare **Aggiungi**.
+3. Fare clic su **Aggiungi**.
 4. Immettere i valori seguenti:
 
    - **Sottoscrizione**: selezionare una sottoscrizione di Azure. 
@@ -46,7 +46,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica una 
 
      ![Creare un gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Selezionare **Verifica + crea**
-6. Selezionare **Create** (Crea). La creazione di un gruppo di risorse richiede alcuni secondi.
+6. Selezionare **Crea**. La creazione di un gruppo di risorse richiede alcuni secondi.
 7. Selezionare **Aggiorna** dal menu superiore per aggiornare l'elenco dei gruppi di risorse e quindi selezionare il gruppo di risorse appena creato per aprirlo. In alternativa, selezionare **notifica**(icona a campana) nella parte superiore e quindi selezionare **Vai al gruppo di risorse** per aprire il gruppo di risorse appena creato
 
     ![Vai al gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
@@ -66,7 +66,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica una 
 2. Selezionare **Gruppi di risorse**.
 3. Selezionare il gruppo di risorse che si vuole aprire.
 
-## <a name="delete-resource-groups"></a>Elimina gruppi di risorse
+## <a name="delete-resource-groups"></a>Eliminare i gruppi di risorse
 
 1. Aprire il gruppo di risorse che si vuole eliminare.  Vedere [aprire gruppi di risorse](#open-resource-groups).
 2. Selezionare **Elimina gruppo di risorse**.

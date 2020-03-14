@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 493ba6396a7ceb11b917fbda5dd6c37c070f2fee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376772"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261931"
 ---
 # <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare le impostazioni di richiesta e approvazione per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -39,9 +39,9 @@ Il modo in cui si specificano gli utenti che possono richiedere un pacchetto di 
 | --- | --- |
 | Si desidera che tutti gli utenti della directory dispongano delle stesse impostazioni di richiesta e approvazione per un pacchetto di accesso | Uno |
 | Desidero che tutti gli utenti di determinate organizzazioni connesse siano in grado di richiedere un pacchetto di accesso | Uno |
-| Desidero consentire agli utenti della mia directory e anche a utenti esterni alla directory di richiedere un pacchetto di accesso | Multipli |
-| Si desidera specificare impostazioni di approvazione diverse per alcuni utenti | Multipli |
-| Si desidera che alcuni utenti accedano alle assegnazioni dei pacchetti per scadere mentre altri utenti possono estenderne l'accesso | Multipli |
+| Desidero consentire agli utenti della mia directory e anche a utenti esterni alla directory di richiedere un pacchetto di accesso | Selezione multipla |
+| Si desidera specificare impostazioni di approvazione diverse per alcuni utenti | Selezione multipla |
+| Si desidera che alcuni utenti accedano alle assegnazioni dei pacchetti per scadere mentre altri utenti possono estenderne l'accesso | Selezione multipla |
 
 Per informazioni sulla logica di priorità usata quando si applicano più criteri, vedere [criteri multipli](entitlement-management-troubleshoot.md#multiple-policies
 ).

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365841"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254755"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
 
@@ -38,7 +38,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
 1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
 2. Aprire la scatola esterna ed estrarre le due scatole corrispondenti all’enclosure principale e all’enclosure EBOD. È ora possibile disimballare l'enclosure principale e l'enclosure EBOD. Nella figura seguente viene illustrato uno degli enclosure disimballato.
    
-    ![Disimballare il dispositivo di archiviazione](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+    ![Disimballaggio del dispositivo di archiviazione](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
     **Dispositivo di archiviazione disimballato**
    
@@ -102,7 +102,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 #### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Per installare l'enclosure EBOD sulle guide
 1. Eseguire questo passaggio solo se non ci sono guide interne installate sul dispositivo. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.
    
-    ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Collegamento delle slitte delle guide al telaio dell'enclosure](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
     **Fissaggio delle slitte delle guide ai lati dell’enclosure**
    
@@ -115,7 +115,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 4. Fissare il gruppo guida agli elementi verticali del rack con due delle viti metriche fornite. Usare una vite per l'elemento anteriore e una per quello posteriore.
 5. Ripetere la procedura per l'altro gruppo guida.
    
-     ![Fissaggio delle slitte delle guide all'armadio rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Collegamento delle slitte delle guide all'armadio rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
     **Fissaggio dei gruppi guida al rack**
    
@@ -164,7 +164,7 @@ Il passaggio successivo consiste nel cablare il dispositivo per l'alimentazione,
 ## <a name="cable-your-storsimple-8600-device"></a>Cablare il dispositivo StorSimple 8600
 In questo argomento vengono illustrate le procedure per cablare il dispositivo StorSimple 8600 per l'alimentazione, la connessione di rete e quella seriale.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * L'enclosure principale e l'enclosure EBOD, completamente disimballate
@@ -205,14 +205,14 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    |   6 |Porte seriali |
 2. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. Per una disponibilità elevata e prestazioni ottimali, la configurazione aggiuntiva richiesta è indicata da linee tratteggiate.
 
-![Cablare il dispositivo 4U per la rete](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+![Cavo del dispositivo 4U per la rete](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
 **Cablaggio di rete per il dispositivo**
 
 | Etichetta | Descrizione |
 | --- | --- |
-| Una |LAN con accesso a Internet |
-| b |Controller 0 |
+| A |LAN con accesso a Internet |
+| B |Controller 0 |
 | C |PCM 0 |
 | D |Controller 1 |
 | E |PCM 1 |

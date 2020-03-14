@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365836"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267924"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Sostituire un modulo controller nel dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
@@ -79,7 +79,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
 
 #### <a name="to-remove-a-single-failed-controller-module"></a>Per rimuovere un singolo modulo del controller che ha avuto esito negativo
 1. Nel portale di Azure passare al servizio Gestione dispositivi StorSimple, fare clic sulla scheda **Dispositivi** e quindi sul nome del dispositivo da monitorare.
-2. Passare a **Monitoraggio > Integrità hardware**. Lo stato del Controller 0 o Controller 1 deve essere rosso, ad indicare un errore.
+2. Passare a **Monitoraggio > Integrità hardware**. L'indicatore di stato del Controller 0 o del Controller 1 deve essere di colore rosso, a indicare un malfunzionamento.
    
    > [!NOTE]
    > Il controller che ha avuto esito negativo in una sostituzione di un singolo controller è sempre un controller in standby.
@@ -103,7 +103,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
 8. Dopo aver riavviato il controller, controllare lo **stato del controller** e lo **stato del cluster** nel Portale di Azure per verificare che il controller sia tornato a uno stato integro e si trovi in modalità standby.
 
 > [!NOTE]
-> Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, si saprà che la sostituzione è completata. Se il menu non viene visualizzato entro due ore dall’inizio della sostituzione del controller, [contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md).
+> Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, la procedura di sostituzione è completata. Se il menu non viene visualizzato entro due ore dall’inizio della sostituzione del controller, [contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md).
 >
 > A partire dall'aggiornamento 4, è inoltre possibile usare il cmdlet `Get-HCSControllerReplacementStatus` nell'interfaccia di Windows PowerShell del dispositivo per monitorare lo stato del processo di sostituzione dei controller.
 > 
@@ -120,7 +120,7 @@ In una doppia sostituzione di controller, rimuovere prima entrambi i controller 
    2. Si tratta di una parte del cluster?
    3. Il controller peer è in esecuzione ed è in funzione cluster?
       
-      Se nessuna di queste condizioni sono true, il controller cerca il backup giornaliero più recente (all'interno di **nonDOMstorage** sull'unità S). Il controller copia lo snapshot più recente del file VHD dal backup.
+      Se nessuna di queste condizioni è vera, il controller cerca l'ultimo backup giornaliero, che si trova in **nonDOMstorage** nell'unità S. Il controller copia lo snapshot più recente del file VHD dal backup.
 2. Il controller nello slot 0 utilizza lo snapshot per la sua stessa immagine.
 3. Nel frattempo, il controller nello slot 1 attende che il controller 0 completi la creazione dell'immagine e si avvii.
 4. Dopo l'avvio del controller 0, il controller 1 rileva il cluster creato dal controller 0, che attiva la logica di sostituzione del singolo controller. Per altre informazioni, vedere [Logica di sostituzione di un singolo controller](#single-controller-replacement-logic).
@@ -153,7 +153,7 @@ Questo flusso di lavoro è necessario quando entrambi i controller del dispositi
    4. Dopo che il primo controller viene riavviato e si trova in uno stato integro, il sistema sarà in esecuzione.
       
       > [!NOTE]
-      > Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, si sa che la sostituzione è completata. Se il menu non viene visualizzato entro 2.5 ore dall’inizio della sostituzione del controller, [contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md).
+      > Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, si sa che la sostituzione è completata. Se il menu non viene visualizzato entro 2 ore e mezzo dall'inizio della sostituzione dei controller, [contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md).
      
 ## <a name="remove-a-controller"></a>Rimuovere un controller
 Utilizzare la procedura seguente per rimuovere un modulo controller danneggiato dal dispositivo StorSimple.

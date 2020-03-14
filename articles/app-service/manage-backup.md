@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671649"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259331"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati fino a un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
@@ -52,7 +52,7 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 
 <a name="manualbackup"></a>
 
-## <a name="create-a-manual-backup"></a>Creazione di un backup manuale
+## <a name="create-a-manual-backup"></a>Creare un backup manuale
 1. Nel [portale di Azure](https://portal.azure.com) passare alla pagina dell'app e selezionare **Backup**. Viene visualizzata la pagina **Backup**.
 
     ![Pagina Backups](./media/manage-backup/access-backup-page.png)
@@ -106,7 +106,7 @@ Dopo avere configurato l'account di archiviazione e il contenitore è possibile 
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Configurare backup parziali
-In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. Di seguito vengono indicati alcuni esempi:
+In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. Di seguito sono disponibili alcuni esempi:
 
 * Si [configurano backup settimanali](#configure-automated-backups) dell'app che contiene contenuto statico che non cambia mai, ad esempio immagini o post di blog precedenti.
 * L'app include oltre 10 GB di contenuto, ovvero la quantità massima di cui è possibile eseguire il backup ogni volta.
@@ -168,5 +168,5 @@ Per qualche esempio vedere:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sul ripristino di un'app da un backup, vedere [Ripristinare un'app nel Servizio app di Azure](web-sites-restore.md). 

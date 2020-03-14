@@ -9,18 +9,18 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: kfollis
-ms.openlocfilehash: 6218a1089352ce9ee3e2d1d10f3282e64eae8c51
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 28a29bbb94f63657a69e873bb8f969e96ee92c76
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547660"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248489"
 ---
-# <a name="how-to-create-an-azure-support-request"></a>Come creare una richiesta di supporto di Azure
+# <a name="how-to-create-an-azure-support-request"></a>Come creare una richiesta di supporto in Azure
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
-I clienti di Azure possono creare e gestire le richieste di supporto nel [portale di Azure](https://portal.azure.com).
+Azure consente di creare e gestire le richieste di supporto, note anche come ticket di supporto. È possibile creare e gestire le richieste nel [portale di Azure](https://portal.azure.com), come spiegato in questo articolo. È anche possibile creare e gestire le richieste a livello di codice, usando l' [API REST del ticket di supporto di Azure](/rest/api/support).
 
 > [!NOTE]
 > L'URL del portale di Azure è specifico per il cloud di Azure in cui viene distribuita l'organizzazione.
@@ -37,19 +37,19 @@ In base ai suggerimenti dei clienti, è stata aggiornata l'esperienza di richies
 * **Integrato**: è possibile aprire facilmente una richiesta di supporto quando si sta risolvendo un problema con una risorsa di Azure, senza cambiare contesto.
 * **Efficienza**: raccogliere le informazioni chiave necessarie all'agente di supporto per risolvere il problema in modo efficiente.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 È possibile ottenere **supporto e supporto** nella portale di Azure. È disponibile dal menu portale di Azure, dall'intestazione globale o dal menu delle risorse per un servizio. Prima di poter archiviare una richiesta di supporto, è necessario disporre delle autorizzazioni appropriate.
 
-### <a name="role-based-access-control"></a>Controllo degli accessi basato sul ruolo
+### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Per creare una richiesta di supporto, è necessario essere un amministratore o essere assegnati al ruolo di [collaboratore della richiesta di supporto](../../role-based-access-control/built-in-roles.md#support-request-contributor) .
+Per creare una richiesta di supporto, è necessario essere un amministratore o essere assegnati al ruolo di [collaboratore della richiesta di supporto](../../role-based-access-control/built-in-roles.md#support-request-contributor) a livello di sottoscrizione.
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Passare a guida e supporto tecnico dall'intestazione globale
 
 Per avviare una richiesta di supporto da qualsiasi punto del portale di Azure:
 
-1. Selezionare l’icona **?** nell'intestazione globale. Selezionare quindi **Guida e supporto**.
+1. Selezionare **?** nell'intestazione globale. Selezionare quindi **Guida e supporto**.
 
    ![Guida e supporto](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 

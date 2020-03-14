@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639231"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220017"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Archiviazione e rimozione dei dati nei Servizi cognitivi di LUIS (Language Understanding)
 LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente alla regione specificata dalla chiave. Questi dati vengono archiviati per 30 giorni. 
@@ -28,7 +28,7 @@ Gli utenti hanno il controllo completo sull'[esportazione](luis-how-to-start-new
 
 Le espressioni possono essere archiviate in due posizioni diverse. 
 
-* Durante **il processo di creazione**, le espressioni vengono create e archiviate nello scopo. Le espressioni negli Intent sono necessarie per un'app LUIS riuscita. Dopo la pubblicazione dell'app e la ricezione di query sull'endpoint, la QueryString `log=false`della richiesta dell'endpoint determina se l'espressione dell'endpoint è archiviata. Se l'endpoint è archiviato, diventa parte delle espressioni di formazione attive disponibili nella sezione **Build** del portale, nella sezione **Review endpoint enunciations** . 
+* Durante **il processo di creazione**, le espressioni vengono create e archiviate nello scopo. Le espressioni negli Intent sono necessarie per un'app LUIS riuscita. Dopo la pubblicazione dell'app e la ricezione di query sull'endpoint, la QueryString della richiesta dell'endpoint, `log=false`, determina se l'espressione dell'endpoint è archiviata. Se l'endpoint è archiviato, diventa parte delle espressioni di formazione attive disponibili nella sezione **Build** del portale, nella sezione **Review endpoint enunciations** . 
 * Quando si **esaminano le espressioni dell'endpoint**e si aggiunge un enunciato a un preventivo, l'espressione non viene più archiviata come parte delle espressioni di endpoint da rivedere. Viene aggiunto agli Intent dell'app. 
 
 <a name="utterances-in-an-intent"></a>
@@ -41,12 +41,12 @@ Eliminare le espressioni di esempio usate per il training di [LUIS](luis-referen
 
 ### <a name="delete-utterances-in-review-from-active-learning"></a>Elimina le espressioni nella revisione dall'apprendimento attivo
 
-È possibile eliminare le espressioni dall'elenco di espressioni utente suggerite da LUIS nella pagina  **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Esamina espressioni endpoint). Le espressioni eliminate da questo elenco non vengono più suggerite, ma non vengono eliminate dai log.
+È possibile eliminare le espressioni dall'elenco di espressioni utente suggerite da LUIS nella pagina **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Esamina espressioni endpoint). Le espressioni eliminate da questo elenco non vengono più suggerite, ma non vengono eliminate dai log.
 
 Se non si desiderano espressioni di apprendimento attive, è possibile [disabilitare l'apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). La disabilitazione dell'apprendimento attivo Disabilita anche la registrazione.
 
 ### <a name="disable-logging-utterances"></a>Disabilitare le espressioni di registrazione
-La disabilitazione dell' [apprendimento attivo Disabilita](luis-how-to-review-endpoint-utterances.md#disable-active-learning) la registrazione.
+La [disabilitazione dell'apprendimento attivo Disabilita](luis-how-to-review-endpoint-utterances.md#disable-active-learning) la registrazione.
 
 
 <a name="accounts"></a>

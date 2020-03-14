@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
 ms.openlocfilehash: 6897854820339fc78dd9083c82147dce95ab68b6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391399"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258655"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Aggiornamento di un cluster di Azure Service Fabric
 
@@ -67,7 +67,7 @@ Al proprietario della sottoscrizione viene inviato un messaggio di posta elettro
 
 Se i criteri di integrità del cluster sono soddisfatti, l'aggiornamento si considera riuscito e viene contrassegnato come completato. Questa situazione può verificarsi durante l'aggiornamento iniziale o in una delle repliche previste in questa fase. Non viene inviato alcun messaggio di posta elettronica di conferma in caso di esecuzione riuscita.
 
-## <a name="manage-certificates"></a>Gestire i certificati
+## <a name="manage-certificates"></a>Gestione certificati
 
 Service Fabric usa i [certificati server X.509](service-fabric-cluster-security.md) specificati quando si crea un cluster per proteggere le comunicazioni tra i nodi del cluster ed eseguire l'autenticazione client. È possibile aggiungere, aggiornare o eliminare certificati per il cluster e il client nel [portale di Azure](https://portal.azure.com) o tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.  Per altre informazioni, vedere [Aggiungere o rimuovere certificati](service-fabric-cluster-security-update-certs-azure.md)
 

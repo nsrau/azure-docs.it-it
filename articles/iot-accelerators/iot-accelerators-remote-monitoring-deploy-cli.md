@@ -9,21 +9,21 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447013"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271655"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
-Questa guida procedurale illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto. Distribuire la soluzione usando l'interfaccia della riga di comando. È anche possibile distribuire la soluzione usando l'interfaccia utente basata sul web in azureiotsolutions.com, per informazioni su questa opzione, vedere la [distribuire l'acceleratore di soluzione di monitoraggio remoto](quickstart-remote-monitoring-deploy.md) Guida introduttiva.
+Questa guida procedurale illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto. Distribuire la soluzione usando l'interfaccia della riga di comando. È anche possibile distribuire la soluzione usando l'interfaccia utente basata sul Web in azureiotsolutions.com. per informazioni su questa opzione, vedere la Guida introduttiva alla [distribuzione della soluzione di monitoraggio remoto](quickstart-remote-monitoring-deploy.md) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per distribuire l'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se non si dispone di un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Per eseguire l'interfaccia della riga di comando, è necessario che [Node.js](https://nodejs.org/) sia installato nel computer locale.
 
@@ -52,7 +52,7 @@ Quando si distribuisce l'acceleratore di soluzioni, sono disponibili diverse opz
 | Opzione | Valori | Descrizione |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | Una distribuzione _di base_ è destinata agli ambienti di test e demo e distribuisce tutti i microservizi in un'unica macchina virtuale. Una distribuzione _standard_ è destinata agli ambienti di produzione e distribuisce i microservizi a più macchine virtuali. Una distribuzione _locale_ configura un contenitore Docker per l'esecuzione dei microservizi nel computer locale e usa servizi cloud di Azure, ad esempio l'archiviazione e Cosmos DB. |
-| Runtime | `dotnet`, `java` | Seleziona l'implementazione del linguaggio dei microservizi. |
+| Tipo | `dotnet`, `java` | Seleziona l'implementazione del linguaggio dei microservizi. |
 
 Per informazioni su come usare l'opzione di distribuzione locale, vedere [Running the remote monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md) (Esecuzione della soluzione di monitoraggio remota in locale).
 

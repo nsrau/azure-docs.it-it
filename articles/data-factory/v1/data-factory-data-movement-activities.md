@@ -13,11 +13,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931928"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281886"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -94,7 +94,7 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 
 | Geografia degli archivi dati di destinazione | Area dell'archivio dati di destinazione | Area usata per lo spostamento dei dati |
 |:--- |:--- |:--- |
-| Stati Uniti | Stati Uniti Orientali | Stati Uniti Orientali |
+| Stati Uniti | Stati Uniti orientali | Stati Uniti orientali |
 | &nbsp; | Stati Uniti orientali 2 | Stati Uniti orientali 2 |
 | &nbsp; | Stati Uniti centrali | Stati Uniti centrali |
 | &nbsp; | Stati Uniti centro-settentrionali | Stati Uniti centro-settentrionali |
@@ -116,9 +116,9 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | India | India centrale | India centrale |
 | &nbsp; | India occidentale | India centrale |
 | &nbsp; | India meridionale | India centrale |
-| Giappone | Giappone orientale | Giappone orientale |
+| Japan | Giappone orientale | Giappone orientale |
 | &nbsp; | Giappone occidentale | Giappone orientale |
-| Corea | Corea centrale | Corea centrale |
+| Korea | Corea centrale | Corea centrale |
 | &nbsp; | Corea meridionale | Corea centrale |
 
 In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati vengono trasferiti in rete attraverso tale area durante la copia. Ad esempio, per eseguire la copia tra archivi di Azure in Corea del Sud è possibile specificare `"executionLocation": "Japan East"` per instradare i dati tramite l'area del Giappone (vedere l'[esempio JSON](#by-using-json-scripts) come riferimento).
@@ -196,13 +196,13 @@ Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimiz
 ## <a name="fault-tolerance"></a>Tolleranza di errore
 Per impostazione predefinita, l'attività di copia interromperà la copia dei dati e restituirà un errore quando rileva dati incompatibili tra l'origine e il sink; è possibile chiedere in modo esplicito di ignorare e registrare le righe incompatibili, quindi copiare solo i dati compatibili perché la copia abbia esito positivo. Per altri dettagli, vedere la [Tolleranza di errore dell'attività di copia: ignorare le righe incompatibili](data-factory-copy-activity-fault-tolerance.md).
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 Vedere [Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati](data-factory-data-movement-security-considerations.md) che descrive l'infrastruttura di sicurezza usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati.
 
 ## <a name="scheduling-and-sequential-copy"></a>Pianificazione e copia sequenziale
 Vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) per informazioni dettagliate sul funzionamento della pianificazione e dell'esecuzione in Data Factory. È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Vedere la sezione [Copiare in sequenza](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="type-conversions"></a>Conversioni di tipi
+## <a name="type-conversions"></a>Conversioni dei tipi
 Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'attività di copia esegue automaticamente la conversione dai tipi di origine ai tipi sink con il metodo seguente in due passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET.

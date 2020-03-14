@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
 ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938655"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250933"
 ---
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 
@@ -38,7 +38,7 @@ Le sezioni seguenti descrivono i singoli tipi di endpoint in modo più approfond
 In Gestione traffico gli endpoint di Azure vengono usati per i servizi basati su Azure. Sono supportati i tipi di risorse di Azure seguenti:
 
 * Servizi cloud PaaS
-* App Web
+* Applicazioni Web
 * Slot per App Web
 * Risorse PublicIPAddress, che possono essere collegate alle macchine virtuali direttamente o tramite Azure Load Balancer. È necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in un profilo di Gestione traffico.
 
@@ -91,7 +91,7 @@ Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffi
 
 Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è disabilitato, Gestione traffico invia una risposta "NXDOMAIN" a una nuova query DNS.
 
-## <a name="faqs"></a>Domande frequenti
+## <a name="faqs"></a>domande frequenti
 
 * [È possibile usare gestione traffico con endpoint di più sottoscrizioni?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 

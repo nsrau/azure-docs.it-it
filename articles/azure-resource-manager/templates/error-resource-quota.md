@@ -3,12 +3,12 @@ title: Errori di quota
 description: Viene descritto come risolvere gli errori di quota delle risorse durante la distribuzione di risorse con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 9b5cce3258a29b6ac6a3db50f880e3242c4d5e8c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250147"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273787"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Risolvere gli errori di quota delle risorse
 
@@ -76,7 +76,7 @@ Get-AzVMUsage -Location "South Central US"
 
 Che restituisce:
 
-```powershell
+```output
 Name                             Current Value Limit  Unit
 ----                             ------------- -----  ----
 Availability Sets                            0  2000 Count

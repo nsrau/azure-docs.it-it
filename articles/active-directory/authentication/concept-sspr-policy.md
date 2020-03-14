@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd6cacae9c7af705b0de7b59e0f25f25637a5a89
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376938"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263933"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -32,7 +32,7 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
 
 * Sono interessati tutti i ruoli di amministratore di Azure seguenti:
   * Amministratore dell'help desk
-  * Amministratore del supporto per il servizio
+  * Amministratore del servizio supporto tecnico
   * Amministratore fatturazione
   * Supporto partner - Livello 1
   * Supporto partner - Livello 2
@@ -121,7 +121,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
    Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
    ```
 
-### <a name="set-a-password-to-expire"></a>Impostare una scadenza della password
+### <a name="set-a-password-to-expire"></a>Impostazione di una password con scadenza
 
 1. Connettersi a Windows PowerShell utilizzando le credenziali dell'amministratore dell'utente o dell'amministratore della società.
 1. Eseguire uno di questi comandi:
@@ -138,7 +138,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
    ```
 
-### <a name="set-a-password-to-never-expire"></a>Impostare una password senza scadenza
+### <a name="set-a-password-to-never-expire"></a>Impostazione di una password senza scadenza
 
 1. Connettersi a Windows PowerShell utilizzando le credenziali dell'amministratore dell'utente o dell'amministratore della società.
 1. Eseguire uno di questi comandi:

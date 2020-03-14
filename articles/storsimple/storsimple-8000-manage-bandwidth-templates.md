@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366747"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254898"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i modelli di larghezza di banda StorSimple
 
@@ -73,7 +73,7 @@ Per creare un nuovo modello di larghezza di banda, attenersi alla procedura segu
            > [!NOTE]
            > Le pianificazioni sovrapposte non sono consentite. Se gli orari di inizio e di fine sono sovrapposti con altre pianificazioni, verrà visualizzato un messaggio di errore.
 
-        4. Specificare **Velocità larghezza di banda**. Si tratta della larghezza di banda espressa in megabit al secondo (Mbps) usata dal dispositivo StorSimple nelle operazioni che coinvolgono il cloud (sia caricamento sia download). Specificare un numero compreso tra 1 e 1000 per questo campo.
+        4. Specificare un valore in **Velocità larghezza di banda**. Si tratta della larghezza di banda espressa in megabit al secondo (Mbps) usata dal dispositivo StorSimple nelle operazioni che coinvolgono il cloud (sia caricamento sia download). Specificare un numero compreso tra 1 e 1000 per questo campo.
 
             ![Definire una pianificazione per la larghezza di banda](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
          
@@ -116,7 +116,7 @@ Se il modello è utilizzato da qualche volume, non sarà possibile eliminarlo. V
 Per impostazione predefinita, un modello di larghezza di banda viene fornito e viene utilizzato dai contenitori di volume al fine di applicare i controlli di larghezza di banda richiesti per accedere al cloud. Il modello predefinito può essere utilizzato anche come riferimento immediato per gli utenti che creano modelli personalizzati. Di seguito, sono indicati i dettagli di questo modello predefinito:
 
 * **Nome** : notte e fine settimana senza limiti
-* **Pianificazione**: una pianificazione singola, dal lunedì al venerdì. Applica una velocità di larghezza di banda di 1 Mbps nell'intervallo d'uso del dispositivo compreso tra le 08:00 e le 17:00. La larghezza di banda viene impostata su Illimitata per tutto il resto della settimana.
+* **Pianificazione**: una pianificazione singola, dal lunedì al venerdì. Applica una velocità di larghezza di banda di 1 Mbps nell'intervallo d'uso del dispositivo compreso tra le 08:00 e le 17:00. La larghezza di banda è impostata su Senza limitazioni per il resto della settimana.
 
 È possibile modificare il modello predefinito. L'utilizzo di questo modello (incluse le versioni modificate) viene monitorato.
 

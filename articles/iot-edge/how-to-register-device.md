@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 32121681b14989f23e29c3701826b4494988c263
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f7facb539a84d39e6659627e80ecc560fc87591c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772432"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285097"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registrare un dispositivo Azure IoT Edge
 
@@ -112,17 +112,17 @@ Quando si è pronti per configurare il dispositivo, è necessaria la stringa di 
 
 ## <a name="register-with-the-azure-cli"></a>Eseguire la registrazione nell'interfaccia della riga di comando di Azure
 
-L' [interfaccia](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) della riga di comando di Azure è uno strumento da riga di comando multipiattaforma open source per la gestione delle risorse di Azure, ad esempio IOT Edge. Consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio di provisioning di dispositivi e gli hub collegati predefiniti. La nuova estensione IoT arricchisce l'interfaccia della riga di comando di Azure con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
+L' [interfaccia](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) della riga di comando di Azure è uno strumento da riga di comando multipiattaforma open source per la gestione delle risorse di Azure, ad esempio IOT Edge. Consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio di provisioning di dispositivi e gli hub collegati predefiniti. L'estensione IoT arricchisce l'interfaccia della riga di comando di Azure con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
 
 ### <a name="prerequisites-for-the-azure-cli"></a>Prerequisiti per l'interfaccia della riga di comando di Azure
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure.
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. Come minimo, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
 * [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Creare un dispositivo di IoT Edge con l'interfaccia della riga di comando di Azure
 
-Usare il comando [AZ all Hub Device-Identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) per creare una nuova identità del dispositivo nell'hub Internet. Ad esempio:
+Usare il comando [AZ all Hub Device-Identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) per creare una nuova identità del dispositivo nell'hub Internet. Ad esempio,
 
    ```cli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -138,7 +138,7 @@ Questo comando include tre parametri:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Visualizzare dispositivi IoT Edge con l'interfaccia della riga di comando di Azure
 
-Usare il comando [AZ all Hub Device-Identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) per visualizzare tutti i dispositivi nell'hub Internet. Ad esempio:
+Usare il comando [AZ all Hub Device-Identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) per visualizzare tutti i dispositivi nell'hub Internet. Ad esempio,
 
    ```cli
    az iot hub device-identity list --hub-name [hub name]

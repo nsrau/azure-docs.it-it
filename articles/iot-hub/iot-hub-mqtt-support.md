@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
 ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648496"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271161"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -44,7 +44,7 @@ Quando un dispositivo è connesso a un hub IoT, gli SDK per dispositivi fornisco
 
 La tabella seguente contiene i collegamenti agli esempi di codice per ogni lingua supportata e specifica il parametro da usare per stabilire una connessione all'hub Internet tramite il protocollo MQTT o MQTT over Web Sockets.
 
-| Linguaggio | Parametro del protocollo MQTT | Parametro del protocollo MQTT over Web Sockets
+| Lingua: | Parametro del protocollo MQTT | Parametro del protocollo MQTT over Web Sockets
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | Azure-MQTT-Device-. MQTT | Azure-MQTT-Device-. MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol. MQTT_WS |
@@ -71,7 +71,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 Per garantire la permanenza di una connessione dell'hub client/it, sia il servizio che il client inviano regolarmente un ping *Keep-Alive* tra loro. Il client che usa l'SDK di Internet delle cose Invia un Keep-Alive nell'intervallo definito nella tabella seguente:
 
-|Linguaggio  |Intervallo keep-alive predefinito  |Configurabile  |
+|Lingua:  |Intervallo keep-alive predefinito  |Configurabile  |
 |---------|---------|---------|
 |Node.js     |   180 secondi      |     No    |
 |Java     |    230 secondi     |     No    |
@@ -167,7 +167,7 @@ Questo repository contiene:
 
 * DeviceTwinMQTTWin32: contiene il codice per eseguire una query e sottoscrivere gli eventi del dispositivo gemello di un dispositivo nell'hub Azure Internet in un computer Windows.
 
-* PnPMQTTWin32: contiene il codice per l'invio di un messaggio di telemetria con il plug-in di Internet delle cose & riprodurre in anteprima le funzionalità del dispositivo in un hub Azure, compilato ed eseguito in un computer Windows. Altre informazioni sul plug & Play[qui](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contiene il codice per l'invio di un messaggio di telemetria con il plug-in di Internet delle cose & riprodurre in anteprima le funzionalità del dispositivo in un hub Azure, compilato ed eseguito in un computer Windows. Altre informazioni sul plug & [here](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Per Linux:**
 
@@ -286,7 +286,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Invio di messaggi da dispositivo a cloud
 
-Dopo avere stabilito una connessione, un dispositivo può inviare messaggi all'hub IoT usando `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come **nome di argomento**. L'elemento `{property_bag}` consente al dispositivo di inviare messaggi con proprietà aggiuntive in un formato con codifica URL. Ad esempio:
+Dopo avere stabilito una connessione, un dispositivo può inviare messaggi all'hub IoT usando `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` come **nome di argomento**. L'elemento `{property_bag}` consente al dispositivo di inviare messaggi con proprietà aggiuntive in un formato con codifica URL. Ad esempio,
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -341,7 +341,7 @@ I possibili codici di stato sono i seguenti:
 
 |Stato | Descrizione |
 | ----- | ----------- |
-| 200 | Riuscito |
+| 200 | Success |
 | 429 | Troppe richieste (limitate), come per la [limitazione dell'hub](iot-hub-devguide-quotas-throttling.md) degli anni |
 | 5** | Errori server |
 
@@ -359,7 +359,7 @@ La sequenza seguente descrive in che modo un dispositivo aggiorna le proprietà 
 
 3. Il servizio invia un messaggio di risposta che contiene il nuovo valore ETag per la raccolta di proprietà dichiarate sull'argomento `$iothub/twin/res/{status}/?$rid={request id}`. Questo messaggio di risposta usa lo stesso **request ID** della richiesta.
 
-Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi valori per le proprietà segnalate. Ogni membro nel documento JSON aggiorna o aggiunge il membro corrispondente nel documento del dispositivo gemello. Un membro impostato su `null` elimina il membro dall'oggetto contenitore. Ad esempio:
+Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi valori per le proprietà segnalate. Ogni membro nel documento JSON aggiorna o aggiunge il membro corrispondente nel documento del dispositivo gemello. Un membro impostato su `null` elimina il membro dall'oggetto contenitore. Ad esempio,
 
 ```json
 {
@@ -397,7 +397,7 @@ Per altre informazioni, vedere [la guida per gli sviluppatori di dispositivi gem
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Ricezione delle notifiche di aggiornamento delle proprietà desiderate
 
-Quando un dispositivo è connesso, l'hub IoT invia notifiche all'argomento `$iothub/twin/PATCH/properties/desired/?$version={new version}`, con il contenuto dell'aggiornamento eseguito dal back-end della soluzione. Ad esempio:
+Quando un dispositivo è connesso, l'hub IoT invia notifiche all'argomento `$iothub/twin/PATCH/properties/desired/?$version={new version}`, con il contenuto dell'aggiornamento eseguito dal back-end della soluzione. Ad esempio,
 
 ```json
 {
@@ -422,7 +422,7 @@ Per rispondere, il dispositivo invia un messaggio con un codice JSON valido o un
 
 Per ulteriori informazioni, vedere [Guida per gli sviluppatori di metodi diretti](iot-hub-devguide-direct-methods.md).
 
-## <a name="additional-considerations"></a>Considerazioni aggiuntive
+## <a name="additional-considerations"></a>Altre considerazioni
 
 Come ultima considerazione, se è necessario personalizzare il comportamento del protocollo MQTT sul lato cloud, è necessario esaminare il gateway del [protocollo di Azure](iot-hub-protocol-gateway.md). Questo software consente di distribuire un gateway di protocollo personalizzato ad alte prestazioni che si interfaccia direttamente con l'hub IoT. Il gateway del protocollo IoT Azure consente di personalizzare il protocollo del dispositivo per supportare le distribuzioni di MQTT cosiddette "brownfield" o altri protocolli personalizzati. Questo approccio richiede tuttavia l'esecuzione e la gestione di un gateway di protocollo personalizzato.
 

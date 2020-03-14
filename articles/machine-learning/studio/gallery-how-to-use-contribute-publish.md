@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 6a82c4d6eecec3a3a9ef690536988c8402444ffc
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 882b52b74603465bd0a55a12fd9ef03f7b625046
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168536"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204325"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 **[Azure AI Gallery](https://gallery.azure.ai)** è un sito basato su community per l'individuazione e la condivisione delle soluzioni create con Azure AI.
 Questo sito include diverse risorse che è possibile usare per sviluppare soluzioni di analisi.
@@ -86,7 +88,7 @@ Gli utenti possono anche aggiungere commenti e condividere il contributo con alt
 
 1. Nell'elenco di azioni sotto l'area di disegno dell'esperimento selezionare **Publish to Gallery** (Pubblica in Gallery).
 
-1. In Gallery immettere valori descrittivi nei campi **Nome** e **Tag**. Evidenziare le tecniche usate o i problemi reali risolvibili con l'esperimento. Un esempio di titolo descrittivo per un esperimento è "Classificazione binaria: analisi del sentiment su Twitter".
+1. In Gallery immettere valori descrittivi nei campi **Nome** e **Tag**. Evidenziare le tecniche usate o i problemi reali risolvibili con l'esperimento. Un esempio di titolo di esperimento descrittivo è "classificazione binaria: Analisi del sentiment Twitter".
 
 1. Nella casella **RIEPILOGO** immettere un riepilogo dell'esperimento. Descrivere brevemente il problema che viene risolto con l'esperimento e com'è stato affrontato.
 
@@ -121,7 +123,7 @@ Se si desidera, è possibile apportare modifiche al flusso di lavoro (moduli, pa
 * Nome dell'esperimento
 * Riepilogo o descrizione
 * Tag
-* Image
+* Immagine
 * Impostazione di visibilità, tra **Public** (Pubblico) e **Unlisted** (Non in elenco)
 
 È anche possibile eliminare l'esperimento da Gallery.
@@ -149,16 +151,16 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
 
 1. Selezionare **Nuovo elemento**.
 
-1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Quindi fare clic su **Next**.
+1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Fare quindi clic su **Avanti**.
 
-1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Quindi fare clic su **Next**.
+1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Fare quindi clic su **Avanti**.
 
 1. Nella pagina **Impostazioni**, per **Visibilità**, selezionare se il contributo è **Public** (Pubblico) e quindi visibile a tutti gli utenti oppure **Unlisted** (Non in elenco), ovvero visibile solo agli utenti con un collegamento diretto.
 
    > [!TIP]
    > Per assicurarsi che la documentazione sia corretta prima di pubblicarla, è possibile usare l'opzione **Unlisted** (Non in elenco) prima di rendere pubblico l'esperimento. In un secondo momento sarà possibile modificare l'impostazione di visibilità su **Public** (Pubblico) nella pagina dei dettagli dell'esperimento. Si noti che, dopo aver impostato un esperimento su **Public** (Pubblico), successivamente non è possibile impostarlo su **Unlisted** (Non in elenco).
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 Il contributo si trova ora in Azure AI Gallery. I contributi vengono elencati nella pagina del proprio account, all'interno della scheda **Elementi**.
 

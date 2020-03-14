@@ -12,14 +12,14 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.openlocfilehash: 56a5221504a3905855fa5dc713707f34ae357aea
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: d910a76397a40a14d960b59f60561cbee470f5c4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165137"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263686"
 ---
-# <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v2.0)?
 
 Quando si sviluppa una nuova applicazione, è importante comprendere le differenze tra gli endpoint di Microsoft Identity Platform (v 2.0) e Azure Active Directory (v 1.0). Questo articolo illustra le principali differenze tra gli endpoint e alcune limitazioni esistenti per la piattaforma di identità Microsoft.
 
@@ -34,7 +34,7 @@ Quando si sviluppa una nuova applicazione, è importante comprendere le differen
 * L'endpoint della piattaforma Microsoft Identity consente agli account aziendali e dell'Istituto di istruzione di Azure AD e personal account Microsoft (MSA), ad esempio hotmail.com, outlook.com e msn.com, di eseguire l'accesso.
 * Entrambi gli endpoint accettano anche gli accessi degli *[utenti Guest](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* di una directory Azure ad per le applicazioni configurate come *[tenant singolo](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* o per le applicazioni *multi-tenant* configurate in modo da puntare all'endpoint specifico del tenant (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-L'endpoint della piattaforma Microsoft Identity consente di scrivere app che accettano accessi da account Microsoft personali e account aziendali o dell'Istituto di istruzione. Questo consente di scrivere l'app senza tenere conto dell'account utilizzato per l'accesso. Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, come i siti di SharePoint o i dati delle directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
+L'endpoint della piattaforma Microsoft Identity consente di scrivere app che accettano accessi da account Microsoft personali e account aziendali o dell'Istituto di istruzione. Questo consente di scrivere l'app senza tenere conto dell'account utilizzato per l'accesso. Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, come i siti di SharePoint o i dati delle directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
 
 Per l'endpoint della piattaforma di identità Microsoft, è possibile usare Microsoft Authentication Library (MSAL) per ottenere l'accesso ai mondi utente, didattici ed aziendali. L'endpoint v1.0 di Azure AD accetta gli accessi solo da account aziendali e dell'istituto di istruzione.
 
@@ -70,7 +70,7 @@ Per l'endpoint v1.0, l'aspetto di una richiesta di autorizzazione OAuth 2.0 per 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https://graph.windows.net/
+&resource=https://graph.microsoft.com/
 ...
 ```
 
@@ -81,7 +81,7 @@ Per le applicazioni che usano l'endpoint della piattaforma di identità Microsof
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
+&scope=https://graph.microsoft.com/directory.read%20https://graph.microsoft.com/directory.write
 ...
 ```
 

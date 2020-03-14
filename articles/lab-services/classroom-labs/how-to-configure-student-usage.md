@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: daa302e9be026157b464a12998f3faa52526aba6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358643"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270940"
 ---
 # <a name="add-and-manage-lab-users"></a>Aggiungere e gestire gli utenti del lab
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
@@ -144,7 +144,7 @@ A tale scopo, eseguire la procedura seguente:
 ## <a name="student-accounts"></a>Account per studenti
 Per aggiungere studenti a un Lab della classe, è possibile usare gli account di posta elettronica. Potrebbero essere usati i tipi di account di posta elettronica seguenti:
 
-- Un account di posta elettronica per studenti fornito dall'Ufficio 365 Azure Active Directory (AAD) dell'Università. 
+- Un account di posta elettronica per studenti fornito dal Azure Active Directory Office 365 dell'Università. 
 - Un account di posta elettronica Microsoft, ad esempio `@outlook.com`, `@hotmail.com`, `@msn.com`o `@live.com`.
 - Un account di posta elettronica non Microsoft, ad esempio uno fornito da Yahoo o Google. Tuttavia, questi tipi di account devono essere collegati con un account Microsoft.
 - Un account GitHub. Questo account deve essere collegato a un account Microsoft.
@@ -173,6 +173,14 @@ Nella pagina **Opzioni di accesso** selezionare **Accedi con GitHub**.
 ![Accedi con collegamento a GitHub](../media/how-to-configure-student-usage/signin-github.png)
 
 Infine, viene richiesto di creare un account Microsoft collegato al proprio account GitHub. Viene eseguita automaticamente quando lo studente sceglie **Avanti**.  Lo studente viene quindi immediatamente connesso e connesso al Lab della classe.
+
+## <a name="export-list-of-users-to-a-csv-file"></a>Esporta l'elenco di utenti in un file CSV
+
+1. Passare alla scheda **utenti** .
+2. Selezionare **...** (puntini di sospensione) sulla barra degli strumenti e quindi selezionare **Esporta CSV**. 
+
+    ![Esporta l'elenco di utenti](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

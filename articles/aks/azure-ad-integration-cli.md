@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395323"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253052"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure
 
@@ -19,7 +19,7 @@ Questo articolo illustra come creare i componenti Azure AD necessari, quindi dis
 
 Per lo script di esempio completo usato in questo articolo, vedere esempi dell'interfaccia della riga di comando di [Azure-integrazione di AKS con Azure ad][complete-script].
 
-Si applicano le limitazioni seguenti:
+Vengono applicate le limitazioni seguenti:
 
 - Azure AD può essere abilitato solo quando si crea un nuovo cluster abilitato per il controllo degli accessi in base al ruolo. Non è possibile abilitare Azure AD in un cluster del servizio Azure Kubernetes.
 
@@ -76,7 +76,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 
 Il Azure AD richiede le autorizzazioni per eseguire le azioni seguenti:
 
-* Leggi i dati della directory
+* Leggere i dati della directory
 * Eseguire l'accesso e leggere il profilo utente
 
 Assegnare queste autorizzazioni usando il comando [AZ ad app permission Add][az-ad-app-permission-add] :

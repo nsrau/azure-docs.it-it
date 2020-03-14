@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390475"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257485"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 
@@ -189,7 +189,7 @@ Per uno script end-to-end completo per questo scenario, esaminare [questo script
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Usare una variabile complessa per archiviare altre informazioni
 
-In alcuni scenari potrebbe non essere possibile creare variabili separate per ogni piano di ripristino. Si consideri uno scenario in cui si vuole che un singolo script assegni un indirizzo IP pubblico in macchine virtuali specifiche. In un altro scenario potrebbe essere necessario applicare gruppi di sicurezza di rete diversi in diverse macchine virtuali e non in tutte le macchine virtuali. Tenere presente quanto segue:
+In alcuni scenari potrebbe non essere possibile creare variabili separate per ogni piano di ripristino. Si consideri uno scenario in cui si vuole che un singolo script assegni un indirizzo IP pubblico in macchine virtuali specifiche. In un altro scenario potrebbe essere necessario applicare gruppi di sicurezza di rete diversi in diverse macchine virtuali e non in tutte le macchine virtuali. Come puoi notare:
 
 - È possibile creare uno script riutilizzabile per qualsiasi piano di ripristino.
 - Ogni piano di ripristino può avere un numero variabile di macchine virtuali.

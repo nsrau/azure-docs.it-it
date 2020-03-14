@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397004"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260644"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 
@@ -257,7 +257,7 @@ L'uso di un set di dati JSON come origine nel flusso di dati consente di imposta
 
 ![Impostazioni JSON](media/data-flow/json-settings.png "Impostazioni JSON")
 
-#### <a name="default"></a>Predefinito
+#### <a name="default"></a>Default
 
 Per impostazione predefinita, i dati JSON vengono letti nel formato seguente.
 

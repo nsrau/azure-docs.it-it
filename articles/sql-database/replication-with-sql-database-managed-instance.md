@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096213"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299074"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
@@ -42,7 +42,6 @@ La replica transazionale è in anteprima pubblica nell' [istanza gestita di data
 
 La configurazione di un'istanza gestita per fungere da server di pubblicazione e/o da un server di distribuzione richiede:
 
-- L'istanza gestita non deve essere coinvolta in una relazione di replica geografica.
 - Che l'istanza gestita del server di pubblicazione si trovi nella stessa rete virtuale del server di distribuzione e nel Sottoscrittore oppure che sia stato stabilito il [peering vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) tra le reti virtuali di tutte e tre le entità. 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica.
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro della replica.

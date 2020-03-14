@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615424"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283654"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguaggi supportati dalla macchina virtuali per data science 
 
@@ -103,7 +103,7 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
   Gli ambienti Python predefiniti nella macchina virtuale per data science sono ambienti globali leggibili da tutti gli utenti. Ma solo gli amministratori possono scrivere e installare i pacchetti globali. Per installare i pacchetti nell'ambiente globale, attivare la radice o l'ambiente PY35 usando il comando `source activate` come amministratore o come utente con autorizzazioni sudo. Quindi, è possibile usare una gestione pacchetti come `conda` o `pip` per installare o aggiornare i pacchetti.
 
 
-## <a name="r"></a>R
+## <a name="r"></a>V
 
 |    |           |
 | ------------- | ------------- |
@@ -118,7 +118,7 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 
 * Eseguire al prompt dei comandi:
 
-  Apri un prompt dei comandi e digita `R`.
+  Aprire un prompt dei comandi e digitare `R`.
 
 * Usare in un IDE:
 
@@ -196,7 +196,7 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 
   Il percorso predefinito di Julia è un ambiente globale leggibile da tutti gli utenti. Ma solo gli amministratori possono scrivere e installare i pacchetti globali. Per installare i pacchetti nell'ambiente globale, eseguire Julia usando uno dei metodi precedenti. Quindi, è possibile eseguire comandi di gestione pacchetti Julia come `Pkg.add()` per installare o aggiornare i pacchetti.
 
-## <a name="other-languages"></a>Altre lingue
+## <a name="other-languages"></a>Altri linguaggi
 
 **C#** : Disponibile in Windows e accessibile tramite Visual Studio Community Edition o in `Developer Command Prompt for Visual Studio`, in cui è possibile eseguire il comando `csc`.
 

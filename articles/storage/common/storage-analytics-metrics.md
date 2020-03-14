@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360976"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268405"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di analisi archiviazione di Azure (versione classica)
 
@@ -51,7 +51,7 @@ Analisi archiviazione è in grado di archiviare le metriche che includono le sta
 
  Tutti i dati delle metriche per ciascun servizio di archiviazione vengono archiviati in tre tabelle riservate per tale servizio: una tabella per le informazioni sulle transazioni, una per le informazioni sulle transazioni al minuto e un'altra per le informazioni relative alla capacità. Le informazioni sulla transazione e sulle transazioni al minuto consistono nei dati di richiesta e di risposta, mentre le informazioni sulla capacità consistono nei dati d'uso dell'archiviazione. Le metriche orarie e al minuto e la capacità per il servizio Blob di un account di archiviazione sono accessibili nelle tabelle che sono denominate nel modo indicato nella tabella che segue.  
 
-|Livello di metrica|Nomi di tabella|Supportato per le versioni|  
+|Livello di metrica|Nomi di tabelle|Supportato per le versioni|  
 |-------------------|-----------------|----------------------------|  
 |Metriche orarie, posizione principale|-   $MetricsTransactionsBlob<br />-   $MetricsTransactionsTable<br />-   $MetricsTransactionsQueue|Solo le versioni precedenti al 15-08-2013. Sebbene tali nomi siano supportati, è consigliabile passare all'utilizzo delle tabelle elencate di seguito.|  
 |Metriche orarie, posizione principale|-   $MetricsHourPrimaryTransactionsBlob<br />-   $MetricsHourPrimaryTransactionsTable<br />-   $MetricsHourPrimaryTransactionsQueue<br />-   $MetricsHourPrimaryTransactionsFile|tutte le versioni. Il supporto per le metriche del servizio file è disponibile solo nella versione 2015-04-05 e successive.|  

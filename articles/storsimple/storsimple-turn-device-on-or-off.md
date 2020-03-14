@@ -9,11 +9,11 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385358"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254625"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Attivare o disattivare il dispositivo StorSimple serie 8000
 
@@ -131,7 +131,7 @@ Quando vengono rimossi entrambi i cavi Serial Attached SCSI (SAS) o viene interr
 10. Verificare che la connessione dell’enclosure EBOD con l’enclosure principale sia buona controllando che i LED SAS (quattro per controller EBOD) siano tutti accesi.
 
 > [!IMPORTANT]
-> Se i cavi SAS sono difettosi o la connessione tra l'enclosure EBOD e l’enclosure principale non è valida, quando si attiva il sistema, esso entra in modalità di ripristino. Se ciò accade, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) .
+> Se i cavi SAS sono difettosi o la connessione tra l'enclosure EBOD e l’enclosure principale non è valida, quando si attiva il sistema, esso entra in modalità di ripristino. In questo caso, [contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 
 ## <a name="turn-off-a-running-device"></a>Spegnere un dispositivo in esecuzione
@@ -146,7 +146,7 @@ Per arrestare il dispositivo in modo ordinato e controllato, è possibile usare 
 > [!IMPORTANT]
 > Non arrestare un dispositivo in esecuzione utilizzando il pulsante di alimentazione sul retro del dispositivo.
 > 
-> Prima di spegnere il dispositivo, assicurarsi che tutti i componenti del dispositivo siano integri. Nel portale di Azure passare a **Dispositivi** > **Monitoraggio** > **Integrità hardware** e verificare che lo stato di tutti i componenti sia contrassegnato in verde. Questo vale solo per un sistema integro. Se il dispositivo viene arrestato per la sostituzione di un componente che non funziona correttamente, verrà visualizzato lo stato di errore (rosso) o danneggiato (giallo) per i rispettivi componenti nello **Stato hardware**.
+> Prima di spegnere il dispositivo, assicurarsi che tutti i componenti del dispositivo siano integri. Nel portale di Azure passare a **Dispositivi** > **Monitoraggio** > **Integrità hardware** e verificare che lo stato di tutti i componenti sia contrassegnato in verde. Questo vale solo per un sistema integro. Se il sistema deve essere arrestato per consentire la sostituzione di un componente non funzionante, nella finestra **Stato hardware** l'indicatore di stato di tale componente sarà di colore rosso (componente guasto) o giallo (componente con funzionalità ridotte).
 > 
 > 
 

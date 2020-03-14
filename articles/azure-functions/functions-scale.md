@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584542"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276608"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -39,7 +39,7 @@ La tabella seguente indica il livello di supporto corrente per i tre piani di ho
 
 | | Piano a consumo | Piano Premium | Piano dedicato |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | GA | GA |
+| WINDOWS | GA | GA | GA |
 | Linux | GA | GA | GA |
 
 ## <a name="consumption-plan"></a>Piano a consumo
@@ -63,7 +63,7 @@ Quando si usa il piano Premium, le istanze dell'host di funzioni di Azure vengon
 
 * Istanze perennemente calde per evitare l'avvio a freddo
 * Connettività di rete virtuale
-* Durata di esecuzione illimitata
+* Durata di esecuzione illimitata (garantita 60 minuti)
 * Dimensioni delle istanze Premium (un core, due core e quattro istanze Core)
 * Prezzo più prevedibile
 * Allocazione di app ad alta densità per i piani con più app per le funzioni
@@ -153,12 +153,10 @@ L'unità di scala per funzioni di Azure è l'app per le funzioni. In caso di aum
 Il ridimensionamento può variare in base a numerosi fattori e comportarsi diversamente a seconda del trigger e della lingua selezionati. È necessario tenere presenti alcune complessità dei comportamenti di ridimensionamento:
 
 * Una singola app per le funzioni è scalabile solo a un massimo di 200 istanze. Una singola istanza può elaborare più di un messaggio o più di una richiesta alla volta. Pertanto, non esiste alcun limite per quanto riguarda il numero di esecuzioni parallele.
-* Per i trigger HTTP, le nuove istanze verranno allocate al massimo ogni 1 secondo.
-* Per i trigger non HTTP, le nuove istanze verranno allocate al massimo ogni 30 secondi.
-
-Trigger distinti possono avere limiti di ridimensionamento diversi come illustrato di seguito:
-
-* [Hub eventi](functions-bindings-event-hubs-trigger.md#scaling)
+* Per i trigger HTTP, le nuove istanze vengono allocate al massimo una volta al secondo.
+* Per i trigger non HTTP, le nuove istanze vengono allocate al massimo una volta ogni 30 secondi. La scalabilità è più veloce quando viene eseguita in un [piano Premium](#premium-plan).
+* Per i trigger del bus di servizio, usare _Gestisci_ diritti sulle risorse per il ridimensionamento più efficiente. Con i diritti di _ascolto_ , il ridimensionamento non è accurato perché la lunghezza della coda non può essere usata per informare le decisioni di scalabilità. Per altre informazioni sull'impostazione dei diritti nei criteri di accesso del bus di servizio, vedere [criteri di autorizzazione dell'accesso condiviso](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* Per i trigger dell'hub eventi, vedere le [linee guida per la scalabilità](functions-bindings-event-hubs-trigger.md#scaling) nell'articolo di riferimento. 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedure consigliate e modelli per app scalabili
 

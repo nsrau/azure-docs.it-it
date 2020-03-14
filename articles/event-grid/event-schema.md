@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 35cea2e6df311d2f4071686c21c8e4c36477abc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370573"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244836"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
@@ -90,7 +90,7 @@ Tutti gli eventi contengono gli stessi dati di livello principale indicati di se
 | eventType | string | Sì | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Sì | Identificatore univoco dell'evento. |
-| data | object | No | Dati dell'evento specifici del provider di risorse. |
+| dati | object | No | Dati dell'evento specifici del provider di risorse. |
 | dataVersion | string | No, ma verrà contrassegnato con un valore vuoto. | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | string | Non obbligatorio, ma se incluso, deve corrispondere allo schema di griglia di eventi `metadataVersion` esattamente (attualmente, solo `1`). Se non è incluso, griglia di eventi viene timbrato sull'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 

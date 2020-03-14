@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230580"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276946"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
 
@@ -25,9 +25,9 @@ Questo articolo descrive come configurare e gestire le app per le funzioni.
 > [!TIP]  
 > Molte opzioni di configurazione possono essere gestite anche tramite l' [Interfaccia della riga di comando di Azure]della riga di comando di Azure. 
 
-## <a name="get-started-in-the-azure-portal"></a>Inizia nel portale di Azure
+## <a name="get-started-in-the-azure-portal"></a>Introduzione all'portale di Azure
 
-Innanzitutto passare al [portale di Azure] e accedere all'account di Azure. Nella barra di ricerca nella parte superiore del portale digitare il nome dell'app per le funzioni e selezionarla dall'elenco. Dopo aver selezionato l'app per le funzioni, viene visualizzata la pagina seguente:
+Innanzitutto passare al [Azure portal] e accedere all'account di Azure. Nella barra di ricerca nella parte superiore del portale digitare il nome dell'app per le funzioni e selezionarla dall'elenco. Dopo aver selezionato l'app per le funzioni, viene visualizzata la pagina seguente:
 
 ![Panoramica dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
@@ -37,7 +37,7 @@ Innanzitutto passare al [portale di Azure] e accedere all'account di Azure. Nell
 
 La scheda **Impostazioni applicazione** mantiene le impostazioni usate dall'app per le funzioni. Queste impostazioni vengono archiviate crittografate ed è necessario selezionare **Mostra valori** per visualizzare i valori nel portale. È anche possibile accedere alle impostazioni dell'applicazione usando l'interfaccia della riga di comando di Azure.
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portal
 
 Per aggiungere un'impostazione nel portale, selezionare **nuova impostazione applicazione** e aggiungere la nuova coppia chiave-valore.
 
@@ -83,7 +83,7 @@ Il resto di questo articolo è incentrato sulle funzionalità del servizio app s
 + [Strumenti avanzati (Kudu)](#kudu)
 + [Opzioni di distribuzione](#deployment)
 + [CORS](#cors)
-+ [Autenticazione](#auth)
++ [autenticazione](#auth)
 
 Per altre informazioni su come usare le impostazioni del servizio app, vedere [Configurare le impostazioni di del servizio app di Azure](../app-service/configure-common.md).
 
@@ -118,7 +118,7 @@ Quando si usa una soluzione di controllo del codice sorgente per sviluppare e ge
 
 Per impedire l'esecuzione di codice dannoso sul client, i browser moderni bloccano le richieste dalle applicazioni Web alle risorse in esecuzione in un dominio separato. La [condivisione di risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) consente a un'intestazione `Access-Control-Allow-Origin` di dichiarare quali origini sono autorizzate a chiamare gli endpoint nell'app per le funzioni.
 
-#### <a name="portal"></a>di Microsoft Azure
+#### <a name="portal"></a>Portal
 
 Quando si configura l'elenco di **origini consentite** per l'app per le funzioni, l'intestazione `Access-Control-Allow-Origin` viene aggiunta automaticamente a tutte le risposte dagli endpoint HTTP nell'app per le funzioni. 
 
@@ -149,4 +149,4 @@ Quando le funzioni usano un trigger HTTP, è possibile richiedere innanzitutto l
 + [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
 
 [Interfaccia della riga di comando di Azure]: /cli/azure/
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

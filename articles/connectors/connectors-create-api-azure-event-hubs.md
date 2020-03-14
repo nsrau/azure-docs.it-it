@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381166"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247293"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorare, ricevere e inviare eventi con Hub eventi di Azure e App per la logica di Azure
 
 Questo articolo illustra come monitorare e gestire gli eventi inviati ad [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) dall'interno di un'app per la logica con il connettore di Hub eventi di Azure. In questo modo, è possibile creare app per la logica in grado di automatizzare attività e flussi di lavoro per il controllo, l'invio e la ricezione di eventi dall'Hub eventi. Per informazioni tecniche specifiche del connettore, vedere le informazioni di [riferimento sul connettore di hub eventi di Azure](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/). 
 
@@ -152,20 +152,20 @@ Dall'elenco delle azioni selezionare questa azione: **Invia evento-Hub eventi**
 
 1. Quando viene chiesto di immettere le informazioni di connessione, specificare questi dettagli:
 
-   | Proprietà | Obbligatoria | valore | Descrizione |
+   | Proprietà | Obbligatoria | Valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Connection Name** (Nome connessione) | Sì | <*nome connessione*> | Nome creato per la connessione |
    | **Spazio dei nomi di hub eventi** | Sì | <*spazio dei nomi di hub eventi*> | Selezionare lo spazio dei nomi di Hub eventi da usare. |
    |||||  
 
-   Ad esempio:
+   Ad esempio,
 
    ![Creare una connessione a Hub eventi](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
    Per immettere manualmente la stringa di connessione, selezionare **immettere manualmente le informazioni di connessione**. 
    Leggere [come trovare la stringa di connessione](#permissions-connection-string).
 
-2. Se del caso, selezionare i criteri di Hub eventi da usare. Scegliere **Create**.
+2. Se del caso, selezionare i criteri di Hub eventi da usare. Scegliere **Crea**.
 
    ![Creare una connessione a Hub eventi, parte 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 

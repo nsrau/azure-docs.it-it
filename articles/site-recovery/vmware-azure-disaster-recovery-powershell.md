@@ -8,11 +8,11 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861286"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257199"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell
 
@@ -118,7 +118,7 @@ Nell'esempio seguente, vengono usati i dettagli dell'insieme di credenziali otte
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-In alternativa al cmdlet Set-ASRVaultContext, è anche possibile usare il cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile per impostare il contesto dell'insieme di credenziali. Specificare il percorso in cui si trova il file della chiave di registrazione dell'insieme di credenziali come parametro-Path del cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Ad esempio:
+In alternativa al cmdlet Set-ASRVaultContext, è anche possibile usare il cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile per impostare il contesto dell'insieme di credenziali. Specificare il percorso in cui si trova il file della chiave di registrazione dell'insieme di credenziali come parametro-Path del cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Ad esempio,
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -351,7 +351,7 @@ Per proteggere una macchina virtuale individuata sono necessari i dettagli segue
 Replicare ora le macchine virtuali seguenti usando le impostazioni specificate in questa tabella
 
 
-|Macchina virtuale  |Server di elaborazione        |Account di archiviazione              |Account di archiviazione log  |Criterio           |Account per l'installazione del servizio Mobility|Gruppo di risorse di destinazione  | Rete virtuale di destinazione  |Subnet di destinazione  |
+|Macchina virtuale  |Server di elaborazione        |Account di archiviazione              |Account di archiviazione log  |Policy           |Account per l'installazione del servizio Mobility|Gruppo di risorse di destinazione  | Rete virtuale di destinazione  |Subnet di destinazione  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |N/D| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   

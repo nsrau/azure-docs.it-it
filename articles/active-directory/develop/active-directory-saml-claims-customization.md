@@ -15,11 +15,11 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375857"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263088"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -65,11 +65,11 @@ Dall'elenco a discesa **Scegli formato identificatore nome** è possibile selezi
 
 Il NameID temporaneo è anche supportato, ma non è disponibile nell'elenco a discesa e non può essere configurato sul lato di Azure. Per altre informazioni sull'attributo NameIDPolicy, vedere [protocollo SAML per Single Sign-on](single-sign-on-saml-protocol.md).
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-| Nome | Descrizione |
+| Name | Descrizione |
 |------|-------------|
 | Email | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |

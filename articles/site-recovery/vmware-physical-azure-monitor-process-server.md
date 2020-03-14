@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362787"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257069"
 ---
 # <a name="monitor-the-process-server"></a>Monitorare il server di elaborazione
 
@@ -53,7 +53,7 @@ Il server di elaborazione genera un certo numero di avvisi di integrità, riepil
 
 **Tipo di avviso** | **Dettagli**
 --- | ---
-![Healthy][green] | Il server di elaborazione è connesso e integro.
+![Integro][green] | Il server di elaborazione è connesso e integro.
 ![Avviso][yellow] | Utilizzo CPU > 80% per gli ultimi 15 minuti
 ![Avviso][yellow] | Utilizzo memoria > 80% per gli ultimi 15 minuti
 ![Avviso][yellow] | Spazio disponibile cartella cache < 30% per gli ultimi 15 minuti

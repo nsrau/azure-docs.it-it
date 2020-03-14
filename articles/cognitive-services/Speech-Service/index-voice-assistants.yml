@@ -10,66 +10,54 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 50027fde619d4e69fdbb181544d23dba4a9cf144
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.openlocfilehash: 369213485934236a05ecb3fcb458bdd28fd76136
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/09/2020
-  ms.locfileid: "78943338"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79365560"
 landingContent:
-- title: Introduzione
+- title: Informazioni sugli assistenti vocali
   linkLists:
   - linkListType: overview
     links:
-    - text: Soluzioni di Assistente vocale
+    - text: Che cos'è un assistente vocale?
       url: voice-assistants.md
-    - text: Informazioni sui comandi personalizzati
+    - text: Che cos'è un'app comandi personalizzata?
       url: custom-commands.md
-    - text: Informazioni sul discorso diretto sulla linea
+    - text: Che cos'è Direct Line Speech?
       url: direct-line-speech.md
   - linkListType: reference
     links:
-    - text: Prezzi
-      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
     - text: Domande frequenti sugli assistenti vocali
       url: faq-voice-assistants.md
-- title: Parola chiave Custom
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Parola chiave Custom
-      url: speech-devices-sdk-create-kws.md
-  - linkListType: reference
-    links:
-    - text: Linee guida per la denominazione delle parole chiave personalizzate
-      url: speech-devices-sdk-kws-guidelines.md
-- title: Comandi personalizzati
+    - text: Prezzi degli assistenti vocali
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+- title: Sviluppare con comandi personalizzati
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Creare un comando personalizzato (anteprima)
+    - text: Creare un'app per comandi personalizzati
       url: quickstart-custom-speech-commands-create-new.md
-    - text: Creare un comando personalizzato con parametri (anteprima)
+    - text: Creare un comando personalizzato con i parametri
       url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Usare comandi personalizzati con il servizio Voce personalizzata (anteprima)
+    - text: Usare comandi personalizzati con la voce personalizzata
       url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Usare i comandi personalizzati con Speech SDK (anteprima)
+    - text: Usare i comandi personalizzati con l'SDK di riconoscimento vocale
       url: quickstart-custom-speech-commands-speech-sdk.md
   - linkListType: how-to-guide
     links:
-    - text: Comandi personalizzati con l'SDK di riconoscimento vocale
+    - text: Soddisfare i comandi da un client
       url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Completare i comandi personalizzati con Speech SDK
-      url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Aggiungere la convalida dei parametri a un comando personalizzato
+    - text: Aggiungere la convalida del parametro
       url: how-to-custom-speech-commands-validations.md
-    - text: Aggiungere una conferma a un comando personalizzato
+    - text: Aggiungi una conferma
       url: how-to-custom-speech-commands-confirmations.md
-    - text: Aggiungere una correzione in un passaggio a un comando personalizzato
+    - text: Aggiungere una correzione in un solo passaggio
       url: how-to-custom-speech-commands-one-step-correction.md
-- title: Direct Line Speech
+- title: Sviluppare con la voce Direct Line
   linkLists:
   - linkListType: quickstart
     links:
@@ -83,3 +71,13 @@ landingContent:
     links:
     - text: Abilitare il bot per la voce con Speech SDK
       url: tutorial-voice-enable-your-bot-speech-sdk.md
+- title: Sviluppare con la parola chiave Custom
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creare una parola chiave personalizzata
+      url: speech-devices-sdk-create-kws.md
+  - linkListType: reference
+    links:
+    - text: Linee guida per la denominazione delle parole chiave personalizzate
+      url: speech-devices-sdk-kws-guidelines.md

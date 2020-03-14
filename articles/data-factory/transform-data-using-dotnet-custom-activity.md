@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439535"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260579"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 
@@ -99,13 +99,13 @@ In questo esempio, helloworld.exe è un'applicazione personalizzata salvata nell
 
 Nella tabella seguente vengono descritti i nomi e le descrizioni delle proprietà specifiche per questa attività.
 
-| Proprietà              | Description                              | Obbligatorio |
+| Proprietà              | Descrizione                              | Obbligatoria |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Nome dell'attività nella pipeline     | Sì      |
 | description           | Testo che descrive l'attività.  | No       |
 | type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Sì      |
 | linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Sì      |
-| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
+| comando               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
 | resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No &#42;       |
 | folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath*, la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No &#42;       |
 | referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | No       |
@@ -309,7 +309,7 @@ Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è p
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperare gli output SecureString
 
-I valori delle proprietà sensibili designati come tipo *SecureString*, come illustrato in alcuni degli esempi in questo articolo, vengono mascherati nella scheda Monitoraggio nell'interfaccia utente di Data Factory.  Nell'esecuzione effettiva della pipeline, tuttavia, una proprietà *SecureString* viene serializzata come JSON all'interno del `activity.json` file come testo normale. Ad esempio:
+I valori delle proprietà sensibili designati come tipo *SecureString*, come illustrato in alcuni degli esempi in questo articolo, vengono mascherati nella scheda Monitoraggio nell'interfaccia utente di Data Factory.  Nell'esecuzione effettiva della pipeline, tuttavia, una proprietà *SecureString* viene serializzata come JSON all'interno del `activity.json` file come testo normale. Ad esempio,
 
 ```json
 "extendedProperties": {
@@ -341,7 +341,7 @@ La tabella seguente illustra le differenze tra l'attività personalizzata di Dat
 |Modalità di definizione della logica personalizzata      |Mediante l'uso di un file eseguibile      |Implementando una DLL .NET      |
 |Ambiente di esecuzione della logica personalizzata      |Windows o Linux      |Windows (.NET Framework 4.5.2)      |
 |Esecuzione di script      |Supporta l'esecuzione diretta di script, ad esempio "cmd /c echo hello world" su macchine virtuali Windows      |Richiede l'implementazione nella DLL .NET      |
-|Set di dati obbligatorio      |Facoltativo      |Richiesta per concatenare le attività e passare le informazioni      |
+|Set di dati obbligatorio      |Facoltativa      |Richiesta per concatenare le attività e passare le informazioni      |
 |Passare le informazioni dall'attività alla logica personalizzata      |Tramite ReferenceObjects (LinkedServices e Datasets) ed ExtendedProperties (proprietà personalizzate)      |Tramite ExtendedProperties (proprietà personalizzate), set di dati di input e output      |
 |Recuperare le informazioni nella logica personalizzata      |Analizza i file activity.json, linkedServices.json e datasets.json archiviati nella stessa cartella del file eseguibile      |Tramite .NET SDK (.NET frame 4.5.2)      |
 |Registrazione      |Scrive direttamente in STDOUT      |Implementazione del logger nella DLL .NET      |

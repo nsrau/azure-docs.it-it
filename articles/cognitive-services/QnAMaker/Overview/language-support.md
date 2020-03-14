@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720994"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220556"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Supporto delle lingue per una risorsa QnA Maker e Knowledge base
 
@@ -29,7 +29,7 @@ Altre informazioni sull' [effetto della selezione della lingua](../how-to/langua
 
 L'elenco seguente contiene le lingue supportate per una risorsa QnA Maker. 
 
-|Lingua|
+|Lingua:|
 |--|
 |Arabo|
 |Armeno|

@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382647"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260527"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -34,7 +34,7 @@ Attualmente Data Factory supporta solo lo spostamento di dati da Amazon Redshift
 > [!TIP]
 > Per ottenere prestazioni ottimali quando si copiano grandi quantità di dati da Amazon Redshift, provare a usare il comando **UNLOAD** predefinito di Redshift tramite Amazon Simple Storage Service (S3). Per informazioni dettagliate, vedere [Usare UNLOAD per copiare dati da Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 * Se si spostano i dati in un archivio dati locale, installare il [gateway di gestione dati](data-factory-data-management-gateway.md) su un computer locale. Concedere l'accesso per un gateway al cluster Amazon Redshift usando l'indirizzo IP del computer locale. Per istruzioni, vedere [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorizzare l'accesso al cluster).
 * Per spostare i dati in un archivio dati di Azure, vedere gli [intervalli di indirizzi IP di calcolo e gli intervalli SQL usati dai data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -66,7 +66,7 @@ La tabella seguente include le descrizioni degli elementi JSON specifici di un s
 | **port** |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No (il valore predefinito è 5439) |
 | **database** |Nome del database Amazon Redshift. |Sì |
 | **username** |Nome dell'utente che ha accesso al database. |Sì |
-| **password** |La password per l'account utente. |Sì |
+| **password** |La password relativa all'account utente. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
@@ -335,12 +335,12 @@ Quando l'attività di copia converte i dati da un tipo Amazon Redshift a un tipo
 | DECIMAL |Decimal |
 | real |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |string |
-| CHAR |string |
-| VARCHAR |string |
+| BOOLEAN |String |
+| CHAR |String |
+| VARCHAR |String |
 | DATE |Datetime |
 | timestamp |Datetime |
-| TEXT |string |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni su come eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

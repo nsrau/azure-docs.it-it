@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf7e4837aaf65b0df28ea4a07fb485948309bc7c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376588"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261827"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
 
@@ -125,7 +125,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 1. Nel menu a sinistra, nella sezione **gestione dei diritti** , fare clic su **Impostazioni**.
 
-1. Fare clic su **Modifica**.
+1. Fare clic su **Edit**.
 
     ![Impostazioni per gestire il ciclo di vita degli utenti esterni](./media/entitlement-management-external-users/settings-external-users.png)
 
@@ -143,7 +143,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 1. Se si desidera rimuovere l'account utente guest in questa directory, è possibile impostare il numero di giorni prima della rimozione. Se si desidera rimuovere l'account utente Guest non appena si perde l'ultima assegnazione a tutti i pacchetti di accesso, impostare il **numero di giorni prima di rimuovere l'utente esterno da questa directory** a **0**.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,11 +10,11 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397220"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255405"
 ---
 # <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
@@ -24,13 +24,13 @@ In questo articolo sulle procedure viene illustrato come creare un account di ar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-No.
+Nessuno
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -67,7 +67,7 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire la p
 
 # <a name="template"></a>[Modello](#tab/template)
 
-No.
+Nessuno
 
 ---
 
@@ -239,7 +239,7 @@ L'eliminazione di un account di archiviazione consente di eliminare l'intero acc
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com).
-1. Fare clic su **Elimina**.
+1. Scegliere **Elimina**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

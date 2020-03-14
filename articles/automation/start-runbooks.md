@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 71dd83db02537ed12dc2e711127e32d90603af6f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373121"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252649"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Avviare un runbook in Automazione di Azure
 
@@ -82,7 +82,7 @@ Il servizio Web Automazione di Azure fornisce funzionalità speciali per i param
 
 Se il parametro è un tipo di dati [object], è possibile usare il formato JSON seguente per inviargli un elenco di valori denominati: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}* . Questi valori devono essere tipi semplici. Il runbook riceve il parametro come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) con proprietà che corrispondono a ogni valore denominato.
 
-Si consideri il Runbook di test seguente che accetta un parametro denominato user.
+Si esamini il runbook di test seguente, che accetta un parametro denominato user.
 
 ```powershell
 Workflow Test-Parameters
@@ -119,7 +119,7 @@ Smith
 
 Se il parametro è una matrice, ad esempio [array] o [string[]], è possibile usare il formato JSON seguente per inviare un elenco di valori: *[Value1, Value2, Value3]* . Questi valori devono essere tipi semplici.
 
-Si consideri il Runbook di test seguente che accetta un parametro denominato *user*.
+Si consideri il seguente runbook di test che accetta un parametro denominato *user*.
 
 ```powershell
 Workflow Test-Parameters
@@ -155,7 +155,7 @@ Smith
 
 Se il parametro è un tipo di dati **PSCredential**, è possibile specificare il nome di un [asset credenziali](automation-credentials.md)di Automazione di Azure. Il runbook recupera le credenziali con il nome specificato.
 
-Si consideri il Runbook di test seguente che accetta un parametro denominato credential.
+Si esamini il runbook di test seguente, che accetta un parametro denominato credential.
 
 ```powershell
 Workflow Test-Parameters

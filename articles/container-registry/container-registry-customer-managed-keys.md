@@ -4,12 +4,12 @@ description: Informazioni sulla crittografia al resto del registro contenitori d
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: 8bce77c776fe088e5c317f02cd2757738a287069
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 7bfc4e9a73280ab330efbeeba51a5dcb0a80da10
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096569"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365342"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Crittografia con chiavi gestite dal cliente
 
@@ -27,9 +27,10 @@ Questa funzionalità è disponibile nel livello di servizio del registro conteni
 
 * Attualmente è possibile abilitare questa funzionalità solo quando si crea un registro di sistema.
 * Dopo aver abilitato una chiave gestita dal cliente in un registro, non è possibile disabilitarla.
+* L' [attendibilità del contenuto](container-registry-content-trust.md) non è attualmente supportata in un registro crittografato con una chiave gestita dal cliente.
 * In un registro crittografato con una chiave gestita dal cliente, i log di esecuzione per le [attività ACR](container-registry-tasks-overview.md) sono attualmente conservati solo per 24 ore. Se è necessario conservare i log per un periodo di tempo più lungo, vedere linee guida per [esportare e archiviare i log di esecuzione dell'attività](container-registry-tasks-logs.md#alternative-log-storage).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare i passaggi dell'interfaccia della riga di comando di Azure in questo articolo, è necessaria l'interfaccia della riga di comando di Azure versione 2.2.0 Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -377,7 +378,7 @@ az acr encryption rotatekey \
 
 ## <a name="revoke-key"></a>Revoca chiave
 
-Revocare la chiave di crittografia gestita dal cliente modificando il criterio di accesso nell'insieme di credenziali delle chiavi o eliminando la chiave. Ad esempio, usare il comando [AZ chiave Vault Delete-Policy][az-keyvault-delete-policy] per modificare i criteri di accesso dell'identità gestita usata dal registro di sistema. Ad esempio:
+Revocare la chiave di crittografia gestita dal cliente modificando il criterio di accesso nell'insieme di credenziali delle chiavi o eliminando la chiave. Ad esempio, usare il comando [AZ chiave Vault Delete-Policy][az-keyvault-delete-policy] per modificare i criteri di accesso dell'identità gestita usata dal registro di sistema. Ad esempio,
 
 ```azurecli
 az keyvault delete-policy \

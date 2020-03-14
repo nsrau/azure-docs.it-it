@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 38701e8bbef1c5d78eca2242105e81fe7261c0f6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73793930"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220633"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Supporto per le lingue dei contenuti della Knowledge Base per QnA Maker
 
-La lingua per il servizio viene selezionata quando si crea la prima Knowledge base nella risorsa. Tutte le Knowledge base aggiuntive nella risorsa devono essere nella stessa lingua. 
+La lingua per il servizio viene selezionata quando si crea la prima Knowledge base nella risorsa. Tutte le Knowledge base aggiuntive nella risorsa devono essere nella stessa lingua.
 
 La lingua determina la pertinenza dei risultati QnA Maker fornisce in risposta alle query degli utenti.
 
@@ -29,18 +29,18 @@ QnA Maker consente di selezionare la lingua per il servizio QnA, durante la crea
 
 La creazione di Knowledge base in linguaggi diversi in una risorsa influisce negativamente sulla pertinenza dei risultati QnA Maker fornisce in risposta alle query degli utenti.
 
-Esaminare un elenco di [lingue supportate](../overview/language-support.md#languages-supported) e il modo in cui i linguaggi incidono sulla [corrispondenza e sulla pertinenza](#query-matching-and-relevance). 
+Esaminare un elenco di [lingue supportate](../overview/language-support.md#languages-supported) e il modo in cui i linguaggi incidono sulla [corrispondenza e sulla pertinenza](#query-matching-and-relevance).
 
 ## <a name="select-language-when-creating-first-knowledge-base"></a>Selezionare la lingua durante la creazione della prima Knowledge base
 
-La selezione della lingua fa parte dei passaggi per creare la prima Knowledge base in una risorsa. 
+La selezione della lingua fa parte dei passaggi per creare la prima Knowledge base in una risorsa.
 
 ![Screenshot del portale di QnA Maker della selezione della lingua per la prima Knowledge base](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>Query corrispondente e pertinenza
-QnA Maker dipende dagli [analizzatori del linguaggio ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) per fornire i risultati. 
+QnA Maker dipende dagli [analizzatori del linguaggio ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) per fornire i risultati.
 
-Sebbene le funzionalità di ricerca cognitiva di Azure siano in par per le lingue supportate, QnA Maker dispone di un rango aggiuntivo che si trova sopra i risultati di ricerca di Azure. In questo modello di classificazione vengono usate alcune funzionalità speciali basate su parole e semantiche nei linguaggi seguenti. 
+Sebbene le funzionalità di ricerca cognitiva di Azure siano in par per le lingue supportate, QnA Maker dispone di un rango aggiuntivo che si trova sopra i risultati di ricerca di Azure. In questo modello di classificazione vengono usate alcune funzionalità speciali basate su parole e semantiche nei linguaggi seguenti.
 
 |Lingue con rango aggiuntivo|
 |--|
@@ -65,10 +65,10 @@ Questo rango aggiuntivo è un lavoro interno del rango del QnA Maker.
 
 È possibile verificare la lingua della risorsa QnA Maker dalla pagina Impostazioni servizio nella QnA Maker.
 
-![Screenshot del portale di QnA Maker della pagina delle impostazioni del servizio](../media/language-support/language-knowledge-base.png) 
+![Screenshot del portale di QnA Maker della pagina delle impostazioni del servizio](../media/language-support/language-knowledge-base.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un bot QnA con il servizio Azure Bot](../Tutorials/create-qna-bot.md)
+> [Eseguire la migrazione di una Knowledge base](../Tutorials/migrate-knowledge-base.md)

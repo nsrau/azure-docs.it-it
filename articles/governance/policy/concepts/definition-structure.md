@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 95625894d0eb603ae9a37c96c91d01f3720346b1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920213"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280729"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -65,7 +65,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 
 Tutti gli esempi di criteri di Azure sono disponibili in [esempi di criteri di Azure](../samples/index.md).
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>Modalità
 
 La **modalità** viene configurata in base al fatto che i criteri siano destinati a una proprietà Azure Resource Manager o a una proprietà del provider di risorse.
 
@@ -265,7 +265,7 @@ Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare
 
 In un **\[\*\]** valore del campo della matrice di alias, ogni elemento della matrice viene valutato singolarmente con gli elementi Logical **e** between. Per ulteriori informazioni, vedere [valutazione della \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-### <a name="fields"></a>Campi
+### <a name="fields"></a>Fields
 
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
 
@@ -322,7 +322,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>valore
+### <a name="value"></a>Valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
@@ -578,16 +578,16 @@ Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manag
 - resourceId()
 - variables()
 
-Le funzioni seguenti sono disponibili per l'uso in una regola dei criteri, ma sono diverse da quelle usate in un modello di Azure Resource Manager:
+La funzione seguente è disponibile per l'uso in una regola dei criteri, ma è diversa da quella usata in un modello di Azure Resource Manager:
 
-- `addDays(dateTime, numberOfDaysToAdd)`
-  - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. fffffffZ '
-  - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere
 - `utcNow()`-diversamente da un modello di Gestione risorse, questo può essere usato all'esterno di defaultValue.
   - Restituisce una stringa impostata sulla data e l'ora correnti nel formato DateTime ISO 8601 universale ' AAAA-MM-GGThh: mm: SS. fffffffZ '
 
 Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. fffffffZ '
+  - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere
 - `field(fieldName)`
   - **FieldName**: [Required] nome stringa del [campo](#fields) da recuperare
   - Restituisce il valore di tale campo dalla risorsa valutata dalla condizione If
@@ -678,7 +678,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio,
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

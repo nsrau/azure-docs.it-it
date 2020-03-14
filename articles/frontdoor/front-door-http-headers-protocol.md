@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 7c77527b7300c1149e96c94a4dbe122da226ac6d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720436"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280820"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Supporto del protocollo per le intestazioni HTTP nel servizio front door di Azure
 Questo articolo illustra il protocollo supportato dal servizio front door con parti del percorso di chiamata (vedere l'immagine). Le sezioni seguenti forniscono altre informazioni sulle intestazioni HTTP supportate dal servizio front door.

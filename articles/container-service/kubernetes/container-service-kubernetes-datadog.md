@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c8ed146a224ec4225a7a0e85c76227fb1dc71b0b
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 1f3f70c30ab397bd549a2f3305a738274ee4f64f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271059"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371172"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(DEPRECATO) Monitorare un cluster del servizio Azure Container con DataDog
 
@@ -25,8 +25,8 @@ Si presume anche che gli strumenti dell'interfaccia della riga di comando di Azu
 
 È possibile verificare se lo strumento `az` è installato eseguendo:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Se lo strumento `az` non è installato, le istruzioni sono disponibili [qui](https://github.com/azure/azure-cli#installation).
@@ -34,13 +34,13 @@ Se lo strumento `az` non è installato, le istruzioni sono disponibili [qui](htt
 È possibile verificare se lo strumento `kubectl` è installato eseguendo:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Se `kubectl` non è installato, è possibile eseguire:
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## <a name="datadog"></a>DataDog
@@ -54,5 +54,5 @@ Sono ideali per l'esecuzione di agenti di monitoraggio.
 
 Dopo l'accesso a Datadog, è possibile seguire le [istruzioni di Datadog](https://app.datadoghq.com/account/settings#agent/kubernetes) per installare gli agenti Datadog nel cluster usando DaemonSet.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 L'operazione è terminata. Con gli agenti operativi, i dati verranno visualizzati nella console entro alcuni minuti. È possibile visitare il [dashboard di Kubernetes](https://app.datadoghq.com/screen/integration/kubernetes) integrato per visualizzare un riepilogo del cluster.

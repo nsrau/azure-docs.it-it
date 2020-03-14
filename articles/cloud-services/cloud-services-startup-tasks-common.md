@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378943"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273059"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -248,7 +248,7 @@ Per creare la risorsa di archiviazione locale, aggiungere una sezione [LocalReso
 
 Per usare una risorsa di archiviazione locale nell'attività di avvio, è necessario creare una variabile di ambiente che faccia riferimento al percorso della risorsa di archiviazione locale. In questo modo l'attività di avvio e l'applicazione sono in grado di leggere e scrivere i file nella risorsa di archiviazione locale.
 
-Le sezioni pertinenti del file **ServiceDefinition.csdef** sono riportate di seguito:
+Le pertinenti sezioni del file **ServiceDefinition.csdef** sono illustrate di seguito:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

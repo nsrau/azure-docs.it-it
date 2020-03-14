@@ -3,12 +3,12 @@ title: Installare l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 description: Informazioni su come installare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup di computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: cf6b332c308bb0224dbfed546f8b3ba819abcb02
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673059"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247761"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installare l'agente MARS di backup di Azure
 
@@ -70,7 +70,7 @@ Se il computer ha accesso a Internet limitato, verificare che le impostazioni de
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
-* Indirizzi IP
+* indirizzi IP
   * 20.190.128.0/18
   * 40.126.0.0/18
 
@@ -98,6 +98,10 @@ Per ulteriori informazioni, vedere [ExpressRoute routing requirements](https://d
 > Il peering pubblico è deprecato per i nuovi circuiti.
 
 Tutti gli URL e gli indirizzi IP precedenti utilizzano il protocollo HTTPS sulla porta 443.
+
+### <a name="private-endpoints"></a>Endpoint privati
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="download-the-mars-agent"></a>Scaricare l'agente MARS
 
@@ -153,7 +157,7 @@ Se l'agente è già stato installato in qualsiasi computer, verificare che sia i
     * Salvare la passphrase in una posizione sicura. È necessario ripristinare un backup.
     * Se la passphrase viene persa o dimenticata, Microsoft non può essere utile per ripristinare i dati di backup.
 
-1. Selezionare **Fine**. L'agente è ora installato e il computer è registrato nell'insieme di credenziali. Ora è possibile configurare e pianificare il backup.
+1. Fare clic su **Fine**. L'agente è ora installato e il computer è registrato nell'insieme di credenziali. Ora è possibile configurare e pianificare il backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

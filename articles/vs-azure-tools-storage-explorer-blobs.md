@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442971"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244394"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer
 
@@ -33,7 +33,7 @@ L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello 
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
 * [Scaricare e installare Storage Explorer](https://www.storageexplorer.com)
-* [Connettersi a un servizio o un account di archiviazione di Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Connettersi a un account o un servizio di archiviazione di Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Creare un contenitore BLOB
 
@@ -46,7 +46,7 @@ I passaggi seguenti illustrano come creare un contenitore BLOB all'interno di St
 3. Fare clic con il pulsante destro del mouse su **Contenitori BLOB** e scegliere **Crea contenitore BLOB** dal menu di scelta rapida.
 
    ![Menu di scelta rapida Crea contenitore BLOB][0]
-4. Sotto la cartella **contenitori BLOB** verrà visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Visualizzare [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) per informazioni sulle regole e restrizioni relative alla denominazione dei contenitori blob.
+4. Sotto la cartella **contenitori BLOB** verrà visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per informazioni sulle regole e sulle restrizioni relative alla denominazione dei contenitori BLOB, vedere [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
 
    ![Casella di testo Crea contenitore BLOB][1]
 5. Premere **INVIO** al termine della creazione del contenitore BLOB o **ESC** per annullare. Dopo aver creato il contenitore BLOB, verrà visualizzato sotto la cartella **contenitori BLOB** per l'account di archiviazione selezionato.
@@ -186,7 +186,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
      2. Nella finestra di dialogo **Carica i file** scegliere il pulsante con i puntini di sospensione ( **…** ) a destra della casella **File** per selezionare i file da caricare.
 
         ![Opzioni di Carica i file][16]
-     3. Specificare un valore per tipo **Tipo BLOB**. Visualizzare [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) per altre informazioni.
+     3. Specificare un valore per tipo **Tipo BLOB**. Per ulteriori informazioni, vedere [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
      4. È possibile specificare una cartella di destinazione in cui verranno caricati i file selezionati. Se la cartella di destinazione non esiste, verrà creata.
      5. Selezionare **Carica**.
    * **Caricare una cartella in un contenitore BLOB**
@@ -197,7 +197,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
      2. Nella finestra di dialogo **Upload Folder** (Carica cartella) scegliere il pulsante con i puntini di sospensione ( **…** ) a destra della casella di testo **Cartella** per selezionare la cartella di cui si vuole caricare il contenuto.
 
         ![Opzioni di Upload Folder (Carica cartella)][18]
-     3. Specificare un valore per tipo **Tipo BLOB**. Visualizzare [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) per altre informazioni.
+     3. Specificare un valore per tipo **Tipo BLOB**. Per ulteriori informazioni, vedere [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
      4. È possibile specificare una cartella di destinazione in cui verrà caricato il contenuto della cartella selezionata. Se la cartella di destinazione non esiste, verrà creata.
      5. Selezionare **Carica**.
    * **Scaricare un BLOB nel computer locale**

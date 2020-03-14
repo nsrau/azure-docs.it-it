@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893249"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244095"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accedere e personalizzare il portale per sviluppatori
 
@@ -36,7 +36,7 @@ Per ulteriori informazioni, vedere il portale per sviluppatori nel [portale per 
 
 ![Portale per sviluppatori di gestione API-modalità di amministrazione](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 - Importare e pubblicare un'istanza di Gestione API di Azure. Per altre informazioni, vedere [importare e pubblicare](import-and-publish.md)
@@ -93,7 +93,7 @@ Prima di rendere disponibile il portale per i visitatori, è necessario personal
 > [!NOTE]
 > A causa di considerazioni sull'integrazione, le pagine seguenti non possono essere rimosse o spostate in un URL diverso: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
 
-### <a name="home-page"></a>Home page
+### <a name="home-page"></a>Pagina iniziale
 
 La **Home** page predefinita viene riempita con contenuto fittizio. È possibile rimuovere tutte le sezioni con il contenuto o mantenere la struttura e modificare gli elementi uno alla volta. Sostituire il testo e le immagini generati con il proprio e assicurarsi che i collegamenti puntino alle posizioni desiderate.
 

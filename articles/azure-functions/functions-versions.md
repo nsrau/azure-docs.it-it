@@ -4,17 +4,17 @@ description: La soluzione Funzioni di Azure supporta più versioni del runtime. 
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919754"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276556"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
 Le versioni principali del runtime di funzioni di Azure sono correlate alla versione di .NET su cui si basa il Runtime. La tabella seguente indica la versione corrente del runtime, il livello di rilascio e la versione .NET correlata. 
 
-| Versione del runtime | Livello di versione<sup>1</sup> | Versione di .NET | 
+| Versione runtime | Livello di versione<sup>1</sup> | Versione di .NET | 
 | --------------- | ------------- | ------------ |
 | 3.x | GA | .NET Core 3,1 | 
 | 2.x | GA | .NET Core 2.2 |
@@ -26,7 +26,7 @@ Le versioni principali del runtime di funzioni di Azure sono correlate alla vers
 
 Questo articolo descrive in dettaglio alcune delle differenze tra le diverse versioni, come è possibile creare ogni versione e come modificare le versioni.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Linguaggi
 
 A partire dalla versione 2. x, il runtime usa un modello di estendibilità del linguaggio e tutte le funzioni in un'app per le funzioni devono condividere la stessa lingua. Il linguaggio delle funzioni in un'app per le funzioni viene scelto durante la creazione dell'app e viene mantenuto nelle [funzioni\_impostazione di RUNTIME\_di lavoro](functions-app-settings.md#functions_worker_runtime) . 
 
@@ -104,7 +104,7 @@ Di seguito sono riportate le modifiche da tenere presenti prima di aggiornare un
 
 La versione del runtime di Funzioni usata dalle app pubblicate in Azure è determinata dall'impostazione dell'applicazione [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Sono supportati i valori di versione di runtime principali seguenti:
 
-| valore | Destinazione Runtime |
+| Valore | Destinazione Runtime |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2.x |
@@ -202,7 +202,7 @@ Nella tabella seguente sono indicati i binding supportati in ogni versione del r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * [Scrivere codici per Funzioni di Azure e testarle in locale](functions-run-local.md)
 * [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md)

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257569"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284512"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticazione dei dispositivi con i certificati della CA X.509
 
@@ -40,7 +40,7 @@ Per un ambiente di produzione, è consigliabile acquistare un certificato della 
 
 È anche possibile creare un certificato della CA X.509 autofirmato come prova o per l'uso in reti IoT chiuse.
 
-Indipendentemente dal modo in cui ottenere il certificato della CA X.509, assicurarsi di mantenere la corrispondente chiave privata e protetta in qualsiasi momento.  Ciò è necessario per garantire l'attendibilità del processo di autenticazione della CA X.509.
+Indipendentemente dal modo in cui si ottiene il certificato della CA X. 509, assicurarsi di tenere sempre il segreto della chiave privata corrispondente e proteggerlo sempre.  Ciò è necessario per garantire l'attendibilità del processo di autenticazione della CA X.509.
 
 Informazioni su come [creare un certificato della CA autofirmato](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) da usare come esempio nella descrizione di questa funzionalità.
 
@@ -50,7 +50,7 @@ Il proprietario di un certificato della CA X.509 può firmare a livello di critt
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Il certificato del dispositivo (detto anche un certificato foglia) deve avere il *nome soggetto* impostato sulle **ID dispositivo** usato durante la registrazione del dispositivo IoT nell'IoT Hub di Azure. Questa impostazione è necessaria per l'autenticazione.
+Il certificato del dispositivo (detto anche certificato foglia) deve avere il *nome soggetto* impostato sull' **ID del dispositivo** usato per la registrazione del dispositivo Internet delle cose nell'hub Azure. Questa impostazione è obbligatoria per l'autenticazione.
 
 Informazioni su come [creare una catena di certificati](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) simile a quella creata durante il processo di firma dei dispositivi.
 
@@ -80,7 +80,7 @@ Una connessione riuscita del dispositivo all'hub IoT completa il processo di aut
 
 Informazioni su come [completare questo passaggio di connessione del dispositivo](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sul [significato dell'autenticazione con il certificato della CA X.509](iot-hub-x509ca-concept.md) in IoT.
 

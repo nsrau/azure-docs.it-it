@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0a20ea4236683e26c51bc75309435c65e24271d7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396759"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271434"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
@@ -139,7 +139,7 @@ Le metriche forniscono i conteggi di riepilogo dei diversi stati che un disposit
 
 1. Immettere una query per **Metric Criteria** (Criteri metrica). La query è basata sulle [proprietà segnalate](module-edgeagent-edgehub.md#edgehub-reported-properties) del modulo gemello hub di IoT Edge. La metrica rappresenta il numero di righe restituite dalla query.
 
-   Ad esempio:
+   Ad esempio,
 
    ```sql
    SELECT deviceId FROM devices
@@ -219,7 +219,7 @@ Per modificare una distribuzione, seguire questa procedura:
 1. Selezionare **Salva**.
 1. Seguire i passaggi in [Monitorare una distribuzione](#monitor-a-deployment) per controllare la distribuzione delle modifiche.
 
-## <a name="delete-a-deployment"></a>Eliminare una distribuzione
+## <a name="delete-a-deployment"></a>Eliminazione di una distribuzione
 
 Quando si elimina una distribuzione, tutti i dispositivi distribuiti accettano la successiva distribuzione con priorità più elevata. Se i dispositivi non soddisfano la condizione di destinazione di qualsiasi altra distribuzione, i moduli non vengono rimossi in seguito all'eliminazione della distribuzione.
 

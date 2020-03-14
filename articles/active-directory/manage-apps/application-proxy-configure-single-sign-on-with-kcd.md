@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669226"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253455"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
@@ -43,7 +43,7 @@ Questo diagramma illustra il flusso quando un utente tenta di accedere a un'appl
 7. Il connettore invia la richiesta originale al server dell'applicazione, usando il token Kerberos ricevuto da Active Directory.
 8. L'applicazione invia la risposta al connettore, che viene quindi restituita al servizio proxy di applicazione e infine all'utente.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare a usare SSO per le applicazioni IWA, verificare che l'ambiente sia pronto con le impostazioni e configurazioni seguenti:
 
 * Le app, ad esempio le app Web SharePoint, devono essere impostate per usare l'autenticazione integrata di Windows. Per altre informazioni, vedere [Attivare il supporto per l'autenticazione Kerberos](https://technet.microsoft.com/library/dd759186.aspx). Per SharePoint, vedere [Pianificare l'autenticazione Kerberos in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -88,11 +88,11 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
    Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
    ```
 
-## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On 
-1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md). Assicurarsi di selezionare **Azure Active Directory** come **Metodo di autenticazione preliminare**.
+## <a name="configure-single-sign-on"></a>Configurazione di Single Sign-On 
+1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md). Assicurarsi di selezionare **Azure Active Directory** come **Metodo di preautenticazione**.
 2. Quando l'applicazione viene visualizzata nell'elenco delle applicazioni aziendali, selezionarla e fare clic su **Single Sign-On**.
 3. Impostare la modalità Single Sign-On su **Autenticazione integrata di Windows**.  
-4. Immettere l’ **SPN dell'applicazione interna** del server dell'applicazione. In questo esempio l'SPN per l'applicazione pubblicata è http/www.contoso.com. Questo nome SPN deve essere nell'elenco dei servizi a cui il connettore può presentare credenziali delegate. 
+4. Immettere il valore di **SPN applicazione interna** del server applicazioni. In questo esempio l'SPN per l'applicazione pubblicata è http/www.contoso.com. Questo nome SPN deve essere nell'elenco dei servizi a cui il connettore può presentare credenziali delegate. 
 5. Scegliere l'**identità di accesso delegato** che il connettore userà per conto degli utenti. Per altre informazioni, vedere [Utilizzo dell'accesso Single Sign-On quando le identità cloud e locali non sono identiche](#working-with-different-on-premises-and-cloud-identities)
 
    ![Configurazione avanzata dell'applicazione](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  

@@ -17,11 +17,11 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e9468c0a0f6844c7522ff43761cf58f4beea27e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376071"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261580"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 
@@ -130,42 +130,42 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Per abilitare il controllo per AD FS in Windows Server 2008 R2
 
-1. Fare clic su **Start**, scegliere **Programmi** e quindi **Strumenti di amministrazione** e infine fare clic su **Criteri di sicurezza locali**.
-2. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
-3. Nella scheda **Impostazioni di sicurezza locali** verificare che sia elencato l'account del servizio AD FS 2.0. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
+1. Fare clic su **Start**, scegliere **Programmi**, **Strumenti di amministrazione** e quindi **Criteri di protezione locali**.
+2. Passare alla cartella **Impostazioni locali\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di protezione**.
+3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS 2.0. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
 4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Chiudere **Criteri di sicurezza locali**.
 <br />   -- **La procedura seguente è necessaria solo per i server AD FS primari.** -- <br />
 6. Aprire lo snap-in **Gestione AD FS**. Per aprire lo snap-in Gestione AD FS, fare clic su **Start**, scegliere **Programmi**, **Strumenti di amministrazione** e quindi fare clic su **Gestione AD FS 2.0**.
 7. Nel riquadro **Azioni** fare clic su **Modifica proprietà servizio federativo**.
-8. Nella finestra di dialogo **Proprietà servizio federativo** fare clic sulla scheda **Eventi**.
-9. Selezionare le caselle di controllo **Operazioni riuscite** e **Operazioni non riuscite**.
+8. Nella finestra di dialogo **Federation Service Properties** fare clic sulla scheda **Events**.
+9. Selezionare le caselle di controllo **Success audits** e **Failure audits**.
 10. Fare clic su **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Per abilitare il controllo per ADFS in Windows Server 2012 R2
 
 1. Per passare a **Criteri di sicurezza locali**, aprire **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop e quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
-2. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
-3. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio AD FS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
+2. Passare alla cartella **Impostazioni locali\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di protezione**.
+3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
 4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire questo comando: ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```
 5. Chiudere **Criteri di sicurezza locali**.
 <br />   -- **La procedura seguente è necessaria solo per i server AD FS primari.** -- <br />
 6. Aprire lo snap-in **Gestione AD FS** facendo clic su Strumenti in Server Manager e quindi selezionando Gestione AD FS.
 7. Nel riquadro **Azioni** fare clic su **Modifica proprietà servizio federativo**.
-8. Nella finestra di dialogo **Proprietà servizio federativo** fare clic sulla scheda **Eventi**.
+8. Nella finestra di dialogo **Federation Service Properties** fare clic sulla scheda **Events**.
 9. Selezionare le caselle di controllo **Operazioni riuscite** e Operazioni non riuscite e quindi fare clic su **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Per abilitare il controllo per AD FS in Windows Server 2016
 
 1. Per passare a **Criteri di sicurezza locali**, aprire **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop e quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
-2. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
-3. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio AD FS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo**, quindi aggiungere l'account del servizio AD FS all'elenco e fare clic su **OK**.
+2. Passare alla cartella **Impostazioni locali\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di protezione**.
+3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo**, quindi aggiungere l'account del servizio AD FS all'elenco e fare clic su **OK**.
 4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire questo comando: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Chiudere **Criteri di sicurezza locali**.
 <br />   -- **La procedura seguente è necessaria solo per i server AD FS primari.** -- <br />
 6. Aprire lo snap-in **Gestione AD FS** facendo clic su Strumenti in Server Manager e quindi selezionando Gestione AD FS.
 7. Nel riquadro **Azioni** fare clic su **Modifica proprietà servizio federativo**.
-8. Nella finestra di dialogo **Proprietà servizio federativo** fare clic sulla scheda **Eventi**.
+8. Nella finestra di dialogo **Federation Service Properties** fare clic sulla scheda **Events**.
 9. Selezionare le caselle di controllo **Operazioni riuscite** e Operazioni non riuscite e quindi fare clic su **OK**. Questa opzione dovrebbe essere abilitata per impostazione predefinita.
 10. Aprire una finestra di PowerShell ed eseguire il comando seguente: ```Set-AdfsProperties -AuditLevel Verbose```.
 

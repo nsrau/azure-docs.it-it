@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: ace636152f6a0c9bf3896860eb17cc291bef2887
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085120"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262906"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
@@ -39,7 +39,7 @@ Questo articolo descrive i diversi flussi di autenticazione forniti da Microsoft
  
 A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati dalla piattaforma di identità Microsoft.  Questi flussi possono produrre un'ampia gamma di token (id_tokens, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico fornisce una panoramica:
  
-|Flusso | Richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
+|Flusso | richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flusso del codice di autorizzazione](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Flusso implicito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -202,7 +202,7 @@ Il flusso IWA è abilitato per le app .NET desktop, .NET Core e Windows Universa
   
 Per ulteriori informazioni sul consenso, vedere [autorizzazioni e consenso per la versione 2.0](v2-permissions-and-consent.md).
 
-## <a name="usernamepassword"></a>Username/password
+## <a name="usernamepassword"></a>Nome utente/password
 
 MSAL supporta la [concessione delle credenziali password del proprietario della risorsa OAuth 2](v2-oauth-ropc.md), che consente a un'applicazione di accedere all'utente gestendo direttamente la password. Nell'applicazione desktop è possibile usare il flusso di nome utente/password per acquisire un token in modo invisibile all'utente. Quando si usa l'applicazione non è necessaria alcuna interfaccia utente.
 

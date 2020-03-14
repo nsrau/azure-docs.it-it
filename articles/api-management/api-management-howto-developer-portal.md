@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b6b11242831e68787fe225d4d0b66638f1388de6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126544"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297986"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di gestione API di Azure
 
@@ -138,7 +138,7 @@ Per la maggior parte delle modifiche di configurazione, ad esempio VNet, accesso
 
 ### <a name="cors"></a>Viene ricevuto un errore CORS quando si usa la console interattiva
 
-La console interattiva esegue una richiesta API sul lato client dal browser. È possibile risolvere il problema CORS aggiungendo [un criterio CORS](api-management-cross-domain-policies.md#CORS) sulle API. È possibile specificare tutti i parametri manualmente o usare i valori dei caratteri jolly `*`. Ad esempio:
+La console interattiva esegue una richiesta API sul lato client dal browser. È possibile risolvere il problema CORS aggiungendo [un criterio CORS](api-management-cross-domain-policies.md#CORS) sulle API. È possibile specificare tutti i parametri manualmente o usare i valori dei caratteri jolly `*`. Ad esempio,
 
 ```XML
 <cors allow-credentials="true">
@@ -156,6 +156,12 @@ La console interattiva esegue una richiesta API sul lato client dal browser. È 
     </expose-headers>
 </cors>
 ```
+
+Applicare CORS nell'ambito globale per assicurarsi che sia abilitato per tutte le API.
+
+1. Passare a **tutte le API** nella sezione **API** del servizio gestione API nel portale di Azure.
+2. Fare clic sull'icona **</>** nella sezione **elaborazione in ingresso** .
+3. Inserire i criteri nella sezione **<inbound>** del file XML. Verificare che il valore **<origin>** corrisponda al dominio del portale per sviluppatori.
 
 > [!NOTE]
 > 
@@ -207,7 +213,7 @@ L'errore di chiamata può anche essere causato da un certificato SSL, che viene 
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual è il supporto del browser per il portale?
 
-| Browser                     | Supportato       |
+| Browser.                     | Supportato       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sì<sup>1</sup> |
 | Google Chrome               | Sì<sup>1</sup> |

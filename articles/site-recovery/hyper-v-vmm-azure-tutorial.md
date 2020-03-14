@@ -8,11 +8,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 0c570702e4c3899ef2847883e6fc8649e603a787
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039679"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281678"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
 
@@ -20,7 +20,7 @@ Questo articolo descrive come abilitare la replica per le VM Hyper-V locali gest
 
 Questa è la terza esercitazione di una serie che mostra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Nell'esercitazione precedente è stato [preparato l'ambiente Hyper-V locale per il](hyper-v-prepare-on-premises-tutorial.md) ripristino di emergenza in Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Selezionare l'origine e la destinazione della replica.
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Abilitare la replica per una macchina virtuale.
 
 > [!NOTE]
-> Le esercitazioni illustrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+> Le esercitazioni mostrano il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, esaminare gli articoli nella sezione **Guide pratiche** della [documentazione di Site Recovery](https://docs.microsoft.com/azure/site-recovery).
 
 
 
@@ -49,7 +49,7 @@ Questa è la terza esercitazione di una serie. Si presuppone che siano già stat
 4. In **In quale destinazione si vuole eseguire la replica dei computer?** selezionare **In Azure**.
 5. In **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
 6. In si **Usa System Center VMM per gestire gli host Hyper-V?** selezionare **Sì**.
-7.  Selezionare **OK**.
+7.  Scegliere **OK**.
 
     ![Obiettivo di replica](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
@@ -72,7 +72,7 @@ Quando si configura l'ambiente di origine, è necessario installare il provider 
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>Installare il provider nel server VMM
 
-1. Nell'installazione guidata del provider di Azure Site Recovery > **Microsoft Update**, accettare esplicitamente di usare Microsoft Update per verificare la disponibilità degli aggiornamenti del provider.
+1. Nell'installazione guidata del provider di Azure Site Recovery > **Microsoft Update** acconsentire esplicitamente a usare Microsoft Update per verificare la disponibilità degli aggiornamenti del provider.
 2. In **installazione**accettare il percorso di installazione predefinito per il provider e selezionare **Installa**.
 3. Dopo l'installazione, nella Microsoft Azure Site Recovery registrazione guidata > **Impostazioni**dell'insieme di credenziali selezionare **Sfoglia**e in **file di chiave**selezionare il file di chiave dell'insieme di credenziali scaricato.
 4. Specificare la sottoscrizione di Azure Site Recovery e il nome dell'insieme di credenziali (**ContosoVMVault**). Specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali.
@@ -91,7 +91,7 @@ Installare l'agente in ogni host Hyper-V contenente le macchine virtuali che si 
 2. In **impostazioni di installazione**accettare il percorso di installazione e il percorso della cache. L'unità di cache necessita di almeno 5 GB di spazio di archiviazione. Si consiglia un'unità con almeno 600 GB di spazio libero. Quindi, selezionare **Installa**.
 3. In **installazione**, al termine dell'installazione, fare clic su **Chiudi** per terminare la procedura guidata.
 
-    ![Installare l'agente](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
+    ![Installare Agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
 
 ## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
 

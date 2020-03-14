@@ -2,23 +2,17 @@
 title: Distribuire le risorse nella sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: 1a76e41b4b2264bc535752e8f765b3303080abbd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925356"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248411"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
-In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare risorse in:
-
-* livello di sottoscrizione (trattato in questo articolo)
-* [livello gruppo di gestione](deploy-to-management-group.md)
-* [livello tenant](deploy-to-tenant.md)
-
-Le distribuzioni a livello di sottoscrizione vengono usate per eseguire azioni che hanno senso a tale livello, ad esempio la creazione di gruppi di risorse o l'assegnazione del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
+Per semplificare la gestione delle risorse nella sottoscrizione di Azure, è possibile definire e assegnare i [criteri](../../governance/policy/overview.md) o i [controlli degli accessi in base al ruolo](../../role-based-access-control/overview.md) nella sottoscrizione. Con i modelli a livello di sottoscrizione si applicano in modo dichiarativo i criteri e si assegnano i ruoli nella sottoscrizione. È anche possibile creare gruppi di risorse e distribuire le risorse.
 
 Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della riga di comando di Azure, PowerShell o l'API REST. Il portale di Azure non supporta la distribuzione nel livello di sottoscrizione.
 
@@ -36,7 +30,7 @@ Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>SCHEMA
+### <a name="schema"></a>Schema
 
 Lo schema usato per le distribuzioni a livello di sottoscrizione è diverso dallo schema per le distribuzioni di gruppi di risorse.
 
@@ -46,10 +40,10 @@ Per i modelli, usare:
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-Per i file di parametri, usare:
+Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribuzione. Per i file di parametri, usare:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandi di distribuzione
@@ -387,5 +381,4 @@ New-AzSubscriptionDeployment `
 * Per informazioni sull'assegnazione dei ruoli, vedere [gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Per un esempio di distribuzione delle impostazioni dell'area di lavoro per il Centro sicurezza di Azure, vedere [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * I modelli di esempio sono disponibili in [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](template-syntax.md).
-* Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](template-functions.md).
+* È anche possibile distribuire modelli a livello del [gruppo di gestione](deploy-to-management-group.md) e del [tenant](deploy-to-tenant.md).

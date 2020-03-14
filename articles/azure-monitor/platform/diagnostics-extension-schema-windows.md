@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129165"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274710"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schema dell'estensione di diagnostica Windows
 Diagnostica di Azure estensione è un agente di monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle risorse di calcolo di Azure. Questo articolo descrive in dettaglio lo schema usato per la configurazione dell'estensione di diagnostica nelle macchine virtuali Windows e in altre risorse di calcolo.
@@ -45,9 +45,9 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
-|**PublicConfig**|Obbligatorio. Vedere la descrizione altrove in questa pagina.|  
+|**PublicConfig**|Obbligatoria. Vedere la descrizione altrove in questa pagina.|  
 |**PrivateConfig**|Facoltativa. Vedere la descrizione altrove in questa pagina.|  
-|**IsEnabled**|Proprietà di tipo Boolean. Vedere la descrizione altrove in questa pagina.|  
+|**IsEnabled**|Boolean. Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="publicconfig-element"></a>Elemento PublicConfig  
  *Albero: radice - DiagnosticsConfiguration - PublicConfig*
@@ -56,7 +56,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
-|**WadCfg**|Obbligatorio. Vedere la descrizione altrove in questa pagina.|  
+|**WadCfg**|Obbligatoria. Vedere la descrizione altrove in questa pagina.|  
 |**StorageAccount**|Nome dell'account di archiviazione di Azure in cui archiviare i dati. Può anche essere specificato come parametro quando si esegue il cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**Tipo di archiviazione**|Può essere *Table*, *Blob* o *TableAndBlob*. Table è il valore predefinito. Quando si sceglie TableAndBlob, i dati di diagnostica vengono scritti due volte, una volta per ogni tipo.|  
 |**LocalResourceDirectory**|Directory nella macchina virtuale in cui l'agente di monitoraggio archivia i dati degli eventi. Se non impostata, verrà usata la directory predefinita:<br /><br /> Per un ruolo di lavoro/Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Per una macchina virtuale: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gli attributi obbligatori sono i seguenti:<br /><br /> - **path**: directory nel sistema che dovrà essere usata da Diagnostica di Azure.<br /><br /> - **expandEnvironment**: definisce se le variabili di ambiente vengono espanse nel nome del percorso.|  
@@ -72,7 +72,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Obbligatoria
 
-|Attributes|Descrizione|  
+|Attributi|Descrizione|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Spazio massimo sul disco locale che può essere usato dai vari tipi di dati di diagnostica raccolti da Diagnostica di Azure. L'impostazione predefinita è 4096 MB.<br />
 |**useProxyServer** | Configurare Diagnostica di Azure per l'uso delle impostazioni del server proxy definite nelle impostazioni di Internet Explorer.|
@@ -99,7 +99,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Abilitare la raccolta di dump di arresto anomalo del sistema.  
 
-|Attributes|Descrizione|  
+|Attributi|Descrizione|  
 |----------------|-----------------|  
 |**containerName**|Facoltativa. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
 |**crashDumpType**|Facoltativa.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
@@ -107,7 +107,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Obbligatorio. Definisce i valori di configurazione di ogni processo.<br /><br /> Anche l'attributo seguente è obbligatorio:<br /><br /> **processName**: nome del processo per il quale Diagnostica di Azure dovrà raccogliere un dump di arresto anomalo del sistema.|  
+|**CrashDumpConfiguration**|Obbligatoria. Definisce i valori di configurazione di ogni processo.<br /><br /> Anche l'attributo seguente è obbligatorio:<br /><br /> **processName**: nome del processo per il quale Diagnostica di Azure dovrà raccogliere un dump di arresto anomalo del sistema.|  
 
 ## <a name="directories-element"></a>Elemento Directories
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
@@ -132,7 +132,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Obbligatorio. Attributo obbligatorio:<br /><br /> **containerName**: nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i file log.|  
+|**DirectoryConfiguration**|Obbligatoria. Attributo obbligatorio:<br /><br /> **containerName**: nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i file log.|  
 
 
 
@@ -223,7 +223,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elemento figlio|Descrizione|  
 |-------------------|-----------------|  
-|**DataSource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*"|  
+|**DataSource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio,<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*"|  
 
 
 
@@ -294,7 +294,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Definisce le posizioni a cui inviare i dati di diagnostica, ad esempio il servizio Application Insights.  
 
-|Attributes|Type|Descrizione|  
+|Attributi|Type|Descrizione|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
 |**nome**|**string**|Nome univoco per fare riferimento al canale|  
@@ -305,7 +305,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Aggiunto nella versione 1.3.  
 
- Facoltativo  
+ Facoltativa  
 
  Archivia le informazioni private dell'account di archiviazione, ovvero nome, chiave ed endpoint. Queste informazioni vengono inviate alla macchina virtuale, ma non possono essere recuperate dalla macchina virtuale stessa.  
 
@@ -317,7 +317,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
  *Albero: radice - DiagnosticsConfiguration - IsEnabled*
 
- Proprietà di tipo Boolean. Usare `true` per abilitare la diagnostica o `false` per disabilitarla.
+ Boolean. Usare `true` per abilitare la diagnostica o `false` per disabilitarla.
 
 ## <a name="example-configuration"></a>Configurazione di esempio
  Di seguito è riportata una configurazione di esempio completa per l'estensione di diagnostica Windows visualizzata sia in JSON che in XML.
