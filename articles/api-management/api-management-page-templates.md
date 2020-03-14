@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176550"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249542"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelli di pagina in Gestione API di Azure
 In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, ad esempio [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings) localizzate, [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
@@ -99,7 +99,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [basic-signin](api-management-page-controls.md#basic-signin)  
@@ -158,7 +158,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </div>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
 -   [sign-up](api-management-page-controls.md#sign-up)  
@@ -222,12 +222,12 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 </p>  
 ```  
   
-### <a name="controls"></a>Controlli  
+### <a name="controls"></a>Controls  
  Questo modello potrebbe non usare i [controlli di pagina](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|Description|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |referenceCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
 |errorCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  

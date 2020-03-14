@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 00180c1791e765240f3f8feac188b9250162408e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199904"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256705"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Aggiornare il pool SQL a Gen2
 
@@ -78,7 +78,7 @@ Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generati
 
 **D: il costo di Gen2 è uguale a quello di Gen1?**
 
-- A: Sì.
+- R: Sì.
 
 **D: in che modo gli aggiornamenti interessano gli script di automazione?**
 
@@ -114,7 +114,7 @@ Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generati
 
 **D: Gen2 supporta le finestre di manutenzione?**
 
-- A: Sì.
+- R: Sì.
 
 **D: sarà possibile creare una nuova istanza di Gen1 dopo l'aggiornamento dell'area?**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127903"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365220"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
 
@@ -71,7 +71,7 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
 
 ## <a name="run-the-azure-marketplace-offering"></a>Eseguire l'offerta di Azure Marketplace
 
-[Per eseguire il provisioning di un nuovo pool host](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool), seguire le istruzioni in [creare un pool di host usando Azure Marketplace](./create-host-pools-azure-marketplace.md) fino a quando non si raggiunge l'offerta di Azure Marketplace. Quando si arriva a questo punto, è necessario immettere le informazioni seguenti per ogni pannello:
+[Per eseguire il provisioning di un nuovo pool host](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool), seguire le istruzioni in [creare un pool di host usando Azure Marketplace](./create-host-pools-azure-marketplace.md) fino a quando non si raggiunge l'offerta di Azure Marketplace. Quando si arriva a questo punto, è necessario immettere le informazioni seguenti per ogni scheda:
 
 ### <a name="basics"></a>Nozioni di base
 
@@ -101,7 +101,7 @@ Tutti i valori dei parametri in questa sezione devono corrispondere a quanto spe
 3. Immettere un prefisso per i nomi delle macchine virtuali. Ad esempio, se si immette il nome "prefisso", le macchine virtuali saranno denominate "prefisso-0", "prefisso-1" e così via.
 4. Selezionare **Avanti: impostazioni macchina virtuale**.
 
-### <a name="virtual-machine-settings"></a>Impostazioni della macchina virtuale
+### <a name="virtual-machine-settings"></a>Impostazioni macchine virtuali
 
 Tutti i valori dei parametri in questa sezione devono corrispondere a quanto specificato al momento della creazione del pool host e delle VM host della sessione:
 

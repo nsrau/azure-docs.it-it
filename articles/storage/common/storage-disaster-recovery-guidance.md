@@ -10,18 +10,20 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894534"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365365"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Ripristino di emergenza e failover dell'account (anteprima)
 
 Microsoft si impegna per fare in modo che i servizi di Azure siano sempre disponibili. Possono tuttavia verificarsi interruzioni dei servizi non pianificate. Se l'applicazione richiede la resilienza, Microsoft consiglia di usare l'archiviazione con ridondanza geografica, in modo che i dati vengano copiati in una seconda area. I clienti dovrebbero anche predisporre un piano di ripristino di emergenza per gestire un'interruzione dei servizi a livello di area. Un parte importante del piano di ripristino di emergenza è la preparazione del failover nell'endpoint secondario qualora l'endpoint primario non sia più disponibile.
 
 Archiviazione di Azure supporta il failover dell'account (anteprima) per gli account di archiviazione con ridondanza geografica. Con il failover dell'account, è possibile avviare il processo di failover per l'account di archiviazione se l'endpoint primario non è più disponibile. Il failover aggiorna l'endpoint secondario, che in questo modo diventa l'endpoint primario dell'account di archiviazione. Una volta completato il failover, i clienti possono iniziare a scrivere nel nuovo endpoint primario.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Questo articolo illustra i concetti e il processo relativi a un failover dell'account e spiega come preparare l'account di archiviazione per il ripristino con il minimo impatto per i clienti. Per informazioni su come avviare un failover dell'account nel portale di Azure o in PowerShell, vedere [Avviare un failover dell'account (anteprima)](storage-initiate-account-failover.md).
 
@@ -124,7 +126,7 @@ Leggere le considerazioni aggiuntive esposte in questa sezione per comprendere c
 
 #### <a name="storage-account-containing-archived-blobs"></a>Account di archiviazione contenente i BLOB archiviati
 
-Gli account di archiviazione contenenti BLOB archiviati supportano il failover degli account. Al termine del failover, per riconvertire l'account in GRS o RA-GRS tutti i BLOB archieved devono essere riattivati prima di tutto in un livello online.
+Gli account di archiviazione contenenti BLOB archiviati supportano il failover degli account. Al termine del failover, per riconvertire l'account in GRS o RA-GRS tutti i BLOB archiviati devono essere riattivati prima di tutto in un livello online.
 
 #### <a name="storage-resource-provider"></a>Provider di risorse di archiviazione
 

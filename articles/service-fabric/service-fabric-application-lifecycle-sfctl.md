@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382983"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259071"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gestire un'applicazione di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
 
 Informazioni su come creare ed eliminare applicazioni in esecuzione in un cluster Azure Service Fabric.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Installare l'interfaccia della riga di comando di Service Fabric. Selezionare il cluster Service Fabric. Per altre informazioni, vedere [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md).
 
@@ -118,7 +118,7 @@ I servizi e le applicazioni integri devono avere il valore `HealthState` imposta
 
 Per rimuovere un'applicazione, completare le attività seguenti:
 
-### <a name="delete-the-application"></a>Eliminare l'applicazione
+### <a name="delete-the-application"></a>Per eliminare l'applicazione
 
 Per eliminare l'applicazione, usare il comando seguente:
 

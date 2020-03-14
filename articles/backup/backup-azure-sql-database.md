@@ -3,16 +3,23 @@ title: Eseguire un backup dei database SQL Server in Azure
 description: Questo articolo illustra come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 7305a75852deac466028e6278fca76626d8c1820
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273241"
+ms.locfileid: "79297480"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
-I database di SQL Server sono carichi di lavoro critici che richiedono un obiettivo del punto di ripristino (RPO) basso e la conservazione a lungo termine. È possibile eseguire il backup di database SQL Server in esecuzione nelle macchine virtuali di Azure usando [Backup di Azure](backup-overview.md).
+[Backup di Azure](backup-overview.md) offre una soluzione specializzata basata sul flusso per eseguire il backup SQL Server in esecuzione in macchine virtuali di Azure. Questa soluzione è allineata ai vantaggi del backup con infrastruttura zero, alla conservazione a lungo termine e alla gestione centrale del backup di Azure. Offre inoltre i seguenti vantaggi specifici per SQL Server:
+
+1. Backup con supporto del carico di lavoro che supportano tutti i tipi di backup: completo, differenziale e log
+2. 15-min RPO (obiettivo del punto di ripristino) con backup del log frequenti
+3. Recupero temporizzato fino a un secondo
+4. Backup e ripristino a livello di database singolo
+
+Per visualizzare gli scenari di backup e ripristino attualmente supportati, fare riferimento alla [matrice di supporto](backup-azure-sql-database.md#scenario-support).
 
 ## <a name="backup-process"></a>Processo di backup
 
@@ -65,11 +72,11 @@ Prima di iniziare, verificare quanto segue:
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportamento di backup nel caso di gruppi di disponibilità AlwaysOn
 
-È consigliabile configurare il backup solo su un nodo di un gruppo di disponibilità. Il backup deve sempre essere configurato nella stessa area del nodo primario. In altre parole, il nodo primario deve essere sempre presente nell'area in cui si sta configurando il backup. Se tutti i nodi del gruppo di disponibilità risiedono nella stessa area in cui è configurato il backup, non c'è motivo di preoccuparsi.
+È consigliabile configurare il backup solo su un nodo di un gruppo di disponibilità. Il backup deve sempre essere configurato nella stessa area del nodo primario. In altre parole, il nodo primario deve essere sempre presente nell'area in cui si sta configurando il backup. Se tutti i nodi del gruppo di disponibilità si trovano nella stessa area in cui è configurato il backup, non vi sono problemi.
 
 #### <a name="for-cross-region-ag"></a>Per i gruppi di disponibilità tra aree
 
-* Indipendentemente dalle preferenze per il backup, non verrà eseguito alcun backup dai nodi che non risiedono nella stessa area in cui è configurato il backup, perché i backup tra più aree non sono supportati. Se sono presenti solo due nodi e il nodo secondario risiede nell'altra area, verranno eseguiti solo i backup dal nodo primario, a meno che la preferenza scelta per il backup non sia "solo secondario".
+* Indipendentemente dalla preferenza di backup, i backup non vengono eseguiti dai nodi che non si trovano nella stessa area in cui è configurato il backup. perché i backup tra più aree non sono supportati. Se sono presenti solo due nodi e il nodo secondario si trova nell'altra area; in questo caso, i backup continueranno a essere eseguiti dal nodo primario (a meno che la preferenza di backup non sia "solo secondaria").
 * Se viene eseguito il failover in un'area diversa da quella in cui è configurato il backup, il backup sui nodi dell'area di failover non verrà eseguito.
 
 In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo solo copia), i backup vengono eseguiti da uno specifico nodo (primario o secondario).
@@ -78,37 +85,37 @@ In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo
 
 **Tipo di backup** | **Node**
     --- | ---
-    Full | Primaria
-    Differenziale | Primaria
-    File di log |  Primaria
-    Completo solo copia |  Primaria
+    Completa | Primary
+    Differenziale | Primary
+    File di log |  Primary
+    Completo solo copia |  Primary
 
 * **Preferenza di backup: solo secondario**
 
 **Tipo di backup** | **Node**
 --- | ---
-Full | Primaria
-Differenziale | Primaria
-File di log |  Secondari
-Completo solo copia |  Secondari
+Completa | Primary
+Differenziale | Primary
+File di log |  Secondary
+Completo solo copia |  Secondary
 
 * **Preferenza di backup: secondaria**
 
 **Tipo di backup** | **Node**
 --- | ---
-Full | Primaria
-Differenziale | Primaria
-File di log |  Secondari
-Completo solo copia |  Secondari
+Completa | Primary
+Differenziale | Primary
+File di log |  Secondary
+Completo solo copia |  Secondary
 
 * **Nessuna preferenza di backup**
 
 **Tipo di backup** | **Node**
 --- | ---
-Full | Primaria
-Differenziale | Primaria
-File di log |  Secondari
-Completo solo copia |  Secondari
+Completa | Primary
+Differenziale | Primary
+File di log |  Secondary
+Completo solo copia |  Secondary
 
 ## <a name="set-vm-permissions"></a>Impostare le autorizzazioni della VM
 
@@ -174,7 +181,7 @@ Aggiungere gli account di accesso **NT AUTHORITY\SYSTEM** e **NT Service\AzureWL
 
     ![Concedere le autorizzazioni in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. Fare clic su OK.
+7. Fai clic su OK.
 8. Ripetere la stessa procedura (passaggi da 1 a 7 precedenti) per aggiungere l'account di accesso NT Service\AzureWLBackupPluginSvc all'istanza di SQL Server. Se l'account di accesso esiste già, assicurarsi che abbia il ruolo del server sysadmin e che in Stato siano selezionate l'opzione Concedi per Autorizzazione per la connessione al motore di database e l'opzione Abilitato per Account di accesso.
 9. Dopo aver concesso l'autorizzazione, **riindividuare** i database nel portale: insieme di credenziali **->** infrastruttura di backup **->** carico di lavoro in una macchina virtuale di Azure:
 

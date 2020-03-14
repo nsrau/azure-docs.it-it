@@ -4,16 +4,16 @@ description: Informazioni su come caricare un disco rigido virtuale in un disco 
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 09/20/2019
+ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f2eb0f59d460fbf8d6595db658bb3f5f9c4a6ad0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970332"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365850"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Caricare un VHD in Azure usando l'interfaccia della riga di comando di Azure
 
@@ -23,12 +23,12 @@ Se si fornisce una soluzione di backup per le macchine virtuali IaaS in Azure, s
 
 Attualmente, il caricamento diretto è supportato per HDD standard, unità SSD standard e Managed disks SSD Premium. Non è ancora supportata per le unità SSD ultra.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 - Un file VHD, archiviato localmente
-- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale [preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
+- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale di dimensioni fisse [preparato per Azure](../windows/prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto
@@ -79,8 +79,6 @@ Questo caricamento ha la stessa velocità effettiva del [disco rigido standard](
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
-
-Se la firma di accesso condiviso scade durante il caricamento e non si è ancora chiamato `revoke-access`, è possibile ottenere una nuova firma di accesso condiviso per continuare il caricamento usando `grant-access`, di nuovo.
 
 Una volta completato il caricamento e non è più necessario scrivere altri dati sul disco, revocare la firma di accesso condiviso. La revoca della firma di accesso condiviso modificherà lo stato del disco gestito e consentirà di aggiungere il disco a una macchina virtuale.
 

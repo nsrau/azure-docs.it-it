@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362998"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256965"
 ---
 # <a name="manage-the-mobility-agent"></a>Gestire l'agente di mobilità 
 
@@ -29,7 +29,7 @@ Quando si usa Azure Site Recovery per il ripristino di emergenza di macchine vir
 
      ![Finestra Elementi replicati](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. Fare clic sulla notifica e in **Aggiornamento agente** selezionare i computer in cui si intende aggiornare il servizio Mobility. Fare quindi clic su **OK**.
+4. Fare clic sulla notifica e in **Aggiornamento agente** selezionare i computer in cui si intende aggiornare il servizio Mobility. Fare quindi clic su **OK**,
 
      ![Elenco delle macchine virtuali in Elementi replicati](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
@@ -37,11 +37,24 @@ Quando si usa Azure Site Recovery per il ripristino di emergenza di macchine vir
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Aggiornare il servizio Mobility tramite uno script di PowerShell in Windows Server
 
+Prima di iniziare, verificare che il server di configurazione, i server di elaborazione scale-out e i server di destinazione master che fanno parte della distribuzione siano aggiornati prima di aggiornare il servizio Mobility nei server protetti.
+
 Usare lo script seguente per aggiornare il servizio Mobility in un server tramite il cmdlet di Power Shell
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
+
+## <a name="update-mobility-service-manually-on-each-protected-server"></a>Aggiornare manualmente il servizio Mobility in ogni server protetto
+
+1. Prima di iniziare, verificare che il server di configurazione, i server di elaborazione scale-out e i server di destinazione master che fanno parte della distribuzione siano aggiornati prima di aggiornare il servizio Mobility nei server protetti.
+
+2. [Individuare il programma di installazione dell'agente](vmware-physical-mobility-service-overview.md#locate-installer-files) in base al sistema operativo del server.
+
+>[!IMPORTANT]
+> Se si esegue la replica della macchina virtuale IaaS di Azure da un'area di Azure a un'altra, non usare questo metodo. Per informazioni su tutte le opzioni disponibili, vedere le [linee guida](azure-to-azure-autoupdate.md) .
+
+3. Copiare il file di installazione nel computer protetto ed eseguirlo per aggiornare l'agente di mobilità.
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Aggiornamento dell'account usato per l'installazione push del servizio Mobility
 

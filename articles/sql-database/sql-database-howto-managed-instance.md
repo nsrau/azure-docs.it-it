@@ -12,11 +12,11 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
 ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811205"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256913"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Come usare un'istanza gestita nel database SQL di Azure
 
@@ -28,7 +28,7 @@ In questo articolo sono disponibili varie guide, script e spiegazioni che posson
 
 - [Eseguire la migrazione del certificato TDE a un'istanza gestita](sql-database-managed-instance-migrate-tde-certificate.md): se il database di SQL Server è protetto tramite crittografia TDE (Transparent Data Encryption), è necessario eseguire la migrazione di certificati che un'istanza gestita può usare per decrittografare il backup da ripristinare in Azure.
 
-## <a name="network-configuration"></a>Network configuration
+## <a name="network-configuration"></a>Configurazione di rete
 
 - [Determinare le dimensioni di una subnet di un'istanza gestita](sql-database-managed-instance-determine-size-vnet-subnet.md): la funzione Istanza gestita viene inserita in subnet dedicate che non possono essere ridimensionate quando si aggiungono le risorse all'interno. Si deve pertanto calcolare quale intervallo di indirizzi IP sarebbe necessario per la subnet a seconda del numero e dei tipi di istanze da distribuire nella subnet.
 - [Creare una nuova rete virtuale e una nuova subnet per un'istanza gestita](sql-database-managed-instance-create-vnet-subnet.md): la rete virtuale e la subnet di Azure in cui si intende distribuire le istanze gestite devono essere configurate in base ai [requisiti di rete descritti qui](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Questa guida descrive il modo più semplice per creare la nuova rete virtuale e la nuova subnet configurate correttamente per le istanze gestite.

@@ -4,11 +4,11 @@ description: Informazioni sui parametri statici e dinamici e su come usarli per 
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644971"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264713"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -85,7 +85,7 @@ Quando si crea un progetto tramite l'API REST, è possibile creare [parametri de
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Request Body
+- Corpo richiesto
 
   ```json
   {
@@ -118,7 +118,7 @@ L'esempio di API REST seguente crea un artefatto assegnazione di ruolo nel proge
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
   ```
 
-- Request Body
+- Corpo richiesto
 
   ```json
   {
@@ -143,7 +143,7 @@ La creazione di **parametri statici** su un artefatto è simile, ma accetta un v
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
   ```
 
-- Request Body
+- Corpo richiesto
 
   ```json
   {
@@ -189,7 +189,7 @@ L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inser
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Request Body
+- Corpo richiesto
 
   ```json
   {

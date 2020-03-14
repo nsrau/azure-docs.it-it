@@ -12,11 +12,11 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869308"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263504"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure
 
@@ -71,7 +71,7 @@ Se è necessario aggiungere manualmente gli utenti di collaborazione B2B a un gr
 3. In **Gestisci** selezionare **Gruppi**.
 4. Selezionare un gruppo o fare clic su **Nuovo gruppo** per crearne uno nuovo. È consigliabile indicare nella descrizione del gruppo che il gruppo contiene utenti guest B2B.
 5. Selezionare **Membri**. 
-6. Eseguire una di queste operazioni:
+6. Esegui una delle operazioni seguenti:
    - Se l'utente guest esiste già nella directory, cercare l'utente B2B. Selezionare l'utente e quindi fare clic su **Seleziona** per aggiungerlo al gruppo.
    - Se l'utente guest non esiste già nella directory, invitarlo nel gruppo immettendo l'indirizzo di posta elettronica nella casella di ricerca, digitando un messaggio personale facoltativo e quindi facendo clic su **Seleziona**. L'invito viene inviato automaticamente all'utente invitato.
      
@@ -93,7 +93,7 @@ Per aggiungere utenti di collaborazione B2B a un'applicazione, seguire questa pr
 
 6. Selezionare **Aggiungi utente**.
 7. In **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
-8. Eseguire una di queste operazioni:
+8. Esegui una delle operazioni seguenti:
    - Se l'utente guest esiste già nella directory, cercare l'utente B2B. Selezionare l'utente, fare clic su **Seleziona** e quindi fare clic su **Assegna** per aggiungere l'utente all'app.
    - Se l'utente guest non è già presente nella directory, in **Selezionare un membro o invitare un utente esterno** digitare l'indirizzo di posta elettronica dell'utente. Nella finestra di messaggio digitare un messaggio personale facoltativo. Nella finestra di messaggio fare clic su **Invita**.
            
